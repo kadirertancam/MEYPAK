@@ -35,7 +35,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
         {
             if (!optionsBuilder.IsConfigured)
             {
-               optionsBuilder.UseSqlServer("Server=DESKTOP-EDIP367\\SQLEXPRESS;Database=MEYPAK;Trusted_Connection=True;");
+               optionsBuilder.UseSqlServer("Server=213.238.167.117;Database=MEYPAK;User Id=sa;Password=sapass_1;");
             }
         }
 

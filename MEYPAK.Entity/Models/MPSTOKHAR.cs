@@ -13,6 +13,7 @@ namespace MEYPAK.Entity.Models
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
+        [ForeignKey("MPSTOK")]
         public int STOKID { get; set; }
         public DateTime OLUSTURMATARIHI { get; set; }=DateTime.Now;
         public DateTime GUNCELLEMETARIHI { get; set; }= DateTime.Now;
@@ -33,7 +34,9 @@ namespace MEYPAK.Entity.Models
         public decimal NETTOPLAM { get; set; }
         public decimal BRUTTOPLAM { get; set; }
         public int KULLANICIID { get; set; } = 0;
-        public byte KAYITTIPI { get; set; } = 0;
+        public byte KAYITTIPI { get; set; } = 0; 
+
+        public MPSTOK MPSTOK { get; set; }
 
     }
 }

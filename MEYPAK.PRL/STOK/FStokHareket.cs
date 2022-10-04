@@ -56,9 +56,8 @@ namespace MEYPAK.PRL.STOK
             {
                 _id = _tempStok.ID;
                 TBStokKodu.Text = _tempStok.KOD;
-                TBStokAdi.Text = _tempStok.ADI;
-                CBDepo.SelectedIndex = CBDepo.FindStringExact(_depoServis.Getir(_tempStok.DEPOID.ToString()).FirstOrDefault().DEPOADI);
-                CBBirim.DataSource = _stokOlcuBrServis.Listele().Where(x => x.STOKID == _tempStok.ID).Select(x => x.MPOLCUBR.ADI).ToList(); //_stokOlcuBrServis.Getir(x => x.STOKID == _id).Select(x => _olcuBrServis.Getir(z => z.ID == x.OLCUBRID).FirstOrDefault().ADI).ToList();
+                TBStokAdi.Text = _tempStok.ADI; 
+                CBBirim.DataSource = _stokOlcuBrServis.Listele().Where(x => x.STOKID == _tempStok.ID).Select(x => _olcuBrServis.Getir(x.OLCUBRID.ToString()).FirstOrDefault().ADI).ToList(); //_stokOlcuBrServis.Getir(x => x.STOKID == _id).Select(x => _olcuBrServis.Getir(z => z.ID == x.OLCUBRID).FirstOrDefault().ADI).ToList();
                 TBKdv.Text = IO == 1 ? _tempStok.ALISKDV.ToString() : _tempStok.SATISKDV.ToString();
                 //TBFiyat.Text = IO == 1 ? _tempStok.AFIYAT1.ToString() : _tempStok.SATISKDV.ToString();
                 BakiyeGuncelle();
@@ -128,7 +127,7 @@ namespace MEYPAK.PRL.STOK
         private void BTStokSec_Click(object sender, EventArgs e)
         {
             _tempStok = null;
-            FStokList fStokList = new FStokList();
+            FStokList fStokList = new FStokList("stokhar");
             fStokList.ShowDialog();
             
             Doldur();

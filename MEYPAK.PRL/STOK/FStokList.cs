@@ -38,18 +38,23 @@ namespace MEYPAK.PRL.STOK
 
         }
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        { 
+        {
             if (_islem == "stokkart")
             {
                 if (fSTOKKART != null)
                     fSTOKKART._tempStok = _stokServis.Getir(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
+            }
+            else if (_islem == "stoksayimpanel")
+            {
+                if (fstokSayimPanel != null)
+                    fstokSayimPanel._tempStok = _stokServis.Getir(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
+            }
+            else if (_islem == "stokhar")
+            {
                 if (fStokHareket != null)
                     fStokHareket._tempStok = _stokServis.Getir(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
-            }else if (_islem == "stoksayimpanel")
-            {
-                if(fstokSayimPanel!= null)
-                    fstokSayimPanel._tempStok= _stokServis.Getir(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
             }
+
             this.Close();
         }
     }

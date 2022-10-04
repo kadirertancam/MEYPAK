@@ -757,6 +757,8 @@ namespace MEYPAK.DAL.Migrations
 
                     b.HasKey("ID");
 
+                    b.HasIndex("STOKID");
+
                     b.ToTable("MPSTOKHAR");
                 });
 
@@ -891,6 +893,17 @@ namespace MEYPAK.DAL.Migrations
                     b.ToTable("MPSTOKSAYIMHAR");
                 });
 
+            modelBuilder.Entity("MEYPAK.Entity.Models.MPSTOKHAR", b =>
+                {
+                    b.HasOne("MEYPAK.Entity.Models.MPSTOK", "MPSTOK")
+                        .WithMany("MPSTOKHAR")
+                        .HasForeignKey("STOKID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("MPSTOK");
+                });
+
             modelBuilder.Entity("MEYPAK.Entity.Models.MPSTOKOLCUBR", b =>
                 {
                     b.HasOne("MEYPAK.Entity.Models.MPOLCUBR", "MPOLCUBR")
@@ -917,6 +930,8 @@ namespace MEYPAK.DAL.Migrations
 
             modelBuilder.Entity("MEYPAK.Entity.Models.MPSTOK", b =>
                 {
+                    b.Navigation("MPSTOKHAR");
+
                     b.Navigation("MPSTOKOLCUBR");
                 });
 #pragma warning restore 612, 618

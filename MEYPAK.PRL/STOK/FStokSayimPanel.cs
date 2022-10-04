@@ -45,7 +45,7 @@ namespace MEYPAK.PRL.STOK
         {
             TBStokKodu.Text = _tempStok.KOD;
             TBStokAdi.Text = _tempStok.ADI;
-            CBStokBirim.DataSource = stokOlcuBrServis.Listele().Where(x => x.STOKID == _tempStok.ID).Select(x => x.MPOLCUBR.ADI).ToList();
+            CBStokBirim.DataSource = stokOlcuBrServis.Listele().Where(x => x.STOKID == _tempStok.ID).Select(x => olcuBrServis.Getir(z=>z.ID==x.OLCUBRID).FirstOrDefault().ADI).ToList();
             TBBakiye.Text = (from ep in stokServis.Listele() join e in stokHarServis.Listele() on ep.ID equals e.STOKID where ep.KOD == _tempStok.KOD select Convert.ToDecimal(e.IO.ToString() == "1" ? e.MIKTAR : 0) - Convert.ToDecimal(e.IO.ToString() == "0" ? e.MIKTAR : 0)).FirstOrDefault().ToString();
             
             _tempStok = null;
@@ -141,6 +141,11 @@ namespace MEYPAK.PRL.STOK
 
                 }) ;
             }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
