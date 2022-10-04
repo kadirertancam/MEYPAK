@@ -160,7 +160,7 @@
             this.LBAcıkalama = new System.Windows.Forms.Label();
             this.TBAcıklama = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.BTKategoriSec = new System.Windows.Forms.Button();
             this.BTSec = new System.Windows.Forms.Button();
             this.LBGrupKodu = new System.Windows.Forms.Label();
             this.TBGrupKodu = new System.Windows.Forms.TextBox();
@@ -1429,7 +1429,7 @@
             this.groupBox2.Controls.Add(this.LBAcıkalama);
             this.groupBox2.Controls.Add(this.TBAcıklama);
             this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.BTKategoriSec);
             this.groupBox2.Controls.Add(this.BTSec);
             this.groupBox2.Controls.Add(this.LBGrupKodu);
             this.groupBox2.Controls.Add(this.TBGrupKodu);
@@ -1488,16 +1488,16 @@
             this.button2.Text = "Seç";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // BTKategoriSec
             // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(239, 109);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(35, 23);
-            this.button1.TabIndex = 11;
-            this.button1.TabStop = false;
-            this.button1.Text = "Seç";
-            this.button1.UseVisualStyleBackColor = true;
+            this.BTKategoriSec.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BTKategoriSec.Location = new System.Drawing.Point(239, 109);
+            this.BTKategoriSec.Name = "BTKategoriSec";
+            this.BTKategoriSec.Size = new System.Drawing.Size(35, 23);
+            this.BTKategoriSec.TabIndex = 11;
+            this.BTKategoriSec.TabStop = false;
+            this.BTKategoriSec.Text = "Seç";
+            this.BTKategoriSec.UseVisualStyleBackColor = true;
             // 
             // BTSec
             // 
@@ -1668,7 +1668,7 @@
         private Label LBAcıkalama;
         private TextBox TBAcıklama;
         private Button button2;
-        private Button button1;
+        private Button BTKategoriSec;
         private Button BTSec;
         private Label LBGrupKodu;
         private TextBox TBGrupKodu;

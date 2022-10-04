@@ -35,6 +35,8 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
         public DbSet<MPSTOKSAYIM> MPSTOKSAYIM { get; set; } 
         public DbSet<MPSTOKSAYIMHAR> MPSTOKSAYIMHAR { get; set; }
         public DbSet<MPOLCUBR> MPOLCUBR { get; set; } 
+
+        public DbSet<MPKATEGORI> MPKATEGORI { get; set; }   
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
