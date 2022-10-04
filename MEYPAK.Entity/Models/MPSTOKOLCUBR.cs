@@ -11,8 +11,7 @@ namespace MEYPAK.Entity.Models
     public class MPSTOKOLCUBR
     {
         public MPSTOKOLCUBR()
-        {
-           // MPOLCUBR = new HashSet<MPOLCUBR>();
+        { 
         }
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
@@ -22,11 +21,15 @@ namespace MEYPAK.Entity.Models
         public decimal KATSAYI { get; set; }  
         public int KULLANICIID { get; set; }
         public byte KAYITTIPI { get; set; }
-        [ForeignKey("MPSTOK")]
+
+       
         public int STOKID { get; set; }
+        [ForeignKey("STOKID")]
         public virtual MPSTOK MPSTOK { get; set; }
-        [ForeignKey("MPOLCUBR")]
-        public int OLCUBRID { get; set; }
+
+        public int OLCUBRIDS { get; set; }
+
+        [ForeignKey("OLCUBRIDS")]
         public virtual MPOLCUBR MPOLCUBR { get; set; }
 
     }

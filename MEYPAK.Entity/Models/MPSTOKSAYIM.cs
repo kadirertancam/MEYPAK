@@ -10,6 +10,10 @@ namespace MEYPAK.Entity.Models
 {
     public class MPSTOKSAYIM
     {
+        public MPSTOKSAYIM()
+        {
+            MPSTOKSAYIMHAR = new HashSet<MPSTOKSAYIMHAR>();
+        }
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; } 
         public int FIRMAID { get; set; }=0;
@@ -20,5 +24,7 @@ namespace MEYPAK.Entity.Models
         public DateTime SAYIMTARIHI { get; set; }
         public string ACIKLAMA { get; set; }
         public int KAYITTIPI { get; set; } = 0;
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MPSTOKSAYIMHAR> MPSTOKSAYIMHAR { get; set; }
     }
 }

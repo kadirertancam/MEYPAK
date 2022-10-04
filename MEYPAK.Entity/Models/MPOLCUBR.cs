@@ -10,7 +10,7 @@ namespace MEYPAK.Entity.Models
 {
     public class MPOLCUBR
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key]
         public int ID { get; set; }
         public DateTime OLUSTURMATARIHI { get; set; }= DateTime.Now;
         public DateTime GUNCELLEMETARIHI { get; set; }=DateTime.Now;
@@ -21,6 +21,8 @@ namespace MEYPAK.Entity.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MPSTOKOLCUBR> MPSTOKOLCUBR { get; set; }
-      
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MPSTOKSAYIMHAR> MPSTOKSAYIMHAR { get; set; }
+
     }
 }

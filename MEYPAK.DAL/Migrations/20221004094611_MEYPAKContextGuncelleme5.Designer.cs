@@ -4,6 +4,7 @@ using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MEYPAK.DAL.Migrations
 {
     [DbContext(typeof(MEYPAKContext))]
-    partial class MEYPAKContextModelSnapshot : ModelSnapshot
+    [Migration("20221004094611_MEYPAKContextGuncelleme5")]
+    partial class MEYPAKContextGuncelleme5
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -785,7 +787,7 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<int>("NUM")
                         .HasColumnType("int");
 
-                    b.Property<int>("OLCUBRIDS")
+                    b.Property<int>("OLCUBRID")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("OLUSTURMATARIHI")
@@ -796,7 +798,7 @@ namespace MEYPAK.DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("OLCUBRIDS");
+                    b.HasIndex("OLCUBRID");
 
                     b.ToTable("MPSTOKOLCUBR");
                 });
@@ -912,13 +914,13 @@ namespace MEYPAK.DAL.Migrations
                 {
                     b.HasOne("MEYPAK.Entity.Models.MPOLCUBR", "MPOLCUBR")
                         .WithMany("MPSTOKOLCUBR")
-                        .HasForeignKey("OLCUBRIDS")
+                        .HasForeignKey("OLCUBRID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("MEYPAK.Entity.Models.MPSTOK", "MPSTOK")
                         .WithMany("MPSTOKOLCUBR")
-                        .HasForeignKey("OLCUBRIDS")
+                        .HasForeignKey("OLCUBRID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

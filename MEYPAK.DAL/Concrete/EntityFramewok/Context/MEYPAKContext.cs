@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Diagnostics;
 using System.Reflection.Emit;
+using System.Reflection.Metadata;
 using MEYPAK.Entity.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
@@ -17,6 +20,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
          public MEYPAKContext(DbContextOptions<MEYPAKContext> options)
             : base(options)
         {
+
             
         }
         public DbSet<MPSTOK> MPSTOK { get; set; }
@@ -37,16 +41,20 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
             {
                optionsBuilder.UseSqlServer("Server=213.238.167.117;Database=MEYPAK;User Id=sa;Password=sapass_1;");
             }
+            
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
-        { 
+        {
+           
+            OnModelCreatingPartial(modelBuilder);
+            modelBuilder.Entity<MPSTOK>().HasMany(x => x.MPSTOKOLCUBR).WithOne(x => x.MPSTOK).HasForeignKey(x => x.OLCUBRIDS);
 
-            OnModelCreatingPartial(modelBuilder); 
-               
-
+            modelBuilder.Entity<MPSTOK>()
+      .Navigation(b => b.MPSTOKOLCUBR)
+      .UsePropertyAccessMode(PropertyAccessMode.Property);
         }
-         
+
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }
 }

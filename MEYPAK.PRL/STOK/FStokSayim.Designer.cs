@@ -76,6 +76,7 @@
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(837, 538);
             this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // panel2
             // 
@@ -120,6 +121,7 @@
             this.BTSayimDuzenle.TabIndex = 5;
             this.BTSayimDuzenle.Text = "Düzenle";
             this.BTSayimDuzenle.UseVisualStyleBackColor = true;
+            this.BTSayimDuzenle.Click += new System.EventHandler(this.BTSayimDuzenle_Click);
             // 
             // BTSayimKaydet
             // 

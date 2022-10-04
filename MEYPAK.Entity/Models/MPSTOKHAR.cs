@@ -17,7 +17,7 @@ namespace MEYPAK.Entity.Models
         public int STOKID { get; set; }
         public DateTime OLUSTURMATARIHI { get; set; }=DateTime.Now;
         public DateTime GUNCELLEMETARIHI { get; set; }= DateTime.Now;
-        public int HAREKETTURU { get; set; }        // 1SATIS-2ALIS-3SATISIADE-4ALISIADE-5MUHTELIF-6DAT 
+        public int HAREKETTURU { get; set; }        // 1SATIS-2ALIS-3SATISIADE-4ALISIADE-5MUHTELIF-6DAT-Sayim
         public int SIRKETID { get; set; } = 0;
         public int SUBEID { get; set; } = 0;
         public int DEPOID { get; set; }
@@ -33,10 +33,10 @@ namespace MEYPAK.Entity.Models
         public int BIRIM { get; set; } 
         public decimal NETTOPLAM { get; set; }
         public decimal BRUTTOPLAM { get; set; }
-        public int KULLANICIID { get; set; } = 0;
+        public int KULLANICIID { get; set; } = 0;        
         public byte KAYITTIPI { get; set; } = 0; 
-
         public MPSTOK MPSTOK { get; set; }
+        
 
     }
 }

@@ -24,13 +24,14 @@ namespace MEYPAK.PRL.STOK
 {
     public partial class FStokSayimPanel : Form
     {
-        public FStokSayimPanel()
+        public FStokSayimPanel(string islemtipi="")
         {
             InitializeComponent();
-            _tempStokSayimHarList = new List<PocoStokSayimPanelList>();
+            this._islemtipi = islemtipi;
             fStokList = new FStokList("stoksayimpanel");
         }
-        List<PocoStokSayimPanelList> _tempStokSayimHarList;
+        string _islemtipi;
+        public List<PocoStokSayimPanelList> _tempStokSayimHarList;
         IStokSayimHarServis stokSayimHarServis = new StokSayimHarManager(new EFStokSayimHarRepo());
         IStokServis stokServis = new StokManager(new EFStokRepo());
         IDepoServis depoServis = new DepoManager(new EFDepoRepo());
@@ -45,7 +46,7 @@ namespace MEYPAK.PRL.STOK
         {
             TBStokKodu.Text = _tempStok.KOD;
             TBStokAdi.Text = _tempStok.ADI;
-            CBStokBirim.DataSource = stokOlcuBrServis.Listele().Where(x => x.STOKID == _tempStok.ID).Select(x => olcuBrServis.Getir(z=>z.ID==x.OLCUBRID).FirstOrDefault().ADI).ToList();
+            CBStokBirim.DataSource = stokOlcuBrServis.Listele().Where(x => x.STOKID == _tempStok.ID).Select(x => olcuBrServis.Getir(z=>z.ID==x.OLCUBRIDS).FirstOrDefault().ADI).ToList();
             TBBakiye.Text = (from ep in stokServis.Listele() join e in stokHarServis.Listele() on ep.ID equals e.STOKID where ep.KOD == _tempStok.KOD select Convert.ToDecimal(e.IO.ToString() == "1" ? e.MIKTAR : 0) - Convert.ToDecimal(e.IO.ToString() == "0" ? e.MIKTAR : 0)).FirstOrDefault().ToString();
             
             _tempStok = null;
@@ -53,38 +54,46 @@ namespace MEYPAK.PRL.STOK
 
         private void FStokSayimPanel_Load(object sender, EventArgs e)
         {
-            CBDepo.DataSource = depoServis.Listele().Select(x=>x.DEPOADI).ToList();
-            foreach (var item in stokServis.Listele())
+            if (_islemtipi == "düzenle")
             {
-                _tempStokSayimHarList.Add(new PocoStokSayimPanelList()
+            }
+            else if(_islemtipi == "kaydet")
+            {
+                _tempStokSayimHarList = new List<PocoStokSayimPanelList>();
+                CBDepo.DataSource = depoServis.Listele().Select(x => x.DEPOADI).ToList();
+                foreach (var item in stokServis.Listele())
                 {
-                    StokAdı= item.ADI,
-                    Birim=1,
-                    Fiyat=1,Miktar=0,StokKodu=item.KOD
-                });
-            } 
-            
-            //DataGridViewButtonColumn dgvBtColumn = new DataGridViewButtonColumn();
-            //dgvBtColumn.Name = "DGVBTStokSec";
-            //dgvBtColumn.Text = "Seç";
-            //dgvBtColumn.HeaderText = "Seç"; 
-            //dgvBtColumn.FlatStyle = FlatStyle.Flat;
-            //dgvBtColumn.DisplayIndex = 1; 
-            dataGridView1.DataSource =  _tempStokSayimHarList; 
-            //dataGridView1.Columns.Add(dgvBtColumn);
-            //dataGridView1.CellClick += DataGridView1_CellClick;
-            //for (int i = 0; i < dataGridView1.Rows.Count; i++)
-            //{
-            //    dataGridView1.Rows[i].Cells[dataGridView1.Columns.Count - 1].Value = "Seç";
+                    _tempStokSayimHarList.Add(new PocoStokSayimPanelList()
+                    {
+                        StokAdı = item.ADI,
+                        Birim = item.MPSTOKOLCUBR.Where(x => x.NUM == 1).Select(x => x.MPOLCUBR.ADI).FirstOrDefault(),
+                        Fiyat = 1,
+                        Miktar = 0,
+                        StokKodu = item.KOD
+                    });
+                }
 
-            //}
-            //dataGridView1.AllowUserToAddRows = false;
-            //DataTable dataTable = (DataTable)dataGridView1.DataSource;
-            //DataRow drToAdd = dataTable.NewRow();
-            //dataGridView1.Rows.Add(drToAdd);
-            //dataTable.AcceptChanges(); 
+                //DataGridViewButtonColumn dgvBtColumn = new DataGridViewButtonColumn();
+                //dgvBtColumn.Name = "DGVBTStokSec";
+                //dgvBtColumn.Text = "Seç";
+                //dgvBtColumn.HeaderText = "Seç"; 
+                //dgvBtColumn.FlatStyle = FlatStyle.Flat;
+                //dgvBtColumn.DisplayIndex = 1; 
+                dataGridView1.DataSource = _tempStokSayimHarList;
+                //dataGridView1.Columns.Add(dgvBtColumn);
+                //dataGridView1.CellClick += DataGridView1_CellClick;
+                //for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                //{
+                //    dataGridView1.Rows[i].Cells[dataGridView1.Columns.Count - 1].Value = "Seç";
 
+                //}
+                //dataGridView1.AllowUserToAddRows = false;
+                //DataTable dataTable = (DataTable)dataGridView1.DataSource;
+                //DataRow drToAdd = dataTable.NewRow();
+                //dataGridView1.Rows.Add(drToAdd);
+                //dataTable.AcceptChanges(); 
 
+            }
         }
 
         private void DataGridView1_CellClick(object? sender, DataGridViewCellEventArgs e)
@@ -126,10 +135,20 @@ namespace MEYPAK.PRL.STOK
 
         private void BTKaydet_Click(object sender, EventArgs e)
         {
+            _tempStokSayimHarList.Add(new PocoStokSayimPanelList()
+            {
+                StokKodu = TBStokKodu.Text,
+                StokAdı = TBStokAdi.Text,
+               
+            });
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
             foreach (var item in _tempStokSayimHarList)
             {
 
-                stokSayimHarServis.Ekle(new MPSTOKSAYIMHAR()
+                stokSayimHarServis.EkleyadaGuncelle(new MPSTOKSAYIMHAR()
                 {
                     STOKID = stokServis.Getir(x => x.KOD == item.StokKodu).FirstOrDefault().ID,
                     MIKTAR = item.Miktar,
@@ -139,13 +158,8 @@ namespace MEYPAK.PRL.STOK
                     DEPOID = CBDepo.SelectedIndex,
                     STOKSAYIMID = sayimId
 
-                }) ;
+                });
             }
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

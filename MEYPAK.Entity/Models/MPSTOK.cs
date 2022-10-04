@@ -11,6 +11,16 @@ namespace MEYPAK.Entity.Models
 {
     public class MPSTOK
     {
+        public MPSTOK()
+        {
+            MPSTOKOLCUBR = new HashSet<MPSTOKOLCUBR>();
+
+            //MPSTOKHAR = new HashSet<MPSTOKHAR>();
+            //MPSTOKSAYIMHAR=new HashSet<MPSTOKSAYIMHAR>();
+
+
+
+        }
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }  
         [DefaultValue(0)]
@@ -110,7 +120,7 @@ namespace MEYPAK.Entity.Models
         [DefaultValue(0)]
         public int KULLANICIID { get; set; }
         [DefaultValue(0)]
-        public byte KAYITTIPI { get; set; }
+        public byte KAYITTIPI { get; set; } 
 
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -118,6 +128,9 @@ namespace MEYPAK.Entity.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MPSTOKHAR> MPSTOKHAR { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MPSTOKSAYIMHAR> MPSTOKSAYIMHAR { get; set; }
 
 
 
