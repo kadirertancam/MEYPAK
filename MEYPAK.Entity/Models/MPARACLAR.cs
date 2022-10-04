@@ -21,6 +21,7 @@ namespace MEYPAK.Entity.Models
         public string MARKA { get; set; } = "";
         [StringLength(50)]
         public string MODEL { get; set; } = "";
+
         public int YIL { get; set; } 
         public int PERSONELID { get; set; }
         public int ARACKM { get; set; }

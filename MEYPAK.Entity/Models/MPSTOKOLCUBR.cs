@@ -21,8 +21,7 @@ namespace MEYPAK.Entity.Models
         public decimal KATSAYI { get; set; }  
         public int KULLANICIID { get; set; }
         public byte KAYITTIPI { get; set; }
-
-       
+        [ForeignKey("MPSTOK")]
         public int STOKID { get; set; }
         [ForeignKey("STOKID")]
         public virtual MPSTOK MPSTOK { get; set; }

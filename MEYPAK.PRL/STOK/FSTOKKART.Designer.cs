@@ -323,7 +323,7 @@
             this.CBADoviz.Location = new System.Drawing.Point(79, 22);
             this.CBADoviz.Name = "CBADoviz";
             this.CBADoviz.Size = new System.Drawing.Size(150, 23);
-            this.CBADoviz.TabIndex = 20;
+            this.CBADoviz.TabIndex = 10;
             // 
             // LBAFiyat5
             // 
@@ -339,7 +339,7 @@
             this.TBAFiyat5.Location = new System.Drawing.Point(79, 169);
             this.TBAFiyat5.Name = "TBAFiyat5";
             this.TBAFiyat5.Size = new System.Drawing.Size(150, 23);
-            this.TBAFiyat5.TabIndex = 18;
+            this.TBAFiyat5.TabIndex = 15;
             // 
             // LBAFiyat4
             // 
@@ -355,7 +355,7 @@
             this.TBAFiyat4.Location = new System.Drawing.Point(79, 140);
             this.TBAFiyat4.Name = "TBAFiyat4";
             this.TBAFiyat4.Size = new System.Drawing.Size(150, 23);
-            this.TBAFiyat4.TabIndex = 16;
+            this.TBAFiyat4.TabIndex = 14;
             // 
             // LBAFiyat3
             // 
@@ -371,7 +371,7 @@
             this.TBAFiyat3.Location = new System.Drawing.Point(79, 111);
             this.TBAFiyat3.Name = "TBAFiyat3";
             this.TBAFiyat3.Size = new System.Drawing.Size(150, 23);
-            this.TBAFiyat3.TabIndex = 14;
+            this.TBAFiyat3.TabIndex = 13;
             // 
             // LBAFiyat2
             // 
@@ -403,7 +403,7 @@
             this.TBAFiyat1.Location = new System.Drawing.Point(79, 53);
             this.TBAFiyat1.Name = "TBAFiyat1";
             this.TBAFiyat1.Size = new System.Drawing.Size(150, 23);
-            this.TBAFiyat1.TabIndex = 10;
+            this.TBAFiyat1.TabIndex = 11;
             // 
             // groupBox5
             // 
@@ -452,14 +452,14 @@
             this.CBSDoviz.Location = new System.Drawing.Point(79, 22);
             this.CBSDoviz.Name = "CBSDoviz";
             this.CBSDoviz.Size = new System.Drawing.Size(150, 23);
-            this.CBSDoviz.TabIndex = 22;
+            this.CBSDoviz.TabIndex = 10;
             // 
             // TBSFiyat5
             // 
             this.TBSFiyat5.Location = new System.Drawing.Point(79, 169);
             this.TBSFiyat5.Name = "TBSFiyat5";
             this.TBSFiyat5.Size = new System.Drawing.Size(150, 23);
-            this.TBSFiyat5.TabIndex = 18;
+            this.TBSFiyat5.TabIndex = 15;
             // 
             // LBSFiyat4
             // 
@@ -475,7 +475,7 @@
             this.TBSFiyat4.Location = new System.Drawing.Point(79, 140);
             this.TBSFiyat4.Name = "TBSFiyat4";
             this.TBSFiyat4.Size = new System.Drawing.Size(150, 23);
-            this.TBSFiyat4.TabIndex = 16;
+            this.TBSFiyat4.TabIndex = 14;
             // 
             // LBSFiyat3
             // 
@@ -491,7 +491,7 @@
             this.TBSFiyat3.Location = new System.Drawing.Point(79, 111);
             this.TBSFiyat3.Name = "TBSFiyat3";
             this.TBSFiyat3.Size = new System.Drawing.Size(150, 23);
-            this.TBSFiyat3.TabIndex = 14;
+            this.TBSFiyat3.TabIndex = 13;
             // 
             // LBSFiyat2
             // 
@@ -523,7 +523,7 @@
             this.TBSFiyat1.Location = new System.Drawing.Point(79, 53);
             this.TBSFiyat1.Name = "TBSFiyat1";
             this.TBSFiyat1.Size = new System.Drawing.Size(150, 23);
-            this.TBSFiyat1.TabIndex = 10;
+            this.TBSFiyat1.TabIndex = 11;
             // 
             // tabPage2
             // 

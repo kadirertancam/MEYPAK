@@ -39,7 +39,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
         {
             if (!optionsBuilder.IsConfigured)
             {
-               optionsBuilder.UseSqlServer("Server=213.238.167.117;Database=MEYPAK;User Id=sa;Password=sapass_1;");
+                optionsBuilder.UseSqlServer("Server=213.238.167.117;Database=MEYPAK;User Id=sa;Password=sapass_1;");
             }
             
         }
