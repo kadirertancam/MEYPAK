@@ -160,7 +160,7 @@
             this.LBAcıkalama = new System.Windows.Forms.Label();
             this.TBAcıklama = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.BTKategoriSec = new System.Windows.Forms.Button();
             this.BTSec = new System.Windows.Forms.Button();
             this.LBGrupKodu = new System.Windows.Forms.Label();
             this.TBGrupKodu = new System.Windows.Forms.TextBox();
@@ -323,7 +323,7 @@
             this.CBADoviz.Location = new System.Drawing.Point(79, 22);
             this.CBADoviz.Name = "CBADoviz";
             this.CBADoviz.Size = new System.Drawing.Size(150, 23);
-            this.CBADoviz.TabIndex = 20;
+            this.CBADoviz.TabIndex = 10;
             // 
             // LBAFiyat5
             // 
@@ -339,7 +339,7 @@
             this.TBAFiyat5.Location = new System.Drawing.Point(79, 169);
             this.TBAFiyat5.Name = "TBAFiyat5";
             this.TBAFiyat5.Size = new System.Drawing.Size(150, 23);
-            this.TBAFiyat5.TabIndex = 18;
+            this.TBAFiyat5.TabIndex = 15;
             // 
             // LBAFiyat4
             // 
@@ -355,7 +355,7 @@
             this.TBAFiyat4.Location = new System.Drawing.Point(79, 140);
             this.TBAFiyat4.Name = "TBAFiyat4";
             this.TBAFiyat4.Size = new System.Drawing.Size(150, 23);
-            this.TBAFiyat4.TabIndex = 16;
+            this.TBAFiyat4.TabIndex = 14;
             // 
             // LBAFiyat3
             // 
@@ -371,7 +371,7 @@
             this.TBAFiyat3.Location = new System.Drawing.Point(79, 111);
             this.TBAFiyat3.Name = "TBAFiyat3";
             this.TBAFiyat3.Size = new System.Drawing.Size(150, 23);
-            this.TBAFiyat3.TabIndex = 14;
+            this.TBAFiyat3.TabIndex = 13;
             // 
             // LBAFiyat2
             // 
@@ -403,7 +403,7 @@
             this.TBAFiyat1.Location = new System.Drawing.Point(79, 53);
             this.TBAFiyat1.Name = "TBAFiyat1";
             this.TBAFiyat1.Size = new System.Drawing.Size(150, 23);
-            this.TBAFiyat1.TabIndex = 10;
+            this.TBAFiyat1.TabIndex = 11;
             // 
             // groupBox5
             // 
@@ -452,14 +452,14 @@
             this.CBSDoviz.Location = new System.Drawing.Point(79, 22);
             this.CBSDoviz.Name = "CBSDoviz";
             this.CBSDoviz.Size = new System.Drawing.Size(150, 23);
-            this.CBSDoviz.TabIndex = 22;
+            this.CBSDoviz.TabIndex = 10;
             // 
             // TBSFiyat5
             // 
             this.TBSFiyat5.Location = new System.Drawing.Point(79, 169);
             this.TBSFiyat5.Name = "TBSFiyat5";
             this.TBSFiyat5.Size = new System.Drawing.Size(150, 23);
-            this.TBSFiyat5.TabIndex = 18;
+            this.TBSFiyat5.TabIndex = 15;
             // 
             // LBSFiyat4
             // 
@@ -475,7 +475,7 @@
             this.TBSFiyat4.Location = new System.Drawing.Point(79, 140);
             this.TBSFiyat4.Name = "TBSFiyat4";
             this.TBSFiyat4.Size = new System.Drawing.Size(150, 23);
-            this.TBSFiyat4.TabIndex = 16;
+            this.TBSFiyat4.TabIndex = 14;
             // 
             // LBSFiyat3
             // 
@@ -491,7 +491,7 @@
             this.TBSFiyat3.Location = new System.Drawing.Point(79, 111);
             this.TBSFiyat3.Name = "TBSFiyat3";
             this.TBSFiyat3.Size = new System.Drawing.Size(150, 23);
-            this.TBSFiyat3.TabIndex = 14;
+            this.TBSFiyat3.TabIndex = 13;
             // 
             // LBSFiyat2
             // 
@@ -523,7 +523,7 @@
             this.TBSFiyat1.Location = new System.Drawing.Point(79, 53);
             this.TBSFiyat1.Name = "TBSFiyat1";
             this.TBSFiyat1.Size = new System.Drawing.Size(150, 23);
-            this.TBSFiyat1.TabIndex = 10;
+            this.TBSFiyat1.TabIndex = 11;
             // 
             // tabPage2
             // 
@@ -1429,7 +1429,7 @@
             this.groupBox2.Controls.Add(this.LBAcıkalama);
             this.groupBox2.Controls.Add(this.TBAcıklama);
             this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.BTKategoriSec);
             this.groupBox2.Controls.Add(this.BTSec);
             this.groupBox2.Controls.Add(this.LBGrupKodu);
             this.groupBox2.Controls.Add(this.TBGrupKodu);
@@ -1488,16 +1488,16 @@
             this.button2.Text = "Seç";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // BTKategoriSec
             // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(239, 109);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(35, 23);
-            this.button1.TabIndex = 11;
-            this.button1.TabStop = false;
-            this.button1.Text = "Seç";
-            this.button1.UseVisualStyleBackColor = true;
+            this.BTKategoriSec.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BTKategoriSec.Location = new System.Drawing.Point(239, 109);
+            this.BTKategoriSec.Name = "BTKategoriSec";
+            this.BTKategoriSec.Size = new System.Drawing.Size(35, 23);
+            this.BTKategoriSec.TabIndex = 11;
+            this.BTKategoriSec.TabStop = false;
+            this.BTKategoriSec.Text = "Seç";
+            this.BTKategoriSec.UseVisualStyleBackColor = true;
             // 
             // BTSec
             // 
@@ -1668,7 +1668,7 @@
         private Label LBAcıkalama;
         private TextBox TBAcıklama;
         private Button button2;
-        private Button button1;
+        private Button BTKategoriSec;
         private Button BTSec;
         private Label LBGrupKodu;
         private TextBox TBGrupKodu;

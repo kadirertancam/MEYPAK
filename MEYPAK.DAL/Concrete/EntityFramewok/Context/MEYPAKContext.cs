@@ -35,11 +35,13 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
         public DbSet<MPSTOKSAYIM> MPSTOKSAYIM { get; set; } 
         public DbSet<MPSTOKSAYIMHAR> MPSTOKSAYIMHAR { get; set; }
         public DbSet<MPOLCUBR> MPOLCUBR { get; set; } 
+
+        public DbSet<MPKATEGORI> MPKATEGORI { get; set; }   
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-               optionsBuilder.UseSqlServer("Server=213.238.167.117;Database=MEYPAK;User Id=sa;Password=sapass_1;");
+                optionsBuilder.UseSqlServer("Server=213.238.167.117;Database=MEYPAK;User Id=sa;Password=sapass_1;");
             }
             
         }

@@ -20,12 +20,14 @@ namespace MEYPAK.Entity.Models
         public string ADI{ get; set; }
         [StringLength(100)]
         public string SOYADI { get; set; }
+        [StringLength(200)]
         public string ADISOYADI => $"{ADI} {SOYADI}";
         [StringLength(50)]
         public string SGKSICIL { get; set; }
         public DateTime DOGUMTAR { get; set; }
         public DateTime ISBASTAR { get; set; }
         public DateTime ISBITTAR { get; set; }
+
         public string RESIM { get; set; }
         [StringLength(50)]
         public string EHLIYETNO { get; set; }
@@ -43,6 +45,7 @@ namespace MEYPAK.Entity.Models
         public string SCR { get; set; }
         public DateTime PSIKOTAR { get; set; }
         public int MEDENIDURUM { get; set; }
+        [StringLength(50)]
         public string ASKERLIK { get; set; }
         public int KAYITTIPI { get; set; }
         public int DURUM { get; set; }
