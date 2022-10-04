@@ -1,0 +1,146 @@
+﻿using MEYPAK.BLL.DEPO;
+using MEYPAK.BLL.STOK;
+using MEYPAK.DAL.Abstract;
+using MEYPAK.DAL.Abstract.StokDal;
+using MEYPAK.DAL.Concrete.EntityFramewok.Repository;
+using MEYPAK.DAL.Concrete.EntityFramework.Repository;
+using MEYPAK.Entity.Models;
+using MEYPAK.Entity.PocoModels;
+using MEYPAK.Interfaces.Depo;
+using MEYPAK.Interfaces.Stok;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles; 
+
+namespace MEYPAK.PRL.STOK
+{
+    public partial class FStokSayimPanel : Form
+    {
+        public FStokSayimPanel()
+        {
+            InitializeComponent();
+            _tempStokSayimHarList = new List<PocoStokSayimPanelList>();
+            fStokList = new FStokList("stoksayimpanel");
+        }
+        List<PocoStokSayimPanelList> _tempStokSayimHarList;
+        IStokSayimHarServis stokSayimHarServis = new StokSayimHarManager(new EFStokSayimHarRepo());
+        IStokServis stokServis = new StokManager(new EFStokRepo());
+        IDepoServis depoServis = new DepoManager(new EFDepoRepo());
+        IStokOlcuBrServis stokOlcuBrServis = new StokOlcuBrManager(new EFStokOlcuBrRepo()); 
+        IOlcuBrServis olcuBrServis = new OlcuBrManager(new EFOlcuBrRepo());
+        IStokHarServis stokHarServis = new StokHarManager(new EFStokHareketRepo());
+        public int sayimId;
+        public MPSTOK _tempStok;
+        FStokList fStokList;
+
+        void Doldur()
+        {
+            TBStokKodu.Text = _tempStok.KOD;
+            TBStokAdi.Text = _tempStok.ADI;
+            CBStokBirim.DataSource = stokOlcuBrServis.Listele().Where(x => x.STOKID == _tempStok.ID).Select(x => x.MPOLCUBR.ADI).ToList();
+            TBBakiye.Text = (from ep in stokServis.Listele() join e in stokHarServis.Listele() on ep.ID equals e.STOKID where ep.KOD == _tempStok.KOD select Convert.ToDecimal(e.IO.ToString() == "1" ? e.MIKTAR : 0) - Convert.ToDecimal(e.IO.ToString() == "0" ? e.MIKTAR : 0)).FirstOrDefault().ToString();
+            
+            _tempStok = null;
+        }
+
+        private void FStokSayimPanel_Load(object sender, EventArgs e)
+        {
+            CBDepo.DataSource = depoServis.Listele().Select(x=>x.DEPOADI).ToList();
+            foreach (var item in stokServis.Listele())
+            {
+                _tempStokSayimHarList.Add(new PocoStokSayimPanelList()
+                {
+                    StokAdı= item.ADI,
+                    Birim=1,
+                    Fiyat=1,Miktar=0,StokKodu=item.KOD
+                });
+            } 
+            
+            //DataGridViewButtonColumn dgvBtColumn = new DataGridViewButtonColumn();
+            //dgvBtColumn.Name = "DGVBTStokSec";
+            //dgvBtColumn.Text = "Seç";
+            //dgvBtColumn.HeaderText = "Seç"; 
+            //dgvBtColumn.FlatStyle = FlatStyle.Flat;
+            //dgvBtColumn.DisplayIndex = 1; 
+            dataGridView1.DataSource =  _tempStokSayimHarList; 
+            //dataGridView1.Columns.Add(dgvBtColumn);
+            //dataGridView1.CellClick += DataGridView1_CellClick;
+            //for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            //{
+            //    dataGridView1.Rows[i].Cells[dataGridView1.Columns.Count - 1].Value = "Seç";
+
+            //}
+            //dataGridView1.AllowUserToAddRows = false;
+            //DataTable dataTable = (DataTable)dataGridView1.DataSource;
+            //DataRow drToAdd = dataTable.NewRow();
+            //dataGridView1.Rows.Add(drToAdd);
+            //dataTable.AcceptChanges(); 
+
+
+        }
+
+        private void DataGridView1_CellClick(object? sender, DataGridViewCellEventArgs e)
+        {
+
+            //DataGridView dgv = sender as DataGridView;
+            //if(dgv!=null)
+            //    if (dgv.Columns["DGVBTStokSec"].Index == e.ColumnIndex)
+            //    {
+            //        fStokList.ShowDialog();
+            //    }
+        }
+
+        private void dataGridView1_CurrentCellDirtyStateChanged(object sender, EventArgs e)
+        {
+            if (dataGridView1.IsCurrentCellDirty)
+            {
+                dataGridView1.CommitEdit(DataGridViewDataErrorContexts.Commit);
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            _tempStokSayimHarList = new List<PocoStokSayimPanelList>();
+            dataGridView1.DataSource = _tempStokSayimHarList;
+            dataGridView1.Refresh();
+        }
+
+        private void dataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+         //   
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            fStokList.ShowDialog();
+            Doldur();
+        }
+
+        private void BTKaydet_Click(object sender, EventArgs e)
+        {
+            foreach (var item in _tempStokSayimHarList)
+            {
+
+                stokSayimHarServis.Ekle(new MPSTOKSAYIMHAR()
+                {
+                    STOKID = stokServis.Getir(x => x.KOD == item.StokKodu).FirstOrDefault().ID,
+                    MIKTAR = item.Miktar,
+                    FIYAT = item.Fiyat,
+                    KUR = 1,
+                    PARABR = 1,
+                    DEPOID = CBDepo.SelectedIndex,
+                    STOKSAYIMID = sayimId
+
+                }) ;
+            }
+        }
+    }
+}

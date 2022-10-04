@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MEYPAK.DAL\MEYPAK.DAL.csproj" />
+    <ProjectReference Include="..\MEYPAK.Entity\MEYPAK.Entity.csproj" />
+    <ProjectReference Include="..\MEYPAK.Interfaces\MEYPAK.Interfaces.csproj" />
+  </ItemGroup>
+
+</Project>
