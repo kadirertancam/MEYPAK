@@ -46,7 +46,7 @@ namespace MEYPAK.PRL.STOK
         {
             TBStokKodu.Text = _tempStok.KOD;
             TBStokAdi.Text = _tempStok.ADI;
-            CBStokBirim.DataSource = stokOlcuBrServis.Listele().Where(x => x.STOKID == _tempStok.ID).Select(x => olcuBrServis.Getir(z=>z.ID==x.OLCUBRIDS).FirstOrDefault().ADI).ToList();
+            CBStokBirim.DataSource = stokOlcuBrServis.Listele().Where(x => x.STOKID == _tempStok.ID).Select(x => olcuBrServis.Getir(z=>z.ID==x.OLCUBRID).FirstOrDefault().ADI).ToList();
             TBBakiye.Text = (from ep in stokServis.Listele() join e in stokHarServis.Listele() on ep.ID equals e.STOKID where ep.KOD == _tempStok.KOD select Convert.ToDecimal(e.IO.ToString() == "1" ? e.MIKTAR : 0) - Convert.ToDecimal(e.IO.ToString() == "0" ? e.MIKTAR : 0)).FirstOrDefault().ToString();
             
             _tempStok = null;
@@ -59,6 +59,8 @@ namespace MEYPAK.PRL.STOK
             }
             else if(_islemtipi == "kaydet")
             {
+                olcuBrServis.Listele();
+                stokOlcuBrServis.Listele();
                 _tempStokSayimHarList = new List<PocoStokSayimPanelList>();
                 CBDepo.DataSource = depoServis.Listele().Select(x => x.DEPOADI).ToList();
                 foreach (var item in stokServis.Listele())

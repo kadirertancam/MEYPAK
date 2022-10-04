@@ -86,9 +86,9 @@ namespace MEYPAK.PRL
             TBSFiyat4.Text = Convert.ToString(_tempStok.SFIYAT4);
             TBSFiyat5.Text = Convert.ToString(_tempStok.SFIYAT5);
             CBOlcuBr1.SelectedIndex = _tempStok.OLCUBR1;
-            dataGridView1.DataSource = _stokOlcuBrServis.Listele().Where(x => x.STOKID == _tempStok.ID).ToList();
+            dataGridView1.DataSource = _tempStok.MPSTOKOLCUBR.ToList();
             dataGridView1.Refresh();
-            var a = _stokServis.Listele();
+            var a = _stokServis.Listele().Select(x=>x.MPSTOKOLCUBR.Select(z=>z));
             stokOlculist.Clear(); 
             _tempStok = null;
         }
@@ -185,7 +185,7 @@ namespace MEYPAK.PRL
             }
             _tempStokOlcuBr = new MPSTOKOLCUBR()
             {
-                OLCUBRIDS = _OlcuBrServis.Getir(x => x.ADI == CBOlcuBr1.SelectedValue.ToString()).FirstOrDefault().ID,
+                OLCUBRID = _OlcuBrServis.Getir(x => x.ADI == CBOlcuBr1.SelectedValue.ToString()).FirstOrDefault().ID,
                 NUM = dataGridView1.RowCount + 1,
                 KATSAYI = Convert.ToDecimal(TBKatsayi.Text),
 

@@ -48,11 +48,33 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
         {
            
             OnModelCreatingPartial(modelBuilder);
-            modelBuilder.Entity<MPSTOK>().HasMany(x => x.MPSTOKOLCUBR).WithOne(x => x.MPSTOK).HasForeignKey(x => x.OLCUBRIDS);
+            modelBuilder.Entity<MPSTOK>().HasMany(x => x.MPSTOKOLCUBR).WithOne(x => x.MPSTOK).HasForeignKey(x => x.STOKID);
+            modelBuilder.Entity<MPSTOK>().HasMany(x => x.MPSTOKHAR).WithOne(x => x.MPSTOK).HasForeignKey(x => x.STOKID);
+            modelBuilder.Entity<MPSTOK>().HasMany(x => x.MPSTOKSAYIMHAR).WithOne(x => x.MPSTOK).HasForeignKey(x => x.STOKID);
+            modelBuilder.Entity<MPOLCUBR>().HasMany(x=>x.MPSTOKOLCUBR).WithOne(x=>x.MPOLCUBR).HasForeignKey(x=>x.OLCUBRID);
+            modelBuilder.Entity<MPOLCUBR>().HasMany(x => x.MPSTOKSAYIMHAR).WithOne(x => x.MPOLCUBR).HasForeignKey(x => x.BIRIMID);
+            modelBuilder.Entity<MPSTOKSAYIM>().HasMany(x => x.MPSTOKSAYIMHAR).WithOne(x => x.MPSTOKSAYIM).HasForeignKey(x => x.STOKSAYIMID);
 
             modelBuilder.Entity<MPSTOK>()
       .Navigation(b => b.MPSTOKOLCUBR)
       .UsePropertyAccessMode(PropertyAccessMode.Property);
+            modelBuilder.Entity<MPSTOK>()
+    .Navigation(b => b.MPSTOKHAR)
+    .UsePropertyAccessMode(PropertyAccessMode.Property);
+            modelBuilder.Entity<MPSTOK>()
+    .Navigation(b => b.MPSTOKSAYIMHAR)
+    .UsePropertyAccessMode(PropertyAccessMode.Property);
+            modelBuilder.Entity<MPSTOKOLCUBR>()
+    .Navigation(b => b.MPOLCUBR)
+    .UsePropertyAccessMode(PropertyAccessMode.Property); 
+
+            modelBuilder.Entity<MPOLCUBR>()
+    .Navigation(b => b.MPSTOKSAYIMHAR)
+    .UsePropertyAccessMode(PropertyAccessMode.Property);
+
+            modelBuilder.Entity<MPSTOKSAYIM>()
+    .Navigation(b => b.MPSTOKSAYIMHAR)
+    .UsePropertyAccessMode(PropertyAccessMode.Property);
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);

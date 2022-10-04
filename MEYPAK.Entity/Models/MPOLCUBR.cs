@@ -10,6 +10,11 @@ namespace MEYPAK.Entity.Models
 {
     public class MPOLCUBR
     {
+        public MPOLCUBR()
+        {
+            MPSTOKSAYIMHAR = new HashSet<MPSTOKSAYIMHAR>();
+            MPSTOKOLCUBR = new HashSet<MPSTOKOLCUBR>();
+        }
         [Key]
         public int ID { get; set; }
         public DateTime OLUSTURMATARIHI { get; set; }= DateTime.Now;

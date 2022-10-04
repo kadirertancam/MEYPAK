@@ -11,7 +11,11 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
  
     public class EFStokRepo : IStokDal
     {
-        
+        MEYPAKContext _context;
+        public EFStokRepo(MEYPAKContext context)
+        {
+            this._context = context;
+        }
         MEYPAKContext context = new MEYPAKContext();
         string hata;
         public Interfaces.Durum Ekle(MPSTOK entity)
@@ -58,8 +62,23 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
                 context.Entry(item)
                     .Collection(e => e.MPSTOKOLCUBR)
                     .Load();
-                } 
-            
+
+                context.Entry(item)
+                    .Collection(e => e.MPSTOKHAR)
+                    .Load();
+                context.Entry(item)
+                    .Collection(e => e.MPSTOKSAYIMHAR)
+                    .Load();
+            }
+            var emp2 = context.MPOLCUBR.ToList();
+            foreach (var item in emp2)
+            {
+                context.Entry(item)
+                    .Collection(e => e.MPSTOKOLCUBR)
+                    .Load();
+ 
+            }
+
         }
         public List<MPSTOK> Getir(Expression<Func<MPSTOK, bool>> predicate)
         {

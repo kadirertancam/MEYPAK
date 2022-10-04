@@ -4,6 +4,7 @@ using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MEYPAK.DAL.Migrations
 {
     [DbContext(typeof(MEYPAKContext))]
-    partial class MEYPAKContextModelSnapshot : ModelSnapshot
+    [Migration("20221004120055_MEYPAKContextGuncelleme10")]
+    partial class MEYPAKContextGuncelleme10
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -796,8 +798,6 @@ namespace MEYPAK.DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("OLCUBRID");
-
                     b.HasIndex("STOKID");
 
                     b.ToTable("MPSTOKOLCUBR");
@@ -914,7 +914,7 @@ namespace MEYPAK.DAL.Migrations
                 {
                     b.HasOne("MEYPAK.Entity.Models.MPOLCUBR", "MPOLCUBR")
                         .WithMany("MPSTOKOLCUBR")
-                        .HasForeignKey("OLCUBRID")
+                        .HasForeignKey("STOKID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

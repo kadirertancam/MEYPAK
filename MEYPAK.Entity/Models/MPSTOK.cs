@@ -15,8 +15,8 @@ namespace MEYPAK.Entity.Models
         {
             MPSTOKOLCUBR = new HashSet<MPSTOKOLCUBR>();
 
-            //MPSTOKHAR = new HashSet<MPSTOKHAR>();
-            //MPSTOKSAYIMHAR=new HashSet<MPSTOKSAYIMHAR>();
+            MPSTOKHAR = new HashSet<MPSTOKHAR>();
+            MPSTOKSAYIMHAR = new HashSet<MPSTOKSAYIMHAR>();
 
 
 

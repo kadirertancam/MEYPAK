@@ -22,7 +22,21 @@ namespace MEYPAK.DAL.Concrete.EntityFramewok.Repository
                 return Interfaces.Durum.başarılı;
             
         }
+        void onYukle()
+        {
 
+            var emp = context.MPOLCUBR.ToList();
+            foreach (var item in emp)
+            {
+                context.Entry(item)
+                    .Collection(e => e.MPSTOKOLCUBR)
+                    .Load();
+                context.Entry(item)
+                   .Collection(e => e.MPSTOKSAYIMHAR)
+                   .Load();
+            }
+
+        }
         public Durum EkleyadaGuncelle(MPOLCUBR entity)
         {
             bool exists = context.MPOLCUBR.Any(x => x.ID == entity.ID); 
@@ -46,23 +60,27 @@ namespace MEYPAK.DAL.Concrete.EntityFramewok.Repository
 
         public List<MPOLCUBR> Getir(string entity)
         {
+            onYukle();
             var a = context.MPOLCUBR.Where(x => x.ID.ToString() == entity).ToList();
             return a;
         }
 
         public List<MPOLCUBR> Getir(Expression<Func<MPOLCUBR, bool>> predicate)
         {
+            onYukle();
             return context.MPOLCUBR.Where(predicate).ToList();
         }
 
         public List<MPOLCUBR> Guncelle(MPOLCUBR entity)
         { 
+
             context.MPOLCUBR.Update(entity);
             return Getir(entity.ID.ToString());
         }
 
         public List<MPOLCUBR> Listele()
         {
+            onYukle();
             return context.MPOLCUBR.ToList();
         }
 

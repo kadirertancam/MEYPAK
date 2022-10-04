@@ -15,21 +15,33 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
             context.SaveChanges();
             return Interfaces.Durum.başarılı;
         }
-
+      
         public Durum EkleyadaGuncelle(MPSTOKOLCUBR entity)
         {
              context.MPSTOKOLCUBR.Add(entity);
             context.SaveChanges();
             return Interfaces.Durum.başarılı;
         }
+        void onYukle()
+        {
 
+            var emp = context.MPOLCUBR.ToList();
+            foreach (var item in emp)
+            {
+                context.Entry(item).Collection(x=>x.MPSTOKOLCUBR)
+                    .Load(); 
+            }
+
+        }
         public List<MPSTOKOLCUBR> Getir(string entity)
         {
+            onYukle();
             return context.MPSTOKOLCUBR.Where(x => x.ID.ToString() == entity).ToList();
         }
 
-        public List<MPSTOKOLCUBR> Getir(Expression<Func<MPSTOKOLCUBR, bool>> predicate)
+        public List<MPSTOKOLCUBR> Getir(Expression<Func<MPSTOKOLCUBR, bool>> predicate)     
         {
+            onYukle();
             return context.MPSTOKOLCUBR.Where(predicate).ToList();
         }
 
@@ -41,6 +53,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
 
         public List<MPSTOKOLCUBR> Listele()
         {
+            onYukle();
             return context.MPSTOKOLCUBR.ToList();
         }
 

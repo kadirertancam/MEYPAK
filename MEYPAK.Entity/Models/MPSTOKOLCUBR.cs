@@ -11,7 +11,8 @@ namespace MEYPAK.Entity.Models
     public class MPSTOKOLCUBR
     {
         public MPSTOKOLCUBR()
-        { 
+        {
+            
         }
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
@@ -27,9 +28,8 @@ namespace MEYPAK.Entity.Models
         [ForeignKey("STOKID")]
         public virtual MPSTOK MPSTOK { get; set; }
 
-        public int OLCUBRIDS { get; set; }
-
-        [ForeignKey("OLCUBRIDS")]
+        [ForeignKey("MPOLCUBR")]
+        public int OLCUBRID { get; set; }
         public virtual MPOLCUBR MPOLCUBR { get; set; }
 
     }

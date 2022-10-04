@@ -28,6 +28,7 @@ namespace MEYPAK.PRL.STOK
 
         private void BTSayimKaydet_Click(object sender, EventArgs e)
         {
+
             stokSayimPanel = new FStokSayimPanel("kaydet");
             _stokSayimServis.Ekle(new Entity.Models.MPSTOKSAYIM()
             {
