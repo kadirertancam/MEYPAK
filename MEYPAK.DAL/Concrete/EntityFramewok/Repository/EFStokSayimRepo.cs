@@ -18,11 +18,23 @@ namespace MEYPAK.DAL.Concrete.EntityFramewok.Repository
         public EFStokSayimRepo(MEYPAKContext _context) : base(_context)
         {
             context = _context;
+            onYukle();
+        }
+        void onYukle()
+        {
+
+            var emp = context.MPSTOKSAYIM.ToList();
+            foreach (var item in emp)
+            {
+                context.Entry(item)
+                    .Collection(e => e.MPSTOKSAYIMHAR)
+                    .Load();
+
+            }
         }
 
 
-
-        public Durum EkleyadaGuncelle(MPSTOKSAYIM entity)
+            public Durum EkleyadaGuncelle(MPSTOKSAYIM entity)
         {
 
             bool exists = context.MPSTOKSAYIM.Any(x => x.ID == entity.ID);

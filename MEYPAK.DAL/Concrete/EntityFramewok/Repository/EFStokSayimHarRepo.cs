@@ -4,6 +4,7 @@ using MEYPAK.Entity.Models;
 using MEYPAK.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -18,8 +19,10 @@ namespace MEYPAK.DAL.Concrete.EntityFramewok.Repository
         public EFStokSayimHarRepo(MEYPAKContext _context) : base(_context)
         {
             context = _context;
+        //   context.MPSTOKSAYIMHAR.Include(x => x.MPSTOK).Load();
+          
         }
-
+        
        
         public Durum EkleyadaGuncelle(MPSTOKSAYIMHAR entity)
         {

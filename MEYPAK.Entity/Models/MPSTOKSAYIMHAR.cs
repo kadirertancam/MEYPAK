@@ -10,6 +10,10 @@ namespace MEYPAK.Entity.Models
 {
     public class MPSTOKSAYIMHAR
     {
+        public MPSTOKSAYIMHAR()
+        {
+            
+        }
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
         public int FIRMAID { get; set; } = 0;

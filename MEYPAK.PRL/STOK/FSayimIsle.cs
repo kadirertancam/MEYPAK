@@ -24,16 +24,19 @@ namespace MEYPAK.PRL.STOK
             InitializeComponent();
             fSayimList = new FSayimList();
         }
-        IStokSayimServis _stokSayimServis = new StokSayimManager(new EFStokSayimRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
-        IStokSayimHarServis _stokSayimHarServis = new StokSayimHarManager(new EFStokSayimHarRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
-        IStokHarServis _stokHarServis = new StokHarManager(new EFStokHareketRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
+        static MEYPAKContext context = NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>();
+        IStokSayimServis _stokSayimServis = new StokSayimManager(new EFStokSayimRepo(context));
+        IStokSayimHarServis _stokSayimHarServis = new StokSayimHarManager(new EFStokSayimHarRepo(context));
+        IStokHarServis _stokHarServis = new StokHarManager(new EFStokHareketRepo(context));
+        IStokServis _stokServis = new StokManager(new EFStokRepo(context));
         public MPSTOKSAYIM _tempSayim;
         public int _id;
         FSayimList fSayimList;
         private void button2_Click(object sender, EventArgs e)
         {
+             
             foreach (var item in _stokSayimServis.Listele())
-            {
+            { 
                 foreach (var item2 in item.MPSTOKSAYIMHAR)
                 {
 

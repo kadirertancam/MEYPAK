@@ -31,12 +31,12 @@ namespace MEYPAK.PRL
         #region Tanımlar
         MPSTOKOLCUBR _tempStokOlcuBr;
         public MPSTOK _tempStok;
-        public MPMARKA _tempMarka;  
-
-        IStokServis _stokServis = new StokManager(new EFStokRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
-        IMarkaServis _markaServis = new MarkaManager(new EFMarkaRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
-        IStokOlcuBrServis _stokOlcuBrServis = new StokOlcuBrManager(new EFStokOlcuBrRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
-        IOlcuBrServis _OlcuBrServis = new OlcuBrManager(new EFOlcuBrRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
+        public MPMARKA _tempMarka;
+        static MEYPAKContext context = NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>();
+        IStokServis _stokServis = new StokManager(new EFStokRepo(context));
+        IMarkaServis _markaServis = new MarkaManager(new EFMarkaRepo(context));
+        IStokOlcuBrServis _stokOlcuBrServis = new StokOlcuBrManager(new EFStokOlcuBrRepo(context));
+        IOlcuBrServis _OlcuBrServis = new OlcuBrManager(new EFOlcuBrRepo(context));
         List<MPSTOKOLCUBR> stokOlculist = new List<MPSTOKOLCUBR>();
 
         int stokid = 0, markaid = 0, num = 0;
