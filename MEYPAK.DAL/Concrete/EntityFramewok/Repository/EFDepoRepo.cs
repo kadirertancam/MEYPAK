@@ -1,4 +1,5 @@
 ﻿using MEYPAK.DAL.Abstract;
+using MEYPAK.DAL.Concrete.EntityFramewok.Repository;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.Entity.Models;
 using MEYPAK.Interfaces;
@@ -11,19 +12,13 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
 {
-    public class EFDepoRepo : IDepoDal
+    public class EFDepoRepo : EFBaseRepo<MPDEPO>, IDepoDal
     {
-        MEYPAKContext context = new MEYPAKContext();
-        string hata;
-        public Interfaces.Durum Ekle(MPDEPO entity)
+        MEYPAKContext context;
+
+        public EFDepoRepo(MEYPAKContext _context) : base(_context)
         {
-            
-                context.MPDEPO.Add(entity);
-                context.SaveChanges();
-                return Interfaces.Durum.başarılı;
-           
-             
-               
+            context = _context;
         }
 
         public Durum EkleyadaGuncelle(MPDEPO entity)
@@ -45,39 +40,6 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
             }
         }
 
-        public List<MPDEPO> Getir(string entity)
-        {
-            return context.MPDEPO.Where(x => x.ID.ToString() == entity).ToList();
-        }
-
-        public List<MPDEPO> Getir(Expression<Func<MPDEPO, bool>> predicate)
-        {
-            return context.MPDEPO.Where(predicate).ToList();
-        }
-
-        public List<MPDEPO> Guncelle(MPDEPO entity)
-        {
-             context.MPDEPO.Update(entity);
-            return Getir(entity.ID.ToString());
-        }
-
-        public List<MPDEPO> Listele()
-        {
-            return context.MPDEPO.ToList();
-        }
-
-        public bool Sil(Expression<Func<MPDEPO, bool>> predicate)
-        {
-            return Sil(context.MPDEPO.Where(predicate).ToList());
-        }
-
-        public bool Sil(List<MPDEPO> entity)
-        {
-            foreach (var item in entity)
-            {
-                context.MPDEPO.Remove(item);
-            }
-            return true;
-        }
+      
     }
 }

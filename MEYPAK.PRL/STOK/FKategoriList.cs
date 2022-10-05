@@ -13,14 +13,23 @@ namespace MEYPAK.PRL.STOK
 {
     public partial class FKategoriList : Form
     {
-        public FKategoriList()
+        
+        int id;
+        string _islem;
+        public FKategoriList(string islem="")
         {
             InitializeComponent();
+            this._islem = islem;
         }
-
+        IKategoriServis _kategoriServis;
         private void FKategoriList_Load(object sender, EventArgs e)
         {
-            //dataGridView1.DataSource = _stokServis.Listele().Select(x => new { x.ID, x.KOD, x.ADI, x.GRUPKODU, x.OLCUBR1, x.MARKAID }).ToList();
+            dataGridView1.DataSource = _kategoriServis.Listele().Select(x => new { x.ID, x.Acıklama }).ToList();
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+           
         }
     }
 }

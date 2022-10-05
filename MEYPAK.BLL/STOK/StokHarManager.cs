@@ -13,42 +13,20 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.BLL.STOK
 {
-    public class StokHarManager : IStokHarServis
+    public class StokHarManager :BaseManager<MPSTOKHAR>, IStokHarServis
     {
         IStokHarDal _stokHarDal;
-        public StokHarManager(IStokHarDal stokHarDal)
+
+        public StokHarManager(IStokHarDal generic) : base(generic)
         {
-            this._stokHarDal = stokHarDal;
+            _stokHarDal = generic;
         }
 
-        public Interfaces.Durum Ekle(MPSTOKHAR entity)
-        {
-            return _stokHarDal.Ekle(entity);
-        }
+  
 
         public Durum EkleyadaGuncelle(MPSTOKHAR entity)
         {
             return _stokHarDal.EkleyadaGuncelle(entity);
-        }
-
-        public List<MPSTOKHAR> Getir(string entity)
-        {
-            return _stokHarDal.Getir(entity);
-        }
-
-        public List<MPSTOKHAR> Getir(Expression<Func<MPSTOKHAR, bool>> expression)
-        {
-            return _stokHarDal.Getir(expression);
-        }
-
-        public List<MPSTOKHAR> Guncelle(MPSTOKHAR entity)
-        {
-            return _stokHarDal.Guncelle(entity);
-        }
-
-        public List<MPSTOKHAR> Listele()
-        {
-            return _stokHarDal.Listele();
         }
 
         public List<PocoStokHareketListesi> PocoStokHareketListesi(int id)
@@ -56,14 +34,5 @@ namespace MEYPAK.BLL.STOK
             return _stokHarDal.PocoStokHareketListesi(id);
         }
 
-        public bool Sil(Expression<Func<MPSTOKHAR, bool>> predicate)
-        {
-            return _stokHarDal.Sil(predicate);
-        }
-
-        public bool Sil(List<MPSTOKHAR> entity)
-        {
-            return _stokHarDal.Sil(entity);
-        }
     }
 }

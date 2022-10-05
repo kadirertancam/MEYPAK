@@ -1,4 +1,5 @@
 ﻿using MEYPAK.DAL.Abstract;
+using MEYPAK.DAL.Concrete.EntityFramewok.Repository;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.Entity.Models;
 using MEYPAK.Entity.PocoModels;
@@ -17,13 +18,13 @@ enum HareketTuleri // 1SATIS-2ALIS-3SATISIADE-4ALISIADE-5MUHTELIF-6DAT
 }
 namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
 {
-    public class EFStokHareketRepo : IStokHarDal
+    public class EFStokHareketRepo :EFBaseRepo<MPSTOKHAR> ,IStokHarDal
     {
-        MEYPAKContext context = new MEYPAKContext();
-        public Interfaces.Durum Ekle(MPSTOKHAR entity)
+        MEYPAKContext context ;
+
+        public EFStokHareketRepo(MEYPAKContext _context) : base(_context)
         {
-            context.MPSTOKHAR.Add(entity);
-            return Interfaces.Durum.başarılı;
+            context=_context;
         }
 
         public Durum EkleyadaGuncelle(MPSTOKHAR entity)
@@ -64,39 +65,6 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
             return snc;
 
         }
-        public List<MPSTOKHAR> Getir(string entity)
-        {
-            return context.MPSTOKHAR.ToList();
-        }
-
-        public List<MPSTOKHAR> Getir(Expression<Func<MPSTOKHAR, bool>> predicate)
-        {
-            return context.MPSTOKHAR.Where(predicate).ToList();
-        }
-
-        public List<MPSTOKHAR> Guncelle(MPSTOKHAR entity)
-        {
-            context.MPSTOKHAR.Update(entity);
-            return Getir(entity.ID.ToString());
-        }
-
-        public List<MPSTOKHAR> Listele()
-        {
-            return context.MPSTOKHAR.ToList();
-        }
-
-        public bool Sil(Expression<Func<MPSTOKHAR, bool>> predicate)
-        {
-            return Sil(context.MPSTOKHAR.Where(predicate).ToList());
-        }
-
-        public bool Sil(List<MPSTOKHAR> entity)
-        {
-            foreach (var item in entity)
-            {
-                context.MPSTOKHAR.Remove(item);
-            }
-            return true;
-        }
+      
     }
 }

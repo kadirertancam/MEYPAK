@@ -29,10 +29,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramewok.Repository
 
         }
 
-        public Durum EkleyadaGuncelle(T entity)
-        {
-            throw new NotImplementedException();
-        }
+     
 
 
         //public Durum EkleyadaGuncelle(T entity)
@@ -60,18 +57,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramewok.Repository
             return context.Set<T>().Where(x => x.GetType().GetProperty("ID").GetValue(x).ToString() == entity).ToList();
 
         }
-        //void onYukle()
-        //{
-
-        //    var emp = context.Set<T>().ToList();
-        //    foreach (var item in emp)
-        //    {
-        //        context.Entry(item)
-        //            .Collection(e => e.TOLCUBR)
-        //            .Load();
-        //    }
-
-        //}
+  
         public List<T> Getir(Expression<Func<T, bool>> predicate)
         {
             

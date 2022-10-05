@@ -11,15 +11,16 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.DAL.Concrete.EntityFramewok.Repository
 {
-    public class EFPersonelRepo : IPersonelDal
+    public class EFPersonelRepo :EFBaseRepo<MPPERSONEL> ,IPersonelDal
     {
-        MEYPAKContext context = new MEYPAKContext();
-        public Durum Ekle(MPPERSONEL entity)
+        MEYPAKContext context ;
+
+        public EFPersonelRepo(MEYPAKContext _context) : base(_context)
         {
-            context.MPPERSONEL.Add(entity);
-            context.SaveChanges();
-            return Durum.kayıtbaşarılı;
+            context = _context;
         }
+
+        
 
         public Durum EkleyadaGuncelle(MPPERSONEL entity)
         {
@@ -40,42 +41,6 @@ namespace MEYPAK.DAL.Concrete.EntityFramewok.Repository
             }
         }
 
-        public List<MPPERSONEL> Getir(string entity)
-        {
-            return context.MPPERSONEL.Where(x => x.ID.ToString() == entity).ToList();
-        }
-
-        public List<MPPERSONEL> Getir(Expression<Func<MPPERSONEL, bool>> predicate)
-        {
-             var a = context.MPPERSONEL.Where(predicate).ToList();
-            return a;
-        }
-
-        public List<MPPERSONEL> Guncelle(MPPERSONEL entity)
-        {
-            context.MPPERSONEL.Update(entity);
-            return Getir(entity.ID.ToString());
-        }
-
-        public List<MPPERSONEL> Listele()
-        {
-            return context.MPPERSONEL.ToList();
-        }
-
-        public bool Sil(Expression<Func<MPPERSONEL, bool>> predicate)
-        {
-            return Sil(predicate);
-        }
-
-        public bool Sil(List<MPPERSONEL> entity)
-        {
-            foreach (var item in entity)
-            {
-                context.MPPERSONEL.Remove(item);
-            }
-            context.SaveChanges();
-            return true;
-
-        }
+       
     }
 }

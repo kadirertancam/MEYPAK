@@ -11,32 +11,16 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.DAL.Concrete.EntityFramewok.Repository
 {
-    public class EFOlcuBrRepo : IOlcuBrDal
+    public class EFOlcuBrRepo : EFBaseRepo<MPOLCUBR>,IOlcuBrDal
     {
-        string hata;
-        MEYPAKContext context = new MEYPAKContext();
-        public Durum Ekle(MPOLCUBR entity)
-        {
-               context.MPOLCUBR.Add(entity);
-                context.SaveChanges();
-                return Interfaces.Durum.başarılı;
-            
-        }
-        void onYukle()
-        {
+        MEYPAKContext context;
 
-            var emp = context.MPOLCUBR.ToList();
-            foreach (var item in emp)
-            {
-                context.Entry(item)
-                    .Collection(e => e.MPSTOKOLCUBR)
-                    .Load();
-                context.Entry(item)
-                   .Collection(e => e.MPSTOKSAYIMHAR)
-                   .Load();
-            }
-
+        public EFOlcuBrRepo(MEYPAKContext _context) : base(_context)
+        {
+            context = _context;
         }
+
+       
         public Durum EkleyadaGuncelle(MPOLCUBR entity)
         {
             bool exists = context.MPOLCUBR.Any(x => x.ID == entity.ID); 
@@ -58,48 +42,6 @@ namespace MEYPAK.DAL.Concrete.EntityFramewok.Repository
             
         }
 
-        public List<MPOLCUBR> Getir(string entity)
-        {
-            onYukle();
-            var a = context.MPOLCUBR.Where(x => x.ID.ToString() == entity).ToList();
-            return a;
-        }
-
-        public List<MPOLCUBR> Getir(Expression<Func<MPOLCUBR, bool>> predicate)
-        {
-            onYukle();
-            return context.MPOLCUBR.Where(predicate).ToList();
-        }
-
-        public List<MPOLCUBR> Guncelle(MPOLCUBR entity)
-        { 
-
-            context.MPOLCUBR.Update(entity);
-            return Getir(entity.ID.ToString());
-        }
-
-        public List<MPOLCUBR> Listele()
-        {
-            onYukle();
-            return context.MPOLCUBR.ToList();
-        }
-
-        public bool Sil(Expression<Func<MPOLCUBR, bool>> predicate)
-        {
-            return Sil(context.MPOLCUBR.Where(predicate).ToList());
-        }
-
-        public bool Sil(List<MPOLCUBR> entity)
-        {
-           
-                foreach (var e in entity)
-                {
-                    context.MPOLCUBR.Remove(e);
-                    context.SaveChanges();
-                }
-                return true;
-           
-
-        }
+        
     }
 }

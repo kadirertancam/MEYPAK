@@ -11,21 +11,13 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.DAL.Concrete.EntityFramewok.Repository
 {
-    public class EFKategoriRepo : IKategoriDal
+    public class EFKategoriRepo :EFBaseRepo<MPKATEGORI> ,IKategoriDal
     {
 
-        MEYPAKContext context = new MEYPAKContext();
-        string hata;
-         
-
-        public Interfaces.Durum Ekle(MPKATEGORI entity)
+        MEYPAKContext context;
+        public EFKategoriRepo(MEYPAKContext _context) : base(_context)
         {
-            context.MPKATEGORI.Add(entity);
-            context.SaveChanges();
-            return Interfaces.Durum.başarılı;
-
-
-
+            context = _context;
         }
 
         public Durum EkleyadaGuncelle(MPKATEGORI entity)
@@ -47,46 +39,6 @@ namespace MEYPAK.DAL.Concrete.EntityFramewok.Repository
             }
         }
 
-        public List<MPKATEGORI> Getir(string entity)
-        {
-
-            return context.MPKATEGORI.Where(x => x.ID.ToString() == entity).ToList();
-
-        }
-
-        public List<MPKATEGORI> Getir(Expression<Func<MPKATEGORI, bool>> predicate)
-        {
-
-            return context.MPKATEGORI.Where(predicate).ToList();
-
-        }
-
-
-        public List<MPKATEGORI> Guncelle(MPKATEGORI entity)
-        {
-            context.MPKATEGORI.Update(entity);
-            return Getir(entity.ID.ToString());
-        }
-
-        public List<MPKATEGORI> Listele()
-        {
-            return context.MPKATEGORI.ToList();
-        }
-
-        public bool Sil(Expression<Func<MPKATEGORI, bool>> predicate)
-        {
-            return Sil(context.MPKATEGORI.Where(predicate).ToList());
-
-        }
-
-        public bool Sil(List<MPKATEGORI> entity)
-        {
-            foreach (var item in entity)
-            {
-                context.MPKATEGORI.Remove(item);
-                context.SaveChanges();
-            }
-            return true;
-        }
+      
     }
 }

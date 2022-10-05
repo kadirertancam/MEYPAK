@@ -25,10 +25,6 @@ namespace MEYPAK.BLL.STOK
             return _generic.Ekle(entity);
         }
 
-        public Durum EkleyadaGuncelle(T entity)
-        {
-            return _generic.EkleyadaGuncelle(entity);
-        }
 
         public List<T> Getir(string entity)
         {

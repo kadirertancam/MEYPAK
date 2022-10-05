@@ -11,15 +11,16 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.DAL.Concrete.EntityFramewok.Repository
 {
-    public class EFStokSayimRepo:IStokSayimDal
+    public class EFStokSayimRepo:EFBaseRepo<MPSTOKSAYIM>,IStokSayimDal
     {
-        MEYPAKContext context = new MEYPAKContext();
-        public Durum Ekle(MPSTOKSAYIM entity)
+        MEYPAKContext context ;
+
+        public EFStokSayimRepo(MEYPAKContext _context) : base(_context)
         {
-            context.Add(entity);
-            context.SaveChanges();
-            return Durum.başarılı;
+            context = _context;
         }
+
+
 
         public Durum EkleyadaGuncelle(MPSTOKSAYIM entity)
         {
@@ -41,39 +42,6 @@ namespace MEYPAK.DAL.Concrete.EntityFramewok.Repository
             }
         }
 
-        public List<MPSTOKSAYIM> Getir(string entity)
-        {
-            return context.MPSTOKSAYIM.Where(x => x.ID.ToString() == entity).ToList();
-        }
-
-        public List<MPSTOKSAYIM> Getir(Expression<Func<MPSTOKSAYIM, bool>> predicate)
-        {
-            return context.MPSTOKSAYIM.Where(predicate).ToList();
-        }
-
-        public List<MPSTOKSAYIM> Guncelle(MPSTOKSAYIM entity)
-        {
-            context.MPSTOKSAYIM.Update(entity);
-            return Getir(entity.ID.ToString());
-        }
-
-        public List<MPSTOKSAYIM> Listele()
-        {
-            return context.MPSTOKSAYIM.ToList();
-        }
-
-        public bool Sil(Expression<Func<MPSTOKSAYIM, bool>> predicate)
-        {
-            return Sil(predicate);
-        }
-
-        public bool Sil(List<MPSTOKSAYIM> entity)
-        {
-            foreach (var item in entity)
-            {
-                context.Remove(item);
-            }
-            return true;
-        }
+     
     }
 }

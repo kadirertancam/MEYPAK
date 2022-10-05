@@ -12,52 +12,21 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.BLL.STOK
 {
-    public class StokSayimManager : IStokSayimServis
+    public class StokSayimManager :BaseManager<MPSTOKSAYIM> ,IStokSayimServis
     {
         IStokSayimDal _stokSayimDal;
-        public StokSayimManager(IStokSayimDal stokSayimDal)
+
+        public StokSayimManager(IStokSayimDal generic) : base(generic)
         {
-            _stokSayimDal = stokSayimDal;
+            _stokSayimDal = generic;
         }
 
-        public Durum Ekle(MPSTOKSAYIM entity)
-        {
-            return _stokSayimDal.Ekle(entity);
-        }
+    
 
         public Durum EkleyadaGuncelle(MPSTOKSAYIM entity)
         {
             return _stokSayimDal.EkleyadaGuncelle(entity);
         }
 
-        public List<MPSTOKSAYIM> Getir(string entity)
-        {
-            return _stokSayimDal.Getir(entity);
-        }
-
-        public List<MPSTOKSAYIM> Getir(Expression<Func<MPSTOKSAYIM, bool>> expression)
-        {
-            return _stokSayimDal.Getir(expression);
-        }
-
-        public List<MPSTOKSAYIM> Guncelle(MPSTOKSAYIM entity)
-        {
-            return _stokSayimDal.Guncelle(entity);
-        }
-
-        public List<MPSTOKSAYIM> Listele()
-        {
-            return _stokSayimDal.Listele();
-        }
-
-        public bool Sil(Expression<Func<MPSTOKSAYIM, bool>> predicate)
-        {
-            return _stokSayimDal.Sil(predicate);
-        }
-
-        public bool Sil(List<MPSTOKSAYIM> entity)
-        {
-            return _stokSayimDal.Sil(entity);
-        }
     }
 }

@@ -11,16 +11,16 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.DAL.Concrete.EntityFramewok.Repository
 {
-    public class EFStokSayimHarRepo : IStokSayimHarDal
+    public class EFStokSayimHarRepo :EFBaseRepo<MPSTOKSAYIMHAR> ,IStokSayimHarDal
     {
-        MEYPAKContext context = new MEYPAKContext();
-        public Durum Ekle(MPSTOKSAYIMHAR entity)
+        MEYPAKContext context ;
+
+        public EFStokSayimHarRepo(MEYPAKContext _context) : base(_context)
         {
-             context.Add(entity);
-            context.SaveChanges();
-            return Durum.başarılı;
+            context = _context;
         }
 
+       
         public Durum EkleyadaGuncelle(MPSTOKSAYIMHAR entity)
         {
             bool exists = context.MPSTOKSAYIMHAR.Any(x => x.ID == entity.ID);
@@ -40,39 +40,6 @@ namespace MEYPAK.DAL.Concrete.EntityFramewok.Repository
             }
         }
 
-        public List<MPSTOKSAYIMHAR> Getir(string entity)
-        {
-            return context.MPSTOKSAYIMHAR.Where(x => x.ID.ToString() == entity).ToList();
-        }
-
-        public List<MPSTOKSAYIMHAR> Getir(Expression<Func<MPSTOKSAYIMHAR, bool>> predicate)
-        {
-            return context.MPSTOKSAYIMHAR.Where(predicate).ToList();
-        }
-
-        public List<MPSTOKSAYIMHAR> Guncelle(MPSTOKSAYIMHAR entity)
-        {
-            context.MPSTOKSAYIMHAR.Update(entity);
-            return Getir(entity.ID.ToString());
-        }
-
-        public List<MPSTOKSAYIMHAR> Listele()
-        {
-            return context.MPSTOKSAYIMHAR.ToList();
-        }
-
-        public bool Sil(Expression<Func<MPSTOKSAYIMHAR, bool>> predicate)
-        {
-            return Sil(predicate);
-        }
-
-        public bool Sil(List<MPSTOKSAYIMHAR> entity)
-        {
-            foreach (var item in entity)
-            {
-                context.Remove(item);
-            }
-            return true;
-        }
+       
     }
 }
