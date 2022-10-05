@@ -19,16 +19,21 @@ namespace MEYPAK.Entity.Models
         public int SUBEID { get; set; }
         [DefaultValue(0)]
         public int DEPOID { get; set; }
+        [DefaultValue(0)]
         public int CARIID { get; set; }
+        [DefaultValue(0)]
         public int ALTHESAPID { get; set; }
-
+        [DefaultValue(0)]
         public int KULLANICIID { get; set; }
         public DateTime OLUSTURMATARIHI { get; set; } = DateTime.Now;
         public DateTime GUNCELLEMETARIHI { get; set; } = DateTime.Now;
-        public DateTime SIPARISTARIHI { get; set; } = DateTime.Now;
+        public DateTime SIPARISTARIHI { get; set; } 
         public DateTime SEVKIYATTARIHI { get; set; }
-        public byte Tip { get; set; }
         public DateTime VADETARIHI { get; set; }
+        public byte TIP { get; set; }
+        public byte KULLANICITIPI { get; set; }
+        [StringLength(50)]
+        public string CARIADI { get; set; }
         public int VADEGUNU { get; set; }
         [StringLength(200)]
         public string ACIKLAMA { get; set; }
@@ -40,6 +45,7 @@ namespace MEYPAK.Entity.Models
         
         [StringLength(50)]
         public string SERINO { get; set; }
+        public string BELGENO { get; set; }
         public bool KDVDAHİL { get; set; }
         public decimal ISKONTO { get; set; }
         public decimal NETTOPLAM { get; set; }
