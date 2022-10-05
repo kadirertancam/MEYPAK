@@ -34,11 +34,11 @@ namespace MEYPAK.Entity.Models
         public byte KULLANICITIPI { get; set; }
         [StringLength(50)]
         public string CARIADI { get; set; }
-        public int VADEGUNU { get; set; }
+        public int VADEGUNU { get; set; } = 0;
         [StringLength(200)]
-        public string ACIKLAMA { get; set; }
+        public string ACIKLAMA { get; set; } = "";
         [StringLength(200)]
-        public string EKACIKLAMA { get; set; }
+        public string EKACIKLAMA { get; set; } = "";
         [DefaultValue(0)]
         public int DOVIZID { get; set; }
         public decimal KUR { get; set; }
