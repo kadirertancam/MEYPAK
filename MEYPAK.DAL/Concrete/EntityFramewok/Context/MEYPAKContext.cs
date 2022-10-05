@@ -38,6 +38,8 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
         public DbSet<MPOLCUBR> MPOLCUBR { get; set; }
 
         public DbSet<MPKATEGORI> MPKATEGORI { get; set; }   
+        public DbSet<MPSIPARIS> MPSIPARIS { get; set; }   
+        public DbSet<MPSIPARISDETAY> MPSIPARISDETAY { get; set; }   
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
 

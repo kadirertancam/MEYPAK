@@ -1498,6 +1498,7 @@
             this.BTKategoriSec.TabStop = false;
             this.BTKategoriSec.Text = "Seç";
             this.BTKategoriSec.UseVisualStyleBackColor = true;
+            this.BTKategoriSec.Click += new System.EventHandler(this.BTKategoriSec_Click);
             // 
             // BTSec
             // 
