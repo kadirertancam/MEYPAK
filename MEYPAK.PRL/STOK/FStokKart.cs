@@ -180,6 +180,14 @@ namespace MEYPAK.PRL
             dataGridView1.DataSource = stokOlculist;
         }
 
+        private void BTKategoriSec_Click(object sender, EventArgs e)
+        {
+            FKategoriList fKategoriKart = new FKategoriList();
+            fKategoriKart.ShowDialog();
+
+
+        }
+
         private void button3_Click(object sender, EventArgs e)
         {
 
