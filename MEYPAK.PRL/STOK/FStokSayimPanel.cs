@@ -150,20 +150,21 @@ namespace MEYPAK.PRL.STOK
 
         private void button4_Click(object sender, EventArgs e)
         {
-            foreach (var item in _tempStokSayimHarList)
-            {
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            { 
 
                 stokSayimHarServis.EkleyadaGuncelle(new MPSTOKSAYIMHAR()
                 {
-                    STOKID = item.ID,
-                    MIKTAR = item.Miktar,
-                    FIYAT = item.Fiyat,
+                    STOKID = stokServis.Getir(x => x.KOD == dataGridView1.Rows[i].Cells["StokKodu"].Value.ToString()).FirstOrDefault().ID,
+                    MIKTAR = Decimal.Parse(dataGridView1.Rows[i].Cells["Miktar"].EditedFormattedValue.ToString()),
+                    FIYAT = Decimal.Parse(dataGridView1.Rows[i].Cells["Fiyat"].EditedFormattedValue.ToString()),
                     KUR = 1,
                     PARABR = 1,
                     DEPOID = CBDepo.SelectedIndex,
                     STOKSAYIMID = sayimId
 
                 });
+              
             }
         }
     }

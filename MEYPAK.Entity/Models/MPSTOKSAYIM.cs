@@ -24,6 +24,7 @@ namespace MEYPAK.Entity.Models
         public DateTime SAYIMTARIHI { get; set; }
         [StringLength(500)]
         public string ACIKLAMA { get; set; }
+        public int DURUM { get; set; }  // işlendi 1 işlenmedi 0
         public int KAYITTIPI { get; set; } = 0;
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MPSTOKSAYIMHAR> MPSTOKSAYIMHAR { get; set; }

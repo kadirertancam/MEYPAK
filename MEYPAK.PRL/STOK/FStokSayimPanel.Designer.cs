@@ -116,7 +116,7 @@
             // CBStokBirim
             // 
             this.CBStokBirim.FormattingEnabled = true;
-            this.CBStokBirim.Location = new System.Drawing.Point(415, 25);
+            this.CBStokBirim.Location = new System.Drawing.Point(415, 30);
             this.CBStokBirim.Name = "CBStokBirim";
             this.CBStokBirim.Size = new System.Drawing.Size(173, 23);
             this.CBStokBirim.TabIndex = 14;

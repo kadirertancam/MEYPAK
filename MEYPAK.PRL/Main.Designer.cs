@@ -46,6 +46,7 @@
             this.stokHareketToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stokSayımToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.raporlarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sayımİşleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -133,7 +134,7 @@
             this.markaTanımToolStripMenuItem,
             this.ölçüBirimTanımToolStripMenuItem});
             this.stokKartToolStripMenuItem.Name = "stokKartToolStripMenuItem";
-            this.stokKartToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.stokKartToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.stokKartToolStripMenuItem.Text = "Tanımlar";
             // 
             // stokKartToolStripMenuItem1
@@ -174,30 +175,38 @@
             // 
             this.hizmetKartToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.stokHareketToolStripMenuItem,
-            this.stokSayımToolStripMenuItem});
+            this.stokSayımToolStripMenuItem,
+            this.sayımİşleToolStripMenuItem});
             this.hizmetKartToolStripMenuItem.Name = "hizmetKartToolStripMenuItem";
-            this.hizmetKartToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.hizmetKartToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.hizmetKartToolStripMenuItem.Text = "Hareketler";
             // 
             // stokHareketToolStripMenuItem
             // 
             this.stokHareketToolStripMenuItem.Name = "stokHareketToolStripMenuItem";
-            this.stokHareketToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.stokHareketToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.stokHareketToolStripMenuItem.Text = "Stok Hareket";
             this.stokHareketToolStripMenuItem.Click += new System.EventHandler(this.stokHareketToolStripMenuItem_Click);
             // 
             // stokSayımToolStripMenuItem
             // 
             this.stokSayımToolStripMenuItem.Name = "stokSayımToolStripMenuItem";
-            this.stokSayımToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.stokSayımToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.stokSayımToolStripMenuItem.Text = "Stok Sayım";
             this.stokSayımToolStripMenuItem.Click += new System.EventHandler(this.stokSayımToolStripMenuItem_Click);
             // 
             // raporlarToolStripMenuItem
             // 
             this.raporlarToolStripMenuItem.Name = "raporlarToolStripMenuItem";
-            this.raporlarToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.raporlarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.raporlarToolStripMenuItem.Text = "Raporlar";
+            // 
+            // sayımİşleToolStripMenuItem
+            // 
+            this.sayımİşleToolStripMenuItem.Name = "sayımİşleToolStripMenuItem";
+            this.sayımİşleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sayımİşleToolStripMenuItem.Text = "Sayım İşle";
+            this.sayımİşleToolStripMenuItem.Click += new System.EventHandler(this.sayımİşleToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -240,5 +249,6 @@
         private ToolStripMenuItem stokHareketToolStripMenuItem;
         private ToolStripMenuItem stokSayımToolStripMenuItem;
         private ToolStripMenuItem ölçüBirimTanımToolStripMenuItem;
+        private ToolStripMenuItem sayımİşleToolStripMenuItem;
     }
 }

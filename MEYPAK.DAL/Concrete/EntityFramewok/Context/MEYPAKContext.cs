@@ -20,7 +20,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
          public MEYPAKContext(DbContextOptions<MEYPAKContext> options)
             : base(options)
         {
-
+           
             
         }
         public DbSet<MPSTOK> MPSTOK { get; set; }
@@ -39,6 +39,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
         public DbSet<MPKATEGORI> MPKATEGORI { get; set; }   
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder.UseSqlServer("Server=213.238.167.117;Database=MEYPAK;User Id=sa;Password=sapass_1;");
