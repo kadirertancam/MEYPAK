@@ -33,7 +33,7 @@ namespace MEYPAK.PRL.STOK
         string _islemtipi;
         public List<PocoStokSayimPanelList> _tempStokSayimHarList;
         IStokSayimHarServis stokSayimHarServis = new StokSayimHarManager(new EFStokSayimHarRepo());
-        IStokServis stokServis = new StokManager(new EFStokRepo());
+        IStokServis stokServis;
         IDepoServis depoServis = new DepoManager(new EFDepoRepo());
         IStokOlcuBrServis stokOlcuBrServis = new StokOlcuBrManager(new EFStokOlcuBrRepo()); 
         IOlcuBrServis olcuBrServis = new OlcuBrManager(new EFOlcuBrRepo());

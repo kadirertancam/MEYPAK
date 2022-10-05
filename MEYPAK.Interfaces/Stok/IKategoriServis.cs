@@ -9,5 +9,6 @@ namespace MEYPAK.Interfaces.Stok
 {
     public interface IKategoriServis:IGenericServis<MPKATEGORI>
     {
+        public Durum EkleyadaGuncelle(MPKATEGORI entity);
     }
 }

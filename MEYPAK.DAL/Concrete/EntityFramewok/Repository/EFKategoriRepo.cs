@@ -16,6 +16,8 @@ namespace MEYPAK.DAL.Concrete.EntityFramewok.Repository
 
         MEYPAKContext context = new MEYPAKContext();
         string hata;
+         
+
         public Interfaces.Durum Ekle(MPKATEGORI entity)
         {
             context.MPKATEGORI.Add(entity);

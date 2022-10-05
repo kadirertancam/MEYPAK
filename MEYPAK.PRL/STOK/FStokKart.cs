@@ -8,6 +8,7 @@ using MEYPAK.Entity.Models;
 using MEYPAK.Interfaces.Depo;
 using MEYPAK.Interfaces.Hizmet;
 using MEYPAK.Interfaces.Stok;
+using MEYPAK.PRL.Assets;
 using MEYPAK.PRL.STOK;
 using System.Drawing;
 using System.Globalization;
@@ -29,8 +30,9 @@ namespace MEYPAK.PRL
         #region Tanımlar
         MPSTOKOLCUBR _tempStokOlcuBr;
         public MPSTOK _tempStok;
-        public MPMARKA _tempMarka;
-        IStokServis _stokServis = new StokManager(new EFStokRepo());
+        public MPMARKA _tempMarka;  
+
+        IStokServis _stokServis;
         IMarkaServis _markaServis = new MarkaManager(new EFMarkaRepo());
         IStokOlcuBrServis _stokOlcuBrServis = new StokOlcuBrManager(new EFStokOlcuBrRepo());
         IOlcuBrServis _OlcuBrServis = new OlcuBrManager(new EFOlcuBrRepo());
@@ -43,6 +45,7 @@ namespace MEYPAK.PRL
 
         public void Temizle(Control.ControlCollection ctrlCollection)           //Formdaki Textboxları temizle
         {
+            
             foreach (Control ctrl in ctrlCollection)
             {
                 if (ctrl is TextBoxBase)

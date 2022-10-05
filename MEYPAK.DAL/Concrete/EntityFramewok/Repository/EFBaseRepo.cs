@@ -29,6 +29,12 @@ namespace MEYPAK.DAL.Concrete.EntityFramewok.Repository
 
         }
 
+        public Durum EkleyadaGuncelle(T entity)
+        {
+            throw new NotImplementedException();
+        }
+
+
         //public Durum EkleyadaGuncelle(T entity)
         //{
         //    bool exists = context.Set<T>().Any(x => x.GetType().GetProperty("ID").GetValue() == entity.ID);

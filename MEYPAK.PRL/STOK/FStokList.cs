@@ -26,7 +26,7 @@ namespace MEYPAK.PRL.STOK
             InitializeComponent();
             this._islem = islem;
         }
-        IStokServis _stokServis = new StokManager(new EFStokRepo());
+        IStokServis _stokServis;
         IStokOlcuBrServis _stokOlcuBrServis = new StokOlcuBrManager(new EFStokOlcuBrRepo());
         private void FStokList_Load(object sender, EventArgs e)
         {

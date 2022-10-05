@@ -1,5 +1,6 @@
 ﻿using MEYPAK.Entity.Models;
 using MEYPAK.Entity.PocoModels;
+using MEYPAK.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +12,6 @@ namespace MEYPAK.DAL.Abstract
     public interface IStokHarDal : IGeneric<MPSTOKHAR>
     {
         List<PocoStokHareketListesi> PocoStokHareketListesi(int id);
+        public Durum EkleyadaGuncelle(MPSTOKHAR entity);
     }
 }

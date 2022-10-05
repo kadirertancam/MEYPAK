@@ -30,7 +30,8 @@ namespace MEYPAK.PRL.STOK
         IStokHarServis _stokHarServis = new StokHarManager(new EFStokHareketRepo());
         IStokOlcuBrServis _stokOlcuBrServis = new StokOlcuBrManager(new EFStokOlcuBrRepo());
         IOlcuBrServis _olcuBrServis = new OlcuBrManager(new EFOlcuBrRepo());
-        IStokServis _stokServis = new StokManager(new EFStokRepo());
+        IStokServis _stokServis;
+       // IStokServis _stokServis = new StokManager(new EFStokRepo());
         List<PocoStokHareketListesi> _tempdgvStok = new List<PocoStokHareketListesi>();
         public MPSTOK _tempStok;
         int IO=0;

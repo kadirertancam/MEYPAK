@@ -1,4 +1,5 @@
 ﻿using MEYPAK.Entity.Models;
+using MEYPAK.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,6 @@ namespace MEYPAK.DAL.Abstract
 {
     public interface IStokDal:IGeneric<MPSTOK>
     {
-         
+        public Durum EkleyadaGuncelle(MPSTOK entity);
     }
 }

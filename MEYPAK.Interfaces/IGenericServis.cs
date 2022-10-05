@@ -14,8 +14,7 @@ namespace MEYPAK.Interfaces
         List<T> Listele();
         bool Sil(Expression<Func<T, bool>> predicate);
         bool Sil(List<T> entity);
-        List<T> Guncelle(T entity);
-        Interfaces.Durum EkleyadaGuncelle(T entity);
+        List<T> Guncelle(T entity); 
 
         Durum Ekle(T entity);
     }

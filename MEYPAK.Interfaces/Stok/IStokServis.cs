@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 namespace MEYPAK.Interfaces.Stok
 {
     public interface IStokServis:IGenericServis<MPSTOK>
-    { 
+    {
+        public Durum EkleyadaGuncelle(MPSTOK entity);
     }
 }

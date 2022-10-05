@@ -9,5 +9,6 @@ namespace MEYPAK.Interfaces.Stok
 {
     public interface IMarkaServis:IGenericServis<MPMARKA>
     {
+        public Durum EkleyadaGuncelle(MPMARKA entity);
     }
 }
