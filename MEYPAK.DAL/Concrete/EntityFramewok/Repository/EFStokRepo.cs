@@ -17,6 +17,34 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
         public EFStokRepo(MEYPAKContext context) : base(context)
         {
             this._context = context;
+            onYukle();
+        }
+        void onYukle()
+        {
+
+            var emp = _context.MPSTOK.ToList();
+            foreach (var item in emp)
+            {
+                _context.Entry(item)
+                    .Collection(e => e.MPSTOKOLCUBR)
+                    .Load();
+
+                _context.Entry(item)
+                    .Collection(e => e.MPSTOKHAR)
+                    .Load();
+                _context.Entry(item)
+                    .Collection(e => e.MPSTOKSAYIMHAR)
+                    .Load();
+            }
+            var emp2 = _context.MPOLCUBR.ToList();
+            foreach (var item in emp2)
+            {
+                _context.Entry(item)
+                    .Collection(e => e.MPSTOKOLCUBR)
+                    .Load();
+
+            }
+
         }
         public Durum EkleyadaGuncelle(MPSTOK entity)
         {

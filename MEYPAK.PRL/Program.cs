@@ -1,5 +1,7 @@
+using MEYPAK.PRL.Assets;
 using MEYPAK.PRL.PERSONEL;
 using MEYPAK.PRL.STOK;
+using static MEYPAK.PRL.Assets.NinjectFactory;
 
 namespace MEYPAK.PRL
 {
@@ -12,7 +14,9 @@ namespace MEYPAK.PRL
         static void Main()
         {
             // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
+            // see https://aka.ms/applicationconfiguration. 
+            DependencyModule a = new DependencyModule();
+            NinjectFactory.CompositionRoot.Initialize(a);
             ApplicationConfiguration.Initialize();
             Application.Run(new Main());
         }

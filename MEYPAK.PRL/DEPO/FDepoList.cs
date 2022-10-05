@@ -1,6 +1,8 @@
 ﻿using MEYPAK.BLL.DEPO;
+using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository;
 using MEYPAK.Interfaces.Depo;
+using MEYPAK.PRL.Assets;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,7 +23,7 @@ namespace MEYPAK.PRL.DEPO
             depoKart = (FDepoKart)Application.OpenForms["FDepoKart"];
         }
         FDepoKart depoKart;
-        IDepoServis _depoServis = new DepoManager(new EFDepoRepo());
+        IDepoServis _depoServis = new DepoManager(new EFDepoRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
 
         private void FDepoList_Load(object sender, EventArgs e)
         {

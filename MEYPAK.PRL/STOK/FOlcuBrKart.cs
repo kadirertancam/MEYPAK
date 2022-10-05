@@ -1,7 +1,9 @@
 ﻿using MEYPAK.BLL.STOK;
 using MEYPAK.DAL.Concrete.EntityFramewok.Repository;
+using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository;
 using MEYPAK.Interfaces.Stok;
+using MEYPAK.PRL.Assets;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,7 +24,7 @@ namespace MEYPAK.PRL.STOK
         {
             InitializeComponent();
         }
-        IOlcuBrServis _OlcuBrServis = new OlcuBrManager(new EFOlcuBrRepo());
+        IOlcuBrServis _OlcuBrServis = new OlcuBrManager(new EFOlcuBrRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
         private void FStokOlcuBrKart_Load(object sender, EventArgs e)
         {
             dataGridView1.DataSource = _OlcuBrServis.Listele();

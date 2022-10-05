@@ -29,18 +29,13 @@ namespace MEYPAK.BLL.DEPO
         {
             return _depoDal.EkleyadaGuncelle(entity);
         }
-
-        public List<MPDEPO> Getir(string entity)
-        {
-            return _depoDal.Getir(entity);
-        }
-
+ 
         public List<MPDEPO> Getir(Expression<Func<MPDEPO, bool>> expression)
         {
             return _depoDal.Getir(expression).ToList();
         }
 
-        public List<MPDEPO> Guncelle(MPDEPO entity)
+        public Durum Guncelle(MPDEPO entity)
         {
             return _depoDal.Guncelle(entity);
         }

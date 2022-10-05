@@ -27,18 +27,13 @@ namespace MEYPAK.BLL.PERSONEL
         {
             return _personelDal.EkleyadaGuncelle(entity);
         }
-
-        public List<MPPERSONEL> Getir(string entity)
-        {
-            return _personelDal.Getir(entity);
-        }
-
+ 
         public List<MPPERSONEL> Getir(Expression<Func<MPPERSONEL, bool>> predicate)
         {
             return _personelDal.Getir(predicate);
         }
 
-        public List<MPPERSONEL> Guncelle(MPPERSONEL entity)
+        public Durum Guncelle(MPPERSONEL entity)
         {
             return _personelDal.Guncelle(entity);
         }

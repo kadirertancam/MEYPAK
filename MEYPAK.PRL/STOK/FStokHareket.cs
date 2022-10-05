@@ -2,11 +2,13 @@
 using MEYPAK.BLL.STOK;
 using MEYPAK.DAL.Abstract;
 using MEYPAK.DAL.Concrete.EntityFramewok.Repository;
+using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository;
 using MEYPAK.Entity.Models;
 using MEYPAK.Entity.PocoModels;
 using MEYPAK.Interfaces.Depo;
 using MEYPAK.Interfaces.Stok;
+using MEYPAK.PRL.Assets;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,16 +29,16 @@ namespace MEYPAK.PRL.STOK
         {
             InitializeComponent();
         }
-        IStokHarServis _stokHarServis = new StokHarManager(new EFStokHareketRepo());
-        IStokOlcuBrServis _stokOlcuBrServis = new StokOlcuBrManager(new EFStokOlcuBrRepo());
-        IOlcuBrServis _olcuBrServis = new OlcuBrManager(new EFOlcuBrRepo());
+        IStokHarServis _stokHarServis = new StokHarManager(new EFStokHareketRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
+        IStokOlcuBrServis _stokOlcuBrServis = new StokOlcuBrManager(new EFStokOlcuBrRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
+        IOlcuBrServis _olcuBrServis = new OlcuBrManager(new EFOlcuBrRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
         IStokServis _stokServis;
        // IStokServis _stokServis = new StokManager(new EFStokRepo());
         List<PocoStokHareketListesi> _tempdgvStok = new List<PocoStokHareketListesi>();
         public MPSTOK _tempStok;
         int IO=0;
         int _id;
-        IDepoServis _depoServis = new DepoManager(new EFDepoRepo());
+        IDepoServis _depoServis = new DepoManager(new EFDepoRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
      
         decimal KdvEkle(decimal val)
         {
@@ -58,7 +60,7 @@ namespace MEYPAK.PRL.STOK
                 _id = _tempStok.ID;
                 TBStokKodu.Text = _tempStok.KOD;
                 TBStokAdi.Text = _tempStok.ADI; 
-                CBBirim.DataSource = _stokOlcuBrServis.Listele().Where(x => x.STOKID == _tempStok.ID).Select(x => _olcuBrServis.Getir(x.OLCUBRID.ToString()).FirstOrDefault().ADI).ToList(); //_stokOlcuBrServis.Getir(x => x.STOKID == _id).Select(x => _olcuBrServis.Getir(z => z.ID == x.OLCUBRID).FirstOrDefault().ADI).ToList();
+                CBBirim.DataSource = _stokOlcuBrServis.Listele().Where(x => x.STOKID == _tempStok.ID).Select(x => _olcuBrServis.Getir(z=>z.ID.ToString()==x.OLCUBRID.ToString()).FirstOrDefault().ADI).ToList(); //_stokOlcuBrServis.Getir(x => x.STOKID == _id).Select(x => _olcuBrServis.Getir(z => z.ID == x.OLCUBRID).FirstOrDefault().ADI).ToList();
                 TBKdv.Text = IO == 1 ? _tempStok.ALISKDV.ToString() : _tempStok.SATISKDV.ToString();
                 //TBFiyat.Text = IO == 1 ? _tempStok.AFIYAT1.ToString() : _tempStok.SATISKDV.ToString();
                 BakiyeGuncelle();

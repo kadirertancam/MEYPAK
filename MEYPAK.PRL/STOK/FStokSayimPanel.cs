@@ -3,11 +3,13 @@ using MEYPAK.BLL.STOK;
 using MEYPAK.DAL.Abstract;
 using MEYPAK.DAL.Abstract.StokDal;
 using MEYPAK.DAL.Concrete.EntityFramewok.Repository;
+using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository;
 using MEYPAK.Entity.Models;
 using MEYPAK.Entity.PocoModels;
 using MEYPAK.Interfaces.Depo;
 using MEYPAK.Interfaces.Stok;
+using MEYPAK.PRL.Assets;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
@@ -32,12 +34,12 @@ namespace MEYPAK.PRL.STOK
         }
         string _islemtipi;
         public List<PocoStokSayimPanelList> _tempStokSayimHarList;
-        IStokSayimHarServis stokSayimHarServis = new StokSayimHarManager(new EFStokSayimHarRepo());
-        IStokServis stokServis;
-        IDepoServis depoServis = new DepoManager(new EFDepoRepo());
-        IStokOlcuBrServis stokOlcuBrServis = new StokOlcuBrManager(new EFStokOlcuBrRepo()); 
-        IOlcuBrServis olcuBrServis = new OlcuBrManager(new EFOlcuBrRepo());
-        IStokHarServis stokHarServis = new StokHarManager(new EFStokHareketRepo());
+        IStokSayimHarServis stokSayimHarServis = new StokSayimHarManager(new EFStokSayimHarRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
+        IStokServis stokServis=new StokManager(new EFStokRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
+        IDepoServis depoServis = new DepoManager(new EFDepoRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
+        IStokOlcuBrServis stokOlcuBrServis = new StokOlcuBrManager(new EFStokOlcuBrRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>())); 
+        IOlcuBrServis olcuBrServis = new OlcuBrManager(new EFOlcuBrRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
+        IStokHarServis stokHarServis = new StokHarManager(new EFStokHareketRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
         public int sayimId;
         public MPSTOK _tempStok;
         FStokList fStokList;
@@ -141,7 +143,8 @@ namespace MEYPAK.PRL.STOK
             {
                 StokKodu = TBStokKodu.Text,
                 StokAdı = TBStokAdi.Text,
-               
+                ID = stokServis.Getir(x => x.KOD == TBStokKodu.Text).FirstOrDefault().ID
+
             });
         }
 
@@ -152,7 +155,7 @@ namespace MEYPAK.PRL.STOK
 
                 stokSayimHarServis.EkleyadaGuncelle(new MPSTOKSAYIMHAR()
                 {
-                    STOKID = stokServis.Getir(x => x.KOD == item.StokKodu).FirstOrDefault().ID,
+                    STOKID = item.ID,
                     MIKTAR = item.Miktar,
                     FIYAT = item.Fiyat,
                     KUR = 1,

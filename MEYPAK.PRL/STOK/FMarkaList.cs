@@ -1,6 +1,8 @@
 ﻿using MEYPAK.BLL.STOK;
+using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository;
 using MEYPAK.Interfaces.Stok;
+using MEYPAK.PRL.Assets;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,7 +24,7 @@ namespace MEYPAK.PRL.STOK
             InitializeComponent();
             FSTOKKART = (FStokKart)Application.OpenForms["FSTOKKART"];
         }
-        IMarkaServis _markaServis = new MarkaManager(new EFMarkaRepo());
+        IMarkaServis _markaServis = new MarkaManager(new EFMarkaRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
         private void FMarkaKart_Load(object sender, EventArgs e)
         {
             dataGridView1.DataSource= _markaServis.Listele();
@@ -37,7 +39,7 @@ namespace MEYPAK.PRL.STOK
 
         private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            FSTOKKART._tempMarka = _markaServis.Getir(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
+            FSTOKKART._tempMarka = _markaServis.Getir(x=>x.ID.ToString()==dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
             this.Close();
         }
     }

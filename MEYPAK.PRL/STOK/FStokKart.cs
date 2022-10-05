@@ -3,6 +3,7 @@ using MEYPAK.BLL.HIZMET;
 using MEYPAK.BLL.STOK;
 using MEYPAK.DAL;
 using MEYPAK.DAL.Concrete.EntityFramewok.Repository;
+using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository;
 using MEYPAK.Entity.Models;
 using MEYPAK.Interfaces.Depo;
@@ -32,10 +33,10 @@ namespace MEYPAK.PRL
         public MPSTOK _tempStok;
         public MPMARKA _tempMarka;  
 
-        IStokServis _stokServis;
-        IMarkaServis _markaServis = new MarkaManager(new EFMarkaRepo());
-        IStokOlcuBrServis _stokOlcuBrServis = new StokOlcuBrManager(new EFStokOlcuBrRepo());
-        IOlcuBrServis _OlcuBrServis = new OlcuBrManager(new EFOlcuBrRepo());
+        IStokServis _stokServis = new StokManager(new EFStokRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
+        IMarkaServis _markaServis = new MarkaManager(new EFMarkaRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
+        IStokOlcuBrServis _stokOlcuBrServis = new StokOlcuBrManager(new EFStokOlcuBrRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
+        IOlcuBrServis _OlcuBrServis = new OlcuBrManager(new EFOlcuBrRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
         List<MPSTOKOLCUBR> stokOlculist = new List<MPSTOKOLCUBR>();
 
         int stokid = 0, markaid = 0, num = 0;
@@ -70,7 +71,7 @@ namespace MEYPAK.PRL
             TBStokAdı.Text = _tempStok.ADI;
             TBSatisOtv.Text = _tempStok.SATISOTV.ToString();
             TBSatisKdv.Text = _tempStok.SATISKDV.ToString();
-            TBMarka.Text = _markaServis.Getir(_tempStok.MARKAID.ToString()).FirstOrDefault().ADI.ToString();
+            TBMarka.Text = _markaServis.Getir(x=>x.ID.ToString()==_tempStok.MARKAID.ToString()).FirstOrDefault().ADI.ToString();
             TBKategori.Text = _tempStok.KATEGORIID.ToString();
             TBGrupKodu.Text = _tempStok.GRUPKODU.ToString();
             TBAlisOtv.Text = _tempStok.ALISOTV.ToString();

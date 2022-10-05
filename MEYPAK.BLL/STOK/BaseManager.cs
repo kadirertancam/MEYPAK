@@ -23,20 +23,14 @@ namespace MEYPAK.BLL.STOK
         public Interfaces.Durum Ekle(T entity)
         {
             return _generic.Ekle(entity);
-        }
-
-
-        public List<T> Getir(string entity)
-        {
-            return _generic.Getir(entity);
-        }
+        } 
 
         public List<T> Getir(Expression<Func<T, bool>> predicate)
         {
             return _generic.Getir(predicate);
         }
 
-        public List<T> Guncelle(T entity)
+        public Durum Guncelle(T entity)
         {
             return _generic.Guncelle(entity);
         }

@@ -29,17 +29,14 @@ namespace MEYPAK.BLL.HIZMET
             throw new NotImplementedException();
         }
 
-        public List<MPHIZMET> Getir(string entity)
-        {
-            return _hizmetDal.Getir(entity);
-        }
+       
 
         public List<MPHIZMET> Getir(Expression<Func<MPHIZMET, bool>> expression)
         {
             return _hizmetDal.Getir(expression);
         }
 
-        public List<MPHIZMET> Guncelle(MPHIZMET entity)
+        public Durum Guncelle(MPHIZMET entity)
         {
             return _hizmetDal.Guncelle(entity);
         }

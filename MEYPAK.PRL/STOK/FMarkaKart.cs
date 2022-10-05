@@ -1,7 +1,9 @@
 ﻿using MEYPAK.BLL.STOK;
+using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository;
 using MEYPAK.Entity.Models;
 using MEYPAK.Interfaces.Stok;
+using MEYPAK.PRL.Assets;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,7 +23,7 @@ namespace MEYPAK.PRL.STOK
             InitializeComponent();
         }
         #region Tanımlar
-        IMarkaServis _markaServis = new MarkaManager(new EFMarkaRepo());
+        IMarkaServis _markaServis = new MarkaManager(new EFMarkaRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
         MPMARKA _tempMarka;
         int id = 0;
         #endregion
@@ -53,7 +55,7 @@ namespace MEYPAK.PRL.STOK
 
         private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            _tempMarka = _markaServis.Getir(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
+            _tempMarka = _markaServis.Getir(x=>x.ID.ToString()==dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
             TBMarkaAdi.Text = _tempMarka.ADI;
             TBAciklama.Text = _tempMarka.ACIKLAMA;
             id = _tempMarka.ID;

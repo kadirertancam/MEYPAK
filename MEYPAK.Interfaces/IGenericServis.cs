@@ -8,13 +8,12 @@ using System.Threading.Tasks;
 namespace MEYPAK.Interfaces
 {
     public interface IGenericServis<T>
-    {
-        List<T> Getir(string entity);
+    { 
         List<T> Getir(Expression<Func<T, bool>> expression);
         List<T> Listele();
         bool Sil(Expression<Func<T, bool>> predicate);
         bool Sil(List<T> entity);
-        List<T> Guncelle(T entity); 
+        Durum Guncelle(T entity); 
 
         Durum Ekle(T entity);
     }

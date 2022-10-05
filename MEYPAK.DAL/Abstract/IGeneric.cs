@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MEYPAK.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -8,13 +9,12 @@ using System.Threading.Tasks;
 namespace MEYPAK.DAL.Abstract
 {
     public interface IGeneric<T>
-    {
-        List<T> Getir(string entity);
+    { 
         List<T> Getir(Expression<Func<T, bool>> predicate);
         List<T> Listele();
         bool Sil(Expression<Func<T, bool>> predicate);
         bool Sil(List<T> entity);
-        List<T> Guncelle(T entity);  
+        Durum Guncelle(T entity);  
         Interfaces.Durum Ekle(T entity);
     }
 }

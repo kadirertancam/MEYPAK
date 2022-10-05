@@ -4,6 +4,7 @@ using MEYPAK.DAL.Concrete.EntityFramework.Repository;
 using MEYPAK.Interfaces.Stok;
 using Ninject;
 using Ninject.Activation;
+using Ninject.Modules;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,30 +16,37 @@ namespace MEYPAK.PRL.Assets
 {
     public class NinjectFactory
     {
-        private readonly IKernel ninjectKernel;
-
-        public NinjectFactory()
+        public class DependencyModule : NinjectModule
         {
-            ninjectKernel = new StandardKernel();
-            AddBllBindings();
+
+            public override void Load()
+            {
+
+            }
         }
-        private void AddBllBindings()
+        public class CompositionRoot
         {
-            StandardKernel _kernel = new StandardKernel();
-            _kernel.Load(Assembly.GetExecutingAssembly());
+            public static IKernel ninjectKernel;
 
-            MEYPAKContext context = _kernel.Get<MEYPAKContext>();
-            ninjectKernel.Bind<IStokServis>()
-                .To<StokManager>()
-                .WithConstructorArgument("stokDal",
-                new EFStokRepo(context));
+            public static void Initialize(INinjectModule module)
+            {
+                ninjectKernel = new StandardKernel(module);
 
-            
+                ninjectKernel.Bind<IStokServis>()
+                    .To<StokManager>()
+                    .WithConstructorArgument("stokDal",
+                    new EFStokRepo(ninjectKernel.Get<MEYPAKContext>()));
+            }
+
+            public static T Resolve<T>()
+            {
+                return ninjectKernel.Get<T>();
+            }
+
+            public static IEnumerable<T> ResolveAll<T>()
+            {
+                return ninjectKernel.GetAll<T>();
+            }
         }
-
-        //protected override Context GetControllerInstance(Context requestContext, Type controllerType)
-        //{
-        //    return controllerType == null ? null : (Context)ninjectKernel.Get(controllerType);
-        //}
     }
 }

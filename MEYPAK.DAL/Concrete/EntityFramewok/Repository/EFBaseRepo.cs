@@ -51,12 +51,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramewok.Repository
         //    }
         //}
 
-        public List<T> Getir(string entity)
-        {
-            
-            return context.Set<T>().Where(x => x.GetType().GetProperty("ID").GetValue(x).ToString() == entity).ToList();
-
-        }
+    
   
         public List<T> Getir(Expression<Func<T, bool>> predicate)
         {
@@ -66,10 +61,10 @@ namespace MEYPAK.DAL.Concrete.EntityFramewok.Repository
         }
 
 
-        public List<T> Guncelle(T entity)
+        public Durum Guncelle(T entity)
         {
             context.Set<T>().Update(entity);
-            return Getir(entity.GetType().GetProperty("ID").GetValue(entity).ToString().ToString());
+            return Durum.güncellemebaşarılı;
         }
 
         public List<T> Listele()

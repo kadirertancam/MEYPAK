@@ -1,7 +1,9 @@
 ﻿using MEYPAK.BLL.DEPO;
+using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository;
 using MEYPAK.Entity.Models;
 using MEYPAK.Interfaces.Depo;
+using MEYPAK.PRL.Assets;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,7 +25,7 @@ namespace MEYPAK.PRL.DEPO
         FDepoList fDepoList;
         int id=0;
         public MPDEPO _tempDepo;
-        IDepoServis _depoServis = new DepoManager(new EFDepoRepo());
+        IDepoServis _depoServis = new DepoManager(new EFDepoRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
 
         void Doldur()
         {

@@ -15,6 +15,7 @@ namespace MEYPAK.Entity.PocoModels
         public string Birim { get; set; }
         public decimal Miktar { get; set; }
         public decimal Fiyat { get; set; }
+        public virtual int ID { get; set; } 
 
     }
 }

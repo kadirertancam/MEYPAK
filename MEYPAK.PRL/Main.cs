@@ -94,5 +94,10 @@ namespace MEYPAK.PRL
             fOlcuBrKart.Show();
 
         }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
