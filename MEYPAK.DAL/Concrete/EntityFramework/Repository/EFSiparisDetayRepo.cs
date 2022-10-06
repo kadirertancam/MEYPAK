@@ -43,7 +43,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
         void onYukle()
         {
 
-            var emp = context..ToList();
+            var emp = context.MPSTOK.ToList();
             foreach (var item in emp)
             {
                 context.Entry(item)
@@ -54,7 +54,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
         }
             public List<PocoSiparisKalem> PocoSiparisDetayListesi(int id)
         {
-            var snc = context.MPSIPARISDETAY.AsNoTracking().Where(x => context.MPSIPARISDETAY.Where(z => z.ID == id).FirstOrDefault().ID == x.STOKID).Select(x => new PocoSiparisKalem
+            var snc = context.MPSIPARISDETAY.Where(x => context.MPSIPARISDETAY.Where(z => z.ID == id).FirstOrDefault().ID == x.STOKID).Select(x => new PocoSiparisKalem
             {
                 Acıklama = x.ACIKLAMA,
                 StokAdı = x.STOKADI,
