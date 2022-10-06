@@ -30,12 +30,12 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.treeView1 = new System.Windows.Forms.TreeView();
-            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -63,6 +63,15 @@
             this.panel2.Size = new System.Drawing.Size(800, 450);
             this.panel2.TabIndex = 2;
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(522, 33);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(120, 23);
+            this.button2.TabIndex = 6;
+            this.button2.Text = "Üst Kategori Ekle";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(380, 33);
@@ -71,7 +80,7 @@
             this.button3.TabIndex = 5;
             this.button3.Text = "Alt Kategori Ekle";
             this.button3.UseVisualStyleBackColor = true;
-           // this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button1
             // 
@@ -102,15 +111,6 @@
             this.treeView1.Name = "treeView1";
             this.treeView1.Size = new System.Drawing.Size(800, 348);
             this.treeView1.TabIndex = 0;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(522, 33);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(120, 23);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Üst Kategori Ekle";
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // FKategoriList
             // 

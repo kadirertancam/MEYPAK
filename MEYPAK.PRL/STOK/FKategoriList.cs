@@ -32,40 +32,21 @@ namespace MEYPAK.PRL.STOK
         IKategoriServis _kategoriServis = new KategoriManager(new EFKategoriRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
         private void FKategoriList_Load(object sender, EventArgs e)
         {
-            
-            MPKATEGORI A = new MPKATEGORI()
-            {
-                Acıklama = "Ceri",
-                UstId = 2
-            };
-            _kategoriServis.Ekle(A);
-            MPKATEGORI b = new MPKATEGORI()
-            {
-                Acıklama = "Meyve",
-                UstId = 0
-            };
-            _kategoriServis.Ekle(b);
 
-            MPKATEGORI c = new MPKATEGORI()
-            {
-                Acıklama = "Cilek",
-                UstId = 4
-            };
-            _kategoriServis.Ekle(c);
             TreeViewDoldur();
         }
 
         void TreeViewDoldur()
         {
-            var data = _kategoriServis.Getir(x => x.UstId == 0); // Elektronik, Bahçe...
+            var data = _kategoriServis.Getir(x => x.UstId == 0); // Üst Kategoriler.
             if (data != null)
             {
-                foreach (var item in data) // üst kategori
+                foreach (var item in data) // üst kategorileri dönüyor.
                 {
                     TreeNode ustNode = new TreeNode(item.Acıklama);
-                    ustNode.Tag = item;
+                    ustNode.Tag = item.ID;
                     treeView1.Nodes.Add(ustNode);
-                    if (item.UstId==0 
+                    if (item.UstId == 0
                       && _kategoriServis.Getir(x => x.UstId == item.ID).Count > 0)
                     {
                         bool isOver = false;
@@ -97,7 +78,7 @@ namespace MEYPAK.PRL.STOK
                 foreach (var item in data)
                 {
                     TreeNode altNode = new TreeNode(item.Acıklama);
-                    altNode.Tag = item;
+                    altNode.Tag = item.ID;
                     ustNode.Nodes.Add(altNode);
 
                 }
@@ -131,22 +112,26 @@ namespace MEYPAK.PRL.STOK
 
             }
 
-             void button3_Click(object sender, EventArgs e)
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (treeView1.SelectedNode.Tag != null)
             {
-                if (treeView1.SelectedNode.Tag != null)
-                {
-                    MPKATEGORI mPKATEGORI = new MPKATEGORI()
-                    {
-                        UstId = (int)treeView1.SelectedNode.Tag,
-                        Acıklama = textBox1.Text
-                    };
-                    _kategoriServis.Ekle(mPKATEGORI);
-                    treeView1.Nodes.Clear();
-                }
-                else
-                {
-                    MessageBox.Show("Lütfen alt kategori eklemek istediğiniz kategoriyi seçiniz.");
-                }
+                //MPKATEGORI mPKATEGORI = new MPKATEGORI()
+                //{
+                //    UstId = (int)treeView1.SelectedNode.Tag,
+                //    Acıklama = textBox1.Text
+                //};
+                //_kategoriServis.Ekle(mPKATEGORI);
+                //treeView1.Nodes.Clear();
+                MessageBox.Show(treeView1.SelectedNode.Tag.ToString());
+            }
+            else
+            {
+                MessageBox.Show("Lütfen alt kategori eklemek istediğiniz kategoriyi seçiniz.");
             }
         }
-    } }
+    }
+}
