@@ -1,4 +1,5 @@
 ﻿using MEYPAK.PRL.DEPO;
+using MEYPAK.PRL.SIPARIS;
 using MEYPAK.PRL.STOK;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,7 @@ namespace MEYPAK.PRL
             fStokSayim=new FStokSayim();
             fOlcuBrKart = new FOlcuBrKart();
             fSayimIsle = new FSayimIsle();
+            fSiparis = new FSiparis();
         }
         #region TANIMLAR
         FOlcuBrKart fOlcuBrKart;
@@ -31,6 +33,7 @@ namespace MEYPAK.PRL
         FDepoKart fDepoKart;
         FStokSayim fStokSayim;
         FSayimIsle fSayimIsle;
+        FSiparis fSiparis;
         #endregion
         void StokPanelAc()
         {
@@ -110,6 +113,16 @@ namespace MEYPAK.PRL
             fSayimIsle.Dock = DockStyle.Fill;
             panel2.Controls.Add(fSayimIsle);
             fSayimIsle.Show();
+        }
+
+        private void siparişTanımToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panel2.Controls.Clear();
+            fSiparis.TopLevel = false;
+            fSiparis.AutoScroll = true;
+            fSiparis.Dock = DockStyle.Fill;
+            panel2.Controls.Add(fSiparis);
+            fSiparis.Show();
         }
     }
 }

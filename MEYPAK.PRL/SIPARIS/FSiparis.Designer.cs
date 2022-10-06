@@ -69,7 +69,7 @@
             this.CHBKdvDahil = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.TBAciklama = new System.Windows.Forms.TextBox();
-            this.TBStokAdi = new System.Windows.Forms.TextBox();
+            this.TBCariAdi = new System.Windows.Forms.TextBox();
             this.BTStokSec = new System.Windows.Forms.Button();
             this.TBStokKodu = new System.Windows.Forms.TextBox();
             this.LBLCariKodu = new System.Windows.Forms.Label();
@@ -211,7 +211,7 @@
             this.groupBox1.Controls.Add(this.CHBKdvDahil);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.TBAciklama);
-            this.groupBox1.Controls.Add(this.TBStokAdi);
+            this.groupBox1.Controls.Add(this.TBCariAdi);
             this.groupBox1.Controls.Add(this.BTStokSec);
             this.groupBox1.Controls.Add(this.TBStokKodu);
             this.groupBox1.Controls.Add(this.LBLCariKodu);
@@ -482,13 +482,13 @@
             this.TBAciklama.Size = new System.Drawing.Size(179, 81);
             this.TBAciklama.TabIndex = 5;
             // 
-            // TBStokAdi
+            // TBCariAdi
             // 
-            this.TBStokAdi.Enabled = false;
-            this.TBStokAdi.Location = new System.Drawing.Point(75, 55);
-            this.TBStokAdi.Name = "TBStokAdi";
-            this.TBStokAdi.Size = new System.Drawing.Size(149, 23);
-            this.TBStokAdi.TabIndex = 3;
+            this.TBCariAdi.Enabled = false;
+            this.TBCariAdi.Location = new System.Drawing.Point(75, 55);
+            this.TBCariAdi.Name = "TBCariAdi";
+            this.TBCariAdi.Size = new System.Drawing.Size(149, 23);
+            this.TBCariAdi.TabIndex = 3;
             // 
             // BTStokSec
             // 
@@ -566,7 +566,7 @@
         private CheckBox CHBKdvDahil;
         private Label label3;
         private TextBox TBAciklama;
-        private TextBox TBStokAdi;
+        private TextBox TBCariAdi;
         private Button BTStokSec;
         private TextBox TBStokKodu;
         private Label LBLCariKodu;
