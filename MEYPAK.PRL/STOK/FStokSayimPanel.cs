@@ -2,7 +2,7 @@
 using MEYPAK.BLL.STOK;
 using MEYPAK.DAL.Abstract;
 using MEYPAK.DAL.Abstract.StokDal;
-using MEYPAK.DAL.Concrete.EntityFramewok.Repository;
+using MEYPAK.DAL.Concrete.EntityFramework.Repository;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository;
 using MEYPAK.Entity.Models;
@@ -20,7 +20,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles; 
+using System.Windows.Forms.VisualStyles;
 
 namespace MEYPAK.PRL.STOK
 {

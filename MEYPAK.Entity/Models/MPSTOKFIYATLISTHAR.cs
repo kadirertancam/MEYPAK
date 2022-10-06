@@ -12,10 +12,12 @@ namespace MEYPAK.Entity.Models
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
+        public int SIRKETID { get; set; }
+        public int SUBEID { get; set; }
         public DateTime OLUSTURMATARIHI { get; set; }
         public DateTime GUNCELLEMETARIHI { get; set; }
         public int STOKID { get; set; }
-        public int NUM { get; set; }
+        public int FIYATLISTID { get; set; }
         public decimal NETFIYAT { get; set; }
         public decimal ISKONTO { get; set; }
         public int KULLANICIID { get; set; }

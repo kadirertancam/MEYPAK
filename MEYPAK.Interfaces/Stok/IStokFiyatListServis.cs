@@ -9,6 +9,6 @@ namespace MEYPAK.Interfaces.Stok
 {
     public interface IStokFiyatListServis:IGenericServis<MPSTOKFIYATLIST>
     {
-        public Durum EkleyadaGuncelle(MPSTOKFIYATLIST entity);
+        public MPSTOKFIYATLIST EkleyadaGuncelle(MPSTOKFIYATLIST entity);
     }
 }

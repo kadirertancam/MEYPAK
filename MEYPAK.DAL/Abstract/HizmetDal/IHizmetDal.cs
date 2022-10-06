@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MEYPAK.DAL.Abstract
+namespace MEYPAK.DAL.Abstract.HizmetDal
 {
-    public interface IHizmetDal:IGeneric<MPHIZMET>
+    public interface IHizmetDal : IGeneric<MPHIZMET>
     {
         public Durum EkleyadaGuncelle(MPHIZMET entity);
 

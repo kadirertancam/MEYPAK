@@ -9,16 +9,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MEYPAK.DAL.Concrete.EntityFramewok.Repository
+namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
 {
     public class EFSiparisRepo : EFBaseRepo<MPSIPARIS>, ISiparisDal
     {
         MEYPAKContext context;
         public EFSiparisRepo(MEYPAKContext _context) : base(_context)
         {
-            this.context = _context;
+            context = _context;
         }
-        
+
         public Durum EkleyadaGuncelle(MPSIPARIS entity)
         {
             bool exists = context.MPSIPARIS.Any(x => x.ID == entity.ID);

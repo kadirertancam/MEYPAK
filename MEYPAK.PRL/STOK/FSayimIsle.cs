@@ -1,5 +1,5 @@
 ﻿using MEYPAK.BLL.STOK;
-using MEYPAK.DAL.Concrete.EntityFramewok.Repository;
+using MEYPAK.DAL.Concrete.EntityFramework.Repository;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository;
 using MEYPAK.Entity.Models;
@@ -66,8 +66,11 @@ namespace MEYPAK.PRL.STOK
         private void button3_Click(object sender, EventArgs e)
         {
             fSayimList.ShowDialog();
-            textBox1.Text = _tempSayim.ACIKLAMA;
-            dateTimePicker1.Value = _tempSayim.SAYIMTARIHI;
+            if (_tempSayim != null)
+            {
+                textBox1.Text = _tempSayim.ACIKLAMA;
+                dateTimePicker1.Value = _tempSayim.SAYIMTARIHI;
+            }
 
         }
     }

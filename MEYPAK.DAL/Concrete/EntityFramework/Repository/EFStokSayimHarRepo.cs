@@ -10,20 +10,20 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MEYPAK.DAL.Concrete.EntityFramewok.Repository
+namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
 {
-    public class EFStokSayimHarRepo :EFBaseRepo<MPSTOKSAYIMHAR> ,IStokSayimHarDal
+    public class EFStokSayimHarRepo : EFBaseRepo<MPSTOKSAYIMHAR>, IStokSayimHarDal
     {
-        MEYPAKContext context ;
+        MEYPAKContext context;
 
         public EFStokSayimHarRepo(MEYPAKContext _context) : base(_context)
         {
             context = _context;
-        //   context.MPSTOKSAYIMHAR.Include(x => x.MPSTOK).Load();
-          
+            //   context.MPSTOKSAYIMHAR.Include(x => x.MPSTOK).Load();
+
         }
-        
-       
+
+
         public Durum EkleyadaGuncelle(MPSTOKSAYIMHAR entity)
         {
             bool exists = context.MPSTOKSAYIMHAR.Any(x => x.ID == entity.ID);
@@ -43,6 +43,6 @@ namespace MEYPAK.DAL.Concrete.EntityFramewok.Repository
             }
         }
 
-       
+
     }
 }

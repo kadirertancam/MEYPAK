@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MEYPAK.DAL.Abstract
+namespace MEYPAK.DAL.Abstract.StokDal
 {
-    public interface IMarkaDal:IGeneric<MPMARKA>
+    public interface IMarkaDal : IGeneric<MPMARKA>
     {
 
         public Durum EkleyadaGuncelle(MPMARKA entity);

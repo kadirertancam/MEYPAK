@@ -1,5 +1,4 @@
-﻿using MEYPAK.DAL.Abstract;
-using MEYPAK.DAL.Concrete.EntityFramewok.Repository;
+﻿using MEYPAK.DAL.Abstract.StokDal;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.Entity.Models;
 using MEYPAK.Interfaces;
@@ -9,14 +8,14 @@ using System.Linq.Expressions;
 
 namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
 {
- 
-    public class EFStokRepo : EFBaseRepo<MPSTOK>,IStokDal
+
+    public class EFStokRepo : EFBaseRepo<MPSTOK>, IStokDal
     {
         MEYPAKContext _context;
 
         public EFStokRepo(MEYPAKContext context) : base(context)
         {
-            this._context = context;
+            _context = context;
             onYukle();
         }
         void onYukle()

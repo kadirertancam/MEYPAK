@@ -10,26 +10,26 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MEYPAK.DAL.Concrete.EntityFramewok.Repository
+namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
 {
-    public class EFBaseRepo<T> : IGeneric<T> where T : class,new()
+    public class EFBaseRepo<T> : IGeneric<T> where T : class, new()
     {
         private readonly MEYPAKContext context;
         public EFBaseRepo(MEYPAKContext _context)
         {
-            this.context = _context;
+            context = _context;
         }
-        public Interfaces.Durum Ekle(T entity)
+        public Durum Ekle(T entity)
         {
             context.Set<T>().Add(entity);
             context.SaveChanges();
-            return Interfaces.Durum.başarılı;
+            return Durum.başarılı;
 
 
 
         }
 
-     
+
 
 
         //public Durum EkleyadaGuncelle(T entity)
@@ -51,11 +51,11 @@ namespace MEYPAK.DAL.Concrete.EntityFramewok.Repository
         //    }
         //}
 
-    
-  
+
+
         public List<T> Getir(Expression<Func<T, bool>> predicate)
         {
-            
+
             return context.Set<T>().Where(predicate).ToList();
 
         }
@@ -69,7 +69,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramewok.Repository
 
         public List<T> Listele()
         {
-          
+
             return context.Set<T>().ToList();
 
 

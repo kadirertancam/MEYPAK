@@ -21,6 +21,7 @@ namespace MEYPAK.PRL.STOK
         FStokKart fSTOKKART;
         FStokHareket fStokHareket;
         FStokSayimPanel fstokSayimPanel;
+        FStokFiyatListPanel fstokFiyatListPanel;
         int id;
         string _islem;
         public FStokList(string islem="")
@@ -37,7 +38,7 @@ namespace MEYPAK.PRL.STOK
             fSTOKKART = (FStokKart)Application.OpenForms["FStokKart"];
             fStokHareket = (FStokHareket)Application.OpenForms["FStokHareket"];
             fstokSayimPanel = (FStokSayimPanel)Application.OpenForms["FStokSayimPanel"];
-
+            fstokFiyatListPanel = (FStokFiyatListPanel)Application.OpenForms["FStokFiyatListPanel"];
         }
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -55,6 +56,11 @@ namespace MEYPAK.PRL.STOK
             {
                 if (fStokHareket != null)
                     fStokHareket._tempStok = _stokServis.Getir(x => x.ID.ToString() == dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
+            }
+            else if (_islem == "stokfiyatlistpanel")
+            {
+                if (fStokHareket != null)
+                    fstokFiyatListPanel._tempStok = _stokServis.Getir(x => x.ID.ToString() == dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
             }
 
             this.Close();

@@ -19,7 +19,7 @@ namespace MEYPAK.BLL.STOK
             _stokFiyatListDal = generic;
         }
 
-        public Durum EkleyadaGuncelle(MPSTOKFIYATLIST entity)
+        public MPSTOKFIYATLIST EkleyadaGuncelle(MPSTOKFIYATLIST entity)
         {
             return _stokFiyatListDal.EkleyadaGuncelle(entity);
         }

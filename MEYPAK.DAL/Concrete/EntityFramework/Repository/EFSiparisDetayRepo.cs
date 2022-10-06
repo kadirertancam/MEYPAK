@@ -8,14 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MEYPAK.DAL.Concrete.EntityFramewok.Repository
+namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
 {
     public class EFSiparisDetayRepo : EFBaseRepo<MPSIPARISDETAY>, ISiparisDetayDal
     {
         MEYPAKContext context;
         public EFSiparisDetayRepo(MEYPAKContext _context) : base(_context)
         {
-            this.context = _context;
+            context = _context;
         }
 
         public Durum EkleyadaGuncelle(MPSIPARISDETAY entity)

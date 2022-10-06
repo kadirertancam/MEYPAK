@@ -9,9 +9,9 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MEYPAK.DAL.Concrete.EntityFramewok.Repository
+namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
 {
-    public class EFKategoriRepo :EFBaseRepo<MPKATEGORI> ,IKategoriDal
+    public class EFKategoriRepo : EFBaseRepo<MPKATEGORI>, IKategoriDal
     {
 
         MEYPAKContext context;
@@ -39,6 +39,6 @@ namespace MEYPAK.DAL.Concrete.EntityFramewok.Repository
             }
         }
 
-      
+
     }
 }

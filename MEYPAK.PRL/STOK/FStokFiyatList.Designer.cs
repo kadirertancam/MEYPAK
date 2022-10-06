@@ -33,15 +33,15 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.button2 = new System.Windows.Forms.Button();
+            this.CHBAktif = new System.Windows.Forms.CheckBox();
+            this.DTPBittar = new System.Windows.Forms.DateTimePicker();
+            this.DTPBastar = new System.Windows.Forms.DateTimePicker();
+            this.BTSil = new System.Windows.Forms.Button();
             this.BTKaydet = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.LBBastar = new System.Windows.Forms.Label();
+            this.LBFiyatListesiAdi = new System.Windows.Forms.Label();
+            this.TBFiyatListesiAdi = new System.Windows.Forms.TextBox();
+            this.CHBBittar = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -90,15 +90,15 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.checkBox1);
-            this.groupBox1.Controls.Add(this.dateTimePicker2);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
-            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.CHBBittar);
+            this.groupBox1.Controls.Add(this.CHBAktif);
+            this.groupBox1.Controls.Add(this.DTPBittar);
+            this.groupBox1.Controls.Add(this.DTPBastar);
+            this.groupBox1.Controls.Add(this.BTSil);
             this.groupBox1.Controls.Add(this.BTKaydet);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.LBBastar);
+            this.groupBox1.Controls.Add(this.LBFiyatListesiAdi);
+            this.groupBox1.Controls.Add(this.TBFiyatListesiAdi);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
@@ -107,40 +107,40 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Fiyat Listesi";
             // 
-            // checkBox1
+            // CHBAktif
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(110, 69);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(51, 19);
-            this.checkBox1.TabIndex = 7;
-            this.checkBox1.Text = "Aktif";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.CHBAktif.AutoSize = true;
+            this.CHBAktif.Location = new System.Drawing.Point(110, 69);
+            this.CHBAktif.Name = "CHBAktif";
+            this.CHBAktif.Size = new System.Drawing.Size(51, 19);
+            this.CHBAktif.TabIndex = 7;
+            this.CHBAktif.Text = "Aktif";
+            this.CHBAktif.UseVisualStyleBackColor = true;
             // 
-            // dateTimePicker2
+            // DTPBittar
             // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(628, 41);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(152, 23);
-            this.dateTimePicker2.TabIndex = 6;
+            this.DTPBittar.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DTPBittar.Location = new System.Drawing.Point(628, 41);
+            this.DTPBittar.Name = "DTPBittar";
+            this.DTPBittar.Size = new System.Drawing.Size(152, 23);
+            this.DTPBittar.TabIndex = 6;
             // 
-            // dateTimePicker1
+            // DTPBastar
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(381, 41);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(152, 23);
-            this.dateTimePicker1.TabIndex = 5;
+            this.DTPBastar.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DTPBastar.Location = new System.Drawing.Point(381, 41);
+            this.DTPBastar.Name = "DTPBastar";
+            this.DTPBastar.Size = new System.Drawing.Size(152, 23);
+            this.DTPBastar.TabIndex = 5;
             // 
-            // button2
+            // BTSil
             // 
-            this.button2.Location = new System.Drawing.Point(960, 38);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(105, 53);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Sil";
-            this.button2.UseVisualStyleBackColor = true;
+            this.BTSil.Location = new System.Drawing.Point(960, 38);
+            this.BTSil.Name = "BTSil";
+            this.BTSil.Size = new System.Drawing.Size(105, 53);
+            this.BTSil.TabIndex = 4;
+            this.BTSil.Text = "Sil";
+            this.BTSil.UseVisualStyleBackColor = true;
             // 
             // BTKaydet
             // 
@@ -152,39 +152,40 @@
             this.BTKaydet.UseVisualStyleBackColor = true;
             this.BTKaydet.Click += new System.EventHandler(this.BTKayet_Click);
             // 
-            // label3
+            // LBBastar
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(562, 44);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 15);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Bitiş Tarihi";
+            this.LBBastar.AutoSize = true;
+            this.LBBastar.Location = new System.Drawing.Point(292, 44);
+            this.LBBastar.Name = "LBBastar";
+            this.LBBastar.Size = new System.Drawing.Size(88, 15);
+            this.LBBastar.TabIndex = 2;
+            this.LBBastar.Text = "Başlangıç Tarihi";
             // 
-            // label2
+            // LBFiyatListesiAdi
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(292, 44);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(88, 15);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Başlangıç Tarihi";
+            this.LBFiyatListesiAdi.AutoSize = true;
+            this.LBFiyatListesiAdi.Location = new System.Drawing.Point(16, 44);
+            this.LBFiyatListesiAdi.Name = "LBFiyatListesiAdi";
+            this.LBFiyatListesiAdi.Size = new System.Drawing.Size(88, 15);
+            this.LBFiyatListesiAdi.TabIndex = 1;
+            this.LBFiyatListesiAdi.Text = "Fiyat Listesi Adı";
             // 
-            // label1
+            // TBFiyatListesiAdi
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 44);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 15);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Fiyat Listesi Adı";
+            this.TBFiyatListesiAdi.Location = new System.Drawing.Point(110, 41);
+            this.TBFiyatListesiAdi.Name = "TBFiyatListesiAdi";
+            this.TBFiyatListesiAdi.Size = new System.Drawing.Size(156, 23);
+            this.TBFiyatListesiAdi.TabIndex = 0;
             // 
-            // textBox1
+            // CHBBittar
             // 
-            this.textBox1.Location = new System.Drawing.Point(110, 41);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(156, 23);
-            this.textBox1.TabIndex = 0;
+            this.CHBBittar.AutoSize = true;
+            this.CHBBittar.Location = new System.Drawing.Point(541, 45);
+            this.CHBBittar.Name = "CHBBittar";
+            this.CHBBittar.Size = new System.Drawing.Size(79, 19);
+            this.CHBBittar.TabIndex = 8;
+            this.CHBBittar.Text = "Bitiş Tarihi";
+            this.CHBBittar.UseVisualStyleBackColor = true;
             // 
             // FStokFiyatList
             // 
@@ -192,6 +193,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1079, 645);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FStokFiyatList";
             this.Text = "FStokFiyatList";
             this.panel1.ResumeLayout(false);
@@ -211,14 +213,14 @@
         private DataGridView dataGridView1;
         private Panel panel2;
         private GroupBox groupBox1;
-        private CheckBox checkBox1;
-        private DateTimePicker dateTimePicker2;
-        private DateTimePicker dateTimePicker1;
-        private Button button2;
+        private CheckBox CHBAktif;
+        private DateTimePicker DTPBittar;
+        private DateTimePicker DTPBastar;
+        private Button BTSil;
         private Button BTKaydet;
-        private Label label3;
-        private Label label2;
-        private Label label1;
-        private TextBox textBox1;
+        private Label LBBastar;
+        private Label LBFiyatListesiAdi;
+        private TextBox TBFiyatListesiAdi;
+        private CheckBox CHBBittar;
     }
 }

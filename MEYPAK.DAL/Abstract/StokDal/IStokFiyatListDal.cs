@@ -10,6 +10,6 @@ namespace MEYPAK.DAL.Abstract.StokDal
 {
     public interface IStokFiyatListDal:IGeneric<MPSTOKFIYATLIST>
     {
-        public Durum EkleyadaGuncelle(MPSTOKFIYATLIST entity);
+        public MPSTOKFIYATLIST EkleyadaGuncelle(MPSTOKFIYATLIST entity);
     }
 }

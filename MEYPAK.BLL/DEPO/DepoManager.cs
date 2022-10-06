@@ -1,5 +1,5 @@
 ﻿using MEYPAK.DAL;
-using MEYPAK.DAL.Abstract;
+using MEYPAK.DAL.Abstract.DepoDal;
 using MEYPAK.Entity.Models;
 using MEYPAK.Interfaces;
 using MEYPAK.Interfaces.Depo;

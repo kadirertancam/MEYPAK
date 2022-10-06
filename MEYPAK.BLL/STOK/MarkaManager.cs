@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using MEYPAK.DAL;
-using MEYPAK.DAL.Abstract;
+using MEYPAK.DAL.Abstract.StokDal;
 using MEYPAK.Entity.Models;
 using MEYPAK.Interfaces;
 using MEYPAK.Interfaces.Stok;

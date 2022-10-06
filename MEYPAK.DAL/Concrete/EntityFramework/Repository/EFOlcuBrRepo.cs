@@ -1,4 +1,4 @@
-﻿using MEYPAK.DAL.Abstract.PersonelDal;
+﻿using MEYPAK.DAL.Abstract.StokDal;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.Entity.Models;
 using MEYPAK.Interfaces;
@@ -9,38 +9,39 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MEYPAK.DAL.Concrete.EntityFramewok.Repository
+namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
 {
-    public class EFPersonelRepo :EFBaseRepo<MPPERSONEL> ,IPersonelDal
+    public class EFOlcuBrRepo : EFBaseRepo<MPOLCUBR>, IOlcuBrDal
     {
-        MEYPAKContext context ;
+        MEYPAKContext context;
 
-        public EFPersonelRepo(MEYPAKContext _context) : base(_context)
+        public EFOlcuBrRepo(MEYPAKContext _context) : base(_context)
         {
             context = _context;
         }
 
-        
 
-        public Durum EkleyadaGuncelle(MPPERSONEL entity)
+        public Durum EkleyadaGuncelle(MPOLCUBR entity)
         {
-            bool exists = context.MPPERSONEL.Any(x => x.ID == entity.ID);
+            bool exists = context.MPOLCUBR.Any(x => x.ID == entity.ID);
+
             if (!exists)
             {
-                context.MPPERSONEL.Add(entity);
+                context.MPOLCUBR.Add(entity);
                 context.SaveChanges();
                 return Durum.kayıtbaşarılı;
             }
             else
             {
-                MPPERSONEL temp = context.MPPERSONEL.Where(x => x.ID == entity.ID).FirstOrDefault();
+                MPOLCUBR temp = context.MPOLCUBR.Where(x => x.ID == entity.ID).FirstOrDefault();
                 context.ChangeTracker.Clear();
-                context.MPPERSONEL.Update(entity);
+                context.MPOLCUBR.Update(entity);
                 context.SaveChanges();
                 return Durum.güncellemebaşarılı;
             }
+
         }
 
-       
+
     }
 }

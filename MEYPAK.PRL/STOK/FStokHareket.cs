@@ -1,7 +1,7 @@
 ﻿using MEYPAK.BLL.DEPO;
 using MEYPAK.BLL.STOK;
 using MEYPAK.DAL.Abstract;
-using MEYPAK.DAL.Concrete.EntityFramewok.Repository;
+using MEYPAK.DAL.Concrete.EntityFramework.Repository;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository;
 using MEYPAK.Entity.Models;

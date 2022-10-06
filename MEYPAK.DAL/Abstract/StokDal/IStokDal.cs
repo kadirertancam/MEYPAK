@@ -7,9 +7,9 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MEYPAK.DAL.Abstract
+namespace MEYPAK.DAL.Abstract.StokDal
 {
-    public interface IStokDal:IGeneric<MPSTOK>
+    public interface IStokDal : IGeneric<MPSTOK>
     {
         public Durum EkleyadaGuncelle(MPSTOK entity);
     }

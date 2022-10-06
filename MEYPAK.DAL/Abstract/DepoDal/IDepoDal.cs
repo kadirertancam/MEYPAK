@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MEYPAK.DAL.Abstract
+namespace MEYPAK.DAL.Abstract.DepoDal
 {
-    public interface IDepoDal:IGeneric<MPDEPO>
+    public interface IDepoDal : IGeneric<MPDEPO>
     {
         public Durum EkleyadaGuncelle(MPDEPO entity);
 
