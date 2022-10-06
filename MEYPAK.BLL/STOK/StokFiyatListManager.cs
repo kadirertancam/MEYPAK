@@ -1,6 +1,7 @@
 ﻿using MEYPAK.DAL.Abstract;
 using MEYPAK.DAL.Abstract.StokDal;
 using MEYPAK.Entity.Models;
+using MEYPAK.Entity.PocoModels;
 using MEYPAK.Interfaces;
 using MEYPAK.Interfaces.Stok;
 using System;
@@ -22,6 +23,11 @@ namespace MEYPAK.BLL.STOK
         public MPSTOKFIYATLIST EkleyadaGuncelle(MPSTOKFIYATLIST entity)
         {
             return _stokFiyatListDal.EkleyadaGuncelle(entity);
+        }
+
+        public List<PocoStokFiyatList> PocoStokFiyatListesi()
+        {
+            return _stokFiyatListDal.PocoStokFiyatListesi();
         }
     }
 }

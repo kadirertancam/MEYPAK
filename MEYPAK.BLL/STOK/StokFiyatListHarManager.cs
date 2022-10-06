@@ -17,5 +17,10 @@ namespace MEYPAK.BLL.STOK
         {
             this._stokFiyatListDal = generic;
         }
+
+        public MPSTOKFIYATLISTHAR EkleyadaGuncelle(MPSTOKFIYATLISTHAR entity)
+        {
+            return _stokFiyatListDal.EkleyadaGuncelle(entity);
+        }
     }
 }

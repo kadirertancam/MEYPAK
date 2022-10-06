@@ -1,5 +1,6 @@
 using MEYPAK.PRL.Assets;
 using MEYPAK.PRL.PERSONEL;
+using MEYPAK.PRL.SIPARIS;
 using MEYPAK.PRL.STOK;
 using static MEYPAK.PRL.Assets.NinjectFactory;
 
@@ -18,7 +19,7 @@ namespace MEYPAK.PRL
             DependencyModule a = new DependencyModule();
             NinjectFactory.CompositionRoot.Initialize(a);
             ApplicationConfiguration.Initialize();
-            Application.Run(new Main());
+            Application.Run(new FStokFiyatList());
         }
     }
 }

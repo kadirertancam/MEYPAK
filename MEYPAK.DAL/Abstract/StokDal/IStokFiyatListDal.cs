@@ -1,4 +1,5 @@
 ﻿using MEYPAK.Entity.Models;
+using MEYPAK.Entity.PocoModels;
 using MEYPAK.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -11,5 +12,7 @@ namespace MEYPAK.DAL.Abstract.StokDal
     public interface IStokFiyatListDal:IGeneric<MPSTOKFIYATLIST>
     {
         public MPSTOKFIYATLIST EkleyadaGuncelle(MPSTOKFIYATLIST entity);
+
+        List<PocoStokFiyatList> PocoStokFiyatListesi();
     }
 }

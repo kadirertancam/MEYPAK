@@ -45,7 +45,7 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.TBIskonto = new System.Windows.Forms.TextBox();
             this.LBIskonto = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.CMBDovizId = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.TBKur = new System.Windows.Forms.TextBox();
             this.LBKur = new System.Windows.Forms.Label();
@@ -159,6 +159,7 @@
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Enabled = false;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
@@ -197,7 +198,7 @@
             // 
             this.groupBox3.Controls.Add(this.TBIskonto);
             this.groupBox3.Controls.Add(this.LBIskonto);
-            this.groupBox3.Controls.Add(this.comboBox1);
+            this.groupBox3.Controls.Add(this.CMBDovizId);
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.BTStokSil);
             this.groupBox3.Controls.Add(this.BTTemizle);
@@ -234,13 +235,13 @@
             this.LBIskonto.TabIndex = 16;
             this.LBIskonto.Text = "İskonto";
             // 
-            // comboBox1
+            // CMBDovizId
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(415, 30);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(173, 23);
-            this.comboBox1.TabIndex = 15;
+            this.CMBDovizId.FormattingEnabled = true;
+            this.CMBDovizId.Location = new System.Drawing.Point(415, 30);
+            this.CMBDovizId.Name = "CMBDovizId";
+            this.CMBDovizId.Size = new System.Drawing.Size(173, 23);
+            this.CMBDovizId.TabIndex = 15;
             // 
             // label2
             // 
@@ -333,7 +334,7 @@
         private Label label1;
         private Button button1;
         private GroupBox groupBox3;
-        private ComboBox comboBox1;
+        private ComboBox CMBDovizId;
         private Label label2;
         private TextBox TBKur;
         private Label LBKur;
