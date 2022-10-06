@@ -69,6 +69,7 @@
             this.BTStokSil.TabIndex = 13;
             this.BTStokSil.Text = "Sil";
             this.BTStokSil.UseVisualStyleBackColor = true;
+            this.BTStokSil.Click += new System.EventHandler(this.BTStokSil_Click);
             // 
             // BTTemizle
             // 
@@ -78,6 +79,7 @@
             this.BTTemizle.TabIndex = 12;
             this.BTTemizle.Text = "Temizle";
             this.BTTemizle.UseVisualStyleBackColor = true;
+            this.BTTemizle.Click += new System.EventHandler(this.BTTemizle_Click);
             // 
             // BTStokKaydet
             // 
@@ -134,6 +136,7 @@
             this.BTCık.TabIndex = 1;
             this.BTCık.Text = "Çık";
             this.BTCık.UseVisualStyleBackColor = true;
+            this.BTCık.Click += new System.EventHandler(this.BTCık_Click);
             // 
             // BTKaydet
             // 
@@ -159,12 +162,13 @@
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Enabled = false;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1039, 424);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_DoubleClick);
             // 
             // TBStokAdi
             // 
