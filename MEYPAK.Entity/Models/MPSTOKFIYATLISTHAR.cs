@@ -20,6 +20,8 @@ namespace MEYPAK.Entity.Models
         public int STOKID { get; set; }
         [ForeignKey("MPSTOKFIYATLIST")]
         public int FIYATLISTID { get; set; }
+        public int DOVIZID { get; set; }
+        public decimal KUR { get; set; }
         public decimal NETFIYAT { get; set; }
         public decimal ISKONTO { get; set; }
         public int KULLANICIID { get; set; }

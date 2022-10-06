@@ -33,6 +33,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.CHBBittar = new System.Windows.Forms.CheckBox();
             this.CHBAktif = new System.Windows.Forms.CheckBox();
             this.DTPBittar = new System.Windows.Forms.DateTimePicker();
             this.DTPBastar = new System.Windows.Forms.DateTimePicker();
@@ -41,7 +42,6 @@
             this.LBBastar = new System.Windows.Forms.Label();
             this.LBFiyatListesiAdi = new System.Windows.Forms.Label();
             this.TBFiyatListesiAdi = new System.Windows.Forms.TextBox();
-            this.CHBBittar = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -78,6 +78,7 @@
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(1079, 536);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // panel2
             // 
@@ -106,6 +107,16 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Fiyat Listesi";
+            // 
+            // CHBBittar
+            // 
+            this.CHBBittar.AutoSize = true;
+            this.CHBBittar.Location = new System.Drawing.Point(541, 45);
+            this.CHBBittar.Name = "CHBBittar";
+            this.CHBBittar.Size = new System.Drawing.Size(79, 19);
+            this.CHBBittar.TabIndex = 8;
+            this.CHBBittar.Text = "Bitiş Tarihi";
+            this.CHBBittar.UseVisualStyleBackColor = true;
             // 
             // CHBAktif
             // 
@@ -177,16 +188,6 @@
             this.TBFiyatListesiAdi.Size = new System.Drawing.Size(156, 23);
             this.TBFiyatListesiAdi.TabIndex = 0;
             // 
-            // CHBBittar
-            // 
-            this.CHBBittar.AutoSize = true;
-            this.CHBBittar.Location = new System.Drawing.Point(541, 45);
-            this.CHBBittar.Name = "CHBBittar";
-            this.CHBBittar.Size = new System.Drawing.Size(79, 19);
-            this.CHBBittar.TabIndex = 8;
-            this.CHBBittar.Text = "Bitiş Tarihi";
-            this.CHBBittar.UseVisualStyleBackColor = true;
-            // 
             // FStokFiyatList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -196,6 +197,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FStokFiyatList";
             this.Text = "FStokFiyatList";
+            this.Load += new System.EventHandler(this.FStokFiyatList_Load);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
