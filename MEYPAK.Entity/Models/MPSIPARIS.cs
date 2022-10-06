@@ -42,10 +42,10 @@ namespace MEYPAK.Entity.Models
         [DefaultValue(0)]
         public int DOVIZID { get; set; }
         public decimal KUR { get; set; }
-        
+
         [StringLength(50)]
-        public string SERINO { get; set; }
-        public string BELGENO { get; set; }
+        public string SERINO { get; set; } = "";
+        public string BELGENO { get; set; } = "";
         public bool KDVDAHİL { get; set; }
         public decimal ISKONTO { get; set; }
         public decimal NETTOPLAM { get; set; }

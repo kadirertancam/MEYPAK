@@ -65,6 +65,7 @@ namespace MEYPAK.PRL.STOK
                 //TBFiyat.Text = IO == 1 ? _tempStok.AFIYAT1.ToString() : _tempStok.SATISKDV.ToString();
                 BakiyeGuncelle();
                 dataGridView1.DataSource = _stokHarServis.PocoStokHareketListesi(_tempStok.ID);
+               // _tempStok = null;
                 
 
             }
@@ -144,6 +145,12 @@ namespace MEYPAK.PRL.STOK
         private void TBStokKodu_Leave(object sender, EventArgs e)
         {
             _tempStok = _stokServis.Getir(x => x.KOD == TBStokKodu.Text).FirstOrDefault();
+            Doldur();
+        }
+
+        private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            _tempStok = _stokServis.Getir(x => x.KOD.ToString() == dataGridView1.Rows[e.RowIndex].Cells["KOD"].Value.ToString()).FirstOrDefault();
             Doldur();
         }
     }
