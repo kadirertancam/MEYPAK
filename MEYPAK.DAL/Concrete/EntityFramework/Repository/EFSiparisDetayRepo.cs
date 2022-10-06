@@ -3,6 +3,7 @@ using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.Entity.Models;
 using MEYPAK.Entity.PocoModels;
 using MEYPAK.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -39,14 +40,25 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
                 return Durum.güncellemebaşarılı;
             }
         }
+        void onYukle()
+        {
 
-        public List<PocoSiparisKalem> PocoSiparisDetayListesi(int id)
+            var emp = context..ToList();
+            foreach (var item in emp)
+            {
+                context.Entry(item)
+                    .Collection(e => e.MPSTOKOLCUBR)
+                .Load();
+ 
+            }
+        }
+            public List<PocoSiparisKalem> PocoSiparisDetayListesi(int id)
         {
             var snc = context.MPSIPARISDETAY.AsNoTracking().Where(x => context.MPSIPARISDETAY.Where(z => z.ID == id).FirstOrDefault().ID == x.STOKID).Select(x => new PocoSiparisKalem
             {
                 Acıklama = x.ACIKLAMA,
                 StokAdı = x.STOKADI,
-                Birim = x.BIRIMID,
+              //  Birim = x.BIRIMID,
 
                 //Acıklama = x.ACIKLAMA,
                 //BelgeNo = x.BELGE_NO,

@@ -16,13 +16,16 @@ namespace MEYPAK.Entity.Models
         public int SUBEID { get; set; }
         public DateTime OLUSTURMATARIHI { get; set; }
         public DateTime GUNCELLEMETARIHI { get; set; }
+        [ForeignKey("MPSTOK")]
         public int STOKID { get; set; }
+        [ForeignKey("MPSTOKFIYATLIST")]
         public int FIYATLISTID { get; set; }
         public decimal NETFIYAT { get; set; }
         public decimal ISKONTO { get; set; }
         public int KULLANICIID { get; set; }
         public int KAYITTIPI { get; set; }
-        public int AKTIF { get; set; }
-
+        public int AKTIF { get; set; } 
+        public virtual MPSTOK MPSTOK { get; set; }
+        public virtual MPSTOKFIYATLIST MPSTOKFIYATLIST { get; set; }
     }
 }
