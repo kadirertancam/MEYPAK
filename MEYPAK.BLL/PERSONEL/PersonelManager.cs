@@ -18,7 +18,7 @@ namespace MEYPAK.BLL.PERSONEL
         {
             this._personelDal = personelDal;
         }
-        public Durum Ekle(MPPERSONEL entity)
+        public MPPERSONEL Ekle(MPPERSONEL entity)
         {
             return _personelDal.Ekle(entity);
         }

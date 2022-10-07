@@ -15,6 +15,6 @@ namespace MEYPAK.Interfaces
         bool Sil(List<T> entity);
         Durum Guncelle(T entity); 
 
-        Durum Ekle(T entity);
+        T Ekle(T entity);
     }
 }

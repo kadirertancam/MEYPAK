@@ -4,6 +4,7 @@ using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MEYPAK.DAL.Migrations
 {
     [DbContext(typeof(MEYPAKContext))]
-    partial class MEYPAKContextModelSnapshot : ModelSnapshot
+    [Migration("20221006134815_MEYPAKSiparisKalemDetay")]
+    partial class MEYPAKSiparisKalemDetay
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -579,11 +581,10 @@ namespace MEYPAK.DAL.Migrations
 
             modelBuilder.Entity("MEYPAK.Entity.Models.MPSIPARISDETAY", b =>
                 {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
+                    b.Property<int>("STOKID")
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("STOKID"), 1L, 1);
 
                     b.Property<string>("ACIKLAMA")
                         .IsRequired()
@@ -611,6 +612,9 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<byte>("HARIKETDURUMU")
                         .HasColumnType("tinyint");
 
+                    b.Property<int>("ID")
+                        .HasColumnType("int");
+
                     b.Property<decimal>("ISTKONTO1")
                         .HasColumnType("decimal(18,2)");
 
@@ -623,8 +627,8 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<byte>("KAYITTIPI")
                         .HasColumnType("tinyint");
 
-                    b.Property<decimal>("KDV")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<int>("KDV")
+                        .HasColumnType("int");
 
                     b.Property<int>("KULLANICIID")
                         .HasColumnType("int");
@@ -632,8 +636,8 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<int>("LISTEFIYATID")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("MIKTAR")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<int>("MIKTAR")
+                        .HasColumnType("int");
 
                     b.Property<decimal>("NETFIYAT")
                         .HasColumnType("decimal(18,2)");
@@ -652,19 +656,14 @@ namespace MEYPAK.DAL.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int>("STOKID")
-                        .HasColumnType("int");
-
                     b.Property<byte>("TIP")
                         .HasColumnType("tinyint");
 
-                    b.HasKey("ID");
+                    b.HasKey("STOKID");
 
                     b.HasIndex("SIPARISID");
 
-                    b.HasIndex("STOKID");
-
-                    b.ToTable("MPSIPARISDETAY");
+                    b.ToView("VW_SIPARISKALEM");
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.MPSTOK", b =>
@@ -1189,6 +1188,63 @@ namespace MEYPAK.DAL.Migrations
                     b.ToTable("MPSTOKSAYIMHAR");
                 });
 
+            modelBuilder.Entity("MEYPAK.Entity.PocoModels.PocoSiparisKalem", b =>
+                {
+                    b.Property<int>("StokId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("StokId"), 1L, 1);
+
+                    b.Property<string>("Acıklama")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Birim")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("BrütToplam")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("Doviz")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Kdv")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("Miktar")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("NetFiyat")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("NetToplam")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("StokAdı")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("StokKodu")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("İskonto1")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("İskonto2")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("İskonto3")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("StokId");
+
+                    b.ToTable("VW_SIPARISKALEM");
+                });
+
             modelBuilder.Entity("MEYPAK.Entity.Models.MPSIPARISDETAY", b =>
                 {
                     b.HasOne("MEYPAK.Entity.Models.MPSIPARIS", "SIPARIS")
@@ -1196,14 +1252,6 @@ namespace MEYPAK.DAL.Migrations
                         .HasForeignKey("SIPARISID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("MEYPAK.Entity.Models.MPSTOK", "MPSTOK")
-                        .WithMany("MPSIPARISDETAY")
-                        .HasForeignKey("STOKID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("MPSTOK");
 
                     b.Navigation("SIPARIS");
                 });
@@ -1293,8 +1341,6 @@ namespace MEYPAK.DAL.Migrations
 
             modelBuilder.Entity("MEYPAK.Entity.Models.MPSTOK", b =>
                 {
-                    b.Navigation("MPSIPARISDETAY");
-
                     b.Navigation("MPSTOKFIYATLISTHAR");
 
                     b.Navigation("MPSTOKHAR");

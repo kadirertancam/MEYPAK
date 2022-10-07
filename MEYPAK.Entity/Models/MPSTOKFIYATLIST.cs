@@ -8,6 +8,10 @@ namespace MEYPAK.Entity.Models
 {
     public class MPSTOKFIYATLIST
     {
+        public MPSTOKFIYATLIST()
+        {
+            MPSTOKFIYATLISTHAR = new HashSet<MPSTOKFIYATLISTHAR>();
+        }
         public int ID { get; set; }
         public int SIRKETID { get; set; } = 0;
         public int SUBEID { get; set; } = 0;

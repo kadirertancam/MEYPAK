@@ -15,6 +15,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
     {
         public MEYPAKContext()
         {
+
         }
 
         public MEYPAKContext(DbContextOptions<MEYPAKContext> options)

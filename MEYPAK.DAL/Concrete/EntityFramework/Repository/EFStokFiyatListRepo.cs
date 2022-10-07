@@ -12,6 +12,22 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
         public EFStokFiyatListRepo(MEYPAKContext context) : base(context)
         {
             _context = context;
+            onYukle();
+        }
+        void onYukle()
+        {
+            var emp2 = _context.MPSTOK.ToList();
+           
+            var emp = _context.MPSTOKFIYATLIST.ToList();
+            foreach (var item in emp)
+            {
+                _context.Entry(item)
+                    .Collection(e => e.MPSTOKFIYATLISTHAR)
+                    .Load();
+               
+
+            } 
+
         }
         public MPSTOKFIYATLIST EkleyadaGuncelle(MPSTOKFIYATLIST entity)
         {

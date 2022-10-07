@@ -19,11 +19,11 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
         {
             context = _context;
         }
-        public Durum Ekle(T entity)
+        public T Ekle(T entity)
         {
             context.Set<T>().Add(entity);
             context.SaveChanges();
-            return Durum.başarılı;
+            return entity;
 
 
 

@@ -4,6 +4,7 @@ using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MEYPAK.DAL.Migrations
 {
     [DbContext(typeof(MEYPAKContext))]
-    partial class MEYPAKContextModelSnapshot : ModelSnapshot
+    [Migration("20221006134118_MEYPAKSiparis")]
+    partial class MEYPAKSiparis
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -623,8 +625,8 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<byte>("KAYITTIPI")
                         .HasColumnType("tinyint");
 
-                    b.Property<decimal>("KDV")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<int>("KDV")
+                        .HasColumnType("int");
 
                     b.Property<int>("KULLANICIID")
                         .HasColumnType("int");
@@ -632,8 +634,8 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<int>("LISTEFIYATID")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("MIKTAR")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<int>("MIKTAR")
+                        .HasColumnType("int");
 
                     b.Property<decimal>("NETFIYAT")
                         .HasColumnType("decimal(18,2)");
@@ -661,8 +663,6 @@ namespace MEYPAK.DAL.Migrations
                     b.HasKey("ID");
 
                     b.HasIndex("SIPARISID");
-
-                    b.HasIndex("STOKID");
 
                     b.ToTable("MPSIPARISDETAY");
                 });
@@ -1197,14 +1197,6 @@ namespace MEYPAK.DAL.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MEYPAK.Entity.Models.MPSTOK", "MPSTOK")
-                        .WithMany("MPSIPARISDETAY")
-                        .HasForeignKey("STOKID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("MPSTOK");
-
                     b.Navigation("SIPARIS");
                 });
 
@@ -1293,8 +1285,6 @@ namespace MEYPAK.DAL.Migrations
 
             modelBuilder.Entity("MEYPAK.Entity.Models.MPSTOK", b =>
                 {
-                    b.Navigation("MPSIPARISDETAY");
-
                     b.Navigation("MPSTOKFIYATLISTHAR");
 
                     b.Navigation("MPSTOKHAR");

@@ -20,7 +20,7 @@ namespace MEYPAK.BLL.STOK
 
         }
 
-        public Interfaces.Durum Ekle(T entity)
+        public T Ekle(T entity)
         {
             return _generic.Ekle(entity);
         } 

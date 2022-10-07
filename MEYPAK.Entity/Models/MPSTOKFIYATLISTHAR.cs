@@ -18,7 +18,7 @@ namespace MEYPAK.Entity.Models
         public DateTime GUNCELLEMETARIHI { get; set; }
         [ForeignKey("MPSTOK")]
         public int STOKID { get; set; }
-        [ForeignKey("MPSTOKFIYATLIST")]
+      
         public int FIYATLISTID { get; set; }
         public int DOVIZID { get; set; }
         public decimal KUR { get; set; }
@@ -28,6 +28,7 @@ namespace MEYPAK.Entity.Models
         public int KAYITTIPI { get; set; }
         public int AKTIF { get; set; } 
         public virtual MPSTOK MPSTOK { get; set; }
-        public virtual MPSTOKFIYATLIST MPSTOKFIYATLIST { get; set; }
+        [ForeignKey("FIYATLISTID")]
+        public virtual MPSTOKFIYATLIST MPSTOKFIYATLIST { get; set; }=new MPSTOKFIYATLIST();
     }
 }

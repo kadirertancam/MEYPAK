@@ -27,7 +27,9 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
                 _context.Entry(item)
                     .Collection(e => e.MPSTOKOLCUBR)
                     .Load();
-
+                _context.Entry(item)
+                   .Collection(e => e.MPSIPARISDETAY)
+                   .Load(); 
                 _context.Entry(item)
                     .Collection(e => e.MPSTOKHAR)
                     .Load();
@@ -37,6 +39,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
                 _context.Entry(item)
                     .Collection(e => e.MPSTOKFIYATLISTHAR)
                     .Load();
+               
             }
             var emp2 = _context.MPOLCUBR.ToList();
             foreach (var item in emp2)

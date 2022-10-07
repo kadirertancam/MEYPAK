@@ -20,7 +20,7 @@ namespace MEYPAK.BLL.DEPO
         {
             _depoDal = depoDal;
         }
-        public Interfaces.Durum Ekle(MPDEPO entity)
+        public MPDEPO Ekle(MPDEPO entity)
         {
             return _depoDal.Ekle(entity);
         }

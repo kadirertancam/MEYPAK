@@ -426,7 +426,9 @@
             this.dataGridView1.Size = new System.Drawing.Size(1900, 521);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellLeave);
             this.dataGridView1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dataGridView1_KeyPress);
+            this.dataGridView1.Leave += new System.EventHandler(this.dataGridView1_Leave);
             // 
             // panel2
             // 
@@ -586,6 +588,7 @@
             this.TBSVadeGunu.Name = "TBSVadeGunu";
             this.TBSVadeGunu.Size = new System.Drawing.Size(46, 23);
             this.TBSVadeGunu.TabIndex = 31;
+            this.TBSVadeGunu.Text = "0";
             // 
             // TBKur
             // 

@@ -19,7 +19,7 @@ namespace MEYPAK.BLL.HIZMET
         {
             _hizmetDal = hizmetDal;
         }
-        public Interfaces.Durum Ekle(MPHIZMET entity)
+        public MPHIZMET Ekle(MPHIZMET entity)
         {
             return _hizmetDal.Ekle(entity);
         }

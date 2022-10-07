@@ -15,6 +15,6 @@ namespace MEYPAK.DAL.Abstract
         bool Sil(Expression<Func<T, bool>> predicate);
         bool Sil(List<T> entity);
         Durum Guncelle(T entity);  
-        Interfaces.Durum Ekle(T entity);
+        T Ekle(T entity);
     }
 }

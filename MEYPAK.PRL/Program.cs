@@ -19,7 +19,7 @@ namespace MEYPAK.PRL
             DependencyModule a = new DependencyModule();
             NinjectFactory.CompositionRoot.Initialize(a);
             ApplicationConfiguration.Initialize();
-            Application.Run(new FStokFiyatList());
+            Application.Run(new Main());
         }
     }
 }
