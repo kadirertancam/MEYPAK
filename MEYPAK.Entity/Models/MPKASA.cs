@@ -26,5 +26,7 @@ namespace MEYPAK.Entity.Models
         public decimal BAKIYE { get; set; } 
         public byte AKTIF { get; set; }
         public int KAYITTIPI { get; set; }
+        [Required]
+        public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
     }
 }

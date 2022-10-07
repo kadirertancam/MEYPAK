@@ -1,0 +1,24 @@
+﻿using MEYPAK.Entity.Models;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace MEYPAK.PRL.DEPO
+{
+    public partial class FDepolarArasıTransfer : Form
+    {
+
+        public FDepolarArasıTransfer()
+        {
+            InitializeComponent();
+        }
+        public MPDEPO _CıktıDepo;
+        public MPDEPO _HedefDepo;
+    }
+}

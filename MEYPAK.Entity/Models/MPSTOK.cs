@@ -120,7 +120,9 @@ namespace MEYPAK.Entity.Models
         [DefaultValue(0)]
         public int KULLANICIID { get; set; }
         [DefaultValue(0)]
-        public byte KAYITTIPI { get; set; } 
+        public byte KAYITTIPI { get; set; }
+        [Required]
+        public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
 
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
