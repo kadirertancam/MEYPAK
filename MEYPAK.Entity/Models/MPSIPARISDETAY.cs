@@ -19,7 +19,7 @@ namespace MEYPAK.Entity.Models
         [ForeignKey("MPSTOK")]
         public int STOKID { get; set; }
         [DefaultValue(0)]
-        public int DOVIZID { get; set; }=0;
+        public int DOVIZID { get; set; } = 0;
         [DefaultValue(0)]
         public int LISTEFIYATID { get; set; } = 0;
         [DefaultValue(0)]
@@ -33,8 +33,8 @@ namespace MEYPAK.Entity.Models
         [DefaultValue("")]
         public string ACIKLAMA { get; set; } = "";
         public decimal MIKTAR { get; set; } = 0;
-        public decimal ISTKONTO1 { get; set; }=0;
-        public decimal ISTKONTO2 { get; set; }= 0;
+        public decimal ISTKONTO1 { get; set; } = 0;
+        public decimal ISTKONTO2 { get; set; } = 0;
         public decimal ISTKONTO3 { get; set; } = 0;
         public decimal NETFIYAT { get; set; } = 0;
         public decimal BRUTFIYAT { get; set; } = 0;
@@ -42,10 +42,10 @@ namespace MEYPAK.Entity.Models
         public decimal BRUTTOPLAM { get; set; } = 0;
         public int BEKLEYENMIKTAR { get; set; } = 0;
         public byte HARIKETDURUMU { get; set; } = 0;
-        public byte KAYITTIPI { get; set; } = 0;
+
         public decimal KDV { get; set; } = 0;
         public decimal KDVTUTARI { get; set; } = 0;
-
+        public byte KAYITTIPI { get; set; } = 0;
 
         [ForeignKey("SIPARISID")]
         public MPSIPARIS SIPARIS { get; set; }

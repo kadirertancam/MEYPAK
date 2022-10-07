@@ -27,7 +27,7 @@ namespace MEYPAK.Entity.Models
         public decimal FIYAT { get; set; }
         public int PARABR { get; set; } = 1;
         public decimal KUR { get; set; } = 1;
-        public int KAYITTIPI { get; set; } = 0;  
+        public byte KAYITTIPI { get; set; } = 0;
 
         public virtual MPSTOKSAYIM MPSTOKSAYIM { get; set; }
 

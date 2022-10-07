@@ -66,5 +66,7 @@ namespace MEYPAK.Entity.Models
         [Required]
         public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
 
+        public byte KAYITTIPI { get; set; } = 0;
+
     }
 }

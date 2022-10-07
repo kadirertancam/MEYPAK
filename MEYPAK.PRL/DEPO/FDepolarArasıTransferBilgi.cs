@@ -32,11 +32,6 @@ namespace MEYPAK.PRL.DEPO
         }
 
 
-
-
-
-
-
         private void FDepolarArasıTransferBilgi_Load(object sender, EventArgs e)
         {
             DOLDUR();

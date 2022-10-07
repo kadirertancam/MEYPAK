@@ -28,7 +28,7 @@ namespace MEYPAK.Entity.Models
         //BİRİM ID EKLENECEK.
 
         [Column(Order = 6)]
-        public int DURUM { get; set; }
+        public byte DURUM { get; set; }
         [StringLength(200)]
         [Column(Order = 7)]
         public string ACIKLAMA { get; set; } = "";

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace MEYPAK.Entity.Models
 {
     public class MPARACLAR
@@ -27,9 +28,10 @@ namespace MEYPAK.Entity.Models
         public int ARACKM { get; set; }
         [StringLength(500)]
         public string ACIKLAMA { get; set; } = "";
-        public byte KAYITTIPI { get; set; } 
+        
         public DateTime SERVISTAR { get; set; }
         public DateTime MUAYENETAR { get; set; }
+        public byte KAYITTIPI { get; set; } = 0;
 
 
     }

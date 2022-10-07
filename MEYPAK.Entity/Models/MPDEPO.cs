@@ -30,7 +30,7 @@ namespace MEYPAK.Entity.Models
         [StringLength(200)]
         public string ACIKLAMA { get; set; } = "";
 
-        public byte KAYITTIPI { get; set; }
+        public byte KAYITTIPI { get; set; } = 0;
 
 
 
