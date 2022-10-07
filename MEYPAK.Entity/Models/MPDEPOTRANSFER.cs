@@ -31,8 +31,6 @@ namespace MEYPAK.Entity.Models
         [Column(Order = 7)]
         [Required]
         public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
-        
-        public virtual MPDEPO CIKTIDEPO { get; set; } 
-        public virtual MPDEPO HEDEFDEPO { get; set; }
+
     }
 }
