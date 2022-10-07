@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.DAL.Abstract.DepoDal
 {
-    public interface IDepoTransferBilgiDal:IGeneric<MPDEPOTRANSFERBILGI>
+    public interface IDepoTransferHarDal:IGeneric<MPDEPOTRANSFERHAR>
     {
-        public MPDEPOTRANSFERBILGI EkleyadaGuncelle(MPDEPOTRANSFERBILGI entity);
+        public MPDEPOTRANSFERHAR EkleyadaGuncelle(MPDEPOTRANSFERHAR entity);
     }
 }

@@ -18,14 +18,14 @@ using System.Windows.Forms;
 
 namespace MEYPAK.PRL.DEPO
 {
-    public partial class FDepolarArasıTransferBilgi : Form
+    public partial class FDepolarArasıTransferHar : Form
     {
         MPDEPOTRANSFER _arasıtransfer;
         public MPSTOK _tempStok;
         IDepoServis _depoServis = new DepoManager(new EFDepoRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
         IDepoTransferServis _depoTransferServis = new DepoTransferManager(new EFDepoTransferRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
-        IDepoTransferBilgiServis _depoTransferBilgiServis = new DepoTransferBilgiManager(new EFDepoTransferBilgiRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
-        public FDepolarArasıTransferBilgi(MPDEPOTRANSFER arasıTransfer)
+        IDepoTransferHarServis _depoTransferHarServis = new DepoTransferHarManager(new EFDepoTransferHarRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
+        public FDepolarArasıTransferHar(MPDEPOTRANSFER arasıTransfer)
         {
             InitializeComponent();
             _arasıtransfer = arasıTransfer;
@@ -58,7 +58,7 @@ namespace MEYPAK.PRL.DEPO
             if (_arasıtransfer != null)
             {
                 dataGridView1.DataSource = "";
-                dataGridView1.DataSource = _depoTransferBilgiServis.Getir(x => x.DEPOTRANSFERID == _arasıtransfer.ID);
+                dataGridView1.DataSource = _depoTransferHarServis.Getir(x => x.DEPOTRANSFERID == _arasıtransfer.ID);
             }
 
         }
@@ -67,7 +67,7 @@ namespace MEYPAK.PRL.DEPO
         {
             if (_tempStok != null && _arasıtransfer!=null)
             {
-                _depoTransferBilgiServis.Ekle(new MPDEPOTRANSFERBILGI
+                _depoTransferHarServis.Ekle(new MPDEPOTRANSFERHAR
                 {
                     DEPOTRANSFERID = _arasıtransfer.ID,
                     OLUSTURMATARIHI = DateTime.Now,
@@ -89,7 +89,7 @@ namespace MEYPAK.PRL.DEPO
         private void BTNStokSec_Click(object sender, EventArgs e)
         {
 
-            FStokList fStokList = new FStokList("FDepolarArasıTransferBilgi");
+            FStokList fStokList = new FStokList("FDepolarArasıTransferHar");
             fStokList.ShowDialog();
             if (_tempStok != null)
                 if (_tempStok.ID > 0)

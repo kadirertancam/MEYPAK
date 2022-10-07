@@ -26,7 +26,7 @@ namespace MEYPAK.PRL.DEPO
         }
         FDepoKart depoKart;
         FDepolarArasıTransfer depoTransferKart;
-        FDepolarArasıTransferBilgi depoTransferBilgiKart;
+        FDepolarArasıTransferHar depoTransferBilgiKart;
         IDepoServis _depoServis = new DepoManager(new EFDepoRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
 
         private void FDepoList_Load(object sender, EventArgs e)
@@ -34,7 +34,7 @@ namespace MEYPAK.PRL.DEPO
             dataGridView1.DataSource = _depoServis.Listele();
             depoKart = (FDepoKart)Application.OpenForms["FDepoKart"];
             depoTransferKart = (FDepolarArasıTransfer)Application.OpenForms["FDepolarArasıTransfer"];
-            depoTransferBilgiKart = (FDepolarArasıTransferBilgi)Application.OpenForms["FDepolarArasıTransferBilgi"];
+            depoTransferBilgiKart = (FDepolarArasıTransferHar)Application.OpenForms["FDepolarArasıTransferBilgi"];
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

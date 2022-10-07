@@ -3,6 +3,7 @@ using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.Entity.Models;
 using MEYPAK.Entity.PocoModels;
 using MEYPAK.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System.Data.Entity;
 using System.Linq.Expressions;
 
@@ -63,6 +64,12 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
             }).ToList();
             return snc;
 
+        }
+        public void Sil(int id)
+        {
+            MPSTOKHAR deleteStok = context.MPSTOKHAR.Where(x => x.ID == id).FirstOrDefault();
+            deleteStok.KAYITTIPI = 1;
+            context.MPSTOKHAR.Update(deleteStok);
         }
 
     }

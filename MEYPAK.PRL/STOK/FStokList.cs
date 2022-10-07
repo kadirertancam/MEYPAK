@@ -25,7 +25,7 @@ namespace MEYPAK.PRL.STOK
         FStokSayimPanel fstokSayimPanel;
         FStokFiyatListPanel fstokFiyatListPanel;
         FSiparis fSiparis;
-        FDepolarArasıTransferBilgi fDepolarArasıBilgi;
+        FDepolarArasıTransferHar fDepolarArasıHar;
         int id;
         string _islem;
         public FStokList(string islem="")
@@ -43,7 +43,7 @@ namespace MEYPAK.PRL.STOK
             fStokHareket = (FStokHareket)Application.OpenForms["FStokHareket"];
             fstokSayimPanel = (FStokSayimPanel)Application.OpenForms["FStokSayimPanel"];
             fstokFiyatListPanel = (FStokFiyatListPanel)Application.OpenForms["FStokFiyatListPanel"];
-            fDepolarArasıBilgi = (FDepolarArasıTransferBilgi)Application.OpenForms["FDepolarArasıTransferBilgi"];
+            fDepolarArasıHar = (FDepolarArasıTransferHar)Application.OpenForms["FDepolarArasıTransferHar"];
             fSiparis = (FSiparis)Application.OpenForms["FSiparis"];
         }
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -73,10 +73,10 @@ namespace MEYPAK.PRL.STOK
                 if (fSiparis != null)
                     fSiparis._tempStok = _stokServis.Getir(x => x.ID.ToString() == dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
             }
-            else if (_islem == "FDepolarArasıTransferBilgi")
+            else if (_islem == "FDepolarArasıTransferHar")
             {
-                if (fDepolarArasıBilgi != null)
-                    fDepolarArasıBilgi._tempStok = _stokServis.Getir(x => x.ID.ToString() == dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
+                if (fDepolarArasıHar != null)
+                    fDepolarArasıHar._tempStok = _stokServis.Getir(x => x.ID.ToString() == dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
             }
 
             this.Close();

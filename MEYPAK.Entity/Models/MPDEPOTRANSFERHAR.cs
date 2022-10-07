@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.Entity.Models
 {
-    public class MPDEPOTRANSFERBILGI
+    public class MPDEPOTRANSFERHAR
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column(Order = 1)]
@@ -35,6 +35,8 @@ namespace MEYPAK.Entity.Models
         [Required]
         [Column(Order =8)]
         public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
+
+        public byte KAYITTIPI { get; set; } = 0;
 
         [ForeignKey("DEPOTRANSFERID")]
         public virtual MPDEPOTRANSFER DEPOTRANSFER { get; set; }

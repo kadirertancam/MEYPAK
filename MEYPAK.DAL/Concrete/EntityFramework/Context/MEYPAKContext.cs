@@ -41,7 +41,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
         public DbSet<MPSIPARIS> MPSIPARIS { get; set; }
         public DbSet<MPSIPARISDETAY> MPSIPARISDETAY { get; set; }
         public DbSet<MPDEPOTRANSFER> MPDEPOTRANSFER { get; set; }
-        public DbSet<MPDEPOTRANSFERBILGI> MPDEPOTRANSFERBILGI { get; set; }
+        public DbSet<MPDEPOTRANSFERHAR> MPDEPOTRANSFERHAR { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
 
@@ -64,22 +64,6 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
             modelBuilder.Entity<MPSTOKSAYIM>().HasMany(x => x.MPSTOKSAYIMHAR).WithOne(x => x.MPSTOKSAYIM).HasForeignKey(x => x.STOKSAYIMID); 
             modelBuilder.Entity<MPSTOK>().HasMany(x => x.MPSTOKFIYATLISTHAR).WithOne(x => x.MPSTOK).HasForeignKey(x => x.STOKID);
             
-            modelBuilder.Entity<MPSIPARISDETAY>().Property(x => x.BRUTFIYAT).HasPrecision(18, 6);
-            modelBuilder.Entity<MPSIPARISDETAY>().Property(x => x.NETFIYAT).HasPrecision(18, 6);
-            modelBuilder.Entity<MPSIPARISDETAY>().Property(x => x.KDV).HasPrecision(18, 6); 
-            modelBuilder.Entity<MPSIPARISDETAY>().Property(x => x.KDVTUTARI).HasPrecision(18, 6); 
-            modelBuilder.Entity<MPSIPARISDETAY>().Property(x => x.ISTKONTO1).HasPrecision(18, 6);
-            modelBuilder.Entity<MPSIPARISDETAY>().Property(x => x.ISTKONTO2).HasPrecision(18, 6);
-            modelBuilder.Entity<MPSIPARISDETAY>().Property(x => x.ISTKONTO3).HasPrecision(18, 6);
-            modelBuilder.Entity<MPSIPARISDETAY>().Property(x => x.BRUTTOPLAM).HasPrecision(18, 6);
-            modelBuilder.Entity<MPSIPARISDETAY>().Property(x => x.NETTOPLAM).HasPrecision(18, 6);
-            modelBuilder.Entity<MPSIPARISDETAY>().Property(x => x.MIKTAR).HasPrecision(18, 6);
-            modelBuilder.Entity<MPSIPARIS>().Property(x => x.BRUTTOPLAM).HasPrecision(18, 6);
-            modelBuilder.Entity<MPSIPARIS>().Property(x => x.NETTOPLAM).HasPrecision(18, 6);
-            modelBuilder.Entity<MPSIPARIS>().Property(x => x.GENELTOPLAM).HasPrecision(18, 6);
-            modelBuilder.Entity<MPSIPARIS>().Property(x => x.ISKONTOTOPLAM).HasPrecision(18, 6);
-            modelBuilder.Entity<MPSIPARIS>().Property(x => x.KDVTOPLAM).HasPrecision(18, 6);
-
 
             modelBuilder.Entity<MPSTOK>()
       .Navigation(b => b.MPSTOKOLCUBR)

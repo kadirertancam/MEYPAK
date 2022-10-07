@@ -1,6 +1,6 @@
 ﻿namespace MEYPAK.PRL.DEPO
 {
-    partial class FDepolarArasıTransferBilgi
+    partial class FDepolarArasıTransferHar
     {
         /// <summary>
         /// Required designer variable.
@@ -316,14 +316,14 @@
             this.panel1.Size = new System.Drawing.Size(800, 450);
             this.panel1.TabIndex = 2;
             // 
-            // FDepolarArasıTransferBilgi
+            // FDepolarArasıTransferHar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panel1);
-            this.Name = "FDepolarArasıTransferBilgi";
-            this.Text = "FDepolarArasıTransferBilgi";
+            this.Name = "FDepolarArasıTransferHar";
+            this.Text = "FDepolarArasıTransferHar";
             this.Load += new System.EventHandler(this.FDepolarArasıTransferBilgi_Load);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

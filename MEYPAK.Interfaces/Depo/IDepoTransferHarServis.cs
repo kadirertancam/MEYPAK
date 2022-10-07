@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.Interfaces.Depo
 {
-    public interface IDepoTransferBilgiServis:IGenericServis<MPDEPOTRANSFERBILGI>
+    public interface IDepoTransferHarServis:IGenericServis<MPDEPOTRANSFERHAR>
     {
-        public MPDEPOTRANSFERBILGI EkleyadaGuncelle(MPDEPOTRANSFERBILGI entity);
+        public MPDEPOTRANSFERHAR EkleyadaGuncelle(MPDEPOTRANSFERHAR entity);
     }
 }

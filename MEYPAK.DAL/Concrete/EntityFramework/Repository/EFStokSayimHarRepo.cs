@@ -2,6 +2,7 @@
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.Entity.Models;
 using MEYPAK.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -14,11 +15,11 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
 {
     public class EFStokSayimHarRepo : EFBaseRepo<MPSTOKSAYIMHAR>, IStokSayimHarDal
     {
-        MEYPAKContext context;
+        MEYPAKContext _context;
 
-        public EFStokSayimHarRepo(MEYPAKContext _context) : base(_context)
+        public EFStokSayimHarRepo(MEYPAKContext context) : base(context)
         {
-            context = _context;
+            _context = context;
             //   context.MPSTOKSAYIMHAR.Include(x => x.MPSTOK).Load();
 
         }
@@ -26,23 +27,28 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
 
         public Durum EkleyadaGuncelle(MPSTOKSAYIMHAR entity)
         {
-            bool exists = context.MPSTOKSAYIMHAR.Any(x => x.ID == entity.ID);
+            bool exists = _context.MPSTOKSAYIMHAR.Any(x => x.ID == entity.ID);
             if (!exists)
             {
-                context.MPSTOKSAYIMHAR.Add(entity);
-                context.SaveChanges();
+                _context.MPSTOKSAYIMHAR.Add(entity);
+                _context.SaveChanges();
                 return Durum.kayıtbaşarılı;
             }
             else
             {
-                MPSTOKSAYIMHAR temp = context.MPSTOKSAYIMHAR.Where(x => x.ID == entity.ID).FirstOrDefault();
-                context.ChangeTracker.Clear();
-                context.MPSTOKSAYIMHAR.Update(entity);
-                context.SaveChanges();
+                MPSTOKSAYIMHAR temp = _context.MPSTOKSAYIMHAR.Where(x => x.ID == entity.ID).FirstOrDefault();
+                _context.ChangeTracker.Clear();
+                _context.MPSTOKSAYIMHAR.Update(entity);
+                _context.SaveChanges();
                 return Durum.güncellemebaşarılı;
             }
         }
-
+        public void Sil(int id)
+        {
+            MPSTOKSAYIMHAR deleteStokHar = _context.MPSTOKSAYIMHAR.Where(x => x.ID == id).FirstOrDefault();
+            deleteStokHar.KAYITTIPI = 1;
+            _context.MPSTOKSAYIMHAR.Update(deleteStokHar);
+        }
 
     }
 }

@@ -31,7 +31,7 @@ namespace MEYPAK.PRL.DEPO
         public MPDEPO _CıktıDepo;
         public MPDEPO _HedefDepo;
         public MPDEPOTRANSFER _tempDepoTransfer;
-        FDepolarArasıTransferBilgi fDepolarArasıTransferBilgi;
+        FDepolarArasıTransferHar fDepolarArasıTransferHar;
         IDepoTransferServis _depoTransferServis = new DepoTransferManager(new EFDepoTransferRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
 
         private void button1_Click(object sender, EventArgs e)
@@ -61,7 +61,7 @@ namespace MEYPAK.PRL.DEPO
                     DONEM = DateTime.Now.ToString("yyyy"),
                     DURUM = 1
                 });
-                FDepolarArasıTransferBilgi arasıTransferBilgi = new FDepolarArasıTransferBilgi(_tempDepoTransfer) ;
+                FDepolarArasıTransferHar arasıTransferBilgi = new FDepolarArasıTransferHar(_tempDepoTransfer) ;
                 DataGridDoldur();
             }
 
@@ -86,8 +86,8 @@ namespace MEYPAK.PRL.DEPO
             {
 
                 _tempDepoTransfer = _depoTransferServis.Getir(x => x.ID == Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString())).FirstOrDefault();
-                fDepolarArasıTransferBilgi = new FDepolarArasıTransferBilgi(_tempDepoTransfer);
-                fDepolarArasıTransferBilgi.ShowDialog();
+                fDepolarArasıTransferHar = new FDepolarArasıTransferHar(_tempDepoTransfer);
+                fDepolarArasıTransferHar.ShowDialog();
 
             }
         }
