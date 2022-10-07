@@ -29,10 +29,6 @@ namespace MEYPAK.Entity.Models
         [Column(Order = 7)]
         [Required]
         public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
-        [ForeignKey("CIKTIDEPOID")]
-        public virtual MPDEPO CIKTIDEPO { get; set; }
 
-        [ForeignKey("HEDEFDEPOID")]
-        public virtual MPDEPO HEDEFDEPO { get; set; }
     }
 }
