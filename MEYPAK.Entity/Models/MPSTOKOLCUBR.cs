@@ -31,5 +31,6 @@ namespace MEYPAK.Entity.Models
         public int OLCUBRID { get; set; }
         public virtual MPOLCUBR MPOLCUBR { get; set; }
 
+
     }
 }

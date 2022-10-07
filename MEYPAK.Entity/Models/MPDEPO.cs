@@ -31,6 +31,14 @@ namespace MEYPAK.Entity.Models
         public string ACIKLAMA { get; set; } = "";
 
         public byte KAYITTIPI { get; set; }
-        
+
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MPDEPOTRANSFER> MPDEPOTRANSFERCIKTI { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MPDEPOTRANSFER> MPDEPOTRANSFERHEDEF { get; set; }
+
+
+
     }
 }
