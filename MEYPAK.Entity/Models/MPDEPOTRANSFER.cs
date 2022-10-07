@@ -19,12 +19,10 @@ namespace MEYPAK.Entity.Models
         public DateTime GUNCELLEMETARIHI { get; set; } = DateTime.Now;
         [Required]
         [Column(Order = 4)]
-        [ForeignKey("CIKTIDEPO")]
         public int CIKTIDEPOID { get; set; }
         
         [Required]
         [Column(Order = 5)]
-        [ForeignKey("HEDEFDEPO")]
         public int HEDEFDEPOID { get; set; }
         [Column(Order = 6)]
         public int DURUM { get; set; } = 0;

@@ -1,4 +1,5 @@
-﻿using MEYPAK.PRL.DEPO;
+﻿using MEYPAK.Interfaces;
+using MEYPAK.PRL.DEPO;
 using MEYPAK.PRL.SIPARIS;
 using MEYPAK.PRL.STOK;
 using System;
@@ -18,6 +19,7 @@ namespace MEYPAK.PRL
         public Main()
         {
             InitializeComponent();
+            MessageBox.Show(SiparisDurum.sevkiyattamamladı.GetType().GetProperties()[0].Name.ToString());
             fStokHareket = new FStokHareket();
             fSTOKKART = new FStokKart();
             fDepoKart = new FDepoKart();

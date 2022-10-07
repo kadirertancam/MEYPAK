@@ -33,12 +33,12 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.BTNCikisDepoSec = new System.Windows.Forms.Button();
+            this.BTNHedefDepoSec = new System.Windows.Forms.Button();
+            this.TBHedefDepo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.BTSayimKaydet = new System.Windows.Forms.Button();
-            this.TBAciklama = new System.Windows.Forms.TextBox();
+            this.BTDepoTransferKaydet = new System.Windows.Forms.Button();
+            this.TBCıkısDepo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -57,6 +57,7 @@
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(941, 514);
             this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // panel1
             // 
@@ -88,12 +89,12 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.BTNCikisDepoSec);
+            this.groupBox1.Controls.Add(this.BTNHedefDepoSec);
+            this.groupBox1.Controls.Add(this.TBHedefDepo);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.BTSayimKaydet);
-            this.groupBox1.Controls.Add(this.TBAciklama);
+            this.groupBox1.Controls.Add(this.BTDepoTransferKaydet);
+            this.groupBox1.Controls.Add(this.TBCıkısDepo);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
@@ -103,32 +104,34 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Depolar Arası Transfer";
             // 
-            // button1
+            // BTNCikisDepoSec
             // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(246, 39);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(37, 23);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Seç";
-            this.button1.UseVisualStyleBackColor = true;
+            this.BTNCikisDepoSec.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BTNCikisDepoSec.Location = new System.Drawing.Point(246, 39);
+            this.BTNCikisDepoSec.Name = "BTNCikisDepoSec";
+            this.BTNCikisDepoSec.Size = new System.Drawing.Size(37, 23);
+            this.BTNCikisDepoSec.TabIndex = 10;
+            this.BTNCikisDepoSec.Text = "Seç";
+            this.BTNCikisDepoSec.UseVisualStyleBackColor = true;
+            this.BTNCikisDepoSec.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button3
+            // BTNHedefDepoSec
             // 
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(566, 38);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(37, 23);
-            this.button3.TabIndex = 9;
-            this.button3.Text = "Seç";
-            this.button3.UseVisualStyleBackColor = true;
+            this.BTNHedefDepoSec.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BTNHedefDepoSec.Location = new System.Drawing.Point(566, 38);
+            this.BTNHedefDepoSec.Name = "BTNHedefDepoSec";
+            this.BTNHedefDepoSec.Size = new System.Drawing.Size(37, 23);
+            this.BTNHedefDepoSec.TabIndex = 9;
+            this.BTNHedefDepoSec.Text = "Seç";
+            this.BTNHedefDepoSec.UseVisualStyleBackColor = true;
+            this.BTNHedefDepoSec.Click += new System.EventHandler(this.BTNHedefDepoSec_Click);
             // 
-            // textBox1
+            // TBHedefDepo
             // 
-            this.textBox1.Location = new System.Drawing.Point(415, 38);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(154, 23);
-            this.textBox1.TabIndex = 8;
+            this.TBHedefDepo.Location = new System.Drawing.Point(415, 38);
+            this.TBHedefDepo.Name = "TBHedefDepo";
+            this.TBHedefDepo.Size = new System.Drawing.Size(154, 23);
+            this.TBHedefDepo.TabIndex = 8;
             // 
             // label1
             // 
@@ -139,21 +142,22 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "Hedef Depo";
             // 
-            // BTSayimKaydet
+            // BTDepoTransferKaydet
             // 
-            this.BTSayimKaydet.Location = new System.Drawing.Point(753, 23);
-            this.BTSayimKaydet.Name = "BTSayimKaydet";
-            this.BTSayimKaydet.Size = new System.Drawing.Size(96, 54);
-            this.BTSayimKaydet.TabIndex = 4;
-            this.BTSayimKaydet.Text = "Kaydet";
-            this.BTSayimKaydet.UseVisualStyleBackColor = true;
+            this.BTDepoTransferKaydet.Location = new System.Drawing.Point(753, 23);
+            this.BTDepoTransferKaydet.Name = "BTDepoTransferKaydet";
+            this.BTDepoTransferKaydet.Size = new System.Drawing.Size(96, 54);
+            this.BTDepoTransferKaydet.TabIndex = 4;
+            this.BTDepoTransferKaydet.Text = "Kaydet";
+            this.BTDepoTransferKaydet.UseVisualStyleBackColor = true;
+            this.BTDepoTransferKaydet.Click += new System.EventHandler(this.BTDepoTransferKaydet_Click);
             // 
-            // TBAciklama
+            // TBCıkısDepo
             // 
-            this.TBAciklama.Location = new System.Drawing.Point(95, 39);
-            this.TBAciklama.Name = "TBAciklama";
-            this.TBAciklama.Size = new System.Drawing.Size(154, 23);
-            this.TBAciklama.TabIndex = 3;
+            this.TBCıkısDepo.Location = new System.Drawing.Point(95, 39);
+            this.TBCıkısDepo.Name = "TBCıkısDepo";
+            this.TBCıkısDepo.Size = new System.Drawing.Size(154, 23);
+            this.TBCıkısDepo.TabIndex = 3;
             // 
             // label2
             // 
@@ -172,6 +176,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "FDepolarArasıTransfer";
             this.Text = "FDepolarArasıTransfer";
+            this.Load += new System.EventHandler(this.FDepolarArasıTransfer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -189,12 +194,12 @@
         private Panel panel3;
         private Panel panel2;
         private GroupBox groupBox1;
-        private Button BTSayimKaydet;
-        private TextBox TBAciklama;
+        private Button BTDepoTransferKaydet;
+        private TextBox TBCıkısDepo;
         private Label label2;
-        private TextBox textBox1;
+        private TextBox TBHedefDepo;
         private Label label1;
-        private Button button1;
-        private Button button3;
+        private Button BTNCikisDepoSec;
+        private Button BTNHedefDepoSec;
     }
 }

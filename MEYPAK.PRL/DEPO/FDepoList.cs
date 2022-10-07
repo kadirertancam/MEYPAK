@@ -33,8 +33,8 @@ namespace MEYPAK.PRL.DEPO
         {
             dataGridView1.DataSource = _depoServis.Listele();
             depoKart = (FDepoKart)Application.OpenForms["FDepoKart"];
-            depoTransferKart = (FDepolarArasıTransfer)Application.OpenForms["FDepoTransfer"];
-            depoTransferBilgiKart = (FDepolarArasıTransferBilgi)Application.OpenForms["FDepoTransferBilgi"];
+            depoTransferKart = (FDepolarArasıTransfer)Application.OpenForms["FDepolarArasıTransfer"];
+            depoTransferBilgiKart = (FDepolarArasıTransferBilgi)Application.OpenForms["FDepolarArasıTransferBilgi"];
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -51,8 +51,6 @@ namespace MEYPAK.PRL.DEPO
             {
                 depoTransferKart._HedefDepo = _depoServis.Getir(x => x.DEPOKODU == dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString()).FirstOrDefault();
             }
-
-
             this.Close();
         }
     }

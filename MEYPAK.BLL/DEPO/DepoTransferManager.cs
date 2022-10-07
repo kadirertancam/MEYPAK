@@ -2,6 +2,7 @@
 using MEYPAK.DAL.Abstract;
 using MEYPAK.DAL.Abstract.DepoDal;
 using MEYPAK.Entity.Models;
+using MEYPAK.Entity.PocoModels;
 using MEYPAK.Interfaces.Depo;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,10 @@ namespace MEYPAK.BLL.DEPO
         public MPDEPOTRANSFER EkleyadaGuncelle(MPDEPOTRANSFER entity)
         {
             return _depoTransferDal.EkleyadaGuncelle(entity);
+        }
+        public List<PocoDepolarArasıTransfer> PocoDepolarArasıTransferListesi()
+        {
+            return _depoTransferDal.PocoDepolarArasıTransferListesi();
         }
     }
 }

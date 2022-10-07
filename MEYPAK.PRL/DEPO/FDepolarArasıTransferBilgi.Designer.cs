@@ -28,36 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.LBBakiye = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.CBBirim = new System.Windows.Forms.ComboBox();
             this.CLBDepo = new System.Windows.Forms.CheckedListBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.DTPTarih = new System.Windows.Forms.DateTimePicker();
-            this.CBDepo = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.TBBelgeNo = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.LBToplamGiris = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.DTPOlusturmaTarihi = new System.Windows.Forms.DateTimePicker();
+            this.LBLDurum = new System.Windows.Forms.Label();
+            this.TBDurum = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.TBMiktar = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.TBAciklama = new System.Windows.Forms.TextBox();
-            this.LBToplamCikis = new System.Windows.Forms.Label();
-            this.TBStokAdi = new System.Windows.Forms.TextBox();
+            this.TBHedefDepo = new System.Windows.Forms.TextBox();
             this.BTKaydet = new System.Windows.Forms.Button();
-            this.BTStokSec = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.TBStokKodu = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.TBCikisDepo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3.SuspendLayout();
@@ -67,17 +59,6 @@
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // LBBakiye
-            // 
-            this.LBBakiye.AutoSize = true;
-            this.LBBakiye.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBBakiye.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.LBBakiye.Location = new System.Drawing.Point(619, 35);
-            this.LBBakiye.Name = "LBBakiye";
-            this.LBBakiye.Size = new System.Drawing.Size(49, 28);
-            this.LBBakiye.TabIndex = 6;
-            this.LBBakiye.Text = "0,00";
             // 
             // label14
             // 
@@ -107,91 +88,38 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(8, 126);
+            this.label7.Location = new System.Drawing.Point(1, 127);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(32, 15);
+            this.label7.Size = new System.Drawing.Size(94, 15);
             this.label7.TabIndex = 18;
-            this.label7.Text = "Tarih";
+            this.label7.Text = "Oluşturma Tarihi";
             // 
-            // DTPTarih
+            // DTPOlusturmaTarihi
             // 
-            this.DTPTarih.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DTPTarih.Location = new System.Drawing.Point(75, 120);
-            this.DTPTarih.Name = "DTPTarih";
-            this.DTPTarih.Size = new System.Drawing.Size(148, 23);
-            this.DTPTarih.TabIndex = 17;
+            this.DTPOlusturmaTarihi.Enabled = false;
+            this.DTPOlusturmaTarihi.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DTPOlusturmaTarihi.Location = new System.Drawing.Point(100, 124);
+            this.DTPOlusturmaTarihi.Name = "DTPOlusturmaTarihi";
+            this.DTPOlusturmaTarihi.Size = new System.Drawing.Size(124, 23);
+            this.DTPOlusturmaTarihi.TabIndex = 17;
             // 
-            // CBDepo
+            // LBLDurum
             // 
-            this.CBDepo.FormattingEnabled = true;
-            this.CBDepo.Location = new System.Drawing.Point(75, 84);
-            this.CBDepo.Name = "CBDepo";
-            this.CBDepo.Size = new System.Drawing.Size(148, 23);
-            this.CBDepo.TabIndex = 16;
+            this.LBLDurum.AutoSize = true;
+            this.LBLDurum.Location = new System.Drawing.Point(0, 87);
+            this.LBLDurum.Name = "LBLDurum";
+            this.LBLDurum.Size = new System.Drawing.Size(44, 15);
+            this.LBLDurum.TabIndex = 15;
+            this.LBLDurum.Text = "Durum";
             // 
-            // label2
+            // TBDurum
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(8, 155);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 15);
-            this.label2.TabIndex = 15;
-            this.label2.Text = "Belge No";
-            // 
-            // TBBelgeNo
-            // 
-            this.TBBelgeNo.Location = new System.Drawing.Point(74, 149);
-            this.TBBelgeNo.Name = "TBBelgeNo";
-            this.TBBelgeNo.Size = new System.Drawing.Size(149, 23);
-            this.TBBelgeNo.TabIndex = 14;
-            this.TBBelgeNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(8, 87);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 15);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "Depo";
-            // 
-            // LBToplamGiris
-            // 
-            this.LBToplamGiris.AutoSize = true;
-            this.LBToplamGiris.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBToplamGiris.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.LBToplamGiris.Location = new System.Drawing.Point(410, 35);
-            this.LBToplamGiris.Name = "LBToplamGiris";
-            this.LBToplamGiris.Size = new System.Drawing.Size(49, 28);
-            this.LBToplamGiris.TabIndex = 6;
-            this.LBToplamGiris.Text = "0,00";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(619, 16);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(41, 15);
-            this.label13.TabIndex = 5;
-            this.label13.Text = "Bakiye";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(514, 16);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(74, 15);
-            this.label12.TabIndex = 4;
-            this.label12.Text = "Toplam Çıkış";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(410, 16);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(72, 15);
-            this.label11.TabIndex = 3;
-            this.label11.Text = "Toplam Giriş";
+            this.TBDurum.Enabled = false;
+            this.TBDurum.Location = new System.Drawing.Point(75, 84);
+            this.TBDurum.Name = "TBDurum";
+            this.TBDurum.Size = new System.Drawing.Size(149, 23);
+            this.TBDurum.TabIndex = 14;
+            this.TBDurum.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // button4
             // 
@@ -236,24 +164,13 @@
             this.TBAciklama.Size = new System.Drawing.Size(149, 60);
             this.TBAciklama.TabIndex = 5;
             // 
-            // LBToplamCikis
+            // TBHedefDepo
             // 
-            this.LBToplamCikis.AutoSize = true;
-            this.LBToplamCikis.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBToplamCikis.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.LBToplamCikis.Location = new System.Drawing.Point(514, 35);
-            this.LBToplamCikis.Name = "LBToplamCikis";
-            this.LBToplamCikis.Size = new System.Drawing.Size(49, 28);
-            this.LBToplamCikis.TabIndex = 6;
-            this.LBToplamCikis.Text = "0,00";
-            // 
-            // TBStokAdi
-            // 
-            this.TBStokAdi.Enabled = false;
-            this.TBStokAdi.Location = new System.Drawing.Point(75, 55);
-            this.TBStokAdi.Name = "TBStokAdi";
-            this.TBStokAdi.Size = new System.Drawing.Size(149, 23);
-            this.TBStokAdi.TabIndex = 3;
+            this.TBHedefDepo.Enabled = false;
+            this.TBHedefDepo.Location = new System.Drawing.Point(75, 55);
+            this.TBHedefDepo.Name = "TBHedefDepo";
+            this.TBHedefDepo.Size = new System.Drawing.Size(149, 23);
+            this.TBHedefDepo.TabIndex = 3;
             // 
             // BTKaydet
             // 
@@ -263,16 +180,6 @@
             this.BTKaydet.TabIndex = 0;
             this.BTKaydet.Text = "Kaydet";
             this.BTKaydet.UseVisualStyleBackColor = true;
-            // 
-            // BTStokSec
-            // 
-            this.BTStokSec.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BTStokSec.Location = new System.Drawing.Point(188, 26);
-            this.BTStokSec.Name = "BTStokSec";
-            this.BTStokSec.Size = new System.Drawing.Size(36, 23);
-            this.BTStokSec.TabIndex = 2;
-            this.BTStokSec.Text = "Seç";
-            this.BTStokSec.UseVisualStyleBackColor = true;
             // 
             // panel3
             // 
@@ -306,12 +213,6 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.LBBakiye);
-            this.groupBox2.Controls.Add(this.LBToplamCikis);
-            this.groupBox2.Controls.Add(this.LBToplamGiris);
-            this.groupBox2.Controls.Add(this.label13);
-            this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.button4);
             this.groupBox2.Controls.Add(this.button3);
             this.groupBox2.Controls.Add(this.BTKaydet);
@@ -332,22 +233,20 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.CBBirim);
             this.groupBox1.Controls.Add(this.CLBDepo);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.DTPTarih);
-            this.groupBox1.Controls.Add(this.CBDepo);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.TBBelgeNo);
-            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.DTPOlusturmaTarihi);
+            this.groupBox1.Controls.Add(this.LBLDurum);
+            this.groupBox1.Controls.Add(this.TBDurum);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.TBMiktar);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.TBAciklama);
-            this.groupBox1.Controls.Add(this.TBStokAdi);
-            this.groupBox1.Controls.Add(this.BTStokSec);
-            this.groupBox1.Controls.Add(this.TBStokKodu);
+            this.groupBox1.Controls.Add(this.TBHedefDepo);
+            this.groupBox1.Controls.Add(this.TBCikisDepo);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
@@ -356,21 +255,31 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Depolar Arası Transfer Bilgi";
             // 
-            // TBStokKodu
+            // label5
             // 
-            this.TBStokKodu.Location = new System.Drawing.Point(75, 26);
-            this.TBStokKodu.Name = "TBStokKodu";
-            this.TBStokKodu.Size = new System.Drawing.Size(120, 23);
-            this.TBStokKodu.TabIndex = 1;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(1, 63);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(70, 15);
+            this.label5.TabIndex = 29;
+            this.label5.Text = "Hedef Depo";
+            // 
+            // TBCikisDepo
+            // 
+            this.TBCikisDepo.Enabled = false;
+            this.TBCikisDepo.Location = new System.Drawing.Point(75, 26);
+            this.TBCikisDepo.Name = "TBCikisDepo";
+            this.TBCikisDepo.Size = new System.Drawing.Size(149, 23);
+            this.TBCikisDepo.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 29);
+            this.label1.Location = new System.Drawing.Point(0, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 15);
+            this.label1.Size = new System.Drawing.Size(63, 15);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Stok Kodu";
+            this.label1.Text = "Çıkış Depo";
             // 
             // panel1
             // 
@@ -390,11 +299,11 @@
             this.Controls.Add(this.panel1);
             this.Name = "FDepolarArasıTransferBilgi";
             this.Text = "FDepolarArasıTransferBilgi";
+            this.Load += new System.EventHandler(this.FDepolarArasıTransferBilgi_Load);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -403,38 +312,29 @@
         }
 
         #endregion
-
-        private Label LBBakiye;
         private Label label14;
         private ComboBox CBBirim;
         private CheckedListBox CLBDepo;
         private Label label7;
-        private DateTimePicker DTPTarih;
-        private ComboBox CBDepo;
-        private Label label2;
-        private TextBox TBBelgeNo;
-        private Label label6;
-        private Label LBToplamGiris;
-        private Label label13;
-        private Label label12;
-        private Label label11;
+        private DateTimePicker DTPOlusturmaTarihi;
+        private Label LBLDurum;
+        private TextBox TBDurum;
         private Button button4;
         private Label label4;
         private TextBox TBMiktar;
         private Label label3;
         private TextBox TBAciklama;
-        private Label LBToplamCikis;
-        private TextBox TBStokAdi;
+        private TextBox TBHedefDepo;
         private Button BTKaydet;
-        private Button BTStokSec;
         private Panel panel3;
         private DataGridView dataGridView1;
         private Panel panel2;
         private GroupBox groupBox2;
         private Button button3;
         private GroupBox groupBox1;
-        private TextBox TBStokKodu;
+        private TextBox TBCikisDepo;
         private Label label1;
         private Panel panel1;
+        private Label label5;
     }
 }
