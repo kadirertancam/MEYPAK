@@ -54,6 +54,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
                 //DURUM = x.DURUM.GetType().GetProperties(System.Reflection.BindingFlags.GetField).ToString()
                 //DURUM = Enum.GetName(typeof(SiparisDurum), (Convert.ToInt32(x.DURUM))).ToString()
                 //DURUM = SiparisDurum.sevkiyattamamladı.GetType().GetEnumValues().GetValue(Convert.ToInt32(x.DURUM)).ToString()
+                DURUM=x.DURUM.ToString()
 
         }).ToList();
             return snc;

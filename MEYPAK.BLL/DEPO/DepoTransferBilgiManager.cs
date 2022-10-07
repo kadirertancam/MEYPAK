@@ -2,6 +2,7 @@
 using MEYPAK.DAL.Abstract;
 using MEYPAK.DAL.Abstract.DepoDal;
 using MEYPAK.Entity.Models;
+using MEYPAK.Interfaces.Depo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.BLL.DEPO
 {
-    public class DepoTransferBilgiManager : BaseManager<MPDEPOTRANSFERBILGI>, IDepoTransferBilgiDal
+    public class DepoTransferBilgiManager : BaseManager<MPDEPOTRANSFERBILGI>, IDepoTransferBilgiServis
     {
         IDepoTransferBilgiDal _depoTransferBilgiDal;
         public DepoTransferBilgiManager(IDepoTransferBilgiDal generic) : base(generic)
