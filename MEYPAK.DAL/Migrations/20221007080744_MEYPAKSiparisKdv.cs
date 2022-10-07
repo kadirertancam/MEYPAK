@@ -74,18 +74,6 @@ namespace MEYPAK.DAL.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_MPDEPOTRANSFER", x => x.ID);
-                    table.ForeignKey(
-                        name: "FK_MPDEPOTRANSFER_MPDEPO_CIKTIDEPOID",
-                        column: x => x.CIKTIDEPOID,
-                        principalTable: "MPDEPO",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_MPDEPOTRANSFER_MPDEPO_HEDEFDEPOID",
-                        column: x => x.HEDEFDEPOID,
-                        principalTable: "MPDEPO",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -118,16 +106,6 @@ namespace MEYPAK.DAL.Migrations
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_MPDEPOTRANSFER_CIKTIDEPOID",
-                table: "MPDEPOTRANSFER",
-                column: "CIKTIDEPOID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_MPDEPOTRANSFER_HEDEFDEPOID",
-                table: "MPDEPOTRANSFER",
-                column: "HEDEFDEPOID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_MPDEPOTRANSFERBILGI_DEPOTRANSFERID",

@@ -77,18 +77,10 @@
             this.DTPVadeTarihi = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
             this.LBLCariAdi = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.CBBirim = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.TBKdv = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.TBFiyat = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.DTPTarih = new System.Windows.Forms.DateTimePicker();
             this.CBDepo = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.TBMiktar = new System.Windows.Forms.TextBox();
             this.CHBKdvDahil = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.TBAciklama = new System.Windows.Forms.TextBox();
@@ -457,18 +449,10 @@
             this.groupBox1.Controls.Add(this.DTPVadeTarihi);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.LBLCariAdi);
-            this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Controls.Add(this.CBBirim);
-            this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.TBKdv);
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.TBFiyat);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.DTPTarih);
             this.groupBox1.Controls.Add(this.CBDepo);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.TBMiktar);
             this.groupBox1.Controls.Add(this.CHBKdvDahil);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.TBAciklama);
@@ -507,7 +491,7 @@
             // 
             this.TBBelgeNo.Location = new System.Drawing.Point(72, 28);
             this.TBBelgeNo.Name = "TBBelgeNo";
-            this.TBBelgeNo.Size = new System.Drawing.Size(120, 23);
+            this.TBBelgeNo.Size = new System.Drawing.Size(118, 23);
             this.TBBelgeNo.TabIndex = 37;
             this.TBBelgeNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -568,7 +552,7 @@
             this.CBParaBirimi.FormattingEnabled = true;
             this.CBParaBirimi.Items.AddRange(new object[] {
             "TL"});
-            this.CBParaBirimi.Location = new System.Drawing.Point(785, 63);
+            this.CBParaBirimi.Location = new System.Drawing.Point(568, 58);
             this.CBParaBirimi.Name = "CBParaBirimi";
             this.CBParaBirimi.Size = new System.Drawing.Size(69, 23);
             this.CBParaBirimi.TabIndex = 26;
@@ -576,7 +560,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(715, 71);
+            this.label5.Location = new System.Drawing.Point(498, 66);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(64, 15);
             this.label5.TabIndex = 11;
@@ -592,7 +576,7 @@
             // 
             // TBKur
             // 
-            this.TBKur.Location = new System.Drawing.Point(785, 94);
+            this.TBKur.Location = new System.Drawing.Point(568, 89);
             this.TBKur.Name = "TBKur";
             this.TBKur.Size = new System.Drawing.Size(149, 23);
             this.TBKur.TabIndex = 19;
@@ -610,7 +594,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(718, 102);
+            this.label8.Location = new System.Drawing.Point(501, 97);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(25, 15);
             this.label8.TabIndex = 20;
@@ -625,61 +609,10 @@
             this.LBLCariAdi.TabIndex = 0;
             this.LBLCariAdi.Text = "Cari Adı";
             // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(502, 67);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(35, 15);
-            this.label14.TabIndex = 28;
-            this.label14.Text = "Birim";
-            // 
-            // CBBirim
-            // 
-            this.CBBirim.FormattingEnabled = true;
-            this.CBBirim.Location = new System.Drawing.Point(563, 65);
-            this.CBBirim.Name = "CBBirim";
-            this.CBBirim.Size = new System.Drawing.Size(121, 23);
-            this.CBBirim.TabIndex = 27;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(493, 98);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(42, 15);
-            this.label10.TabIndex = 24;
-            this.label10.Text = "KDV %";
-            // 
-            // TBKdv
-            // 
-            this.TBKdv.Location = new System.Drawing.Point(563, 94);
-            this.TBKdv.Name = "TBKdv";
-            this.TBKdv.Size = new System.Drawing.Size(121, 23);
-            this.TBKdv.TabIndex = 23;
-            this.TBKdv.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(718, 33);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(32, 15);
-            this.label9.TabIndex = 22;
-            this.label9.Text = "Fiyat";
-            // 
-            // TBFiyat
-            // 
-            this.TBFiyat.Location = new System.Drawing.Point(785, 30);
-            this.TBFiyat.Name = "TBFiyat";
-            this.TBFiyat.Size = new System.Drawing.Size(149, 23);
-            this.TBFiyat.TabIndex = 21;
-            this.TBFiyat.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(1, 179);
+            this.label7.Location = new System.Drawing.Point(-2, 150);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(72, 15);
             this.label7.TabIndex = 18;
@@ -688,7 +621,7 @@
             // DTPTarih
             // 
             this.DTPTarih.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DTPTarih.Location = new System.Drawing.Point(76, 173);
+            this.DTPTarih.Location = new System.Drawing.Point(73, 144);
             this.DTPTarih.Name = "DTPTarih";
             this.DTPTarih.Size = new System.Drawing.Size(148, 23);
             this.DTPTarih.TabIndex = 17;
@@ -696,7 +629,7 @@
             // CBDepo
             // 
             this.CBDepo.FormattingEnabled = true;
-            this.CBDepo.Location = new System.Drawing.Point(72, 144);
+            this.CBDepo.Location = new System.Drawing.Point(568, 29);
             this.CBDepo.Name = "CBDepo";
             this.CBDepo.Size = new System.Drawing.Size(149, 23);
             this.CBDepo.TabIndex = 16;
@@ -704,33 +637,16 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 147);
+            this.label6.Location = new System.Drawing.Point(502, 32);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(35, 15);
             this.label6.TabIndex = 13;
             this.label6.Text = "Depo";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(496, 34);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(41, 15);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Miktar";
-            // 
-            // TBMiktar
-            // 
-            this.TBMiktar.Location = new System.Drawing.Point(563, 31);
-            this.TBMiktar.Name = "TBMiktar";
-            this.TBMiktar.Size = new System.Drawing.Size(121, 23);
-            this.TBMiktar.TabIndex = 8;
-            this.TBMiktar.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
             // CHBKdvDahil
             // 
             this.CHBKdvDahil.AutoSize = true;
-            this.CHBKdvDahil.Location = new System.Drawing.Point(563, 123);
+            this.CHBKdvDahil.Location = new System.Drawing.Point(72, 173);
             this.CHBKdvDahil.Name = "CHBKdvDahil";
             this.CHBKdvDahil.Size = new System.Drawing.Size(78, 19);
             this.CHBKdvDahil.TabIndex = 7;
@@ -776,7 +692,7 @@
             // 
             this.TBStokKodu.Location = new System.Drawing.Point(72, 57);
             this.TBStokKodu.Name = "TBStokKodu";
-            this.TBStokKodu.Size = new System.Drawing.Size(120, 23);
+            this.TBStokKodu.Size = new System.Drawing.Size(118, 23);
             this.TBStokKodu.TabIndex = 1;
             // 
             // LBLCariKodu
@@ -829,10 +745,6 @@
         private Button BTKaydet;
         private GroupBox groupBox1;
         private ComboBox CBParaBirimi;
-        private Label label10;
-        private TextBox TBKdv;
-        private Label label9;
-        private TextBox TBFiyat;
         private Label label8;
         private TextBox TBKur;
         private Label label7;
@@ -840,8 +752,6 @@
         private ComboBox CBDepo;
         private Label label6;
         private Label label5;
-        private Label label4;
-        private TextBox TBMiktar;
         private CheckBox CHBKdvDahil;
         private Label label3;
         private TextBox TBAciklama;
@@ -849,8 +759,6 @@
         private Button BTStokSec;
         private TextBox TBStokKodu;
         private Label LBLCariKodu;
-        private Label label14;
-        private ComboBox CBBirim;
         private Panel panel4;
         private Label LBLIskonto;
         private TextBox TBIskonto;

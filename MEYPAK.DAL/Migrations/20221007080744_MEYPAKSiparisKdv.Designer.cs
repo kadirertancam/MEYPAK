@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MEYPAK.DAL.Migrations
 {
     [DbContext(typeof(MEYPAKContext))]
-    [Migration("20221007080109_MEYPAKSiparisKdv")]
+    [Migration("20221007080744_MEYPAKSiparisKdv")]
     partial class MEYPAKSiparisKdv
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -169,10 +169,6 @@ namespace MEYPAK.DAL.Migrations
                         .HasColumnOrder(2);
 
                     b.HasKey("ID");
-
-                    b.HasIndex("CIKTIDEPOID");
-
-                    b.HasIndex("HEDEFDEPOID");
 
                     b.ToTable("MPDEPOTRANSFER");
                 });
@@ -1308,25 +1304,6 @@ namespace MEYPAK.DAL.Migrations
                     b.ToTable("MPSTOKSAYIMHAR");
                 });
 
-            modelBuilder.Entity("MEYPAK.Entity.Models.MPDEPOTRANSFER", b =>
-                {
-                    b.HasOne("MEYPAK.Entity.Models.MPDEPO", "CIKTIDEPO")
-                        .WithMany("MPDEPOTRANSFERCIKTI")
-                        .HasForeignKey("CIKTIDEPOID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MEYPAK.Entity.Models.MPDEPO", "HEDEFDEPO")
-                        .WithMany("MPDEPOTRANSFERHEDEF")
-                        .HasForeignKey("HEDEFDEPOID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("CIKTIDEPO");
-
-                    b.Navigation("HEDEFDEPO");
-                });
-
             modelBuilder.Entity("MEYPAK.Entity.Models.MPDEPOTRANSFERBILGI", b =>
                 {
                     b.HasOne("MEYPAK.Entity.Models.MPDEPOTRANSFER", "DEPOTRANSFER")
@@ -1439,13 +1416,6 @@ namespace MEYPAK.DAL.Migrations
                     b.Navigation("MPSTOK");
 
                     b.Navigation("MPSTOKSAYIM");
-                });
-
-            modelBuilder.Entity("MEYPAK.Entity.Models.MPDEPO", b =>
-                {
-                    b.Navigation("MPDEPOTRANSFERCIKTI");
-
-                    b.Navigation("MPDEPOTRANSFERHEDEF");
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.MPOLCUBR", b =>

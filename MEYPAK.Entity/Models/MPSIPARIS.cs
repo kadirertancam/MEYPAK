@@ -46,8 +46,7 @@ namespace MEYPAK.Entity.Models
         [StringLength(50)]
         public string SERINO { get; set; } = "";
         public string BELGENO { get; set; } = "";
-        public bool KDVDAHİL { get; set; } 
-        public decimal ISKONTO { get; set; }= 0;
+        public bool KDVDAHİL { get; set; }  
         public decimal NETTOPLAM { get; set; }=0;
         public decimal KDVTOPLAM { get; set; } = 0;
         public decimal ISKONTOTOPLAM { get; set; } = 0;

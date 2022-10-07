@@ -1,4 +1,5 @@
-﻿using MEYPAK.PRL.DEPO;
+﻿using MEYPAK.Interfaces;
+using MEYPAK.PRL.DEPO;
 using MEYPAK.PRL.SIPARIS;
 using MEYPAK.PRL.STOK;
 using System;
@@ -7,6 +8,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,6 +20,7 @@ namespace MEYPAK.PRL
         public Main()
         {
             InitializeComponent();
+              
             fStokHareket = new FStokHareket();
             fSTOKKART = new FStokKart();
             fDepoKart = new FDepoKart();

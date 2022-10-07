@@ -19,12 +19,14 @@ namespace MEYPAK.Entity.PocoModels
         public string Birim { get; set; } = "";
         public decimal Miktar { get; set; } = 0;
         public string Doviz { get; set; } = "";
-        public decimal NetFiyat { get; set; }
+        public decimal BirimFiyat { get; set; }=0;
+        public decimal NetFiyat{ get; set; } = 0;
         public decimal İskonto1 { get; set; } = 0;
         public decimal İskonto2 { get; set; }= 0;
         public decimal İskonto3 { get; set; } = 0;
         public decimal Kdv { get; set; } = 0;
         public decimal KdvTutarı { get; set; }
+        public decimal İskontoTutarı { get; set; }
         public decimal BrütFiyat { get; set; } = 0;
         public decimal NetToplam { get; set; } = 0;
         public decimal BrütToplam { get; set; } = 0; 
