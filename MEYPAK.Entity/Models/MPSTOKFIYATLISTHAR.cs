@@ -25,8 +25,9 @@ namespace MEYPAK.Entity.Models
         public decimal NETFIYAT { get; set; }
         public decimal ISKONTO { get; set; }
         public int KULLANICIID { get; set; }
-        public int KAYITTIPI { get; set; }
-        public int AKTIF { get; set; } 
+        
+        public int AKTIF { get; set; }
+        public byte KAYITTIPI { get; set; } = 0;
         public virtual MPSTOK MPSTOK { get; set; }
         [ForeignKey("FIYATLISTID")]
         public virtual MPSTOKFIYATLIST MPSTOKFIYATLIST { get; set; }=new MPSTOKFIYATLIST();

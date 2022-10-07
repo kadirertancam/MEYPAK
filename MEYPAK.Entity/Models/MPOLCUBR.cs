@@ -23,8 +23,9 @@ namespace MEYPAK.Entity.Models
         public string ADI { get; set; } = "";
         [StringLength(50)]
         public string BIRIM { get; set; } = "";
-        public int KAYITTIPI { get; set; } = 0;
+        
         public int KULLANICIID { get; set; } = 0;
+        public byte KAYITTIPI { get; set; } = 0;
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MPSTOKOLCUBR> MPSTOKOLCUBR { get; set; }

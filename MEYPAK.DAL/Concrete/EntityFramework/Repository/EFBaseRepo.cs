@@ -91,5 +91,8 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
             }
             return true;
         }
+        //CREATE TRIGGER DontRemove
+        // INSTEAD OF DELETE
+        //AS 
     }
 }

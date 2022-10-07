@@ -30,7 +30,7 @@ namespace MEYPAK.Entity.Models
         public DateTime SIPARISTARIHI { get; set; } = DateTime.Now; 
         public DateTime SEVKIYATTARIHI { get; set; }=DateTime.Now;
         public DateTime VADETARIHI { get; set; } = DateTime.Now;
-        public byte TIP { get; set; } = 0;
+        
         public byte KULLANICITIPI { get; set; } = 0;
         [StringLength(50)]
         public string CARIADI { get; set; } = "";
@@ -55,6 +55,7 @@ namespace MEYPAK.Entity.Models
         public bool DURUM { get; set; }
         [Required]
         public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
+        public byte KAYITTIPI { get; set; } = 0;
 
 
     }

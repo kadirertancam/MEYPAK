@@ -47,9 +47,10 @@ namespace MEYPAK.Entity.Models
         public int MEDENIDURUM { get; set; }
         [StringLength(50)]
         public string ASKERLIK { get; set; }
-        public int KAYITTIPI { get; set; }
-        public int DURUM { get; set; }
+
+        public byte DURUM { get; set; } = 0;
         public int PSD { get; set; }
+        public byte KAYITTIPI { get; set; } = 0;
         [Required]
         public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
     }

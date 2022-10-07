@@ -25,11 +25,15 @@ namespace MEYPAK.Entity.Models
         public int STOKID { get; set; }
         [Column(Order = 5)]
         public int MIKTAR { get; set; }
+        //BİRİM ID EKLENECEK.
 
         [Column(Order = 6)]
-        public int DURUM { get; set; }
+        public byte DURUM { get; set; }
+        [StringLength(200)]
+        [Column(Order = 7)]
+        public string ACIKLAMA { get; set; } = "";
         [Required]
-        [Column(Order =7)]
+        [Column(Order =8)]
         public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
 
         [ForeignKey("DEPOTRANSFERID")]

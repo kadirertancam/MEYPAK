@@ -120,7 +120,7 @@ namespace MEYPAK.Entity.Models
         [DefaultValue(0)]
         public int KULLANICIID { get; set; }
         [DefaultValue(0)]
-        public byte KAYITTIPI { get; set; }
+        public byte KAYITTIPI { get; set; } = 0;
         [Required]
         public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
 

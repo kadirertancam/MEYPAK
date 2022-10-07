@@ -21,7 +21,7 @@ namespace MEYPAK.Entity.Models
         public int NUM { get; set; }                //Sıra numarası
         public decimal KATSAYI { get; set; }  
         public int KULLANICIID { get; set; }
-        public byte KAYITTIPI { get; set; }
+        public byte KAYITTIPI { get; set; } = 0;
         [ForeignKey("MPSTOK")]
         public int STOKID { get; set; }
         [ForeignKey("STOKID")]

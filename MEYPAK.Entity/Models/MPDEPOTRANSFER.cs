@@ -18,17 +18,19 @@ namespace MEYPAK.Entity.Models
         [Column(Order = 3)]
         public DateTime GUNCELLEMETARIHI { get; set; } = DateTime.Now;
         [Required]
-        [Column(Order = 4)] 
+        [Column(Order = 4)]
         public int CIKTIDEPOID { get; set; }
         
         [Required]
-        [Column(Order = 5)] 
+        [Column(Order = 5)]
         public int HEDEFDEPOID { get; set; }
         [Column(Order = 6)]
-        public int DURUM { get; set; } = 0;
+        public byte DURUM { get; set; } = 0;
         [Column(Order = 7)]
         [Required]
         public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
+
+        public byte KAYITTIPI { get; set; } = 0;
 
     }
 }

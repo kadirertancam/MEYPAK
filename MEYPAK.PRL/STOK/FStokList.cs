@@ -4,6 +4,7 @@ using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository;
 using MEYPAK.Interfaces.Stok;
 using MEYPAK.PRL.Assets;
+using MEYPAK.PRL.DEPO;
 using MEYPAK.PRL.SIPARIS;
 using System;
 using System.Collections.Generic;
@@ -24,6 +25,7 @@ namespace MEYPAK.PRL.STOK
         FStokSayimPanel fstokSayimPanel;
         FStokFiyatListPanel fstokFiyatListPanel;
         FSiparis fSiparis;
+        FDepolarArasıTransferBilgi fDepolarArasıBilgi;
         int id;
         string _islem;
         public FStokList(string islem="")
@@ -41,7 +43,7 @@ namespace MEYPAK.PRL.STOK
             fStokHareket = (FStokHareket)Application.OpenForms["FStokHareket"];
             fstokSayimPanel = (FStokSayimPanel)Application.OpenForms["FStokSayimPanel"];
             fstokFiyatListPanel = (FStokFiyatListPanel)Application.OpenForms["FStokFiyatListPanel"];
-
+            fDepolarArasıBilgi = (FDepolarArasıTransferBilgi)Application.OpenForms["FDepolarArasıTransferBilgi"];
             fSiparis = (FSiparis)Application.OpenForms["FSiparis"];
         }
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -70,6 +72,11 @@ namespace MEYPAK.PRL.STOK
             {
                 if (fSiparis != null)
                     fSiparis._tempStok = _stokServis.Getir(x => x.ID.ToString() == dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
+            }
+            else if (_islem == "FDepolarArasıTransferBilgi")
+            {
+                if (fDepolarArasıBilgi != null)
+                    fDepolarArasıBilgi._tempStok = _stokServis.Getir(x => x.ID.ToString() == dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
             }
 
             this.Close();

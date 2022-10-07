@@ -19,6 +19,6 @@ namespace MEYPAK.Entity.Models
         public string ACIKLAMA { get; set; }
         public DateTime OLUSTURMATARIHI { get; set; }
         public DateTime GUNCELLEMETARIHI { get; set; }
-        public int KAYITTIPI { get; set; }
+        public byte KAYITTIPI { get; set; } = 0;
     }
 }

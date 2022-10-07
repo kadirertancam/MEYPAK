@@ -22,7 +22,7 @@ namespace MEYPAK.Entity.Models
         public DateTime BASTAR { get; set; } = DateTime.Now;
         public DateTime BITTAR { get; set; } = DateTime.Now;
         public int KULLANICIID { get; set; }=0;
-        public int KAYITTIPI { get; set; } = 0;
+        public byte KAYITTIPI { get; set; } = 0;
         [Required]
         public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
 
