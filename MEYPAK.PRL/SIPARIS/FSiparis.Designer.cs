@@ -43,16 +43,16 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.LBGenelToplam = new System.Windows.Forms.Label();
-            this.TBGenelToplam = new System.Windows.Forms.TextBox();
-            this.LBKdvTutari = new System.Windows.Forms.Label();
-            this.LBAraToplam = new System.Windows.Forms.Label();
-            this.LBIskontoTutari = new System.Windows.Forms.Label();
-            this.LBBrutToplam = new System.Windows.Forms.Label();
-            this.TBKdvTutari = new System.Windows.Forms.TextBox();
-            this.TBAraToplam = new System.Windows.Forms.TextBox();
-            this.TBIskontoToplam = new System.Windows.Forms.TextBox();
-            this.TBBrutToplam = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.BTKaydet = new System.Windows.Forms.Button();
             this.BTNDegistir = new System.Windows.Forms.Button();
@@ -244,16 +244,16 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.LBGenelToplam);
-            this.groupBox2.Controls.Add(this.TBGenelToplam);
-            this.groupBox2.Controls.Add(this.LBKdvTutari);
-            this.groupBox2.Controls.Add(this.LBAraToplam);
-            this.groupBox2.Controls.Add(this.LBIskontoTutari);
-            this.groupBox2.Controls.Add(this.LBBrutToplam);
-            this.groupBox2.Controls.Add(this.TBKdvTutari);
-            this.groupBox2.Controls.Add(this.TBAraToplam);
-            this.groupBox2.Controls.Add(this.TBIskontoToplam);
-            this.groupBox2.Controls.Add(this.TBBrutToplam);
+            this.groupBox2.Controls.Add(this.label13);
+            this.groupBox2.Controls.Add(this.textBox5);
+            this.groupBox2.Controls.Add(this.label12);
+            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.textBox4);
+            this.groupBox2.Controls.Add(this.textBox3);
+            this.groupBox2.Controls.Add(this.textBox2);
+            this.groupBox2.Controls.Add(this.textBox1);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
@@ -261,110 +261,100 @@
             this.groupBox2.TabIndex = 18;
             this.groupBox2.TabStop = false;
             // 
-            // LBGenelToplam
+            // label13
             // 
-            this.LBGenelToplam.AutoSize = true;
-            this.LBGenelToplam.Location = new System.Drawing.Point(16, 142);
-            this.LBGenelToplam.Name = "LBGenelToplam";
-            this.LBGenelToplam.Size = new System.Drawing.Size(79, 15);
-            this.LBGenelToplam.TabIndex = 9;
-            this.LBGenelToplam.Text = "Genel Toplam";
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(16, 142);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(79, 15);
+            this.label13.TabIndex = 9;
+            this.label13.Text = "Genel Toplam";
             // 
-            // TBGenelToplam
+            // textBox5
             // 
-            this.TBGenelToplam.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.TBGenelToplam.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TBGenelToplam.Enabled = false;
-            this.TBGenelToplam.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.TBGenelToplam.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.TBGenelToplam.Location = new System.Drawing.Point(101, 139);
-            this.TBGenelToplam.Name = "TBGenelToplam";
-            this.TBGenelToplam.Size = new System.Drawing.Size(196, 20);
-            this.TBGenelToplam.TabIndex = 8;
+            this.textBox5.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox5.Enabled = false;
+            this.textBox5.Location = new System.Drawing.Point(101, 139);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(196, 16);
+            this.textBox5.TabIndex = 8;
             // 
-            // LBKdvTutari
+            // label12
             // 
-            this.LBKdvTutari.AutoSize = true;
-            this.LBKdvTutari.Location = new System.Drawing.Point(16, 113);
-            this.LBKdvTutari.Name = "LBKdvTutari";
-            this.LBKdvTutari.Size = new System.Drawing.Size(62, 15);
-            this.LBKdvTutari.TabIndex = 7;
-            this.LBKdvTutari.Text = "KDV Tutarı";
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(16, 113);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(62, 15);
+            this.label12.TabIndex = 7;
+            this.label12.Text = "KDV Tutarı";
             // 
-            // LBAraToplam
+            // label11
             // 
-            this.LBAraToplam.AutoSize = true;
-            this.LBAraToplam.Location = new System.Drawing.Point(16, 84);
-            this.LBAraToplam.Name = "LBAraToplam";
-            this.LBAraToplam.Size = new System.Drawing.Size(64, 15);
-            this.LBAraToplam.TabIndex = 6;
-            this.LBAraToplam.Text = "AraToplam";
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(16, 84);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(64, 15);
+            this.label11.TabIndex = 6;
+            this.label11.Text = "AraToplam";
             // 
-            // LBIskontoTutari
+            // label2
             // 
-            this.LBIskontoTutari.AutoSize = true;
-            this.LBIskontoTutari.Location = new System.Drawing.Point(16, 55);
-            this.LBIskontoTutari.Name = "LBIskontoTutari";
-            this.LBIskontoTutari.Size = new System.Drawing.Size(79, 15);
-            this.LBIskontoTutari.TabIndex = 5;
-            this.LBIskontoTutari.Text = "İskonto Tutarı";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(16, 55);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(79, 15);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "İskonto Tutarı";
             // 
-            // LBBrutToplam
+            // label1
             // 
-            this.LBBrutToplam.AutoSize = true;
-            this.LBBrutToplam.Location = new System.Drawing.Point(16, 26);
-            this.LBBrutToplam.Name = "LBBrutToplam";
-            this.LBBrutToplam.Size = new System.Drawing.Size(71, 15);
-            this.LBBrutToplam.TabIndex = 4;
-            this.LBBrutToplam.Text = "Brüt Toplam";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(16, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(71, 15);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Brüt Toplam";
             // 
-            // TBKdvTutari
+            // textBox4
             // 
-            this.TBKdvTutari.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.TBKdvTutari.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TBKdvTutari.Enabled = false;
-            this.TBKdvTutari.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.TBKdvTutari.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.TBKdvTutari.Location = new System.Drawing.Point(101, 110);
-            this.TBKdvTutari.Name = "TBKdvTutari";
-            this.TBKdvTutari.Size = new System.Drawing.Size(196, 20);
-            this.TBKdvTutari.TabIndex = 3;
+            this.textBox4.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox4.Enabled = false;
+            this.textBox4.Location = new System.Drawing.Point(101, 110);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(196, 16);
+            this.textBox4.TabIndex = 3;
             // 
-            // TBAraToplam
+            // textBox3
             // 
-            this.TBAraToplam.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.TBAraToplam.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TBAraToplam.Enabled = false;
-            this.TBAraToplam.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.TBAraToplam.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.TBAraToplam.Location = new System.Drawing.Point(101, 81);
-            this.TBAraToplam.Name = "TBAraToplam";
-            this.TBAraToplam.Size = new System.Drawing.Size(196, 20);
-            this.TBAraToplam.TabIndex = 2;
+            this.textBox3.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox3.Enabled = false;
+            this.textBox3.Location = new System.Drawing.Point(101, 81);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(196, 16);
+            this.textBox3.TabIndex = 2;
             // 
-            // TBIskontoToplam
+            // textBox2
             // 
-            this.TBIskontoToplam.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.TBIskontoToplam.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TBIskontoToplam.Enabled = false;
-            this.TBIskontoToplam.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.TBIskontoToplam.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.TBIskontoToplam.Location = new System.Drawing.Point(101, 52);
-            this.TBIskontoToplam.Name = "TBIskontoToplam";
-            this.TBIskontoToplam.Size = new System.Drawing.Size(196, 20);
-            this.TBIskontoToplam.TabIndex = 1;
+            this.textBox2.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox2.Enabled = false;
+            this.textBox2.Location = new System.Drawing.Point(101, 52);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(196, 16);
+            this.textBox2.TabIndex = 1;
             // 
-            // TBBrutToplam
+            // textBox1
             // 
-            this.TBBrutToplam.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.TBBrutToplam.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TBBrutToplam.Enabled = false;
-            this.TBBrutToplam.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.TBBrutToplam.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.TBBrutToplam.Location = new System.Drawing.Point(101, 23);
-            this.TBBrutToplam.Name = "TBBrutToplam";
-            this.TBBrutToplam.Size = new System.Drawing.Size(196, 20);
-            this.TBBrutToplam.TabIndex = 0;
+            this.textBox1.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Enabled = false;
+            this.textBox1.Location = new System.Drawing.Point(101, 23);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(196, 16);
+            this.textBox1.TabIndex = 0;
             // 
             // panel6
             // 
@@ -793,16 +783,16 @@
         private Label label18;
         private TextBox textBox7;
         private GroupBox groupBox2;
-        private Label LBGenelToplam;
-        private TextBox TBGenelToplam;
-        private Label LBKdvTutari;
-        private Label LBAraToplam;
-        private Label LBIskontoTutari;
-        private Label LBBrutToplam;
-        private TextBox TBKdvTutari;
-        private TextBox TBAraToplam;
-        private TextBox TBIskontoToplam;
-        private TextBox TBBrutToplam;
+        private Label label13;
+        private TextBox textBox5;
+        private Label label12;
+        private Label label11;
+        private Label label2;
+        private Label label1;
+        private TextBox textBox4;
+        private TextBox textBox3;
+        private TextBox textBox2;
+        private TextBox textBox1;
         private Panel panel5;
         private Panel panel6;
         private Panel panel7;

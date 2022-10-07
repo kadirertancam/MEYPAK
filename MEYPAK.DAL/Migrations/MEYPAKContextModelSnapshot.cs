@@ -150,8 +150,8 @@ namespace MEYPAK.DAL.Migrations
                         .HasColumnType("nvarchar(max)")
                         .HasColumnOrder(7);
 
-                    b.Property<byte>("DURUM")
-                        .HasColumnType("tinyint")
+                    b.Property<int>("DURUM")
+                        .HasColumnType("int")
                         .HasColumnOrder(6);
 
                     b.Property<DateTime>("GUNCELLEMETARIHI")
@@ -161,9 +161,6 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<int>("HEDEFDEPOID")
                         .HasColumnType("int")
                         .HasColumnOrder(5);
-
-                    b.Property<byte>("KAYITTIPI")
-                        .HasColumnType("tinyint");
 
                     b.Property<DateTime>("OLUSTURMATARIHI")
                         .HasColumnType("datetime2")
@@ -183,12 +180,6 @@ namespace MEYPAK.DAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
 
-                    b.Property<string>("ACIKLAMA")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)")
-                        .HasColumnOrder(7);
-
                     b.Property<int>("DEPOTRANSFERID")
                         .HasColumnType("int")
                         .HasColumnOrder(3);
@@ -196,10 +187,10 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<string>("DONEM")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)")
-                        .HasColumnOrder(8);
+                        .HasColumnOrder(7);
 
-                    b.Property<byte>("DURUM")
-                        .HasColumnType("tinyint")
+                    b.Property<int>("DURUM")
+                        .HasColumnType("int")
                         .HasColumnOrder(6);
 
                     b.Property<DateTime>("GUNCELLEMETARIHI")
@@ -305,9 +296,6 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<int>("KATEGORIID")
                         .HasColumnType("int");
 
-                    b.Property<byte>("KAYITTIPI")
-                        .HasColumnType("tinyint");
-
                     b.Property<decimal>("KDV")
                         .HasColumnType("decimal(18,2)");
 
@@ -392,9 +380,6 @@ namespace MEYPAK.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte>("KAYITTIPI")
-                        .HasColumnType("tinyint");
-
                     b.Property<int>("UstId")
                         .HasColumnType("int");
 
@@ -424,8 +409,8 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<DateTime>("GUNCELLEMETARIHI")
                         .HasColumnType("datetime2");
 
-                    b.Property<byte>("KAYITTIPI")
-                        .HasColumnType("tinyint");
+                    b.Property<int>("KAYITTIPI")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("OLUSTURMATARIHI")
                         .HasColumnType("datetime2");
@@ -456,8 +441,8 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<DateTime>("GUNCELLEMETARIHI")
                         .HasColumnType("datetime2");
 
-                    b.Property<byte>("KAYITTIPI")
-                        .HasColumnType("tinyint");
+                    b.Property<int>("KAYITTIPI")
+                        .HasColumnType("int");
 
                     b.Property<int>("KULLANICIID")
                         .HasColumnType("int");
@@ -500,8 +485,8 @@ namespace MEYPAK.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte>("DURUM")
-                        .HasColumnType("tinyint");
+                    b.Property<int>("DURUM")
+                        .HasColumnType("int");
 
                     b.Property<string>("EHLIYETNO")
                         .IsRequired()
@@ -529,8 +514,8 @@ namespace MEYPAK.DAL.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<byte>("KAYITTIPI")
-                        .HasColumnType("tinyint");
+                    b.Property<int>("KAYITTIPI")
+                        .HasColumnType("int");
 
                     b.Property<int>("MEDENIDURUM")
                         .HasColumnType("int");
@@ -642,9 +627,6 @@ namespace MEYPAK.DAL.Migrations
                         .HasPrecision(18, 6)
                         .HasColumnType("decimal(18,6)");
 
-                    b.Property<byte>("KAYITTIPI")
-                        .HasColumnType("tinyint");
-
                     b.Property<bool>("KDVDAHİL")
                         .HasColumnType("bit");
 
@@ -684,6 +666,9 @@ namespace MEYPAK.DAL.Migrations
 
                     b.Property<int>("SUBEID")
                         .HasColumnType("int");
+
+                    b.Property<byte>("TIP")
+                        .HasColumnType("tinyint");
 
                     b.Property<int>("VADEGUNU")
                         .HasColumnType("int");
@@ -1033,8 +1018,8 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<DateTime>("GUNCELLEMETARIHI")
                         .HasColumnType("datetime2");
 
-                    b.Property<byte>("KAYITTIPI")
-                        .HasColumnType("tinyint");
+                    b.Property<int>("KAYITTIPI")
+                        .HasColumnType("int");
 
                     b.Property<int>("KULLANICIID")
                         .HasColumnType("int");
@@ -1076,8 +1061,8 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<decimal>("ISKONTO")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<byte>("KAYITTIPI")
-                        .HasColumnType("tinyint");
+                    b.Property<int>("KAYITTIPI")
+                        .HasColumnType("int");
 
                     b.Property<int>("KULLANICIID")
                         .HasColumnType("int");
@@ -1254,8 +1239,8 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<DateTime>("GUNCELLEMETARIHI")
                         .HasColumnType("datetime2");
 
-                    b.Property<byte>("KAYITTIPI")
-                        .HasColumnType("tinyint");
+                    b.Property<int>("KAYITTIPI")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("OLUSTURMATARIHI")
                         .HasColumnType("datetime2");
@@ -1294,8 +1279,8 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<DateTime>("GUNCELLEMETARIHI")
                         .HasColumnType("datetime2");
 
-                    b.Property<byte>("KAYITTIPI")
-                        .HasColumnType("tinyint");
+                    b.Property<int>("KAYITTIPI")
+                        .HasColumnType("int");
 
                     b.Property<decimal>("KUR")
                         .HasColumnType("decimal(18,2)");
