@@ -50,5 +50,7 @@ namespace MEYPAK.Entity.Models
         public int KAYITTIPI { get; set; }
         public int DURUM { get; set; }
         public int PSD { get; set; }
+        [Required]
+        public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
     }
 }

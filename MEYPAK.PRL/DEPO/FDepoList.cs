@@ -17,22 +17,42 @@ namespace MEYPAK.PRL.DEPO
 {
     public partial class FDepoList : Form
     {
-        public FDepoList()
+        string _islem;
+        public FDepoList(string islem="")
         {
             InitializeComponent();
-            depoKart = (FDepoKart)Application.OpenForms["FDepoKart"];
+
+            _islem = islem;
         }
         FDepoKart depoKart;
+        FDepolarArasıTransfer depoTransferKart;
+        FDepolarArasıTransferBilgi depoTransferBilgiKart;
         IDepoServis _depoServis = new DepoManager(new EFDepoRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
 
         private void FDepoList_Load(object sender, EventArgs e)
         {
             dataGridView1.DataSource = _depoServis.Listele();
+            depoKart = (FDepoKart)Application.OpenForms["FDepoKart"];
+            depoTransferKart = (FDepolarArasıTransfer)Application.OpenForms["FDepoTransfer"];
+            depoTransferBilgiKart = (FDepolarArasıTransferBilgi)Application.OpenForms["FDepoTransferBilgi"];
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            depoKart._tempDepo = _depoServis.Getir(x => x.DEPOKODU == dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString()).FirstOrDefault();
+            if (_islem == "FDepoKart")
+            {
+                depoKart._tempDepo = _depoServis.Getir(x => x.DEPOKODU == dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString()).FirstOrDefault();
+            }
+            else if (_islem == "FDepoTransferCıktı")
+            {
+                depoTransferKart._CıktıDepo = _depoServis.Getir(x => x.DEPOKODU == dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString()).FirstOrDefault();
+            }
+            else if (_islem == "FDepoTransferHedef")
+            {
+                depoTransferKart._HedefDepo = _depoServis.Getir(x => x.DEPOKODU == dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString()).FirstOrDefault();
+            }
+
+
             this.Close();
         }
     }

@@ -23,5 +23,8 @@ namespace MEYPAK.Entity.Models
 
         [StringLength(100),Required]
         public string Acıklama { get; set; }
+
+        [Required]
+        public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
     }
 }

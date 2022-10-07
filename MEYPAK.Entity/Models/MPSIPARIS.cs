@@ -46,14 +46,16 @@ namespace MEYPAK.Entity.Models
         [StringLength(50)]
         public string SERINO { get; set; } = "";
         public string BELGENO { get; set; } = "";
-        public bool KDVDAHİL { get; set; }
-        public decimal ISKONTO { get; set; }
-        public decimal NETTOPLAM { get; set; }
-        public decimal KDVTOPLAM { get; set; }
-        public decimal ISKONTOTOPLAM { get; set; }
-        public decimal BRUTTOPLAM { get; set; }
-        public decimal GENELTOPLAM { get; set; }
+        public bool KDVDAHİL { get; set; } 
+        public decimal ISKONTO { get; set; }= 0;
+        public decimal NETTOPLAM { get; set; }=0;
+        public decimal KDVTOPLAM { get; set; } = 0;
+        public decimal ISKONTOTOPLAM { get; set; } = 0;
+        public decimal BRUTTOPLAM { get; set; } = 0;
+        public decimal GENELTOPLAM { get; set; } = 0;
         public bool DURUM { get; set; }
+        [Required]
+        public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
 
 
     }

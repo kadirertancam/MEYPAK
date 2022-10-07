@@ -70,7 +70,7 @@ namespace MEYPAK.PRL.DEPO
         
         private void BTSec_Click(object sender, EventArgs e)
         {
-            fDepoList = new FDepoList();
+            fDepoList = new FDepoList("FDepoKart");
             fDepoList.ShowDialog();
             Doldur();
         }

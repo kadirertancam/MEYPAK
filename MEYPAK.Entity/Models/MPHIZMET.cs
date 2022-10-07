@@ -63,5 +63,8 @@ namespace MEYPAK.Entity.Models
         [StringLength(50)]
         public string RAPORKODU9 { get; set; } = "";
 
+        [Required]
+        public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
+
     }
 }
