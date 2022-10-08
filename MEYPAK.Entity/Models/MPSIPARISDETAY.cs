@@ -41,7 +41,7 @@ namespace MEYPAK.Entity.Models
         public decimal NETTOPLAM { get; set; } = 0;
         public decimal BRUTTOPLAM { get; set; } = 0;
         public int BEKLEYENMIKTAR { get; set; } = 0;
-        public byte HARIKETDURUMU { get; set; } = 0;
+        public byte HAREKETDURUMU { get; set; } = 0;
 
         public decimal KDV { get; set; } = 0;
         public decimal KDVTUTARI { get; set; } = 0;
