@@ -34,5 +34,10 @@ namespace MEYPAK.BLL.STOK
             return _stokHarDal.PocoStokHareketListesi(id);
         }
 
+        void Sil(int id)
+        {
+             _stokHarDal.Sil(id);
+        }
+
     }
 }

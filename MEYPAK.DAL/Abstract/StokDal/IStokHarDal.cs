@@ -13,5 +13,6 @@ namespace MEYPAK.DAL.Abstract.StokDal
     {
         List<PocoStokHareketListesi> PocoStokHareketListesi(int id);
         public Durum EkleyadaGuncelle(MPSTOKHAR entity);
+        public void Sil(int id);
     }
 }

@@ -12,5 +12,6 @@ namespace MEYPAK.DAL.Abstract.StokDal
     {
         public Durum EkleyadaGuncelle(MPSTOKSAYIMHAR entity);
 
+        public void Sil(int id);
     }
 }

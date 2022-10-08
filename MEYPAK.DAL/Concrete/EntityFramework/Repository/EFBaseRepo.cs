@@ -84,9 +84,10 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
 
         public bool Sil(List<T> entity)
         {
-            foreach (var item in entity)
+            foreach (T item in entity)
             {
-                context.Set<T>().Remove(item);
+                typeof(T).GetProperty("KAYITTIPI").GetValue(1);
+                context.Set<T>().Update(item);
                 context.SaveChanges();
             }
             return true;
