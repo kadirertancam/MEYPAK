@@ -349,6 +349,7 @@
             this.TBKdv.Size = new System.Drawing.Size(149, 23);
             this.TBKdv.TabIndex = 23;
             this.TBKdv.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TBKdv.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBKdv_KeyPress);
             // 
             // label9
             // 
@@ -366,6 +367,7 @@
             this.TBFiyat.Size = new System.Drawing.Size(149, 23);
             this.TBFiyat.TabIndex = 21;
             this.TBFiyat.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TBFiyat.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBFiyat_KeyPress);
             // 
             // label7
             // 
@@ -418,6 +420,7 @@
             this.TBKur.TabIndex = 19;
             this.TBKur.Text = "1,00";
             this.TBKur.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TBKur.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBKur_KeyPress);
             // 
             // TBBelgeNo
             // 
@@ -461,6 +464,7 @@
             this.TBMiktar.Size = new System.Drawing.Size(149, 23);
             this.TBMiktar.TabIndex = 8;
             this.TBMiktar.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TBMiktar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBMiktar_KeyPress);
             // 
             // CHBKdvDahil
             // 

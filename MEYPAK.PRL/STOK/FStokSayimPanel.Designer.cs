@@ -158,6 +158,7 @@
             this.TBFiyat.Size = new System.Drawing.Size(173, 23);
             this.TBFiyat.TabIndex = 12;
             this.TBFiyat.Text = "0";
+            this.TBFiyat.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBFiyat_KeyPress);
             // 
             // label7
             // 
@@ -201,6 +202,7 @@
             this.TBBakiye.Name = "TBBakiye";
             this.TBBakiye.Size = new System.Drawing.Size(173, 23);
             this.TBBakiye.TabIndex = 6;
+            this.TBBakiye.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBBakiye_KeyPress);
             // 
             // label4
             // 

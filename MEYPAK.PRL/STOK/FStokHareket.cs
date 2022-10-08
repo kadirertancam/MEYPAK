@@ -144,7 +144,7 @@ namespace MEYPAK.PRL.STOK
 
         private void TBStokKodu_Leave(object sender, EventArgs e)
         {
-            if (TBStokKodu.Text!="" && _stokServis.Getir(x => x.KOD == TBStokKodu.Text).FirstOrDefault() != null)
+            if (TBStokKodu.Text != "" && _stokServis.Getir(x => x.KOD == TBStokKodu.Text).FirstOrDefault() != null)
             {
                 _tempStok = _stokServis.Getir(x => x.KOD == TBStokKodu.Text).FirstOrDefault();
                 Doldur();
@@ -162,5 +162,48 @@ namespace MEYPAK.PRL.STOK
             _stokHarServis.Sil(_stokHarServis.Getir(x => x.ID == Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value)));
 
         }
+
+        #region KeyPress
+
+
+        private void TBMiktar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != '.' && e.KeyChar != ',')
+            {
+                e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+            }
+        }
+
+        private void TBFiyat_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != '.' && e.KeyChar != ',')
+            {
+                e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+            }
+        }
+
+        private void TBKdv_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != '.' && e.KeyChar != ',')
+            {
+                e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+            }
+        }
+
+        private void TBKur_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != '.' && e.KeyChar != ',')
+            {
+                e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+            }
+        }
+
+
+
+
+
+        #endregion
+
+
     }
 }

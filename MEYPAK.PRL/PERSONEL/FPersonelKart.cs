@@ -329,6 +329,16 @@ namespace MEYPAK.PRL.PERSONEL
             }
         }
 
+        private void TBTelefon_KeyPress(object sender, KeyPressEventArgs e)
+        {
+           
+                if (e.KeyChar != '.' && e.KeyChar != ',' && e.KeyChar!='+')
+                {
+                    e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+                }
+            
+        }
+
         private void FPersonelKart_Load(object sender, EventArgs e)
         {
 

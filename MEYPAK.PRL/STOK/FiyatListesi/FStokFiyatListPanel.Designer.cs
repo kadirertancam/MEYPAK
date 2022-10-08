@@ -98,6 +98,7 @@
             this.TBFiyat.Size = new System.Drawing.Size(173, 23);
             this.TBFiyat.TabIndex = 12;
             this.TBFiyat.Text = "0";
+            this.TBFiyat.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBFiyat_KeyPress);
             // 
             // label7
             // 
@@ -230,6 +231,7 @@
             this.TBIskonto.Name = "TBIskonto";
             this.TBIskonto.Size = new System.Drawing.Size(173, 23);
             this.TBIskonto.TabIndex = 17;
+            this.TBIskonto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBIskonto_KeyPress);
             // 
             // LBIskonto
             // 
@@ -263,6 +265,7 @@
             this.TBKur.Name = "TBKur";
             this.TBKur.Size = new System.Drawing.Size(173, 23);
             this.TBKur.TabIndex = 6;
+            this.TBKur.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBKur_KeyPress);
             // 
             // LBKur
             // 

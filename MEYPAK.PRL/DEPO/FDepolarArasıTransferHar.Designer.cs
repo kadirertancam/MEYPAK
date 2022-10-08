@@ -141,6 +141,7 @@
             this.TBMiktar.Size = new System.Drawing.Size(149, 23);
             this.TBMiktar.TabIndex = 8;
             this.TBMiktar.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TBMiktar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBMiktar_KeyPress);
             // 
             // label3
             // 

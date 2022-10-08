@@ -40,18 +40,18 @@ namespace MEYPAK.PRL.DEPO
 
         void DOLDUR()
         {
-            if (_arasıtransfer!=null)
+            if (_arasıtransfer != null)
             {
-            TBCikisDepo.Text = _depoServis.Getir(x => x.ID == _arasıtransfer.CIKTIDEPOID).FirstOrDefault().DEPOADI;
-            TBHedefDepo.Text = _depoServis.Getir(x => x.ID == _arasıtransfer.HEDEFDEPOID).FirstOrDefault().DEPOADI;
-            TBDurum.Text = _arasıtransfer.DURUM.ToString();
-            DTPOlusturmaTarihi.Value = _arasıtransfer.OLUSTURMATARIHI;
+                TBCikisDepo.Text = _depoServis.Getir(x => x.ID == _arasıtransfer.CIKTIDEPOID).FirstOrDefault().DEPOADI;
+                TBHedefDepo.Text = _depoServis.Getir(x => x.ID == _arasıtransfer.HEDEFDEPOID).FirstOrDefault().DEPOADI;
+                TBDurum.Text = _arasıtransfer.DURUM.ToString();
+                DTPOlusturmaTarihi.Value = _arasıtransfer.OLUSTURMATARIHI;
             }
-            if (_tempStok!=null)
+            if (_tempStok != null)
             {
                 TBStokAdı.Text = _tempStok.KOD.ToString();
             }
-            
+
         }
 
         void DataGrideBilgiGetir()
@@ -66,19 +66,19 @@ namespace MEYPAK.PRL.DEPO
 
         private void BTNEKLE_Click(object sender, EventArgs e)
         {
-            if (_tempStok != null && _arasıtransfer!=null)
+            if (_tempStok != null && _arasıtransfer != null)
             {
                 _depoTransferHarServis.Ekle(new MPDEPOTRANSFERHAR
                 {
                     DEPOTRANSFERID = _arasıtransfer.ID,
                     OLUSTURMATARIHI = DateTime.Now,
                     GUNCELLEMETARIHI = DateTime.Now,
-                    STOKID =_tempStok.ID,
-                    MIKTAR=Convert.ToInt32(TBMiktar.Text),
-                    DONEM=DateTime.Now.ToString("yyyy"),
-                   // ACIKLAMA = TBAciklama.Text
+                    STOKID = _tempStok.ID,
+                    MIKTAR = Convert.ToInt32(TBMiktar.Text),
+                    DONEM = DateTime.Now.ToString("yyyy"),
+                    // ACIKLAMA = TBAciklama.Text
 
-            });
+                });
             }
             else
             {
@@ -102,7 +102,17 @@ namespace MEYPAK.PRL.DEPO
 
         private void button4_Click(object sender, EventArgs e)
         {
-           _depoTransferHarServis.Sil(_depoTransferHarServis.Getir(x=>x.ID ==Convert.ToInt32( dataGridView1.SelectedRows[0].Cells[0].Value)));
+            _depoTransferHarServis.Sil(_depoTransferHarServis.Getir(x => x.ID == Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value)));
+        }
+
+        private void TBMiktar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            if (e.KeyChar != '.' && e.KeyChar != ',')
+            {
+                e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+            }
+
         }
     }
 }
