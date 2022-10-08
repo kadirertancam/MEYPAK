@@ -91,7 +91,7 @@ namespace MEYPAK.PRL.SIPARIS
                 KDVTOPLAM = _tempSiparisDetay.Sum(x=>x.KdvTutarı),
                 BRUTTOPLAM =_tempSiparisDetay.Sum(x=>x.BrütToplam),
                 NETTOPLAM=_tempSiparisDetay.Sum(x=>x.NetToplam),
-                GENELTOPLAM=_tempSiparisDetay.Sum(x=>x.KdvTutarı)+ _tempSiparisDetay.Sum(x => x.BrütToplam),
+                GENELTOPLAM=_tempSiparisDetay.Sum(x=>x.KdvTutarı)+ _tempSiparisDetay.Sum(x => x.NetToplam),
                
                  
 
@@ -204,31 +204,36 @@ namespace MEYPAK.PRL.SIPARIS
             if (CHBKdvDahil.Checked == false)
             {
                 birimfiyat = Convert.ToDecimal(dataGridView1.Rows[e.RowIndex].Cells["BirimFiyat"].EditedFormattedValue);
+                brutfiyat = birimfiyat;
                 kdv = Convert.ToDecimal(dataGridView1.Rows[e.RowIndex].Cells["Kdv"].EditedFormattedValue);
                 miktar=_tempSiparisDetay.Where(x => x.StokId.ToString() == dataGridView1.Rows[e.RowIndex].Cells["StokId"].Value.ToString()).FirstOrDefault().Miktar;
                 isktoplam = (birimfiyat * Convert.ToDecimal(dataGridView1.Rows[e.RowIndex].Cells["İskonto1"].EditedFormattedValue)) / 100;
                 isktoplam += (isktoplam * Convert.ToDecimal(dataGridView1.Rows[e.RowIndex].Cells["İskonto2"].EditedFormattedValue)) / 100;
                 isktoplam += (isktoplam * Convert.ToDecimal(dataGridView1.Rows[e.RowIndex].Cells["İskonto3"].EditedFormattedValue)) / 100;
-                nettoplam = birimfiyat * miktar;
-                brutfiyat = birimfiyat - isktoplam;
-                kdvtoplam = ((brutfiyat * kdv / 100) * miktar);
                 brüttoplam = brutfiyat * miktar;
-                geneltoplam = brüttoplam;
+                netfiyat = birimfiyat - isktoplam; 
+                nettoplam = netfiyat * miktar ;
+                kdvtoplam = ((nettoplam * kdv / 100) * miktar);
+                geneltoplam = nettoplam +kdvtoplam;
             }
             else
             { 
                 kdv = Convert.ToDecimal(dataGridView1.Rows[e.RowIndex].Cells["BirimFiyat"].EditedFormattedValue) - (Convert.ToDecimal(dataGridView1.Rows[e.RowIndex].Cells["BirimFiyat"].EditedFormattedValue) / (1+( Convert.ToDecimal(_tempSiparisDetay.Where(x => x.StokId.ToString() == dataGridView1.Rows[e.RowIndex].Cells["StokId"].Value.ToString()).FirstOrDefault().Kdv) / 100)));
                 birimfiyat = (Convert.ToDecimal(dataGridView1.Rows[e.RowIndex].Cells["BirimFiyat"].EditedFormattedValue))-kdv;
-                netfiyat = birimfiyat;
-               miktar = _tempSiparisDetay.Where(x => x.StokId.ToString() == dataGridView1.Rows[e.RowIndex].Cells["StokId"].Value.ToString()).FirstOrDefault().Miktar;
-                nettoplam = birimfiyat * miktar ;
-                isktoplam = (netfiyat* Convert.ToDecimal(dataGridView1.Rows[e.RowIndex].Cells["İskonto1"].EditedFormattedValue))/100 ;
-                isktoplam += (isktoplam * Convert.ToDecimal(dataGridView1.Rows[e.RowIndex].Cells["İskonto2"].EditedFormattedValue)) / 100 ; 
-                isktoplam += (isktoplam * Convert.ToDecimal(dataGridView1.Rows[e.RowIndex].Cells["İskonto3"].EditedFormattedValue)) / 100 ;
-                brutfiyat = netfiyat-isktoplam;
+                brutfiyat = birimfiyat;
+                 miktar = _tempSiparisDetay.Where(x => x.StokId.ToString() == dataGridView1.Rows[e.RowIndex].Cells["StokId"].Value.ToString()).FirstOrDefault().Miktar;
+                isktoplam = (birimfiyat * Convert.ToDecimal(dataGridView1.Rows[e.RowIndex].Cells["İskonto1"].EditedFormattedValue)) / 100;
+                isktoplam += (isktoplam * Convert.ToDecimal(dataGridView1.Rows[e.RowIndex].Cells["İskonto2"].EditedFormattedValue)) / 100;
+                isktoplam += (isktoplam * Convert.ToDecimal(dataGridView1.Rows[e.RowIndex].Cells["İskonto3"].EditedFormattedValue)) / 100;
+
+                brüttoplam = brutfiyat * miktar;
+                netfiyat = brutfiyat - isktoplam; 
+                nettoplam = netfiyat * miktar;
+                brüttoplam = birimfiyat * miktar ;
+               
                 kdvtoplam = ((brutfiyat * Convert.ToDecimal(dataGridView1.Rows[e.RowIndex].Cells["Kdv"].EditedFormattedValue))/100) *miktar;
-                brüttoplam=brutfiyat*miktar;
-                geneltoplam = brüttoplam; 
+                
+                geneltoplam = nettoplam-isktoplam; 
                  
             }
             _tempSiparisDetay.Where(x => x.StokId.ToString() == dataGridView1.Rows[e.RowIndex].Cells["StokId"].Value.ToString()).FirstOrDefault().BrütFiyat = brutfiyat;
@@ -236,16 +241,19 @@ namespace MEYPAK.PRL.SIPARIS
             _tempSiparisDetay.Where(x => x.StokId.ToString() == dataGridView1.Rows[e.RowIndex].Cells["StokId"].Value.ToString()).FirstOrDefault().NetToplam = nettoplam;
             _tempSiparisDetay.Where(x => x.StokId.ToString() == dataGridView1.Rows[e.RowIndex].Cells["StokId"].Value.ToString()).FirstOrDefault().İskontoTutarı = isktoplam;
             _tempSiparisDetay.Where(x => x.StokId.ToString() == dataGridView1.Rows[e.RowIndex].Cells["StokId"].Value.ToString()).FirstOrDefault().KdvTutarı = kdvtoplam;
-            _tempSiparisDetay.Where(x => x.StokId.ToString() == dataGridView1.Rows[e.RowIndex].Cells["StokId"].Value.ToString()).FirstOrDefault().NetFiyat = birimfiyat;
+            _tempSiparisDetay.Where(x => x.StokId.ToString() == dataGridView1.Rows[e.RowIndex].Cells["StokId"].Value.ToString()).FirstOrDefault().NetFiyat = netfiyat;
 
             dataGridView1.Rows[e.RowIndex].Cells["BrütFiyat"].Value = decimal.Round(brutfiyat, 2, MidpointRounding.ToEven);
             dataGridView1.Rows[e.RowIndex].Cells["NetToplam"].Value = decimal.Round(nettoplam, 2, MidpointRounding.ToEven);
             dataGridView1.Rows[e.RowIndex].Cells["BrütToplam"].Value = decimal.Round(brüttoplam, 2, MidpointRounding.ToEven);
-            dataGridView1.Rows[e.RowIndex].Cells["İskontoTutarı"].Value = decimal.Round(isktoplam * miktar, 2, MidpointRounding.ToEven);
+            dataGridView1.Rows[e.RowIndex].Cells["İskontoTutarı"].Value = decimal.Round(isktoplam * miktar, 2, MidpointRounding.ToEven); 
+            dataGridView1.Rows[e.RowIndex].Cells["KdvTutarı"].Value = decimal.Round(kdvtoplam, 2, MidpointRounding.ToEven); 
+            dataGridView1.Rows[e.RowIndex].Cells["NetFiyat"].Value = decimal.Round(netfiyat, 2, MidpointRounding.ToEven);
+            
             TBBrutToplam.Text = decimal.Round(_tempSiparisDetay.Sum(x => x.BrütToplam), 2, MidpointRounding.ToEven).ToString();
             TBIskontoToplam.Text = decimal.Round(_tempSiparisDetay.Sum(x => x.İskontoTutarı), 2, MidpointRounding.ToEven).ToString();
             TBKdvTutari.Text = decimal.Round(_tempSiparisDetay.Sum(x => x.KdvTutarı), 2, MidpointRounding.ToEven).ToString();
-            TBGenelToplam.Text = decimal.Round(_tempSiparisDetay.Sum(x => x.BrütToplam + x.KdvTutarı), 2, MidpointRounding.ToEven).ToString();
+            TBGenelToplam.Text = decimal.Round(_tempSiparisDetay.Sum(x => x.NetToplam + x.KdvTutarı), 2, MidpointRounding.ToEven).ToString();
             TBAraToplam.Text = decimal.Round(_tempSiparisDetay.Sum(x => x.NetToplam), 2, MidpointRounding.ToEven).ToString();
             dataGridView1.Refresh();
 

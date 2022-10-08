@@ -47,7 +47,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
         }
         public List<PocoStokHareketListesi> PocoStokHareketListesi(int id)
         {
-            var snc = context.MPSTOKHAR.AsNoTracking().Where(x => context.MPSTOK.Where(z => z.ID == id).FirstOrDefault().ID == x.STOKID).Select(x => new PocoStokHareketListesi
+            var snc = context.MPSTOKHAR.Where(x => context.MPSTOK.Where(z => z.ID == id).FirstOrDefault().ID == x.STOKID).Select(x => new PocoStokHareketListesi
             {
                 Acıklama = x.ACIKLAMA,
                 BelgeNo = x.BELGE_NO,
