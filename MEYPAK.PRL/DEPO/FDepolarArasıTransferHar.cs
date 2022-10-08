@@ -35,6 +35,7 @@ namespace MEYPAK.PRL.DEPO
         private void FDepolarArasıTransferBilgi_Load(object sender, EventArgs e)
         {
             DOLDUR();
+            DataGrideBilgiGetir();
         }
 
         void DOLDUR()
@@ -97,6 +98,11 @@ namespace MEYPAK.PRL.DEPO
 
                     DOLDUR();
                 }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+           _depoTransferHarServis.Sil(_depoTransferHarServis.Getir(x=>x.ID ==Convert.ToInt32( dataGridView1.SelectedRows[0].Cells[0].Value)));
         }
     }
 }

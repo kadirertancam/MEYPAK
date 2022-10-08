@@ -22,5 +22,9 @@ namespace MEYPAK.BLL.STOK
         {
             return _stokFiyatListDal.EkleyadaGuncelle(entity);
         }
+        void Sil(int id)
+        {
+            _stokFiyatListDal.Sil(id);
+        }
     }
 }
