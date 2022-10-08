@@ -14,6 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MEYPAK.Interfaces.Depo;
 
 namespace MEYPAK.PRL.PERSONEL
 {
@@ -30,12 +31,12 @@ namespace MEYPAK.PRL.PERSONEL
         int mdurum = 0;
         string base64String = "";
         FPersonelList fPersonelList;
-        int PSD=1,_tempPsd;
+        int PSD = 1, _tempPsd;
         #endregion
         #region EVENTS
         private void maskedTextBox1_Enter(object sender, EventArgs e)
         {
-           
+
         }
 
         private void maskedTextBox1_Click(object sender, EventArgs e)
@@ -43,7 +44,7 @@ namespace MEYPAK.PRL.PERSONEL
             MTBTcKimlik.Select(0, 0);
             MTBTcKimlik.ScrollToCaret();
         }
-      
+
 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -52,11 +53,11 @@ namespace MEYPAK.PRL.PERSONEL
                 mdurum = 0;
             else if (RBEvli.Checked)
                 mdurum = 1;
-            else if(RBBosanmis.Checked)
-                mdurum= 2;
+            else if (RBBosanmis.Checked)
+                mdurum = 2;
             #endregion
 
-            string hashresim= ImageToBase64(pictureBox1.Image);
+            string hashresim = ImageToBase64(pictureBox1.Image);
             _personelServis.EkleyadaGuncelle(new Entity.Models.MPPERSONEL()
             {
                 TC = MTBTcKimlik.Text,
@@ -116,8 +117,8 @@ namespace MEYPAK.PRL.PERSONEL
                         break;
                 }
 
-           
-            _tempPersonel = null;
+
+                _tempPersonel = null;
             }
         }
         void resimekle()
@@ -241,7 +242,7 @@ namespace MEYPAK.PRL.PERSONEL
 
         private void TBAdi_TextChanged(object sender, EventArgs e)
         {
-            LBPanelAdi.Text=TBAdi.Text;
+            LBPanelAdi.Text = TBAdi.Text;
         }
 
         private void TBSoyadi_TextChanged(object sender, EventArgs e)
@@ -256,12 +257,13 @@ namespace MEYPAK.PRL.PERSONEL
 
         private void CBGorevi_SelectedIndexChanged(object sender, EventArgs e)
         {
-            LBPanelGorevi.Text=CBGorevi.Text;
+            LBPanelGorevi.Text = CBGorevi.Text;
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
 
+            _personelServis.Sil(_personelServis.Getir(x => x.ID == _tempPersonel.ID));
         }
 
         private void BTPersonelSec_Click(object sender, EventArgs e)
@@ -286,14 +288,14 @@ namespace MEYPAK.PRL.PERSONEL
             {
                 if (PSD == 1)
                 {
-                    PSD= 0;
+                    PSD = 0;
                     LBSigortasizPersonelKayit.Visible = true;
                     if (id != 0)
                     {
                         if (_tempPsd == 1)
                         {
                             LBSigortasizPersonelKayit.Text = "Sigortalı";
-                            LBSigortasizPersonelKayit.ForeColor= Color.Green;
+                            LBSigortasizPersonelKayit.ForeColor = Color.Green;
                         }
                         else
                         {
@@ -310,7 +312,7 @@ namespace MEYPAK.PRL.PERSONEL
                     LBSigortasizPersonelKayit.Text = "Sigortasız Personel Kayıt";
                     LBSigortasizPersonelKayit.ForeColor = Color.Red;
                 }
-            } 
+            }
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
@@ -325,6 +327,16 @@ namespace MEYPAK.PRL.PERSONEL
                 else
                     Temizle(this.Controls);
             }
+        }
+
+        private void TBTelefon_KeyPress(object sender, KeyPressEventArgs e)
+        {
+           
+                if (e.KeyChar != '.' && e.KeyChar != ',' && e.KeyChar!='+')
+                {
+                    e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+                }
+            
         }
 
         private void FPersonelKart_Load(object sender, EventArgs e)

@@ -24,7 +24,21 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
 
         }
 
+        void onYukle()
+        {
 
+            var emp = _context.MPSTOKSAYIMHAR.ToList();
+            foreach (var item in emp)
+            {
+                _context.Entry(item)
+                    .Navigation("MPSTOK").Load();
+                _context.Entry(item)
+                  .Navigation("MPOLCUBR").Load();
+
+
+            }
+
+        }
         public Durum EkleyadaGuncelle(MPSTOKSAYIMHAR entity)
         {
             bool exists = _context.MPSTOKSAYIMHAR.Any(x => x.ID == entity.ID);
@@ -48,6 +62,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
             MPSTOKSAYIMHAR deleteStokHar = _context.MPSTOKSAYIMHAR.Where(x => x.ID == id).FirstOrDefault();
             deleteStokHar.KAYITTIPI = 1;
             _context.MPSTOKSAYIMHAR.Update(deleteStokHar);
+            _context.SaveChanges();
         }
 
     }

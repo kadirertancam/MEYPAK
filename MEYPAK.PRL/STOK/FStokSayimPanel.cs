@@ -26,7 +26,7 @@ namespace MEYPAK.PRL.STOK
 {
     public partial class FStokSayimPanel : Form
     {
-        public FStokSayimPanel(string islemtipi="")
+        public FStokSayimPanel(string islemtipi = "")
         {
             InitializeComponent();
             this._islemtipi = islemtipi;
@@ -35,9 +35,9 @@ namespace MEYPAK.PRL.STOK
         string _islemtipi;
         public List<PocoStokSayimPanelList> _tempStokSayimHarList;
         IStokSayimHarServis stokSayimHarServis = new StokSayimHarManager(new EFStokSayimHarRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
-        IStokServis stokServis=new StokManager(new EFStokRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
+        IStokServis stokServis = new StokManager(new EFStokRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
         IDepoServis depoServis = new DepoManager(new EFDepoRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
-        IStokOlcuBrServis stokOlcuBrServis = new StokOlcuBrManager(new EFStokOlcuBrRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>())); 
+        IStokOlcuBrServis stokOlcuBrServis = new StokOlcuBrManager(new EFStokOlcuBrRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
         IOlcuBrServis olcuBrServis = new OlcuBrManager(new EFOlcuBrRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
         IStokHarServis stokHarServis = new StokHarManager(new EFStokHareketRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
         public int sayimId;
@@ -48,9 +48,9 @@ namespace MEYPAK.PRL.STOK
         {
             TBStokKodu.Text = _tempStok.KOD;
             TBStokAdi.Text = _tempStok.ADI;
-            CBStokBirim.DataSource = stokOlcuBrServis.Listele().Where(x => x.STOKID == _tempStok.ID).Select(x => olcuBrServis.Getir(z=>z.ID==x.OLCUBRID).FirstOrDefault().ADI).ToList();
+            CBStokBirim.DataSource = stokOlcuBrServis.Listele().Where(x => x.STOKID == _tempStok.ID).Select(x => olcuBrServis.Getir(z => z.ID == x.OLCUBRID).FirstOrDefault().ADI).ToList();
             TBBakiye.Text = (from ep in stokServis.Listele() join e in stokHarServis.Listele() on ep.ID equals e.STOKID where ep.KOD == _tempStok.KOD select Convert.ToDecimal(e.IO.ToString() == "1" ? e.MIKTAR : 0) - Convert.ToDecimal(e.IO.ToString() == "0" ? e.MIKTAR : 0)).FirstOrDefault().ToString();
-            
+
             _tempStok = null;
         }
 
@@ -59,7 +59,7 @@ namespace MEYPAK.PRL.STOK
             if (_islemtipi == "düzenle")
             {
             }
-            else if(_islemtipi == "kaydet")
+            else if (_islemtipi == "kaydet")
             {
                 olcuBrServis.Listele();
                 stokOlcuBrServis.Listele();
@@ -128,7 +128,7 @@ namespace MEYPAK.PRL.STOK
 
         private void dataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
-         //   
+            //   
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -144,14 +144,13 @@ namespace MEYPAK.PRL.STOK
                 StokKodu = TBStokKodu.Text,
                 StokAdı = TBStokAdi.Text,
                 ID = stokServis.Getir(x => x.KOD == TBStokKodu.Text).FirstOrDefault().ID
-
             });
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
-            { 
+            {
 
                 stokSayimHarServis.EkleyadaGuncelle(new MPSTOKSAYIMHAR()
                 {
@@ -164,8 +163,45 @@ namespace MEYPAK.PRL.STOK
                     STOKSAYIMID = sayimId
 
                 });
-              
+
             }
         }
+
+        private void BTNSil_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                _tempStokSayimHarList.Remove(_tempStokSayimHarList[dataGridView1.SelectedRows[0].Index]);
+                dataGridView1.DataSource = "";
+                dataGridView1.DataSource = _tempStokSayimHarList;
+            }
+        }
+        #region KeyPress
+        private void TBMiktar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar!='.' && e.KeyChar!=',')
+            {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+            }
+            
+        }
+
+        private void TBFiyat_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != '.' && e.KeyChar != ',')
+            {
+                e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+            }
+        }
+
+        private void TBBakiye_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != '.' && e.KeyChar != ',')
+            {
+                e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+            }
+        }
+        #endregion
+
     }
 }

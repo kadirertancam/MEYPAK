@@ -32,7 +32,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.CBStokBirim = new System.Windows.Forms.ComboBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.BTNSil = new System.Windows.Forms.Button();
             this.BTTemizle = new System.Windows.Forms.Button();
             this.BTKaydet = new System.Windows.Forms.Button();
             this.TBFiyat = new System.Windows.Forms.TextBox();
@@ -91,7 +91,7 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.CBStokBirim);
-            this.groupBox3.Controls.Add(this.button3);
+            this.groupBox3.Controls.Add(this.BTNSil);
             this.groupBox3.Controls.Add(this.BTTemizle);
             this.groupBox3.Controls.Add(this.BTKaydet);
             this.groupBox3.Controls.Add(this.TBFiyat);
@@ -121,14 +121,15 @@
             this.CBStokBirim.Size = new System.Drawing.Size(173, 23);
             this.CBStokBirim.TabIndex = 14;
             // 
-            // button3
+            // BTNSil
             // 
-            this.button3.Location = new System.Drawing.Point(711, 44);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(84, 67);
-            this.button3.TabIndex = 13;
-            this.button3.Text = "Sil";
-            this.button3.UseVisualStyleBackColor = true;
+            this.BTNSil.Location = new System.Drawing.Point(711, 44);
+            this.BTNSil.Name = "BTNSil";
+            this.BTNSil.Size = new System.Drawing.Size(84, 67);
+            this.BTNSil.TabIndex = 13;
+            this.BTNSil.Text = "Sil";
+            this.BTNSil.UseVisualStyleBackColor = true;
+            this.BTNSil.Click += new System.EventHandler(this.BTNSil_Click);
             // 
             // BTTemizle
             // 
@@ -157,6 +158,7 @@
             this.TBFiyat.Size = new System.Drawing.Size(173, 23);
             this.TBFiyat.TabIndex = 12;
             this.TBFiyat.Text = "0";
+            this.TBFiyat.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBFiyat_KeyPress);
             // 
             // label7
             // 
@@ -183,6 +185,7 @@
             this.TBMiktar.Size = new System.Drawing.Size(173, 23);
             this.TBMiktar.TabIndex = 9;
             this.TBMiktar.Text = "0";
+            this.TBMiktar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBMiktar_KeyPress);
             // 
             // label5
             // 
@@ -199,6 +202,7 @@
             this.TBBakiye.Name = "TBBakiye";
             this.TBBakiye.Size = new System.Drawing.Size(173, 23);
             this.TBBakiye.TabIndex = 6;
+            this.TBBakiye.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBBakiye_KeyPress);
             // 
             // label4
             // 
@@ -346,7 +350,9 @@
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 25;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1023, 333);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CurrentCellDirtyStateChanged += new System.EventHandler(this.dataGridView1_CurrentCellDirtyStateChanged);
@@ -399,7 +405,7 @@
         private DateTimePicker dateTimePicker1;
         private Panel panel2;
         private DataGridView dataGridView1;
-        private Button button3;
+        private Button BTNSil;
         private Button BTKaydet;
         private ComboBox CBStokBirim;
         private Panel panel4;

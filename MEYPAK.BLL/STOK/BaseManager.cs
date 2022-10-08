@@ -30,9 +30,9 @@ namespace MEYPAK.BLL.STOK
             return _generic.Getir(predicate);
         }
 
-        public Durum Guncelle(T entity)
+        public Durum Guncelle(T entity, Expression<Func<T, bool>> predicate)
         {
-            return _generic.Guncelle(entity);
+            return _generic.Guncelle(entity,predicate);
         }
 
         public List<T> Listele()

@@ -340,6 +340,7 @@
             this.TBAFiyat5.Name = "TBAFiyat5";
             this.TBAFiyat5.Size = new System.Drawing.Size(150, 23);
             this.TBAFiyat5.TabIndex = 15;
+            this.TBAFiyat5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBAFiyat5_KeyPress);
             // 
             // LBAFiyat4
             // 
@@ -356,6 +357,7 @@
             this.TBAFiyat4.Name = "TBAFiyat4";
             this.TBAFiyat4.Size = new System.Drawing.Size(150, 23);
             this.TBAFiyat4.TabIndex = 14;
+            this.TBAFiyat4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBAFiyat4_KeyPress);
             // 
             // LBAFiyat3
             // 
@@ -372,6 +374,7 @@
             this.TBAFiyat3.Name = "TBAFiyat3";
             this.TBAFiyat3.Size = new System.Drawing.Size(150, 23);
             this.TBAFiyat3.TabIndex = 13;
+            this.TBAFiyat3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBAFiyat3_KeyPress);
             // 
             // LBAFiyat2
             // 
@@ -388,6 +391,7 @@
             this.TBAFiyat2.Name = "TBAFiyat2";
             this.TBAFiyat2.Size = new System.Drawing.Size(150, 23);
             this.TBAFiyat2.TabIndex = 12;
+            this.TBAFiyat2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBAFiyat2_KeyPress);
             // 
             // LBAFiyat1
             // 
@@ -404,6 +408,7 @@
             this.TBAFiyat1.Name = "TBAFiyat1";
             this.TBAFiyat1.Size = new System.Drawing.Size(150, 23);
             this.TBAFiyat1.TabIndex = 11;
+            this.TBAFiyat1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBAFiyat1_KeyPress);
             // 
             // groupBox5
             // 
@@ -460,6 +465,7 @@
             this.TBSFiyat5.Name = "TBSFiyat5";
             this.TBSFiyat5.Size = new System.Drawing.Size(150, 23);
             this.TBSFiyat5.TabIndex = 15;
+            this.TBSFiyat5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBSFiyat5_KeyPress);
             // 
             // LBSFiyat4
             // 
@@ -476,6 +482,7 @@
             this.TBSFiyat4.Name = "TBSFiyat4";
             this.TBSFiyat4.Size = new System.Drawing.Size(150, 23);
             this.TBSFiyat4.TabIndex = 14;
+            this.TBSFiyat4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBSFiyat4_KeyPress);
             // 
             // LBSFiyat3
             // 
@@ -492,6 +499,7 @@
             this.TBSFiyat3.Name = "TBSFiyat3";
             this.TBSFiyat3.Size = new System.Drawing.Size(150, 23);
             this.TBSFiyat3.TabIndex = 13;
+            this.TBSFiyat3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBSFiyat3_KeyPress);
             // 
             // LBSFiyat2
             // 
@@ -508,6 +516,7 @@
             this.TBSFiyat2.Name = "TBSFiyat2";
             this.TBSFiyat2.Size = new System.Drawing.Size(150, 23);
             this.TBSFiyat2.TabIndex = 12;
+            this.TBSFiyat2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBSFiyat2_KeyPress);
             // 
             // LBSFiyat1
             // 
@@ -524,6 +533,7 @@
             this.TBSFiyat1.Name = "TBSFiyat1";
             this.TBSFiyat1.Size = new System.Drawing.Size(150, 23);
             this.TBSFiyat1.TabIndex = 11;
+            this.TBSFiyat1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBSFiyat1_KeyPress);
             // 
             // tabPage2
             // 
@@ -1371,6 +1381,7 @@
             this.TBAlisOtv.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.TBAlisOtv.Size = new System.Drawing.Size(138, 23);
             this.TBAlisOtv.TabIndex = 21;
+            this.TBAlisOtv.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBAlisOtv_KeyPress);
             // 
             // LBSatisOtv
             // 
@@ -1388,6 +1399,7 @@
             this.TBSatisOtv.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.TBSatisOtv.Size = new System.Drawing.Size(138, 23);
             this.TBSatisOtv.TabIndex = 19;
+            this.TBSatisOtv.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBSatisOtv_KeyPress);
             // 
             // LBAlisKdv
             // 
@@ -1405,6 +1417,7 @@
             this.TBAlisKdv.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.TBAlisKdv.Size = new System.Drawing.Size(138, 23);
             this.TBAlisKdv.TabIndex = 17;
+            this.TBAlisKdv.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBAlisKdv_KeyPress);
             // 
             // LBSatisKdv
             // 
@@ -1422,6 +1435,7 @@
             this.TBSatisKdv.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.TBSatisKdv.Size = new System.Drawing.Size(138, 23);
             this.TBSatisKdv.TabIndex = 15;
+            this.TBSatisKdv.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBSatisKdv_KeyPress);
             // 
             // groupBox2
             // 

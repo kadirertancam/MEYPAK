@@ -40,6 +40,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
             MPDEPOTRANSFERHAR deleteStokHar = _context.MPDEPOTRANSFERHAR.Where(x => x.ID == id).FirstOrDefault();
             deleteStokHar.KAYITTIPI = 1;
             _context.MPDEPOTRANSFERHAR.Update(deleteStokHar);
+            _context.SaveChanges();
         }
     }
 }

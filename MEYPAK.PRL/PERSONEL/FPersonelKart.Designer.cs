@@ -617,6 +617,7 @@
             this.TBTelefon.Name = "TBTelefon";
             this.TBTelefon.Size = new System.Drawing.Size(208, 23);
             this.TBTelefon.TabIndex = 6;
+            this.TBTelefon.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBTelefon_KeyPress);
             // 
             // LBTelefon
             // 

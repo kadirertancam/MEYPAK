@@ -2,11 +2,13 @@
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.Entity.Models;
 using MEYPAK.Interfaces;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -55,16 +57,31 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
 
         public List<T> Getir(Expression<Func<T, bool>> predicate)
         {
-
             return context.Set<T>().Where(predicate).ToList();
 
         }
+        
 
 
-        public Durum Guncelle(T entity)
+        public Durum Guncelle(T entity,Expression<Func<T,bool>> predicate)
         {
-            context.Set<T>().Update(entity);
-            return Durum.güncellemebaşarılı;
+            if (entity.GetType().GetProperties().Any(x => x.Name == "ID"))
+            {   
+                T item = Getir(predicate).FirstOrDefault();
+                PropertyInfo propertyInfo = (item.GetType().GetProperty("KAYITTIPI"));
+                propertyInfo.SetValue(item, Convert.ChangeType(1, propertyInfo.PropertyType), null);
+                context.Set<T>().Update(item);
+               
+                propertyInfo= (entity.GetType().GetProperty("ID"));
+                propertyInfo.SetValue(entity, Convert.ChangeType(0, propertyInfo.PropertyType), null);
+                context.Set<T>().Add(entity);
+                context.SaveChanges();
+                return Durum.güncellemebaşarılı;
+            }
+            else
+            {
+                return Durum.başarısız;
+            }
         }
 
         public List<T> Listele()
@@ -79,21 +96,22 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
         public bool Sil(Expression<Func<T, bool>> predicate)
         {
             return Sil(context.Set<T>().Where(predicate).ToList());
-
         }
 
         public bool Sil(List<T> entity)
         {
             foreach (T item in entity)
             {
-                typeof(T).GetProperty("KAYITTIPI").GetValue(1);
-                context.Set<T>().Update(item);
-                context.SaveChanges();
+                if (item.GetType().GetProperties().Any(x => x.Name == "KAYITTIPI"))
+                {
+                    PropertyInfo propertyInfo = (item.GetType().GetProperty("KAYITTIPI"));
+                    propertyInfo.SetValue(item, Convert.ChangeType(2, propertyInfo.PropertyType), null);
+                    context.Set<T>().Update(item);
+                    context.SaveChanges(); 
+                }
+
             }
             return true;
         }
-        //CREATE TRIGGER DontRemove
-        // INSTEAD OF DELETE
-        //AS 
     }
 }

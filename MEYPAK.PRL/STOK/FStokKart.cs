@@ -187,7 +187,7 @@ namespace MEYPAK.PRL
 
 
         }
-
+        
         private void button3_Click(object sender, EventArgs e)
         {
 
@@ -222,6 +222,120 @@ namespace MEYPAK.PRL
         }
         #endregion
 
+        #region KeyPress
+        private void TBSFiyat1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != '.' && e.KeyChar != ',')
+            {
+                e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+            }
+        }
+
+        private void TBSFiyat2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != '.' && e.KeyChar != ',')
+            {
+                e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+            }
+        }
+
+        private void TBSFiyat3_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != '.' && e.KeyChar != ',')
+            {
+                e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+            }
+        }
+
+        private void TBSFiyat4_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != '.' && e.KeyChar != ',')
+            {
+                e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+            }
+        }
+
+        private void TBSFiyat5_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != '.' && e.KeyChar != ',')
+            {
+                e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+            }
+        }
+
+        private void TBAFiyat1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != '.' && e.KeyChar != ',')
+            {
+                e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+            }
+        }
+
+        private void TBAFiyat2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != '.' && e.KeyChar != ',')
+            {
+                e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+            }
+        }
+
+        private void TBAFiyat3_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != '.' && e.KeyChar != ',')
+            {
+                e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+            }
+        }
+
+        private void TBAFiyat4_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != '.' && e.KeyChar != ',')
+            {
+                e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+            }
+        }
+
+        private void TBAFiyat5_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != '.' && e.KeyChar != ',')
+            {
+                e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+            }
+        }
+
+        private void TBSatisKdv_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != '.' && e.KeyChar != ',')
+            {
+                e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+            }
+        }
+
+        private void TBAlisKdv_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != '.' && e.KeyChar != ',')
+            {
+                e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+            }
+        }
+
+        private void TBSatisOtv_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != '.' && e.KeyChar != ',')
+            {
+                e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+            }
+        }
+
+        private void TBAlisOtv_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != '.' && e.KeyChar != ',')
+            {
+                e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+            }
+        }
+
+        #endregion
 
     }
 }

@@ -111,12 +111,7 @@ namespace MEYPAK.PRL.STOK
             dataGridView1.DataSource = "";
             dataGridView1.DataSource = _mpStokFiyatListHar;
         }
-
-        private void BTCık_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
+ 
         private void dataGridView1_DoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dataGridView1.SelectedRows != null)
@@ -130,5 +125,36 @@ namespace MEYPAK.PRL.STOK
                 TBFiyat.Text = _fiyatlisthar.NETFIYAT.ToString();
             }
         }
+
+        #region KeyPress
+        private void BTCık_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void TBFiyat_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != '.' && e.KeyChar != ',')
+            {
+                e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+            }
+        }
+
+        private void TBKur_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != '.' && e.KeyChar != ',')
+            {
+                e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+            }
+        }
+
+        private void TBIskonto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != '.' && e.KeyChar != ',')
+            {
+                e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+            }
+        }
+        #endregion
     }
 }

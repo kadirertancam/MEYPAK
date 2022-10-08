@@ -33,6 +33,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.BTNSil = new System.Windows.Forms.Button();
             this.BTNCikisDepoSec = new System.Windows.Forms.Button();
             this.BTNHedefDepoSec = new System.Windows.Forms.Button();
             this.TBHedefDepo = new System.Windows.Forms.TextBox();
@@ -55,6 +56,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(941, 514);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
@@ -89,6 +91,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.BTNSil);
             this.groupBox1.Controls.Add(this.BTNCikisDepoSec);
             this.groupBox1.Controls.Add(this.BTNHedefDepoSec);
             this.groupBox1.Controls.Add(this.TBHedefDepo);
@@ -103,6 +106,16 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Depolar Arası Transfer";
+            // 
+            // BTNSil
+            // 
+            this.BTNSil.Location = new System.Drawing.Point(811, 23);
+            this.BTNSil.Name = "BTNSil";
+            this.BTNSil.Size = new System.Drawing.Size(98, 54);
+            this.BTNSil.TabIndex = 3;
+            this.BTNSil.Text = "Sil";
+            this.BTNSil.UseVisualStyleBackColor = true;
+            this.BTNSil.Click += new System.EventHandler(this.BTNSil_Click);
             // 
             // BTNCikisDepoSec
             // 
@@ -144,7 +157,7 @@
             // 
             // BTDepoTransferKaydet
             // 
-            this.BTDepoTransferKaydet.Location = new System.Drawing.Point(753, 23);
+            this.BTDepoTransferKaydet.Location = new System.Drawing.Point(693, 23);
             this.BTDepoTransferKaydet.Name = "BTDepoTransferKaydet";
             this.BTDepoTransferKaydet.Size = new System.Drawing.Size(96, 54);
             this.BTDepoTransferKaydet.TabIndex = 4;
@@ -201,5 +214,6 @@
         private Label label1;
         private Button BTNCikisDepoSec;
         private Button BTNHedefDepoSec;
+        private Button BTNSil;
     }
 }

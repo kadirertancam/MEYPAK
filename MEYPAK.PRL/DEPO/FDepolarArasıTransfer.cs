@@ -91,5 +91,10 @@ namespace MEYPAK.PRL.DEPO
 
             }
         }
+
+        private void BTNSil_Click(object sender, EventArgs e)
+        {
+            _depoTransferServis.Sil(_depoTransferServis.Getir(x => x.ID == Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value)));
+        }
     }
 }

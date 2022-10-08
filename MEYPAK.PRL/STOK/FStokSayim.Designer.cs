@@ -34,7 +34,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.BTSayimSil = new System.Windows.Forms.Button();
-            this.BTSayimDuzenle = new System.Windows.Forms.Button();
+            this.BTSayimGuncelle = new System.Windows.Forms.Button();
             this.BTSayimKaydet = new System.Windows.Forms.Button();
             this.TBAciklama = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -73,6 +73,7 @@
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(837, 538);
             this.dataGridView1.TabIndex = 1;
@@ -90,7 +91,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.BTSayimSil);
-            this.groupBox1.Controls.Add(this.BTSayimDuzenle);
+            this.groupBox1.Controls.Add(this.BTSayimGuncelle);
             this.groupBox1.Controls.Add(this.BTSayimKaydet);
             this.groupBox1.Controls.Add(this.TBAciklama);
             this.groupBox1.Controls.Add(this.label2);
@@ -112,16 +113,17 @@
             this.BTSayimSil.TabIndex = 6;
             this.BTSayimSil.Text = "Sil";
             this.BTSayimSil.UseVisualStyleBackColor = true;
+            this.BTSayimSil.Click += new System.EventHandler(this.BTSayimSil_Click);
             // 
-            // BTSayimDuzenle
+            // BTSayimGuncelle
             // 
-            this.BTSayimDuzenle.Location = new System.Drawing.Point(615, 28);
-            this.BTSayimDuzenle.Name = "BTSayimDuzenle";
-            this.BTSayimDuzenle.Size = new System.Drawing.Size(96, 54);
-            this.BTSayimDuzenle.TabIndex = 5;
-            this.BTSayimDuzenle.Text = "Düzenle";
-            this.BTSayimDuzenle.UseVisualStyleBackColor = true;
-            this.BTSayimDuzenle.Click += new System.EventHandler(this.BTSayimDuzenle_Click);
+            this.BTSayimGuncelle.Location = new System.Drawing.Point(615, 28);
+            this.BTSayimGuncelle.Name = "BTSayimGuncelle";
+            this.BTSayimGuncelle.Size = new System.Drawing.Size(96, 54);
+            this.BTSayimGuncelle.TabIndex = 5;
+            this.BTSayimGuncelle.Text = "Degistir";
+            this.BTSayimGuncelle.UseVisualStyleBackColor = true;
+            this.BTSayimGuncelle.Click += new System.EventHandler(this.BTSayimDuzenle_Click);
             // 
             // BTSayimKaydet
             // 
@@ -193,7 +195,7 @@
         private Panel panel2;
         private GroupBox groupBox1;
         private Button BTSayimSil;
-        private Button BTSayimDuzenle;
+        private Button BTSayimGuncelle;
         private Button BTSayimKaydet;
         private TextBox TBAciklama;
         private Label label2;

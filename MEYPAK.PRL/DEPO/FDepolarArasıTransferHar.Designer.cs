@@ -34,7 +34,7 @@
             this.DTPOlusturmaTarihi = new System.Windows.Forms.DateTimePicker();
             this.LBLDurum = new System.Windows.Forms.Label();
             this.TBDurum = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
+            this.BTNSil = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.TBMiktar = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,7 +45,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.BTNGuncelle = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.BTNStokSec = new System.Windows.Forms.Button();
             this.LBLStok = new System.Windows.Forms.Label();
@@ -115,15 +115,15 @@
             this.TBDurum.TabIndex = 14;
             this.TBDurum.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // button4
+            // BTNSil
             // 
-            this.button4.Location = new System.Drawing.Point(208, 13);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(95, 50);
-            this.button4.TabIndex = 2;
-            this.button4.Text = "Sil";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.BTNSil.Location = new System.Drawing.Point(208, 13);
+            this.BTNSil.Name = "BTNSil";
+            this.BTNSil.Size = new System.Drawing.Size(95, 50);
+            this.BTNSil.TabIndex = 2;
+            this.BTNSil.Text = "Sil";
+            this.BTNSil.UseVisualStyleBackColor = true;
+            this.BTNSil.Click += new System.EventHandler(this.button4_Click);
             // 
             // label4
             // 
@@ -141,6 +141,7 @@
             this.TBMiktar.Size = new System.Drawing.Size(149, 23);
             this.TBMiktar.TabIndex = 8;
             this.TBMiktar.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TBMiktar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBMiktar_KeyPress);
             // 
             // label3
             // 
@@ -194,6 +195,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(800, 162);
             this.dataGridView1.TabIndex = 0;
             // 
@@ -209,8 +211,8 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button4);
-            this.groupBox2.Controls.Add(this.button3);
+            this.groupBox2.Controls.Add(this.BTNSil);
+            this.groupBox2.Controls.Add(this.BTNGuncelle);
             this.groupBox2.Controls.Add(this.BTNEKLE);
             this.groupBox2.Location = new System.Drawing.Point(12, 214);
             this.groupBox2.Name = "groupBox2";
@@ -218,14 +220,14 @@
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             // 
-            // button3
+            // BTNGuncelle
             // 
-            this.button3.Location = new System.Drawing.Point(107, 13);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(95, 50);
-            this.button3.TabIndex = 1;
-            this.button3.Text = "Değiştir";
-            this.button3.UseVisualStyleBackColor = true;
+            this.BTNGuncelle.Location = new System.Drawing.Point(107, 13);
+            this.BTNGuncelle.Name = "BTNGuncelle";
+            this.BTNGuncelle.Size = new System.Drawing.Size(95, 50);
+            this.BTNGuncelle.TabIndex = 1;
+            this.BTNGuncelle.Text = "Güncelle";
+            this.BTNGuncelle.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -344,7 +346,7 @@
         private DateTimePicker DTPOlusturmaTarihi;
         private Label LBLDurum;
         private TextBox TBDurum;
-        private Button button4;
+        private Button BTNSil;
         private Label label4;
         private TextBox TBMiktar;
         private Label label3;
@@ -363,6 +365,6 @@
         private Label LBLStok;
         private TextBox TBStokAdı;
         private Button BTNStokSec;
-        private Button button3;
+        private Button BTNGuncelle;
     }
 }

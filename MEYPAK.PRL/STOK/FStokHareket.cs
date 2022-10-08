@@ -33,17 +33,17 @@ namespace MEYPAK.PRL.STOK
         IStokOlcuBrServis _stokOlcuBrServis = new StokOlcuBrManager(new EFStokOlcuBrRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
         IOlcuBrServis _olcuBrServis = new OlcuBrManager(new EFOlcuBrRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
         IStokServis _stokServis;
-       // IStokServis _stokServis = new StokManager(new EFStokRepo());
+        // IStokServis _stokServis = new StokManager(new EFStokRepo());
         List<PocoStokHareketListesi> _tempdgvStok = new List<PocoStokHareketListesi>();
         public MPSTOK _tempStok;
-        int IO=0;
+        int IO = 0;
         int _id;
         IDepoServis _depoServis = new DepoManager(new EFDepoRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
-     
+
         decimal KdvEkle(decimal val)
         {
-            decimal kdvy = (100 + Decimal.Parse(TBKdv.Text))/100;
-            val=val*kdvy;
+            decimal kdvy = (100 + Decimal.Parse(TBKdv.Text)) / 100;
+            val = val * kdvy;
             return val;
         }
         void BakiyeGuncelle()
@@ -54,19 +54,19 @@ namespace MEYPAK.PRL.STOK
         }
         void Doldur()
         {
-           IO= RBGiris.Checked==true ? 1 : 0;
+            IO = RBGiris.Checked == true ? 1 : 0;
             if (_tempStok != null)
             {
                 _id = _tempStok.ID;
                 TBStokKodu.Text = _tempStok.KOD;
-                TBStokAdi.Text = _tempStok.ADI; 
-                CBBirim.DataSource = _stokOlcuBrServis.Listele().Where(x => x.STOKID == _tempStok.ID).Select(x => _olcuBrServis.Getir(z=>z.ID.ToString()==x.OLCUBRID.ToString()).FirstOrDefault().ADI).ToList(); //_stokOlcuBrServis.Getir(x => x.STOKID == _id).Select(x => _olcuBrServis.Getir(z => z.ID == x.OLCUBRID).FirstOrDefault().ADI).ToList();
+                TBStokAdi.Text = _tempStok.ADI;
+                CBBirim.DataSource = _stokOlcuBrServis.Listele().Where(x => x.STOKID == _tempStok.ID).Select(x => _olcuBrServis.Getir(z => z.ID.ToString() == x.OLCUBRID.ToString()).FirstOrDefault().ADI).ToList(); //_stokOlcuBrServis.Getir(x => x.STOKID == _id).Select(x => _olcuBrServis.Getir(z => z.ID == x.OLCUBRID).FirstOrDefault().ADI).ToList();
                 TBKdv.Text = IO == 1 ? _tempStok.ALISKDV.ToString() : _tempStok.SATISKDV.ToString();
                 //TBFiyat.Text = IO == 1 ? _tempStok.AFIYAT1.ToString() : _tempStok.SATISKDV.ToString();
                 BakiyeGuncelle();
                 dataGridView1.DataSource = _stokHarServis.PocoStokHareketListesi(_tempStok.ID);
-               // _tempStok = null;
-                
+                // _tempStok = null;
+
 
             }
         }
@@ -76,8 +76,8 @@ namespace MEYPAK.PRL.STOK
             foreach (Control ctrl in ctrlCollection)
             {
                 if (ctrl is TextBoxBase)
-                { 
-                        ctrl.Text = String.Empty;
+                {
+                    ctrl.Text = String.Empty;
                 }
                 else
                 {
@@ -85,22 +85,22 @@ namespace MEYPAK.PRL.STOK
                 }
             }
         }
-          
+
         private void FStokHareket_Load(object sender, EventArgs e)
         {
-            CBDepo.DataSource = _depoServis.Listele().Select(x=>x.DEPOADI).ToList();
+            CBDepo.DataSource = _depoServis.Listele().Select(x => x.DEPOADI).ToList();
             _tempdgvStok.Add(new PocoStokHareketListesi());
             dataGridView1.DataSource = _tempdgvStok;
-            ((ListBox)CLBDepo).DataSource = _depoServis.Listele().Select(x=>x.DEPOADI).ToList();
-             
+            ((ListBox)CLBDepo).DataSource = _depoServis.Listele().Select(x => x.DEPOADI).ToList();
+
         }
 
         private void BTKaydet_Click(object sender, EventArgs e)
         {
-            IO = RBGiris.Checked==true ?  1 :  0;
-              
+            IO = RBGiris.Checked == true ? 1 : 0;
 
-            
+
+
             _stokHarServis.EkleyadaGuncelle(new Entity.Models.MPSTOKHAR()
             {
                 STOKID = _id,
@@ -133,19 +133,22 @@ namespace MEYPAK.PRL.STOK
             _tempStok = null;
             FStokList fStokList = new FStokList("stokhar");
             fStokList.ShowDialog();
-            
+
             Doldur();
         }
 
         private void TBStokKodu_TextChanged(object sender, EventArgs e)
         {
-           
+
         }
 
         private void TBStokKodu_Leave(object sender, EventArgs e)
         {
-            _tempStok = _stokServis.Getir(x => x.KOD == TBStokKodu.Text).FirstOrDefault();
-            Doldur();
+            if (TBStokKodu.Text != "" && _stokServis.Getir(x => x.KOD == TBStokKodu.Text).FirstOrDefault() != null)
+            {
+                _tempStok = _stokServis.Getir(x => x.KOD == TBStokKodu.Text).FirstOrDefault();
+                Doldur();
+            }
         }
 
         private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -153,5 +156,54 @@ namespace MEYPAK.PRL.STOK
             _tempStok = _stokServis.Getir(x => x.KOD.ToString() == dataGridView1.Rows[e.RowIndex].Cells["KOD"].Value.ToString()).FirstOrDefault();
             Doldur();
         }
+
+        private void BTNSil_Click(object sender, EventArgs e)
+        {
+            _stokHarServis.Sil(_stokHarServis.Getir(x => x.ID == Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value)));
+
+        }
+
+        #region KeyPress
+
+
+        private void TBMiktar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != '.' && e.KeyChar != ',')
+            {
+                e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+            }
+        }
+
+        private void TBFiyat_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != '.' && e.KeyChar != ',')
+            {
+                e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+            }
+        }
+
+        private void TBKdv_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != '.' && e.KeyChar != ',')
+            {
+                e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+            }
+        }
+
+        private void TBKur_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != '.' && e.KeyChar != ',')
+            {
+                e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+            }
+        }
+
+
+
+
+
+        #endregion
+
+
     }
 }

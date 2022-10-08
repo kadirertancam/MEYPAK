@@ -1,4 +1,6 @@
-﻿using MEYPAK.DAL.Abstract.PersonelDal;
+﻿using MEYPAK.BLL.STOK;
+using MEYPAK.DAL.Abstract;
+using MEYPAK.DAL.Abstract.PersonelDal;
 using MEYPAK.Entity.Models;
 using MEYPAK.Interfaces;
 using MEYPAK.Interfaces.Personel;
@@ -11,46 +13,21 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.BLL.PERSONEL
 {
-    public class PersonelManager : IPersonelServis
+    public class PersonelManager :BaseManager<MPPERSONEL> ,IPersonelServis
     {
         IPersonelDal _personelDal;
-        public PersonelManager(IPersonelDal personelDal)
+
+        public PersonelManager(IPersonelDal generic) : base(generic)
         {
-            this._personelDal = personelDal;
+            _personelDal = generic;
         }
-        public MPPERSONEL Ekle(MPPERSONEL entity)
-        {
-            return _personelDal.Ekle(entity);
-        }
+
 
         public Durum EkleyadaGuncelle(MPPERSONEL entity)
         {
             return _personelDal.EkleyadaGuncelle(entity);
         }
- 
-        public List<MPPERSONEL> Getir(Expression<Func<MPPERSONEL, bool>> predicate)
-        {
-            return _personelDal.Getir(predicate);
-        }
 
-        public Durum Guncelle(MPPERSONEL entity)
-        {
-            return _personelDal.Guncelle(entity);
-        }
 
-        public List<MPPERSONEL> Listele()
-        {
-            return _personelDal.Listele();
-        }
-
-        public bool Sil(Expression<Func<MPPERSONEL, bool>> predicate)
-        {
-            return _personelDal.Sil(predicate);
-        }
-
-        public bool Sil(List<MPPERSONEL> entity)
-        {
-            return _personelDal.Sil(entity);
-        }
     }
 }
