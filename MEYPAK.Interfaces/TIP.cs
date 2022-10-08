@@ -9,6 +9,7 @@ namespace MEYPAK.Interfaces
     public enum TIP
     {
         Aktif=0,
-        Pasif=1,
+        Degistirilmis=1,
+        Silinmis=2,
     }
 }

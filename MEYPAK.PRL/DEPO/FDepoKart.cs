@@ -85,5 +85,10 @@ namespace MEYPAK.PRL.DEPO
             _tempDepo = _depoServis.Getir(x => x.DEPOKODU == dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString()).FirstOrDefault();
             Doldur();
         }
+
+        private void BTSil_Click(object sender, EventArgs e)
+        {
+            _depoServis.Sil(_depoServis.Getir(x => x.ID == Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value)));
+        }
     }
 }

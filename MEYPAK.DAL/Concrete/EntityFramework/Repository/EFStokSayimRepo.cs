@@ -27,8 +27,9 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
             foreach (var item in emp)
             {
                 context.Entry(item)
-                    .Collection(e => e.MPSTOKSAYIMHAR)
+                    .Collection(e =>  e.MPSTOKSAYIMHAR)
                     .Load();
+
 
             }
         }

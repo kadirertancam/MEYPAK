@@ -144,7 +144,6 @@ namespace MEYPAK.PRL.STOK
                 StokKodu = TBStokKodu.Text,
                 StokAdı = TBStokAdi.Text,
                 ID = stokServis.Getir(x => x.KOD == TBStokKodu.Text).FirstOrDefault().ID
-
             });
         }
 
@@ -166,6 +165,21 @@ namespace MEYPAK.PRL.STOK
                 });
               
             }
+        }
+
+        private void BTNSil_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                _tempStokSayimHarList.Remove(_tempStokSayimHarList[dataGridView1.SelectedRows[0].Index]);
+                dataGridView1.DataSource = "";
+                dataGridView1.DataSource = _tempStokSayimHarList;
+            }
+        }
+
+        private void TBMiktar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
     }
 }

@@ -39,8 +39,8 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.BTNSil = new System.Windows.Forms.Button();
+            this.BTNGuncelle = new System.Windows.Forms.Button();
             this.BTKaydet = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -107,6 +107,7 @@
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(925, 264);
             this.dataGridView1.TabIndex = 0;
@@ -130,8 +131,8 @@
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.button4);
-            this.groupBox2.Controls.Add(this.button3);
+            this.groupBox2.Controls.Add(this.BTNSil);
+            this.groupBox2.Controls.Add(this.BTNGuncelle);
             this.groupBox2.Controls.Add(this.BTKaydet);
             this.groupBox2.Location = new System.Drawing.Point(12, 214);
             this.groupBox2.Name = "groupBox2";
@@ -199,23 +200,24 @@
             this.label11.TabIndex = 3;
             this.label11.Text = "Toplam Giriş";
             // 
-            // button4
+            // BTNSil
             // 
-            this.button4.Location = new System.Drawing.Point(208, 13);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(95, 50);
-            this.button4.TabIndex = 2;
-            this.button4.Text = "Sil";
-            this.button4.UseVisualStyleBackColor = true;
+            this.BTNSil.Location = new System.Drawing.Point(208, 13);
+            this.BTNSil.Name = "BTNSil";
+            this.BTNSil.Size = new System.Drawing.Size(95, 50);
+            this.BTNSil.TabIndex = 2;
+            this.BTNSil.Text = "Sil";
+            this.BTNSil.UseVisualStyleBackColor = true;
+            this.BTNSil.Click += new System.EventHandler(this.BTNSil_Click);
             // 
-            // button3
+            // BTNGuncelle
             // 
-            this.button3.Location = new System.Drawing.Point(107, 13);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(95, 50);
-            this.button3.TabIndex = 1;
-            this.button3.Text = "Değiştir";
-            this.button3.UseVisualStyleBackColor = true;
+            this.BTNGuncelle.Location = new System.Drawing.Point(107, 13);
+            this.BTNGuncelle.Name = "BTNGuncelle";
+            this.BTNGuncelle.Size = new System.Drawing.Size(95, 50);
+            this.BTNGuncelle.TabIndex = 1;
+            this.BTNGuncelle.Text = "Değiştir";
+            this.BTNGuncelle.UseVisualStyleBackColor = true;
             // 
             // BTKaydet
             // 
@@ -560,8 +562,8 @@
         private Label label13;
         private Label label12;
         private Label label11;
-        private Button button4;
-        private Button button3;
+        private Button BTNSil;
+        private Button BTNGuncelle;
         private Button BTKaydet;
         private GroupBox groupBox1;
         private ComboBox CBParaBirimi;

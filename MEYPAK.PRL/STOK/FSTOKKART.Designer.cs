@@ -524,6 +524,7 @@
             this.TBSFiyat1.Name = "TBSFiyat1";
             this.TBSFiyat1.Size = new System.Drawing.Size(150, 23);
             this.TBSFiyat1.TabIndex = 11;
+            this.TBSFiyat1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBSFiyat1_KeyPress);
             // 
             // tabPage2
             // 

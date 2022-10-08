@@ -70,6 +70,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
             MPSTOKHAR deleteStok = context.MPSTOKHAR.Where(x => x.ID == id).FirstOrDefault();
             deleteStok.KAYITTIPI = 1;
             context.MPSTOKHAR.Update(deleteStok);
+            context.SaveChanges();
         }
 
     }

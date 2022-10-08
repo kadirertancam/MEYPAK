@@ -23,8 +23,11 @@ namespace MEYPAK.PRL.STOK
             InitializeComponent();
            
         }
-        IStokSayimServis _stokSayimServis = new StokSayimManager(new EFStokSayimRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
-        IStokSayimHarServis _stokSayimHarServis= new StokSayimHarManager(new EFStokSayimHarRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
+        static MEYPAKContext context = NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>();
+        IStokSayimServis _stokSayimServis = new StokSayimManager(new EFStokSayimRepo(context));
+        IStokSayimHarServis _stokSayimHarServis = new StokSayimHarManager(new EFStokSayimHarRepo(context));
+        IStokServis _stokServis = new StokManager(new EFStokRepo(context)); 
+        IOlcuBrServis _olcuBrServis = new OlcuBrManager(new EFOlcuBrRepo(context));
         FStokSayimPanel stokSayimPanel;
         int _tempId=0;
 
@@ -64,6 +67,11 @@ namespace MEYPAK.PRL.STOK
             var a = _stokSayimHarServis.Listele().Where(x => x.STOKSAYIMID == _tempId);
             stokSayimPanel._tempStokSayimHarList = a.Select(x=> new Entity.PocoModels.PocoStokSayimPanelList() { StokAdı=x.MPSTOK.ADI,StokKodu=x.MPSTOK.KOD,Birim=x.MPOLCUBR.ADI,Fiyat=x.FIYAT,Miktar=x.MIKTAR}).ToList();
             stokSayimPanel.ShowDialog();
+        }
+
+        private void BTSayimSil_Click(object sender, EventArgs e)
+        {
+            _stokSayimServis.Sil(_stokSayimServis.Getir(x => x.ID == Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value)));
         }
     }
 }

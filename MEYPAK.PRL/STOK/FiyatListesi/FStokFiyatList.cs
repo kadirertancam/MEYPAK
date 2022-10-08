@@ -14,6 +14,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MEYPAK.Entity.PocoModels;
+using MEYPAK.Interfaces.Personel;
+using MEYPAK.Interfaces.Depo;
 
 namespace MEYPAK.PRL.STOK
 {
@@ -67,6 +69,11 @@ namespace MEYPAK.PRL.STOK
             dataGridView1.DataSource = _stokFiyatListServis.PocoStokFiyatListesi();
             dataGridView1.Columns[0].Visible = false; 
             dataGridView1.Columns[dataGridView1.ColumnCount-1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        }
+
+        private void BTSil_Click(object sender, EventArgs e)
+        {
+            _stokFiyatListServis.Sil(_stokFiyatListServis.Getir(x => x.ID == Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value)));
         }
     }
 }

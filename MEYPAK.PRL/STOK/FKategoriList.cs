@@ -38,6 +38,7 @@ namespace MEYPAK.PRL.STOK
 
         public void TreeViewiDoldur()
         {
+            treeView1.Nodes.Clear();
             var data = _kategoriServis.Listele();
             TreeNode ustNode = new TreeNode("Kategoriler");
             treeView1.Nodes.Add(TreeViewDon(ref ustNode, data, 0));
@@ -69,7 +70,9 @@ namespace MEYPAK.PRL.STOK
 
                 };
                 _kategoriServis.Ekle(mPKATEGORI);
+                TreeViewiDoldur();
                 MessageBox.Show("Başarıyla Eklendi");
+                
             }
             else
             {

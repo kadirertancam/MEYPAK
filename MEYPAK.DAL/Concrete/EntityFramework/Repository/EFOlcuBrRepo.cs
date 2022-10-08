@@ -18,8 +18,23 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
         public EFOlcuBrRepo(MEYPAKContext _context) : base(_context)
         {
             context = _context;
+            onYukle();
         }
+        void onYukle()
+        {
 
+            var emp = context.MPOLCUBR.ToList();
+            foreach (var item in emp)
+            {
+                context.Entry(item)
+                    .Collection(x=>x.MPSTOKSAYIMHAR)
+                    .Load();
+                context.Entry(item)
+                   .Collection(x => x.MPSTOKOLCUBR)
+                   .Load();
+            }
+
+        }
 
         public Durum EkleyadaGuncelle(MPOLCUBR entity)
         {

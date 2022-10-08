@@ -78,6 +78,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(561, 231);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDoubleClick);
@@ -101,6 +102,7 @@
             this.BTSil.TabIndex = 2;
             this.BTSil.Text = "Sil";
             this.BTSil.UseVisualStyleBackColor = true;
+            this.BTSil.Click += new System.EventHandler(this.BTSil_Click);
             // 
             // BTEkle
             // 

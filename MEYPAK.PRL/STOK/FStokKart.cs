@@ -188,6 +188,11 @@ namespace MEYPAK.PRL
 
         }
 
+        private void TBSFiyat1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
         private void button3_Click(object sender, EventArgs e)
         {
 
