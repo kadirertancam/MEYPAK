@@ -14,7 +14,8 @@ namespace MEYPAK.DAL.Abstract
         List<T> Listele();
         bool Sil(Expression<Func<T, bool>> predicate);
         bool Sil(List<T> entity);
-        Durum Guncelle(T entity, Expression<Func<T, bool>> predicate);  
+        Durum Guncelle(T entity, Expression<Func<T, bool>> predicate); 
+        T Guncelle(T entity);
         T Ekle(T entity);
     }
 }

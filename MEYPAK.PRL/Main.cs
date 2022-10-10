@@ -28,8 +28,10 @@ namespace MEYPAK.PRL
             fOlcuBrKart = new FOlcuBrKart();
             fSayimIsle = new FSayimIsle();
             fSiparis = new FSiparis();
+            fSevkiyatPanel= new FSevkiyatPanel();
         }
         #region TANIMLAR
+        FSevkiyatPanel fSevkiyatPanel;
         FOlcuBrKart fOlcuBrKart;
         FStokKart fSTOKKART;
         FStokHareket fStokHareket;
@@ -126,6 +128,16 @@ namespace MEYPAK.PRL
             fSiparis.Dock = DockStyle.Fill;
             panel2.Controls.Add(fSiparis);
             fSiparis.Show();
+        }
+
+        private void sevkiyatToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panel2.Controls.Clear();
+            fSevkiyatPanel.TopLevel = false;
+            fSevkiyatPanel.AutoScroll = true;
+            fSevkiyatPanel.Dock = DockStyle.Fill;
+            panel2.Controls.Add(fSevkiyatPanel);
+            fSevkiyatPanel.Show();
         }
     }
 }

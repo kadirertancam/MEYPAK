@@ -4,6 +4,7 @@ using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MEYPAK.DAL.Migrations
 {
     [DbContext(typeof(MEYPAKContext))]
-    partial class MEYPAKContextModelSnapshot : ModelSnapshot
+    [Migration("20221008163613_MEYPAKSevkiyat")]
+    partial class MEYPAKSevkiyat
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -130,106 +132,6 @@ namespace MEYPAK.DAL.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("MPDEPO");
-                });
-
-            modelBuilder.Entity("MEYPAK.Entity.Models.MPDEPOEMIR", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
-
-                    b.Property<string>("ACIKLAMA")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("DURUM")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("MIKTAR")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("SIPARISID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SIRA")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("TARIH")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("TIP")
-                        .HasColumnType("int");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("MPDEPOEMIR");
-                });
-
-            modelBuilder.Entity("MEYPAK.Entity.Models.MPDEPOHAR", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
-
-                    b.Property<int>("BIRIM")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CDEPOID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CSUBEID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("EMIRID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("EMIRMIKTAR")
-                        .HasColumnType("int");
-
-                    b.Property<int>("GDEPOID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("GDEPOKODU")
-                        .HasColumnType("int");
-
-                    b.Property<int>("GSUBEID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("GSUBEKODU")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("MIKTAR")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("SIPARISID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SIPARISKALEMID")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("SIPARISMIKTARI")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("STOKHARID")
-                        .HasColumnType("int");
-
-                    b.Property<string>("STOKKODU")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("TARIH")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("TRANSFERHARID")
-                        .HasColumnType("int");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("MPDEPOHAR");
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.MPDEPOTRANSFER", b =>
@@ -885,37 +787,6 @@ namespace MEYPAK.DAL.Migrations
                     b.HasIndex("STOKID");
 
                     b.ToTable("MPSIPARISDETAY");
-                });
-
-            modelBuilder.Entity("MEYPAK.Entity.Models.MPSIPARISSEVKEMRIHAR", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
-
-                    b.Property<decimal>("EMIRMIKTARI")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("KULLANICIID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SIPARISID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SIPARISKALEMID")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("SIPARISMIKTARI")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<DateTime>("TARIH")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("MPSIPARISSEVKEMRIHAR");
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.MPSTOK", b =>

@@ -12,6 +12,7 @@ namespace MEYPAK.Entity.Models
     public class MPSIPARISDETAY
     {
         public int ID { get; set; }
+        [ForeignKey("MPSIPARIS")]
         public int SIPARISID { get; set; }
         [DefaultValue(0)]
         public int BIRIMID { get; set; }
@@ -47,9 +48,8 @@ namespace MEYPAK.Entity.Models
         public decimal KDVTUTARI { get; set; } = 0;
         public byte KAYITTIPI { get; set; } = 0;
 
-        [ForeignKey("SIPARISID")]
-        public MPSIPARIS SIPARIS { get; set; }
+        public MPSIPARIS MPSIPARIS { get; set; }
 
-        public MPSTOK MPSTOK { get; set; }
+        public MPSTOK MPSTOK { get; set; } 
     }
 }

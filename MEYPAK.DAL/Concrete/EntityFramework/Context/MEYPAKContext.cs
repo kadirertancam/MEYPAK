@@ -24,9 +24,12 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
 
 
         }
+        public DbSet<MPSIPARISSEVKEMRIHAR> MPSIPARISSEVKEMRIHAR { get; set; }
+        public DbSet<MPDEPOEMIR> MPDEPOEMIR { get; set; }
         public DbSet<MPSTOK> MPSTOK { get; set; }
         public DbSet<MPSTOKHAR> MPSTOKHAR { get; set; }
         public DbSet<MPDEPO> MPDEPO { get; set; }
+        public DbSet<MPDEPOHAR> MPDEPOHAR { get; set; }
         public DbSet<MPHIZMET> MPHIZMET { get; set; }
         public DbSet<MPMARKA> MPMARKA { get; set; }
         public DbSet<MPSTOKOLCUBR> MPSTOKOLCUBR { get; set; }
@@ -63,7 +66,8 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
             modelBuilder.Entity<MPOLCUBR>().HasMany(x => x.MPSTOKSAYIMHAR).WithOne(x => x.MPOLCUBR).HasForeignKey(x => x.BIRIMID);
             modelBuilder.Entity<MPSTOKSAYIM>().HasMany(x => x.MPSTOKSAYIMHAR).WithOne(x => x.MPSTOKSAYIM).HasForeignKey(x => x.STOKSAYIMID); 
             modelBuilder.Entity<MPSTOK>().HasMany(x => x.MPSTOKFIYATLISTHAR).WithOne(x => x.MPSTOK).HasForeignKey(x => x.STOKID);
-            
+            modelBuilder.Entity<MPSIPARIS>().HasMany(x => x.MPSIPARISDETAY).WithOne(x => x.MPSIPARIS).HasForeignKey(x => x.SIPARISID);
+
 
             modelBuilder.Entity<MPSTOK>()
       .Navigation(b => b.MPSTOKOLCUBR)
@@ -88,7 +92,10 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
 
             modelBuilder.Entity<MPSTOK>()
     .Navigation(b => b.MPSTOKFIYATLISTHAR)
-    .UsePropertyAccessMode(PropertyAccessMode.Property); 
+    .UsePropertyAccessMode(PropertyAccessMode.Property);
+            modelBuilder.Entity<MPSIPARIS>()
+    .Navigation(b => b.MPSIPARISDETAY)
+    .UsePropertyAccessMode(PropertyAccessMode.Property);
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);

@@ -1,4 +1,13 @@
-﻿using System;
+﻿using MEYPAK.BLL.DEPO;
+using MEYPAK.BLL.SIPARIS;
+using MEYPAK.BLL.STOK;
+using MEYPAK.DAL.Concrete.EntityFramework.Context;
+using MEYPAK.DAL.Concrete.EntityFramework.Repository;
+using MEYPAK.Entity.Models;
+using MEYPAK.Interfaces.Depo;
+using MEYPAK.Interfaces.Siparis;
+using MEYPAK.PRL.Assets;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,10 +25,24 @@ namespace MEYPAK.PRL.DEPO
         public FSevkiyatPanel()
         {
             InitializeComponent();
-            this.tabControl1.DrawMode = TabDrawMode.OwnerDrawFixed;
-            this.tabControl1.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControl1_DrawItem);
-
+            // this.tabControl1.DrawMode = TabDrawMode.OwnerDrawFixed;
+            // this.tabControl1.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControl1_DrawItem);
+            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(105, 105, 105);
+            dataGridView1.EnableHeadersVisualStyles = false;
+            dataGridView2.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(105, 105, 105);
+            dataGridView2.EnableHeadersVisualStyles = false;
+            DGVTopla = new DataGridViewButtonColumn();
         }
+        DataGridViewButtonColumn DGVTopla;
+        static MEYPAKContext _context = NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>();
+        ISiparisDetayServis _siparisDetayServis = new SiparisDetayManager(new EFSiparisDetayRepo(_context));
+        ISiparisServis _siparisServis = new SiparisManager(new EFSiparisRepo(_context));
+        IDepoHarServis _depoHarServis = new DepoHarManager(new EFDepoHarRepo(_context));
+        IDepoEmirServis _depoEmirServis= new DepoEmirManager(new EFDepoEmirRepo(_context));
+        ISiparisSevkEmriHarServis _siparisSevkEmriHarServis = new SiparisSevkEmriHarManager(new EFSiparisSevkEmriHarRepo(_context));
+        List<MPSIPARIS> _tempSiparis;
+
+        #region TabControl Tasarım
         private Dictionary<TabPage, Color> TabColors = new Dictionary<TabPage, Color>();
         private void SetTabHeader(TabPage page, Color color)
         {
@@ -28,21 +51,95 @@ namespace MEYPAK.PRL.DEPO
         }
         private void tabControl1_DrawItem(object sender, DrawItemEventArgs e)
         {
-            using (Brush br = new SolidBrush(TabColors[tabControl1.TabPages[e.Index]]))
-            {
-                e.Graphics.FillRectangle(br, e.Bounds);
-                SizeF sz = e.Graphics.MeasureString(tabControl1.TabPages[e.Index].Text, e.Font);
-                e.Graphics.DrawString(tabControl1.TabPages[e.Index].Text, e.Font, Brushes.Black, e.Bounds.Left + (e.Bounds.Width - sz.Width) / 2, e.Bounds.Top + (e.Bounds.Height - sz.Height) / 2 + 1);
+            //using (Brush br = new SolidBrush(TabColors[tabControl1.TabPages[e.Index]]))
+            //{
+            //    e.Graphics.FillRectangle(br, e.Bounds);
+            //    SizeF sz = e.Graphics.MeasureString(tabControl1.TabPages[e.Index].Text, e.Font);
+            //    e.Graphics.DrawString(tabControl1.TabPages[e.Index].Text, e.Font, Brushes.Black, e.Bounds.Left + (e.Bounds.Width - sz.Width) / 2, e.Bounds.Top + (e.Bounds.Height - sz.Height) / 2 + 1);
 
-                Rectangle rect = e.Bounds;
-                rect.Offset(0, 1);
-                rect.Inflate(0, -1);
-                e.Graphics.DrawRectangle(Pens.DarkGray, rect);
-                e.DrawFocusRectangle();
+            //    Rectangle rect = e.Bounds;
+            //    rect.Offset(0, 1);
+            //    rect.Inflate(0, -1);
+            //    e.Graphics.DrawRectangle(Pens.DarkGray, rect);
+            //    e.DrawFocusRectangle();
+            //}
+            //tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            //tabControl1.CreateGraphics().FillRectangle(new SolidBrush(Color.DarkGray), tabControl1.Bounds);
+
+        }
+        #endregion
+        private void FSevkiyatPanel_Load(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = _siparisServis.Listele().Select(x => new { x.SEVKIYATTARIHI, x.BELGENO, x.CARIADI }).ToList();
+            DGVTopla.Name = "DGVTopla";
+            DGVTopla.HeaderText = "Toplama";
+            DGVTopla.DisplayIndex = 3;
+            DGVTopla.FlatStyle = FlatStyle.Flat;
+            DGVTopla.CellTemplate.Style.ForeColor = Color.Aqua;
+            DGVTopla.CellTemplate.Style.SelectionForeColor = Color.Aqua;
+            DGVTopla.Text = "Toplama";
+            DGVTopla.UseColumnTextForButtonValue = true;
+            dataGridView1.Columns.Add(DGVTopla);
+            dataGridView1.Columns["DGVTopla"].DefaultCellStyle.ForeColor = Color.Aqua;
+
+
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dataGridView2.DataSource = _siparisDetayServis.Listele()
+                .Where(x => x.MPSIPARIS.BELGENO == dataGridView1.Rows[e.RowIndex].Cells["BELGENO"].Value).Select(x => new { x.ID, x.MPSIPARIS.BELGENO ,x.MIKTAR, x.MPSIPARIS.CARIADI, x.MPSIPARIS.DEPOID, x.TIP, x.HAREKETDURUMU }).ToList();
+            dataGridView2.Refresh();
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "DGVTopla")
+            {
+                var _temp = _siparisDetayServis.Listele().Where(x => x.MPSIPARIS.BELGENO.ToString() == dataGridView1.Rows[e.RowIndex].Cells["BELGENO"].Value.ToString() );
+                int i= 1;
+                foreach (var item in _temp.Where(x=>x.HAREKETDURUMU==0).ToList())
+                {
+                    item.HAREKETDURUMU = 1;
+                    _siparisDetayServis.Guncelle(item);
+                  var a=  _depoEmirServis.Ekle(new MPDEPOEMIR()
+                    {
+                        SIPARISID=item.SIPARISID,
+                        MIKTAR=item.MIKTAR,
+                        SIRA=i,
+                        TARIH=DateTime.Now,
+                        TIP=item.TIP,   /// TOPLAMA EMRİ TIPI
+                        DURUM=1,
+                        ACIKLAMA=""
+                        
+                        
+
+                });
+                    
+                    _siparisSevkEmriHarServis.Ekle(new MPSIPARISSEVKEMRIHAR()
+                    {
+                        EMIRMIKTARI = a.MIKTAR,
+                        SIPARISID = a.SIPARISID,
+                        SIPARISKALEMID = item.ID,
+                        SIPARISMIKTARI = _temp.Sum(x => x.MIKTAR),
+                        KULLANICIID = 0,
+                        TARIH = DateTime.Now
+                    });
+                    dataGridView3.DataSource = _siparisSevkEmriHarServis.Listele();
+                    dataGridView3.Refresh();
+                    i++;
             }
-            tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            tabControl1.CreateGraphics().FillRectangle(new SolidBrush(Color.DarkGray), tabControl1.Bounds);
 
         }
     }
+
+    private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+    {
+            if (Convert.ToInt32(dataGridView2.Rows[e.RowIndex].Cells["HAREKETDURUMU"].Value)==1)
+        dataGridView3.DataSource= _siparisSevkEmriHarServis.Getir(x => x.SIPARISKALEMID == Convert.ToInt32(dataGridView2.Rows[e.RowIndex].Cells["ID"].Value ));
+            dataGridView3.Refresh();
+
+        }
+
+    private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+    {
+
+    }
+}
 }

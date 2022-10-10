@@ -83,6 +83,11 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
                 return Durum.başarısız;
             }
         }
+        public Durum Guncelle(T entity)
+        {
+           context.Update(entity);
+            return Durum.güncellemebaşarılı;
+        }
 
         public List<T> Listele()
         {
@@ -112,6 +117,12 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
 
             }
             return true;
+        }
+
+        T IGeneric<T>.Guncelle(T entity)
+        {
+            context.Update(entity);
+            return entity;
         }
     }
 }

@@ -57,6 +57,9 @@ namespace MEYPAK.Entity.Models
         public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
         public byte KAYITTIPI { get; set; } = 0;
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MPSIPARISDETAY> MPSIPARISDETAY { get; set; }
+
 
     }
 }

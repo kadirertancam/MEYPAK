@@ -78,6 +78,7 @@ namespace MEYPAK.PRL.SIPARIS
             dataGridView1.Columns["DGVStoKSec"].DisplayIndex = 2;
             dataGridView1.Columns["DGVOlcuBr"].DisplayIndex = 5;
             dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
 
 
 
@@ -189,7 +190,6 @@ namespace MEYPAK.PRL.SIPARIS
                 dataGridView1.Refresh();
             }
         }
-        BindingList<PocoSiparisKalem> _test = new BindingList<PocoSiparisKalem>();
 
         private void dataGridView1_KeyPress(object sender, KeyPressEventArgs e)
         {

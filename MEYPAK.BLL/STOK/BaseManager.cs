@@ -35,6 +35,13 @@ namespace MEYPAK.BLL.STOK
             return _generic.Guncelle(entity,predicate);
         }
 
+        public Durum Guncelle(T entity)
+        {
+            _generic.Guncelle(entity);
+            return Durum.güncellemebaşarılı;
+        
+        }
+
         public List<T> Listele()
         {
             return _generic.Listele();
