@@ -22,12 +22,7 @@ namespace MEYPAK.Entity.Models
         public string KASAADI { get; set; } = "";
         [StringLength(200)]
         public string ACIKLAMA { get; set; } = "";
-        public int DOVIZ { get; set; } 
-        public decimal BAKIYE { get; set; } 
         public byte AKTIF { get; set; }
-       
-        [Required]
-        public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
         public byte KAYITTIPI { get; set; } = 0;
     }
 }
