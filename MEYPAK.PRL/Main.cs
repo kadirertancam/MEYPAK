@@ -16,7 +16,7 @@ using System.Windows.Forms;
 
 namespace MEYPAK.PRL
 {
-    public partial class Main : MetroSetForm
+    public partial class Main : Form
     {
         public Main()
         {
