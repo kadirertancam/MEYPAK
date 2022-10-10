@@ -166,6 +166,7 @@
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(138, 16);
             this.textBox6.TabIndex = 19;
+            this.textBox6.TabStop = false;
             this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // textBox8
@@ -174,7 +175,8 @@
             this.textBox8.Location = new System.Drawing.Point(101, 84);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(137, 16);
-            this.textBox8.TabIndex = 23;
+            this.textBox8.TabIndex = 21;
+            this.textBox8.TabStop = false;
             this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label15
@@ -201,7 +203,8 @@
             this.textBox7.Location = new System.Drawing.Point(101, 55);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(137, 16);
-            this.textBox7.TabIndex = 21;
+            this.textBox7.TabIndex = 20;
+            this.textBox7.TabStop = false;
             this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // TBIskonto
@@ -384,6 +387,7 @@
             this.BTKaydet.Name = "BTKaydet";
             this.BTKaydet.Size = new System.Drawing.Size(95, 50);
             this.BTKaydet.TabIndex = 0;
+            this.BTKaydet.TabStop = false;
             this.BTKaydet.Text = "Kaydet";
             this.BTKaydet.UseVisualStyleBackColor = true;
             this.BTKaydet.Click += new System.EventHandler(this.BTKaydet_Click);
@@ -394,7 +398,8 @@
             this.BTNDegistir.Location = new System.Drawing.Point(138, 3);
             this.BTNDegistir.Name = "BTNDegistir";
             this.BTNDegistir.Size = new System.Drawing.Size(95, 50);
-            this.BTNDegistir.TabIndex = 1;
+            this.BTNDegistir.TabIndex = 17;
+            this.BTNDegistir.TabStop = false;
             this.BTNDegistir.Text = "Değiştir";
             this.BTNDegistir.UseVisualStyleBackColor = true;
             // 
@@ -404,7 +409,8 @@
             this.BTNSil.Location = new System.Drawing.Point(239, 3);
             this.BTNSil.Name = "BTNSil";
             this.BTNSil.Size = new System.Drawing.Size(95, 50);
-            this.BTNSil.TabIndex = 2;
+            this.BTNSil.TabIndex = 18;
+            this.BTNSil.TabStop = false;
             this.BTNSil.Text = "Sil";
             this.BTNSil.UseVisualStyleBackColor = true;
             // 
@@ -426,14 +432,14 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(1900, 521);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.TabIndex = 15;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
             this.dataGridView1.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellLeave);
+            this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
             this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
             this.dataGridView1.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridView1_EditingControlShowing);
             this.dataGridView1.RowLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowLeave);
-            this.dataGridView1.TabIndexChanged += new System.EventHandler(this.dataGridView1_TabIndexChanged);
             this.dataGridView1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dataGridView1_KeyPress);
             this.dataGridView1.Leave += new System.EventHandler(this.dataGridView1_Leave);
             // 
@@ -489,7 +495,7 @@
             this.BTSiparisSec.Location = new System.Drawing.Point(185, 28);
             this.BTSiparisSec.Name = "BTSiparisSec";
             this.BTSiparisSec.Size = new System.Drawing.Size(36, 23);
-            this.BTSiparisSec.TabIndex = 39;
+            this.BTSiparisSec.TabIndex = 2;
             this.BTSiparisSec.Text = "Seç";
             this.BTSiparisSec.UseVisualStyleBackColor = true;
             // 
@@ -507,7 +513,7 @@
             this.TBBelgeNo.Location = new System.Drawing.Point(72, 28);
             this.TBBelgeNo.Name = "TBBelgeNo";
             this.TBBelgeNo.Size = new System.Drawing.Size(118, 23);
-            this.TBBelgeNo.TabIndex = 37;
+            this.TBBelgeNo.TabIndex = 1;
             this.TBBelgeNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // LBLSevkiyatTarihi
@@ -525,7 +531,7 @@
             this.dateTimePicker1.Location = new System.Drawing.Point(332, 170);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(137, 23);
-            this.dateTimePicker1.TabIndex = 35;
+            this.dateTimePicker1.TabIndex = 11;
             // 
             // LBLAltHesap
             // 
@@ -542,7 +548,7 @@
             this.CMBAltHesap.Location = new System.Drawing.Point(72, 115);
             this.CMBAltHesap.Name = "CMBAltHesap";
             this.CMBAltHesap.Size = new System.Drawing.Size(149, 23);
-            this.CMBAltHesap.TabIndex = 1;
+            this.CMBAltHesap.TabIndex = 6;
             // 
             // label17
             // 
@@ -570,7 +576,7 @@
             this.CBParaBirimi.Location = new System.Drawing.Point(568, 58);
             this.CBParaBirimi.Name = "CBParaBirimi";
             this.CBParaBirimi.Size = new System.Drawing.Size(69, 23);
-            this.CBParaBirimi.TabIndex = 26;
+            this.CBParaBirimi.TabIndex = 13;
             // 
             // label5
             // 
@@ -586,7 +592,7 @@
             this.TBSVadeGunu.Location = new System.Drawing.Point(475, 133);
             this.TBSVadeGunu.Name = "TBSVadeGunu";
             this.TBSVadeGunu.Size = new System.Drawing.Size(46, 23);
-            this.TBSVadeGunu.TabIndex = 31;
+            this.TBSVadeGunu.TabIndex = 10;
             this.TBSVadeGunu.Text = "0";
             // 
             // TBKur
@@ -594,7 +600,7 @@
             this.TBKur.Location = new System.Drawing.Point(568, 89);
             this.TBKur.Name = "TBKur";
             this.TBKur.Size = new System.Drawing.Size(149, 23);
-            this.TBKur.TabIndex = 19;
+            this.TBKur.TabIndex = 14;
             this.TBKur.Text = "1,00";
             this.TBKur.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -604,7 +610,7 @@
             this.DTPVadeTarihi.Location = new System.Drawing.Point(332, 133);
             this.DTPVadeTarihi.Name = "DTPVadeTarihi";
             this.DTPVadeTarihi.Size = new System.Drawing.Size(103, 23);
-            this.DTPVadeTarihi.TabIndex = 30;
+            this.DTPVadeTarihi.TabIndex = 9;
             // 
             // label8
             // 
@@ -639,7 +645,7 @@
             this.DTPTarih.Location = new System.Drawing.Point(73, 144);
             this.DTPTarih.Name = "DTPTarih";
             this.DTPTarih.Size = new System.Drawing.Size(148, 23);
-            this.DTPTarih.TabIndex = 17;
+            this.DTPTarih.TabIndex = 7;
             // 
             // CBDepo
             // 
@@ -647,7 +653,7 @@
             this.CBDepo.Location = new System.Drawing.Point(568, 29);
             this.CBDepo.Name = "CBDepo";
             this.CBDepo.Size = new System.Drawing.Size(149, 23);
-            this.CBDepo.TabIndex = 16;
+            this.CBDepo.TabIndex = 12;
             // 
             // label6
             // 
@@ -664,7 +670,7 @@
             this.CHBKdvDahil.Location = new System.Drawing.Point(72, 173);
             this.CHBKdvDahil.Name = "CHBKdvDahil";
             this.CHBKdvDahil.Size = new System.Drawing.Size(78, 19);
-            this.CHBKdvDahil.TabIndex = 7;
+            this.CHBKdvDahil.TabIndex = 8;
             this.CHBKdvDahil.Text = "KDV Dahil";
             this.CHBKdvDahil.UseVisualStyleBackColor = true;
             // 
@@ -683,7 +689,7 @@
             this.TBAciklama.Multiline = true;
             this.TBAciklama.Name = "TBAciklama";
             this.TBAciklama.Size = new System.Drawing.Size(167, 81);
-            this.TBAciklama.TabIndex = 5;
+            this.TBAciklama.TabIndex = 8;
             // 
             // TBCariAdi
             // 
@@ -691,7 +697,8 @@
             this.TBCariAdi.Location = new System.Drawing.Point(72, 86);
             this.TBCariAdi.Name = "TBCariAdi";
             this.TBCariAdi.Size = new System.Drawing.Size(149, 23);
-            this.TBCariAdi.TabIndex = 3;
+            this.TBCariAdi.TabIndex = 5;
+            this.TBCariAdi.TabStop = false;
             // 
             // BTStokSec
             // 
@@ -699,7 +706,7 @@
             this.BTStokSec.Location = new System.Drawing.Point(185, 57);
             this.BTStokSec.Name = "BTStokSec";
             this.BTStokSec.Size = new System.Drawing.Size(36, 23);
-            this.BTStokSec.TabIndex = 2;
+            this.BTStokSec.TabIndex = 4;
             this.BTStokSec.Text = "Seç";
             this.BTStokSec.UseVisualStyleBackColor = true;
             // 
@@ -708,7 +715,7 @@
             this.TBStokKodu.Location = new System.Drawing.Point(72, 57);
             this.TBStokKodu.Name = "TBStokKodu";
             this.TBStokKodu.Size = new System.Drawing.Size(118, 23);
-            this.TBStokKodu.TabIndex = 1;
+            this.TBStokKodu.TabIndex = 3;
             // 
             // LBLCariKodu
             // 

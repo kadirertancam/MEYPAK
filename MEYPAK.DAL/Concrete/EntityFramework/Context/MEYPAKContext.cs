@@ -44,6 +44,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
         public DbSet<MPSIPARISDETAY> MPSIPARISDETAY { get; set; }
         public DbSet<MPDEPOTRANSFER> MPDEPOTRANSFER { get; set; }
         public DbSet<MPDEPOTRANSFERHAR> MPDEPOTRANSFERHAR { get; set; }
+        public DbSet<MPKASA> MPKASA { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
 

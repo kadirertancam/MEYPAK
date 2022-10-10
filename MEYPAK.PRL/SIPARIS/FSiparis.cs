@@ -48,7 +48,7 @@ namespace MEYPAK.PRL.SIPARIS
         private void FSiparis_Load(object sender, EventArgs e)
         {
             DataGridYapilandir();
-
+            CBParaBirimi.SelectedIndex = 0;
         }
         DataGridViewButtonColumn DGVStokSec;
         DataGridViewComboBoxColumn DGVFiyatList;
@@ -79,9 +79,6 @@ namespace MEYPAK.PRL.SIPARIS
             dataGridView1.Columns["DGVOlcuBr"].DisplayIndex = 5;
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
-
-
-
 
         }
 
@@ -165,18 +162,20 @@ namespace MEYPAK.PRL.SIPARIS
             {
                 _fStokList.ShowDialog();
 
-                _tempPocokalem = new PocoSiparisKalem()
-                {
-                    StokId = _tempStok.ID,
-                    MPSTOK = _tempStok,
-                    StokKodu = _tempStok.KOD,
-                    StokAdı = _tempStok.ADI,
-                    Birim = _tempStok.MPSTOKOLCUBR.Where(x => x.NUM == 1).Select(x => x.MPOLCUBR.ADI).FirstOrDefault().ToString(),
-                    Kdv = _tempStok.SATISKDV,
-                    Doviz = "TL", //_tempStok.SDOVIZID 
+
+                    _tempPocokalem = new PocoSiparisKalem()
+                    {
+                        StokId = _tempStok.ID,
+                        MPSTOK = _tempStok,
+                        StokKodu = _tempStok.KOD,
+                        StokAdı = _tempStok.ADI,
+                        Birim = _tempStok.MPSTOKOLCUBR.Where(x => x.NUM == 1).Select(x => x.MPOLCUBR.ADI).FirstOrDefault().ToString(),
+                        Kdv = _tempStok.SATISKDV,
+                        Doviz = "TL", //_tempStok.SDOVIZID 
 
 
-                };
+                    };
+
                 DGVOlcuBr.DataSource = _tempStok.MPSTOKOLCUBR.Select(x => x.MPOLCUBR.ADI).ToList();
                 DGVtempCell = dataGridView1.Rows[e.RowIndex].Cells["DGVOlcuBr"];
                 DGVtempCell.Value = DGVOlcuBr.Items[0].ToString();
@@ -191,7 +190,7 @@ namespace MEYPAK.PRL.SIPARIS
                 dataGridView1.Refresh();
             }
         }
-
+        int i;
         private void dataGridView1_KeyPress(object sender, KeyPressEventArgs e)
         {
 
@@ -219,7 +218,26 @@ namespace MEYPAK.PRL.SIPARIS
                 dataGridView1.Refresh();
 
                 dataGridView1.Rows[dataGridView1.Rows.Count - 1].Cells["StokKodu"].Selected = true;
+                i = 0;
 
+            }
+            if (i == 0)
+            {
+                if (e.KeyChar == (char)Keys.Tab)
+                {
+                    if (dataGridView1.Rows.Count! > dataGridView1.CurrentCell.RowIndex)
+                    {
+                        if (dataGridView1.CurrentRow.Index >= 0 && dataGridView1.Columns[dataGridView1.CurrentCell.ColumnIndex].DisplayIndex - 1 == dataGridView1.Columns["StokKodu"].DisplayIndex)
+                        {
+                            dataGridView1.CurrentRow.Cells["Miktar"].Selected = true;
+                        }
+                        else if (dataGridView1.CurrentRow.Index >= 0 && dataGridView1.Columns[dataGridView1.CurrentCell.ColumnIndex].DisplayIndex - 1 == dataGridView1.Columns["Miktar"].DisplayIndex)
+                        {
+                            dataGridView1.CurrentRow.Cells["BirimFiyat"].Selected = true;
+                        }
+                    }
+
+                }
             }
 
         }
@@ -228,10 +246,10 @@ namespace MEYPAK.PRL.SIPARIS
         {
 
         }
+        decimal birimfiyat = 0, kdv = 0, bsnc = 0, brutfiyat = 0, netfiyat = 0, nettoplam = 0, brüttoplam = 0, geneltoplam = 0, isktoplam = 0, kdvtoplam = 0, miktar = 0;
 
         private void dataGridView1_CellLeave(object sender, DataGridViewCellEventArgs e)
         {
-            decimal birimfiyat = 0, kdv = 0, bsnc = 0, brutfiyat = 0, netfiyat = 0, nettoplam = 0, brüttoplam = 0, geneltoplam = 0, isktoplam = 0, kdvtoplam = 0, miktar = 0;
             if (CHBKdvDahil.Checked == false)
             {
                 birimfiyat = Convert.ToDecimal(dataGridView1.Rows[e.RowIndex].Cells["BirimFiyat"].EditedFormattedValue);
@@ -366,35 +384,32 @@ namespace MEYPAK.PRL.SIPARIS
                 e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
             }
         }
-
+        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (dataGridView1.Rows.Count > 1)
+                i = 1;
+        }
         private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-
-            //if (e.ColumnIndex == dataGridView1.Columns["StokKodu"].Index)
-            //{
-            //    dataGridView1.Rows[e.RowIndex].Cells[5].Selected = true;
-            //}
-
-        }
-
-
-        private void dataGridView1_TabIndexChanged(object sender, EventArgs e)
-        {
-            if (dataGridView1.SelectedCells.Count == dataGridView1.Columns["StokKodu"].Index)
+            if (_tempSiparisDetay != null)
             {
-                if (dataGridView1.SelectedRows.Count > 0)
+                if (dataGridView1.CurrentCell == dataGridView1.Rows[e.RowIndex].Cells["BrütToplam"] && brutfiyat != 0)
                 {
-                    dataGridView1.Rows[dataGridView1.SelectedRows[0].Index].Cells[5].Selected = true;
+                    dataGridView1.Rows[e.RowIndex].Cells["BrütToplam"].Value = brüttoplam;
                 }
-
+                else if (dataGridView1.CurrentCell == dataGridView1.Rows[e.RowIndex].Cells["NetToplam"] && nettoplam != 0)
+                {
+                    dataGridView1.Rows[e.RowIndex].Cells["NetToplam"].Value = nettoplam;
+                }
             }
-            if (dataGridView1.TabIndex == dataGridView1.Columns["StokKodu"].Index)
-            {
-
-            } 
         }
 
-       
+
+
+
+
+
+
     }
 
 }
