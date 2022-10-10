@@ -82,6 +82,7 @@ namespace MEYPAK.PRL.SIPARIS
 
 
 
+
         }
 
         private void BTKaydet_Click(object sender, EventArgs e)
@@ -367,6 +368,34 @@ namespace MEYPAK.PRL.SIPARIS
             }
         }
 
+        private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+
+            //if (e.ColumnIndex == dataGridView1.Columns["StokKodu"].Index)
+            //{
+            //    dataGridView1.Rows[e.RowIndex].Cells[5].Selected = true;
+            //}
+
+        }
+
+
+        private void dataGridView1_TabIndexChanged(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedCells.Count == dataGridView1.Columns["StokKodu"].Index)
+            {
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    dataGridView1.Rows[dataGridView1.SelectedRows[0].Index].Cells[5].Selected = true;
+                }
+
+            }
+            if (dataGridView1.TabIndex == dataGridView1.Columns["StokKodu"].Index)
+            {
+
+            } 
+        }
+
+       
     }
 
 }

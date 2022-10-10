@@ -27,7 +27,7 @@ namespace MEYPAK.PRL.STOK
         IOlcuBrServis _OlcuBrServis = new OlcuBrManager(new EFOlcuBrRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
         private void FStokOlcuBrKart_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = _OlcuBrServis.Listele();
+            DataGridDoldur();
         }
         int id;
         private void BTKaydet_Click(object sender, EventArgs e)
@@ -48,7 +48,7 @@ namespace MEYPAK.PRL.STOK
                 });
             MessageBox.Show("Kayıt Başarılı.");
             id = 0;
-            dataGridView1.DataSource = _OlcuBrServis.Listele();
+            DataGridDoldur();
         }
 
         private void BTSil_Click(object sender, EventArgs e)
@@ -64,6 +64,11 @@ namespace MEYPAK.PRL.STOK
             TBOlcuBr.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
             id = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
             islemtipi = "Güncelleme";
+        }
+        void DataGridDoldur()
+        {
+            dataGridView1.DataSource = "";
+            dataGridView1.DataSource = _OlcuBrServis.Listele();
         }
 
     }
