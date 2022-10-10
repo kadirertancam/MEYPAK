@@ -1,4 +1,5 @@
-﻿using MEYPAK.Interfaces;
+﻿using MetroSet_UI.Forms;
+using MEYPAK.Interfaces;
 using MEYPAK.PRL.DEPO;
 using MEYPAK.PRL.SIPARIS;
 using MEYPAK.PRL.STOK;
@@ -15,7 +16,7 @@ using System.Windows.Forms;
 
 namespace MEYPAK.PRL
 {
-    public partial class Main : Form
+    public partial class Main : MetroSetForm
     {
         public Main()
         {

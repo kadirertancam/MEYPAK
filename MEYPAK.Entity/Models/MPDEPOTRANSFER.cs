@@ -19,8 +19,7 @@ namespace MEYPAK.Entity.Models
         public DateTime GUNCELLEMETARIHI { get; set; } = DateTime.Now;
         [Required]
         [Column(Order = 4)]
-        public int CIKTIDEPOID { get; set; }
-        
+        public int CIKTIDEPOID { get; set; } 
         [Required]
         [Column(Order = 5)]
         public int HEDEFDEPOID { get; set; }

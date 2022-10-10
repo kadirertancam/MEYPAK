@@ -14,6 +14,7 @@
     <DefineConstants>TARGET_WINDOWS</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="MetroSet_UI" Version="2.0.0" />
     <PackageReference Include="Ninject" Version="3.3.6" />
   </ItemGroup>
 
@@ -34,6 +35,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Assets\Components\" />
   </ItemGroup>
 
 </Project>

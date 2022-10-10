@@ -204,8 +204,7 @@ namespace MEYPAK.PRL.SIPARIS
 
                 dataGridView1.Columns["StokId"].Visible = false;
                 dataGridView1.Columns["MPSTOK"].Visible = false;
-                dataGridView1.Columns["Birim"].Visible = false;
-                dataGridView1.Columns["DGVOlcuBr"].DisplayIndex = 6;
+                dataGridView1.Columns["Birim"].Visible = false; 
                 dataGridView1.Columns["DGVOlcuBr"].DisplayIndex = 6;
                 dataGridView1.Columns["DGVFiyatList"].DisplayIndex = dataGridView1.ColumnCount - 1;
                 dataGridView1.Columns["DGVStoKSec"].DisplayIndex = 2;

@@ -37,7 +37,6 @@ namespace MEYPAK.PRL.DEPO
         static MEYPAKContext _context = NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>();
         ISiparisDetayServis _siparisDetayServis = new SiparisDetayManager(new EFSiparisDetayRepo(_context));
         ISiparisServis _siparisServis = new SiparisManager(new EFSiparisRepo(_context));
-        IDepoHarServis _depoHarServis = new DepoHarManager(new EFDepoHarRepo(_context));
         IDepoEmirServis _depoEmirServis= new DepoEmirManager(new EFDepoEmirRepo(_context));
         ISiparisSevkEmriHarServis _siparisSevkEmriHarServis = new SiparisSevkEmriHarManager(new EFSiparisSevkEmriHarRepo(_context));
         List<MPSIPARIS> _tempSiparis;
@@ -87,40 +86,42 @@ namespace MEYPAK.PRL.DEPO
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            dataGridView2.DataSource = _siparisDetayServis.Listele()
-                .Where(x => x.MPSIPARIS.BELGENO == dataGridView1.Rows[e.RowIndex].Cells["BELGENO"].Value).Select(x => new { x.ID, x.MPSIPARIS.BELGENO ,x.MIKTAR, x.MPSIPARIS.CARIADI, x.MPSIPARIS.DEPOID, x.TIP, x.HAREKETDURUMU }).ToList();
-            dataGridView2.Refresh();
+            dataGridView2.DataSource = _depoEmirServis.Listele().Select(x=> new { x.ID, x.MPSIPARIS.BELGENO, x.MIKTAR, x.MPSIPARIS.CARIADI, x.MPSIPARIS.DEPOID, x.TIP, x.DURUM }).ToList();
+             dataGridView2.Refresh();
             if (dataGridView1.Columns[e.ColumnIndex].Name == "DGVTopla")
             {
                 var _temp = _siparisDetayServis.Listele().Where(x => x.MPSIPARIS.BELGENO.ToString() == dataGridView1.Rows[e.RowIndex].Cells["BELGENO"].Value.ToString() );
                 int i= 1;
+                var a = _depoEmirServis.Ekle(new MPDEPOEMIR()
+                {
+                    SIPARISID = _siparisServis.Listele().Where(x => x.BELGENO == dataGridView1.Rows[e.RowIndex].Cells["BELGENO"].Value.ToString()).FirstOrDefault().ID,
+                    MIKTAR = _temp.Sum(x=>x.MIKTAR),
+                    SIRA = i,
+                    TARIH = DateTime.Now,
+                    TIP = 1,   /// TOPLAMA EMRİ TIPI
+                    DURUM = 1,
+                    ACIKLAMA = ""
+
+
+
+                });
                 foreach (var item in _temp.Where(x=>x.HAREKETDURUMU==0).ToList())
                 {
                     item.HAREKETDURUMU = 1;
                     _siparisDetayServis.Guncelle(item);
-                  var a=  _depoEmirServis.Ekle(new MPDEPOEMIR()
-                    {
-                        SIPARISID=item.SIPARISID,
-                        MIKTAR=item.MIKTAR,
-                        SIRA=i,
-                        TARIH=DateTime.Now,
-                        TIP=item.TIP,   /// TOPLAMA EMRİ TIPI
-                        DURUM=1,
-                        ACIKLAMA=""
-                        
-                        
-
-                });
+                 
                     
                     _siparisSevkEmriHarServis.Ekle(new MPSIPARISSEVKEMRIHAR()
                     {
                         EMIRMIKTARI = a.MIKTAR,
                         SIPARISID = a.SIPARISID,
                         SIPARISKALEMID = item.ID,
+                        EMIRID=a.ID,
                         SIPARISMIKTARI = _temp.Sum(x => x.MIKTAR),
                         KULLANICIID = 0,
                         TARIH = DateTime.Now
                     });
+                    
                     dataGridView3.DataSource = _siparisSevkEmriHarServis.Listele();
                     dataGridView3.Refresh();
                     i++;
@@ -131,11 +132,11 @@ namespace MEYPAK.PRL.DEPO
 
     private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
     {
-            if (Convert.ToInt32(dataGridView2.Rows[e.RowIndex].Cells["HAREKETDURUMU"].Value)==1)
-        dataGridView3.DataSource= _siparisSevkEmriHarServis.Getir(x => x.SIPARISKALEMID == Convert.ToInt32(dataGridView2.Rows[e.RowIndex].Cells["ID"].Value ));
+           // if (Convert.ToInt32(dataGridView2.Rows[e.RowIndex].Cells["DURUM"].Value)==1)
+        dataGridView3.DataSource= _siparisSevkEmriHarServis.Getir(x => x.EMIRID == Convert.ToInt32(dataGridView2.Rows[e.RowIndex].Cells["ID"].Value ));
             dataGridView3.Refresh();
 
-        }
+    }
 
     private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
     {

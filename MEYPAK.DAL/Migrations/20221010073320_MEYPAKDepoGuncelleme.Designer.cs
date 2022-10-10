@@ -4,6 +4,7 @@ using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MEYPAK.DAL.Migrations
 {
     [DbContext(typeof(MEYPAKContext))]
-    partial class MEYPAKContextModelSnapshot : ModelSnapshot
+    [Migration("20221010073320_MEYPAKDepoGuncelleme")]
+    partial class MEYPAKDepoGuncelleme
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -837,9 +839,6 @@ namespace MEYPAK.DAL.Migrations
 
                     b.Property<decimal>("DEPOMIKTAR")
                         .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("EMIRID")
-                        .HasColumnType("int");
 
                     b.Property<decimal>("EMIRMIKTARI")
                         .HasColumnType("decimal(18,2)");
