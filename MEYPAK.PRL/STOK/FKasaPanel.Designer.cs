@@ -39,18 +39,12 @@
             this.BTKasaKaydet = new System.Windows.Forms.Button();
             this.TBKasaAdi = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.BTCık = new System.Windows.Forms.Button();
-            this.BTKaydet = new System.Windows.Forms.Button();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -161,15 +155,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Kasa Adı :";
             // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.dataGridView1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1038, 424);
-            this.panel3.TabIndex = 1;
-            // 
             // dataGridView1
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
@@ -180,41 +165,12 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1038, 424);
+            this.dataGridView1.Size = new System.Drawing.Size(1038, 488);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // BTCık
-            // 
-            this.BTCık.Location = new System.Drawing.Point(937, 6);
-            this.BTCık.Name = "BTCık";
-            this.BTCık.Size = new System.Drawing.Size(90, 44);
-            this.BTCık.TabIndex = 1;
-            this.BTCık.Text = "Çık";
-            this.BTCık.UseVisualStyleBackColor = true;
-            // 
-            // BTKaydet
-            // 
-            this.BTKaydet.Location = new System.Drawing.Point(841, 6);
-            this.BTKaydet.Name = "BTKaydet";
-            this.BTKaydet.Size = new System.Drawing.Size(90, 44);
-            this.BTKaydet.TabIndex = 0;
-            this.BTKaydet.Text = "Kaydet";
-            this.BTKaydet.UseVisualStyleBackColor = true;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.BTCık);
-            this.panel4.Controls.Add(this.BTKaydet);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(0, 424);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1038, 64);
-            this.panel4.TabIndex = 2;
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.panel4);
-            this.panel2.Controls.Add(this.panel3);
+            this.panel2.Controls.Add(this.dataGridView1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
@@ -235,9 +191,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.panel4.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -254,11 +208,7 @@
         private Button BTKasaKaydet;
         private TextBox TBKasaAdi;
         private Label label1;
-        private Panel panel3;
         private DataGridView dataGridView1;
-        private Button BTCık;
-        private Button BTKaydet;
-        private Panel panel4;
         private Panel panel2;
         private Label label3;
         private TextBox TBAciklama;

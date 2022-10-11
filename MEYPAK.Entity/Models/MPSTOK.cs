@@ -28,7 +28,9 @@ namespace MEYPAK.Entity.Models
         [DefaultValue(0)]
         public int SUBEID { get; set; }
         [DefaultValue(0)]
-        public int DEPOID { get; set; } 
+        public int DEPOID { get; set; }
+        [DefaultValue(0)]
+        public int KASAID { get; set; } = 0;
         public DateTime OLUSTURMATARIHI { get; set; } = DateTime.Now;
         public DateTime GUNCELLEMETARIHI { get; set; } = DateTime.Now;
         [StringLength(50),Required]
