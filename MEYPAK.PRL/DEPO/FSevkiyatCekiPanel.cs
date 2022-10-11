@@ -1,7 +1,9 @@
-﻿using MEYPAK.BLL.STOK;
+﻿using MEYPAK.BLL.DEPO;
+using MEYPAK.BLL.STOK;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository;
 using MEYPAK.Entity.Models;
+using MEYPAK.Interfaces.Depo;
 using MEYPAK.Interfaces.Stok;
 using MEYPAK.PRL.Assets;
 using System;
@@ -24,11 +26,24 @@ namespace MEYPAK.PRL.DEPO
         }
         static MEYPAKContext context=NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>();
         IStokServis _stokServis = new StokManager(new EFStokRepo(context));
+        IStokSevkiyatListServis _stokSevkiyatListServis = new StokSevkiyatListManager(new EFStokSevkiyatList(context));
         List<MPSTOK> _tempStok;
         List<MPSTOK> _Stok;
+        public MPDEPOEMIR _tempEmir;
         private void button1_Click(object sender, EventArgs e)
         {
+            _stokSevkiyatListServis.Ekle(new MPSTOKSEVKİYATLİST()
+            {
+                STOKID = int.Parse(comboBox1.SelectedValue.ToString()),
+                EMIRID=_tempEmir.ID,
+                DEPOID=_tempEmir.MPSIPARIS.DEPOID,
+                MIKTAR=0,
+                SIPARISMIKTARI=_tempEmir.MPSIPARIS.MPSIPARISDETAY.Where(x=>x.STOKID.ToString()== comboBox1.SelectedValue.ToString()).FirstOrDefault().MIKTAR,
+                BIRIMID= _tempEmir.MPSIPARIS.MPSIPARISDETAY.Where(x => x.STOKID.ToString() == comboBox1.SelectedValue.ToString()).FirstOrDefault().BIRIMID,
+                
 
+
+            });
         }
 
         //private void comboBox1_TextChanged(object sender, EventArgs e)
@@ -39,12 +54,15 @@ namespace MEYPAK.PRL.DEPO
 
         private void FSevkiyatCekiPanel_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource=
-            _tempStok = _stokServis.Listele();
+            dataGridView1.DataSource= _tempStok = _stokServis.Listele();
             comboBox1.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            comboBox1.AutoCompleteSource = AutoCompleteSource.CustomSource;
-
-            comboBox1.AutoCompleteCustomSource.AddRange(_tempStok.Select(x=>x.KOD).ToArray()); 
+            comboBox1.AutoCompleteSource = AutoCompleteSource.ListItems;
+            comboBox1.DisplayMember = "KOD";
+            comboBox1.ValueMember = "ID";
+            comboBox1.DataSource= _tempStok.Select(x => new{KOD=x.KOD,ID=x.ID }).ToList();
+            //comboBox1.AutoCompleteCustomSource=(_tempStok.Select(x=> new { x.KOD,x.ID }).ToArray()); 
+          
+            
         }
 
         private void comboBox1_TextChanged(object sender, EventArgs e)

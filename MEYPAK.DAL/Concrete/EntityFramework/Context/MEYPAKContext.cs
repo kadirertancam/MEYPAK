@@ -24,6 +24,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
 
 
         }
+        public DbSet<MPSTOKSEVKİYATLİST> MPSTOKSEVKİYATLİST { get; set; }
         public DbSet<MPSIPARISSEVKEMRIHAR> MPSIPARISSEVKEMRIHAR { get; set; }
         public DbSet<MPDEPOEMIR> MPDEPOEMIR { get; set; }
         public DbSet<MPSTOK> MPSTOK { get; set; }

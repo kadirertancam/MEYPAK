@@ -17,8 +17,20 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
         public EFSiparisRepo(MEYPAKContext _context) : base(_context)
         {
             context = _context;
+            onYukle();
         }
+        void onYukle()
+        {
 
+            var emp = context.MPSIPARIS.ToList();
+            foreach (var item in emp)
+            {
+                context.Entry(item)
+                    .Collection(e => e.MPSIPARISDETAY)
+                    .Load();
+            }
+
+        }
         public Durum EkleyadaGuncelle(MPSIPARIS entity)
         {
             bool exists = context.MPSIPARIS.Any(x => x.ID == entity.ID);

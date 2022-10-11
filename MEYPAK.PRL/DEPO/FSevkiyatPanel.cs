@@ -32,6 +32,7 @@ namespace MEYPAK.PRL.DEPO
             dataGridView2.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(105, 105, 105);
             dataGridView2.EnableHeadersVisualStyles = false;
             DGVTopla = new DataGridViewButtonColumn();
+            _sevkiyatCekiPanel = new FSevkiyatCekiPanel();
         }
         DataGridViewButtonColumn DGVTopla;
         static MEYPAKContext _context = NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>();
@@ -40,6 +41,7 @@ namespace MEYPAK.PRL.DEPO
         IDepoEmirServis _depoEmirServis= new DepoEmirManager(new EFDepoEmirRepo(_context));
         ISiparisSevkEmriHarServis _siparisSevkEmriHarServis = new SiparisSevkEmriHarManager(new EFSiparisSevkEmriHarRepo(_context));
         List<MPSIPARIS> _tempSiparis;
+        FSevkiyatCekiPanel _sevkiyatCekiPanel;
 
         #region TabControl Tasarım
         private Dictionary<TabPage, Color> TabColors = new Dictionary<TabPage, Color>();
@@ -142,5 +144,12 @@ namespace MEYPAK.PRL.DEPO
     {
 
     }
-}
+
+        private void dataGridView2_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            _sevkiyatCekiPanel._tempEmir = _depoEmirServis.Getir(x => x.ID.ToString() == dataGridView2.Rows[e.RowIndex].Cells["ID"].Value.ToString()).FirstOrDefault();
+            _sevkiyatCekiPanel.ShowDialog();
+        }
+         
+    }
 }

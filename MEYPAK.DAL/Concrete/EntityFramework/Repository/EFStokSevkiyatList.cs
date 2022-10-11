@@ -9,13 +9,12 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
 {
-    public class EFDepoEmirRepo : EFBaseRepo<MPDEPOEMIR>,IDepoEmirDal
+    public class EFStokSevkiyatList : EFBaseRepo<MPSTOKSEVKİYATLİST>,IStokSevkiyatListDal
     {
         MEYPAKContext context;
-        public EFDepoEmirRepo(MEYPAKContext _context) : base(_context)
+        public EFStokSevkiyatList(MEYPAKContext _context) : base(_context)
         {
-            context = _context;
+            context=_context;
         }
-        
     }
 }
