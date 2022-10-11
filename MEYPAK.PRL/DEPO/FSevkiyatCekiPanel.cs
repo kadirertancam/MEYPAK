@@ -98,7 +98,8 @@ namespace MEYPAK.PRL.DEPO
 
         private void button2_Click(object sender, EventArgs e)
         {
-            foreach (var item in (List<PocoStokSevkiyatList>)dataGridView1.DataSource)
+            List<PocoStokSevkiyatList> a  = (List<PocoStokSevkiyatList>)dataGridView1.DataSource;
+            foreach (var item in a)
             {
 
                 StaticContext._stokSevkiyatListServis.Ekle(new MPSTOKSEVKİYATLİST()
@@ -106,8 +107,8 @@ namespace MEYPAK.PRL.DEPO
 
                     STOKID = item.MPSTOK.ID,
                     EMIRID = _tempEmir.ID,
-                    BIRIMID = item.MPSTOK.MPSTOKOLCUBR.Where(x => x.MPOLCUBR.ADI.ToString() == item.Birim).Select(x => x.MPOLCUBR.ID).FirstOrDefault(),
-                    MIKTAR = item.Miktar,
+                    BIRIMID = item.MPSTOK.MPSTOKOLCUBR.Where(x => x.MPOLCUBR.ID == item.BIRIMID).Select(x => x.MPOLCUBR.ID).FirstOrDefault(),
+                    MIKTAR = item.MIKTAR,
                     DEPOID = _tempEmir.MPSIPARIS.DEPOID,
                     SIRKETID = 0,
                     SIPARISMIKTARI = _tempEmir.MPSIPARIS.MPSIPARISDETAY.Where(x => x.STOKID == item.MPSTOK.ID).Sum(x => x.MIKTAR),
