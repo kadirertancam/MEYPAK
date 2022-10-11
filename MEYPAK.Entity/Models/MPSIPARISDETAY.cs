@@ -11,9 +11,12 @@ namespace MEYPAK.Entity.Models
 {
     public class MPSIPARISDETAY
     {
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
         [ForeignKey("MPSIPARIS")]
         public int SIPARISID { get; set; }
+        [DefaultValue(0)]
+        public int IRSALIYEID { get; set; }
         [DefaultValue(0)]
         public int BIRIMID { get; set; }
         [DefaultValue(0)]
@@ -52,6 +55,7 @@ namespace MEYPAK.Entity.Models
 
         public MPSIPARIS MPSIPARIS { get; set; }
 
-        public MPSTOK MPSTOK { get; set; } 
+        public MPSTOK MPSTOK { get; set; }
+        public virtual MPIRSALIYE MPIRSALIYE { get; set; }
     }
 }

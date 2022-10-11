@@ -140,7 +140,6 @@
             // 
             // TBKasaAdi
             // 
-            this.TBKasaAdi.Enabled = false;
             this.TBKasaAdi.Location = new System.Drawing.Point(100, 30);
             this.TBKasaAdi.Name = "TBKasaAdi";
             this.TBKasaAdi.Size = new System.Drawing.Size(173, 23);

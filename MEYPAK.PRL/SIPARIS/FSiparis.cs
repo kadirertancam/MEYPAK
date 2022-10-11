@@ -30,6 +30,8 @@ namespace MEYPAK.PRL.SIPARIS
             InitializeComponent();
             DGVStokSec = new DataGridViewButtonColumn();
             DGVFiyatList = new DataGridViewComboBoxColumn();
+            DGVKasaSec = new DataGridViewButtonColumn();
+            DGVKasaList = new DataGridViewComboBoxColumn();
             _fStokList = new FStokList("siparis");
             dataGridView1.MultiSelect = false;
             CBDepo.DataSource = _depoServis.Listele().Select(x => x.DEPOADI).ToList();
@@ -41,7 +43,6 @@ namespace MEYPAK.PRL.SIPARIS
         IDepoServis _depoServis = new DepoManager(new EFDepoRepo(context));
         List<PocoSiparisKalem> _tempSiparisDetay = new List<PocoSiparisKalem>();
         DataGridViewComboBoxColumn DGVOlcuBr = new DataGridViewComboBoxColumn();
-        DataGridViewComboBoxColumn DVGKasa = new DataGridViewComboBoxColumn();
         PocoSiparisKalem _tempPocokalem;
         FStokList _fStokList;
         public MPSTOK _tempStok;
@@ -54,8 +55,9 @@ namespace MEYPAK.PRL.SIPARIS
         }
         DataGridViewButtonColumn DGVStokSec;
         DataGridViewButtonColumn DGVKasaSec;
-        
+
         DataGridViewComboBoxColumn DGVFiyatList;
+        DataGridViewComboBoxColumn DGVKasaList;
         DataGridViewCell DGVtempCell;
         void DataGridYapilandir()
         {
@@ -79,24 +81,24 @@ namespace MEYPAK.PRL.SIPARIS
             dataGridView1.Columns.Add(DGVFiyatList);
             dataGridView1.Columns["StokId"].Visible = false;
             dataGridView1.Columns["MPSTOK"].Visible = false;
+            dataGridView1.Columns["KasaId"].Visible = false;
             dataGridView1.Columns["DGVStoKSec"].DisplayIndex = 2;
             dataGridView1.Columns["DGVOlcuBr"].DisplayIndex = 5;
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
 
             //KASA SEÇME İŞLEMLERİ
-            DVGKasa.Name = "DVGKasa";
-            DVGKasa.HeaderText = "Kasa";
-            DVGKasa.FlatStyle = FlatStyle.Flat;
-            DVGKasa.DataSource = _tempKasa.KASAADI;
-            dataGridView1.Columns.Add(DVGKasa);
+            DGVKasaList.Name = "DVGKasaList";
+            DGVKasaList.FlatStyle = FlatStyle.Flat;
+            dataGridView1.Columns.Add(DGVKasaList);
 
             DGVKasaSec.FlatStyle = FlatStyle.Flat;
-            DGVKasaSec.Name = "DGVStoKSec";
+            DGVKasaSec.Name = "DGVKasaSec";
             DGVKasaSec.HeaderText = "Seç";
             DGVKasaSec.Text = "Seç";
             DGVKasaSec.UseColumnTextForButtonValue = true;
             dataGridView1.Columns.Add(DGVKasaSec);
+            dataGridView1.Columns["DGVKasaSec"].DisplayIndex = 7;
 
         }
 
@@ -134,6 +136,7 @@ namespace MEYPAK.PRL.SIPARIS
                     STOKADI = item.MPSTOK.ADI,
                     ACIKLAMA = item.Acıklama,
                     KDV = item.Kdv,
+                    KASAID = item.KasaId,
                     NETTOPLAM = item.NetToplam,
                     NETFIYAT = item.NetFiyat,
                     BIRIMID = item.MPSTOK.MPSTOKOLCUBR.Where(x => x.NUM == 1).Select(x => x.MPOLCUBR.ID).FirstOrDefault(),
@@ -181,18 +184,17 @@ namespace MEYPAK.PRL.SIPARIS
                 _fStokList.ShowDialog();
 
 
-                    _tempPocokalem = new PocoSiparisKalem()
-                    {
-                        StokId = _tempStok.ID,
-                        MPSTOK = _tempStok,
-                        StokKodu = _tempStok.KOD,
-                        StokAdı = _tempStok.ADI,
-                        Birim = _tempStok.MPSTOKOLCUBR.Where(x => x.NUM == 1).Select(x => x.MPOLCUBR.ADI).FirstOrDefault().ToString(),
-                        Kdv = _tempStok.SATISKDV,
-                        Doviz = "TL", //_tempStok.SDOVIZID 
-
-
-                    };
+                _tempPocokalem = new PocoSiparisKalem()
+                {
+                    StokId = _tempStok.ID,
+                    MPSTOK = _tempStok,
+                    StokKodu = _tempStok.KOD,
+                    StokAdı = _tempStok.ADI,
+                    Birim = _tempStok.MPSTOKOLCUBR.Where(x => x.NUM == 1).Select(x => x.MPOLCUBR.ADI).FirstOrDefault().ToString(),
+                    KasaAdı = "",
+                    Kdv = _tempStok.SATISKDV,
+                    Doviz = "TL", //_tempStok.SDOVIZID 
+                };
 
                 DGVOlcuBr.DataSource = _tempStok.MPSTOKOLCUBR.Select(x => x.MPOLCUBR.ADI).ToList();
                 DGVtempCell = dataGridView1.Rows[e.RowIndex].Cells["DGVOlcuBr"];
@@ -206,6 +208,24 @@ namespace MEYPAK.PRL.SIPARIS
 
                 dataGridView1.Invalidate();
                 dataGridView1.Refresh();
+            }
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "DGVKasaSec")
+            {
+                if (_tempPocokalem != null)
+                {
+
+                    FKasaList fKasaList = new FKasaList("Siparis");
+                    fKasaList.ShowDialog();
+
+                    if (_tempKasa != null)
+                    {
+                        TBKasa.Text = _tempKasa.KASAADI;
+                        dataGridView1.Rows[e.RowIndex].Cells["KasaAdı"].Value = _tempKasa.KASAADI;
+                    }
+                    _tempPocokalem.KasaAdı = _tempKasa.KASAADI;
+                    _tempPocokalem.KasaId = _tempKasa.ID;
+
+                }
             }
         }
         int i;
@@ -221,7 +241,7 @@ namespace MEYPAK.PRL.SIPARIS
 
                 dataGridView1.Columns["StokId"].Visible = false;
                 dataGridView1.Columns["MPSTOK"].Visible = false;
-                dataGridView1.Columns["Birim"].Visible = false; 
+                dataGridView1.Columns["Birim"].Visible = false;
                 dataGridView1.Columns["DGVOlcuBr"].DisplayIndex = 6;
                 dataGridView1.Columns["DGVFiyatList"].DisplayIndex = dataGridView1.ColumnCount - 1;
                 dataGridView1.Columns["DGVStoKSec"].DisplayIndex = 2;
@@ -265,6 +285,14 @@ namespace MEYPAK.PRL.SIPARIS
 
         }
         decimal birimfiyat = 0, kdv = 0, bsnc = 0, brutfiyat = 0, netfiyat = 0, nettoplam = 0, brüttoplam = 0, geneltoplam = 0, isktoplam = 0, kdvtoplam = 0, miktar = 0;
+
+        private void BTNKasaSec_Click(object sender, EventArgs e)
+        {
+            FKasaList fKasaList = new FKasaList("Siparis");
+            fKasaList.ShowDialog();
+            if (_tempKasa != null)
+                TBKasa.Text = _tempKasa.KASAADI;
+        }
 
         private void dataGridView1_CellLeave(object sender, DataGridViewCellEventArgs e)
         {
