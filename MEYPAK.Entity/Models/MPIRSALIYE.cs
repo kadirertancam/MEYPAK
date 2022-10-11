@@ -9,10 +9,12 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.Entity.Models
 {
-    internal class MPIRSALIYE
+    public class MPIRSALIYE
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
+        [DefaultValue(0)]
+        public int SIPARISID { get; set; } = 0;
         [DefaultValue(0)]
         public int SIRKETID { get; set; } = 0;
         [DefaultValue(0)]
@@ -61,5 +63,6 @@ namespace MEYPAK.Entity.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MPSIPARISDETAY> MPSIPARISDETAY { get; set; }
+
     }
 }

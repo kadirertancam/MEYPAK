@@ -33,11 +33,17 @@ namespace MEYPAK.PRL.STOK
                 ACIKLAMA = TBAciklama.Text,
                 KASAKODU = TBKasaKodu.Text
             });
-            dataGridView1.Refresh();
+            Doldur();
         }
 
         private void FKasaPanel_Load(object sender, EventArgs e)
         {
+            Doldur();
+        }
+
+        void Doldur()
+        {
+            dataGridView1.DataSource = "";
             dataGridView1.DataSource = _kasaServis.Listele();
         }
     }

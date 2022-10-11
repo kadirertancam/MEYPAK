@@ -21,7 +21,7 @@ namespace MEYPAK.PRL
             NinjectFactory.CompositionRoot.Initialize(a);
             ApplicationConfiguration.Initialize();
             Application.EnableVisualStyles();
-            Application.Run(new FSevkiyatPanel());
+            Application.Run(new FSiparisIslemler());
         }
     }
 }

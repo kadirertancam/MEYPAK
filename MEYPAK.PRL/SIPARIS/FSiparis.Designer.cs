@@ -88,6 +88,9 @@
             this.BTStokSec = new System.Windows.Forms.Button();
             this.TBStokKodu = new System.Windows.Forms.TextBox();
             this.LBLCariKodu = new System.Windows.Forms.Label();
+            this.BTNKasaSec = new System.Windows.Forms.Button();
+            this.TBKasa = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -454,6 +457,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.BTNKasaSec);
+            this.groupBox1.Controls.Add(this.TBKasa);
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.BTSiparisSec);
             this.groupBox1.Controls.Add(this.LBSiparis);
             this.groupBox1.Controls.Add(this.TBBelgeNo);
@@ -519,7 +525,7 @@
             // LBLSevkiyatTarihi
             // 
             this.LBLSevkiyatTarihi.AutoSize = true;
-            this.LBLSevkiyatTarihi.Location = new System.Drawing.Point(245, 176);
+            this.LBLSevkiyatTarihi.Location = new System.Drawing.Point(589, 177);
             this.LBLSevkiyatTarihi.Name = "LBLSevkiyatTarihi";
             this.LBLSevkiyatTarihi.Size = new System.Drawing.Size(81, 15);
             this.LBLSevkiyatTarihi.TabIndex = 36;
@@ -528,7 +534,7 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(332, 170);
+            this.dateTimePicker1.Location = new System.Drawing.Point(676, 171);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(137, 23);
             this.dateTimePicker1.TabIndex = 11;
@@ -553,7 +559,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(440, 136);
+            this.label17.Location = new System.Drawing.Point(784, 137);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(29, 15);
             this.label17.TabIndex = 33;
@@ -562,7 +568,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(245, 139);
+            this.label16.Location = new System.Drawing.Point(589, 140);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(63, 15);
             this.label16.TabIndex = 32;
@@ -573,7 +579,7 @@
             this.CBParaBirimi.FormattingEnabled = true;
             this.CBParaBirimi.Items.AddRange(new object[] {
             "TL"});
-            this.CBParaBirimi.Location = new System.Drawing.Point(568, 58);
+            this.CBParaBirimi.Location = new System.Drawing.Point(347, 113);
             this.CBParaBirimi.Name = "CBParaBirimi";
             this.CBParaBirimi.Size = new System.Drawing.Size(69, 23);
             this.CBParaBirimi.TabIndex = 13;
@@ -581,7 +587,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(498, 66);
+            this.label5.Location = new System.Drawing.Point(277, 121);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(64, 15);
             this.label5.TabIndex = 11;
@@ -589,7 +595,7 @@
             // 
             // TBSVadeGunu
             // 
-            this.TBSVadeGunu.Location = new System.Drawing.Point(475, 133);
+            this.TBSVadeGunu.Location = new System.Drawing.Point(819, 134);
             this.TBSVadeGunu.Name = "TBSVadeGunu";
             this.TBSVadeGunu.Size = new System.Drawing.Size(46, 23);
             this.TBSVadeGunu.TabIndex = 10;
@@ -597,7 +603,7 @@
             // 
             // TBKur
             // 
-            this.TBKur.Location = new System.Drawing.Point(568, 89);
+            this.TBKur.Location = new System.Drawing.Point(347, 144);
             this.TBKur.Name = "TBKur";
             this.TBKur.Size = new System.Drawing.Size(149, 23);
             this.TBKur.TabIndex = 14;
@@ -607,7 +613,7 @@
             // DTPVadeTarihi
             // 
             this.DTPVadeTarihi.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DTPVadeTarihi.Location = new System.Drawing.Point(332, 133);
+            this.DTPVadeTarihi.Location = new System.Drawing.Point(676, 134);
             this.DTPVadeTarihi.Name = "DTPVadeTarihi";
             this.DTPVadeTarihi.Size = new System.Drawing.Size(103, 23);
             this.DTPVadeTarihi.TabIndex = 9;
@@ -615,7 +621,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(501, 97);
+            this.label8.Location = new System.Drawing.Point(280, 152);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(25, 15);
             this.label8.TabIndex = 20;
@@ -633,7 +639,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(-2, 150);
+            this.label7.Location = new System.Drawing.Point(280, 31);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(72, 15);
             this.label7.TabIndex = 18;
@@ -642,7 +648,7 @@
             // DTPTarih
             // 
             this.DTPTarih.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DTPTarih.Location = new System.Drawing.Point(73, 144);
+            this.DTPTarih.Location = new System.Drawing.Point(355, 25);
             this.DTPTarih.Name = "DTPTarih";
             this.DTPTarih.Size = new System.Drawing.Size(148, 23);
             this.DTPTarih.TabIndex = 7;
@@ -650,7 +656,7 @@
             // CBDepo
             // 
             this.CBDepo.FormattingEnabled = true;
-            this.CBDepo.Location = new System.Drawing.Point(568, 29);
+            this.CBDepo.Location = new System.Drawing.Point(347, 84);
             this.CBDepo.Name = "CBDepo";
             this.CBDepo.Size = new System.Drawing.Size(149, 23);
             this.CBDepo.TabIndex = 12;
@@ -658,7 +664,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(502, 32);
+            this.label6.Location = new System.Drawing.Point(281, 87);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(35, 15);
             this.label6.TabIndex = 13;
@@ -667,7 +673,7 @@
             // CHBKdvDahil
             // 
             this.CHBKdvDahil.AutoSize = true;
-            this.CHBKdvDahil.Location = new System.Drawing.Point(72, 173);
+            this.CHBKdvDahil.Location = new System.Drawing.Point(354, 54);
             this.CHBKdvDahil.Name = "CHBKdvDahil";
             this.CHBKdvDahil.Size = new System.Drawing.Size(78, 19);
             this.CHBKdvDahil.TabIndex = 8;
@@ -677,7 +683,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(247, 31);
+            this.label3.Location = new System.Drawing.Point(591, 32);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(56, 15);
             this.label3.TabIndex = 6;
@@ -685,7 +691,7 @@
             // 
             // TBAciklama
             // 
-            this.TBAciklama.Location = new System.Drawing.Point(308, 29);
+            this.TBAciklama.Location = new System.Drawing.Point(652, 30);
             this.TBAciklama.Multiline = true;
             this.TBAciklama.Name = "TBAciklama";
             this.TBAciklama.Size = new System.Drawing.Size(167, 81);
@@ -725,6 +731,33 @@
             this.LBLCariKodu.Size = new System.Drawing.Size(59, 15);
             this.LBLCariKodu.TabIndex = 0;
             this.LBLCariKodu.Text = "Cari Kodu";
+            // 
+            // BTNKasaSec
+            // 
+            this.BTNKasaSec.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BTNKasaSec.Location = new System.Drawing.Point(186, 148);
+            this.BTNKasaSec.Name = "BTNKasaSec";
+            this.BTNKasaSec.Size = new System.Drawing.Size(36, 23);
+            this.BTNKasaSec.TabIndex = 41;
+            this.BTNKasaSec.Text = "Seç";
+            this.BTNKasaSec.UseVisualStyleBackColor = true;
+            this.BTNKasaSec.Click += new System.EventHandler(this.BTNKasaSec_Click);
+            // 
+            // TBKasa
+            // 
+            this.TBKasa.Location = new System.Drawing.Point(73, 148);
+            this.TBKasa.Name = "TBKasa";
+            this.TBKasa.Size = new System.Drawing.Size(118, 23);
+            this.TBKasa.TabIndex = 40;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 152);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(31, 15);
+            this.label1.TabIndex = 39;
+            this.label1.Text = "Kasa";
             // 
             // FSiparis
             // 
@@ -819,5 +852,8 @@
         private Panel panel6;
         private Panel panel7;
         private Panel panel8;
+        private Button BTNKasaSec;
+        private TextBox TBKasa;
+        private Label label1;
     }
 }
