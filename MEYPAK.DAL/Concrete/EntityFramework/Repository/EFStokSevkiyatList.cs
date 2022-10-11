@@ -15,6 +15,22 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
         public EFStokSevkiyatList(MEYPAKContext _context) : base(_context)
         {
             context=_context;
+            onYukle();
+        }
+        void onYukle()
+        {
+
+            var emp = context.MPSTOKSEVKİYATLİST.ToList();
+            foreach (var item in emp)
+            { 
+                context.Entry(item)
+                  .Navigation("MPOLCUBR").Load();
+                context.Entry(item)
+                  .Navigation("MPSTOK").Load();
+
+
+            }
+
         }
     }
 }

@@ -68,7 +68,8 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
             modelBuilder.Entity<MPSTOKSAYIM>().HasMany(x => x.MPSTOKSAYIMHAR).WithOne(x => x.MPSTOKSAYIM).HasForeignKey(x => x.STOKSAYIMID); 
             modelBuilder.Entity<MPSTOK>().HasMany(x => x.MPSTOKFIYATLISTHAR).WithOne(x => x.MPSTOK).HasForeignKey(x => x.STOKID);
             modelBuilder.Entity<MPSIPARIS>().HasMany(x => x.MPSIPARISDETAY).WithOne(x => x.MPSIPARIS).HasForeignKey(x => x.SIPARISID);
-
+            modelBuilder.Entity<MPOLCUBR>().HasMany(x => x.MPSTOKSEVKİYATLİST).WithOne(x => x.MPOLCUBR).HasForeignKey(x => x.BIRIMID);
+            modelBuilder.Entity<MPSTOK>().HasMany(x => x.MPSTOKSEVKİYATLİST).WithOne(x => x.MPSTOK).HasForeignKey(x => x.STOKID);
 
             modelBuilder.Entity<MPSTOK>()
       .Navigation(b => b.MPSTOKOLCUBR)
@@ -96,6 +97,14 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
     .UsePropertyAccessMode(PropertyAccessMode.Property);
             modelBuilder.Entity<MPSIPARIS>()
     .Navigation(b => b.MPSIPARISDETAY)
+    .UsePropertyAccessMode(PropertyAccessMode.Property);
+
+            modelBuilder.Entity<MPOLCUBR>()
+    .Navigation(b => b.MPSTOKSEVKİYATLİST)
+    .UsePropertyAccessMode(PropertyAccessMode.Property);
+
+            modelBuilder.Entity<MPSTOK>()
+    .Navigation(b => b.MPSTOKSEVKİYATLİST)
     .UsePropertyAccessMode(PropertyAccessMode.Property);
         }
 

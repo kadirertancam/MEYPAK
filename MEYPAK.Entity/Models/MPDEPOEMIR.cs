@@ -19,5 +19,7 @@ namespace MEYPAK.Entity.Models
         public decimal MIKTAR { get; set; } 
         public string ACIKLAMA { get; set; }
         public MPSIPARIS MPSIPARIS { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MPSTOKSEVKİYATLİST> MPSTOKSEVKİYATLİST { get; set; }
     }
 }

@@ -32,6 +32,9 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
                 context.Entry(item)
                    .Collection(x => x.MPSTOKOLCUBR)
                    .Load();
+                context.Entry(item)
+                    .Collection(x => x.MPSTOKSEVKİYATLİST)
+                    .Load();
             }
 
         }
