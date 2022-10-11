@@ -41,9 +41,11 @@ namespace MEYPAK.PRL.SIPARIS
         IDepoServis _depoServis = new DepoManager(new EFDepoRepo(context));
         List<PocoSiparisKalem> _tempSiparisDetay = new List<PocoSiparisKalem>();
         DataGridViewComboBoxColumn DGVOlcuBr = new DataGridViewComboBoxColumn();
+        DataGridViewComboBoxColumn DVGKasa = new DataGridViewComboBoxColumn();
         PocoSiparisKalem _tempPocokalem;
         FStokList _fStokList;
         public MPSTOK _tempStok;
+        public MPKASA _tempKasa;
 
         private void FSiparis_Load(object sender, EventArgs e)
         {
@@ -51,6 +53,8 @@ namespace MEYPAK.PRL.SIPARIS
             CBParaBirimi.SelectedIndex = 0;
         }
         DataGridViewButtonColumn DGVStokSec;
+        DataGridViewButtonColumn DGVKasaSec;
+        
         DataGridViewComboBoxColumn DGVFiyatList;
         DataGridViewCell DGVtempCell;
         void DataGridYapilandir()
@@ -79,6 +83,20 @@ namespace MEYPAK.PRL.SIPARIS
             dataGridView1.Columns["DGVOlcuBr"].DisplayIndex = 5;
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+
+            //KASA SEÇME İŞLEMLERİ
+            DVGKasa.Name = "DVGKasa";
+            DVGKasa.HeaderText = "Kasa";
+            DVGKasa.FlatStyle = FlatStyle.Flat;
+            DVGKasa.DataSource = _tempKasa.KASAADI;
+            dataGridView1.Columns.Add(DVGKasa);
+
+            DGVKasaSec.FlatStyle = FlatStyle.Flat;
+            DGVKasaSec.Name = "DGVStoKSec";
+            DGVKasaSec.HeaderText = "Seç";
+            DGVKasaSec.Text = "Seç";
+            DGVKasaSec.UseColumnTextForButtonValue = true;
+            dataGridView1.Columns.Add(DGVKasaSec);
 
         }
 

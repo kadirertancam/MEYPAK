@@ -32,7 +32,6 @@ namespace MEYPAK.PRL.STOK
                 KASAADI =TBKasaAdi.Text,
                 ACIKLAMA = TBAciklama.Text,
                 KASAKODU = TBKasaKodu.Text
-
             });
             dataGridView1.Refresh();
         }

@@ -31,6 +31,7 @@ namespace MEYPAK.PRL
         #region Tanımlar
         MPSTOKOLCUBR _tempStokOlcuBr;
         public MPSTOK _tempStok;
+        public MPKASA _tempKasa;
         public MPMARKA _tempMarka;
         static MEYPAKContext context = NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>();
         IStokServis _stokServis = new StokManager(new EFStokRepo(context));
@@ -128,6 +129,7 @@ namespace MEYPAK.PRL
                 ADI = TBStokAdı.Text,
                 MARKAID = _markaServis.Getir(x => x.ADI == TBMarka.Text).FirstOrDefault().ID,
                 KATEGORIID = int.Parse(TBKategori.Text),
+                KASAID = _tempKasa.ID,
                 GRUPKODU = int.Parse(TBGrupKodu.Text),
                 ACIKLAMA = TBAcıklama.Text,
                 SATISKDV = Convert.ToDecimal(TBSatisKdv.Text),
@@ -146,6 +148,7 @@ namespace MEYPAK.PRL
                 SFIYAT5 = Convert.ToDecimal(TBSFiyat5.Text),
                 SDOVIZID = CBSDoviz.SelectedIndex,
                 ADOVIZID = CBADoviz.SelectedIndex,
+                
 
             };
 
@@ -184,10 +187,15 @@ namespace MEYPAK.PRL
         {
             FKategoriList fKategoriKart = new FKategoriList();
             fKategoriKart.ShowDialog();
-
-
         }
-        
+        private void BTNKasaSec_Click(object sender, EventArgs e)
+        {
+            FKasaList fKasaList = new FKasaList("Stok");
+            fKasaList.ShowDialog();
+            if (_tempKasa!=null)
+            TBKasa.Text = _tempKasa.KASAADI;
+        }
+
         private void button3_Click(object sender, EventArgs e)
         {
 
@@ -318,6 +326,8 @@ namespace MEYPAK.PRL
                 e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
             }
         }
+
+
 
         private void TBSatisOtv_KeyPress(object sender, KeyPressEventArgs e)
         {

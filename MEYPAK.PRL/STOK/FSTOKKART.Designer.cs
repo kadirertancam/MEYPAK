@@ -159,7 +159,7 @@
             this.BTStokSec = new System.Windows.Forms.Button();
             this.LBAcıkalama = new System.Windows.Forms.Label();
             this.TBAcıklama = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.BTNGrupSec = new System.Windows.Forms.Button();
             this.BTKategoriSec = new System.Windows.Forms.Button();
             this.BTSec = new System.Windows.Forms.Button();
             this.LBGrupKodu = new System.Windows.Forms.Label();
@@ -172,6 +172,9 @@
             this.TBStokAdı = new System.Windows.Forms.TextBox();
             this.LBStokKodu = new System.Windows.Forms.Label();
             this.TBStokKodu = new System.Windows.Forms.TextBox();
+            this.BTNKasaSec = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
+            this.TBKasa = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -1331,7 +1334,7 @@
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.checkBox1);
-            this.groupBox4.Location = new System.Drawing.Point(292, 172);
+            this.groupBox4.Location = new System.Drawing.Point(292, 189);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(204, 129);
             this.groupBox4.TabIndex = 2;
@@ -1439,10 +1442,13 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.BTNKasaSec);
+            this.groupBox2.Controls.Add(this.label15);
+            this.groupBox2.Controls.Add(this.TBKasa);
             this.groupBox2.Controls.Add(this.BTStokSec);
             this.groupBox2.Controls.Add(this.LBAcıkalama);
             this.groupBox2.Controls.Add(this.TBAcıklama);
-            this.groupBox2.Controls.Add(this.button2);
+            this.groupBox2.Controls.Add(this.BTNGrupSec);
             this.groupBox2.Controls.Add(this.BTKategoriSec);
             this.groupBox2.Controls.Add(this.BTSec);
             this.groupBox2.Controls.Add(this.LBGrupKodu);
@@ -1457,7 +1463,7 @@
             this.groupBox2.Controls.Add(this.TBStokKodu);
             this.groupBox2.Location = new System.Drawing.Point(6, 22);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(280, 279);
+            this.groupBox2.Size = new System.Drawing.Size(280, 296);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Genel";
@@ -1477,7 +1483,7 @@
             // LBAcıkalama
             // 
             this.LBAcıkalama.AutoSize = true;
-            this.LBAcıkalama.Location = new System.Drawing.Point(6, 170);
+            this.LBAcıkalama.Location = new System.Drawing.Point(6, 199);
             this.LBAcıkalama.Name = "LBAcıkalama";
             this.LBAcıkalama.Size = new System.Drawing.Size(56, 15);
             this.LBAcıkalama.TabIndex = 14;
@@ -1485,22 +1491,22 @@
             // 
             // TBAcıklama
             // 
-            this.TBAcıklama.Location = new System.Drawing.Point(80, 167);
+            this.TBAcıklama.Location = new System.Drawing.Point(80, 199);
             this.TBAcıklama.Multiline = true;
             this.TBAcıklama.Name = "TBAcıklama";
             this.TBAcıklama.Size = new System.Drawing.Size(194, 91);
             this.TBAcıklama.TabIndex = 13;
             // 
-            // button2
+            // BTNGrupSec
             // 
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(239, 138);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(35, 23);
-            this.button2.TabIndex = 12;
-            this.button2.TabStop = false;
-            this.button2.Text = "Seç";
-            this.button2.UseVisualStyleBackColor = true;
+            this.BTNGrupSec.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BTNGrupSec.Location = new System.Drawing.Point(239, 138);
+            this.BTNGrupSec.Name = "BTNGrupSec";
+            this.BTNGrupSec.Size = new System.Drawing.Size(35, 23);
+            this.BTNGrupSec.TabIndex = 12;
+            this.BTNGrupSec.TabStop = false;
+            this.BTNGrupSec.Text = "Seç";
+            this.BTNGrupSec.UseVisualStyleBackColor = true;
             // 
             // BTKategoriSec
             // 
@@ -1607,6 +1613,34 @@
             this.TBStokKodu.TabIndex = 0;
             this.TBStokKodu.Leave += new System.EventHandler(this.TBStokKodu_Leave);
             // 
+            // BTNKasaSec
+            // 
+            this.BTNKasaSec.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BTNKasaSec.Location = new System.Drawing.Point(239, 164);
+            this.BTNKasaSec.Name = "BTNKasaSec";
+            this.BTNKasaSec.Size = new System.Drawing.Size(35, 23);
+            this.BTNKasaSec.TabIndex = 18;
+            this.BTNKasaSec.TabStop = false;
+            this.BTNKasaSec.Text = "Seç";
+            this.BTNKasaSec.UseVisualStyleBackColor = true;
+            this.BTNKasaSec.Click += new System.EventHandler(this.BTNKasaSec_Click);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(6, 167);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(31, 15);
+            this.label15.TabIndex = 17;
+            this.label15.Text = "Kasa";
+            // 
+            // TBKasa
+            // 
+            this.TBKasa.Location = new System.Drawing.Point(80, 164);
+            this.TBKasa.Name = "TBKasa";
+            this.TBKasa.Size = new System.Drawing.Size(167, 23);
+            this.TBKasa.TabIndex = 16;
+            // 
             // FStokKart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1682,7 +1716,7 @@
         private GroupBox groupBox2;
         private Label LBAcıkalama;
         private TextBox TBAcıklama;
-        private Button button2;
+        private Button BTNGrupSec;
         private Button BTKategoriSec;
         private Button BTSec;
         private Label LBGrupKodu;
@@ -1810,5 +1844,8 @@
         private TextBox TBKatsayi;
         private Button button3;
         private ComboBox CBOlcuBr1;
+        private Button BTNKasaSec;
+        private Label label15;
+        private TextBox TBKasa;
     }
 }
