@@ -2,19 +2,17 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
-namespace MEYPAK.Entity.Models
+namespace MEYPAK.Entity.Models.SIPARIS
 {
-    public class MPIRSALIYE
+    public class MPSIPARIS
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ID { get; set; } 
-        [ForeignKey("MPSIPARIS")]
-        public int SIPARISID { get; set; }
+        public int ID { get; set; }
         [DefaultValue(0)]
         public int SIRKETID { get; set; } = 0;
         [DefaultValue(0)]
@@ -29,7 +27,7 @@ namespace MEYPAK.Entity.Models
         public int KULLANICIID { get; set; } = 0;
         public DateTime OLUSTURMATARIHI { get; set; } = DateTime.Now;
         public DateTime GUNCELLEMETARIHI { get; set; } = DateTime.Now;
-        public DateTime IRSALIYETARIHI { get; set; } = DateTime.Now;
+        public DateTime SIPARISTARIHI { get; set; } = DateTime.Now;
         public DateTime SEVKIYATTARIHI { get; set; } = DateTime.Now;
         public DateTime VADETARIHI { get; set; } = DateTime.Now;
 
@@ -54,14 +52,14 @@ namespace MEYPAK.Entity.Models
         public decimal ISKONTOTOPLAM { get; set; } = 0;
         public decimal BRUTTOPLAM { get; set; } = 0;
         public decimal GENELTOPLAM { get; set; } = 0;
-        public int ARACID { get; set; }
-        public int PERSONELID { get; set; }
         public bool DURUM { get; set; }
         [Required]
         public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
         public byte KAYITTIPI { get; set; } = 0;
-         
-        public virtual MPSIPARIS MPSIPARIS { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MPSIPARISDETAY> MPSIPARISDETAY { get; set; }
+
 
     }
 }
