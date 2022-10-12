@@ -97,9 +97,8 @@ namespace MEYPAK.PRL.DEPO
         }
 
         private void button2_Click(object sender, EventArgs e)
-        {
-            List<PocoStokSevkiyatList> a  = (List<PocoStokSevkiyatList>)dataGridView1.DataSource;
-            foreach (var item in a)
+        { 
+            foreach (var item in _tempList)
             {
 
                 StaticContext._stokSevkiyatListServis.Ekle(new MPSTOKSEVKİYATLİST()

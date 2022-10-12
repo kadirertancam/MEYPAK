@@ -78,15 +78,15 @@ namespace MEYPAK.PRL.DEPO
             DGVTopla.UseColumnTextForButtonValue = true;
             dataGridView1.Columns.Add(DGVTopla);
             dataGridView1.Columns["DGVTopla"].DefaultCellStyle.ForeColor = Color.Aqua;
+            dataGridView2.DataSource = StaticContext._depoEmirServis.Listele().Select(x => new { x.ID, x.MPSIPARIS.BELGENO, x.MIKTAR, x.MPSIPARIS.CARIADI, x.MPSIPARIS.DEPOID, x.TIP, x.DURUM }).ToList();
+            dataGridView2.Refresh();
 
 
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            dataGridView2.DataSource = StaticContext._depoEmirServis.Listele().Select(x=> new { x.ID, x.MPSIPARIS.BELGENO, x.MIKTAR, x.MPSIPARIS.CARIADI, x.MPSIPARIS.DEPOID, x.TIP, x.DURUM }).ToList();
-             dataGridView2.Refresh();
-            if (dataGridView1.Columns[e.ColumnIndex].Name == "DGVTopla")
+             if (dataGridView1.Columns[e.ColumnIndex].Name == "DGVTopla")
             {
                 var _temp = StaticContext._siparisDetayServis.Listele().Where(x => x.MPSIPARIS.BELGENO.ToString() == dataGridView1.Rows[e.RowIndex].Cells["BELGENO"].Value.ToString() );
                 int i= 1;
@@ -144,10 +144,14 @@ namespace MEYPAK.PRL.DEPO
 
         private void dataGridView2_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+          
+        }
+
+        private void dataGridView2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
             _sevkiyatCekiPanel = new FSevkiyatCekiPanel();
             _sevkiyatCekiPanel._tempEmir = StaticContext._depoEmirServis.Getir(x => x.ID.ToString() == dataGridView2.Rows[e.RowIndex].Cells["ID"].Value.ToString()).FirstOrDefault();
             _sevkiyatCekiPanel.ShowDialog();
         }
-         
     }
 }
