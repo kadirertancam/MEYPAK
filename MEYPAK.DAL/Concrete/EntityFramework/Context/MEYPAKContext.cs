@@ -46,6 +46,12 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
         public DbSet<MPDEPOTRANSFER> MPDEPOTRANSFER { get; set; }
         public DbSet<MPDEPOTRANSFERHAR> MPDEPOTRANSFERHAR { get; set; }
         public DbSet<MPKASA> MPKASA { get; set; }
+
+        public DbSet<MPIRSALIYE> MPIRSALIYE { get; set; }
+
+        public DbSet<MPIRSALIYESIPARISDETAYILISKI> MPIRSALIYESIPARISDETAYILISKI { get; set; }
+        public DbSet<MPIRSALIYEDETAY> MPIRSALIYEDETAY { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
 
@@ -70,7 +76,46 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
             modelBuilder.Entity<MPSIPARIS>().HasMany(x => x.MPSIPARISDETAY).WithOne(x => x.MPSIPARIS).HasForeignKey(x => x.SIPARISID);
             modelBuilder.Entity<MPOLCUBR>().HasMany(x => x.MPSTOKSEVKİYATLİST).WithOne(x => x.MPOLCUBR).HasForeignKey(x => x.BIRIMID);
             modelBuilder.Entity<MPSTOK>().HasMany(x => x.MPSTOKSEVKİYATLİST).WithOne(x => x.MPSTOK).HasForeignKey(x => x.STOKID);
-            modelBuilder.Entity<MPIRSALIYE>().HasMany(x => x.MPSIPARISDETAY).WithOne(x=>x.MPIRSALIYE).HasForeignKey(x => x.IRSALIYEID);
+            modelBuilder.Entity<MPSIPARIS>().HasMany(x => x.MPIRSALIYE).WithOne(x=>x.MPSIPARIS).HasForeignKey(x => x.SIPARISID);
+            //modelBuilder.Entity<MPSIPARISDETAY>().HasMany(x => x.MPIRSALIYEDETAY).WithMany(x => x.MPSIPARISDETAY).UsingEntity<MPIRSALIYESIPARISDETAYILISKI>(
+            //    j => j
+            //        .HasOne(pt => pt.MPIRSALIYEDETAY)
+            //        .WithMany(t => t.MPIRSALIYESIPARISDETAYILISKI)
+            //        .HasForeignKey(pt => pt.SIPARISDETAYID),
+            //    j => j
+            //        .HasOne(pt => pt.MPSIPARISDETAY)
+            //        .WithMany(p => p.MPIRSALIYESIPARISDETAYILISKI)
+            //        .HasForeignKey(pt => pt.IRSALIYEDETAYID),
+            //    j =>
+            //    {
+            //        j.Property(pt => pt.ID);
+            //        j.HasKey(t => new { t.SIPARISDETAYID, t.IRSALIYEDETAYID });
+            //    });
+            modelBuilder.Entity<MPIRSALIYESIPARISDETAYILISKI>()
+                .HasKey(t => new { t.IRSALIYEDETAYID, t.SIPARISDETAYID });
+
+            modelBuilder.Entity<MPIRSALIYESIPARISDETAYILISKI>()
+                .HasOne(pt => pt.MPIRSALIYEDETAY)
+                .WithMany(p => p.MPIRSALIYESIPARISDETAYILISKI)
+                .HasForeignKey(pt => pt.IRSALIYEDETAYID);
+
+            modelBuilder.Entity<MPIRSALIYESIPARISDETAYILISKI>()
+                .HasOne(pt => pt.MPSIPARISDETAY)
+                .WithMany(t => t.MPIRSALIYESIPARISDETAYILISKI)
+                .HasForeignKey(pt => pt.SIPARISDETAYID);
+
+            //  modelBuilder.Entity<MPIRSALIYESIPARISDETAYILISKI>()
+            // .HasOne(pt => pt.MPSIPARISDETAY)
+            // .WithMany(p => p.MPIRSALIYESIPARISDETAYILISKI)
+            // .HasForeignKey(pt => pt.SIPARISDETAYID).OnDelete(DeleteBehavior.Restrict); 
+
+            //  modelBuilder.Entity<MPIRSALIYESIPARISDETAYILISKI>()
+            //      .HasOne(pt => pt.MPIRSALIYEDETAY)
+            //      .WithMany(t => t.MPIRSALIYESIPARISDETAYILISKI)
+            //      .HasForeignKey(pt => pt.IRSALIYEDETAYID).OnDelete(DeleteBehavior.Restrict); 
+
+            //  modelBuilder.Entity<MPIRSALIYESIPARISDETAYILISKI>()
+            //.HasKey(t => new { t.SIPARISDETAYID, t.IRSALIYEDETAYID });
 
             modelBuilder.Entity<MPSTOK>()
       .Navigation(b => b.MPSTOKOLCUBR)

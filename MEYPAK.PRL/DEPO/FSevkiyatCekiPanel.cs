@@ -107,8 +107,8 @@ namespace MEYPAK.PRL.DEPO
 
                     STOKID = item.MPSTOK.ID,
                     EMIRID = _tempEmir.ID,
-                    BIRIMID = item.MPSTOK.MPSTOKOLCUBR.Where(x => x.MPOLCUBR.ID == item.BIRIMID).Select(x => x.MPOLCUBR.ID).FirstOrDefault(),
-                    MIKTAR = item.MIKTAR,
+                    BIRIMID = item.MPSTOK.MPSTOKOLCUBR.Where(x => x.MPOLCUBR.ID.ToString() == item.Birim).Select(x => x.MPOLCUBR.ID).FirstOrDefault(),
+                    MIKTAR = item.Miktar,
                     DEPOID = _tempEmir.MPSIPARIS.DEPOID,
                     SIRKETID = 0,
                     SIPARISMIKTARI = _tempEmir.MPSIPARIS.MPSIPARISDETAY.Where(x => x.STOKID == item.MPSTOK.ID).Sum(x => x.MIKTAR),

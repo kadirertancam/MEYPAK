@@ -12,9 +12,9 @@ namespace MEYPAK.Entity.Models
     public class MPIRSALIYE
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ID { get; set; }
-        [DefaultValue(0)]
-        public int SIPARISID { get; set; } = 0;
+        public int ID { get; set; } 
+        [ForeignKey("MPSIPARIS")]
+        public int SIPARISID { get; set; }
         [DefaultValue(0)]
         public int SIRKETID { get; set; } = 0;
         [DefaultValue(0)]
@@ -60,9 +60,8 @@ namespace MEYPAK.Entity.Models
         [Required]
         public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
         public byte KAYITTIPI { get; set; } = 0;
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MPSIPARISDETAY> MPSIPARISDETAY { get; set; }
+         
+        public virtual MPSIPARIS MPSIPARIS { get; set; }
 
     }
 }
