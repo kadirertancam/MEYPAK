@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Models\STOKDTO.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="wwwroot\Template_Ven\jquery-validation-unobtrusive\.vsts-pipelines\builds\ci-public.yml" />
   </ItemGroup>
 

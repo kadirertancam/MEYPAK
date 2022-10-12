@@ -5,6 +5,7 @@ using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.BLL.STOK;
 using MEYPAK.Entity.Models;
 using MEYPAK.Interfaces.Stok;
+using MEYPAK.WEB.Models;
 
 namespace MEYPAK.WEB.Controllers
 {
@@ -26,12 +27,25 @@ namespace MEYPAK.WEB.Controllers
         {
            
                 List<MPSTOK> data = _stokServis.Listele();
-                return View(data); 
+                return View(data);
         }
         [HttpPost]
         public IActionResult StokKart(List<MPSTOK> mPSTOKs)
         {
+
+         
             return View();
+        }
+        public IActionResult StokEkle()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult StokEkle(MPSTOK mpStok)
+        {
+           
+            return View(ViewBag.Durum="Başarıyla eklendi.");
         }
     }
 }
