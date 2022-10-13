@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Models\STOKDTO.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Template_Ven\jquery-validation-unobtrusive\.vsts-pipelines\builds\ci-public.yml" />
+  </ItemGroup>
+
+  <ItemGroup>
+	  <ProjectReference Include="..\MEYPAK.BLL\MEYPAK.BLL.csproj" />
+	  <ProjectReference Include="..\MEYPAK.DAL\MEYPAK.DAL.csproj" />
+
+  </ItemGroup>
+
+</Project>
