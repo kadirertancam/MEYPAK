@@ -1,6 +1,6 @@
 ﻿using MEYPAK.DAL.Abstract.StokDal;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
-using MEYPAK.Entity.Models;
+using MEYPAK.Entity.Models.STOK;
 using System;
 using System.Collections.Generic;
 using System.Linq;

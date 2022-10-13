@@ -1,7 +1,7 @@
 ﻿using MEYPAK.DAL;
 using MEYPAK.DAL.Abstract;
 using MEYPAK.DAL.Abstract.HizmetDal;
-using MEYPAK.Entity.Models;
+using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Interfaces;
 using MEYPAK.Interfaces.Hizmet;
 using System;

@@ -35,7 +35,7 @@ namespace MEYPAK.PRL.STOK
         {
 
             stokSayimPanel = new FStokSayimPanel("kaydet");
-            _stokSayimServis.Ekle(new Entity.Models.MPSTOKSAYIM()
+            _stokSayimServis.Ekle(new Entity.Models.STOK.MPSTOKSAYIM()
             {
                 SAYIMTARIHI = DTPSayimTarihi.Value,
                 ACIKLAMA = TBAciklama.Text,

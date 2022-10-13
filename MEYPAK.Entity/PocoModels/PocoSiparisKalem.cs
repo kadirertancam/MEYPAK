@@ -1,4 +1,5 @@
 ﻿using MEYPAK.Entity.Models;
+using MEYPAK.Entity.Models.STOK;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;

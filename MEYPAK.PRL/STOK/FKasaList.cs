@@ -27,7 +27,7 @@ namespace MEYPAK.PRL.STOK
             InitializeComponent();
             this._islem = islem;
         }
-        IKasaServis _kasaServis = new KasaManager(new EFKasaRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
+        IStokKasaServis _kasaServis = new StokKasaManager(new EFStokKasaRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
         private void FKasaList_Load(object sender, EventArgs e)
         {
             dataGridView1.DataSource = _kasaServis.Listele();

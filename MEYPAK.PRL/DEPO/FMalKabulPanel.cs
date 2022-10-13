@@ -1,4 +1,4 @@
-﻿using MEYPAK.Entity.Models;
+﻿using MEYPAK.Entity.Models.SIPARIS;
 using MEYPAK.Entity.PocoModels;
 using MEYPAK.PRL.Assets.Scripts;
 using System;

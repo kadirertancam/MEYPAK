@@ -34,13 +34,13 @@ namespace MEYPAK.PRL.STOK
         {
             Interfaces.Durum snc;
             if (islemtipi == "Kayıt")
-                snc = _OlcuBrServis.EkleyadaGuncelle(new Entity.Models.MPOLCUBR()
+                snc = _OlcuBrServis.EkleyadaGuncelle(new Entity.Models.STOK.MPOLCUBR()
                 {
                     ADI = TBOlcuBrAdi.Text,
                     BIRIM = TBOlcuBr.Text,
                 });
             else
-                snc = _OlcuBrServis.EkleyadaGuncelle(new Entity.Models.MPOLCUBR()
+                snc = _OlcuBrServis.EkleyadaGuncelle(new Entity.Models.STOK.MPOLCUBR()
                 {
                     ID = id,
                     ADI = TBOlcuBrAdi.Text,

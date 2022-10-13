@@ -21,6 +21,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
+using MEYPAK.Entity.Models.STOK;
 
 namespace MEYPAK.PRL.STOK
 {

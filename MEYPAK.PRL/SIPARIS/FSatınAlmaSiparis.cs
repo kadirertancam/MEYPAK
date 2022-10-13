@@ -1,4 +1,5 @@
-﻿using MEYPAK.Entity.Models;
+﻿using MEYPAK.Entity.Models.SIPARIS;
+using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Entity.PocoModels;
 using MEYPAK.PRL.Assets.Scripts;
 using MEYPAK.PRL.STOK;
@@ -36,7 +37,7 @@ namespace MEYPAK.PRL.SIPARIS
         FStokList _fStokList;
         FKasaList fKasaList;
         public MPSTOK _tempStok;
-        public MPKASA _tempKasa; 
+        public MPSTOKKASA _tempKasa; 
         DataGridViewButtonColumn DGVStokSec;
         DataGridViewButtonColumn DGVKasaSec;
         int i;
@@ -253,7 +254,7 @@ namespace MEYPAK.PRL.SIPARIS
         {
 
             StaticContext._stokServis.Listele();
-            var _tempp = StaticContext._siparisServis.Ekle(new Entity.Models.MPSIPARIS()
+            var _tempp = StaticContext._siparisServis.Ekle(new Entity.Models.SIPARIS.MPSIPARIS()
             {
                 ACIKLAMA = TBAciklama.Text,
                 KUR = Convert.ToDecimal(TBKur.Text),

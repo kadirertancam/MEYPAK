@@ -1,7 +1,7 @@
 ﻿using MEYPAK.BLL.DEPO;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository;
-using MEYPAK.Entity.Models;
+using MEYPAK.Entity.Models.DEPO;
 using MEYPAK.Entity.PocoModels;
 using MEYPAK.Interfaces.Depo;
 using MEYPAK.Interfaces.Stok;

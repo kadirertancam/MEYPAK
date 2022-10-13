@@ -1,6 +1,7 @@
 ﻿using MEYPAK.DAL.Abstract.SiparisDal;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
-using MEYPAK.Entity.Models;
+using MEYPAK.Entity.Models.SIPARIS;
+using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Entity.PocoModels;
 using MEYPAK.Interfaces;
 using Microsoft.EntityFrameworkCore;

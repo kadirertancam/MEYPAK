@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
+using MEYPAK.Entity.Models.DEPO;
+using MEYPAK.Entity.Models.FATURA;
 
 namespace MEYPAK.Entity.Models.SIPARIS
 {
@@ -34,6 +36,7 @@ namespace MEYPAK.Entity.Models.SIPARIS
         public byte KULLANICITIPI { get; set; } = 0;
         [StringLength(50)]
         public string CARIADI { get; set; } = "";
+        public int TIP { get; set; }
         public int VADEGUNU { get; set; } = 0;
         [StringLength(200)]
         public string ACIKLAMA { get; set; } = "";
@@ -59,6 +62,11 @@ namespace MEYPAK.Entity.Models.SIPARIS
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MPSIPARISDETAY> MPSIPARISDETAY { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MPIRSALIYE> MPIRSALIYE { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MPDEPOEMIR> MPDEPOEMIR { get; set; }
 
 
     }

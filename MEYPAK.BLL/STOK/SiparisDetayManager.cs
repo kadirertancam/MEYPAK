@@ -1,7 +1,7 @@
 ﻿using MEYPAK.DAL.Abstract;
 using MEYPAK.DAL.Abstract.SiparisDal;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
-using MEYPAK.Entity.Models;
+using MEYPAK.Entity.Models.SIPARIS;
 using MEYPAK.Interfaces;
 using MEYPAK.Interfaces.Siparis;
 using System;

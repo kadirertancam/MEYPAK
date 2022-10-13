@@ -1,6 +1,6 @@
 ﻿using MEYPAK.DAL.Abstract;
 using MEYPAK.DAL.Abstract.PersonelDal;
-using MEYPAK.Entity.Models;
+using MEYPAK.Entity.Models.PERSONEL;
 using MEYPAK.Interfaces;
 using MEYPAK.Interfaces.Personel;
 using System;

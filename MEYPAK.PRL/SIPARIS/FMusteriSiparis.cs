@@ -2,7 +2,6 @@
 using MEYPAK.DAL.Concrete.EntityFramework.Repository;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository;
-using MEYPAK.Entity.Models;
 using MEYPAK.Entity.PocoModels;
 using MEYPAK.Interfaces.Depo;
 using MEYPAK.Interfaces.Siparis;
@@ -21,6 +20,8 @@ using MEYPAK.PRL.STOK;
 using MEYPAK.BLL.DEPO;
 using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 using MEYPAK.PRL.Assets.Scripts;
+using MEYPAK.Entity.Models.STOK;
+using MEYPAK.Entity.Models.SIPARIS;
 
 namespace MEYPAK.PRL.SIPARIS
 {
@@ -43,7 +44,7 @@ namespace MEYPAK.PRL.SIPARIS
         PocoSiparisKalem _tempPocokalem;
         FStokList _fStokList;
         public MPSTOK _tempStok;
-        public MPKASA _tempKasa;
+        public MPSTOKKASA _tempKasa;
 
         private void FSiparis_Load(object sender, EventArgs e)
         {
@@ -104,7 +105,7 @@ namespace MEYPAK.PRL.SIPARIS
 
 
             StaticContext._stokServis.Listele();
-            var _tempp = StaticContext._siparisServis.Ekle(new Entity.Models.MPSIPARIS()
+            var _tempp = StaticContext._siparisServis.Ekle(new Entity.Models.SIPARIS.MPSIPARIS()
             {
                 ACIKLAMA = TBAciklama.Text,
                 KUR = Convert.ToDecimal(TBKur.Text),
