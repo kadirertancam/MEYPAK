@@ -64,6 +64,7 @@ namespace MEYPAK.Entity.Models
         public virtual List<MPIRSALIYESIPARISDETAYILISKI>? MPIRSALIYESIPARISDETAYILISKI { get; set; }
         public ICollection<MPSTOKSEVKİYATLİST> MPSTOKSEVKİYATLİST { get; set; }
         public ICollection<MPDEPOEMIRSIPARISKALEMILISKI> MPDEPOEMIRSIPARISKALEMILISKI { get; set; }
+        public ICollection<MPSTOKMALKABULLIST> MPSTOKMALKABULLIST { get; set; }
 
     }
 }

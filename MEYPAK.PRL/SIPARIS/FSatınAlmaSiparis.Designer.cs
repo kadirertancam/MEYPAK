@@ -757,14 +757,14 @@
             this.panel1.TabIndex = 1;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // SatınAlmaSiparis
+            // FSatınAlmaSiparis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1688, 976);
             this.Controls.Add(this.panel1);
-            this.Name = "SatınAlmaSiparis";
-            this.Text = "SatınAlmaSiparis";
+            this.Name = "FSatınAlmaSiparis";
+            this.Text = "FSatınAlmaSiparis";
             this.Load += new System.EventHandler(this.SatınAlmaSiparis_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

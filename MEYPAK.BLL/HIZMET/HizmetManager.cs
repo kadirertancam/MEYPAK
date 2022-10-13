@@ -1,5 +1,4 @@
-﻿using MEYPAK.BLL.STOK;
-using MEYPAK.DAL;
+﻿using MEYPAK.DAL;
 using MEYPAK.DAL.Abstract;
 using MEYPAK.DAL.Abstract.HizmetDal;
 using MEYPAK.Entity.Models;

@@ -20,6 +20,7 @@ namespace MEYPAK.PRL.STOK
     {
         FStokKart fStokKart;
         FMusteriSiparis fSiparis;
+        FSatınAlmaSiparis fSatınAlmaSiparis;
         string _islem;
         public FKasaList(string islem = "")
         {
@@ -32,6 +33,7 @@ namespace MEYPAK.PRL.STOK
             dataGridView1.DataSource = _kasaServis.Listele();
             fStokKart = (FStokKart)Application.OpenForms["FStokKart"];
             fSiparis = (FMusteriSiparis)Application.OpenForms["FSiparis"];
+            fSatınAlmaSiparis = (FSatınAlmaSiparis)Application.OpenForms["FSatınAlmaSiparis"];
 
         }
         private void dataGridView1_DoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -45,6 +47,11 @@ namespace MEYPAK.PRL.STOK
             {
                 if (fSiparis != null) ;
                 fSiparis._tempKasa = _kasaServis.Getir(x => x.ID.ToString() == dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
+            }
+            else if (_islem == "SatinAlmaSiparis")
+            {
+                if (fSatınAlmaSiparis != null) ;
+                fSatınAlmaSiparis._tempKasa = _kasaServis.Getir(x => x.ID.ToString() == dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
             }
 
             this.Close();

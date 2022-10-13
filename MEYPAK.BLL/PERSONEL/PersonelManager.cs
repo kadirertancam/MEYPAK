@@ -1,5 +1,4 @@
-﻿using MEYPAK.BLL.STOK;
-using MEYPAK.DAL.Abstract;
+﻿using MEYPAK.DAL.Abstract;
 using MEYPAK.DAL.Abstract.PersonelDal;
 using MEYPAK.Entity.Models;
 using MEYPAK.Interfaces;

@@ -25,6 +25,7 @@ namespace MEYPAK.PRL.STOK
         FStokSayimPanel fstokSayimPanel;
         FStokFiyatListPanel fstokFiyatListPanel;
         FMusteriSiparis fSiparis;
+        FSatınAlmaSiparis _fSatınAlmaSiparis;
         FDepolarArasıTransferHar fDepolarArasıHar;
         int id;
         string _islem;
@@ -45,6 +46,8 @@ namespace MEYPAK.PRL.STOK
             fstokFiyatListPanel = (FStokFiyatListPanel)Application.OpenForms["FStokFiyatListPanel"];
             fDepolarArasıHar = (FDepolarArasıTransferHar)Application.OpenForms["FDepolarArasıTransferHar"];
             fSiparis = (FMusteriSiparis)Application.OpenForms["FSiparis"];
+            _fSatınAlmaSiparis= (FSatınAlmaSiparis)Application.OpenForms["FSatınAlmaSiparis"];
+
         }
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -77,6 +80,11 @@ namespace MEYPAK.PRL.STOK
             {
                 if (fDepolarArasıHar != null)
                     fDepolarArasıHar._tempStok = _stokServis.Getir(x => x.ID.ToString() == dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
+            }else if (_islem == "SatinAlmaSiparis")
+            {
+                if (_fSatınAlmaSiparis != null)
+                    _fSatınAlmaSiparis._tempStok = _stokServis.Getir(x => x.ID.ToString() == dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
+
             }
 
             this.Close();

@@ -36,8 +36,8 @@ namespace MEYPAK.PRL.SIPARIS
             _fStokList = new FStokList("siparis");
             dataGridView1.MultiSelect = false;
             CBDepo.DataSource = StaticContext._depoServis.Listele().Select(x => x.DEPOADI).ToList();
-        } 
-       
+        }
+        FKasaList fKasaList;
         List<PocoSiparisKalem> _tempSiparisDetay = new List<PocoSiparisKalem>();
         DataGridViewComboBoxColumn DGVOlcuBr = new DataGridViewComboBoxColumn();
         PocoSiparisKalem _tempPocokalem;
@@ -209,7 +209,7 @@ namespace MEYPAK.PRL.SIPARIS
                 if (_tempPocokalem != null)
                 {
 
-                    FKasaList fKasaList = new FKasaList("Siparis");
+                  
                     fKasaList.ShowDialog();
 
                     if (_tempKasa != null)

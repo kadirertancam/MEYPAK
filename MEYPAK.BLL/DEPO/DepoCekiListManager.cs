@@ -1,5 +1,4 @@
-﻿using MEYPAK.BLL.STOK;
-using MEYPAK.DAL.Abstract;
+﻿using MEYPAK.DAL.Abstract;
 using MEYPAK.DAL.Abstract.StokDal;
 using MEYPAK.Entity.Models;
 using MEYPAK.Interfaces.Depo;

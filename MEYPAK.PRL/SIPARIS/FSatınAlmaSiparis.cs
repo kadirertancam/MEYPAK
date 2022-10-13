@@ -23,7 +23,9 @@ namespace MEYPAK.PRL.SIPARIS
             DGVFiyatList = new DataGridViewComboBoxColumn();
             DGVKasaSec = new DataGridViewButtonColumn();
             DGVKasaList = new DataGridViewComboBoxColumn();
-            _fStokList = new FStokList("SatinAlmasiparis");
+
+            fKasaList = new FKasaList("SatinAlmaSiparis");
+            _fStokList = new FStokList("SatinAlmaSiparis");
             dataGridView1.MultiSelect = false;
             CBDepo.DataSource = StaticContext._depoServis.Listele().Select(x => x.DEPOADI).ToList();
         }
@@ -32,6 +34,7 @@ namespace MEYPAK.PRL.SIPARIS
         DataGridViewComboBoxColumn DGVOlcuBr = new DataGridViewComboBoxColumn();
         PocoSiparisKalem _tempPocokalem;
         FStokList _fStokList;
+        FKasaList fKasaList;
         public MPSTOK _tempStok;
         public MPKASA _tempKasa; 
         DataGridViewButtonColumn DGVStokSec;
@@ -347,9 +350,7 @@ namespace MEYPAK.PRL.SIPARIS
             if (dataGridView1.Columns[e.ColumnIndex].Name == "DGVKasaSec")
             {
                 if (_tempPocokalem != null)
-                {
-
-                    FKasaList fKasaList = new FKasaList("Siparis");
+                { 
                     fKasaList.ShowDialog();
 
                     if (_tempKasa != null)

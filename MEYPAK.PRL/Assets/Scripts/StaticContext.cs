@@ -28,6 +28,7 @@ namespace MEYPAK.PRL.Assets.Scripts
         public static IStokOlcuBrServis _stokOlcuBrServis = new StokOlcuBrManager(new EFStokOlcuBrRepo(context));
         public static IDepoServis _depoServis = new DepoManager(new EFDepoRepo(context));
         public static IStokFiyatListServis _stokFiyatListServis = new StokFiyatListManager(new EFStokFiyatListRepo(context));
+        public static IStokMalKabulListServis _stokMalKabulListServis = new StokMalKabulListManager(new EFStokMalKabulList(context));
 
 
 

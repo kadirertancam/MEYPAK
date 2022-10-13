@@ -8,7 +8,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MEYPAK.BLL.STOK
+namespace MEYPAK.BLL
 {
     public class BaseManager<T> : IGenericServis<T>
     {
@@ -16,14 +16,14 @@ namespace MEYPAK.BLL.STOK
 
         public BaseManager(IGeneric<T> generic)
         {
-            this._generic = generic;
+            _generic = generic;
 
         }
 
         public T Ekle(T entity)
         {
             return _generic.Ekle(entity);
-        } 
+        }
 
         public List<T> Getir(Expression<Func<T, bool>> predicate)
         {
@@ -32,14 +32,14 @@ namespace MEYPAK.BLL.STOK
 
         public Durum Guncelle(T entity, Expression<Func<T, bool>> predicate)
         {
-            return _generic.Guncelle(entity,predicate);
+            return _generic.Guncelle(entity, predicate);
         }
 
         public Durum Guncelle(T entity)
         {
             _generic.Guncelle(entity);
             return Durum.güncellemebaşarılı;
-        
+
         }
 
         public List<T> Listele()
@@ -47,7 +47,7 @@ namespace MEYPAK.BLL.STOK
             return _generic.Listele();
         }
 
-        public bool Sil(System.Linq.Expressions.Expression<Func<T, bool>> predicate)
+        public bool Sil(Expression<Func<T, bool>> predicate)
         {
             return _generic.Sil(predicate);
         }

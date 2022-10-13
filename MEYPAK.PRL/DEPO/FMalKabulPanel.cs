@@ -23,11 +23,11 @@ namespace MEYPAK.PRL.DEPO
             dataGridView2.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(105, 105, 105);
             dataGridView2.EnableHeadersVisualStyles = false;
             DGVTopla = new DataGridViewButtonColumn();
-            _sevkiyatCekiPanel = new FSevkiyatCekiPanel();
+            _fMalKabulCekiPanel = new FMalKabulCekiPanel();
         }
         DataGridViewButtonColumn DGVTopla;
         List<MPSIPARIS> _tempSiparis;
-        FSevkiyatCekiPanel _sevkiyatCekiPanel;
+        FMalKabulCekiPanel _fMalKabulCekiPanel;
         List<MPSIPARISDETAY> _tempSTOKSEVK;
         List<MPSIPARISDETAY> _tempSiparisDetay;
         private void FMalKabulPanel_Load(object sender, EventArgs e)
@@ -45,6 +45,65 @@ namespace MEYPAK.PRL.DEPO
             dataGridView1.Columns["DGVOnay"].DefaultCellStyle.ForeColor = Color.Aqua;
             dataGridView2.DataSource = StaticContext._depoEmirServis.Listele().Where(x=>x.TIP==1).Select(x => new { x.ID, x.MPSIPARIS.BELGENO, x.MIKTAR, x.MPSIPARIS.CARIADI, x.MPSIPARIS.DEPOID, x.TIP, x.DURUM }).ToList();
             dataGridView2.Refresh();
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            _tempSiparisDetay = StaticContext._siparisDetayServis.Listele().Where(x => x.MPSIPARIS.BELGENO.ToString() == dataGridView1.Rows[e.RowIndex].Cells["BELGENO"].Value.ToString()).ToList();
+
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "DGVOnay")
+            {
+                int i = 1;
+                var a = StaticContext._depoEmirServis.Ekle(new MPDEPOEMIR()
+                {
+                    SIPARISID = StaticContext._siparisServis.Listele().Where(x => x.BELGENO == dataGridView1.Rows[e.RowIndex].Cells["BELGENO"].Value.ToString()).FirstOrDefault().ID,
+                    MIKTAR = _tempSiparisDetay.Sum(x => x.MIKTAR),
+                    SIRA = i,
+                    TARIH = DateTime.Now,
+                    TIP = 1,   /// TOPLAMA EMRİ TIPI OUTPUT =0 INPUT=1
+                    DURUM = 1,
+                    ACIKLAMA = ""
+
+
+
+                });
+                dataGridView2.DataSource = StaticContext._depoEmirServis.Listele().Select(x => new { x.ID, x.MPSIPARIS.BELGENO, x.MIKTAR, x.MPSIPARIS.CARIADI, x.MPSIPARIS.DEPOID, x.TIP, x.DURUM }).ToList();
+                dataGridView2.Refresh();
+                foreach (var item in _tempSiparisDetay.Where(x => x.HAREKETDURUMU == 0).ToList())
+                {
+                    item.HAREKETDURUMU = 1;
+                    StaticContext._siparisDetayServis.Guncelle(item);
+
+
+                    StaticContext._siparisSevkEmriHarServis.Ekle(new MPSIPARISSEVKEMRIHAR()
+                    {
+                        EMIRMIKTARI = a.MIKTAR,
+                        SIPARISID = a.SIPARISID,
+                        SIPARISKALEMID = item.ID,
+                        EMIRID = a.ID,
+                        SIPARISMIKTARI = _tempSiparisDetay.Sum(x => x.MIKTAR),
+                        KULLANICIID = 0,
+                        TARIH = DateTime.Now
+
+                    });
+
+
+                    dataGridView3.DataSource = StaticContext._siparisSevkEmriHarServis.Listele();
+                    dataGridView3.Refresh();
+                    i++;
+                }
+
+            }
+        }
+
+        private void dataGridView2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            _tempSTOKSEVK = StaticContext._depoEmirServis.Listele().Where(x => x.ID.ToString() == dataGridView2.Rows[e.RowIndex].Cells["ID"].Value.ToString()).Select(x => x.MPSIPARIS.MPSIPARISDETAY.ToList()).FirstOrDefault();
+            _fMalKabulCekiPanel = new FMalKabulCekiPanel();
+            _fMalKabulCekiPanel._tempEmir = StaticContext._depoEmirServis.Getir(x => x.ID.ToString() == dataGridView2.Rows[e.RowIndex].Cells["ID"].Value.ToString()).FirstOrDefault();
+            _fMalKabulCekiPanel._tempList = _tempSTOKSEVK.Select(x => new MPSTOKMALKABULLIST() { MPSTOK = x.MPSTOK, MPSIPARISDETAY = x, SIPARISMIKTARI = x.MIKTAR, DEPOID = x.MPSIPARIS.DEPOID, BIRIMID = x.BIRIMID, EMIRID = int.Parse(dataGridView2.Rows[e.RowIndex].Cells["ID"].Value.ToString()), SIPARISDETAYID = x.ID, STOKID = x.STOKID }).ToList();
+
+            _fMalKabulCekiPanel.ShowDialog();
         }
     }
 }

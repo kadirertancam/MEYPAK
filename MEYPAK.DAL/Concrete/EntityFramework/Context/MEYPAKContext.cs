@@ -46,7 +46,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
         public DbSet<MPDEPOTRANSFER> MPDEPOTRANSFER { get; set; }
         public DbSet<MPDEPOTRANSFERHAR> MPDEPOTRANSFERHAR { get; set; }
         public DbSet<MPKASA> MPKASA { get; set; }
-
+        public DbSet<MPSTOKMALKABULLIST> MPSTOKMALKABULLIST { get; set; }
         public DbSet<MPIRSALIYE> MPIRSALIYE { get; set; } 
         public DbSet<MPIRSALIYESIPARISDETAYILISKI> MPIRSALIYESIPARISDETAYILISKI { get; set; }
         public DbSet<MPIRSALIYEDETAY> MPIRSALIYEDETAY { get; set; }
@@ -78,6 +78,10 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
             modelBuilder.Entity<MPSIPARIS>().HasMany(x => x.MPIRSALIYE).WithOne(x=>x.MPSIPARIS).HasForeignKey(x => x.SIPARISID).OnDelete(DeleteBehavior.Restrict);
             modelBuilder.Entity<MPSIPARISDETAY>().HasMany(x => x.MPSTOKSEVKİYATLİST).WithOne(x => x.MPSIPARISDETAY).HasForeignKey(x => x.SIPARISDETAYID).OnDelete(DeleteBehavior.Restrict);
             modelBuilder.Entity<MPSIPARIS>().HasMany(x => x.MPDEPOEMIR).WithOne(x => x.MPSIPARIS).HasForeignKey(x => x.SIPARISID).OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<MPSTOK>().HasMany(x => x.MPSTOKMALKABULLIST).WithOne(x => x.MPSTOK).HasForeignKey(x => x.STOKID).OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<MPOLCUBR>().HasMany(x => x.MPSTOKMALKABULLIST).WithOne(x => x.MPOLCUBR).HasForeignKey(x => x.BIRIMID).OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<MPDEPOEMIR>().HasMany(x => x.MPSTOKMALKABULLIST).WithOne(x => x.MPDEPOEMIR).HasForeignKey(x => x.EMIRID).OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<MPSIPARISDETAY>().HasMany(x => x.MPSTOKMALKABULLIST).WithOne(x => x.MPSIPARISDETAY).HasForeignKey(x => x.SIPARISDETAYID).OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<MPIRSALIYESIPARISDETAYILISKI>().HasKey(sc => new { sc.IRSALIYEDETAYID, sc.SIPARISDETAYID });
 
@@ -103,6 +107,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
 
 
 
+           
             modelBuilder.Entity<MPSTOK>()
       .Navigation(b => b.MPSTOKOLCUBR)
       .UsePropertyAccessMode(PropertyAccessMode.Property);
