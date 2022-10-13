@@ -4,7 +4,6 @@ using MEYPAK.DAL.Abstract;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository;
-using MEYPAK.Entity.Models;
 using MEYPAK.Entity.PocoModels;
 using MEYPAK.Interfaces.Depo;
 using MEYPAK.Interfaces.Stok;
@@ -20,6 +19,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
+using MEYPAK.Entity.Models.STOK;
+using MEYPAK.Entity.PocoModels.STOK;
 
 namespace MEYPAK.PRL.STOK
 {
@@ -101,7 +102,7 @@ namespace MEYPAK.PRL.STOK
 
 
 
-            _stokHarServis.EkleyadaGuncelle(new Entity.Models.MPSTOKHAR()
+            _stokHarServis.EkleyadaGuncelle(new Entity.Models.STOK.MPSTOKHAR()
             {
                 STOKID = _id,
                 BELGE_NO = TBBelgeNo.Text,

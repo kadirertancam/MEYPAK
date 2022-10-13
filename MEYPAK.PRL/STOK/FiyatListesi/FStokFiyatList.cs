@@ -1,7 +1,6 @@
 ﻿using MEYPAK.BLL.STOK;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
-using MEYPAK.Entity.Models;
 using MEYPAK.Interfaces.Stok;
 using MEYPAK.PRL.Assets;
 using System;
@@ -16,6 +15,7 @@ using System.Windows.Forms;
 using MEYPAK.Entity.PocoModels;
 using MEYPAK.Interfaces.Personel;
 using MEYPAK.Interfaces.Depo;
+using MEYPAK.Entity.Models.STOK;
 
 namespace MEYPAK.PRL.STOK
 {

@@ -1,4 +1,4 @@
-﻿using MEYPAK.Entity.Models;
+﻿using MEYPAK.Entity.Models.SIPARIS;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

@@ -1,5 +1,5 @@
 ﻿using MEYPAK.DAL.Concrete.EntityFramework.Context;
-using MEYPAK.Entity.Models;
+using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Interfaces;
 using System;
 using System.Collections.Generic;

@@ -24,10 +24,10 @@ namespace MEYPAK.PRL.STOK
             InitializeComponent();
         }
         MEYPAKContext context = new MEYPAKContext();
-        IKasaServis _kasaServis = new KasaManager(new EFKasaRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
+        IStokKasaServis _kasaServis = new StokKasaManager(new EFStokKasaRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
         private void BTStokKaydet_Click(object sender, EventArgs e)
         {
-            _kasaServis.Ekle(new Entity.Models.MPKASA
+            _kasaServis.Ekle(new Entity.Models.STOK.MPSTOKKASA
             {
                 KASAADI =TBKasaAdi.Text,
                 ACIKLAMA = TBAciklama.Text,

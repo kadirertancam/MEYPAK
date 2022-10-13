@@ -19,7 +19,7 @@ namespace MEYPAK.PRL.Assets.Scripts
         
         private static MEYPAKContext context =new MEYPAKContext();
         public static IStokServis _stokServis = new StokManager(new EFStokRepo(context));
-        public static IStokSevkiyatListServis _stokSevkiyatListServis = new StokSevkiyatListManager(new EFStokSevkiyatList(context));
+        public static IStokSevkiyatListServis _stokSevkiyatListServis = new StokSevkiyatListManager(new EFStokSevkiyatListRepo(context));
         public static ISiparisDetayServis _siparisDetayServis = new SiparisDetayManager(new EFSiparisDetayRepo(context));
         public static ISiparisServis _siparisServis = new SiparisManager(new EFSiparisRepo(context));
         public static IDepoEmirServis _depoEmirServis = new DepoEmirManager(new EFDepoEmirRepo(context));

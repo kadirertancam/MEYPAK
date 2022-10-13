@@ -1,7 +1,6 @@
 ﻿using MEYPAK.BLL.STOK;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
-using MEYPAK.Entity.Models;
 using MEYPAK.Interfaces.Stok;
 using MEYPAK.PRL.Assets;
 using System;
@@ -16,6 +15,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using MEYPAK.Entity.Models.STOK;
 
 namespace MEYPAK.PRL.STOK
 {
@@ -29,7 +29,7 @@ namespace MEYPAK.PRL.STOK
             InitializeComponent();
             this._islem = islem;
         }
-        IKategoriServis _kategoriServis = new KategoriManager(new EFKategoriRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
+        IStokKategoriServis _kategoriServis = new StokKategoriManager(new EFStokKategoriRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
         private void FKategoriList_Load(object sender, EventArgs e)
         {
             TreeViewiDoldur();
@@ -45,7 +45,7 @@ namespace MEYPAK.PRL.STOK
         }
 
 
-        TreeNode TreeViewDon(ref TreeNode ustNode, List<MPKATEGORI> data, int ustid = 0)
+        TreeNode TreeViewDon(ref TreeNode ustNode, List<MPSTOKKATEGORI> data, int ustid = 0)
         {
             foreach (var item in data.Where(x => x.UstId == ustid))
             {
@@ -63,7 +63,7 @@ namespace MEYPAK.PRL.STOK
         {
             if (treeView1.SelectedNode.Name != "" && treeView1.SelectedNode != null)
             {
-                MPKATEGORI mPKATEGORI = new MPKATEGORI()
+                MPSTOKKATEGORI mPKATEGORI = new MPSTOKKATEGORI()
                 {
                     Acıklama = TBAcıklama.Text,
                     UstId = Convert.ToInt32(treeView1.SelectedNode.Name.ToString())
@@ -84,7 +84,7 @@ namespace MEYPAK.PRL.STOK
         {
             if (TBAcıklama.Text != null && TBAcıklama.Text != "")
             {
-                MPKATEGORI mPKATEGORI = new MPKATEGORI()
+                MPSTOKKATEGORI mPKATEGORI = new MPSTOKKATEGORI()
                 {
                     Acıklama = TBAcıklama.Text,
                     UstId = 0

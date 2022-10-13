@@ -1,7 +1,7 @@
 ﻿using MEYPAK.BLL.STOK;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository;
-using MEYPAK.Entity.Models;
+using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Interfaces.Stok;
 using MEYPAK.PRL.Assets;
 using System;
@@ -23,8 +23,8 @@ namespace MEYPAK.PRL.STOK
             InitializeComponent();
         }
         #region Tanımlar
-        IMarkaServis _markaServis = new MarkaManager(new EFMarkaRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
-        MPMARKA _tempMarka;
+        IStokMarkaServis _markaServis = new StokMarkaManager(new EFStokMarkaRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
+        MPSTOKMARKA _tempMarka;
         int id = 0;
         #endregion
         private void FMarkaKart_Load(object sender, EventArgs e)
@@ -35,7 +35,7 @@ namespace MEYPAK.PRL.STOK
         private void BTKaydet_Click(object sender, EventArgs e)
         {
              
-                if (_markaServis.EkleyadaGuncelle(new Entity.Models.MPMARKA()
+                if (_markaServis.EkleyadaGuncelle(new Entity.Models.STOK.MPSTOKMARKA()
                 {
                     ID=id,
                     ADI = TBMarkaAdi.Text,

@@ -5,6 +5,12 @@ using System.Diagnostics;
 using System.Reflection.Emit;
 using System.Reflection.Metadata;
 using MEYPAK.Entity.Models;
+using MEYPAK.Entity.Models.ARAC;
+using MEYPAK.Entity.Models.DEPO;
+using MEYPAK.Entity.Models.FATURA;
+using MEYPAK.Entity.Models.PERSONEL;
+using MEYPAK.Entity.Models.SIPARIS;
+using MEYPAK.Entity.Models.STOK;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.IdentityModel.Protocols;
@@ -31,7 +37,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
         public DbSet<MPSTOKHAR> MPSTOKHAR { get; set; }
         public DbSet<MPDEPO> MPDEPO { get; set; }
         public DbSet<MPHIZMET> MPHIZMET { get; set; }
-        public DbSet<MPMARKA> MPMARKA { get; set; }
+        public DbSet<MPSTOKMARKA> MPMARKA { get; set; }
         public DbSet<MPSTOKOLCUBR> MPSTOKOLCUBR { get; set; }
         public DbSet<MPSTOKFIYATLIST> MPSTOKFIYATLIST { get; set; }
         public DbSet<MPSTOKFIYATLISTHAR> MPSTOKFIYATLISTHAR { get; set; }
@@ -40,12 +46,12 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
         public DbSet<MPSTOKSAYIM> MPSTOKSAYIM { get; set; }
         public DbSet<MPSTOKSAYIMHAR> MPSTOKSAYIMHAR { get; set; }
         public DbSet<MPOLCUBR> MPOLCUBR { get; set; }
-        public DbSet<MPKATEGORI> MPKATEGORI { get; set; }
+        public DbSet<MPSTOKKATEGORI> MPKATEGORI { get; set; }
         public DbSet<MPSIPARIS> MPSIPARIS { get; set; }
         public DbSet<MPSIPARISDETAY> MPSIPARISDETAY { get; set; }
         public DbSet<MPDEPOTRANSFER> MPDEPOTRANSFER { get; set; }
         public DbSet<MPDEPOTRANSFERHAR> MPDEPOTRANSFERHAR { get; set; }
-        public DbSet<MPKASA> MPKASA { get; set; }
+        public DbSet<MPSTOKKASA> MPKASA { get; set; }
 
         public DbSet<MPIRSALIYE> MPIRSALIYE { get; set; } 
         public DbSet<MPIRSALIYESIPARISDETAYILISKI> MPIRSALIYESIPARISDETAYILISKI { get; set; }

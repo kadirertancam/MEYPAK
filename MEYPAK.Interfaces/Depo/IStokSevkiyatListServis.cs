@@ -1,4 +1,4 @@
-﻿using MEYPAK.Entity.Models;
+﻿using MEYPAK.Entity.Models.DEPO;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -1,7 +1,6 @@
-﻿using MEYPAK.BLL.STOK;
-using MEYPAK.DAL.Abstract;
+﻿using MEYPAK.DAL.Abstract;
 using MEYPAK.DAL.Abstract.SiparisDal;
-using MEYPAK.Entity.Models;
+using MEYPAK.Entity.Models.SIPARIS;
 using MEYPAK.Interfaces.Siparis;
 using System;
 using System.Collections.Generic;

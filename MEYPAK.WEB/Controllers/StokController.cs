@@ -3,9 +3,9 @@ using Microsoft.AspNetCore.Mvc;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.BLL.STOK;
-using MEYPAK.Entity.Models;
 using MEYPAK.Interfaces.Stok;
 using MEYPAK.WEB.Models;
+using MEYPAK.Entity.Models.STOK;
 
 namespace MEYPAK.WEB.Controllers
 {

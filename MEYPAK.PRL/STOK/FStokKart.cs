@@ -5,7 +5,6 @@ using MEYPAK.DAL;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository;
-using MEYPAK.Entity.Models;
 using MEYPAK.Interfaces.Depo;
 using MEYPAK.Interfaces.Hizmet;
 using MEYPAK.Interfaces.Stok;
@@ -14,6 +13,7 @@ using MEYPAK.PRL.STOK;
 using System.Drawing;
 using System.Globalization;
 using System.Text.RegularExpressions;
+using MEYPAK.Entity.Models.STOK;
 
 namespace MEYPAK.PRL
 {
@@ -31,11 +31,11 @@ namespace MEYPAK.PRL
         #region Tanımlar
         MPSTOKOLCUBR _tempStokOlcuBr;
         public MPSTOK _tempStok;
-        public MPKASA _tempKasa;
-        public MPMARKA _tempMarka;
+        public MPSTOKKASA _tempKasa;
+        public MPSTOKMARKA _tempMarka;
         static MEYPAKContext context = NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>();
         IStokServis _stokServis = new StokManager(new EFStokRepo(context));
-        IMarkaServis _markaServis = new MarkaManager(new EFMarkaRepo(context));
+        IStokMarkaServis _markaServis = new StokMarkaManager(new EFStokMarkaRepo(context));
         IStokOlcuBrServis _stokOlcuBrServis = new StokOlcuBrManager(new EFStokOlcuBrRepo(context));
         IOlcuBrServis _OlcuBrServis = new OlcuBrManager(new EFOlcuBrRepo(context));
         List<MPSTOKOLCUBR> stokOlculist = new List<MPSTOKOLCUBR>();

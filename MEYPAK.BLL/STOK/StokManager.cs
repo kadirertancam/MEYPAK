@@ -1,6 +1,6 @@
 ﻿using MEYPAK.DAL;
 using MEYPAK.DAL.Abstract.StokDal;
-using MEYPAK.Entity.Models;
+using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Interfaces;
 using MEYPAK.Interfaces.Stok;
 using System;
