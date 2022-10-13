@@ -50,10 +50,9 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
         public DbSet<MPSIPARIS> MPSIPARIS { get; set; }
         public DbSet<MPSIPARISDETAY> MPSIPARISDETAY { get; set; }
         public DbSet<MPDEPOTRANSFER> MPDEPOTRANSFER { get; set; }
-        public DbSet<MPDEPOTRANSFERHAR> MPDEPOTRANSFERHAR { get; set; }
-        public DbSet<MPKASA> MPKASA { get; set; }
+        public DbSet<MPDEPOTRANSFERHAR> MPDEPOTRANSFERHAR { get; set; } 
         public DbSet<MPSTOKMALKABULLIST> MPSTOKMALKABULLIST { get; set; }
-        public DbSet<MPSTOKKASA> MPKASA { get; set; }
+        public DbSet<MPSTOKKASA> MPSTOKKASA { get; set; }
 
         public DbSet<MPIRSALIYE> MPIRSALIYE { get; set; } 
         public DbSet<MPIRSALIYESIPARISDETAYILISKI> MPIRSALIYESIPARISDETAYILISKI { get; set; }
