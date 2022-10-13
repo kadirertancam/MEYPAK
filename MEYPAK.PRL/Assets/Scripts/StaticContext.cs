@@ -26,6 +26,10 @@ namespace MEYPAK.PRL.Assets.Scripts
         public static ISiparisSevkEmriHarServis _siparisSevkEmriHarServis = new SiparisSevkEmriHarManager(new EFSiparisSevkEmriHarRepo(context));
         public static IOlcuBrServis _olcuBrServis = new OlcuBrManager(new EFOlcuBrRepo(context));
         public static IStokOlcuBrServis _stokOlcuBrServis = new StokOlcuBrManager(new EFStokOlcuBrRepo(context));
+        public static IDepoServis _depoServis = new DepoManager(new EFDepoRepo(context));
+        public static IStokFiyatListServis _stokFiyatListServis = new StokFiyatListManager(new EFStokFiyatListRepo(context));
+
+
 
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace MEYPAK.PRL.SIPARIS
 {
-    partial class FSiparisIslemler
+    partial class FMusteriSiparisiHareketi
     {
         /// <summary>
         /// Required designer variable.

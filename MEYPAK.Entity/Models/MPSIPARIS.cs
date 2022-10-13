@@ -34,6 +34,7 @@ namespace MEYPAK.Entity.Models
         public byte KULLANICITIPI { get; set; } = 0;
         [StringLength(50)]
         public string CARIADI { get; set; } = "";
+        public int TIP { get; set; }
         public int VADEGUNU { get; set; } = 0;
         [StringLength(200)]
         public string ACIKLAMA { get; set; } = "";
@@ -62,6 +63,8 @@ namespace MEYPAK.Entity.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MPIRSALIYE> MPIRSALIYE { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MPDEPOEMIR> MPDEPOEMIR { get; set; }
 
 
     }

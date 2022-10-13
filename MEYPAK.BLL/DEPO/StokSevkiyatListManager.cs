@@ -2,6 +2,7 @@
 using MEYPAK.DAL.Abstract;
 using MEYPAK.DAL.Abstract.DepoDal;
 using MEYPAK.Entity.Models;
+using MEYPAK.Interfaces;
 using MEYPAK.Interfaces.Depo;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,17 @@ namespace MEYPAK.BLL.DEPO
         public StokSevkiyatListManager(IStokSevkiyatListDal generic) : base(generic)
         {
             _stokSevkiyatListDal=generic;
+        }
+
+        public Durum EkleyadaGuncelle(MPSTOKSEVKİYATLİST entity)
+        {
+            return _stokSevkiyatListDal.EkleyadaGuncelle(entity);
+            
+        }
+
+        public void OnYukle()
+        {
+            _stokSevkiyatListDal.OnYukle();
         }
     }
 }

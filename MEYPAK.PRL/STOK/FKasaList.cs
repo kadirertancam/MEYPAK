@@ -19,7 +19,7 @@ namespace MEYPAK.PRL.STOK
     public partial class FKasaList : Form
     {
         FStokKart fStokKart;
-        FSiparis fSiparis;
+        FMusteriSiparis fSiparis;
         string _islem;
         public FKasaList(string islem = "")
         {
@@ -31,7 +31,7 @@ namespace MEYPAK.PRL.STOK
         {
             dataGridView1.DataSource = _kasaServis.Listele();
             fStokKart = (FStokKart)Application.OpenForms["FStokKart"];
-            fSiparis = (FSiparis)Application.OpenForms["FSiparis"];
+            fSiparis = (FMusteriSiparis)Application.OpenForms["FSiparis"];
 
         }
         private void dataGridView1_DoubleClick(object sender, DataGridViewCellEventArgs e)

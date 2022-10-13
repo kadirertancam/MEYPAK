@@ -20,6 +20,8 @@ namespace MEYPAK.Entity.Models
         public int STOKID { get; set; }
         [ForeignKey("MPOLCUBR")]
         public int BIRIMID { get; set; }
+        [ForeignKey("MPSIPARISDETAY")]
+        public int SIPARISDETAYID { get; set; }
         public decimal SIPARISMIKTARI { get; set; }
         public decimal MIKTAR { get; set; }
         [ForeignKey("MPDEPOEMIR")]
@@ -28,5 +30,6 @@ namespace MEYPAK.Entity.Models
         public MPOLCUBR MPOLCUBR { get; set; }
         public MPDEPOEMIR MPDEPOEMIR { get; set; }
         public MPSTOK MPSTOK { get; set; }
+        public MPSIPARISDETAY MPSIPARISDETAY { get; set; }
     }
 }

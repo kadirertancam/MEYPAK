@@ -18,9 +18,9 @@ using System.Windows.Forms;
 
 namespace MEYPAK.PRL.SIPARIS
 {
-    public partial class FSiparisIslemler : Form
+    public partial class FMusteriSiparisiHareketi : Form
     {
-        public FSiparisIslemler()
+        public FMusteriSiparisiHareketi()
         {
             InitializeComponent();
         }

@@ -46,14 +46,9 @@ namespace MEYPAK.Entity.Models
 
         public decimal KDV { get; set; } = 0;
         public decimal KDVTUTARI { get; set; } = 0;
-        public byte KAYITTIPI { get; set; } = 0;
-        public int a { get; set; }
-        public MPSIPARIS MPSIPARIS { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public ICollection<MPSIPARISDETAY> MPSIPARISDETAY { get; set; }
-
-        public List<MPIRSALIYESIPARISDETAYILISKI> MPIRSALIYESIPARISDETAYILISKI { get; set; }
+        public byte KAYITTIPI { get; set; } = 0; 
+        public virtual MPSIPARIS MPSIPARIS { get; set; }
+        public virtual List<MPIRSALIYESIPARISDETAYILISKI>? MPIRSALIYESIPARISDETAYILISKI { get; set; }
 
 
 

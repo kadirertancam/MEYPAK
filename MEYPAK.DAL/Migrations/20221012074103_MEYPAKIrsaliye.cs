@@ -5,19 +5,12 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MEYPAK.DAL.Migrations
 {
-    public partial class MPIRSALIYE : Migration
+    public partial class MEYPAKIrsaliye : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<int>(
                 name: "IRSALIYEID",
-                table: "MPSIPARISDETAY",
-                type: "int",
-                nullable: false,
-                defaultValue: 0);
-
-            migrationBuilder.AddColumn<int>(
-                name: "b",
                 table: "MPSIPARISDETAY",
                 type: "int",
                 nullable: false,
@@ -102,8 +95,7 @@ namespace MEYPAK.DAL.Migrations
                     HAREKETDURUMU = table.Column<byte>(type: "tinyint", nullable: false),
                     KDV = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     KDVTUTARI = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    KAYITTIPI = table.Column<byte>(type: "tinyint", nullable: false),
-                    a = table.Column<int>(type: "int", nullable: false)
+                    KAYITTIPI = table.Column<byte>(type: "tinyint", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -112,31 +104,6 @@ namespace MEYPAK.DAL.Migrations
                         name: "FK_MPIRSALIYEDETAY_MPSIPARIS_SIPARISID",
                         column: x => x.SIPARISID,
                         principalTable: "MPSIPARIS",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "MPIRSALIYESIPARISDETAYILISKI",
-                columns: table => new
-                {
-                    SIPARISDETAYID = table.Column<int>(type: "int", nullable: false),
-                    IRSALIYEDETAYID = table.Column<int>(type: "int", nullable: false),
-                    ID = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_MPIRSALIYESIPARISDETAYILISKI", x => new { x.IRSALIYEDETAYID, x.SIPARISDETAYID });
-                    table.ForeignKey(
-                        name: "FK_MPIRSALIYESIPARISDETAYILISKI_MPIRSALIYEDETAY_IRSALIYEDETAYID",
-                        column: x => x.IRSALIYEDETAYID,
-                        principalTable: "MPIRSALIYEDETAY",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_MPIRSALIYESIPARISDETAYILISKI_MPSIPARISDETAY_SIPARISDETAYID",
-                        column: x => x.SIPARISDETAYID,
-                        principalTable: "MPSIPARISDETAY",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -170,20 +137,7 @@ namespace MEYPAK.DAL.Migrations
                 name: "IX_MPIRSALIYEDETAY_SIPARISID",
                 table: "MPIRSALIYEDETAY",
                 column: "SIPARISID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_MPIRSALIYESIPARISDETAYILISKI_SIPARISDETAYID",
-                table: "MPIRSALIYESIPARISDETAYILISKI",
-                column: "SIPARISDETAYID");
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_MPSIPARISDETAY_MPIRSALIYE_IRSALIYEID",
-                table: "MPSIPARISDETAY",
-                column: "IRSALIYEID",
-                principalTable: "MPIRSALIYE",
-                principalColumn: "ID",
-                onDelete: ReferentialAction.Cascade);
-
+ 
             migrationBuilder.AddForeignKey(
                 name: "FK_MPSTOKSEVKİYATLİST_MPDEPOEMIR_EMIRID",
                 table: "MPSTOKSEVKİYATLİST",
@@ -231,9 +185,6 @@ namespace MEYPAK.DAL.Migrations
                 name: "MPIRSALIYE");
 
             migrationBuilder.DropTable(
-                name: "MPIRSALIYESIPARISDETAYILISKI");
-
-            migrationBuilder.DropTable(
                 name: "MPIRSALIYEDETAY");
 
             migrationBuilder.DropIndex(
@@ -254,10 +205,6 @@ namespace MEYPAK.DAL.Migrations
 
             migrationBuilder.DropColumn(
                 name: "IRSALIYEID",
-                table: "MPSIPARISDETAY");
-
-            migrationBuilder.DropColumn(
-                name: "b",
                 table: "MPSIPARISDETAY");
         }
     }

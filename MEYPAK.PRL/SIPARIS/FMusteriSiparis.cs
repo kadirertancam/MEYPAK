@@ -20,12 +20,13 @@ using System.Windows.Forms;
 using MEYPAK.PRL.STOK;
 using MEYPAK.BLL.DEPO;
 using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
+using MEYPAK.PRL.Assets.Scripts;
 
 namespace MEYPAK.PRL.SIPARIS
 {
-    public partial class FSiparis : Form
+    public partial class FMusteriSiparis : Form
     {
-        public FSiparis()
+        public FMusteriSiparis()
         {
             InitializeComponent();
             DGVStokSec = new DataGridViewButtonColumn();
@@ -34,13 +35,9 @@ namespace MEYPAK.PRL.SIPARIS
             DGVKasaList = new DataGridViewComboBoxColumn();
             _fStokList = new FStokList("siparis");
             dataGridView1.MultiSelect = false;
-            CBDepo.DataSource = _depoServis.Listele().Select(x => x.DEPOADI).ToList();
-        }
-        static MEYPAKContext context = NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>();
-        ISiparisServis _siparisServis = new SiparisManager(new EFSiparisRepo(context));
-        ISiparisDetayServis _siparisDetayServis = new SiparisDetayManager(new EFSiparisDetayRepo(context));
-        IStokServis _stokServis = new StokManager(new EFStokRepo(context));
-        IDepoServis _depoServis = new DepoManager(new EFDepoRepo(context));
+            CBDepo.DataSource = StaticContext._depoServis.Listele().Select(x => x.DEPOADI).ToList();
+        } 
+       
         List<PocoSiparisKalem> _tempSiparisDetay = new List<PocoSiparisKalem>();
         DataGridViewComboBoxColumn DGVOlcuBr = new DataGridViewComboBoxColumn();
         PocoSiparisKalem _tempPocokalem;
@@ -106,8 +103,8 @@ namespace MEYPAK.PRL.SIPARIS
         {
 
 
-            _stokServis.Listele();
-            var _tempp = _siparisServis.Ekle(new Entity.Models.MPSIPARIS()
+            StaticContext._stokServis.Listele();
+            var _tempp = StaticContext._siparisServis.Ekle(new Entity.Models.MPSIPARIS()
             {
                 ACIKLAMA = TBAciklama.Text,
                 KUR = Convert.ToDecimal(TBKur.Text),
@@ -117,7 +114,7 @@ namespace MEYPAK.PRL.SIPARIS
                 VADEGUNU = Convert.ToInt32(TBSVadeGunu.Text),
                 CARIADI = TBCariAdi.Text,
                 CARIID = 0,
-                DEPOID = _depoServis.Getir(x => x.DEPOADI == CBDepo.SelectedValue).FirstOrDefault().ID,
+                DEPOID = StaticContext._depoServis.Getir(x => x.DEPOADI == CBDepo.SelectedValue).FirstOrDefault().ID,
                 DOVIZID = 0,
                 ISKONTOTOPLAM = _tempSiparisDetay.Sum(x => x.İskontoTutarı),
                 KDVTOPLAM = _tempSiparisDetay.Sum(x => x.KdvTutarı),
@@ -130,7 +127,7 @@ namespace MEYPAK.PRL.SIPARIS
             foreach (var item in _tempSiparisDetay.Where(x => x.StokKodu != "").ToList())
             {
 
-                _siparisDetayServis.EkleyadaGuncelle(new MPSIPARISDETAY()
+                StaticContext._siparisDetayServis.EkleyadaGuncelle(new MPSIPARISDETAY()
                 {
                     STOKID = item.StokId,
                     STOKADI = item.MPSTOK.ADI,
@@ -198,10 +195,8 @@ namespace MEYPAK.PRL.SIPARIS
 
                 DGVOlcuBr.DataSource = _tempStok.MPSTOKOLCUBR.Select(x => x.MPOLCUBR.ADI).ToList();
                 DGVtempCell = dataGridView1.Rows[e.RowIndex].Cells["DGVOlcuBr"];
-                DGVtempCell.Value = DGVOlcuBr.Items[0].ToString();
-                IStokFiyatListServis stokFiyatListServis = new StokFiyatListManager(new EFStokFiyatListRepo(context));
-                IStokFiyatListHarServis stokFiyatListHarServis = new StokFiyatListHarManager(new EFStokFiyatListHarRepo(context));
-                stokFiyatListServis.Listele();
+                DGVtempCell.Value = DGVOlcuBr.Items[0].ToString(); 
+                StaticContext._stokFiyatListServis.Listele();
                 DGVFiyatList.DataSource = _tempStok.MPSTOKFIYATLISTHAR.Select(x => x.MPSTOKFIYATLIST.FIYATLISTADI == null ? "" : x.MPSTOKFIYATLIST.FIYATLISTADI).ToList();
                 _tempSiparisDetay[e.RowIndex] = _tempPocokalem;
                 dataGridView1.DataSource = _tempSiparisDetay;
@@ -288,10 +283,10 @@ namespace MEYPAK.PRL.SIPARIS
 
         private void BTNKasaSec_Click(object sender, EventArgs e)
         {
-            FKasaList fKasaList = new FKasaList("Siparis");
-            fKasaList.ShowDialog();
-            if (_tempKasa != null)
-                TBKasa.Text = _tempKasa.KASAADI;
+            //FKasaList fKasaList = new FKasaList("Siparis");
+            //fKasaList.ShowDialog();
+            //if (_tempKasa != null)
+            //    TBKasa.Text = _tempKasa.KASAADI;
         }
 
         private void dataGridView1_CellLeave(object sender, DataGridViewCellEventArgs e)

@@ -10,12 +10,13 @@ namespace MEYPAK.Entity.Models
 {
     public class MPIRSALIYESIPARISDETAYILISKI
     {
+        [Key]
         public int ID { get; set; }
 
         public int SIPARISDETAYID { get; set; }
-        public MPSIPARISDETAY MPSIPARISDETAY { get; set; }
+        public virtual MPSIPARISDETAY MPSIPARISDETAY { get; set; }
 
         public int IRSALIYEDETAYID { get; set; }
-        public MPIRSALIYEDETAY MPIRSALIYEDETAY { get; set; }
+        public virtual MPIRSALIYEDETAY MPIRSALIYEDETAY { get; set; }
     }
 }

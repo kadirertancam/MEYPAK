@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MEYPAK.DAL.Migrations
 {
     [DbContext(typeof(MEYPAKContext))]
-    [Migration("20221012061738_MEYPAKIrsaliye")]
-    partial class MEYPAKIrsaliye
+    [Migration("20221012085748_MEYPAKSevkiyatSon")]
+    partial class MEYPAKSevkiyatSon
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -530,7 +530,118 @@ namespace MEYPAK.DAL.Migrations
 
                     b.HasKey("ID");
 
+                    b.HasIndex("SIPARISID");
+
                     b.ToTable("MPIRSALIYE");
+                });
+
+            modelBuilder.Entity("MEYPAK.Entity.Models.MPIRSALIYEDETAY", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+
+                    b.Property<string>("ACIKLAMA")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<int>("BEKLEYENMIKTAR")
+                        .HasColumnType("int");
+
+                    b.Property<int>("BIRIMID")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("BRUTFIYAT")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("BRUTTOPLAM")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("DOVIZID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("GUNCELLEMETARIHI")
+                        .HasColumnType("datetime2");
+
+                    b.Property<byte>("HAREKETDURUMU")
+                        .HasColumnType("tinyint");
+
+                    b.Property<decimal>("ISTKONTO1")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("ISTKONTO2")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("ISTKONTO3")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("KASAID")
+                        .HasColumnType("int");
+
+                    b.Property<byte>("KAYITTIPI")
+                        .HasColumnType("tinyint");
+
+                    b.Property<decimal>("KDV")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("KDVTUTARI")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("KULLANICIID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("LISTEFIYATID")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("MIKTAR")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("NETFIYAT")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("NETTOPLAM")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime>("OLUSTURMATARIHI")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("SIPARISID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("STOKADI")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<byte>("TIP")
+                        .HasColumnType("tinyint");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("SIPARISID");
+
+                    b.ToTable("MPIRSALIYEDETAY");
+                });
+
+            modelBuilder.Entity("MEYPAK.Entity.Models.MPIRSALIYESIPARISDETAYILISKI", b =>
+                {
+                    b.Property<int>("IRSALIYEDETAYID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SIPARISDETAYID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ID")
+                        .HasColumnType("int");
+
+                    b.HasKey("IRSALIYEDETAYID", "SIPARISDETAYID");
+
+                    b.HasIndex("SIPARISDETAYID");
+
+                    b.ToTable("MPIRSALIYESIPARISDETAYILISKI");
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.MPKASA", b =>
@@ -1595,6 +1706,9 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<decimal>("MIKTAR")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<int>("SIPARISDETAYID")
+                        .HasColumnType("int");
+
                     b.Property<decimal>("SIPARISMIKTARI")
                         .HasColumnType("decimal(18,2)");
 
@@ -1613,6 +1727,8 @@ namespace MEYPAK.DAL.Migrations
 
                     b.HasIndex("EMIRID");
 
+                    b.HasIndex("SIPARISDETAYID");
+
                     b.HasIndex("STOKID");
 
                     b.ToTable("MPSTOKSEVKİYATLİST");
@@ -1621,9 +1737,9 @@ namespace MEYPAK.DAL.Migrations
             modelBuilder.Entity("MEYPAK.Entity.Models.MPDEPOEMIR", b =>
                 {
                     b.HasOne("MEYPAK.Entity.Models.MPSIPARIS", "MPSIPARIS")
-                        .WithMany()
+                        .WithMany("MPDEPOEMIR")
                         .HasForeignKey("SIPARISID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("MPSIPARIS");
@@ -1648,10 +1764,51 @@ namespace MEYPAK.DAL.Migrations
                     b.Navigation("STOK");
                 });
 
+            modelBuilder.Entity("MEYPAK.Entity.Models.MPIRSALIYE", b =>
+                {
+                    b.HasOne("MEYPAK.Entity.Models.MPSIPARIS", "MPSIPARIS")
+                        .WithMany("MPIRSALIYE")
+                        .HasForeignKey("SIPARISID")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("MPSIPARIS");
+                });
+
+            modelBuilder.Entity("MEYPAK.Entity.Models.MPIRSALIYEDETAY", b =>
+                {
+                    b.HasOne("MEYPAK.Entity.Models.MPSIPARIS", "MPSIPARIS")
+                        .WithMany()
+                        .HasForeignKey("SIPARISID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("MPSIPARIS");
+                });
+
+            modelBuilder.Entity("MEYPAK.Entity.Models.MPIRSALIYESIPARISDETAYILISKI", b =>
+                {
+                    b.HasOne("MEYPAK.Entity.Models.MPIRSALIYEDETAY", "MPIRSALIYEDETAY")
+                        .WithMany("MPIRSALIYESIPARISDETAYILISKI")
+                        .HasForeignKey("IRSALIYEDETAYID")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("MEYPAK.Entity.Models.MPSIPARISDETAY", "MPSIPARISDETAY")
+                        .WithMany("MPIRSALIYESIPARISDETAYILISKI")
+                        .HasForeignKey("SIPARISDETAYID")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("MPIRSALIYEDETAY");
+
+                    b.Navigation("MPSIPARISDETAY");
+                });
+
             modelBuilder.Entity("MEYPAK.Entity.Models.MPSIPARISDETAY", b =>
                 {
                     b.HasOne("MEYPAK.Entity.Models.MPIRSALIYE", "MPIRSALIYE")
-                        .WithMany("MPSIPARISDETAY")
+                        .WithMany()
                         .HasForeignKey("IRSALIYEID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1765,6 +1922,12 @@ namespace MEYPAK.DAL.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("MEYPAK.Entity.Models.MPSIPARISDETAY", "MPSIPARISDETAY")
+                        .WithMany("MPSTOKSEVKİYATLİST")
+                        .HasForeignKey("SIPARISDETAYID")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.HasOne("MEYPAK.Entity.Models.MPSTOK", "MPSTOK")
                         .WithMany("MPSTOKSEVKİYATLİST")
                         .HasForeignKey("STOKID")
@@ -1775,6 +1938,8 @@ namespace MEYPAK.DAL.Migrations
 
                     b.Navigation("MPOLCUBR");
 
+                    b.Navigation("MPSIPARISDETAY");
+
                     b.Navigation("MPSTOK");
                 });
 
@@ -1783,9 +1948,9 @@ namespace MEYPAK.DAL.Migrations
                     b.Navigation("MPSTOKSEVKİYATLİST");
                 });
 
-            modelBuilder.Entity("MEYPAK.Entity.Models.MPIRSALIYE", b =>
+            modelBuilder.Entity("MEYPAK.Entity.Models.MPIRSALIYEDETAY", b =>
                 {
-                    b.Navigation("MPSIPARISDETAY");
+                    b.Navigation("MPIRSALIYESIPARISDETAYILISKI");
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.MPOLCUBR", b =>
@@ -1799,7 +1964,18 @@ namespace MEYPAK.DAL.Migrations
 
             modelBuilder.Entity("MEYPAK.Entity.Models.MPSIPARIS", b =>
                 {
+                    b.Navigation("MPDEPOEMIR");
+
+                    b.Navigation("MPIRSALIYE");
+
                     b.Navigation("MPSIPARISDETAY");
+                });
+
+            modelBuilder.Entity("MEYPAK.Entity.Models.MPSIPARISDETAY", b =>
+                {
+                    b.Navigation("MPIRSALIYESIPARISDETAYILISKI");
+
+                    b.Navigation("MPSTOKSEVKİYATLİST");
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.MPSTOK", b =>

@@ -28,6 +28,9 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
                 context.Entry(item)
                     .Collection(e => e.MPSIPARISDETAY)
                     .Load();
+                context.Entry(item)
+                    .Collection(e => e.MPDEPOEMIR)
+                    .Load();
             }
 
         }

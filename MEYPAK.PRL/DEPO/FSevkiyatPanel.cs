@@ -38,6 +38,8 @@ namespace MEYPAK.PRL.DEPO
         DataGridViewButtonColumn DGVTopla; 
         List<MPSIPARIS> _tempSiparis;
         FSevkiyatCekiPanel _sevkiyatCekiPanel;
+        List<MPSIPARISDETAY> _tempSTOKSEVK;
+        List<MPSIPARISDETAY> _tempSiparisDetay;
 
         #region TabControl Tasarım
         private Dictionary<TabPage, Color> TabColors = new Dictionary<TabPage, Color>();
@@ -86,24 +88,27 @@ namespace MEYPAK.PRL.DEPO
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-             if (dataGridView1.Columns[e.ColumnIndex].Name == "DGVTopla")
+            _tempSiparisDetay = StaticContext._siparisDetayServis.Listele().Where(x => x.MPSIPARIS.BELGENO.ToString() == dataGridView1.Rows[e.RowIndex].Cells["BELGENO"].Value.ToString()).ToList();
+
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "DGVTopla")
             {
-                var _temp = StaticContext._siparisDetayServis.Listele().Where(x => x.MPSIPARIS.BELGENO.ToString() == dataGridView1.Rows[e.RowIndex].Cells["BELGENO"].Value.ToString() );
                 int i= 1;
                 var a = StaticContext._depoEmirServis.Ekle(new MPDEPOEMIR()
                 {
                     SIPARISID = StaticContext._siparisServis.Listele().Where(x => x.BELGENO == dataGridView1.Rows[e.RowIndex].Cells["BELGENO"].Value.ToString()).FirstOrDefault().ID,
-                    MIKTAR = _temp.Sum(x=>x.MIKTAR),
+                    MIKTAR = _tempSiparisDetay.Sum(x=>x.MIKTAR),
                     SIRA = i,
                     TARIH = DateTime.Now,
-                    TIP = 1,   /// TOPLAMA EMRİ TIPI
+                    TIP = 0,   /// TOPLAMA EMRİ TIPI OUTPUT =0 INPUT=1
                     DURUM = 1,
                     ACIKLAMA = ""
 
 
 
                 });
-                foreach (var item in _temp.Where(x=>x.HAREKETDURUMU==0).ToList())
+                dataGridView2.DataSource = StaticContext._depoEmirServis.Listele().Select(x => new { x.ID, x.MPSIPARIS.BELGENO, x.MIKTAR, x.MPSIPARIS.CARIADI, x.MPSIPARIS.DEPOID, x.TIP, x.DURUM }).ToList();
+                dataGridView2.Refresh();
+                foreach (var item in _tempSiparisDetay.Where(x=>x.HAREKETDURUMU==0).ToList())
                 {
                     item.HAREKETDURUMU = 1;
                     StaticContext._siparisDetayServis.Guncelle(item);
@@ -115,12 +120,13 @@ namespace MEYPAK.PRL.DEPO
                         SIPARISID = a.SIPARISID,
                         SIPARISKALEMID = item.ID,
                         EMIRID=a.ID,
-                        SIPARISMIKTARI = _temp.Sum(x => x.MIKTAR),
+                        SIPARISMIKTARI = _tempSiparisDetay.Sum(x => x.MIKTAR),
                         KULLANICIID = 0,
                         TARIH = DateTime.Now
 
                     });
                     
+
                     dataGridView3.DataSource = StaticContext._siparisSevkEmriHarServis.Listele();
                     dataGridView3.Refresh();
                     i++;
@@ -149,8 +155,11 @@ namespace MEYPAK.PRL.DEPO
 
         private void dataGridView2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            _sevkiyatCekiPanel = new FSevkiyatCekiPanel();
+            _tempSTOKSEVK = StaticContext._depoEmirServis.Listele().Where(x => x.ID.ToString() == dataGridView2.Rows[e.RowIndex].Cells["ID"].Value.ToString()).Select(x => x.MPSIPARIS.MPSIPARISDETAY.ToList()).FirstOrDefault();
+          _sevkiyatCekiPanel = new FSevkiyatCekiPanel();
             _sevkiyatCekiPanel._tempEmir = StaticContext._depoEmirServis.Getir(x => x.ID.ToString() == dataGridView2.Rows[e.RowIndex].Cells["ID"].Value.ToString()).FirstOrDefault();
+            _sevkiyatCekiPanel._tempList = _tempSTOKSEVK.Select(x => new MPSTOKSEVKİYATLİST() { MPSTOK = x.MPSTOK,MPSIPARISDETAY=x, SIPARISMIKTARI = x.MIKTAR, DEPOID = x.MPSIPARIS.DEPOID, BIRIMID = x.BIRIMID, EMIRID = int.Parse(dataGridView2.Rows[e.RowIndex].Cells["ID"].Value.ToString()), SIPARISDETAYID = x.ID, STOKID = x.STOKID }).ToList();
+
             _sevkiyatCekiPanel.ShowDialog();
         }
     }

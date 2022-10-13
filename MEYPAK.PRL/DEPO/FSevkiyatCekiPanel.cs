@@ -26,8 +26,7 @@ namespace MEYPAK.PRL.DEPO
         {
             InitializeComponent();
             _tempStokSevkiyatList = new MPSTOKSEVKİYATLİST();
-            _tempStok = StaticContext._stokServis.Listele();
-            _tempList = new List<MPSTOKSEVKİYATLİST>(); 
+            _tempStok = StaticContext._stokServis.Listele(); 
         } 
         
      
@@ -35,7 +34,7 @@ namespace MEYPAK.PRL.DEPO
         MPSTOK _Stok;
         public MPDEPOEMIR _tempEmir;
         MPSTOKSEVKİYATLİST _tempStokSevkiyatList;
-        List<MPSTOKSEVKİYATLİST> _tempList; 
+        public List<MPSTOKSEVKİYATLİST> _tempList; 
         private void button1_Click(object sender, EventArgs e)
         {
            _Stok= StaticContext._stokServis.Getir(x => x.ID.ToString() == comboBox1.SelectedValue.ToString()).FirstOrDefault();
@@ -77,8 +76,8 @@ namespace MEYPAK.PRL.DEPO
 
         private void FSevkiyatCekiPanel_Load(object sender, EventArgs e)
         {
-           // _tempList.Add(new PocoStokSevkiyatList());
-            dataGridView1.DataSource = new List<PocoStokSevkiyatList>(); 
+            // _tempList.Add(new PocoStokSevkiyatList());
+            dataGridView1.DataSource = _tempList.Select(x => new PocoStokSevkiyatList { StokKodu = x.MPSTOK.KOD, StokAdı = x.MPSTOK.ADI, Birim = "0" }).ToList();
             comboBox1.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             comboBox1.AutoCompleteSource = AutoCompleteSource.ListItems;
             comboBox1.DisplayMember = "KOD";
@@ -97,20 +96,24 @@ namespace MEYPAK.PRL.DEPO
         }
 
         private void button2_Click(object sender, EventArgs e)
-        { 
-            foreach (var item in _tempList)
+        {
+            List<PocoStokSevkiyatList> aaa = (List<PocoStokSevkiyatList>) dataGridView1.DataSource;
+            int _id;
+            foreach (var item in aaa)
             {
-
-                StaticContext._stokSevkiyatListServis.Ekle(new MPSTOKSEVKİYATLİST()
+                _id = StaticContext._stokServis.Getir(x => x.KOD == item.StokKodu).FirstOrDefault().ID;
+                StaticContext._stokSevkiyatListServis.OnYukle();
+                StaticContext._stokSevkiyatListServis.EkleyadaGuncelle(new MPSTOKSEVKİYATLİST()
                 {
 
-                    STOKID = item.MPSTOK.ID,
+                    STOKID =_id,
                     EMIRID = _tempEmir.ID,
-                    BIRIMID = item.MPSTOK.MPSTOKOLCUBR.Where(x => x.MPOLCUBR.ID.ToString() == item.Birim).Select(x => x.MPOLCUBR.ID).FirstOrDefault(),
+                    BIRIMID = StaticContext._siparisDetayServis.Getir(x=>x.SIPARISID==_tempEmir.SIPARISID && x.STOKID==_id).FirstOrDefault().BIRIMID,
                     MIKTAR = item.Miktar,
                     DEPOID = _tempEmir.MPSIPARIS.DEPOID,
                     SIRKETID = 0,
-                    SIPARISMIKTARI = _tempEmir.MPSIPARIS.MPSIPARISDETAY.Where(x => x.STOKID == item.MPSTOK.ID).Sum(x => x.MIKTAR),
+                    SIPARISMIKTARI = _tempEmir.MPSIPARIS.MPSIPARISDETAY.Where(x => x.STOKID == _id).Sum(x => x.MIKTAR),
+                    SIPARISDETAYID=_tempList.Where(x=>x.MPSIPARISDETAY.STOKID==_id && x.EMIRID==_tempEmir.ID ).FirstOrDefault().MPSIPARISDETAY.ID,
                     SUBEID=0,
                     KULLANICIID=0
                 });

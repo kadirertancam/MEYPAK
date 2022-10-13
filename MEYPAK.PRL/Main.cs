@@ -28,7 +28,7 @@ namespace MEYPAK.PRL
             fStokSayim=new FStokSayim();
             fOlcuBrKart = new FOlcuBrKart();
             fSayimIsle = new FSayimIsle();
-            fSiparis = new FSiparis();
+            fSiparis = new FMusteriSiparis();
             fSevkiyatPanel= new FSevkiyatPanel();
         }
         #region TANIMLAR
@@ -39,7 +39,7 @@ namespace MEYPAK.PRL
         FDepoKart fDepoKart;
         FStokSayim fStokSayim;
         FSayimIsle fSayimIsle;
-        FSiparis fSiparis;
+        FMusteriSiparis fSiparis;
         #endregion
         void StokPanelAc()
         {

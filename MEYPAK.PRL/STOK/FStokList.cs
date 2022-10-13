@@ -24,7 +24,7 @@ namespace MEYPAK.PRL.STOK
         FStokHareket fStokHareket;
         FStokSayimPanel fstokSayimPanel;
         FStokFiyatListPanel fstokFiyatListPanel;
-        FSiparis fSiparis;
+        FMusteriSiparis fSiparis;
         FDepolarArasıTransferHar fDepolarArasıHar;
         int id;
         string _islem;
@@ -44,7 +44,7 @@ namespace MEYPAK.PRL.STOK
             fstokSayimPanel = (FStokSayimPanel)Application.OpenForms["FStokSayimPanel"];
             fstokFiyatListPanel = (FStokFiyatListPanel)Application.OpenForms["FStokFiyatListPanel"];
             fDepolarArasıHar = (FDepolarArasıTransferHar)Application.OpenForms["FDepolarArasıTransferHar"];
-            fSiparis = (FSiparis)Application.OpenForms["FSiparis"];
+            fSiparis = (FMusteriSiparis)Application.OpenForms["FSiparis"];
         }
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
