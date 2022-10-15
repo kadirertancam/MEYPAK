@@ -22,6 +22,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 using MEYPAK.Entity.Models.STOK;
+using MEYPAK.Entity.PocoModels.STOK;
 
 namespace MEYPAK.PRL.STOK
 {
@@ -35,14 +36,14 @@ namespace MEYPAK.PRL.STOK
         }
         string _islemtipi;
         public List<PocoStokSayimPanelList> _tempStokSayimHarList;
-        IStokSayimHarServis stokSayimHarServis = new StokSayimHarManager(new EFStokSayimHarRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
-        IStokServis stokServis = new StokManager(new EFStokRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
-        IDepoServis depoServis = new DepoManager(new EFDepoRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
-        IStokOlcuBrServis stokOlcuBrServis = new StokOlcuBrManager(new EFStokOlcuBrRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
-        IOlcuBrServis olcuBrServis = new OlcuBrManager(new EFOlcuBrRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
-        IStokHarServis stokHarServis = new StokHarManager(new EFStokHareketRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
+        IStokSayimHarServis stokSayimHarServis ;
+        IStokServis stokServis ;
+        IDepoServis depoServis ;
+        IStokOlcuBrServis stokOlcuBrServis ;
+        IOlcuBrServis olcuBrServis ;
+        IStokHarServis stokHarServis ;
         public int sayimId;
-        public MPSTOK _tempStok;
+        public PocoSTOK _tempStok;
         FStokList fStokList;
 
         void Doldur()
@@ -71,7 +72,7 @@ namespace MEYPAK.PRL.STOK
                     _tempStokSayimHarList.Add(new PocoStokSayimPanelList()
                     {
                         StokAdı = item.ADI,
-                        Birim = item.MPSTOKOLCUBR.Where(x => x.NUM == 1).Select(x => x.MPOLCUBR.ADI).FirstOrDefault(),
+                        Birim = item.MPSTOKOLCUBRList.Where(x => x.NUM == 1).Select(x => x.MPOLCUBR.ADI).FirstOrDefault(),
                         Fiyat = 1,
                         Miktar = 0,
                         StokKodu = item.KOD
@@ -153,7 +154,7 @@ namespace MEYPAK.PRL.STOK
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
 
-                stokSayimHarServis.EkleyadaGuncelle(new MPSTOKSAYIMHAR()
+                stokSayimHarServis.EkleyadaGuncelle(new PocoSTOKSAYIMHAR()
                 {
                     STOKID = stokServis.Getir(x => x.KOD == dataGridView1.Rows[i].Cells["StokKodu"].Value.ToString()).FirstOrDefault().ID,
                     MIKTAR = Decimal.Parse(dataGridView1.Rows[i].Cells["Miktar"].EditedFormattedValue.ToString()),

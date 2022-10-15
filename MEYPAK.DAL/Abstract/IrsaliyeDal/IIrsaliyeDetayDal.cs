@@ -1,4 +1,4 @@
-﻿using MEYPAK.Entity.Models.FATURA;
+﻿using MEYPAK.Entity.Models.IRSALIYE;
 using MEYPAK.Interfaces;
 using System;
 using System.Collections.Generic;

@@ -14,6 +14,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Text.RegularExpressions;
 using MEYPAK.Entity.Models.STOK;
+using MEYPAK.Entity.PocoModels.STOK;
 
 namespace MEYPAK.PRL
 {
@@ -25,20 +26,20 @@ namespace MEYPAK.PRL
         public FStokKart()
         {
             InitializeComponent();
-            _tempStok = new MPSTOK();
+            _tempStok = new PocoSTOK();
 
         }
         #region Tanımlar
-        MPSTOKOLCUBR _tempStokOlcuBr;
-        public MPSTOK _tempStok;
-        public MPSTOKKASA _tempKasa;
-        public MPSTOKMARKA _tempMarka;
+        PocoSTOKOLCUBR _tempStokOlcuBr;
+        public PocoSTOK _tempStok;
+        public PocoSTOKKASA _tempKasa;
+        public PocoSTOKMARKA _tempMarka;
         static MEYPAKContext context = NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>();
-        IStokServis _stokServis = new StokManager(new EFStokRepo(context));
-        IStokMarkaServis _markaServis = new StokMarkaManager(new EFStokMarkaRepo(context));
-        IStokOlcuBrServis _stokOlcuBrServis = new StokOlcuBrManager(new EFStokOlcuBrRepo(context));
-        IOlcuBrServis _OlcuBrServis = new OlcuBrManager(new EFOlcuBrRepo(context));
-        List<MPSTOKOLCUBR> stokOlculist = new List<MPSTOKOLCUBR>();
+        IStokServis _stokServis ;
+        IStokMarkaServis _markaServis ;
+        IStokOlcuBrServis _stokOlcuBrServis ;
+        IOlcuBrServis _OlcuBrServis ;
+        List<PocoSTOKOLCUBR> stokOlculist ;
 
         int stokid = 0, markaid = 0, num = 0;
 
@@ -91,9 +92,9 @@ namespace MEYPAK.PRL
             TBSFiyat4.Text = Convert.ToString(_tempStok.SFIYAT4);
             TBSFiyat5.Text = Convert.ToString(_tempStok.SFIYAT5);
             CBOlcuBr1.SelectedIndex = _tempStok.OLCUBR1;
-            dataGridView1.DataSource = _tempStok.MPSTOKOLCUBR.ToList();
+            dataGridView1.DataSource = _tempStok.MPSTOKOLCUBRList.ToList();
             dataGridView1.Refresh();
-            var a = _stokServis.Listele().Select(x=>x.MPSTOKOLCUBR.Select(z=>z));
+            var a = _stokServis.Listele().Select(x=>x.MPSTOKOLCUBRList.Select(z=>z));
             stokOlculist.Clear(); 
             _tempStok = null;
         }
@@ -122,7 +123,7 @@ namespace MEYPAK.PRL
         }
         private void BTKaydet_Click(object sender, EventArgs e)                 // Stok Kayıt
         {
-            _tempStok= new MPSTOK()
+            _tempStok= new PocoSTOK()
             {
                 ID = stokid,
                 KOD = TBStokKodu.Text,
@@ -203,7 +204,7 @@ namespace MEYPAK.PRL
             {
                 num = 0;
             }
-            _tempStokOlcuBr = new MPSTOKOLCUBR()
+            _tempStokOlcuBr = new PocoSTOKOLCUBR()
             {
                 OLCUBRID = _OlcuBrServis.Getir(x => x.ADI == CBOlcuBr1.SelectedValue.ToString()).FirstOrDefault().ID,
                 NUM = dataGridView1.RowCount + 1,

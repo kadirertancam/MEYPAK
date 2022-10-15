@@ -1,10 +1,12 @@
 ﻿using MEYPAK.Entity.Models.DEPO;
 using MEYPAK.Entity.Models.STOK;
+using MEYPAK.Entity.PocoModels.DEPO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace MEYPAK.Entity.PocoModels.STOK
@@ -20,9 +22,15 @@ namespace MEYPAK.Entity.PocoModels.STOK
         public string BIRIM { get; set; } = "";
         public int KULLANICIID { get; set; } = 0;
         public byte KAYITTIPI { get; set; } = 0;
-        public List<MPSTOKOLCUBR> MPSTOKOLCUBRList { get; set; }
-        public List<MPSTOKSAYIMHAR> MPSTOKSAYIMHARList { get; set; }
-        public List<MPSTOKSEVKİYATLİST> MPSTOKSEVKİYATLİSTList { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MPSTOKOLCUBR> MPSTOKOLCUBR { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MPSTOKSAYIMHAR> MPSTOKSAYIMHAR { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MPSTOKSEVKİYATLİST> MPSTOKSEVKİYATLİST { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MPSTOKMALKABULLIST> MPSTOKMALKABULLIST { get; set; }
 
     }
 }

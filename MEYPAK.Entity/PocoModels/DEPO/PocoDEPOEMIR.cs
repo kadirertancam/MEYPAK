@@ -1,10 +1,6 @@
-﻿using MEYPAK.Entity.Models.SIPARIS;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MEYPAK.Entity.Models.DEPO;
+using MEYPAK.Entity.PocoModels.SIPARIS;
+using MEYPAK.Entity.PocoModels.STOK;
 
 namespace MEYPAK.Entity.PocoModels.DEPO
 {
@@ -18,6 +14,11 @@ namespace MEYPAK.Entity.PocoModels.DEPO
         public int DURUM { get; set; }
         public decimal MIKTAR { get; set; }
         public string ACIKLAMA { get; set; }
-        public MPSIPARIS MPSIPARIS { get; set; }
+        public PocoSIPARIS MPSIPARIS { get; set; }
+        public PocoSTOK MPSTOK { get; set; }
+
+        public virtual List<PocoSTOKSEVKIYATLIST> MPSTOKSEVKİYATLİST { get; set; }
+
+        public virtual List<PocoSTOKMALKABULLIST> MPSTOKMALKABULLIST { get; set; }
     }
 }

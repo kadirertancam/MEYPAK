@@ -1,4 +1,5 @@
-﻿using MEYPAK.DAL.Abstract;
+﻿using AutoMapper.Internal;
+using MEYPAK.DAL.Abstract;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.Entity.Models;
 using MEYPAK.Interfaces;
@@ -6,6 +7,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
@@ -20,6 +22,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
         public EFBaseRepo(MEYPAKContext _context)
         {
             context = _context;
+
         }
         public T Ekle(T entity)
         {
@@ -55,9 +58,9 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
 
 
 
-        public List<T> Getir(Expression<Func<T, bool>> predicate)
+        public List<T> Getir(Expression<Func<T, bool>> filter)
         {
-            return context.Set<T>().Where(predicate).ToList();
+            return context.Set<T>().Where(filter).ToList();
 
         }
         
@@ -91,11 +94,21 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
 
         public List<T> Listele()
         {
-
-            return context.Set<T>().ToList();
-
-
-
+            //IQueryable<T> query = context.Set<T>(); // select * from MPSTOK
+            //if (filter != null)
+            //{
+            //    query = query.Where(filter); // select * from MPSTOK where FİLTER
+            //}
+            //if (includeEntities != null) //innerjoin
+            //{
+            //    foreach (var item in includeEntities.Split(","))
+            //    {
+            //        query = query.Include();
+            //    }
+            //}
+            //return query.ToList();
+            var A = context.Set<T>().ToList();
+            return A;
         }
 
         public bool Sil(Expression<Func<T, bool>> predicate)

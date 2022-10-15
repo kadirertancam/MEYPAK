@@ -22,6 +22,6 @@ namespace MEYPAK.Entity.PocoModels.STOK
         public int DURUM { get; set; }  // işlendi 1 işlenmedi 0
         public byte KAYITTIPI { get; set; } = 0;
 
-        public List<MPSTOKSAYIMHAR> MPSTOKSAYIMHARList { get; set; }
+        public List<PocoSTOKSAYIMHAR> MPSTOKSAYIMHARList { get; set; }
     }
 }

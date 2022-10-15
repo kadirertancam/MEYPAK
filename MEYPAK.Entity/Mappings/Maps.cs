@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using MEYPAK.Entity.Models.ARAC;
 using MEYPAK.Entity.Models.DEPO;
-using MEYPAK.Entity.Models.FATURA;
+using MEYPAK.Entity.Models.IRSALIYE;
 using MEYPAK.Entity.Models.PERSONEL;
 using MEYPAK.Entity.Models.SIPARIS;
 using MEYPAK.Entity.Models.STOK;
@@ -35,6 +35,7 @@ namespace MEYPAK.Entity.Mappings
             CreateMap<MPSTOKSAYIM, PocoSTOKSAYIM>().ReverseMap();
             CreateMap<MPSTOKSAYIMHAR, PocoSTOKSAYIMHAR>().ReverseMap();
             CreateMap<MPSTOKSEVKİYATLİST, PocoSTOKSEVKIYATLIST>().ReverseMap();
+            CreateMap<MPOLCUBR, PocoOLCUBR>().ReverseMap();
 
             //SIPARIS
             CreateMap<MPSIPARIS, PocoSIPARIS>().ReverseMap();
@@ -54,6 +55,7 @@ namespace MEYPAK.Entity.Mappings
             CreateMap<MPDEPOEMIR, PocoDEPOEMIR>().ReverseMap();
             CreateMap<MPDEPOTRANSFER, PocoDEPOTRANSFER>().ReverseMap();
             CreateMap<MPDEPOTRANSFERHAR, PocoDEPOTRANSFERHAR>().ReverseMap();
+            CreateMap<PocoSTOKMALKABULLIST,MPSTOKMALKABULLIST>().ReverseMap();
 
             //ARAC
             CreateMap<MPARACLAR, PocoARACLAR>().ReverseMap();

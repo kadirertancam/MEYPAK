@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Entity.Models.SIPARIS;
 using MEYPAK.Entity.Models.DEPO;
+using MEYPAK.Entity.PocoModels.SIPARIS;
+using MEYPAK.Entity.PocoModels.DEPO;
 
 namespace MEYPAK.Entity.PocoModels.STOK
 {
@@ -117,11 +119,12 @@ namespace MEYPAK.Entity.PocoModels.STOK
         [Required]
         public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
 
-        public List<MPSTOKOLCUBR> MPSTOKOLCUBRList { get; set; }
-        public List<MPSTOKHAR> MPSTOKHARList { get; set; }
-        public List<MPSTOKSAYIMHAR> MPSTOKSAYIMHARList { get; set; }
-        public List<MPSTOKFIYATLIST> MPSTOKFIYATLISTList { get; set; }
-        public List<MPSIPARISDETAY> MPSIPARISDETAYList { get; set; }
-        public List<MPSTOKSEVKİYATLİST> MPSTOKSEVKİYATLİSTList { get; set; }
+        public List<PocoSTOKOLCUBR> MPSTOKOLCUBRList { get; set; }
+        public List<PocoSTOKHAR> MPSTOKHARList { get; set; }
+        public List<PocoSTOKSAYIMHAR> MPSTOKSAYIMHARList { get; set; }
+        public List<PocoSTOKFIYATLIST> MPSTOKFIYATLISTList { get; set; }
+        public List<PocoSTOKFIYATLISTHAR> MPSTOKFIYATLISTHARList { get; set; }
+        public ICollection<MPSIPARISDETAY> MPSIPARISDETAY { get; set; }
+        public List<PocoSTOKSEVKIYATLIST> MPSTOKSEVKİYATLİSTList { get; set; }
     }
 }

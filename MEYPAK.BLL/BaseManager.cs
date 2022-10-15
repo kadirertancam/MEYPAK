@@ -1,4 +1,5 @@
-﻿using MEYPAK.DAL.Abstract;
+﻿using AutoMapper;
+using MEYPAK.DAL.Abstract;
 using MEYPAK.Entity.Models;
 using MEYPAK.Interfaces;
 using System;
@@ -10,51 +11,76 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.BLL
 {
-    public class BaseManager<T> : IGenericServis<T>
+    public class BaseManager<Poco, T> : IGenericServis<Poco> where Poco : class, new() where T : class, new()
     {
-        IGeneric<T> _generic;
+        IGeneric<T> _repo;
+        private readonly IMapper _mapper;
+        private readonly string _includeEntities;
 
-        public BaseManager(IGeneric<T> generic)
+        public BaseManager(IMapper mapper, IGeneric<T> repo,string includeEntities = null)
         {
-            _generic = generic;
-
+            _mapper = mapper;
+            _repo = repo;
+            _includeEntities = includeEntities;
         }
 
-        public T Ekle(T entity)
+        //Asagidaki yorum satilari da is goruyor fatak denemek istedim. boyle calisirsa daha verimli olur.
+        public Poco Ekle(Poco pModel)
         {
-            return _generic.Ekle(entity);
+            T Model = _mapper.Map<Poco, T>(pModel);
+            //T RepoResult = _repo.Ekle(Model);
+            Poco pRModel = _mapper.Map<T, Poco>(_repo.Ekle(Model));
+            //Poco Result = _mapper.Map<T, Poco>(RepoResult);
+            return pRModel;
         }
 
-        public List<T> Getir(Expression<Func<T, bool>> predicate)
+        public List<Poco> Getir(Expression<Func<Poco, bool>> filter)
         {
-            return _generic.Getir(predicate);
+            var fltr = _mapper.Map<Expression<Func<Poco, bool>>,
+                    Expression<Func<T, bool>>>(filter);
+            
+
+            List<Poco> dataList =
+                    _mapper.Map<List<T>, List<Poco>>(_repo.Getir(fltr));
+            return dataList;
         }
 
-        public Durum Guncelle(T entity, Expression<Func<T, bool>> predicate)
+        public Durum Guncelle(Poco pModel, Expression<Func<Poco, bool>> filter)
         {
-            return _generic.Guncelle(entity, predicate);
+            var fltr = _mapper.Map<Expression<Func<Poco, bool>>,
+                   Expression<Func<T, bool>>>(filter);
+
+            T model = _mapper.Map<Poco,T>(pModel);
+
+            return _repo.Guncelle(model, fltr);
         }
 
-        public Durum Guncelle(T entity)
+        public Durum Guncelle(Poco pModel)
         {
-            _generic.Guncelle(entity);
+            T model = _mapper.Map<Poco,T>(pModel);
+            
+            Poco pRModel = _mapper.Map<T, Poco>(_repo.Guncelle(model));
             return Durum.güncellemebaşarılı;
 
         }
 
-        public List<T> Listele()
+        public List<Poco> Listele()
         {
-            return _generic.Listele();
+            return _mapper.Map<List<T>, List<Poco>>(_repo.Listele());
         }
 
-        public bool Sil(Expression<Func<T, bool>> predicate)
+        public bool Sil(Expression<Func<Poco, bool>> filter)
         {
-            return _generic.Sil(predicate);
+            var fltr = _mapper.Map<Expression<Func<Poco, bool>>,
+                 Expression<Func<T, bool>>>(filter);
+
+            return _repo.Sil(fltr);
         }
 
-        public bool Sil(List<T> entity)
+        public bool Sil(List<Poco> pModels)
         {
-            return _generic.Sil(entity);
+
+            return _repo.Sil(_mapper.Map<List<Poco>, List<T>>(pModels));
         }
 
     }

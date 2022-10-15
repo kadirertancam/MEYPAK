@@ -14,6 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MEYPAK.Entity.Models.STOK;
+using MEYPAK.Entity.PocoModels.STOK;
 
 namespace MEYPAK.PRL.STOK
 {
@@ -25,11 +26,11 @@ namespace MEYPAK.PRL.STOK
             fSayimList = new FSayimList();
         }
         static MEYPAKContext context = NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>();
-        IStokSayimServis _stokSayimServis = new StokSayimManager(new EFStokSayimRepo(context));
-        IStokSayimHarServis _stokSayimHarServis = new StokSayimHarManager(new EFStokSayimHarRepo(context));
-        IStokHarServis _stokHarServis = new StokHarManager(new EFStokHareketRepo(context));
-        IStokServis _stokServis = new StokManager(new EFStokRepo(context));
-        public MPSTOKSAYIM _tempSayim;
+        IStokSayimServis _stokSayimServis ;
+        IStokSayimHarServis _stokSayimHarServis ;
+        IStokHarServis _stokHarServis ;
+        IStokServis _stokServis ;
+        public PocoSTOKSAYIM _tempSayim;
         public int _id;
         FSayimList fSayimList;
         private void button2_Click(object sender, EventArgs e)
@@ -37,11 +38,11 @@ namespace MEYPAK.PRL.STOK
              
             foreach (var item in _stokSayimServis.Listele())
             { 
-                foreach (var item2 in item.MPSTOKSAYIMHAR)
+                foreach (var item2 in item.MPSTOKSAYIMHARList)
                 {
 
                 
-                _stokHarServis.EkleyadaGuncelle(new MPSTOKHAR()
+                _stokHarServis.EkleyadaGuncelle(new PocoSTOKHAR()
                 {
                     STOKID =item2.STOKID,
                     ACIKLAMA="Sayım",

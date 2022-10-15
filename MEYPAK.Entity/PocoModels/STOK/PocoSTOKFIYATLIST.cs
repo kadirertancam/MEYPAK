@@ -21,6 +21,6 @@ namespace MEYPAK.Entity.PocoModels.STOK
         public int KULLANICIID { get; set; } = 0;
         public byte KAYITTIPI { get; set; } = 0;
         public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
-        public List<MPSTOKHAR> MPSTOKHARList { get; set; }
+        public List<PocoSTOKHAR> MPSTOKHARList { get; set; }
     }
 }

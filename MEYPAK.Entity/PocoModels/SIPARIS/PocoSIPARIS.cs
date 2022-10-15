@@ -43,8 +43,9 @@ namespace MEYPAK.Entity.PocoModels.SIPARIS
         public decimal GENELTOPLAM { get; set; } = 0;
         public bool DURUM { get; set; }
         public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
+        public int TIP { get; set; }
         public byte KAYITTIPI { get; set; } = 0;
-        public List<MPSIPARISDETAY> MPSIPARISDETAYList { get; set; }
+        public List<PocoSIPARISDETAY> MPSIPARISDETAYList { get; set; }
 
     }
 }

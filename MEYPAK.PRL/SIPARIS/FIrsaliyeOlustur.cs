@@ -1,4 +1,5 @@
 ﻿using MEYPAK.Entity.Models.SIPARIS;
+using MEYPAK.Entity.PocoModels.SIPARIS;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,7 +14,7 @@ namespace MEYPAK.PRL.SIPARIS
 {
     public partial class FIrsaliyeOlustur : Form
     {
-       public List<MPSIPARISDETAY> _tempSiparisDetay = new List<MPSIPARISDETAY>();
+       public List<PocoSIPARISDETAY> _tempSiparisDetay = new List<PocoSIPARISDETAY>();
         public FIrsaliyeOlustur()
         {
             InitializeComponent();

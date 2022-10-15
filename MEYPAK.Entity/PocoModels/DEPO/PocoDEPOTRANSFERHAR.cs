@@ -1,11 +1,5 @@
-﻿using MEYPAK.Entity.Models.DEPO;
-using MEYPAK.Entity.Models.STOK;
-using System;
-using System.Collections.Generic;
+﻿using MEYPAK.Entity.PocoModels.STOK;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MEYPAK.Entity.PocoModels.DEPO
 {
@@ -27,7 +21,7 @@ namespace MEYPAK.Entity.PocoModels.DEPO
         [Required]
         public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
         public byte KAYITTIPI { get; set; } = 0;
-        public virtual MPDEPOTRANSFER DEPOTRANSFER { get; set; }
-        public virtual MPSTOK STOK { get; set; }
+        public virtual PocoDEPOTRANSFER DEPOTRANSFER { get; set; }
+        public virtual PocoSTOK STOK { get; set; }
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace MEYPAK.Entity.PocoModels.STOK
@@ -16,16 +17,18 @@ namespace MEYPAK.Entity.PocoModels.STOK
         public int DEPOID { get; set; }
         public DateTime OLUSTURMATARIHI { get; set; } = DateTime.Now;
         public DateTime GUNCELLEMETARIHI { get; set; } = DateTime.Now;
+        public int STOKSAYIMID { get; set; }
         public decimal MIKTAR { get; set; }
         public decimal FIYAT { get; set; }
         public int PARABR { get; set; } = 1;
         public decimal KUR { get; set; } = 1;
         public byte KAYITTIPI { get; set; } = 0;
-        public int STOKSAYIMID { get; set; }
-        public int STOKID { get; set; }
-        public int BIRIMID { get; set; }
-        public virtual MPSTOK MPSTOK { get; set; }
         public virtual MPSTOKSAYIM MPSTOKSAYIM { get; set; }
+
+        public int STOKID { get; set; }
+        public virtual MPSTOK MPSTOK { get; set; }
+
+        public int BIRIMID { get; set; }
         public virtual MPOLCUBR MPOLCUBR { get; set; }
     }
 }

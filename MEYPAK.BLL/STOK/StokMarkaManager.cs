@@ -4,28 +4,32 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
 using MEYPAK.DAL;
 using MEYPAK.DAL.Abstract.StokDal;
 using MEYPAK.Entity.Models.STOK;
+using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces;
 using MEYPAK.Interfaces.Stok;
 
 namespace MEYPAK.BLL.STOK
 {
-    public class StokMarkaManager :BaseManager<MPSTOKMARKA>, IStokMarkaServis
+    public class StokMarkaManager :BaseManager<PocoSTOKMARKA,MPSTOKMARKA>, IStokMarkaServis
     {
         IStokMarkaDal _markaDal;
+        IMapper _mapper;
 
-        public StokMarkaManager(IStokMarkaDal generic) : base(generic)
+        public StokMarkaManager(IMapper mapper,IStokMarkaDal stokMarkaDal) : base(mapper,stokMarkaDal)
         {
-            _markaDal = generic;   
+            _markaDal = stokMarkaDal;   
+            _mapper = mapper;
         }
 
 
 
-        public Durum EkleyadaGuncelle(MPSTOKMARKA entity)
+        public Durum EkleyadaGuncelle(PocoSTOKMARKA pModel)
         {
-            return _markaDal.EkleyadaGuncelle(entity);
+            return _markaDal.EkleyadaGuncelle(_mapper.Map<PocoSTOKMARKA,MPSTOKMARKA>(pModel));
         }
 
         

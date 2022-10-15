@@ -2,6 +2,7 @@
 using MEYPAK.DAL.Abstract.StokDal;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository;
+using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Stok;
 using MEYPAK.PRL.Assets;
 using System;
@@ -24,10 +25,10 @@ namespace MEYPAK.PRL.STOK
             InitializeComponent();
         }
         MEYPAKContext context = new MEYPAKContext();
-        IStokKasaServis _kasaServis = new StokKasaManager(new EFStokKasaRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
+        IStokKasaServis _kasaServis ;
         private void BTStokKaydet_Click(object sender, EventArgs e)
         {
-            _kasaServis.Ekle(new Entity.Models.STOK.MPSTOKKASA
+            _kasaServis.Ekle(new PocoSTOKKASA
             {
                 KASAADI =TBKasaAdi.Text,
                 ACIKLAMA = TBAciklama.Text,

@@ -6,6 +6,7 @@ using MEYPAK.BLL.STOK;
 using MEYPAK.Interfaces.Stok;
 using MEYPAK.WEB.Models;
 using MEYPAK.Entity.Models.STOK;
+using MEYPAK.Entity.PocoModels.STOK;
 
 namespace MEYPAK.WEB.Controllers
 {
@@ -14,7 +15,7 @@ namespace MEYPAK.WEB.Controllers
     {
         static MEYPAKContext context = new MEYPAKContext();
 
-        private readonly IStokServis _stokServis = new StokManager(new EFStokRepo(context));
+        private readonly IStokServis _stokServis ;
         private readonly ILogger<StokController> _logger;
 
         public StokController(ILogger<StokController> logger)
@@ -26,7 +27,7 @@ namespace MEYPAK.WEB.Controllers
         public IActionResult StokKart()
         {
            
-                List<MPSTOK> data = _stokServis.Listele();
+                List<PocoSTOK> data = _stokServis.Listele();
                 return View(data);
         }
         [HttpPost]

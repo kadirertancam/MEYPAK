@@ -1,6 +1,8 @@
-﻿using MEYPAK.DAL.Abstract;
+﻿using AutoMapper;
+using MEYPAK.DAL.Abstract;
 using MEYPAK.DAL.Abstract.SiparisDal;
 using MEYPAK.Entity.Models.SIPARIS;
+using MEYPAK.Entity.PocoModels.SIPARIS;
 using MEYPAK.Interfaces.Siparis;
 using System;
 using System.Collections.Generic;
@@ -10,13 +12,15 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.BLL.SIPARIS
 {
-    public class SiparisSevkEmriHarManager:BaseManager<MPSIPARISSEVKEMRIHAR>,ISiparisSevkEmriHarServis
+    public class SiparisSevkEmriHarManager:BaseManager<PocoSIPARISSEVKEMIRHAR,MPSIPARISSEVKEMRIHAR>,ISiparisSevkEmriHarServis
     {
         ISiparisSevkEmriHarDal _siparisSevkEmriHarDal;
+        IMapper _mapper;
 
-        public SiparisSevkEmriHarManager(ISiparisSevkEmriHarDal generic) : base(generic)
+        public SiparisSevkEmriHarManager(IMapper mapper,ISiparisSevkEmriHarDal siparisSevkEmriHarDal) : base(mapper,siparisSevkEmriHarDal)
         {
-            _siparisSevkEmriHarDal = generic;
+            _siparisSevkEmriHarDal = siparisSevkEmriHarDal;
+            _mapper = mapper;
         }
     }
 }

@@ -1,32 +1,32 @@
-﻿using MEYPAK.Entity.Models;
+﻿using MEYPAK.Entity.Models.DEPO;
+using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Entity.PocoModels;
+using MEYPAK.Entity.PocoModels.DEPO;
+using MEYPAK.Entity.PocoModels.STOK;
+using MEYPAK.Interfaces.Depo;
+using MEYPAK.Interfaces.Stok;
 using MEYPAK.PRL.Assets.Scripts;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+
 
 namespace MEYPAK.PRL.DEPO
 {
     public partial class FMalKabulCekiPanel : Form
     {
+        IStokServis _stokServis;
+        IStokMalKabulListServis _stokMalKabulListServis;
         public FMalKabulCekiPanel()
         {
             InitializeComponent();
 
-            _tempStokSevkiyatList = new MPSTOKMALKABULLIST();
-            _tempStok = StaticContext._stokServis.Listele();
+            _tempStokSevkiyatList = new PocoSTOKMALKABULLIST();
+            _tempStok = _stokServis.Listele();
         }
-        List<MPSTOK> _tempStok;
-        MPSTOK _Stok;
-        public MPDEPOEMIR _tempEmir;
-        MPSTOKMALKABULLIST _tempStokSevkiyatList;
-        public List<MPSTOKMALKABULLIST> _tempList;
+        List<PocoSTOK> _tempStok;
+        PocoSTOK _Stok;
+        public PocoDEPOEMIR _tempEmir;
+        PocoSTOKMALKABULLIST _tempStokSevkiyatList;
+        public List<PocoSTOKMALKABULLIST> _tempList;
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -34,9 +34,9 @@ namespace MEYPAK.PRL.DEPO
             int _id;
             foreach (var item in aaa)
             {
-                _id = StaticContext._stokServis.Getir(x => x.KOD == item.StokKodu).FirstOrDefault().ID;
-                StaticContext._stokMalKabulListServis.OnYukle();
-                StaticContext._stokMalKabulListServis.EkleyadaGuncelle(new MPSTOKMALKABULLIST()
+                _id = _stokServis.Getir(x => x.KOD == item.StokKodu).FirstOrDefault().ID;
+                _stokMalKabulListServis.OnYukle();
+                _stokMalKabulListServis.EkleyadaGuncelle(new PocoSTOKMALKABULLIST()
                 {
 
                     STOKID = _id,
@@ -45,7 +45,7 @@ namespace MEYPAK.PRL.DEPO
                     MIKTAR = item.Miktar,
                     DEPOID = _tempEmir.MPSIPARIS.DEPOID,
                     SIRKETID = 0,
-                    SIPARISMIKTARI = _tempEmir.MPSIPARIS.MPSIPARISDETAY.Where(x => x.STOKID == _id).Sum(x => x.MIKTAR),
+                    SIPARISMIKTARI = _tempEmir.MPSIPARIS.MPSIPARISDETAYList.Where(x => x.STOKID == _id).Sum(x => x.MIKTAR),
                     SIPARISDETAYID = _tempList.Where(x => x.MPSIPARISDETAY.STOKID == _id && x.EMIRID == _tempEmir.ID).FirstOrDefault().MPSIPARISDETAY.ID,
                     SUBEID = 0,
                     KULLANICIID = 0
@@ -56,16 +56,16 @@ namespace MEYPAK.PRL.DEPO
         private void button1_Click(object sender, EventArgs e)
         {
 
-            _Stok = StaticContext._stokServis.Getir(x => x.ID.ToString() == comboBox1.SelectedValue.ToString()).FirstOrDefault();
-            _tempStokSevkiyatList = new MPSTOKMALKABULLIST()
+            _Stok = _stokServis.Getir(x => x.ID.ToString() == comboBox1.SelectedValue.ToString()).FirstOrDefault();
+            _tempStokSevkiyatList = new PocoSTOKMALKABULLIST()
             {
                 STOKID = _Stok.ID,
                 EMIRID = _tempEmir.ID,
                 DEPOID = _tempEmir.MPSIPARIS.DEPOID,
                 MIKTAR = 0,
-                SIPARISMIKTARI = _tempEmir.MPSIPARIS.MPSIPARISDETAY.Where(x => x.STOKID.ToString() == comboBox1.SelectedValue.ToString()).FirstOrDefault().MIKTAR,
-                BIRIMID = _Stok.MPSTOKOLCUBR.Where(x => x.NUM == 1).Select(x => x.MPOLCUBR.ID).FirstOrDefault(),
-                MPOLCUBR = _Stok.MPSTOKOLCUBR.Where(x => x.NUM == 1).Select(x => x.MPOLCUBR).FirstOrDefault(),
+                SIPARISMIKTARI = _tempEmir.MPSIPARIS.MPSIPARISDETAYList.Where(x => x.STOKID.ToString() == comboBox1.SelectedValue.ToString()).FirstOrDefault().MIKTAR,
+                BIRIMID = _Stok.MPSTOKOLCUBRList.Where(x => x.NUM == 1).Select(x => x.MPOLCUBR.ID).FirstOrDefault(),
+            //    MPOLCUBR = _Stok.MPSTOKOLCUBRList.Where(x => x.NUM == 1).Select(x => x.MPOLCUBR).FirstOrDefault(),
                 MPDEPOEMIR = _tempEmir,
                 MPSTOK = _Stok,
 

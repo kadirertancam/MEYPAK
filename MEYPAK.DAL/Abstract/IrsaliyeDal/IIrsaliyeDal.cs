@@ -1,5 +1,5 @@
 ﻿using MEYPAK.Entity.Models.DEPO;
-using MEYPAK.Entity.Models.FATURA;
+using MEYPAK.Entity.Models.IRSALIYE;
 using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Interfaces;
 using System;

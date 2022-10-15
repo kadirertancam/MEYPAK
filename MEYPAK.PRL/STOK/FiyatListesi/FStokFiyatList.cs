@@ -16,6 +16,7 @@ using MEYPAK.Entity.PocoModels;
 using MEYPAK.Interfaces.Personel;
 using MEYPAK.Interfaces.Depo;
 using MEYPAK.Entity.Models.STOK;
+using MEYPAK.Entity.PocoModels.STOK;
 
 namespace MEYPAK.PRL.STOK
 {
@@ -27,13 +28,13 @@ namespace MEYPAK.PRL.STOK
 
         }
         static MEYPAKContext _context = NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>();
-        IStokFiyatListServis _stokFiyatListServis = new StokFiyatListManager(new EFStokFiyatListRepo(_context));
+        IStokFiyatListServis _stokFiyatListServis ;
         FStokFiyatListPanel _stokFiyatListPanel;
-        MPSTOKFIYATLIST _tempSTOKFIYATLIST;
+        PocoSTOKFIYATLIST _tempSTOKFIYATLIST;
         public List<PocoStokFiyatList> _tempStokFiyatList;
         private void BTKayet_Click(object sender, EventArgs e)
         {
-            _tempSTOKFIYATLIST = _stokFiyatListServis.EkleyadaGuncelle(new MPSTOKFIYATLIST()
+            _tempSTOKFIYATLIST = _stokFiyatListServis.EkleyadaGuncelle(new PocoSTOKFIYATLIST()
             {
                 FIYATLISTADI = TBFiyatListesiAdi.Text,
                 OLUSTURMATARIHI = DateTime.Now,

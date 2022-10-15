@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MEYPAK.Entity.Models.STOK;
+using System.Text.Json.Serialization;
 
 namespace MEYPAK.Entity.Models.DEPO
 {
@@ -28,7 +29,9 @@ namespace MEYPAK.Entity.Models.DEPO
         [Required]
         public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
         public byte KAYITTIPI { get; set; } = 0;
+        [JsonIgnore]
         public virtual MPDEPOTRANSFER DEPOTRANSFER { get; set; }
+        [JsonIgnore]
         public virtual MPSTOK STOK { get; set; }
 
     }

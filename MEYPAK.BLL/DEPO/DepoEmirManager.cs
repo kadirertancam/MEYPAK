@@ -1,23 +1,19 @@
-﻿using MEYPAK.DAL.Abstract;
+﻿using AutoMapper;
 using MEYPAK.DAL.Abstract.DepoDal;
-using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.Entity.Models.DEPO;
+using MEYPAK.Entity.PocoModels.DEPO;
 using MEYPAK.Interfaces.Depo;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace MEYPAK.BLL.DEPO
 {
-    public class DepoEmirManager : BaseManager<MPDEPOEMIR>, IDepoEmirServis
+    public class DepoEmirManager : BaseManager<PocoDEPOEMIR,MPDEPOEMIR>, IDepoEmirServis
     {
-        IDepoEmirDal context;
+        IDepoEmirDal _depoEmirDal;
+        IMapper _mapper;
 
-        public DepoEmirManager(IDepoEmirDal generic) : base(generic)
+        public DepoEmirManager(IMapper mapper,IDepoEmirDal depoEmirDal) : base(mapper,depoEmirDal)
         {
-            context = generic;
+            _depoEmirDal = depoEmirDal;
+            _mapper = mapper;
         }
     }
 }

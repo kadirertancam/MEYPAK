@@ -1,7 +1,9 @@
-﻿using MEYPAK.DAL.Abstract;
+﻿using AutoMapper;
+using MEYPAK.DAL.Abstract;
 using MEYPAK.DAL.Abstract.DepoDal;
 using MEYPAK.DAL.Abstract.StokDal;
-using MEYPAK.Entity.Models;
+using MEYPAK.Entity.Models.DEPO;
+using MEYPAK.Entity.PocoModels.DEPO;
 using MEYPAK.Interfaces;
 using MEYPAK.Interfaces.Depo;
 using System;
@@ -12,17 +14,19 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.BLL.DEPO
 {
-    public class StokMalKabulListManager : BaseManager<MPSTOKMALKABULLIST>, IStokMalKabulListServis
+    public class StokMalKabulListManager : BaseManager<PocoSTOKMALKABULLIST,MPSTOKMALKABULLIST>, IStokMalKabulListServis
     {
         IStokMalKKabulListDal _stokMalKKabulListDal;
-        public StokMalKabulListManager(IStokMalKKabulListDal generic) : base(generic)
+        IMapper _mapper;
+        public StokMalKabulListManager(IMapper mapper,IStokMalKKabulListDal stokMalKKabulListDal) : base(mapper,stokMalKKabulListDal)
         {
-            _stokMalKKabulListDal = generic;
+            _stokMalKKabulListDal = stokMalKKabulListDal;
+            _mapper=mapper;
         }
 
-        public Durum EkleyadaGuncelle(MPSTOKMALKABULLIST entity)
+        public Durum EkleyadaGuncelle(PocoSTOKMALKABULLIST pModel)
         {
-            return _stokMalKKabulListDal.EkleyadaGuncelle(entity);
+            return _stokMalKKabulListDal.EkleyadaGuncelle(_mapper.Map<PocoSTOKMALKABULLIST,MPSTOKMALKABULLIST>(pModel));
         }
 
         public void OnYukle()

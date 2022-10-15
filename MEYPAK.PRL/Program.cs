@@ -21,7 +21,7 @@ namespace MEYPAK.PRL
             NinjectFactory.CompositionRoot.Initialize(a);
             ApplicationConfiguration.Initialize();
             Application.EnableVisualStyles();
-            Application.Run(new FMalKabulPanel());
+            Application.Run(new Main());
         }
     }
 }

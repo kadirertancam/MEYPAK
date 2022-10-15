@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace MEYPAK.Entity.Models.STOK
@@ -24,11 +25,11 @@ namespace MEYPAK.Entity.Models.STOK
         public byte KAYITTIPI { get; set; } = 0;
         [ForeignKey("MPSTOK")]
         public int STOKID { get; set; }
-        [ForeignKey("STOKID")]
+        
         public virtual MPSTOK MPSTOK { get; set; }
 
         [ForeignKey("MPOLCUBR")]
-        public int OLCUBRID { get; set; }
+        public int OLCUBRID { get; set; } 
         public virtual MPOLCUBR MPOLCUBR { get; set; }
 
 

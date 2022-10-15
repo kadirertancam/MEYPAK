@@ -24,10 +24,10 @@ namespace MEYPAK.PRL.STOK
            
         }
         static MEYPAKContext context = NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>();
-        IStokSayimServis _stokSayimServis = new StokSayimManager(new EFStokSayimRepo(context));
-        IStokSayimHarServis _stokSayimHarServis = new StokSayimHarManager(new EFStokSayimHarRepo(context));
-        IStokServis _stokServis = new StokManager(new EFStokRepo(context)); 
-        IOlcuBrServis _olcuBrServis = new OlcuBrManager(new EFOlcuBrRepo(context));
+        IStokSayimServis _stokSayimServis ;
+        IStokSayimHarServis _stokSayimHarServis ;
+        IStokServis _stokServis ; 
+        IOlcuBrServis _olcuBrServis ;
         FStokSayimPanel stokSayimPanel;
         int _tempId=0;
 
@@ -35,7 +35,7 @@ namespace MEYPAK.PRL.STOK
         {
 
             stokSayimPanel = new FStokSayimPanel("kaydet");
-            _stokSayimServis.Ekle(new Entity.Models.STOK.MPSTOKSAYIM()
+            _stokSayimServis.Ekle(new Entity.PocoModels.STOK.PocoSTOKSAYIM()
             {
                 SAYIMTARIHI = DTPSayimTarihi.Value,
                 ACIKLAMA = TBAciklama.Text,

@@ -2,6 +2,7 @@
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository;
 using MEYPAK.Entity.Models.STOK;
+using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Stok;
 using MEYPAK.PRL.Assets;
 using Ninject.Components;
@@ -21,22 +22,22 @@ namespace MEYPAK.PRL.STOK
     public partial class FStokFiyatListPanel : Form
     {
         int stokid=0,stokfiyatharid=0;
-        public List<MPSTOKFIYATLISTHAR> _mpStokFiyatListHar = new List<MPSTOKFIYATLISTHAR>();
-        public MPSTOKFIYATLIST _fiyatlist;
-        public MPSTOKFIYATLISTHAR _fiyatlisthar = new MPSTOKFIYATLISTHAR();
+        public List<PocoSTOKFIYATLISTHAR> _mpStokFiyatListHar = new List<PocoSTOKFIYATLISTHAR>();
+        public PocoSTOKFIYATLIST _fiyatlist;
+        public PocoSTOKFIYATLISTHAR _fiyatlisthar = new PocoSTOKFIYATLISTHAR();
         FStokList _stoklist;
-        IStokServis _stokServis = new StokManager(new EFStokRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
-        IStokFiyatListHarServis _stokFiyatListHarServis = new StokFiyatListHarManager(new EFStokFiyatListHarRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
-        public FStokFiyatListPanel(MPSTOKFIYATLIST fiyatlist)
+        IStokServis _stokServis ;
+        IStokFiyatListHarServis _stokFiyatListHarServis ;
+        public FStokFiyatListPanel(PocoSTOKFIYATLIST fiyatlist)
         {
             InitializeComponent();
             this._fiyatlist = fiyatlist;
             _stoklist = NinjectFactory.CompositionRoot.Resolve<FStokList>();
         }
-        public MPSTOK _tempStok;
+        public PocoSTOK _tempStok;
         private void button4_Click(object sender, EventArgs e)
         {
-            foreach (MPSTOKFIYATLISTHAR mPSTOKFIYATLISTHAR in _mpStokFiyatListHar)
+            foreach (PocoSTOKFIYATLISTHAR mPSTOKFIYATLISTHAR in _mpStokFiyatListHar)
             {
                 _stokFiyatListHarServis.EkleyadaGuncelle(mPSTOKFIYATLISTHAR);
                 
@@ -77,7 +78,7 @@ namespace MEYPAK.PRL.STOK
         {
             if (_fiyatlist.ID != null && stokid!=0)
             {
-                MPSTOKFIYATLISTHAR mpStok = new MPSTOKFIYATLISTHAR()
+                PocoSTOKFIYATLISTHAR mpStok = new PocoSTOKFIYATLISTHAR()
                 {
                     FIYATLISTID = _fiyatlist.ID,
                     // DOVIZID=CMBDovizId.SelectedValue,

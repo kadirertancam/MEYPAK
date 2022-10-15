@@ -9,8 +9,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MEYPAK.Entity.Models.SIPARIS;
-using MEYPAK.Entity.Models.FATURA;
 using MEYPAK.Entity.Models.DEPO;
+using MEYPAK.Entity.Models.IRSALIYE;
+using MEYPAK.Entity.PocoModels.STOK;
+using MEYPAK.Entity.PocoModels.IRSALIYE;
+using MEYPAK.Entity.PocoModels.DEPO;
 
 namespace MEYPAK.Entity.PocoModels.SIPARIS
 {
@@ -52,12 +55,12 @@ namespace MEYPAK.Entity.PocoModels.SIPARIS
         public decimal KDV { get; set; } = 0;
         public decimal KDVTUTARI { get; set; } = 0;
         public byte KAYITTIPI { get; set; } = 0;
-        public MPSIPARIS MPSIPARIS { get; set; }
-        public MPSTOK MPSTOK { get; set; }
-        public virtual MPIRSALIYE MPIRSALIYE { get; set; }
+        public PocoSIPARIS MPSIPARIS { get; set; }
+        public PocoSTOK MPSTOK { get; set; }
+        public virtual PocoIRSALIYE MPIRSALIYE { get; set; }
         //TODO BAKILACAK
         public virtual List<MPIRSALIYESIPARISDETAYILISKI>? MPIRSALIYESIPARISDETAYILISKI { get; set; }
-        public List<MPSTOKSEVKİYATLİST> MPSTOKSEVKİYATLİSTList { get; set; }
+        public List<PocoSTOKSEVKIYATLIST> MPSTOKSEVKİYATLİSTList { get; set; }
         public List<MPDEPOEMIRSIPARISKALEMILISKI> MPDEPOEMIRSIPARISKALEMILISKI { get; set; }
     }
 }

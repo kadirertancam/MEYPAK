@@ -24,7 +24,7 @@ namespace MEYPAK.PRL.STOK
             InitializeComponent();
             FSTOKKART = (FStokKart)Application.OpenForms["FSTOKKART"];
         }
-        IStokMarkaServis _markaServis = new StokMarkaManager(new EFStokMarkaRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
+        IStokMarkaServis _markaServis ;
         private void FMarkaKart_Load(object sender, EventArgs e)
         {
             dataGridView1.DataSource= _markaServis.Listele();

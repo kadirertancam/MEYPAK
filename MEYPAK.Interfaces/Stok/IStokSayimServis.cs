@@ -1,4 +1,5 @@
 ﻿using MEYPAK.Entity.Models.STOK;
+using MEYPAK.Entity.PocoModels.STOK;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +8,10 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.Interfaces.Stok
 {
-    public interface IStokSayimServis:IGenericServis<MPSTOKSAYIM>
+    public interface IStokSayimServis:IGenericServis<PocoSTOKSAYIM>
     {
-        public Durum EkleyadaGuncelle(MPSTOKSAYIM entity);
+        public Durum EkleyadaGuncelle(PocoSTOKSAYIM entity);
+
+        public IQueryable<MPSTOKSAYIM> Listee();
     }
 }

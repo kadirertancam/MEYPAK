@@ -34,8 +34,8 @@ namespace MEYPAK.PRL.STOK
             InitializeComponent();
             this._islem = islem;
         }
-        IStokServis _stokServis = new StokManager(new EFStokRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
-        IStokOlcuBrServis _stokOlcuBrServis = new StokOlcuBrManager(new EFStokOlcuBrRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
+        IStokServis _stokServis ;
+        IStokOlcuBrServis _stokOlcuBrServis ;
         private void FStokList_Load(object sender, EventArgs e)
         {
             dataGridView1.DataSource = _stokServis.Listele().Select(x => new { x.ID, x.KOD, x.ADI, x.GRUPKODU, x.OLCUBR1, x.MARKAID }).ToList();

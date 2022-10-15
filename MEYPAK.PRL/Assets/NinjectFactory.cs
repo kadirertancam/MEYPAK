@@ -32,10 +32,10 @@ namespace MEYPAK.PRL.Assets
             {
                 ninjectKernel = new StandardKernel(module);
 
-                ninjectKernel.Bind<IStokServis>()
-                    .To<StokManager>()
-                    .WithConstructorArgument("stokDal",
-                    new EFStokRepo(ninjectKernel.Get<MEYPAKContext>()));
+                //ninjectKernel.Bind<IStokServis>()
+                //    .To<StokManager>()
+                //    .WithConstructorArgument("stokDal",
+                //    new EFStokRepo(ninjectKernel.Get<MEYPAKContext>()));
             }
 
             public static T Resolve<T>()

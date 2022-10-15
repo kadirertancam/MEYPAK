@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MEYPAK.Entity.Models.DEPO;
+using System.Text.Json.Serialization;
 
 namespace MEYPAK.Entity.Models.STOK
 {
@@ -13,8 +14,6 @@ namespace MEYPAK.Entity.Models.STOK
     {
         public MPOLCUBR()
         {
-            MPSTOKSAYIMHAR = new HashSet<MPSTOKSAYIMHAR>();
-            MPSTOKOLCUBR = new HashSet<MPSTOKOLCUBR>();
         }
         [Key]
         public int ID { get; set; }
@@ -24,10 +23,9 @@ namespace MEYPAK.Entity.Models.STOK
         public string ADI { get; set; } = "";
         [StringLength(50)]
         public string BIRIM { get; set; } = "";
-
         public int KULLANICIID { get; set; } = 0;
         public byte KAYITTIPI { get; set; } = 0;
-
+        [JsonIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MPSTOKOLCUBR> MPSTOKOLCUBR { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -1,5 +1,10 @@
-﻿using MEYPAK.Entity.Models.SIPARIS;
+﻿using MEYPAK.Entity.Models.DEPO;
+using MEYPAK.Entity.Models.SIPARIS;
 using MEYPAK.Entity.PocoModels;
+using MEYPAK.Entity.PocoModels.DEPO;
+using MEYPAK.Entity.PocoModels.SIPARIS;
+using MEYPAK.Interfaces.Depo;
+using MEYPAK.Interfaces.Siparis;
 using MEYPAK.PRL.Assets.Scripts;
 using System;
 using System.Collections.Generic;
@@ -26,13 +31,15 @@ namespace MEYPAK.PRL.DEPO
             _fMalKabulCekiPanel = new FMalKabulCekiPanel();
         }
         DataGridViewButtonColumn DGVTopla;
-        List<MPSIPARIS> _tempSiparis;
+        List<PocoSIPARIS> _tempSiparis;
         FMalKabulCekiPanel _fMalKabulCekiPanel;
-        List<MPSIPARISDETAY> _tempSTOKSEVK;
-        List<MPSIPARISDETAY> _tempSiparisDetay;
+        List<PocoSIPARISDETAY> _tempSTOKSEVK;
+        List<PocoSIPARISDETAY> _tempSiparisDetay;
+        ISiparisServis _siparisServis;
+        IDepoEmirServis _depoEmirServis;
         private void FMalKabulPanel_Load(object sender, EventArgs e)
         {
-           dataGridView1.DataSource= StaticContext._siparisServis.Listele().Where(x => x.TIP == 1).Select(x => new { x.SEVKIYATTARIHI, x.BELGENO, x.CARIADI }).ToList();
+           dataGridView1.DataSource= _siparisServis.Listele().Where(x => x.TIP == 1).Select(x => new { x.SEVKIYATTARIHI, x.BELGENO, x.CARIADI }).ToList();
             DGVTopla.Name = "DGVOnay";
             DGVTopla.HeaderText = "Onayla";
             DGVTopla.DisplayIndex = 3;
@@ -54,7 +61,7 @@ namespace MEYPAK.PRL.DEPO
             if (dataGridView1.Columns[e.ColumnIndex].Name == "DGVOnay")
             {
                 int i = 1;
-                var a = StaticContext._depoEmirServis.Ekle(new MPDEPOEMIR()
+                var a = _depoEmirServis.Ekle(new PocoDEPOEMIR()
                 {
                     SIPARISID = StaticContext._siparisServis.Listele().Where(x => x.BELGENO == dataGridView1.Rows[e.RowIndex].Cells["BELGENO"].Value.ToString()).FirstOrDefault().ID,
                     MIKTAR = _tempSiparisDetay.Sum(x => x.MIKTAR),
@@ -75,7 +82,7 @@ namespace MEYPAK.PRL.DEPO
                     StaticContext._siparisDetayServis.Guncelle(item);
 
 
-                    StaticContext._siparisSevkEmriHarServis.Ekle(new MPSIPARISSEVKEMRIHAR()
+                    StaticContext._siparisSevkEmriHarServis.Ekle(new PocoSIPARISSEVKEMIRHAR()
                     {
                         EMIRMIKTARI = a.MIKTAR,
                         SIPARISID = a.SIPARISID,
@@ -98,10 +105,10 @@ namespace MEYPAK.PRL.DEPO
 
         private void dataGridView2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            _tempSTOKSEVK = StaticContext._depoEmirServis.Listele().Where(x => x.ID.ToString() == dataGridView2.Rows[e.RowIndex].Cells["ID"].Value.ToString()).Select(x => x.MPSIPARIS.MPSIPARISDETAY.ToList()).FirstOrDefault();
+            _tempSTOKSEVK = StaticContext._depoEmirServis.Listele().Where(x => x.ID.ToString() == dataGridView2.Rows[e.RowIndex].Cells["ID"].Value.ToString()).Select(x => x.MPSIPARIS.MPSIPARISDETAYList.ToList()).FirstOrDefault();
             _fMalKabulCekiPanel = new FMalKabulCekiPanel();
             _fMalKabulCekiPanel._tempEmir = StaticContext._depoEmirServis.Getir(x => x.ID.ToString() == dataGridView2.Rows[e.RowIndex].Cells["ID"].Value.ToString()).FirstOrDefault();
-            _fMalKabulCekiPanel._tempList = _tempSTOKSEVK.Select(x => new MPSTOKMALKABULLIST() { MPSTOK = x.MPSTOK, MPSIPARISDETAY = x, SIPARISMIKTARI = x.MIKTAR, DEPOID = x.MPSIPARIS.DEPOID, BIRIMID = x.BIRIMID, EMIRID = int.Parse(dataGridView2.Rows[e.RowIndex].Cells["ID"].Value.ToString()), SIPARISDETAYID = x.ID, STOKID = x.STOKID }).ToList();
+            _fMalKabulCekiPanel._tempList = _tempSTOKSEVK.Select(x => new PocoSTOKMALKABULLIST() { MPSTOK = x.MPSTOK, MPSIPARISDETAY = x, SIPARISMIKTARI = x.MIKTAR, DEPOID = x.MPSIPARIS.DEPOID, BIRIMID = x.BIRIMID, EMIRID = int.Parse(dataGridView2.Rows[e.RowIndex].Cells["ID"].Value.ToString()), SIPARISDETAYID = x.ID, STOKID = x.STOKID }).ToList();
 
             _fMalKabulCekiPanel.ShowDialog();
         }

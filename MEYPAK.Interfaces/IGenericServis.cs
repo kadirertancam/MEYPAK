@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.Interfaces
 {
-    public interface IGenericServis<T>
+    public interface IGenericServis<Poco>
     { 
-        List<T> Getir(Expression<Func<T, bool>> expression);
-        List<T> Listele();
-        bool Sil(Expression<Func<T, bool>> predicate);
-        bool Sil(List<T> entity);
-        Durum Guncelle(T entity, Expression<Func<T, bool>> predicate);
-        Durum Guncelle(T entity);
-        T Ekle(T entity);
+        List<Poco> Getir(Expression<Func<Poco, bool>> expression);
+        List<Poco> Listele();
+        bool Sil(Expression<Func<Poco, bool>> predicate);
+        bool Sil(List<Poco> entity);
+        Durum Guncelle(Poco entity, Expression<Func<Poco, bool>> predicate);
+        Durum Guncelle(Poco entity);
+        Poco Ekle(Poco entity);
     }
 }

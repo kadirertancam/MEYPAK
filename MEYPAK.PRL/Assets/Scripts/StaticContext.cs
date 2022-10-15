@@ -18,17 +18,17 @@ namespace MEYPAK.PRL.Assets.Scripts
     {
         
         private static MEYPAKContext context =new MEYPAKContext();
-        public static IStokServis _stokServis = new StokManager(new EFStokRepo(context));
-        public static IStokSevkiyatListServis _stokSevkiyatListServis = new StokSevkiyatListManager(new EFStokSevkiyatListRepo(context));
-        public static ISiparisDetayServis _siparisDetayServis = new SiparisDetayManager(new EFSiparisDetayRepo(context));
-        public static ISiparisServis _siparisServis = new SiparisManager(new EFSiparisRepo(context));
-        public static IDepoEmirServis _depoEmirServis = new DepoEmirManager(new EFDepoEmirRepo(context));
-        public static ISiparisSevkEmriHarServis _siparisSevkEmriHarServis = new SiparisSevkEmriHarManager(new EFSiparisSevkEmriHarRepo(context));
-        public static IOlcuBrServis _olcuBrServis = new OlcuBrManager(new EFOlcuBrRepo(context));
-        public static IStokOlcuBrServis _stokOlcuBrServis = new StokOlcuBrManager(new EFStokOlcuBrRepo(context));
-        public static IDepoServis _depoServis = new DepoManager(new EFDepoRepo(context));
-        public static IStokFiyatListServis _stokFiyatListServis = new StokFiyatListManager(new EFStokFiyatListRepo(context));
-        public static IStokMalKabulListServis _stokMalKabulListServis = new StokMalKabulListManager(new EFStokMalKabulList(context));
+        public static IStokServis _stokServis ;
+        public static IStokSevkiyatListServis _stokSevkiyatListServis;
+        public static ISiparisDetayServis _siparisDetayServis ;
+        public static ISiparisServis _siparisServis ;
+        public static IDepoEmirServis _depoEmirServis ;
+        public static ISiparisSevkEmriHarServis _siparisSevkEmriHarServis ;
+        public static IOlcuBrServis _olcuBrServis ;
+        public static IStokOlcuBrServis _stokOlcuBrServis ;
+        public static IDepoServis _depoServis;
+        public static IStokFiyatListServis _stokFiyatListServis ;
+        public static IStokMalKabulListServis _stokMalKabulListServis ;
 
 
 

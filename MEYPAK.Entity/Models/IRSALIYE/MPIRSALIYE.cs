@@ -7,8 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MEYPAK.Entity.Models.SIPARIS;
+using System.Text.Json.Serialization;
 
-namespace MEYPAK.Entity.Models.FATURA
+namespace MEYPAK.Entity.Models.IRSALIYE
 {
     public class MPIRSALIYE
     {
@@ -61,6 +62,7 @@ namespace MEYPAK.Entity.Models.FATURA
         [Required]
         public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
         public byte KAYITTIPI { get; set; } = 0;
+        [JsonIgnore]
 
         public virtual MPSIPARIS MPSIPARIS { get; set; }
 

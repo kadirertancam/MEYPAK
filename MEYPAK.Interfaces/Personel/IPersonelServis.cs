@@ -1,4 +1,5 @@
 ﻿using MEYPAK.Entity.Models.PERSONEL;
+using MEYPAK.Entity.PocoModels.PERSONEL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,8 +9,8 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.Interfaces.Personel
 {
-    public interface IPersonelServis:IGenericServis<MPPERSONEL>
+    public interface IPersonelServis:IGenericServis<PocoPERSONEL>
     {
-        public Durum EkleyadaGuncelle(MPPERSONEL entity);
+        public Durum EkleyadaGuncelle(PocoPERSONEL entity);
     }
 }
