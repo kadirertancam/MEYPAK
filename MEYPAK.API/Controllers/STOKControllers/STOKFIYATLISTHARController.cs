@@ -1,0 +1,82 @@
+﻿using AutoMapper;
+using MEYPAK.Entity.PocoModels.STOK;
+using MEYPAK.Interfaces.Stok;
+using Microsoft.AspNetCore.Mvc;
+
+namespace MEYPAK.API.Controllers.STOKControllers
+{
+    [ApiController]
+    [Route("[controller]")]
+    public class STOKFIYATLISTHARController : Controller
+    {
+        private readonly IStokFiyatListHarServis _stokFiyatListHarServis;
+        private readonly IMapper _mapper;
+
+        public STOKFIYATLISTHARController(IStokFiyatListHarServis stokFiyatListHarServis, IMapper mapper)
+        {
+            _stokFiyatListHarServis = stokFiyatListHarServis;
+            _mapper = mapper;
+        }
+
+        [HttpGet]
+        [Route("/[controller]/[action]")]
+        public IActionResult STOKFIYATLISTHARListe()
+        {
+            try
+            {
+                var data = _stokFiyatListHarServis.Listele();
+                return Ok(data);
+            }
+            catch (Exception)
+            {
+                return Problem("Beklenmedik bir hata oluştu!");
+            }
+        }
+
+
+        [HttpPost]
+        [Route("/[controller]/[action]")]
+        public IActionResult STOKFIYATLISTHAREkle(PocoSTOKFIYATLISTHAR pModel)
+        {
+            try
+            {
+                var data = _stokFiyatListHarServis.Ekle(pModel);
+                return Ok(data);
+            }
+            catch (Exception)
+            {
+                return Problem("Beklenmedik bir hata oluştu!");
+            }
+        }
+
+        [HttpPost]
+        [Route("/[controller]/[action]")]
+        public IActionResult STOKFIYATLISTHARSil(List<PocoSTOKFIYATLISTHAR> pModel)
+        {
+            try
+            {
+                var data = _stokFiyatListHarServis.Sil(pModel);
+                return Ok(data);
+            }
+            catch (Exception)
+            {
+                return Problem("Beklenmedik bir hata oluştu!");
+            }
+        }
+
+        [HttpPost]
+        [Route("/[controller]/[action]")]
+        public IActionResult STOKFIYATLISTHARGuncelle(PocoSTOKFIYATLISTHAR pModel)
+        {
+            try
+            {
+                var data = _stokFiyatListHarServis.Guncelle(pModel);
+                return Ok(data);
+            }
+            catch (Exception)
+            {
+                return Problem("Beklenmedik bir hata oluştu!");
+            }
+        }
+    }
+}
