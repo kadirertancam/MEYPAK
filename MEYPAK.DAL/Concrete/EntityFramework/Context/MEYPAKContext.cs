@@ -51,14 +51,14 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
         public DbSet<MPIRSALIYESIPARISDETAYILISKI> MPIRSALIYESIPARISDETAYILISKI { get; set; }
         public DbSet<MPIRSALIYEDETAY> MPIRSALIYEDETAY { get; set; }
 
-        //       protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //       {
-        //           if (!optionsBuilder.IsConfigured)
-        //           {
-        //               optionsBuilder.UseSqlServer("Server=213.238.167.117;Database=MEYPAK;User Id=sa;Password=sapass_1;");
-        //           } 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseSqlServer("Server=213.238.167.117;Database=MEYPAK;User Id=sa;Password=sapass_1;");
+            }
 
-        //       }
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

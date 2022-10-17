@@ -1,9 +1,10 @@
 ﻿@using MEYPAK.Entity.Models;
 @using MEYPAK.Entity.Models.STOK
+@using MEYPAK.Entity.PocoModels.STOK
 
-@model MPSTOK
+@model PocoSTOK
 
-<div class="col-lg-2">
+<div class="col-lg-6">
     <div class="card">
 
         <div class="card-body">
@@ -16,7 +17,7 @@
                     <hr>
                     <form asp-controller="Stok" asp-action="StokEkle" method="post">
                         @{
-                            MPSTOK aa = new MPSTOK();
+                            PocoSTOK aa = new PocoSTOK();
                             foreach (var item2 in aa.GetType().GetProperties())
                             {
                                 string typename = item2.PropertyType.Name;

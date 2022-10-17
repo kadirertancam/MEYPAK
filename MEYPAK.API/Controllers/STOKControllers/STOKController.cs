@@ -8,8 +8,10 @@ using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Hizmet;
 using MEYPAK.Interfaces.Stok;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System;
 using System.Linq.Expressions;
+using System.Text.Json.Nodes;
 
 namespace MEYPAK.API.Controllers.STOK
 {
@@ -43,11 +45,12 @@ namespace MEYPAK.API.Controllers.STOK
         }
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult STOKEkle(PocoSTOK pModel)
-        {
+        public  IActionResult STOKEkle(JsonObject pModel)
+        { 
+            PocoSTOK pocoSTOK = JsonConvert.DeserializeObject<PocoSTOK>(pModel.ToString());
             try
             {
-                var data = _stokServis.Ekle(pModel);
+                var data = _stokServis.Ekle(pocoSTOK);
                 return Ok(data);
             }
             catch (Exception)
@@ -83,9 +86,24 @@ namespace MEYPAK.API.Controllers.STOK
                 return Problem("Beklenmedik bir hata oluştu!");
             }
         }
-     
 
-     
+        [HttpPost("")]
+        [Route("/[controller]/[action]")]
+        public IActionResult STOKGetir([FromQuery]int id)
+        {
+            try
+            {
+                var data = _stokServis.Getir(X=> X.ID == id);
+                return Ok(data);
+            }
+            catch (Exception)
+            {
+                return Problem("Beklenmedik bir hata oluştu!");
+            }
+        }
+
+
+
 
         //#region Getir
         //[HttpPost]
@@ -637,7 +655,7 @@ namespace MEYPAK.API.Controllers.STOK
         //}
         //#endregion
 
-  
+
 
     }
 }

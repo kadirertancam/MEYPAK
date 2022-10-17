@@ -32,7 +32,7 @@ builder.Services.AddAutoMapper(x =>
     x.AddExpressionMapping(); //expressionlari maplemek içindir
     x.AddProfile(typeof(Maps));
 });
-
+builder.Services.AddControllers(options => options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true);
 builder.Services.AddDbContext<MEYPAKContext>(options =>
 {
     
@@ -42,7 +42,7 @@ builder.Services.AddDbContext<MEYPAKContext>(options =>
 
 #region STOK_Scoped_Islemleri
 
-builder.Services.AddTransient<IStokDal, EFStokRepo>();
+builder.Services.AddScoped<IStokDal, EFStokRepo>();
 builder.Services.AddScoped<IStokServis, StokManager>();
 
 builder.Services.AddScoped<IStokHarDal, EFStokHareketRepo>();
