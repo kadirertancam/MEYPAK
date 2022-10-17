@@ -53,9 +53,9 @@ namespace MEYPAK.API.Controllers.STOK
                 var data = _stokServis.Ekle(pocoSTOK);
                 return Ok(data);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return Problem("Beklenmedik bir hata oluştu!");
+                return Problem("Beklenmedik bir hata oluştu! "+ex.Message);
             }
         }
         [HttpPost]

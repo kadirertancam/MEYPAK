@@ -72,26 +72,23 @@ namespace MEYPAK.WEB.Controllers
         {
             string serialize = JsonConvert.SerializeObject(PStok);
 
-            var options = new JsonSerializerOptions()
+      
+            HttpResponseMessage resp; 
+            using (HttpClient httpClient = new HttpClient())
             {
-                NumberHandling = JsonNumberHandling.AllowReadingFromString |
-                 JsonNumberHandling.WriteAsString
-            };
+                using (HttpRequestMessage client = new HttpRequestMessage(HttpMethod.Post, BaseURL + @"/Stok/STOKEkle"))
+                {
 
-            // serialize
-            string denemeJson = JsonSerializer.Serialize<PocoSTOK>(PStok, options);
-
-            HttpClient httpClient = new HttpClient();
-            var client = new HttpRequestMessage(HttpMethod.Post, BaseURL+@"/Stok/STOKEkle");
-
-            client.Headers.Add("Accept","application/json");
-            client.Content = new StringContent(denemeJson,
-                                    Encoding.UTF8,
-                                    "application/json");
+                    client.Headers.Add("Accept", "application/json");
+                    client.Content = new StringContent(serialize,
+                                            Encoding.UTF8,
+                                            "application/json");
 
 
 
-            HttpResponseMessage resp = await httpClient.SendAsync(client);
+                    resp = httpClient.PostAsJsonAsync<PocoSTOK>(@"http://213.238.167.117:8080/Stok/STOKEkle", PStok).Result;
+                }
+            }
             var a= resp.Content.ReadAsStringAsync();
 
             ViewBag.Durum = "Başarıyla eklendi.";
