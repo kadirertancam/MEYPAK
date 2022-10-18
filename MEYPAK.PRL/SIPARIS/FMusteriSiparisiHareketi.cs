@@ -61,12 +61,12 @@ namespace MEYPAK.PRL.SIPARIS
         
         private void BTNIrsaliyeOlustur_Click(object sender, EventArgs e)
         {
-            FIrsaliyeOlustur fIrsaliyeOlustur = new FIrsaliyeOlustur();
+            FSatisIrsaliye fIrsaliyeOlustur = new FSatisIrsaliye();
             foreach (DataGridViewRow item in dataGridSiparisDetay.Rows)
             {
                 if (Convert.ToBoolean(item.Cells["DVGCheckBox"].Value) == true)
                 {
-                     fIrsaliyeOlustur._tempSiparisDetay.Add(_mpSiparisDetay.Where(x => x.ID == (int)item.Cells["ID"].Value).FirstOrDefault());
+                    // fIrsaliyeOlustur._tempIrsaliyeDetay.Add(_mpSiparisDetay.Where(x => x.ID == (int)item.Cells["ID"].Value).FirstOrDefault());
                 }
             }
             fIrsaliyeOlustur.ShowDialog();

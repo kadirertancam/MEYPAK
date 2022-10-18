@@ -35,6 +35,7 @@ namespace MEYPAK.PRL.SIPARIS
             DGVKasaSec = new DataGridViewButtonColumn();
             DGVKasaList = new DataGridViewComboBoxColumn();
             _fStokList = new FStokList("siparis");
+            fKasaList = new FKasaList("Siparis");
             dataGridView1.MultiSelect = false;
             CBDepo.DataSource = StaticContext._depoServis.Listele().Select(x => x.DEPOADI).ToList();
         }
@@ -57,8 +58,17 @@ namespace MEYPAK.PRL.SIPARIS
         DataGridViewComboBoxColumn DGVFiyatList;
         DataGridViewComboBoxColumn DGVKasaList;
         DataGridViewCell DGVtempCell;
+        void temizle()
+        {
+            dataGridView1.DataSource = "";
+            _tempSiparisDetay.Clear();
+            _tempSiparisDetay.Add(new PocoSiparisKalem()); 
+            dataGridView1.DataSource = _tempSiparisDetay;
+            DGVOlcuBr.DataSource = _tempStok.MPSTOKOLCUBR.Select(x => x.MPOLCUBR.ADI).ToList();
+        }
         void DataGridYapilandir()
         {
+          
             _tempStok = new MPSTOK();
             _tempSiparisDetay.Add(new PocoSiparisKalem());
             dataGridView1.DataSource = _tempSiparisDetay;
@@ -153,7 +163,7 @@ namespace MEYPAK.PRL.SIPARIS
                     KDVTUTARI = item.KdvTutarı
                 });
             }
-
+            temizle();
             //DataGrideSiparisleriGetir();
         }
 
@@ -217,9 +227,10 @@ namespace MEYPAK.PRL.SIPARIS
                     {
                         TBKasa.Text = _tempKasa.KASAADI;
                         dataGridView1.Rows[e.RowIndex].Cells["KasaAdı"].Value = _tempKasa.KASAADI;
-                    }
+                   
                     _tempPocokalem.KasaAdı = _tempKasa.KASAADI;
                     _tempPocokalem.KasaId = _tempKasa.ID;
+                    }
 
                 }
             }

@@ -143,7 +143,7 @@
             this.groupBox1.Size = new System.Drawing.Size(1688, 213);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Stok Hareket";
+            this.groupBox1.Text = "SatınAlma Sipariş";
             // 
             // BTNKasaSec
             // 
@@ -763,6 +763,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1688, 976);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FSatınAlmaSiparis";
             this.Text = "FSatınAlmaSiparis";
             this.Load += new System.EventHandler(this.SatınAlmaSiparis_Load);

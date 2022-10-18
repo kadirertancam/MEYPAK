@@ -5,8 +5,10 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MEYPAK.Entity.Models.STOK;
+using MEYPAK.Entity.Models.SIPARIS;
 
-namespace MEYPAK.Entity.Models
+namespace MEYPAK.Entity.Models.DEPO
 {
     public class MPSTOKMALKABULLIST
     {

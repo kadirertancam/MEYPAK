@@ -7,9 +7,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MEYPAK.Entity.Models.FATURA;
 using MEYPAK.DAL.Abstract.IrsaliyeDal;
 using MEYPAK.Interfaces.IRSALIYE;
+using MEYPAK.Entity.Models.IRSALIYE;
 
 namespace MEYPAK.BLL.IRSALIYE
 {

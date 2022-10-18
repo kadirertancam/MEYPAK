@@ -1,4 +1,5 @@
-﻿using MEYPAK.Entity.Models;
+﻿using MEYPAK.Entity.Models.DEPO;
+using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Entity.PocoModels;
 using MEYPAK.PRL.Assets.Scripts;
 using System;
@@ -38,7 +39,6 @@ namespace MEYPAK.PRL.DEPO
                 StaticContext._stokMalKabulListServis.OnYukle();
                 StaticContext._stokMalKabulListServis.EkleyadaGuncelle(new MPSTOKMALKABULLIST()
                 {
-
                     STOKID = _id,
                     EMIRID = _tempEmir.ID,
                     BIRIMID = StaticContext._siparisDetayServis.Getir(x => x.SIPARISID == _tempEmir.SIPARISID && x.STOKID == _id).FirstOrDefault().BIRIMID,
@@ -50,6 +50,8 @@ namespace MEYPAK.PRL.DEPO
                     SUBEID = 0,
                     KULLANICIID = 0
                 });
+
+                this.Close();
             }
         }
 

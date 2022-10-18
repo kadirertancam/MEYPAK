@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.Interfaces.Siparis
 {
-    public interface ISiparisSevkEmriHarServis:IGenericServis<MPSIPARISSEVKEMRIHAR>
+    public interface ISiparisSevkEmriHarServis : IGenericServis<MPSIPARISSEVKEMRIHAR>
     {
     }
 }

@@ -15,6 +15,22 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
         public EFSiparisSevkEmriHarRepo(MEYPAKContext _context) : base(_context)
         {
             context = _context;
+            OnYukle();
+        }
+        public void OnYukle()
+        {
+            var emp = context.MPSIPARISSEVKEMRIHAR.ToList();
+            foreach (var item in emp)
+            {
+                context.Entry(item)
+                  .Navigation("MPSIPARIS").Load();
+                context.Entry(item)
+                  .Navigation("MPSIPARISDETAY").Load();
+                context.Entry(item)
+                  .Navigation("MPDEPOEMIR").Load();
+
+
+            }
         }
     }
 }

@@ -29,9 +29,12 @@ namespace MEYPAK.Entity.Models.DEPO
         [ForeignKey("MPDEPOEMIR")]
         public int EMIRID { get; set; }
         public int KULLANICIID { get; set; } = 0;
+        [ForeignKey("MPSIPARISSEVKEMRIHAR")]
+        public int SEVKEMRIHARID { get; set; }
         public MPOLCUBR MPOLCUBR { get; set; }
         public MPDEPOEMIR MPDEPOEMIR { get; set; }
         public MPSTOK MPSTOK { get; set; }
         public MPSIPARISDETAY MPSIPARISDETAY { get; set; }
+        public MPSIPARISSEVKEMRIHAR MPSIPARISSEVKEMRIHAR { get; set; }
     }
 }

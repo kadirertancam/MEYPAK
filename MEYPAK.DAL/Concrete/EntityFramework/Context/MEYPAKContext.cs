@@ -7,7 +7,7 @@ using System.Reflection.Metadata;
 using MEYPAK.Entity.Models;
 using MEYPAK.Entity.Models.ARAC;
 using MEYPAK.Entity.Models.DEPO;
-using MEYPAK.Entity.Models.FATURA;
+using MEYPAK.Entity.Models.IRSALIYE;
 using MEYPAK.Entity.Models.PERSONEL;
 using MEYPAK.Entity.Models.SIPARIS;
 using MEYPAK.Entity.Models.STOK;
@@ -89,9 +89,12 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
             modelBuilder.Entity<MPOLCUBR>().HasMany(x => x.MPSTOKMALKABULLIST).WithOne(x => x.MPOLCUBR).HasForeignKey(x => x.BIRIMID).OnDelete(DeleteBehavior.Restrict);
             modelBuilder.Entity<MPDEPOEMIR>().HasMany(x => x.MPSTOKMALKABULLIST).WithOne(x => x.MPDEPOEMIR).HasForeignKey(x => x.EMIRID).OnDelete(DeleteBehavior.Restrict);
             modelBuilder.Entity<MPSIPARISDETAY>().HasMany(x => x.MPSTOKMALKABULLIST).WithOne(x => x.MPSIPARISDETAY).HasForeignKey(x => x.SIPARISDETAYID).OnDelete(DeleteBehavior.Restrict);
-
+            modelBuilder.Entity<MPSIPARIS>().HasMany(x => x.MPSIPARISSEVKEMRIHAR).WithOne(x => x.MPSIPARIS).HasForeignKey(x => x.SIPARISID).OnDelete(DeleteBehavior.Restrict); ;
+            modelBuilder.Entity<MPSIPARISDETAY>().HasMany(x => x.MPSIPARISSEVKEMRIHAR).WithOne(x => x.MPSIPARISDETAY).HasForeignKey(x => x.SIPARISKALEMID).OnDelete(DeleteBehavior.Restrict); ;
             modelBuilder.Entity<MPIRSALIYESIPARISDETAYILISKI>().HasKey(sc => new { sc.IRSALIYEDETAYID, sc.SIPARISDETAYID });
-
+            modelBuilder.Entity<MPSIPARISSEVKEMRIHAR>().HasOne(x => x.MPDEPOEMIR).WithMany(x => x.MPSIPARISSEVKEMRIHAR).HasForeignKey(x => x.EMIRID).OnDelete(DeleteBehavior.Restrict); ;
+            modelBuilder.Entity<MPDEPO>().HasMany(x => x.MPDEPOEMIR).WithOne(x => x.MPDEPO).HasForeignKey(x => x.DEPOID).OnDelete(DeleteBehavior.Restrict); ;
+           modelBuilder.Entity<MPSIPARISSEVKEMRIHAR>().HasMany(x=>x.MPSTOKSEVKİYATLİST).WithOne(x=>x.MPSIPARISSEVKEMRIHAR).HasForeignKey(x=>x.SEVKEMRIHARID).OnDelete(DeleteBehavior.Restrict); 
             modelBuilder.Entity<MPIRSALIYESIPARISDETAYILISKI>()
                 .HasOne<MPIRSALIYEDETAY>(sc => sc.MPIRSALIYEDETAY)
                 .WithMany(s => s.MPIRSALIYESIPARISDETAYILISKI)

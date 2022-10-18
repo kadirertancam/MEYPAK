@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MEYPAK.Entity.Models.DEPO;
-using MEYPAK.Entity.Models.FATURA;
+using MEYPAK.Entity.Models.IRSALIYE;
 using MEYPAK.Entity.Models.STOK;
 
 namespace MEYPAK.Entity.Models.SIPARIS
@@ -68,6 +68,8 @@ namespace MEYPAK.Entity.Models.SIPARIS
         public ICollection<MPSTOKSEVKİYATLİST> MPSTOKSEVKİYATLİST { get; set; }
         public ICollection<MPDEPOEMIRSIPARISKALEMILISKI> MPDEPOEMIRSIPARISKALEMILISKI { get; set; }
         public ICollection<MPSTOKMALKABULLIST> MPSTOKMALKABULLIST { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MPSIPARISSEVKEMRIHAR> MPSIPARISSEVKEMRIHAR { get; set; }
 
     }
 }

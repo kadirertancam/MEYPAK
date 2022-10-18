@@ -17,7 +17,7 @@ namespace MEYPAK.PRL.Assets.Scripts
     public static class StaticContext
     {
         
-        private static MEYPAKContext context =new MEYPAKContext();
+        private static MEYPAKContext context= NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>(); 
         public static IStokServis _stokServis = new StokManager(new EFStokRepo(context));
         public static IStokSevkiyatListServis _stokSevkiyatListServis = new StokSevkiyatListManager(new EFStokSevkiyatListRepo(context));
         public static ISiparisDetayServis _siparisDetayServis = new SiparisDetayManager(new EFSiparisDetayRepo(context));

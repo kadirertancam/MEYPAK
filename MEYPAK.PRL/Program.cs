@@ -1,5 +1,6 @@
 using MEYPAK.PRL.Assets;
 using MEYPAK.PRL.DEPO;
+using MEYPAK.PRL.MOBILIZ;
 using MEYPAK.PRL.PERSONEL;
 using MEYPAK.PRL.SIPARIS;
 using MEYPAK.PRL.STOK;
@@ -21,7 +22,7 @@ namespace MEYPAK.PRL
             NinjectFactory.CompositionRoot.Initialize(a);
             ApplicationConfiguration.Initialize();
             Application.EnableVisualStyles();
-            Application.Run(new FMalKabulPanel());
+            Application.Run(new FMobilizLoginPage());
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -10,9 +11,12 @@ namespace MEYPAK.Entity.Models.DEPO
 {
     public class MPDEPOEMIR
     {
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
         public DateTime TARIH { get; set; }
         public int SIRA { get; set; }
+        [ForeignKey("MPDEPO")]
+        public int DEPOID { get; set; }
         public int TIP { get; set; }
         [ForeignKey("MPSIPARIS")]
         public int SIPARISID { get; set; }
@@ -25,5 +29,8 @@ namespace MEYPAK.Entity.Models.DEPO
         public ICollection<MPDEPOEMIRSIPARISKALEMILISKI> MPDEPOEMIRSIPARISKALEMILISKI { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MPSTOKMALKABULLIST> MPSTOKMALKABULLIST { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MPSIPARISSEVKEMRIHAR> MPSIPARISSEVKEMRIHAR { get; set; }
+        public MPDEPO MPDEPO { get; set; }
     }
 }

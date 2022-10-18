@@ -116,7 +116,7 @@ namespace MEYPAK.PRL.DEPO
                     SIPARISMIKTARI = _tempEmir.MPSIPARIS.MPSIPARISDETAY.Where(x => x.STOKID == _id).Sum(x => x.MIKTAR),
                     SIPARISDETAYID=_tempList.Where(x=>x.MPSIPARISDETAY.STOKID==_id && x.EMIRID==_tempEmir.ID ).FirstOrDefault().MPSIPARISDETAY.ID,
                     SUBEID=0,
-                    KULLANICIID=0
+                    KULLANICIID=0,SEVKEMRIHARID= _tempEmir.MPSIPARISSEVKEMRIHAR.Where(x => x.MPSIPARISDETAY.STOKID.ToString() == _id.ToString() && x.EMIRID == _tempEmir.ID).FirstOrDefault().ID
                 });
             }
         }

@@ -30,6 +30,8 @@ namespace MEYPAK.PRL
             fSayimIsle = new FSayimIsle();
             fSiparis = new FMusteriSiparis();
             fSevkiyatPanel= new FSevkiyatPanel();
+            fMalKabulPanel = new FMalKabulPanel();
+            fSatınAlmaSiparis = new FSatınAlmaSiparis();
         }
         #region TANIMLAR
         FSevkiyatPanel fSevkiyatPanel;
@@ -40,6 +42,8 @@ namespace MEYPAK.PRL
         FStokSayim fStokSayim;
         FSayimIsle fSayimIsle;
         FMusteriSiparis fSiparis;
+        FMalKabulPanel fMalKabulPanel;
+        FSatınAlmaSiparis fSatınAlmaSiparis;
         #endregion
         void StokPanelAc()
         {
@@ -139,6 +143,26 @@ namespace MEYPAK.PRL
             fSevkiyatPanel.Dock = DockStyle.Fill;
             panel2.Controls.Add(fSevkiyatPanel);
             fSevkiyatPanel.Show();
+        }
+
+        private void malKabulToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panel2.Controls.Clear();
+            fMalKabulPanel.TopLevel = false;
+            fMalKabulPanel.AutoScroll = true;
+            fMalKabulPanel.Dock = DockStyle.Fill;
+            panel2.Controls.Add(fMalKabulPanel);
+            fMalKabulPanel.Show();
+        }
+
+        private void satınAlmaSiparişTanımToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panel2.Controls.Clear();
+            fSatınAlmaSiparis.TopLevel = false;
+            fSatınAlmaSiparis.AutoScroll = true;
+            fSatınAlmaSiparis.Dock = DockStyle.Fill;
+            panel2.Controls.Add(fSatınAlmaSiparis);
+            fSatınAlmaSiparis.Show();
         }
     }
 }

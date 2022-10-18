@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MEYPAK.Entity.Models.SIPARIS;
 
-namespace MEYPAK.Entity.Models.FATURA
+namespace MEYPAK.Entity.Models.IRSALIYE
 {
     public class MPIRSALIYEDETAY
     {

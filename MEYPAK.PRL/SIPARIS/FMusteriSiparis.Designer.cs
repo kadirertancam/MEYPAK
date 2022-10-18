@@ -61,6 +61,9 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.BTNKasaSec = new System.Windows.Forms.Button();
+            this.TBKasa = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.BTSiparisSec = new System.Windows.Forms.Button();
             this.LBSiparis = new System.Windows.Forms.Label();
             this.TBBelgeNo = new System.Windows.Forms.TextBox();
@@ -88,9 +91,6 @@
             this.BTStokSec = new System.Windows.Forms.Button();
             this.TBStokKodu = new System.Windows.Forms.TextBox();
             this.LBLCariKodu = new System.Windows.Forms.Label();
-            this.BTNKasaSec = new System.Windows.Forms.Button();
-            this.TBKasa = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -493,7 +493,34 @@
             this.groupBox1.Size = new System.Drawing.Size(1900, 213);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Stok Hareket";
+            this.groupBox1.Text = "Müşteri Sipariş";
+            // 
+            // BTNKasaSec
+            // 
+            this.BTNKasaSec.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BTNKasaSec.Location = new System.Drawing.Point(186, 148);
+            this.BTNKasaSec.Name = "BTNKasaSec";
+            this.BTNKasaSec.Size = new System.Drawing.Size(36, 23);
+            this.BTNKasaSec.TabIndex = 41;
+            this.BTNKasaSec.Text = "Seç";
+            this.BTNKasaSec.UseVisualStyleBackColor = true;
+            this.BTNKasaSec.Click += new System.EventHandler(this.BTNKasaSec_Click);
+            // 
+            // TBKasa
+            // 
+            this.TBKasa.Location = new System.Drawing.Point(73, 148);
+            this.TBKasa.Name = "TBKasa";
+            this.TBKasa.Size = new System.Drawing.Size(118, 23);
+            this.TBKasa.TabIndex = 40;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 152);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(31, 15);
+            this.label1.TabIndex = 39;
+            this.label1.Text = "Kasa";
             // 
             // BTSiparisSec
             // 
@@ -732,41 +759,14 @@
             this.LBLCariKodu.TabIndex = 0;
             this.LBLCariKodu.Text = "Cari Kodu";
             // 
-            // BTNKasaSec
-            // 
-            this.BTNKasaSec.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BTNKasaSec.Location = new System.Drawing.Point(186, 148);
-            this.BTNKasaSec.Name = "BTNKasaSec";
-            this.BTNKasaSec.Size = new System.Drawing.Size(36, 23);
-            this.BTNKasaSec.TabIndex = 41;
-            this.BTNKasaSec.Text = "Seç";
-            this.BTNKasaSec.UseVisualStyleBackColor = true;
-            this.BTNKasaSec.Click += new System.EventHandler(this.BTNKasaSec_Click);
-            // 
-            // TBKasa
-            // 
-            this.TBKasa.Location = new System.Drawing.Point(73, 148);
-            this.TBKasa.Name = "TBKasa";
-            this.TBKasa.Size = new System.Drawing.Size(118, 23);
-            this.TBKasa.TabIndex = 40;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 152);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(31, 15);
-            this.label1.TabIndex = 39;
-            this.label1.Text = "Kasa";
-            // 
-            // FSiparis
+            // FMusteriSiparis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1900, 970);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FSiparis";
+            this.Name = "FMusteriSiparis";
             this.Text = "FStokHareket";
             this.Load += new System.EventHandler(this.FSiparis_Load);
             this.panel1.ResumeLayout(false);

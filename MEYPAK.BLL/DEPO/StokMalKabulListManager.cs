@@ -1,7 +1,7 @@
 ﻿using MEYPAK.DAL.Abstract;
 using MEYPAK.DAL.Abstract.DepoDal;
 using MEYPAK.DAL.Abstract.StokDal;
-using MEYPAK.Entity.Models;
+using MEYPAK.Entity.Models.DEPO;
 using MEYPAK.Interfaces;
 using MEYPAK.Interfaces.Depo;
 using System;

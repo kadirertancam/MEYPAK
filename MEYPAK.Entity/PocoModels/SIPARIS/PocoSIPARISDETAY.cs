@@ -9,8 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MEYPAK.Entity.Models.SIPARIS;
-using MEYPAK.Entity.Models.FATURA;
 using MEYPAK.Entity.Models.DEPO;
+using MEYPAK.Entity.Models.IRSALIYE;
 
 namespace MEYPAK.Entity.PocoModels.SIPARIS
 {

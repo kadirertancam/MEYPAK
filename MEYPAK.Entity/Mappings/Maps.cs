@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using MEYPAK.Entity.Models.ARAC;
 using MEYPAK.Entity.Models.DEPO;
-using MEYPAK.Entity.Models.FATURA;
+using MEYPAK.Entity.Models.IRSALIYE;
 using MEYPAK.Entity.Models.PERSONEL;
 using MEYPAK.Entity.Models.SIPARIS;
 using MEYPAK.Entity.Models.STOK;

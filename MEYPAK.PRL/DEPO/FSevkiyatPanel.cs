@@ -104,7 +104,8 @@ namespace MEYPAK.PRL.DEPO
                     TARIH = DateTime.Now,
                     TIP = 0,   /// TOPLAMA EMRİ TIPI OUTPUT =0 INPUT=1
                     DURUM = 1,
-                    ACIKLAMA = ""
+                    DEPOID= StaticContext._siparisServis.Listele().Where(x => x.BELGENO == dataGridView1.Rows[e.RowIndex].Cells["BELGENO"].Value.ToString()).FirstOrDefault().DEPOID,
+                    ACIKLAMA = "",
 
 
 
@@ -119,37 +120,42 @@ namespace MEYPAK.PRL.DEPO
                     
                     StaticContext._siparisSevkEmriHarServis.Ekle(new MPSIPARISSEVKEMRIHAR()
                     {
-                        EMIRMIKTARI = a.MIKTAR,
+                        EMIRMIKTARI = item.MIKTAR,
                         SIPARISID = a.SIPARISID,
                         SIPARISKALEMID = item.ID,
                         EMIRID=a.ID,
-                        SIPARISMIKTARI = _tempSiparisDetay.Sum(x => x.MIKTAR),
+                        SIPARISMIKTARI = item.MIKTAR,
                         KULLANICIID = 0,
-                        TARIH = DateTime.Now
+                        TARIH = DateTime.Now,
+                        TIP=0,
 
                     });
-                    
 
-                    dataGridView3.DataSource = StaticContext._siparisSevkEmriHarServis.Listele();
+
+                    dataGridView3.DataSource = StaticContext._siparisSevkEmriHarServis.Listele().Select(x => new {x.MPSIPARIS.BELGENO, x.MPSIPARISDETAY.MPSTOK.KOD, x.MPSIPARISDETAY.MPSTOK.ADI, x.EMIRID, x.SIPARISMIKTARI, x.EMIRMIKTARI, KALANMIKTAR = StaticContext._stokMalKabulListServis.Listele().Where(z => z.EMIRID == x.EMIRID && z.SIPARISDETAYID == x.SIPARISKALEMID).GroupBy(x => new { x.MPSTOK.KOD, x.MPSTOK.ADI, BIRIM = x.MPOLCUBR.ADI, x.SIPARISMIKTARI }).Select(x => x.Select(x => x.SIPARISMIKTARI).FirstOrDefault() - x.Sum(z => z.MIKTAR)).FirstOrDefault() }).ToList();
                     dataGridView3.Refresh();
                     i++;
             }
-
+                 
         }
-    }
+           
+        }
 
-    private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
     {
-           // if (Convert.ToInt32(dataGridView2.Rows[e.RowIndex].Cells["DURUM"].Value)==1)
-        dataGridView3.DataSource= StaticContext._siparisSevkEmriHarServis.Getir(x => x.EMIRID == Convert.ToInt32(dataGridView2.Rows[e.RowIndex].Cells["ID"].Value ));
+            // if (Convert.ToInt32(dataGridView2.Rows[e.RowIndex].Cells["DURUM"].Value)==1)
+            if (StaticContext._stokSevkiyatListServis.Listele().Count > 0)
+                dataGridView4.DataSource = StaticContext._stokSevkiyatListServis.Getir(x => x.EMIRID.ToString() == dataGridView2.Rows[e.RowIndex].Cells["ID"].Value.ToString()).GroupBy(x => new { x.MPSTOK.KOD, x.MPSTOK.ADI, BIRIM = x.MPOLCUBR.ADI, x.SIPARISMIKTARI }).Select(x => new { KOD = x.Select(x => x.MPSTOK.KOD).FirstOrDefault(), ADI = x.Select(x => x.MPSTOK.ADI).FirstOrDefault(), MIKTAR = x.Sum(z => z.MIKTAR), SIPARISMIKTARI = x.Select(x => x.SIPARISMIKTARI).FirstOrDefault(), KALANMIKTAR = x.Select(x => x.SIPARISMIKTARI).FirstOrDefault() - x.Sum(z => z.MIKTAR), BIRIM = x.Select(x => x.MPOLCUBR.ADI).FirstOrDefault() }).ToList();
+
+            dataGridView3.DataSource = StaticContext._siparisSevkEmriHarServis.Listele().Select(x => new { x.MPSIPARIS.BELGENO, x.MPSIPARISDETAY.MPSTOK.KOD, x.MPSIPARISDETAY.MPSTOK.ADI, x.EMIRID, x.SIPARISMIKTARI, x.EMIRMIKTARI, KALANMIKTAR = StaticContext._stokMalKabulListServis.Listele().Where(z => z.EMIRID == x.EMIRID && z.SIPARISDETAYID == x.SIPARISKALEMID).GroupBy(x => new { x.MPSTOK.KOD, x.MPSTOK.ADI, BIRIM = x.MPOLCUBR.ADI, x.SIPARISMIKTARI }).Select(x => x.Select(x => x.SIPARISMIKTARI).FirstOrDefault() - x.Sum(z => z.MIKTAR)).FirstOrDefault() }).ToList();
             dataGridView3.Refresh();
 
     }
 
     private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
     {
-
-    }
+            
+        }
 
         private void dataGridView2_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -164,6 +170,9 @@ namespace MEYPAK.PRL.DEPO
             _sevkiyatCekiPanel._tempList = _tempSTOKSEVK.Select(x => new MPSTOKSEVKİYATLİST() { MPSTOK = x.MPSTOK,MPSIPARISDETAY=x, SIPARISMIKTARI = x.MIKTAR, DEPOID = x.MPSIPARIS.DEPOID, BIRIMID = x.BIRIMID, EMIRID = int.Parse(dataGridView2.Rows[e.RowIndex].Cells["ID"].Value.ToString()), SIPARISDETAYID = x.ID, STOKID = x.STOKID }).ToList();
 
             _sevkiyatCekiPanel.ShowDialog();
+            dataGridView4.DataSource = StaticContext._stokSevkiyatListServis.Getir(x => x.EMIRID.ToString() == dataGridView2.Rows[e.RowIndex].Cells["ID"].Value.ToString()).GroupBy(x => new { x.MPSTOK.KOD, x.MPSTOK.ADI, BIRIM = x.MPOLCUBR.ADI, x.SIPARISMIKTARI }).Select(x => new { KOD = x.Select(x => x.MPSTOK.KOD).FirstOrDefault(), ADI = x.Select(x => x.MPSTOK.ADI).FirstOrDefault(), MIKTAR = x.Sum(z => z.MIKTAR), SIPARISMIKTARI = x.Select(x => x.SIPARISMIKTARI).FirstOrDefault(), KALANMIKTAR = x.Select(x => x.SIPARISMIKTARI).FirstOrDefault() - x.Sum(z => z.MIKTAR), BIRIM = x.Select(x => x.MPOLCUBR.ADI).FirstOrDefault() }).ToList();
+            dataGridView3.DataSource = StaticContext._siparisSevkEmriHarServis.Listele().Select(x => new { x.MPSIPARIS.BELGENO, x.MPSIPARISDETAY.MPSTOK.KOD,x.MPSIPARISDETAY.MPSTOK.ADI, x.EMIRID, x.SIPARISMIKTARI, x.EMIRMIKTARI, KALANMIKTAR = x.MPSTOKSEVKİYATLİST.Where(z=>z.STOKID==x.MPSIPARISDETAY.STOKID).Sum(x=>x.SIPARISMIKTARI)- x.MPSTOKSEVKİYATLİST.Where(z => z.STOKID == x.MPSIPARISDETAY.STOKID).Sum(x => x.MIKTAR) }).ToList();
+
         }
     }
 }

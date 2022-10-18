@@ -33,6 +33,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.stokToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stokKartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,6 +47,7 @@
             this.stokSayımToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sayımİşleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sevkiyatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.malKabulToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.raporlarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.faturaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tanımToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,7 +55,6 @@
             this.satınAlmaSiparişTanımToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hareketToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.raporToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -102,6 +103,15 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1035, 450);
             this.panel3.TabIndex = 2;
+            // 
+            // panel2
+            // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 24);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1035, 426);
+            this.panel2.TabIndex = 1;
             // 
             // menuStrip1
             // 
@@ -176,7 +186,8 @@
             this.stokHareketToolStripMenuItem,
             this.stokSayımToolStripMenuItem,
             this.sayımİşleToolStripMenuItem,
-            this.sevkiyatToolStripMenuItem});
+            this.sevkiyatToolStripMenuItem,
+            this.malKabulToolStripMenuItem});
             this.hizmetKartToolStripMenuItem.Name = "hizmetKartToolStripMenuItem";
             this.hizmetKartToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.hizmetKartToolStripMenuItem.Text = "Hareketler";
@@ -209,6 +220,13 @@
             this.sevkiyatToolStripMenuItem.Text = "Sevkiyat";
             this.sevkiyatToolStripMenuItem.Click += new System.EventHandler(this.sevkiyatToolStripMenuItem_Click);
             // 
+            // malKabulToolStripMenuItem
+            // 
+            this.malKabulToolStripMenuItem.Name = "malKabulToolStripMenuItem";
+            this.malKabulToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.malKabulToolStripMenuItem.Text = "Mal Kabul";
+            this.malKabulToolStripMenuItem.Click += new System.EventHandler(this.malKabulToolStripMenuItem_Click);
+            // 
             // raporlarToolStripMenuItem
             // 
             this.raporlarToolStripMenuItem.Name = "raporlarToolStripMenuItem";
@@ -231,7 +249,7 @@
             this.siparişTanımToolStripMenuItem,
             this.satınAlmaSiparişTanımToolStripMenuItem});
             this.tanımToolStripMenuItem.Name = "tanımToolStripMenuItem";
-            this.tanımToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.tanımToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.tanımToolStripMenuItem.Text = "Tanımlar";
             // 
             // siparişTanımToolStripMenuItem
@@ -246,27 +264,19 @@
             this.satınAlmaSiparişTanımToolStripMenuItem.Name = "satınAlmaSiparişTanımToolStripMenuItem";
             this.satınAlmaSiparişTanımToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
             this.satınAlmaSiparişTanımToolStripMenuItem.Text = "Satın Alma Sipariş Tanım";
+            this.satınAlmaSiparişTanımToolStripMenuItem.Click += new System.EventHandler(this.satınAlmaSiparişTanımToolStripMenuItem_Click);
             // 
             // hareketToolStripMenuItem
             // 
             this.hareketToolStripMenuItem.Name = "hareketToolStripMenuItem";
-            this.hareketToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.hareketToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.hareketToolStripMenuItem.Text = "Hareketler";
             // 
             // raporToolStripMenuItem
             // 
             this.raporToolStripMenuItem.Name = "raporToolStripMenuItem";
-            this.raporToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.raporToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.raporToolStripMenuItem.Text = "Raporlar";
-            // 
-            // panel2
-            // 
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 24);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1035, 426);
-            this.panel2.TabIndex = 1;
             // 
             // Main
             // 
@@ -316,6 +326,7 @@
         private ToolStripMenuItem hareketToolStripMenuItem;
         private ToolStripMenuItem raporToolStripMenuItem;
         private ToolStripMenuItem sevkiyatToolStripMenuItem;
-        private Panel panel2;
+        private ToolStripMenuItem malKabulToolStripMenuItem;
+        public Panel panel2;
     }
 }

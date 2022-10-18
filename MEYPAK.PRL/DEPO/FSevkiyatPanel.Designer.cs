@@ -94,9 +94,9 @@
             // 
             this.panel7.Controls.Add(this.groupBox4);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(663, 0);
+            this.panel7.Location = new System.Drawing.Point(784, 0);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(633, 243);
+            this.panel7.Size = new System.Drawing.Size(512, 243);
             this.panel7.TabIndex = 1;
             // 
             // groupBox4
@@ -106,7 +106,7 @@
             this.groupBox4.ForeColor = System.Drawing.Color.Chocolate;
             this.groupBox4.Location = new System.Drawing.Point(0, 0);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(633, 243);
+            this.groupBox4.Size = new System.Drawing.Size(512, 243);
             this.groupBox4.TabIndex = 2;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "groupBox4";
@@ -156,7 +156,7 @@
             this.dataGridView4.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
             this.dataGridView4.RowTemplate.Height = 25;
             this.dataGridView4.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView4.Size = new System.Drawing.Size(627, 221);
+            this.dataGridView4.Size = new System.Drawing.Size(506, 221);
             this.dataGridView4.TabIndex = 0;
             // 
             // panel6
@@ -165,7 +165,7 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(663, 243);
+            this.panel6.Size = new System.Drawing.Size(784, 243);
             this.panel6.TabIndex = 0;
             // 
             // groupBox3
@@ -175,7 +175,7 @@
             this.groupBox3.ForeColor = System.Drawing.Color.Chocolate;
             this.groupBox3.Location = new System.Drawing.Point(0, 0);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(663, 243);
+            this.groupBox3.Size = new System.Drawing.Size(784, 243);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "groupBox3";
@@ -200,7 +200,7 @@
             this.dataGridView3.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
             this.dataGridView3.RowTemplate.Height = 25;
             this.dataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView3.Size = new System.Drawing.Size(657, 221);
+            this.dataGridView3.Size = new System.Drawing.Size(778, 221);
             this.dataGridView3.TabIndex = 0;
             // 
             // panel2
@@ -217,9 +217,9 @@
             // 
             this.panel5.Controls.Add(this.tabControl1);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(663, 0);
+            this.panel5.Location = new System.Drawing.Point(784, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(633, 616);
+            this.panel5.Size = new System.Drawing.Size(512, 616);
             this.panel5.TabIndex = 1;
             // 
             // tabControl1
@@ -230,7 +230,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(633, 616);
+            this.tabControl1.Size = new System.Drawing.Size(512, 616);
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl1.TabIndex = 0;
             this.tabControl1.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControl1_DrawItem);
@@ -243,7 +243,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(625, 588);
+            this.tabPage1.Size = new System.Drawing.Size(504, 588);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Toplama Emirleri";
             // 
@@ -267,7 +267,7 @@
             this.dataGridView2.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
             this.dataGridView2.RowTemplate.Height = 25;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(619, 582);
+            this.dataGridView2.Size = new System.Drawing.Size(498, 582);
             this.dataGridView2.TabIndex = 0;
             this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
             this.dataGridView2.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellDoubleClick);
@@ -300,7 +300,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(663, 616);
+            this.panel4.Size = new System.Drawing.Size(784, 616);
             this.panel4.TabIndex = 0;
             // 
             // groupBox1
@@ -310,7 +310,7 @@
             this.groupBox1.ForeColor = System.Drawing.Color.Chocolate;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(663, 616);
+            this.groupBox1.Size = new System.Drawing.Size(784, 616);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
@@ -335,7 +335,7 @@
             this.dataGridView1.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(657, 594);
+            this.dataGridView1.Size = new System.Drawing.Size(778, 594);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);

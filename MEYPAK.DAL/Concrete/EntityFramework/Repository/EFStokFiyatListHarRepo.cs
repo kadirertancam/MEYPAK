@@ -1,11 +1,6 @@
 ﻿using MEYPAK.DAL.Abstract.StokDal;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.Entity.Models.STOK;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
 {
@@ -15,6 +10,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
         public EFStokFiyatListHarRepo(MEYPAKContext context) : base(context)
         {
             _context = context;
+            onYukle();
         }
 
         public MPSTOKFIYATLISTHAR EkleyadaGuncelle(MPSTOKFIYATLISTHAR entity)
@@ -34,6 +30,21 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
                 _context.SaveChanges();
                 return entity;
             }
+        }
+        void onYukle()
+        {
+
+            var emp = _context.MPSTOKFIYATLISTHAR.ToList();
+            foreach (var item in emp)
+            {
+                _context.Entry(item)
+                    .Navigation("MPSTOK")
+                    .Load();
+                _context.Entry(item)
+                   .Navigation("MPSTOKFIYATLIST")
+                   .Load();
+            } 
+
         }
         public void Sil(int id)
         {

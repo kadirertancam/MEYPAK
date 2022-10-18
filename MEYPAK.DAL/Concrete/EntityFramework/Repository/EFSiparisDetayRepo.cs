@@ -44,13 +44,25 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
         void onYukle()
         {
 
-            var emp = context.MPSTOK.ToList();
+            var emp = context.MPSIPARISDETAY.ToList();
             foreach (var item in emp)
             {
                 context.Entry(item)
-                    .Collection(e => e.MPSTOKOLCUBR)
+                    .Collection(e => e.MPSIPARISSEVKEMRIHAR)
                 .Load();
- 
+                context.Entry(item)
+                  .Collection(e => e.MPIRSALIYESIPARISDETAYILISKI)
+              .Load();
+                context.Entry(item)
+                  .Collection(e => e.MPDEPOEMIRSIPARISKALEMILISKI)
+              .Load();
+                context.Entry(item)
+                .Collection(e => e.MPSTOKMALKABULLIST)
+            .Load();
+                context.Entry(item)
+                .Collection(e => e.MPSTOKSEVKİYATLİST)
+            .Load();
+
             }
         }
             public List<PocoSiparisKalem> PocoSiparisDetayListesi(int id)
