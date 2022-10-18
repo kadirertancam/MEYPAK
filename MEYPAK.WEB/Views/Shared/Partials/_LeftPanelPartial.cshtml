@@ -11,13 +11,32 @@
 
         <div id="main-menu" class="main-menu collapse navbar-collapse">
             <ul class="nav navbar-nav">
-               
+
                 <li class="active">
                     <a href="#"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
                 </li>
-                <partial name="Partials/UnderPartials/_StokPartial" />
-                <partial name="Partials/UnderPartials/_AracPartial" />
-       
+
+                <li class="menu-item-has-children ">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa  fa-edit"></i>Tanım</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <partial name="Partials/UnderPartials/_TanimPartial" />
+                    </ul>
+                </li>
+
+                <li class="menu-item-has-children ">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-gears"></i>Hareket</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        @*<partial name="Partials/UnderPartials/_StokPartial" />*@
+                    </ul>
+                </li>
+
+                <li class="menu-item-has-children ">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-list-alt"></i>Rapor</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        @*  <partial name="Partials/UnderPartials/_StokPartial" />*@
+                    </ul>
+                </li>
+
             </ul>
         </div><!-- /.navbar-collapse -->
     </nav>

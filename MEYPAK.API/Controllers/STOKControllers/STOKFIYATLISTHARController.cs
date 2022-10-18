@@ -27,9 +27,9 @@ namespace MEYPAK.API.Controllers.STOKControllers
                 var data = _stokFiyatListHarServis.Listele();
                 return Ok(data);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return Problem("Beklenmedik bir hata oluştu!");
+                return Problem("Beklenmedik bir hata oluştu!" + ex.Message);
             }
         }
 
@@ -43,9 +43,9 @@ namespace MEYPAK.API.Controllers.STOKControllers
                 var data = _stokFiyatListHarServis.Ekle(pModel);
                 return Ok(data);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return Problem("Beklenmedik bir hata oluştu!");
+                return Problem("Beklenmedik bir hata oluştu!" + ex.Message);
             }
         }
 
@@ -58,9 +58,9 @@ namespace MEYPAK.API.Controllers.STOKControllers
                 var data = _stokFiyatListHarServis.Sil(pModel);
                 return Ok(data);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return Problem("Beklenmedik bir hata oluştu!");
+                return Problem("Beklenmedik bir hata oluştu!" + ex.Message);
             }
         }
 
@@ -73,9 +73,9 @@ namespace MEYPAK.API.Controllers.STOKControllers
                 var data = _stokFiyatListHarServis.Guncelle(pModel);
                 return Ok(data);
             }
-            catch (Exception)
+            catch (Exception ex )
             {
-                return Problem("Beklenmedik bir hata oluştu!");
+                return Problem("Beklenmedik bir hata oluştu!" + ex.Message);
             }
         }
     }

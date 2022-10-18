@@ -45,7 +45,7 @@ namespace MEYPAK.Entity.PocoModels.SIPARIS
         public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
         public int TIP { get; set; }
         public byte KAYITTIPI { get; set; } = 0;
-        public List<PocoSIPARISDETAY> MPSIPARISDETAYList { get; set; }
+        public virtual List<PocoSIPARISDETAY> MPSIPARISDETAYList { get; set; }
 
     }
 }

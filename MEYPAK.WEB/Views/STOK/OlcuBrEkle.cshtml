@@ -1,23 +1,21 @@
-﻿@using MEYPAK.Entity.Models;
-@using MEYPAK.Entity.Models.STOK
-@using MEYPAK.Entity.PocoModels.STOK
+﻿@using MEYPAK.Entity.PocoModels.STOK
 
-@model PocoSTOK
+@model PocoOLCUBR
 
 <div class="col-lg-6">
     <div class="card">
 
         <div class="card-body">
-         
+           
             <div id="pay-invoice">
                 <div class="card-body">
                     <div class="card-title">
                         <h3 class="text-center">Stok Ekle</h3>
                     </div>
                     <hr>
-                    <form asp-controller="Stok" asp-action="StokEkle" method="post">
+                    <form asp-controller="Stok" asp-action="OlcuBrEkle" method="post">
                         @{
-                            PocoSTOK aa = new PocoSTOK();
+                            PocoOLCUBR aa = new PocoOLCUBR();
                             foreach (var item2 in aa.GetType().GetProperties())
                             {
                                 string typename = item2.PropertyType.Name;

@@ -62,8 +62,7 @@ namespace MEYPAK.Entity.Models.STOK
         public string RAPORKODU8 { get; set; } = "";
         [StringLength(50)]
         public string RAPORKODU9 { get; set; } = "";
-
-        [Required]
+         
         public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
 
         public byte KAYITTIPI { get; set; } = 0;

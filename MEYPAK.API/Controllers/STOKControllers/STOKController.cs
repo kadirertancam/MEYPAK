@@ -38,24 +38,23 @@ namespace MEYPAK.API.Controllers.STOK
                 var data = _stokServis.Listele();
                 return Ok(data);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return Problem("Beklenmedik bir hata oluştu!");
+                return Problem("Beklenmedik bir hata oluştu!" + ex.Message);
             }
         }
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public  IActionResult STOKEkle(JsonObject pModel)
-        { 
-            PocoSTOK pocoSTOK = JsonConvert.DeserializeObject<PocoSTOK>(pModel.ToString());
+        public IActionResult STOKEkle(PocoSTOK pModel)
+        {
             try
             {
-                var data = _stokServis.Ekle(pocoSTOK);
+                var data = _stokServis.Ekle(pModel);
                 return Ok(data);
             }
             catch (Exception ex)
             {
-                return Problem("Beklenmedik bir hata oluştu! "+ex.Message);
+                return Problem("Beklenmedik bir hata oluştu! " + ex.Message);
             }
         }
         [HttpPost]
@@ -67,9 +66,9 @@ namespace MEYPAK.API.Controllers.STOK
                 var data = _stokServis.Sil(pModel);
                 return Ok(data);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return Problem("Beklenmedik bir hata oluştu!");
+                return Problem("Beklenmedik bir hata oluştu!" + ex.Message);
             }
         }
         [HttpPost]
@@ -81,26 +80,26 @@ namespace MEYPAK.API.Controllers.STOK
                 var data = _stokServis.Guncelle(pModel);
                 return Ok(data);
             }
-            catch (Exception)
+            catch (Exception ex )
             {
-                return Problem("Beklenmedik bir hata oluştu!");
+                return Problem("Beklenmedik bir hata oluştu!" + ex.Message);
             }
         }
 
-        [HttpPost("")]
-        [Route("/[controller]/[action]")]
-        public IActionResult STOKGetir([FromQuery]int id)
-        {
-            try
-            {
-                var data = _stokServis.Getir(X=> X.ID == id);
-                return Ok(data);
-            }
-            catch (Exception)
-            {
-                return Problem("Beklenmedik bir hata oluştu!");
-            }
-        }
+        //[HttpPost("")]
+        //[Route("/[controller]/[action]")]
+        //public IActionResult STOKGetir([FromQuery]int id)
+        //{
+        //    try
+        //    {
+        //        var data = _stokServis.Getir(X=> X.ID == id);
+        //        return Ok(data);
+        //    }
+        //    catch (Exception)
+        //    {
+        //        return Problem("Beklenmedik bir hata oluştu!");
+        //    }
+        //}
 
 
 
