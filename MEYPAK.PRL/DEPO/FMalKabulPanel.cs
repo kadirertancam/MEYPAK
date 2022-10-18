@@ -108,11 +108,11 @@ namespace MEYPAK.PRL.DEPO
 
         private void dataGridView2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            _tempSTOKSEVK = StaticContext._depoEmirServis.Listele().Where(x => x.ID.ToString() == dataGridView2.Rows[e.RowIndex].Cells["ID"].Value.ToString()).Select(x => x.MPSIPARIS.MPSIPARISDETAYList.ToList()).FirstOrDefault();
-            _fMalKabulCekiPanel = new FMalKabulCekiPanel();
-            _fMalKabulCekiPanel._tempEmir = StaticContext._depoEmirServis.Getir(x => x.ID.ToString() == dataGridView2.Rows[e.RowIndex].Cells["ID"].Value.ToString()).FirstOrDefault();
-            _fMalKabulCekiPanel._tempList = _tempSTOKSEVK.Select(x => new PocoSTOKMALKABULLIST() { MPSTOK = x.MPSTOK, MPSIPARISDETAY = x, SIPARISMIKTARI = x.MIKTAR, DEPOID = x.MPSIPARIS.DEPOID, BIRIMID = x.BIRIMID, EMIRID = int.Parse(dataGridView2.Rows[e.RowIndex].Cells["ID"].Value.ToString()), SIPARISDETAYID = x.ID, STOKID = x.STOKID }).ToList();
-
+        //    _tempSTOKSEVK = StaticContext._depoEmirServis.Listele().Where(x => x.ID.ToString() == dataGridView2.Rows[e.RowIndex].Cells["ID"].Value.ToString()).Select(x => x.MPSIPARIS.MPSIPARISDETAYList.ToList()).FirstOrDefault();
+        //    _fMalKabulCekiPanel = new FMalKabulCekiPanel();
+        //    _fMalKabulCekiPanel._tempEmir = StaticContext._depoEmirServis.Getir(x => x.ID.ToString() == dataGridView2.Rows[e.RowIndex].Cells["ID"].Value.ToString()).FirstOrDefault();
+        //    _fMalKabulCekiPanel._tempList = _tempSTOKSEVK.Select(x => new PocoSTOKMALKABULLIST() { MPSTOK = x.MPSTOK, MPSIPARISDETAY = x, SIPARISMIKTARI = x.MIKTAR, DEPOID = x.MPSIPARIS.DEPOID, BIRIMID = x.BIRIMID, EMIRID = int.Parse(dataGridView2.Rows[e.RowIndex].Cells["ID"].Value.ToString()), SIPARISDETAYID = x.ID, STOKID = x.STOKID }).ToList();
+        }
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             dataGridView4.DataSource = StaticContext._stokMalKabulListServis.Getir(x => x.EMIRID.ToString() == dataGridView2.Rows[e.RowIndex].Cells["ID"].Value.ToString()).GroupBy(x=> new { x.MPSTOK.KOD, x.MPSTOK.ADI, BIRIM= x.MPOLCUBR.ADI,x.SIPARISMIKTARI}).Select(x=> new { KOD = x.Select(x => x.MPSTOK.KOD).FirstOrDefault(), ADI= x.Select(x=>x.MPSTOK.ADI).FirstOrDefault(), MIKTAR = x.Sum(z=>z.MIKTAR),SIPARISMIKTARI=x.Select(x=>x.SIPARISMIKTARI).FirstOrDefault(),KALANMIKTAR= x.Select(x => x.SIPARISMIKTARI).FirstOrDefault() - x.Sum(z => z.MIKTAR), BIRIM = x.Select(x => x.MPOLCUBR.ADI).FirstOrDefault() }).ToList();

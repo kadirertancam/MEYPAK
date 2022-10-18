@@ -1,4 +1,5 @@
-﻿using MEYPAK.BLL.DEPO;
+﻿using MEYPAK.BLL.Assets;
+using MEYPAK.BLL.DEPO;
 using MEYPAK.BLL.STOK;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository;
@@ -25,11 +26,13 @@ namespace MEYPAK.PRL.DEPO
 {
     public partial class FSevkiyatCekiPanel : Form
     {
+        GenericWebServis<PocoSTOK> _tempPocoStok;
         public FSevkiyatCekiPanel()
         {
             InitializeComponent();
             _tempStokSevkiyatList = new PocoSTOKSEVKIYATLIST();
-            _tempStok = StaticContext._stokServis.Listele(); 
+            _tempPocoStok = new GenericWebServis<PocoSTOK>();
+            _tempStok = _tempPocoStok.Data(ServisList.StokListeServis);
         } 
         
      

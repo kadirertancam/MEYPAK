@@ -25,6 +25,7 @@ namespace MEYPAK.Entity.PocoModels.STOK
         public int AKTIF { get; set; }
         public byte KAYITTIPI { get; set; } = 0;
         public virtual PocoSTOK MPSTOK { get; set; }
-        public virtual PocoSTOKFIYATLIST MPSTOKFIYATLIST { get; set; } 
+        public virtual PocoSTOKFIYATLIST MPSTOKFIYATLIST { get; set; }
+        
     }
 }

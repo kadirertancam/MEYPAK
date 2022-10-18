@@ -32,9 +32,10 @@ namespace MEYPAK.BLL.STOK
             return _stokDal.EkleyadaGuncelle(_mapper.Map<PocoSTOK,MPSTOK>(pModel));
         }
 
-        public IQueryable<MPSTOK> Listee()
+        public List<PocoSTOK> Listee()
         {
-            return _stokDal.Listee();
+            
+            return _mapper.Map<List<PocoSTOK>>(_stokDal.Listele());
         }
 
     }

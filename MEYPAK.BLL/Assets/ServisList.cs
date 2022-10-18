@@ -1,0 +1,187 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace MEYPAK.BLL.Assets
+{
+    public static class ServisList
+    {
+        #region Araç
+        public const string AracListeServis = "http://213.238.167.117:8080/ARAC/ARACListe";
+        public const string AracEkleServis = "http://213.238.167.117:8080/ARAC/ARACEkle";
+        public const string AracSilServis = "http://213.238.167.117:8080/ARAC/ARACSil";
+        public const string AracGuncelleServis = "http://213.238.167.117:8080/ARAC/ARACGuncelle";
+
+        #endregion
+
+        #region StokSevkiyatList
+        public const string StokSevkiyatListListeServis =           "http://213.238.167.117:8080/STOKSEVKIYATLIST/STOKSEVKIYATLISTListe";
+        public const string StokSevkiyatListEkleServis =            "http://213.238.167.117:8080/STOKSEVKIYATLIST/STOKSEVKIYATLISTEkle";
+        public const string StokSevkiyatListSilServis =             "http://213.238.167.117:8080/STOKSEVKIYATLIST/STOKSEVKIYATLISTSil";
+        public const string StokSevkiyatListGuncelleServis =        "http://213.238.167.117:8080/STOKSEVKIYATLIST/STOKSEVKIYATLISTGuncelle";
+        #endregion
+         
+        #region StokSayimHar
+        public const string StokSayimHarListeServis =   "http://213.238.167.117:8080/STOKSAYIMHAR/STOKSAYIMHARListe";
+        public const string StokSayimHarEkleServis =            "http://213.238.167.117:8080/STOKSAYIMHAR/STOKSAYIMHAREkle";
+        public const string StokSayimHarSilServis =             "http://213.238.167.117:8080/STOKSAYIMHAR/STOKSAYIMHARSil";
+        public const string StokSayimHarGuncelleServis = "http://213.238.167.117:8080/STOKSAYIMHAR/STOKSAYIMHARGuncelle";
+        #endregion
+
+        #region StokSayim
+        public const string StokSayimListeServis =    "http://213.238.167.117:8080/STOKSAYIM/STOKSAYIMListe";
+        public const string StokSayimEkleServis =             "http://213.238.167.117:8080/STOKSAYIM/STOKSAYIMEkle";
+        public const string StokSayimSilServis =              "http://213.238.167.117:8080/STOKSAYIM/STOKSAYIMSil";
+        public const string StokSayimGuncelleServis = "http://213.238.167.117:8080/STOKSAYIM/STOKSAYIMGuncelle";
+        #endregion
+
+        #region StokOlcuBr
+        public const string StokOlcuBrListeServis =   "http://213.238.167.117:8080/STOKOLCUBR/STOKOLCUBRListe";
+        public const string StokOlcuBrEkleServis =            "http://213.238.167.117:8080/STOKOLCUBR/STOKOLCUBREkle";
+        public const string StokOlcuBrSilServis =             "http://213.238.167.117:8080/STOKOLCUBR/STOKOLCUBRSil";
+        public const string StokOlcuBrGuncelleServis = "http://213.238.167.117:8080/STOKOLCUBR/STOKOLCUBRGuncelle";
+        #endregion
+         
+        #region StokMarka
+        public const string StokMarkaListeServis =     "http://213.238.167.117:8080/STOKMARKA/STOKMARKAListe";
+        public const string StokMarkaEkleServis =              "http://213.238.167.117:8080/STOKMARKA/STOKMARKAEkle";
+        public const string StokMarkaSilServis =               "http://213.238.167.117:8080/STOKMARKA/STOKMARKASil";
+        public const string StokMarkaGuncelleServis = "http://213.238.167.117:8080/STOKMARKA/STOKMARKAGuncelle";
+        #endregion
+         
+        #region StokMalKabulList
+        public const string StokMalKabulListListeServis = "http://213.238.167.117:8080/STOKMALKABULLIST/STOKMALKABULLISTListe";
+        public const string StokMalKabulListEkleServis = "http://213.238.167.117:8080/STOKMALKABULLIST/STOKMALKABULLISTEkle";
+        public const string StokMalKabulListSilServis = "http://213.238.167.117:8080/STOKMALKABULLIST/STOKMALKABULLISTSil";
+        public const string StokMalKabulListGuncelleServis = "http://213.238.167.117:8080/STOKMALKABULLIST/STOKMALKABULLISTGuncelle";
+        #endregion 
+         
+        #region StokKategori
+        public const string StokKategoriListeServis =   "http://213.238.167.117:8080/STOKKATEGORI/STOKKATEGORIListe";
+        public const string StokKategoriEkleServis =            "http://213.238.167.117:8080/STOKKATEGORI/STOKKATEGORIEkle";
+        public const string StokKategoriSilServis =             "http://213.238.167.117:8080/STOKKATEGORI/STOKKATEGORISil";
+        public const string StokKategoriGuncelleServis = "http://213.238.167.117:8080/STOKKATEGORI/STOKKATEGORIGuncelle";
+        #endregion
+
+        #region StokKasa
+        public const string StokKasaListeServis =    "http://213.238.167.117:8080/STOKKASA/STOKKASAListe"; 
+        public const string StokKasaEkleServis =             "http://213.238.167.117:8080/STOKKASA/STOKKASAEkle"; 
+        public const string StokKasaSilServis =              "http://213.238.167.117:8080/STOKKASA/STOKKASASil"; 
+        public const string StokKasaGuncelleServis = "http://213.238.167.117:8080/STOKKASA/STOKKASAGuncelle";
+        #endregion
+
+        #region StokHar
+        public const string StokHarListeServis =       "http://213.238.167.117:8080/STOKHAR/STOKHARListe";
+        public const string StokHarEkleServis =              "http://213.238.167.117:8080/STOKHAR/STOKHAREkle";
+        public const string StokHarSilServis =               "http://213.238.167.117:8080/STOKHAR/STOKHARSil";
+        public const string StokHarGuncelleServis = "http://213.238.167.117:8080/STOKHAR/STOKHARGuncelle";
+        #endregion
+
+        #region StokFiyatListHar
+        public const string StokFiyatListHarListeServis =    "http://213.238.167.117:8080/STOKFIYATLISTHAR/STOKFIYATLISTHARListe"; 
+        public const string StokFiyatListHarEkleServis =             "http://213.238.167.117:8080/STOKFIYATLISTHAR/STOKFIYATLISTHAREkle"; 
+        public const string StokFiyatListHarSilServis =              "http://213.238.167.117:8080/STOKFIYATLISTHAR/STOKFIYATLISTHARSil"; 
+        public const string StokFiyatListHarGuncelleServis = "http://213.238.167.117:8080/STOKFIYATLISTHAR/STOKFIYATLISTHARGuncelle";
+        #endregion
+
+        #region StokFiyatList
+        public const string StokFiyatListListeServis =          "http://213.238.167.117:8080/ST0KFIYATLIST/STOKFIYATLISTListe"; 
+        public const string StokFiyatListEkleServis =            "http://213.238.167.117:8080/ST0KFIYATLIST/STOKFIYATLISTEkle"; 
+        public const string StokFiyatListSilServis =             "http://213.238.167.117:8080/ST0KFIYATLIST/STOKFIYATLISTSil"; 
+        public const string StokFiyatListGuncelleServis =   "http://213.238.167.117:8080/ST0KFIYATLIST/STOKFIYATLISTGuncelle";
+        #endregion
+
+        #region Stok
+        public const string StokListeServis =    "http://213.238.167.117:8080/ST0K/STOKListe";
+        public const string StokEkleServis =             "http://213.238.167.117:8080/ST0K/STOKEkle";
+        public const string StokSilServis =              "http://213.238.167.117:8080/ST0K/STOKSil";
+        public const string StokGuncelleServis = "http://213.238.167.117:8080/ST0K/STOKGuncelle";
+        #endregion
+
+        #region SiparisSevkEmriHar
+        public const string SiparisSevkEmriHarListeServis =     "http://213.238.167.117:8080/SIPARISSEVKEMRIHAR/SIPARISSEVKEMRIHARListe";
+        public const string SiparisSevkEmriHarEkleServis =              "http://213.238.167.117:8080/SIPARISSEVKEMRIHAR/SIPARISSEVKEMRIHAREkle";
+        public const string SiparisSevkEmriHarSilServis =               "http://213.238.167.117:8080/SIPARISSEVKEMRIHAR/SIPARISSEVKEMRIHARSil";
+        public const string SiparisSevkEmriHarGuncelleServis = "http://213.238.167.117:8080/SIPARISSEVKEMRIHAR/SIPARISSEVKEMRIHARGuncelle";
+        #endregion
+
+        #region SiparisDetay
+        public const string SiparisDetayListeServis =   "http://213.238.167.117:8080/SIPARISDETAY/SIPARISDETAYListe";
+        public const string SiparisDetayEkleServis =    "http://213.238.167.117:8080/SIPARISDETAY/SIPARISDETAYEkle";
+        public const string SiparisDetaySilServis =     "http://213.238.167.117:8080/SIPARISDETAY/SIPARISDETAYSil";
+        public const string SiparisDetayGuncelleServis ="http://213.238.167.117:8080/SIPARISDETAY/SIPARISDETAYGuncelle";
+        #endregion
+
+        #region Siparis
+        public const string SiparisListeServis =    "http://213.238.167.117:8080/SIPARIS/SIPARISListe";
+        public const string SiparisEkleServis =     "http://213.238.167.117:8080/SIPARIS/SIPARISEkle";
+        public const string SiparisSilServis =      "http://213.238.167.117:8080/SIPARIS/SIPARISSil";
+        public const string SiparisGuncelleServis = "http://213.238.167.117:8080/SIPARIS/SIPARISGuncelle";
+        #endregion
+
+        #region Personel
+        public const string PersonelListeServis =         "http://213.238.167.117:8080/PERSONEL/PERSONELListe"; 
+        public const string PersonelEkleServis =            "http://213.238.167.117:8080/PERSONEL/PERSONELEkle"; 
+        public const string PersonelSilServis =             "http://213.238.167.117:8080/PERSONEL/PERSONELSil"; 
+        public const string PersonelGuncelleServis = "http://213.238.167.117:8080/PERSONEL/PERSONELGuncelle";
+        #endregion
+
+        #region OlcuBr
+        public const string OlcuBrListeServis =      "http://213.238.167.117:8080/OLCUBR/OLCUBRListe";
+        public const string OlcuBrEkleServis =              "http://213.238.167.117:8080/OLCUBR/OLCUBREkle";
+        public const string OlcuBrSilServis =               "http://213.238.167.117:8080/OLCUBR/OLCUBRSil";
+        public const string OlcuBrGuncelleServis = "http://213.238.167.117:8080/OLCUBR/OLCUBRGuncelle";
+        #endregion
+
+        #region Irsaliye
+        public const string IrsaliyeListeServis =          "http://213.238.167.117:8080/IRSALIYE/IRSALIYEListe";
+        public const string IrsaliyeEkleServis =                  "http://213.238.167.117:8080/IRSALIYE/IRSALIYEEkle";
+        public const string IrsaliyeSilServis =                   "http://213.238.167.117:8080/IRSALIYE/IRSALIYESil";
+        public const string IrsaliyeGuncelleServis = "http://213.238.167.117:8080/IRSALIYE/IRSALIYEGuncelle";
+        #endregion
+
+        #region Hizmet
+        public const string HizmetListeServis =      "http://213.238.167.117:8080/HIZMET/HIZMETListe";
+        public const string HizmetEkleServis =              "http://213.238.167.117:8080/HIZMET/HIZMETEkle";     
+        public const string HizmetSilServis =               "http://213.238.167.117:8080/HIZMET/HIZMETSil";     
+        public const string HizmetGuncelleServis = "http://213.238.167.117:8080/HIZMET/HIZMETGuncelle";
+        #endregion
+
+        #region DepoTranferHar
+        public const string DepoTranferHarListeServis =     "http://213.238.167.117:8080/DEPOTRANSFERHAR/DEPOTRANSFERHARListe"; 
+        public const string DepoTranferHarEkleServis =       "http://213.238.167.117:8080/DEPOTRANSFERHAR/DEPOTRANSFERHAREkle";
+        public const string DepoTranferHarSilServis =    "http://213.238.167.117:8080/DEPOTRANSFERHAR/DEPOTRANSFERHARSil";
+        public const string DepoTranferHarGuncelleServis = "http://213.238.167.117:8080/DEPOTRANSFERHAR/DEPOTRANSFERHARGuncelle";
+        #endregion
+
+        #region DepoTranfer
+        public const string DepoTranferListeServis = "http://213.238.167.117:8080/DEPOTRANSFER/DEPOTRANSFERListe";
+        public const string DepoTranferEkleServis = "http://213.238.167.117:8080/DEPOTRANSFER/DEPOTRANSFEREkle";
+        public const string DepoTranferSilServis = "http://213.238.167.117:8080/DEPOTRANSFER/DEPOTRANSFERSil";
+        public const string DepoTranferGuncelleServis = "http://213.238.167.117:8080/DEPOTRANSFER/DEPOTRANSFERGuncelle";
+        #endregion
+         
+        #region DepoEmir
+        public const string DepoEmirListeServis = "http://213.238.167.117:8080/DEPOEMIR/DEPOEMIRListe";
+        public const string DepoEmirEkleServis = "http://213.238.167.117:8080/DEPOEMIR/DEPOEMIREkle";
+        public const string DepoEmirSilServis = "http://213.238.167.117:8080/DEPOEMIR/DEPOEMIRSil";
+        public const string DepoEmirGuncelleServis = "http://213.238.167.117:8080/DEPOEMIR/DEPOEMIRGuncelle";
+        #endregion
+         
+        #region DepoCekiList
+        public const string DepoCekiListListeServis = "http://213.238.167.117:8080/DEPOCEKILIST/DEPOCEKILISTListe";
+        public const string DepoCekiListEkleServis = "http://213.238.167.117:8080/DEPOCEKILIST/DEPOCEKILISTEkle";
+        public const string DepoCekiListSilServis = "http://213.238.167.117:8080/DEPOCEKILIST/DEPOCEKILISTSil";
+        public const string DepoCekiListGuncelleServis = "http://213.238.167.117:8080/DEPOCEKILIST/DEPOCEKILISTGuncelle";
+        #endregion
+
+        #region  Depo
+        public const string DepoListeServis = "http://213.238.167.117:8080/DEPO/DEPOListe";
+        public const string DepoEkleServis = "http://213.238.167.117:8080/DEPO/DEPOEkle";
+        public const string DepoSilServis = "http://213.238.167.117:8080/DEPO/DEPOSil";
+        public const string DepoGuncelleServis = "http://213.238.167.117:8080/ARAC/ARACGuncelle";
+        #endregion
+    }
+}

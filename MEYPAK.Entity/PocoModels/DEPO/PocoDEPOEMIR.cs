@@ -8,6 +8,7 @@ namespace MEYPAK.Entity.PocoModels.DEPO
     {
         public int ID { get; set; }
         public DateTime TARIH { get; set; }
+        public int DEPOID { get; set; }
         public int SIRA { get; set; }
         public int TIP { get; set; }
         public int SIPARISID { get; set; }
@@ -16,7 +17,9 @@ namespace MEYPAK.Entity.PocoModels.DEPO
         public string ACIKLAMA { get; set; }
         public PocoSIPARIS MPSIPARIS { get; set; }
         public PocoSTOK MPSTOK { get; set; }
+        public PocoDEPO MPDEPO { get; set; }
 
+        public virtual List<PocoSIPARISSEVKEMIRHAR> MPSIPARISSEVKEMRIHAR { get; set; }
         public virtual List<PocoSTOKSEVKIYATLIST> MPSTOKSEVKİYATLİST { get; set; }
 
         public virtual List<PocoSTOKMALKABULLIST> MPSTOKMALKABULLIST { get; set; }

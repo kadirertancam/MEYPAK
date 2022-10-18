@@ -343,7 +343,7 @@ namespace MEYPAK.PRL.SIPARIS
                 DGVtempCell = dataGridView1.Rows[e.RowIndex].Cells["DGVOlcuBr"];
                 DGVtempCell.Value = DGVOlcuBr.Items[0].ToString();
                 StaticContext._stokFiyatListServis.Listele();
-                DGVFiyatList.DataSource = _tempStok.MPSTOKFIYATLISTHARList.Select(x => x.MPSTOKFIYATLIST.FIYATLISTADI == null ? "" : x.MPSTOKFIYATLIST.FIYATLISTADI).ToList();
+                DGVFiyatList.DataSource = _tempStok.MPSTOKFIYATLISTList.Select(x => x.MPSTOKFIYATLISTHARList).ToList();
                 _tempSiparisDetay[e.RowIndex] = _tempPocokalem;
                 dataGridView1.DataSource = _tempSiparisDetay;
 

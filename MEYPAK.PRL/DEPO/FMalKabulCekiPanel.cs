@@ -1,10 +1,12 @@
-﻿using MEYPAK.Entity.Models.DEPO;
+﻿using MEYPAK.BLL.Assets;
+using MEYPAK.Entity.Models.DEPO;
 using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Entity.PocoModels;
 using MEYPAK.Entity.PocoModels.DEPO;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Depo;
 using MEYPAK.Interfaces.Stok;
+using MEYPAK.PRL.Assets;
 using MEYPAK.PRL.Assets.Scripts;
 using System.Data;
 
@@ -13,14 +15,14 @@ namespace MEYPAK.PRL.DEPO
 {
     public partial class FMalKabulCekiPanel : Form
     {
-        IStokServis _stokServis;
+        GenericWebServis<PocoSTOK> _tempPocoStok;
         IStokMalKabulListServis _stokMalKabulListServis;
         public FMalKabulCekiPanel()
         {
             InitializeComponent();
-
+            _tempPocoStok = new GenericWebServis<PocoSTOK>();
             _tempStokSevkiyatList = new PocoSTOKMALKABULLIST();
-            _tempStok = _stokServis.Listele();
+            _tempStok = _tempPocoStok.Data(ServisList.StokListeServis );
         }
         List<PocoSTOK> _tempStok;
         PocoSTOK _Stok;
@@ -34,7 +36,7 @@ namespace MEYPAK.PRL.DEPO
             int _id;
             foreach (var item in aaa)
             {
-                _id = _stokServis.Getir(x => x.KOD == item.StokKodu).FirstOrDefault().ID;
+                _id = _tempStok.Where(x => x.KOD == item.StokKodu).FirstOrDefault().ID;
                 _stokMalKabulListServis.OnYukle();
                 _stokMalKabulListServis.EkleyadaGuncelle(new PocoSTOKMALKABULLIST()
                 {
@@ -57,7 +59,7 @@ namespace MEYPAK.PRL.DEPO
         private void button1_Click(object sender, EventArgs e)
         {
 
-            _Stok = _stokServis.Getir(x => x.ID.ToString() == comboBox1.SelectedValue.ToString()).FirstOrDefault();
+            _Stok = _tempStok.Where(x => x.ID.ToString() == comboBox1.SelectedValue.ToString()).FirstOrDefault();
             _tempStokSevkiyatList = new PocoSTOKMALKABULLIST()
             {
                 STOKID = _Stok.ID,

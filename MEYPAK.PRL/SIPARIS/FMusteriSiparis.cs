@@ -24,11 +24,14 @@ using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Entity.Models.SIPARIS;
 using MEYPAK.Entity.PocoModels.SIPARIS;
 using MEYPAK.Entity.PocoModels.STOK;
+using MEYPAK.Entity.PocoModels.DEPO;
+using MEYPAK.BLL.Assets;
 
 namespace MEYPAK.PRL.SIPARIS
 {
     public partial class FMusteriSiparis : Form
     {
+        GenericWebServis<PocoDEPO> _tempDepo;
         public FMusteriSiparis()
         {
             InitializeComponent();
@@ -39,7 +42,8 @@ namespace MEYPAK.PRL.SIPARIS
             _fStokList = new FStokList("siparis");
             fKasaList = new FKasaList("Siparis");
             dataGridView1.MultiSelect = false;
-            CBDepo.DataSource = StaticContext._depoServis.Listele().Select(x => x.DEPOADI).ToList();
+            _tempDepo=new GenericWebServis<PocoDEPO>();
+            CBDepo.DataSource = _tempDepo.Data(@"http://213.238.167.117:8080/DEPO/DEPOListe",new PocoDEPO());
         }
         FKasaList fKasaList;
         List<PocoSiparisKalem> _tempSiparisDetay = new List<PocoSiparisKalem>();
@@ -66,7 +70,7 @@ namespace MEYPAK.PRL.SIPARIS
             _tempSiparisDetay.Clear();
             _tempSiparisDetay.Add(new PocoSiparisKalem()); 
             dataGridView1.DataSource = _tempSiparisDetay;
-            DGVOlcuBr.DataSource = _tempStok.MPSTOKOLCUBR.Select(x => x.MPOLCUBR.ADI).ToList();
+            DGVOlcuBr.DataSource = _tempStok.MPSTOKOLCUBRList.Select(x => x.MPOLCUBR.ADI).ToList();
         }
         void DataGridYapilandir()
         {
@@ -148,7 +152,7 @@ namespace MEYPAK.PRL.SIPARIS
                     KASAID = item.KasaId,
                     NETTOPLAM = item.NetToplam,
                     NETFIYAT = item.NetFiyat,
-                    BIRIMID = item.MPSTOK.MPSTOKOLCUBRList.Where(x => x.NUM == 1).Select(x => x.MPOLCUBR.ID).FirstOrDefault(),
+                    BIRIMID = item.MPSTOK.OLCUBR1,
                     DOVIZID = 0,
                     MIKTAR = item.Miktar,
                     ISTKONTO1 = item.İskonto1,
@@ -209,7 +213,7 @@ namespace MEYPAK.PRL.SIPARIS
                 DGVtempCell = dataGridView1.Rows[e.RowIndex].Cells["DGVOlcuBr"];
                 DGVtempCell.Value = DGVOlcuBr.Items[0].ToString(); 
                 StaticContext._stokFiyatListServis.Listele();
-                DGVFiyatList.DataSource = _tempStok.MPSTOKFIYATLISTHARList.Select(x => x.MPSTOKFIYATLIST.FIYATLISTADI == null ? "" : x.MPSTOKFIYATLIST.FIYATLISTADI).ToList();
+                DGVFiyatList.DataSource = _tempStok.MPSTOKFIYATLISTList.Select(x => x.MPSTOKHAR).ToList(); //////////////////////////// BAKILCAK
                 _tempSiparisDetay[e.RowIndex] = _tempPocokalem;
                 dataGridView1.DataSource = _tempSiparisDetay;
 

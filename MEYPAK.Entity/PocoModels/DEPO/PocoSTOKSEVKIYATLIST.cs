@@ -25,6 +25,7 @@ namespace MEYPAK.Entity.PocoModels.DEPO
         public decimal MIKTAR { get; set; }
         public int EMIRID { get; set; }
         public int KULLANICIID { get; set; } = 0;
+        public int SEVKEMRIHARID { get; set; }
         public PocoOLCUBR MPOLCUBR { get; set; }
         public PocoDEPOEMIR MPDEPOEMIR { get; set; }
         public PocoSTOK MPSTOK { get; set; }

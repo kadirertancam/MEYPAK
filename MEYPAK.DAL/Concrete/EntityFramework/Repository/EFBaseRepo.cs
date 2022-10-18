@@ -137,5 +137,10 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
             context.Update(entity);
             return entity;
         }
+
+        List<T> IGeneric<T>.Listele()
+        {
+           return context.Set<T>().ToList();
+        }
     }
 }

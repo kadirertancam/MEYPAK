@@ -38,7 +38,7 @@ namespace MEYPAK.PRL.STOK
              
             foreach (var item in _stokSayimServis.Listele())
             { 
-                foreach (var item2 in item.MPSTOKSAYIMHARList)
+                foreach (var item2 in item.MPSTOKSAYIMHAR)
                 {
 
                 

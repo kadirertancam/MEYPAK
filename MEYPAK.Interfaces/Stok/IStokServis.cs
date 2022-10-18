@@ -13,6 +13,6 @@ namespace MEYPAK.Interfaces.Stok
     {
         public Durum EkleyadaGuncelle(PocoSTOK entity);
 
-        public IQueryable<MPSTOK> Listee();
+        public List<PocoSTOK> Listee();
     }
 }
