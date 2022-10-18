@@ -1,22 +1,28 @@
-﻿using MEYPAK.DAL.Abstract.StokDal;
+﻿using AutoMapper;
+using MEYPAK.DAL.Abstract;
+using MEYPAK.DAL.Abstract.StokDal;
 using MEYPAK.Entity.Models.STOK;
+using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces;
 using MEYPAK.Interfaces.Stok;
 
 namespace MEYPAK.BLL.STOK
 {
-    public class StokKategoriManager :BaseManager<MPSTOKKATEGORI>, IStokKategoriServis
+    public class StokKategoriManager :BaseManager<PocoSTOKKATEGORI,MPSTOKKATEGORI>, IStokKategoriServis
     {
         IStokKategoriDal _kategoriDal;
+        IMapper _mapper;
 
-        public StokKategoriManager(IStokKategoriDal generic) : base(generic)
+        public StokKategoriManager(IMapper mapper,IStokKategoriDal stokKategoriDal) : base(mapper, stokKategoriDal)
         {
-            _kategoriDal = generic;
+            _kategoriDal = stokKategoriDal;
+            _mapper = mapper;
         }
 
-        public Durum EkleyadaGuncelle(MPSTOKKATEGORI entity)
+        public Durum EkleyadaGuncelle(PocoSTOKKATEGORI pModel)
         {
-            return _kategoriDal.EkleyadaGuncelle(entity);
+
+            return _kategoriDal.EkleyadaGuncelle(_mapper.Map<PocoSTOKKATEGORI,MPSTOKKATEGORI>(pModel));
         }
 
        

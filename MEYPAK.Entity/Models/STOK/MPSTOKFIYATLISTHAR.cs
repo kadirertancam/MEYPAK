@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace MEYPAK.Entity.Models.STOK
@@ -19,6 +20,7 @@ namespace MEYPAK.Entity.Models.STOK
         [ForeignKey("MPSTOK")]
         public int STOKID { get; set; }
 
+        [ForeignKey("MPSTOKFIYATLIST")]
         public int FIYATLISTID { get; set; }
         public int DOVIZID { get; set; }
         public decimal KUR { get; set; }
@@ -28,8 +30,10 @@ namespace MEYPAK.Entity.Models.STOK
 
         public int AKTIF { get; set; }
         public byte KAYITTIPI { get; set; } = 0;
+        [JsonIgnore]
         public virtual MPSTOK MPSTOK { get; set; }
-        [ForeignKey("FIYATLISTID")]
+        
+        [JsonIgnore]
         public virtual MPSTOKFIYATLIST MPSTOKFIYATLIST { get; set; } 
     }
 }

@@ -1,5 +1,7 @@
-﻿using MEYPAK.DAL.Abstract.StokDal;
+﻿using AutoMapper;
+using MEYPAK.DAL.Abstract.StokDal;
 using MEYPAK.Entity.Models.STOK;
+using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces;
 using MEYPAK.Interfaces.Stok;
 using System;
@@ -11,19 +13,21 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.BLL.STOK
 {
-    public class StokOlcuBrManager :BaseManager<MPSTOKOLCUBR> ,IStokOlcuBrServis
+    public class StokOlcuBrManager :BaseManager<PocoSTOKOLCUBR,MPSTOKOLCUBR> ,IStokOlcuBrServis
     {
         IStokOlcuBrDal _stokOlcuBrDal;
+        IMapper _mapper;
 
-        public StokOlcuBrManager(IStokOlcuBrDal generic) : base(generic)
+        public StokOlcuBrManager(IMapper mapper, IStokOlcuBrDal stokOlcuBrDal) : base(mapper,stokOlcuBrDal)
         {
-            _stokOlcuBrDal = generic;
+            _stokOlcuBrDal = stokOlcuBrDal;
+            _mapper = mapper;   
         }
 
 
-        public Durum EkleyadaGuncelle(MPSTOKOLCUBR entity)
+        public Durum EkleyadaGuncelle(PocoSTOKOLCUBR pModel)
         {
-            return _stokOlcuBrDal.EkleyadaGuncelle(entity);
+            return _stokOlcuBrDal.EkleyadaGuncelle(_mapper.Map<PocoSTOKOLCUBR,MPSTOKOLCUBR>(pModel));
         }
 
     }

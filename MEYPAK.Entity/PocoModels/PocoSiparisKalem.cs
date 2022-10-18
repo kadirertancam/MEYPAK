@@ -1,5 +1,6 @@
 ﻿using MEYPAK.Entity.Models;
 using MEYPAK.Entity.Models.STOK;
+using MEYPAK.Entity.PocoModels.STOK;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -34,7 +35,7 @@ namespace MEYPAK.Entity.PocoModels
         public decimal NetToplam { get; set; } = 0;
         public decimal BrütToplam { get; set; } = 0; 
          
-        public virtual MPSTOK MPSTOK {
+        public virtual PocoSTOK MPSTOK {
             get; set;
         }
 

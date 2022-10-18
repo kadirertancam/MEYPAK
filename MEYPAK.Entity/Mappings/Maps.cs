@@ -35,6 +35,7 @@ namespace MEYPAK.Entity.Mappings
             CreateMap<MPSTOKSAYIM, PocoSTOKSAYIM>().ReverseMap();
             CreateMap<MPSTOKSAYIMHAR, PocoSTOKSAYIMHAR>().ReverseMap();
             CreateMap<MPSTOKSEVKİYATLİST, PocoSTOKSEVKIYATLIST>().ReverseMap();
+            CreateMap<MPOLCUBR, PocoOLCUBR>().ReverseMap();
 
             //SIPARIS
             CreateMap<MPSIPARIS, PocoSIPARIS>().ReverseMap();
@@ -54,6 +55,7 @@ namespace MEYPAK.Entity.Mappings
             CreateMap<MPDEPOEMIR, PocoDEPOEMIR>().ReverseMap();
             CreateMap<MPDEPOTRANSFER, PocoDEPOTRANSFER>().ReverseMap();
             CreateMap<MPDEPOTRANSFERHAR, PocoDEPOTRANSFERHAR>().ReverseMap();
+            CreateMap<PocoSTOKMALKABULLIST,MPSTOKMALKABULLIST>().ReverseMap();
 
             //ARAC
             CreateMap<MPARACLAR, PocoARACLAR>().ReverseMap();

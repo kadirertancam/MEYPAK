@@ -1,24 +1,32 @@
-﻿using MEYPAK.DAL.Abstract.StokDal;
+﻿using AutoMapper;
+using MEYPAK.DAL.Abstract;
+using MEYPAK.DAL.Abstract.StokDal;
+using MEYPAK.Entity.Models.SIPARIS;
 using MEYPAK.Entity.Models.STOK;
+using MEYPAK.Entity.PocoModels.SIPARIS;
+using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Stok;
 
 namespace MEYPAK.BLL.STOK
 {
-    public class StokFiyatListHarManager : BaseManager<MPSTOKFIYATLISTHAR>,IStokFiyatListHarServis
+    public class StokFiyatListHarManager : BaseManager<PocoSTOKFIYATLISTHAR,MPSTOKFIYATLISTHAR>,IStokFiyatListHarServis
     {
-        IStokFiyatListHarDal _stokFiyatListDal;
-        public StokFiyatListHarManager(IStokFiyatListHarDal generic) : base(generic)
+        IStokFiyatListHarDal _stokFiyatListHarDal;
+        IMapper _mapper;
+        public StokFiyatListHarManager(IMapper mapper,IStokFiyatListHarDal stokFiyatListHarDal) : base(mapper,stokFiyatListHarDal)
         {
-            this._stokFiyatListDal = generic;
+            this._stokFiyatListHarDal = stokFiyatListHarDal;
+            _mapper = mapper;
         }
 
-        public MPSTOKFIYATLISTHAR EkleyadaGuncelle(MPSTOKFIYATLISTHAR entity)
+        public PocoSTOKFIYATLISTHAR EkleyadaGuncelle(PocoSTOKFIYATLISTHAR pModel)
         {
-            return _stokFiyatListDal.EkleyadaGuncelle(entity);
+            
+            return _mapper.Map<MPSTOKFIYATLISTHAR,PocoSTOKFIYATLISTHAR>(_stokFiyatListHarDal.EkleyadaGuncelle(_mapper.Map<PocoSTOKFIYATLISTHAR, MPSTOKFIYATLISTHAR>(pModel)));
         }
         void Sil(int id)
         {
-            _stokFiyatListDal.Sil(id);
+            _stokFiyatListHarDal.Sil(id);
         }
     }
 }

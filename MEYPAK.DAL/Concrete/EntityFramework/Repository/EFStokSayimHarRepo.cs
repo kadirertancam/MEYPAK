@@ -21,6 +21,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
         {
             _context = context;
             //   context.MPSTOKSAYIMHAR.Include(x => x.MPSTOK).Load();
+            onYukle();
 
         }
 

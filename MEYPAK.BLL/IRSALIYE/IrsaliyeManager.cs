@@ -10,23 +10,27 @@ using System.Threading.Tasks;
 using MEYPAK.DAL.Abstract.IrsaliyeDal;
 using MEYPAK.Interfaces.IRSALIYE;
 using MEYPAK.Entity.Models.IRSALIYE;
+using MEYPAK.Entity.PocoModels.IRSALIYE;
+using AutoMapper;
 
 namespace MEYPAK.BLL.IRSALIYE
 {
-    public class IrsaliyeManager : BaseManager<MPIRSALIYE>, IIrsaliyeServis
+    public class IrsaliyeManager : BaseManager<PocoIRSALIYE,MPIRSALIYE>, IIrsaliyeServis
     {
-        IIrsaliyeDal _stokDal;
+        IIrsaliyeDal _irsaliyeDal;
+        IMapper _mapper;
 
-        public IrsaliyeManager(IIrsaliyeDal generic) : base(generic)
+        public IrsaliyeManager(IMapper mapper,IIrsaliyeDal irsaliyeDal) : base(mapper,irsaliyeDal)
         {
-            _stokDal = generic;
+            _irsaliyeDal = irsaliyeDal;
+            _mapper = mapper;
         }
 
 
 
-        public Durum EkleyadaGuncelle(MPIRSALIYE entity)
+        public Durum EkleyadaGuncelle(PocoIRSALIYE pModel)
         {
-            return _stokDal.EkleyadaGuncelle(entity);
+            return _irsaliyeDal.EkleyadaGuncelle(_mapper.Map<PocoIRSALIYE,MPIRSALIYE>(pModel));
         }
     }
 }

@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MEYPAK.Entity.PocoModels.SIPARIS;
 
 namespace MEYPAK.Entity.PocoModels.IRSALIYE
 {
@@ -40,6 +41,6 @@ namespace MEYPAK.Entity.PocoModels.IRSALIYE
         public decimal KDV { get; set; } = 0;
         public decimal KDVTUTARI { get; set; } = 0;
         public byte KAYITTIPI { get; set; } = 0;
-        public virtual MPSIPARIS MPSIPARIS { get; set; }
+        public virtual PocoSIPARIS MPSIPARIS { get; set; }
     }
 }

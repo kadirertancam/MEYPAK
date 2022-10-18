@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using MEYPAK.Entity.Models.DEPO;
 using MEYPAK.Entity.Models.IRSALIYE;
+using System.Text.Json.Serialization;
 
 namespace MEYPAK.Entity.Models.SIPARIS
 {
@@ -59,7 +60,7 @@ namespace MEYPAK.Entity.Models.SIPARIS
         [Required]
         public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
         public byte KAYITTIPI { get; set; } = 0;
-
+        
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MPSIPARISDETAY> MPSIPARISDETAY { get; set; }
 

@@ -1,6 +1,8 @@
-﻿using MEYPAK.DAL.Abstract;
+﻿using AutoMapper;
+using MEYPAK.DAL.Abstract;
 using MEYPAK.DAL.Abstract.PersonelDal;
 using MEYPAK.Entity.Models.PERSONEL;
+using MEYPAK.Entity.PocoModels.PERSONEL;
 using MEYPAK.Interfaces;
 using MEYPAK.Interfaces.Personel;
 using System;
@@ -12,19 +14,21 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.BLL.PERSONEL
 {
-    public class PersonelManager :BaseManager<MPPERSONEL> ,IPersonelServis
+    public class PersonelManager :BaseManager<PocoPERSONEL,MPPERSONEL> ,IPersonelServis
     {
         IPersonelDal _personelDal;
+        IMapper _mapper;
 
-        public PersonelManager(IPersonelDal generic) : base(generic)
+        public PersonelManager(IMapper mapper ,IPersonelDal personelDal) : base(mapper,personelDal)
         {
-            _personelDal = generic;
+            _personelDal = personelDal;
+            _mapper = mapper;
         }
 
 
-        public Durum EkleyadaGuncelle(MPPERSONEL entity)
+        public Durum EkleyadaGuncelle(PocoPERSONEL pModel)
         {
-            return _personelDal.EkleyadaGuncelle(entity);
+            return _personelDal.EkleyadaGuncelle(_mapper.Map<PocoPERSONEL,MPPERSONEL>(pModel));
         }
 
 

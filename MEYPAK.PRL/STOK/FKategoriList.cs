@@ -16,6 +16,7 @@ using System.Windows.Forms;
 using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using MEYPAK.Entity.Models.STOK;
+using MEYPAK.Entity.PocoModels.STOK;
 
 namespace MEYPAK.PRL.STOK
 {
@@ -29,7 +30,7 @@ namespace MEYPAK.PRL.STOK
             InitializeComponent();
             this._islem = islem;
         }
-        IStokKategoriServis _kategoriServis = new StokKategoriManager(new EFStokKategoriRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
+        IStokKategoriServis _kategoriServis ;
         private void FKategoriList_Load(object sender, EventArgs e)
         {
             TreeViewiDoldur();
@@ -45,7 +46,7 @@ namespace MEYPAK.PRL.STOK
         }
 
 
-        TreeNode TreeViewDon(ref TreeNode ustNode, List<MPSTOKKATEGORI> data, int ustid = 0)
+        TreeNode TreeViewDon(ref TreeNode ustNode, List<PocoSTOKKATEGORI> data, int ustid = 0)
         {
             foreach (var item in data.Where(x => x.UstId == ustid))
             {
@@ -63,7 +64,7 @@ namespace MEYPAK.PRL.STOK
         {
             if (treeView1.SelectedNode.Name != "" && treeView1.SelectedNode != null)
             {
-                MPSTOKKATEGORI mPKATEGORI = new MPSTOKKATEGORI()
+                PocoSTOKKATEGORI mPKATEGORI = new PocoSTOKKATEGORI()
                 {
                     Acıklama = TBAcıklama.Text,
                     UstId = Convert.ToInt32(treeView1.SelectedNode.Name.ToString())
@@ -84,7 +85,7 @@ namespace MEYPAK.PRL.STOK
         {
             if (TBAcıklama.Text != null && TBAcıklama.Text != "")
             {
-                MPSTOKKATEGORI mPKATEGORI = new MPSTOKKATEGORI()
+                PocoSTOKKATEGORI mPKATEGORI = new PocoSTOKKATEGORI()
                 {
                     Acıklama = TBAcıklama.Text,
                     UstId = 0

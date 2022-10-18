@@ -1,11 +1,17 @@
 ﻿using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Entity.PocoModels;
+using MEYPAK.Entity.PocoModels.STOK;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace MEYPAK.Interfaces.Stok
 {
-    public interface IStokHarServis:IGenericServis<MPSTOKHAR>
+    public interface IStokHarServis:IGenericServis<PocoSTOKHAR>
     {
         List<PocoStokHareketListesi> PocoStokHareketListesi(int id);
-        public Durum EkleyadaGuncelle(MPSTOKHAR entity);
+        public Durum EkleyadaGuncelle(PocoSTOKHAR entity);
     }
 }

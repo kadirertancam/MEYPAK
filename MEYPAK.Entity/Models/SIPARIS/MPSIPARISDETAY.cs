@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using MEYPAK.Entity.Models.DEPO;
 using MEYPAK.Entity.Models.IRSALIYE;
@@ -57,17 +58,19 @@ namespace MEYPAK.Entity.Models.SIPARIS
         public decimal KDVTUTARI { get; set; } = 0;
         public byte KAYITTIPI { get; set; } = 0;
 
-
+        [JsonIgnore]
         public MPSIPARIS MPSIPARIS { get; set; }
-
+        [JsonIgnore]
         public MPSTOK MPSTOK { get; set; }
+        [JsonIgnore]
 
         public virtual MPIRSALIYE MPIRSALIYE { get; set; }
 
         public virtual List<MPIRSALIYESIPARISDETAYILISKI>? MPIRSALIYESIPARISDETAYILISKI { get; set; }
         public ICollection<MPSTOKSEVKİYATLİST> MPSTOKSEVKİYATLİST { get; set; }
-        public ICollection<MPDEPOEMIRSIPARISKALEMILISKI> MPDEPOEMIRSIPARISKALEMILISKI { get; set; }
+
         public ICollection<MPSTOKMALKABULLIST> MPSTOKMALKABULLIST { get; set; }
+        public ICollection<MPDEPOEMIRSIPARISKALEMILISKI> MPDEPOEMIRSIPARISKALEMILISKI { get; set; } 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MPSIPARISSEVKEMRIHAR> MPSIPARISSEVKEMRIHAR { get; set; }
 

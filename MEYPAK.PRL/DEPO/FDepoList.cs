@@ -27,7 +27,7 @@ namespace MEYPAK.PRL.DEPO
         FDepoKart depoKart;
         FDepolarArasıTransfer depoTransferKart;
         FDepolarArasıTransferHar depoTransferBilgiKart;
-        IDepoServis _depoServis = new DepoManager(new EFDepoRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
+        IDepoServis _depoServis ;
 
         private void FDepoList_Load(object sender, EventArgs e)
         {

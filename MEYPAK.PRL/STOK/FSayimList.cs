@@ -21,7 +21,7 @@ namespace MEYPAK.PRL.STOK
         {
             InitializeComponent();
         }
-        IStokSayimServis _stokSayimServis = new StokSayimManager(new EFStokSayimRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
+        IStokSayimServis _stokSayimServis ;
         FSayimIsle fSayimIsle;
         private void FSayimList_Load(object sender, EventArgs e)
         {

@@ -25,7 +25,7 @@ namespace MEYPAK.PRL.PERSONEL
             FPersonelKart = (FPersonelKart)Application.OpenForms["FPersonelKart"];
         }
 
-        IPersonelServis _personelServis = new PersonelManager(new EFPersonelRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
+        IPersonelServis _personelServis ;
         private void FPersonelList_Load(object sender, EventArgs e)
         {
             dataGridView1.DataSource= _personelServis.Listele();

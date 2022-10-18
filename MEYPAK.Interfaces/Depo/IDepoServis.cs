@@ -1,9 +1,15 @@
 ﻿using MEYPAK.Entity.Models.DEPO;
+using MEYPAK.Entity.PocoModels.DEPO;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace MEYPAK.Interfaces.Depo
 {
-    public interface IDepoServis : IGenericServis<MPDEPO>
+    public interface IDepoServis : IGenericServis<PocoDEPO>
     {
-        public Durum EkleyadaGuncelle(MPDEPO entity);
+        public Durum EkleyadaGuncelle(PocoDEPO entity);
     }
 }

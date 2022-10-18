@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MEYPAK.Entity.Models.SIPARIS;
+using System.Text.Json.Serialization;
 
 namespace MEYPAK.Entity.Models.IRSALIYE
 {
@@ -48,8 +49,10 @@ namespace MEYPAK.Entity.Models.IRSALIYE
         public decimal KDV { get; set; } = 0;
         public decimal KDVTUTARI { get; set; } = 0;
         public byte KAYITTIPI { get; set; } = 0;
+        [JsonIgnore]
         public virtual MPSIPARIS MPSIPARIS { get; set; }
-        public virtual List<MPIRSALIYESIPARISDETAYILISKI>? MPIRSALIYESIPARISDETAYILISKI { get; set; }
+       
+        public virtual ICollection<MPIRSALIYESIPARISDETAYILISKI>? MPIRSALIYESIPARISDETAYILISKI { get; set; }
 
 
 

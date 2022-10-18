@@ -19,8 +19,8 @@ namespace MEYPAK.Entity.Models.STOK
         public string KOD { get; set; }
         [StringLength(200)]
         public string ADI { get; set; } = "";
-        public decimal KDV { get; set; }
-        public decimal OTV { get; set; }
+        public decimal KDV { get; set; } = 0;
+        public decimal OTV { get; set; } = 0;
         [StringLength(50)]
         public string GRUPKODU { get; set; } = "";
         [StringLength(500)]
@@ -43,7 +43,7 @@ namespace MEYPAK.Entity.Models.STOK
         public string ACIKLAMA8 { get; set; } = "";
         [StringLength(200)]
         public string ACIKLAMA9 { get; set; } = "";
-        public int KATEGORIID { get; set; }
+        public int KATEGORIID { get; set; } = 0;
         [StringLength(50)]
         public string RAPORKODU1 { get; set; } = "";
         [StringLength(50)]

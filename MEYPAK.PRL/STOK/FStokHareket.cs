@@ -30,16 +30,16 @@ namespace MEYPAK.PRL.STOK
         {
             InitializeComponent();
         }
-        IStokHarServis _stokHarServis = new StokHarManager(new EFStokHareketRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
-        IStokOlcuBrServis _stokOlcuBrServis = new StokOlcuBrManager(new EFStokOlcuBrRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
-        IOlcuBrServis _olcuBrServis = new OlcuBrManager(new EFOlcuBrRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
+        IStokHarServis _stokHarServis ;
+        IStokOlcuBrServis _stokOlcuBrServis ;
+        IOlcuBrServis _olcuBrServis  ;
         IStokServis _stokServis;
         // IStokServis _stokServis = new StokManager(new EFStokRepo());
         List<PocoStokHareketListesi> _tempdgvStok = new List<PocoStokHareketListesi>();
-        public MPSTOK _tempStok;
+        public PocoSTOK _tempStok;
         int IO = 0;
         int _id;
-        IDepoServis _depoServis = new DepoManager(new EFDepoRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
+        IDepoServis _depoServis ;
 
         decimal KdvEkle(decimal val)
         {
@@ -102,7 +102,7 @@ namespace MEYPAK.PRL.STOK
 
 
 
-            _stokHarServis.EkleyadaGuncelle(new Entity.Models.STOK.MPSTOKHAR()
+            _stokHarServis.EkleyadaGuncelle(new PocoSTOKHAR()
             {
                 STOKID = _id,
                 BELGE_NO = TBBelgeNo.Text,

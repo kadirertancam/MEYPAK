@@ -1,4 +1,5 @@
-﻿using MEYPAK.DAL;
+﻿using AutoMapper;
+using MEYPAK.DAL;
 using MEYPAK.DAL.Abstract.StokDal;
 using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Entity.PocoModels;
@@ -14,20 +15,24 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.BLL.STOK
 {
-    public class StokHarManager :BaseManager<MPSTOKHAR>, IStokHarServis
+    public class StokHarManager :BaseManager<PocoSTOKHAR,MPSTOKHAR>, IStokHarServis
     {
         IStokHarDal _stokHarDal;
+        IMapper _mapper;
 
-        public StokHarManager(IStokHarDal generic) : base(generic)
+        public StokHarManager(IMapper mapper,IStokHarDal stokHarDal) : base(mapper,stokHarDal)
         {
-            _stokHarDal = generic;
+            _stokHarDal = stokHarDal;
+            _mapper = mapper;
         }
 
   
 
-        public Durum EkleyadaGuncelle(MPSTOKHAR entity)
+        public Durum EkleyadaGuncelle(PocoSTOKHAR pModel)
         {
-            return _stokHarDal.EkleyadaGuncelle(entity);
+        
+            
+            return _stokHarDal.EkleyadaGuncelle(_mapper.Map<PocoSTOKHAR, MPSTOKHAR>(pModel));
         }
 
         public List<PocoStokHareketListesi> PocoStokHareketListesi(int id)

@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MEYPAK.Interfaces.Depo;
 using MEYPAK.Entity.Models.PERSONEL;
+using MEYPAK.Entity.PocoModels.PERSONEL;
 
 namespace MEYPAK.PRL.PERSONEL
 {
@@ -26,8 +27,8 @@ namespace MEYPAK.PRL.PERSONEL
         }
         #region Tanımlar
         int id = 0;
-        public MPPERSONEL _tempPersonel;
-        IPersonelServis _personelServis = new PersonelManager(new EFPersonelRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
+        public PocoPERSONEL _tempPersonel;
+        IPersonelServis _personelServis ;
         int mdurum = 0;
         string base64String = "";
         FPersonelList fPersonelList;
@@ -58,7 +59,7 @@ namespace MEYPAK.PRL.PERSONEL
             #endregion
 
             string hashresim = ImageToBase64(pictureBox1.Image);
-            _personelServis.EkleyadaGuncelle(new Entity.Models.PERSONEL.MPPERSONEL()
+            _personelServis.EkleyadaGuncelle(new PocoPERSONEL()
             {
                 TC = MTBTcKimlik.Text,
                 ADI = TBAdi.Text,

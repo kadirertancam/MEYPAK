@@ -5,6 +5,8 @@ using MEYPAK.Entity.Models;
 using MEYPAK.Entity.Models.DEPO;
 using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Entity.PocoModels;
+using MEYPAK.Entity.PocoModels.DEPO;
+using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Depo;
 using MEYPAK.PRL.Assets;
 using MEYPAK.PRL.STOK;
@@ -22,12 +24,12 @@ namespace MEYPAK.PRL.DEPO
 {
     public partial class FDepolarArasıTransferHar : Form
     {
-        MPDEPOTRANSFER _arasıtransfer;
-        public MPSTOK _tempStok;
-        IDepoServis _depoServis = new DepoManager(new EFDepoRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
-        IDepoTransferServis _depoTransferServis = new DepoTransferManager(new EFDepoTransferRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
-        IDepoTransferHarServis _depoTransferHarServis = new DepoTransferHarManager(new EFDepoTransferHarRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
-        public FDepolarArasıTransferHar(MPDEPOTRANSFER arasıTransfer)
+        PocoDEPOTRANSFER _arasıtransfer;
+        public PocoSTOK _tempStok;
+        IDepoServis _depoServis ;
+        IDepoTransferServis _depoTransferServis ;
+        IDepoTransferHarServis _depoTransferHarServis ;
+        public FDepolarArasıTransferHar(PocoDEPOTRANSFER arasıTransfer)
         {
             InitializeComponent();
             _arasıtransfer = arasıTransfer;
@@ -70,7 +72,7 @@ namespace MEYPAK.PRL.DEPO
         {
             if (_tempStok != null && _arasıtransfer != null)
             {
-                _depoTransferHarServis.Ekle(new MPDEPOTRANSFERHAR
+                _depoTransferHarServis.Ekle(new PocoDEPOTRANSFERHAR
                 {
                     DEPOTRANSFERID = _arasıtransfer.ID,
                     OLUSTURMATARIHI = DateTime.Now,

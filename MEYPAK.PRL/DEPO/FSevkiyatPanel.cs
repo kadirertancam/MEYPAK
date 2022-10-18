@@ -7,6 +7,9 @@ using MEYPAK.Entity.Models;
 using MEYPAK.Entity.Models.DEPO;
 using MEYPAK.Entity.Models.SIPARIS;
 using MEYPAK.Entity.Models.STOK;
+using MEYPAK.Entity.PocoModels;
+using MEYPAK.Entity.PocoModels.DEPO;
+using MEYPAK.Entity.PocoModels.SIPARIS;
 using MEYPAK.Interfaces.Depo;
 using MEYPAK.Interfaces.Siparis;
 using MEYPAK.PRL.Assets;
@@ -39,10 +42,10 @@ namespace MEYPAK.PRL.DEPO
             _sevkiyatCekiPanel = new FSevkiyatCekiPanel();
         }
         DataGridViewButtonColumn DGVTopla; 
-        List<MPSIPARIS> _tempSiparis;
+        List<PocoSIPARIS> _tempSiparis;
         FSevkiyatCekiPanel _sevkiyatCekiPanel;
-        List<MPSIPARISDETAY> _tempSTOKSEVK;
-        List<MPSIPARISDETAY> _tempSiparisDetay;
+        List<PocoSIPARISDETAY> _tempSTOKSEVK;
+        List<PocoSIPARISDETAY> _tempSiparisDetay;
 
         #region TabControl Tasarım
         private Dictionary<TabPage, Color> TabColors = new Dictionary<TabPage, Color>();
@@ -96,7 +99,7 @@ namespace MEYPAK.PRL.DEPO
             if (dataGridView1.Columns[e.ColumnIndex].Name == "DGVTopla")
             {
                 int i= 1;
-                var a = StaticContext._depoEmirServis.Ekle(new MPDEPOEMIR()
+                var a = StaticContext._depoEmirServis.Ekle(new PocoDEPOEMIR()
                 {
                     SIPARISID = StaticContext._siparisServis.Listele().Where(x => x.BELGENO == dataGridView1.Rows[e.RowIndex].Cells["BELGENO"].Value.ToString()).FirstOrDefault().ID,
                     MIKTAR = _tempSiparisDetay.Sum(x=>x.MIKTAR),
@@ -118,7 +121,7 @@ namespace MEYPAK.PRL.DEPO
                     StaticContext._siparisDetayServis.Guncelle(item);
                  
                     
-                    StaticContext._siparisSevkEmriHarServis.Ekle(new MPSIPARISSEVKEMRIHAR()
+                    StaticContext._siparisSevkEmriHarServis.Ekle(new PocoSIPARISSEVKEMIRHAR()
                     {
                         EMIRMIKTARI = item.MIKTAR,
                         SIPARISID = a.SIPARISID,
@@ -164,10 +167,10 @@ namespace MEYPAK.PRL.DEPO
 
         private void dataGridView2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            _tempSTOKSEVK = StaticContext._depoEmirServis.Listele().Where(x => x.ID.ToString() == dataGridView2.Rows[e.RowIndex].Cells["ID"].Value.ToString()).Select(x => x.MPSIPARIS.MPSIPARISDETAY.ToList()).FirstOrDefault();
+            _tempSTOKSEVK = StaticContext._depoEmirServis.Listele().Where(x => x.ID.ToString() == dataGridView2.Rows[e.RowIndex].Cells["ID"].Value.ToString()).Select(x => x.MPSIPARIS.MPSIPARISDETAYList.ToList()).FirstOrDefault();
           _sevkiyatCekiPanel = new FSevkiyatCekiPanel();
             _sevkiyatCekiPanel._tempEmir = StaticContext._depoEmirServis.Getir(x => x.ID.ToString() == dataGridView2.Rows[e.RowIndex].Cells["ID"].Value.ToString()).FirstOrDefault();
-            _sevkiyatCekiPanel._tempList = _tempSTOKSEVK.Select(x => new MPSTOKSEVKİYATLİST() { MPSTOK = x.MPSTOK,MPSIPARISDETAY=x, SIPARISMIKTARI = x.MIKTAR, DEPOID = x.MPSIPARIS.DEPOID, BIRIMID = x.BIRIMID, EMIRID = int.Parse(dataGridView2.Rows[e.RowIndex].Cells["ID"].Value.ToString()), SIPARISDETAYID = x.ID, STOKID = x.STOKID }).ToList();
+            _sevkiyatCekiPanel._tempList = _tempSTOKSEVK.Select(x => new PocoSTOKSEVKIYATLIST() { MPSTOK = x.MPSTOK,MPSIPARISDETAY=x, SIPARISMIKTARI = x.MIKTAR, DEPOID = x.MPSIPARIS.DEPOID, BIRIMID = x.BIRIMID, EMIRID = int.Parse(dataGridView2.Rows[e.RowIndex].Cells["ID"].Value.ToString()), SIPARISDETAYID = x.ID, STOKID = x.STOKID }).ToList();
 
             _sevkiyatCekiPanel.ShowDialog();
             dataGridView4.DataSource = StaticContext._stokSevkiyatListServis.Getir(x => x.EMIRID.ToString() == dataGridView2.Rows[e.RowIndex].Cells["ID"].Value.ToString()).GroupBy(x => new { x.MPSTOK.KOD, x.MPSTOK.ADI, BIRIM = x.MPOLCUBR.ADI, x.SIPARISMIKTARI }).Select(x => new { KOD = x.Select(x => x.MPSTOK.KOD).FirstOrDefault(), ADI = x.Select(x => x.MPSTOK.ADI).FirstOrDefault(), MIKTAR = x.Sum(z => z.MIKTAR), SIPARISMIKTARI = x.Select(x => x.SIPARISMIKTARI).FirstOrDefault(), KALANMIKTAR = x.Select(x => x.SIPARISMIKTARI).FirstOrDefault() - x.Sum(z => z.MIKTAR), BIRIM = x.Select(x => x.MPOLCUBR.ADI).FirstOrDefault() }).ToList();

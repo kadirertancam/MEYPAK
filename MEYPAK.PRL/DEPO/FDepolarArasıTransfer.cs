@@ -3,6 +3,7 @@ using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository;
 using MEYPAK.Entity.Models.DEPO;
 using MEYPAK.Entity.PocoModels;
+using MEYPAK.Entity.PocoModels.DEPO;
 using MEYPAK.Interfaces.Depo;
 using MEYPAK.Interfaces.Stok;
 using MEYPAK.PRL.Assets;
@@ -28,11 +29,11 @@ namespace MEYPAK.PRL.DEPO
         }
         FDepoList fDepoList;
         List<PocoDepolarArasıTransfer> pocoDepolarArasıTransfer;
-        public MPDEPO _CıktıDepo;
-        public MPDEPO _HedefDepo;
-        public MPDEPOTRANSFER _tempDepoTransfer;
+        public PocoDEPO _CıktıDepo;
+        public PocoDEPO _HedefDepo;
+        public PocoDEPOTRANSFER _tempDepoTransfer;
         FDepolarArasıTransferHar fDepolarArasıTransferHar;
-        IDepoTransferServis _depoTransferServis = new DepoTransferManager(new EFDepoTransferRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
+        IDepoTransferServis _depoTransferServis ;
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -52,7 +53,7 @@ namespace MEYPAK.PRL.DEPO
         {
             if (_HedefDepo != null && _CıktıDepo != null)
             {
-                _tempDepoTransfer= _depoTransferServis.Ekle(new MPDEPOTRANSFER()
+                _tempDepoTransfer= _depoTransferServis.Ekle(new PocoDEPOTRANSFER()
                 {
                     OLUSTURMATARIHI = DateTime.Now,
                     GUNCELLEMETARIHI = DateTime.Now,

@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using MEYPAK.Entity.Models.SIPARIS;
 using MEYPAK.Entity.Models.STOK;
@@ -31,9 +32,13 @@ namespace MEYPAK.Entity.Models.DEPO
         public int KULLANICIID { get; set; } = 0;
         [ForeignKey("MPSIPARISSEVKEMRIHAR")]
         public int SEVKEMRIHARID { get; set; }
+        [JsonIgnore]
         public MPOLCUBR MPOLCUBR { get; set; }
+        [JsonIgnore]
         public MPDEPOEMIR MPDEPOEMIR { get; set; }
+        [JsonIgnore]
         public MPSTOK MPSTOK { get; set; }
+        [JsonIgnore]
         public MPSIPARISDETAY MPSIPARISDETAY { get; set; }
         public MPSIPARISSEVKEMRIHAR MPSIPARISSEVKEMRIHAR { get; set; }
     }

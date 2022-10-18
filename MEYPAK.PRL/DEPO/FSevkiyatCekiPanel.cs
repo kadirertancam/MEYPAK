@@ -5,6 +5,8 @@ using MEYPAK.DAL.Concrete.EntityFramework.Repository;
 using MEYPAK.Entity.Models.DEPO;
 using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Entity.PocoModels;
+using MEYPAK.Entity.PocoModels.DEPO;
+using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Depo;
 using MEYPAK.Interfaces.Stok;
 using MEYPAK.PRL.Assets;
@@ -26,28 +28,28 @@ namespace MEYPAK.PRL.DEPO
         public FSevkiyatCekiPanel()
         {
             InitializeComponent();
-            _tempStokSevkiyatList = new MPSTOKSEVKİYATLİST();
+            _tempStokSevkiyatList = new PocoSTOKSEVKIYATLIST();
             _tempStok = StaticContext._stokServis.Listele(); 
         } 
         
      
-        List<MPSTOK> _tempStok;
-        MPSTOK _Stok;
-        public MPDEPOEMIR _tempEmir;
-        MPSTOKSEVKİYATLİST _tempStokSevkiyatList;
-        public List<MPSTOKSEVKİYATLİST> _tempList; 
+        List<PocoSTOK> _tempStok;
+        PocoSTOK _Stok;
+        public PocoDEPOEMIR _tempEmir;
+        PocoSTOKSEVKIYATLIST _tempStokSevkiyatList;
+        public List<PocoSTOKSEVKIYATLIST> _tempList; 
         private void button1_Click(object sender, EventArgs e)
         {
            _Stok= StaticContext._stokServis.Getir(x => x.ID.ToString() == comboBox1.SelectedValue.ToString()).FirstOrDefault();
-            _tempStokSevkiyatList = new MPSTOKSEVKİYATLİST()
+            _tempStokSevkiyatList = new PocoSTOKSEVKIYATLIST()
             {
                 STOKID = _Stok.ID,
                 EMIRID = _tempEmir.ID,
                 DEPOID = _tempEmir.MPSIPARIS.DEPOID,
                 MIKTAR = 0,
-                SIPARISMIKTARI = _tempEmir.MPSIPARIS.MPSIPARISDETAY.Where(x => x.STOKID.ToString() == comboBox1.SelectedValue.ToString()).FirstOrDefault().MIKTAR,
-                BIRIMID = _Stok.MPSTOKOLCUBR.Where(x => x.NUM == 1).Select(x => x.MPOLCUBR.ID).FirstOrDefault(),
-                MPOLCUBR = _Stok.MPSTOKOLCUBR.Where(x => x.NUM == 1).Select(x => x.MPOLCUBR).FirstOrDefault(),
+                SIPARISMIKTARI = _tempEmir.MPSIPARIS.MPSIPARISDETAYList.Where(x => x.STOKID.ToString() == comboBox1.SelectedValue.ToString()).FirstOrDefault().MIKTAR,
+                BIRIMID = _Stok.MPSTOKOLCUBRList.Where(x => x.NUM == 1).Select(x => x.MPOLCUBR.ID).FirstOrDefault(),
+             //    MPOLCUBR = _Stok.MPSTOKOLCUBRList.Where(x => x.NUM == 1).Select(x => x.MPOLCUBR).FirstOrDefault(),
                 MPDEPOEMIR=_tempEmir,
                 MPSTOK=_Stok,
 
@@ -104,7 +106,7 @@ namespace MEYPAK.PRL.DEPO
             {
                 _id = StaticContext._stokServis.Getir(x => x.KOD == item.StokKodu).FirstOrDefault().ID;
                 StaticContext._stokSevkiyatListServis.OnYukle();
-                StaticContext._stokSevkiyatListServis.EkleyadaGuncelle(new MPSTOKSEVKİYATLİST()
+                StaticContext._stokSevkiyatListServis.EkleyadaGuncelle(new PocoSTOKSEVKIYATLIST()
                 {
 
                     STOKID =_id,
@@ -113,7 +115,7 @@ namespace MEYPAK.PRL.DEPO
                     MIKTAR = item.Miktar,
                     DEPOID = _tempEmir.MPSIPARIS.DEPOID,
                     SIRKETID = 0,
-                    SIPARISMIKTARI = _tempEmir.MPSIPARIS.MPSIPARISDETAY.Where(x => x.STOKID == _id).Sum(x => x.MIKTAR),
+                    SIPARISMIKTARI = _tempEmir.MPSIPARIS.MPSIPARISDETAYList.Where(x => x.STOKID == _id).Sum(x => x.MIKTAR),
                     SIPARISDETAYID=_tempList.Where(x=>x.MPSIPARISDETAY.STOKID==_id && x.EMIRID==_tempEmir.ID ).FirstOrDefault().MPSIPARISDETAY.ID,
                     SUBEID=0,
                     KULLANICIID=0,SEVKEMRIHARID= _tempEmir.MPSIPARISSEVKEMRIHAR.Where(x => x.MPSIPARISDETAY.STOKID.ToString() == _id.ToString() && x.EMIRID == _tempEmir.ID).FirstOrDefault().ID

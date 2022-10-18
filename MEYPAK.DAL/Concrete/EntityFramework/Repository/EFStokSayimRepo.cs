@@ -54,6 +54,18 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
                 return Durum.güncellemebaşarılı;
             }
         }
+        public IQueryable<MPSTOKSAYIM> Listee()
+        {
+            IQueryable<MPSTOKSAYIM> query = context.MPSTOKSAYIM;
+
+
+            //query = query.Include("MPSTOKHAR");
+            //query = query.Include("MPSIPARISDETAY");
+            //query = query.Include("MPSTOKSEVKİYATLİST");
+
+
+            return query;
+        }
 
 
     }

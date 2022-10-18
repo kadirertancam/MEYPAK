@@ -1,5 +1,6 @@
 ﻿using MEYPAK.DAL.Abstract.StokDal;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
+using MEYPAK.Entity.Models.SIPARIS;
 using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Interfaces;
 using System;
@@ -16,7 +17,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
         public EFStokRepo(MEYPAKContext context) : base(context)
         {
             _context = context;
-            onYukle();
+             onYukle();
         }
         void onYukle()
         {
@@ -29,7 +30,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
                     .Load();
                 _context.Entry(item)
                    .Collection(e => e.MPSIPARISDETAY)
-                   .Load(); 
+                   .Load();
                 _context.Entry(item)
                     .Collection(e => e.MPSTOKHAR)
                     .Load();
@@ -39,16 +40,9 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
                 _context.Entry(item)
                     .Collection(e => e.MPSTOKFIYATLISTHAR)
                     .Load();
-               
-            }
-            var emp2 = _context.MPOLCUBR.ToList();
-            foreach (var item in emp2)
-            {
-                _context.Entry(item)
-                    .Collection(e => e.MPSTOKOLCUBR)
-                    .Load();
 
             }
+         
 
         }
         public Durum EkleyadaGuncelle(MPSTOK entity)
@@ -68,6 +62,19 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
                 _context.SaveChanges();
                 return Durum.güncellemebaşarılı;
             }
+        }
+
+        public IQueryable<MPSTOK> Listee()
+        {
+            IQueryable<MPSTOK> query = _context.MPSTOK;
+
+
+            //query = query.Include("MPSTOKHAR");
+            //query = query.Include("MPSIPARISDETAY");
+            ////query = query.Include("MPSTOKSEVKİYATLİST");
+
+            //query.Include("MPSTOKHAR").Load();
+            return query;
         }
     }
 }

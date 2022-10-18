@@ -2,6 +2,7 @@
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository;
 using MEYPAK.Entity.Models.SIPARIS;
+using MEYPAK.Entity.PocoModels.SIPARIS;
 using MEYPAK.Interfaces;
 using MEYPAK.Interfaces.Siparis;
 using MEYPAK.PRL.Assets;
@@ -24,10 +25,10 @@ namespace MEYPAK.PRL.SIPARIS
         {
             InitializeComponent();
         }
-        ISiparisServis _siparisServis = new SiparisManager(new EFSiparisRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
-        ISiparisDetayServis _siparisdetayServis = new SiparisDetayManager(new EFSiparisDetayRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
-        List<MPSIPARIS> mpSiparis ;
-        List<MPSIPARISDETAY> _mpSiparisDetay;
+        ISiparisServis _siparisServis ;
+        ISiparisDetayServis _siparisdetayServis ;
+        List<PocoSIPARIS> mpSiparis ;
+        List<PocoSIPARISDETAY> _mpSiparisDetay;
 
         private void FSiparisIrsaliyelestir_Load(object sender, EventArgs e)
         {

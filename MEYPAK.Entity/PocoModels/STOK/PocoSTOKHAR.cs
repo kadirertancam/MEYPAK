@@ -34,6 +34,6 @@ namespace MEYPAK.Entity.PocoModels.STOK
         public int SAYIMID { get; set; } = 0;
         public int KULLANICIID { get; set; } = 0;
         public byte KAYITTIPI { get; set; } = 0;
-        public MPSTOK MPSTOK { get; set; }
+        public PocoSTOK MPSTOK { get; set; }
     }
 }

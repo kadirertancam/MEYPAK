@@ -14,5 +14,7 @@ namespace MEYPAK.DAL.Abstract.StokDal
     {
 
         public Durum EkleyadaGuncelle(MPSTOKSAYIM entity);
+
+        public IQueryable<MPSTOKSAYIM> Listee();
     }
 }

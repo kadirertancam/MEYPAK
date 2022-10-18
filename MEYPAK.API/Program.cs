@@ -9,6 +9,7 @@ using MEYPAK.DAL.Abstract.HizmetDal;
 using MEYPAK.DAL.Abstract.IrsaliyeDal;
 using MEYPAK.DAL.Abstract.PersonelDal;
 using MEYPAK.DAL.Abstract.StokDal;
+using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository.IrsaliyeRepo;
 using MEYPAK.Entity.Mappings;
@@ -17,6 +18,9 @@ using MEYPAK.Interfaces.Hizmet;
 using MEYPAK.Interfaces.IRSALIYE;
 using MEYPAK.Interfaces.Personel;
 using MEYPAK.Interfaces.Stok;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,7 +32,12 @@ builder.Services.AddAutoMapper(x =>
     x.AddExpressionMapping(); //expressionlari maplemek içindir
     x.AddProfile(typeof(Maps));
 });
-
+builder.Services.AddControllers(options => options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true);
+builder.Services.AddDbContext<MEYPAKContext>(options =>
+{
+    
+    options.UseSqlServer(builder.Configuration.GetConnectionString("MyCon"));
+});
 
 
 #region STOK_Scoped_Islemleri
@@ -111,12 +120,13 @@ builder.Services.AddScoped<IPersonelDal, EFPersonelRepo>();
 builder.Services.AddScoped<IPersonelServis, PersonelManager>();
 #endregion
 
-
+builder.Services.AddControllers().AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
 
 
 var app = builder.Build();

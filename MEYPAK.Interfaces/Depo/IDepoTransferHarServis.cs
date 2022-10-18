@@ -1,9 +1,15 @@
 ﻿using MEYPAK.Entity.Models.DEPO;
+using MEYPAK.Entity.PocoModels.DEPO;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace MEYPAK.Interfaces.Depo
 {
-    public interface IDepoTransferHarServis:IGenericServis<MPDEPOTRANSFERHAR>
+    public interface IDepoTransferHarServis:IGenericServis<PocoDEPOTRANSFERHAR>
     {
-        public MPDEPOTRANSFERHAR EkleyadaGuncelle(MPDEPOTRANSFERHAR entity);
+        public PocoDEPOTRANSFERHAR EkleyadaGuncelle(PocoDEPOTRANSFERHAR entity);
     }
 }

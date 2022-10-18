@@ -13,6 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MEYPAK.Entity.Models.DEPO;
+using MEYPAK.Entity.PocoModels.DEPO;
 
 namespace MEYPAK.PRL.DEPO
 {
@@ -24,8 +25,8 @@ namespace MEYPAK.PRL.DEPO
         }
         FDepoList fDepoList;
         int id=0;
-        public MPDEPO _tempDepo;
-        IDepoServis _depoServis = new DepoManager(new EFDepoRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
+        public PocoDEPO _tempDepo;
+        IDepoServis _depoServis ;
 
         void Doldur()
         {
@@ -56,7 +57,7 @@ namespace MEYPAK.PRL.DEPO
 
         private void BTEkle_Click(object sender, EventArgs e)
         {
-            _depoServis.EkleyadaGuncelle(new MPDEPO()
+            _depoServis.EkleyadaGuncelle(new PocoDEPO()
             {
                 ID= id,
                 DEPOKODU = TBKod.Text,

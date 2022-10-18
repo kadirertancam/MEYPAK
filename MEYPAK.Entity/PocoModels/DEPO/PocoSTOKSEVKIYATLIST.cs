@@ -1,6 +1,8 @@
 ﻿using MEYPAK.Entity.Models.DEPO;
 using MEYPAK.Entity.Models.SIPARIS;
 using MEYPAK.Entity.Models.STOK;
+using MEYPAK.Entity.PocoModels.SIPARIS;
+using MEYPAK.Entity.PocoModels.STOK;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -23,9 +25,9 @@ namespace MEYPAK.Entity.PocoModels.DEPO
         public decimal MIKTAR { get; set; }
         public int EMIRID { get; set; }
         public int KULLANICIID { get; set; } = 0;
-        public MPOLCUBR MPOLCUBR { get; set; }
-        public MPDEPOEMIR MPDEPOEMIR { get; set; }
-        public MPSTOK MPSTOK { get; set; }
-        public MPSIPARISDETAY MPSIPARISDETAY { get; set; }
+        public PocoOLCUBR MPOLCUBR { get; set; }
+        public PocoDEPOEMIR MPDEPOEMIR { get; set; }
+        public PocoSTOK MPSTOK { get; set; }
+        public PocoSIPARISDETAY MPSIPARISDETAY { get; set; }
     }
 }

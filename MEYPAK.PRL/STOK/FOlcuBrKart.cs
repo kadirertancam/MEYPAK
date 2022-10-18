@@ -14,6 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
+using MEYPAK.Entity.PocoModels.STOK;
 
 namespace MEYPAK.PRL.STOK
 {
@@ -24,7 +25,7 @@ namespace MEYPAK.PRL.STOK
         {
             InitializeComponent();
         }
-        IOlcuBrServis _OlcuBrServis = new OlcuBrManager(new EFOlcuBrRepo(NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>()));
+        IOlcuBrServis _OlcuBrServis ;
         private void FStokOlcuBrKart_Load(object sender, EventArgs e)
         {
             DataGridDoldur();
@@ -34,13 +35,13 @@ namespace MEYPAK.PRL.STOK
         {
             Interfaces.Durum snc;
             if (islemtipi == "Kayıt")
-                snc = _OlcuBrServis.EkleyadaGuncelle(new Entity.Models.STOK.MPOLCUBR()
+                snc = _OlcuBrServis.EkleyadaGuncelle(new PocoOLCUBR()
                 {
                     ADI = TBOlcuBrAdi.Text,
                     BIRIM = TBOlcuBr.Text,
                 });
             else
-                snc = _OlcuBrServis.EkleyadaGuncelle(new Entity.Models.STOK.MPOLCUBR()
+                snc = _OlcuBrServis.EkleyadaGuncelle(new PocoOLCUBR()
                 {
                     ID = id,
                     ADI = TBOlcuBrAdi.Text,
