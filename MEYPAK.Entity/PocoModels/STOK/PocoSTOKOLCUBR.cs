@@ -19,10 +19,10 @@ namespace MEYPAK.Entity.PocoModels.STOK
         public byte KAYITTIPI { get; set; } = 0;
         public int STOKID { get; set; }
 
-        public virtual MPSTOK MPSTOK { get; set; }
+        public virtual PocoSTOK MPSTOK { get; set; }
 
         public int OLCUBRID { get; set; }
-        public virtual MPOLCUBR MPOLCUBR { get; set; }
+        public virtual PocoOLCUBR MPOLCUBR { get; set; }
 
     }
 }

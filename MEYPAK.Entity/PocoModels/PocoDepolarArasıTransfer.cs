@@ -11,8 +11,7 @@ namespace MEYPAK.Entity.PocoModels
         public int ID { get; set; }
 
         public DateTime OLUSTURMATARIHI { get; set; } = DateTime.Now;
-        public DateTime GUNCELLEMETARIHI { get; set; } = DateTime.Now;
-
+        public DateTime GUNCELLEMETARIHI { get; set; } = DateTime.Now;  
         public string CIKTIDEPOAD { get; set; } = "";
         public string HEDEFDEPOAD { get; set; } = "";
         public string DURUM { get; set; } = "";

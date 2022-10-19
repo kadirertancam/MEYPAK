@@ -30,9 +30,9 @@ namespace MEYPAK.API.Controllers.DEPOControllers
                 var data = _depoServis.Listele();
                 return Ok(data);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return Problem("Beklenmedik bir hata oluştu!");
+                return Problem("Beklenmedik bir hata oluştu!" + ex.Message);
             }
         }
         [HttpPost]
@@ -44,9 +44,9 @@ namespace MEYPAK.API.Controllers.DEPOControllers
                 var data = _depoServis.Ekle(pModel);
                 return Ok(data);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return Problem("Beklenmedik bir hata oluştu!");
+                return Problem("Beklenmedik bir hata oluştu!" + ex.Message);
             }
         }
         [HttpPost]
@@ -58,9 +58,9 @@ namespace MEYPAK.API.Controllers.DEPOControllers
                 var data = _depoServis.Sil(pModel);
                 return Ok(data);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return Problem("Beklenmedik bir hata oluştu!");
+                return Problem("Beklenmedik bir hata oluştu!" + ex.Message);
             }
         }
         [HttpPost]
@@ -72,9 +72,9 @@ namespace MEYPAK.API.Controllers.DEPOControllers
                 var data = _depoServis.Guncelle(pModel);
                 return Ok(data);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return Problem("Beklenmedik bir hata oluştu!");
+                return Problem("Beklenmedik bir hata oluştu!" + ex.Message);
             }
         }
     }

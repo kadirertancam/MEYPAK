@@ -28,9 +28,9 @@ namespace MEYPAK.API.Controllers.STOKControllers
                 var data = _stokOlcuBrServis.Listele();
                 return Ok(data);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return Problem("Beklenmedik bir hata oluştu!");
+                return Problem("Beklenmedik bir hata oluştu!" + ex.Message);
             }
         }
 
@@ -43,9 +43,9 @@ namespace MEYPAK.API.Controllers.STOKControllers
                 var data = _stokOlcuBrServis.Ekle(pModel);
                 return Ok(data);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return Problem("Beklenmedik bir hata oluştu!");
+                return Problem("Beklenmedik bir hata oluştu!" + ex.Message);
             }
         }
 
@@ -58,9 +58,9 @@ namespace MEYPAK.API.Controllers.STOKControllers
                 var data = _stokOlcuBrServis.Sil(pModel);
                 return Ok(data);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return Problem("Beklenmedik bir hata oluştu!");
+                return Problem("Beklenmedik bir hata oluştu!" + ex.Message);
             }
         }
 
@@ -73,9 +73,9 @@ namespace MEYPAK.API.Controllers.STOKControllers
                 var data = _stokOlcuBrServis.Guncelle(pModel);
                 return Ok(data);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return Problem("Beklenmedik bir hata oluştu!");
+                return Problem("Beklenmedik bir hata oluştu!" + ex.Message);
             }
         }
     }

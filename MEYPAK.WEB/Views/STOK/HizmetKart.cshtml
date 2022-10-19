@@ -1,6 +1,5 @@
-﻿@using System.Data;
-@using MEYPAK.Entity.PocoModels.STOK
-@model List<PocoSTOK>
+﻿@using MEYPAK.Entity.PocoModels.STOK
+@model List<PocoHIZMET>
 
 
 
@@ -20,7 +19,7 @@
                             <thead class="thead-dark">
                                 <tr>
                                     @{
-                                        PocoSTOK aa = new PocoSTOK();
+                                        PocoHIZMET aa = new PocoHIZMET();
 
                                         foreach (var item2 in aa.GetType().GetProperties())
                                         {
@@ -30,8 +29,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-
-                                @foreach (PocoSTOK item in Model)
+                                @foreach (PocoHIZMET item in Model)
                                 {
                                     <tr>
                                         @foreach (var item2 in item.GetType().GetProperties())

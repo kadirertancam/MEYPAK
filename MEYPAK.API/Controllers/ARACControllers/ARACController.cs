@@ -29,9 +29,9 @@ namespace MEYPAK.API.Controllers.ARAC
                 var data = _aracServis.Listele();
                 return Ok(data);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return Problem("Beklenmedik bir hata oluştu!");
+                return Problem("Beklenmedik bir hata oluştu!" + ex.Message);
             }
         }
         [HttpPost]
@@ -43,9 +43,9 @@ namespace MEYPAK.API.Controllers.ARAC
                 var data = _aracServis.Ekle(pModel);
                 return Ok(data);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return Problem("Beklenmedik bir hata oluştu!");
+                return Problem("Beklenmedik bir hata oluştu!" + ex.Message);
             }
         }
         [HttpPost]
@@ -57,9 +57,9 @@ namespace MEYPAK.API.Controllers.ARAC
                 var data = _aracServis.Sil(pModel);
                 return Ok(data);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return Problem("Beklenmedik bir hata oluştu!");
+                return Problem("Beklenmedik bir hata oluştu!" + ex.Message);
             }
         }
         [HttpPost]
@@ -71,9 +71,9 @@ namespace MEYPAK.API.Controllers.ARAC
                 var data = _aracServis.Guncelle(pModel);
                 return Ok(data);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return Problem("Beklenmedik bir hata oluştu!");
+                return Problem("Beklenmedik bir hata oluştu!" + ex.Message);
             }
         }
     }

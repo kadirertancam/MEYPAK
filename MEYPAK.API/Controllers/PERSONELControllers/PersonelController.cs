@@ -7,12 +7,14 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MEYPAK.API.Controllers.PERSONELControllers
 {
-    public class PersonelController : Controller
+    [ApiController]
+    [Route("[controller]")]
+    public class PERSONELController : Controller
     {
         private readonly IPersonelServis _personelServis;
         private readonly IMapper _mapper;
 
-        public PersonelController(IPersonelServis personelServis, IMapper mapper)
+        public PERSONELController(IPersonelServis personelServis, IMapper mapper)
         {
             _personelServis = personelServis;
             _mapper = mapper;
@@ -27,9 +29,9 @@ namespace MEYPAK.API.Controllers.PERSONELControllers
                 var data = _personelServis.Listele();
                 return Ok(data);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return Problem("Beklenmedik bir hata oluştu!");
+                return Problem("Beklenmedik bir hata oluştu!" + ex.Message);
             }
         }
 
@@ -42,9 +44,9 @@ namespace MEYPAK.API.Controllers.PERSONELControllers
                 var data = _personelServis.Ekle(pModel);
                 return Ok(data);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return Problem("Beklenmedik bir hata oluştu!");
+                return Problem("Beklenmedik bir hata oluştu!" + ex.Message);
             }
         }
 
@@ -57,9 +59,9 @@ namespace MEYPAK.API.Controllers.PERSONELControllers
                 var data = _personelServis.Sil(pModel);
                 return Ok(data);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return Problem("Beklenmedik bir hata oluştu!");
+                return Problem("Beklenmedik bir hata oluştu!" + ex.Message);
             }
         }
 
@@ -72,9 +74,9 @@ namespace MEYPAK.API.Controllers.PERSONELControllers
                 var data = _personelServis.Guncelle(pModel);
                 return Ok(data);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return Problem("Beklenmedik bir hata oluştu!");
+                return Problem("Beklenmedik bir hata oluştu!" + ex.Message);
             }
         }
     }

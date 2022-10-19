@@ -1,3 +1,5 @@
+using MEYPAK.WEB.Controllers.STOKController;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -17,8 +19,18 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+app.UseEndpoints(endpoints =>
+{
 
+
+    endpoints.MapControllerRoute(
+        name: "Stok/Taným/StokEkle",
+        pattern: "Stok/Taným/StokEkle",
+          new {controller ="STOK", action = "StokEkle"});
+
+    endpoints.MapControllerRoute(
+        name: "default",
+        pattern: "{controller=Home}/{action=Index}/{id?}");
+}
+); 
 app.Run();

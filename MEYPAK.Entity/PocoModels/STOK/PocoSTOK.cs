@@ -129,7 +129,7 @@ namespace MEYPAK.Entity.PocoModels.STOK
      
         public virtual List<PocoSTOKFIYATLISTHAR> MPSTOKFIYATLISTHARList { get; set; }
         [JsonIgnore]
-        public virtual ICollection<MPSIPARISDETAY> MPSIPARISDETAY { get; set; }
+        public virtual ICollection<PocoSIPARISDETAY> MPSIPARISDETAY { get; set; }
         [JsonIgnore]
         public virtual List<PocoSTOKSEVKIYATLIST> MPSTOKSEVKİYATLİSTList { get; set; }
     }

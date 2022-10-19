@@ -23,12 +23,12 @@ namespace MEYPAK.Entity.PocoModels.STOK
         public int PARABR { get; set; } = 1;
         public decimal KUR { get; set; } = 1;
         public byte KAYITTIPI { get; set; } = 0;
-        public virtual MPSTOKSAYIM MPSTOKSAYIM { get; set; }
+        public virtual PocoSTOKSAYIM MPSTOKSAYIM { get; set; }
 
         public int STOKID { get; set; }
-        public virtual MPSTOK MPSTOK { get; set; }
+        public virtual PocoSTOK MPSTOK { get; set; }
 
         public int BIRIMID { get; set; }
-        public virtual MPOLCUBR MPOLCUBR { get; set; }
+        public virtual PocoOLCUBR MPOLCUBR { get; set; }
     }
 }
