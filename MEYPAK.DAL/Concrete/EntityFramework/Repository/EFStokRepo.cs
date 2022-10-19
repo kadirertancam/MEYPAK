@@ -27,7 +27,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
             {
                 _context.Entry(item)
                     .Collection(e => e.MPSTOKOLCUBR)
-                    .Load(); 
+                    .Load();
                 _context.Entry(item)
                    .Collection(e => e.MPSIPARISDETAY)
                    .Load();
