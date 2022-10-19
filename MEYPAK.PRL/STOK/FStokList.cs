@@ -1,7 +1,9 @@
-﻿using MEYPAK.BLL.STOK;
+﻿using MEYPAK.BLL.Assets;
+using MEYPAK.BLL.STOK;
 using MEYPAK.DAL.Abstract;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository;
+using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Stok;
 using MEYPAK.PRL.Assets;
 using MEYPAK.PRL.Assets.Scripts;
@@ -34,13 +36,14 @@ namespace MEYPAK.PRL.STOK
         {
             InitializeComponent();
             this._islem = islem;
+            _stokServis = new GenericWebServis<PocoSTOK>();
         }
-        IStokServis _stokServis ;
+        GenericWebServis<PocoSTOK> _stokServis ;
         IStokOlcuBrServis _stokOlcuBrServis ;
         private void FStokList_Load(object sender, EventArgs e)
         {
-            
-            dataGridView1.DataSource = StaticContext._stokServis.Listele().Select(x => new { x.ID, x.KOD, x.ADI, x.GRUPKODU, x.OLCUBR1, x.MARKAID }).ToList();
+            _stokServis.Data(ServisList.StokListeServis);
+            dataGridView1.DataSource = _stokServis.obje.Select(x => new { x.ID, x.KOD, x.ADI, x.GRUPKODU, x.OLCUBR1, x.MARKAID }).ToList();
 
             fSTOKKART = (FStokKart)Application.OpenForms["FStokKart"];
             fStokHareket = (FStokHareket)Application.OpenForms["FStokHareket"];
@@ -53,10 +56,11 @@ namespace MEYPAK.PRL.STOK
         }
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            
             if (_islem == "stokkart")
             {
                 if (fSTOKKART != null)
-                    fSTOKKART._tempStok = StaticContext._stokServis.Getir(x => x.ID.ToString() == dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
+                    fSTOKKART._tempStok = _stokServis.obje.Where(x => x.ID.ToString() == dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
             }
             else if (_islem == "stoksayimpanel")
             {

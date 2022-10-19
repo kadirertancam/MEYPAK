@@ -15,7 +15,21 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
             context = _context;
         }
 
+        void onYukle()
+        {
 
+            var emp = context.MPSTOKOLCUBR.ToList();
+            foreach (var item in emp)
+            {
+                context.Entry(item)
+                    .Navigation("MPSTOK")
+                    .Load();
+               
+
+            }
+
+
+        }
         public Durum EkleyadaGuncelle(MPSTOKOLCUBR entity)
         {
             context.MPSTOKOLCUBR.Add(entity);

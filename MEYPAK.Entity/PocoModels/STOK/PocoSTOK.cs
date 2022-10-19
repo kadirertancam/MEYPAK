@@ -117,8 +117,7 @@ namespace MEYPAK.Entity.PocoModels.STOK
         public int KULLANICIID { get; set; } = 0;
         [DefaultValue(0)]
         public byte KAYITTIPI { get; set; } = 0; 
-        public string? DONEM { get; set; } = DateTime.Now.ToString("yyyy");
-        [JsonIgnore]
+        public string? DONEM { get; set; } = DateTime.Now.ToString("yyyy"); 
         public virtual List<PocoSTOKOLCUBR> MPSTOKOLCUBRList { get; set; }
         [JsonIgnore]
         public virtual List<PocoSTOKHAR> MPSTOKHARList { get; set; }

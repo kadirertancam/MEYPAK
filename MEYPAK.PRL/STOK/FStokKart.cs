@@ -32,6 +32,7 @@ namespace MEYPAK.PRL
             _PocoOlcuBrServis = new GenericWebServis<PocoOLCUBR>();
             _StokOlcuBrServis = new GenericWebServis<PocoSTOKOLCUBR>();
             _PocoStokServis = new GenericWebServis<PocoSTOK>();
+            _markaServis = new GenericWebServis<PocoSTOKMARKA>();
         }
         #region Tanımlar
         PocoSTOKOLCUBR _tempStokOlcuBr;
@@ -40,7 +41,7 @@ namespace MEYPAK.PRL
         public PocoSTOKMARKA _tempMarka;
         static MEYPAKContext context = NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>();
       
-        IStokMarkaServis _markaServis ;
+        GenericWebServis<PocoSTOKMARKA> _markaServis ;
         GenericWebServis<PocoSTOK> _PocoStokServis;
         GenericWebServis<PocoOLCUBR> _PocoOlcuBrServis;
         GenericWebServis<PocoSTOKOLCUBR> _StokOlcuBrServis;
@@ -73,6 +74,7 @@ namespace MEYPAK.PRL
         private void tbDoldur()                                                 // _tempStok nesnesi dolduğu zaman bu method ile formdaki nesneleri doldur
         {
             _PocoStokServis.Data(ServisList.StokListeServis);
+            _markaServis.Data(ServisList.StokMarkaListeServis);
             if (_tempStok != null)
             {
                 stokid = _tempStok.ID;
@@ -81,7 +83,7 @@ namespace MEYPAK.PRL
             TBStokAdı.Text = _tempStok.ADI;
             TBSatisOtv.Text = _tempStok.SATISOTV.ToString();
             TBSatisKdv.Text = _tempStok.SATISKDV.ToString();
-            TBMarka.Text = _markaServis.Getir(x=>x.ID.ToString()==_tempStok.MARKAID.ToString()).FirstOrDefault().ADI.ToString();
+            TBMarka.Text = _markaServis.obje.Where(x=>x.ID.ToString()==_tempStok.MARKAID.ToString()).FirstOrDefault().ADI.ToString();
             TBKategori.Text = _tempStok.KATEGORIID.ToString();
             TBGrupKodu.Text = _tempStok.GRUPKODU.ToString();
             TBAlisOtv.Text = _tempStok.ALISOTV.ToString();
@@ -136,13 +138,13 @@ namespace MEYPAK.PRL
         }
         private void BTKaydet_Click(object sender, EventArgs e)                 // Stok Kayıt
         {
-           
-            _tempStok = new PocoSTOK()
+            _markaServis.Data(ServisList.StokMarkaListeServis);
+             _tempStok = new PocoSTOK()
             {
                 ID = stokid,
                 KOD = TBStokKodu.Text,
                 ADI = TBStokAdı.Text,
-                MARKAID = _markaServis.Getir(x => x.ADI == TBMarka.Text).FirstOrDefault().ID,
+                MARKAID = _markaServis.obje.Where(x => x.ADI == TBMarka.Text).FirstOrDefault().ID,
                 KATEGORIID = int.Parse(TBKategori.Text),
                 KASAID = _tempKasa.ID,
                 GRUPKODU = int.Parse(TBGrupKodu.Text),
