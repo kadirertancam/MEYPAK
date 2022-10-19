@@ -87,10 +87,10 @@ namespace MEYPAK.BLL.Assets
         #endregion
 
         #region StokFiyatList
-        public const string StokFiyatListListeServis =          "http://213.238.167.117:8080/ST0KFIYATLIST/STOKFIYATLISTListe"; 
-        public const string StokFiyatListEkleServis =            "http://213.238.167.117:8080/ST0KFIYATLIST/STOKFIYATLISTEkle"; 
-        public const string StokFiyatListSilServis =             "http://213.238.167.117:8080/ST0KFIYATLIST/STOKFIYATLISTSil"; 
-        public const string StokFiyatListGuncelleServis =   "http://213.238.167.117:8080/ST0KFIYATLIST/STOKFIYATLISTGuncelle";
+        public const string StokFiyatListListeServis =          "http://213.238.167.117:8080/STOKFIYATLIST/STOKFIYATLISTListe"; 
+        public const string StokFiyatListEkleServis =            "http://213.238.167.117:8080/STOKFIYATLIST/STOKFIYATLISTEkle"; 
+        public const string StokFiyatListSilServis =             "http://213.238.167.117:8080/STOKFIYATLIST/STOKFIYATLISTSil"; 
+        public const string StokFiyatListGuncelleServis =   "http://213.238.167.117:8080/STOKFIYATLIST/STOKFIYATLISTGuncelle";
         #endregion
 
         #region Stok
