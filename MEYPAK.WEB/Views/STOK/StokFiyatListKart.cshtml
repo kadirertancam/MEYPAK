@@ -1,6 +1,5 @@
-﻿@using System.Data;
-@using MEYPAK.Entity.PocoModels.STOK
-@model DataTable
+﻿@using MEYPAK.Entity.PocoModels.STOK
+@model List<PocoSTOKFIYATLIST>
 
 
 
@@ -30,12 +29,13 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach (DataRow item in Model.Rows)
+                                @foreach (PocoSTOKFIYATLIST item in Model)
                                 {
                                     <tr>
-                                        @foreach (var item2 in item.ItemArray)
+                                        @foreach (var item2 in item.GetType().GetProperties())
                                         {
-                                            <td>@item2.ToString()</td>
+
+                                            <td>@item.GetType().GetProperty(item2.Name).GetValue(item, null);</td>
                                         }
                                     </tr>
                                 }

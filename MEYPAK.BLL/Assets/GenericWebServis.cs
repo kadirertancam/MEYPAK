@@ -11,11 +11,16 @@ namespace MEYPAK.BLL.Assets
 {
     public class GenericWebServis<T> where T : class, new()
     {
+        public GenericWebServis(){
+            _model = new T();
+
+            }
         string serialize;
+        T _model;
         List<T> obje;
-        public   List<T> Data(string servis,T model=null)
+        public   List<T> Data(string servis)
         {
-            serialize = JsonConvert.SerializeObject(model);
+            serialize = JsonConvert.SerializeObject(_model);
             string empty = "\" \"";
             serialize = Regex.Replace(serialize, @"\bnull\b", $"{empty}");
 
@@ -34,7 +39,7 @@ namespace MEYPAK.BLL.Assets
             client.Headers.Add("Sec-Fetch-Site", "same-origin");
             client.Headers.Add("Accept-Language", "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7");
             client.Headers.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36");
-            if(model != null)
+        
                 client.Content = new StringContent(serialize,
                                         Encoding.UTF8,
                                         "application/json");

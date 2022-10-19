@@ -13,6 +13,7 @@ using System.Text.Json.Serialization;
 using System.Text.Json;
 using JsonSerializer = System.Text.Json.JsonSerializer;
 using System.Text.RegularExpressions;
+using MEYPAK.BLL.Assets;
 
 namespace MEYPAK.WEB.Controllers.STOKController
 {
@@ -21,12 +22,16 @@ namespace MEYPAK.WEB.Controllers.STOKController
 
 
         private readonly ILogger<StokController> _logger;
-
+        GenericWebServis<PocoSTOK> _tempPocoStok = new GenericWebServis<PocoSTOK>();
+        GenericWebServis<PocoHIZMET> _tempPocoHizmet = new GenericWebServis<PocoHIZMET>();
+        GenericWebServis<PocoOLCUBR> _tempPocoOlcuBr = new GenericWebServis<PocoOLCUBR>();
+        GenericWebServis<PocoSTOKFIYATLIST> _tempPocoStokFiyatList = new GenericWebServis<PocoSTOKFIYATLIST>();
 
         string BaseURL = "http://213.238.167.117:8080";
         public StokController(ILogger<StokController> logger)
         {
             _logger = logger;
+            
         }
 
 
@@ -36,23 +41,9 @@ namespace MEYPAK.WEB.Controllers.STOKController
   
         public async Task<IActionResult> StokKart()
         {
+            List<PocoSTOK> dt ;
 
-            DataTable dt = new DataTable();
-            using (var client = new HttpClient())
-            {
-                client.BaseAddress = new Uri(BaseURL);
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-                HttpResponseMessage getData = await client.GetAsync("/Stok/STOKListe");
-
-                if (getData.IsSuccessStatusCode)
-                {
-                    string results = getData.Content.ReadAsStringAsync().Result;
-                    //   results = "["
-                    dt = JsonConvert.DeserializeObject<DataTable>(results);
-                }
-            }
+            dt = _tempPocoStok.Data(ServisList.StokListeServis);
             return View(dt);
         }
 
@@ -105,22 +96,9 @@ namespace MEYPAK.WEB.Controllers.STOKController
         [HttpGet]
         public async Task<IActionResult> HizmetKart()
         {
-            DataTable dt = new DataTable();
-            using (var client = new HttpClient())
-            {
-                client.BaseAddress = new Uri(BaseURL);
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            List<PocoHIZMET> dt ;
 
-                HttpResponseMessage getData = await client.GetAsync("/HIZMET/HIZMETListe");
-
-                if (getData.IsSuccessStatusCode)
-                {
-                    string results = getData.Content.ReadAsStringAsync().Result;
-                    //   results = "["
-                    dt = JsonConvert.DeserializeObject<DataTable>(results);
-                }
-            }
+            dt = _tempPocoHizmet.Data(ServisList.HizmetListeServis);
             return View(dt);
         }
 
@@ -174,26 +152,9 @@ namespace MEYPAK.WEB.Controllers.STOKController
         [HttpGet]
         public async Task<IActionResult> OlcuBrKart()
         {
-            List<PocoOLCUBR> dt = new List<PocoOLCUBR>();
-            using (var client = new HttpClient())
-            {
-                client.BaseAddress = new Uri(BaseURL);
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            List<PocoOLCUBR> dt;
 
-                HttpResponseMessage getData = await client.GetAsync("/OLCUBR/OlcuBrListe");
-
-                if (getData.IsSuccessStatusCode)
-                {
-                    string results = getData.Content.ReadAsStringAsync().Result;
-                    //   results = "["
-                    if (results==null)
-                    {
-                        return View();
-                    }
-                    dt = JsonConvert.DeserializeObject<List<PocoOLCUBR>>(results);
-                }
-            }
+            dt = _tempPocoOlcuBr.Data(ServisList.OlcuBrListeServis);
             return View(dt);
         }
 
@@ -250,22 +211,9 @@ namespace MEYPAK.WEB.Controllers.STOKController
         public async Task<IActionResult> StokFiyatListKart()
         {
 
-            DataTable dt = new DataTable();
-            using (var client = new HttpClient())
-            {
-                client.BaseAddress = new Uri(BaseURL);
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            List<PocoSTOKFIYATLIST> dt;
 
-                HttpResponseMessage getData = await client.GetAsync("/STOKFIYATLIST/STOKFIYATLISTListe");
-
-                if (getData.IsSuccessStatusCode)
-                {
-                    string results = getData.Content.ReadAsStringAsync().Result;
-                    //   results = "["
-                    dt = JsonConvert.DeserializeObject<DataTable>(results);
-                }
-            }
+            dt = _tempPocoStokFiyatList.Data(ServisList.StokFiyatListListeServis);
             return View(dt);
         }
 
