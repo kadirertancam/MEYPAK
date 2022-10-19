@@ -68,8 +68,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
 
             modelBuilder.Entity<MPSTOK>()
    .Navigation(b => b.MPSIPARISDETAY)
-   .UsePropertyAccessMode(PropertyAccessMode.Property);
-
+   .UsePropertyAccessMode(PropertyAccessMode.Property); 
             modelBuilder.Entity<MPSTOK>()
       .Navigation(b => b.MPSTOKOLCUBR)
       .UsePropertyAccessMode(PropertyAccessMode.Property);

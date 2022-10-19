@@ -124,7 +124,7 @@ namespace MEYPAK.Entity.PocoModels.STOK
 
         public virtual ICollection<PocoSTOKSAYIMHAR> MPSTOKSAYIMHAR { get; set; }
 
-        public virtual ICollection<PocoSTOKFIYATLIST> MPSTOKFIYATLIST { get; set; }
+        //public virtual ICollection<PocoSTOKFIYATLIST> MPSTOKFIYATLIST { get; set; }
      
         public virtual ICollection<PocoSTOKFIYATLISTHAR> MPSTOKFIYATLISTHAR { get; set; }
    
