@@ -39,6 +39,7 @@ namespace MEYPAK.PRL.STOK
         IStokOlcuBrServis _stokOlcuBrServis ;
         private void FStokList_Load(object sender, EventArgs e)
         {
+            
             dataGridView1.DataSource = StaticContext._stokServis.Listele().Select(x => new { x.ID, x.KOD, x.ADI, x.GRUPKODU, x.OLCUBR1, x.MARKAID }).ToList();
 
             fSTOKKART = (FStokKart)Application.OpenForms["FStokKart"];

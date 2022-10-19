@@ -12,8 +12,8 @@ namespace MEYPAK.BLL.Assets
     public class GenericWebServis<T> where T : class, new()
     {
         string serialize;
-        List<T> obje;
-        public   List<T> Data(string servis,T model=null)
+        public List<T> obje;
+        public   void Data(string servis,T model=null)
         {
             serialize = JsonConvert.SerializeObject(model);
             string empty = "\" \"";
@@ -41,8 +41,7 @@ namespace MEYPAK.BLL.Assets
 
             HttpResponseMessage resp = httpClient.Send(client);
             var a = resp.Content.ReadAsStringAsync().Result;
-            obje = JsonConvert.DeserializeObject<List<T>>(a);
-            return obje;
+            obje = JsonConvert.DeserializeObject<List<T>>(a); 
 
         }
     }

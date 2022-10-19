@@ -32,8 +32,8 @@ namespace MEYPAK.PRL.DEPO
             InitializeComponent();
             _tempStokSevkiyatList = new PocoSTOKSEVKIYATLIST();
             _tempPocoStok = new GenericWebServis<PocoSTOK>();
-            _tempStok = _tempPocoStok.Data(ServisList.StokListeServis);
-        } 
+            _tempPocoStok.Data(ServisList.StokListeServis);
+            _tempStok = _tempPocoStok.obje;        } 
         
      
         List<PocoSTOK> _tempStok;

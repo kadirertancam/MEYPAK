@@ -34,7 +34,8 @@ namespace MEYPAK.PRL.SIPARIS
         GenericWebServis<PocoDEPO> _tempDepo;
         public FMusteriSiparis()
         {
-            InitializeComponent();
+            InitializeComponent(); 
+
             DGVStokSec = new DataGridViewButtonColumn();
             DGVFiyatList = new DataGridViewComboBoxColumn();
             DGVKasaSec = new DataGridViewButtonColumn();
@@ -43,7 +44,8 @@ namespace MEYPAK.PRL.SIPARIS
             fKasaList = new FKasaList("Siparis");
             dataGridView1.MultiSelect = false;
             _tempDepo=new GenericWebServis<PocoDEPO>();
-            CBDepo.DataSource = _tempDepo.Data(@"http://213.238.167.117:8080/DEPO/DEPOListe",new PocoDEPO());
+            _tempDepo.Data(ServisList.DepoListeServis);
+            CBDepo.DataSource = _tempDepo.obje.Select(x=>x.DEPOADI).ToList();
         }
         FKasaList fKasaList;
         List<PocoSiparisKalem> _tempSiparisDetay = new List<PocoSiparisKalem>();

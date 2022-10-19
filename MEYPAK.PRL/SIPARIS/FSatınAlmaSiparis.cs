@@ -1,6 +1,8 @@
-﻿using MEYPAK.Entity.Models.SIPARIS;
+﻿using MEYPAK.BLL.Assets;
+using MEYPAK.Entity.Models.SIPARIS;
 using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Entity.PocoModels;
+using MEYPAK.Entity.PocoModels.DEPO;
 using MEYPAK.Entity.PocoModels.SIPARIS;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.PRL.Assets.Scripts;
@@ -19,6 +21,7 @@ namespace MEYPAK.PRL.SIPARIS
 {
     public partial class FSatınAlmaSiparis : Form
     {
+        GenericWebServis<PocoDEPO> _tempDepo;
         public FSatınAlmaSiparis()
         {
             InitializeComponent();
@@ -26,11 +29,12 @@ namespace MEYPAK.PRL.SIPARIS
             DGVFiyatList = new DataGridViewComboBoxColumn();
             DGVKasaSec = new DataGridViewButtonColumn();
             DGVKasaList = new DataGridViewComboBoxColumn();
-
+            _tempDepo = new GenericWebServis<PocoDEPO>();
             fKasaList = new FKasaList("SatinAlmaSiparis");
             _fStokList = new FStokList("SatinAlmaSiparis");
             dataGridView1.MultiSelect = false;
-            CBDepo.DataSource = StaticContext._depoServis.Listele().Select(x => x.DEPOADI).ToList();
+            _tempDepo.Data(ServisList.DepoListeServis);
+            CBDepo.DataSource = _tempDepo.obje.Select(x=>x.DEPOADI).ToList();
         }
         #region TANIMLAR
         List<PocoSiparisKalem> _tempSiparisDetay = new List<PocoSiparisKalem>();
