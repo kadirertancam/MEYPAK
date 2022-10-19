@@ -40,6 +40,9 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
                 _context.Entry(item)
                     .Collection(e => e.MPSTOKFIYATLISTHAR)
                     .Load();
+                _context.Entry(item)
+                    .Collection(e => e.MPSTOKFIYATLIST)
+                    .Load();
 
             }
          

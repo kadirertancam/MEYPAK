@@ -26,7 +26,7 @@ namespace MEYPAK.Entity.Mappings
             //STOK
             CreateMap<MPSTOK, PocoSTOK>().ReverseMap();
             CreateMap<MPSTOKFIYATLIST, PocoSTOKFIYATLIST>().ReverseMap();
-            CreateMap<MPSTOKFIYATLISTHAR, PocoSTOKFIYATLISTHAR>().ReverseMap();
+            CreateMap<MPSTOKFIYATLISTHAR, PocoSTOKFIYATLISTHAR>().ReverseMap(); 
             CreateMap<MPSTOKHAR, PocoSTOKHAR>().ReverseMap();
             CreateMap<MPSTOKKASA, PocoSTOKKASA>().ReverseMap();
             CreateMap<MPSTOKKATEGORI, PocoSTOKKATEGORI>().ReverseMap();

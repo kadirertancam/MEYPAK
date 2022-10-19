@@ -16,12 +16,14 @@ namespace MEYPAK.BLL.Assets
         public   void Data(string servis,T model=null)
         {
             serialize = JsonConvert.SerializeObject(model);
-            string empty = "\" \"";
-            serialize = Regex.Replace(serialize, @"\bnull\b", $"{empty}");
-
+            //string empty = "\" \"";
+            //serialize = Regex.Replace(serialize, @"\bnull\b", $"{empty}");
+            HttpRequestMessage client;
             HttpClient httpClient = new HttpClient();
-            var client = new HttpRequestMessage(HttpMethod.Get, servis);
-
+            if(model == null)
+            client = new HttpRequestMessage(HttpMethod.Get, servis);
+            else
+                client = new HttpRequestMessage(HttpMethod.Post, servis);
             client.Headers.Add("Connection", "keep-alive");
             client.Headers.Add("accept", "*/*");  
             client.Headers.Add("Referer", servis);
@@ -41,7 +43,17 @@ namespace MEYPAK.BLL.Assets
 
             HttpResponseMessage resp = httpClient.Send(client);
             var a = resp.Content.ReadAsStringAsync().Result;
-            obje = JsonConvert.DeserializeObject<List<T>>(a); 
+            try
+            {
+
+           
+            obje = JsonConvert.DeserializeObject<List<T>>(a);
+            }
+            catch (Exception)
+            {
+
+               throw new Exception(a.ToString());
+            }
 
         }
     }
