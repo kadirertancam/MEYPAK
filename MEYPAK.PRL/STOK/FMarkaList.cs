@@ -1,6 +1,8 @@
-﻿using MEYPAK.BLL.STOK;
+﻿using MEYPAK.BLL.Assets;
+using MEYPAK.BLL.STOK;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository;
+using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Stok;
 using MEYPAK.PRL.Assets;
 using System;
@@ -19,27 +21,30 @@ namespace MEYPAK.PRL.STOK
     {
         FMarkaKart FMarkaKart;
         FStokKart FSTOKKART;
+        GenericWebServis<PocoSTOKMARKA> _markaServis;
         public FMarkaList()
         {
             InitializeComponent();
+            _markaServis = new GenericWebServis<PocoSTOKMARKA>();
             FSTOKKART = (FStokKart)Application.OpenForms["FSTOKKART"];
-        }
-        IStokMarkaServis _markaServis ;
+        } 
         private void FMarkaKart_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource= _markaServis.Listele();
+            _markaServis.Data(ServisList.StokMarkaListeServis);
+            dataGridView1.DataSource= _markaServis.obje;
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
+            _markaServis.Data(ServisList.StokMarkaListeServis);
             FMarkaKart = new FMarkaKart();
             FMarkaKart.ShowDialog();
-            dataGridView1.DataSource = _markaServis.Listele();
+            dataGridView1.DataSource = _markaServis.obje;
         }
 
         private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            FSTOKKART._tempMarka = _markaServis.Getir(x=>x.ID.ToString()==dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
+            FSTOKKART._tempMarka = _markaServis.obje.Where(x=>x.ID.ToString()==dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
             this.Close();
         }
     }

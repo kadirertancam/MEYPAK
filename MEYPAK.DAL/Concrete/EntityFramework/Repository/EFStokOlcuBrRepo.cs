@@ -13,6 +13,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
         public EFStokOlcuBrRepo(MEYPAKContext _context) : base(_context)
         {
             context = _context;
+            onYukle();
         }
 
         void onYukle()

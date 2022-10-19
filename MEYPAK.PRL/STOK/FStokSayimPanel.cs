@@ -72,7 +72,7 @@ namespace MEYPAK.PRL.STOK
                     _tempStokSayimHarList.Add(new PocoStokSayimPanelList()
                     {
                         StokAdı = item.ADI,
-                        Birim = item.MPSTOKOLCUBRList.Where(x => x.NUM == 1).Select(x => x.MPOLCUBR.ADI).FirstOrDefault(),
+                        Birim = item.MPSTOKOLCUBR.Where(x => x.NUM == 1).Select(x => x.MPOLCUBR.ADI).FirstOrDefault(),
                         Fiyat = 1,
                         Miktar = 0,
                         StokKodu = item.KOD

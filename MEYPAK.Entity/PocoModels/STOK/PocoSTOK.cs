@@ -118,18 +118,12 @@ namespace MEYPAK.Entity.PocoModels.STOK
         [DefaultValue(0)]
         public byte KAYITTIPI { get; set; } = 0; 
         public string? DONEM { get; set; } = DateTime.Now.ToString("yyyy"); 
-        public virtual List<PocoSTOKOLCUBR> MPSTOKOLCUBRList { get; set; }
-        [JsonIgnore]
-        public virtual List<PocoSTOKHAR> MPSTOKHARList { get; set; }
-        [JsonIgnore] 
-        public virtual List<PocoSTOKSAYIMHAR> MPSTOKSAYIMHARList { get; set; }
-        [JsonIgnore]
-        public virtual List<PocoSTOKFIYATLIST> MPSTOKFIYATLISTList { get; set; }
-     
-        public virtual List<PocoSTOKFIYATLISTHAR> MPSTOKFIYATLISTHARList { get; set; }
-        [JsonIgnore]
-        public virtual ICollection<PocoSIPARISDETAY> MPSIPARISDETAY { get; set; }
-        [JsonIgnore]
-        public virtual List<PocoSTOKSEVKIYATLIST> MPSTOKSEVKİYATLİSTList { get; set; }
+        public virtual ICollection<PocoSTOKOLCUBR> MPSTOKOLCUBR { get; set; } 
+        public virtual ICollection<PocoSTOKHAR> MPSTOKHARList { get; set; } 
+        public virtual ICollection<PocoSTOKSAYIMHAR> MPSTOKSAYIMHAR { get; set; } 
+        public virtual ICollection<PocoSTOKFIYATLIST> MPSTOKFIYATLIST { get; set; } 
+        public virtual ICollection<PocoSTOKFIYATLISTHAR> MPSTOKFIYATLISTHAR { get; set; } 
+        public virtual ICollection<PocoSIPARISDETAY> MPSIPARISDETAY { get; set; } 
+        public virtual ICollection<PocoSTOKSEVKIYATLIST> MPSTOKSEVKİYATLİST { get; set; }
     }
 }

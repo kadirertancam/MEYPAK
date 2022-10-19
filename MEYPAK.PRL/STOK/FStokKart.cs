@@ -33,6 +33,8 @@ namespace MEYPAK.PRL
             _StokOlcuBrServis = new GenericWebServis<PocoSTOKOLCUBR>();
             _PocoStokServis = new GenericWebServis<PocoSTOK>();
             _markaServis = new GenericWebServis<PocoSTOKMARKA>();
+            _StokOlcuBrServis.Data(ServisList.StokOlcuBrListeServis);
+            stokOlculist = new List<PocoSTOKOLCUBR>();
         }
         #region Tanımlar
         PocoSTOKOLCUBR _tempStokOlcuBr;
@@ -102,10 +104,10 @@ namespace MEYPAK.PRL
             TBSFiyat4.Text = Convert.ToString(_tempStok.SFIYAT4);
             TBSFiyat5.Text = Convert.ToString(_tempStok.SFIYAT5);
             CBOlcuBr1.SelectedIndex = _tempStok.OLCUBR1;
-            dataGridView1.DataSource = _tempStok.MPSTOKOLCUBRList.ToList();
+            dataGridView1.DataSource = _tempStok.MPSTOKOLCUBR.ToList();
             dataGridView1.Refresh();
-            var a = _PocoStokServis.obje.Select(x=>x.MPSTOKOLCUBRList.Select(z=>z));
-            stokOlculist.Clear(); 
+            var a = _PocoStokServis.obje.Select(x=>x.MPSTOKOLCUBR.Select(z=>z));
+            stokOlculist = _tempStok.MPSTOKOLCUBR.ToList();
             _tempStok = null;
         }
 
@@ -146,7 +148,7 @@ namespace MEYPAK.PRL
                 ADI = TBStokAdı.Text,
                 MARKAID = _markaServis.obje.Where(x => x.ADI == TBMarka.Text).FirstOrDefault().ID,
                 KATEGORIID = int.Parse(TBKategori.Text),
-                KASAID = _tempKasa.ID,
+                KASAID = 1,//_tempKasa.ID,
                 GRUPKODU = int.Parse(TBGrupKodu.Text),
                 ACIKLAMA = TBAcıklama.Text,
                 SATISKDV = Convert.ToDecimal(TBSatisKdv.Text),
