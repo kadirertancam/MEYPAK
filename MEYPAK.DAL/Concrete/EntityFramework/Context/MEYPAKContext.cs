@@ -115,7 +115,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
 
 
 
-            //modelBuilder.Entity<MPOLCUBR>().Navigation(x => x.MPSTOKOLCUBR).();
+            ////modelBuilder.Entity<MPOLCUBR>().Navigation(x => x.MPSTOKOLCUBR).();
             //modelBuilder.Entity<MPOLCUBR>().Navigation(x => x.MPSTOKMALKABULLIST).AutoInclude();
             //modelBuilder.Entity<MPOLCUBR>().Navigation(x => x.MPSTOKSAYIMHAR).AutoInclude();
             //modelBuilder.Entity<MPOLCUBR>().Navigation(x => x.MPSTOKSEVKİYATLİST).AutoInclude();
