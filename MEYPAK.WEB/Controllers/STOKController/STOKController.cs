@@ -41,10 +41,8 @@ namespace MEYPAK.WEB.Controllers.STOKController
   
         public async Task<IActionResult> StokKart()
         {
-            List<PocoSTOK> dt ;
-
-            dt = _tempPocoStok.Data(ServisList.StokListeServis);
-            return View(dt);
+            _tempPocoStok.Data(ServisList.StokListeServis);
+            return View(_tempPocoStok.obje);
         }
 
         [HttpGet]
@@ -56,36 +54,7 @@ namespace MEYPAK.WEB.Controllers.STOKController
         [HttpPost]
         public async Task<IActionResult> StokEkle(PocoSTOK pModel)
         {
-            string serialize = JsonConvert.SerializeObject(pModel);
-            string empty = "\" \"";
-            serialize = Regex.Replace(serialize, @"\bnull\b", $"{empty}");
-            HttpResponseMessage resp;
-            using (HttpClient httpClient = new HttpClient())
-            {
-                using (HttpRequestMessage client = new HttpRequestMessage(HttpMethod.Post, BaseURL + @"/Stok/STOKEkle"))
-                {
-                    client.Headers.Add("Connection", "keep-alive");
-                    client.Headers.Add("accept", "*/*"); //http://localhost:5158/swagger/index.html
-                    client.Headers.Add("Referer", @"http://213.238.167.117:8080/Stok/StokEkle");
-                    client.Headers.Add("Origin", "http://213.238.167.117:8080");
-                    client.Headers.Add("sec-ch-ua", "\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"");
-                    client.Headers.Add("sec-ch-ua-mobile", "?0");
-                    client.Headers.Add("sec-ch-ua-paltform", "\"Windows\"");
-                    client.Headers.Add("Sec-Fetch-Dest", "empty");
-                    client.Headers.Add("Sec-Fetch-Mode", "cors");
-                    client.Headers.Add("Sec-Fetch-Site", "same-origin");
-                    client.Headers.Add("Accept-Language", "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7");
-                    client.Headers.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36");
-                    client.Content = new StringContent(serialize,
-                                            Encoding.UTF8,
-                                            "application/json");
-
-
-
-                    resp = httpClient.Send(client);
-                }
-            }
-            var a = resp.Content.ReadAsStringAsync();
+            _tempPocoStok.Data(ServisList.StokEkleServis, pModel);
 
             ViewBag.Durum = "Başarıyla eklendi.";
             return View();
@@ -96,10 +65,8 @@ namespace MEYPAK.WEB.Controllers.STOKController
         [HttpGet]
         public async Task<IActionResult> HizmetKart()
         {
-            List<PocoHIZMET> dt ;
-
-            dt = _tempPocoHizmet.Data(ServisList.HizmetListeServis);
-            return View(dt);
+            _tempPocoHizmet.Data(ServisList.HizmetListeServis);
+            return View(_tempPocoStok.obje);
         }
 
         [HttpGet]
@@ -152,10 +119,8 @@ namespace MEYPAK.WEB.Controllers.STOKController
         [HttpGet]
         public async Task<IActionResult> OlcuBrKart()
         {
-            List<PocoOLCUBR> dt;
-
-            dt = _tempPocoOlcuBr.Data(ServisList.OlcuBrListeServis);
-            return View(dt);
+             _tempPocoOlcuBr.Data(ServisList.OlcuBrListeServis);
+            return View(_tempPocoStok.obje);
         }
 
         [HttpGet]
@@ -211,10 +176,8 @@ namespace MEYPAK.WEB.Controllers.STOKController
         public async Task<IActionResult> StokFiyatListKart()
         {
 
-            List<PocoSTOKFIYATLIST> dt;
-
-            dt = _tempPocoStokFiyatList.Data(ServisList.StokFiyatListListeServis);
-            return View(dt);
+           _tempPocoStokFiyatList.Data(ServisList.StokFiyatListListeServis);
+            return View(_tempPocoStokFiyatList.obje);
         }
 
         [HttpGet]

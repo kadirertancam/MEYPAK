@@ -37,7 +37,7 @@
                                         @foreach (var item2 in item.GetType().GetProperties())
                                         {
 
-                                            <td>@item.GetType().GetProperty(item2.Name).GetValue(item, null);</td>
+                                            <td>@item.GetType().GetProperty(item2.Name).GetValue(item, null)</td>
                                         }
                                     </tr>
                                 }
