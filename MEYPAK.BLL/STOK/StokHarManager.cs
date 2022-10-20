@@ -28,11 +28,11 @@ namespace MEYPAK.BLL.STOK
 
   
 
-        public Durum EkleyadaGuncelle(PocoSTOKHAR pModel)
+        public PocoSTOKHAR EkleyadaGuncelle(PocoSTOKHAR pModel)
         {
         
-            
-            return _stokHarDal.EkleyadaGuncelle(_mapper.Map<PocoSTOKHAR, MPSTOKHAR>(pModel));
+           
+            return  _mapper.Map<MPSTOKHAR,PocoSTOKHAR>(_stokHarDal.EkleyadaGuncelle(_mapper.Map<PocoSTOKHAR, MPSTOKHAR>(pModel)));
         }
 
         public List<PocoStokHareketListesi> PocoStokHareketListesi(int id)

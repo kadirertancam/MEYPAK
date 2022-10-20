@@ -7,7 +7,7 @@ namespace MEYPAK.DAL.Abstract.StokDal
     public interface IStokHarDal : IGeneric<MPSTOKHAR>
     {
         List<PocoStokHareketListesi> PocoStokHareketListesi(int id);
-        public Durum EkleyadaGuncelle(MPSTOKHAR entity);
+        public MPSTOKHAR EkleyadaGuncelle(MPSTOKHAR entity);
         public void Sil(int id);
     }
 }
