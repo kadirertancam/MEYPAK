@@ -30,7 +30,7 @@ namespace MEYPAK.BLL.Assets
         string serialize;
         public List<T> obje;
         T obje2;
-        public   void Data(string servis,T model=null,string parameters=null)
+        public   void Data(string servis,T model=null,string parameters=null,List<T> modellist=null)
         {
             serialize = JsonConvert.SerializeObject(model);
             //string empty = "\" \"";
@@ -38,7 +38,7 @@ namespace MEYPAK.BLL.Assets
             servis= parameters != null ? servis + "?$" + parameters : servis;
             HttpRequestMessage client;
             HttpClient httpClient = new HttpClient();
-            if(model == null)
+            if(model == null || modellist == null)
             client = new HttpRequestMessage(HttpMethod.Get, servis);
             else
                 client = new HttpRequestMessage(HttpMethod.Post, servis);
@@ -54,7 +54,7 @@ namespace MEYPAK.BLL.Assets
             client.Headers.Add("Sec-Fetch-Site", "same-origin");
             client.Headers.Add("Accept-Language", "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7");
             client.Headers.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36");
-            if(model != null)
+            if(model != null || modellist!=null)
                 client.Content = new StringContent(serialize,
                                         Encoding.UTF8,
                                         "application/json");

@@ -1,4 +1,5 @@
-﻿using MEYPAK.BLL.DEPO;
+﻿using MEYPAK.BLL.Assets;
+using MEYPAK.BLL.DEPO;
 using MEYPAK.BLL.SIPARIS;
 using MEYPAK.BLL.STOK;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
@@ -32,6 +33,7 @@ namespace MEYPAK.PRL.DEPO
         public FSevkiyatPanel()
         {
             InitializeComponent();
+            _siparisServis = new GenericWebServis<PocoSIPARIS>();
             // this.tabControl1.DrawMode = TabDrawMode.OwnerDrawFixed;
             // this.tabControl1.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControl1_DrawItem);
             dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(105, 105, 105);
@@ -46,6 +48,8 @@ namespace MEYPAK.PRL.DEPO
         FSevkiyatCekiPanel _sevkiyatCekiPanel;
         List<PocoSIPARISDETAY> _tempSTOKSEVK;
         List<PocoSIPARISDETAY> _tempSiparisDetay;
+        GenericWebServis<PocoSIPARIS> _siparisServis;
+        GenericWebServis<PocoDEPO> _depoEmirServis;
 
         #region TabControl Tasarım
         private Dictionary<TabPage, Color> TabColors = new Dictionary<TabPage, Color>();
@@ -101,13 +105,13 @@ namespace MEYPAK.PRL.DEPO
                 int i= 1;
                 var a = StaticContext._depoEmirServis.Ekle(new PocoDEPOEMIR()
                 {
-                    SIPARISID = StaticContext._siparisServis.Listele().Where(x => x.BELGENO == dataGridView1.Rows[e.RowIndex].Cells["BELGENO"].Value.ToString()).FirstOrDefault().ID,
+                    SIPARISID = _siparisServis.obje.Where(x => x.BELGENO == dataGridView1.Rows[e.RowIndex].Cells["BELGENO"].Value.ToString()).FirstOrDefault().ID,
                     MIKTAR = _tempSiparisDetay.Sum(x=>x.MIKTAR),
                     SIRA = i,
                     TARIH = DateTime.Now,
                     TIP = 0,   /// TOPLAMA EMRİ TIPI OUTPUT =0 INPUT=1
                     DURUM = 1,
-                    DEPOID= StaticContext._siparisServis.Listele().Where(x => x.BELGENO == dataGridView1.Rows[e.RowIndex].Cells["BELGENO"].Value.ToString()).FirstOrDefault().DEPOID,
+                    DEPOID = _siparisServis.obje.Where(x => x.BELGENO == dataGridView1.Rows[e.RowIndex].Cells["BELGENO"].Value.ToString()).FirstOrDefault().DEPOID,
                     ACIKLAMA = "",
 
 

@@ -74,5 +74,24 @@ namespace MEYPAK.PRL.STOK
             }
 
         }
-    }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            _stokSayimServis.Data(ServisList.StokSayimListeServis);
+            _stokHarServis.Data(ServisList.StokHarListeServis);
+
+            foreach (var item2 in _stokSayimServis.obje.Where(x => x.SAYIMTARIHI == dateTimePicker1.Value && x.ACIKLAMA == textBox1.Text).FirstOrDefault().MPSTOKSAYIMHAR)
+            {
+                var _temp = _stokHarServis.obje.Where(x => x.STOKID == item2.STOKID && x.SAYIMID == item2.ID).ToList();
+                if(_temp.Count() > 0)
+                {
+                    _stokHarServis.Data(ServisList.StokHarSilServis,null,null, _temp);
+                }
+
+            }
+
+
+
+        }
+    } 
 }
