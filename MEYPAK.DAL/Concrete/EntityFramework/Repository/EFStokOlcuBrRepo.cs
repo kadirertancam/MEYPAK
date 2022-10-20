@@ -2,6 +2,7 @@
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Interfaces;
+using System.Data.Entity;
 using System.Linq.Expressions;
 
 namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
@@ -18,16 +19,22 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
 
         void onYukle()
         {
+          
+            var emp = context.MPSTOKOLCUBR.AsQueryable();
 
-            var emp = context.MPSTOKOLCUBR.ToList();
-            foreach (var item in emp)
-            {
-                context.Entry(item)
-                    .Navigation("MPSTOK")
-                    .Load();
-               
+            emp = emp.Include("MPSTOK");
+            emp = emp.Include("MPOLCUBR");
+            //foreach (var item in emp)
+            //{
+            //    context.Entry(item)
+            //        .Navigation("MPSTOK")
+            //        .Load();
+            //    context.Entry(item)
+            //        .Navigation("MPOLCUBR")
+            //        .Load();
 
-            }
+
+            //}
 
 
         }

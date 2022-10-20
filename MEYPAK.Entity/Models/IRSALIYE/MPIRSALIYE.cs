@@ -61,8 +61,7 @@ namespace MEYPAK.Entity.Models.IRSALIYE
         public bool DURUM { get; set; }
         [Required]
         public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
-        public byte KAYITTIPI { get; set; } = 0;
-        [JsonIgnore]
+        public byte KAYITTIPI { get; set; } = 0; 
 
         public virtual MPSIPARIS MPSIPARIS { get; set; }
 

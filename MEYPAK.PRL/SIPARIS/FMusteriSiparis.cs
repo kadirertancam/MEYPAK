@@ -31,7 +31,7 @@ namespace MEYPAK.PRL.SIPARIS
 {
     public partial class FMusteriSiparis : Form
     {
-        GenericWebServis<PocoDEPO> _tempDepo;
+       
         public FMusteriSiparis()
         {
             InitializeComponent(); 
@@ -43,9 +43,13 @@ namespace MEYPAK.PRL.SIPARIS
             _fStokList = new FStokList("siparis");
             fKasaList = new FKasaList("Siparis");
             dataGridView1.MultiSelect = false;
-            _tempDepo=new GenericWebServis<PocoDEPO>();
-            _tempDepo.Data(ServisList.DepoListeServis);
-            CBDepo.DataSource = _tempDepo.obje.Select(x=>x.DEPOADI).ToList();
+            _depoServis = new GenericWebServis<PocoDEPO>();
+            _depoServis.Data(ServisList.DepoListeServis);
+            CBDepo.DataSource = _depoServis.obje.Select(x=>x.DEPOADI).ToList();
+            _siparisServis = new GenericWebServis<PocoSIPARIS>();
+            _siparisServis.Data(ServisList.SiparisListeServis);
+            _siparisDetayServis = new GenericWebServis<PocoSIPARISDETAY>();
+            _siparisDetayServis.Data(ServisList.DepoListeServis);
         }
         FKasaList fKasaList;
         List<PocoSiparisKalem> _tempSiparisDetay = new List<PocoSiparisKalem>();
@@ -65,6 +69,9 @@ namespace MEYPAK.PRL.SIPARIS
 
         DataGridViewComboBoxColumn DGVFiyatList;
         DataGridViewComboBoxColumn DGVKasaList;
+        GenericWebServis<PocoSIPARIS> _siparisServis;
+        GenericWebServis<PocoDEPO> _depoServis;
+        GenericWebServis<PocoSIPARISDETAY> _siparisDetayServis;
         DataGridViewCell DGVtempCell;
         void temizle()
         {
@@ -84,7 +91,7 @@ namespace MEYPAK.PRL.SIPARIS
             DGVOlcuBr.HeaderText = "Birim";
             DGVOlcuBr.FlatStyle = FlatStyle.Flat;
             dataGridView1.Columns["Birim"].Visible = false;
-            DGVOlcuBr.DataSource = _tempStok.MPSTOKOLCUBR.Select(x => x.MPOLCUBR.ADI).ToList();
+            
             dataGridView1.Columns.Add(DGVOlcuBr);
             DGVStokSec.Name = "DGVStoKSec";
             DGVStokSec.HeaderText = "Seç";
@@ -120,9 +127,8 @@ namespace MEYPAK.PRL.SIPARIS
         private void BTKaydet_Click(object sender, EventArgs e)
         {
 
-
-            StaticContext._stokServis.Listele();
-            var _tempp = StaticContext._siparisServis.Ekle(new PocoSIPARIS()
+             
+            _siparisServis.Data(ServisList.SiparisEkleServis,new PocoSIPARIS()
             {
                 ACIKLAMA = TBAciklama.Text,
                 KUR = Convert.ToDecimal(TBKur.Text),
@@ -132,7 +138,7 @@ namespace MEYPAK.PRL.SIPARIS
                 VADEGUNU = Convert.ToInt32(TBSVadeGunu.Text),
                 CARIADI = TBCariAdi.Text,
                 CARIID = 0,
-                DEPOID = StaticContext._depoServis.Getir(x => x.DEPOADI == CBDepo.SelectedValue).FirstOrDefault().ID,
+                DEPOID = _depoServis.obje.Where(x => x.DEPOADI == CBDepo.SelectedValue).FirstOrDefault().ID,
                 DOVIZID = 0,
                 ISKONTOTOPLAM = _tempSiparisDetay.Sum(x => x.İskontoTutarı),
                 KDVTOPLAM = _tempSiparisDetay.Sum(x => x.KdvTutarı),
@@ -145,7 +151,7 @@ namespace MEYPAK.PRL.SIPARIS
             foreach (var item in _tempSiparisDetay.Where(x => x.StokKodu != "").ToList())
             {
 
-                StaticContext._siparisDetayServis.EkleyadaGuncelle(new PocoSIPARISDETAY()
+                _siparisDetayServis.Data(ServisList.SiparisDetayEkleServis,new PocoSIPARISDETAY()
                 {
                     STOKID = item.StokId,
                     STOKADI = item.MPSTOK.ADI,
@@ -160,7 +166,7 @@ namespace MEYPAK.PRL.SIPARIS
                     ISTKONTO1 = item.İskonto1,
                     ISTKONTO2 = item.İskonto2,
                     ISTKONTO3 = item.İskonto3,
-                    SIPARISID = _tempp.ID,
+                    SIPARISID = _siparisServis.obje2.ID, 
                     BRUTFIYAT = item.BrütFiyat,
                     BRUTTOPLAM = item.BrütFiyat * item.Miktar,
                     BEKLEYENMIKTAR = 0,
@@ -213,11 +219,11 @@ namespace MEYPAK.PRL.SIPARIS
 
                 DGVOlcuBr.DataSource = _tempStok.MPSTOKOLCUBR.Select(x => x.MPOLCUBR.ADI).ToList();
                 DGVtempCell = dataGridView1.Rows[e.RowIndex].Cells["DGVOlcuBr"];
-                DGVtempCell.Value = DGVOlcuBr.Items[0].ToString(); 
-                StaticContext._stokFiyatListServis.Listele();
+                DGVtempCell.Value = DGVOlcuBr.Items[0].ToString();  
                 DGVFiyatList.DataSource = _tempStok.MPSTOKFIYATLISTHAR.Select(x => x.MPSTOKFIYATLIST.FIYATLISTADI).ToList(); //////////////////////////// BAKILCAK
                 _tempSiparisDetay[e.RowIndex] = _tempPocokalem;
                 dataGridView1.DataSource = _tempSiparisDetay;
+
 
                 dataGridView1.Invalidate();
                 dataGridView1.Refresh();

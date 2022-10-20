@@ -1,6 +1,7 @@
 ﻿using MEYPAK.DAL.Abstract.StokDal;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.Entity.Models.STOK;
+using System.Data.Entity;
 
 namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
 {
@@ -34,16 +35,21 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
         void onYukle()
         {
 
-            var emp = _context.MPSTOKFIYATLISTHAR.ToList();
-            foreach (var item in emp)
-            {
-                _context.Entry(item)
-                    .Navigation("MPSTOK")
-                    .Load();
-                _context.Entry(item)
-                   .Navigation("MPSTOKFIYATLIST")
-                   .Load();
-            } 
+            var emp = _context.MPSTOKFIYATLISTHAR.AsQueryable();
+
+            emp = emp.Include("MPSTOK");
+            emp = emp.Include("MPSTOKFIYATLIST");
+            
+
+            //foreach (var item in emp)
+            //{
+            //    _context.Entry(item)
+            //        .Navigation("MPSTOK")
+            //        .Load();
+            //    _context.Entry(item)
+            //       .Navigation("MPSTOKFIYATLIST")
+            //       .Load();
+            //} 
 
         }
         public void Sil(int id)

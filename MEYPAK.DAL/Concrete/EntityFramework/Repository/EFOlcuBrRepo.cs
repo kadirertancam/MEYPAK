@@ -20,7 +20,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
             context = _context;
             onYukle();
         }
-        void onYukle()
+       public  void onYukle()
         {
 
             var emp = context.MPOLCUBR.ToList();

@@ -26,6 +26,9 @@ using Microsoft.OData.Edm;
 using Microsoft.OData.ModelBuilder;
 using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Routing;
+using MEYPAK.DAL.Abstract.SiparisDal;
+using MEYPAK.Interfaces.Siparis;
+using MEYPAK.BLL.SIPARIS;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -102,6 +105,7 @@ builder.Services.AddScoped<IDepoTransferServis, DepoTransferManager>();
 builder.Services.AddScoped<IDepoTransferHarDal, EFDepoTransferHarRepo>();
 builder.Services.AddScoped<IDepoTransferHarServis, DepoTransferHarManager>();
 
+
 builder.Services.AddScoped<IStokSevkiyatListDal, EFStokSevkiyatListRepo>();
 builder.Services.AddScoped<IStokSevkiyatListServis, StokSevkiyatListManager>();
 
@@ -126,6 +130,17 @@ builder.Services.AddScoped<IHizmetServis, HizmetManager>();
 
 builder.Services.AddScoped<IPersonelDal, EFPersonelRepo>();
 builder.Services.AddScoped<IPersonelServis, PersonelManager>();
+#endregion
+#region SIPARIS_Scoped_Islemleri
+builder.Services.AddScoped<ISiparisDal, EFSiparisRepo>();
+builder.Services.AddScoped<ISiparisServis, SiparisManager>();
+
+builder.Services.AddScoped<ISiparisDetayDal, EFSiparisDetayRepo>();
+builder.Services.AddScoped<ISiparisDetayServis, SiparisDetayManager>();
+
+builder.Services.AddScoped<ISiparisSevkEmriHarDal, EFSiparisSevkEmriHarRepo>();
+builder.Services.AddScoped<ISiparisSevkEmriHarServis, SiparisSevkEmriHarManager>();
+
 #endregion
 
 builder.Services.AddControllers().AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);

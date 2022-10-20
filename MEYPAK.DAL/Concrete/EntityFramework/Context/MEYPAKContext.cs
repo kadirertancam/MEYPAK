@@ -64,7 +64,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
         {
             #region Stok_Navigation_AutoInclude
 
-
+            modelBuilder.Entity<MPSTOK>().HasMany(x => x.MPSTOKFIYATLISTHAR).WithOne(x => x.MPSTOK).HasForeignKey(x => x.STOKID);
 
             modelBuilder.Entity<MPSTOK>()
    .Navigation(b => b.MPSIPARISDETAY)
@@ -78,6 +78,16 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
             modelBuilder.Entity<MPSTOK>()
     .Navigation(b => b.MPSTOKSAYIMHAR)
     .UsePropertyAccessMode(PropertyAccessMode.Property);
+
+            modelBuilder.Entity<MPSTOKFIYATLIST>()
+    .Navigation(b => b.MPSTOKFIYATLISTHAR)
+    .UsePropertyAccessMode(PropertyAccessMode.Property);
+            modelBuilder.Entity<MPSTOK>()
+    .Navigation(b => b.MPSTOKFIYATLISTHAR)
+    .UsePropertyAccessMode(PropertyAccessMode.Property);
+            modelBuilder.Entity<MPSTOK>()
+    .Navigation(b => b.MPSTOKSEVKİYATLİST)
+    .UsePropertyAccessMode(PropertyAccessMode.Property);
             modelBuilder.Entity<MPSTOKOLCUBR>()
     .Navigation(b => b.MPOLCUBR)
     .UsePropertyAccessMode(PropertyAccessMode.Property);
@@ -90,9 +100,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
     .Navigation(b => b.MPSTOKSAYIMHAR)
     .UsePropertyAccessMode(PropertyAccessMode.Property);
 
-            modelBuilder.Entity<MPSTOK>()
-    .Navigation(b => b.MPSTOKFIYATLISTHAR)
-    .UsePropertyAccessMode(PropertyAccessMode.Property);
+         
             modelBuilder.Entity<MPSIPARIS>()
     .Navigation(b => b.MPSIPARISDETAY)
     .UsePropertyAccessMode(PropertyAccessMode.Property);
@@ -101,9 +109,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
     .Navigation(b => b.MPSTOKSEVKİYATLİST)
     .UsePropertyAccessMode(PropertyAccessMode.Property);
 
-            modelBuilder.Entity<MPSTOK>()
-    .Navigation(b => b.MPSTOKSEVKİYATLİST)
-    .UsePropertyAccessMode(PropertyAccessMode.Property);
+         
             modelBuilder.Entity<MPSIPARISDETAY>()
  .Navigation(b => b.MPSTOKSEVKİYATLİST)
  .UsePropertyAccessMode(PropertyAccessMode.Property);

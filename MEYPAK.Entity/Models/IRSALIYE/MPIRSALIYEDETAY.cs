@@ -48,8 +48,7 @@ namespace MEYPAK.Entity.Models.IRSALIYE
 
         public decimal KDV { get; set; } = 0;
         public decimal KDVTUTARI { get; set; } = 0;
-        public byte KAYITTIPI { get; set; } = 0;
-        [JsonIgnore]
+        public byte KAYITTIPI { get; set; } = 0; 
         public virtual MPSIPARIS MPSIPARIS { get; set; }
        
         public virtual ICollection<MPIRSALIYESIPARISDETAYILISKI>? MPIRSALIYESIPARISDETAYILISKI { get; set; }

@@ -16,24 +16,23 @@ namespace MEYPAK.Entity.Models.STOK
         public int SIRKETID { get; set; }
         public int SUBEID { get; set; }
         public DateTime OLUSTURMATARIHI { get; set; }
-        public DateTime GUNCELLEMETARIHI { get; set; }
-        [ForeignKey("MPSTOK")]
-        public int STOKID { get; set; }
-
-        [ForeignKey("MPSTOKFIYATLIST")]
-        public int FIYATLISTID { get; set; }
+        public DateTime GUNCELLEMETARIHI { get; set; } 
         public int DOVIZID { get; set; }
         public decimal KUR { get; set; }
         public decimal NETFIYAT { get; set; }
         public decimal ISKONTO { get; set; }
-        public int KULLANICIID { get; set; }
-
+        public int KULLANICIID { get; set; } 
         public int AKTIF { get; set; }
         public byte KAYITTIPI { get; set; } = 0;
-        [JsonIgnore]
+
+
+        [ForeignKey("MPSTOK")]
+        public int STOKID { get; set; }
         public virtual MPSTOK MPSTOK { get; set; }
-        
-        [JsonIgnore]
+
+
+        [ForeignKey("MPSTOKFIYATLIST")]
+        public int FIYATLISTID { get; set; }
         public virtual MPSTOKFIYATLIST MPSTOKFIYATLIST { get; set; } 
     }
 }

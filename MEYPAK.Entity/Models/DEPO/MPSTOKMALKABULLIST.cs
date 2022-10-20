@@ -29,14 +29,10 @@ namespace MEYPAK.Entity.Models.DEPO
         public decimal MIKTAR { get; set; }
         [ForeignKey("MPDEPOEMIR")]
         public int EMIRID { get; set; }
-        public int KULLANICIID { get; set; } = 0;
-        [JsonIgnore]
-        public MPOLCUBR MPOLCUBR { get; set; }
-        [JsonIgnore]
-        public MPDEPOEMIR MPDEPOEMIR { get; set; }
-        [JsonIgnore]
-        public MPSTOK MPSTOK { get; set; }
-        [JsonIgnore]
+        public int KULLANICIID { get; set; } = 0; 
+        public MPOLCUBR MPOLCUBR { get; set; } 
+        public MPDEPOEMIR MPDEPOEMIR { get; set; } 
+        public MPSTOK MPSTOK { get; set; } 
         public MPSIPARISDETAY MPSIPARISDETAY { get; set; }
     }
 }

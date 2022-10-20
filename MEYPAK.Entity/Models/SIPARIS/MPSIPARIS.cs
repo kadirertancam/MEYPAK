@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
@@ -21,6 +22,7 @@ namespace MEYPAK.Entity.Models.SIPARIS
         [DefaultValue(0)]
         public int SUBEID { get; set; } = 0;
         [DefaultValue(0)]
+        [ForeignKey("MPDEPO")]
         public int DEPOID { get; set; } = 0;
         [DefaultValue(0)]
         public int CARIID { get; set; } = 0;
@@ -70,6 +72,8 @@ namespace MEYPAK.Entity.Models.SIPARIS
         public virtual ICollection<MPDEPOEMIR> MPDEPOEMIR { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MPSIPARISSEVKEMRIHAR> MPSIPARISSEVKEMRIHAR { get; set; }
+     
+        public virtual MPDEPO MPDEPO { get; set; }
 
 
     }
