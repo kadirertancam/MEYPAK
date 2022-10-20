@@ -29,6 +29,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
                 context.Entry(item)
                     .Collection(e =>  e.MPSTOKSAYIMHAR)
                     .Load();
+               
 
 
             }
