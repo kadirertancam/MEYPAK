@@ -26,22 +26,33 @@ namespace MEYPAK.WEB.Controllers.STOKController
         GenericWebServis<PocoHIZMET> _tempPocoHizmet = new GenericWebServis<PocoHIZMET>();
         GenericWebServis<PocoOLCUBR> _tempPocoOlcuBr = new GenericWebServis<PocoOLCUBR>();
         GenericWebServis<PocoSTOKFIYATLIST> _tempPocoStokFiyatList = new GenericWebServis<PocoSTOKFIYATLIST>();
+        GenericWebServis<PocoSTOKFIYATLISTHAR> _tempPocoStokFiyatHarList = new GenericWebServis<PocoSTOKFIYATLISTHAR>();
+        GenericWebServis<PocoSTOKHAR> _tempPocoStokHar = new GenericWebServis<PocoSTOKHAR>();
+        GenericWebServis<PocoSTOKKASA> _tempPocoStokKasa = new GenericWebServis<PocoSTOKKASA>();
+        GenericWebServis<PocoSTOKKATEGORI> _tempPocoStokKategori = new GenericWebServis<PocoSTOKKATEGORI>();
+        GenericWebServis<PocoSTOKMARKA> _tempPocoStokMarka = new GenericWebServis<PocoSTOKMARKA>();
+        GenericWebServis<PocoSTOKOLCUBR> _tempPocoStokOlcuBr = new GenericWebServis<PocoSTOKOLCUBR>();
+        GenericWebServis<PocoSTOKSAYIM> _tempPocoStokSayim = new GenericWebServis<PocoSTOKSAYIM>();
+        GenericWebServis<PocoSTOKSAYIMHAR> _tempPocoStokSayimHar = new GenericWebServis<PocoSTOKSAYIMHAR>();
+       
 
-        string BaseURL = "http://213.238.167.117:8080";
+
+
         public StokController(ILogger<StokController> logger)
         {
             _logger = logger;
-            
+
         }
 
 
 
         #region STOK
         [HttpGet]
-  
+
         public async Task<IActionResult> StokKart()
         {
             _tempPocoStok.Data(ServisList.StokListeServis);
+
             return View(_tempPocoStok.obje);
         }
 
@@ -54,6 +65,7 @@ namespace MEYPAK.WEB.Controllers.STOKController
         [HttpPost]
         public async Task<IActionResult> StokEkle(PocoSTOK pModel)
         {
+
             _tempPocoStok.Data(ServisList.StokEkleServis, pModel);
 
             ViewBag.Durum = "Başarıyla eklendi.";
@@ -66,7 +78,7 @@ namespace MEYPAK.WEB.Controllers.STOKController
         public async Task<IActionResult> HizmetKart()
         {
             _tempPocoHizmet.Data(ServisList.HizmetListeServis);
-            return View(_tempPocoStok.obje);
+            return View(_tempPocoHizmet.obje);
         }
 
         [HttpGet]
@@ -78,36 +90,7 @@ namespace MEYPAK.WEB.Controllers.STOKController
         [HttpPost]
         public async Task<IActionResult> HizmetEkle(PocoHIZMET pModel)
         {
-            string serialize = JsonConvert.SerializeObject(pModel);
-            string empty = "\" \"";
-            serialize = Regex.Replace(serialize, @"\bnull\b", $"{empty}");
-            HttpResponseMessage resp;
-            using (HttpClient httpClient = new HttpClient())
-            {
-                using (HttpRequestMessage client = new HttpRequestMessage(HttpMethod.Post, BaseURL + @"/HIZMET/HIZMETEkle"))
-                {
-                    client.Headers.Add("Connection", "keep-alive");
-                    client.Headers.Add("accept", "*/*"); //http://localhost:5158/swagger/index.html
-                    client.Headers.Add("Referer", @"http://213.238.167.117:8080/HIZMET/HIZMETEkle");
-                    client.Headers.Add("Origin", "http://213.238.167.117:8080");
-                    client.Headers.Add("sec-ch-ua", "\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"");
-                    client.Headers.Add("sec-ch-ua-mobile", "?0");
-                    client.Headers.Add("sec-ch-ua-paltform", "\"Windows\"");
-                    client.Headers.Add("Sec-Fetch-Dest", "empty");
-                    client.Headers.Add("Sec-Fetch-Mode", "cors");
-                    client.Headers.Add("Sec-Fetch-Site", "same-origin");
-                    client.Headers.Add("Accept-Language", "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7");
-                    client.Headers.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36");
-                    client.Content = new StringContent(serialize,
-                                            Encoding.UTF8,
-                                            "application/json");
-
-
-
-                    resp = httpClient.Send(client);
-                }
-            }
-            var a = resp.Content.ReadAsStringAsync();
+            _tempPocoHizmet.Data(ServisList.HizmetEkleServis, pModel);
 
             ViewBag.Durum = "Başarıyla eklendi.";
             return View();
@@ -119,8 +102,8 @@ namespace MEYPAK.WEB.Controllers.STOKController
         [HttpGet]
         public async Task<IActionResult> OlcuBrKart()
         {
-             _tempPocoOlcuBr.Data(ServisList.OlcuBrListeServis);
-            return View(_tempPocoStok.obje);
+            _tempPocoOlcuBr.Data(ServisList.OlcuBrListeServis);
+            return View(_tempPocoOlcuBr.obje);
         }
 
         [HttpGet]
@@ -132,36 +115,7 @@ namespace MEYPAK.WEB.Controllers.STOKController
         [HttpPost]
         public async Task<IActionResult> OlcuBrEkle(PocoOLCUBR pModel)
         {
-            string serialize = JsonConvert.SerializeObject(pModel);
-            string empty = "\" \"";
-            serialize = Regex.Replace(serialize, @"\bnull\b", $"{empty}");
-            HttpResponseMessage resp;
-            using (HttpClient httpClient = new HttpClient())
-            {
-                using (HttpRequestMessage client = new HttpRequestMessage(HttpMethod.Post, BaseURL + @"/OLCUBR/OLCUBREkle"))
-                {
-                    client.Headers.Add("Connection", "keep-alive");
-                    client.Headers.Add("accept", "*/*"); //http://localhost:5158/swagger/index.html
-                    client.Headers.Add("Referer", @"http://213.238.167.117:8080/OLCUBR/OLCUBREkle");
-                    client.Headers.Add("Origin", "http://213.238.167.117:8080");
-                    client.Headers.Add("sec-ch-ua", "\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"");
-                    client.Headers.Add("sec-ch-ua-mobile", "?0");
-                    client.Headers.Add("sec-ch-ua-paltform", "\"Windows\"");
-                    client.Headers.Add("Sec-Fetch-Dest", "empty");
-                    client.Headers.Add("Sec-Fetch-Mode", "cors");
-                    client.Headers.Add("Sec-Fetch-Site", "same-origin");
-                    client.Headers.Add("Accept-Language", "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7");
-                    client.Headers.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36");
-                    client.Content = new StringContent(serialize,
-                                            Encoding.UTF8,
-                                            "application/json");
-
-
-
-                    resp = httpClient.Send(client);
-                }
-            }
-            var a = resp.Content.ReadAsStringAsync();
+            _tempPocoOlcuBr.Data(ServisList.OlcuBrEkleServis, pModel);
 
             ViewBag.Durum = "Başarıyla eklendi.";
             return View();
@@ -170,13 +124,13 @@ namespace MEYPAK.WEB.Controllers.STOKController
         #endregion
 
         #region STOKFIYATLIST
-    
+
         [HttpGet]
 
         public async Task<IActionResult> StokFiyatListKart()
         {
 
-           _tempPocoStokFiyatList.Data(ServisList.StokFiyatListListeServis);
+            _tempPocoStokFiyatList.Data(ServisList.StokFiyatListListeServis);
             return View(_tempPocoStokFiyatList.obje);
         }
 
@@ -189,45 +143,236 @@ namespace MEYPAK.WEB.Controllers.STOKController
         [HttpPost]
         public async Task<IActionResult> StokFiyatListEkle(PocoSTOKFIYATLIST pModel)
         {
-            string serialize = JsonConvert.SerializeObject(pModel);
-            string empty = "\" \"";
-            serialize = Regex.Replace(serialize, @"\bnull\b", $"{empty}");
-            HttpResponseMessage resp;
-            using (HttpClient httpClient = new HttpClient())
-            {
-                using (HttpRequestMessage client = new HttpRequestMessage(HttpMethod.Post, BaseURL + @"/STOKFIYATLIST/STOKFIYATLISTEkle"))
-                {
-                    client.Headers.Add("Connection", "keep-alive");
-                    client.Headers.Add("accept", "*/*"); //http://localhost:5158/swagger/index.html
-                    client.Headers.Add("Referer", @"http://213.238.167.117:8080/STOKFIYATLIST/STOKFIYATLISTEkle");
-                    client.Headers.Add("Origin", "http://213.238.167.117:8080");
-                    client.Headers.Add("sec-ch-ua", "\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"");
-                    client.Headers.Add("sec-ch-ua-mobile", "?0");
-                    client.Headers.Add("sec-ch-ua-paltform", "\"Windows\"");
-                    client.Headers.Add("Sec-Fetch-Dest", "empty");
-                    client.Headers.Add("Sec-Fetch-Mode", "cors");
-                    client.Headers.Add("Sec-Fetch-Site", "same-origin");
-                    client.Headers.Add("Accept-Language", "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7");
-                    client.Headers.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36");
-                    client.Content = new StringContent(serialize,
-                                            Encoding.UTF8,
-                                            "application/json");
-
-
-
-                    resp = httpClient.Send(client);
-                }
-            }
-            var a = resp.Content.ReadAsStringAsync();
+            _tempPocoStokFiyatList.Data(ServisList.StokFiyatListEkleServis, pModel);
 
             ViewBag.Durum = "Başarıyla eklendi.";
             return View();
         }
-      
+
         #endregion
 
+        #region STOKFIYATLISTHAR
+
+        [HttpGet]
+
+        public async Task<IActionResult> StokFiyatListHarKart()
+        {
+
+            _tempPocoStokFiyatHarList.Data(ServisList.StokFiyatListHarListeServis);
+            return View(_tempPocoStokFiyatHarList.obje);
+        }
+
+        [HttpGet]
+        public IActionResult StokFiyatListHarEkle()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> StokFiyatListHarEkle(PocoSTOKFIYATLISTHAR pModel)
+        {
+            _tempPocoStokFiyatHarList.Data(ServisList.StokFiyatListHarEkleServis, pModel);
+
+            ViewBag.Durum = "Başarıyla eklendi.";
+            return View();
+        }
+
+        #endregion
+
+        #region STOKHAR
+
+        [HttpGet]
+        public async Task<IActionResult> StokHarKart()
+        {
+            _tempPocoStokHar.Data(ServisList.StokHarListeServis);
+
+            return View(_tempPocoStokHar.obje);
+        }
+
+        [HttpGet]
+        public IActionResult StokHarEkle()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> StokHarEkle(PocoSTOKHAR pModel)
+        {
+
+            _tempPocoStokHar.Data(ServisList.StokEkleServis, pModel);
+
+            ViewBag.Durum = "Başarıyla eklendi.";
+            return View();
+        }
+        #endregion
+
+        #region STOKKASA
+      
+
+        [HttpGet]
+        public async Task<IActionResult> StokKasaKart()
+        {
+            _tempPocoStokKasa.Data(ServisList.StokKasaListeServis);
+
+            return View(_tempPocoStokKasa.obje);
+        }
+
+        [HttpGet]
+        public IActionResult StokKasaEkle()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> StokKasaEkle(PocoSTOKKASA pModel)
+        {
+
+            _tempPocoStokKasa.Data(ServisList.StokKasaEkleServis, pModel);
+
+            ViewBag.Durum = "Başarıyla eklendi.";
+            return View();
+        }
+        #endregion
+
+        #region STOKKATEGORI
 
 
+        [HttpGet]
+        public async Task<IActionResult> StokKategoriKart()
+        {
+            _tempPocoStokKategori.Data(ServisList.StokKategoriListeServis);
+
+            return View(_tempPocoStokKategori.obje);
+        }
+
+        [HttpGet]
+        public IActionResult StokKategoriEkle()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> StokKategoriEkle(PocoSTOKKATEGORI pModel)
+        {
+
+            _tempPocoStokKategori.Data(ServisList.StokKategoriEkleServis, pModel);
+
+            ViewBag.Durum = "Başarıyla eklendi.";
+            return View();
+        }
+        #endregion
+
+        #region STOKMARKA
+
+
+        [HttpGet]
+        public async Task<IActionResult> StokMarkaKart()
+        {
+            _tempPocoStokMarka.Data(ServisList.StokMarkaListeServis);
+
+            return View(_tempPocoStokMarka.obje);
+        }
+
+        [HttpGet]
+        public IActionResult StokMarkaEkle()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> StokMarkaEkle(PocoSTOKMARKA pModel)
+        {
+
+            _tempPocoStokMarka.Data(ServisList.StokMarkaEkleServis, pModel);
+
+            ViewBag.Durum = "Başarıyla eklendi.";
+            return View();
+        }
+        #endregion
+
+        #region STOKOLCUBR
+
+
+        [HttpGet]
+        public async Task<IActionResult> StokOlcuBrKart()
+        {
+            _tempPocoStokOlcuBr.Data(ServisList.StokOlcuBrListeServis);
+
+            return View(_tempPocoStokOlcuBr.obje);
+        }
+
+        [HttpGet]
+        public IActionResult StokOlcuBrEkle()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> StokOlcuBrEkle(PocoSTOKOLCUBR pModel)
+        {
+
+            _tempPocoStokOlcuBr.Data(ServisList.StokOlcuBrEkleServis, pModel);
+
+            ViewBag.Durum = "Başarıyla eklendi.";
+            return View();
+        }
+        #endregion
+
+        #region STOKSAYIM
+
+
+        [HttpGet]
+        public async Task<IActionResult> StokSayimKart()
+        {
+            _tempPocoStokSayim.Data(ServisList.StokSayimListeServis);
+
+            return View(_tempPocoStokSayim.obje);
+        }
+
+        [HttpGet]
+        public IActionResult StokSayimEkle()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> StokSayimEkle(PocoSTOKSAYIM pModel)
+        {
+
+            _tempPocoStokSayim.Data(ServisList.StokSayimEkleServis, pModel);
+
+            ViewBag.Durum = "Başarıyla eklendi.";
+            return View();
+        }
+        #endregion
+
+        #region STOKSAYIMHAR
+
+
+        [HttpGet]
+        public async Task<IActionResult> StokSayimHarKart()
+        {
+            _tempPocoStokSayimHar.Data(ServisList.StokSayimHarListeServis);
+
+            return View(_tempPocoStokSayimHar.obje);
+        }
+
+        [HttpGet]
+        public IActionResult StokSayimHarEkle()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> StokSayimHarEkle(PocoSTOKSAYIMHAR pModel)
+        {
+
+            _tempPocoStokSayimHar.Data(ServisList.StokSayimHarEkleServis, pModel);
+
+            ViewBag.Durum = "Başarıyla eklendi.";
+            return View();
+        }
+        #endregion
 
     }
 }

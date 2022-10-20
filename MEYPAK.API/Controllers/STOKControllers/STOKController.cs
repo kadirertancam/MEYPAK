@@ -86,6 +86,11 @@ namespace MEYPAK.API.Controllers.STOK
             }
         }
 
+
+
+        #region Expression
+
+      
         //[HttpPost("")]
         //[Route("/[controller]/[action]")]
         //public IActionResult STOKGetir([FromQuery]int id)
@@ -652,7 +657,7 @@ namespace MEYPAK.API.Controllers.STOK
         //        return Problem("Beklenmedik bir hata oluştu!");
         //    }
         //}
-        //#endregion
+#endregion
 
 
 

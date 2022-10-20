@@ -26,12 +26,26 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
         }
         public T Ekle(T entity)
         {
-            context.Set<T>().Add(entity);
-            context.SaveChanges();
-            return entity;
+            bool exists = context.Set<T>().Any(x => x.GetType().GetProperty("ID").GetValue(x) == entity.GetType().GetProperty("ID").GetValue(entity));
+            if (!exists)
+            {
+                context.Set<T>().Add(entity);
+                context.SaveChanges();
+                return entity;
+            }
+            else
+            {
+                T item = Getir(x=> x.GetType().GetProperty("ID").GetValue(x) == entity.GetType().GetProperty("ID").GetValue(entity)).FirstOrDefault();
+                PropertyInfo propertyInfo = (item.GetType().GetProperty("KAYITTIPI"));
+                propertyInfo.SetValue(item, Convert.ChangeType(1, propertyInfo.PropertyType), null);
+                context.Set<T>().Update(item);
 
-
-
+                propertyInfo = (entity.GetType().GetProperty("ID"));
+                propertyInfo.SetValue(entity, Convert.ChangeType(0, propertyInfo.PropertyType), null);
+                context.Set<T>().Add(entity);
+                context.SaveChanges();
+                return entity;
+            }
         }
 
 
@@ -63,19 +77,19 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
             return context.Set<T>().Where(filter).ToList();
 
         }
-        
 
 
-        public Durum Guncelle(T entity,Expression<Func<T,bool>> predicate)
+
+        public Durum Guncelle(T entity, Expression<Func<T, bool>> predicate)
         {
             if (entity.GetType().GetProperties().Any(x => x.Name == "ID"))
-            {   
+            {
                 T item = Getir(predicate).FirstOrDefault();
                 PropertyInfo propertyInfo = (item.GetType().GetProperty("KAYITTIPI"));
                 propertyInfo.SetValue(item, Convert.ChangeType(1, propertyInfo.PropertyType), null);
                 context.Set<T>().Update(item);
-               
-                propertyInfo= (entity.GetType().GetProperty("ID"));
+
+                propertyInfo = (entity.GetType().GetProperty("ID"));
                 propertyInfo.SetValue(entity, Convert.ChangeType(0, propertyInfo.PropertyType), null);
                 context.Set<T>().Add(entity);
                 context.SaveChanges();
@@ -88,7 +102,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
         }
         public Durum Guncelle(T entity)
         {
-           context.Update(entity);
+            context.Update(entity);
             return Durum.güncellemebaşarılı;
         }
 
@@ -125,7 +139,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
                     PropertyInfo propertyInfo = (item.GetType().GetProperty("KAYITTIPI"));
                     propertyInfo.SetValue(item, Convert.ChangeType(2, propertyInfo.PropertyType), null);
                     context.Set<T>().Update(item);
-                    context.SaveChanges(); 
+                    context.SaveChanges();
                 }
 
             }
@@ -140,7 +154,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
 
         List<T> IGeneric<T>.Listele()
         {
-           return context.Set<T>().ToList();
+            return context.Set<T>().ToList();
         }
     }
 }
