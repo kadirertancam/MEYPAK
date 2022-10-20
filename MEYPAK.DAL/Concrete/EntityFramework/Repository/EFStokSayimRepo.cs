@@ -33,7 +33,9 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
 
 
             }
-         
+            EFStokSayimHarRepo rep = new EFStokSayimHarRepo(context);
+            rep.onYukle();
+
         }
 
 
