@@ -16,7 +16,33 @@ namespace MEYPAK.WEB.Controllers
             _logger = logger;
         }
 
-    
+
+        #region PERSONEL
+        [HttpGet]
+
+        public async Task<IActionResult> PersonelKart()
+        {
+            _tempPocoPersonel.Data(ServisList.PersonelListeServis);
+
+            return View(_tempPocoPersonel.obje);
+        }
+
+        [HttpGet]
+        public IActionResult PersonelEkle()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> PersonelEkle(PocoPERSONEL pModel)
+        {
+
+            _tempPocoPersonel.Data(ServisList.PersonelEkleServis, pModel);
+
+            ViewBag.Durum = "Başarıyla eklendi.";
+            return View();
+        }
+        #endregion
 
 
 

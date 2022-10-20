@@ -39,7 +39,7 @@ namespace MEYPAK.API.Controllers.STOKControllers
         {
             try
             {
-                var data = _stoksayimHarServis.Ekle(pModel);
+                var data = _stoksayimHarServis.EkleyadaGuncelle(pModel);
                 return Ok(data);
             }
             catch (Exception ex)
