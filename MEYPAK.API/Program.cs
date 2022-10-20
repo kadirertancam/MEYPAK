@@ -13,18 +13,26 @@ using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository.IrsaliyeRepo;
 using MEYPAK.Entity.Mappings;
+using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Interfaces.Depo;
 using MEYPAK.Interfaces.Hizmet;
 using MEYPAK.Interfaces.IRSALIYE;
 using MEYPAK.Interfaces.Personel;
 using MEYPAK.Interfaces.Stok;
+using Microsoft.AspNetCore.OData;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using Microsoft.OData.Edm;
+using Microsoft.OData.ModelBuilder;
 using System.Text.Json.Serialization;
+using Microsoft.AspNetCore.Routing;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+//Odata add to parameter /?$select=id
+builder.Services.AddControllers().AddOData(opt => opt.EnableQueryFeatures());
 
 //MaplemeAyarlarý
 builder.Services.AddAutoMapper(x =>
@@ -122,12 +130,10 @@ builder.Services.AddScoped<IPersonelServis, PersonelManager>();
 
 builder.Services.AddControllers().AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
-
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
 
 
 var app = builder.Build();
@@ -144,3 +150,6 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+
+

@@ -9,6 +9,8 @@ namespace MEYPAK.WEB.Controllers
     {
         private readonly ILogger<SIPARISController> _logger;
         GenericWebServis<PocoSIPARIS> _tempPocoSiparis = new GenericWebServis<PocoSIPARIS>();
+        GenericWebServis<PocoSIPARISDETAY> _tempPocoSiparisDetay = new GenericWebServis<PocoSIPARISDETAY>();
+        GenericWebServis<PocoSIPARISSEVKEMIRHAR> _tempPocoSiparisSevkEmriHar = new GenericWebServis<PocoSIPARISSEVKEMIRHAR>();
 
         public SIPARISController(ILogger<SIPARISController> logger)
         {
@@ -46,28 +48,28 @@ namespace MEYPAK.WEB.Controllers
 
         #endregion
 
-        #region SIPARIS
+        #region SIPARISDETAY
 
         [HttpGet]
 
-        public async Task<IActionResult> SiparisKart()
+        public async Task<IActionResult> SiparisDetayKart()
         {
-            _tempPocoSiparis.Data(ServisList.SiparisListeServis);
+            _tempPocoSiparisDetay.Data(ServisList.SiparisDetayListeServis);
 
-            return View(_tempPocoSiparis.obje);
+            return View(_tempPocoSiparisDetay.obje);
         }
 
         [HttpGet]
-        public IActionResult SiparisEkle()
+        public IActionResult SiparisDetayEkle()
         {
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> SiparisEkle(PocoSIPARIS pModel)
+        public async Task<IActionResult> SiparisDetayEkle(PocoSIPARISDETAY pModel)
         {
 
-            _tempPocoSiparis.Data(ServisList.SiparisEkleServis, pModel);
+            _tempPocoSiparisDetay.Data(ServisList.SiparisDetayEkleServis, pModel);
 
             ViewBag.Durum = "Başarıyla eklendi.";
             return View();
@@ -76,7 +78,35 @@ namespace MEYPAK.WEB.Controllers
 
         #endregion
 
+        #region SIPARIS
 
+        [HttpGet]
+
+        public async Task<IActionResult> SiparisSevkEmriKart()
+        {
+            _tempPocoSiparisSevkEmriHar.Data(ServisList.SiparisSevkEmriHarListeServis);
+
+            return View(_tempPocoSiparisSevkEmriHar.obje);
+        }
+
+        [HttpGet]
+        public IActionResult SiparisSevkEmriEkle()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> SiparisSevkEmriEkle(PocoSIPARISSEVKEMIRHAR pModel)
+        {
+
+            _tempPocoSiparisSevkEmriHar.Data(ServisList.SiparisSevkEmriHarEkleServis, pModel);
+
+            ViewBag.Durum = "Başarıyla eklendi.";
+            return View();
+        }
+
+
+        #endregion
 
     }
 }

@@ -7,7 +7,9 @@ using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Hizmet;
 using MEYPAK.Interfaces.Stok;
+using Microsoft.AspNet.OData.Routing;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.OData.Query;
 using Newtonsoft.Json;
 using System;
 using System.Linq.Expressions;
@@ -31,6 +33,7 @@ namespace MEYPAK.API.Controllers.STOK
 
         [HttpGet]
         [Route("/[controller]/[action]")]
+        [EnableQuery()]
         public IActionResult STOKListe()
         {
             try

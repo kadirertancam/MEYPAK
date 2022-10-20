@@ -26,26 +26,11 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
         }
         public T Ekle(T entity)
         {
-            bool exists = context.Set<T>().Any(x => x.GetType().GetProperty("ID").GetValue(x) == entity.GetType().GetProperty("ID").GetValue(entity));
-            if (!exists)
-            {
-                context.Set<T>().Add(entity);
-                context.SaveChanges();
-                return entity;
-            }
-            else
-            {
-                T item = Getir(x=> x.GetType().GetProperty("ID").GetValue(x) == entity.GetType().GetProperty("ID").GetValue(entity)).FirstOrDefault();
-                PropertyInfo propertyInfo = (item.GetType().GetProperty("KAYITTIPI"));
-                propertyInfo.SetValue(item, Convert.ChangeType(1, propertyInfo.PropertyType), null);
-                context.Set<T>().Update(item);
 
-                propertyInfo = (entity.GetType().GetProperty("ID"));
-                propertyInfo.SetValue(entity, Convert.ChangeType(0, propertyInfo.PropertyType), null);
-                context.Set<T>().Add(entity);
-                context.SaveChanges();
-                return entity;
-            }
+            context.Set<T>().Add(entity);
+            context.SaveChanges();
+            return entity;
+
         }
 
 
