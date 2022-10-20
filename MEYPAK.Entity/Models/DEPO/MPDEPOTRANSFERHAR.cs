@@ -17,8 +17,10 @@ namespace MEYPAK.Entity.Models.DEPO
         public DateTime OLUSTURMATARIHI { get; set; } = DateTime.Now;
         public DateTime GUNCELLEMETARIHI { get; set; } = DateTime.Now;
         [Required]
+        [ForeignKey("MPDEPOTRANSFER")]
         public int DEPOTRANSFERID { get; set; }
         [Required]
+        [ForeignKey("MPSTOK")]
         public int STOKID { get; set; }
         public int MIKTAR { get; set; }
         //BİRİM ID EKLENECEK.
@@ -29,10 +31,10 @@ namespace MEYPAK.Entity.Models.DEPO
         [Required]
         public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
         public byte KAYITTIPI { get; set; } = 0;
-        [JsonIgnore]
-        public virtual MPDEPOTRANSFER DEPOTRANSFER { get; set; }
-        [JsonIgnore]
-        public virtual MPSTOK STOK { get; set; }
+
+        public virtual MPDEPOTRANSFER MPDEPOTRANSFER { get; set; }
+
+        public virtual MPSTOK MPSTOK { get; set; }
 
     }
 }

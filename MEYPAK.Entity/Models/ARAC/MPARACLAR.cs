@@ -10,6 +10,7 @@ namespace MEYPAK.Entity.Models.ARAC
 {
     public class MPARACLAR
     {
+        [Key]
         public int ID { get; set; }
         public DateTime OLUTURMATARIHI { get; set; }
         public DateTime GUNCELLEMETARIHI { get; set; }

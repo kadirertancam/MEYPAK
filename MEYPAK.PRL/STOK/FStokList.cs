@@ -50,7 +50,7 @@ namespace MEYPAK.PRL.STOK
             fstokSayimPanel = (FStokSayimPanel)Application.OpenForms["FStokSayimPanel"];
             fstokFiyatListPanel = (FStokFiyatListPanel)Application.OpenForms["FStokFiyatListPanel"];
             fDepolarArasıHar = (FDepolarArasıTransferHar)Application.OpenForms["FDepolarArasıTransferHar"];
-            fSiparis = (FMusteriSiparis)Application.OpenForms["FSiparis"];
+            fSiparis = (FMusteriSiparis)Application.OpenForms["FMusteriSiparis"];
             _fSatınAlmaSiparis= (FSatınAlmaSiparis)Application.OpenForms["FSatınAlmaSiparis"];
 
         }

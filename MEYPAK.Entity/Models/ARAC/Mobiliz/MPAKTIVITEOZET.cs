@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,8 @@ namespace MEYPAK.Entity.Models.ARAC.Mobiliz
 {
     internal class MPAKTIVITEOZET
     {
+        [Key]
+        public int ID { get; set; }
         public double totalKm { get; set; }
         public int workTimePercent { get; set; }
         public int idleTimePercent { get; set; }

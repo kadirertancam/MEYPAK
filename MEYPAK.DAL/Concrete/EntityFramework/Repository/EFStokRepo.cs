@@ -21,27 +21,40 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
         }
        public void onYukle()
         {
+            EFOlcuBrRepo repo = new EFOlcuBrRepo(_context);
+            repo.onYukle();
+            var emp = _context.MPSTOK.AsQueryable();
+            
+            emp = emp.Include("MPSTOKOLCUBR");
+            emp = emp.Include("MPSTOKHAR");
+            emp = emp.Include("MPSTOKSAYIMHAR");
+            emp = emp.Include(x=>x.MPSTOKFIYATLISTHAR);
+            emp = emp.Include("MPSIPARISDETAY");
+            emp = emp.Include("MPSTOKSEVKİYATLİST");
+            emp = emp.Include("MPSTOKMALKABULLIST");
+            
+            
+            //foreach (var item in emp)
+            //{
 
-            var emp = _context.MPSTOK.ToList();
-            foreach (var item in emp)
-            {
-                _context.Entry(item)
-                    .Collection(e => e.MPSTOKOLCUBR)
-                    .Load();
-                _context.Entry(item)
-                   .Collection(e => e.MPSIPARISDETAY)
-                   .Load();
-                _context.Entry(item)
-                    .Collection(e => e.MPSTOKHAR)
-                    .Load();
-                _context.Entry(item)
-                    .Collection(e => e.MPSTOKSAYIMHAR)
-                    .Load();
-                _context.Entry(item)
-                    .Collection(e => e.MPSTOKFIYATLISTHAR)
-                    .Load(); 
+                
+            //    _context.Entry(item)
+            //        .Collection(e => e.MPSTOKOLCUBR)
+            //        .Load();
+            //    _context.Entry(item)
+            //       .Collection(e => e.MPSIPARISDETAY)
+            //       .Load();
+            //    _context.Entry(item)
+            //        .Collection(e => e.MPSTOKHAR)
+            //        .Load();
+            //    _context.Entry(item)
+            //        .Collection(e => e.MPSTOKSAYIMHAR)
+            //        .Load();
+            //    _context.Entry(item)
+            //        .Collection(e => e.MPSTOKFIYATLISTHAR)
+            //        .Load(); 
 
-            }
+            //}
          
 
         }

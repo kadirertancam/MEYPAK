@@ -17,6 +17,7 @@ namespace MEYPAK.Entity.Models.STOK
         public MPSTOK()
         {
             MPSTOKOLCUBR = new HashSet<MPSTOKOLCUBR>();
+            MPSTOKFIYATLISTHAR = new HashSet<MPSTOKFIYATLISTHAR>();
 
             MPSTOKHAR = new HashSet<MPSTOKHAR>();
             MPSTOKSAYIMHAR = new HashSet<MPSTOKSAYIMHAR>();

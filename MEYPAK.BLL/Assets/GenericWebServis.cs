@@ -29,8 +29,8 @@ namespace MEYPAK.BLL.Assets
     {
         string serialize;
         public List<T> obje;
-        T obje2;
-        public   void Data(string servis,T model=null,string parameters=null,List<T> modellist=null)
+        public T obje2;
+        public   void Data(string servis,T model=null,string parameters=null)
         {
             serialize = JsonConvert.SerializeObject(model);
             //string empty = "\" \"";
