@@ -12,6 +12,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MEYPAK.BLL.Assets;
+using MEYPAK.Entity.PocoModels.STOK;
 
 namespace MEYPAK.PRL.STOK
 {
@@ -20,12 +22,14 @@ namespace MEYPAK.PRL.STOK
         public FSayimList()
         {
             InitializeComponent();
+            _stokSayimServis = new GenericWebServis<PocoSTOKSAYIM>();
+            _stokSayimServis.Data(ServisList.StokSayimListeServis);
         }
-        IStokSayimServis _stokSayimServis ;
+        GenericWebServis<PocoSTOKSAYIM> _stokSayimServis ;
         FSayimIsle fSayimIsle;
         private void FSayimList_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = _stokSayimServis.Listele();
+            dataGridView1.DataSource = _stokSayimServis.obje;
             fSayimIsle = (FSayimIsle)Application.OpenForms["FSayimIsle"];
         }
 
@@ -33,7 +37,7 @@ namespace MEYPAK.PRL.STOK
         {
             DateTime dt = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells["SAYIMTARIHI"].Value.ToString());
             string aciklama = dataGridView1.Rows[e.RowIndex].Cells["ACIKLAMA"].Value.ToString();
-            fSayimIsle._tempSayim = _stokSayimServis.Getir(x => x.ACIKLAMA== aciklama.ToString() ).FirstOrDefault();
+            fSayimIsle._tempSayim = _stokSayimServis.obje.Where(x => x.ACIKLAMA== aciklama.ToString() ).FirstOrDefault();
             fSayimIsle._id = int.Parse(dataGridView1.Rows[e.RowIndex].Cells["ID"].Value.ToString());
             this.Close();
         }

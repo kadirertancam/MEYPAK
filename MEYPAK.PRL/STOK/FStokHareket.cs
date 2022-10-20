@@ -21,6 +21,8 @@ using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
 using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Entity.PocoModels.STOK;
+using MEYPAK.BLL.Assets;
+using MEYPAK.Entity.PocoModels.DEPO;
 
 namespace MEYPAK.PRL.STOK
 {
@@ -29,17 +31,27 @@ namespace MEYPAK.PRL.STOK
         public FStokHareket()
         {
             InitializeComponent();
+            _stokHarServis = new GenericWebServis<PocoSTOKHAR>();
+            _stokOlcuBrServis = new GenericWebServis<PocoSTOKOLCUBR>();
+            _olcuBrServis = new GenericWebServis<PocoOLCUBR>();
+            _stokServis = new GenericWebServis<PocoSTOK>();
+            _depoServis = new GenericWebServis<PocoDEPO>();
+            _stokHarServis.Data(ServisList.StokHarListeServis);
+            _stokServis.Data(ServisList.StokListeServis);
+            _stokOlcuBrServis.Data(ServisList.StokOlcuBrListeServis);
+            _olcuBrServis.Data(ServisList.OlcuBrListeServis);
+            _depoServis.Data(ServisList.DepoListeServis);
         }
-        IStokHarServis _stokHarServis ;
-        IStokOlcuBrServis _stokOlcuBrServis ;
-        IOlcuBrServis _olcuBrServis  ;
-        IStokServis _stokServis;
+        GenericWebServis<PocoSTOKHAR> _stokHarServis ;
+        GenericWebServis<PocoSTOKOLCUBR> _stokOlcuBrServis ;
+        GenericWebServis<PocoOLCUBR> _olcuBrServis  ;
+        GenericWebServis<PocoSTOK> _stokServis;
         // IStokServis _stokServis = new StokManager(new EFStokRepo());
         List<PocoStokHareketListesi> _tempdgvStok = new List<PocoStokHareketListesi>();
         public PocoSTOK _tempStok;
         int IO = 0;
         int _id;
-        IDepoServis _depoServis ;
+        GenericWebServis<PocoDEPO> _depoServis ;
 
         decimal KdvEkle(decimal val)
         {
@@ -49,23 +61,24 @@ namespace MEYPAK.PRL.STOK
         }
         void BakiyeGuncelle()
         {
-            LBToplamGiris.Text = _stokHarServis.Listele().Where(x => x.IO == 1 && x.STOKID == _id).Sum(x => x.MIKTAR).ToString();
-            LBToplamCikis.Text = _stokHarServis.Listele().Where(x => x.IO == 0 && x.STOKID == _id).Sum(x => x.MIKTAR).ToString();
-            LBBakiye.Text = (_stokHarServis.Listele().Where(x => x.IO == 1 && x.STOKID == _id).Sum(x => x.MIKTAR) - _stokHarServis.Listele().Where(x => x.IO == 0 && x.STOKID == _id).Sum(x => x.MIKTAR)).ToString();
+            _stokHarServis.Data(ServisList.StokHarListeServis);
+            LBToplamGiris.Text = _stokHarServis.obje.Where(x => x.IO == 1 && x.STOKID == _id).Sum(x => x.MIKTAR).ToString();
+            LBToplamCikis.Text = _stokHarServis.obje.Where(x => x.IO == 0 && x.STOKID == _id).Sum(x => x.MIKTAR).ToString();
+            LBBakiye.Text = (_stokHarServis.obje.Where(x => x.IO == 1 && x.STOKID == _id).Sum(x => x.MIKTAR) - _stokHarServis.obje.Where(x => x.IO == 0 && x.STOKID == _id).Sum(x => x.MIKTAR)).ToString();
         }
         void Doldur()
-        {
+        { 
             IO = RBGiris.Checked == true ? 1 : 0;
             if (_tempStok != null)
             {
                 _id = _tempStok.ID;
                 TBStokKodu.Text = _tempStok.KOD;
                 TBStokAdi.Text = _tempStok.ADI;
-                CBBirim.DataSource = _stokOlcuBrServis.Listele().Where(x => x.STOKID == _tempStok.ID).Select(x => _olcuBrServis.Getir(z => z.ID.ToString() == x.OLCUBRID.ToString()).FirstOrDefault().ADI).ToList(); //_stokOlcuBrServis.Getir(x => x.STOKID == _id).Select(x => _olcuBrServis.Getir(z => z.ID == x.OLCUBRID).FirstOrDefault().ADI).ToList();
+                CBBirim.DataSource = _stokOlcuBrServis.obje.Where(x => x.STOKID == _tempStok.ID).Select(x => _olcuBrServis.obje.Where(z => z.ID.ToString() == x.OLCUBRID.ToString()).FirstOrDefault().ADI).ToList(); //_stokOlcuBrServis.Getir(x => x.STOKID == _id).Select(x => _olcuBrServis.Getir(z => z.ID == x.OLCUBRID).FirstOrDefault().ADI).ToList();
                 TBKdv.Text = IO == 1 ? _tempStok.ALISKDV.ToString() : _tempStok.SATISKDV.ToString();
                 //TBFiyat.Text = IO == 1 ? _tempStok.AFIYAT1.ToString() : _tempStok.SATISKDV.ToString();
                 BakiyeGuncelle();
-                dataGridView1.DataSource = _stokHarServis.PocoStokHareketListesi(_tempStok.ID);
+                dataGridView1.DataSource = _stokHarServis.obje.Where(x=>x.STOKID==_tempStok.ID).ToList();
                 // _tempStok = null;
 
 
@@ -89,10 +102,11 @@ namespace MEYPAK.PRL.STOK
 
         private void FStokHareket_Load(object sender, EventArgs e)
         {
-            CBDepo.DataSource = _depoServis.Listele().Select(x => x.DEPOADI).ToList();
+            _depoServis.Data(ServisList.DepoListeServis);
+            CBDepo.DataSource = _depoServis.obje.Select(x => x.DEPOADI).ToList();
             _tempdgvStok.Add(new PocoStokHareketListesi());
             dataGridView1.DataSource = _tempdgvStok;
-            ((ListBox)CLBDepo).DataSource = _depoServis.Listele().Select(x => x.DEPOADI).ToList();
+            ((ListBox)CLBDepo).DataSource = _depoServis.obje.Select(x => x.DEPOADI).ToList();
 
         }
 
@@ -100,16 +114,16 @@ namespace MEYPAK.PRL.STOK
         {
             IO = RBGiris.Checked == true ? 1 : 0;
 
+            _depoServis.Data(ServisList.DepoListeServis);
 
-
-            _stokHarServis.EkleyadaGuncelle(new PocoSTOKHAR()
+            _stokHarServis.Data(ServisList.StokHarListeServis,(new PocoSTOKHAR()
             {
                 STOKID = _id,
                 BELGE_NO = TBBelgeNo.Text,
                 ACIKLAMA = TBAciklama.Text,
                 IO = this.IO,
-                BIRIM = _olcuBrServis.Getir(x => x.ADI == CBBirim.SelectedValue).FirstOrDefault().ID,
-                DEPOID = _depoServis.Getir(x => x.DEPOADI == CBDepo.SelectedValue).FirstOrDefault().ID,
+                BIRIM = _olcuBrServis.obje.Where(x => x.ADI == CBBirim.SelectedValue).FirstOrDefault().ID,
+                DEPOID = _depoServis.obje.Where(x => x.DEPOADI == CBDepo.SelectedValue).FirstOrDefault().ID,
                 MIKTAR = Convert.ToDecimal(TBMiktar.Text),
                 HAREKETTURU = 5,         //Muhtelif
                 FATURAID = 0,
@@ -117,8 +131,8 @@ namespace MEYPAK.PRL.STOK
                 KDV = Convert.ToDecimal(TBKdv.Text),
                 NETTOPLAM = Convert.ToDecimal(TBFiyat.Text) * Convert.ToDecimal(TBMiktar.Text),
                 BRUTTOPLAM = KdvEkle(Convert.ToDecimal(TBFiyat.Text) * Convert.ToDecimal(TBMiktar.Text)),
-            });
-            dataGridView1.DataSource = _stokHarServis.PocoStokHareketListesi(_id);
+            }));
+            dataGridView1.DataSource = _stokHarServis.obje.Where(x=>x.ID==_id);
             TBMiktar.Text = "";
             TBBelgeNo.Text = "";
             TBAciklama.Text = "";
@@ -145,22 +159,23 @@ namespace MEYPAK.PRL.STOK
 
         private void TBStokKodu_Leave(object sender, EventArgs e)
         {
-            if (TBStokKodu.Text != "" && _stokServis.Getir(x => x.KOD == TBStokKodu.Text).FirstOrDefault() != null)
+            if (TBStokKodu.Text != "" && _stokServis.obje.Where(x => x.KOD == TBStokKodu.Text).FirstOrDefault() != null)
             {
-                _tempStok = _stokServis.Getir(x => x.KOD == TBStokKodu.Text).FirstOrDefault();
+                _tempStok = _stokServis.obje.Where(x => x.KOD == TBStokKodu.Text).FirstOrDefault();
                 Doldur();
             }
         }
 
         private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            _tempStok = _stokServis.Getir(x => x.KOD.ToString() == dataGridView1.Rows[e.RowIndex].Cells["KOD"].Value.ToString()).FirstOrDefault();
+            _tempStok = _stokServis.obje.Where(x => x.ID.ToString() == dataGridView1.Rows[e.RowIndex].Cells["STOKID"].Value.ToString()).FirstOrDefault();
+            TBMiktar.Text = dataGridView1.Rows[e.RowIndex].Cells["MIKTAR"].Value.ToString();
             Doldur();
         }
 
         private void BTNSil_Click(object sender, EventArgs e)
         {
-            _stokHarServis.Sil(_stokHarServis.Getir(x => x.ID == Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value)));
+            _stokHarServis.Data(ServisList.StokHarSilServis,(_stokHarServis.obje.Where(x => x.ID == Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value)).FirstOrDefault()));
 
         }
 

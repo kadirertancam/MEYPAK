@@ -13,6 +13,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MEYPAK.BLL.Assets;
+using MEYPAK.Entity.Models.PERSONEL;
+using MEYPAK.Entity.PocoModels.PERSONEL;
 
 namespace MEYPAK.PRL.PERSONEL
 {
@@ -23,18 +26,20 @@ namespace MEYPAK.PRL.PERSONEL
         {
             InitializeComponent();
             FPersonelKart = (FPersonelKart)Application.OpenForms["FPersonelKart"];
+            _personelServis.Data(ServisList.PersonelListeServis);
         }
 
-        IPersonelServis _personelServis ;
+        GenericWebServis<PocoPERSONEL> _personelServis ;
         private void FPersonelList_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource= _personelServis.Listele();
+            _personelServis.Data(ServisList.PersonelListeServis);
+            dataGridView1.DataSource= _personelServis.obje;
 
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            FPersonelKart._tempPersonel = _personelServis.Getir(x=>x.ID.ToString()==dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
+            FPersonelKart._tempPersonel = _personelServis.obje.Where(x=>x.ID.ToString()==dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
             this.Close();
         }
     }

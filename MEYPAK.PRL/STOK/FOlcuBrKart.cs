@@ -15,6 +15,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
 using MEYPAK.Entity.PocoModels.STOK;
+using MEYPAK.BLL.Assets;
+using MEYPAK.Entity.Models.STOK;
 
 namespace MEYPAK.PRL.STOK
 {
@@ -24,29 +26,32 @@ namespace MEYPAK.PRL.STOK
         public FOlcuBrKart()
         {
             InitializeComponent();
+            _OlcuBrServis = new GenericWebServis<PocoOLCUBR>();
         }
-        IOlcuBrServis _OlcuBrServis ;
+        GenericWebServis<PocoOLCUBR> _OlcuBrServis ;
         private void FStokOlcuBrKart_Load(object sender, EventArgs e)
         {
             DataGridDoldur();
         }
         int id;
         private void BTKaydet_Click(object sender, EventArgs e)
-        {
-            Interfaces.Durum snc;
+        { 
             if (islemtipi == "Kayıt")
-                snc = _OlcuBrServis.EkleyadaGuncelle(new PocoOLCUBR()
+            {
+                _OlcuBrServis.Data(ServisList.OlcuBrEkleServis, (new PocoOLCUBR()
                 {
                     ADI = TBOlcuBrAdi.Text,
                     BIRIM = TBOlcuBr.Text,
-                });
+                }));
+               
+            }
             else
-                snc = _OlcuBrServis.EkleyadaGuncelle(new PocoOLCUBR()
-                {
+                 _OlcuBrServis.Data(ServisList.OlcuBrEkleServis, (new PocoOLCUBR()
+                 {
                     ID = id,
                     ADI = TBOlcuBrAdi.Text,
                     BIRIM = TBOlcuBr.Text,
-                });
+                }));
             MessageBox.Show("Kayıt Başarılı.");
             id = 0;
             DataGridDoldur();
@@ -54,9 +59,11 @@ namespace MEYPAK.PRL.STOK
 
         private void BTSil_Click(object sender, EventArgs e)
         {
-            if (_OlcuBrServis.Sil(x => x.ID.ToString() == dataGridView1.CurrentRow.Cells[0].Value.ToString())) ;
+            _OlcuBrServis.Data(ServisList.OlcuBrListeServis);
+            _OlcuBrServis.Data(ServisList.OlcuBrSilServis,_OlcuBrServis.obje.Where(x => x.ID.ToString() == dataGridView1.CurrentRow.Cells[0].Value.ToString()).FirstOrDefault()) ;
             MessageBox.Show("Silme Başarılı");
-            dataGridView1.DataSource = _OlcuBrServis.Listele();
+           
+            dataGridView1.DataSource = _OlcuBrServis.obje;
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -68,8 +75,9 @@ namespace MEYPAK.PRL.STOK
         }
         void DataGridDoldur()
         {
+            _OlcuBrServis.Data(ServisList.OlcuBrListeServis);
             dataGridView1.DataSource = "";
-            dataGridView1.DataSource = _OlcuBrServis.Listele();
+            dataGridView1.DataSource = _OlcuBrServis.obje;
         }
 
     }

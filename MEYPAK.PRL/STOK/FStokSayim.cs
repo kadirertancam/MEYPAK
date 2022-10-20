@@ -13,6 +13,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MEYPAK.BLL.Assets;
+using MEYPAK.Entity.PocoModels.STOK;
 
 namespace MEYPAK.PRL.STOK
 {
@@ -21,12 +23,18 @@ namespace MEYPAK.PRL.STOK
         public FStokSayim()
         {
             InitializeComponent();
-           
+            _stokSayimServis = new GenericWebServis<PocoSTOKSAYIM>();
+            _stokSayimServis.Data(ServisList.StokSayimListeServis);
+            _stokSayimHarServis = new GenericWebServis<PocoSTOKSAYIMHAR>();
+            _stokSayimHarServis.Data(ServisList.StokSayimHarListeServis);
+            _stokServis = new GenericWebServis<PocoSTOK>();
+            _stokServis.Data(ServisList.StokListeServis);
+
         }
         static MEYPAKContext context = NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>();
-        IStokSayimServis _stokSayimServis ;
-        IStokSayimHarServis _stokSayimHarServis ;
-        IStokServis _stokServis ; 
+        GenericWebServis<PocoSTOKSAYIM> _stokSayimServis ;
+        GenericWebServis<PocoSTOKSAYIMHAR> _stokSayimHarServis ;
+        GenericWebServis<PocoSTOK> _stokServis ; 
         IOlcuBrServis _olcuBrServis ;
         FStokSayimPanel stokSayimPanel;
         int _tempId=0;
@@ -35,14 +43,15 @@ namespace MEYPAK.PRL.STOK
         {
 
             stokSayimPanel = new FStokSayimPanel("kaydet");
-            _stokSayimServis.Ekle(new Entity.PocoModels.STOK.PocoSTOKSAYIM()
+            _stokSayimServis.Data(ServisList.StokSayimEkleServis,(new Entity.PocoModels.STOK.PocoSTOKSAYIM()
             {
                 SAYIMTARIHI = DTPSayimTarihi.Value,
                 ACIKLAMA = TBAciklama.Text,
-            });
-            dataGridView1.DataSource = _stokSayimServis.Listele();
+            }));
+            _stokSayimServis.Data(ServisList.StokSayimListeServis);
+            dataGridView1.DataSource = _stokSayimServis.obje;
 
-            stokSayimPanel.sayimId = _stokSayimServis.Getir(x => x.ACIKLAMA == TBAciklama.Text && x.SAYIMTARIHI == DTPSayimTarihi.Value).FirstOrDefault().ID;
+            stokSayimPanel.sayimId = _stokSayimServis.obje.Where(x => x.ACIKLAMA == TBAciklama.Text && x.SAYIMTARIHI == DTPSayimTarihi.Value).FirstOrDefault().ID;
                 TBAciklama.Text = "";
             DTPSayimTarihi.Value = DateTime.Now;
             stokSayimPanel.ShowDialog();
@@ -51,7 +60,8 @@ namespace MEYPAK.PRL.STOK
 
         private void FStokSayim_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = _stokSayimServis.Listele();
+            _stokSayimServis.Data(ServisList.StokSayimListeServis);
+            dataGridView1.DataSource = _stokSayimServis.obje;
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -64,14 +74,14 @@ namespace MEYPAK.PRL.STOK
         private void BTSayimDuzenle_Click(object sender, EventArgs e)
         {
             stokSayimPanel = new FStokSayimPanel("düzenle");
-            var a = _stokSayimHarServis.Listele().Where(x => x.STOKSAYIMID == _tempId);
+            var a = _stokSayimHarServis.obje.Where(x => x.STOKSAYIMID == _tempId);
             stokSayimPanel._tempStokSayimHarList = a.Select(x=> new Entity.PocoModels.PocoStokSayimPanelList() { StokAdı=x.MPSTOK.ADI,StokKodu=x.MPSTOK.KOD,Birim=x.MPOLCUBR.ADI,Fiyat=x.FIYAT,Miktar=x.MIKTAR}).ToList();
             stokSayimPanel.ShowDialog();
         }
 
         private void BTSayimSil_Click(object sender, EventArgs e)
         {
-            _stokSayimServis.Sil(_stokSayimServis.Getir(x => x.ID == Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value)));
+            _stokSayimServis.Data(ServisList.StokSayimSilServis,(_stokSayimServis.obje.Where(x => x.ID == Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value))).FirstOrDefault());
         }
     }
 }

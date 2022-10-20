@@ -13,6 +13,7 @@ namespace MEYPAK.BLL.Assets
     {
         string serialize;
         public List<T> obje;
+        T obje2;
         public   void Data(string servis,T model=null)
         {
             serialize = JsonConvert.SerializeObject(model);
@@ -46,8 +47,10 @@ namespace MEYPAK.BLL.Assets
             try
             {
 
-           
-            obje = JsonConvert.DeserializeObject<List<T>>(a);
+                if (model == null)
+                    obje = JsonConvert.DeserializeObject<List<T>>(a);
+                else
+                    obje2 = JsonConvert.DeserializeObject<T>(a);
             }
             catch (Exception)
             {

@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Entity.PocoModels.STOK;
+using MEYPAK.BLL.Assets;
 
 namespace MEYPAK.PRL.STOK
 {
@@ -24,25 +25,24 @@ namespace MEYPAK.PRL.STOK
         {
             InitializeComponent();
             fSayimList = new FSayimList();
-        }
-        static MEYPAKContext context = NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>();
-        IStokSayimServis _stokSayimServis ;
-        IStokSayimHarServis _stokSayimHarServis ;
-        IStokHarServis _stokHarServis ;
-        IStokServis _stokServis ;
+            _stokSayimServis = new GenericWebServis<PocoSTOKSAYIM>();
+            _stokHarServis = new GenericWebServis<PocoSTOKHAR>(); 
+        } 
+        GenericWebServis<PocoSTOKSAYIM> _stokSayimServis ; 
+        GenericWebServis<PocoSTOKHAR> _stokHarServis ; 
         public PocoSTOKSAYIM _tempSayim;
         public int _id;
         FSayimList fSayimList;
         private void button2_Click(object sender, EventArgs e)
         {
-             
-            foreach (var item in _stokSayimServis.Listele())
+            _stokSayimServis.Data(ServisList.StokSayimListeServis);
+            foreach (var item in _stokSayimServis.obje.Where(x=>x.SAYIMTARIHI==dateTimePicker1.Value && x.ACIKLAMA==textBox1.Text))
             { 
                 foreach (var item2 in item.MPSTOKSAYIMHAR)
                 {
 
                 
-                _stokHarServis.EkleyadaGuncelle(new PocoSTOKHAR()
+                _stokHarServis.Data(ServisList.StokHarEkleServis,new PocoSTOKHAR()
                 {
                     STOKID =item2.STOKID,
                     ACIKLAMA="Sayım",
@@ -58,7 +58,7 @@ namespace MEYPAK.PRL.STOK
                             });
                 }
                 item.DURUM = 1;
-                _stokSayimServis.EkleyadaGuncelle(item);
+                _stokSayimServis.Data(ServisList.StokSayimEkleServis,item);
             }
             
 

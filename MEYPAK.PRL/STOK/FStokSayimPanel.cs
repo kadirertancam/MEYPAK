@@ -23,6 +23,8 @@ using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Entity.PocoModels.STOK;
+using MEYPAK.BLL.Assets;
+using MEYPAK.Entity.PocoModels.DEPO;
 
 namespace MEYPAK.PRL.STOK
 {
@@ -33,41 +35,55 @@ namespace MEYPAK.PRL.STOK
             InitializeComponent();
             this._islemtipi = islemtipi;
             fStokList = new FStokList("stoksayimpanel");
+            stokSayimHarServis = new GenericWebServis<PocoSTOKSAYIMHAR>();
+            stokSayimHarServis.Data(ServisList.StokSayimHarListeServis);
+            stokServis = new GenericWebServis<PocoSTOK>();
+            depoServis = new GenericWebServis<PocoDEPO>();
+            stokOlcuBrServis = new GenericWebServis<PocoSTOKOLCUBR>();
+            olcuBrServis = new GenericWebServis<PocoOLCUBR>();
+            stokHarServis = new GenericWebServis<PocoSTOKHAR>();
         }
         string _islemtipi;
         public List<PocoStokSayimPanelList> _tempStokSayimHarList;
-        IStokSayimHarServis stokSayimHarServis ;
-        IStokServis stokServis ;
-        IDepoServis depoServis ;
-        IStokOlcuBrServis stokOlcuBrServis ;
-        IOlcuBrServis olcuBrServis ;
-        IStokHarServis stokHarServis ;
+        GenericWebServis<PocoSTOKSAYIMHAR> stokSayimHarServis ;
+        GenericWebServis<PocoSTOK> stokServis ;
+        GenericWebServis<PocoDEPO> depoServis ;
+        GenericWebServis<PocoSTOKOLCUBR> stokOlcuBrServis ;
+        GenericWebServis<PocoOLCUBR> olcuBrServis ;
+        GenericWebServis<PocoSTOKHAR> stokHarServis ;
         public int sayimId;
         public PocoSTOK _tempStok;
         FStokList fStokList;
 
         void Doldur()
         {
+            stokHarServis.Data(ServisList.StokHarListeServis);
+            olcuBrServis.Data(ServisList.OlcuBrListeServis);
+            stokOlcuBrServis.Data(ServisList.StokOlcuBrListeServis);
+            stokServis.Data(ServisList.StokListeServis);
             TBStokKodu.Text = _tempStok.KOD;
             TBStokAdi.Text = _tempStok.ADI;
-            CBStokBirim.DataSource = stokOlcuBrServis.Listele().Where(x => x.STOKID == _tempStok.ID).Select(x => olcuBrServis.Getir(z => z.ID == x.OLCUBRID).FirstOrDefault().ADI).ToList();
-            TBBakiye.Text = (from ep in stokServis.Listele() join e in stokHarServis.Listele() on ep.ID equals e.STOKID where ep.KOD == _tempStok.KOD select Convert.ToDecimal(e.IO.ToString() == "1" ? e.MIKTAR : 0) - Convert.ToDecimal(e.IO.ToString() == "0" ? e.MIKTAR : 0)).FirstOrDefault().ToString();
+            CBStokBirim.DataSource = stokOlcuBrServis.obje.Where(x => x.STOKID == _tempStok.ID).Select(x => olcuBrServis.obje.Where(z => z.ID == x.OLCUBRID).FirstOrDefault().ADI).ToList();
+            TBBakiye.Text = (from ep in stokServis.obje join e in stokHarServis.obje on ep.ID equals e.STOKID where ep.KOD == _tempStok.KOD select Convert.ToDecimal(e.IO.ToString() == "1" ? e.MIKTAR : 0) - Convert.ToDecimal(e.IO.ToString() == "0" ? e.MIKTAR : 0)).FirstOrDefault().ToString();
 
             _tempStok = null;
         }
 
         private void FStokSayimPanel_Load(object sender, EventArgs e)
         {
+            depoServis.Data(ServisList.DepoListeServis);
+            stokServis.Data(ServisList.StokListeServis);
             if (_islemtipi == "düzenle")
             {
+                dataGridView1.DataSource = _tempStokSayimHarList; 
+                CBDepo.DataSource = depoServis.obje.Select(x => x.DEPOADI).ToList();
+
             }
             else if (_islemtipi == "kaydet")
-            {
-                olcuBrServis.Listele();
-                stokOlcuBrServis.Listele();
+            { 
                 _tempStokSayimHarList = new List<PocoStokSayimPanelList>();
-                CBDepo.DataSource = depoServis.Listele().Select(x => x.DEPOADI).ToList();
-                foreach (var item in stokServis.Listele())
+                CBDepo.DataSource = depoServis.obje.Select(x => x.DEPOADI).ToList();
+                foreach (var item in stokServis.obje)
                 {
                     _tempStokSayimHarList.Add(new PocoStokSayimPanelList()
                     {
@@ -141,22 +157,24 @@ namespace MEYPAK.PRL.STOK
 
         private void BTKaydet_Click(object sender, EventArgs e)
         {
+            stokServis.Data(ServisList.StokListeServis);
             _tempStokSayimHarList.Add(new PocoStokSayimPanelList()
             {
                 StokKodu = TBStokKodu.Text,
                 StokAdı = TBStokAdi.Text,
-                ID = stokServis.Getir(x => x.KOD == TBStokKodu.Text).FirstOrDefault().ID
+                ID = stokServis.obje.Where(x => x.KOD == TBStokKodu.Text).FirstOrDefault().ID
             });
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
+            stokServis.Data(ServisList.StokListeServis);
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
 
-                stokSayimHarServis.EkleyadaGuncelle(new PocoSTOKSAYIMHAR()
+                stokSayimHarServis.Data(ServisList.StokSayimHarEkleServis,(new PocoSTOKSAYIMHAR()
                 {
-                    STOKID = stokServis.Getir(x => x.KOD == dataGridView1.Rows[i].Cells["StokKodu"].Value.ToString()).FirstOrDefault().ID,
+                    STOKID = stokServis.obje.Where(x => x.KOD == dataGridView1.Rows[i].Cells["StokKodu"].Value.ToString()).FirstOrDefault().ID,
                     MIKTAR = Decimal.Parse(dataGridView1.Rows[i].Cells["Miktar"].EditedFormattedValue.ToString()),
                     FIYAT = Decimal.Parse(dataGridView1.Rows[i].Cells["Fiyat"].EditedFormattedValue.ToString()),
                     KUR = 1,
@@ -164,7 +182,7 @@ namespace MEYPAK.PRL.STOK
                     DEPOID = CBDepo.SelectedIndex,
                     STOKSAYIMID = sayimId
 
-                });
+                }));
 
             }
         }

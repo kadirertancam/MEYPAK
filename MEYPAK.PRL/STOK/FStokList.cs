@@ -65,31 +65,31 @@ namespace MEYPAK.PRL.STOK
             else if (_islem == "stoksayimpanel")
             {
                 if (fstokSayimPanel != null)
-                    fstokSayimPanel._tempStok = StaticContext._stokServis.Getir(x=>x.ID.ToString()==dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
+                    fstokSayimPanel._tempStok = _stokServis.obje.Where(x=>x.ID.ToString()==dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
             }
             else if (_islem == "stokhar")
             {
                 if (fStokHareket != null)
-                    fStokHareket._tempStok = StaticContext._stokServis.Getir(x => x.ID.ToString() == dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
+                    fStokHareket._tempStok = _stokServis.obje.Where(x => x.ID.ToString() == dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
             }
             else if (_islem == "stokfiyatlistpanel")
             {
                 if (fstokFiyatListPanel != null)
-                    fstokFiyatListPanel._tempStok = StaticContext._stokServis.Getir(x => x.ID.ToString() == dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
+                    fstokFiyatListPanel._tempStok = _stokServis.obje.Where(x => x.ID.ToString() == dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
             }
             else if (_islem == "siparis")
             {
                 if (fSiparis != null)
-                    fSiparis._tempStok = StaticContext._stokServis.Getir(x => x.ID.ToString() == dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
+                    fSiparis._tempStok = _stokServis.obje.Where(x => x.ID.ToString() == dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
             }
             else if (_islem == "FDepolarArasıTransferHar")
             {
                 if (fDepolarArasıHar != null)
-                    fDepolarArasıHar._tempStok = StaticContext._stokServis.Getir(x => x.ID.ToString() == dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
+                    fDepolarArasıHar._tempStok = _stokServis.obje.Where(x => x.ID.ToString() == dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
             }else if (_islem == "SatinAlmaSiparis")
             {
                 if (_fSatınAlmaSiparis != null)
-                    _fSatınAlmaSiparis._tempStok = StaticContext._stokServis.Getir(x => x.ID.ToString() == dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
+                    _fSatınAlmaSiparis._tempStok = _stokServis.obje.Where(x => x.ID.ToString() == dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
 
             }
 

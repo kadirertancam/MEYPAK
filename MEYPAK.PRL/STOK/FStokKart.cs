@@ -198,10 +198,12 @@ namespace MEYPAK.PRL
         {
             FMarkaList fMarkaKart = new FMarkaList();
             fMarkaKart.ShowDialog();
-            markaid = _tempMarka.ID;
-            TBMarka.Text = _tempMarka.ADI;
-            _tempMarka = null;
-            dataGridView1.DataSource = stokOlculist;
+            if (_tempMarka != null)
+            {
+                markaid = _tempMarka.ID;
+                TBMarka.Text = _tempMarka.ADI;
+                _tempMarka = null;
+            } 
         }
 
         private void BTKategoriSec_Click(object sender, EventArgs e)
