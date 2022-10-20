@@ -17,7 +17,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
         public EFStokRepo(MEYPAKContext context) : base(context)
         {
             _context = context;
-             onYukle();
+           onYukle();
         }
        public void onYukle()
         {
