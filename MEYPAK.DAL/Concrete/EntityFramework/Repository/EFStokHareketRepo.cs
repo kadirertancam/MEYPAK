@@ -27,14 +27,14 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
             context = _context;
         }
 
-        public Durum EkleyadaGuncelle(MPSTOKHAR entity)
+        public MPSTOKHAR EkleyadaGuncelle(MPSTOKHAR entity)
         {
             bool exists = context.MPSTOKHAR.Any(x => x.ID == entity.ID);
             if (!exists)
             {
                 context.MPSTOKHAR.Add(entity);
                 context.SaveChanges();
-                return Durum.kayıtbaşarılı;
+                return entity;
             }
             else
             {
@@ -42,7 +42,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
                 context.ChangeTracker.Clear();
                 context.MPSTOKHAR.Update(entity);
                 context.SaveChanges();
-                return Durum.güncellemebaşarılı;
+                return entity;
             }
         }
         public List<PocoStokHareketListesi> PocoStokHareketListesi(int id)

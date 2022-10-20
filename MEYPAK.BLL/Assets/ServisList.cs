@@ -149,18 +149,18 @@ namespace MEYPAK.BLL.Assets
         public const string HizmetGuncelleServis = "http://213.238.167.117:8080/HIZMET/HIZMETGuncelle";
         #endregion
 
-        #region DepoTranferHar
-        public const string DepoTranferHarListeServis =     "http://213.238.167.117:8080/DEPOTRANSFERHAR/DEPOTRANSFERHARListe"; 
-        public const string DepoTranferHarEkleServis =       "http://213.238.167.117:8080/DEPOTRANSFERHAR/DEPOTRANSFERHAREkle";
-        public const string DepoTranferHarSilServis =    "http://213.238.167.117:8080/DEPOTRANSFERHAR/DEPOTRANSFERHARSil";
-        public const string DepoTranferHarGuncelleServis = "http://213.238.167.117:8080/DEPOTRANSFERHAR/DEPOTRANSFERHARGuncelle";
+        #region DepoTransferHar
+        public const string DepoTransferHarListeServis =     "http://213.238.167.117:8080/DEPOTRANSFERHAR/DEPOTRANSFERHARListe"; 
+        public const string DepoTransferHarEkleServis =       "http://213.238.167.117:8080/DEPOTRANSFERHAR/DEPOTRANSFERHAREkle";
+        public const string DepoTransferHarSilServis =    "http://213.238.167.117:8080/DEPOTRANSFERHAR/DEPOTRANSFERHARSil";
+        public const string DepoTransferHarGuncelleServis = "http://213.238.167.117:8080/DEPOTRANSFERHAR/DEPOTRANSFERHARGuncelle";
         #endregion
 
-        #region DepoTranfer
-        public const string DepoTranferListeServis = "http://213.238.167.117:8080/DEPOTRANSFER/DEPOTRANSFERListe";
-        public const string DepoTranferEkleServis = "http://213.238.167.117:8080/DEPOTRANSFER/DEPOTRANSFEREkle";
-        public const string DepoTranferSilServis = "http://213.238.167.117:8080/DEPOTRANSFER/DEPOTRANSFERSil";
-        public const string DepoTranferGuncelleServis = "http://213.238.167.117:8080/DEPOTRANSFER/DEPOTRANSFERGuncelle";
+        #region DepoTransfer
+        public const string DepoTransferListeServis = "http://213.238.167.117:8080/DEPOTRANSFER/DEPOTRANSFERListe";
+        public const string DepoTransferEkleServis = "http://213.238.167.117:8080/DEPOTRANSFER/DEPOTRANSFEREkle";
+        public const string DepoTransferSilServis = "http://213.238.167.117:8080/DEPOTRANSFER/DEPOTRANSFERSil";
+        public const string DepoTransferGuncelleServis = "http://213.238.167.117:8080/DEPOTRANSFER/DEPOTRANSFERGuncelle";
         #endregion
          
         #region DepoEmir
