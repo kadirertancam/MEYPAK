@@ -28,18 +28,15 @@ namespace MEYPAK.Entity.Models.STOK
         public decimal FIYAT { get; set; }
         public int PARABR { get; set; } = 1;
         public decimal KUR { get; set; } = 1;
-        public byte KAYITTIPI { get; set; } = 0;
-        [JsonIgnore]
+        public byte KAYITTIPI { get; set; } = 0; 
         public virtual MPSTOKSAYIM MPSTOKSAYIM { get; set; }
 
         [ForeignKey("MPSTOK")]
-        public int STOKID { get; set; }
-        [JsonIgnore]
+        public int STOKID { get; set; } 
         public virtual MPSTOK MPSTOK { get; set; }
 
         [ForeignKey("MPOLCUBR")]
-        public int BIRIMID { get; set; }
-        [JsonIgnore]
+        public int BIRIMID { get; set; } 
         public virtual MPOLCUBR MPOLCUBR { get; set; }
 
     }

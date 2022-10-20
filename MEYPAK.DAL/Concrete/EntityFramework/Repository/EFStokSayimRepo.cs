@@ -22,16 +22,17 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
         }
         void onYukle()
         {
-
+           
             var emp = context.MPSTOKSAYIM.ToList();
             foreach (var item in emp)
             {
                 context.Entry(item)
                     .Collection(e =>  e.MPSTOKSAYIMHAR)
                     .Load();
-
+               
 
             }
+         
         }
 
 

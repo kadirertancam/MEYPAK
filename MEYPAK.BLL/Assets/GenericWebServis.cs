@@ -9,16 +9,33 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.BLL.Assets
 {
+    #region OdataKullanımı
+
+    /// <summary>
+    /// eq	Equals      to	                 $filter=priority eq 1
+    // ne	Not equals  to	                 $filter=priority ne 1
+    // gt	Greater     than	             $filter=priority gt 1
+    // ge	Greater     than or equal	     $filter=priority ge 1
+    // lt	Less        than	             $filter=priority lt 1
+    // le	Less        than or equal	     $filter=priority le 1
+    // and	            Logical and	         $filter=priority gt 1 and priority lt 10
+    // or	            Logical or	         $filter=priority gt 1 or priority lt 10
+    // not	            Logical negation	 $filter=not endswith(name,'task')
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    #endregion
+
     public class GenericWebServis<T> where T : class, new()
     {
         string serialize;
         public List<T> obje;
         T obje2;
-        public   void Data(string servis,T model=null)
+        public   void Data(string servis,T model=null,string parameters=null)
         {
             serialize = JsonConvert.SerializeObject(model);
             //string empty = "\" \"";
             //serialize = Regex.Replace(serialize, @"\bnull\b", $"{empty}");
+            servis= parameters != null ? servis + "?$" + parameters : servis;
             HttpRequestMessage client;
             HttpClient httpClient = new HttpClient();
             if(model == null)

@@ -34,7 +34,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
                 _context.Entry(item)
                     .Navigation("MPSTOK").Load();
                 _context.Entry(item)
-                  .Navigation("MPOLCUBR").Load();
+                  .Navigation("MPOLCUBR").Load();  
 
 
             }
