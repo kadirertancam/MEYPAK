@@ -65,14 +65,14 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
 
 
         }
-        public Durum EkleyadaGuncelle(MPSTOK entity)
+        public MPSTOK EkleyadaGuncelle(MPSTOK entity)
         {
             bool exists = _context.MPSTOK.Any(x => x.ID == entity.ID);
             if (!exists)
             {
                 _context.MPSTOK.Add(entity);
                 _context.SaveChanges();
-                return Durum.kayıtbaşarılı;
+                return entity;
             }
             else
             {
@@ -80,7 +80,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
                 _context.ChangeTracker.Clear();
                 _context.MPSTOK.Update(entity);
                 _context.SaveChanges();
-                return Durum.güncellemebaşarılı;
+                return entity;
             }
         }
 

@@ -308,10 +308,10 @@ namespace MEYPAK.PRL.SIPARIS
 
         private void BTNKasaSec_Click(object sender, EventArgs e)
         {
-            //FKasaList fKasaList = new FKasaList("Siparis");
-            //fKasaList.ShowDialog();
-            //if (_tempKasa != null)
-            //    TBKasa.Text = _tempKasa.KASAADI;
+            FKasaList fKasaList = new FKasaList("Siparis");
+            fKasaList.ShowDialog();
+            if (_tempKasa != null)
+                TBKasa.Text = _tempKasa.KASAADI;
         }
 
         private void dataGridView1_CellLeave(object sender, DataGridViewCellEventArgs e)

@@ -27,9 +27,9 @@ namespace MEYPAK.BLL.STOK
 
   
 
-        public Durum EkleyadaGuncelle(PocoSTOK pModel)
+        public PocoSTOK EkleyadaGuncelle(PocoSTOK pModel)
         {
-            return _stokDal.EkleyadaGuncelle(_mapper.Map<PocoSTOK,MPSTOK>(pModel));
+            return _mapper.Map<MPSTOK,PocoSTOK>( _stokDal.EkleyadaGuncelle(_mapper.Map<PocoSTOK,MPSTOK>(pModel)));
         }
 
         public List<PocoSTOK> Listee()

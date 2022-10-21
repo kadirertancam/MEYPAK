@@ -11,7 +11,7 @@ namespace MEYPAK.Interfaces.Stok
 {
     public interface IStokServis:IGenericServis<PocoSTOK>
     {
-        public Durum EkleyadaGuncelle(PocoSTOK entity);
+        public PocoSTOK EkleyadaGuncelle(PocoSTOK entity);
 
         public List<PocoSTOK> Listee();
     }
