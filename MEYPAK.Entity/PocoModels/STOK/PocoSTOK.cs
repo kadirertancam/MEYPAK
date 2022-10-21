@@ -123,13 +123,13 @@ namespace MEYPAK.Entity.PocoModels.STOK
         public virtual ICollection<PocoSTOKHAR> MPSTOKHAR { get; set; }
 
         public virtual ICollection<PocoSTOKSAYIMHAR> MPSTOKSAYIMHAR { get; set; }
-
-        //public virtual ICollection<PocoSTOKFIYATLIST> MPSTOKFIYATLIST { get; set; }
      
         public virtual ICollection<PocoSTOKFIYATLISTHAR> MPSTOKFIYATLISTHAR { get; set; }
    
         public virtual ICollection<PocoSIPARISDETAY> MPSIPARISDETAY { get; set; }
 
         public virtual ICollection<PocoSTOKSEVKIYATLIST> MPSTOKSEVKİYATLİST { get; set; }
+
+        public virtual ICollection<MPSTOKMALKABULLIST> MPSTOKMALKABULLIST { get; set; }
     }
 }

@@ -38,7 +38,7 @@ namespace MEYPAK.Entity.Models.STOK
         public int SAYIMID { get; set; } = 0;
         public int KULLANICIID { get; set; } = 0;
         public byte KAYITTIPI { get; set; } = 0;
-        [JsonIgnore]
+
         public MPSTOK MPSTOK { get; set; }
 
 
