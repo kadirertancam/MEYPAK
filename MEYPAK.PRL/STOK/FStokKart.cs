@@ -40,8 +40,9 @@ namespace MEYPAK.PRL
         PocoSTOKOLCUBR _tempStokOlcuBr;
         public PocoSTOK _tempStok;
         public PocoSTOKKASA _tempKasa;
+        public PocoSTOKKATEGORI _tempKategori;
         public PocoSTOKMARKA _tempMarka;
-        static MEYPAKContext context = NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>();
+        
       
         GenericWebServis<PocoSTOKMARKA> _markaServis ;
         GenericWebServis<PocoSTOK> _PocoStokServis;
@@ -208,8 +209,10 @@ namespace MEYPAK.PRL
 
         private void BTKategoriSec_Click(object sender, EventArgs e)
         {
-            FKategoriList fKategoriKart = new FKategoriList();
+            FKategoriList fKategoriKart = new FKategoriList("Stok");
             fKategoriKart.ShowDialog();
+            if (_tempKategori != null)
+            TBKategori.Text = _tempKategori.Acıklama;
         }
         private void BTNKasaSec_Click(object sender, EventArgs e)
         {

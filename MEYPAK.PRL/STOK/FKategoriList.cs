@@ -17,32 +17,38 @@ using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Entity.PocoModels.STOK;
+using MEYPAK.BLL.Assets;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.Windows.Input;
 
 namespace MEYPAK.PRL.STOK
 {
     public partial class FKategoriList : Form
     {
-
+        FStokKart fStokKart;
         int id;
         string _islem;
+        GenericWebServis<PocoSTOKKATEGORI> _kategoriServis;
         public FKategoriList(string islem = "")
         {
             InitializeComponent();
             this._islem = islem;
+            _kategoriServis = new GenericWebServis<PocoSTOKKATEGORI>();
         }
-        IStokKategoriServis _kategoriServis ;
+
         private void FKategoriList_Load(object sender, EventArgs e)
         {
             TreeViewiDoldur();
+            fStokKart = (FStokKart)Application.OpenForms["FStokKart"];
         }
 
 
         public void TreeViewiDoldur()
         {
             treeView1.Nodes.Clear();
-            var data = _kategoriServis.Listele();
+            _kategoriServis.Data(ServisList.StokKategoriListeServis);
             TreeNode ustNode = new TreeNode("Kategoriler");
-            treeView1.Nodes.Add(TreeViewDon(ref ustNode, data, 0));
+            treeView1.Nodes.Add(TreeViewDon(ref ustNode, _kategoriServis.obje, 0));
         }
 
 
@@ -52,7 +58,7 @@ namespace MEYPAK.PRL.STOK
             {
                 var A = ustNode.Nodes.Add(item.ID.ToString(), item.Acıklama);
 
-                if (_kategoriServis.Listele().Where(x => x.UstId == item.ID).Count() > 0)
+                if (_kategoriServis.obje.Where(x => x.UstId == item.ID).Count() > 0)
                 {
                     A = TreeViewDon(ref A, data, item.ID);
                 }
@@ -70,10 +76,12 @@ namespace MEYPAK.PRL.STOK
                     UstId = Convert.ToInt32(treeView1.SelectedNode.Name.ToString())
 
                 };
-                _kategoriServis.Ekle(mPKATEGORI);
-                TreeViewiDoldur();
+                _kategoriServis.Data(ServisList.StokKategoriEkleServis, mPKATEGORI);
+
                 MessageBox.Show("Başarıyla Eklendi");
-                
+                TreeViewiDoldur();
+
+
             }
             else
             {
@@ -90,7 +98,7 @@ namespace MEYPAK.PRL.STOK
                     Acıklama = TBAcıklama.Text,
                     UstId = 0
                 };
-                _kategoriServis.Ekle(mPKATEGORI);
+                _kategoriServis.Data(ServisList.StokKategoriEkleServis, mPKATEGORI);
                 MessageBox.Show("Başarıyla Eklendi");
             }
             else
@@ -98,6 +106,30 @@ namespace MEYPAK.PRL.STOK
                 MessageBox.Show("Lütfen Yeni Kategori için bir isim giriniz.");
             }
 
+        }
+
+        private void treeView1_DoubleClick(object sender, EventArgs e)
+        {
+        
+        }
+
+        private void treeView1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                if (_islem == "Stok")
+                {
+                    if (treeView1.SelectedNode.Name != "" && treeView1.SelectedNode != null)
+                    {
+                        if (fStokKart != null)
+                        {
+                            fStokKart._tempKategori = _kategoriServis.obje.Where(x => x.ID == Convert.ToInt32(treeView1.SelectedNode.Name)).FirstOrDefault();
+                            this.Close();
+                        }
+                    }
+                }
+            }
+            
         }
     }
 }

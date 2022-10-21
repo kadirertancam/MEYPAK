@@ -39,6 +39,7 @@ namespace MEYPAK.PRL.STOK
             _markaServis.Data(ServisList.StokMarkaListeServis);
             FMarkaKart = new FMarkaKart();
             FMarkaKart.ShowDialog();
+            _markaServis.Data(ServisList.StokMarkaListeServis);
             dataGridView1.DataSource = _markaServis.obje;
         }
 

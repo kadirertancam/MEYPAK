@@ -1,4 +1,5 @@
-﻿using MEYPAK.BLL.STOK;
+﻿using MEYPAK.BLL.Assets;
+using MEYPAK.BLL.STOK;
 using MEYPAK.DAL.Abstract.StokDal;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository;
@@ -23,17 +24,20 @@ namespace MEYPAK.PRL.STOK
         public FKasaPanel()
         {
             InitializeComponent();
+            _kasaServis = new GenericWebServis<PocoSTOKKASA>();
         }
-        MEYPAKContext context = new MEYPAKContext();
-        IStokKasaServis _kasaServis ;
+        GenericWebServis<PocoSTOKKASA>_kasaServis;
+       
         private void BTStokKaydet_Click(object sender, EventArgs e)
         {
-            _kasaServis.Ekle(new PocoSTOKKASA
+            _kasaServis.Data(ServisList.StokKasaEkleServis,new PocoSTOKKASA
             {
                 KASAADI =TBKasaAdi.Text,
                 ACIKLAMA = TBAciklama.Text,
-                KASAKODU = TBKasaKodu.Text
+                KASAKODU = TBKasaKodu.Text,
+                OLUSTURMATARIHI = DateTime.Now,
             });
+            MessageBox.Show("Kasa Başarıyla Eklendi.");
             Doldur();
         }
 
@@ -44,8 +48,9 @@ namespace MEYPAK.PRL.STOK
 
         void Doldur()
         {
+            _kasaServis.Data(ServisList.StokKasaListeServis);
             dataGridView1.DataSource = "";
-            dataGridView1.DataSource = _kasaServis.Listele();
+            dataGridView1.DataSource = _kasaServis.obje;
         }
     }
 }

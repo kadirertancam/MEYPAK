@@ -88,10 +88,14 @@
             // 
             // treeView1
             // 
+            this.treeView1.FullRowSelect = true;
             this.treeView1.Location = new System.Drawing.Point(3, 102);
             this.treeView1.Name = "treeView1";
+            this.treeView1.ShowLines = false;
             this.treeView1.Size = new System.Drawing.Size(800, 348);
             this.treeView1.TabIndex = 0;
+            this.treeView1.DoubleClick += new System.EventHandler(this.treeView1_DoubleClick);
+            this.treeView1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.treeView1_KeyPress);
             // 
             // FKategoriList
             // 

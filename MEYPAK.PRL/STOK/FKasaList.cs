@@ -1,6 +1,8 @@
-﻿using MEYPAK.BLL.STOK;
+﻿using MEYPAK.BLL.Assets;
+using MEYPAK.BLL.STOK;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository;
+using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Stok;
 using MEYPAK.PRL.Assets;
 using MEYPAK.PRL.SIPARIS;
@@ -21,37 +23,40 @@ namespace MEYPAK.PRL.STOK
         FStokKart fStokKart;
         FMusteriSiparis fSiparis;
         FSatınAlmaSiparis fSatınAlmaSiparis;
+        GenericWebServis<PocoSTOKKASA> _kasaServis;
         string _islem;
         public FKasaList(string islem = "")
         {
             InitializeComponent();
             this._islem = islem;
+            _kasaServis = new GenericWebServis<PocoSTOKKASA>();
         }
-        IStokKasaServis _kasaServis ;
+        
         private void FKasaList_Load(object sender, EventArgs e)
-        {
-            dataGridView1.DataSource = _kasaServis.Listele();
+        {   _kasaServis.Data(ServisList.StokKasaListeServis);
+            dataGridView1.DataSource = _kasaServis.obje;
             fStokKart = (FStokKart)Application.OpenForms["FStokKart"];
-            fSiparis = (FMusteriSiparis)Application.OpenForms["FSiparis"];
+            fSiparis = (FMusteriSiparis)Application.OpenForms["FMusteriSiparis"];
             fSatınAlmaSiparis = (FSatınAlmaSiparis)Application.OpenForms["FSatınAlmaSiparis"];
 
         }
         private void dataGridView1_DoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            _kasaServis.Data(ServisList.StokKasaListeServis);
             if (_islem == "Stok")
             {
                 if (fStokKart != null)
-                    fStokKart._tempKasa = _kasaServis.Getir(x => x.ID.ToString() == dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
+                    fStokKart._tempKasa = _kasaServis.obje.Where(x => x.ID.ToString() == dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
             }
             else if (_islem == "Siparis")
             {
-                if (fSiparis != null) ;
-                fSiparis._tempKasa = _kasaServis.Getir(x => x.ID.ToString() == dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
+                if (fSiparis != null) 
+                fSiparis._tempKasa = _kasaServis.obje.Where(x => x.ID.ToString() == dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
             }
             else if (_islem == "SatinAlmaSiparis")
             {
-                if (fSatınAlmaSiparis != null) ;
-                fSatınAlmaSiparis._tempKasa = _kasaServis.Getir(x => x.ID.ToString() == dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
+                if (fSatınAlmaSiparis != null) 
+                fSatınAlmaSiparis._tempKasa = _kasaServis.obje.Where(x => x.ID.ToString() == dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
             }
 
             this.Close();

@@ -38,7 +38,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
 
         //public Durum EkleyadaGuncelle(T entity)
         //{
-        //    bool exists = context.Set<T>().Any(x => x.GetType().GetProperty("ID").GetValue() == entity.ID);
+        //    bool exists = context.Set<T>().Any(x => x.GetType().GetProperty("ID").GetValue(x).ToString() == entity.GetType().GetProperty("ID").GetValue(entity).ToString());
         //    if (!exists)
         //    {
         //        context.Set<T>().Add(entity);
@@ -47,7 +47,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
         //    }
         //    else
         //    {
-        //        T temp = context.Set<T>().Where(x => x.ID == entity.ID).FirstOrDefault();
+        //        T temp = context.Set<T>().Where(x => x.GetType().GetProperty("ID").GetValue(x) == entity.GetType().GetProperty("ID").GetValue(entity)).FirstOrDefault();
         //        context.ChangeTracker.Clear();
         //        context.Set<T>().Update(entity);
         //        context.SaveChanges();
