@@ -2,6 +2,7 @@
 using MEYPAK.DAL.Abstract.StokDal;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.Entity.Models.ARAC;
+using MEYPAK.Entity.Models.ARAC.Mobiliz;
 using MEYPAK.Entity.Models.DEPO;
 using System;
 using System.Collections.Generic;

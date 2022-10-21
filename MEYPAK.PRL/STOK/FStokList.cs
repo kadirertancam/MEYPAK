@@ -36,10 +36,16 @@ namespace MEYPAK.PRL.STOK
         {
             InitializeComponent();
             this._islem = islem;
+
+
+            _OlcuBrServis = new GenericWebServis<PocoOLCUBR>();
+            _OlcuBrServis.Data(ServisList.OlcuBrListeServis);
+            _stokOlcuBrServis = new GenericWebServis<PocoSTOKOLCUBR>();
             _stokServis = new GenericWebServis<PocoSTOK>();
         }
-        GenericWebServis<PocoSTOK> _stokServis ;
-        IStokOlcuBrServis _stokOlcuBrServis ;
+        GenericWebServis<PocoSTOK> _stokServis ; 
+        GenericWebServis<PocoSTOKOLCUBR> _stokOlcuBrServis ;
+        GenericWebServis<PocoOLCUBR> _OlcuBrServis ;
         private void FStokList_Load(object sender, EventArgs e)
         {
             _stokServis.Data(ServisList.StokListeServis);
@@ -56,7 +62,8 @@ namespace MEYPAK.PRL.STOK
         }
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
+            _stokServis.Data(ServisList.StokListeServis);
             if (_islem == "stokkart")
             {
                 if (fSTOKKART != null)

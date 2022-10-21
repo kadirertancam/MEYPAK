@@ -17,14 +17,13 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
         EFStokFiyatListRepo rr;
         EFStokFiyatListHarRepo ss;
         EFStokOlcuBrRepo yy;
-        EFOlcuBrRepo hh;
+        EFOlcuBrRepo aa;
         public EFStokRepo(MEYPAKContext context) : base(context)
         {
             _context = context;
             rr = new EFStokFiyatListRepo(_context);
             ss = new EFStokFiyatListHarRepo(_context);
-            yy= new EFStokOlcuBrRepo(_context);
-            hh = new EFOlcuBrRepo(_context);
+            aa = new EFOlcuBrRepo(_context);
             onYukle();
         }
        public void onYukle()

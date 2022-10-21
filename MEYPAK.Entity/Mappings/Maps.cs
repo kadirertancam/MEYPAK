@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MEYPAK.Entity.Models.ARAC;
+using MEYPAK.Entity.Models.ARAC.Mobiliz;
 using MEYPAK.Entity.Models.DEPO;
 using MEYPAK.Entity.Models.IRSALIYE;
 using MEYPAK.Entity.Models.PERSONEL;

@@ -160,13 +160,14 @@ namespace MEYPAK.PRL.SIPARIS
                     KASAID = item.KasaId,
                     NETTOPLAM = item.NetToplam,
                     NETFIYAT = item.NetFiyat,
-                    BIRIMID = item.MPSTOK.OLCUBR1,
+                    BIRIMID = item.MPSTOK.MPSTOKOLCUBR.Select(x=>x.ID).FirstOrDefault(),
                     DOVIZID = 0,
                     MIKTAR = item.Miktar,
                     ISTKONTO1 = item.İskonto1,
                     ISTKONTO2 = item.İskonto2,
                     ISTKONTO3 = item.İskonto3,
-                    SIPARISID = _siparisServis.obje2.ID, 
+                    SIPARISID = _siparisServis.obje2.ID, ///ID gelecek
+
                     BRUTFIYAT = item.BrütFiyat,
                     BRUTTOPLAM = item.BrütFiyat * item.Miktar,
                     BEKLEYENMIKTAR = 0,
