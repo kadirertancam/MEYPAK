@@ -14,20 +14,20 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
             _context = context;
             onYukle();
         }
-        void onYukle()
+       public void onYukle()
         {
             var emp2 = _context.MPSTOK.ToList();
            
-            var emp = _context.MPSTOKFIYATLIST.AsQueryable();
-            emp = emp.Include("MPSTOKFIYATLISTHAR");
-            //foreach (var item in emp)
-            //{
-            //    _context.Entry(item)
-            //        .Collection(e => e.MPSTOKFIYATLISTHAR)
-            //        .Load();
-               
+            var emp = _context.MPSTOKFIYATLIST.ToList();
+            //emp = emp.Include("MPSTOKFIYATLISTHAR");
+            foreach (var item in emp)
+            {
+                _context.Entry(item)
+                    .Collection(e => e.MPSTOKFIYATLISTHAR)
+                    .Load();
 
-            //} 
+
+            }
 
         }
         public MPSTOKFIYATLIST EkleyadaGuncelle(MPSTOKFIYATLIST entity)

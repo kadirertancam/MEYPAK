@@ -51,7 +51,7 @@ namespace MEYPAK.PRL.SIPARIS
             _siparisDetayServis = new GenericWebServis<PocoSIPARISDETAY>();
             _siparisDetayServis.Data(ServisList.DepoListeServis);
         }
-        FKasaList fKasaList;
+        FKasaList fKasaList; 
         List<PocoSiparisKalem> _tempSiparisDetay = new List<PocoSiparisKalem>();
         DataGridViewComboBoxColumn DGVOlcuBr = new DataGridViewComboBoxColumn();
         PocoSiparisKalem _tempPocokalem;

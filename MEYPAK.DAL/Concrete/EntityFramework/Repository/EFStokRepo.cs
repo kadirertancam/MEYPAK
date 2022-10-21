@@ -14,48 +14,50 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
     {
         MEYPAKContext _context;
 
+        EFStokFiyatListRepo rr;
+        EFStokFiyatListHarRepo ss;
         public EFStokRepo(MEYPAKContext context) : base(context)
         {
             _context = context;
-           onYukle();
+            rr = new EFStokFiyatListRepo(_context);
+            ss = new EFStokFiyatListHarRepo(_context);
+            onYukle();
         }
        public void onYukle()
         {
-            EFOlcuBrRepo repo = new EFOlcuBrRepo(_context);
-            repo.onYukle();
-            var emp = _context.MPSTOK.AsQueryable();
-            
-            emp = emp.Include("MPSTOKOLCUBR");
-            emp = emp.Include("MPSTOKHAR");
-            emp = emp.Include("MPSTOKSAYIMHAR");
-            emp = emp.Include(x=>x.MPSTOKFIYATLISTHAR);
-            emp = emp.Include("MPSIPARISDETAY");
-            emp = emp.Include("MPSTOKSEVKİYATLİST");
-            emp = emp.Include("MPSTOKMALKABULLIST");
-            
-            
-            //foreach (var item in emp)
-            //{
-
-                
-            //    _context.Entry(item)
-            //        .Collection(e => e.MPSTOKOLCUBR)
-            //        .Load();
-            //    _context.Entry(item)
-            //       .Collection(e => e.MPSIPARISDETAY)
-            //       .Load();
-            //    _context.Entry(item)
-            //        .Collection(e => e.MPSTOKHAR)
-            //        .Load();
-            //    _context.Entry(item)
-            //        .Collection(e => e.MPSTOKSAYIMHAR)
-            //        .Load();
-            //    _context.Entry(item)
-            //        .Collection(e => e.MPSTOKFIYATLISTHAR)
-            //        .Load(); 
-
-            //}
          
+            var emp = _context.MPSTOK.ToList();
+            //emp = emp.Include("MPSTOKOLCUBR");
+            //emp = emp.Include("MPSTOKHAR");
+            //emp = emp.Include("MPSTOKSAYIMHAR");
+            //emp = emp.Include("MPSTOKFIYATLISTHAR");
+            //emp = emp.Include("MPSIPARISDETAY");
+            //emp = emp.Include("MPSTOKSEVKİYATLİST");
+            //emp = emp.Include("MPSTOKMALKABULLIST");
+            //emp.Include("MPSTOKFIYATLISTHAR").Load();
+
+            foreach (var item in emp)
+            {
+
+
+                _context.Entry(item)
+                    .Collection(e => e.MPSTOKOLCUBR)
+                    .Load();
+                _context.Entry(item)
+                   .Collection(e => e.MPSIPARISDETAY)
+                   .Load();
+                _context.Entry(item)
+                    .Collection(e => e.MPSTOKHAR)
+                    .Load();
+                _context.Entry(item)
+                    .Collection(e => e.MPSTOKSAYIMHAR)
+                    .Load();
+                _context.Entry(item)
+                    .Collection(e => e.MPSTOKFIYATLISTHAR)
+                    .Load();
+
+            }
+
 
         }
         public Durum EkleyadaGuncelle(MPSTOK entity)

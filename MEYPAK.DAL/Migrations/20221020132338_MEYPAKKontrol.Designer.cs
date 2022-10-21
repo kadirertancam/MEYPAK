@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MEYPAK.DAL.Migrations
 {
     [DbContext(typeof(MEYPAKContext))]
-    [Migration("20221020125403_MEYPAKKontrol")]
+    [Migration("20221020132338_MEYPAKKontrol")]
     partial class MEYPAKKontrol
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -572,58 +572,36 @@ namespace MEYPAK.DAL.Migrations
 
             modelBuilder.Entity("MEYPAK.Entity.Models.MPDEPOEMIRSIPARISKALEMILISKI", b =>
                 {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
-
                     b.Property<int>("DEPOEMIRID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MPDEPOEMIRID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MPSIPARISDETAYID")
                         .HasColumnType("int");
 
                     b.Property<int>("SIPARISDETAYID")
                         .HasColumnType("int");
 
-                    b.HasKey("ID");
+                    b.Property<int>("ID")
+                        .HasColumnType("int");
 
-                    b.HasIndex("MPDEPOEMIRID");
+                    b.HasKey("DEPOEMIRID", "SIPARISDETAYID");
 
-                    b.HasIndex("MPSIPARISDETAYID");
+                    b.HasIndex("SIPARISDETAYID");
 
                     b.ToTable("MPDEPOEMIRSIPARISKALEMILISKI");
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.MPIRSALIYESIPARISDETAYILISKI", b =>
                 {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
-
                     b.Property<int>("IRSALIYEDETAYID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MPIRSALIYEDETAYID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MPSIPARISDETAYID")
                         .HasColumnType("int");
 
                     b.Property<int>("SIPARISDETAYID")
                         .HasColumnType("int");
 
-                    b.HasKey("ID");
+                    b.Property<int>("ID")
+                        .HasColumnType("int");
 
-                    b.HasIndex("MPIRSALIYEDETAYID");
+                    b.HasKey("IRSALIYEDETAYID", "SIPARISDETAYID");
 
-                    b.HasIndex("MPSIPARISDETAYID");
+                    b.HasIndex("SIPARISDETAYID");
 
                     b.ToTable("MPIRSALIYESIPARISDETAYILISKI");
                 });
@@ -848,6 +826,8 @@ namespace MEYPAK.DAL.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("ID");
+
+                    b.HasIndex("DEPOID");
 
                     b.ToTable("MPSIPARIS");
                 });
@@ -1829,7 +1809,7 @@ namespace MEYPAK.DAL.Migrations
                     b.HasOne("MEYPAK.Entity.Models.SIPARIS.MPSIPARIS", "MPSIPARIS")
                         .WithMany("MPDEPOEMIR")
                         .HasForeignKey("SIPARISID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("MPDEPO");
@@ -1839,21 +1819,21 @@ namespace MEYPAK.DAL.Migrations
 
             modelBuilder.Entity("MEYPAK.Entity.Models.DEPO.MPDEPOTRANSFERHAR", b =>
                 {
-                    b.HasOne("MEYPAK.Entity.Models.DEPO.MPDEPOTRANSFER", "DEPOTRANSFER")
+                    b.HasOne("MEYPAK.Entity.Models.DEPO.MPDEPOTRANSFER", "MPDEPOTRANSFER")
                         .WithMany()
                         .HasForeignKey("DEPOTRANSFERID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MEYPAK.Entity.Models.STOK.MPSTOK", "STOK")
+                    b.HasOne("MEYPAK.Entity.Models.STOK.MPSTOK", "MPSTOK")
                         .WithMany()
                         .HasForeignKey("STOKID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("DEPOTRANSFER");
+                    b.Navigation("MPDEPOTRANSFER");
 
-                    b.Navigation("STOK");
+                    b.Navigation("MPSTOK");
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.DEPO.MPSTOKMALKABULLIST", b =>
@@ -1861,25 +1841,25 @@ namespace MEYPAK.DAL.Migrations
                     b.HasOne("MEYPAK.Entity.Models.STOK.MPOLCUBR", "MPOLCUBR")
                         .WithMany("MPSTOKMALKABULLIST")
                         .HasForeignKey("BIRIMID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("MEYPAK.Entity.Models.DEPO.MPDEPOEMIR", "MPDEPOEMIR")
                         .WithMany("MPSTOKMALKABULLIST")
                         .HasForeignKey("EMIRID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("MEYPAK.Entity.Models.SIPARIS.MPSIPARISDETAY", "MPSIPARISDETAY")
                         .WithMany("MPSTOKMALKABULLIST")
                         .HasForeignKey("SIPARISDETAYID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("MEYPAK.Entity.Models.STOK.MPSTOK", "MPSTOK")
                         .WithMany("MPSTOKMALKABULLIST")
                         .HasForeignKey("STOKID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("MPDEPOEMIR");
@@ -1914,7 +1894,7 @@ namespace MEYPAK.DAL.Migrations
                     b.HasOne("MEYPAK.Entity.Models.SIPARIS.MPSIPARISDETAY", "MPSIPARISDETAY")
                         .WithMany("MPSTOKSEVKİYATLİST")
                         .HasForeignKey("SIPARISDETAYID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("MEYPAK.Entity.Models.STOK.MPSTOK", "MPSTOK")
@@ -1939,7 +1919,7 @@ namespace MEYPAK.DAL.Migrations
                     b.HasOne("MEYPAK.Entity.Models.SIPARIS.MPSIPARIS", "MPSIPARIS")
                         .WithMany("MPIRSALIYE")
                         .HasForeignKey("SIPARISID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("MPSIPARIS");
@@ -1960,14 +1940,14 @@ namespace MEYPAK.DAL.Migrations
                 {
                     b.HasOne("MEYPAK.Entity.Models.DEPO.MPDEPOEMIR", "MPDEPOEMIR")
                         .WithMany("MPDEPOEMIRSIPARISKALEMILISKI")
-                        .HasForeignKey("MPDEPOEMIRID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("DEPOEMIRID")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("MEYPAK.Entity.Models.SIPARIS.MPSIPARISDETAY", "MPSIPARISDETAY")
                         .WithMany("MPDEPOEMIRSIPARISKALEMILISKI")
-                        .HasForeignKey("MPSIPARISDETAYID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("SIPARISDETAYID")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("MPDEPOEMIR");
@@ -1979,19 +1959,30 @@ namespace MEYPAK.DAL.Migrations
                 {
                     b.HasOne("MEYPAK.Entity.Models.IRSALIYE.MPIRSALIYEDETAY", "MPIRSALIYEDETAY")
                         .WithMany("MPIRSALIYESIPARISDETAYILISKI")
-                        .HasForeignKey("MPIRSALIYEDETAYID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("IRSALIYEDETAYID")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("MEYPAK.Entity.Models.SIPARIS.MPSIPARISDETAY", "MPSIPARISDETAY")
                         .WithMany("MPIRSALIYESIPARISDETAYILISKI")
-                        .HasForeignKey("MPSIPARISDETAYID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("SIPARISDETAYID")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("MPIRSALIYEDETAY");
 
                     b.Navigation("MPSIPARISDETAY");
+                });
+
+            modelBuilder.Entity("MEYPAK.Entity.Models.SIPARIS.MPSIPARIS", b =>
+                {
+                    b.HasOne("MEYPAK.Entity.Models.DEPO.MPDEPO", "MPDEPO")
+                        .WithMany()
+                        .HasForeignKey("DEPOID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("MPDEPO");
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.SIPARIS.MPSIPARISDETAY", b =>
@@ -2011,7 +2002,7 @@ namespace MEYPAK.DAL.Migrations
                     b.HasOne("MEYPAK.Entity.Models.STOK.MPSTOK", "MPSTOK")
                         .WithMany("MPSIPARISDETAY")
                         .HasForeignKey("STOKID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("MPIRSALIYE");

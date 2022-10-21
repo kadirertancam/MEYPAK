@@ -64,6 +64,48 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
         {
             #region Stok_Navigation_AutoInclude
 
+            modelBuilder.Entity<MPSTOK>().HasMany(x => x.MPSTOKOLCUBR).WithOne(x => x.MPSTOK).HasForeignKey(x => x.STOKID);
+            modelBuilder.Entity<MPSTOK>().HasMany(x => x.MPSTOKHAR).WithOne(x => x.MPSTOK).HasForeignKey(x => x.STOKID);
+            modelBuilder.Entity<MPSTOK>().HasMany(x => x.MPSTOKSAYIMHAR).WithOne(x => x.MPSTOK).HasForeignKey(x => x.STOKID);
+            modelBuilder.Entity<MPOLCUBR>().HasMany(x => x.MPSTOKOLCUBR).WithOne(x => x.MPOLCUBR).HasForeignKey(x => x.OLCUBRID);
+            modelBuilder.Entity<MPOLCUBR>().HasMany(x => x.MPSTOKSAYIMHAR).WithOne(x => x.MPOLCUBR).HasForeignKey(x => x.BIRIMID);
+            modelBuilder.Entity<MPSTOKSAYIM>().HasMany(x => x.MPSTOKSAYIMHAR).WithOne(x => x.MPSTOKSAYIM).HasForeignKey(x => x.STOKSAYIMID);
+            modelBuilder.Entity<MPSTOK>().HasMany(x => x.MPSTOKFIYATLISTHAR).WithOne(x => x.MPSTOK).HasForeignKey(x => x.STOKID);
+            modelBuilder.Entity<MPSIPARIS>().HasMany(x => x.MPSIPARISDETAY).WithOne(x => x.MPSIPARIS).HasForeignKey(x => x.SIPARISID);
+            modelBuilder.Entity<MPOLCUBR>().HasMany(x => x.MPSTOKSEVKİYATLİST).WithOne(x => x.MPOLCUBR).HasForeignKey(x => x.BIRIMID);
+            modelBuilder.Entity<MPSTOK>().HasMany(x => x.MPSTOKSEVKİYATLİST).WithOne(x => x.MPSTOK).HasForeignKey(x => x.STOKID);
+            modelBuilder.Entity<MPSIPARIS>().HasMany(x => x.MPIRSALIYE).WithOne(x => x.MPSIPARIS).HasForeignKey(x => x.SIPARISID).OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<MPSIPARISDETAY>().HasMany(x => x.MPSTOKSEVKİYATLİST).WithOne(x => x.MPSIPARISDETAY).HasForeignKey(x => x.SIPARISDETAYID).OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<MPSIPARIS>().HasMany(x => x.MPDEPOEMIR).WithOne(x => x.MPSIPARIS).HasForeignKey(x => x.SIPARISID).OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<MPSTOK>().HasMany(x => x.MPSTOKMALKABULLIST).WithOne(x => x.MPSTOK).HasForeignKey(x => x.STOKID).OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<MPOLCUBR>().HasMany(x => x.MPSTOKMALKABULLIST).WithOne(x => x.MPOLCUBR).HasForeignKey(x => x.BIRIMID).OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<MPDEPOEMIR>().HasMany(x => x.MPSTOKMALKABULLIST).WithOne(x => x.MPDEPOEMIR).HasForeignKey(x => x.EMIRID).OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<MPSIPARISDETAY>().HasMany(x => x.MPSTOKMALKABULLIST).WithOne(x => x.MPSIPARISDETAY).HasForeignKey(x => x.SIPARISDETAYID).OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<MPSTOK>().HasMany(x => x.MPSIPARISDETAY).WithOne(x => x.MPSTOK).HasForeignKey(x => x.STOKID).OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<MPIRSALIYESIPARISDETAYILISKI>().HasKey(sc => new { sc.IRSALIYEDETAYID, sc.SIPARISDETAYID });
+
+            modelBuilder.Entity<MPIRSALIYESIPARISDETAYILISKI>()
+                .HasOne<MPIRSALIYEDETAY>(sc => sc.MPIRSALIYEDETAY)
+                .WithMany(s => s.MPIRSALIYESIPARISDETAYILISKI)
+                .HasForeignKey(sc => sc.IRSALIYEDETAYID).OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<MPIRSALIYESIPARISDETAYILISKI>()
+                .HasOne<MPSIPARISDETAY>(sc => sc.MPSIPARISDETAY)
+                .WithMany(s => s.MPIRSALIYESIPARISDETAYILISKI)
+                .HasForeignKey(sc => sc.SIPARISDETAYID).OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<MPDEPOEMIRSIPARISKALEMILISKI>().HasKey(sc => new { sc.DEPOEMIRID, sc.SIPARISDETAYID });
+
+            modelBuilder.Entity<MPDEPOEMIRSIPARISKALEMILISKI>()
+                .HasOne<MPSIPARISDETAY>(sc => sc.MPSIPARISDETAY)
+                .WithMany(s => s.MPDEPOEMIRSIPARISKALEMILISKI)
+                .HasForeignKey(sc => sc.SIPARISDETAYID).OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<MPDEPOEMIRSIPARISKALEMILISKI>()
+                .HasOne<MPDEPOEMIR>(sc => sc.MPDEPOEMIR)
+                .WithMany(s => s.MPDEPOEMIRSIPARISKALEMILISKI)
+                .HasForeignKey(sc => sc.DEPOEMIRID).OnDelete(DeleteBehavior.Restrict);
+
+
             modelBuilder.Entity<MPSTOK>().HasMany(x => x.MPSTOKFIYATLISTHAR).WithOne(x => x.MPSTOK).HasForeignKey(x => x.STOKID);
 
             modelBuilder.Entity<MPSTOK>()
@@ -150,46 +192,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
 
         }
         //           OnModelCreatingPartial(modelBuilder);
-        //           modelBuilder.Entity<MPSTOK>().HasMany(x => x.MPSTOKOLCUBR).WithOne(x => x.MPSTOK).HasForeignKey(x => x.STOKID);
-        //           modelBuilder.Entity<MPSTOK>().HasMany(x => x.MPSTOKHAR).WithOne(x => x.MPSTOK).HasForeignKey(x => x.STOKID);
-        //           modelBuilder.Entity<MPSTOK>().HasMany(x => x.MPSTOKSAYIMHAR).WithOne(x => x.MPSTOK).HasForeignKey(x => x.STOKID);
-        //           modelBuilder.Entity<MPOLCUBR>().HasMany(x => x.MPSTOKOLCUBR).WithOne(x => x.MPOLCUBR).HasForeignKey(x => x.OLCUBRID);
-        //           modelBuilder.Entity<MPOLCUBR>().HasMany(x => x.MPSTOKSAYIMHAR).WithOne(x => x.MPOLCUBR).HasForeignKey(x => x.BIRIMID);
-        //           modelBuilder.Entity<MPSTOKSAYIM>().HasMany(x => x.MPSTOKSAYIMHAR).WithOne(x => x.MPSTOKSAYIM).HasForeignKey(x => x.STOKSAYIMID);
-        //           modelBuilder.Entity<MPSTOK>().HasMany(x => x.MPSTOKFIYATLISTHAR).WithOne(x => x.MPSTOK).HasForeignKey(x => x.STOKID);
-        //           modelBuilder.Entity<MPSIPARIS>().HasMany(x => x.MPSIPARISDETAY).WithOne(x => x.MPSIPARIS).HasForeignKey(x => x.SIPARISID);
-        //           modelBuilder.Entity<MPOLCUBR>().HasMany(x => x.MPSTOKSEVKİYATLİST).WithOne(x => x.MPOLCUBR).HasForeignKey(x => x.BIRIMID);
-        //           modelBuilder.Entity<MPSTOK>().HasMany(x => x.MPSTOKSEVKİYATLİST).WithOne(x => x.MPSTOK).HasForeignKey(x => x.STOKID);
-        //           modelBuilder.Entity<MPSIPARIS>().HasMany(x => x.MPIRSALIYE).WithOne(x => x.MPSIPARIS).HasForeignKey(x => x.SIPARISID).OnDelete(DeleteBehavior.Restrict);
-        //           modelBuilder.Entity<MPSIPARISDETAY>().HasMany(x => x.MPSTOKSEVKİYATLİST).WithOne(x => x.MPSIPARISDETAY).HasForeignKey(x => x.SIPARISDETAYID).OnDelete(DeleteBehavior.Restrict);
-        //           modelBuilder.Entity<MPSIPARIS>().HasMany(x => x.MPDEPOEMIR).WithOne(x => x.MPSIPARIS).HasForeignKey(x => x.SIPARISID).OnDelete(DeleteBehavior.Restrict);
-        //           modelBuilder.Entity<MPSTOK>().HasMany(x => x.MPSTOKMALKABULLIST).WithOne(x => x.MPSTOK).HasForeignKey(x => x.STOKID).OnDelete(DeleteBehavior.Restrict);
-        //           modelBuilder.Entity<MPOLCUBR>().HasMany(x => x.MPSTOKMALKABULLIST).WithOne(x => x.MPOLCUBR).HasForeignKey(x => x.BIRIMID).OnDelete(DeleteBehavior.Restrict);
-        //           modelBuilder.Entity<MPDEPOEMIR>().HasMany(x => x.MPSTOKMALKABULLIST).WithOne(x => x.MPDEPOEMIR).HasForeignKey(x => x.EMIRID).OnDelete(DeleteBehavior.Restrict);
-        //           modelBuilder.Entity<MPSIPARISDETAY>().HasMany(x => x.MPSTOKMALKABULLIST).WithOne(x => x.MPSIPARISDETAY).HasForeignKey(x => x.SIPARISDETAYID).OnDelete(DeleteBehavior.Restrict);
-        //           modelBuilder.Entity<MPSTOK>().HasMany(x => x.MPSIPARISDETAY).WithOne(x => x.MPSTOK).HasForeignKey(x => x.STOKID).OnDelete(DeleteBehavior.Restrict);
-
-        //           modelBuilder.Entity<MPIRSALIYESIPARISDETAYILISKI>().HasKey(sc => new { sc.IRSALIYEDETAYID, sc.SIPARISDETAYID });
-
-        //           modelBuilder.Entity<MPIRSALIYESIPARISDETAYILISKI>()
-        //               .HasOne<MPIRSALIYEDETAY>(sc => sc.MPIRSALIYEDETAY)
-        //               .WithMany(s => s.MPIRSALIYESIPARISDETAYILISKI)
-        //               .HasForeignKey(sc => sc.IRSALIYEDETAYID).OnDelete(DeleteBehavior.Restrict);
-        //           modelBuilder.Entity<MPIRSALIYESIPARISDETAYILISKI>()
-        //               .HasOne<MPSIPARISDETAY>(sc => sc.MPSIPARISDETAY)
-        //               .WithMany(s => s.MPIRSALIYESIPARISDETAYILISKI)
-        //               .HasForeignKey(sc => sc.SIPARISDETAYID).OnDelete(DeleteBehavior.Restrict);
-
-        //           modelBuilder.Entity<MPDEPOEMIRSIPARISKALEMILISKI>().HasKey(sc => new { sc.DEPOEMIRID, sc.SIPARISDETAYID });
-
-        //           modelBuilder.Entity<MPDEPOEMIRSIPARISKALEMILISKI>()
-        //               .HasOne<MPSIPARISDETAY>(sc => sc.MPSIPARISDETAY)
-        //               .WithMany(s => s.MPDEPOEMIRSIPARISKALEMILISKI)
-        //               .HasForeignKey(sc => sc.SIPARISDETAYID).OnDelete(DeleteBehavior.Restrict);
-        //           modelBuilder.Entity<MPDEPOEMIRSIPARISKALEMILISKI>()
-        //               .HasOne<MPDEPOEMIR>(sc => sc.MPDEPOEMIR)
-        //               .WithMany(s => s.MPDEPOEMIRSIPARISKALEMILISKI)
-        //               .HasForeignKey(sc => sc.DEPOEMIRID).OnDelete(DeleteBehavior.Restrict);
+   
 
 
         //           modelBuilder.Entity<MPSTOK>()

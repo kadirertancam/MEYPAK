@@ -20,21 +20,21 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
         void onYukle()
         {
           
-            var emp = context.MPSTOKOLCUBR.AsQueryable();
+            var emp = context.MPSTOKOLCUBR.ToList();
 
-            emp = emp.Include("MPSTOK");
-            emp = emp.Include("MPOLCUBR");
-            //foreach (var item in emp)
-            //{
-            //    context.Entry(item)
-            //        .Navigation("MPSTOK")
-            //        .Load();
-            //    context.Entry(item)
-            //        .Navigation("MPOLCUBR")
-            //        .Load();
+            //emp = emp.Include("MPSTOK");
+            //emp = emp.Include("MPOLCUBR");
+            foreach (var item in emp)
+            {
+                context.Entry(item)
+                    .Navigation("MPSTOK")
+                    .Load();
+                context.Entry(item)
+                    .Navigation("MPOLCUBR")
+                    .Load();
 
 
-            //}
+            }
 
 
         }

@@ -67,7 +67,8 @@ namespace MEYPAK.PRL.STOK
             LBBakiye.Text = (_stokHarServis.obje.Where(x => x.IO == 1 && x.STOKID == _id).Sum(x => x.MIKTAR) - _stokHarServis.obje.Where(x => x.IO == 0 && x.STOKID == _id).Sum(x => x.MIKTAR)).ToString();
         }
         void Doldur()
-        { 
+        {
+            _stokOlcuBrServis.Data(ServisList.StokOlcuBrListeServis);
             IO = RBGiris.Checked == true ? 1 : 0;
             if (_tempStok != null)
             {

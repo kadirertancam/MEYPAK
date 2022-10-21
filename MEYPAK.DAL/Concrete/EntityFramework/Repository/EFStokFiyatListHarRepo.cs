@@ -32,24 +32,24 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
                 return entity;
             }
         }
-        void onYukle()
+        public void onYukle()
         {
 
-            var emp = _context.MPSTOKFIYATLISTHAR.AsQueryable();
+            var emp = _context.MPSTOKFIYATLISTHAR.ToList();
 
-            emp = emp.Include("MPSTOK");
-            emp = emp.Include("MPSTOKFIYATLIST");
-            
+            //emp = emp.Include("MPSTOK");
+            //emp = emp.Include("MPSTOKFIYATLIST");
 
-            //foreach (var item in emp)
-            //{
-            //    _context.Entry(item)
-            //        .Navigation("MPSTOK")
-            //        .Load();
-            //    _context.Entry(item)
-            //       .Navigation("MPSTOKFIYATLIST")
-            //       .Load();
-            //} 
+
+            foreach (var item in emp)
+            {
+                _context.Entry(item)
+                    .Navigation("MPSTOK")
+                    .Load();
+                _context.Entry(item)
+                   .Navigation("MPSTOKFIYATLIST")
+                   .Load();
+            }
 
         }
         public void Sil(int id)

@@ -1,4 +1,5 @@
-﻿using MEYPAK.BLL.STOK;
+﻿using MEYPAK.BLL.Assets;
+using MEYPAK.BLL.STOK;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository;
 using MEYPAK.Entity.Models.STOK;
@@ -15,20 +16,25 @@ namespace MEYPAK.PRL.STOK
         public PocoSTOKFIYATLIST _fiyatlist;
         public PocoSTOKFIYATLISTHAR _fiyatlisthar = new PocoSTOKFIYATLISTHAR();
         FStokList _stoklist;
-        IStokServis _stokServis ;
-        IStokFiyatListHarServis _stokFiyatListHarServis ;
+        GenericWebServis<PocoSTOK> _stokServis ;
+        GenericWebServis<PocoSTOKFIYATLISTHAR> _stokFiyatListHarServis ;
         public FStokFiyatListPanel(PocoSTOKFIYATLIST fiyatlist)
         {
             InitializeComponent();
-            this._fiyatlist = fiyatlist;
+ 
+                this._fiyatlist = fiyatlist; 
+
+            
             _stoklist = NinjectFactory.CompositionRoot.Resolve<FStokList>();
+            _stokFiyatListHarServis = new GenericWebServis<PocoSTOKFIYATLISTHAR>();
+            _stokFiyatListHarServis.Data(ServisList.StokFiyatListHarListeServis);
         }
         public PocoSTOK _tempStok;
         private void button4_Click(object sender, EventArgs e)
         {
             foreach (PocoSTOKFIYATLISTHAR mPSTOKFIYATLISTHAR in _mpStokFiyatListHar)
             {
-                _stokFiyatListHarServis.EkleyadaGuncelle(mPSTOKFIYATLISTHAR);
+                _stokFiyatListHarServis.Data(ServisList.StokFiyatListHarEkleServis,(mPSTOKFIYATLISTHAR));
                 
             }
             MessageBox.Show("Başarıyla Eklendi.");
@@ -58,8 +64,8 @@ namespace MEYPAK.PRL.STOK
         }
         void DataGridiDoldur()
         {
-            if (_fiyatlist.ID != null && _stokFiyatListHarServis.Getir(x => x.FIYATLISTID == _fiyatlist.ID).Count>0)
-            {   _mpStokFiyatListHar = _stokFiyatListHarServis.Getir(x =>x.FIYATLISTID==_fiyatlist.ID);
+            if (_fiyatlist.ID != null && _stokFiyatListHarServis.obje.Where(x => x.FIYATLISTID == _fiyatlist.ID).ToList().Count>0)
+            {   _mpStokFiyatListHar = _stokFiyatListHarServis.obje.Where(x =>x.FIYATLISTID==_fiyatlist.ID).ToList();
                 dataGridView1.DataSource = _mpStokFiyatListHar;
             }
         }
@@ -104,13 +110,14 @@ namespace MEYPAK.PRL.STOK
  
         private void dataGridView1_DoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            _stokServis.Data(ServisList.StokListeServis);
             if (dataGridView1.SelectedRows != null)
             {   //todo burdan id çekip güncelleme işlemi yapılabilecek.
                 stokfiyatharid = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value);
-                _fiyatlisthar = _stokFiyatListHarServis.Getir(x=> x.ID==stokfiyatharid).FirstOrDefault();
-                TBStokKodu.Text = _stokServis.Getir(x=> x.ID==_fiyatlisthar.STOKID).FirstOrDefault().KOD;
+                _fiyatlisthar = _stokFiyatListHarServis.obje.Where(x=> x.ID==stokfiyatharid).FirstOrDefault();
+                TBStokKodu.Text = _stokServis.obje.Where(x=> x.ID==_fiyatlisthar.STOKID).FirstOrDefault().KOD;
                 TBKur.Text = _fiyatlisthar.KUR.ToString();
-                TBStokAdi.Text = _stokServis.Getir(x => x.ID == _fiyatlisthar.STOKID).FirstOrDefault().ADI;
+                TBStokAdi.Text = _stokServis.obje.Where(x => x.ID == _fiyatlisthar.STOKID).FirstOrDefault().ADI;
                 TBIskonto.Text= _fiyatlisthar.ISKONTO.ToString();  
                 TBFiyat.Text = _fiyatlisthar.NETFIYAT.ToString();
             }

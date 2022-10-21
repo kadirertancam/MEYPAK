@@ -203,48 +203,6 @@ namespace MEYPAK.DAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "MPSIPARIS",
-                columns: table => new
-                {
-                    ID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    SIRKETID = table.Column<int>(type: "int", nullable: false),
-                    SUBEID = table.Column<int>(type: "int", nullable: false),
-                    DEPOID = table.Column<int>(type: "int", nullable: false),
-                    CARIID = table.Column<int>(type: "int", nullable: false),
-                    ALTHESAPID = table.Column<int>(type: "int", nullable: false),
-                    KULLANICIID = table.Column<int>(type: "int", nullable: false),
-                    OLUSTURMATARIHI = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    GUNCELLEMETARIHI = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    SIPARISTARIHI = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    SEVKIYATTARIHI = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    VADETARIHI = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    KULLANICITIPI = table.Column<byte>(type: "tinyint", nullable: false),
-                    CARIADI = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    TIP = table.Column<int>(type: "int", nullable: false),
-                    VADEGUNU = table.Column<int>(type: "int", nullable: false),
-                    ACIKLAMA = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
-                    EKACIKLAMA = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
-                    DOVIZID = table.Column<int>(type: "int", nullable: false),
-                    KUR = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    SERINO = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    BELGENO = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    KDVDAHİL = table.Column<bool>(type: "bit", nullable: false),
-                    NETTOPLAM = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    KDVTOPLAM = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    ISKONTOTOPLAM = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    BRUTTOPLAM = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    GENELTOPLAM = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    DURUM = table.Column<bool>(type: "bit", nullable: false),
-                    DONEM = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    KAYITTIPI = table.Column<byte>(type: "tinyint", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_MPSIPARIS", x => x.ID);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "MPSTOK",
                 columns: table => new
                 {
@@ -375,44 +333,11 @@ namespace MEYPAK.DAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "MPDEPOEMIR",
+                name: "MPSIPARIS",
                 columns: table => new
                 {
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    TARIH = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    SIRA = table.Column<int>(type: "int", nullable: false),
-                    DEPOID = table.Column<int>(type: "int", nullable: false),
-                    TIP = table.Column<int>(type: "int", nullable: false),
-                    SIPARISID = table.Column<int>(type: "int", nullable: false),
-                    DURUM = table.Column<int>(type: "int", nullable: false),
-                    MIKTAR = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    ACIKLAMA = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_MPDEPOEMIR", x => x.ID);
-                    table.ForeignKey(
-                        name: "FK_MPDEPOEMIR_MPDEPO_DEPOID",
-                        column: x => x.DEPOID,
-                        principalTable: "MPDEPO",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_MPDEPOEMIR_MPSIPARIS_SIPARISID",
-                        column: x => x.SIPARISID,
-                        principalTable: "MPSIPARIS",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "MPIRSALIYE",
-                columns: table => new
-                {
-                    ID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    SIPARISID = table.Column<int>(type: "int", nullable: false),
                     SIRKETID = table.Column<int>(type: "int", nullable: false),
                     SUBEID = table.Column<int>(type: "int", nullable: false),
                     DEPOID = table.Column<int>(type: "int", nullable: false),
@@ -421,11 +346,12 @@ namespace MEYPAK.DAL.Migrations
                     KULLANICIID = table.Column<int>(type: "int", nullable: false),
                     OLUSTURMATARIHI = table.Column<DateTime>(type: "datetime2", nullable: false),
                     GUNCELLEMETARIHI = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    IRSALIYETARIHI = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    SIPARISTARIHI = table.Column<DateTime>(type: "datetime2", nullable: false),
                     SEVKIYATTARIHI = table.Column<DateTime>(type: "datetime2", nullable: false),
                     VADETARIHI = table.Column<DateTime>(type: "datetime2", nullable: false),
                     KULLANICITIPI = table.Column<byte>(type: "tinyint", nullable: false),
                     CARIADI = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    TIP = table.Column<int>(type: "int", nullable: false),
                     VADEGUNU = table.Column<int>(type: "int", nullable: false),
                     ACIKLAMA = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
                     EKACIKLAMA = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
@@ -439,61 +365,17 @@ namespace MEYPAK.DAL.Migrations
                     ISKONTOTOPLAM = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     BRUTTOPLAM = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     GENELTOPLAM = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    ARACID = table.Column<int>(type: "int", nullable: false),
-                    PERSONELID = table.Column<int>(type: "int", nullable: false),
                     DURUM = table.Column<bool>(type: "bit", nullable: false),
                     DONEM = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     KAYITTIPI = table.Column<byte>(type: "tinyint", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_MPIRSALIYE", x => x.ID);
+                    table.PrimaryKey("PK_MPSIPARIS", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_MPIRSALIYE_MPSIPARIS_SIPARISID",
-                        column: x => x.SIPARISID,
-                        principalTable: "MPSIPARIS",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "MPIRSALIYEDETAY",
-                columns: table => new
-                {
-                    ID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    SIPARISID = table.Column<int>(type: "int", nullable: false),
-                    BIRIMID = table.Column<int>(type: "int", nullable: false),
-                    DOVIZID = table.Column<int>(type: "int", nullable: false),
-                    LISTEFIYATID = table.Column<int>(type: "int", nullable: false),
-                    KULLANICIID = table.Column<int>(type: "int", nullable: false),
-                    KASAID = table.Column<int>(type: "int", nullable: false),
-                    OLUSTURMATARIHI = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    GUNCELLEMETARIHI = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    TIP = table.Column<byte>(type: "tinyint", nullable: false),
-                    STOKADI = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    ACIKLAMA = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
-                    MIKTAR = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    ISTKONTO1 = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    ISTKONTO2 = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    ISTKONTO3 = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    NETFIYAT = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    BRUTFIYAT = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    NETTOPLAM = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    BRUTTOPLAM = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    BEKLEYENMIKTAR = table.Column<int>(type: "int", nullable: false),
-                    HAREKETDURUMU = table.Column<byte>(type: "tinyint", nullable: false),
-                    KDV = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    KDVTUTARI = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    KAYITTIPI = table.Column<byte>(type: "tinyint", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_MPIRSALIYEDETAY", x => x.ID);
-                    table.ForeignKey(
-                        name: "FK_MPIRSALIYEDETAY_MPSIPARIS_SIPARISID",
-                        column: x => x.SIPARISID,
-                        principalTable: "MPSIPARIS",
+                        name: "FK_MPSIPARIS_MPDEPO_DEPOID",
+                        column: x => x.DEPOID,
+                        principalTable: "MPDEPO",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -611,15 +493,15 @@ namespace MEYPAK.DAL.Migrations
                     SUBEID = table.Column<int>(type: "int", nullable: false),
                     OLUSTURMATARIHI = table.Column<DateTime>(type: "datetime2", nullable: false),
                     GUNCELLEMETARIHI = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    STOKID = table.Column<int>(type: "int", nullable: false),
-                    FIYATLISTID = table.Column<int>(type: "int", nullable: false),
                     DOVIZID = table.Column<int>(type: "int", nullable: false),
                     KUR = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     NETFIYAT = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     ISKONTO = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     KULLANICIID = table.Column<int>(type: "int", nullable: false),
                     AKTIF = table.Column<int>(type: "int", nullable: false),
-                    KAYITTIPI = table.Column<byte>(type: "tinyint", nullable: false)
+                    KAYITTIPI = table.Column<byte>(type: "tinyint", nullable: false),
+                    STOKID = table.Column<int>(type: "int", nullable: false),
+                    FIYATLISTID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -682,6 +564,130 @@ namespace MEYPAK.DAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "MPDEPOEMIR",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    TARIH = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    SIRA = table.Column<int>(type: "int", nullable: false),
+                    DEPOID = table.Column<int>(type: "int", nullable: false),
+                    TIP = table.Column<int>(type: "int", nullable: false),
+                    SIPARISID = table.Column<int>(type: "int", nullable: false),
+                    DURUM = table.Column<int>(type: "int", nullable: false),
+                    MIKTAR = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    ACIKLAMA = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_MPDEPOEMIR", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_MPDEPOEMIR_MPDEPO_DEPOID",
+                        column: x => x.DEPOID,
+                        principalTable: "MPDEPO",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_MPDEPOEMIR_MPSIPARIS_SIPARISID",
+                        column: x => x.SIPARISID,
+                        principalTable: "MPSIPARIS",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "MPIRSALIYE",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    SIPARISID = table.Column<int>(type: "int", nullable: false),
+                    SIRKETID = table.Column<int>(type: "int", nullable: false),
+                    SUBEID = table.Column<int>(type: "int", nullable: false),
+                    DEPOID = table.Column<int>(type: "int", nullable: false),
+                    CARIID = table.Column<int>(type: "int", nullable: false),
+                    ALTHESAPID = table.Column<int>(type: "int", nullable: false),
+                    KULLANICIID = table.Column<int>(type: "int", nullable: false),
+                    OLUSTURMATARIHI = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    GUNCELLEMETARIHI = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    IRSALIYETARIHI = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    SEVKIYATTARIHI = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    VADETARIHI = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    KULLANICITIPI = table.Column<byte>(type: "tinyint", nullable: false),
+                    CARIADI = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    VADEGUNU = table.Column<int>(type: "int", nullable: false),
+                    ACIKLAMA = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    EKACIKLAMA = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    DOVIZID = table.Column<int>(type: "int", nullable: false),
+                    KUR = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    SERINO = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    BELGENO = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    KDVDAHİL = table.Column<bool>(type: "bit", nullable: false),
+                    NETTOPLAM = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    KDVTOPLAM = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    ISKONTOTOPLAM = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    BRUTTOPLAM = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    GENELTOPLAM = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    ARACID = table.Column<int>(type: "int", nullable: false),
+                    PERSONELID = table.Column<int>(type: "int", nullable: false),
+                    DURUM = table.Column<bool>(type: "bit", nullable: false),
+                    DONEM = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    KAYITTIPI = table.Column<byte>(type: "tinyint", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_MPIRSALIYE", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_MPIRSALIYE_MPSIPARIS_SIPARISID",
+                        column: x => x.SIPARISID,
+                        principalTable: "MPSIPARIS",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "MPIRSALIYEDETAY",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    SIPARISID = table.Column<int>(type: "int", nullable: false),
+                    BIRIMID = table.Column<int>(type: "int", nullable: false),
+                    DOVIZID = table.Column<int>(type: "int", nullable: false),
+                    LISTEFIYATID = table.Column<int>(type: "int", nullable: false),
+                    KULLANICIID = table.Column<int>(type: "int", nullable: false),
+                    KASAID = table.Column<int>(type: "int", nullable: false),
+                    OLUSTURMATARIHI = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    GUNCELLEMETARIHI = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    TIP = table.Column<byte>(type: "tinyint", nullable: false),
+                    STOKADI = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    ACIKLAMA = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    MIKTAR = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    ISTKONTO1 = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    ISTKONTO2 = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    ISTKONTO3 = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    NETFIYAT = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    BRUTFIYAT = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    NETTOPLAM = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    BRUTTOPLAM = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    BEKLEYENMIKTAR = table.Column<int>(type: "int", nullable: false),
+                    HAREKETDURUMU = table.Column<byte>(type: "tinyint", nullable: false),
+                    KDV = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    KDVTUTARI = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    KAYITTIPI = table.Column<byte>(type: "tinyint", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_MPIRSALIYEDETAY", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_MPIRSALIYEDETAY_MPSIPARIS_SIPARISID",
+                        column: x => x.SIPARISID,
+                        principalTable: "MPSIPARIS",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "MPSIPARISDETAY",
                 columns: table => new
                 {
@@ -728,73 +734,63 @@ namespace MEYPAK.DAL.Migrations
                         column: x => x.SIPARISID,
                         principalTable: "MPSIPARIS",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Restrict,
-                        onUpdate: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_MPSIPARISDETAY_MPSTOK_STOKID",
                         column: x => x.STOKID,
                         principalTable: "MPSTOK",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Restrict,
-                        onUpdate: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
                 name: "MPDEPOEMIRSIPARISKALEMILISKI",
                 columns: table => new
                 {
-                    ID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
                     DEPOEMIRID = table.Column<int>(type: "int", nullable: false),
-                    MPDEPOEMIRID = table.Column<int>(type: "int", nullable: false),
                     SIPARISDETAYID = table.Column<int>(type: "int", nullable: false),
-                    MPSIPARISDETAYID = table.Column<int>(type: "int", nullable: false)
+                    ID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_MPDEPOEMIRSIPARISKALEMILISKI", x => x.ID);
+                    table.PrimaryKey("PK_MPDEPOEMIRSIPARISKALEMILISKI", x => new { x.DEPOEMIRID, x.SIPARISDETAYID });
                     table.ForeignKey(
-                        name: "FK_MPDEPOEMIRSIPARISKALEMILISKI_MPDEPOEMIR_MPDEPOEMIRID",
-                        column: x => x.MPDEPOEMIRID,
+                        name: "FK_MPDEPOEMIRSIPARISKALEMILISKI_MPDEPOEMIR_DEPOEMIRID",
+                        column: x => x.DEPOEMIRID,
                         principalTable: "MPDEPOEMIR",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_MPDEPOEMIRSIPARISKALEMILISKI_MPSIPARISDETAY_MPSIPARISDETAYID",
-                        column: x => x.MPSIPARISDETAYID,
+                        name: "FK_MPDEPOEMIRSIPARISKALEMILISKI_MPSIPARISDETAY_SIPARISDETAYID",
+                        column: x => x.SIPARISDETAYID,
                         principalTable: "MPSIPARISDETAY",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Restrict,
-                        onUpdate: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
                 name: "MPIRSALIYESIPARISDETAYILISKI",
                 columns: table => new
                 {
-                    ID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
                     SIPARISDETAYID = table.Column<int>(type: "int", nullable: false),
-                    MPSIPARISDETAYID = table.Column<int>(type: "int", nullable: false),
                     IRSALIYEDETAYID = table.Column<int>(type: "int", nullable: false),
-                    MPIRSALIYEDETAYID = table.Column<int>(type: "int", nullable: false)
+                    ID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_MPIRSALIYESIPARISDETAYILISKI", x => x.ID);
+                    table.PrimaryKey("PK_MPIRSALIYESIPARISDETAYILISKI", x => new { x.IRSALIYEDETAYID, x.SIPARISDETAYID });
                     table.ForeignKey(
-                        name: "FK_MPIRSALIYESIPARISDETAYILISKI_MPIRSALIYEDETAY_MPIRSALIYEDETAYID",
-                        column: x => x.MPIRSALIYEDETAYID,
+                        name: "FK_MPIRSALIYESIPARISDETAYILISKI_MPIRSALIYEDETAY_IRSALIYEDETAYID",
+                        column: x => x.IRSALIYEDETAYID,
                         principalTable: "MPIRSALIYEDETAY",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_MPIRSALIYESIPARISDETAYILISKI_MPSIPARISDETAY_MPSIPARISDETAYID",
-                        column: x => x.MPSIPARISDETAYID,
+                        name: "FK_MPIRSALIYESIPARISDETAYILISKI_MPSIPARISDETAY_SIPARISDETAYID",
+                        column: x => x.SIPARISDETAYID,
                         principalTable: "MPSIPARISDETAY",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Restrict,
-                        onUpdate: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -820,19 +816,19 @@ namespace MEYPAK.DAL.Migrations
                         column: x => x.EMIRID,
                         principalTable: "MPDEPOEMIR",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_MPSIPARISSEVKEMRIHAR_MPSIPARIS_SIPARISID",
                         column: x => x.SIPARISID,
                         principalTable: "MPSIPARIS",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_MPSIPARISSEVKEMRIHAR_MPSIPARISDETAY_SIPARISKALEMID",
                         column: x => x.SIPARISKALEMID,
                         principalTable: "MPSIPARISDETAY",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -860,25 +856,25 @@ namespace MEYPAK.DAL.Migrations
                         column: x => x.EMIRID,
                         principalTable: "MPDEPOEMIR",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_MPSTOKMALKABULLIST_MPOLCUBR_BIRIMID",
                         column: x => x.BIRIMID,
                         principalTable: "MPOLCUBR",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_MPSTOKMALKABULLIST_MPSIPARISDETAY_SIPARISDETAYID",
                         column: x => x.SIPARISDETAYID,
                         principalTable: "MPSIPARISDETAY",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_MPSTOKMALKABULLIST_MPSTOK_STOKID",
                         column: x => x.STOKID,
                         principalTable: "MPSTOK",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -919,7 +915,7 @@ namespace MEYPAK.DAL.Migrations
                         column: x => x.SIPARISDETAYID,
                         principalTable: "MPSIPARISDETAY",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_MPSTOKSEVKİYATLİST_MPSIPARISSEVKEMRIHAR_SEVKEMRIHARID",
                         column: x => x.SEVKEMRIHARID,
@@ -945,14 +941,9 @@ namespace MEYPAK.DAL.Migrations
                 column: "SIPARISID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_MPDEPOEMIRSIPARISKALEMILISKI_MPDEPOEMIRID",
+                name: "IX_MPDEPOEMIRSIPARISKALEMILISKI_SIPARISDETAYID",
                 table: "MPDEPOEMIRSIPARISKALEMILISKI",
-                column: "MPDEPOEMIRID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_MPDEPOEMIRSIPARISKALEMILISKI_MPSIPARISDETAYID",
-                table: "MPDEPOEMIRSIPARISKALEMILISKI",
-                column: "MPSIPARISDETAYID");
+                column: "SIPARISDETAYID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_MPDEPOTRANSFERHAR_DEPOTRANSFERID",
@@ -975,14 +966,14 @@ namespace MEYPAK.DAL.Migrations
                 column: "SIPARISID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_MPIRSALIYESIPARISDETAYILISKI_MPIRSALIYEDETAYID",
+                name: "IX_MPIRSALIYESIPARISDETAYILISKI_SIPARISDETAYID",
                 table: "MPIRSALIYESIPARISDETAYILISKI",
-                column: "MPIRSALIYEDETAYID");
+                column: "SIPARISDETAYID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_MPIRSALIYESIPARISDETAYILISKI_MPSIPARISDETAYID",
-                table: "MPIRSALIYESIPARISDETAYILISKI",
-                column: "MPSIPARISDETAYID");
+                name: "IX_MPSIPARIS_DEPOID",
+                table: "MPSIPARIS",
+                column: "DEPOID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_MPSIPARISDETAY_IRSALIYEID",
@@ -1172,9 +1163,6 @@ namespace MEYPAK.DAL.Migrations
                 name: "MPSIPARISDETAY");
 
             migrationBuilder.DropTable(
-                name: "MPDEPO");
-
-            migrationBuilder.DropTable(
                 name: "MPIRSALIYE");
 
             migrationBuilder.DropTable(
@@ -1182,6 +1170,9 @@ namespace MEYPAK.DAL.Migrations
 
             migrationBuilder.DropTable(
                 name: "MPSIPARIS");
+
+            migrationBuilder.DropTable(
+                name: "MPDEPO");
         }
     }
 }
