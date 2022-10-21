@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MEYPAK.DAL.Migrations
 {
     [DbContext(typeof(MEYPAKContext))]
-    [Migration("20221020132338_MEYPAKKontrol")]
-    partial class MEYPAKKontrol
+    [Migration("20221021133743_MEYPAKIdentityproblemi2")]
+    partial class MEYPAKIdentityproblemi2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -32,55 +32,64 @@ namespace MEYPAK.DAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
 
-                    b.Property<string>("ACIKLAMA")
+                    b.Property<string>("canbusProfile")
                         .IsRequired()
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ARACKM")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("GUNCELLEMETARIHI")
-                        .HasColumnType("datetime2");
-
-                    b.Property<byte>("KAYITTIPI")
-                        .HasColumnType("tinyint");
-
-                    b.Property<string>("MARKA")
+                    b.Property<string>("companyName")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("MODEL")
+                    b.Property<string>("deviceType")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("MUAYENETAR")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("OLUTURMATARIHI")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("PERSONELID")
+                    b.Property<int>("fleetId")
                         .HasColumnType("int");
 
-                    b.Property<string>("PLAKA")
+                    b.Property<string>("fleetName")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("SERVISTAR")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("SIRKETID")
+                    b.Property<int>("groupId")
                         .HasColumnType("int");
 
-                    b.Property<int>("SUBEID")
+                    b.Property<string>("groupName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("hardwareVersion")
                         .HasColumnType("int");
 
-                    b.Property<int>("YIL")
+                    b.Property<string>("label")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("muId")
                         .HasColumnType("int");
+
+                    b.Property<string>("networkId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("phone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("plate")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("softwareSubVersion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("softwareVersion")
+                        .HasColumnType("int");
+
+                    b.Property<string>("timezone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 
@@ -125,6 +134,40 @@ namespace MEYPAK.DAL.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("MPDEPO");
+                });
+
+            modelBuilder.Entity("MEYPAK.Entity.Models.DEPO.MPDEPOCEKILIST", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+
+                    b.Property<int>("BIRIMID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("GUNCELLEMETARIHI")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("ISEMRIID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("KAYITTIPI")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MIKTAR")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("OLUSTURMATARIHI")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("STOKID")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("MPDEPOCEKILIST");
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.DEPO.MPDEPOEMIR", b =>
@@ -1622,7 +1665,7 @@ namespace MEYPAK.DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("MPKATEGORI");
+                    b.ToTable("MPSTOKKATEGORI");
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.STOK.MPSTOKMARKA", b =>

@@ -31,7 +31,7 @@ namespace MEYPAK.BLL.Assets
         public List<T> obje;
         public T obje2;
        
-        public   void Data(string servis,T model=null,string parameters=null,List<T> modellist=null)
+        public void Data(string servis,T model=null,string parameters=null,List<T> modellist=null)
         {
             if(modellist!=null)
                 serialize = JsonConvert.SerializeObject(modellist);
@@ -63,7 +63,7 @@ namespace MEYPAK.BLL.Assets
                                         Encoding.UTF8,
                                         "application/json");
 
-            HttpResponseMessage resp = httpClient.Send(client);
+            HttpResponseMessage resp =   httpClient.Send(client);
             var a = resp.Content.ReadAsStringAsync().Result;
             try
             {

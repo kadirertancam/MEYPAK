@@ -8,27 +8,24 @@ namespace MEYPAK.Entity.Models.ARAC.Mobiliz
 {
     public class AracList
     {
-        public class Child
-        {
-            public int id { get; set; }
-            public string name { get; set; }
-            public string type { get; set; }
-            public List<Child> children { get; set; }
-            public string plate { get; set; }
-            public string vendorCode { get; set; }
-            public string networkId { get; set; }
-            public string gsmNo { get; set; }
-            public string timezone { get; set; }
-            public int softwareVersion { get; set; }
-            public string vehicleLabel { get; set; }
-        }
-
         public class Result
         {
-            public int id { get; set; }
-            public string name { get; set; }
-            public string type { get; set; }
-            public List<Child> children { get; set; }
+            public int muId { get; set; }
+            public string companyName { get; set; }
+            public int fleetId { get; set; }
+            public string fleetName { get; set; }
+            public int groupId { get; set; }
+            public string groupName { get; set; }
+            public string plate { get; set; }
+            public string label { get; set; }
+            public string timezone { get; set; }
+            public string deviceType { get; set; }
+            public string canbusProfile { get; set; }
+            public string networkId { get; set; }
+            public int hardwareVersion { get; set; }
+            public int softwareVersion { get; set; }
+            public string softwareSubVersion { get; set; }
+            public string phone { get; set; }
         }
 
         public class Root
@@ -39,5 +36,6 @@ namespace MEYPAK.Entity.Models.ARAC.Mobiliz
             public List<Result> result { get; set; }
             public object errors { get; set; }
         }
+
     }
 }

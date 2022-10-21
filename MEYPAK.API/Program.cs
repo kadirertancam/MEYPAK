@@ -29,6 +29,10 @@ using Microsoft.AspNetCore.Routing;
 using MEYPAK.DAL.Abstract.SiparisDal;
 using MEYPAK.Interfaces.Siparis;
 using MEYPAK.BLL.SIPARIS;
+using MEYPAK.DAL.Abstract.AracDal;
+using MEYPAK.DAL.Concrete.EntityFramework.Repository.AracRepo;
+using MEYPAK.Interfaces.Arac;
+using MEYPAK.BLL.ARAC;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -140,6 +144,11 @@ builder.Services.AddScoped<ISiparisDetayServis, SiparisDetayManager>();
 
 builder.Services.AddScoped<ISiparisSevkEmriHarDal, EFSiparisSevkEmriHarRepo>();
 builder.Services.AddScoped<ISiparisSevkEmriHarServis, SiparisSevkEmriHarManager>();
+
+#endregion
+#region ARAC_Scoped_Islemleri
+builder.Services.AddScoped<IAracDal, EFAracRepo>();
+builder.Services.AddScoped<IAracServis, AracManager>();
 
 #endregion
 

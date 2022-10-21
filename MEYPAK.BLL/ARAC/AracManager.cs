@@ -2,7 +2,6 @@
 using MEYPAK.DAL.Abstract.AracDal;
 using MEYPAK.DAL.Abstract.DepoDal;
 using MEYPAK.Entity.Models.ARAC;
-using MEYPAK.Entity.Models.ARAC.Mobiliz;
 using MEYPAK.Entity.PocoModels.ARAC;
 using MEYPAK.Interfaces.Arac;
 using System;

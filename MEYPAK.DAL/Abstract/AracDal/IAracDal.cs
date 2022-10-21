@@ -1,5 +1,4 @@
 ﻿using MEYPAK.Entity.Models.ARAC;
-using MEYPAK.Entity.Models.ARAC.Mobiliz;
 using System;
 using System.Collections.Generic;
 using System.Linq;

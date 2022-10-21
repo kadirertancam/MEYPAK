@@ -1,7 +1,6 @@
 ﻿using MEYPAK.Entity.Models;
 using MEYPAK.Entity.Models;
 using MEYPAK.Entity.Models.ARAC;
-using MEYPAK.Entity.Models.ARAC.Mobiliz;
 using MEYPAK.Entity.Models.DEPO;
 using MEYPAK.Entity.Models.IRSALIYE;
 using MEYPAK.Entity.Models.PERSONEL;
@@ -66,7 +65,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             #region Stok_Navigation_AutoInclude
-
+            
             modelBuilder.Entity<MPSTOK>().HasMany(x => x.MPSTOKOLCUBR).WithOne(x => x.MPSTOK).HasForeignKey(x => x.STOKID);
             modelBuilder.Entity<MPSTOK>().HasMany(x => x.MPSTOKHAR).WithOne(x => x.MPSTOK).HasForeignKey(x => x.STOKID);
             modelBuilder.Entity<MPSTOK>().HasMany(x => x.MPSTOKSAYIMHAR).WithOne(x => x.MPSTOK).HasForeignKey(x => x.STOKID);
@@ -113,7 +112,8 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
 
             modelBuilder.Entity<MPSTOK>()
    .Navigation(b => b.MPSIPARISDETAY)
-   .UsePropertyAccessMode(PropertyAccessMode.Property); 
+   .UsePropertyAccessMode(PropertyAccessMode.Property);
+             
             modelBuilder.Entity<MPSTOK>()
       .Navigation(b => b.MPSTOKOLCUBR)
       .UsePropertyAccessMode(PropertyAccessMode.Property);

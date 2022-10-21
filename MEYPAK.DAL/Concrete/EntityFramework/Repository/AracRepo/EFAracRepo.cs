@@ -24,7 +24,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository.AracRepo
 
         public MPARACLAR EkleyadaGuncelle(MPARACLAR entity)
         {
-            bool exists = _context.MPARACLAR.Any(x => x.ID == entity.ID);
+            bool exists = _context.MPARACLAR.Any(x => x.muId == entity.muId);
 
             if (!exists)
             {
@@ -34,7 +34,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository.AracRepo
             }
             else
             {
-                var item = Getir(x => x.ID == entity.ID).FirstOrDefault();
+                var item = Getir(x => x.muId == entity.muId).FirstOrDefault();
                 PropertyInfo propertyInfo = (item.GetType().GetProperty("KAYITTIPI"));
                 propertyInfo.SetValue(item, Convert.ChangeType(1, propertyInfo.PropertyType), null);
                 _context.MPARACLAR.Update(item);

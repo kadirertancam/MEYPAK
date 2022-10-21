@@ -1,4 +1,7 @@
 ﻿using LiveCharts.Wpf;
+using MEYPAK.BLL.Assets;
+using MEYPAK.Entity.Models.ARAC.Mobiliz;
+using MEYPAK.Entity.PocoModels.ARAC;
 using MEYPAK.Interfaces;
 using MEYPAK.PRL.MOBILIZ.MobilizAssets;
 using MEYPAK.PRL.STOK;
@@ -24,11 +27,12 @@ namespace MEYPAK.PRL.MOBILIZ
         public FMobilizLoginPage()
         {
             InitializeComponent();
-           
+            _aracServis = new GenericWebServis<PocoARACLAR>();
         }
         UserLogin.Root loginresp;
         FMobilizPanel mpanel;
         Main main;
+        GenericWebServis<PocoARACLAR> _aracServis;
         private async void button1_Click(object sender, EventArgs e)
         {
              Login(textBox1.Text, textBox2.Text); 
@@ -121,7 +125,31 @@ namespace MEYPAK.PRL.MOBILIZ
             //                      "application/json");
 
             var resp = await httpClient.SendAsync(client);
-            var a = resp.Content.ReadAsStringAsync().Result;
+            var a =   resp.Content.ReadAsStringAsync().Result;
+            var b = JsonConvert.DeserializeObject<AracList.Root>(a);
+            foreach (var item in b.result)
+            {
+                _aracServis.Data(ServisList.AracEkleServis,new PocoARACLAR()
+                {
+                   companyName=item.companyName,
+                   canbusProfile=item.canbusProfile,
+                   deviceType=item.deviceType,
+                   fleetId = item.fleetId,
+                   fleetName = item.fleetName,
+                   groupId =item.groupId,
+                   groupName = item.groupName,
+                   hardwareVersion = item.hardwareVersion,
+                   label = item.label,
+                   muId = item.muId,
+                   networkId = item.networkId,
+                   phone = item.phone,
+                   plate = item.plate,
+                   softwareSubVersion = item.softwareSubVersion,
+                   softwareVersion = item.softwareVersion,
+                   timezone = item.timezone
+                });
+            }
+
         }
     }
 }
