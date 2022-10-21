@@ -150,8 +150,10 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
             modelBuilder.Entity<MPOLCUBR>()
     .Navigation(b => b.MPSTOKSEVKİYATLİST)
     .UsePropertyAccessMode(PropertyAccessMode.Property);
+            modelBuilder.Entity<MPOLCUBR>()
+   .Navigation(b => b.MPSTOKOLCUBR)
+   .UsePropertyAccessMode(PropertyAccessMode.Property);
 
-         
             modelBuilder.Entity<MPSIPARISDETAY>()
  .Navigation(b => b.MPSTOKSEVKİYATLİST)
  .UsePropertyAccessMode(PropertyAccessMode.Property);

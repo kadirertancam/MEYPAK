@@ -42,6 +42,9 @@ namespace MEYPAK.PRL.DEPO
             dataGridView2.EnableHeadersVisualStyles = false;
             DGVTopla = new DataGridViewButtonColumn();
             _sevkiyatCekiPanel = new FSevkiyatCekiPanel();
+            _depoEmirServis = new GenericWebServis<PocoDEPOEMIR>();
+            _siparisDetayServis = new GenericWebServis<PocoSIPARISDETAY>();
+            _siparisSevkEmriHarServis = new GenericWebServis<PocoSIPARISSEVKEMIRHAR>();
         }
         DataGridViewButtonColumn DGVTopla; 
         List<PocoSIPARIS> _tempSiparis;
@@ -49,7 +52,9 @@ namespace MEYPAK.PRL.DEPO
         List<PocoSIPARISDETAY> _tempSTOKSEVK;
         List<PocoSIPARISDETAY> _tempSiparisDetay;
         GenericWebServis<PocoSIPARIS> _siparisServis;
-        GenericWebServis<PocoDEPO> _depoEmirServis;
+        GenericWebServis<PocoDEPOEMIR> _depoEmirServis;
+        GenericWebServis<PocoSIPARISDETAY> _siparisDetayServis;
+        GenericWebServis<PocoSIPARISSEVKEMIRHAR> _siparisSevkEmriHarServis;
 
         #region TabControl Tasarım
         private Dictionary<TabPage, Color> TabColors = new Dictionary<TabPage, Color>();
@@ -79,7 +84,9 @@ namespace MEYPAK.PRL.DEPO
         #endregion
         private void FSevkiyatPanel_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = StaticContext._siparisServis.Listele().Select(x => new { x.SEVKIYATTARIHI, x.BELGENO, x.CARIADI }).ToList();
+            _siparisServis.Data(ServisList.SiparisListeServis);
+            _depoEmirServis.Data(ServisList.DepoEmirListeServis);
+            dataGridView1.DataSource =_siparisServis.obje.Select(x => new { x.SEVKIYATTARIHI, x.BELGENO, x.CARIADI }).ToList();
             DGVTopla.Name = "DGVTopla";
             DGVTopla.HeaderText = "Toplama";
             DGVTopla.DisplayIndex = 3;
@@ -90,7 +97,7 @@ namespace MEYPAK.PRL.DEPO
             DGVTopla.UseColumnTextForButtonValue = true;
             dataGridView1.Columns.Add(DGVTopla);
             dataGridView1.Columns["DGVTopla"].DefaultCellStyle.ForeColor = Color.Aqua;
-            dataGridView2.DataSource = StaticContext._depoEmirServis.Listele().Select(x => new { x.ID, x.MPSIPARIS.BELGENO, x.MIKTAR, x.MPSIPARIS.CARIADI, x.MPSIPARIS.DEPOID, x.TIP, x.DURUM }).ToList();
+            dataGridView2.DataSource = _depoEmirServis.obje.Select(x => new { x.ID, x.MPSIPARIS.BELGENO, x.MIKTAR, x.MPSIPARIS.CARIADI, x.MPSIPARIS.DEPOID, x.TIP, x.DURUM }).ToList();
             dataGridView2.Refresh();
 
 
@@ -98,12 +105,12 @@ namespace MEYPAK.PRL.DEPO
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            _tempSiparisDetay = StaticContext._siparisDetayServis.Listele().Where(x => x.MPSIPARIS.BELGENO.ToString() == dataGridView1.Rows[e.RowIndex].Cells["BELGENO"].Value.ToString()).ToList();
+            _tempSiparisDetay = _siparisDetayServis.obje.Where(x => x.MPSIPARIS.BELGENO.ToString() == dataGridView1.Rows[e.RowIndex].Cells["BELGENO"].Value.ToString()).ToList();
 
             if (dataGridView1.Columns[e.ColumnIndex].Name == "DGVTopla")
             {
                 int i= 1;
-                var a = StaticContext._depoEmirServis.Ekle(new PocoDEPOEMIR()
+                  _depoEmirServis.Data(ServisList.DepoEmirEkleServis,new PocoDEPOEMIR()
                 {
                     SIPARISID = _siparisServis.obje.Where(x => x.BELGENO == dataGridView1.Rows[e.RowIndex].Cells["BELGENO"].Value.ToString()).FirstOrDefault().ID,
                     MIKTAR = _tempSiparisDetay.Sum(x=>x.MIKTAR),
@@ -117,20 +124,21 @@ namespace MEYPAK.PRL.DEPO
 
 
                 });
-                dataGridView2.DataSource = StaticContext._depoEmirServis.Listele().Select(x => new { x.ID, x.MPSIPARIS.BELGENO, x.MIKTAR, x.MPSIPARIS.CARIADI, x.MPSIPARIS.DEPOID, x.TIP, x.DURUM }).ToList();
+                _depoEmirServis.Data(ServisList.DepoEmirListeServis);
+                dataGridView2.DataSource =_depoEmirServis.obje.Select(x => new { x.ID, x.MPSIPARIS.BELGENO, x.MIKTAR, x.MPSIPARIS.CARIADI, x.MPSIPARIS.DEPOID, x.TIP, x.DURUM }).ToList();
                 dataGridView2.Refresh();
                 foreach (var item in _tempSiparisDetay.Where(x=>x.HAREKETDURUMU==0).ToList())
                 {
                     item.HAREKETDURUMU = 1;
-                    StaticContext._siparisDetayServis.Guncelle(item);
+                     _siparisDetayServis.Data(ServisList.SiparisDetayEkleServis,item);
                  
                     
-                    StaticContext._siparisSevkEmriHarServis.Ekle(new PocoSIPARISSEVKEMIRHAR()
+                    _siparisSevkEmriHarServis.Data(ServisList.SiparisSevkEmriHarEkleServis,new PocoSIPARISSEVKEMIRHAR()
                     {
                         EMIRMIKTARI = item.MIKTAR,
-                        SIPARISID = a.SIPARISID,
+                      //  SIPARISID = a.SIPARISID,
                         SIPARISKALEMID = item.ID,
-                        EMIRID=a.ID,
+                      //  EMIRID=a.ID,
                         SIPARISMIKTARI = item.MIKTAR,
                         KULLANICIID = 0,
                         TARIH = DateTime.Now,
@@ -139,7 +147,7 @@ namespace MEYPAK.PRL.DEPO
                     });
 
 
-                    dataGridView3.DataSource = StaticContext._siparisSevkEmriHarServis.Listele().Select(x => new {x.MPSIPARIS.BELGENO, x.MPSIPARISDETAY.MPSTOK.KOD, x.MPSIPARISDETAY.MPSTOK.ADI, x.EMIRID, x.SIPARISMIKTARI, x.EMIRMIKTARI, KALANMIKTAR = StaticContext._stokMalKabulListServis.Listele().Where(z => z.EMIRID == x.EMIRID && z.SIPARISDETAYID == x.SIPARISKALEMID).GroupBy(x => new { x.MPSTOK.KOD, x.MPSTOK.ADI, BIRIM = x.MPOLCUBR.ADI, x.SIPARISMIKTARI }).Select(x => x.Select(x => x.SIPARISMIKTARI).FirstOrDefault() - x.Sum(z => z.MIKTAR)).FirstOrDefault() }).ToList();
+                    dataGridView3.DataSource = _siparisSevkEmriHarServis.obje.Select(x => new {x.MPSIPARIS.BELGENO, x.MPSIPARISDETAY.MPSTOK.KOD, x.MPSIPARISDETAY.MPSTOK.ADI, x.EMIRID, x.SIPARISMIKTARI, x.EMIRMIKTARI, KALANMIKTAR = StaticContext._stokMalKabulListServis.Listele().Where(z => z.EMIRID == x.EMIRID && z.SIPARISDETAYID == x.SIPARISKALEMID).GroupBy(x => new { x.MPSTOK.KOD, x.MPSTOK.ADI, BIRIM = x.MPOLCUBR.ADI, x.SIPARISMIKTARI }).Select(x => x.Select(x => x.SIPARISMIKTARI).FirstOrDefault() - x.Sum(z => z.MIKTAR)).FirstOrDefault() }).ToList();
                     dataGridView3.Refresh();
                     i++;
             }

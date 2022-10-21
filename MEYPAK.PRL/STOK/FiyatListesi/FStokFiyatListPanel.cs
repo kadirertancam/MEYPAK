@@ -95,6 +95,7 @@ namespace MEYPAK.PRL.STOK
             if (dataGridView1.SelectedRows.Count>0)
             {
                 _mpStokFiyatListHar.Remove(_mpStokFiyatListHar[dataGridView1.SelectedRows[0].Index]);
+
                 dataGridView1.DataSource = "";
                 dataGridView1.DataSource = _mpStokFiyatListHar;
             }

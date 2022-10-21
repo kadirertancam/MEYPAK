@@ -21,7 +21,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
         {
           
             var emp = context.MPSTOKOLCUBR.ToList();
-
+            EFOlcuBrRepo ff = new EFOlcuBrRepo(context);
             //emp = emp.Include("MPSTOK");
             //emp = emp.Include("MPOLCUBR");
             foreach (var item in emp)

@@ -41,7 +41,7 @@ namespace MEYPAK.PRL.STOK
 
         private void BTSayimKaydet_Click(object sender, EventArgs e)
         {
-
+            _stokSayimServis.Data(ServisList.StokSayimListeServis);
             stokSayimPanel = new FStokSayimPanel("kaydet");
             _stokSayimServis.Data(ServisList.StokSayimEkleServis,(new Entity.PocoModels.STOK.PocoSTOKSAYIM()
             {
@@ -51,7 +51,7 @@ namespace MEYPAK.PRL.STOK
             _stokSayimServis.Data(ServisList.StokSayimListeServis);
             dataGridView1.DataSource = _stokSayimServis.obje;
 
-            stokSayimPanel.sayimId = _stokSayimServis.obje.Where(x => x.ACIKLAMA == TBAciklama.Text && x.SAYIMTARIHI == DTPSayimTarihi.Value).FirstOrDefault().ID;
+            stokSayimPanel.sayimId = _stokSayimServis.obje.Where(x => x.ACIKLAMA == TBAciklama.Text ).FirstOrDefault().ID;
                 TBAciklama.Text = "";
             DTPSayimTarihi.Value = DateTime.Now;
             stokSayimPanel.ShowDialog();
@@ -81,7 +81,9 @@ namespace MEYPAK.PRL.STOK
 
         private void BTSayimSil_Click(object sender, EventArgs e)
         {
-            _stokSayimServis.Data(ServisList.StokSayimSilServis,(_stokSayimServis.obje.Where(x => x.ID == Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value))).FirstOrDefault());
+            _stokSayimServis.Data(ServisList.StokSayimSilServis,null,null,(_stokSayimServis.obje.Where(x => x.ID == Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value))).ToList());
+            _stokSayimServis.Data(ServisList.StokSayimListeServis);
+            dataGridView1.DataSource = _stokSayimServis.obje;
         }
     }
 }

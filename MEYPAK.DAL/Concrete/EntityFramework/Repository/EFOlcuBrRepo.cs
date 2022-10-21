@@ -21,9 +21,10 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
             onYukle();
         }
        public  void onYukle()
-        {
+        { 
 
             var emp = context.MPOLCUBR.ToList();
+            EFStokOlcuBrRepo aa= new EFStokOlcuBrRepo(context);
             foreach (var item in emp)
             {
                 context.Entry(item)

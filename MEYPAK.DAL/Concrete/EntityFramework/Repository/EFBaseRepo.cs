@@ -3,6 +3,7 @@ using MEYPAK.DAL.Abstract;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.Entity.Models;
 using MEYPAK.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -121,6 +122,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
             {
                 if (item.GetType().GetProperties().Any(x => x.Name == "KAYITTIPI"))
                 {
+                    context.ChangeTracker.Clear();
                     PropertyInfo propertyInfo = (item.GetType().GetProperty("KAYITTIPI"));
                     propertyInfo.SetValue(item, Convert.ChangeType(2, propertyInfo.PropertyType), null);
                     context.Set<T>().Update(item);

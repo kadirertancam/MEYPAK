@@ -12,7 +12,7 @@ namespace MEYPAK.Entity.Models.STOK
     {
         public MPSTOKSAYIM()
         {
-            MPSTOKSAYIMHAR = new HashSet<MPSTOKSAYIMHAR>();
+       //     MPSTOKSAYIMHAR = new HashSet<MPSTOKSAYIMHAR>();
         }
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }

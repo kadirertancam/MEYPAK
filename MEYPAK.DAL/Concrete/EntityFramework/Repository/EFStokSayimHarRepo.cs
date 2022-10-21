@@ -29,6 +29,9 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
         {
 
             var emp = _context.MPSTOKSAYIMHAR.ToList();
+            EFStokRepo jj = new EFStokRepo(_context);
+            EFOlcuBrRepo jj2 = new EFOlcuBrRepo(_context);
+
             foreach (var item in emp)
             {
                 _context.Entry(item)

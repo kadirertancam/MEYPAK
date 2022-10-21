@@ -33,6 +33,9 @@ namespace MEYPAK.BLL.Assets
        
         public   void Data(string servis,T model=null,string parameters=null,List<T> modellist=null)
         {
+            if(modellist!=null)
+                serialize = JsonConvert.SerializeObject(modellist);
+            if(model!=null)
             serialize = JsonConvert.SerializeObject(model);
             //string empty = "\" \"";
             //serialize = Regex.Replace(serialize, @"\bnull\b", $"{empty}");
@@ -65,7 +68,7 @@ namespace MEYPAK.BLL.Assets
             try
             {
 
-                if (model == null)
+                if (model == null&&modellist==null)
                     obje = JsonConvert.DeserializeObject<List<T>>(a);
            
         

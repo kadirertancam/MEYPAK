@@ -28,9 +28,12 @@ namespace MEYPAK.PRL.STOK
             InitializeComponent();
             _stokFiyatListServis = new GenericWebServis<PocoSTOKFIYATLIST>();
             _stokFiyatListServis.Data(ServisList.StokFiyatListListeServis);
+            _stokFiyatListHarServis = new GenericWebServis<PocoSTOKFIYATLISTHAR>();
+            _stokFiyatListHarServis.Data(ServisList.StokFiyatListHarListeServis);
         }
         static MEYPAKContext _context = NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>();
         GenericWebServis<PocoSTOKFIYATLIST> _stokFiyatListServis ;
+        GenericWebServis<PocoSTOKFIYATLISTHAR> _stokFiyatListHarServis ;
         FStokFiyatListPanel _stokFiyatListPanel;
         PocoSTOKFIYATLIST _tempSTOKFIYATLIST;
         public List<PocoStokFiyatList> _tempStokFiyatList;
@@ -79,8 +82,13 @@ namespace MEYPAK.PRL.STOK
         }
 
         private void BTSil_Click(object sender, EventArgs e)
-        {
-            _stokFiyatListServis.Data(ServisList.StokFiyatListSilServis,_stokFiyatListServis.obje.Where(x => x.ID == Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value)).FirstOrDefault());
+        { 
+            _stokFiyatListServis.Data(ServisList.StokFiyatListSilServis,null,null,_stokFiyatListServis.obje.Where(x => x.ID == Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value)).ToList());
+            _stokFiyatListServis.Data(ServisList.StokFiyatListListeServis);
+            _stokFiyatListHarServis.Data(ServisList.StokFiyatListHarListeServis);
+
+            _stokFiyatListHarServis.Data(ServisList.StokFiyatListHarSilServis, null, null, _stokFiyatListHarServis.obje.Where(x => x.FIYATLISTID.ToString() == dataGridView1.SelectedRows[0].Cells[0].Value.ToString()).ToList());
+            dataGridView1.DataSource= _stokFiyatListServis.obje;
         }
     }
 }
