@@ -10,5 +10,6 @@ namespace MEYPAK.DAL.Abstract.AracDal
 {
     public interface IAracDal:IGeneric<MPARACLAR>
     {
+        public MPARACLAR EkleyadaGuncelle(MPARACLAR entity);
     }
 }

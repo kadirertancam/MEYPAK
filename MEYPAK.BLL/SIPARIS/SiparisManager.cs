@@ -23,10 +23,10 @@ namespace MEYPAK.BLL.SIPARIS
             _mapper = mapper;
         }
 
-        public Durum EkleyadaGuncelle(PocoSIPARIS pModel)
+        public PocoSIPARIS EkleyadaGuncelle(PocoSIPARIS pModel)
         {
 
-            return _siparisDal.EkleyadaGuncelle(_mapper.Map<PocoSIPARIS, MPSIPARIS>(pModel));
+            return _mapper.Map<MPSIPARIS,PocoSIPARIS>( _siparisDal.EkleyadaGuncelle(_mapper.Map<PocoSIPARIS, MPSIPARIS>(pModel)));
         }
     }
 }

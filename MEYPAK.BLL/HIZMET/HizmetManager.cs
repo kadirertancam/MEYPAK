@@ -27,9 +27,10 @@ namespace MEYPAK.BLL.HIZMET
         }
 
 
-        public Durum EkleyadaGuncelle(PocoHIZMET pModel)
+        public PocoHIZMET EkleyadaGuncelle(PocoHIZMET pModel)
         {
-            return _hizmetDal.EkleyadaGuncelle(_mapper.Map<PocoHIZMET,MPHIZMET>(pModel));
+            return _mapper.Map<MPHIZMET,PocoHIZMET>( _hizmetDal.EkleyadaGuncelle(_mapper.Map<PocoHIZMET,MPHIZMET>(pModel)));
+            
         }
 
 

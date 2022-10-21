@@ -19,10 +19,10 @@ namespace MEYPAK.BLL.STOK
             _mapper = mapper;
         }
 
-        public Durum EkleyadaGuncelle(PocoSTOKKATEGORI pModel)
+        public PocoSTOKKATEGORI EkleyadaGuncelle(PocoSTOKKATEGORI pModel)
         {
 
-            return _kategoriDal.EkleyadaGuncelle(_mapper.Map<PocoSTOKKATEGORI,MPSTOKKATEGORI>(pModel));
+            return _mapper.Map<MPSTOKKATEGORI,PocoSTOKKATEGORI>( _kategoriDal.EkleyadaGuncelle(_mapper.Map<PocoSTOKKATEGORI,MPSTOKKATEGORI>(pModel)));
         }
 
        

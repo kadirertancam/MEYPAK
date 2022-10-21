@@ -10,7 +10,7 @@ namespace MEYPAK.Interfaces.Depo
 {
     public interface IStokMalKabulListServis:IGenericServis<PocoSTOKMALKABULLIST>
     {
-        public Durum EkleyadaGuncelle(PocoSTOKMALKABULLIST pModel);
+        public PocoSTOKMALKABULLIST EkleyadaGuncelle(PocoSTOKMALKABULLIST pModel);
         public void OnYukle();
     }
 }

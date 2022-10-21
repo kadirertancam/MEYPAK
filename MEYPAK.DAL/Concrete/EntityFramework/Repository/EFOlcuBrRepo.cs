@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -40,7 +41,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
 
         }
 
-        public Durum EkleyadaGuncelle(MPOLCUBR entity)
+        public MPOLCUBR EkleyadaGuncelle(MPOLCUBR entity)
         {
             bool exists = context.MPOLCUBR.Any(x => x.ID == entity.ID);
 
@@ -48,15 +49,20 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
             {
                 context.MPOLCUBR.Add(entity);
                 context.SaveChanges();
-                return Durum.kayıtbaşarılı;
+                return entity;
             }
             else
             {
-                MPOLCUBR temp = context.MPOLCUBR.Where(x => x.ID == entity.ID).FirstOrDefault();
-                context.ChangeTracker.Clear();
-                context.MPOLCUBR.Update(entity);
+                var item = Getir(x => x.ID == entity.ID).FirstOrDefault();
+                PropertyInfo propertyInfo = (item.GetType().GetProperty("KAYITTIPI"));
+                propertyInfo.SetValue(item, Convert.ChangeType(1, propertyInfo.PropertyType), null);
+                context.MPOLCUBR.Update(item);
+
+                propertyInfo = (entity.GetType().GetProperty("ID"));
+                propertyInfo.SetValue(entity, Convert.ChangeType(0, propertyInfo.PropertyType), null);
+                context.MPOLCUBR.Add(entity);
                 context.SaveChanges();
-                return Durum.güncellemebaşarılı;
+                return entity;
             }
 
         }

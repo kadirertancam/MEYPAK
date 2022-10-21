@@ -5,7 +5,7 @@ namespace MEYPAK.DAL.Abstract.HizmetDal
 {
     public interface IHizmetDal : IGeneric<MPHIZMET>
     {
-        public Durum EkleyadaGuncelle(MPHIZMET entity);
+        public MPHIZMET EkleyadaGuncelle(MPHIZMET entity);
 
     }
 }

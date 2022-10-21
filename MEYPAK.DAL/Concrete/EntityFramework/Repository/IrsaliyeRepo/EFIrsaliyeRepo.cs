@@ -8,6 +8,7 @@ using MEYPAK.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -21,7 +22,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository.IrsaliyeRepo
             _context=context;
         }
 
-        public Durum EkleyadaGuncelle(MPIRSALIYE entity)
+        public MPIRSALIYE EkleyadaGuncelle(MPIRSALIYE entity)
         {
             bool exists = _context.MPIRSALIYE.Any(x => x.ID == entity.ID);
 
@@ -29,15 +30,20 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository.IrsaliyeRepo
             {
                 _context.MPIRSALIYE.Add(entity);
                 _context.SaveChanges();
-                return Durum.kayıtbaşarılı;
+                return entity;
             }
             else
             {
-                MPIRSALIYE temp = _context.MPIRSALIYE.Where(x => x.ID == entity.ID).FirstOrDefault();
-                _context.ChangeTracker.Clear();
-                _context.MPIRSALIYE.Update(entity);
+                var item = Getir(x => x.ID == entity.ID).FirstOrDefault();
+                PropertyInfo propertyInfo = (item.GetType().GetProperty("KAYITTIPI"));
+                propertyInfo.SetValue(item, Convert.ChangeType(1, propertyInfo.PropertyType), null);
+                _context.MPIRSALIYE.Update(item);
+
+                propertyInfo = (entity.GetType().GetProperty("ID"));
+                propertyInfo.SetValue(entity, Convert.ChangeType(0, propertyInfo.PropertyType), null);
+                _context.MPIRSALIYE.Add(entity);
                 _context.SaveChanges();
-                return Durum.güncellemebaşarılı;
+                return entity;
             }
         }
     }

@@ -31,22 +31,22 @@ namespace MEYPAK.API.Controllers.SIPARISControllers
             }
             catch (Exception ex)
             {
-                return Problem("Beklenmedik bir hata oluştu!" + ex.Message);
+                return Problem("Belirsiz bir hata oluştu!" + ex.Message);
             }
         }
 
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult SIPARISEkle(PocoSIPARIS pModel)
+        public IActionResult SIPARISEkleyadaGuncelle(PocoSIPARIS pModel)
         {
             try
             {
-                var data = _siparisServis.Ekle(pModel);
+                var data = _siparisServis.EkleyadaGuncelle(pModel);
                 return Ok(data);
             }
             catch (Exception ex)
             {
-                return Problem("Beklenmedik bir hata oluştu!" + ex.Message);
+                return Problem("Belirsiz bir hata oluştu!" + ex.Message);
             }
         }
 
@@ -61,7 +61,7 @@ namespace MEYPAK.API.Controllers.SIPARISControllers
             }
             catch (Exception ex)
             {
-                return Problem("Beklenmedik bir hata oluştu!" + ex.Message);
+                return Problem("Belirsiz bir hata oluştu!" + ex.Message);
             }
         }
 
@@ -76,7 +76,7 @@ namespace MEYPAK.API.Controllers.SIPARISControllers
             }
             catch (Exception ex)
             {
-                return Problem("Beklenmedik bir hata oluştu!" + ex.Message);
+                return Problem("Belirsiz bir hata oluştu!" + ex.Message);
             }
         }
     }

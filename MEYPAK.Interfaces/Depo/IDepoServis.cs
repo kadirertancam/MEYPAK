@@ -10,6 +10,6 @@ namespace MEYPAK.Interfaces.Depo
 {
     public interface IDepoServis : IGenericServis<PocoDEPO>
     {
-        public Durum EkleyadaGuncelle(PocoDEPO entity);
+        public PocoDEPO EkleyadaGuncelle(PocoDEPO entity);
     }
 }

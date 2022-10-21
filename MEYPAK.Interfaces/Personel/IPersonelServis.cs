@@ -11,6 +11,6 @@ namespace MEYPAK.Interfaces.Personel
 {
     public interface IPersonelServis:IGenericServis<PocoPERSONEL>
     {
-        public Durum EkleyadaGuncelle(PocoPERSONEL entity);
+        public PocoPERSONEL EkleyadaGuncelle(PocoPERSONEL entity);
     }
 }

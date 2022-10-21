@@ -6,6 +6,7 @@ using MEYPAK.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -34,22 +35,27 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
             }
 
         }
-        public Durum EkleyadaGuncelle(MPSIPARIS entity)
+        public MPSIPARIS EkleyadaGuncelle(MPSIPARIS entity)
         {
             bool exists = context.MPSIPARIS.Any(x => x.ID == entity.ID);
             if (!exists)
             {
                 context.MPSIPARIS.Add(entity);
                 context.SaveChanges();
-                return Durum.kayıtbaşarılı;
+                return entity;
             }
             else
             {
-                MPSIPARIS temp = context.MPSIPARIS.Where(x => x.ID == entity.ID).FirstOrDefault();
-                context.ChangeTracker.Clear();
-                context.MPSIPARIS.Update(entity);
+                var item = Getir(x => x.ID == entity.ID).FirstOrDefault();
+                PropertyInfo propertyInfo = (item.GetType().GetProperty("KAYITTIPI"));
+                propertyInfo.SetValue(item, Convert.ChangeType(1, propertyInfo.PropertyType), null);
+                context.MPSIPARIS.Update(item);
+
+                propertyInfo = (entity.GetType().GetProperty("ID"));
+                propertyInfo.SetValue(entity, Convert.ChangeType(0, propertyInfo.PropertyType), null);
+                context.MPSIPARIS.Add(entity);
                 context.SaveChanges();
-                return Durum.güncellemebaşarılı;
+                return entity;
             }
         }
     }

@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -32,11 +33,16 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
             }
             else
             {
-                MPDEPOTRANSFER temp = _context.MPDEPOTRANSFER.Where(x => x.ID == entity.ID).FirstOrDefault();
-                _context.ChangeTracker.Clear();
-                _context.MPDEPOTRANSFER.Update(entity);
+                var item = Getir(x => x.ID == entity.ID).FirstOrDefault();
+                PropertyInfo propertyInfo = (item.GetType().GetProperty("KAYITTIPI"));
+                propertyInfo.SetValue(item, Convert.ChangeType(1, propertyInfo.PropertyType), null);
+                _context.MPDEPOTRANSFER.Update(item);
+
+                propertyInfo = (entity.GetType().GetProperty("ID"));
+                propertyInfo.SetValue(entity, Convert.ChangeType(0, propertyInfo.PropertyType), null);
+                _context.MPDEPOTRANSFER.Add(entity);
                 _context.SaveChanges();
-                return _context.MPDEPOTRANSFER.Where(x => x.ID == temp.ID).FirstOrDefault(); 
+                return entity;
             }
         }
 

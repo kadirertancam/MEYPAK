@@ -10,5 +10,6 @@ namespace MEYPAK.Interfaces.Stok
 {
     public interface IStokKasaServis:IGenericServis<PocoSTOKKASA>
     {
+        public PocoSTOKKASA EkleyadaGuncelle(PocoSTOKKASA entity);
     }
 }

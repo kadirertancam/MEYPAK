@@ -23,5 +23,10 @@ namespace MEYPAK.BLL.ARAC
             _aracDal = aracDal;
             _mapper = mapper;
         }
+
+        public PocoARACLAR EkleyadaGuncelle(PocoARACLAR entity)
+        {
+            return _mapper.Map<MPARACLAR, PocoARACLAR>(_aracDal.EkleyadaGuncelle(_mapper.Map<PocoARACLAR,MPARACLAR>(entity)));
+        }
     }
 }

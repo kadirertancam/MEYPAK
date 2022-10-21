@@ -5,6 +5,7 @@ using MEYPAK.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,42 +13,47 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
 {
     public class EFStokMalKabulList : EFBaseRepo<MPSTOKMALKABULLIST>,IStokMalKKabulListDal
     {
-        MEYPAKContext context;
-        public EFStokMalKabulList(MEYPAKContext _context) : base(_context)
+        MEYPAKContext _context;
+        public EFStokMalKabulList(MEYPAKContext context) : base(context)
         {
-            context = _context;
+            _context = context;
             OnYukle();
         }
-        public Durum EkleyadaGuncelle(MPSTOKMALKABULLIST entity)
+        public MPSTOKMALKABULLIST EkleyadaGuncelle(MPSTOKMALKABULLIST entity)
         {
             OnYukle();
-            bool exists = context.MPSTOK.Any(x => x.ID == entity.ID);
+            bool exists = _context.MPSTOKMALKABULLIST.Any(x => x.ID == entity.ID);
             if (!exists)
             {
-                context.MPSTOKMALKABULLIST.Add(entity);
-                context.SaveChanges();
-                return Durum.kayıtbaşarılı;
+                _context.MPSTOKMALKABULLIST.Add(entity);
+                _context.SaveChanges();
+                return entity;
             }
             else
             {
-                MPSTOKSEVKİYATLİST temp = context.MPSTOKSEVKİYATLİST.Where(x => x.ID == entity.ID).FirstOrDefault();
-                context.ChangeTracker.Clear();
-                context.MPSTOKMALKABULLIST.Update(entity);
-                context.SaveChanges();
-                return Durum.güncellemebaşarılı;
+                var item = Getir(x => x.ID == entity.ID).FirstOrDefault();
+                PropertyInfo propertyInfo = (item.GetType().GetProperty("KAYITTIPI"));
+                propertyInfo.SetValue(item, Convert.ChangeType(1, propertyInfo.PropertyType), null);
+                _context.MPSTOKMALKABULLIST.Update(item);
+
+                propertyInfo = (entity.GetType().GetProperty("ID"));
+                propertyInfo.SetValue(entity, Convert.ChangeType(0, propertyInfo.PropertyType), null);
+                _context.MPSTOKMALKABULLIST.Add(entity);
+                _context.SaveChanges();
+                return entity;
             }
         }
 
         public void OnYukle()
         {
-            var emp = context.MPSTOKSEVKİYATLİST.ToList();
+            var emp = _context.MPSTOKSEVKİYATLİST.ToList();
             foreach (var item in emp)
             {
-                context.Entry(item)
+                _context.Entry(item)
                   .Navigation("MPOLCUBR").Load();
-                context.Entry(item)
+                _context.Entry(item)
                   .Navigation("MPSTOK").Load();
-                context.Entry(item)
+                _context.Entry(item)
                   .Navigation("MPSIPARISDETAY").Load();
 
 

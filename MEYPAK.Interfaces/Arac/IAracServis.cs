@@ -1,4 +1,5 @@
-﻿using MEYPAK.Entity.PocoModels.ARAC;
+﻿using MEYPAK.Entity.Models.ARAC;
+using MEYPAK.Entity.PocoModels.ARAC;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +10,6 @@ namespace MEYPAK.Interfaces.Arac
 {
     public interface IAracServis:IGenericServis<PocoARACLAR>
     {
+        public PocoARACLAR EkleyadaGuncelle(PocoARACLAR entity);
     }
 }

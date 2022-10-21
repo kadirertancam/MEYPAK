@@ -10,6 +10,6 @@ namespace MEYPAK.Interfaces.Hizmet
 {
     public interface IHizmetServis : IGenericServis<PocoHIZMET>
     {
-        public Durum EkleyadaGuncelle(PocoHIZMET entity);
+        public PocoHIZMET EkleyadaGuncelle(PocoHIZMET entity);
     }
 }

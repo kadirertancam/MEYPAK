@@ -4,16 +4,17 @@ using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Interfaces;
 using System.Data.Entity;
 using System.Linq.Expressions;
+using System.Reflection;
 
 namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
 {
     public class EFStokOlcuBrRepo : EFBaseRepo<MPSTOKOLCUBR>, IStokOlcuBrDal
     {
-        MEYPAKContext context;
+        MEYPAKContext _context;
 
-        public EFStokOlcuBrRepo(MEYPAKContext _context) : base(_context)
+        public EFStokOlcuBrRepo(MEYPAKContext context) : base(context)
         {
-            context = _context;
+            _context = context;
             onYukle();
         }
 
@@ -25,10 +26,10 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
             //emp = emp.Include("MPOLCUBR");
             foreach (var item in emp)
             {
-                context.Entry(item)
+                _context.Entry(item)
                     .Navigation("MPSTOK")
                     .Load();
-                context.Entry(item)
+                _context.Entry(item)
                     .Navigation("MPOLCUBR")
                     .Load();
 
@@ -37,11 +38,28 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
 
 
         }
-        public Durum EkleyadaGuncelle(MPSTOKOLCUBR entity)
+        public MPSTOKOLCUBR EkleyadaGuncelle(MPSTOKOLCUBR entity)
         {
-            context.MPSTOKOLCUBR.Add(entity);
-            context.SaveChanges();
-            return Durum.başarılı;
+            bool exists = _context.MPSTOKOLCUBR.Any(x => x.ID == entity.ID);
+            if (!exists)
+            {
+                _context.MPSTOKOLCUBR.Add(entity);
+                _context.SaveChanges();
+                return entity;
+            }
+            else
+            {
+                var item = Getir(x => x.ID == entity.ID).FirstOrDefault();
+                PropertyInfo propertyInfo = (item.GetType().GetProperty("KAYITTIPI"));
+                propertyInfo.SetValue(item, Convert.ChangeType(1, propertyInfo.PropertyType), null);
+                _context.MPSTOKOLCUBR.Update(item);
+
+                propertyInfo = (entity.GetType().GetProperty("ID"));
+                propertyInfo.SetValue(entity, Convert.ChangeType(0, propertyInfo.PropertyType), null);
+                _context.MPSTOKOLCUBR.Add(entity);
+                _context.SaveChanges();
+                return entity;
+            }
         }
 
     }

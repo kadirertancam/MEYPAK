@@ -6,6 +6,6 @@ namespace MEYPAK.DAL.Abstract.IrsaliyeDal
     public interface IIrsaliyeDetayDal:IGeneric<MPIRSALIYEDETAY>
     {
 
-        public Durum EkleyadaGuncelle(MPIRSALIYEDETAY entity);
+        public MPIRSALIYEDETAY EkleyadaGuncelle(MPIRSALIYEDETAY entity);
     }
 }

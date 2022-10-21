@@ -24,9 +24,9 @@ namespace MEYPAK.BLL.DEPO
             
         }
 
-        public Durum EkleyadaGuncelle(PocoSTOKSEVKIYATLIST pModel)
+        public PocoSTOKSEVKIYATLIST EkleyadaGuncelle(PocoSTOKSEVKIYATLIST pModel)
         {
-            return _stokSevkiyatListDal.EkleyadaGuncelle(_mapper.Map<PocoSTOKSEVKIYATLIST,MPSTOKSEVKİYATLİST>(pModel));
+            return _mapper.Map<MPSTOKSEVKİYATLİST,PocoSTOKSEVKIYATLIST> (_stokSevkiyatListDal.EkleyadaGuncelle(_mapper.Map<PocoSTOKSEVKIYATLIST,MPSTOKSEVKİYATLİST>(pModel)));
             
         }
 

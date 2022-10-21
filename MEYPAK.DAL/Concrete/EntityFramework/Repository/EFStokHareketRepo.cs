@@ -6,6 +6,7 @@ using MEYPAK.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.Data.Entity;
 using System.Linq.Expressions;
+using System.Reflection;
 
 enum HareketTuleri // 1SATIS-2ALIS-3SATISIADE-4ALISIADE-5MUHTELIF-6DAT
 {
@@ -20,42 +21,47 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
 {
     public class EFStokHareketRepo : EFBaseRepo<MPSTOKHAR>, IStokHarDal
     {
-        MEYPAKContext context;
+        MEYPAKContext _context;
 
-        public EFStokHareketRepo(MEYPAKContext _context) : base(_context)
+        public EFStokHareketRepo(MEYPAKContext context) : base(context)
         {
-            context = _context;
+            _context = context;
         }
 
         public MPSTOKHAR EkleyadaGuncelle(MPSTOKHAR entity)
         {
-            bool exists = context.MPSTOKHAR.Any(x => x.ID == entity.ID);
+            bool exists = _context.MPSTOKHAR.Any(x => x.ID == entity.ID);
             if (!exists)
             {
-                context.MPSTOKHAR.Add(entity);
-                context.SaveChanges();
+                _context.MPSTOKHAR.Add(entity);
+                _context.SaveChanges();
                 return entity;
             }
             else
             {
-                MPSTOKHAR temp = context.MPSTOKHAR.Where(x => x.ID == entity.ID).FirstOrDefault();
-                context.ChangeTracker.Clear();
-                context.MPSTOKHAR.Update(entity);
-                context.SaveChanges();
+                var item = Getir(x => x.ID == entity.ID).FirstOrDefault();
+                PropertyInfo propertyInfo = (item.GetType().GetProperty("KAYITTIPI"));
+                propertyInfo.SetValue(item, Convert.ChangeType(1, propertyInfo.PropertyType), null);
+                _context.MPSTOKHAR.Update(item);
+
+                propertyInfo = (entity.GetType().GetProperty("ID"));
+                propertyInfo.SetValue(entity, Convert.ChangeType(0, propertyInfo.PropertyType), null);
+                _context.MPSTOKHAR.Add(entity);
+                _context.SaveChanges();
                 return entity;
             }
         }
         public List<PocoStokHareketListesi> PocoStokHareketListesi(int id)
         {
-            var snc = context.MPSTOKHAR.Where(x => context.MPSTOK.Where(z => z.ID == id).FirstOrDefault().ID == x.STOKID).Select(x => new PocoStokHareketListesi
+            var snc = _context.MPSTOKHAR.Where(x => _context.MPSTOK.Where(z => z.ID == id).FirstOrDefault().ID == x.STOKID).Select(x => new PocoStokHareketListesi
             {
                 Acıklama = x.ACIKLAMA,
                 BelgeNo = x.BELGE_NO,
                 HareketTuru = x.HAREKETTURU == 1 ? "Satış" : x.HAREKETTURU == 2 ? "Alış" : x.HAREKETTURU == 5 ? "Muhtelif" : "Muhtelif",
-                Birim = context.MPOLCUBR.Where(z => z.ID == x.BIRIM).FirstOrDefault().ADI,
+                Birim = _context.MPOLCUBR.Where(z => z.ID == x.BIRIM).FirstOrDefault().ADI,
                 Giris = x.IO == 1 ? x.MIKTAR : 0,
                 Cikis = x.IO == 0 ? x.MIKTAR : 0,
-                Depo = context.MPDEPO.Where(z => z.ID == x.DEPOID).FirstOrDefault().DEPOADI,
+                Depo = _context.MPDEPO.Where(z => z.ID == x.DEPOID).FirstOrDefault().DEPOADI,
                 NetFiyat = x.NETFIYAT,
                 NetToplam = x.NETTOPLAM,
                 BrutToplam = x.BRUTTOPLAM,
@@ -67,10 +73,10 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
         }
         public void Sil(int id)
         {
-            MPSTOKHAR deleteStok = context.MPSTOKHAR.Where(x => x.ID == id).FirstOrDefault();
+            MPSTOKHAR deleteStok = _context.MPSTOKHAR.Where(x => x.ID == id).FirstOrDefault();
             deleteStok.KAYITTIPI = 1;
-            context.MPSTOKHAR.Update(deleteStok);
-            context.SaveChanges();
+            _context.MPSTOKHAR.Update(deleteStok);
+            _context.SaveChanges();
         }
 
     }

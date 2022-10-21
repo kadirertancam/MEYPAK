@@ -5,7 +5,7 @@ namespace MEYPAK.DAL.Abstract.DepoDal
 {
     public interface IDepoDal : IGeneric<MPDEPO>
     {
-        public Durum EkleyadaGuncelle(MPDEPO entity);
+        public MPDEPO EkleyadaGuncelle(MPDEPO entity);
 
     }
 }

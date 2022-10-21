@@ -31,21 +31,21 @@ namespace MEYPAK.API.Controllers.IRSALIYEControllers
             }
             catch (Exception ex)
             {
-                return Problem("Beklenmedik bir hata oluştu!" + ex.Message);
+                return Problem("Belirsiz bir hata oluştu!" + ex.Message);
             }
         }
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult IRSALIYEEkle(PocoIRSALIYE pModel)
+        public IActionResult IRSALIYEEkleyadaGuncelle(PocoIRSALIYE pModel)
         {
             try
             {
-                var data = _ırsaliyeServis.Ekle(pModel);
+                var data = _ırsaliyeServis.EkleyadaGuncelle(pModel);
                 return Ok(data);
             }
             catch (Exception ex)
             {
-                return Problem("Beklenmedik bir hata oluştu!" + ex.Message);
+                return Problem("Belirsiz bir hata oluştu!" + ex.Message);
             }
         }
         [HttpPost]
@@ -59,7 +59,7 @@ namespace MEYPAK.API.Controllers.IRSALIYEControllers
             }
             catch (Exception ex)
             {
-                return Problem("Beklenmedik bir hata oluştu!" + ex.Message);
+                return Problem("Belirsiz bir hata oluştu!" + ex.Message);
             }
         }
         [HttpPost]
@@ -73,7 +73,7 @@ namespace MEYPAK.API.Controllers.IRSALIYEControllers
             }
             catch (Exception ex)
             {
-                return Problem("Beklenmedik bir hata oluştu!" + ex.Message);
+                return Problem("Belirsiz bir hata oluştu!" + ex.Message);
             }
         }
     }

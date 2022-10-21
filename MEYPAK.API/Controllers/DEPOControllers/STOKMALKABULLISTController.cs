@@ -31,21 +31,21 @@ namespace MEYPAK.API.Controllers.DEPOControllers
             }
             catch (Exception ex)
             {
-                return Problem("Beklenmedik bir hata oluştu!" + ex.Message);
+                return Problem("Belirsiz bir hata oluştu!" + ex.Message);
             }
         }
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult STOKMALKABULLISTEkle(PocoSTOKMALKABULLIST pModel)
+        public IActionResult STOKMALKABULLISTEkleyadaGuncelle(PocoSTOKMALKABULLIST pModel)
         {
             try
             {
-                var data = _stokMalKabulListServis.Ekle(pModel);
+                var data = _stokMalKabulListServis.EkleyadaGuncelle(pModel);
                 return Ok(data);
             }
             catch (Exception ex)
             {
-                return Problem("Beklenmedik bir hata oluştu!" + ex.Message);
+                return Problem("Belirsiz bir hata oluştu!" + ex.Message);
             }
         }
         [HttpPost]
@@ -59,7 +59,7 @@ namespace MEYPAK.API.Controllers.DEPOControllers
             }
             catch (Exception ex)
             {
-                return Problem("Beklenmedik bir hata oluştu!" + ex.Message);
+                return Problem("Belirsiz bir hata oluştu!" + ex.Message);
             }
         }
         [HttpPost]
@@ -73,7 +73,7 @@ namespace MEYPAK.API.Controllers.DEPOControllers
             }
             catch (Exception ex)
             {
-                return Problem("Beklenmedik bir hata oluştu!" + ex.Message);
+                return Problem("Belirsiz bir hata oluştu!" + ex.Message);
             }
         }
     }

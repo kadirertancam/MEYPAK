@@ -1,4 +1,5 @@
 ﻿using MEYPAK.Entity.Models;
+using MEYPAK.Entity.Models;
 using MEYPAK.Entity.Models.ARAC;
 using MEYPAK.Entity.Models.ARAC.Mobiliz;
 using MEYPAK.Entity.Models.DEPO;
@@ -31,6 +32,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
         public DbSet<MPSTOK> MPSTOK { get; set; }
         public DbSet<MPSTOKHAR> MPSTOKHAR { get; set; }
         public DbSet<MPDEPO> MPDEPO { get; set; }
+        public DbSet<MPDEPOCEKILIST> MPDEPOCEKILIST { get; set; }
         public DbSet<MPHIZMET> MPHIZMET { get; set; }
         public DbSet<MPSTOKMARKA> MPMARKA { get; set; }
         public DbSet<MPSTOKOLCUBR> MPSTOKOLCUBR { get; set; }
@@ -41,7 +43,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
         public DbSet<MPSTOKSAYIM> MPSTOKSAYIM { get; set; }
         public DbSet<MPSTOKSAYIMHAR> MPSTOKSAYIMHAR { get; set; }
         public DbSet<MPOLCUBR> MPOLCUBR { get; set; }
-        public DbSet<MPSTOKKATEGORI> MPKATEGORI { get; set; }
+        public DbSet<MPSTOKKATEGORI> MPSTOKKATEGORI { get; set; }
         public DbSet<MPSIPARIS> MPSIPARIS { get; set; }
         public DbSet<MPSIPARISDETAY> MPSIPARISDETAY { get; set; }
         public DbSet<MPDEPOTRANSFER> MPDEPOTRANSFER { get; set; }

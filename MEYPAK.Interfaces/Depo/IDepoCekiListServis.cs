@@ -10,5 +10,6 @@ namespace MEYPAK.Interfaces.Depo
 {
     public interface IDepoCekiListServis:IGenericServis<PocoDEPOCEKILIST>
     {
+        public PocoDEPOCEKILIST EkleyadaGuncelle(PocoDEPOCEKILIST entity);
     }
 }

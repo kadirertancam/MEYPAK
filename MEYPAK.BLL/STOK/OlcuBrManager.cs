@@ -25,10 +25,10 @@ namespace MEYPAK.BLL.STOK
         }
 
 
-        public Durum EkleyadaGuncelle(PocoOLCUBR pModel)
+        public PocoOLCUBR EkleyadaGuncelle(PocoOLCUBR pModel)
         {
            
-            return _olcuBrDal.EkleyadaGuncelle(_mapper.Map<PocoOLCUBR, MPOLCUBR>(pModel));
+            return  _mapper.Map<MPOLCUBR,PocoOLCUBR>( _olcuBrDal.EkleyadaGuncelle(_mapper.Map<PocoOLCUBR, MPOLCUBR>(pModel)));
         }
 
        

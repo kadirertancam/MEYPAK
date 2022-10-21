@@ -29,23 +29,23 @@ namespace MEYPAK.API.Controllers.STOKControllers
             }
             catch (Exception ex)
             {
-                return Problem("Beklenmedik bir hata oluştu!" + ex.Message);
+                return Problem("Belirsiz bir hata oluştu!" + ex.Message);
             }
         }
 
 
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult STOKFIYATLISTHAREkle(PocoSTOKFIYATLISTHAR pModel)
+        public IActionResult STOKFIYATLISTHAREkleyadaGuncelle(PocoSTOKFIYATLISTHAR pModel)
         {
             try
             {
-                var data = _stokFiyatListHarServis.Ekle(pModel);
+                var data = _stokFiyatListHarServis.EkleyadaGuncelle(pModel);
                 return Ok(data);
             }
             catch (Exception ex)
             {
-                return Problem("Beklenmedik bir hata oluştu!" + ex.Message);
+                return Problem("Belirsiz bir hata oluştu!" + ex.Message);
             }
         }
 
@@ -60,7 +60,7 @@ namespace MEYPAK.API.Controllers.STOKControllers
             }
             catch (Exception ex)
             {
-                return Problem("Beklenmedik bir hata oluştu!" + ex.Message);
+                return Problem("Belirsiz bir hata oluştu!" + ex.Message);
             }
         }
 
@@ -75,7 +75,7 @@ namespace MEYPAK.API.Controllers.STOKControllers
             }
             catch (Exception ex )
             {
-                return Problem("Beklenmedik bir hata oluştu!" + ex.Message);
+                return Problem("Belirsiz bir hata oluştu!" + ex.Message);
             }
         }
     }

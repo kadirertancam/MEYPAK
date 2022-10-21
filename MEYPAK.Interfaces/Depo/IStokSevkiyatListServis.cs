@@ -10,7 +10,7 @@ namespace MEYPAK.Interfaces.Depo
 {
     public interface IStokSevkiyatListServis:IGenericServis<PocoSTOKSEVKIYATLIST>
     {
-        public Durum EkleyadaGuncelle(PocoSTOKSEVKIYATLIST entity);
+        public PocoSTOKSEVKIYATLIST EkleyadaGuncelle(PocoSTOKSEVKIYATLIST entity);
         public void OnYukle();
     }
 }

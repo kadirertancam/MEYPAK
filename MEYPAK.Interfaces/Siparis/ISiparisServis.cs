@@ -10,6 +10,6 @@ namespace MEYPAK.Interfaces.Siparis
 {
     public interface ISiparisServis:IGenericServis<PocoSIPARIS>
     {
-        public Durum EkleyadaGuncelle(PocoSIPARIS entity);
+        public PocoSIPARIS EkleyadaGuncelle(PocoSIPARIS entity);
     }
 }

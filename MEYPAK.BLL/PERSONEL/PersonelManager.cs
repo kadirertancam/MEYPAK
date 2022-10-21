@@ -26,9 +26,9 @@ namespace MEYPAK.BLL.PERSONEL
         }
 
 
-        public Durum EkleyadaGuncelle(PocoPERSONEL pModel)
+        public PocoPERSONEL EkleyadaGuncelle(PocoPERSONEL pModel)
         {
-            return _personelDal.EkleyadaGuncelle(_mapper.Map<PocoPERSONEL,MPPERSONEL>(pModel));
+            return _mapper.Map<MPPERSONEL,PocoPERSONEL>(_personelDal.EkleyadaGuncelle(_mapper.Map<PocoPERSONEL,MPPERSONEL>(pModel)));
         }
 
 

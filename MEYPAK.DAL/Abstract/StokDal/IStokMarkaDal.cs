@@ -11,6 +11,6 @@ namespace MEYPAK.DAL.Abstract.StokDal
     public interface IStokMarkaDal : IGeneric<MPSTOKMARKA>
     {
 
-        public Durum EkleyadaGuncelle(MPSTOKMARKA entity);
+        public MPSTOKMARKA EkleyadaGuncelle(MPSTOKMARKA entity);
     }
 }

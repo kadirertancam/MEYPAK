@@ -15,5 +15,10 @@ namespace MEYPAK.BLL.DEPO
             _depoEmirDal = depoEmirDal;
             _mapper = mapper;
         }
+
+        public PocoDEPOEMIR EkleyadaGuncelle(PocoDEPOEMIR entity)
+        {
+            return _mapper.Map<MPDEPOEMIR, PocoDEPOEMIR>(_depoEmirDal.EkleyadaGuncelle(_mapper.Map<PocoDEPOEMIR,MPDEPOEMIR>(entity)));
+        }
     }
 }

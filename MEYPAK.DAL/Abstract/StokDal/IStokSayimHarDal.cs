@@ -10,7 +10,7 @@ namespace MEYPAK.DAL.Abstract.StokDal
 {
     public interface IStokSayimHarDal:IGeneric<MPSTOKSAYIMHAR>
     {
-        public Durum EkleyadaGuncelle(MPSTOKSAYIMHAR entity);
+        public MPSTOKSAYIMHAR EkleyadaGuncelle(MPSTOKSAYIMHAR entity);
 
         public void Sil(int id);
     }
