@@ -27,11 +27,9 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
         }
         public T Ekle(T entity)
         {
-
             context.Set<T>().Add(entity);
             context.SaveChanges();
             return entity;
-
         }
 
 

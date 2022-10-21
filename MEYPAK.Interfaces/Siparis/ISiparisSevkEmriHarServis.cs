@@ -10,5 +10,6 @@ namespace MEYPAK.Interfaces.Siparis
 {
     public interface ISiparisSevkEmriHarServis:IGenericServis<PocoSIPARISSEVKEMIRHAR>
     {
+        public PocoSIPARISSEVKEMIRHAR EkleyadaGuncelle(PocoSIPARISSEVKEMIRHAR entity);
     }
 }

@@ -11,6 +11,6 @@ namespace MEYPAK.DAL.Abstract.StokDal
     public interface IOlcuBrDal:IGeneric<MPOLCUBR>
     {
 
-        public Durum EkleyadaGuncelle(MPOLCUBR entity);
+        public MPOLCUBR EkleyadaGuncelle(MPOLCUBR entity);
     }
 }

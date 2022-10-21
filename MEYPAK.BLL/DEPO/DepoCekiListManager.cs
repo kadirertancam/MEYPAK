@@ -21,5 +21,10 @@ namespace MEYPAK.BLL.DEPO
             _depoCekiListDal = depoCekiListDal;
             _mapper = mapper;
         }
+
+        public PocoDEPOCEKILIST EkleyadaGuncelle(PocoDEPOCEKILIST entity)
+        {
+            return _mapper.Map<MPDEPOCEKILIST, PocoDEPOCEKILIST>(_depoCekiListDal.EkleyadaGuncelle(_mapper.Map<PocoDEPOCEKILIST,MPDEPOCEKILIST>(entity)));
+        }
     }
 }

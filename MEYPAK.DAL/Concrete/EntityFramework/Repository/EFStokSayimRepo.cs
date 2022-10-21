@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,54 +14,59 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
 {
     public class EFStokSayimRepo : EFBaseRepo<MPSTOKSAYIM>, IStokSayimDal
     {
-        MEYPAKContext context;
+        MEYPAKContext _context;
 
-        public EFStokSayimRepo(MEYPAKContext _context) : base(_context)
+        public EFStokSayimRepo(MEYPAKContext context) : base(context)
         {
-            context = _context;
+            _context = context;
             onYukle();
         }
         void onYukle()
         {
            
-            var emp = context.MPSTOKSAYIM.ToList();
+            var emp = _context.MPSTOKSAYIM.ToList();
             foreach (var item in emp)
             {
-                context.Entry(item)
+                _context.Entry(item)
                     .Collection(e =>  e.MPSTOKSAYIMHAR)
                     .Load();
                
 
 
             }
-            EFStokSayimHarRepo rep = new EFStokSayimHarRepo(context);
+            EFStokSayimHarRepo rep = new EFStokSayimHarRepo(_context);
             rep.onYukle();
 
         }
 
 
-        public Durum EkleyadaGuncelle(MPSTOKSAYIM entity)
+        public MPSTOKSAYIM EkleyadaGuncelle(MPSTOKSAYIM entity)
         {
 
-            bool exists = context.MPSTOKSAYIM.Any(x => x.ID == entity.ID);
+            bool exists = _context.MPSTOKSAYIM.Any(x => x.ID == entity.ID);
             if (!exists)
             {
-                context.MPSTOKSAYIM.Add(entity);
-                context.SaveChanges();
-                return Durum.kayıtbaşarılı;
+                _context.MPSTOKSAYIM.Add(entity);
+                _context.SaveChanges();
+                return entity;
             }
             else
             {
-                MPSTOKSAYIM temp = context.MPSTOKSAYIM.Where(x => x.ID == entity.ID).FirstOrDefault();
-                context.ChangeTracker.Clear();
-                context.MPSTOKSAYIM.Update(entity);
-                context.SaveChanges();
-                return Durum.güncellemebaşarılı;
+                var item = Getir(x => x.ID == entity.ID).FirstOrDefault();
+                PropertyInfo propertyInfo = (item.GetType().GetProperty("KAYITTIPI"));
+                propertyInfo.SetValue(item, Convert.ChangeType(1, propertyInfo.PropertyType), null);
+                _context.MPSTOKSAYIM.Update(item);
+
+                propertyInfo = (entity.GetType().GetProperty("ID"));
+                propertyInfo.SetValue(entity, Convert.ChangeType(0, propertyInfo.PropertyType), null);
+                _context.MPSTOKSAYIM.Add(entity);
+                _context.SaveChanges();
+                return entity;
             }
         }
         public IQueryable<MPSTOKSAYIM> Listee()
         {
-            IQueryable<MPSTOKSAYIM> query = context.MPSTOKSAYIM;
+            IQueryable<MPSTOKSAYIM> query = _context.MPSTOKSAYIM;
 
 
             //query = query.Include("MPSTOKHAR");

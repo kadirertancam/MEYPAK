@@ -25,9 +25,9 @@ namespace MEYPAK.BLL.IRSALIYE
 
 
 
-        public Durum EkleyadaGuncelle(PocoIRSALIYEDETAY pModel)
+        public PocoIRSALIYEDETAY EkleyadaGuncelle(PocoIRSALIYEDETAY pModel)
         {
-            return _irsaliyeDetayDal.EkleyadaGuncelle(_mapper.Map<PocoIRSALIYEDETAY,MPIRSALIYEDETAY>(pModel));
+            return _mapper.Map<MPIRSALIYEDETAY,PocoIRSALIYEDETAY>( _irsaliyeDetayDal.EkleyadaGuncelle(_mapper.Map<PocoIRSALIYEDETAY,MPIRSALIYEDETAY>(pModel)));
         }
     }
 }

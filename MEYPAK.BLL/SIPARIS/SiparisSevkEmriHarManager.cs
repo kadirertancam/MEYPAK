@@ -1,8 +1,11 @@
 ﻿using AutoMapper;
 using MEYPAK.DAL.Abstract;
 using MEYPAK.DAL.Abstract.SiparisDal;
+using MEYPAK.DAL.Abstract.StokDal;
 using MEYPAK.Entity.Models.SIPARIS;
+using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Entity.PocoModels.SIPARIS;
+using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Siparis;
 using System;
 using System.Collections.Generic;
@@ -21,6 +24,11 @@ namespace MEYPAK.BLL.SIPARIS
         {
             _siparisSevkEmriHarDal = siparisSevkEmriHarDal;
             _mapper = mapper;
+        }
+
+        public PocoSIPARISSEVKEMIRHAR EkleyadaGuncelle(PocoSIPARISSEVKEMIRHAR pModel)
+        {
+            return _mapper.Map<MPSIPARISSEVKEMRIHAR, PocoSIPARISSEVKEMIRHAR>(_siparisSevkEmriHarDal.EkleyadaGuncelle(_mapper.Map<PocoSIPARISSEVKEMIRHAR, MPSIPARISSEVKEMRIHAR>(pModel)));
         }
     }
 }

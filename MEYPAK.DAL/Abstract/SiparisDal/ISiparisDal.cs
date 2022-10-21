@@ -10,6 +10,6 @@ namespace MEYPAK.DAL.Abstract.SiparisDal
 {
     public interface ISiparisDal:IGeneric<MPSIPARIS>
     {
-        public Durum EkleyadaGuncelle(MPSIPARIS entity);
+        public MPSIPARIS EkleyadaGuncelle(MPSIPARIS entity);
     }
 }

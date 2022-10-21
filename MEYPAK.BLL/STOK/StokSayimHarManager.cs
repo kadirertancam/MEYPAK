@@ -27,9 +27,9 @@ namespace MEYPAK.BLL.STOK
 
       
 
-        public Durum EkleyadaGuncelle(PocoSTOKSAYIMHAR pModel)
+        public PocoSTOKSAYIMHAR EkleyadaGuncelle(PocoSTOKSAYIMHAR pModel)
         {
-            return _stokSayimHarDal.EkleyadaGuncelle(_mapper.Map<PocoSTOKSAYIMHAR,MPSTOKSAYIMHAR>(pModel));
+            return _mapper.Map<MPSTOKSAYIMHAR,PocoSTOKSAYIMHAR>( _stokSayimHarDal.EkleyadaGuncelle(_mapper.Map<PocoSTOKSAYIMHAR,MPSTOKSAYIMHAR>(pModel)));
         }
 
        

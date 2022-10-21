@@ -11,6 +11,6 @@ namespace MEYPAK.Interfaces.IRSALIYE
 {
     public interface IIrsaliyeDetayServis:IGenericServis<PocoIRSALIYEDETAY>
     {
-        public Durum EkleyadaGuncelle(PocoIRSALIYEDETAY entity);
+        public PocoIRSALIYEDETAY EkleyadaGuncelle(PocoIRSALIYEDETAY entity);
     }
 }

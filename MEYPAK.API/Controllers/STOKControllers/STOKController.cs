@@ -42,12 +42,12 @@ namespace MEYPAK.API.Controllers.STOK
             }
             catch (Exception ex)
             {
-                return Problem("Beklenmedik bir hata oluştu!" + ex.Message);
+                return Problem("Belirsiz bir hata oluştu!" + ex.Message);
             }
         }
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult STOKEkle(PocoSTOK pModel)
+        public IActionResult STOKEkleyadaGuncelle(PocoSTOK pModel)
         {
             try
             {
@@ -56,7 +56,7 @@ namespace MEYPAK.API.Controllers.STOK
             }
             catch (Exception ex)
             {
-                return Problem("Beklenmedik bir hata oluştu! " + ex.Message);
+                return Problem("Belirsiz bir hata oluştu! " + ex.Message);
             }
         }
         [HttpPost]
@@ -70,7 +70,7 @@ namespace MEYPAK.API.Controllers.STOK
             }
             catch (Exception ex)
             {
-                return Problem("Beklenmedik bir hata oluştu!" + ex.Message);
+                return Problem("Belirsiz bir hata oluştu!" + ex.Message);
             }
         }
         [HttpPost]
@@ -84,7 +84,7 @@ namespace MEYPAK.API.Controllers.STOK
             }
             catch (Exception ex )
             {
-                return Problem("Beklenmedik bir hata oluştu!" + ex.Message);
+                return Problem("Belirsiz bir hata oluştu!" + ex.Message);
             }
         }
 
@@ -104,7 +104,7 @@ namespace MEYPAK.API.Controllers.STOK
         //    }
         //    catch (Exception)
         //    {
-        //        return Problem("Beklenmedik bir hata oluştu!");
+        //        return Problem("Belirsiz bir hata oluştu!");
         //    }
         //}
 
@@ -123,7 +123,7 @@ namespace MEYPAK.API.Controllers.STOK
         //    }
         //    catch (Exception)
         //    {
-        //        return Problem("Beklenmedik bir hata oluştu!");
+        //        return Problem("Belirsiz bir hata oluştu!");
         //    }
         //}
 
@@ -139,7 +139,7 @@ namespace MEYPAK.API.Controllers.STOK
         //    }
         //    catch (Exception)
         //    {
-        //        return Problem("Beklenmedik bir hata oluştu!");
+        //        return Problem("Belirsiz bir hata oluştu!");
         //    }
         //}
 
@@ -154,7 +154,7 @@ namespace MEYPAK.API.Controllers.STOK
         //    }
         //    catch (Exception)
         //    {
-        //        return Problem("Beklenmedik bir hata oluştu!");
+        //        return Problem("Belirsiz bir hata oluştu!");
         //    }
         //}
 
@@ -169,7 +169,7 @@ namespace MEYPAK.API.Controllers.STOK
         //    }
         //    catch (Exception)
         //    {
-        //        return Problem("Beklenmedik bir hata oluştu!");
+        //        return Problem("Belirsiz bir hata oluştu!");
         //    }
         //}
 
@@ -184,7 +184,7 @@ namespace MEYPAK.API.Controllers.STOK
         //    }
         //    catch (Exception)
         //    {
-        //        return Problem("Beklenmedik bir hata oluştu!");
+        //        return Problem("Belirsiz bir hata oluştu!");
         //    }
         //}
 
@@ -199,7 +199,7 @@ namespace MEYPAK.API.Controllers.STOK
         //    }
         //    catch (Exception)
         //    {
-        //        return Problem("Beklenmedik bir hata oluştu!");
+        //        return Problem("Belirsiz bir hata oluştu!");
         //    }
         //}
 
@@ -214,7 +214,7 @@ namespace MEYPAK.API.Controllers.STOK
         //    }
         //    catch (Exception)
         //    {
-        //        return Problem("Beklenmedik bir hata oluştu!");
+        //        return Problem("Belirsiz bir hata oluştu!");
         //    }
         //}
         //[HttpPost]
@@ -228,7 +228,7 @@ namespace MEYPAK.API.Controllers.STOK
         //    }
         //    catch (Exception)
         //    {
-        //        return Problem("Beklenmedik bir hata oluştu!");
+        //        return Problem("Belirsiz bir hata oluştu!");
         //    }
         //}
 
@@ -244,7 +244,7 @@ namespace MEYPAK.API.Controllers.STOK
         //    }
         //    catch (Exception)
         //    {
-        //        return Problem("Beklenmedik bir hata oluştu!");
+        //        return Problem("Belirsiz bir hata oluştu!");
         //    }
         //}
 
@@ -259,7 +259,7 @@ namespace MEYPAK.API.Controllers.STOK
         //    }
         //    catch (Exception)
         //    {
-        //        return Problem("Beklenmedik bir hata oluştu!");
+        //        return Problem("Belirsiz bir hata oluştu!");
         //    }
         //}
 
@@ -274,7 +274,7 @@ namespace MEYPAK.API.Controllers.STOK
         //    }
         //    catch (Exception)
         //    {
-        //        return Problem("Beklenmedik bir hata oluştu!");
+        //        return Problem("Belirsiz bir hata oluştu!");
         //    }
         //}
 
@@ -289,7 +289,7 @@ namespace MEYPAK.API.Controllers.STOK
         //    }
         //    catch (Exception)
         //    {
-        //        return Problem("Beklenmedik bir hata oluştu!");
+        //        return Problem("Belirsiz bir hata oluştu!");
         //    }
         //}
         //#endregion
@@ -306,7 +306,7 @@ namespace MEYPAK.API.Controllers.STOK
         //    }
         //    catch (Exception)
         //    {
-        //        return Problem("Beklenmedik bir hata oluştu!");
+        //        return Problem("Belirsiz bir hata oluştu!");
         //    }
         //}
 
@@ -322,7 +322,7 @@ namespace MEYPAK.API.Controllers.STOK
         //    }
         //    catch (Exception)
         //    {
-        //        return Problem("Beklenmedik bir hata oluştu!");
+        //        return Problem("Belirsiz bir hata oluştu!");
         //    }
         //}
 
@@ -337,7 +337,7 @@ namespace MEYPAK.API.Controllers.STOK
         //    }
         //    catch (Exception)
         //    {
-        //        return Problem("Beklenmedik bir hata oluştu!");
+        //        return Problem("Belirsiz bir hata oluştu!");
         //    }
         //}
 
@@ -352,7 +352,7 @@ namespace MEYPAK.API.Controllers.STOK
         //    }
         //    catch (Exception)
         //    {
-        //        return Problem("Beklenmedik bir hata oluştu!");
+        //        return Problem("Belirsiz bir hata oluştu!");
         //    }
         //}
 
@@ -367,7 +367,7 @@ namespace MEYPAK.API.Controllers.STOK
         //    }
         //    catch (Exception)
         //    {
-        //        return Problem("Beklenmedik bir hata oluştu!");
+        //        return Problem("Belirsiz bir hata oluştu!");
         //    }
         //}
 
@@ -382,7 +382,7 @@ namespace MEYPAK.API.Controllers.STOK
         //    }
         //    catch (Exception)
         //    {
-        //        return Problem("Beklenmedik bir hata oluştu!");
+        //        return Problem("Belirsiz bir hata oluştu!");
         //    }
         //}
 
@@ -397,7 +397,7 @@ namespace MEYPAK.API.Controllers.STOK
         //    }
         //    catch (Exception)
         //    {
-        //        return Problem("Beklenmedik bir hata oluştu!");
+        //        return Problem("Belirsiz bir hata oluştu!");
         //    }
         //}
 
@@ -412,7 +412,7 @@ namespace MEYPAK.API.Controllers.STOK
         //    }
         //    catch (Exception)
         //    {
-        //        return Problem("Beklenmedik bir hata oluştu!");
+        //        return Problem("Belirsiz bir hata oluştu!");
         //    }
         //}
 
@@ -428,7 +428,7 @@ namespace MEYPAK.API.Controllers.STOK
         //    }
         //    catch (Exception)
         //    {
-        //        return Problem("Beklenmedik bir hata oluştu!");
+        //        return Problem("Belirsiz bir hata oluştu!");
         //    }
         //}
 
@@ -443,7 +443,7 @@ namespace MEYPAK.API.Controllers.STOK
         //    }
         //    catch (Exception)
         //    {
-        //        return Problem("Beklenmedik bir hata oluştu!");
+        //        return Problem("Belirsiz bir hata oluştu!");
         //    }
         //}
 
@@ -458,7 +458,7 @@ namespace MEYPAK.API.Controllers.STOK
         //    }
         //    catch (Exception)
         //    {
-        //        return Problem("Beklenmedik bir hata oluştu!");
+        //        return Problem("Belirsiz bir hata oluştu!");
         //    }
         //}
 
@@ -473,7 +473,7 @@ namespace MEYPAK.API.Controllers.STOK
         //    }
         //    catch (Exception)
         //    {
-        //        return Problem("Beklenmedik bir hata oluştu!");
+        //        return Problem("Belirsiz bir hata oluştu!");
         //    }
         //}
         //#endregion
@@ -490,7 +490,7 @@ namespace MEYPAK.API.Controllers.STOK
         //    }
         //    catch (Exception)
         //    {
-        //        return Problem("Beklenmedik bir hata oluştu!");
+        //        return Problem("Belirsiz bir hata oluştu!");
         //    }
         //}
 
@@ -506,7 +506,7 @@ namespace MEYPAK.API.Controllers.STOK
         //    }
         //    catch (Exception)
         //    {
-        //        return Problem("Beklenmedik bir hata oluştu!");
+        //        return Problem("Belirsiz bir hata oluştu!");
         //    }
         //}
 
@@ -521,7 +521,7 @@ namespace MEYPAK.API.Controllers.STOK
         //    }
         //    catch (Exception)
         //    {
-        //        return Problem("Beklenmedik bir hata oluştu!");
+        //        return Problem("Belirsiz bir hata oluştu!");
         //    }
         //}
 
@@ -536,7 +536,7 @@ namespace MEYPAK.API.Controllers.STOK
         //    }
         //    catch (Exception)
         //    {
-        //        return Problem("Beklenmedik bir hata oluştu!");
+        //        return Problem("Belirsiz bir hata oluştu!");
         //    }
         //}
 
@@ -551,7 +551,7 @@ namespace MEYPAK.API.Controllers.STOK
         //    }
         //    catch (Exception)
         //    {
-        //        return Problem("Beklenmedik bir hata oluştu!");
+        //        return Problem("Belirsiz bir hata oluştu!");
         //    }
         //}
 
@@ -566,7 +566,7 @@ namespace MEYPAK.API.Controllers.STOK
         //    }
         //    catch (Exception)
         //    {
-        //        return Problem("Beklenmedik bir hata oluştu!");
+        //        return Problem("Belirsiz bir hata oluştu!");
         //    }
         //}
 
@@ -581,7 +581,7 @@ namespace MEYPAK.API.Controllers.STOK
         //    }
         //    catch (Exception)
         //    {
-        //        return Problem("Beklenmedik bir hata oluştu!");
+        //        return Problem("Belirsiz bir hata oluştu!");
         //    }
         //}
 
@@ -596,7 +596,7 @@ namespace MEYPAK.API.Controllers.STOK
         //    }
         //    catch (Exception)
         //    {
-        //        return Problem("Beklenmedik bir hata oluştu!");
+        //        return Problem("Belirsiz bir hata oluştu!");
         //    }
         //}
 
@@ -611,7 +611,7 @@ namespace MEYPAK.API.Controllers.STOK
         //    }
         //    catch (Exception)
         //    {
-        //        return Problem("Beklenmedik bir hata oluştu!");
+        //        return Problem("Belirsiz bir hata oluştu!");
         //    }
         //}
 
@@ -626,7 +626,7 @@ namespace MEYPAK.API.Controllers.STOK
         //    }
         //    catch (Exception)
         //    {
-        //        return Problem("Beklenmedik bir hata oluştu!");
+        //        return Problem("Belirsiz bir hata oluştu!");
         //    }
         //}
 
@@ -641,7 +641,7 @@ namespace MEYPAK.API.Controllers.STOK
         //    }
         //    catch (Exception)
         //    {
-        //        return Problem("Beklenmedik bir hata oluştu!");
+        //        return Problem("Belirsiz bir hata oluştu!");
         //    }
         //}
 
@@ -656,7 +656,7 @@ namespace MEYPAK.API.Controllers.STOK
         //    }
         //    catch (Exception)
         //    {
-        //        return Problem("Beklenmedik bir hata oluştu!");
+        //        return Problem("Belirsiz bir hata oluştu!");
         //    }
         //}
 #endregion

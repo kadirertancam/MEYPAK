@@ -10,7 +10,7 @@ namespace MEYPAK.Interfaces.Stok
 {
     public interface IStokSayimServis:IGenericServis<PocoSTOKSAYIM>
     {
-        public Durum EkleyadaGuncelle(PocoSTOKSAYIM entity);
+        public PocoSTOKSAYIM EkleyadaGuncelle(PocoSTOKSAYIM entity);
 
         public IQueryable<MPSTOKSAYIM> Listee();
     }

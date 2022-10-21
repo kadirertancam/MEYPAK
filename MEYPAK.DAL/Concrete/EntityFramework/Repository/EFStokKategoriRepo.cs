@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,28 +15,33 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
     public class EFStokKategoriRepo : EFBaseRepo<MPSTOKKATEGORI>, IStokKategoriDal
     {
 
-        MEYPAKContext context;
-        public EFStokKategoriRepo(MEYPAKContext _context) : base(_context)
+        MEYPAKContext _context;
+        public EFStokKategoriRepo(MEYPAKContext context) : base(context)
         {
-            context = _context;
+            _context = context;
         }
 
-        public Durum EkleyadaGuncelle(MPSTOKKATEGORI entity)
+        public MPSTOKKATEGORI EkleyadaGuncelle(MPSTOKKATEGORI entity)
         {
-            bool exists = context.MPKATEGORI.Any(x => x.ID == entity.ID);
+            bool exists = _context.MPSTOKKATEGORI.Any(x => x.ID == entity.ID);
             if (!exists)
             {
-                context.MPKATEGORI.Add(entity);
-                context.SaveChanges();
-                return Durum.kayıtbaşarılı;
+                _context.MPSTOKKATEGORI.Add(entity);
+                _context.SaveChanges();
+               return entity;
             }
             else
             {
-                MPSTOKKATEGORI temp = context.MPKATEGORI.Where(x => x.ID == entity.ID).FirstOrDefault();
-                context.ChangeTracker.Clear();
-                context.MPKATEGORI.Update(entity);
-                context.SaveChanges();
-                return Durum.güncellemebaşarılı;
+                var item = Getir(x => x.ID == entity.ID).FirstOrDefault();
+                PropertyInfo propertyInfo = (item.GetType().GetProperty("KAYITTIPI"));
+                propertyInfo.SetValue(item, Convert.ChangeType(1, propertyInfo.PropertyType), null);
+                _context.MPSTOKKATEGORI.Update(item);
+
+                propertyInfo = (entity.GetType().GetProperty("ID"));
+                propertyInfo.SetValue(entity, Convert.ChangeType(0, propertyInfo.PropertyType), null);
+                _context.MPSTOKKATEGORI.Add(entity);
+                _context.SaveChanges();
+                return entity;
             }
         }
 

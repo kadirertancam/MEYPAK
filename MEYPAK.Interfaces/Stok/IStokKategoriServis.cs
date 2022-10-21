@@ -10,6 +10,6 @@ namespace MEYPAK.Interfaces.Stok
 {
     public interface IStokKategoriServis:IGenericServis<PocoSTOKKATEGORI>
     {
-        public Durum EkleyadaGuncelle(PocoSTOKKATEGORI entity);
+        public PocoSTOKKATEGORI EkleyadaGuncelle(PocoSTOKKATEGORI entity);
     }
 }

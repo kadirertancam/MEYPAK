@@ -28,9 +28,9 @@ namespace MEYPAK.BLL.DEPO
         }
 
 
-        public Durum EkleyadaGuncelle(PocoDEPO pModel)
+        public PocoDEPO EkleyadaGuncelle(PocoDEPO pModel)
         {
-            return _depoDal.EkleyadaGuncelle(_mapper.Map<PocoDEPO,MPDEPO>(pModel));
+            return _mapper.Map<MPDEPO,PocoDEPO>( _depoDal.EkleyadaGuncelle(_mapper.Map<PocoDEPO,MPDEPO>(pModel)));
         }
 
     }

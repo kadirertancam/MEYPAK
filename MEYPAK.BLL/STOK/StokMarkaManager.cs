@@ -27,9 +27,9 @@ namespace MEYPAK.BLL.STOK
 
 
 
-        public Durum EkleyadaGuncelle(PocoSTOKMARKA pModel)
+        public PocoSTOKMARKA EkleyadaGuncelle(PocoSTOKMARKA pModel)
         {
-            return _markaDal.EkleyadaGuncelle(_mapper.Map<PocoSTOKMARKA,MPSTOKMARKA>(pModel));
+            return _mapper.Map<MPSTOKMARKA,PocoSTOKMARKA>(_markaDal.EkleyadaGuncelle(_mapper.Map<PocoSTOKMARKA,MPSTOKMARKA>(pModel)));
         }
 
         

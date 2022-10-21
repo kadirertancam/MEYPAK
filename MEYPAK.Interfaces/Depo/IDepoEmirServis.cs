@@ -10,5 +10,6 @@ namespace MEYPAK.Interfaces.Depo
 {
     public interface IDepoEmirServis:IGenericServis<PocoDEPOEMIR>
     {
+        public PocoDEPOEMIR EkleyadaGuncelle(PocoDEPOEMIR entity);
     }
 }

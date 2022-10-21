@@ -10,6 +10,6 @@ namespace MEYPAK.DAL.Abstract.StokDal
 {
     public interface IStokKategoriDal:IGeneric<MPSTOKKATEGORI>
     {
-        public Durum EkleyadaGuncelle(MPSTOKKATEGORI entity);
+        public MPSTOKKATEGORI EkleyadaGuncelle(MPSTOKKATEGORI entity);
     }
 }

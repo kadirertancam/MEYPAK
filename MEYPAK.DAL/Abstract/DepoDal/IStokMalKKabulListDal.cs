@@ -10,7 +10,7 @@ namespace MEYPAK.DAL.Abstract.DepoDal
 {
     public interface IStokMalKKabulListDal:IGeneric<MPSTOKMALKABULLIST>
     {
-        public Durum EkleyadaGuncelle(MPSTOKMALKABULLIST entity);
+        public MPSTOKMALKABULLIST EkleyadaGuncelle(MPSTOKMALKABULLIST entity);
         public void OnYukle();
     }
 }

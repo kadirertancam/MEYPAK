@@ -21,5 +21,11 @@ namespace MEYPAK.BLL.STOK
             _kasaDal = stokKasaDal;
             _mapper = mapper;
         }
+
+        public PocoSTOKKASA EkleyadaGuncelle(PocoSTOKKASA pModel)
+        {
+            return _mapper.Map<MPSTOKKASA, PocoSTOKKASA>(_kasaDal.EkleyadaGuncelle(_mapper.Map<PocoSTOKKASA, MPSTOKKASA>(pModel)));
+        }
     }
+    
 }

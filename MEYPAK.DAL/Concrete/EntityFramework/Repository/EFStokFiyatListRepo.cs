@@ -1,8 +1,9 @@
-﻿using MEYPAK.DAL.Abstract.StokDal;
+﻿ using MEYPAK.DAL.Abstract.StokDal;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Entity.PocoModels;
 using System.Data.Entity;
+using System.Reflection;
 
 namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
 {
@@ -41,9 +42,14 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
             }
             else
             {
-                MPSTOKFIYATLIST temp = _context.MPSTOKFIYATLIST.Where(x => x.ID == entity.ID).FirstOrDefault();
-                _context.ChangeTracker.Clear();
-                _context.MPSTOKFIYATLIST.Update(entity);
+                var item = Getir(x => x.ID == entity.ID).FirstOrDefault();
+                PropertyInfo propertyInfo = (item.GetType().GetProperty("KAYITTIPI"));
+                propertyInfo.SetValue(item, Convert.ChangeType(1, propertyInfo.PropertyType), null);
+                _context.MPSTOKFIYATLIST.Update(item);
+
+                propertyInfo = (entity.GetType().GetProperty("ID"));
+                propertyInfo.SetValue(entity, Convert.ChangeType(0, propertyInfo.PropertyType), null);
+                _context.MPSTOKFIYATLIST.Add(entity);
                 _context.SaveChanges();
                 return entity;
             }

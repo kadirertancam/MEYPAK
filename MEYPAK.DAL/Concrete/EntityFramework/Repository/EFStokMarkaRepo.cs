@@ -3,36 +3,42 @@ using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Interfaces;
 using System.Linq.Expressions;
+using System.Reflection;
 
 namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
 {
     public class EFStokMarkaRepo : EFBaseRepo<MPSTOKMARKA>, IStokMarkaDal
     {
-        MEYPAKContext context;
+        MEYPAKContext _context;
 
-        public EFStokMarkaRepo(MEYPAKContext _context) : base(_context)
+        public EFStokMarkaRepo(MEYPAKContext context) : base(context)
         {
-            context = _context;
+            _context = context;
         }
 
 
 
-        public Durum EkleyadaGuncelle(MPSTOKMARKA entity)
+        public MPSTOKMARKA EkleyadaGuncelle(MPSTOKMARKA entity)
         {
-            bool exists = context.MPMARKA.Any(x => x.ID == entity.ID);
+            bool exists = _context.MPMARKA.Any(x => x.ID == entity.ID);
             if (!exists)
             {
-                context.MPMARKA.Add(entity);
-                context.SaveChanges();
-                return Durum.kayıtbaşarılı;
+                _context.MPMARKA.Add(entity);
+                _context.SaveChanges();
+                return entity;
             }
             else
             {
-                MPSTOKMARKA temp = context.MPMARKA.Where(x => x.ID == entity.ID).FirstOrDefault();
-                context.ChangeTracker.Clear();
-                context.MPMARKA.Update(entity);
-                context.SaveChanges();
-                return Durum.güncellemebaşarılı;
+                var item = Getir(x => x.ID == entity.ID).FirstOrDefault();
+                PropertyInfo propertyInfo = (item.GetType().GetProperty("KAYITTIPI"));
+                propertyInfo.SetValue(item, Convert.ChangeType(1, propertyInfo.PropertyType), null);
+                _context.MPMARKA.Update(item);
+
+                propertyInfo = (entity.GetType().GetProperty("ID"));
+                propertyInfo.SetValue(entity, Convert.ChangeType(0, propertyInfo.PropertyType), null);
+                _context.MPMARKA.Add(entity);
+                _context.SaveChanges();
+                return entity;
             }
         }
 

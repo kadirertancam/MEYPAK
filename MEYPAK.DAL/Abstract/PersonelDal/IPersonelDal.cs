@@ -6,6 +6,6 @@ namespace MEYPAK.DAL.Abstract.PersonelDal
     public interface IPersonelDal:IGeneric<MPPERSONEL>
     {
 
-        public Durum EkleyadaGuncelle(MPPERSONEL entity);
+        public MPPERSONEL EkleyadaGuncelle(MPPERSONEL entity);
     }
 }

@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -43,24 +44,31 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
             }
 
         }
-        public Durum EkleyadaGuncelle(MPSTOKSAYIMHAR entity)
+        public MPSTOKSAYIMHAR EkleyadaGuncelle(MPSTOKSAYIMHAR entity)
         {
             bool exists = _context.MPSTOKSAYIMHAR.Any(x => x.ID == entity.ID);
             if (!exists)
             {
                 _context.MPSTOKSAYIMHAR.Add(entity);
                 _context.SaveChanges();
-                return Durum.kayıtbaşarılı;
+                return entity;
             }
             else
             {
-                MPSTOKSAYIMHAR temp = _context.MPSTOKSAYIMHAR.Where(x => x.ID == entity.ID).FirstOrDefault();
-                _context.ChangeTracker.Clear();
-                _context.MPSTOKSAYIMHAR.Update(entity);
+                var item = Getir(x => x.ID == entity.ID).FirstOrDefault();
+                PropertyInfo propertyInfo = (item.GetType().GetProperty("KAYITTIPI"));
+                propertyInfo.SetValue(item, Convert.ChangeType(1, propertyInfo.PropertyType), null);
+                _context.MPSTOKSAYIMHAR.Update(item);
+
+                propertyInfo = (entity.GetType().GetProperty("ID"));
+                propertyInfo.SetValue(entity, Convert.ChangeType(0, propertyInfo.PropertyType), null);
+                _context.MPSTOKSAYIMHAR.Add(entity);
                 _context.SaveChanges();
-                return Durum.güncellemebaşarılı;
+                return entity;
             }
         }
+
+
         public void Sil(int id)
         {
             MPSTOKSAYIMHAR deleteStokHar = _context.MPSTOKSAYIMHAR.Where(x => x.ID == id).FirstOrDefault();
