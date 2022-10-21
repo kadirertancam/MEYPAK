@@ -21,7 +21,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
         void onYukle()
         {
           
-            var emp = context.MPSTOKOLCUBR.ToList(); 
+            var emp = _context.MPSTOKOLCUBR.ToList(); 
             //emp = emp.Include("MPSTOK");
             //emp = emp.Include("MPOLCUBR");
             foreach (var item in emp)

@@ -498,9 +498,9 @@
             // BTNKasaSec
             // 
             this.BTNKasaSec.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BTNKasaSec.Location = new System.Drawing.Point(186, 148);
+            this.BTNKasaSec.Location = new System.Drawing.Point(176, 148);
             this.BTNKasaSec.Name = "BTNKasaSec";
-            this.BTNKasaSec.Size = new System.Drawing.Size(36, 23);
+            this.BTNKasaSec.Size = new System.Drawing.Size(46, 23);
             this.BTNKasaSec.TabIndex = 41;
             this.BTNKasaSec.Text = "Seç";
             this.BTNKasaSec.UseVisualStyleBackColor = true;
@@ -510,7 +510,7 @@
             // 
             this.TBKasa.Location = new System.Drawing.Point(73, 148);
             this.TBKasa.Name = "TBKasa";
-            this.TBKasa.Size = new System.Drawing.Size(118, 23);
+            this.TBKasa.Size = new System.Drawing.Size(107, 23);
             this.TBKasa.TabIndex = 40;
             // 
             // label1
@@ -525,12 +525,13 @@
             // BTSiparisSec
             // 
             this.BTSiparisSec.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BTSiparisSec.Location = new System.Drawing.Point(185, 28);
+            this.BTSiparisSec.Location = new System.Drawing.Point(176, 28);
             this.BTSiparisSec.Name = "BTSiparisSec";
-            this.BTSiparisSec.Size = new System.Drawing.Size(36, 23);
+            this.BTSiparisSec.Size = new System.Drawing.Size(43, 23);
             this.BTSiparisSec.TabIndex = 2;
             this.BTSiparisSec.Text = "Seç";
             this.BTSiparisSec.UseVisualStyleBackColor = true;
+            this.BTSiparisSec.Click += new System.EventHandler(this.BTSiparisSec_Click);
             // 
             // LBSiparis
             // 
@@ -545,7 +546,7 @@
             // 
             this.TBBelgeNo.Location = new System.Drawing.Point(72, 28);
             this.TBBelgeNo.Name = "TBBelgeNo";
-            this.TBBelgeNo.Size = new System.Drawing.Size(118, 23);
+            this.TBBelgeNo.Size = new System.Drawing.Size(105, 23);
             this.TBBelgeNo.TabIndex = 1;
             this.TBBelgeNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -736,9 +737,9 @@
             // BTStokSec
             // 
             this.BTStokSec.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BTStokSec.Location = new System.Drawing.Point(185, 57);
+            this.BTStokSec.Location = new System.Drawing.Point(176, 57);
             this.BTStokSec.Name = "BTStokSec";
-            this.BTStokSec.Size = new System.Drawing.Size(36, 23);
+            this.BTStokSec.Size = new System.Drawing.Size(43, 23);
             this.BTStokSec.TabIndex = 4;
             this.BTStokSec.Text = "Seç";
             this.BTStokSec.UseVisualStyleBackColor = true;
@@ -747,7 +748,7 @@
             // 
             this.TBStokKodu.Location = new System.Drawing.Point(72, 57);
             this.TBStokKodu.Name = "TBStokKodu";
-            this.TBStokKodu.Size = new System.Drawing.Size(118, 23);
+            this.TBStokKodu.Size = new System.Drawing.Size(105, 23);
             this.TBStokKodu.TabIndex = 3;
             // 
             // LBLCariKodu
