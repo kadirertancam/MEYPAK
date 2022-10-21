@@ -58,6 +58,7 @@ namespace MEYPAK.PRL.SIPARIS
         FStokList _fStokList;
         public PocoSTOK _tempStok;
         public PocoSTOKKASA _tempKasa;
+        public PocoSIPARIS _tempSiparis;
 
         private void FSiparis_Load(object sender, EventArgs e)
         {
@@ -147,7 +148,7 @@ namespace MEYPAK.PRL.SIPARIS
                 GENELTOPLAM = _tempSiparisDetay.Sum(x => x.KdvTutarı) + _tempSiparisDetay.Sum(x => x.NetToplam),
 
             });
-
+         
             foreach (var item in _tempSiparisDetay.Where(x => x.StokKodu != "").ToList())
             {
 
@@ -307,6 +308,14 @@ namespace MEYPAK.PRL.SIPARIS
         }
         decimal birimfiyat = 0, kdv = 0, bsnc = 0, brutfiyat = 0, netfiyat = 0, nettoplam = 0, brüttoplam = 0, geneltoplam = 0, isktoplam = 0, kdvtoplam = 0, miktar = 0;
 
+        private void BTSiparisSec_Click(object sender, EventArgs e)
+        {
+            FMusteriSiparisList fMusteriSiparisList = new FMusteriSiparisList("Siparis");
+            fKasaList.ShowDialog();
+            if (_tempSiparis != null)
+                TBBelgeNo.Text = _tempSiparis.BELGENO;
+        }
+
         private void BTNKasaSec_Click(object sender, EventArgs e)
         {
             FKasaList fKasaList = new FKasaList("Siparis");
@@ -317,7 +326,7 @@ namespace MEYPAK.PRL.SIPARIS
 
         private void dataGridView1_CellLeave(object sender, DataGridViewCellEventArgs e)
         {
-            if (CHBKdvDahil.Checked == false)
+            if (CHBKdvDahil.Checked == false )
             {
                 birimfiyat = Convert.ToDecimal(dataGridView1.Rows[e.RowIndex].Cells["BirimFiyat"].EditedFormattedValue);
                 brutfiyat = birimfiyat;
