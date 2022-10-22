@@ -22,10 +22,10 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
         public EFStokRepo(MEYPAKContext context) : base(context)
         {
             _context = context;
-            rr = new EFStokFiyatListRepo(_context);
-            ss = new EFStokFiyatListHarRepo(_context);
-            aa = new EFOlcuBrRepo(_context);
-            onYukle();
+        //    rr = new EFStokFiyatListRepo(_context);
+        //    ss = new EFStokFiyatListHarRepo(_context);
+       //     aa = new EFOlcuBrRepo(_context);
+      //      onYukle();
         }
         public void onYukle()
         {
