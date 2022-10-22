@@ -17,9 +17,8 @@ using MEYPAK.Entity.PocoModels.DEPO;
 
 namespace MEYPAK.Entity.PocoModels.SIPARIS
 {
-    public class PocoSIPARISDETAY
+    public class PocoSIPARISDETAY:SUPERPOCOMODEL
     {
-        public int ID { get; set; }
         public int SIPARISID { get; set; }=0;
         [DefaultValue(0)]
         public int IRSALIYEID { get; set; } = 0;
@@ -35,8 +34,6 @@ namespace MEYPAK.Entity.PocoModels.SIPARIS
         public int KULLANICIID { get; set; } = 0;
         [DefaultValue(0)]
         public int KASAID { get; set; } = 0;
-        public DateTime OLUSTURMATARIHI { get; set; } = DateTime.Now;
-        public DateTime GUNCELLEMETARIHI { get; set; } = DateTime.Now;
         public byte TIP { get; set; } = 0;
         [StringLength(50)]
         public string STOKADI { get; set; } = "";
@@ -54,7 +51,6 @@ namespace MEYPAK.Entity.PocoModels.SIPARIS
         public byte HAREKETDURUMU { get; set; } = 0;
         public decimal KDV { get; set; } = 0;
         public decimal KDVTUTARI { get; set; } = 0;
-        public byte KAYITTIPI { get; set; } = 0;
         public virtual PocoSIPARIS MPSIPARIS { get; set; }
         public virtual PocoSTOK MPSTOK { get; set; }
         public virtual PocoIRSALIYE MPIRSALIYE { get; set; }

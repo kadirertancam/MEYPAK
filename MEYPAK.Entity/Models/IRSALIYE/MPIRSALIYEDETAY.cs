@@ -11,10 +11,9 @@ using System.Text.Json.Serialization;
 
 namespace MEYPAK.Entity.Models.IRSALIYE
 {
-    public class MPIRSALIYEDETAY
+    public class MPIRSALIYEDETAY:SUPERMODEL
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ID { get; set; }
+
         [ForeignKey("MPSIPARIS")]
         public int SIPARISID { get; set; }
         [DefaultValue(0)]
@@ -27,8 +26,7 @@ namespace MEYPAK.Entity.Models.IRSALIYE
         public int KULLANICIID { get; set; } = 0;
         [DefaultValue(0)]
         public int KASAID { get; set; } = 0;
-        public DateTime OLUSTURMATARIHI { get; set; } = DateTime.Now;
-        public DateTime GUNCELLEMETARIHI { get; set; } = DateTime.Now;
+
         public byte TIP { get; set; } = 0;
         [StringLength(50)]
         public string STOKADI { get; set; } = "";
@@ -48,7 +46,6 @@ namespace MEYPAK.Entity.Models.IRSALIYE
 
         public decimal KDV { get; set; } = 0;
         public decimal KDVTUTARI { get; set; } = 0;
-        public byte KAYITTIPI { get; set; } = 0; 
         public virtual MPSIPARIS MPSIPARIS { get; set; }
        
         public virtual ICollection<MPIRSALIYESIPARISDETAYILISKI>? MPIRSALIYESIPARISDETAYILISKI { get; set; }

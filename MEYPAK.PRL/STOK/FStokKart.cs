@@ -82,6 +82,7 @@ namespace MEYPAK.PRL
             {
                 stokid = _tempStok.ID;
                 TBStokKodu.Text = _tempStok.KOD;
+                
             }
             TBStokAdı.Text = _tempStok.ADI;
             TBSatisOtv.Text = _tempStok.SATISOTV.ToString();

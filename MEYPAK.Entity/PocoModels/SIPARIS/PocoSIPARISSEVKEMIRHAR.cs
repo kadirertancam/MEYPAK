@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.Entity.PocoModels.SIPARIS
 {
-    public class PocoSIPARISSEVKEMIRHAR
+    public class PocoSIPARISSEVKEMIRHAR:SUPERPOCOMODEL
     {
-        public int ID { get; set; }
         public DateTime TARIH { get; set; }
         public int KULLANICIID { get; set; }
         public int EMIRID { get; set; }

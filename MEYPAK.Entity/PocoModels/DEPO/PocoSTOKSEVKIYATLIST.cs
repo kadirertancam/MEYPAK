@@ -12,9 +12,8 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.Entity.PocoModels.DEPO
 {
-    public class PocoSTOKSEVKIYATLIST
+    public class PocoSTOKSEVKIYATLIST:SUPERPOCOMODEL
     {
-        public int ID { get; set; }
         public int SIRKETID { get; set; } = 0;
         public int SUBEID { get; set; } = 0;
         public int DEPOID { get; set; } = 0;

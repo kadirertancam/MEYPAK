@@ -13,10 +13,9 @@ using System.Text.Json.Serialization;
 
 namespace MEYPAK.Entity.Models.SIPARIS
 {
-    public class MPSIPARIS
+    public class MPSIPARIS:SUPERMODEL
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ID { get; set; }
+
         [DefaultValue(0)]
         public int SIRKETID { get; set; } = 0;
         [DefaultValue(0)]
@@ -30,8 +29,7 @@ namespace MEYPAK.Entity.Models.SIPARIS
         public int ALTHESAPID { get; set; } = 0;
         [DefaultValue(0)]
         public int KULLANICIID { get; set; } = 0;
-        public DateTime OLUSTURMATARIHI { get; set; } = DateTime.Now;
-        public DateTime GUNCELLEMETARIHI { get; set; } = DateTime.Now;
+
         public DateTime SIPARISTARIHI { get; set; } = DateTime.Now;
         public DateTime SEVKIYATTARIHI { get; set; } = DateTime.Now;
         public DateTime VADETARIHI { get; set; } = DateTime.Now;
@@ -61,7 +59,7 @@ namespace MEYPAK.Entity.Models.SIPARIS
         public bool DURUM { get; set; }
         [Required]
         public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
-        public byte KAYITTIPI { get; set; } = 0;
+
         
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MPSIPARISDETAY> MPSIPARISDETAY { get; set; }

@@ -7,13 +7,10 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.Entity.PocoModels.STOK
 {
-    public class PocoSTOKKASA
+    public class PocoSTOKKASA:SUPERPOCOMODEL
     {
-        public int ID { get; set; }
         public int SIRKETID { get; set; }
         public int SUBEID { get; set; }
-        public DateTime OLUSTURMATARIHI { get; set; }
-        public DateTime GUNCELLEMETARIHI { get; set; }
         [StringLength(100), Required]
         public string KASAKODU { get; set; }
         [StringLength(100)]
@@ -21,6 +18,5 @@ namespace MEYPAK.Entity.PocoModels.STOK
         [StringLength(200)]
         public string ACIKLAMA { get; set; } = "";
         public byte AKTIF { get; set; }
-        public byte KAYITTIPI { get; set; } = 0;
     }
 }

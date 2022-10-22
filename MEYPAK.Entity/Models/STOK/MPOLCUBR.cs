@@ -10,22 +10,19 @@ using System.Text.Json.Serialization;
 
 namespace MEYPAK.Entity.Models.STOK
 {
-    public class MPOLCUBR
+    public class MPOLCUBR:SUPERMODEL
     {
         public MPOLCUBR()
         {
         }
-        [Key]
-        public int ID { get; set; }
-        public DateTime OLUSTURMATARIHI { get; set; } = DateTime.Now;
-        public DateTime GUNCELLEMETARIHI { get; set; } = DateTime.Now;
+
+
         [StringLength(200)]
         public string ADI { get; set; } = "";
         [StringLength(50)]
         public string BIRIM { get; set; } = "";
         public int KULLANICIID { get; set; } = 0;
-        public byte KAYITTIPI { get; set; } = 0;
-        [JsonIgnore]
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MPSTOKOLCUBR> MPSTOKOLCUBR { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

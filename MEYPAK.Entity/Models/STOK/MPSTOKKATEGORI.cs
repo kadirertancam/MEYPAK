@@ -10,10 +10,9 @@ using System.ComponentModel;
 
 namespace MEYPAK.Entity.Models.STOK
 {
-    public class MPSTOKKATEGORI
+    public class MPSTOKKATEGORI:SUPERMODEL
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ID { get; set; }
+
 
         [DefaultValue(0)]
         public int UstId { get; set; }
@@ -27,6 +26,5 @@ namespace MEYPAK.Entity.Models.STOK
         [Required]
         public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
 
-        public byte KAYITTIPI { get; set; } = 0;
     }
 }

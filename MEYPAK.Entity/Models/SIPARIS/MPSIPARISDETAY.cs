@@ -13,10 +13,9 @@ using MEYPAK.Entity.Models.STOK;
 
 namespace MEYPAK.Entity.Models.SIPARIS
 {
-    public class MPSIPARISDETAY
+    public class MPSIPARISDETAY:SUPERMODEL
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ID { get; set; }
+
         [ForeignKey("MPSIPARIS")]
         public int SIPARISID { get; set; }
         [DefaultValue(0)]
@@ -57,7 +56,6 @@ namespace MEYPAK.Entity.Models.SIPARIS
 
         public decimal KDV { get; set; } = 0;
         public decimal KDVTUTARI { get; set; } = 0;
-        public byte KAYITTIPI { get; set; } = 0;
          
         public virtual MPSIPARIS MPSIPARIS { get; set; } 
         public virtual MPSTOK MPSTOK { get; set; } 

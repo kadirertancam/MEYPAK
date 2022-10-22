@@ -7,11 +7,8 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.Entity.PocoModels.STOK
 {
-    public class PocoHIZMET
+    public class PocoHIZMET:SUPERPOCOMODEL
     {
-        public int ID { get; set; }
-        public DateTime OLUSTURMATARIHI { get; set; }
-        public DateTime GUNCELLEMETARIHI { get; set; }
         [StringLength(50)]
         [Required]
         public string KOD { get; set; }
@@ -63,7 +60,5 @@ namespace MEYPAK.Entity.PocoModels.STOK
 
         [Required]
         public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
-
-        public byte KAYITTIPI { get; set; } = 0;
     }
 }

@@ -9,20 +9,15 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.Entity.Models.STOK
 {
-    public class MPSTOKOLCUBR
+    public class MPSTOKOLCUBR:SUPERMODEL
     {
         public MPSTOKOLCUBR()
         {
 
         }
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ID { get; set; }
-        public DateTime OLUSTURMATARIHI { get; set; } = DateTime.Now;
-        public DateTime GUNCELLEMETARIHI { get; set; } = DateTime.Now;
         public int NUM { get; set; }                //Sıra numarası
         public decimal KATSAYI { get; set; }
         public int KULLANICIID { get; set; }
-        public byte KAYITTIPI { get; set; } = 0;
         [ForeignKey("MPSTOK")]
         public int STOKID { get; set; }
         

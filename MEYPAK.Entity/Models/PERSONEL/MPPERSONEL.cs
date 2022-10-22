@@ -8,10 +8,9 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.Entity.Models.PERSONEL
 {
-    public class MPPERSONEL
+    public class MPPERSONEL:SUPERMODEL
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ID { get; set; }
+
         public int SIRKETID { get; set; }
         public int SUBEID { get; set; }
         [StringLength(11), Required]
@@ -50,7 +49,6 @@ namespace MEYPAK.Entity.Models.PERSONEL
 
         public byte DURUM { get; set; } = 0;
         public int PSD { get; set; }
-        public byte KAYITTIPI { get; set; } = 0;
         [Required]
         public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
     }
