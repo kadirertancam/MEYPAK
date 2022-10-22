@@ -17,7 +17,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
         public EFStokSevkiyatListRepo(MEYPAKContext context) : base(context)
         {
             _context = context;
-            OnYukle();
+            //OnYukle();
         }
 
         public MPSTOKSEVKİYATLİST EkleyadaGuncelle(MPSTOKSEVKİYATLİST entity)

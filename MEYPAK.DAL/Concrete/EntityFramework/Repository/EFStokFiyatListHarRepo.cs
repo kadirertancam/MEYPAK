@@ -12,7 +12,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
         public EFStokFiyatListHarRepo(MEYPAKContext context) : base(context)
         {
             _context = context;
-            onYukle();
+            //onYukle();
         }
 
         public MPSTOKFIYATLISTHAR EkleyadaGuncelle(MPSTOKFIYATLISTHAR entity)
