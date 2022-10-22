@@ -311,7 +311,7 @@ namespace MEYPAK.PRL.SIPARIS
         private void BTSiparisSec_Click(object sender, EventArgs e)
         {
             FMusteriSiparisList fMusteriSiparisList = new FMusteriSiparisList("Siparis");
-            fKasaList.ShowDialog();
+            fMusteriSiparisList.ShowDialog();
             if (_tempSiparis != null)
                 TBBelgeNo.Text = _tempSiparis.BELGENO;
         }
