@@ -127,27 +127,31 @@ namespace MEYPAK.PRL.MOBILIZ
             var resp = await httpClient.SendAsync(client);
             var a =   resp.Content.ReadAsStringAsync().Result;
             var b = JsonConvert.DeserializeObject<AracList.Root>(a);
+            _aracServis.Data(ServisList.AracListeServis);
             foreach (var item in b.result)
             {
-                _aracServis.Data(ServisList.AracEkleServis,new PocoARACLAR()
+                if (!_aracServis.obje.Any(x => x.muId == item.muId))
                 {
-                   companyName=item.companyName,
-                   canbusProfile=item.canbusProfile,
-                   deviceType=item.deviceType,
-                   fleetId = item.fleetId,
-                   fleetName = item.fleetName,
-                   groupId =item.groupId,
-                   groupName = item.groupName,
-                   hardwareVersion = item.hardwareVersion,
-                   label = item.label,
-                   muId = item.muId,
-                   networkId = item.networkId,
-                   phone = item.phone,
-                   plate = item.plate,
-                   softwareSubVersion = item.softwareSubVersion,
-                   softwareVersion = item.softwareVersion,
-                   timezone = item.timezone
-                });
+                    _aracServis.Data(ServisList.AracEkleServis, new PocoARACLAR()
+                    {
+                        companyName = item.companyName,
+                        canbusProfile = item.canbusProfile == null ? "" : item.canbusProfile,
+                        deviceType = item.deviceType,
+                        fleetId = item.fleetId,
+                        fleetName = item.fleetName,
+                        groupId = item.groupId,
+                        groupName = item.groupName,
+                        hardwareVersion = item.hardwareVersion,
+                        label = item.label == null ? "" : item.label,
+                        muId = item.muId,
+                        networkId = item.networkId,
+                        phone = item.phone == null ? "" : item.phone,
+                        plate = item.plate,
+                        softwareSubVersion = item.softwareSubVersion == null ? "" : item.softwareSubVersion,
+                        softwareVersion = item.softwareVersion,
+                        timezone = item.timezone
+                    });
+                }
             }
 
         }

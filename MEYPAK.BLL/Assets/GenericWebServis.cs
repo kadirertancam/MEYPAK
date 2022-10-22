@@ -70,8 +70,9 @@ namespace MEYPAK.BLL.Assets
 
                 if (model == null&&modellist==null)
                     obje = JsonConvert.DeserializeObject<List<T>>(a);
-           
-        
+                if (model != null) 
+                    obje2 = JsonConvert.DeserializeObject<T>(a);
+
             }
             catch (Exception)
             {

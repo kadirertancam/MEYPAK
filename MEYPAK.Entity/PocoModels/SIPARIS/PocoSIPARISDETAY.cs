@@ -20,13 +20,13 @@ namespace MEYPAK.Entity.PocoModels.SIPARIS
     public class PocoSIPARISDETAY
     {
         public int ID { get; set; }
-        public int SIPARISID { get; set; }
+        public int SIPARISID { get; set; }=0;
         [DefaultValue(0)]
-        public int IRSALIYEID { get; set; }
+        public int IRSALIYEID { get; set; } = 0;
         [DefaultValue(0)]
-        public int BIRIMID { get; set; }
+        public int BIRIMID { get; set; }=0;
         [DefaultValue(0)]
-        public int STOKID { get; set; }
+        public int STOKID { get; set; }=0;
         [DefaultValue(0)]
         public int DOVIZID { get; set; } = 0;
         [DefaultValue(0)]
@@ -55,12 +55,14 @@ namespace MEYPAK.Entity.PocoModels.SIPARIS
         public decimal KDV { get; set; } = 0;
         public decimal KDVTUTARI { get; set; } = 0;
         public byte KAYITTIPI { get; set; } = 0;
-        public PocoSIPARIS MPSIPARIS { get; set; }
-        public PocoSTOK MPSTOK { get; set; }
+        public virtual PocoSIPARIS MPSIPARIS { get; set; }
+        public virtual PocoSTOK MPSTOK { get; set; }
         public virtual PocoIRSALIYE MPIRSALIYE { get; set; }
         //TODO BAKILACAK
-        public virtual List<MPIRSALIYESIPARISDETAYILISKI>? MPIRSALIYESIPARISDETAYILISKI { get; set; }
-        public List<PocoSTOKSEVKIYATLIST> MPSTOKSEVKİYATLİSTList { get; set; }
-        public List<MPDEPOEMIRSIPARISKALEMILISKI> MPDEPOEMIRSIPARISKALEMILISKI { get; set; }
+        public virtual ICollection<MPIRSALIYESIPARISDETAYILISKI> MPIRSALIYESIPARISDETAYILISKI { get; set; }
+        public virtual ICollection<PocoSTOKSEVKIYATLIST> MPSTOKSEVKİYATLİST { get; set; } 
+        public virtual ICollection<PocoSTOKMALKABULLIST> MPSTOKMALKABULLIST { get; set; }
+        public virtual ICollection<MPDEPOEMIRSIPARISKALEMILISKI> MPDEPOEMIRSIPARISKALEMILISKI { get; set; } 
+        public virtual ICollection<PocoSIPARISSEVKEMIRHAR> MPSIPARISSEVKEMRIHAR { get; set; }
     }
 }

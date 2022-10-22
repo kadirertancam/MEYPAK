@@ -27,6 +27,8 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
 
         public MPSIPARISDETAY EkleyadaGuncelle(MPSIPARISDETAY entity)
         {
+
+            context.ChangeTracker.Clear();
             bool exists = context.MPSIPARISDETAY.Any(x => x.ID == entity.ID);
             if (!exists)
             {

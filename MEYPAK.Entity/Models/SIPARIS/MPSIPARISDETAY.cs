@@ -19,8 +19,7 @@ namespace MEYPAK.Entity.Models.SIPARIS
         public int ID { get; set; }
         [ForeignKey("MPSIPARIS")]
         public int SIPARISID { get; set; }
-        [DefaultValue(0)]
-        [ForeignKey("MPIRSALIYE")]
+        [DefaultValue(0)] 
         public int IRSALIYEID { get; set; }
         [DefaultValue(0)]
         public int BIRIMID { get; set; }
@@ -57,16 +56,12 @@ namespace MEYPAK.Entity.Models.SIPARIS
         public decimal KDV { get; set; } = 0;
         public decimal KDVTUTARI { get; set; } = 0;
         public byte KAYITTIPI { get; set; } = 0;
+         
+        public virtual MPSIPARIS MPSIPARIS { get; set; } 
+        public virtual MPSTOK MPSTOK { get; set; } 
+         
 
-        [JsonIgnore]
-        public MPSIPARIS MPSIPARIS { get; set; }
-        [JsonIgnore]
-        public MPSTOK MPSTOK { get; set; }
-        [JsonIgnore]
-
-        public virtual MPIRSALIYE MPIRSALIYE { get; set; }
-
-        public virtual List<MPIRSALIYESIPARISDETAYILISKI>? MPIRSALIYESIPARISDETAYILISKI { get; set; }
+        public virtual ICollection<MPIRSALIYESIPARISDETAYILISKI> MPIRSALIYESIPARISDETAYILISKI { get; set; }
         public ICollection<MPSTOKSEVKİYATLİST> MPSTOKSEVKİYATLİST { get; set; }
 
         public ICollection<MPSTOKMALKABULLIST> MPSTOKMALKABULLIST { get; set; }

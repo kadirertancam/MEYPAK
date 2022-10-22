@@ -85,16 +85,16 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
             modelBuilder.Entity<MPSIPARISDETAY>().HasMany(x => x.MPSTOKMALKABULLIST).WithOne(x => x.MPSIPARISDETAY).HasForeignKey(x => x.SIPARISDETAYID).OnDelete(DeleteBehavior.Restrict);
             modelBuilder.Entity<MPSTOK>().HasMany(x => x.MPSIPARISDETAY).WithOne(x => x.MPSTOK).HasForeignKey(x => x.STOKID).OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder.Entity<MPIRSALIYESIPARISDETAYILISKI>().HasKey(sc => new { sc.IRSALIYEDETAYID, sc.SIPARISDETAYID });
+            //modelBuilder.Entity<MPIRSALIYESIPARISDETAYILISKI>().HasKey(sc => new { sc.IRSALIYEDETAYID, sc.SIPARISDETAYID });
 
-            modelBuilder.Entity<MPIRSALIYESIPARISDETAYILISKI>()
-                .HasOne<MPIRSALIYEDETAY>(sc => sc.MPIRSALIYEDETAY)
-                .WithMany(s => s.MPIRSALIYESIPARISDETAYILISKI)
-                .HasForeignKey(sc => sc.IRSALIYEDETAYID).OnDelete(DeleteBehavior.Restrict);
-            modelBuilder.Entity<MPIRSALIYESIPARISDETAYILISKI>()
-                .HasOne<MPSIPARISDETAY>(sc => sc.MPSIPARISDETAY)
-                .WithMany(s => s.MPIRSALIYESIPARISDETAYILISKI)
-                .HasForeignKey(sc => sc.SIPARISDETAYID).OnDelete(DeleteBehavior.Restrict);
+            //modelBuilder.Entity<MPIRSALIYESIPARISDETAYILISKI>()
+            //    .HasOne<MPIRSALIYEDETAY>(sc => sc.MPIRSALIYEDETAY)
+            //    .WithMany(s => s.MPIRSALIYESIPARISDETAYILISKI)
+            //    .HasForeignKey(sc => sc.IRSALIYEDETAYID).OnDelete(DeleteBehavior.Restrict);
+            //modelBuilder.Entity<MPIRSALIYESIPARISDETAYILISKI>()
+            //    .HasOne<MPSIPARISDETAY>(sc => sc.MPSIPARISDETAY)
+            //    .WithMany(s => s.MPIRSALIYESIPARISDETAYILISKI)
+            //    .HasForeignKey(sc => sc.SIPARISDETAYID).OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<MPDEPOEMIRSIPARISKALEMILISKI>().HasKey(sc => new { sc.DEPOEMIRID, sc.SIPARISDETAYID });
 
