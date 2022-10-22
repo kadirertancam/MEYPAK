@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MEYPAK.DAL.Migrations
 {
     [DbContext(typeof(MEYPAKContext))]
-    [Migration("20221022072053_MEYPAKIrsaliyeIDforeinkeykaldırıldı")]
+    [Migration("20221022074117_MEYPAKIrsaliyeIDforeinkeykaldırıldı")]
     partial class MEYPAKIrsaliyeIDforeinkeykaldırıldı
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -633,29 +633,18 @@ namespace MEYPAK.DAL.Migrations
 
             modelBuilder.Entity("MEYPAK.Entity.Models.MPIRSALIYESIPARISDETAYILISKI", b =>
                 {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
-
                     b.Property<int>("IRSALIYEDETAYID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MPIRSALIYEDETAYID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MPSIPARISDETAYID")
                         .HasColumnType("int");
 
                     b.Property<int>("SIPARISDETAYID")
                         .HasColumnType("int");
 
-                    b.HasKey("ID");
+                    b.Property<int>("ID")
+                        .HasColumnType("int");
 
-                    b.HasIndex("MPIRSALIYEDETAYID");
+                    b.HasKey("IRSALIYEDETAYID", "SIPARISDETAYID");
 
-                    b.HasIndex("MPSIPARISDETAYID");
+                    b.HasIndex("SIPARISDETAYID");
 
                     b.ToTable("MPIRSALIYESIPARISDETAYILISKI");
                 });
@@ -953,9 +942,6 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<decimal>("MIKTAR")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("MPIRSALIYEID")
-                        .HasColumnType("int");
-
                     b.Property<decimal>("NETFIYAT")
                         .HasColumnType("decimal(18,2)");
 
@@ -981,7 +967,7 @@ namespace MEYPAK.DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("MPIRSALIYEID");
+                    b.HasIndex("IRSALIYEID");
 
                     b.HasIndex("SIPARISID");
 
@@ -2016,14 +2002,14 @@ namespace MEYPAK.DAL.Migrations
                 {
                     b.HasOne("MEYPAK.Entity.Models.IRSALIYE.MPIRSALIYEDETAY", "MPIRSALIYEDETAY")
                         .WithMany("MPIRSALIYESIPARISDETAYILISKI")
-                        .HasForeignKey("MPIRSALIYEDETAYID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("IRSALIYEDETAYID")
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("MEYPAK.Entity.Models.SIPARIS.MPSIPARISDETAY", "MPSIPARISDETAY")
                         .WithMany("MPIRSALIYESIPARISDETAYILISKI")
-                        .HasForeignKey("MPSIPARISDETAYID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("SIPARISDETAYID")
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("MPIRSALIYEDETAY");
@@ -2046,7 +2032,7 @@ namespace MEYPAK.DAL.Migrations
                 {
                     b.HasOne("MEYPAK.Entity.Models.IRSALIYE.MPIRSALIYE", "MPIRSALIYE")
                         .WithMany()
-                        .HasForeignKey("MPIRSALIYEID")
+                        .HasForeignKey("IRSALIYEID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

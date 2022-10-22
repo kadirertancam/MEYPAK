@@ -192,7 +192,7 @@ namespace MEYPAK.PRL
         }
         private void BTSil_Click(object sender, EventArgs e)                  // Stok Sil
         {
-            _PocoStokServis.Data(ServisList.StokSilServis,_PocoStokServis.obje.Where(x => x.ID == stokid).FirstOrDefault());
+            _PocoStokServis.Data(ServisList.StokSilServis,null,null,_PocoStokServis.obje.Where(x => x.ID == stokid).ToList());
             Temizle(this.Controls);
         }
         private void BTMarkaSec_Click(object sender, EventArgs e)

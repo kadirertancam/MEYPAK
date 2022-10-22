@@ -19,7 +19,9 @@ namespace MEYPAK.Entity.Models.SIPARIS
         public int ID { get; set; }
         [ForeignKey("MPSIPARIS")]
         public int SIPARISID { get; set; }
-        [DefaultValue(0)] 
+        [DefaultValue(0)]
+
+        [ForeignKey("MPIRSALIYE")]
         public int IRSALIYEID { get; set; }
         [DefaultValue(0)]
         public int BIRIMID { get; set; }
@@ -59,7 +61,8 @@ namespace MEYPAK.Entity.Models.SIPARIS
          
         public virtual MPSIPARIS MPSIPARIS { get; set; } 
         public virtual MPSTOK MPSTOK { get; set; } 
-         
+
+        public virtual MPIRSALIYE MPIRSALIYE { get; set; }
 
         public virtual ICollection<MPIRSALIYESIPARISDETAYILISKI> MPIRSALIYESIPARISDETAYILISKI { get; set; }
         public ICollection<MPSTOKSEVKİYATLİST> MPSTOKSEVKİYATLİST { get; set; }
