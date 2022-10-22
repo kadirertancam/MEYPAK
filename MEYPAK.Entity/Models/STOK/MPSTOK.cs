@@ -31,8 +31,6 @@ namespace MEYPAK.Entity.Models.STOK
         [DefaultValue(0)]
         public int SUBEID { get; set; }
         [DefaultValue(0)]
-        public int DEPOID { get; set; }
-        [DefaultValue(0)]
         public int KASAID { get; set; } = 0;
 
         [StringLength(50), Required]

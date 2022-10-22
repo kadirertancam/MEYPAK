@@ -21,8 +21,6 @@ namespace MEYPAK.Entity.PocoModels.STOK
         [DefaultValue(0)]
         public int SUBEID { get; set; } = 0;
         [DefaultValue(0)]
-        public int DEPOID { get; set; }=0;
-        [DefaultValue(0)]
         public int KASAID { get; set; } = 0;
         [StringLength(50), Required]
         public string KOD { get; set; } = "";
