@@ -148,7 +148,7 @@ namespace MEYPAK.PRL
                 KOD = TBStokKodu.Text,
                 ADI = TBStokAdı.Text,
                 MARKAID = _markaServis.obje.Where(x => x.ADI == TBMarka.Text).FirstOrDefault().ID,
-                KATEGORIID = int.Parse(TBKategori.Text),
+                KATEGORIID = _tempKategori.ID,
                 KASAID = 1,//_tempKasa.ID,
                 GRUPKODU = int.Parse(TBGrupKodu.Text),
                 ACIKLAMA = TBAcıklama.Text,
