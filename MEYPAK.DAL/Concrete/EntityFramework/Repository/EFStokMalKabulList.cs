@@ -17,7 +17,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
         public EFStokMalKabulList(MEYPAKContext context) : base(context)
         {
             _context = context;
-            OnYukle();
+            //OnYukle();
         }
         public MPSTOKMALKABULLIST EkleyadaGuncelle(MPSTOKMALKABULLIST entity)
         {

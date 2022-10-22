@@ -17,7 +17,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
         public EFSiparisSevkEmriHarRepo(MEYPAKContext context) : base(context)
         {
             _context = context;
-            OnYukle();
+            //OnYukle();
         }
         public void OnYukle()
         {

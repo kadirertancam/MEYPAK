@@ -22,7 +22,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
         public EFSiparisDetayRepo(MEYPAKContext _context) : base(_context)
         {
             context = _context;
-            onYukle();
+            //onYukle();
         }
 
         public MPSIPARISDETAY EkleyadaGuncelle(MPSIPARISDETAY entity)
