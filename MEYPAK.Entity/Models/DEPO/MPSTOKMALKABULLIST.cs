@@ -11,11 +11,9 @@ using System.Text.Json.Serialization;
 
 namespace MEYPAK.Entity.Models.DEPO
 {
-    public class MPSTOKMALKABULLIST
+    public class MPSTOKMALKABULLIST:SUPERMODEL
     {
 
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ID { get; set; }
         public int SIRKETID { get; set; } = 0;
         public int SUBEID { get; set; } = 0;
         public int DEPOID { get; set; } = 0;
@@ -29,7 +27,6 @@ namespace MEYPAK.Entity.Models.DEPO
         public decimal MIKTAR { get; set; }
         [ForeignKey("MPDEPOEMIR")]
         public int EMIRID { get; set; }
-        public int KULLANICIID { get; set; } = 0; 
         public MPOLCUBR MPOLCUBR { get; set; } 
         public MPDEPOEMIR MPDEPOEMIR { get; set; } 
         public MPSTOK MPSTOK { get; set; } 

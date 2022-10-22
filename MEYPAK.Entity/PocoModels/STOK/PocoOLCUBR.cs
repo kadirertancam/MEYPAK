@@ -11,17 +11,13 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.Entity.PocoModels.STOK
 {
-    public class PocoOLCUBR
+    public class PocoOLCUBR:SUPERPOCOMODEL
     {
-        public int ID { get; set; }
-        public DateTime OLUSTURMATARIHI { get; set; } = DateTime.Now;
-        public DateTime GUNCELLEMETARIHI { get; set; } = DateTime.Now;
         [StringLength(200)]
         public string ADI { get; set; } = "";
         [StringLength(50)]
         public string BIRIM { get; set; } = "";
         public int KULLANICIID { get; set; } = 0;
-        public byte KAYITTIPI { get; set; } = 0;
         [JsonIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PocoSTOKOLCUBR> MPSTOKOLCUBR { get; set; }

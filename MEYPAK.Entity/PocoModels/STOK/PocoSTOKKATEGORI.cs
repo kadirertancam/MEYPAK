@@ -8,15 +8,13 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.Entity.PocoModels.STOK
 {
-    public class PocoSTOKKATEGORI
+    public class PocoSTOKKATEGORI:SUPERPOCOMODEL
     {
-        public int ID { get; set; }
         public int UstId { get; set; }=0;
         public int AltID { get; set; } = 0;
         [StringLength(100), Required]
         public string Acıklama { get; set; }
         [Required]
         public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
-        public byte KAYITTIPI { get; set; } = 0;
     }
 }

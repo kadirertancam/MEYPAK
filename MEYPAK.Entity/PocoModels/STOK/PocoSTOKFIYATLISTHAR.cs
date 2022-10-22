@@ -8,13 +8,10 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.Entity.PocoModels.STOK
 {
-    public class PocoSTOKFIYATLISTHAR
+    public class PocoSTOKFIYATLISTHAR:SUPERPOCOMODEL
     {
-        public int ID { get; set; }
         public int SIRKETID { get; set; }
         public int SUBEID { get; set; }
-        public DateTime OLUSTURMATARIHI { get; set; }
-        public DateTime GUNCELLEMETARIHI { get; set; }
         public int STOKID { get; set; }
         public int FIYATLISTID { get; set; }
         public int DOVIZID { get; set; }
@@ -23,7 +20,6 @@ namespace MEYPAK.Entity.PocoModels.STOK
         public decimal ISKONTO { get; set; }
         public int KULLANICIID { get; set; }
         public int AKTIF { get; set; }
-        public byte KAYITTIPI { get; set; } = 0;
         public virtual PocoSTOK MPSTOK { get; set; }
         public virtual PocoSTOKFIYATLIST MPSTOKFIYATLIST { get; set; }
         

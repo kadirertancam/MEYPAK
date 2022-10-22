@@ -10,10 +10,9 @@ using MEYPAK.Entity.Models.SIPARIS;
 
 namespace MEYPAK.Entity.Models.DEPO
 {
-    public class MPDEPOEMIR
+    public class MPDEPOEMIR:SUPERMODEL
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ID { get; set; }
+
         public DateTime TARIH { get; set; }
         public int SIRA { get; set; }
         [ForeignKey("MPDEPO")]

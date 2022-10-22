@@ -314,6 +314,14 @@ namespace MEYPAK.PRL.SIPARIS
             fMusteriSiparisList.ShowDialog();
             if (_tempSiparis != null)
                 TBBelgeNo.Text = _tempSiparis.BELGENO;
+            //todo : TBCariKodu.Text = 
+            TBCariAdi.Text = _tempSiparis.CARIADI;
+            //TODO TBKasa.Text = 
+            DTPTarih.Value = _tempSiparis.SIPARISTARIHI;
+            TBAciklama.Text = _tempSiparis.ACIKLAMA;
+            DTPVadeTarihi.Value = _tempSiparis.VADETARIHI;
+            DTPSevkiyatTarihi.Value = _tempSiparis.SEVKIYATTARIHI;
+            TBSVadeGunu.Text = _tempSiparis.VADEGUNU.ToString();
         }
 
         private void BTNKasaSec_Click(object sender, EventArgs e)

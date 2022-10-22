@@ -11,11 +11,10 @@ using MEYPAK.Entity.Models.STOK;
 
 namespace MEYPAK.Entity.Models.DEPO
 {
-    public class MPSTOKSEVKİYATLİST
+    public class MPSTOKSEVKİYATLİST:SUPERMODEL
     {
 
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ID { get; set; }
+
         public int SIRKETID { get; set; } = 0;
         public int SUBEID { get; set; } = 0;
         public int DEPOID { get; set; } = 0;

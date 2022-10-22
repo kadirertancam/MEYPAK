@@ -3,11 +3,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MEYPAK.Entity.PocoModels.DEPO
 {
-    public class PocoDEPOTRANSFERHAR
+    public class PocoDEPOTRANSFERHAR:SUPERPOCOMODEL
     {
-        public int ID { get; set; }
-        public DateTime OLUSTURMATARIHI { get; set; } = DateTime.Now;
-        public DateTime GUNCELLEMETARIHI { get; set; } = DateTime.Now;
         [Required]
         public int DEPOTRANSFERID { get; set; }
         [Required]
@@ -20,7 +17,6 @@ namespace MEYPAK.Entity.PocoModels.DEPO
         public string ACIKLAMA { get; set; } = "";
         [Required]
         public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
-        public byte KAYITTIPI { get; set; } = 0;
         public virtual PocoDEPOTRANSFER DEPOTRANSFER { get; set; }
         public virtual PocoSTOK STOK { get; set; }
     }

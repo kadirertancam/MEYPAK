@@ -8,12 +8,9 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.Entity.Models.STOK
 {
-    public class MPHIZMET
+    public class MPHIZMET:SUPERMODEL
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ID { get; set; }
-        public DateTime OLUSTURMATARIHI { get; set; }
-        public DateTime GUNCELLEMETARIHI { get; set; }
+
         [StringLength(50)]
         [Required]
         public string KOD { get; set; }
@@ -65,7 +62,6 @@ namespace MEYPAK.Entity.Models.STOK
          
         public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
 
-        public byte KAYITTIPI { get; set; } = 0;
 
     }
 }

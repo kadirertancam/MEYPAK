@@ -11,15 +11,15 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
 {
-    public class EFStokSevkiyatListRepo : EFBaseRepo<MPSTOKSEVKİYATLİST>,IStokSevkiyatListDal
+    public class EFStokSevkiyatListRepo : EFBaseRepo<MPSTOKSEVKİYATLİST>, IStokSevkiyatListDal
     {
         MEYPAKContext _context;
         public EFStokSevkiyatListRepo(MEYPAKContext context) : base(context)
         {
-            _context=context;
+            _context = context;
             OnYukle();
         }
-    
+
         public MPSTOKSEVKİYATLİST EkleyadaGuncelle(MPSTOKSEVKİYATLİST entity)
         {
             OnYukle();
@@ -33,13 +33,21 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
             else
             {
                 var item = Getir(x => x.ID == entity.ID).FirstOrDefault();
+                if (item.ESKIID == 0 || item.ESKIID == null)
+                {
+                    PropertyInfo propertyInfo3 = (item.GetType().GetProperty("ESKIID"));
+                    propertyInfo3.SetValue(item, Convert.ChangeType(item.ID, propertyInfo3.PropertyType), null);
+
+                }
                 PropertyInfo propertyInfo = (item.GetType().GetProperty("KAYITTIPI"));
                 propertyInfo.SetValue(item, Convert.ChangeType(1, propertyInfo.PropertyType), null);
-                _context.MPSTOKSEVKİYATLİST.Update(item);
+                PropertyInfo propertyInfo2 = (item.GetType().GetProperty("ID"));
+                propertyInfo2.SetValue(item, Convert.ChangeType(0, propertyInfo2.PropertyType), null);
 
-                propertyInfo = (entity.GetType().GetProperty("ID"));
-                propertyInfo.SetValue(entity, Convert.ChangeType(0, propertyInfo.PropertyType), null);
-                _context.MPSTOKSEVKİYATLİST.Add(entity);
+                _context.MPSTOKSEVKİYATLİST.Add(item);
+                _context.SaveChanges();
+                _context.ChangeTracker.Clear();
+                _context.MPSTOKSEVKİYATLİST.Update(entity);
                 _context.SaveChanges();
                 return entity;
             }

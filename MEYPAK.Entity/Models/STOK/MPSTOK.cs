@@ -12,7 +12,7 @@ using MEYPAK.Entity.Models.SIPARIS;
 
 namespace MEYPAK.Entity.Models.STOK
 {
-    public class MPSTOK
+    public class MPSTOK:SUPERMODEL
     {
         public MPSTOK()
         {
@@ -25,8 +25,7 @@ namespace MEYPAK.Entity.Models.STOK
 
 
         }
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ID { get; set; }
+
         [DefaultValue(0)]
         public int SIRKETID { get; set; }
         [DefaultValue(0)]
@@ -35,8 +34,7 @@ namespace MEYPAK.Entity.Models.STOK
         public int DEPOID { get; set; }
         [DefaultValue(0)]
         public int KASAID { get; set; } = 0;
-        public DateTime OLUSTURMATARIHI { get; set; } = DateTime.Now;
-        public DateTime GUNCELLEMETARIHI { get; set; } = DateTime.Now;
+
         [StringLength(50), Required]
         public string KOD { get; set; }
         [StringLength(200)]
@@ -125,8 +123,7 @@ namespace MEYPAK.Entity.Models.STOK
         public int GTIN { get; set; }
         [DefaultValue(0)]
         public int KULLANICIID { get; set; }
-        [DefaultValue(0)]
-        public byte KAYITTIPI { get; set; } = 0;
+
         [Required]
         public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
 

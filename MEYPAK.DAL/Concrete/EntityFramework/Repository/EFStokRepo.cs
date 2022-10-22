@@ -27,9 +27,9 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
             aa = new EFOlcuBrRepo(_context);
             onYukle();
         }
-       public void onYukle()
+        public void onYukle()
         {
-         
+
             var emp = _context.MPSTOK.ToList();
 
             //emp = emp.Include("MPSTOKOLCUBR");
@@ -67,6 +67,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
         }
         public MPSTOK EkleyadaGuncelle(MPSTOK entity)
         {
+           
             bool exists = _context.MPSTOK.Any(x => x.ID == entity.ID);
             if (!exists)
             {
@@ -76,14 +77,21 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
             }
             else
             {
-                var item = Getir(x=>x.ID == entity.ID).FirstOrDefault();
+                var item = Getir(x => x.ID == entity.ID).FirstOrDefault();
+                if (item.ESKIID == 0 || item.ESKIID == null)
+                {
+                    PropertyInfo propertyInfo3 = (item.GetType().GetProperty("ESKIID"));
+                    propertyInfo3.SetValue(item, Convert.ChangeType(item.ID, propertyInfo3.PropertyType), null);
+
+                }
                 PropertyInfo propertyInfo = (item.GetType().GetProperty("KAYITTIPI"));
                 propertyInfo.SetValue(item, Convert.ChangeType(1, propertyInfo.PropertyType), null);
-                _context.MPSTOK.Update(item);
-
-                propertyInfo = (entity.GetType().GetProperty("ID"));
-                propertyInfo.SetValue(entity, Convert.ChangeType(0, propertyInfo.PropertyType), null);
-                _context.MPSTOK.Add(entity);
+                PropertyInfo propertyInfo2 = (item.GetType().GetProperty("ID"));
+                propertyInfo2.SetValue(item, Convert.ChangeType(0, propertyInfo2.PropertyType), null);
+                _context.MPSTOK.Add(item);
+                _context.SaveChanges();
+                _context.ChangeTracker.Clear();
+                _context.MPSTOK.Update(entity);
                 _context.SaveChanges();
                 return entity;
             }

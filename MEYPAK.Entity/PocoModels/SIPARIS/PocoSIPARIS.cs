@@ -9,17 +9,14 @@ using MEYPAK.Entity.Models.SIPARIS;
 
 namespace MEYPAK.Entity.PocoModels.SIPARIS
 {
-    public class PocoSIPARIS
+    public class PocoSIPARIS:SUPERPOCOMODEL
     {
-        public int ID { get; set; }
         public int SIRKETID { get; set; } = 0;
         public int SUBEID { get; set; } = 0;
         public int DEPOID { get; set; } = 0;
         public int CARIID { get; set; } = 0;
         public int ALTHESAPID { get; set; } = 0;
         public int KULLANICIID { get; set; } = 0;
-        public DateTime OLUSTURMATARIHI { get; set; } = DateTime.Now;
-        public DateTime GUNCELLEMETARIHI { get; set; } = DateTime.Now;
         public DateTime SIPARISTARIHI { get; set; } = DateTime.Now;
         public DateTime SEVKIYATTARIHI { get; set; } = DateTime.Now;
         public DateTime VADETARIHI { get; set; } = DateTime.Now;
@@ -44,7 +41,6 @@ namespace MEYPAK.Entity.PocoModels.SIPARIS
         public bool DURUM { get; set; }
         public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
         public int TIP { get; set; }
-        public byte KAYITTIPI { get; set; } = 0;
         public virtual List<PocoSIPARISDETAY> MPSIPARISDETAYList { get; set; }
 
     }

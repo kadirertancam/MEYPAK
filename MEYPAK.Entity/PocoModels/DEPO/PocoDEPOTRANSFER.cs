@@ -7,11 +7,8 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.Entity.PocoModels.DEPO
 {
-    public class PocoDEPOTRANSFER
+    public class PocoDEPOTRANSFER:SUPERPOCOMODEL
     {
-        public int ID { get; set; }
-        public DateTime OLUSTURMATARIHI { get; set; } = DateTime.Now;
-        public DateTime GUNCELLEMETARIHI { get; set; } = DateTime.Now;
         [Required]
         public int CIKTIDEPOID { get; set; }
         [Required]
@@ -19,6 +16,5 @@ namespace MEYPAK.Entity.PocoModels.DEPO
         public byte DURUM { get; set; } = 0;
         [Required]
         public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
-        public byte KAYITTIPI { get; set; } = 0;
     }
 }

@@ -4,9 +4,8 @@ using MEYPAK.Entity.PocoModels.STOK;
 
 namespace MEYPAK.Entity.PocoModels.DEPO
 {
-    public class PocoDEPOEMIR
+    public class PocoDEPOEMIR:SUPERPOCOMODEL
     {
-        public int ID { get; set; }
         public DateTime TARIH { get; set; }
         public int DEPOID { get; set; }
         public int SIRA { get; set; }

@@ -9,10 +9,9 @@ using MEYPAK.Entity.Models.DEPO;
 
 namespace MEYPAK.Entity.Models.SIPARIS
 {
-    public class MPSIPARISSEVKEMRIHAR
+    public class MPSIPARISSEVKEMRIHAR:SUPERMODEL
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ID { get; set; }
+
         public DateTime TARIH { get; set; }
         public int TIP { get; set; }
         public int KULLANICIID { get; set; }

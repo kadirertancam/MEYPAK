@@ -9,21 +9,16 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.Entity.Models.STOK
 {
-    public class MPSTOKFIYATLISTHAR
+    public class MPSTOKFIYATLISTHAR:SUPERMODEL
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ID { get; set; }
         public int SIRKETID { get; set; }
         public int SUBEID { get; set; }
-        public DateTime OLUSTURMATARIHI { get; set; }
-        public DateTime GUNCELLEMETARIHI { get; set; } 
         public int DOVIZID { get; set; }
         public decimal KUR { get; set; }
         public decimal NETFIYAT { get; set; }
         public decimal ISKONTO { get; set; }
         public int KULLANICIID { get; set; } 
         public int AKTIF { get; set; }
-        public byte KAYITTIPI { get; set; } = 0;
 
 
         [ForeignKey("MPSTOK")]

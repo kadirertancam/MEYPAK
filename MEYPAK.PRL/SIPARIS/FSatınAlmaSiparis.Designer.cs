@@ -36,7 +36,7 @@
             this.LBSiparis = new System.Windows.Forms.Label();
             this.TBBelgeNo = new System.Windows.Forms.TextBox();
             this.LBLSevkiyatTarihi = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.DTPSevkiyatTarihi = new System.Windows.Forms.DateTimePicker();
             this.LBLAltHesap = new System.Windows.Forms.Label();
             this.CMBAltHesap = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
@@ -57,7 +57,7 @@
             this.TBAciklama = new System.Windows.Forms.TextBox();
             this.TBCariAdi = new System.Windows.Forms.TextBox();
             this.BTStokSec = new System.Windows.Forms.Button();
-            this.TBStokKodu = new System.Windows.Forms.TextBox();
+            this.TBCariKodu = new System.Windows.Forms.TextBox();
             this.LBLCariKodu = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -114,7 +114,7 @@
             this.groupBox1.Controls.Add(this.LBSiparis);
             this.groupBox1.Controls.Add(this.TBBelgeNo);
             this.groupBox1.Controls.Add(this.LBLSevkiyatTarihi);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
+            this.groupBox1.Controls.Add(this.DTPSevkiyatTarihi);
             this.groupBox1.Controls.Add(this.LBLAltHesap);
             this.groupBox1.Controls.Add(this.CMBAltHesap);
             this.groupBox1.Controls.Add(this.label17);
@@ -135,7 +135,7 @@
             this.groupBox1.Controls.Add(this.TBAciklama);
             this.groupBox1.Controls.Add(this.TBCariAdi);
             this.groupBox1.Controls.Add(this.BTStokSec);
-            this.groupBox1.Controls.Add(this.TBStokKodu);
+            this.groupBox1.Controls.Add(this.TBCariKodu);
             this.groupBox1.Controls.Add(this.LBLCariKodu);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
@@ -180,6 +180,7 @@
             this.BTSiparisSec.TabIndex = 2;
             this.BTSiparisSec.Text = "Seç";
             this.BTSiparisSec.UseVisualStyleBackColor = true;
+            this.BTSiparisSec.Click += new System.EventHandler(this.BTSiparisSec_Click);
             // 
             // LBSiparis
             // 
@@ -207,13 +208,13 @@
             this.LBLSevkiyatTarihi.TabIndex = 36;
             this.LBLSevkiyatTarihi.Text = "Sevkiyat Tarihi";
             // 
-            // dateTimePicker1
+            // DTPSevkiyatTarihi
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(676, 171);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(137, 23);
-            this.dateTimePicker1.TabIndex = 11;
+            this.DTPSevkiyatTarihi.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DTPSevkiyatTarihi.Location = new System.Drawing.Point(676, 171);
+            this.DTPSevkiyatTarihi.Name = "DTPSevkiyatTarihi";
+            this.DTPSevkiyatTarihi.Size = new System.Drawing.Size(137, 23);
+            this.DTPSevkiyatTarihi.TabIndex = 11;
             // 
             // LBLAltHesap
             // 
@@ -392,12 +393,12 @@
             this.BTStokSec.Text = "Seç";
             this.BTStokSec.UseVisualStyleBackColor = true;
             // 
-            // TBStokKodu
+            // TBCariKodu
             // 
-            this.TBStokKodu.Location = new System.Drawing.Point(72, 57);
-            this.TBStokKodu.Name = "TBStokKodu";
-            this.TBStokKodu.Size = new System.Drawing.Size(118, 23);
-            this.TBStokKodu.TabIndex = 3;
+            this.TBCariKodu.Location = new System.Drawing.Point(72, 57);
+            this.TBCariKodu.Name = "TBCariKodu";
+            this.TBCariKodu.Size = new System.Drawing.Size(118, 23);
+            this.TBCariKodu.TabIndex = 3;
             // 
             // LBLCariKodu
             // 
@@ -798,7 +799,7 @@
         private Label LBSiparis;
         private TextBox TBBelgeNo;
         private Label LBLSevkiyatTarihi;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker DTPSevkiyatTarihi;
         private Label LBLAltHesap;
         private ComboBox CMBAltHesap;
         private Label label17;
@@ -819,7 +820,7 @@
         private TextBox TBAciklama;
         private TextBox TBCariAdi;
         private Button BTStokSec;
-        private TextBox TBStokKodu;
+        private TextBox TBCariKodu;
         private Label LBLCariKodu;
         private Panel panel4;
         private Panel panel8;

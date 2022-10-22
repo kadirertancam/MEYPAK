@@ -53,6 +53,7 @@ namespace MEYPAK.PRL.SIPARIS
         FKasaList fKasaList;
         public PocoSTOK _tempStok;
         public PocoSTOKKASA _tempKasa;
+        public PocoSIPARIS _tempSiparis;
 
         GenericWebServis<PocoSIPARIS> _siparisServis;
         GenericWebServis<PocoDEPO> _depoServis;
@@ -211,6 +212,22 @@ namespace MEYPAK.PRL.SIPARIS
                     dataGridView1.Rows[e.RowIndex].Cells["NetToplam"].Value = nettoplam;
                 }
             }
+        }
+
+        private void BTSiparisSec_Click(object sender, EventArgs e)
+        {
+            FMusteriSiparisList fMusteriSiparisList = new FMusteriSiparisList("Siparis");
+            fMusteriSiparisList.ShowDialog();
+            if (_tempSiparis != null)
+                TBBelgeNo.Text = _tempSiparis.BELGENO;
+            //todo : TBCariKodu.Text = 
+            TBCariAdi.Text = _tempSiparis.CARIADI;
+            //TODO TBKasa.Text = 
+            DTPTarih.Value = _tempSiparis.SIPARISTARIHI;
+            TBAciklama.Text = _tempSiparis.ACIKLAMA;
+            DTPVadeTarihi.Value =_tempSiparis.VADETARIHI;
+            DTPSevkiyatTarihi.Value = _tempSiparis.SEVKIYATTARIHI;
+            TBSVadeGunu.Text = _tempSiparis.VADEGUNU.ToString();
         }
 
         DataGridViewComboBoxColumn DGVFiyatList;

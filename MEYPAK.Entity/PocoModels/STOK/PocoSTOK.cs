@@ -14,9 +14,8 @@ using System.Text.Json.Serialization;
 
 namespace MEYPAK.Entity.PocoModels.STOK
 {
-    public class PocoSTOK
+    public class PocoSTOK:SUPERPOCOMODEL
     {
-        public int ID { get; set; }
         [DefaultValue(0)]
         public int SIRKETID { get; set; } = 0;
         [DefaultValue(0)]
@@ -25,8 +24,6 @@ namespace MEYPAK.Entity.PocoModels.STOK
         public int DEPOID { get; set; }=0;
         [DefaultValue(0)]
         public int KASAID { get; set; } = 0;
-        public DateTime OLUSTURMATARIHI { get; set; } = DateTime.Now;
-        public DateTime GUNCELLEMETARIHI { get; set; } = DateTime.Now;
         [StringLength(50), Required]
         public string KOD { get; set; } = "";
         [StringLength(200)]
@@ -115,8 +112,6 @@ namespace MEYPAK.Entity.PocoModels.STOK
         public int GTIN { get; set; } = 0;
         [DefaultValue(0)]
         public int KULLANICIID { get; set; } = 0;
-        [DefaultValue(0)]
-        public byte KAYITTIPI { get; set; } = 0; 
         public string? DONEM { get; set; } = DateTime.Now.ToString("yyyy"); 
         public virtual ICollection<PocoSTOKOLCUBR> MPSTOKOLCUBR { get; set; }
 

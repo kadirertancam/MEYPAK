@@ -8,12 +8,9 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.Entity.Models.DEPO
 {
-    public class MPDEPOTRANSFER
+    public class MPDEPOTRANSFER:SUPERMODEL
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ID { get; set; }
-        public DateTime OLUSTURMATARIHI { get; set; } = DateTime.Now;
-        public DateTime GUNCELLEMETARIHI { get; set; } = DateTime.Now;
+
         [Required]
         public int CIKTIDEPOID { get; set; }
         [Required]
@@ -22,7 +19,7 @@ namespace MEYPAK.Entity.Models.DEPO
         [Required]
         public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
 
-        public byte KAYITTIPI { get; set; } = 0;
+
 
     }
 }

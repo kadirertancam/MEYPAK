@@ -8,17 +8,14 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.Entity.Models.STOK
 {
-    public class MPSTOKMARKA
+    public class MPSTOKMARKA:SUPERMODEL
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ID { get; set; }
+
         [StringLength(100)]
         [Required]
         public string ADI { get; set; }
         [StringLength(200)]
         public string ACIKLAMA { get; set; }
-        public DateTime OLUSTURMATARIHI { get; set; } 
-        public DateTime GUNCELLEMETARIHI { get; set; }
-        public byte KAYITTIPI { get; set; } = 0;
+
     }
 }

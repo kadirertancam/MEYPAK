@@ -10,12 +10,9 @@ using System.Text.Json.Serialization;
 
 namespace MEYPAK.Entity.Models.DEPO
 {
-    public class MPDEPOTRANSFERHAR
+    public class MPDEPOTRANSFERHAR:SUPERMODEL
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ID { get; set; }
-        public DateTime OLUSTURMATARIHI { get; set; } = DateTime.Now;
-        public DateTime GUNCELLEMETARIHI { get; set; } = DateTime.Now;
+   
         [Required]
         [ForeignKey("MPDEPOTRANSFER")]
         public int DEPOTRANSFERID { get; set; }
@@ -30,7 +27,7 @@ namespace MEYPAK.Entity.Models.DEPO
         public string ACIKLAMA { get; set; } = "";
         [Required]
         public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
-        public byte KAYITTIPI { get; set; } = 0;
+
 
         public virtual MPDEPOTRANSFER MPDEPOTRANSFER { get; set; }
 

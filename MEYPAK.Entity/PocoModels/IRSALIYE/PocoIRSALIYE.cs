@@ -11,9 +11,8 @@ using MEYPAK.Entity.PocoModels.SIPARIS;
 
 namespace MEYPAK.Entity.PocoModels.IRSALIYE
 {
-    public class PocoIRSALIYE
+    public class PocoIRSALIYE:SUPERPOCOMODEL
     {
-        public int ID { get; set; }
         public int SIPARISID { get; set; }
         public int SIRKETID { get; set; } = 0;
         public int SUBEID { get; set; } = 0;
@@ -21,8 +20,6 @@ namespace MEYPAK.Entity.PocoModels.IRSALIYE
         public int CARIID { get; set; } = 0;
         public int ALTHESAPID { get; set; } = 0;
         public int KULLANICIID { get; set; } = 0;
-        public DateTime OLUSTURMATARIHI { get; set; } = DateTime.Now;
-        public DateTime GUNCELLEMETARIHI { get; set; } = DateTime.Now;
         public DateTime IRSALIYETARIHI { get; set; } = DateTime.Now;
         public DateTime SEVKIYATTARIHI { get; set; } = DateTime.Now;
         public DateTime VADETARIHI { get; set; } = DateTime.Now;
@@ -50,7 +47,6 @@ namespace MEYPAK.Entity.PocoModels.IRSALIYE
         public bool DURUM { get; set; }
         [Required]
         public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
-        public byte KAYITTIPI { get; set; } = 0;
         public virtual PocoSIPARIS MPSIPARIS { get; set; }
     }
 }
