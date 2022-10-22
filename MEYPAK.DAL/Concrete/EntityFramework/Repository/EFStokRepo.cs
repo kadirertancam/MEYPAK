@@ -67,6 +67,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
         }
         public MPSTOK EkleyadaGuncelle(MPSTOK entity)
         {
+            _context.ChangeTracker.Clear();
             bool exists = _context.MPSTOK.Any(x => x.ID == entity.ID);
             if (!exists)
             {
@@ -76,14 +77,17 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
             }
             else
             {
+
                 var item = Getir(x=>x.ID == entity.ID).FirstOrDefault();
                 PropertyInfo propertyInfo = (item.GetType().GetProperty("KAYITTIPI"));
                 propertyInfo.SetValue(item, Convert.ChangeType(1, propertyInfo.PropertyType), null);
-                _context.MPSTOK.Update(item);
+                propertyInfo = (item.GetType().GetProperty("ID"));
+                propertyInfo.SetValue(item, Convert.ChangeType(0, propertyInfo.PropertyType), null);
+                _context.MPSTOK.Add(item);
 
-                propertyInfo = (entity.GetType().GetProperty("ID"));
-                propertyInfo.SetValue(entity, Convert.ChangeType(0, propertyInfo.PropertyType), null);
-                _context.MPSTOK.Add(entity);
+           
+                _context.MPSTOK.Update(entity);
+
                 _context.SaveChanges();
                 return entity;
             }
