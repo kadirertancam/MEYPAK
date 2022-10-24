@@ -182,11 +182,12 @@ namespace MEYPAK.PRL.DEPO
             {
                 var tempp = _stokSevkiyatList.obje.Where(x => x.EMIRID.ToString() == dataGridView2.Rows[e.RowIndex].Cells["ID"].Value.ToString()).GroupBy(x => new { x.MPSTOK.KOD, x.MPSTOK.ADI, BIRIM = x.MPOLCUBR.ADI, x.SIPARISMIKTARI }).Select(x => new { KOD = x.Select(x => x.MPSTOK.KOD).FirstOrDefault(), ADI = x.Select(x => x.MPSTOK.ADI).FirstOrDefault(), MIKTAR = x.Sum(z => z.MIKTAR), SIPARISMIKTARI = x.Select(x => x.SIPARISMIKTARI).FirstOrDefault(), KALANMIKTAR = x.Select(x => x.SIPARISMIKTARI).FirstOrDefault() - x.Sum(z => z.MIKTAR), BIRIM = x.Select(x => x.MPOLCUBR.ADI).FirstOrDefault() }).ToList();
                 dataGridView4.DataSource = tempp;
-            } 
+            }
+            _stokMalKabulListServis.Data(ServisList.StokMalKabulListListeServis);
             dataGridView3.DataSource = _siparisSevkEmriHarServis.obje.Select(x => 
             new { BELGENO=_siparisServis.obje.Where(z=>z.ID==x.SIPARISID).FirstOrDefault().BELGENO,
-                KOD=_stokServis.obje.Where(c=>c.ID== _siparisDetayServis.obje.Where(z=>z.ID==x.SIPARISKALEMID).FirstOrDefault().STOKID).FirstOrDefault().KOD, 
-                ADI= _stokServis.obje.Where(c => c.ID == _siparisDetayServis.obje.Where(z => z.ID == x.SIPARISKALEMID).FirstOrDefault().STOKID).FirstOrDefault().ADI,
+                KOD=  _siparisDetayServis.obje.Where(z=> z.SIPARISID==x.SIPARISID).Select(c=> _stokServis.obje.Where(v=>v.ID==c.STOKID).Select(v=>v.KOD).FirstOrDefault()).FirstOrDefault() == null ? "" : "1", 
+                ADI=  _siparisDetayServis.obje.Where(z => z.SIPARISID == x.SIPARISID).Select(c => _stokServis.obje.Where(v => v.ID == c.STOKID).Select(v => v.ADI).FirstOrDefault()).FirstOrDefault()==null?"":"1",
                 x.EMIRID, x.SIPARISMIKTARI, x.EMIRMIKTARI,
                 KALANMIKTAR = _stokMalKabulListServis.obje.Where(z => z.EMIRID == x.EMIRID && z.SIPARISDETAYID == x.SIPARISKALEMID).
                 GroupBy(x => new { x.MPSTOK.KOD, x.MPSTOK.ADI, BIRIM = x.MPOLCUBR.ADI, x.SIPARISMIKTARI }).
@@ -219,7 +220,18 @@ namespace MEYPAK.PRL.DEPO
             _sevkiyatCekiPanel.ShowDialog();
             var tempp2 = _stokSevkiyatList.obje.Where(x => x.EMIRID.ToString() == dataGridView2.Rows[e.RowIndex].Cells["ID"].Value.ToString()).GroupBy(x => new { x.MPSTOK.KOD, x.MPSTOK.ADI, BIRIM = x.MPOLCUBR.ADI, x.SIPARISMIKTARI }).Select(x => new { KOD = x.Select(x => x.MPSTOK.KOD).FirstOrDefault(), ADI = x.Select(x => x.MPSTOK.ADI).FirstOrDefault(), MIKTAR = x.Sum(z => z.MIKTAR), SIPARISMIKTARI = x.Select(x => x.SIPARISMIKTARI).FirstOrDefault(), KALANMIKTAR = x.Select(x => x.SIPARISMIKTARI).FirstOrDefault() - x.Sum(z => z.MIKTAR), BIRIM = x.Select(x => x.MPOLCUBR.ADI).FirstOrDefault() }).ToList();
             dataGridView4.DataSource = tempp2;
-            dataGridView3.DataSource = dataGridView3.DataSource = _siparisSevkEmriHarServis.obje.Select(x => new { BELGENO = _siparisServis.obje.Where(z => z.ID == x.SIPARISID).FirstOrDefault().BELGENO, KOD = _stokServis.obje.Where(c => c.ID == _siparisDetayServis.obje.Where(z => z.ID == x.SIPARISKALEMID).FirstOrDefault().STOKID).FirstOrDefault().KOD, ADI = _stokServis.obje.Where(c => c.ID == _siparisDetayServis.obje.Where(z => z.ID == x.SIPARISKALEMID).FirstOrDefault().STOKID).FirstOrDefault().ADI, x.EMIRID, x.SIPARISMIKTARI, x.EMIRMIKTARI, KALANMIKTAR = _stokMalKabulListServis.obje.Where(z => z.EMIRID == x.EMIRID && z.SIPARISDETAYID == x.SIPARISKALEMID).GroupBy(x => new { x.MPSTOK.KOD, x.MPSTOK.ADI, BIRIM = x.MPOLCUBR.ADI, x.SIPARISMIKTARI }).Select(x => x.Select(x => x.SIPARISMIKTARI).FirstOrDefault() - x.Sum(z => z.MIKTAR)).FirstOrDefault() }).ToList();
+            dataGridView3.DataSource = _siparisSevkEmriHarServis.obje.Select(x =>
+            new {
+                BELGENO = _siparisServis.obje.Where(z => z.ID == x.SIPARISID).FirstOrDefault().BELGENO,
+                KOD = _siparisDetayServis.obje.Where(z => z.SIPARISID == x.SIPARISID).Select(c => _stokServis.obje.Where(v => v.ID == c.STOKID).Select(v => v.KOD).FirstOrDefault()).FirstOrDefault() == null ? "" : "1",
+                ADI = _siparisDetayServis.obje.Where(z => z.SIPARISID == x.SIPARISID).Select(c => _stokServis.obje.Where(v => v.ID == c.STOKID).Select(v => v.ADI).FirstOrDefault()).FirstOrDefault() == null ? "" : "1",
+                x.EMIRID,
+                x.SIPARISMIKTARI,
+                x.EMIRMIKTARI,
+                KALANMIKTAR = _stokMalKabulListServis.obje.Where(z => z.EMIRID == x.EMIRID && z.SIPARISDETAYID == x.SIPARISKALEMID).
+                GroupBy(x => new { x.MPSTOK.KOD, x.MPSTOK.ADI, BIRIM = x.MPOLCUBR.ADI, x.SIPARISMIKTARI }).
+                Select(x => x.Select(x => x.SIPARISMIKTARI).FirstOrDefault() - x.Sum(z => z.MIKTAR)).FirstOrDefault()
+            }).ToList();
 
         }
     }

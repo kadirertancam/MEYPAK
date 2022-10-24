@@ -33,17 +33,20 @@ namespace MEYPAK.PRL.DEPO
             _tempStokSevkiyatList = new PocoSTOKSEVKIYATLIST();
             _tempPocoStok = new GenericWebServis<PocoSTOK>();
             _tempPocoStok.Data(ServisList.StokListeServis);
-            _tempStok = _tempPocoStok.obje;        } 
-        
-     
+            _tempStok = _tempPocoStok.obje; 
+            
+        } 
+        GenericWebServis<PocoStokSevkiyatList> _stokSevkiyatListServis;
         List<PocoSTOK> _tempStok;
         PocoSTOK _Stok;
         public PocoDEPOEMIR _tempEmir;
         PocoSTOKSEVKIYATLIST _tempStokSevkiyatList;
+        
         public List<PocoSTOKSEVKIYATLIST> _tempList; 
         private void button1_Click(object sender, EventArgs e)
         {
-           _Stok= StaticContext._stokServis.Getir(x => x.ID.ToString() == comboBox1.SelectedValue.ToString()).FirstOrDefault();
+            _stokServis.Data(ServisList.StokListeServis);
+            _Stok = _tempPocoStok.obje.Where(x => x.ID.ToString() == comboBox1.SelectedValue.ToString()).FirstOrDefault();
             _tempStokSevkiyatList = new PocoSTOKSEVKIYATLIST()
             {
                 STOKID = _Stok.ID,

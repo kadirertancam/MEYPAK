@@ -113,6 +113,8 @@ builder.Services.AddScoped<IDepoTransferHarServis, DepoTransferHarManager>();
 builder.Services.AddScoped<IStokSevkiyatListDal, EFStokSevkiyatListRepo>();
 builder.Services.AddScoped<IStokSevkiyatListServis, StokSevkiyatListManager>();
 
+builder.Services.AddScoped<IStokMalKKabulListDal, EFStokMalKabulList>();
+builder.Services.AddScoped<IStokMalKabulListServis,StokMalKabulListManager>();
 
 #endregion
 #region IRSALIYE_Scoped_Islemleri
