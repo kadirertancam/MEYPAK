@@ -155,6 +155,8 @@ namespace MEYPAK.PRL.SIPARIS
 
             });
             _stokOlcuBr.Data(ServisList.StokOlcuBrListeServis);
+            _olcuBr.Data(ServisList.StokOlcuBrListeServis);
+            int i = 0;
             foreach (var item in _tempSiparisDetay.Where(x => x.StokKodu != "").ToList())
             {
                var stokolcubr =_stokOlcuBr.obje.Where(x => x.STOKID == item.StokId).FirstOrDefault();
@@ -168,7 +170,7 @@ namespace MEYPAK.PRL.SIPARIS
                     KASAID = item.KasaId,
                     NETTOPLAM = item.NetToplam,
                     NETFIYAT = item.NetFiyat,
-                    BIRIMID = 0, //TODO: Sipariş kalem stok olçü birimi seçilen gelecek
+                    BIRIMID = _olcuBr.obje.Where(x=>x.ADI== dataGridView1.Rows[i].Cells["DGVOlcuBr"].Value).FirstOrDefault().ID, //TODO: Sipariş kalem stok olçü birimi seçilen gelecek
                     DOVIZID = 0,
                     MIKTAR = item.Miktar,
                     ISTKONTO1 = item.İskonto1,
@@ -184,6 +186,7 @@ namespace MEYPAK.PRL.SIPARIS
                     TIP = 0,
                     KDVTUTARI = item.KdvTutarı
                 });
+                i++;
             }
             temizle();
             //DataGrideSiparisleriGetir();
@@ -277,9 +280,16 @@ namespace MEYPAK.PRL.SIPARIS
                 dataGridView1.Columns["StokId"].Visible = false;
                 dataGridView1.Columns["MPSTOK"].Visible = false;
                 dataGridView1.Columns["Birim"].Visible = false;
+                dataGridView1.Columns["KasaId"].Visible = false;
                 dataGridView1.Columns["DGVOlcuBr"].DisplayIndex = 6;
-                dataGridView1.Columns["DGVFiyatList"].DisplayIndex = dataGridView1.ColumnCount - 1;
-                dataGridView1.Columns["DGVStoKSec"].DisplayIndex = 2;
+                dataGridView1.Columns["DGVFiyatList"].DisplayIndex = dataGridView1.ColumnCount - 1; 
+                dataGridView1.Columns["StokKodu"].DisplayIndex = 0;
+                dataGridView1.Columns["DGVStoKSec"].DisplayIndex = 1; 
+                dataGridView1.Columns["StokAdı"].DisplayIndex = 2; 
+
+                dataGridView1.Columns["DGVKasaSec"].DisplayIndex = 7;
+                dataGridView1.Columns["DVGKasaList"].DisplayIndex = 6;
+
 
                 for (int i = 0; i < dataGridView1.Rows.Count; i++)
                 {
@@ -287,7 +297,7 @@ namespace MEYPAK.PRL.SIPARIS
                 }
 
 
-                dataGridView1.Invalidate();
+                //dataGridView1.Invalidate();
                 dataGridView1.Refresh();
 
                 dataGridView1.Rows[dataGridView1.Rows.Count - 1].Cells["StokKodu"].Selected = true;
