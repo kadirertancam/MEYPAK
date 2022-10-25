@@ -30,41 +30,63 @@ namespace MEYPAK.PRL.SIPARIS
             DGVFiyatList = new DataGridViewComboBoxColumn();
             DGVKasaSec = new DataGridViewButtonColumn();
             DGVKasaList = new DataGridViewComboBoxColumn();
-            _tempDepo = new GenericWebServis<PocoDEPO>();
-            fKasaList = new FKasaList("SatinAlmaSiparis");
             _fStokList = new FStokList("SatinAlmaSiparis");
+            fKasaList = new FKasaList("SatinAlmaSiparis");
             dataGridView1.MultiSelect = false;
-            _tempDepo.Data(ServisList.DepoListeServis); 
-            CBDepo.DataSource = _tempDepo.obje.Select(x => x.DEPOADI).ToList();
+            _depoServis = new GenericWebServis<PocoDEPO>();
+            _depoServis.Data(ServisList.DepoListeServis);
+            CBDepo.DataSource = _depoServis.obje.Select(x => x.DEPOADI).ToList();
             _siparisServis = new GenericWebServis<PocoSIPARIS>();
             _siparisServis.Data(ServisList.SiparisListeServis);
             _siparisDetayServis = new GenericWebServis<PocoSIPARISDETAY>();
             _siparisDetayServis.Data(ServisList.DepoListeServis);
-            _stokServis = new GenericWebServis<PocoSTOK>();
-            _stokServis.Data(ServisList.StokListeServis);
-            _stokFiyatListServis = new GenericWebServis<PocoSTOKFIYATLIST>();
-            _stokFiyatListServis.Data(ServisList.StokFiyatListListeServis);
+            _stokOlcuBr = new GenericWebServis<PocoSTOKOLCUBR>();
+            _stokOlcuBr.Data(ServisList.StokOlcuBrListeServis);
+            _olcuBr = new GenericWebServis<PocoOLCUBR>();
+            _olcuBr.Data(ServisList.OlcuBrListeServis);
         }
         #region TANIMLAR
+        FKasaList fKasaList;
         List<PocoSiparisKalem> _tempSiparisDetay = new List<PocoSiparisKalem>();
         DataGridViewComboBoxColumn DGVOlcuBr = new DataGridViewComboBoxColumn();
         PocoSiparisKalem _tempPocokalem;
         FStokList _fStokList;
-        FKasaList fKasaList;
         public PocoSTOK _tempStok;
         public PocoSTOKKASA _tempKasa;
         public PocoSIPARIS _tempSiparis;
-
+        DataGridViewButtonColumn DGVStokSec;
+        DataGridViewButtonColumn DGVKasaSec;
+        List<PocoOLCUBR> _tempOlcuBr = new List<PocoOLCUBR>();
+        DataGridViewComboBoxColumn DGVFiyatList;
+        DataGridViewComboBoxColumn DGVKasaList;
         GenericWebServis<PocoSIPARIS> _siparisServis;
         GenericWebServis<PocoDEPO> _depoServis;
         GenericWebServis<PocoSIPARISDETAY> _siparisDetayServis;
-        GenericWebServis<PocoSTOK> _stokServis;
-        GenericWebServis<PocoSTOKFIYATLIST> _stokFiyatListServis;
-        DataGridViewButtonColumn DGVStokSec;
-        DataGridViewButtonColumn DGVKasaSec;
+        GenericWebServis<PocoSTOKOLCUBR> _stokOlcuBr;
+        GenericWebServis<PocoOLCUBR> _olcuBr;
+        DataGridViewCell DGVtempCell;
         int i;
         decimal birimfiyat = 0, kdv = 0, bsnc = 0, brutfiyat = 0, netfiyat = 0, nettoplam = 0, brüttoplam = 0, geneltoplam = 0, isktoplam = 0, kdvtoplam = 0, miktar = 0;
+        void temizle()
+        {
+            dataGridView1.DataSource = "";
+            _tempSiparisDetay.Clear();
+            _tempSiparisDetay.Add(new PocoSiparisKalem());
+            dataGridView1.DataSource = _tempSiparisDetay;
+            DGVOlcuBr.DataSource = _tempStok.MPSTOKOLCUBR.Select(x => x.MPOLCUBR.ADI).ToList();
+            dataGridView1.Columns["StokId"].Visible = false;
+            dataGridView1.Columns["MPSTOK"].Visible = false;
+            dataGridView1.Columns["Birim"].Visible = false;
+            dataGridView1.Columns["KasaId"].Visible = false;
+            dataGridView1.Columns["DGVOlcuBr"].DisplayIndex = 6;
+            dataGridView1.Columns["DGVFiyatList"].DisplayIndex = dataGridView1.ColumnCount - 1;
+            dataGridView1.Columns["StokKodu"].DisplayIndex = 0;
+            dataGridView1.Columns["DGVStoKSec"].DisplayIndex = 1;
+            dataGridView1.Columns["StokAdı"].DisplayIndex = 2;
 
+            dataGridView1.Columns["DGVKasaSec"].DisplayIndex = 8;
+            dataGridView1.Columns["DVGKasaList"].DisplayIndex = 6;
+        }
         private void dataGridView1_CellLeave(object sender, DataGridViewCellEventArgs e)
         {
             if (CHBKdvDahil.Checked == false)
@@ -100,7 +122,6 @@ namespace MEYPAK.PRL.SIPARIS
                 geneltoplam = nettoplam + kdvtoplam;
                 isktoplam = isktoplam * miktar;
 
-
             }
 
             dataGridView1.Rows[e.RowIndex].Cells["BrütFiyat"].Value = decimal.Round(brutfiyat, 2);
@@ -118,6 +139,7 @@ namespace MEYPAK.PRL.SIPARIS
             TBAraToplam.Text = decimal.Round(_tempSiparisDetay.Sum(x => x.NetToplam), 2).ToString();
             dataGridView1.Invalidate();
             dataGridView1.Refresh();
+
 
         }
 
@@ -225,14 +247,25 @@ namespace MEYPAK.PRL.SIPARIS
             //TODO TBKasa.Text = 
             DTPTarih.Value = _tempSiparis.SIPARISTARIHI;
             TBAciklama.Text = _tempSiparis.ACIKLAMA;
-            DTPVadeTarihi.Value =_tempSiparis.VADETARIHI;
+            DTPVadeTarihi.Value = _tempSiparis.VADETARIHI;
             DTPSevkiyatTarihi.Value = _tempSiparis.SEVKIYATTARIHI;
             TBSVadeGunu.Text = _tempSiparis.VADEGUNU.ToString();
         }
 
-        DataGridViewComboBoxColumn DGVFiyatList;
-        DataGridViewComboBoxColumn DGVKasaList;
-        DataGridViewCell DGVtempCell;
+        private void BTNKasaSec_Click(object sender, EventArgs e)
+        {
+            FKasaList fKasaList = new FKasaList("Siparis");
+            fKasaList.ShowDialog();
+            if (_tempKasa != null)
+                TBKasa.Text = _tempKasa.KASAADI;
+        }
+
+        private void dataGridView1_RowLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridView1.Rows[e.RowIndex].Cells["DGVOlcuBr"].Value != null)
+                _tempSiparisDetay[e.RowIndex].Birim = dataGridView1.Rows[e.RowIndex].Cells["DGVOlcuBr"].Value.ToString();
+        }
+ 
         #endregion
 
         void DataGridYapilandir()
@@ -244,7 +277,8 @@ namespace MEYPAK.PRL.SIPARIS
             DGVOlcuBr.Name = "DGVOlcuBr";
             DGVOlcuBr.HeaderText = "Birim";
             DGVOlcuBr.FlatStyle = FlatStyle.Flat;
-            dataGridView1.Columns["Birim"].Visible = false; 
+            dataGridView1.Columns["Birim"].Visible = false;
+
             dataGridView1.Columns.Add(DGVOlcuBr);
             DGVStokSec.Name = "DGVStoKSec";
             DGVStokSec.HeaderText = "Seç";
@@ -289,9 +323,8 @@ namespace MEYPAK.PRL.SIPARIS
 
         private void BTKaydet_Click(object sender, EventArgs e)
         {
-            _depoServis.Data(ServisList.DepoListeServis);
-            _stokServis.Data(ServisList.StokListeServis);
-             _siparisServis.Data(ServisList.SiparisEkleServis,new PocoSIPARIS()
+
+            _siparisServis.Data(ServisList.SiparisEkleServis, new PocoSIPARIS()
             {
                 ACIKLAMA = TBAciklama.Text,
                 KUR = Convert.ToDecimal(TBKur.Text),
@@ -301,35 +334,39 @@ namespace MEYPAK.PRL.SIPARIS
                 VADEGUNU = Convert.ToInt32(TBSVadeGunu.Text),
                 CARIADI = TBCariAdi.Text,
                 CARIID = 0,
-                DEPOID =  _depoServis.obje.Where(x => x.DEPOADI == CBDepo.SelectedValue).FirstOrDefault().ID,
+                DEPOID = _depoServis.obje.Where(x => x.DEPOADI == CBDepo.SelectedValue).FirstOrDefault().ID,
                 DOVIZID = 0,
                 ISKONTOTOPLAM = _tempSiparisDetay.Sum(x => x.İskontoTutarı),
                 KDVTOPLAM = _tempSiparisDetay.Sum(x => x.KdvTutarı),
                 BRUTTOPLAM = _tempSiparisDetay.Sum(x => x.BrütToplam),
                 NETTOPLAM = _tempSiparisDetay.Sum(x => x.NetToplam),
-                GENELTOPLAM = _tempSiparisDetay.Sum(x => x.KdvTutarı) + _tempSiparisDetay.Sum(x => x.NetToplam),TIP=1
+                GENELTOPLAM = _tempSiparisDetay.Sum(x => x.KdvTutarı) + _tempSiparisDetay.Sum(x => x.NetToplam),TIP=1,
 
             });
-
+            _stokOlcuBr.Data(ServisList.StokOlcuBrListeServis);
+            _olcuBr.Data(ServisList.OlcuBrListeServis);
+            int i = 0;
             foreach (var item in _tempSiparisDetay.Where(x => x.StokKodu != "").ToList())
             {
+                var stokolcubr = _stokOlcuBr.obje.Where(x => x.STOKID == item.StokId).FirstOrDefault();
 
-                _siparisDetayServis.Data(ServisList.SiparisDetayEkleServis,new PocoSIPARISDETAY()
+                _siparisDetayServis.Data(ServisList.SiparisDetayEkleServis, new PocoSIPARISDETAY()
                 {
                     STOKID = item.StokId,
-                    STOKADI = item.MPSTOK.ADI,
+                    STOKADI = item.StokAdı,
                     ACIKLAMA = item.Acıklama,
                     KDV = item.Kdv,
                     KASAID = item.KasaId,
                     NETTOPLAM = item.NetToplam,
                     NETFIYAT = item.NetFiyat,
-                    BIRIMID = item.MPSTOK.MPSTOKOLCUBR.Where(x => x.NUM == 1).Select(x => x.MPOLCUBR.ID).FirstOrDefault(),
+                    BIRIMID = _olcuBr.obje.Where(x => x.ADI.ToString() == dataGridView1.Rows[i].Cells["DGVOlcuBr"].Value.ToString()).FirstOrDefault().ID,
                     DOVIZID = 0,
                     MIKTAR = item.Miktar,
                     ISTKONTO1 = item.İskonto1,
                     ISTKONTO2 = item.İskonto2,
                     ISTKONTO3 = item.İskonto3,
-                    SIPARISID = 0,//_tempp.ID,/// yapılandırılacak
+                    SIPARISID = _siparisServis.obje2.ID, ///ID gelecek
+
                     BRUTFIYAT = item.BrütFiyat,
                     BRUTTOPLAM = item.BrütFiyat * item.Miktar,
                     BEKLEYENMIKTAR = 0,
@@ -338,7 +375,9 @@ namespace MEYPAK.PRL.SIPARIS
                     TIP = 1,
                     KDVTUTARI = item.KdvTutarı
                 });
+                i++;
             }
+            temizle();
         }
         public void Temizle(Control.ControlCollection ctrlCollection)
         {
@@ -361,26 +400,36 @@ namespace MEYPAK.PRL.SIPARIS
             {
                 _fStokList.ShowDialog();
 
+                var tempp = _stokOlcuBr.obje.Where(x => x.STOKID == _tempStok.ID);
+                _olcuBr.Data(ServisList.OlcuBrListeServis);
 
+                foreach (var item in tempp)
+                {
+                    _tempOlcuBr.Add(_olcuBr.obje.Where(x => x.ID == item.OLCUBRID).FirstOrDefault());
+                }
+                DGVOlcuBr.DataSource = _tempOlcuBr.Select(x => x.ADI).ToList();
+                DGVtempCell = dataGridView1.Rows[e.RowIndex].Cells["DGVOlcuBr"];
+                DGVtempCell.Value = DGVOlcuBr.Items[0].ToString();
                 _tempPocokalem = new PocoSiparisKalem()
                 {
                     StokId = _tempStok.ID,
                     MPSTOK = _tempStok,
                     StokKodu = _tempStok.KOD,
                     StokAdı = _tempStok.ADI,
-                    Birim = _tempStok.MPSTOKOLCUBR.Where(x => x.NUM == 1).Select(x => x.MPOLCUBR.ADI).FirstOrDefault().ToString(),
+                    Birim = _olcuBr.obje.Where(x => x.ADI == dataGridView1.Rows[e.RowIndex].Cells["DGVOlcuBr"].Value.ToString()).FirstOrDefault().ADI,
                     KasaAdı = "",
                     Kdv = _tempStok.SATISKDV,
                     Doviz = "TL", //_tempStok.SDOVIZID 
                 };
 
-                DGVOlcuBr.DataSource = _tempStok.MPSTOKOLCUBR.Select(x => x.MPOLCUBR.ADI).ToList();
-                DGVtempCell = dataGridView1.Rows[e.RowIndex].Cells["DGVOlcuBr"];
-                DGVtempCell.Value = DGVOlcuBr.Items[0].ToString();
-                _stokFiyatListServis.Data(ServisList.StokFiyatListListeServis);
-                DGVFiyatList.DataSource = _tempStok.MPSTOKFIYATLISTHAR.Select(x => x.MPSTOKFIYATLIST.FIYATLISTADI).ToList();
+
+
+                //TODO 24.10.2022 BAKILACAK
+
+                DGVFiyatList.DataSource = _tempStok.MPSTOKFIYATLISTHAR.Select(x => x.MPSTOKFIYATLIST.FIYATLISTADI).ToList(); //////////////////////////// BAKILCAK
                 _tempSiparisDetay[e.RowIndex] = _tempPocokalem;
                 dataGridView1.DataSource = _tempSiparisDetay;
+
 
                 dataGridView1.Invalidate();
                 dataGridView1.Refresh();
@@ -388,16 +437,19 @@ namespace MEYPAK.PRL.SIPARIS
             if (dataGridView1.Columns[e.ColumnIndex].Name == "DGVKasaSec")
             {
                 if (_tempPocokalem != null)
-                { 
+                {
+
+
                     fKasaList.ShowDialog();
 
                     if (_tempKasa != null)
                     {
                         TBKasa.Text = _tempKasa.KASAADI;
                         dataGridView1.Rows[e.RowIndex].Cells["KasaAdı"].Value = _tempKasa.KASAADI;
+
+                        _tempPocokalem.KasaAdı = _tempKasa.KASAADI;
+                        _tempPocokalem.KasaId = _tempKasa.ID;
                     }
-                    _tempPocokalem.KasaAdı = _tempKasa.KASAADI;
-                    _tempPocokalem.KasaId = _tempKasa.ID;
 
                 }
             }
@@ -415,9 +467,16 @@ namespace MEYPAK.PRL.SIPARIS
                 dataGridView1.Columns["StokId"].Visible = false;
                 dataGridView1.Columns["MPSTOK"].Visible = false;
                 dataGridView1.Columns["Birim"].Visible = false;
+                dataGridView1.Columns["KasaId"].Visible = false;
                 dataGridView1.Columns["DGVOlcuBr"].DisplayIndex = 6;
                 dataGridView1.Columns["DGVFiyatList"].DisplayIndex = dataGridView1.ColumnCount - 1;
-                dataGridView1.Columns["DGVStoKSec"].DisplayIndex = 2;
+                dataGridView1.Columns["StokKodu"].DisplayIndex = 0;
+                dataGridView1.Columns["DGVStoKSec"].DisplayIndex = 1;
+                dataGridView1.Columns["StokAdı"].DisplayIndex = 2;
+
+                dataGridView1.Columns["DGVKasaSec"].DisplayIndex = 8;
+                dataGridView1.Columns["DVGKasaList"].DisplayIndex = dataGridView1.ColumnCount - 1;
+
 
                 for (int i = 0; i < dataGridView1.Rows.Count; i++)
                 {
@@ -425,7 +484,7 @@ namespace MEYPAK.PRL.SIPARIS
                 }
 
 
-                dataGridView1.Invalidate();
+                //dataGridView1.Invalidate();
                 dataGridView1.Refresh();
 
                 dataGridView1.Rows[dataGridView1.Rows.Count - 1].Cells["StokKodu"].Selected = true;
@@ -450,6 +509,7 @@ namespace MEYPAK.PRL.SIPARIS
 
                 }
             }
+
         }
     }
 }

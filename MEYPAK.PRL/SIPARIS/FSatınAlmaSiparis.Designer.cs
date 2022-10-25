@@ -154,6 +154,7 @@
             this.BTNKasaSec.TabIndex = 41;
             this.BTNKasaSec.Text = "Seç";
             this.BTNKasaSec.UseVisualStyleBackColor = true;
+            this.BTNKasaSec.Click += new System.EventHandler(this.BTNKasaSec_Click);
             // 
             // TBKasa
             // 
@@ -735,6 +736,7 @@
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
             this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
             this.dataGridView1.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridView1_EditingControlShowing);
+            this.dataGridView1.RowLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowLeave);
             this.dataGridView1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dataGridView1_KeyPress);
             // 
             // panel2

@@ -21,8 +21,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
         }
 
         public MPSTOKSEVKİYATLİST EkleyadaGuncelle(MPSTOKSEVKİYATLİST entity)
-        {
-            OnYukle();
+        { 
             bool exists = _context.MPSTOK.Any(x => x.ID == entity.ID);
             if (!exists)
             {

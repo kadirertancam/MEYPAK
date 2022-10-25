@@ -142,95 +142,95 @@ namespace MEYPAK.PRL
         }
         private void BTKaydet_Click(object sender, EventArgs e)                 // Stok Kayıt
         {
-         
-
-
-           Parallel.For(0, 50000, x =>
-
-               {
-                   _markaServis.Data(ServisList.StokMarkaListeServis);
-                   _PocoStokServis.Data(ServisList.StokEkleServis,
-                new PocoSTOK()
-                {
-
-                    KOD = Faker.RandomNumber.Next(255).ToString(),
-                    ADI = Faker.Name.FullName(),
-                    MARKAID = Faker.RandomNumber.Next(255),
-                    KATEGORIID = Faker.RandomNumber.Next(255),
-                    KASAID = Faker.RandomNumber.Next(255),//_tempKasa.ID,
-                    GRUPKODU = Faker.RandomNumber.Next(255),
-                    ACIKLAMA = Faker.Name.FullName(),
-                    SATISKDV = Faker.RandomNumber.Next(255),
-                    ALISKDV = Faker.RandomNumber.Next(255),
-                    SATISOTV = Faker.RandomNumber.Next(255),
-                    ALISOTV = Faker.RandomNumber.Next(255),
-                    AFIYAT1 = Faker.RandomNumber.Next(255),
-                    AFIYAT2 = Faker.RandomNumber.Next(255),
-                    AFIYAT3 = Faker.RandomNumber.Next(255),
-                    AFIYAT4 = Faker.RandomNumber.Next(255),
-                    AFIYAT5 = Faker.RandomNumber.Next(255),
-                    SFIYAT1 = Faker.RandomNumber.Next(255),
-                    SFIYAT2 = Faker.RandomNumber.Next(255),
-                    SFIYAT3 = Faker.RandomNumber.Next(255),
-                    SFIYAT4 = Faker.RandomNumber.Next(255),
-                    SFIYAT5 = Faker.RandomNumber.Next(255),
-                    SDOVIZID = Faker.RandomNumber.Next(255),
-                    ADOVIZID = Faker.RandomNumber.Next(255),
-
-
-                });
-               });
-             
 
 
 
-            //_markaServis.Data(ServisList.StokMarkaListeServis);
-            //_tempStok = new PocoSTOK()
-            //{
-            //    ID = stokid,
-            //    KOD = TBStokKodu.Text,
-            //    ADI = TBStokAdı.Text,
-            //    MARKAID = _markaServis.obje.Where(x => x.ADI == TBMarka.Text).FirstOrDefault().ID,
-            //    KATEGORIID = _tempKategori.ID,
-            //    KASAID = 1,//_tempKasa.ID,
-            //    GRUPKODU = int.Parse(TBGrupKodu.Text),
-            //    ACIKLAMA = TBAcıklama.Text,
-            //    SATISKDV = Convert.ToDecimal(TBSatisKdv.Text),
-            //    ALISKDV = Convert.ToDecimal(TBAlisKdv.Text),
-            //    SATISOTV = Convert.ToDecimal(TBSatisOtv.Text),
-            //    ALISOTV = Convert.ToDecimal(TBAlisOtv.Text),
-            //    AFIYAT1 = Convert.ToDecimal(TBAFiyat1.Text),
-            //    AFIYAT2 = Convert.ToDecimal(TBAFiyat2.Text),
-            //    AFIYAT3 = Convert.ToDecimal(TBAFiyat3.Text),
-            //    AFIYAT4 = Convert.ToDecimal(TBAFiyat4.Text),
-            //    AFIYAT5 = Convert.ToDecimal(TBAFiyat5.Text),
-            //    SFIYAT1 = Convert.ToDecimal(TBSFiyat1.Text),
-            //    SFIYAT2 = Convert.ToDecimal(TBSFiyat2.Text),
-            //    SFIYAT3 = Convert.ToDecimal(TBSFiyat3.Text),
-            //    SFIYAT4 = Convert.ToDecimal(TBSFiyat4.Text),
-            //    SFIYAT5 = Convert.ToDecimal(TBSFiyat5.Text),
-            //    SDOVIZID = CBSDoviz.SelectedIndex,
-            //    ADOVIZID = CBADoviz.SelectedIndex,
+            //Parallel.For(0, 50000, x =>
+
+            //    {
+            //        _markaServis.Data(ServisList.StokMarkaListeServis);
+            //        _PocoStokServis.Data(ServisList.StokEkleServis,
+            //     new PocoSTOK()
+            //     {
+
+            //         KOD = Faker.RandomNumber.Next(255).ToString(),
+            //         ADI = Faker.Name.FullName(),
+            //         MARKAID = Faker.RandomNumber.Next(255),
+            //         KATEGORIID = Faker.RandomNumber.Next(255),
+            //         KASAID = Faker.RandomNumber.Next(255),//_tempKasa.ID,
+            //         GRUPKODU = Faker.RandomNumber.Next(255),
+            //         ACIKLAMA = Faker.Name.FullName(),
+            //         SATISKDV = Faker.RandomNumber.Next(255),
+            //         ALISKDV = Faker.RandomNumber.Next(255),
+            //         SATISOTV = Faker.RandomNumber.Next(255),
+            //         ALISOTV = Faker.RandomNumber.Next(255),
+            //         AFIYAT1 = Faker.RandomNumber.Next(255),
+            //         AFIYAT2 = Faker.RandomNumber.Next(255),
+            //         AFIYAT3 = Faker.RandomNumber.Next(255),
+            //         AFIYAT4 = Faker.RandomNumber.Next(255),
+            //         AFIYAT5 = Faker.RandomNumber.Next(255),
+            //         SFIYAT1 = Faker.RandomNumber.Next(255),
+            //         SFIYAT2 = Faker.RandomNumber.Next(255),
+            //         SFIYAT3 = Faker.RandomNumber.Next(255),
+            //         SFIYAT4 = Faker.RandomNumber.Next(255),
+            //         SFIYAT5 = Faker.RandomNumber.Next(255),
+            //         SDOVIZID = Faker.RandomNumber.Next(255),
+            //         ADOVIZID = Faker.RandomNumber.Next(255),
 
 
-            //};
-             
-            //var snc = _PocoStokServis.obje;
-            //_PocoStokServis.Data(ServisList.StokListeServis);
-            //_tempStok =_PocoStokServis.obje.Where(x => x.KOD == _tempStok.KOD).FirstOrDefault();
-            //foreach (var item in stokOlculist)
-            //{
-            //    item.STOKID = _PocoStokServis.obje.Where(x=>x.KOD==TBStokKodu.Text).FirstOrDefault().ID; 
-            //    _StokOlcuBrServis.Data(ServisList.StokOlcuBrEkleServis,item);
-            //}
-            
-            //stokid = 0;
-            //if (snc!=null)
-            //    MessageBox.Show("Kayıt Başarılı.");
-            //Temizle(this.Controls);
-            //TBStokKodu.Text = "";
-            
-            //dataGridView1.DataSource = "";
+            //     });
+            //    });
+
+
+
+
+            _markaServis.Data(ServisList.StokMarkaListeServis);
+            _tempStok = new PocoSTOK()
+            {
+                ID = stokid,
+                KOD = TBStokKodu.Text,
+                ADI = TBStokAdı.Text,
+                MARKAID = _markaServis.obje.Where(x => x.ADI == TBMarka.Text).FirstOrDefault().ID,
+                KATEGORIID = _tempKategori.ID,
+                KASAID = 1,//_tempKasa.ID,
+                GRUPKODU = int.Parse(TBGrupKodu.Text),
+                ACIKLAMA = TBAcıklama.Text,
+                SATISKDV = Convert.ToDecimal(TBSatisKdv.Text),
+                ALISKDV = Convert.ToDecimal(TBAlisKdv.Text),
+                SATISOTV = Convert.ToDecimal(TBSatisOtv.Text),
+                ALISOTV = Convert.ToDecimal(TBAlisOtv.Text),
+                AFIYAT1 = Convert.ToDecimal(TBAFiyat1.Text),
+                AFIYAT2 = Convert.ToDecimal(TBAFiyat2.Text),
+                AFIYAT3 = Convert.ToDecimal(TBAFiyat3.Text),
+                AFIYAT4 = Convert.ToDecimal(TBAFiyat4.Text),
+                AFIYAT5 = Convert.ToDecimal(TBAFiyat5.Text),
+                SFIYAT1 = Convert.ToDecimal(TBSFiyat1.Text),
+                SFIYAT2 = Convert.ToDecimal(TBSFiyat2.Text),
+                SFIYAT3 = Convert.ToDecimal(TBSFiyat3.Text),
+                SFIYAT4 = Convert.ToDecimal(TBSFiyat4.Text),
+                SFIYAT5 = Convert.ToDecimal(TBSFiyat5.Text),
+                SDOVIZID = CBSDoviz.SelectedIndex,
+                ADOVIZID = CBADoviz.SelectedIndex,
+
+
+            };
+
+            var snc = _PocoStokServis.obje;
+            _PocoStokServis.Data(ServisList.StokListeServis);
+            _tempStok = _PocoStokServis.obje.Where(x => x.KOD == _tempStok.KOD).FirstOrDefault();
+            foreach (var item in stokOlculist)
+            {
+                item.STOKID = _PocoStokServis.obje.Where(x => x.KOD == TBStokKodu.Text).FirstOrDefault().ID;
+                _StokOlcuBrServis.Data(ServisList.StokOlcuBrEkleServis, item);
+            }
+
+            stokid = 0;
+            if (snc != null)
+                MessageBox.Show("Kayıt Başarılı.");
+            Temizle(this.Controls);
+            TBStokKodu.Text = "";
+
+            dataGridView1.DataSource = "";
         }
         private void BTSil_Click(object sender, EventArgs e)                  // Stok Sil
         {

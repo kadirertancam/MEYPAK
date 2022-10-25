@@ -71,7 +71,7 @@ namespace MEYPAK.PRL.SIPARIS
         }
         DataGridViewButtonColumn DGVStokSec;
         DataGridViewButtonColumn DGVKasaSec;
-
+        List<PocoOLCUBR> _tempOlcuBr = new List<PocoOLCUBR>();
         DataGridViewComboBoxColumn DGVFiyatList;
         DataGridViewComboBoxColumn DGVKasaList;
         GenericWebServis<PocoSIPARIS> _siparisServis;
@@ -87,6 +87,18 @@ namespace MEYPAK.PRL.SIPARIS
             _tempSiparisDetay.Add(new PocoSiparisKalem()); 
             dataGridView1.DataSource = _tempSiparisDetay;
             DGVOlcuBr.DataSource = _tempStok.MPSTOKOLCUBR.Select(x => x.MPOLCUBR.ADI).ToList();
+            dataGridView1.Columns["StokId"].Visible = false;
+            dataGridView1.Columns["MPSTOK"].Visible = false;
+            dataGridView1.Columns["Birim"].Visible = false;
+            dataGridView1.Columns["KasaId"].Visible = false;
+            dataGridView1.Columns["DGVOlcuBr"].DisplayIndex = 6;
+            dataGridView1.Columns["DGVFiyatList"].DisplayIndex = dataGridView1.ColumnCount - 1;
+            dataGridView1.Columns["StokKodu"].DisplayIndex = 0;
+            dataGridView1.Columns["DGVStoKSec"].DisplayIndex = 1;
+            dataGridView1.Columns["StokAdı"].DisplayIndex = 2;
+
+            dataGridView1.Columns["DGVKasaSec"].DisplayIndex = 8;
+            dataGridView1.Columns["DVGKasaList"].DisplayIndex = 6;
         }
         void DataGridYapilandir()
         {
@@ -151,26 +163,26 @@ namespace MEYPAK.PRL.SIPARIS
                 KDVTOPLAM = _tempSiparisDetay.Sum(x => x.KdvTutarı),
                 BRUTTOPLAM = _tempSiparisDetay.Sum(x => x.BrütToplam),
                 NETTOPLAM = _tempSiparisDetay.Sum(x => x.NetToplam),
-                GENELTOPLAM = _tempSiparisDetay.Sum(x => x.KdvTutarı) + _tempSiparisDetay.Sum(x => x.NetToplam),
+                GENELTOPLAM = _tempSiparisDetay.Sum(x => x.KdvTutarı) + _tempSiparisDetay.Sum(x => x.NetToplam),TIP=0,
 
             });
             _stokOlcuBr.Data(ServisList.StokOlcuBrListeServis);
-            _olcuBr.Data(ServisList.StokOlcuBrListeServis);
+            _olcuBr.Data(ServisList.OlcuBrListeServis);
             int i = 0;
             foreach (var item in _tempSiparisDetay.Where(x => x.StokKodu != "").ToList())
             {
                var stokolcubr =_stokOlcuBr.obje.Where(x => x.STOKID == item.StokId).FirstOrDefault();
-
+                
                 _siparisDetayServis.Data(ServisList.SiparisDetayEkleServis,new PocoSIPARISDETAY()
                 {
                     STOKID = item.StokId,
-                    STOKADI = item.MPSTOK.ADI,
+                    STOKADI = item.StokAdı,
                     ACIKLAMA = item.Acıklama,
                     KDV = item.Kdv,
                     KASAID = item.KasaId,
                     NETTOPLAM = item.NetToplam,
                     NETFIYAT = item.NetFiyat,
-                    BIRIMID = _olcuBr.obje.Where(x=>x.ADI== dataGridView1.Rows[i].Cells["DGVOlcuBr"].Value).FirstOrDefault().ID, //TODO: Sipariş kalem stok olçü birimi seçilen gelecek
+                    BIRIMID = _olcuBr.obje.Where(x=>x.ADI.ToString()== dataGridView1.Rows[i].Cells["DGVOlcuBr"].Value.ToString()).FirstOrDefault().ID ,
                     DOVIZID = 0,
                     MIKTAR = item.Miktar,
                     ISTKONTO1 = item.İskonto1,
@@ -209,35 +221,39 @@ namespace MEYPAK.PRL.SIPARIS
                 }
             }
         }
-        List<PocoOLCUBR> _tempOlcuBr=new List<PocoOLCUBR>();
+      
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dataGridView1.Columns[e.ColumnIndex].Name == "DGVStoKSec")
             {
                 _fStokList.ShowDialog();
 
-                 
+                var tempp = _stokOlcuBr.obje.Where(x => x.STOKID == _tempStok.ID);
+                _olcuBr.Data(ServisList.OlcuBrListeServis);
+
+                foreach (var item in tempp)
+                {
+                    _tempOlcuBr.Add(_olcuBr.obje.Where(x => x.ID == item.OLCUBRID).FirstOrDefault());
+                }
+                DGVOlcuBr.DataSource = _tempOlcuBr.Select(x => x.ADI).ToList();
+                DGVtempCell = dataGridView1.Rows[e.RowIndex].Cells["DGVOlcuBr"];
+                DGVtempCell.Value = DGVOlcuBr.Items[0].ToString();
                 _tempPocokalem = new PocoSiparisKalem()
                 {
                     StokId = _tempStok.ID,
                     MPSTOK = _tempStok,
                     StokKodu = _tempStok.KOD,
                     StokAdı = _tempStok.ADI,
-                    Birim = "",
+                    Birim = _olcuBr.obje.Where(x=>x.ADI== dataGridView1.Rows[e.RowIndex].Cells["DGVOlcuBr"].Value.ToString()).FirstOrDefault().ADI,
                     KasaAdı = "",
                     Kdv = _tempStok.SATISKDV,
                     Doviz = "TL", //_tempStok.SDOVIZID 
                 };
-                var tempp = _stokOlcuBr.obje.Where(x => x.STOKID == _tempStok.ID);
-                _olcuBr.Data(ServisList.OlcuBrListeServis);
-                foreach (var item in tempp)
-                {
-                    _tempOlcuBr.Add(_olcuBr.obje.Where(x => x.ID == item.OLCUBRID).FirstOrDefault());
-                }
+                
+              
                
-                DGVOlcuBr.DataSource = _tempOlcuBr.Select(x=>x.ADI).ToList();  //TODO 24.10.2022 BAKILACAK
-                DGVtempCell = dataGridView1.Rows[e.RowIndex].Cells["DGVOlcuBr"];
-                DGVtempCell.Value = DGVOlcuBr.Items[0].ToString();  
+                  //TODO 24.10.2022 BAKILACAK
+               
                 DGVFiyatList.DataSource = _tempStok.MPSTOKFIYATLISTHAR.Select(x => x.MPSTOKFIYATLIST.FIYATLISTADI).ToList(); //////////////////////////// BAKILCAK
                 _tempSiparisDetay[e.RowIndex] = _tempPocokalem;
                 dataGridView1.DataSource = _tempSiparisDetay;
@@ -287,8 +303,8 @@ namespace MEYPAK.PRL.SIPARIS
                 dataGridView1.Columns["DGVStoKSec"].DisplayIndex = 1; 
                 dataGridView1.Columns["StokAdı"].DisplayIndex = 2; 
 
-                dataGridView1.Columns["DGVKasaSec"].DisplayIndex = 7;
-                dataGridView1.Columns["DVGKasaList"].DisplayIndex = 6;
+                dataGridView1.Columns["DGVKasaSec"].DisplayIndex = 8;
+                dataGridView1.Columns["DVGKasaList"].DisplayIndex = dataGridView1.ColumnCount-1;
 
 
                 for (int i = 0; i < dataGridView1.Rows.Count; i++)
