@@ -109,6 +109,8 @@ builder.Services.AddScoped<IDepoTransferServis, DepoTransferManager>();
 builder.Services.AddScoped<IDepoTransferHarDal, EFDepoTransferHarRepo>();
 builder.Services.AddScoped<IDepoTransferHarServis, DepoTransferHarManager>();
 
+builder.Services.AddScoped<IStokMalKKabulListDal, EFStokMalKabulList>();
+builder.Services.AddScoped<IStokMalKabulListServis, StokMalKabulListManager>();
 
 builder.Services.AddScoped<IStokSevkiyatListDal, EFStokSevkiyatListRepo>();
 builder.Services.AddScoped<IStokSevkiyatListServis, StokSevkiyatListManager>();

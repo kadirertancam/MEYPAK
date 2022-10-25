@@ -49,6 +49,8 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository.AracRepo
                 _context.MPARACLAR.Add(item);
                 _context.SaveChanges();
                 _context.ChangeTracker.Clear();
+                propertyInfo = (entity.GetType().GetProperty("GUNCELLEMETARIHI"));
+                propertyInfo.SetValue(entity, Convert.ChangeType(DateTime.Now, propertyInfo.PropertyType), null);
                 _context.MPARACLAR.Update(entity);
                 _context.SaveChanges();
                 return entity;
