@@ -35,13 +35,17 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
                     propertyInfo3.SetValue(item, Convert.ChangeType(item.ID, propertyInfo3.PropertyType), null);
 
                 }
-                PropertyInfo propertyInfo = (item.GetType().GetProperty("KAYITTIPI"));
+                PropertyInfo propertyInfo = (item.GetType().GetProperty("GUNCELLEMETARIHI"));
+                propertyInfo.SetValue(item, Convert.ChangeType(DateTime.Now, propertyInfo.PropertyType), null);
+                propertyInfo = (item.GetType().GetProperty("KAYITTIPI"));
                 propertyInfo.SetValue(item, Convert.ChangeType(1, propertyInfo.PropertyType), null);
-                PropertyInfo propertyInfo2 = (item.GetType().GetProperty("ID"));
-                propertyInfo2.SetValue(item, Convert.ChangeType(0, propertyInfo2.PropertyType), null);
+                propertyInfo = (item.GetType().GetProperty("ID"));
+                propertyInfo.SetValue(item, Convert.ChangeType(0, propertyInfo.PropertyType), null);
                 _context.MPDEPOEMIR.Add(item);
                 _context.SaveChanges();
                 _context.ChangeTracker.Clear();
+                propertyInfo = (entity.GetType().GetProperty("GUNCELLEMETARIHI"));
+                propertyInfo.SetValue(entity, Convert.ChangeType(DateTime.Now, propertyInfo.PropertyType), null);
                 _context.MPDEPOEMIR.Update(entity);
                 _context.SaveChanges();
                 return entity;

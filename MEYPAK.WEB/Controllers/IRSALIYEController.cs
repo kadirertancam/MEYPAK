@@ -11,6 +11,7 @@ namespace MEYPAK.WEB.Controllers
     {
         private readonly ILogger<IRSALIYEController> _logger;
         GenericWebServis<PocoIRSALIYE> _tempPocoIrsaliye = new GenericWebServis<PocoIRSALIYE>();
+        GenericWebServis<PocoIRSALIYEDETAY> _tempPocoIrsaliyeDetay = new GenericWebServis<PocoIRSALIYEDETAY>();
 
         public IRSALIYEController(ILogger<IRSALIYEController> logger)
         {
@@ -44,5 +45,31 @@ namespace MEYPAK.WEB.Controllers
         }
         #endregion
 
+        #region IRSALIYEDETAY
+        [HttpGet]
+
+        public async Task<IActionResult> IrsaliyeDetayKart()
+        {
+            _tempPocoIrsaliyeDetay.Data(ServisList.IrsaliyeDetayListeServis);
+
+            return View(_tempPocoIrsaliye.obje);
+        }
+
+        [HttpGet]
+        public IActionResult IrsaliyeDetayEkle()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> IrsaliyeDetayEkle(PocoIRSALIYEDETAY pModel)
+        {
+
+            _tempPocoIrsaliyeDetay.Data(ServisList.IrsaliyeDetayEkleServis, pModel);
+
+            ViewBag.Durum = "Başarıyla eklendi.";
+            return View();
+        }
+        #endregion
     }
 }

@@ -1,19 +1,10 @@
-﻿using AutoMapper.Internal;
+﻿using MEYPAK.BLL.Assets.Filters;
 using MEYPAK.DAL.Abstract;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
-using MEYPAK.Entity.Models;
 using MEYPAK.Interfaces;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using Microsoft.IdentityModel.Tokens;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
 {
@@ -105,7 +96,12 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
             //    }
             //}
             //return query.ToList();
-            var A = context.Set<T>().ToList();
+            var wheres = new[]
+             {
+                    new Filtering.WhereParams { ColumnName = "KAYITTIPI", Operator = "Equals", Value = 0 }
+             };
+
+            var A = context.Set<T>().Where(wheres).ToList();
             return A;
         }
 
