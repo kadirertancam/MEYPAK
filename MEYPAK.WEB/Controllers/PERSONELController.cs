@@ -42,6 +42,21 @@ namespace MEYPAK.WEB.Controllers
             ViewBag.Durum = "Başarıyla eklendi.";
             return View();
         }
+        [HttpGet]
+        public IActionResult PersonelSil()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> PersonelSil(List<PocoPERSONEL> pModel)
+        {
+
+            _tempPocoPersonel.Data(ServisList.PersonelSilServis,modellist: pModel);
+
+            ViewBag.Durum = "Başarıyla silindi.";
+            return View();
+        }
         #endregion
 
 

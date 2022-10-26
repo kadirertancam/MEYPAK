@@ -14,6 +14,7 @@ using System.Text.Json;
 using JsonSerializer = System.Text.Json.JsonSerializer;
 using System.Text.RegularExpressions;
 using MEYPAK.BLL.Assets;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace MEYPAK.WEB.Controllers.STOKController
 {
@@ -71,6 +72,24 @@ namespace MEYPAK.WEB.Controllers.STOKController
             ViewBag.Durum = "Başarıyla eklendi.";
             return View();
         }
+
+        [HttpGet]
+        public IActionResult StokSil()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> StokSil(List<PocoSTOK> pModel)
+        {
+
+            _tempPocoStok.Data(ServisList.StokSilServis,modellist: pModel);
+
+            ViewBag.Durum = "Başarıyla silindi.";
+            return View();
+        }
+
+
         #endregion
 
         #region HIZMET
@@ -93,6 +112,20 @@ namespace MEYPAK.WEB.Controllers.STOKController
             _tempPocoHizmet.Data(ServisList.HizmetEkleServis, pModel);
 
             ViewBag.Durum = "Başarıyla eklendi.";
+            return View();
+        }
+        [HttpGet]
+        public IActionResult HizmetSil()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> HizmetSil(List<PocoHIZMET> pModel)
+        {
+            _tempPocoHizmet.Data(ServisList.HizmetSilServis,modellist: pModel);
+
+            ViewBag.Durum = "Başarıyla Silindi.";
             return View();
         }
 
@@ -118,6 +151,20 @@ namespace MEYPAK.WEB.Controllers.STOKController
             _tempPocoOlcuBr.Data(ServisList.OlcuBrEkleServis, pModel);
 
             ViewBag.Durum = "Başarıyla eklendi.";
+            return View();
+        }
+        [HttpGet]
+        public IActionResult OlcuBrSil()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> OlcuBrSil(List<PocoOLCUBR> pModel)
+        {
+            _tempPocoOlcuBr.Data(ServisList.OlcuBrSilServis,modellist: pModel);
+
+            ViewBag.Durum = "Başarıyla silindi.";
             return View();
         }
 
@@ -148,6 +195,20 @@ namespace MEYPAK.WEB.Controllers.STOKController
             ViewBag.Durum = "Başarıyla eklendi.";
             return View();
         }
+        [HttpGet]
+        public IActionResult StokFiyatListSil()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> StokFiyatListSil(List<PocoSTOKFIYATLIST> pModel)
+        {
+            _tempPocoStokFiyatList.Data(ServisList.StokFiyatListEkleServis,modellist: pModel);
+
+            ViewBag.Durum = "Başarıyla silindi.";
+            return View();
+        }
 
         #endregion
 
@@ -176,6 +237,21 @@ namespace MEYPAK.WEB.Controllers.STOKController
             ViewBag.Durum = "Başarıyla eklendi.";
             return View();
         }
+        [HttpGet]
+        public IActionResult StokFiyatListHarSil()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> StokFiyatListHarSil(List<PocoSTOKFIYATLISTHAR> pModel)
+        {
+            _tempPocoStokFiyatHarList.Data(ServisList.StokFiyatListHarSilServis,modellist: pModel);
+
+            ViewBag.Durum = "Başarıyla silindi.";
+            return View();
+        }
+
 
         #endregion
 
@@ -199,15 +275,31 @@ namespace MEYPAK.WEB.Controllers.STOKController
         public async Task<IActionResult> StokHarEkle(PocoSTOKHAR pModel)
         {
 
-            _tempPocoStokHar.Data(ServisList.StokEkleServis, pModel);
+            _tempPocoStokHar.Data(ServisList.StokHarEkleServis, pModel);
 
             ViewBag.Durum = "Başarıyla eklendi.";
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult StokHarSil()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> StokHarSil(List<PocoSTOKHAR> pModel)
+        {
+
+            _tempPocoStokHar.Data(ServisList.StokHarSilServis,modellist: pModel);
+
+            ViewBag.Durum = "Başarıyla silindi.";
             return View();
         }
         #endregion
 
         #region STOKKASA
-      
+
 
         [HttpGet]
         public async Task<IActionResult> StokKasaKart()
@@ -230,6 +322,21 @@ namespace MEYPAK.WEB.Controllers.STOKController
             _tempPocoStokKasa.Data(ServisList.StokKasaEkleServis, pModel);
 
             ViewBag.Durum = "Başarıyla eklendi.";
+            return View();
+        }
+        [HttpGet]
+        public IActionResult StokKasaSil()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> StokKasaSil(List<PocoSTOKKASA> pModel)
+        {
+
+            _tempPocoStokKasa.Data(ServisList.StokKasaSilServis,modellist: pModel);
+
+            ViewBag.Durum = "Başarıyla silindi.";
             return View();
         }
         #endregion
@@ -260,6 +367,21 @@ namespace MEYPAK.WEB.Controllers.STOKController
             ViewBag.Durum = "Başarıyla eklendi.";
             return View();
         }
+        [HttpGet]
+        public IActionResult StokKategoriSil()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> StokKategoriSil(List<PocoSTOKKATEGORI> pModel)
+        {
+
+            _tempPocoStokKategori.Data(ServisList.StokKategoriSilServis,modellist: pModel);
+
+            ViewBag.Durum = "Başarıyla silindi.";
+            return View();
+        }
         #endregion
 
         #region STOKMARKA
@@ -286,6 +408,21 @@ namespace MEYPAK.WEB.Controllers.STOKController
             _tempPocoStokMarka.Data(ServisList.StokMarkaEkleServis, pModel);
 
             ViewBag.Durum = "Başarıyla eklendi.";
+            return View();
+        }
+        [HttpGet]
+        public IActionResult StokMarkaSil()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> StokMarkaSil(List<PocoSTOKMARKA> pModel)
+        {
+
+            _tempPocoStokMarka.Data(ServisList.StokMarkaSilServis,modellist: pModel);
+
+            ViewBag.Durum = "Başarıyla silindi.";
             return View();
         }
         #endregion
@@ -316,6 +453,21 @@ namespace MEYPAK.WEB.Controllers.STOKController
             ViewBag.Durum = "Başarıyla eklendi.";
             return View();
         }
+        [HttpGet]
+        public IActionResult StokOlcuBrSil()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> StokOlcuBrSil(List<PocoSTOKOLCUBR> pModel)
+        {
+
+            _tempPocoStokOlcuBr.Data(ServisList.StokOlcuBrSilServis,modellist: pModel);
+
+            ViewBag.Durum = "Başarıyla silindi.";
+            return View();
+        }
         #endregion
 
         #region STOKSAYIM
@@ -344,6 +496,21 @@ namespace MEYPAK.WEB.Controllers.STOKController
             ViewBag.Durum = "Başarıyla eklendi.";
             return View();
         }
+        [HttpGet]
+        public IActionResult StokSayimSil()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> StokSayimSil(List<PocoSTOKSAYIM> pModel)
+        {
+
+            _tempPocoStokSayim.Data(ServisList.StokSayimSilServis, modellist: pModel);
+
+            ViewBag.Durum = "Başarıyla silindi.";
+            return View();
+        }
         #endregion
 
         #region STOKSAYIMHAR
@@ -370,6 +537,21 @@ namespace MEYPAK.WEB.Controllers.STOKController
             _tempPocoStokSayimHar.Data(ServisList.StokSayimHarEkleServis, pModel);
 
             ViewBag.Durum = "Başarıyla eklendi.";
+            return View();
+        }
+        [HttpGet]
+        public IActionResult StokSayimHarSil()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> StokSayimHarSil(List<PocoSTOKSAYIMHAR> pModel)
+        {
+
+            _tempPocoStokSayimHar.Data(ServisList.StokSayimHarSilServis,modellist: pModel);
+
+            ViewBag.Durum = "Başarıyla Silindi.";
             return View();
         }
         #endregion

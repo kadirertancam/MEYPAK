@@ -1,43 +1,196 @@
-﻿<aside id="left-panel" class="left-panel">
-    <nav class="navbar navbar-expand-sm navbar-default">
+﻿<!-- Sidebar Menu -->
+<nav class="mt-2">
+    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <!-- Add icons to the links using the .nav-icon class
+             with font-awesome or any other icon font library -->
+        <li class="nav-item">
+        <li class="nav-item">
+            <a href="#" class="nav-link active">
+                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <p>Genel Bakış</p>
+            </a>
+        </li>
+        </li>
 
-        <div class="navbar-header">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fa fa-bars"></i>
-            </button>
-            <a class="navbar-brand" href="/Home/Home"><img src="~/Meypakimg/logo.png" alt="Logo"></a>
-            <a class="navbar-brand hidden" href="./"><img src="~/images/logo2.png" alt="Logo"></a>
-        </div>
-
-        <div id="main-menu" class="main-menu collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-
-                <li class="active">
-                    <a href="#"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
+        <li class="nav-item">
+            <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-th"></i>
+                <p>Stok</p>
+                <i class="right fas fa-angle-left"></i>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-circle"></i>
+                     
+                        <p>Tanım</p>
+                        <i class="right fas fa-angle-left"></i>
+                    </a>
+                    <partial name="Partials/UnderPartials/STOK/_StokTanımPartial" />
                 </li>
-
-                <li class="menu-item-has-children ">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa  fa-edit"></i>Tanım</a>
-                    <ul class="sub-menu children dropdown-menu">
-                        <partial name="Partials/UnderPartials/_TanimPartial" />
-                    </ul>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-circle"></i>
+                        <p>Hareket</p>
+                        <i class="right fas fa-angle-left"></i>
+                    </a>
+                    <partial name="Partials/UnderPartials/STOK/_StokHareketPartial" />
                 </li>
-
-                <li class="menu-item-has-children ">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-gears"></i>Hareket</a>
-                    <ul class="sub-menu children dropdown-menu">
-                        @*<partial name="Partials/UnderPartials/_StokPartial" />*@
-                    </ul>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-circle"></i>
+                        <p>Rapor</p>
+                        <i class="right fas fa-angle-left"></i>
+                    </a>
+                    <partial name="Partials/UnderPartials/STOK/_StokRaporPartial" />
                 </li>
-
-                <li class="menu-item-has-children ">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-list-alt"></i>Rapor</a>
-                    <ul class="sub-menu children dropdown-menu">
-                        @*  <partial name="Partials/UnderPartials/_StokPartial" />*@
-                    </ul>
-                </li>
-
             </ul>
-        </div><!-- /.navbar-collapse -->
-    </nav>
-</aside><!-- /#left-panel -->
+        </li>
+
+
+        <li class="nav-item">
+            <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-th"></i>
+                <p>Depo</p>
+                <i class="right fas fa-angle-left"></i>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-circle"></i>
+                        <p>Tanım</p>
+                        <i class="right fas fa-angle-left"></i>
+                    </a>
+                    <partial name="Partials/UnderPartials/DEPO/_DepoTanımPartial" />
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-circle"></i>
+                        <p>Hareket</p>
+                        <i class="right fas fa-angle-left"></i>
+                    </a>
+                    <partial name="Partials/UnderPartials/DEPO/_DepoHareketPartial" />
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-circle"></i>
+                        <p>Rapor</p>
+                        <i class="right fas fa-angle-left"></i>
+                    </a>
+                    <partial name="Partials/UnderPartials/DEPO/_DepoRaporPartial" />
+                </li>
+            </ul>
+        </li>
+
+
+        <li class="nav-item">
+            <a href="#" class="nav-link">
+                <i class="nav-icon fa-play"></i>
+                <p>Sipariş</p>
+                <i class="right fas fa-angle-left"></i>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-circle"></i>
+                        <p>Tanım</p>
+                        <i class="right fas fa-angle-left"></i>
+                    </a>
+                    <partial name="Partials/UnderPartials/SIPARIS/_SiparisTanımPartial" />
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-circle"></i>
+                        <p>Hareket</p>
+                        <i class="right fas fa-angle-left"></i>
+                    </a>
+                    <partial name="Partials/UnderPartials/SIPARIS/_SiparisHareketPartial" />
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-circle"></i>
+                        <p>Rapor</p>
+                        <i class="right fas fa-angle-left"></i>
+                    </a>
+                    <partial name="Partials/UnderPartials/SIPARIS/_SiparisRaporPartial" />
+                </li>
+            </ul>
+        </li>
+
+        <li class="nav-item">
+            <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-th"></i>
+                <p>Personel</p>
+                <i class="right fas fa-angle-left"></i>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-circle"></i>
+                        <p>Tanım</p>
+                        <i class="right fas fa-angle-left"></i>
+                    </a>
+                    <partial name="Partials/UnderPartials/PERSONEL/_PersonelTanımPartial" />
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-circle"></i>
+                        <p>Hareket</p>
+                        <i class="right fas fa-angle-left"></i>
+                    </a>
+                    <partial name="Partials/UnderPartials/PERSONEL/_PersonelHareketPartial" />
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-circle"></i>
+                        <p>Rapor</p>
+                        <i class="right fas fa-angle-left"></i>
+                    </a>
+                    <partial name="Partials/UnderPartials/PERSONEL/_PersonelRaporPartial" />
+                </li>
+            </ul>
+        </li>
+
+        <li class="nav-item">
+            <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-th"></i>
+                <p>Fatura</p>
+                <i class="right fas fa-angle-left"></i>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-circle"></i>
+                        <p>Tanım</p>
+                        <i class="right fas fa-angle-left"></i>
+                    </a>
+                    <partial name="Partials/UnderPartials/FATURA/_FaturaTanımPartial" />
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-circle"></i>
+                        <p>Hareket</p>
+                        <i class="right fas fa-angle-left"></i>
+                    </a>
+                    <partial name="Partials/UnderPartials/FATURA/_FaturaHareketPartial" />
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-circle"></i>
+                        <p>Rapor</p>
+                        <i class="right fas fa-angle-left"></i>
+                    </a>
+                    <partial name="Partials/UnderPartials/FATURA/_FaturaRaporPartial" />
+                </li>
+            </ul>
+                </li>
+               
+          
+      
+
+
+
+    </ul>
+</nav>
+</div>
+  </aside>

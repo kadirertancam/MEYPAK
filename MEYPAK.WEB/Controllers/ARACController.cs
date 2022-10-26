@@ -38,7 +38,22 @@ namespace MEYPAK.WEB.Controllers
                 ViewBag.Durum = "Başarıyla eklendi.";
                 return View();
             }
-            #endregion
+        [HttpGet]
+        public IActionResult AracSil()
+        {
+            return View();
         }
+
+        [HttpPost]
+        public async Task<IActionResult> AracSil(List<PocoARACLAR> pModel)
+        {
+
+            _tempPocoArac.Data(ServisList.AracSilServis,modellist: pModel);
+
+            ViewBag.Durum = "Başarıyla eklendi.";
+            return View();
+        }
+        #endregion
+    }
     }
 
