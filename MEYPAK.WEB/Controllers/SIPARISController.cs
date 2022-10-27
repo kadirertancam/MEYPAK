@@ -36,12 +36,12 @@ namespace MEYPAK.WEB.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> SiparisEkle(PocoSIPARIS pModel)
+        public async Task<IActionResult> SiparisEkle(List<PocoSIPARIS> pModel)
         {
 
-            _tempPocoSiparis.Data(ServisList.SiparisEkleServis, pModel);
+            _tempPocoSiparis.Data(ServisList.SiparisSilServis,modellist: pModel);
 
-            ViewBag.Durum = "Başarıyla eklendi.";
+            ViewBag.Durum = "Başarıyla silindi.";
             return View();
         }
 
@@ -66,19 +66,19 @@ namespace MEYPAK.WEB.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> SiparisDetayEkle(PocoSIPARISDETAY pModel)
+        public async Task<IActionResult> SiparisDetayEkle(List<PocoSIPARISDETAY> pModel)
         {
 
-            _tempPocoSiparisDetay.Data(ServisList.SiparisDetayEkleServis, pModel);
+            _tempPocoSiparisDetay.Data(ServisList.SiparisDetaySilServis,modellist: pModel);
 
-            ViewBag.Durum = "Başarıyla eklendi.";
+            ViewBag.Durum = "Başarıyla silindi.";
             return View();
         }
 
 
         #endregion
 
-        #region SIPARIS
+        #region SIPARISSEVKEMRIHAR
 
         [HttpGet]
 
@@ -102,6 +102,21 @@ namespace MEYPAK.WEB.Controllers
             _tempPocoSiparisSevkEmriHar.Data(ServisList.SiparisSevkEmriHarEkleServis, pModel);
 
             ViewBag.Durum = "Başarıyla eklendi.";
+            return View();
+        }
+        [HttpGet]
+        public IActionResult SiparisSevkEmriSil()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> SiparisSevkEmriSil(List<PocoSIPARISSEVKEMIRHAR> pModel)
+        {
+
+            _tempPocoSiparisSevkEmriHar.Data(ServisList.SiparisSevkEmriHarEkleServis,modellist: pModel);
+
+            ViewBag.Durum = "Başarıyla silindi.";
             return View();
         }
 

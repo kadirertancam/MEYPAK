@@ -43,6 +43,21 @@ namespace MEYPAK.WEB.Controllers
             ViewBag.Durum = "Başarıyla eklendi.";
             return View();
         }
+        [HttpGet]
+        public IActionResult IrsaliyeSil()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> IrsaliyeSil(List<PocoIRSALIYE> pModel)
+        {
+
+            _tempPocoIrsaliye.Data(ServisList.IrsaliyeSilServis,modellist: pModel);
+
+            ViewBag.Durum = "Başarıyla silindi.";
+            return View();
+        }
         #endregion
 
         #region IRSALIYEDETAY
@@ -68,6 +83,21 @@ namespace MEYPAK.WEB.Controllers
             _tempPocoIrsaliyeDetay.Data(ServisList.IrsaliyeDetayEkleServis, pModel);
 
             ViewBag.Durum = "Başarıyla eklendi.";
+            return View();
+        }
+        [HttpGet]
+        public IActionResult IrsaliyeDetaySil()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> IrsaliyeDetaySil(List<PocoIRSALIYEDETAY> pModel)
+        {
+
+            _tempPocoIrsaliyeDetay.Data(ServisList.IrsaliyeDetayEkleServis,modellist: pModel);
+
+            ViewBag.Durum = "Başarıyla silindi.";
             return View();
         }
         #endregion

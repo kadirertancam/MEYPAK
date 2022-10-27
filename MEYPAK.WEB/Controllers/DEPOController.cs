@@ -45,6 +45,21 @@ namespace MEYPAK.WEB.Controllers
             ViewBag.Durum = "Başarıyla eklendi.";
             return View();
         }
+        [HttpGet]
+        public IActionResult DepoSil()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DepoSil(List<PocoDEPO> pModel)
+        {
+
+            _tempPocoDepo.Data(ServisList.DepoSilServis,modellist: pModel);
+
+            ViewBag.Durum = "Başarıyla silindi.";
+            return View();
+        }
         #endregion
 
         #region DEPOEMIR
@@ -70,6 +85,21 @@ namespace MEYPAK.WEB.Controllers
             _tempPocoDepoEmir.Data(ServisList.DepoEmirEkleServis, pModel);
 
             ViewBag.Durum = "Başarıyla eklendi.";
+            return View();
+        }
+        [HttpGet]
+        public IActionResult DepoEmirSil()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DepoEmirSil(List<PocoDEPOEMIR> pModel)
+        {
+
+            _tempPocoDepoEmir.Data(ServisList.DepoEmirSilServis,modellist: pModel);
+
+            ViewBag.Durum = "Başarıyla silindi.";
             return View();
         }
         #endregion
@@ -99,6 +129,22 @@ namespace MEYPAK.WEB.Controllers
             ViewBag.Durum = "Başarıyla eklendi.";
             return View();
         }
+
+        [HttpGet]
+        public IActionResult DepoTransferSil()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DepoTransferSil(List<PocoDEPOTRANSFER> pModel)
+        {
+
+            _tempPocoDepoTransfer.Data(ServisList.DepoTransferSilServis,modellist: pModel);
+
+            ViewBag.Durum = "Başarıyla silindi.";
+            return View();
+        }
         #endregion
 
         #region DEPOTRANSFERHAR
@@ -124,6 +170,21 @@ namespace MEYPAK.WEB.Controllers
             _tempPocoDepoTransferHar.Data(ServisList.DepoTransferHarEkleServis, pModel);
 
             ViewBag.Durum = "Başarıyla eklendi.";
+            return View();
+        }
+        [HttpGet]
+        public IActionResult DepoTransferHarSil()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DepoTransferHarSil(List<PocoDEPOTRANSFERHAR> pModel)
+        {
+
+            _tempPocoDepoTransferHar.Data(ServisList.DepoTransferHarSilServis,modellist: pModel);
+
+            ViewBag.Durum = "Başarıyla silindi.";
             return View();
         }
         #endregion
@@ -153,6 +214,22 @@ namespace MEYPAK.WEB.Controllers
             ViewBag.Durum = "Başarıyla eklendi.";
             return View();
         }
+
+        [HttpGet]
+        public IActionResult StokMalKabulListSil()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> StokMalKabulListSil(List<PocoSTOKMALKABULLIST> pModel)
+        {
+
+            _tempPocoStokMalKabulList.Data(ServisList.StokMalKabulListSilServis,modellist: pModel);
+
+            ViewBag.Durum = "Başarıyla silindi.";
+            return View();
+        }
         #endregion
 
         #region STOKSEVKIYATLIST
@@ -180,6 +257,21 @@ namespace MEYPAK.WEB.Controllers
             ViewBag.Durum = "Başarıyla eklendi.";
             return View();
         }
+        [HttpGet]
+        public IActionResult StokSevkiyatListSil()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> StokSevkiyatListSil(List<PocoSTOKSEVKIYATLIST> pModel)
+        {
+
+            _tempPocoStokSevkiyatList.Data(ServisList.StokSevkiyatListSilServis,modellist: pModel);
+
+            ViewBag.Durum = "Başarıyla silindi.";
+            return View();
+        }
         #endregion
 
         #region DEPOCEKILIST
@@ -205,6 +297,21 @@ namespace MEYPAK.WEB.Controllers
             _tempPocoDepoCekiList.Data(ServisList.DepoCekiListEkleServis, pModel);
 
             ViewBag.Durum = "Başarıyla eklendi.";
+            return View();
+        }
+        [HttpGet]
+        public IActionResult DepoCekiListSil()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DepoCekiListSil(List<PocoDEPOCEKILIST> pModel)
+        {
+
+            _tempPocoDepoCekiList.Data(ServisList.DepoCekiListEkleServis,modellist: pModel);
+
+            ViewBag.Durum = "Başarıyla silindi.";
             return View();
         }
         #endregion
