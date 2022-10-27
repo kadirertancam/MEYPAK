@@ -15,6 +15,9 @@ using JsonSerializer = System.Text.Json.JsonSerializer;
 using System.Text.RegularExpressions;
 using MEYPAK.BLL.Assets;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using DevExtreme.AspNet.Data;
+using DevExtreme.AspNet.Mvc;
+using Ninject.Infrastructure.Language;
 
 namespace MEYPAK.WEB.Controllers.STOKController
 {
@@ -45,6 +48,62 @@ namespace MEYPAK.WEB.Controllers.STOKController
 
         }
 
+        //[HttpGet]
+        //public object Get(DataSourceLoadOptions loadOptions)
+        //{
+        //    return DataSourceLoader.Load(GenerateData(100000), loadOptions);
+        //}
+
+        //IEnumerable<PocoSTOK> GenerateData(int count)
+        //{
+        //    var surnames = new[] { "Smith", "Johnson", "Brown", "Taylor", "Anderson", "Harris", "Clark", "Allen", "Scott", "Carter" };
+        //    var names = new[] { "James", "John", "Robert", "Christopher", "George", "Mary", "Nancy", "Sandra", "Michelle", "Betty" };
+        //    var gender = new[] { "Male", "Female" };
+        //    var startBirthDate = DateTime.Parse("1/1/1975");
+        //    var endBirthDate = DateTime.Parse("1/1/1992");
+
+        //    double s = 123456789;
+        //    double NextRandom()
+        //    {
+        //        s = (1103515245 * s + 12345) % 2147483647;
+        //        return s % (names.Length - 1);
+        //    }
+
+        //    for (var i = 0; i < count; i++)
+        //    {
+        //        var birthDate = new DateTime(startBirthDate.Ticks + Convert.ToInt64(Math.Floor(NextRandom() * (endBirthDate.Ticks - startBirthDate.Ticks) / 10)));
+
+        //        birthDate.AddHours(12);
+
+        //        var nameIndex = Convert.ToInt32(NextRandom());
+        //        yield return new User
+        //        {
+        //            Id = i + 1,
+        //            FirstName = names[nameIndex],
+        //            LastName = surnames[Convert.ToInt32(NextRandom())],
+        //            Gender = gender[Convert.ToInt32(Math.Floor(Convert.ToDouble(nameIndex / 5)))],
+        //            BirthDate = birthDate
+        //        };
+        //    }
+        //}
+
+
+        [HttpGet]
+        public IActionResult Index()
+        {
+             
+            return View();
+        }
+
+
+        [HttpGet]
+        public object Get(DataSourceLoadOptions loadOptions)
+        {
+            _tempPocoStok.Data(ServisList.StokListeServis);
+            
+
+            return DataSourceLoader.Load(_tempPocoStok.obje.ToEnumerable(), loadOptions);
+        }
 
 
         #region STOK
@@ -57,17 +116,35 @@ namespace MEYPAK.WEB.Controllers.STOKController
             return View(_tempPocoStok.obje);
         }
 
-        [HttpGet]
-        public IActionResult StokEkle()
+        [HttpPost]
+        public IActionResult StokEkle(string values)
         {
             return View();
         }
 
-        [HttpPost]
-        public async Task<IActionResult> StokEkle(PocoSTOK pModel)
+        //[HttpPost]
+        //public async Task<IActionResult> StokEkle(PocoSTOK pModel)
+        //{
+
+        //    _tempPocoStok.Data(ServisList.StokEkleServis, pModel);
+
+        //    ViewBag.Durum = "Başarıyla eklendi.";
+        //    return View();
+        //}
+        [HttpPut]
+        public async Task<IActionResult> StokEkle(int key, string values)
         {
 
-            _tempPocoStok.Data(ServisList.StokEkleServis, pModel);
+            //_tempPocoStok.Data(ServisList.StokEkleServis, id);
+
+            ViewBag.Durum = "Başarıyla eklendi.";
+            return View();
+        }
+        [HttpDelete]
+        public async Task<IActionResult> StokEkle(int key)
+        {
+
+            //_tempPocoStok.Data(ServisList.StokEkleServis, id);
 
             ViewBag.Durum = "Başarıyla eklendi.";
             return View();
@@ -84,6 +161,18 @@ namespace MEYPAK.WEB.Controllers.STOKController
         {
 
             _tempPocoStok.Data(ServisList.StokSilServis,modellist: pModel);
+
+            ViewBag.Durum = "Başarıyla silindi.";
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> StokSil(int pModel)
+        {
+            _tempPocoStok.Data(ServisList.StokListeServis);
+            List<PocoSTOK> pList = new List<PocoSTOK>();
+            pList.Add(_tempPocoStok.obje.Where(x=>x.id==pModel).FirstOrDefault());
+            StokSil(pList);
 
             ViewBag.Durum = "Başarıyla silindi.";
             return View();

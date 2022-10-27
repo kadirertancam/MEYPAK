@@ -11,6 +11,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
     public class EFBaseRepo<T> : IGeneric<T> where T : class, new()
     {
         private readonly MEYPAKContext context;
+        private List<T> tList = new List<T>();
         public EFBaseRepo(MEYPAKContext _context)
         {
             context = _context;
@@ -50,6 +51,13 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
         public List<T> Getir(Expression<Func<T, bool>> filter)
         {
             return context.Set<T>().Where(filter).ToList();
+
+        }
+        public List<T> Getir(int id)
+        {
+            if (tList != null) tList.Clear();
+            tList.Add(context.Set<T>().Find(id));
+            return tList;
 
         }
 
@@ -105,9 +113,9 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
             return A;
         }
 
-        public bool Sil(Expression<Func<T, bool>> predicate)
+        public bool DeleteById(int id)
         {
-            return Sil(context.Set<T>().Where(predicate).ToList());
+            return Sil(Getir(id)); 
         }
 
         public bool Sil(List<T> entity)

@@ -77,5 +77,21 @@ namespace MEYPAK.API.Controllers.STOKControllers
                 return Problem("Belirsiz bir hata oluştu!" + ex.Message);
             }
         }
+        [HttpDelete]
+        public IActionResult DeleteById([FromBody] int id)
+        {
+            try
+            {
+                bool succes = _stokMarkaServis.DeleteById(id);
+                if (succes)
+                    return Ok(id + " Başarıyla Silindi");
+                else
+                    return Ok(id + " Silinemedi.");
+            }
+            catch (Exception ex)
+            {
+                return Problem("Belirsiz bir hata oluştu!" + ex.Message);
+            }
+        }
     }
 }
