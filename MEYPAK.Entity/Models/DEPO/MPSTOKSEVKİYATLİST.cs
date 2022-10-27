@@ -25,6 +25,7 @@ namespace MEYPAK.Entity.Models.DEPO
         [ForeignKey("MPSIPARISDETAY")]
         public int SIPARISDETAYID { get; set; }
         public decimal SIPARISMIKTARI { get; set; }
+
         public decimal MIKTAR { get; set; }
         [ForeignKey("MPDEPOEMIR")]
         public int EMIRID { get; set; }

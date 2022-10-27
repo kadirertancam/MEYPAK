@@ -57,14 +57,14 @@ namespace MEYPAK.PRL.DEPO
         FSevkiyatCekiPanel _sevkiyatCekiPanel;
         List<PocoSIPARISDETAY> _tempSTOKSEVK;
         List<PocoSIPARISDETAY> _tempSiparisDetay;
-        GenericWebServis<PocoSIPARIS> _siparisServis;
-        GenericWebServis<PocoSTOK> _stokServis;
-        GenericWebServis<PocoDEPOEMIR> _depoEmirServis;
-        GenericWebServis<PocoSIPARISDETAY> _siparisDetayServis;
-        GenericWebServis<PocoSIPARISSEVKEMIRHAR> _siparisSevkEmriHarServis;
-        GenericWebServis<PocoSTOKSEVKIYATLIST> _stokSevkiyatList;
-        GenericWebServis<PocoSTOKMALKABULLIST> _stokMalKabulListServis;
-        GenericWebServis<PocoOLCUBR> _olcuBrServis;
+        public GenericWebServis<PocoSIPARIS> _siparisServis;
+        public GenericWebServis<PocoSTOK> _stokServis;
+        public GenericWebServis<PocoDEPOEMIR> _depoEmirServis;
+        public GenericWebServis<PocoSIPARISDETAY> _siparisDetayServis;
+        public GenericWebServis<PocoSIPARISSEVKEMIRHAR> _siparisSevkEmriHarServis;
+        public GenericWebServis<PocoSTOKSEVKIYATLIST> _stokSevkiyatList;
+        public GenericWebServis<PocoSTOKMALKABULLIST> _stokMalKabulListServis;
+        public GenericWebServis<PocoOLCUBR> _olcuBrServis;
 
         #region TabControl Tasarım
         private Dictionary<TabPage, Color> TabColors = new Dictionary<TabPage, Color>();
@@ -94,9 +94,7 @@ namespace MEYPAK.PRL.DEPO
         #endregion
         private void FSevkiyatPanel_Load(object sender, EventArgs e)
         {
-            _siparisServis.Data(ServisList.SiparisListeServis);
-            _depoEmirServis.Data(ServisList.DepoEmirListeServis);
-            dataGridView1.DataSource =_siparisServis.obje.Where(x=>x.TIP==0).Select(x => new { x.SEVKIYATTARIHI, x.BELGENO, x.CARIADI }).ToList();
+        
             DGVTopla.Name = "DGVTopla";
             DGVTopla.HeaderText = "Toplama";
             DGVTopla.DisplayIndex = 3;
@@ -107,10 +105,7 @@ namespace MEYPAK.PRL.DEPO
             DGVTopla.UseColumnTextForButtonValue = true;
             dataGridView1.Columns.Add(DGVTopla);
             dataGridView1.Columns["DGVTopla"].DefaultCellStyle.ForeColor = Color.Aqua;
-            _siparisServis.Data(ServisList.SiparisListeServis);
-          
-            dataGridView2.DataSource = _depoEmirServis.obje.Select(x => new { x.ID, BELGENO=_siparisServis.obje.Where(z=>z.ID==x.SIPARISID).FirstOrDefault().BELGENO, x.MIKTAR, CARIADI= _siparisServis.obje.Where(z => z.ID == x.SIPARISID).FirstOrDefault().CARIADI, DEPO= _siparisServis.obje.Where(z => z.ID == x.SIPARISID).FirstOrDefault().DEPOID, x.TIP, x.DURUM }).ToList();
-            dataGridView2.Refresh();
+         
 
 
         }

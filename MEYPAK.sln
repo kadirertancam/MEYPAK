@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MEYPAK.WEB", "MEYPAK.WEB\ME
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MEYPAK.API", "MEYPAK.API\MEYPAK.API.csproj", "{6498B4A7-634E-46F6-9C3C-F0E2E8853B51}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsApp4", "WinFormsApp4\WinFormsApp4.csproj", "{823ED1FB-E714-4F58-9BA4-E743E7F7A19A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{6498B4A7-634E-46F6-9C3C-F0E2E8853B51}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6498B4A7-634E-46F6-9C3C-F0E2E8853B51}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6498B4A7-634E-46F6-9C3C-F0E2E8853B51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{823ED1FB-E714-4F58-9BA4-E743E7F7A19A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{823ED1FB-E714-4F58-9BA4-E743E7F7A19A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{823ED1FB-E714-4F58-9BA4-E743E7F7A19A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{823ED1FB-E714-4F58-9BA4-E743E7F7A19A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

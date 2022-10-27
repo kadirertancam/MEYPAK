@@ -23,6 +23,8 @@ namespace MEYPAK.Entity.Models.DEPO
         public int BIRIMID { get; set; }
         [ForeignKey("MPSIPARISDETAY")]
         public int SIPARISDETAYID { get; set; }
+        [ForeignKey("MPSATINALMAMALKABULEMRIHAR")]
+        public int SATINALMAMALKABULEMRIHARID { get; set; }
         public decimal SIPARISMIKTARI { get; set; }
         public decimal MIKTAR { get; set; }
         [ForeignKey("MPDEPOEMIR")]
@@ -31,5 +33,6 @@ namespace MEYPAK.Entity.Models.DEPO
         public MPDEPOEMIR MPDEPOEMIR { get; set; } 
         public MPSTOK MPSTOK { get; set; } 
         public MPSIPARISDETAY MPSIPARISDETAY { get; set; }
+        public MPSATINALMAMALKABULEMRIHAR MPSATINALMAMALKABULEMRIHAR { get; set; }
     }
 }

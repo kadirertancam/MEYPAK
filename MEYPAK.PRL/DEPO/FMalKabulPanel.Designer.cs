@@ -346,7 +346,10 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FMalKabulPanel";
             this.Text = "FMalKabulPanel";
+            this.Activated += new System.EventHandler(this.FMalKabulPanel_Activated);
             this.Load += new System.EventHandler(this.FMalKabulPanel_Load);
+            this.Shown += new System.EventHandler(this.FMalKabulPanel_Shown);
+            this.Leave += new System.EventHandler(this.FMalKabulPanel_Leave);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
@@ -372,10 +375,8 @@
         #endregion
 
         private GroupBox groupBox1;
-        private DataGridView dataGridView1;
         private DataGridView dataGridView5;
         private TabPage tabPage2;
-        private DataGridView dataGridView2;
         private TabPage tabPage1;
         private TabControl tabControl1;
         private Panel panel5;
@@ -389,5 +390,7 @@
         private Panel panel7;
         private Panel panel3;
         private Panel panel1;
+        public DataGridView dataGridView1;
+        public DataGridView dataGridView2;
     }
 }

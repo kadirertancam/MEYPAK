@@ -10,8 +10,7 @@ using MEYPAK.Entity.Models.DEPO;
 namespace MEYPAK.Entity.Models.SIPARIS
 {
     public class MPSIPARISSEVKEMRIHAR:SUPERMODEL
-    {
-
+    { 
         public DateTime TARIH { get; set; }
         public int TIP { get; set; }
         public int KULLANICIID { get; set; }

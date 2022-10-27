@@ -18,6 +18,7 @@ namespace MEYPAK.Entity.PocoModels.DEPO
         public int SUBEID { get; set; } = 0;
         public int DEPOID { get; set; } = 0;
         public int STOKID { get; set; }
+        public int MALKABULHAREMRIID { get; set; }
         public int BIRIMID { get; set; }
         public int SIPARISDETAYID { get; set; }
         public decimal SIPARISMIKTARI { get; set; }

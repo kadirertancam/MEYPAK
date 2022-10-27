@@ -280,7 +280,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(625, 588);
+            this.tabPage2.Size = new System.Drawing.Size(504, 588);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Paketleme Emirleri";
             // 
@@ -291,7 +291,7 @@
             this.dataGridView5.Location = new System.Drawing.Point(3, 3);
             this.dataGridView5.Name = "dataGridView5";
             this.dataGridView5.RowTemplate.Height = 25;
-            this.dataGridView5.Size = new System.Drawing.Size(619, 582);
+            this.dataGridView5.Size = new System.Drawing.Size(498, 582);
             this.dataGridView5.TabIndex = 0;
             // 
             // panel4
@@ -387,11 +387,11 @@
         private Panel panel5;
         private Panel panel4;
         private GroupBox groupBox1;
-        private DataGridView dataGridView1;
         private TabControl tabControl1;
         private TabPage tabPage1;
         private TabPage tabPage2;
-        private DataGridView dataGridView2;
         private DataGridView dataGridView5;
+        public DataGridView dataGridView1;
+        public DataGridView dataGridView2;
     }
 }

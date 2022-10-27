@@ -1,11 +1,13 @@
 ﻿using AutoMapper;
 using MEYPAK.Entity.Models.ARAC;
+using MEYPAK.Entity.Models.CARI;
 using MEYPAK.Entity.Models.DEPO;
 using MEYPAK.Entity.Models.IRSALIYE;
 using MEYPAK.Entity.Models.PERSONEL;
 using MEYPAK.Entity.Models.SIPARIS;
 using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Entity.PocoModels.ARAC;
+using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.DEPO;
 using MEYPAK.Entity.PocoModels.IRSALIYE;
 using MEYPAK.Entity.PocoModels.PERSONEL;
@@ -23,6 +25,10 @@ namespace MEYPAK.Entity.Mappings
     {
         public Maps()
         {
+
+            //CARI
+            CreateMap<ADRESLIST, PocoAdresList>().ReverseMap();
+
             //STOK
             CreateMap<MPSTOK, PocoSTOK>().ReverseMap(); 
             CreateMap<MPSTOKHAR, PocoSTOKHAR>().ReverseMap();
@@ -42,6 +48,7 @@ namespace MEYPAK.Entity.Mappings
             CreateMap<MPSIPARIS, PocoSIPARIS>().ReverseMap();
             CreateMap<MPSIPARISSEVKEMRIHAR, PocoSIPARISSEVKEMIRHAR>().ReverseMap();
             CreateMap<MPSIPARISDETAY, PocoSIPARISDETAY>().ReverseMap();
+            CreateMap<MPSATINALMAMALKABULEMRIHAR,PocoSATINALMAMALKABULEMRIHAR>().ReverseMap();
 
             //PERSONEL
             CreateMap<MPPERSONEL, PocoPERSONEL>().ReverseMap();

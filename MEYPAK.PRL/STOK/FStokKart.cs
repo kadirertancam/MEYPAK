@@ -88,7 +88,7 @@ namespace MEYPAK.PRL
             TBSatisOtv.Text = _tempStok.SATISOTV.ToString();
             TBSatisKdv.Text = _tempStok.SATISKDV.ToString();
             TBMarka.Text = _markaServis.obje.Where(x=>x.ID.ToString()==_tempStok.MARKAID.ToString()).FirstOrDefault().ADI.ToString();
-            TBKategori.Text = _tempStok.KATEGORIID.ToString();
+            TBSatisKdv.Text = _tempStok.KATEGORIID.ToString();
             TBGrupKodu.Text = _tempStok.GRUPKODU.ToString();
             TBAlisOtv.Text = _tempStok.ALISOTV.ToString();
             TBAlisKdv.Text = _tempStok.ALISKDV.ToString();
@@ -239,29 +239,15 @@ namespace MEYPAK.PRL
         }
         private void BTMarkaSec_Click(object sender, EventArgs e)
         {
-            FMarkaList fMarkaKart = new FMarkaList();
-            fMarkaKart.ShowDialog();
-            if (_tempMarka != null)
-            {
-                markaid = _tempMarka.ID;
-                TBMarka.Text = _tempMarka.ADI;
-                _tempMarka = null;
-            } 
+         
         }
 
         private void BTKategoriSec_Click(object sender, EventArgs e)
         {
-            FKategoriList fKategoriKart = new FKategoriList("Stok");
-            fKategoriKart.ShowDialog();
-            if (_tempKategori != null)
-            TBKategori.Text = _tempKategori.Acıklama;
         }
         private void BTNKasaSec_Click(object sender, EventArgs e)
         {
-            FKasaList fKasaList = new FKasaList("Stok");
-            fKasaList.ShowDialog();
-            if (_tempKasa!=null)
-            TBKasa.Text = _tempKasa.KASAADI;
+           
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -287,14 +273,7 @@ namespace MEYPAK.PRL
         private void BTStokSec_Click(object sender, EventArgs e)
         {
 
-            FStokList fStokList = new FStokList("stokkart");
-            fStokList.ShowDialog();
-            if (_tempStok != null)
-                if (_tempStok.ID > 0)
-                {
-
-                    tbDoldur();
-                }
+          
         }
         #endregion
 
@@ -395,7 +374,53 @@ namespace MEYPAK.PRL
             }
         }
 
+        private void buttonEdit1_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            FStokList fStokList = new FStokList("stokkart");
+            fStokList.ShowDialog();
+            if (_tempStok != null)
+                if (_tempStok.ID > 0) 
+                    tbDoldur(); 
+        }
 
+        private void buttonEdit2_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            FMarkaList fMarkaKart = new FMarkaList();
+            fMarkaKart.ShowDialog();
+            if (_tempMarka != null)
+            {
+                markaid = _tempMarka.ID;
+                TBMarka.Text = _tempMarka.ADI;
+                _tempMarka = null;
+            }
+        }
+
+        private void buttonEdit3_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+
+            FKategoriList fKategoriKart = new FKategoriList("Stok");
+            fKategoriKart.ShowDialog();
+            if (_tempKategori != null)
+                TBSatisKdv.Text = _tempKategori.Acıklama;
+        }
+
+        private void BTNGrupSec_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonEdit4_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+
+        }
+
+        private void buttonEdit5_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            FKasaList fKasaList = new FKasaList("Stok");
+            fKasaList.ShowDialog();
+            if (_tempKasa != null)
+                TBKasa.Text = _tempKasa.KASAADI;
+        }
 
         private void TBSatisOtv_KeyPress(object sender, KeyPressEventArgs e)
         {

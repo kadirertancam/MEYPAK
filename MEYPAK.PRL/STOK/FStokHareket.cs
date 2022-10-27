@@ -79,7 +79,7 @@ namespace MEYPAK.PRL.STOK
                 TBKdv.Text = IO == 1 ? _tempStok.ALISKDV.ToString() : _tempStok.SATISKDV.ToString();
                 //TBFiyat.Text = IO == 1 ? _tempStok.AFIYAT1.ToString() : _tempStok.SATISKDV.ToString();
                 BakiyeGuncelle();
-                dataGridView1.DataSource = _stokHarServis.obje.Where(x=>x.STOKID==_tempStok.ID).ToList();
+                gridControl1.DataSource = _stokHarServis.obje.Where(x=>x.STOKID==_tempStok.ID).ToList();
                 // _tempStok = null;
 
 
@@ -106,7 +106,7 @@ namespace MEYPAK.PRL.STOK
             _depoServis.Data(ServisList.DepoListeServis);
             CBDepo.DataSource = _depoServis.obje.Select(x => x.DEPOADI).ToList();
             _tempdgvStok.Add(new PocoStokHareketListesi());
-            dataGridView1.DataSource = _tempdgvStok;
+            gridControl1.DataSource = _tempdgvStok;
             ((ListBox)CLBDepo).DataSource = _depoServis.obje.Select(x => x.DEPOADI).ToList();
 
         }
@@ -133,7 +133,7 @@ namespace MEYPAK.PRL.STOK
                 NETTOPLAM = Convert.ToDecimal(TBFiyat.Text) * Convert.ToDecimal(TBMiktar.Text),
                 BRUTTOPLAM = KdvEkle(Convert.ToDecimal(TBFiyat.Text) * Convert.ToDecimal(TBMiktar.Text)),
             }));
-            dataGridView1.DataSource = _stokHarServis.obje.Where(x=>x.ID==_id);
+            gridControl1.DataSource = _stokHarServis.obje.Where(x=>x.ID==_id);
             TBMiktar.Text = "";
             TBBelgeNo.Text = "";
             TBAciklama.Text = "";
@@ -169,14 +169,14 @@ namespace MEYPAK.PRL.STOK
 
         private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            _tempStok = _stokServis.obje.Where(x => x.ID.ToString() == dataGridView1.Rows[e.RowIndex].Cells["STOKID"].Value.ToString()).FirstOrDefault();
-            TBMiktar.Text = dataGridView1.Rows[e.RowIndex].Cells["MIKTAR"].Value.ToString();
+            _tempStok = _stokServis.obje.Where(x => x.ID.ToString() == gridView1.GetFocusedRowCellValue("STOKID").ToString()).FirstOrDefault();
+            TBMiktar.Text = gridView1.GetFocusedRowCellValue("MIKTAR").ToString();
             Doldur();
         }
 
         private void BTNSil_Click(object sender, EventArgs e)
         {
-            _stokHarServis.Data(ServisList.StokHarSilServis,(_stokHarServis.obje.Where(x => x.ID == Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value)).FirstOrDefault()));
+            _stokHarServis.Data(ServisList.StokHarSilServis,(_stokHarServis.obje.Where(x => x.ID == Convert.ToInt32(gridView1.GetFocusedRowCellValue("ID"))).FirstOrDefault()));
 
         }
 

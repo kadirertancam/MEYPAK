@@ -15,6 +15,7 @@ using System.Data.Entity.SqlServer.Utilities;
 using System.Drawing;
 using System.IO.Compression;
 using System.Linq;
+using System.Net.Http;
 using System.Net.Http.Json;
 using System.Text;
 using System.Threading.Tasks;

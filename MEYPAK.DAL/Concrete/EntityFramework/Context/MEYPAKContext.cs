@@ -1,6 +1,7 @@
 ﻿using MEYPAK.Entity.Models;
 using MEYPAK.Entity.Models;
 using MEYPAK.Entity.Models.ARAC;
+using MEYPAK.Entity.Models.CARI;
 using MEYPAK.Entity.Models.DEPO;
 using MEYPAK.Entity.Models.IRSALIYE;
 using MEYPAK.Entity.Models.PERSONEL;
@@ -25,6 +26,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
 
         }
 
+        public DbSet<MPCARIKART> MPCARIKART { get; set; }
         public DbSet<MPSTOKSEVKİYATLİST> MPSTOKSEVKİYATLİST { get; set; }
         public DbSet<MPSIPARISSEVKEMRIHAR> MPSIPARISSEVKEMRIHAR { get; set; }
         public DbSet<MPDEPOEMIR> MPDEPOEMIR { get; set; }
@@ -52,6 +54,9 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
         public DbSet<MPIRSALIYE> MPIRSALIYE { get; set; } 
         public DbSet<MPIRSALIYESIPARISDETAYILISKI> MPIRSALIYESIPARISDETAYILISKI { get; set; }
         public DbSet<MPIRSALIYEDETAY> MPIRSALIYEDETAY { get; set; }
+        public DbSet<MPSATINALMAMALKABULEMRIHAR> MPSATINALMAMALKABULEMRIHAR { get; set; }
+        public DbSet<ADRESLIST> ADRESLIST { get; set; }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -84,7 +89,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
             modelBuilder.Entity<MPDEPOEMIR>().HasMany(x => x.MPSTOKMALKABULLIST).WithOne(x => x.MPDEPOEMIR).HasForeignKey(x => x.EMIRID).OnDelete(DeleteBehavior.Restrict);
             modelBuilder.Entity<MPSIPARISDETAY>().HasMany(x => x.MPSTOKMALKABULLIST).WithOne(x => x.MPSIPARISDETAY).HasForeignKey(x => x.SIPARISDETAYID).OnDelete(DeleteBehavior.Restrict);
             modelBuilder.Entity<MPSTOK>().HasMany(x => x.MPSIPARISDETAY).WithOne(x => x.MPSTOK).HasForeignKey(x => x.STOKID).OnDelete(DeleteBehavior.Restrict);
-
+            
             modelBuilder.Entity<MPIRSALIYESIPARISDETAYILISKI>().HasKey(sc => new { sc.IRSALIYEDETAYID, sc.SIPARISDETAYID });
 
             modelBuilder.Entity<MPIRSALIYESIPARISDETAYILISKI>()

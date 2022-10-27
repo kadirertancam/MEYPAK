@@ -16,6 +16,7 @@ using System.Windows.Forms;
 using MEYPAK.Interfaces.Depo;
 using MEYPAK.Entity.Models.PERSONEL;
 using MEYPAK.Entity.PocoModels.PERSONEL;
+using System.IO;
 
 namespace MEYPAK.PRL.PERSONEL
 {

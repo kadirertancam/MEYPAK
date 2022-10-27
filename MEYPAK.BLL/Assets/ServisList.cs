@@ -16,6 +16,22 @@ namespace MEYPAK.BLL.Assets
 
         #endregion
 
+        #region AdresList
+
+
+        public const string AdresListServis = "http://213.238.167.117:8080/ADRESLIST/ADRESLISTListe";
+
+        #endregion
+
+        #region Cari
+
+        public const string CariListeServis =       "http://213.238.167.117:8080/CARI/CARIListe?$filter= KAYITTIPI eq 0";
+        public const string CariEkleServis =        "http://213.238.167.117:8080/CARI/CARIEkleyadaGuncelle";
+        public const string CariSilServis =         "http://213.238.167.117:8080/CARI/CARISil";
+        public const string CariGuncelleServis =    "http://213.238.167.117:8080/CARI/CARIGuncelle";
+
+        #endregion
+
         #region StokSevkiyatList
         public const string StokSevkiyatListListeServis =           "http://213.238.167.117:8080/STOKSEVKIYATLIST/STOKSEVKIYATLISTListe?$filter= KAYITTIPI eq 0";
         public const string StokSevkiyatListEkleServis = "http://213.238.167.117:8080/STOKSEVKIYATLIST/STOKSEVKIYATLISTEkleyadaGuncelle";

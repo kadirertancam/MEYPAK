@@ -34,8 +34,7 @@ namespace MEYPAK.PRL.DEPO
             _sevkiyatCekiPanel = new FSevkiyatCekiPanel();
             _depoEmirServis = new GenericWebServis<PocoDEPOEMIR>();
             _siparisDetayServis = new GenericWebServis<PocoSIPARISDETAY>();
-            _siparisSevkEmriHarServis = new GenericWebServis<PocoSIPARISSEVKEMIRHAR>();
-            _stokSevkiyatList = new GenericWebServis<PocoSTOKSEVKIYATLIST>();
+            _siparisSevkEmriHarServis = new GenericWebServis<PocoSIPARISSEVKEMIRHAR>(); 
             _stokServis = new GenericWebServis<PocoSTOK>();
             _stokMalKabulListServis = new GenericWebServis<PocoSTOKMALKABULLIST>();
             _olcuBrServis = new GenericWebServis<PocoOLCUBR>();
@@ -45,20 +44,18 @@ namespace MEYPAK.PRL.DEPO
         FSevkiyatCekiPanel _sevkiyatCekiPanel;
         List<PocoSIPARISDETAY> _tempSTOKSEVK;
         List<PocoSIPARISDETAY> _tempSiparisDetay;
-        GenericWebServis<PocoSIPARIS> _siparisServis;
-        GenericWebServis<PocoSTOK> _stokServis;
-        GenericWebServis<PocoDEPOEMIR> _depoEmirServis;
-        GenericWebServis<PocoSIPARISDETAY> _siparisDetayServis;
-        GenericWebServis<PocoSIPARISSEVKEMIRHAR> _siparisSevkEmriHarServis;
-        GenericWebServis<PocoSTOKSEVKIYATLIST> _stokSevkiyatList;
-        GenericWebServis<PocoSTOKMALKABULLIST> _stokMalKabulListServis;
-        GenericWebServis<PocoOLCUBR> _olcuBrServis;
-        private Dictionary<TabPage, Color> TabColors = new Dictionary<TabPage, Color>();
+        public GenericWebServis<PocoSIPARIS> _siparisServis;
+        public GenericWebServis<PocoSTOK> _stokServis;
+        public GenericWebServis<PocoDEPOEMIR> _depoEmirServis;
+        public GenericWebServis<PocoSIPARISDETAY> _siparisDetayServis;
+        public GenericWebServis<PocoSIPARISSEVKEMIRHAR> _siparisSevkEmriHarServis; 
+        public GenericWebServis<PocoSTOKMALKABULLIST> _stokMalKabulListServis;
+        public GenericWebServis<PocoOLCUBR> _olcuBrServis; 
         private void FMalKabulPanel_Load(object sender, EventArgs e)
         {
-            _siparisServis.Data(ServisList.SiparisListeServis);
-            _depoEmirServis.Data(ServisList.DepoEmirListeServis);
-            dataGridView1.DataSource = _siparisServis.obje.Where(x=>x.TIP==1).Select(x => new { x.SEVKIYATTARIHI, x.BELGENO, x.CARIADI }).ToList();
+            yuklee();
+       
+           
             DGVTopla.Name = "DGVTopla";
             DGVTopla.HeaderText = "Toplama";
             DGVTopla.DisplayIndex = 3;
@@ -69,10 +66,12 @@ namespace MEYPAK.PRL.DEPO
             DGVTopla.UseColumnTextForButtonValue = true;
             dataGridView1.Columns.Add(DGVTopla);
             dataGridView1.Columns["DGVTopla"].DefaultCellStyle.ForeColor = Color.Aqua;
-            _siparisServis.Data(ServisList.SiparisListeServis);
 
-            dataGridView2.DataSource = _depoEmirServis.obje.Select(x => new { x.ID, BELGENO = _siparisServis.obje.Where(z => z.ID == x.SIPARISID).FirstOrDefault().BELGENO, x.MIKTAR, CARIADI = _siparisServis.obje.Where(z => z.ID == x.SIPARISID).FirstOrDefault().CARIADI, DEPO = _siparisServis.obje.Where(z => z.ID == x.SIPARISID).FirstOrDefault().DEPOID, x.TIP, x.DURUM }).ToList();
-            dataGridView2.Refresh();
+        
+        }
+        void yuklee()
+        { 
+           
 
         }
         MPDEPOEMIR a;
@@ -82,8 +81,7 @@ namespace MEYPAK.PRL.DEPO
             _siparisServis.Data(ServisList.SiparisListeServis);
             _stokServis.Data(ServisList.StokListeServis);
             _stokMalKabulListServis.Data(ServisList.StokMalKabulListListeServis);
-            _olcuBrServis.Data(ServisList.OlcuBrListeServis);
-            _stokSevkiyatList.Data(ServisList.StokSevkiyatListListeServis);
+            _olcuBrServis.Data(ServisList.OlcuBrListeServis); 
             var tempsiparis = _siparisServis.obje.Where(x => x.BELGENO == dataGridView1.Rows[e.RowIndex].Cells["BELGENO"].Value.ToString()).FirstOrDefault();
             var tempsipdetay = _siparisDetayServis.obje.Where(x => x.SIPARISID == tempsiparis.ID);
             _tempSiparisDetay = tempsipdetay.ToList();
@@ -97,7 +95,7 @@ namespace MEYPAK.PRL.DEPO
                     MIKTAR = _tempSiparisDetay.Sum(x => x.MIKTAR),
                     SIRA = i,
                     TARIH = DateTime.Now,
-                    TIP = 0,   /// TOPLAMA EMRİ TIPI OUTPUT =0 INPUT=1
+                    TIP = 1,   /// TOPLAMA EMRİ TIPI OUTPUT =0 INPUT=1
                     DURUM = 1,
                     DEPOID = _siparisServis.obje.Where(x => x.BELGENO == dataGridView1.Rows[e.RowIndex].Cells["BELGENO"].Value.ToString()).FirstOrDefault().DEPOID,
                     ACIKLAMA = "",
@@ -125,21 +123,21 @@ namespace MEYPAK.PRL.DEPO
                         SIPARISMIKTARI = item.MIKTAR,
                         KULLANICIID = 0,
                         TARIH = DateTime.Now,
-                        TIP = 0,
+                        TIP = 1,
 
                     });
-                    _stokSevkiyatList.Data(ServisList.StokSevkiyatListEkleServis, new PocoSTOKSEVKIYATLIST()
+                    _stokMalKabulListServis.Data(ServisList.StokMalKabulListEkleServis, new PocoSTOKMALKABULLIST()
                     {
                         BIRIMID = item.BIRIMID,
                         DEPOID = _siparisServis.obje.Where(x => x.ID == item.SIPARISID).FirstOrDefault().DEPOID,
                         EMIRID = _depoEmirServis.obje.Where(x => x.SIPARISID == item.SIPARISID).FirstOrDefault().ID,
                         MIKTAR = item.MIKTAR,
                         STOKID = item.STOKID,
-                        SEVKEMRIHARID = _siparisSevkEmriHarServis.obje2.ID,
+                        MALKABULHAREMRIID = _siparisSevkEmriHarServis.obje2.ID,
                         SIPARISDETAYID = item.SIPARISID
 
                     });
-                    _stokSevkiyatList.Data(ServisList.StokSevkiyatListListeServis);
+                    _stokMalKabulListServis.Data(ServisList.StokMalKabulListListeServis);
                     _siparisSevkEmriHarServis.Data(ServisList.SiparisSevkEmriHarListeServis);
                     dataGridView3.DataSource = _siparisSevkEmriHarServis.obje.Select(x =>
                     new {
@@ -149,7 +147,7 @@ namespace MEYPAK.PRL.DEPO
                         x.EMIRID,
                         x.SIPARISMIKTARI,
                         x.EMIRMIKTARI,
-                        KALANMIKTAR = _stokSevkiyatList.obje.Where(z => z.EMIRID == x.EMIRID && z.SIPARISDETAYID
+                        KALANMIKTAR = _stokMalKabulListServis.obje.Where(z => z.EMIRID == x.EMIRID && z.SIPARISDETAYID
                         == x.SIPARISKALEMID).GroupBy(x => new {
                             _stokServis.obje.Where(z => z.ID == x.STOKID).FirstOrDefault().KOD,
                             item.STOKADI,
@@ -171,13 +169,13 @@ namespace MEYPAK.PRL.DEPO
             var tempp = _depoEmirServis.obje.Where(x => x.ID.ToString() == dataGridView2.Rows[e.RowIndex].Cells["ID"].Value.ToString());
             _tempSTOKSEVK = tempp.Select(x => _siparisDetayServis.obje.Where(z => z.SIPARISID == x.SIPARISID).ToList()).FirstOrDefault();
             _sevkiyatCekiPanel = new FSevkiyatCekiPanel();
-            _stokSevkiyatList.Data(ServisList.StokSevkiyatListListeServis);
+            _stokMalKabulListServis.Data(ServisList.StokMalKabulListListeServis);
 
             _sevkiyatCekiPanel._tempEmir = tempp.FirstOrDefault();
-            _sevkiyatCekiPanel._tempList = _stokSevkiyatList.obje.Select(x => new PocoSTOKSEVKIYATLIST() { MPSTOK = _stokServis.obje.Where(z => z.ID == x.STOKID).FirstOrDefault(), MPSIPARISDETAY = _siparisDetayServis.obje.Where(z => z.ID == x.SIPARISDETAYID).FirstOrDefault(), SIPARISMIKTARI = x.MIKTAR, DEPOID = x.DEPOID, BIRIMID = x.BIRIMID, EMIRID = int.Parse(dataGridView2.Rows[e.RowIndex].Cells["ID"].Value.ToString()), SIPARISDETAYID = x.ID, STOKID = x.STOKID }).ToList();
+            _sevkiyatCekiPanel._tempList = _stokMalKabulListServis.obje.Select(x => new PocoSTOKSEVKIYATLIST() { MPSTOK = _stokServis.obje.Where(z => z.ID == x.STOKID).FirstOrDefault(), MPSIPARISDETAY = _siparisDetayServis.obje.Where(z => z.ID == x.SIPARISDETAYID).FirstOrDefault(), SIPARISMIKTARI = x.MIKTAR, DEPOID = x.DEPOID, BIRIMID = x.BIRIMID, EMIRID = int.Parse(dataGridView2.Rows[e.RowIndex].Cells["ID"].Value.ToString()), SIPARISDETAYID = x.ID, STOKID = x.STOKID }).ToList();
 
             _sevkiyatCekiPanel.ShowDialog();
-            var tempp2 = _stokSevkiyatList.obje.Where(x => x.EMIRID.ToString() == dataGridView2.Rows[e.RowIndex].Cells["ID"].Value.ToString()).GroupBy(x => new { x.MPSTOK.KOD, x.MPSTOK.ADI, BIRIM = x.MPOLCUBR.ADI, x.SIPARISMIKTARI }).Select(x => new { KOD = x.Select(x => x.MPSTOK.KOD).FirstOrDefault(), ADI = x.Select(x => x.MPSTOK.ADI).FirstOrDefault(), MIKTAR = x.Sum(z => z.MIKTAR), SIPARISMIKTARI = x.Select(x => x.SIPARISMIKTARI).FirstOrDefault(), KALANMIKTAR = x.Select(x => x.SIPARISMIKTARI).FirstOrDefault() - x.Sum(z => z.MIKTAR), BIRIM = x.Select(x => x.MPOLCUBR.ADI).FirstOrDefault() }).ToList();
+            var tempp2 = _stokMalKabulListServis.obje.Where(x => x.EMIRID.ToString() == dataGridView2.Rows[e.RowIndex].Cells["ID"].Value.ToString()).GroupBy(x => new { x.MPSTOK.KOD, x.MPSTOK.ADI, BIRIM = x.MPOLCUBR.ADI, x.SIPARISMIKTARI }).Select(x => new { KOD = x.Select(x => x.MPSTOK.KOD).FirstOrDefault(), ADI = x.Select(x => x.MPSTOK.ADI).FirstOrDefault(), MIKTAR = x.Sum(z => z.MIKTAR), SIPARISMIKTARI = x.Select(x => x.SIPARISMIKTARI).FirstOrDefault(), KALANMIKTAR = x.Select(x => x.SIPARISMIKTARI).FirstOrDefault() - x.Sum(z => z.MIKTAR), BIRIM = x.Select(x => x.MPOLCUBR.ADI).FirstOrDefault() }).ToList();
             dataGridView4.DataSource = tempp2;
             dataGridView3.DataSource = _siparisSevkEmriHarServis.obje.Select(x =>
             new {
@@ -196,15 +194,15 @@ namespace MEYPAK.PRL.DEPO
         {
 
             // if (Convert.ToInt32(dataGridView2.Rows[e.RowIndex].Cells["DURUM"].Value)==1)
-            _stokSevkiyatList.Data(ServisList.StokSevkiyatListListeServis);
+            _stokMalKabulListServis.Data(ServisList.StokMalKabulListListeServis);
             _stokServis.Data(ServisList.StokListeServis);
             _siparisSevkEmriHarServis.Data(ServisList.SiparisSevkEmriHarListeServis);
             _siparisServis.Data(ServisList.SiparisListeServis);
             _siparisDetayServis.Data(ServisList.SiparisDetayListeServis);
 
-            if (_stokSevkiyatList.obje.Count > 0)
+            if (_stokMalKabulListServis.obje.Count > 0)
             {
-                var tempp = _stokSevkiyatList.obje.Where(x => x.EMIRID.ToString() == dataGridView2.Rows[e.RowIndex].Cells["ID"].Value.ToString()).GroupBy(x => new { x.MPSTOK.KOD, x.MPSTOK.ADI, BIRIM = x.MPOLCUBR.ADI, x.SIPARISMIKTARI }).Select(x => new { KOD = x.Select(x => x.MPSTOK.KOD).FirstOrDefault(), ADI = x.Select(x => x.MPSTOK.ADI).FirstOrDefault(), MIKTAR = x.Sum(z => z.MIKTAR), SIPARISMIKTARI = x.Select(x => x.SIPARISMIKTARI).FirstOrDefault(), KALANMIKTAR = x.Select(x => x.SIPARISMIKTARI).FirstOrDefault() - x.Sum(z => z.MIKTAR), BIRIM = x.Select(x => x.MPOLCUBR.ADI).FirstOrDefault() }).ToList();
+                var tempp = _stokMalKabulListServis.obje.Where(x => x.EMIRID.ToString() == dataGridView2.Rows[e.RowIndex].Cells["ID"].Value.ToString()).GroupBy(x => new { x.MPSTOK.KOD, x.MPSTOK.ADI, BIRIM = x.MPOLCUBR.ADI, x.SIPARISMIKTARI }).Select(x => new { KOD = x.Select(x => x.MPSTOK.KOD).FirstOrDefault(), ADI = x.Select(x => x.MPSTOK.ADI).FirstOrDefault(), MIKTAR = x.Sum(z => z.MIKTAR), SIPARISMIKTARI = x.Select(x => x.SIPARISMIKTARI).FirstOrDefault(), KALANMIKTAR = x.Select(x => x.SIPARISMIKTARI).FirstOrDefault() - x.Sum(z => z.MIKTAR), BIRIM = x.Select(x => x.MPOLCUBR.ADI).FirstOrDefault() }).ToList();
                 dataGridView4.DataSource = tempp;
             }
             _stokMalKabulListServis.Data(ServisList.StokMalKabulListListeServis);
@@ -222,6 +220,21 @@ namespace MEYPAK.PRL.DEPO
             }).ToList();
             dataGridView3.Refresh();
 
+        }
+
+        private void FMalKabulPanel_Activated(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void FMalKabulPanel_Shown(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void FMalKabulPanel_Leave(object sender, EventArgs e)
+        {
+         
         }
     }
 }

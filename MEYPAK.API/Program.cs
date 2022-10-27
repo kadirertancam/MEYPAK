@@ -17,7 +17,7 @@ using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Interfaces.Depo;
 using MEYPAK.Interfaces.Hizmet;
 using MEYPAK.Interfaces.IRSALIYE;
-using MEYPAK.Interfaces.Personel;
+using MEYPAK.Interfaces.Personel; 
 using MEYPAK.Interfaces.Stok;
 using Microsoft.AspNetCore.OData;
 using Microsoft.EntityFrameworkCore;
@@ -33,6 +33,9 @@ using MEYPAK.DAL.Abstract.AracDal;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository.AracRepo;
 using MEYPAK.Interfaces.Arac;
 using MEYPAK.BLL.ARAC;
+using MEYPAK.DAL.Abstract.CariDal;
+using MEYPAK.Interfaces.Cari;
+using MEYPAK.BLL.CARI;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -54,7 +57,13 @@ builder.Services.AddDbContext<MEYPAKContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("MyCon"));
 });
 
+#region Cari
 
+builder.Services.AddScoped<ICariKartDal, EFCariKartRepo>();
+
+builder.Services.AddScoped<IAdresListDal, EFADRESLISTREPO>();
+builder.Services.AddScoped<IAdresListServis, AdresListManager>();
+#endregion
 #region STOK_Scoped_Islemleri
 
 builder.Services.AddScoped<IStokDal, EFStokRepo>();
@@ -92,6 +101,8 @@ builder.Services.AddScoped<IHizmetServis, HizmetManager>();
 
 builder.Services.AddScoped<IOlcuBrDal, EFOlcuBrRepo>();
 builder.Services.AddScoped<IOlcuBrServis, OlcuBrManager>();
+
+
 #endregion
 #region DEPO_Scoped_Islemleri
 builder.Services.AddScoped<IDepoDal, EFDepoRepo>();
@@ -148,6 +159,8 @@ builder.Services.AddScoped<ISiparisDetayServis, SiparisDetayManager>();
 
 builder.Services.AddScoped<ISiparisSevkEmriHarDal, EFSiparisSevkEmriHarRepo>();
 builder.Services.AddScoped<ISiparisSevkEmriHarServis, SiparisSevkEmriHarManager>();
+
+
 
 #endregion
 #region ARAC_Scoped_Islemleri

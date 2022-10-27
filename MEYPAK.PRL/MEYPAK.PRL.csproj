@@ -14,6 +14,8 @@
     <DefineConstants>TARGET_WINDOWS</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="DevExpress.Win.Design" Version="22.1.3" />
+    <PackageReference Include="devexpress.win.navigation" Version="22.1.3" />
     <PackageReference Include="Faker.NETCore" Version="1.0.2" />
     <PackageReference Include="LiveCharts" Version="0.9.7" />
     <PackageReference Include="LiveCharts.Core" Version="0.9.8" />
@@ -22,8 +24,10 @@
     <PackageReference Include="LiveCharts.WinForms.NetCore3" Version="0.9.7" />
     <PackageReference Include="LiveCharts.Wpf" Version="0.9.7" />
     <PackageReference Include="LiveCharts.Wpf.FixTooltip" Version="0.9.8" />
+    <PackageReference Include="MaterialSkin.2" Version="2.3.1" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Ninject" Version="3.3.6" />
+    <PackageReference Include="ReaLTaiizor" Version="3.7.8.8" />
     <PackageReference Include="ReportViewerCore.WinForms" Version="15.1.17" />
   </ItemGroup>
 
