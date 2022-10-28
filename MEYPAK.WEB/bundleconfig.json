@@ -1,0 +1,7 @@
+{
+  "outputFileName": "wwwroot/css/vendor.css",
+  "inputFiles": [
+    "wwwroot/css/devextreme/theme.base.css",
+    "wwwroot/css/devextreme/theme.additional.css"
+  ]
+}

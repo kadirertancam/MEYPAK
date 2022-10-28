@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MEYPAK.Entity.PocoModels.SIPARIS;
 using MEYPAK.Interfaces.Siparis;
+using MEYPAK.Interfaces.Stok;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MEYPAK.API.Controllers.SIPARISControllers
@@ -71,6 +72,22 @@ namespace MEYPAK.API.Controllers.SIPARISControllers
             {
                 var data = _siparisSevkEmriHarServis.Guncelle(pModel);
                 return Ok(data);
+            }
+            catch (Exception ex)
+            {
+                return Problem("Belirsiz bir hata oluştu!" + ex.Message);
+            }
+        }
+        [HttpDelete]
+        public IActionResult DeleteById([FromBody] int id)
+        {
+            try
+            {
+                bool succes = _siparisSevkEmriHarServis.DeleteById(id);
+                if (succes)
+                    return Ok(id + " Başarıyla Silindi");
+                else
+                    return Ok(id + " Silinemedi.");
             }
             catch (Exception ex)
             {

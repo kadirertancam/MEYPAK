@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Hizmet;
+using MEYPAK.Interfaces.Stok;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MEYPAK.API.Controllers.STOKControllers
@@ -73,6 +74,22 @@ namespace MEYPAK.API.Controllers.STOKControllers
                 return Ok(data);
             }
             catch (Exception ex )
+            {
+                return Problem("Belirsiz bir hata oluştu!" + ex.Message);
+            }
+        }
+        [HttpDelete]
+        public IActionResult DeleteById([FromBody] int id)
+        {
+            try
+            {
+                bool succes = _hizmetServis.DeleteById(id);
+                if (succes)
+                    return Ok(id + " Başarıyla Silindi");
+                else
+                    return Ok(id + " Silinemedi.");
+            }
+            catch (Exception ex)
             {
                 return Problem("Belirsiz bir hata oluştu!" + ex.Message);
             }

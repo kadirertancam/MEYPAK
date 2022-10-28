@@ -12,7 +12,7 @@ namespace MEYPAK.DAL.Abstract
     { 
         List<T> Getir(Expression<Func<T, bool>> predicate);
         List<T> Listele();
-        bool Sil(Expression<Func<T, bool>> predicate);
+        public bool DeleteById(int id);
         bool Sil(List<T> entity);
         Durum Guncelle(T entity, Expression<Func<T, bool>> predicate); 
         T Guncelle(T entity);

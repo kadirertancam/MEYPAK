@@ -69,13 +69,7 @@ namespace MEYPAK.BLL
             return _mapper.Map<List<T>, List<Poco>>(_repo.Listele());
         }
 
-        public bool Sil(Expression<Func<Poco, bool>> filter)
-        {
-            var fltr = _mapper.Map<Expression<Func<Poco, bool>>,
-                 Expression<Func<T, bool>>>(filter);
-
-            return _repo.Sil(fltr);
-        }
+      
 
         public bool Sil(List<Poco> pModels)
         {
@@ -83,5 +77,9 @@ namespace MEYPAK.BLL
             return _repo.Sil(_mapper.Map<List<Poco>, List<T>>(pModels));
         }
 
+        public bool DeleteById(int id)
+        {
+            return _repo.DeleteById(id);
+        }
     }
 }

@@ -8,10 +8,10 @@ namespace MEYPAK.Entity.PocoModels
 {
     public class SUPERPOCOMODEL
     {
-        public int ID { get; set; }
-        public DateTime OLUSTURMATARIHI { get; set; } = DateTime.Now;
-        public DateTime GUNCELLEMETARIHI { get; set; } = DateTime.Now;
-        public byte KAYITTIPI { get; set; } = 0;
-        public int ESKIID { get; set; } = 0;
+        public int id { get; set; }
+        public DateTime olusturmatarihi { get; set; } = DateTime.Now;
+        public DateTime guncellemetarihi { get; set; } = DateTime.Now;
+        public byte kayittipi { get; set; } = 0;
+        public int eskiid { get; set; } = 0;
     }
 }
