@@ -49,7 +49,7 @@ namespace MEYPAK.PRL.STOK
                 ACIKLAMA = TBAciklama.Text,
             }));
             _stokSayimServis.Data(ServisList.StokSayimListeServis);
-            dataGridView1.DataSource = _stokSayimServis.obje;
+            gridControl1.DataSource = _stokSayimServis.obje;
 
             stokSayimPanel.sayimId = _stokSayimServis.obje.Where(x => x.ACIKLAMA == TBAciklama.Text ).FirstOrDefault().ID;
                 TBAciklama.Text = "";
@@ -61,14 +61,24 @@ namespace MEYPAK.PRL.STOK
         private void FStokSayim_Load(object sender, EventArgs e)
         {
             _stokSayimServis.Data(ServisList.StokSayimListeServis);
-            dataGridView1.DataSource = _stokSayimServis.obje;
+            DTPSayimTarihi.EditValue = DateTime.Now.ToString("dd/MM/yyyy HH.mm");
+            gridControl1.DataSource = _stokSayimServis.obje;
+            gridView1.Columns["FIRMAID"].Visible = false;
+            gridView1.Columns["SUBEID"].Visible = false;
+            gridView1.Columns["DEPOID"].Visible = false;
+            gridView1.Columns["ID"].Visible = false; 
+            gridView1.Columns["KAYITTIPI"].Visible = false; 
+            gridView1.Columns["ESKIID"].Visible = false; 
+            gridView1.Columns["OLUSTURMATARIHI"].Visible = false; 
+            gridView1.Columns["GUNCELLEMETARIHI"].Visible = false; 
+
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            TBAciklama.Text = dataGridView1.Rows[e.RowIndex].Cells["ACIKLAMA"].Value.ToString();
-            DTPSayimTarihi.Value = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells["SAYIMTARIHI"].Value);
-            _tempId = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["ID"].Value);
+            TBAciklama.Text = gridView1.GetFocusedRowCellValue("ACIKLAMA").ToString();
+            DTPSayimTarihi.Value = Convert.ToDateTime(gridView1.GetFocusedRowCellValue("SAYIMTARIHI"));
+            _tempId = Convert.ToInt32(gridView1.GetFocusedRowCellValue("ID"));
         }
 
         private void BTSayimDuzenle_Click(object sender, EventArgs e)
@@ -81,9 +91,9 @@ namespace MEYPAK.PRL.STOK
 
         private void BTSayimSil_Click(object sender, EventArgs e)
         {
-            _stokSayimServis.Data(ServisList.StokSayimSilServis,null,null,(_stokSayimServis.obje.Where(x => x.ID == Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value))).ToList());
+            _stokSayimServis.Data(ServisList.StokSayimSilServis,null,null,(_stokSayimServis.obje.Where(x => x.ID== Convert.ToInt32(gridView1.GetFocusedRowCellValue("ID").ToString()))).ToList());
             _stokSayimServis.Data(ServisList.StokSayimListeServis);
-            dataGridView1.DataSource = _stokSayimServis.obje;
+            gridControl1.DataSource = _stokSayimServis.obje;
         }
     }
 }

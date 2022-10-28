@@ -23,6 +23,7 @@ using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.PocoModels.DEPO;
+using DevExpress.XtraEditors;
 
 namespace MEYPAK.PRL.STOK
 {
@@ -41,6 +42,10 @@ namespace MEYPAK.PRL.STOK
             _stokOlcuBrServis.Data(ServisList.StokOlcuBrListeServis);
             _olcuBrServis.Data(ServisList.OlcuBrListeServis);
             _depoServis.Data(ServisList.DepoListeServis);
+            CBBirim.EditValue = "";
+
+            CBParaBirimi.EditValue = "";
+
         }
         GenericWebServis<PocoSTOKHAR> _stokHarServis ;
         GenericWebServis<PocoSTOKOLCUBR> _stokOlcuBrServis ;
@@ -68,18 +73,37 @@ namespace MEYPAK.PRL.STOK
         }
         void Doldur()
         {
+            _stokHarServis.Data(ServisList.StokHarListeServis);
             _stokOlcuBrServis.Data(ServisList.StokOlcuBrListeServis);
+            _depoServis.Data(ServisList.DepoListeServis);
             IO = RBGiris.Checked == true ? 1 : 0;
             if (_tempStok != null)
             {
                 _id = _tempStok.ID;
                 TBStokKodu.Text = _tempStok.KOD;
                 TBStokAdi.Text = _tempStok.ADI;
-                CBBirim.DataSource = _stokOlcuBrServis.obje.Where(x => x.STOKID == _tempStok.ID).Select(x => _olcuBrServis.obje.Where(z => z.ID.ToString() == x.OLCUBRID.ToString()).FirstOrDefault().ADI).ToList(); //_stokOlcuBrServis.Getir(x => x.STOKID == _id).Select(x => _olcuBrServis.Getir(z => z.ID == x.OLCUBRID).FirstOrDefault().ADI).ToList();
-                TBKdv.Text = IO == 1 ? _tempStok.ALISKDV.ToString() : _tempStok.SATISKDV.ToString();
+                var adi= _stokOlcuBrServis.obje.Where(x => x.STOKID == _tempStok.ID).Select(x => _olcuBrServis.obje.Where(z => z.ID.ToString() == x.OLCUBRID.ToString()).FirstOrDefault().ADI).ToList();
+                CBBirim.Properties.DataSource = adi; //_stokOlcuBrServis.Getir(x => x.STOKID == _id).Select(x => _olcuBrServis.Getir(z => z.ID == x.OLCUBRID).FirstOrDefault().ADI).ToList();
+                CBBirim.Properties.ValueMember = "ID";
+                CBBirim.Properties.DisplayMember = "ADI";
+                CBBirim.EditValue = adi.FirstOrDefault();
                 //TBFiyat.Text = IO == 1 ? _tempStok.AFIYAT1.ToString() : _tempStok.SATISKDV.ToString();
                 BakiyeGuncelle();
-                gridControl1.DataSource = _stokHarServis.obje.Where(x=>x.STOKID==_tempStok.ID).ToList();
+                gridControl1.DataSource = _stokHarServis.obje.Where(x=>x.STOKID==_tempStok.ID).Select( x=> new PocoStokHareketListesi()
+                {
+                    Acıklama=x.ACIKLAMA,
+                    BelgeNo=x.BELGE_NO,
+                    Birim=_olcuBrServis.obje.Where(z=>z.ID==x.BIRIM).FirstOrDefault().ADI,
+                    BrutToplam=x.BRUTTOPLAM,
+                    Cikis=x.IO==0?x.MIKTAR:0,
+                    Giris=x.IO==1?x.MIKTAR:0,
+                    Depo=_depoServis.obje.Where(z=>z.ID==x.DEPOID).FirstOrDefault().DEPOADI,
+                    HareketTuru=x.HAREKETTURU==5?"Muhtelif":x.HAREKETTURU==1?"Satış Faturası":x.HAREKETTURU==2?"Alış Faturası":x.HAREKETTURU==3?"Satış İade":x.HAREKETTURU==4?"Alış İade":x.HAREKETTURU==6?"DAT":"",
+                    NetFiyat=x.NETFIYAT,
+                    NetToplam=x.NETTOPLAM,
+                    Tarih=x.OLUSTURMATARIHI
+                }).ToList();
+                gridView1.RefreshData();
                 // _tempStok = null;
 
 
@@ -100,11 +124,14 @@ namespace MEYPAK.PRL.STOK
                 }
             }
         }
-
+        
         private void FStokHareket_Load(object sender, EventArgs e)
         {
+            DTPTarih.EditValue = DateTime.Now;
             _depoServis.Data(ServisList.DepoListeServis);
-            CBDepo.DataSource = _depoServis.obje.Select(x => x.DEPOADI).ToList();
+            var depo= _depoServis.obje.Select(x => x.DEPOADI).ToList();
+            CBDepo.Properties.DataSource = depo;
+            CBDepo.EditValue = depo.FirstOrDefault();
             _tempdgvStok.Add(new PocoStokHareketListesi());
             gridControl1.DataSource = _tempdgvStok;
             ((ListBox)CLBDepo).DataSource = _depoServis.obje.Select(x => x.DEPOADI).ToList();
@@ -117,14 +144,14 @@ namespace MEYPAK.PRL.STOK
 
             _depoServis.Data(ServisList.DepoListeServis);
 
-            _stokHarServis.Data(ServisList.StokHarListeServis,(new PocoSTOKHAR()
+            _stokHarServis.Data(ServisList.StokHarEkleServis,(new PocoSTOKHAR()
             {
                 STOKID = _id,
                 BELGE_NO = TBBelgeNo.Text,
                 ACIKLAMA = TBAciklama.Text,
                 IO = this.IO,
-                BIRIM = _olcuBrServis.obje.Where(x => x.ADI == CBBirim.SelectedValue).FirstOrDefault().ID,
-                DEPOID = _depoServis.obje.Where(x => x.DEPOADI == CBDepo.SelectedValue).FirstOrDefault().ID,
+                BIRIM = _olcuBrServis.obje.Where(x => x.ADI == CBBirim.EditValue).FirstOrDefault().ID,
+                DEPOID = _depoServis.obje.Where(x => x.DEPOADI.ToString() == CBDepo.EditValue.ToString()).FirstOrDefault().ID,
                 MIKTAR = Convert.ToDecimal(TBMiktar.Text),
                 HAREKETTURU = 5,         //Muhtelif
                 FATURAID = 0,
@@ -185,35 +212,36 @@ namespace MEYPAK.PRL.STOK
 
         private void TBMiktar_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar != '.' && e.KeyChar != ',')
-            {
-                e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
-            }
+            //if (e.KeyChar != '.' && e.KeyChar != ',')
+            //{
+            //    e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+            //}
         }
 
         private void TBFiyat_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar != '.' && e.KeyChar != ',')
-            {
-                e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
-            }
+            //if (e.KeyChar != '.' && e.KeyChar != ',')
+            //{
+            //    e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+            //}
         }
 
         private void TBKdv_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar != '.' && e.KeyChar != ',')
-            {
-                e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
-            }
+            //if (e.KeyChar != '.' && e.KeyChar != ',')
+            //{
+            //    e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+            //}
         }
 
         private void TBKur_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar != '.' && e.KeyChar != ',')
-            {
-                e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
-            }
+            //if (e.KeyChar != '.' && e.KeyChar != ',')
+            //{
+            //    e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+            //}
         }
+
 
 
 
@@ -221,6 +249,14 @@ namespace MEYPAK.PRL.STOK
 
         #endregion
 
+        private void buttonEdit1_Properties_Click(object sender, EventArgs e)
+        {
+            _tempStok = null;
+            FStokList fStokList = new FStokList("stokhar");
+            fStokList.ShowDialog();
 
+            Doldur();
+        }
+ 
     }
 }

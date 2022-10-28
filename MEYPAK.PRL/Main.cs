@@ -29,11 +29,7 @@ namespace MEYPAK.PRL
     {
         public Main()
         {
-            InitializeComponent();
-            PrivateFontCollection pfc = new PrivateFontCollection();
-            pfc.AddFontFile(Path.Combine(Application.StartupPath, "avenir/Metropolis-Medium.otf"));
-            accordionControlElement1.Appearance.Default.Font = new Font(pfc.Families[0], 8.25f, FontStyle.Regular);
-            accordionControlElement2.Appearance.Default.Font = new Font(pfc.Families[0], 8.25f, FontStyle.Regular);
+            InitializeComponent(); 
             fStokHareket = new FStokHareket();
             fSTOKKART = new FStokKart();
             fDepoKart = new FDepoKart();
@@ -215,6 +211,16 @@ namespace MEYPAK.PRL
             fStokHareket.Dock = DockStyle.Fill;
             panel2.Controls.Add(fStokHareket);
             fStokHareket.Show();
+        }
+
+        private void accordionControlElement28_Click(object sender, EventArgs e)
+        {
+            panel2.Controls.Clear();
+            fStokSayim.TopLevel = false;
+            fStokSayim.AutoScroll = true;
+            fStokSayim.Dock = DockStyle.Fill;
+            panel2.Controls.Add(fStokSayim);
+            fStokSayim.Show();
         }
     }
 }

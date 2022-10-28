@@ -115,6 +115,8 @@
             this.accordionControlElement27 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
             this.applicationMenu1 = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
+            this.accordionControlElement28 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement29 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
@@ -645,7 +647,8 @@
             this.accordionControlElement12,
             this.accordionControlElement10,
             this.accordionControlElement11,
-            this.accordionControlElement13});
+            this.accordionControlElement13,
+            this.accordionControlElement28});
             this.accordionControlElement2.Expanded = true;
             this.accordionControlElement2.Name = "accordionControlElement2";
             this.accordionControlElement2.Text = "Tanımlar";
@@ -687,7 +690,8 @@
             this.accordionControlElement14,
             this.accordionControlElement15,
             this.accordionControlElement16,
-            this.accordionControlElement17});
+            this.accordionControlElement17,
+            this.accordionControlElement29});
             this.accordionControlElement3.Expanded = true;
             this.accordionControlElement3.Name = "accordionControlElement3";
             this.accordionControlElement3.Text = "Hareketler";
@@ -834,6 +838,19 @@
             // 
             this.applicationMenu1.Name = "applicationMenu1";
             // 
+            // accordionControlElement28
+            // 
+            this.accordionControlElement28.Name = "accordionControlElement28";
+            this.accordionControlElement28.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement28.Text = "Sayım Tanım";
+            this.accordionControlElement28.Click += new System.EventHandler(this.accordionControlElement28_Click);
+            // 
+            // accordionControlElement29
+            // 
+            this.accordionControlElement29.Name = "accordionControlElement29";
+            this.accordionControlElement29.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement29.Text = "Sayım İşleme";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -940,5 +957,7 @@
         private Panel panel2;
         private DevExpress.XtraBars.Navigation.AccordionControlSeparator accordionControlSeparator1;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement27;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement28;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement29;
     }
 }
