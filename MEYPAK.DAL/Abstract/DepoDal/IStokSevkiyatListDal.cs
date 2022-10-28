@@ -6,6 +6,8 @@ namespace MEYPAK.DAL.Abstract.DepoDal
     public interface IStokSevkiyatListDal:IGeneric<MPSTOKSEVKİYATLİST>
     {
         public MPSTOKSEVKİYATLİST EkleyadaGuncelle(MPSTOKSEVKİYATLİST entity);
-        public void OnYukle();
+        public List<MPSTOKSEVKİYATLİST> PagingList(int skip, int take, int requireTotalCount = 0);
+
+
     }
 }

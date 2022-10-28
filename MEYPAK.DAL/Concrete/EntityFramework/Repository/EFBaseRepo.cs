@@ -1,4 +1,4 @@
-﻿using MEYPAK.BLL.Assets.Filters;
+﻿
 using MEYPAK.DAL.Abstract;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.Interfaces;
@@ -24,30 +24,6 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
             return entity;
         }
 
-
-
-
-        //public Durum EkleyadaGuncelle(T entity)
-        //{
-        //    bool exists = context.Set<T>().Any(x => x.GetType().GetProperty("ID").GetValue(x).ToString() == entity.GetType().GetProperty("ID").GetValue(entity).ToString());
-        //    if (!exists)
-        //    {
-        //        context.Set<T>().Add(entity);
-        //        context.SaveChanges();
-        //        return Durum.kayıtbaşarılı;
-        //    }
-        //    else
-        //    {
-        //        T temp = context.Set<T>().Where(x => x.GetType().GetProperty("ID").GetValue(x) == entity.GetType().GetProperty("ID").GetValue(entity)).FirstOrDefault();
-        //        context.ChangeTracker.Clear();
-        //        context.Set<T>().Update(entity);
-        //        context.SaveChanges();
-        //        return Durum.güncellemebaşarılı;
-        //    }
-        //}
-
-
-
         public List<T> Getir(Expression<Func<T, bool>> filter)
         {
             return context.Set<T>().Where(filter).ToList();
@@ -61,7 +37,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
 
         }
 
-
+     
 
         public Durum Guncelle(T entity, Expression<Func<T, bool>> predicate)
         {
@@ -104,12 +80,8 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
             //    }
             //}
             //return query.ToList();
-            var wheres = new[]
-             {
-                    new Filtering.WhereParams { ColumnName = "KAYITTIPI", Operator = "Equals", Value = 0 }
-             };
-
-            var A = context.Set<T>().Where(wheres).ToList();
+        
+            var A = context.Set<T>().ToList();
             return A;
         }
 
@@ -145,5 +117,25 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
         {
             return context.Set<T>().ToList();
         }
+
+
+        //public Durum EkleyadaGuncelle(T entity)
+        //{
+        //    bool exists = context.Set<T>().Any(x => x.GetType().GetProperty("ID").GetValue(x).ToString() == entity.GetType().GetProperty("ID").GetValue(entity).ToString());
+        //    if (!exists)
+        //    {
+        //        context.Set<T>().Add(entity);
+        //        context.SaveChanges();
+        //        return Durum.kayıtbaşarılı;
+        //    }
+        //    else
+        //    {
+        //        T temp = context.Set<T>().Where(x => x.GetType().GetProperty("ID").GetValue(x) == entity.GetType().GetProperty("ID").GetValue(entity)).FirstOrDefault();
+        //        context.ChangeTracker.Clear();
+        //        context.Set<T>().Update(entity);
+        //        context.SaveChanges();
+        //        return Durum.güncellemebaşarılı;
+        //    }
+        //}
     }
 }

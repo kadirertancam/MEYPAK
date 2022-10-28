@@ -19,11 +19,9 @@ using MEYPAK.Interfaces.Hizmet;
 using MEYPAK.Interfaces.IRSALIYE;
 using MEYPAK.Interfaces.Personel; 
 using MEYPAK.Interfaces.Stok;
-using Microsoft.AspNetCore.OData;
+
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
-using Microsoft.OData.Edm;
-using Microsoft.OData.ModelBuilder;
 using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Routing;
 using MEYPAK.DAL.Abstract.SiparisDal;
@@ -41,8 +39,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-//Odata add to parameter /?$select=id
-builder.Services.AddControllers().AddOData(opt => opt.EnableQueryFeatures());
 
 //MaplemeAyarlarý
 builder.Services.AddAutoMapper(x =>

@@ -13,6 +13,6 @@ namespace MEYPAK.Interfaces.Stok
     {
         public PocoSTOK EkleyadaGuncelle(PocoSTOK entity);
 
-        public List<PocoSTOK> Listee();
+        public List<PocoSTOK> PagingList(int skip, int take, bool requireTotalCount );
     }
 }
