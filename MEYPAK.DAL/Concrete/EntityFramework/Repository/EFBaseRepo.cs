@@ -118,6 +118,8 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
             return context.Set<T>().ToList();
         }
 
+  
+
 
         //public Durum EkleyadaGuncelle(T entity)
         //{

@@ -28,6 +28,11 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
             _context = context;
         }
 
+        public List<MPSTOKHAR> PagingList(int skip, int take)
+        {
+            return _context.MPSTOKHAR.Where(x => x.ID > skip && x.KAYITTIPI == (byte)0).Take(take).ToList();
+        }
+
         public MPSTOKHAR EkleyadaGuncelle(MPSTOKHAR entity)
         {
             bool exists = _context.MPSTOKHAR.Any(x => x.ID == entity.ID);
@@ -82,13 +87,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
             return snc;
 
         }
-        public void Sil(int id)
-        {
-            MPSTOKHAR deleteStok = _context.MPSTOKHAR.Where(x => x.ID == id).FirstOrDefault();
-            deleteStok.KAYITTIPI = 1;
-            _context.MPSTOKHAR.Update(deleteStok);
-            _context.SaveChanges();
-        }
+     
 
     }
 }

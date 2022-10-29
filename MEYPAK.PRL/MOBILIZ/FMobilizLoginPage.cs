@@ -5,7 +5,6 @@ using MEYPAK.Entity.PocoModels.ARAC;
 using MEYPAK.Interfaces;
 using MEYPAK.PRL.MOBILIZ.MobilizAssets;
 using MEYPAK.PRL.STOK;
-using Microsoft.Reporting.Map.WebForms.BingMaps;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;

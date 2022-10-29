@@ -6,6 +6,7 @@ namespace MEYPAK.DAL.Abstract.StokDal
     {
         public MPSTOKFIYATLISTHAR EkleyadaGuncelle(MPSTOKFIYATLISTHAR entity);
 
-        public void Sil(int id);
+        public List<MPSTOKFIYATLISTHAR> PagingList(int skip, int take);
+
     }
 }

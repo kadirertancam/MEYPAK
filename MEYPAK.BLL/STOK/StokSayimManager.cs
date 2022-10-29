@@ -25,7 +25,11 @@ namespace MEYPAK.BLL.STOK
             _mapper=mapper;
         }
 
-    
+
+        public List<PocoSTOKSAYIM> PagingList(int skip, int take)
+        {
+            return _mapper.Map<List<PocoSTOKSAYIM>>(_stokSayimDal.PagingList(skip,take));
+        }
 
         public PocoSTOKSAYIM EkleyadaGuncelle(PocoSTOKSAYIM pModel)
         {
@@ -33,9 +37,6 @@ namespace MEYPAK.BLL.STOK
         }
 
 
-        public IQueryable<MPSTOKSAYIM> Listee()
-        {
-            return _stokSayimDal.Listee();
-        }
+      
     }
 }

@@ -21,7 +21,7 @@ namespace MEYPAK.API.Controllers.STOK
     
     public class StokController : Controller
     {
-
+       
         private readonly IMapper _mapper;
         private readonly IStokServis _stokServis;
         public StokController(IMapper mapper, IStokServis stokServis)
@@ -109,12 +109,13 @@ namespace MEYPAK.API.Controllers.STOK
 
         [HttpGet]
         [Route("/[controller]/[action]")] 
-        public IActionResult PagingList(int skip, int take, bool requireTotalCount)
+        public IActionResult PagingList(int skip, int take)
         {
             try
             {
-
-                return Ok(_stokServis.PagingList(skip,take,requireTotalCount));
+                
+                
+                return Ok(_stokServis.PagingList(skip, take));
             }
             catch (Exception ex)
             {

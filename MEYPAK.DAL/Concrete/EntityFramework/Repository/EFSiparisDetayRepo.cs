@@ -22,7 +22,12 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
         public EFSiparisDetayRepo(MEYPAKContext _context) : base(_context)
         {
             context = _context;
-            //onYukle();
+           
+        }
+
+        public List<MPSIPARISDETAY> PagingList(int skip, int take)
+        {
+            return context.MPSIPARISDETAY.Where(x => x.ID > skip && x.KAYITTIPI == (byte)0).Take(take).ToList();
         }
 
         public MPSIPARISDETAY EkleyadaGuncelle(MPSIPARISDETAY entity)
@@ -61,30 +66,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
                 return entity;
             }
         }
-        void onYukle()
-        {
-
-            var emp = context.MPSIPARISDETAY.ToList();
-            foreach (var item in emp)
-            {
-                context.Entry(item)
-                    .Collection(e => e.MPSIPARISSEVKEMRIHAR)
-                .Load();
-                context.Entry(item)
-                  .Collection(e => e.MPIRSALIYESIPARISDETAYILISKI)
-              .Load();
-                context.Entry(item)
-                  .Collection(e => e.MPDEPOEMIRSIPARISKALEMILISKI)
-              .Load();
-                context.Entry(item)
-                .Collection(e => e.MPSTOKMALKABULLIST)
-            .Load();
-                context.Entry(item)
-                .Collection(e => e.MPSTOKSEVKİYATLİST)
-            .Load();
-
-            }
-        }
+       
             public List<PocoSiparisKalem> PocoSiparisDetayListesi(int id)
         {
             var snc = context.MPSIPARISDETAY.Where(x => context.MPSIPARISDETAY.Where(z => z.ID == id).FirstOrDefault().ID == x.STOKID).Select(x => new PocoSiparisKalem

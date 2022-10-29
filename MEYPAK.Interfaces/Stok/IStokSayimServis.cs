@@ -12,6 +12,6 @@ namespace MEYPAK.Interfaces.Stok
     {
         public PocoSTOKSAYIM EkleyadaGuncelle(PocoSTOKSAYIM entity);
 
-        public IQueryable<MPSTOKSAYIM> Listee();
+        public List<PocoSTOKSAYIM> PagingList(int skip, int take);
     }
 }

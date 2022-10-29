@@ -14,8 +14,14 @@ using System.Text.Json.Serialization;
 
 namespace MEYPAK.Entity.PocoModels.STOK
 {
-    public class PocoSTOK:SUPERPOCOMODEL
+    public class PocoSTOK
     {
+        [Key]
+        public int id { get; set; }
+        public DateTime olusturmatarihi { get; set; } = DateTime.Now;
+        public DateTime guncellemetarihi { get; set; } = DateTime.Now;
+        public byte kayittipi { get; set; } = 0;
+        public int eskiid { get; set; } = 0;
         public int sirketid { get; set; }
         public int subeid { get; set; }
         public int kasaid { get; set; }

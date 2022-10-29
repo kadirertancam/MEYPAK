@@ -10,5 +10,8 @@ namespace MEYPAK.DAL.Abstract.SiparisDal
     public interface ISatinAlmaMalKabulEmriHarDal:IGeneric<MPSATINALMAMALKABULEMRIHAR>
     {
         public MPSATINALMAMALKABULEMRIHAR EkleyadaGuncelle(MPSATINALMAMALKABULEMRIHAR entity);
+
+        public List<MPSATINALMAMALKABULEMRIHAR> PagingList(int skip, int take);
+
     }
 }

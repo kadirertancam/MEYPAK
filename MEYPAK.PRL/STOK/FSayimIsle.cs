@@ -51,7 +51,7 @@ namespace MEYPAK.PRL.STOK
                     HAREKETTURU=7,
                     DEPOID=item.DEPOID,
                     NETFIYAT=item2.FIYAT,
-                    KDV=item2.MPSTOK.ALISKDV,
+                    KDV=item2.MPSTOK.aliskdv,
                     KAYITTIPI=0,
                     IO=1,
                     SAYIMID=item.ID

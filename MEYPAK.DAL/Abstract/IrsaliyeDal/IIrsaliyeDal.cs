@@ -9,5 +9,8 @@ namespace MEYPAK.DAL.Abstract.IrsaliyeDal
     {
 
         public MPIRSALIYE EkleyadaGuncelle(MPIRSALIYE entity);
+
+        public List<MPIRSALIYE> PagingList(int skip, int take);
+
     }
 }

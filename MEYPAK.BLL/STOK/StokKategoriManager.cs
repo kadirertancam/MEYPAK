@@ -19,6 +19,11 @@ namespace MEYPAK.BLL.STOK
             _mapper = mapper;
         }
 
+        public List<PocoSTOKKATEGORI> PagingList(int skip, int take)
+        {
+            return _mapper.Map<List<PocoSTOKKATEGORI>>(_kategoriDal.PagingList(skip, take));
+        }
+
         public PocoSTOKKATEGORI EkleyadaGuncelle(PocoSTOKKATEGORI pModel)
         {
 

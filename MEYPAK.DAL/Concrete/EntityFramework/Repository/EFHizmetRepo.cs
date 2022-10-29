@@ -16,6 +16,11 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
             context = _context;
         }
 
+        public List<MPHIZMET> PagingList(int skip, int take)
+        {
+            return context.MPHIZMET.Where(x => x.ID > skip && x.KAYITTIPI == (byte)0).Take(take).ToList();
+        }
+
 
         public MPHIZMET EkleyadaGuncelle(MPHIZMET entity)
         {

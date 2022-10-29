@@ -37,7 +37,7 @@ namespace MEYPAK.PRL.DEPO
             int _id;
             foreach (var item in aaa)
             {
-                _id = _tempStok.Where(x => x.KOD == item.StokKodu).FirstOrDefault().ID;
+                _id = _tempStok.Where(x => x.kod == item.StokKodu).FirstOrDefault().id;
                 _stokMalKabulListServis.OnYukle();
                 _stokMalKabulListServis.EkleyadaGuncelle(new PocoSTOKMALKABULLIST()
                 {
@@ -60,15 +60,15 @@ namespace MEYPAK.PRL.DEPO
         private void button1_Click(object sender, EventArgs e)
         {
 
-            _Stok = _tempStok.Where(x => x.ID.ToString() == comboBox1.SelectedValue.ToString()).FirstOrDefault();
+            _Stok = _tempStok.Where(x => x.id.ToString() == comboBox1.SelectedValue.ToString()).FirstOrDefault();
             _tempStokSevkiyatList = new PocoSTOKMALKABULLIST()
             {
-                STOKID = _Stok.ID,
+                STOKID = _Stok.id,
                 EMIRID = _tempEmir.ID,
                 DEPOID = _tempEmir.MPSIPARIS.DEPOID,
                 MIKTAR = 0,
                 SIPARISMIKTARI = _tempEmir.MPSIPARIS.MPSIPARISDETAYList.Where(x => x.STOKID.ToString() == comboBox1.SelectedValue.ToString()).FirstOrDefault().MIKTAR,
-                BIRIMID = _Stok.MPSTOKOLCUBR.Where(x => x.NUM == 1).Select(x => x.MPOLCUBR.ID).FirstOrDefault(),
+                //BIRIMID = _Stok.mpstokolcubr.Where(x => x.NUM == 1).Select(x => x.MPOLCUBR.ID).FirstOrDefault(),
             //    MPOLCUBR = _Stok.MPSTOKOLCUBRList.Where(x => x.NUM == 1).Select(x => x.MPOLCUBR).FirstOrDefault(),
                 MPDEPOEMIR = _tempEmir,
                 MPSTOK = _Stok,
@@ -82,8 +82,8 @@ namespace MEYPAK.PRL.DEPO
             }
             dataGridView1.DataSource = _tempList.Select(x => new PocoStokSevkiyatList()
             {
-                StokAdı = x.MPSTOK.ADI,
-                StokKodu = x.MPSTOK.KOD,
+                StokAdı = x.MPSTOK.adi,
+                StokKodu = x.MPSTOK.kod,
                 Birim = x.MPOLCUBR.ADI,
                 Miktar = x.MIKTAR,
                 ID = x.STOKID,
@@ -93,12 +93,12 @@ namespace MEYPAK.PRL.DEPO
 
         private void FMalKabulCekiPanel_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = _tempList.Select(x => new PocoStokSevkiyatList { StokKodu = x.MPSTOK.KOD, StokAdı = x.MPSTOK.ADI, Birim = "0" }).ToList();
+            dataGridView1.DataSource = _tempList.Select(x => new PocoStokSevkiyatList { StokKodu = x.MPSTOK.kod, StokAdı = x.MPSTOK.adi, Birim = "0" }).ToList();
             comboBox1.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             comboBox1.AutoCompleteSource = AutoCompleteSource.ListItems;
             comboBox1.DisplayMember = "KOD";
             comboBox1.ValueMember = "ID";
-            comboBox1.DataSource = _tempStok.Select(x => new { KOD = x.KOD, ID = x.ID }).ToList();
+            comboBox1.DataSource = _tempStok.Select(x => new { KOD = x.kod, ID = x.id }).ToList();
         }
     }
 }

@@ -26,9 +26,9 @@ namespace MEYPAK.BLL.STOK
             _mapper = mapper;
         }
 
-        public List<PocoSTOK> PagingList(int skip, int take, bool requireTotalCount )
+        public List<PocoSTOK> PagingList(int skip, int take)
         {
-            return  _mapper.Map<List<PocoSTOK>>(_stokDal.PagingList(skip, take, requireTotalCount));
+            return  _mapper.Map<List<PocoSTOK>>(_stokDal.PagingList(skip, take));
         }
 
         public PocoSTOK EkleyadaGuncelle(PocoSTOK pModel)

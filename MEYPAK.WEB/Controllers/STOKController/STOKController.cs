@@ -39,8 +39,7 @@ namespace MEYPAK.WEB.Controllers.STOKController
         GenericWebServis<PocoSTOKSAYIM> _tempPocoStokSayim = new GenericWebServis<PocoSTOKSAYIM>();
         GenericWebServis<PocoSTOKSAYIMHAR> _tempPocoStokSayimHar = new GenericWebServis<PocoSTOKSAYIMHAR>();
 
-
-        static List<PocoSTOK> pocoSTOKs = new List<PocoSTOK>();
+        static List<PocoSTOK> PocoSTOKs = new List<PocoSTOK>();
 
         public StokController(ILogger<StokController> logger)
         {
@@ -54,47 +53,40 @@ namespace MEYPAK.WEB.Controllers.STOKController
         [HttpGet]
         public IActionResult Index()
         {
-            pocoSTOKs.Clear();
+           
             return View();
         }
-        [HttpGet]
-        public object PagingList(DataSourceLoadOptions loadOptions)
-        {
-            var a = loadOptions.Take;
-            var b = loadOptions.Skip;
-            string url = "http://213.238.167.117:8080/Stok/PagingList?skip=" + b + "&take=" + a + "&requireTotalCount=true";
-            _tempPocoStok.Data(url);
 
-
-            return DataSourceLoader.Load(_tempPocoStok.obje.ToEnumerable(), loadOptions);
-        }
 
         [HttpGet]
-        public object Get(DataSourceLoadOptions loadOptions)
+        public object StokGet(DataSourceLoadOptions loadOptions)
         {
-            
             var a = loadOptions.Take;
             var b = loadOptions.Skip;
             string url = "http://213.238.167.117:8080/Stok/PagingList?skip="+b+"&take="+a+"&requireTotalCount=true";
             _tempPocoStok.Data(url);
-            pocoSTOKs.AddRange(_tempPocoStok.obje);
-
-            return DataSourceLoader.Load(pocoSTOKs.ToEnumerable(), loadOptions);
+            return DataSourceLoader.Load(_tempPocoStok.obje, loadOptions);
         }
 
-        //[HttpDelete]
-        //public async Task<IActionResult> StokSil(int id)
-        //{
-        //    _tempPocoStok.Data(ServisList.StokDeleteByIdServis, id);
-        //    ViewBag.Durum = "Başarıyla silindi.";
-        //    return View();
-        //}
-
-        public async Task<IActionResult> StokEkle(int key, string values)
+        [HttpDelete]
+        public async Task<IActionResult> StokDelete(int id)
         {
+            _tempPocoStok.Data(ServisList.StokDeleteByIdServis,id :id.ToString());
+            ViewBag.Durum = "Başarıyla silindi.";
+            return View();
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> StokAdd(int key, string values)
+        {
+            _tempPocoStok.Data(ServisList.StokListeServis);
+            var employee = _tempPocoStok.obje.First(a => a.id == key);
+            JsonConvert.PopulateObject(values, employee);
 
             //_tempPocoStok.Data(ServisList.StokEkleServis, id);
 
+            _tempPocoStok.Data(ServisList.StokEkleServis, employee);
+            var b = _tempPocoStok.obje;
             ViewBag.Durum = "Başarıyla eklendi.";
             return View();
         }
@@ -176,6 +168,16 @@ namespace MEYPAK.WEB.Controllers.STOKController
             return View();
         }
 
+        [HttpGet]
+        public object HizmetGet(DataSourceLoadOptions loadOptions)
+        {
+            var a = loadOptions.Take;
+            var b = loadOptions.Skip;
+            string url = "http://213.238.167.117:8080/HIZMET/PagingList?skip=" + b + "&take=" + a + "&requireTotalCount=true";
+            _tempPocoHizmet.Data(url);
+            return DataSourceLoader.Load(_tempPocoHizmet.obje, loadOptions);
+        }
+
         #endregion
 
         #region OLCUBR
@@ -213,6 +215,15 @@ namespace MEYPAK.WEB.Controllers.STOKController
 
             ViewBag.Durum = "Başarıyla silindi.";
             return View();
+        }
+        [HttpGet]
+        public object OlcuBrGet(DataSourceLoadOptions loadOptions)
+        {
+            var a = loadOptions.Take;
+            var b = loadOptions.Skip;
+            string url = "http://213.238.167.117:8080/OLCUBR/PagingList?skip=" + b + "&take=" + a + "&requireTotalCount=true";
+            _tempPocoOlcuBr.Data(url);
+            return DataSourceLoader.Load(_tempPocoOlcuBr.obje, loadOptions);
         }
 
         #endregion
@@ -256,6 +267,16 @@ namespace MEYPAK.WEB.Controllers.STOKController
             ViewBag.Durum = "Başarıyla silindi.";
             return View();
         }
+        [HttpGet]
+        public object StokFiyatListGet(DataSourceLoadOptions loadOptions)
+        {
+            var a = loadOptions.Take;
+            var b = loadOptions.Skip;
+            string url = "http://213.238.167.117:8080/STOKFIYATLIST/PagingList?skip=" + b + "&take=" + a + "&requireTotalCount=true";
+            _tempPocoStokFiyatList.Data(url);
+            return DataSourceLoader.Load(_tempPocoStokFiyatList.obje, loadOptions);
+        }
+
 
         #endregion
 
@@ -298,7 +319,15 @@ namespace MEYPAK.WEB.Controllers.STOKController
             ViewBag.Durum = "Başarıyla silindi.";
             return View();
         }
-
+        [HttpGet]
+        public object StokFiyatListHarGet(DataSourceLoadOptions loadOptions)
+        {
+            var a = loadOptions.Take;
+            var b = loadOptions.Skip;
+            string url = "http://213.238.167.117:8080/STOKFIYATLISTHAR/PagingList?skip=" + b + "&take=" + a + "&requireTotalCount=true";
+            _tempPocoStokFiyatHarList.Data(url);
+            return DataSourceLoader.Load(_tempPocoStokFiyatHarList.obje, loadOptions);
+        }
 
         #endregion
 
@@ -343,6 +372,16 @@ namespace MEYPAK.WEB.Controllers.STOKController
             ViewBag.Durum = "Başarıyla silindi.";
             return View();
         }
+
+        [HttpGet]
+        public object StokHarGet(DataSourceLoadOptions loadOptions)
+        {
+            var a = loadOptions.Take;
+            var b = loadOptions.Skip;
+            string url = "http://213.238.167.117:8080/STOKHAR/PagingList?skip=" + b + "&take=" + a + "&requireTotalCount=true";
+            _tempPocoStokHar.Data(url);
+            return DataSourceLoader.Load(_tempPocoStokHar.obje, loadOptions);
+        }
         #endregion
 
         #region STOKKASA
@@ -365,7 +404,6 @@ namespace MEYPAK.WEB.Controllers.STOKController
         [HttpPost]
         public async Task<IActionResult> StokKasaEkle(PocoSTOKKASA pModel)
         {
-
             _tempPocoStokKasa.Data(ServisList.StokKasaEkleServis, pModel);
 
             ViewBag.Durum = "Başarıyla eklendi.";
@@ -385,6 +423,16 @@ namespace MEYPAK.WEB.Controllers.STOKController
 
             ViewBag.Durum = "Başarıyla silindi.";
             return View();
+        }
+
+        [HttpGet]
+        public object StokKasaGet(DataSourceLoadOptions loadOptions)
+        {
+            var a = loadOptions.Take;
+            var b = loadOptions.Skip;
+            string url = "http://213.238.167.117:8080/STOKHAR/PagingList?skip=" + b + "&take=" + a + "&requireTotalCount=true";
+            _tempPocoStokHar.Data(url);
+            return DataSourceLoader.Load(_tempPocoStokHar.obje, loadOptions);
         }
         #endregion
 
@@ -428,6 +476,16 @@ namespace MEYPAK.WEB.Controllers.STOKController
 
             ViewBag.Durum = "Başarıyla silindi.";
             return View();
+        }
+
+        [HttpGet]
+        public object StokKategoriGet(DataSourceLoadOptions loadOptions)
+        {
+            var a = loadOptions.Take;
+            var b = loadOptions.Skip;
+            string url = "http://213.238.167.117:8080/STOKKATEGORI/PagingList?skip=" + b + "&take=" + a + "&requireTotalCount=true";
+            _tempPocoStokKategori.Data(url);
+            return DataSourceLoader.Load(_tempPocoStokKategori.obje, loadOptions);
         }
         #endregion
 

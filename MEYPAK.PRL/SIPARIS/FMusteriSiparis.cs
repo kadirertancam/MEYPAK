@@ -87,7 +87,7 @@ namespace MEYPAK.PRL.SIPARIS
             _tempSiparisDetay.Clear();
             _tempSiparisDetay.Add(new PocoSiparisKalem());
             gridControl1.DataSource = _tempSiparisDetay;
-            DGVOlcuBr.DataSource = _tempStok.MPSTOKOLCUBR.Select(x => x.MPOLCUBR.ADI).ToList();
+            //DGVOlcuBr.DataSource = _tempStok.MPSTOKOLCUBR.Select(x => x.MPOLCUBR.ADI).ToList();
             gridView1.Columns["StokId"].Visible = false;
             gridView1.Columns["MPSTOK"].Visible = false;
             gridView1.Columns["Birim"].Visible = false;
@@ -161,7 +161,7 @@ namespace MEYPAK.PRL.SIPARIS
         {
             _fStokList.ShowDialog();
 
-            var tempp = _stokOlcuBr.obje.Where(x => x.STOKID == _tempStok.ID);
+            var tempp = _stokOlcuBr.obje.Where(x => x.STOKID == _tempStok.id);
             _olcuBr.Data(ServisList.OlcuBrListeServis);
 
             foreach (var item in tempp)
@@ -173,13 +173,13 @@ namespace MEYPAK.PRL.SIPARIS
             //DGVtempCell.Value = DGVOlcuBr.Items[0].ToString();
             _tempPocokalem = new PocoSiparisKalem()
             {
-                StokId = _tempStok.ID,
+                StokId = _tempStok.id,
                 MPSTOK = _tempStok,
-                StokKodu = _tempStok.KOD,
-                StokAdı = _tempStok.ADI,
+                StokKodu = _tempStok.kod,
+                StokAdı = _tempStok.adi,
                 Birim ="0",// _olcuBr.obje.Where(x => x.ADI == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "DGVOlcuBr").ToString()).FirstOrDefault().ADI,
                 KasaAdı = "",
-                Kdv = _tempStok.SATISKDV,
+                Kdv = _tempStok.satiskdv,
                 Doviz = "TL", //_tempStok.SDOVIZID 
             };
 
@@ -187,7 +187,7 @@ namespace MEYPAK.PRL.SIPARIS
 
             //TODO 24.10.2022 BAKILACAK
 
-            DGVFiyatList.DataSource = _tempStok.MPSTOKFIYATLISTHAR.Select(x => x.MPSTOKFIYATLIST.FIYATLISTADI).ToList(); //////////////////////////// BAKILCAK
+           /* DGVFiyatList.DataSource = _tempStok.MPSTOKFIYATLISTHAR.Select(x => x.MPSTOKFIYATLIST.FIYATLISTADI).ToList();*/ //////////////////////////// BAKILCAK
             _tempSiparisDetay[e.Button.Index] = _tempPocokalem;
             gridControl1.DataSource = _tempSiparisDetay;
             gridView1.RefreshData();
@@ -279,7 +279,7 @@ namespace MEYPAK.PRL.SIPARIS
             {
                 _fStokList.ShowDialog();
 
-                var tempp = _stokOlcuBr.obje.Where(x => x.STOKID == _tempStok.ID);
+                var tempp = _stokOlcuBr.obje.Where(x => x.STOKID == _tempStok.id);
                 _olcuBr.Data(ServisList.OlcuBrListeServis);
 
                 foreach (var item in tempp)
@@ -291,13 +291,13 @@ namespace MEYPAK.PRL.SIPARIS
                 //DGVtempCell.Value = DGVOlcuBr.Items[0].ToString();
                 _tempPocokalem = new PocoSiparisKalem()
                 {
-                    StokId = _tempStok.ID,
+                    StokId = _tempStok.id,
                     MPSTOK = _tempStok,
-                    StokKodu = _tempStok.KOD,
-                    StokAdı = _tempStok.ADI,
+                    StokKodu = _tempStok.kod,
+                    StokAdı = _tempStok.adi,
                     Birim = _olcuBr.obje.Where(x=>x.ADI== gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "DGVOlcuBr").ToString()).FirstOrDefault().ADI,
                     KasaAdı = "",
-                    Kdv = _tempStok.SATISKDV,
+                    Kdv = _tempStok.satiskdv,
                     Doviz = "TL", //_tempStok.SDOVIZID 
                 };
                 
@@ -305,7 +305,7 @@ namespace MEYPAK.PRL.SIPARIS
                
                   //TODO 24.10.2022 BAKILACAK
                
-                DGVFiyatList.DataSource = _tempStok.MPSTOKFIYATLISTHAR.Select(x => x.MPSTOKFIYATLIST.FIYATLISTADI).ToList(); //////////////////////////// BAKILCAK
+              /*  DGVFiyatList.DataSource = _tempStok.MPSTOKFIYATLISTHAR.Select(x => x.MPSTOKFIYATLIST.FIYATLISTADI).ToList();*/ //////////////////////////// BAKILCAK
                 _tempSiparisDetay[e.RowIndex] = _tempPocokalem;
                 gridControl1.DataSource = _tempSiparisDetay;
 

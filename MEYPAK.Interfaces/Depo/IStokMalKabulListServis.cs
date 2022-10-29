@@ -11,6 +11,6 @@ namespace MEYPAK.Interfaces.Depo
     public interface IStokMalKabulListServis:IGenericServis<PocoSTOKMALKABULLIST>
     {
         public PocoSTOKMALKABULLIST EkleyadaGuncelle(PocoSTOKMALKABULLIST pModel);
-        public void OnYukle();
+     
     }
 }

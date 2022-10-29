@@ -2,6 +2,7 @@
 using MEYPAK.DAL.Abstract.DepoDal;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.Entity.Models.DEPO;
+using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Entity.PocoModels;
 using MEYPAK.Interfaces;
 using System;
@@ -20,6 +21,11 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
         public EFDepoTransferRepo(MEYPAKContext context) : base(context)
         {
             _context=context;
+        }
+
+        public List<MPDEPOTRANSFER> PagingList(int skip, int take)
+        {
+            return _context.MPDEPOTRANSFER.Where(x => x.ID > skip && x.KAYITTIPI == (byte)0).Take(take).ToList();
         }
 
         public MPDEPOTRANSFER EkleyadaGuncelle(MPDEPOTRANSFER entity)

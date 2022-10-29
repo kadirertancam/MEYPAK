@@ -19,24 +19,11 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
         public EFStokSayimRepo(MEYPAKContext context) : base(context)
         {
             _context = context;
-            //onYukle();
+            
         }
-        void onYukle()
+        public List<MPSTOKSAYIM> PagingList(int skip, int take)
         {
-           
-            var emp = _context.MPSTOKSAYIM.ToList();
-            foreach (var item in emp)
-            {
-                _context.Entry(item)
-                    .Collection(e =>  e.MPSTOKSAYIMHAR)
-                    .Load();
-               
-
-
-            }
-            EFStokSayimHarRepo rep = new EFStokSayimHarRepo(_context);
-            rep.onYukle();
-
+            return _context.MPSTOKSAYIM.Where(x => x.ID > skip && x.KAYITTIPI == (byte)0).Take(take).ToList();
         }
 
 
@@ -75,18 +62,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
                 return entity;
             }
         }
-        public IQueryable<MPSTOKSAYIM> Listee()
-        {
-            IQueryable<MPSTOKSAYIM> query = _context.MPSTOKSAYIM;
-
-
-            //query = query.Include("MPSTOKHAR");
-            //query = query.Include("MPSIPARISDETAY");
-            //query = query.Include("MPSTOKSEVKİYATLİST");
-
-
-            return query;
-        }
+       
 
 
     }

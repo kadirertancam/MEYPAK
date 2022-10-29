@@ -79,17 +79,17 @@ namespace MEYPAK.PRL.STOK
             IO = RBGiris.Checked == true ? 1 : 0;
             if (_tempStok != null)
             {
-                _id = _tempStok.ID;
-                TBStokKodu.Text = _tempStok.KOD;
-                TBStokAdi.Text = _tempStok.ADI;
-                var adi= _stokOlcuBrServis.obje.Where(x => x.STOKID == _tempStok.ID).Select(x => _olcuBrServis.obje.Where(z => z.ID.ToString() == x.OLCUBRID.ToString()).FirstOrDefault().ADI).ToList();
+                _id = _tempStok.id;
+                TBStokKodu.Text = _tempStok.kod;
+                TBStokAdi.Text = _tempStok.adi;
+                var adi= _stokOlcuBrServis.obje.Where(x => x.STOKID == _tempStok.id).Select(x => _olcuBrServis.obje.Where(z => z.ID.ToString() == x.OLCUBRID.ToString()).FirstOrDefault().ADI).ToList();
                 CBBirim.Properties.DataSource = adi; //_stokOlcuBrServis.Getir(x => x.STOKID == _id).Select(x => _olcuBrServis.Getir(z => z.ID == x.OLCUBRID).FirstOrDefault().ADI).ToList();
                 CBBirim.Properties.ValueMember = "ID";
                 CBBirim.Properties.DisplayMember = "ADI";
                 CBBirim.EditValue = adi.FirstOrDefault();
                 //TBFiyat.Text = IO == 1 ? _tempStok.AFIYAT1.ToString() : _tempStok.SATISKDV.ToString();
                 BakiyeGuncelle();
-                gridControl1.DataSource = _stokHarServis.obje.Where(x=>x.STOKID==_tempStok.ID).Select( x=> new PocoStokHareketListesi()
+                gridControl1.DataSource = _stokHarServis.obje.Where(x=>x.STOKID==_tempStok.id).Select( x=> new PocoStokHareketListesi()
                 {
                     Acıklama=x.ACIKLAMA,
                     BelgeNo=x.BELGE_NO,
@@ -187,16 +187,16 @@ namespace MEYPAK.PRL.STOK
 
         private void TBStokKodu_Leave(object sender, EventArgs e)
         {
-            if (TBStokKodu.Text != "" && _stokServis.obje.Where(x => x.KOD == TBStokKodu.Text).FirstOrDefault() != null)
+            if (TBStokKodu.Text != "" && _stokServis.obje.Where(x => x.kod == TBStokKodu.Text).FirstOrDefault() != null)
             {
-                _tempStok = _stokServis.obje.Where(x => x.KOD == TBStokKodu.Text).FirstOrDefault();
+                _tempStok = _stokServis.obje.Where(x => x.kod == TBStokKodu.Text).FirstOrDefault();
                 Doldur();
             }
         }
 
         private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            _tempStok = _stokServis.obje.Where(x => x.ID.ToString() == gridView1.GetFocusedRowCellValue("STOKID").ToString()).FirstOrDefault();
+            _tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("STOKID").ToString()).FirstOrDefault();
             TBMiktar.Text = gridView1.GetFocusedRowCellValue("MIKTAR").ToString();
             Doldur();
         }

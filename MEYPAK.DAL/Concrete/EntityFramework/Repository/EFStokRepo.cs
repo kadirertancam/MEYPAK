@@ -27,10 +27,11 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
         }
 
 
-        public List<MPSTOK> PagingList(int skip, int take, bool requireTotalCount )
+        public List<MPSTOK> PagingList(int skip, int take )
         {
-           
-            return _context.MPSTOK.Where(x => x.ID > skip && x.KAYITTIPI == (byte)0).Take(take).ToList();
+            var aa = _context.MPSTOK.Skip(skip).Take(take).OrderBy(x=>x.ID).ToList();
+            return aa;
+
         }
 
         public MPSTOK EkleyadaGuncelle(MPSTOK entity)

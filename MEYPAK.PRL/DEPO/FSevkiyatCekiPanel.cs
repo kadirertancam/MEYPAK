@@ -93,12 +93,12 @@ namespace MEYPAK.PRL.DEPO
         private void FSevkiyatCekiPanel_Load(object sender, EventArgs e)
         {
             // _tempList.Add(new PocoStokSevkiyatList());
-            dataGridView1.DataSource = _tempList.Select(x => new PocoStokSevkiyatList { StokKodu = x.MPSTOK.KOD, StokAdı = x.MPSTOK.ADI, Birim = "0" }).ToList();
+            dataGridView1.DataSource = _tempList.Select(x => new PocoStokSevkiyatList { StokKodu = x.MPSTOK.kod, StokAdı = x.MPSTOK.adi, Birim = "0" }).ToList();
             comboBox1.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             comboBox1.AutoCompleteSource = AutoCompleteSource.ListItems;
             comboBox1.DisplayMember = "KOD";
             comboBox1.ValueMember = "ID";
-            comboBox1.DataSource = _tempStok.Select(x => new { KOD = x.KOD, ID = x.ID }).ToList(); 
+            comboBox1.DataSource = _tempStok.Select(x => new { KOD = x.kod, ID = x.id }).ToList(); 
 
             //comboBox1.AutoCompleteCustomSource=(_tempStok.Select(x=> new { x.KOD,x.ID }).ToArray()); 
 

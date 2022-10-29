@@ -19,6 +19,12 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
             context = _context;
         }
 
+
+        public List<MPCARIKART> PagingList(int skip, int take)
+        {
+            return context.MPCARIKART.Where(x => x.ID > skip && x.KAYITTIPI == (byte)0).Take(take).ToList();
+        }
+
         public MPCARIKART EkleyadaGuncelle(MPCARIKART entity)
         {
             bool exists = context.MPCARIKART.Any(x => x.ID == entity.ID);

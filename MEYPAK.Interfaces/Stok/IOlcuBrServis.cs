@@ -11,5 +11,7 @@ namespace MEYPAK.Interfaces.Stok
     public interface IOlcuBrServis:IGenericServis<PocoOLCUBR>
     {
         public PocoOLCUBR EkleyadaGuncelle(PocoOLCUBR entity);
+
+        public List<PocoOLCUBR> PagingList(int skip, int take);
     }
 }

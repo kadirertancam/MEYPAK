@@ -8,7 +8,8 @@ namespace MEYPAK.DAL.Abstract.StokDal
     {
         public MPSTOK EkleyadaGuncelle(MPSTOK entity);
 
-        public List<MPSTOK> PagingList(int skip, int take, bool requireTotalCount );
-     
+        public List<MPSTOK> PagingList(int skip, int take);
+
+
     }
 }

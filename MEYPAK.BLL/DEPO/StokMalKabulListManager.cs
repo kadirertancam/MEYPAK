@@ -29,9 +29,6 @@ namespace MEYPAK.BLL.DEPO
             return _mapper.Map<MPSTOKMALKABULLIST,PocoSTOKMALKABULLIST>( _stokMalKKabulListDal.EkleyadaGuncelle(_mapper.Map<PocoSTOKMALKABULLIST,MPSTOKMALKABULLIST>(pModel)));
         }
 
-        public void OnYukle()
-        {
-            _stokMalKKabulListDal.OnYukle();
-        }
+    
     }
 }

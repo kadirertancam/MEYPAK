@@ -7,5 +7,7 @@ namespace MEYPAK.DAL.Abstract.DepoDal
     {
         public MPDEPO EkleyadaGuncelle(MPDEPO entity);
 
+        public List<MPDEPO> PagingList(int skip, int take);
+
     }
 }

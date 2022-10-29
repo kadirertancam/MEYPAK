@@ -11,5 +11,8 @@ namespace MEYPAK.Interfaces.Siparis
     public interface ISatinAlmaMalKabulEmriHarServis:IGenericServis<PocoSATINALMAMALKABULEMRIHAR>
     {
         public PocoSATINALMAMALKABULEMRIHAR EkleyadaGuncelle(PocoSATINALMAMALKABULEMRIHAR entity);
+
+        public List<PocoSATINALMAMALKABULEMRIHAR> PagingList(int skip, int take);
+
     }
 }

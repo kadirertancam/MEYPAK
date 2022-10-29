@@ -80,36 +80,36 @@ namespace MEYPAK.PRL
             _markaServis.Data(ServisList.StokMarkaListeServis);
             if (_tempStok != null)
             {
-                stokid = _tempStok.ID;
-                TBStokKodu.Text = _tempStok.KOD;
+                stokid = _tempStok.id;
+                TBStokKodu.Text = _tempStok.kod;
                 
             }
-            TBStokAdı.Text = _tempStok.ADI;
-            TBSatisOtv.Text = _tempStok.SATISOTV.ToString();
-            TBSatisKdv.Text = _tempStok.SATISKDV.ToString();
-            TBMarka.Text = _markaServis.obje.Where(x=>x.ID.ToString()==_tempStok.MARKAID.ToString()).FirstOrDefault().ADI.ToString();
-            TBSatisKdv.Text = _tempStok.KATEGORIID.ToString();
-            TBGrupKodu.Text = _tempStok.GRUPKODU.ToString();
-            TBAlisOtv.Text = _tempStok.ALISOTV.ToString();
-            TBAlisKdv.Text = _tempStok.ALISKDV.ToString();
-            TBAcıklama.Text = _tempStok.ACIKLAMA;
-            CBSDoviz.SelectedIndex = _tempStok.SDOVIZID;
-            CBADoviz.SelectedIndex = _tempStok.ADOVIZID;
-            TBAFiyat1.Text = Convert.ToString(_tempStok.AFIYAT1);
-            TBAFiyat2.Text = Convert.ToString(_tempStok.AFIYAT2);
-            TBAFiyat3.Text = Convert.ToString(_tempStok.AFIYAT3);
-            TBAFiyat4.Text = Convert.ToString(_tempStok.AFIYAT4);
-            TBAFiyat5.Text = Convert.ToString(_tempStok.AFIYAT5);
-            TBSFiyat1.Text = Convert.ToString(_tempStok.SFIYAT1);
-            TBSFiyat2.Text = Convert.ToString(_tempStok.SFIYAT2);
-            TBSFiyat3.Text = Convert.ToString(_tempStok.SFIYAT3);
-            TBSFiyat4.Text = Convert.ToString(_tempStok.SFIYAT4);
-            TBSFiyat5.Text = Convert.ToString(_tempStok.SFIYAT5);
-            CBOlcuBr1.SelectedIndex = _tempStok.OLCUBR1;
-            dataGridView1.DataSource = _tempStok.MPSTOKOLCUBR.ToList();
+            TBStokAdı.Text = _tempStok.adi;
+            TBSatisOtv.Text = _tempStok.satisotv.ToString();
+            TBSatisKdv.Text = _tempStok.satiskdv.ToString();
+            TBMarka.Text = _markaServis.obje.Where(x=>x.ID.ToString()==_tempStok.markaid.ToString()).FirstOrDefault().ADI.ToString();
+            TBSatisKdv.Text = _tempStok.kategoriid.ToString();
+            TBGrupKodu.Text = _tempStok.grupkodu.ToString();
+            TBAlisOtv.Text = _tempStok.alisotv.ToString();
+            TBAlisKdv.Text = _tempStok.aliskdv.ToString();
+            TBAcıklama.Text = _tempStok.aciklama;
+            CBSDoviz.SelectedIndex = _tempStok.sdovizid;
+            CBADoviz.SelectedIndex = _tempStok.adovizid;
+            TBAFiyat1.Text = Convert.ToString(_tempStok.afiyaT1);
+            TBAFiyat2.Text = Convert.ToString(_tempStok.afiyaT2);
+            TBAFiyat3.Text = Convert.ToString(_tempStok.afiyaT3);
+            TBAFiyat4.Text = Convert.ToString(_tempStok.afiyaT4);
+            TBAFiyat5.Text = Convert.ToString(_tempStok.afiyaT5);
+            TBSFiyat1.Text = Convert.ToString(_tempStok.sfiyaT1);
+            TBSFiyat2.Text = Convert.ToString(_tempStok.sfiyaT2);
+            TBSFiyat3.Text = Convert.ToString(_tempStok.sfiyaT3);
+            TBSFiyat4.Text = Convert.ToString(_tempStok.sfiyaT4);
+            TBSFiyat5.Text = Convert.ToString(_tempStok.sfiyaT5);
+            CBOlcuBr1.SelectedIndex = _tempStok.olcubR1;
+            //dataGridView1.DataSource = _tempStok.MPSTOKOLCUBR.ToList();
             dataGridView1.Refresh();
-            var a = _PocoStokServis.obje.Select(x=>x.MPSTOKOLCUBR.Select(z=>z));
-            stokOlculist = _tempStok.MPSTOKOLCUBR.ToList();
+            //var a = _PocoStokServis.obje.Select(x=>x.mpst.Select(z=>z));
+            //stokOlculist = _tempStok.MPSTOKOLCUBR.ToList();
             _tempStok = null;
         }
 
@@ -118,7 +118,7 @@ namespace MEYPAK.PRL
             _PocoStokServis.Data(ServisList.StokListeServis);
             if (TBStokKodu.Text != "")
             {
-                _tempStok = _PocoStokServis.obje.Where(x => x.KOD == TBStokKodu.Text).FirstOrDefault();
+                _tempStok = _PocoStokServis.obje.Where(x => x.kod == TBStokKodu.Text).FirstOrDefault();
                 if (_tempStok != null)
                     tbDoldur();
                 else
@@ -187,40 +187,40 @@ namespace MEYPAK.PRL
             _markaServis.Data(ServisList.StokMarkaListeServis);
             _tempStok = new PocoSTOK()
             {
-                ID = stokid,
-                KOD = TBStokKodu.Text,
-                ADI = TBStokAdı.Text,
-                MARKAID = _markaServis.obje.Where(x => x.ADI == TBMarka.Text).FirstOrDefault().ID,
-                KATEGORIID = _tempKategori.ID,
-                KASAID = 1,//_tempKasa.ID,
-                GRUPKODU = int.Parse(TBGrupKodu.Text),
-                ACIKLAMA = TBAcıklama.Text,
-                SATISKDV = Convert.ToDecimal(TBSatisKdv.Text),
-                ALISKDV = Convert.ToDecimal(TBAlisKdv.Text),
-                SATISOTV = Convert.ToDecimal(TBSatisOtv.Text),
-                ALISOTV = Convert.ToDecimal(TBAlisOtv.Text),
-                AFIYAT1 = Convert.ToDecimal(TBAFiyat1.Text),
-                AFIYAT2 = Convert.ToDecimal(TBAFiyat2.Text),
-                AFIYAT3 = Convert.ToDecimal(TBAFiyat3.Text),
-                AFIYAT4 = Convert.ToDecimal(TBAFiyat4.Text),
-                AFIYAT5 = Convert.ToDecimal(TBAFiyat5.Text),
-                SFIYAT1 = Convert.ToDecimal(TBSFiyat1.Text),
-                SFIYAT2 = Convert.ToDecimal(TBSFiyat2.Text),
-                SFIYAT3 = Convert.ToDecimal(TBSFiyat3.Text),
-                SFIYAT4 = Convert.ToDecimal(TBSFiyat4.Text),
-                SFIYAT5 = Convert.ToDecimal(TBSFiyat5.Text),
-                SDOVIZID = CBSDoviz.SelectedIndex,
-                ADOVIZID = CBADoviz.SelectedIndex,
+                id = stokid,
+                kod = TBStokKodu.Text,
+                adi = TBStokAdı.Text,
+                markaid = _markaServis.obje.Where(x => x.ADI == TBMarka.Text).FirstOrDefault().ID,
+                kategoriid = _tempKategori.ID,
+                kasaid = 1,//_tempKasa.ID,
+                grupkodu = int.Parse(TBGrupKodu.Text),
+                aciklama = TBAcıklama.Text,
+                satiskdv = Convert.ToDecimal(TBSatisKdv.Text),
+                aliskdv = Convert.ToDecimal(TBAlisKdv.Text),
+                satisotv = Convert.ToDecimal(TBSatisOtv.Text),
+                alisotv = Convert.ToDecimal(TBAlisOtv.Text),
+                afiyaT1 = Convert.ToDecimal(TBAFiyat1.Text),
+                afiyaT2 = Convert.ToDecimal(TBAFiyat2.Text),
+                afiyaT3 = Convert.ToDecimal(TBAFiyat3.Text),
+                afiyaT4 = Convert.ToDecimal(TBAFiyat4.Text),
+                afiyaT5 = Convert.ToDecimal(TBAFiyat5.Text),
+                sfiyaT1 = Convert.ToDecimal(TBSFiyat1.Text),
+                sfiyaT2 = Convert.ToDecimal(TBSFiyat2.Text),
+                sfiyaT3 = Convert.ToDecimal(TBSFiyat3.Text),
+                sfiyaT4 = Convert.ToDecimal(TBSFiyat4.Text),
+                sfiyaT5 = Convert.ToDecimal(TBSFiyat5.Text),
+                sdovizid = CBSDoviz.SelectedIndex,
+                adovizid = CBADoviz.SelectedIndex,
 
 
             };
 
             var snc = _PocoStokServis.obje;
             _PocoStokServis.Data(ServisList.StokListeServis);
-            _tempStok = _PocoStokServis.obje.Where(x => x.KOD == _tempStok.KOD).FirstOrDefault();
+            _tempStok = _PocoStokServis.obje.Where(x => x.kod == _tempStok.kod).FirstOrDefault();
             foreach (var item in stokOlculist)
             {
-                item.STOKID = _PocoStokServis.obje.Where(x => x.KOD == TBStokKodu.Text).FirstOrDefault().ID;
+                item.STOKID = _PocoStokServis.obje.Where(x => x.kod == TBStokKodu.Text).FirstOrDefault().id;
                 _StokOlcuBrServis.Data(ServisList.StokOlcuBrEkleServis, item);
             }
 
@@ -234,7 +234,7 @@ namespace MEYPAK.PRL
         }
         private void BTSil_Click(object sender, EventArgs e)                  // Stok Sil
         {
-            _PocoStokServis.Data(ServisList.StokSilServis,null,null,_PocoStokServis.obje.Where(x => x.ID == stokid).ToList());
+            _PocoStokServis.Data(ServisList.StokSilServis,null,null,_PocoStokServis.obje.Where(x => x.id == stokid).ToList());
             Temizle(this.Controls);
         }
         private void BTMarkaSec_Click(object sender, EventArgs e)
@@ -379,7 +379,7 @@ namespace MEYPAK.PRL
             FStokList fStokList = new FStokList("stokkart");
             fStokList.ShowDialog();
             if (_tempStok != null)
-                if (_tempStok.ID > 0) 
+                if (_tempStok.id > 0) 
                     tbDoldur(); 
         }
 

@@ -22,6 +22,11 @@ namespace MEYPAK.BLL.SIPARIS
             _mapper = mapper;
         }
 
+        public List<PocoSATINALMAMALKABULEMRIHAR> PagingList(int skip, int take)
+        {
+            return _mapper.Map<List<PocoSATINALMAMALKABULEMRIHAR>>(_satinAlmaMalKabulEmriHarDal.PagingList(skip, take));
+        }
+
         public PocoSATINALMAMALKABULEMRIHAR EkleyadaGuncelle(PocoSATINALMAMALKABULEMRIHAR entity)
         {
             return _mapper.Map<MPSATINALMAMALKABULEMRIHAR, PocoSATINALMAMALKABULEMRIHAR>(_satinAlmaMalKabulEmriHarDal.EkleyadaGuncelle(_mapper.Map<PocoSATINALMAMALKABULEMRIHAR, MPSATINALMAMALKABULEMRIHAR>(entity)));

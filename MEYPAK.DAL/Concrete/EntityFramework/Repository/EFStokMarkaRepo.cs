@@ -16,14 +16,17 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
             _context = context;
         }
 
-
+        public List<MPSTOKMARKA> PagingList(int skip, int take)
+        {
+            return _context.MPSTOKMARKA.Where(x => x.ID > skip && x.KAYITTIPI == (byte)0).Take(take).ToList();
+        }
 
         public MPSTOKMARKA EkleyadaGuncelle(MPSTOKMARKA entity)
         {
-            bool exists = _context.MPMARKA.Any(x => x.ID == entity.ID);
+            bool exists = _context.MPSTOKMARKA.Any(x => x.ID == entity.ID);
             if (!exists)
             {
-                _context.MPMARKA.Add(entity);
+                _context.MPSTOKMARKA.Add(entity);
                 _context.SaveChanges();
                 return entity;
             }
@@ -42,12 +45,12 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
                 propertyInfo.SetValue(item, Convert.ChangeType(1, propertyInfo.PropertyType), null);
                 propertyInfo = (item.GetType().GetProperty("ID"));
                 propertyInfo.SetValue(item, Convert.ChangeType(0, propertyInfo.PropertyType), null);
-                _context.MPMARKA.Add(item);
+                _context.MPSTOKMARKA.Add(item);
                 _context.SaveChanges();
                 _context.ChangeTracker.Clear();
                 propertyInfo = (entity.GetType().GetProperty("GUNCELLEMETARIHI"));
                 propertyInfo.SetValue(entity, Convert.ChangeType(DateTime.Now, propertyInfo.PropertyType), null);
-                _context.MPMARKA.Update(entity);
+                _context.MPSTOKMARKA.Update(entity);
                 _context.SaveChanges();
                 return entity;
             }
