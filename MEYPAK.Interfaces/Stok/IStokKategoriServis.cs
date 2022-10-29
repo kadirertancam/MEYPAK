@@ -11,5 +11,7 @@ namespace MEYPAK.Interfaces.Stok
     public interface IStokKategoriServis:IGenericServis<PocoSTOKKATEGORI>
     {
         public PocoSTOKKATEGORI EkleyadaGuncelle(PocoSTOKKATEGORI entity);
+
+        public List<PocoSTOKKATEGORI> PagingList(int skip, int take);
     }
 }

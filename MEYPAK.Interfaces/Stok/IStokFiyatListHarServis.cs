@@ -11,5 +11,8 @@ namespace MEYPAK.Interfaces.Stok
     public interface IStokFiyatListHarServis:IGenericServis<PocoSTOKFIYATLISTHAR>
     {
         public PocoSTOKFIYATLISTHAR EkleyadaGuncelle(PocoSTOKFIYATLISTHAR entity);
+
+        public List<PocoSTOKFIYATLISTHAR> PagingList(int skip, int take);
+
     }
 }

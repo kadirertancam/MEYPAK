@@ -10,6 +10,7 @@ namespace MEYPAK.DAL.Abstract.StokDal
 {
     public interface IOlcuBrDal:IGeneric<MPOLCUBR>
     {
+        public List<MPOLCUBR> PagingList(int skip, int take);
 
         public MPOLCUBR EkleyadaGuncelle(MPOLCUBR entity);
     }

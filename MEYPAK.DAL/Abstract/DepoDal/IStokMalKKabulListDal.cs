@@ -1,4 +1,5 @@
 ﻿using MEYPAK.Entity.Models.DEPO;
+using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ namespace MEYPAK.DAL.Abstract.DepoDal
     public interface IStokMalKKabulListDal:IGeneric<MPSTOKMALKABULLIST>
     {
         public MPSTOKMALKABULLIST EkleyadaGuncelle(MPSTOKMALKABULLIST entity);
-        public void OnYukle();
+        public List<MPSTOKMALKABULLIST> PagingList(int skip, int take);
+
     }
 }

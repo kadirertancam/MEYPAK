@@ -8,6 +8,9 @@ namespace MEYPAK.DAL.Abstract.StokDal
     {
         List<PocoStokHareketListesi> PocoStokHareketListesi(int id);
         public MPSTOKHAR EkleyadaGuncelle(MPSTOKHAR entity);
-        public void Sil(int id);
+
+        public List<MPSTOKHAR> PagingList(int skip, int take);
+
+
     }
 }

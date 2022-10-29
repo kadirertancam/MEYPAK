@@ -12,7 +12,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
         public EFStokFiyatListHarRepo(MEYPAKContext context) : base(context)
         {
             _context = context;
-            //onYukle();
+            
         }
 
         public MPSTOKFIYATLISTHAR EkleyadaGuncelle(MPSTOKFIYATLISTHAR entity)
@@ -49,32 +49,11 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
                 return entity;
             }
         }
-        public void onYukle()
+
+
+        public List<MPSTOKFIYATLISTHAR> PagingList(int skip, int take)
         {
-
-            var emp = _context.MPSTOKFIYATLISTHAR.ToList();
-
-            //emp = emp.Include("MPSTOK");
-            //emp = emp.Include("MPSTOKFIYATLIST");
-
-
-            foreach (var item in emp)
-            {
-                _context.Entry(item)
-                    .Navigation("MPSTOK")
-                    .Load();
-                _context.Entry(item)
-                   .Navigation("MPSTOKFIYATLIST")
-                   .Load();
-            }
-
-        }
-        public void Sil(int id)
-        {
-            MPSTOKFIYATLISTHAR deleteStok = _context.MPSTOKFIYATLISTHAR.Where(x => x.ID == id).FirstOrDefault();
-            deleteStok.KAYITTIPI = 1;
-            _context.MPSTOKFIYATLISTHAR.Update(deleteStok);
-            _context.SaveChanges();
+            return _context.MPSTOKFIYATLISTHAR.Where(x => x.ID > skip && x.KAYITTIPI == (byte)0).Take(take).ToList();
         }
     }
 }

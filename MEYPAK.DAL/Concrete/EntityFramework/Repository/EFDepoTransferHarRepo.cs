@@ -18,6 +18,12 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
         {
             _context = context; 
         }
+
+        public List<MPDEPOTRANSFERHAR> PagingList(int skip, int take)
+        {
+            return _context.MPDEPOTRANSFERHAR.Where(x => x.ID > skip && x.KAYITTIPI == (byte)0).Take(take).ToList();
+        }
+
         public MPDEPOTRANSFERHAR EkleyadaGuncelle(MPDEPOTRANSFERHAR entity)
         {
             bool exists = _context.MPDEPOTRANSFERHAR.Any(x => x.ID == entity.ID);
@@ -52,12 +58,6 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
                 return entity;
             }
         }
-        public void Sil(int id)
-        {
-            MPDEPOTRANSFERHAR deleteStokHar = _context.MPDEPOTRANSFERHAR.Where(x => x.ID == id).FirstOrDefault();
-            deleteStokHar.KAYITTIPI = 1;
-            _context.MPDEPOTRANSFERHAR.Update(deleteStokHar);
-            _context.SaveChanges();
-        }
+     
     }
 }

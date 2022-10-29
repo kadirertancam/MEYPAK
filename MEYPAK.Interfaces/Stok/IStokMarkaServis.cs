@@ -11,5 +11,7 @@ namespace MEYPAK.Interfaces.Stok
     public interface IStokMarkaServis:IGenericServis<PocoSTOKMARKA>
     {
         public PocoSTOKMARKA EkleyadaGuncelle(PocoSTOKMARKA entity);
+
+        public List<PocoSTOKMARKA> PagingList(int skip, int take);
     }
 }

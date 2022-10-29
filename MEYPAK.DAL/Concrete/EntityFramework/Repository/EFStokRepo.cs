@@ -1,5 +1,6 @@
 ﻿using MEYPAK.DAL.Abstract.StokDal;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
+using MEYPAK.Entity.Models.DEPO;
 using MEYPAK.Entity.Models.SIPARIS;
 using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Interfaces;
@@ -22,49 +23,17 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
         public EFStokRepo(MEYPAKContext context) : base(context)
         {
             _context = context;
-        //    rr = new EFStokFiyatListRepo(_context);
-        //    ss = new EFStokFiyatListHarRepo(_context);
-       //     aa = new EFOlcuBrRepo(_context);
-      //      onYukle();
+     
         }
-        public void onYukle()
+
+
+        public List<MPSTOK> PagingList(int skip, int take )
         {
-
-            var emp = _context.MPSTOK.ToList();
-
-            //emp = emp.Include("MPSTOKOLCUBR");
-            //emp = emp.Include("MPSTOKHAR");
-            //emp = emp.Include("MPSTOKSAYIMHAR");
-            //emp = emp.Include("MPSTOKFIYATLISTHAR");
-            //emp = emp.Include("MPSIPARISDETAY");
-            //emp = emp.Include("MPSTOKSEVKİYATLİST");
-            //emp = emp.Include("MPSTOKMALKABULLIST");
-            //emp.Include("MPSTOKFIYATLISTHAR").Load();
-
-            foreach (var item in emp)
-            {
-
-
-                _context.Entry(item)
-                    .Collection(e => e.MPSTOKOLCUBR)
-                    .Load();
-                _context.Entry(item)
-                   .Collection(e => e.MPSIPARISDETAY)
-                   .Load();
-                _context.Entry(item)
-                    .Collection(e => e.MPSTOKHAR)
-                    .Load();
-                _context.Entry(item)
-                    .Collection(e => e.MPSTOKSAYIMHAR)
-                    .Load();
-                _context.Entry(item)
-                    .Collection(e => e.MPSTOKFIYATLISTHAR)
-                    .Load();
-
-            }
-
+            var aa = _context.MPSTOK.Skip(skip).Take(take).OrderBy(x=>x.ID).ToList();
+            return aa;
 
         }
+
         public MPSTOK EkleyadaGuncelle(MPSTOK entity)
         {
            
@@ -101,17 +70,6 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
             }
         }
 
-        public IQueryable<MPSTOK> Listee()
-        {
-            IQueryable<MPSTOK> query = _context.MPSTOK;
-
-
-            //query = query.Include("MPSTOKHAR");
-            //query = query.Include("MPSIPARISDETAY");
-            ////query = query.Include("MPSTOKSEVKİYATLİST");
-
-            //query.Include("MPSTOKHAR").Load();
-            return query;
-        }
+     
     }
 }

@@ -53,7 +53,7 @@ namespace MEYPAK.PRL.DEPO
             }
             if (_tempStok != null)
             {
-                TBStokAdı.Text = _tempStok.KOD.ToString();
+                TBStokAdı.Text = _tempStok.kod.ToString();
             }
 
         }
@@ -77,7 +77,7 @@ namespace MEYPAK.PRL.DEPO
                     DEPOTRANSFERID = _arasıtransfer.ID,
                     OLUSTURMATARIHI = DateTime.Now,
                     GUNCELLEMETARIHI = DateTime.Now,
-                    STOKID = _tempStok.ID,
+                    STOKID = _tempStok.id,
                     MIKTAR = Convert.ToInt32(TBMiktar.Text),
                     DONEM = DateTime.Now.ToString("yyyy"),
                     // ACIKLAMA = TBAciklama.Text
@@ -97,7 +97,7 @@ namespace MEYPAK.PRL.DEPO
             FStokList fStokList = new FStokList("FDepolarArasıTransferHar");
             fStokList.ShowDialog();
             if (_tempStok != null)
-                if (_tempStok.ID > 0)
+                if (_tempStok.id > 0)
                 {
 
                     DOLDUR();

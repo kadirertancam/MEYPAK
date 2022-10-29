@@ -30,9 +30,6 @@ namespace MEYPAK.BLL.DEPO
             
         }
 
-        public void OnYukle()
-        {
-            _stokSevkiyatListDal.OnYukle();
-        }
+      
     }
 }

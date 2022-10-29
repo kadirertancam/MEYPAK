@@ -85,7 +85,7 @@ namespace MEYPAK.PRL.STOK
         {
             stokSayimPanel = new FStokSayimPanel("düzenle");
             var a = _stokSayimHarServis.obje.Where(x => x.STOKSAYIMID == _tempId);
-            stokSayimPanel._tempStokSayimHarList = a.Select(x=> new Entity.PocoModels.PocoStokSayimPanelList() { StokAdı=x.MPSTOK.ADI,StokKodu=x.MPSTOK.KOD,Birim=x.MPOLCUBR.ADI,Fiyat=x.FIYAT,Miktar=x.MIKTAR}).ToList();
+            stokSayimPanel._tempStokSayimHarList = a.Select(x=> new Entity.PocoModels.PocoStokSayimPanelList() { StokAdı=x.MPSTOK.adi,StokKodu=x.MPSTOK.kod,Birim=x.MPOLCUBR.ADI,Fiyat=x.FIYAT,Miktar=x.MIKTAR}).ToList();
             stokSayimPanel.ShowDialog();
         }
 

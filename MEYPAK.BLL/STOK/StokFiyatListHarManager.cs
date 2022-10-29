@@ -19,14 +19,16 @@ namespace MEYPAK.BLL.STOK
             _mapper = mapper;
         }
 
+
+        public List<PocoSTOKFIYATLISTHAR> PagingList(int skip, int take)
+        {
+            return _mapper.Map<List<PocoSTOKFIYATLISTHAR>>(_stokFiyatListHarDal.PagingList(skip, take));
+        }
         public PocoSTOKFIYATLISTHAR EkleyadaGuncelle(PocoSTOKFIYATLISTHAR pModel)
         {
             
             return _mapper.Map<MPSTOKFIYATLISTHAR,PocoSTOKFIYATLISTHAR>(_stokFiyatListHarDal.EkleyadaGuncelle(_mapper.Map<PocoSTOKFIYATLISTHAR, MPSTOKFIYATLISTHAR>(pModel)));
         }
-        void Sil(int id)
-        {
-            _stokFiyatListHarDal.Sil(id);
-        }
+      
     }
 }

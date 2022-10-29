@@ -15,6 +15,9 @@ namespace MEYPAK.DAL.Abstract.StokDal
 
         public MPSTOKSAYIM EkleyadaGuncelle(MPSTOKSAYIM entity);
 
-        public IQueryable<MPSTOKSAYIM> Listee();
+       
+
+        public List<MPSTOKSAYIM> PagingList(int skip, int take);
+
     }
 }

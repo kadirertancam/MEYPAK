@@ -11,5 +11,8 @@ namespace MEYPAK.DAL.Abstract.CariDal
     public interface ICariKartDal:IGeneric<MPCARIKART>
     {
         public MPCARIKART EkleyadaGuncelle(MPCARIKART entity);
+
+        public List<MPCARIKART> PagingList(int skip, int take);
+
     }
 }

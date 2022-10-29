@@ -4,7 +4,7 @@ using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Cari;
 using MEYPAK.Interfaces.Stok;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.OData.Query;
+
 
 namespace MEYPAK.API.Controllers.CARIControllers
 {
@@ -23,7 +23,7 @@ namespace MEYPAK.API.Controllers.CARIControllers
 
         [HttpGet]
         [Route("/[controller]/[action]")]
-        [EnableQuery()]
+       
         public IActionResult CARIListe()
         {
             try

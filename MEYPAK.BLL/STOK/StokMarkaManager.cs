@@ -25,8 +25,10 @@ namespace MEYPAK.BLL.STOK
             _mapper = mapper;
         }
 
-
-
+        public List<PocoSTOKMARKA> PagingList(int skip, int take)
+        {
+            return _mapper.Map<List<PocoSTOKMARKA>>(_markaDal.PagingList(skip, take));
+        }
         public PocoSTOKMARKA EkleyadaGuncelle(PocoSTOKMARKA pModel)
         {
             return _mapper.Map<MPSTOKMARKA,PocoSTOKMARKA>(_markaDal.EkleyadaGuncelle(_mapper.Map<PocoSTOKMARKA,MPSTOKMARKA>(pModel)));

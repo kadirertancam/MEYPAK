@@ -22,6 +22,8 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository.AracRepo
             _context = context;
         }
 
+
+
         public MPARACLAR EkleyadaGuncelle(MPARACLAR entity)
         {
             bool exists = _context.MPARACLAR.Any(x => x.muId == entity.muId);

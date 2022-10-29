@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MEYPAK.DAL;
 using MEYPAK.DAL.Abstract.StokDal;
+using MEYPAK.Entity.Models.DEPO;
 using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces;
@@ -25,7 +26,10 @@ namespace MEYPAK.BLL.STOK
             _mapper = mapper;
         }
 
-  
+        public List<PocoSTOK> PagingList(int skip, int take)
+        {
+            return  _mapper.Map<List<PocoSTOK>>(_stokDal.PagingList(skip, take));
+        }
 
         public PocoSTOK EkleyadaGuncelle(PocoSTOK pModel)
         {

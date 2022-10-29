@@ -13,24 +13,14 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
         public EFStokFiyatListRepo(MEYPAKContext context) : base(context)
         {
             _context = context;
-            //onYukle();
+         
         }
-       public void onYukle()
+
+        public List<MPSTOKFIYATLIST> PagingList(int skip, int take)
         {
-            var emp2 = _context.MPSTOK.ToList();
-           
-            var emp = _context.MPSTOKFIYATLIST.ToList();
-            //emp = emp.Include("MPSTOKFIYATLISTHAR");
-            foreach (var item in emp)
-            {
-                _context.Entry(item)
-                    .Collection(e => e.MPSTOKFIYATLISTHAR)
-                    .Load();
-
-
-            }
-
+            return _context.MPSTOKFIYATLIST.Where(x => x.ID > skip && x.KAYITTIPI == (byte)0).Take(take).ToList();
         }
+
         public MPSTOKFIYATLIST EkleyadaGuncelle(MPSTOKFIYATLIST entity)
         {
             bool exists = _context.MPSTOKFIYATLIST.Any(x => x.ID == entity.ID);

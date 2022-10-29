@@ -17,6 +17,12 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
         {
             context = _context;
         }
+
+        public List<MPSATINALMAMALKABULEMRIHAR> PagingList(int skip, int take)
+        {
+            return context.MPSATINALMAMALKABULEMRIHAR.Where(x => x.ID > skip && x.KAYITTIPI == (byte)0).Take(take).ToList();
+        }
+
         public MPSATINALMAMALKABULEMRIHAR EkleyadaGuncelle(MPSATINALMAMALKABULEMRIHAR entity)
         {
 

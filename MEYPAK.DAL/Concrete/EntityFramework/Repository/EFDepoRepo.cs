@@ -21,6 +21,11 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
             _context = context;
         }
 
+        public List<MPDEPO> PagingList(int skip, int take)
+        {
+            return _context.MPDEPO.Where(x => x.ID > skip && x.KAYITTIPI == (byte)0).Take(take).ToList();
+        }
+
         public MPDEPO EkleyadaGuncelle(MPDEPO entity)
         {
             bool exists = _context.MPDEPO.Any(x => x.ID == entity.ID);

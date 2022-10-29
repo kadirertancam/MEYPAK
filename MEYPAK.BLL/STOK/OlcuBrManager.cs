@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using MEYPAK.DAL.Abstract;
+using MEYPAK.DAL.Abstract.SiparisDal;
 using MEYPAK.DAL.Abstract.StokDal;
 using MEYPAK.Entity.Models.STOK;
+using MEYPAK.Entity.PocoModels.SIPARIS;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces;
 using MEYPAK.Interfaces.Stok;
@@ -24,6 +26,10 @@ namespace MEYPAK.BLL.STOK
             _mapper = mapper;
         }
 
+        public List<PocoOLCUBR> PagingList(int skip, int take)
+        {
+            return _mapper.Map<List<PocoOLCUBR>>(_olcuBrDal.PagingList(skip, take));
+        }
 
         public PocoOLCUBR EkleyadaGuncelle(PocoOLCUBR pModel)
         {

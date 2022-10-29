@@ -50,11 +50,11 @@ namespace MEYPAK.PRL.STOK
             FStokList fStokList = new FStokList("stokfiyatlistpanel");
             fStokList.ShowDialog();
             if (_tempStok != null)
-                if (_tempStok.ID > 0)
+                if (_tempStok.id > 0)
                 {
-                    stokid = _tempStok.ID;
-                    TBStokKodu.Text = _tempStok.KOD;
-                    TBStokAdi.Text = _tempStok.ADI;
+                    stokid = _tempStok.id;
+                    TBStokKodu.Text = _tempStok.kod;
+                    TBStokAdi.Text = _tempStok.adi;
                 }
         }
 
@@ -116,9 +116,9 @@ namespace MEYPAK.PRL.STOK
             {   //todo burdan id çekip güncelleme işlemi yapılabilecek.
                 stokfiyatharid = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value);
                 _fiyatlisthar = _stokFiyatListHarServis.obje.Where(x=> x.ID==stokfiyatharid).FirstOrDefault();
-                TBStokKodu.Text = _stokServis.obje.Where(x=> x.ID==_fiyatlisthar.STOKID).FirstOrDefault().KOD;
+                TBStokKodu.Text = _stokServis.obje.Where(x=> x.id==_fiyatlisthar.STOKID).FirstOrDefault().kod;
                 TBKur.Text = _fiyatlisthar.KUR.ToString();
-                TBStokAdi.Text = _stokServis.obje.Where(x => x.ID == _fiyatlisthar.STOKID).FirstOrDefault().ADI;
+                TBStokAdi.Text = _stokServis.obje.Where(x => x.id == _fiyatlisthar.STOKID).FirstOrDefault().adi;
                 TBIskonto.Text= _fiyatlisthar.ISKONTO.ToString();  
                 TBFiyat.Text = _fiyatlisthar.NETFIYAT.ToString();
             }

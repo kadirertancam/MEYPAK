@@ -1,6 +1,7 @@
 ﻿using MEYPAK.DAL.Abstract.DepoDal;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.Entity.Models.DEPO;
+using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,16 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
         public EFStokSevkiyatListRepo(MEYPAKContext context) : base(context)
         {
             _context = context;
-            //OnYukle();
+            
+        }
+
+        public List<MPSTOKSEVKİYATLİST> PagingList(int skip, int take)
+        {
+            return _context.MPSTOKSEVKİYATLİST.Where(x => x.ID > skip && x.KAYITTIPI == (byte)0).Take(take).ToList();
+        }
+        public List<MPSTOKSEVKİYATLİST> PagingList(int skip, int take, int requireTotalCount=0)
+        {
+           return _context.MPSTOKSEVKİYATLİST.Where(x => x.ID > skip && x.KAYITTIPI==0).Take(take).ToList();
         }
 
         public MPSTOKSEVKİYATLİST EkleyadaGuncelle(MPSTOKSEVKİYATLİST entity)
@@ -55,20 +65,6 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
             }
         }
 
-        public void OnYukle()
-        {
-            var emp = _context.MPSTOKSEVKİYATLİST.ToList();
-            foreach (var item in emp)
-            {
-                _context.Entry(item)
-                  .Navigation("MPOLCUBR").Load();
-                _context.Entry(item)
-                  .Navigation("MPSTOK").Load();
-                _context.Entry(item)
-                  .Navigation("MPSIPARISDETAY").Load();
-
-
-            }
-        }
+ 
     }
 }

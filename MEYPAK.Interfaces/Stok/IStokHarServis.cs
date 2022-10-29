@@ -13,5 +13,7 @@ namespace MEYPAK.Interfaces.Stok
     {
         List<PocoStokHareketListesi> PocoStokHareketListesi(int id);
         public PocoSTOKHAR EkleyadaGuncelle(PocoSTOKHAR entity);
+
+        public List<PocoSTOKHAR> PagingList(int skip, int take);
     }
 }

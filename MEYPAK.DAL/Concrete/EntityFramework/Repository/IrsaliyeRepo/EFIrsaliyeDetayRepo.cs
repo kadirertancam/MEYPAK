@@ -19,6 +19,11 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository.IrsaliyeRepo
             _context = context;
         }
 
+        public List<MPIRSALIYEDETAY> PagingList(int skip, int take)
+        {
+            return _context.MPIRSALIYEDETAY.Where(x => x.ID > skip && x.KAYITTIPI == (byte)0).Take(take).ToList();
+        }
+
         public MPIRSALIYEDETAY EkleyadaGuncelle(MPIRSALIYEDETAY entity)
         {
             bool exists = _context.MPIRSALIYEDETAY.Any(x => x.ID == entity.ID);

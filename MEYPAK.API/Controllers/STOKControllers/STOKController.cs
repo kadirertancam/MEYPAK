@@ -8,7 +8,7 @@ using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Hizmet;
 using MEYPAK.Interfaces.Stok; 
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.OData.Query;
+
 using Newtonsoft.Json;
 using System;
 using System.Linq.Expressions;
@@ -18,21 +18,21 @@ namespace MEYPAK.API.Controllers.STOK
 {
     [ApiController]
     [Route("[controller]")]
+    
     public class StokController : Controller
     {
-
+       
         private readonly IMapper _mapper;
         private readonly IStokServis _stokServis;
-
         public StokController(IMapper mapper, IStokServis stokServis)
         {
             _mapper = mapper;
             _stokServis = stokServis;
         }
 
+
         [HttpGet]
         [Route("/[controller]/[action]")]
-        [EnableQuery()]
         public IActionResult STOKListe()
         {
             try
@@ -45,6 +45,8 @@ namespace MEYPAK.API.Controllers.STOK
                 return Problem("Belirsiz bir hata oluştu!" + ex.Message);
             }
         }
+
+
         [HttpPost]
         [Route("/[controller]/[action]")]
         public IActionResult STOKEkleyadaGuncelle(PocoSTOK pModel)
@@ -105,11 +107,27 @@ namespace MEYPAK.API.Controllers.STOK
             }
         }
 
+        [HttpGet]
+        [Route("/[controller]/[action]")] 
+        public IActionResult PagingList(int skip, int take)
+        {
+            try
+            {
+                
+                
+                return Ok(_stokServis.PagingList(skip, take));
+            }
+            catch (Exception ex)
+            {
+                return Problem("Belirsiz bir hata oluştu!" + ex.Message);
+            }
+        }
+
 
 
         #region Eski_Expression_Kullanımı
 
-      
+
         //[HttpPost("")]
         //[Route("/[controller]/[action]")]
         //public IActionResult STOKGetir([FromQuery]int id)
@@ -676,7 +694,7 @@ namespace MEYPAK.API.Controllers.STOK
         //        return Problem("Belirsiz bir hata oluştu!");
         //    }
         //}
-#endregion
+        #endregion
 
 
 

@@ -61,10 +61,10 @@ namespace MEYPAK.PRL.STOK
             olcuBrServis.Data(ServisList.OlcuBrListeServis);
             stokOlcuBrServis.Data(ServisList.StokOlcuBrListeServis);
             stokServis.Data(ServisList.StokListeServis);
-            TBStokKodu.Text = _tempStok.KOD;
-            TBStokAdi.Text = _tempStok.ADI;
-            CBStokBirim.DataSource = stokOlcuBrServis.obje.Where(x => x.STOKID == _tempStok.ID).Select(x => olcuBrServis.obje.Where(z => z.ID == x.OLCUBRID).FirstOrDefault().ADI).ToList();
-            TBBakiye.Text = (from ep in stokServis.obje join e in stokHarServis.obje on ep.ID equals e.STOKID where ep.KOD == _tempStok.KOD select Convert.ToDecimal(e.IO.ToString() == "1" ? e.MIKTAR : 0) - Convert.ToDecimal(e.IO.ToString() == "0" ? e.MIKTAR : 0)).FirstOrDefault().ToString();
+            TBStokKodu.Text = _tempStok.kod;
+            TBStokAdi.Text = _tempStok.adi;
+            CBStokBirim.DataSource = stokOlcuBrServis.obje.Where(x => x.STOKID == _tempStok.id).Select(x => olcuBrServis.obje.Where(z => z.ID == x.OLCUBRID).FirstOrDefault().ADI).ToList();
+            TBBakiye.Text = (from ep in stokServis.obje join e in stokHarServis.obje on ep.id equals e.STOKID where ep.kod == _tempStok.kod select Convert.ToDecimal(e.IO.ToString() == "1" ? e.MIKTAR : 0) - Convert.ToDecimal(e.IO.ToString() == "0" ? e.MIKTAR : 0)).FirstOrDefault().ToString();
 
             _tempStok = null;
         }
@@ -87,11 +87,11 @@ namespace MEYPAK.PRL.STOK
                 {
                     _tempStokSayimHarList.Add(new PocoStokSayimPanelList()
                     {
-                        StokAdı = item.ADI,
-                        Birim = item.MPSTOKOLCUBR.Where(x => x.NUM == 1).Select(x => x.MPOLCUBR.ADI).FirstOrDefault(),
+                        StokAdı = item.adi,
+                        //Birim = item.MPSTOKOLCUBR.Where(x => x.NUM == 1).Select(x => x.MPOLCUBR.ADI).FirstOrDefault(),
                         Fiyat = 1,
                         Miktar = 0,
-                        StokKodu = item.KOD
+                        StokKodu = item.kod
                     });
                 }
 
@@ -162,7 +162,7 @@ namespace MEYPAK.PRL.STOK
             {
                 StokKodu = TBStokKodu.Text,
                 StokAdı = TBStokAdi.Text,
-                ID = stokServis.obje.Where(x => x.KOD == TBStokKodu.Text).FirstOrDefault().ID
+                ID = stokServis.obje.Where(x => x.kod == TBStokKodu.Text).FirstOrDefault().id
             });
         }
 
@@ -174,7 +174,7 @@ namespace MEYPAK.PRL.STOK
 
                 stokSayimHarServis.Data(ServisList.StokSayimHarEkleServis,(new PocoSTOKSAYIMHAR()
                 {
-                    STOKID = stokServis.obje.Where(x => x.KOD == dataGridView1.Rows[i].Cells["StokKodu"].Value.ToString()).FirstOrDefault().ID,
+                    STOKID = stokServis.obje.Where(x => x.kod == dataGridView1.Rows[i].Cells["StokKodu"].Value.ToString()).FirstOrDefault().id,
                     MIKTAR = Decimal.Parse(dataGridView1.Rows[i].Cells["Miktar"].EditedFormattedValue.ToString()),
                     FIYAT = Decimal.Parse(dataGridView1.Rows[i].Cells["Fiyat"].EditedFormattedValue.ToString()),
                     KUR = 1,

@@ -17,24 +17,13 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
         public EFSiparisSevkEmriHarRepo(MEYPAKContext context) : base(context)
         {
             _context = context;
-            //OnYukle();
+          
         }
-        public void OnYukle()
+
+        public List<MPSIPARISSEVKEMRIHAR> PagingList(int skip, int take)
         {
-            var emp = _context.MPSIPARISSEVKEMRIHAR.ToList();
-            foreach (var item in emp)
-            {
-                _context.Entry(item)
-                  .Navigation("MPSIPARIS").Load();
-                _context.Entry(item)
-                  .Navigation("MPSIPARISDETAY").Load();
-                _context.Entry(item)
-                  .Navigation("MPDEPOEMIR").Load();
-
-
-            }
+            return _context.MPSIPARISSEVKEMRIHAR.Where(x => x.ID > skip && x.KAYITTIPI == (byte)0).Take(take).ToList();
         }
-
 
         public MPSIPARISSEVKEMRIHAR EkleyadaGuncelle(MPSIPARISSEVKEMRIHAR entity)
         {

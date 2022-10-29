@@ -21,29 +21,14 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
         public EFStokSayimHarRepo(MEYPAKContext context) : base(context)
         {
             _context = context;
-            //   context.MPSTOKSAYIMHAR.Include(x => x.MPSTOK).Load();
-            //onYukle();
+           
 
         }
-
-       public void onYukle()
+        public List<MPSTOKSAYIMHAR> PagingList(int skip, int take)
         {
-
-            var emp = _context.MPSTOKSAYIMHAR.ToList();
-            EFStokRepo jj = new EFStokRepo(_context);
-            EFOlcuBrRepo jj2 = new EFOlcuBrRepo(_context);
-
-            foreach (var item in emp)
-            {
-                _context.Entry(item)
-                    .Navigation("MPSTOK").Load();
-                _context.Entry(item)
-                  .Navigation("MPOLCUBR").Load();  
-
-
-            }
-
+            return _context.MPSTOKSAYIMHAR.Where(x => x.ID > skip && x.KAYITTIPI == (byte)0).Take(take).ToList();
         }
+
         public MPSTOKSAYIMHAR EkleyadaGuncelle(MPSTOKSAYIMHAR entity)
         {
             bool exists = _context.MPSTOKSAYIMHAR.Any(x => x.ID == entity.ID);
@@ -80,13 +65,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
         }
 
 
-        public void Sil(int id)
-        {
-            MPSTOKSAYIMHAR deleteStokHar = _context.MPSTOKSAYIMHAR.Where(x => x.ID == id).FirstOrDefault();
-            deleteStokHar.KAYITTIPI = 1;
-            _context.MPSTOKSAYIMHAR.Update(deleteStokHar);
-            _context.SaveChanges();
-        }
+    
 
     }
 }

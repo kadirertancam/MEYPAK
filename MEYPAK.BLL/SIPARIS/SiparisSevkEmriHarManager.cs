@@ -26,6 +26,12 @@ namespace MEYPAK.BLL.SIPARIS
             _mapper = mapper;
         }
 
+
+        public List<PocoSIPARISSEVKEMIRHAR> PagingList(int skip, int take)
+        {
+            return _mapper.Map<List<PocoSIPARISSEVKEMIRHAR>>(_siparisSevkEmriHarDal.PagingList(skip, take));
+        }
+
         public PocoSIPARISSEVKEMIRHAR EkleyadaGuncelle(PocoSIPARISSEVKEMIRHAR pModel)
         {
             return _mapper.Map<MPSIPARISSEVKEMRIHAR, PocoSIPARISSEVKEMIRHAR>(_siparisSevkEmriHarDal.EkleyadaGuncelle(_mapper.Map<PocoSIPARISSEVKEMIRHAR, MPSIPARISSEVKEMRIHAR>(pModel)));

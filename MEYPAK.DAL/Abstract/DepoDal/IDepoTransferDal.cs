@@ -8,5 +8,8 @@ namespace MEYPAK.DAL.Abstract.DepoDal
         public MPDEPOTRANSFER EkleyadaGuncelle(MPDEPOTRANSFER entity);
 
         List<PocoDepolarArasıTransfer> PocoDepolarArasıTransferListesi();
+
+        public List<MPDEPOTRANSFER> PagingList(int skip, int take);
+
     }
 }

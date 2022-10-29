@@ -23,6 +23,11 @@ namespace MEYPAK.BLL.SIPARIS
             _mapper = mapper;
         }
 
+        public List<PocoSIPARIS> PagingList(int skip, int take)
+        {
+            return _mapper.Map<List<PocoSIPARIS>>(_siparisDal.PagingList(skip, take));
+        }
+
         public PocoSIPARIS EkleyadaGuncelle(PocoSIPARIS pModel)
         {
 

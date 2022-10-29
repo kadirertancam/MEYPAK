@@ -25,6 +25,10 @@ namespace MEYPAK.BLL.STOK
         }
 
 
+        public List<PocoSTOKOLCUBR> PagingList(int skip, int take)
+        {
+            return _mapper.Map<List<PocoSTOKOLCUBR>>(_stokOlcuBrDal.PagingList(skip, take));
+        }
         public PocoSTOKOLCUBR EkleyadaGuncelle(PocoSTOKOLCUBR pModel)
         {
             return _mapper.Map<MPSTOKOLCUBR,PocoSTOKOLCUBR>( _stokOlcuBrDal.EkleyadaGuncelle(_mapper.Map<PocoSTOKOLCUBR,MPSTOKOLCUBR>(pModel)));

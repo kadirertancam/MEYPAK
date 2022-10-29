@@ -11,5 +11,8 @@ namespace MEYPAK.Interfaces.Siparis
     public interface ISiparisDetayServis:IGenericServis<PocoSIPARISDETAY>
     {
         public PocoSIPARISDETAY EkleyadaGuncelle(PocoSIPARISDETAY entity);
+
+        public List<PocoSIPARISDETAY> PagingList(int skip, int take);
+
     }
 }

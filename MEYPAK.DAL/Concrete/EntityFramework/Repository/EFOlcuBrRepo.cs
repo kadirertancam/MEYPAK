@@ -1,5 +1,6 @@
 ﻿using MEYPAK.DAL.Abstract.StokDal;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
+using MEYPAK.Entity.Models.PERSONEL;
 using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Interfaces;
 using System;
@@ -21,24 +22,10 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
             context = _context;
            
         }
-       public  void onYukle()
-        { 
 
-            var emp = context.MPOLCUBR.ToList();
-            EFStokOlcuBrRepo aa= new EFStokOlcuBrRepo(context);
-            foreach (var item in emp)
-            {
-                context.Entry(item)
-                    .Collection(x=>x.MPSTOKSAYIMHAR)
-                    .Load();
-                context.Entry(item)
-                   .Collection(x => x.MPSTOKOLCUBR)
-                   .Load();
-                context.Entry(item)
-                    .Collection(x => x.MPSTOKSEVKİYATLİST)
-                    .Load();
-            }
-
+        public List<MPOLCUBR> PagingList(int skip, int take)
+        {
+            return context.MPOLCUBR.Where(x => x.ID > skip && x.KAYITTIPI == (byte)0).Take(take).ToList();
         }
 
         public MPOLCUBR EkleyadaGuncelle(MPOLCUBR entity)

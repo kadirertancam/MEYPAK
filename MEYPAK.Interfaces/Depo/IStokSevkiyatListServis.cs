@@ -11,6 +11,6 @@ namespace MEYPAK.Interfaces.Depo
     public interface IStokSevkiyatListServis:IGenericServis<PocoSTOKSEVKIYATLIST>
     {
         public PocoSTOKSEVKIYATLIST EkleyadaGuncelle(PocoSTOKSEVKIYATLIST entity);
-        public void OnYukle();
+      
     }
 }

@@ -14,5 +14,7 @@ namespace MEYPAK.Interfaces.Stok
         public PocoSTOKFIYATLIST EkleyadaGuncelle(PocoSTOKFIYATLIST entity);
 
         public List<PocoStokFiyatList> PocoStokFiyatListesi();
+
+        public List<PocoSTOKFIYATLIST> PagingList(int skip, int take);
     }
 }
