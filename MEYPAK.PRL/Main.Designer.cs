@@ -94,11 +94,13 @@
             this.accordionControlElement10 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement11 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement13 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement28 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement3 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement14 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement15 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement16 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement17 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement29 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement4 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement5 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement6 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -115,8 +117,6 @@
             this.accordionControlElement27 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
             this.applicationMenu1 = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
-            this.accordionControlElement28 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement29 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
@@ -149,6 +149,8 @@
             // 
             // panel2
             // 
+            this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 20);
             this.panel2.Name = "panel2";
@@ -684,6 +686,13 @@
             this.accordionControlElement13.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement13.Text = "Depo Tanım";
             // 
+            // accordionControlElement28
+            // 
+            this.accordionControlElement28.Name = "accordionControlElement28";
+            this.accordionControlElement28.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement28.Text = "Sayım Tanım";
+            this.accordionControlElement28.Click += new System.EventHandler(this.accordionControlElement28_Click);
+            // 
             // accordionControlElement3
             // 
             this.accordionControlElement3.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
@@ -720,6 +729,12 @@
             this.accordionControlElement17.Name = "accordionControlElement17";
             this.accordionControlElement17.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement17.Text = "MalKabul";
+            // 
+            // accordionControlElement29
+            // 
+            this.accordionControlElement29.Name = "accordionControlElement29";
+            this.accordionControlElement29.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement29.Text = "Sayım İşleme";
             // 
             // accordionControlElement4
             // 
@@ -837,19 +852,6 @@
             // applicationMenu1
             // 
             this.applicationMenu1.Name = "applicationMenu1";
-            // 
-            // accordionControlElement28
-            // 
-            this.accordionControlElement28.Name = "accordionControlElement28";
-            this.accordionControlElement28.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement28.Text = "Sayım Tanım";
-            this.accordionControlElement28.Click += new System.EventHandler(this.accordionControlElement28_Click);
-            // 
-            // accordionControlElement29
-            // 
-            this.accordionControlElement29.Name = "accordionControlElement29";
-            this.accordionControlElement29.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement29.Text = "Sayım İşleme";
             // 
             // Main
             // 

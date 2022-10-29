@@ -45,7 +45,7 @@ namespace MEYPAK.PRL.STOK
             stokSayimPanel = new FStokSayimPanel("kaydet");
             _stokSayimServis.Data(ServisList.StokSayimEkleServis,(new Entity.PocoModels.STOK.PocoSTOKSAYIM()
             {
-                SAYIMTARIHI = DTPSayimTarihi.Value,
+                SAYIMTARIHI = (DateTime)DTPSayimTarihi.EditValue,
                 ACIKLAMA = TBAciklama.Text,
             }));
             _stokSayimServis.Data(ServisList.StokSayimListeServis);
@@ -53,7 +53,7 @@ namespace MEYPAK.PRL.STOK
 
             stokSayimPanel.sayimId = _stokSayimServis.obje.Where(x => x.ACIKLAMA == TBAciklama.Text ).FirstOrDefault().ID;
                 TBAciklama.Text = "";
-            DTPSayimTarihi.Value = DateTime.Now;
+            DTPSayimTarihi.EditValue = DateTime.Now;
             stokSayimPanel.ShowDialog();
 
         }
@@ -77,7 +77,7 @@ namespace MEYPAK.PRL.STOK
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             TBAciklama.Text = gridView1.GetFocusedRowCellValue("ACIKLAMA").ToString();
-            DTPSayimTarihi.Value = Convert.ToDateTime(gridView1.GetFocusedRowCellValue("SAYIMTARIHI"));
+            DTPSayimTarihi.EditValue = Convert.ToDateTime(gridView1.GetFocusedRowCellValue("SAYIMTARIHI"));
             _tempId = Convert.ToInt32(gridView1.GetFocusedRowCellValue("ID"));
         }
 

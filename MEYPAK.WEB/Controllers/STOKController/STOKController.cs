@@ -171,7 +171,7 @@ namespace MEYPAK.WEB.Controllers.STOKController
         {
             _tempPocoStok.Data(ServisList.StokListeServis);
             List<PocoSTOK> pList = new List<PocoSTOK>();
-            pList.Add(_tempPocoStok.obje.Where(x=>x.id==pModel).FirstOrDefault());
+            pList.Add(_tempPocoStok.obje.Where(x=>x.ID==pModel).FirstOrDefault());
             StokSil(pList);
 
             ViewBag.Durum = "Başarıyla silindi.";
