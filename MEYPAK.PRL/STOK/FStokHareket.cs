@@ -257,6 +257,10 @@ namespace MEYPAK.PRL.STOK
 
             Doldur();
         }
- 
+
+        private void CLBSube_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

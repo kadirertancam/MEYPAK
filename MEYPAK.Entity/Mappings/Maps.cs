@@ -28,6 +28,8 @@ namespace MEYPAK.Entity.Mappings
 
             //CARI
             CreateMap<ADRESLIST, PocoAdresList>().ReverseMap();
+            CreateMap<MPCARIKART, PocoCARIKART>().ReverseMap();
+            CreateMap<MPCARIHAR, PocoCARIHAR>().ReverseMap();
 
             //STOK
             CreateMap<MPSTOK, PocoSTOK>().ReverseMap(); 

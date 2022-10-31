@@ -320,6 +320,7 @@
             this.button7.TabIndex = 5;
             this.button7.Text = "Sil";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // panel3
             // 
@@ -1663,7 +1664,9 @@
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(77, 373);
+            this.checkBox2.Checked = true;
+            this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox2.Location = new System.Drawing.Point(77, 358);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(51, 19);
             this.checkBox2.TabIndex = 8;
@@ -2036,6 +2039,7 @@
             this.TBMuhKod.Name = "TBMuhKod";
             this.TBMuhKod.Size = new System.Drawing.Size(271, 23);
             this.TBMuhKod.TabIndex = 15;
+            this.TBMuhKod.Text = "0";
             // 
             // groupBox3
             // 
@@ -2109,6 +2113,7 @@
             this.TBVadeGunu.Name = "TBVadeGunu";
             this.TBVadeGunu.Size = new System.Drawing.Size(271, 23);
             this.TBVadeGunu.TabIndex = 13;
+            this.TBVadeGunu.Text = "0";
             // 
             // TBTc
             // 
@@ -2231,6 +2236,7 @@
             this.BTCariSec.TabIndex = 4;
             this.BTCariSec.Text = "Seç";
             this.BTCariSec.UseVisualStyleBackColor = true;
+            this.BTCariSec.Click += new System.EventHandler(this.BTCariSec_Click);
             // 
             // TBUnvan
             // 

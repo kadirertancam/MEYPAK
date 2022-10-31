@@ -1,4 +1,5 @@
-﻿using MEYPAK.Entity.Models;
+﻿using MEYPAK.Entity.IdentityModels;
+using MEYPAK.Entity.Models;
 using MEYPAK.Entity.Models;
 using MEYPAK.Entity.Models.ARAC;
 using MEYPAK.Entity.Models.CARI;
@@ -7,12 +8,13 @@ using MEYPAK.Entity.Models.IRSALIYE;
 using MEYPAK.Entity.Models.PERSONEL;
 using MEYPAK.Entity.Models.SIPARIS;
 using MEYPAK.Entity.Models.STOK;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 
 namespace MEYPAK.DAL.Concrete.EntityFramework.Context
 {
-    public partial class MEYPAKContext : DbContext
+    public partial class MEYPAKContext : IdentityDbContext<MPUSER,MPROLE,string>
     {
         public MEYPAKContext()
         {
@@ -26,6 +28,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
 
         }
 
+        public DbSet<MPCARIHAR> MPCARIHAR { get; set; }
         public DbSet<MPCARIKART> MPCARIKART { get; set; }
         public DbSet<MPSTOKSEVKİYATLİST> MPSTOKSEVKİYATLİST { get; set; }
         public DbSet<MPSIPARISSEVKEMRIHAR> MPSIPARISSEVKEMRIHAR { get; set; }
@@ -55,8 +58,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
         public DbSet<MPIRSALIYESIPARISDETAYILISKI> MPIRSALIYESIPARISDETAYILISKI { get; set; }
         public DbSet<MPIRSALIYEDETAY> MPIRSALIYEDETAY { get; set; }
         public DbSet<MPSATINALMAMALKABULEMRIHAR> MPSATINALMAMALKABULEMRIHAR { get; set; }
-        public DbSet<ADRESLIST> ADRESLIST { get; set; }
-
+ 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

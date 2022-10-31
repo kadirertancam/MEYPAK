@@ -37,8 +37,7 @@ namespace MEYPAK.PRL.DEPO
             int _id;
             foreach (var item in aaa)
             {
-                _id = _tempStok.Where(x => x.kod == item.StokKodu).FirstOrDefault().id;
-              
+                _id = _tempStok.Where(x => x.kod == item.StokKodu).FirstOrDefault().id; 
                 _stokMalKabulListServis.EkleyadaGuncelle(new PocoSTOKMALKABULLIST()
                 {
                     STOKID = _id,

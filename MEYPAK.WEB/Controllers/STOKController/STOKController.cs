@@ -39,6 +39,8 @@ namespace MEYPAK.WEB.Controllers.STOKController
         GenericWebServis<PocoSTOKSAYIM> _tempPocoStokSayim = new GenericWebServis<PocoSTOKSAYIM>();
         GenericWebServis<PocoSTOKSAYIMHAR> _tempPocoStokSayimHar = new GenericWebServis<PocoSTOKSAYIMHAR>();
 
+
+
         static List<PocoSTOK> PocoSTOKs = new List<PocoSTOK>();
 
         public StokController(ILogger<StokController> logger)
@@ -48,12 +50,13 @@ namespace MEYPAK.WEB.Controllers.STOKController
         }
 
 
-
+        
 
         [HttpGet]
         public IActionResult Index()
         {
-           
+       
+
             return View();
         }
 
@@ -61,10 +64,11 @@ namespace MEYPAK.WEB.Controllers.STOKController
         [HttpGet]
         public object StokGet(DataSourceLoadOptions loadOptions)
         {
-            var a = loadOptions.Take;
-            var b = loadOptions.Skip;
-            string url = "http://213.238.167.117:8080/Stok/PagingList?skip="+b+"&take="+a+"&requireTotalCount=true";
-            _tempPocoStok.Data(url);
+            //var a = loadOptions.Take;
+            //var b = loadOptions.Skip;
+            //string url = "http://213.238.167.117:8080/Stok/PagingList?skip="+b+"&take="+a+"&requireTotalCount=true";
+            //_tempPocoStok.Data(url);
+            _tempPocoStok.Data(ServisList.StokListeServis);
             return DataSourceLoader.Load(_tempPocoStok.obje, loadOptions);
         }
 
