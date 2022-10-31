@@ -19,7 +19,7 @@ using MEYPAK.Interfaces.Hizmet;
 using MEYPAK.Interfaces.IRSALIYE;
 using MEYPAK.Interfaces.Personel; 
 using MEYPAK.Interfaces.Stok;
-
+using MEYPAK.Entity.IdentityModels;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using System.Text.Json.Serialization;
@@ -34,6 +34,9 @@ using MEYPAK.BLL.ARAC;
 using MEYPAK.DAL.Abstract.CariDal;
 using MEYPAK.Interfaces.Cari;
 using MEYPAK.BLL.CARI;
+using MEYPAK.Entity.IdentityModels;
+using Microsoft.AspNetCore.Identity;
+using System.Data.Entity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -52,6 +55,8 @@ builder.Services.AddDbContext<MEYPAKContext>(options =>
     
     options.UseSqlServer(builder.Configuration.GetConnectionString("MyCon"));
 });
+
+
 
 #region Cari
 
@@ -127,7 +132,7 @@ builder.Services.AddScoped<IStokSevkiyatListDal, EFStokSevkiyatListRepo>();
 builder.Services.AddScoped<IStokSevkiyatListServis, StokSevkiyatListManager>();
 
 builder.Services.AddScoped<IStokMalKKabulListDal, EFStokMalKabulList>();
-builder.Services.AddScoped<IStokMalKabulListServis,StokMalKabulListManager>();
+builder.Services.AddScoped<IStokMalKabulListServis, StokMalKabulListManager>();
 
 #endregion
 #region IRSALIYE_Scoped_Islemleri
@@ -168,6 +173,18 @@ builder.Services.AddScoped<IAracDal, EFAracRepo>();
 builder.Services.AddScoped<IAracServis, AracManager>();
 
 #endregion
+
+
+builder.Services.AddIdentity<MPUSER, MPROLE>(options =>
+{
+    options.User.RequireUniqueEmail = false;
+    options.Password.RequiredLength = 5;
+    options.Password.RequireLowercase = false;
+    options.Password.RequireUppercase = false;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireDigit = false;
+    options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_@.";
+}).AddDefaultTokenProviders().AddEntityFrameworkStores<MEYPAKContext>();
 
 builder.Services.AddControllers().AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 

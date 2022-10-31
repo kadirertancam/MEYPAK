@@ -143,7 +143,7 @@ namespace MEYPAK.BLL.Assets
         public const string DeleteByIdServis = "http://213.238.167.117:8080/ARAC/DeleteById";
 
         #region Stok
-        public const string StokListeServis =    "http://213.238.167.117:8080/STOK/PagingList";
+        public const string StokListeServis =    "http://213.238.167.117:8080/STOK/StokListe";
         public const string StokEkleServis = "http://213.238.167.117:8080/STOK/STOKEkleyadaGuncelle";
         public const string StokSilServis =              "http://213.238.167.117:8080/STOK/STOKSil";
         public const string StokGuncelleServis = "http://213.238.167.117:8080/STOK/STOKGuncelle";

@@ -1,6 +1,5 @@
 ﻿using MEYPAK.Entity.IdentityModels;
 using MEYPAK.Entity.Models;
-using MEYPAK.Entity.Models;
 using MEYPAK.Entity.Models.ARAC;
 using MEYPAK.Entity.Models.CARI;
 using MEYPAK.Entity.Models.DEPO;
@@ -14,7 +13,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MEYPAK.DAL.Concrete.EntityFramework.Context
 {
-    public partial class MEYPAKContext : IdentityDbContext<MPUSER,MPROLE,string>
+    public partial class MEYPAKContext :DbContext
     {
         public MEYPAKContext()
         {
@@ -66,7 +65,6 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
             {
                 optionsBuilder.UseSqlServer("Server=213.238.167.117;Database=MEYPAK;User Id=sa;Password=sapass_1;");
             }
-
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -203,9 +201,9 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
             #endregion
 
         }
-        //           OnModelCreatingPartial(modelBuilder);
-   
 
+
+        //           OnModelCreatingPartial(modelBuilder);
 
         //           modelBuilder.Entity<MPSTOK>()
         //  .Navigation(b => b.MPSIPARISDETAY)
