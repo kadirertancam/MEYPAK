@@ -1,151 +1,102 @@
-﻿@using MEYPAK.Entity.PocoModels.STOK
-@model List<PocoSTOK>
-@{
-    PocoSTOK aa = new PocoSTOK();
+﻿@{
+    Layout = "_DevExtremeLayout";
 }
-
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | DataTables</title>
-
-    <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="~/AdminLTE/plugins/fontawesome-free/css/all.min.css">
-    <!-- DataTables -->
-    <link rel="stylesheet" href="~/AdminLTE/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="~/AdminLTE/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-    <link rel="stylesheet" href="~/AdminLTE/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="~/AdminLTE/dist/css/adminlte.min.css">
-</head>
-
-
-<body class="hold-transition sidebar-mini">
-    <div class="wrapper">
+@using DevExtreme.AspNet.Mvc
+@using MEYPAK.Entity.PocoModels.STOK
+<div class="menu-container dx-swatch-additional">
 
 
 
+    <div id="data-grid-demo">
+        @(
+            Html.DevExtreme().DataGrid<PocoSTOK>()
+            .ID("gridContainer")
+            .ShowBorders(true)
 
-        <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
-            <!-- Content Header (Page header) -->
-            <!-- Main content -->
-            <section class="content">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h3 class="card-title">Tüm Stoklar</h3>
-                                </div>
-                                <!-- /.card-header -->
-                                <div class="card-body">
-                                    <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
-                                        <table id="example1" class="table table-bordered table-striped">
-                                            <thead>
-                                                <tr>
-                                                @{
-                                                    foreach (var item2 in aa.GetType().GetProperties())
-                                                    {
-                                                    <th>@item2.Name</th>
-                                                    }
-                                                    }
-                                                </tr>
-                                            </thead>
-                                            <tbody>
+            .Paging(p => p.Enabled(true))
+            .Editing(e => e.Mode(GridEditMode.Popup)
+            .AllowUpdating(true)
+            .AllowAdding(true)
+            .AllowDeleting(true)
+            .Popup(p => p
+            .Title("Stok Kart")
+            .ShowTitle(true)
+            .Width(700)
+            .Height(525)
+            )
+            .Form(f => f.Items(items =>
+            {
+                items.AddGroup()
+                .ColCount(2)
+                .ColSpan(2)
+                .Items(groupItems =>
+                {
 
-                                                @foreach (PocoSTOK item in Model)
-                                                {
-                                                    <tr>
-                                                        @foreach (var item2 in item.GetType().GetProperties())
-                                                        {
-                                                            <td>@item.GetType().GetProperty(item2.Name).GetValue(item, null)</td>
-                                                        }
-                                                    </tr>
-                                                }
-                                            </tbody>
-                                            <tfoot>
-                                                <tr>
-                                                    @{
-                                                        foreach (var item2 in aa.GetType().GetProperties())
-                                                        {
-                                                            <th>@item2.Name</th>
-                                                        }
-                                                    }
-                                                </tr>
-                                            </tfoot>
-                                        </table>
-                                    </div>
-                                </div>
-                                <!-- /.card-body -->
-                            </div>
-                            <!-- /.card -->
-                        </div>
-                        <!-- /.col -->
-                    </div>
-                    <!-- /.row -->
-                </div>
-                <!-- /.container-fluid -->
-            </section>
-            <!-- /.content -->
-        </div>
-        <!-- /.content-wrapper -->
-        <footer class="main-footer">
-            <div class="float-right d-none d-sm-block">
-                <b>Version</b> 3.2.0
-            </div>
-            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-        </footer>
+                    groupItems.AddSimpleFor(m => m.adi);
+                    groupItems.AddSimpleFor(m => m.kategoriid);
+                    groupItems.AddSimpleFor(m => m.sfiyaT1);
+                    groupItems.AddSimpleFor(m => m.sfiyaT2);
+                    groupItems.AddSimpleFor(m => m.donem);
 
-        <!-- Control Sidebar -->
-        <aside class="control-sidebar control-sidebar-dark">
-            <!-- Control sidebar content goes here -->
-        </aside>
-        <!-- /.control-sidebar -->
+                    groupItems.AddSimpleFor(m => m.aciklama);
+                    groupItems.AddSimpleFor(m => m.aciklamA5)
+                .ColSpan(2)
+                .Editor(editor => editor.TextArea().Height(100));
+                });
+
+               
+            }))
+            )
+            .Columns(columns =>
+            {
+
+                columns.AddFor(m => m.adi)
+                .Width(120);
+
+                columns.AddFor(m => m.kategoriid);
+
+                columns.AddFor(m => m.sfiyaT1);
+
+                columns.AddFor(m => m.sfiyaT2);
+
+                columns.AddFor(m => m.donem)
+                .Width(65);
+
+                columns.AddFor(m => m.aciklama);
+
+                columns.AddFor(m => m.aciklamA5)
+                .Visible(false);
+
+            })
+            .DataSource(d => d.Mvc()
+            .Controller("STOK")
+            .LoadAction("StokGet").UpdateAction("StokEkle").DeleteAction("StokDelete").InsertAction("StokEkle").Key("id")
+
+            )
+            )
+
+
+
     </div>
-    <!-- ./wrapper -->
-    <!-- jQuery -->
-    <script src="~/AdminLTE/plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap 4 -->
-    <script src="~/AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- DataTables  & Plugins -->
-    <script src="~/AdminLTE/plugins/datatables/jquery.dataTables.min.js"></script>
-    <script src="~/AdminLTE/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-    <script src="~/AdminLTE/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="~/AdminLTE/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-    <script src="~/AdminLTE/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="~/AdminLTE/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-    <script src="~/AdminLTE/plugins/jszip/jszip.min.js"></script>
-    <script src="~/AdminLTE/plugins/pdfmake/pdfmake.min.js"></script>
-    <script src="~/AdminLTE/plugins/pdfmake/vfs_fonts.js"></script>
-    <script src="~/AdminLTE/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-    <script src="~/AdminLTE/plugins/datatables-buttons/js/buttons.print.min.js"></script>
-    <script src="~/AdminLTE/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="~/AdminLTE/dist/js/adminlte.min.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="~/AdminLTE/dist/js/demo.js"></script>
-    <!-- Page specific script -->
+
+
+    @(Html.DevExtreme().SelectBox()
+        .ID("apptheme")
+        .ValueExpr("theme")
+        .DisplayExpr("name")
+        .DataSource(new object[] {
+    new { name = "Light", theme = "dx.light.css"},
+    new { name = "Dark", theme = "dx.dark.css"},
+
+        })
+        .OnSelectionChanged("changeTheme")
+        )
     <script>
-        $(function () {
-            $("#example1").DataTable({
-                "responsive": true, "lengthChange": false, "autoWidth": false,
-                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-            $('#example2').DataTable({
-                "paging": true,
-                "lengthChange": false,
-                "searching": false,
-                "ordering": true,
-                "info": true,
-                "autoWidth": false,
-                "responsive": true,
-            });
-        });
+        function changeTheme(e) {
+            var selectedTheme = e.component.option("value");
+            document.cookie = "currentTheme=" + selectedTheme + ";path=/";
+            window.location.reload();
+        }
     </script>
-</body>
-</html>
+
+</div>

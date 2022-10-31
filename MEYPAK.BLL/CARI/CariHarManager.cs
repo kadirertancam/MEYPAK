@@ -22,5 +22,9 @@ namespace MEYPAK.BLL.CARI
             _cariHarDal = repo;
             _mapper = mapper;
         }
+        public PocoCARIHAR EkleyadaGuncelle(PocoCARIHAR entity)
+        {
+            return _mapper.Map<MPCARIHAR, PocoCARIHAR>(_cariHarDal.EkleyadaGuncelle(_mapper.Map<PocoCARIHAR, MPCARIHAR>(entity)));
+        }
     }
 }

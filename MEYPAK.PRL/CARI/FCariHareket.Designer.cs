@@ -35,20 +35,18 @@
             this.DTPTarih = new DevExpress.XtraEditors.DateTimeOffsetEdit();
             this.TBCariAdi = new DevExpress.XtraEditors.TextEdit();
             this.TBCariKodu = new DevExpress.XtraEditors.ButtonEdit();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.RBAlacak = new System.Windows.Forms.RadioButton();
-            this.RBBorc = new System.Windows.Forms.RadioButton();
             this.CLBSube = new System.Windows.Forms.CheckedListBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.LBCariKodu = new System.Windows.Forms.Label();
             this.CBParaBirimiView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.LBFiyat = new DevExpress.XtraEditors.LabelControl();
+            this.LBKur = new DevExpress.XtraEditors.LabelControl();
+            this.LBAciklama = new DevExpress.XtraEditors.LabelControl();
+            this.LBParaBirimi = new DevExpress.XtraEditors.LabelControl();
+            this.LBBelgeNo = new DevExpress.XtraEditors.LabelControl();
+            this.LBTarih = new DevExpress.XtraEditors.LabelControl();
+            this.LBCariKodu = new DevExpress.XtraEditors.LabelControl();
+            this.radioGroup1 = new DevExpress.XtraEditors.RadioGroup();
             this.CBParaBirimi = new DevExpress.XtraEditors.GridLookUpEdit();
-            this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
@@ -77,9 +75,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.DTPTarih.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBCariAdi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBCariKodu.Properties)).BeginInit();
-            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CBParaBirimiView)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBParaBirimi.Properties)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -114,7 +112,7 @@
             // 
             // TBBelgeNo
             // 
-            this.TBBelgeNo.Location = new System.Drawing.Point(74, 118);
+            this.TBBelgeNo.Location = new System.Drawing.Point(87, 117);
             this.TBBelgeNo.Name = "TBBelgeNo";
             this.TBBelgeNo.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.TBBelgeNo.Size = new System.Drawing.Size(149, 26);
@@ -123,7 +121,7 @@
             // DTPTarih
             // 
             this.DTPTarih.EditValue = null;
-            this.DTPTarih.Location = new System.Drawing.Point(74, 86);
+            this.DTPTarih.Location = new System.Drawing.Point(87, 85);
             this.DTPTarih.Name = "DTPTarih";
             this.DTPTarih.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -137,7 +135,7 @@
             // TBCariAdi
             // 
             this.TBCariAdi.Enabled = false;
-            this.TBCariAdi.Location = new System.Drawing.Point(74, 55);
+            this.TBCariAdi.Location = new System.Drawing.Point(87, 54);
             this.TBCariAdi.Name = "TBCariAdi";
             this.TBCariAdi.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.TBCariAdi.Size = new System.Drawing.Size(149, 26);
@@ -145,7 +143,7 @@
             // 
             // TBCariKodu
             // 
-            this.TBCariKodu.Location = new System.Drawing.Point(74, 23);
+            this.TBCariKodu.Location = new System.Drawing.Point(87, 22);
             this.TBCariKodu.Name = "TBCariKodu";
             this.TBCariKodu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
@@ -153,43 +151,6 @@
             this.TBCariKodu.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.TBCariKodu_Properties_ButtonClick);
             this.TBCariKodu.Size = new System.Drawing.Size(150, 26);
             this.TBCariKodu.TabIndex = 7;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.RBAlacak);
-            this.groupBox3.Controls.Add(this.RBBorc);
-            this.groupBox3.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox3.Location = new System.Drawing.Point(356, 158);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(179, 47);
-            this.groupBox3.TabIndex = 29;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Giriş-Çıkış";
-            // 
-            // RBAlacak
-            // 
-            this.RBAlacak.AutoSize = true;
-            this.RBAlacak.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.RBAlacak.Location = new System.Drawing.Point(92, 21);
-            this.RBAlacak.Name = "RBAlacak";
-            this.RBAlacak.Size = new System.Drawing.Size(59, 18);
-            this.RBAlacak.TabIndex = 1;
-            this.RBAlacak.Text = "Alacak";
-            this.RBAlacak.UseVisualStyleBackColor = true;
-            // 
-            // RBBorc
-            // 
-            this.RBBorc.AutoSize = true;
-            this.RBBorc.Checked = true;
-            this.RBBorc.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.RBBorc.Location = new System.Drawing.Point(6, 22);
-            this.RBBorc.Name = "RBBorc";
-            this.RBBorc.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.RBBorc.Size = new System.Drawing.Size(52, 18);
-            this.RBBorc.TabIndex = 0;
-            this.RBBorc.TabStop = true;
-            this.RBBorc.Text = "Borç";
-            this.RBBorc.UseVisualStyleBackColor = true;
             // 
             // CLBSube
             // 
@@ -200,66 +161,6 @@
             this.CLBSube.Size = new System.Drawing.Size(132, 140);
             this.CLBSube.TabIndex = 25;
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(289, 130);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(32, 14);
-            this.label9.TabIndex = 22;
-            this.label9.Text = "Fiyat";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(8, 93);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(34, 14);
-            this.label7.TabIndex = 18;
-            this.label7.Text = "Tarih";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(289, 96);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(25, 14);
-            this.label8.TabIndex = 20;
-            this.label8.Text = "Kur";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(7, 122);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 14);
-            this.label2.TabIndex = 15;
-            this.label2.Text = "Belge No";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(6, 158);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 14);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Para Birimi";
-            // 
-            // LBCariKodu
-            // 
-            this.LBCariKodu.AutoSize = true;
-            this.LBCariKodu.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBCariKodu.Location = new System.Drawing.Point(8, 29);
-            this.LBCariKodu.Name = "LBCariKodu";
-            this.LBCariKodu.Size = new System.Drawing.Size(58, 14);
-            this.LBCariKodu.TabIndex = 0;
-            this.LBCariKodu.Text = "Cari Kodu";
-            // 
             // CBParaBirimiView
             // 
             this.CBParaBirimiView.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
@@ -269,6 +170,14 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.LBFiyat);
+            this.groupBox1.Controls.Add(this.LBKur);
+            this.groupBox1.Controls.Add(this.LBAciklama);
+            this.groupBox1.Controls.Add(this.LBParaBirimi);
+            this.groupBox1.Controls.Add(this.LBBelgeNo);
+            this.groupBox1.Controls.Add(this.LBTarih);
+            this.groupBox1.Controls.Add(this.LBCariKodu);
+            this.groupBox1.Controls.Add(this.radioGroup1);
             this.groupBox1.Controls.Add(this.CBParaBirimi);
             this.groupBox1.Controls.Add(this.TBFiyat);
             this.groupBox1.Controls.Add(this.TBKur);
@@ -277,15 +186,7 @@
             this.groupBox1.Controls.Add(this.DTPTarih);
             this.groupBox1.Controls.Add(this.TBCariAdi);
             this.groupBox1.Controls.Add(this.TBCariKodu);
-            this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.CLBSube);
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.LBCariKodu);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
@@ -295,10 +196,101 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cari Hareket";
             // 
+            // LBFiyat
+            // 
+            this.LBFiyat.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBFiyat.Appearance.Options.UseFont = true;
+            this.LBFiyat.Location = new System.Drawing.Point(289, 130);
+            this.LBFiyat.Name = "LBFiyat";
+            this.LBFiyat.Size = new System.Drawing.Size(25, 14);
+            this.LBFiyat.TabIndex = 38;
+            this.LBFiyat.Text = "Fiyat";
+            this.LBFiyat.Click += new System.EventHandler(this.LBTarih_Click);
+            // 
+            // LBKur
+            // 
+            this.LBKur.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBKur.Appearance.Options.UseFont = true;
+            this.LBKur.Location = new System.Drawing.Point(289, 98);
+            this.LBKur.Name = "LBKur";
+            this.LBKur.Size = new System.Drawing.Size(18, 14);
+            this.LBKur.TabIndex = 38;
+            this.LBKur.Text = "Kur";
+            this.LBKur.Click += new System.EventHandler(this.LBTarih_Click);
+            // 
+            // LBAciklama
+            // 
+            this.LBAciklama.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBAciklama.Appearance.Options.UseFont = true;
+            this.LBAciklama.Location = new System.Drawing.Point(289, 28);
+            this.LBAciklama.Name = "LBAciklama";
+            this.LBAciklama.Size = new System.Drawing.Size(46, 14);
+            this.LBAciklama.TabIndex = 38;
+            this.LBAciklama.Text = "Açıklama";
+            this.LBAciklama.Click += new System.EventHandler(this.LBTarih_Click);
+            // 
+            // LBParaBirimi
+            // 
+            this.LBParaBirimi.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBParaBirimi.Appearance.Options.UseFont = true;
+            this.LBParaBirimi.Location = new System.Drawing.Point(6, 158);
+            this.LBParaBirimi.Name = "LBParaBirimi";
+            this.LBParaBirimi.Size = new System.Drawing.Size(54, 14);
+            this.LBParaBirimi.TabIndex = 38;
+            this.LBParaBirimi.Text = "Para Birimi";
+            this.LBParaBirimi.Click += new System.EventHandler(this.LBTarih_Click);
+            // 
+            // LBBelgeNo
+            // 
+            this.LBBelgeNo.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBBelgeNo.Appearance.Options.UseFont = true;
+            this.LBBelgeNo.Location = new System.Drawing.Point(6, 124);
+            this.LBBelgeNo.Name = "LBBelgeNo";
+            this.LBBelgeNo.Size = new System.Drawing.Size(49, 14);
+            this.LBBelgeNo.TabIndex = 38;
+            this.LBBelgeNo.Text = "Belge No";
+            this.LBBelgeNo.Click += new System.EventHandler(this.LBTarih_Click);
+            // 
+            // LBTarih
+            // 
+            this.LBTarih.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBTarih.Appearance.Options.UseFont = true;
+            this.LBTarih.Location = new System.Drawing.Point(6, 91);
+            this.LBTarih.Name = "LBTarih";
+            this.LBTarih.Size = new System.Drawing.Size(27, 14);
+            this.LBTarih.TabIndex = 38;
+            this.LBTarih.Text = "Tarih";
+            this.LBTarih.Click += new System.EventHandler(this.LBTarih_Click);
+            // 
+            // LBCariKodu
+            // 
+            this.LBCariKodu.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBCariKodu.Appearance.Options.UseFont = true;
+            this.LBCariKodu.Location = new System.Drawing.Point(6, 28);
+            this.LBCariKodu.Name = "LBCariKodu";
+            this.LBCariKodu.Size = new System.Drawing.Size(51, 14);
+            this.LBCariKodu.TabIndex = 37;
+            this.LBCariKodu.Text = "Cari Kodu";
+            // 
+            // radioGroup1
+            // 
+            this.radioGroup1.Location = new System.Drawing.Point(344, 158);
+            this.radioGroup1.Name = "radioGroup1";
+            this.radioGroup1.Properties.Appearance.BackColor = System.Drawing.SystemColors.Control;
+            this.radioGroup1.Properties.Appearance.Options.UseBackColor = true;
+            this.radioGroup1.Properties.Columns = 2;
+            this.radioGroup1.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
+            this.radioGroup1.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(true, "Alacak", true, null, "RBAlacak"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(false, "Borç", true, null, "RBBorc")});
+            this.radioGroup1.Size = new System.Drawing.Size(175, 63);
+            this.radioGroup1.TabIndex = 36;
+            this.radioGroup1.SelectedIndexChanged += new System.EventHandler(this.radioGroup1_SelectedIndexChanged);
+            // 
             // CBParaBirimi
             // 
             this.CBParaBirimi.EditValue = "";
-            this.CBParaBirimi.Location = new System.Drawing.Point(73, 152);
+            this.CBParaBirimi.Location = new System.Drawing.Point(86, 151);
             this.CBParaBirimi.Name = "CBParaBirimi";
             this.CBParaBirimi.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -307,16 +299,6 @@
             this.CBParaBirimi.Properties.PopupView = this.CBParaBirimiView;
             this.CBParaBirimi.Size = new System.Drawing.Size(150, 26);
             this.CBParaBirimi.TabIndex = 35;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(289, 30);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 14);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Açıklama";
             // 
             // panel1
             // 
@@ -572,11 +554,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.DTPTarih.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBCariAdi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBCariKodu.Properties)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CBParaBirimiView)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBParaBirimi.Properties)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -598,20 +579,10 @@
         private DevExpress.XtraEditors.DateTimeOffsetEdit DTPTarih;
         private DevExpress.XtraEditors.TextEdit TBCariAdi;
         private DevExpress.XtraEditors.ButtonEdit TBCariKodu;
-        private GroupBox groupBox3;
-        private RadioButton RBAlacak;
-        private RadioButton RBBorc;
         private CheckedListBox CLBSube;
-        private Label label9;
-        private Label label7;
-        private Label label8;
-        private Label label2;
-        private Label label5;
-        private Label LBCariKodu;
         private DevExpress.XtraGrid.Views.Grid.GridView CBParaBirimiView;
         private GroupBox groupBox1;
         private DevExpress.XtraEditors.GridLookUpEdit CBParaBirimi;
-        private Label label3;
         private Panel panel1;
         private Panel panel3;
         private DevExpress.XtraGrid.GridControl gridControl1;
@@ -633,5 +604,13 @@
         private Label label10;
         private Label label14;
         private Label label15;
+        private DevExpress.XtraEditors.RadioGroup radioGroup1;
+        private DevExpress.XtraEditors.LabelControl LBTarih;
+        private DevExpress.XtraEditors.LabelControl LBCariKodu;
+        private DevExpress.XtraEditors.LabelControl LBFiyat;
+        private DevExpress.XtraEditors.LabelControl LBKur;
+        private DevExpress.XtraEditors.LabelControl LBAciklama;
+        private DevExpress.XtraEditors.LabelControl LBParaBirimi;
+        private DevExpress.XtraEditors.LabelControl LBBelgeNo;
     }
 }

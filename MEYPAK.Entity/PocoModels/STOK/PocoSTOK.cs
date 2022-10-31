@@ -16,7 +16,7 @@ namespace MEYPAK.Entity.PocoModels.STOK
 {
     public class PocoSTOK
     {
-        [Key]
+        
         public int id { get; set; }
         public DateTime olusturmatarihi { get; set; } = DateTime.Now;
         public DateTime guncellemetarihi { get; set; } = DateTime.Now;

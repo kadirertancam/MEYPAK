@@ -1,5 +1,6 @@
 ﻿using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.PocoModels.CARI;
+using MEYPAK.Interfaces.Cari;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +20,7 @@ namespace MEYPAK.PRL.CARI
             InitializeComponent();
             _cariHarServis = new GenericWebServis<PocoCARIHAR>();
             _tempCARIKART = new PocoCARIKART();
+            radioGroup1.SelectedIndex = 0;
         }
         GenericWebServis<PocoCARIHAR> _cariHarServis;
         FCariList _fCariList;
@@ -36,8 +38,8 @@ namespace MEYPAK.PRL.CARI
             {
                 CARIID=_tempCARIKART.ID,
                 ACIKLAMA = TBAciklama.Text,
-                ALACAK = RBAlacak.Checked == true ? Convert.ToDecimal(TBFiyat.Text) : 0,
-                BORC=RBBorc.Checked==true?Convert.ToDecimal(TBFiyat.Text) : 0,
+                ALACAK = radioGroup1.SelectedIndex == 1 ? Convert.ToDecimal(TBFiyat.Text) : 0,
+                BORC=  radioGroup1.SelectedIndex == 0 ?Convert.ToDecimal(TBFiyat.Text) : 0,
                 BELGE_NO=TBBelgeNo.Text,
                 HAREKETTIPI=5,
                 KUR=Convert.ToDecimal(TBKur.Text),
@@ -51,9 +53,25 @@ namespace MEYPAK.PRL.CARI
 
         private void TBCariKodu_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
+            _cariHarServis.Data(ServisList.CariHarListeServis);
             _fCariList = new FCariList("carihar");
             _fCariList.ShowDialog();
             gridControl1.DataSource = _cariHarServis.obje.Where(x => x.CARIID == _tempCARIKART.ID);
+        }
+
+        private void radioGroup1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void LBTarih_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -91,6 +91,7 @@ namespace MEYPAK.API.Controllers.STOK
         }
 
         [HttpDelete]
+        [Route("/[controller]/[action]")]
         public IActionResult DeleteById([FromBody]int id)
         {
             try
