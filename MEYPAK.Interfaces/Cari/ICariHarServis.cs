@@ -9,5 +9,6 @@ namespace MEYPAK.Interfaces.Cari
 {
     public interface ICariHarServis:IGenericServis<PocoCARIHAR>
     {
+        public PocoCARIHAR EkleyadaGuncelle(PocoCARIHAR entity);
     }
 }
