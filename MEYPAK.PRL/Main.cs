@@ -1,8 +1,8 @@
 ﻿
 using DevExpress.Pdf.Native.BouncyCastle.Asn1.Pkcs;
 using DevExpress.XtraEditors;
-
-
+using DevExpress.XtraTab;
+using DevExpress.XtraTab.ViewInfo;
 using MEYPAK.BLL.Assets;
 using MEYPAK.Interfaces;
 using MEYPAK.Interfaces.Depo;
@@ -32,7 +32,6 @@ namespace MEYPAK.PRL
         {
             InitializeComponent(); 
             fStokHareket = new FStokHareket();
-            fSTOKKART = new FStokKart();
             fDepoKart = new FDepoKart();
             fStokSayim=new FStokSayim();
             fOlcuBrKart = new FOlcuBrKart();
@@ -195,24 +194,39 @@ namespace MEYPAK.PRL
             //panel2.Controls.Add(fStokFiyatList);
             //fStokFiyatList.Show();
         }
-
+        int i = 0;
         private void accordionControlElement9_Click(object sender, EventArgs e)
         {
-            panel2.Controls.Clear();
+            XtraTabPage page = new XtraTabPage();
+            fSTOKKART = new FStokKart(); 
+            page.Name = "TPStokKart"+i;
+            page.Text = "Stok Kart";
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True; 
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;  
+
             fSTOKKART.TopLevel = false;
             fSTOKKART.AutoScroll = true;
             fSTOKKART.Dock = DockStyle.Fill;
-            panel2.Controls.Add(fSTOKKART);
+            page.Controls.Add(fSTOKKART);
             fSTOKKART.Show();
+            i++;
         }
 
         private void accordionControlElement14_Click(object sender, EventArgs e)
         {
-            panel2.Controls.Clear();
+            XtraTabPage page = new XtraTabPage();
+            fStokHareket = new FStokHareket();
+            page.Name = "TPStokHareket" + i;
+            page.Text = "Stok Hareket";
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
             fStokHareket.TopLevel = false;
             fStokHareket.AutoScroll = true;
             fStokHareket.Dock = DockStyle.Fill;
-            panel2.Controls.Add(fStokHareket);
+            page.Controls.Add(fStokHareket);
             fStokHareket.Show();
         }
 
@@ -228,12 +242,25 @@ namespace MEYPAK.PRL
 
         private void accordionControlElement30_Click(object sender, EventArgs e)
         {
-            panel2.Controls.Clear();
+            XtraTabPage page = new XtraTabPage();
+            fStokHareket = new FStokHareket();
+            page.Name = "TPCariHareket" + i;
+            page.Text = "Cari Hareket";
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+             
             fCariHareket.TopLevel = false;
             fCariHareket.AutoScroll = true;
             fCariHareket.Dock = DockStyle.Fill;
-            panel2.Controls.Add(fCariHareket);
+            page.Controls.Add(fCariHareket);
             fCariHareket.Show();
+        }
+
+        private void xtraTabControl1_CloseButtonClick(object sender, EventArgs e)
+        {
+            ClosePageButtonEventArgs arg = e as ClosePageButtonEventArgs;
+            (arg.Page as XtraTabPage).PageVisible = false;
         }
     }
 }

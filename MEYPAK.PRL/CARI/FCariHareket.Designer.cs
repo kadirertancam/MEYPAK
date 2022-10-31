@@ -161,7 +161,7 @@
             this.groupBox3.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox3.Location = new System.Drawing.Point(356, 158);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(149, 47);
+            this.groupBox3.Size = new System.Drawing.Size(179, 47);
             this.groupBox3.TabIndex = 29;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Giriş-Çıkış";
@@ -290,7 +290,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(761, 227);
+            this.groupBox1.Size = new System.Drawing.Size(818, 227);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cari Hareket";
@@ -325,7 +325,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(761, 665);
+            this.panel1.Size = new System.Drawing.Size(818, 665);
             this.panel1.TabIndex = 1;
             // 
             // panel3
@@ -334,7 +334,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 301);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(761, 364);
+            this.panel3.Size = new System.Drawing.Size(818, 364);
             this.panel3.TabIndex = 1;
             // 
             // gridControl1
@@ -343,7 +343,7 @@
             this.gridControl1.Location = new System.Drawing.Point(0, 0);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(761, 364);
+            this.gridControl1.Size = new System.Drawing.Size(818, 364);
             this.gridControl1.TabIndex = 1;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -363,7 +363,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(761, 301);
+            this.panel2.Size = new System.Drawing.Size(818, 301);
             this.panel2.TabIndex = 0;
             // 
             // groupBox2
@@ -386,7 +386,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 227);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(761, 74);
+            this.groupBox2.Size = new System.Drawing.Size(818, 74);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             // 
@@ -462,7 +462,7 @@
             this.LBBakiye.AutoSize = true;
             this.LBBakiye.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBBakiye.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.LBBakiye.Location = new System.Drawing.Point(1190, 37);
+            this.LBBakiye.Location = new System.Drawing.Point(1247, 37);
             this.LBBakiye.Name = "LBBakiye";
             this.LBBakiye.Size = new System.Drawing.Size(49, 28);
             this.LBBakiye.TabIndex = 6;
@@ -474,7 +474,7 @@
             this.LBToplamCikis.AutoSize = true;
             this.LBToplamCikis.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBToplamCikis.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.LBToplamCikis.Location = new System.Drawing.Point(1085, 37);
+            this.LBToplamCikis.Location = new System.Drawing.Point(1142, 37);
             this.LBToplamCikis.Name = "LBToplamCikis";
             this.LBToplamCikis.Size = new System.Drawing.Size(49, 28);
             this.LBToplamCikis.TabIndex = 6;
@@ -486,7 +486,7 @@
             this.LBToplamGiris.AutoSize = true;
             this.LBToplamGiris.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBToplamGiris.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.LBToplamGiris.Location = new System.Drawing.Point(981, 37);
+            this.LBToplamGiris.Location = new System.Drawing.Point(1038, 37);
             this.LBToplamGiris.Name = "LBToplamGiris";
             this.LBToplamGiris.Size = new System.Drawing.Size(49, 28);
             this.LBToplamGiris.TabIndex = 6;
@@ -498,7 +498,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label13.ForeColor = System.Drawing.Color.Red;
-            this.label13.Location = new System.Drawing.Point(1190, 18);
+            this.label13.Location = new System.Drawing.Point(1247, 18);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(46, 14);
             this.label13.TabIndex = 5;
@@ -510,7 +510,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label12.ForeColor = System.Drawing.Color.Red;
-            this.label12.Location = new System.Drawing.Point(1085, 18);
+            this.label12.Location = new System.Drawing.Point(1142, 18);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(82, 14);
             this.label12.TabIndex = 4;
@@ -522,7 +522,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label11.ForeColor = System.Drawing.Color.Red;
-            this.label11.Location = new System.Drawing.Point(981, 18);
+            this.label11.Location = new System.Drawing.Point(1038, 18);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(80, 14);
             this.label11.TabIndex = 3;
@@ -560,7 +560,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(761, 665);
+            this.ClientSize = new System.Drawing.Size(818, 665);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FCariHareket";
