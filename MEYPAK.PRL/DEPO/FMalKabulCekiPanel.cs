@@ -38,7 +38,7 @@ namespace MEYPAK.PRL.DEPO
             foreach (var item in aaa)
             {
                 _id = _tempStok.Where(x => x.kod == item.StokKodu).FirstOrDefault().id;
-                _stokMalKabulListServis.OnYukle();
+              
                 _stokMalKabulListServis.EkleyadaGuncelle(new PocoSTOKMALKABULLIST()
                 {
                     STOKID = _id,

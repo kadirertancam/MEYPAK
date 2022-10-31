@@ -1562,11 +1562,11 @@
             // 
             // LBAlisOtv
             // 
-            this.LBAlisOtv.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBAlisOtv.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBAlisOtv.Appearance.Options.UseFont = true;
             this.LBAlisOtv.Location = new System.Drawing.Point(5, 122);
             this.LBAlisOtv.Name = "LBAlisOtv";
-            this.LBAlisOtv.Size = new System.Drawing.Size(44, 16);
+            this.LBAlisOtv.Size = new System.Drawing.Size(41, 14);
             this.LBAlisOtv.TabIndex = 29;
             this.LBAlisOtv.Text = "Alış Ötv";
             // 

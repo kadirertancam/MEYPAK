@@ -191,8 +191,20 @@
             this.button2 = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.LBMuhKodu = new DevExpress.XtraEditors.LabelControl();
+            this.LBFiyat = new DevExpress.XtraEditors.LabelControl();
+            this.LBVadeGunu = new DevExpress.XtraEditors.LabelControl();
+            this.LBTcNo = new DevExpress.XtraEditors.LabelControl();
+            this.LBVDaireVNo = new DevExpress.XtraEditors.LabelControl();
+            this.LBPostaKodu = new DevExpress.XtraEditors.LabelControl();
+            this.LBAptDaire = new DevExpress.XtraEditors.LabelControl();
+            this.LBSokak = new DevExpress.XtraEditors.LabelControl();
+            this.LBMahalle = new DevExpress.XtraEditors.LabelControl();
+            this.LBIlIlce = new DevExpress.XtraEditors.LabelControl();
+            this.LBUlke = new DevExpress.XtraEditors.LabelControl();
+            this.LBUnvan = new DevExpress.XtraEditors.LabelControl();
+            this.LBCariKodu = new DevExpress.XtraEditors.LabelControl();
             this.TBMahalle = new System.Windows.Forms.TextBox();
-            this.label25 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.label23 = new System.Windows.Forms.Label();
             this.TBMuhKod = new System.Windows.Forms.TextBox();
@@ -203,33 +215,22 @@
             this.RBFiyat2 = new System.Windows.Forms.RadioButton();
             this.RBFiyat1 = new System.Windows.Forms.RadioButton();
             this.TBVadeGunu = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
             this.TBTc = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
             this.CBVDaire = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.TBVno = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.TBPostaKodu = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.TBDaire = new System.Windows.Forms.TextBox();
             this.TBApt = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.TBSokak = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.CBilce = new System.Windows.Forms.ComboBox();
             this.CBil = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.CBUlke = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.BTCariSec = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
             this.TBUnvan = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.TBCariKodu = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -1829,40 +1830,41 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.LBMuhKodu);
+            this.groupBox1.Controls.Add(this.LBFiyat);
+            this.groupBox1.Controls.Add(this.LBVadeGunu);
+            this.groupBox1.Controls.Add(this.LBTcNo);
+            this.groupBox1.Controls.Add(this.LBVDaireVNo);
+            this.groupBox1.Controls.Add(this.LBPostaKodu);
+            this.groupBox1.Controls.Add(this.LBAptDaire);
+            this.groupBox1.Controls.Add(this.LBSokak);
+            this.groupBox1.Controls.Add(this.LBMahalle);
+            this.groupBox1.Controls.Add(this.LBIlIlce);
+            this.groupBox1.Controls.Add(this.LBUlke);
+            this.groupBox1.Controls.Add(this.LBUnvan);
+            this.groupBox1.Controls.Add(this.LBCariKodu);
             this.groupBox1.Controls.Add(this.TBMahalle);
-            this.groupBox1.Controls.Add(this.label25);
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.label23);
             this.groupBox1.Controls.Add(this.TBMuhKod);
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.TBVadeGunu);
-            this.groupBox1.Controls.Add(this.label20);
             this.groupBox1.Controls.Add(this.TBTc);
-            this.groupBox1.Controls.Add(this.label17);
             this.groupBox1.Controls.Add(this.CBVDaire);
             this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.TBVno);
-            this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.TBPostaKodu);
-            this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.TBDaire);
             this.groupBox1.Controls.Add(this.TBApt);
-            this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.TBSokak);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.CBilce);
             this.groupBox1.Controls.Add(this.CBil);
-            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.CBUlke);
-            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.BTCariSec);
-            this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.TBUnvan);
-            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.TBCariKodu);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
@@ -1872,21 +1874,142 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Genel Bilgi";
             // 
+            // LBMuhKodu
+            // 
+            this.LBMuhKodu.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBMuhKodu.Appearance.Options.UseFont = true;
+            this.LBMuhKodu.Location = new System.Drawing.Point(226, 437);
+            this.LBMuhKodu.Name = "LBMuhKodu";
+            this.LBMuhKodu.Size = new System.Drawing.Size(59, 14);
+            this.LBMuhKodu.TabIndex = 54;
+            this.LBMuhKodu.Text = "Muh. Kodu";
+            // 
+            // LBFiyat
+            // 
+            this.LBFiyat.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBFiyat.Appearance.Options.UseFont = true;
+            this.LBFiyat.Location = new System.Drawing.Point(16, 378);
+            this.LBFiyat.Name = "LBFiyat";
+            this.LBFiyat.Size = new System.Drawing.Size(25, 14);
+            this.LBFiyat.TabIndex = 53;
+            this.LBFiyat.Text = "Fiyat";
+            // 
+            // LBVadeGunu
+            // 
+            this.LBVadeGunu.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBVadeGunu.Appearance.Options.UseFont = true;
+            this.LBVadeGunu.Location = new System.Drawing.Point(16, 329);
+            this.LBVadeGunu.Name = "LBVadeGunu";
+            this.LBVadeGunu.Size = new System.Drawing.Size(61, 14);
+            this.LBVadeGunu.TabIndex = 52;
+            this.LBVadeGunu.Text = "Vade Günü";
+            // 
+            // LBTcNo
+            // 
+            this.LBTcNo.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBTcNo.Appearance.Options.UseFont = true;
+            this.LBTcNo.Location = new System.Drawing.Point(18, 301);
+            this.LBTcNo.Name = "LBTcNo";
+            this.LBTcNo.Size = new System.Drawing.Size(34, 14);
+            this.LBTcNo.TabIndex = 51;
+            this.LBTcNo.Text = "TC No";
+            // 
+            // LBVDaireVNo
+            // 
+            this.LBVDaireVNo.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBVDaireVNo.Appearance.Options.UseFont = true;
+            this.LBVDaireVNo.Location = new System.Drawing.Point(16, 273);
+            this.LBVDaireVNo.Name = "LBVDaireVNo";
+            this.LBVDaireVNo.Size = new System.Drawing.Size(71, 14);
+            this.LBVDaireVNo.TabIndex = 50;
+            this.LBVDaireVNo.Text = "V.Daire/V.No";
+            // 
+            // LBPostaKodu
+            // 
+            this.LBPostaKodu.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBPostaKodu.Appearance.Options.UseFont = true;
+            this.LBPostaKodu.Location = new System.Drawing.Point(16, 242);
+            this.LBPostaKodu.Name = "LBPostaKodu";
+            this.LBPostaKodu.Size = new System.Drawing.Size(62, 14);
+            this.LBPostaKodu.TabIndex = 49;
+            this.LBPostaKodu.Text = "Posta Kodu";
+            // 
+            // LBAptDaire
+            // 
+            this.LBAptDaire.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBAptDaire.Appearance.Options.UseFont = true;
+            this.LBAptDaire.Location = new System.Drawing.Point(16, 214);
+            this.LBAptDaire.Name = "LBAptDaire";
+            this.LBAptDaire.Size = new System.Drawing.Size(56, 14);
+            this.LBAptDaire.TabIndex = 48;
+            this.LBAptDaire.Text = "Apt./Daire";
+            // 
+            // LBSokak
+            // 
+            this.LBSokak.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBSokak.Appearance.Options.UseFont = true;
+            this.LBSokak.Location = new System.Drawing.Point(16, 188);
+            this.LBSokak.Name = "LBSokak";
+            this.LBSokak.Size = new System.Drawing.Size(33, 14);
+            this.LBSokak.TabIndex = 47;
+            this.LBSokak.Text = "Sokak";
+            // 
+            // LBMahalle
+            // 
+            this.LBMahalle.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBMahalle.Appearance.Options.UseFont = true;
+            this.LBMahalle.Location = new System.Drawing.Point(18, 158);
+            this.LBMahalle.Name = "LBMahalle";
+            this.LBMahalle.Size = new System.Drawing.Size(39, 14);
+            this.LBMahalle.TabIndex = 46;
+            this.LBMahalle.Text = "Mahalle";
+            // 
+            // LBIlIlce
+            // 
+            this.LBIlIlce.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBIlIlce.Appearance.Options.UseFont = true;
+            this.LBIlIlce.Location = new System.Drawing.Point(18, 128);
+            this.LBIlIlce.Name = "LBIlIlce";
+            this.LBIlIlce.Size = new System.Drawing.Size(30, 14);
+            this.LBIlIlce.TabIndex = 45;
+            this.LBIlIlce.Text = "İl/İlçe";
+            // 
+            // LBUlke
+            // 
+            this.LBUlke.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBUlke.Appearance.Options.UseFont = true;
+            this.LBUlke.Location = new System.Drawing.Point(18, 97);
+            this.LBUlke.Name = "LBUlke";
+            this.LBUlke.Size = new System.Drawing.Size(23, 14);
+            this.LBUlke.TabIndex = 44;
+            this.LBUlke.Text = "Ülke";
+            // 
+            // LBUnvan
+            // 
+            this.LBUnvan.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBUnvan.Appearance.Options.UseFont = true;
+            this.LBUnvan.Location = new System.Drawing.Point(18, 69);
+            this.LBUnvan.Name = "LBUnvan";
+            this.LBUnvan.Size = new System.Drawing.Size(34, 14);
+            this.LBUnvan.TabIndex = 43;
+            this.LBUnvan.Text = "Unvan";
+            // 
+            // LBCariKodu
+            // 
+            this.LBCariKodu.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBCariKodu.Appearance.Options.UseFont = true;
+            this.LBCariKodu.Location = new System.Drawing.Point(16, 41);
+            this.LBCariKodu.Name = "LBCariKodu";
+            this.LBCariKodu.Size = new System.Drawing.Size(51, 14);
+            this.LBCariKodu.TabIndex = 42;
+            this.LBCariKodu.Text = "Cari Kodu";
+            // 
             // TBMahalle
             // 
             this.TBMahalle.Location = new System.Drawing.Point(93, 152);
             this.TBMahalle.Name = "TBMahalle";
             this.TBMahalle.Size = new System.Drawing.Size(271, 23);
             this.TBMahalle.TabIndex = 41;
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(12, 377);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(32, 15);
-            this.label25.TabIndex = 40;
-            this.label25.Text = "Fiyat";
             // 
             // button3
             // 
@@ -1987,30 +2110,12 @@
             this.TBVadeGunu.Size = new System.Drawing.Size(271, 23);
             this.TBVadeGunu.TabIndex = 13;
             // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(12, 329);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(64, 15);
-            this.label20.TabIndex = 34;
-            this.label20.Text = "Vade Günü";
-            // 
             // TBTc
             // 
             this.TBTc.Location = new System.Drawing.Point(93, 297);
             this.TBTc.Name = "TBTc";
             this.TBTc.Size = new System.Drawing.Size(271, 23);
             this.TBTc.TabIndex = 12;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(12, 300);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(39, 15);
-            this.label17.TabIndex = 32;
-            this.label17.Text = "TC No";
             // 
             // CBVDaire
             // 
@@ -2054,30 +2159,12 @@
             this.TBVno.Size = new System.Drawing.Size(148, 23);
             this.TBVno.TabIndex = 11;
             // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(12, 272);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(75, 15);
-            this.label12.TabIndex = 25;
-            this.label12.Text = "V.Daire/V.No";
-            // 
             // TBPostaKodu
             // 
             this.TBPostaKodu.Location = new System.Drawing.Point(93, 239);
             this.TBPostaKodu.Name = "TBPostaKodu";
             this.TBPostaKodu.Size = new System.Drawing.Size(271, 23);
             this.TBPostaKodu.TabIndex = 9;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(12, 242);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(67, 15);
-            this.label11.TabIndex = 23;
-            this.label11.Text = "Posta Kodu";
             // 
             // label10
             // 
@@ -2101,39 +2188,12 @@
             this.TBApt.Size = new System.Drawing.Size(101, 23);
             this.TBApt.TabIndex = 7;
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(12, 213);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(61, 15);
-            this.label9.TabIndex = 19;
-            this.label9.Text = "Apt./Daire";
-            // 
             // TBSokak
             // 
             this.TBSokak.Location = new System.Drawing.Point(93, 181);
             this.TBSokak.Name = "TBSokak";
             this.TBSokak.Size = new System.Drawing.Size(271, 23);
             this.TBSokak.TabIndex = 6;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(12, 184);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(38, 15);
-            this.label8.TabIndex = 17;
-            this.label8.Text = "Sokak";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 155);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(49, 15);
-            this.label7.TabIndex = 15;
-            this.label7.Text = "Mahalle";
             // 
             // CBilce
             // 
@@ -2154,15 +2214,6 @@
             this.CBil.SelectedValueChanged += new System.EventHandler(this.CBil_SelectedValueChanged);
             this.CBil.TextChanged += new System.EventHandler(this.CBil_TextChanged);
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 126);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(36, 15);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "İl/İlçe";
-            // 
             // CBUlke
             // 
             this.CBUlke.FormattingEnabled = true;
@@ -2170,15 +2221,6 @@
             this.CBUlke.Name = "CBUlke";
             this.CBUlke.Size = new System.Drawing.Size(271, 23);
             this.CBUlke.TabIndex = 2;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 97);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(30, 15);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Ülke";
             // 
             // BTCariSec
             // 
@@ -2190,30 +2232,12 @@
             this.BTCariSec.Text = "Seç";
             this.BTCariSec.UseVisualStyleBackColor = true;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 68);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 15);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Unvan";
-            // 
             // TBUnvan
             // 
             this.TBUnvan.Location = new System.Drawing.Point(93, 65);
             this.TBUnvan.Name = "TBUnvan";
             this.TBUnvan.Size = new System.Drawing.Size(271, 23);
             this.TBUnvan.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 39);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 15);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Cari Kodu";
             // 
             // TBCariKodu
             // 
@@ -2327,7 +2351,6 @@
         private Button button2;
         private Panel panel4;
         private GroupBox groupBox1;
-        private Label label25;
         private Button button3;
         private Label label23;
         private TextBox TBMuhKod;
@@ -2338,33 +2361,22 @@
         private RadioButton RBFiyat2;
         private RadioButton RBFiyat1;
         private TextBox TBVadeGunu;
-        private Label label20;
         private TextBox TBTc;
-        private Label label17;
         private ComboBox CBVDaire;
         private Label label14;
         private Label label13;
         private Label label6;
         private TextBox TBVno;
-        private Label label12;
         private TextBox TBPostaKodu;
-        private Label label11;
         private Label label10;
         private TextBox TBDaire;
         private TextBox TBApt;
-        private Label label9;
         private TextBox TBSokak;
-        private Label label8;
-        private Label label7;
         private ComboBox CBilce;
         private ComboBox CBil;
-        private Label label5;
         private ComboBox CBUlke;
-        private Label label4;
         private Button BTCariSec;
-        private Label label2;
         private TextBox TBUnvan;
-        private Label label1;
         private TextBox TBCariKodu;
         private DataGridView dataGridView1;
         private CheckBox checkBox1;
@@ -2497,5 +2509,18 @@
         private TextBox textBox32;
         private TextBox TBAciklama;
         private Label label67;
+        private DevExpress.XtraEditors.LabelControl LBCariKodu;
+        private DevExpress.XtraEditors.LabelControl LBUnvan;
+        private DevExpress.XtraEditors.LabelControl LBUlke;
+        private DevExpress.XtraEditors.LabelControl LBIlIlce;
+        private DevExpress.XtraEditors.LabelControl LBMahalle;
+        private DevExpress.XtraEditors.LabelControl LBSokak;
+        private DevExpress.XtraEditors.LabelControl LBAptDaire;
+        private DevExpress.XtraEditors.LabelControl LBPostaKodu;
+        private DevExpress.XtraEditors.LabelControl LBVDaireVNo;
+        private DevExpress.XtraEditors.LabelControl LBTcNo;
+        private DevExpress.XtraEditors.LabelControl LBVadeGunu;
+        private DevExpress.XtraEditors.LabelControl LBFiyat;
+        private DevExpress.XtraEditors.LabelControl LBMuhKodu;
     }
 }
