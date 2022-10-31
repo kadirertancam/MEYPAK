@@ -10,12 +10,12 @@ namespace MEYPAK.API.Controllers.CARIControllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class CariKartController : Controller
+    public class CARIController : Controller
     {
         private readonly IMapper _mapper;
         private readonly ICariKartServis _cariServis;
 
-        public CariKartController(IMapper mapper, ICariKartServis cariServis)
+        public CARIController(IMapper mapper, ICariKartServis cariServis)
         {
             _mapper = mapper;
             _cariServis = cariServis;

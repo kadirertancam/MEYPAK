@@ -4,8 +4,10 @@ using MEYPAK.DAL.Abstract.CariDal;
 using MEYPAK.DAL.Abstract.StokDal;
 using MEYPAK.Entity.Models.CARI;
 using MEYPAK.Entity.Models.DEPO;
+using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.DEPO;
+using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Cari;
 using System;
 using System.Collections.Generic;
@@ -19,7 +21,7 @@ namespace MEYPAK.BLL.CARI
     {
         ICariKartDal _cariKartDal;
         IMapper _mapper;
-        public CariKartManager(IMapper mapper, ICariKartDal repo, string includeEntities = null) : base(mapper, repo, includeEntities)
+        public CariKartManager(IMapper mapper, ICariKartDal repo) : base(mapper, repo)
         {
             _cariKartDal= repo;
             _mapper = mapper;

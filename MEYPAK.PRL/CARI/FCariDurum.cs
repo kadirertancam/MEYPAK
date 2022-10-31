@@ -1,5 +1,4 @@
-﻿using DevExpress.XtraEditors;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MEYPAK.PRL
+namespace MEYPAK.PRL.CARI
 {
-    public partial class DashboardTemp : DevExpress.XtraEditors.XtraForm
+    public partial class FCariDurum : Form
     {
-        public DashboardTemp()
+        public FCariDurum()
         {
             InitializeComponent();
         }

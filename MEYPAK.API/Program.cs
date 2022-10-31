@@ -55,7 +55,11 @@ builder.Services.AddDbContext<MEYPAKContext>(options =>
 
 #region Cari
 
+builder.Services.AddScoped<ICariHarDal, EFCariHarRepo>();
+builder.Services.AddScoped<ICariHarServis, CariHarManager>();
+
 builder.Services.AddScoped<ICariKartDal, EFCariKartRepo>();
+builder.Services.AddScoped<ICariKartServis, CariKartManager>();
 
 builder.Services.AddScoped<IAdresListDal, EFADRESLISTREPO>();
 builder.Services.AddScoped<IAdresListServis, AdresListManager>();

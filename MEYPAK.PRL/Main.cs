@@ -7,6 +7,7 @@ using MEYPAK.BLL.Assets;
 using MEYPAK.Interfaces;
 using MEYPAK.Interfaces.Depo;
 using MEYPAK.Interfaces.Siparis;
+using MEYPAK.PRL.CARI;
 using MEYPAK.PRL.DEPO;
 using MEYPAK.PRL.SIPARIS;
 using MEYPAK.PRL.STOK;
@@ -41,6 +42,7 @@ namespace MEYPAK.PRL
             fMalKabulPanel = new FMalKabulPanel();
             fSatınAlmaSiparis = new FSatınAlmaSiparis();
             fStokFiyatList = new FStokFiyatList();
+            fCariHareket = new FCariHareket();
         }
         #region TANIMLAR
         FSevkiyatPanel fSevkiyatPanel;
@@ -54,6 +56,7 @@ namespace MEYPAK.PRL
         FMalKabulPanel fMalKabulPanel;
         FSatınAlmaSiparis fSatınAlmaSiparis;
         FStokFiyatList fStokFiyatList;
+        FCariHareket fCariHareket;
         #endregion
         void StokPanelAc()
         {
@@ -221,6 +224,16 @@ namespace MEYPAK.PRL
             fStokSayim.Dock = DockStyle.Fill;
             panel2.Controls.Add(fStokSayim);
             fStokSayim.Show();
+        }
+
+        private void accordionControlElement30_Click(object sender, EventArgs e)
+        {
+            panel2.Controls.Clear();
+            fCariHareket.TopLevel = false;
+            fCariHareket.AutoScroll = true;
+            fCariHareket.Dock = DockStyle.Fill;
+            panel2.Controls.Add(fCariHareket);
+            fCariHareket.Show();
         }
     }
 }

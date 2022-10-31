@@ -54,8 +54,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
         public DbSet<MPIRSALIYE> MPIRSALIYE { get; set; } 
         public DbSet<MPIRSALIYESIPARISDETAYILISKI> MPIRSALIYESIPARISDETAYILISKI { get; set; }
         public DbSet<MPIRSALIYEDETAY> MPIRSALIYEDETAY { get; set; }
-        public DbSet<MPSATINALMAMALKABULEMRIHAR> MPSATINALMAMALKABULEMRIHAR { get; set; }
-        public DbSet<ADRESLIST> ADRESLIST { get; set; }
+        public DbSet<MPSATINALMAMALKABULEMRIHAR> MPSATINALMAMALKABULEMRIHAR { get; set; } 
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
