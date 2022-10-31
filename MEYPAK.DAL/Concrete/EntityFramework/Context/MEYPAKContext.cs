@@ -26,6 +26,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
 
         }
 
+        public DbSet<MPCARIHAR> MPCARIHAR { get; set; }
         public DbSet<MPCARIKART> MPCARIKART { get; set; }
         public DbSet<MPSTOKSEVKİYATLİST> MPSTOKSEVKİYATLİST { get; set; }
         public DbSet<MPSIPARISSEVKEMRIHAR> MPSIPARISSEVKEMRIHAR { get; set; }
@@ -54,8 +55,8 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
         public DbSet<MPIRSALIYE> MPIRSALIYE { get; set; } 
         public DbSet<MPIRSALIYESIPARISDETAYILISKI> MPIRSALIYESIPARISDETAYILISKI { get; set; }
         public DbSet<MPIRSALIYEDETAY> MPIRSALIYEDETAY { get; set; }
-        public DbSet<MPSATINALMAMALKABULEMRIHAR> MPSATINALMAMALKABULEMRIHAR { get; set; } 
-
+        public DbSet<MPSATINALMAMALKABULEMRIHAR> MPSATINALMAMALKABULEMRIHAR { get; set; }
+ 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
