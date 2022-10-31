@@ -14,7 +14,7 @@ namespace MEYPAK.Entity.Models
         public int ID { get; set; }
         public DateTime OLUSTURMATARIHI { get; set; } = DateTime.Now;
         public DateTime GUNCELLEMETARIHI { get; set; } = DateTime.Now;
-        public byte KAYITTIPI { get; set; } = 0;
+        public byte KAYITTIPI { get; set; } = 0; 
         public int ESKIID { get; set; }=0;
     }
 }

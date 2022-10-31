@@ -1,4 +1,5 @@
-﻿using MEYPAK.Entity.Models;
+﻿using MEYPAK.Entity.IdentityModels;
+using MEYPAK.Entity.Models;
 using MEYPAK.Entity.Models;
 using MEYPAK.Entity.Models.ARAC;
 using MEYPAK.Entity.Models.CARI;
@@ -7,12 +8,13 @@ using MEYPAK.Entity.Models.IRSALIYE;
 using MEYPAK.Entity.Models.PERSONEL;
 using MEYPAK.Entity.Models.SIPARIS;
 using MEYPAK.Entity.Models.STOK;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 
 namespace MEYPAK.DAL.Concrete.EntityFramework.Context
 {
-    public partial class MEYPAKContext : DbContext
+    public partial class MEYPAKContext : IdentityDbContext<MPUSER,MPROLE,string>
     {
         public MEYPAKContext()
         {

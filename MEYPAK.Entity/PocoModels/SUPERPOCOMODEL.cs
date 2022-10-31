@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.Entity.PocoModels
 {
-    public class SUPERPOCOMODEL
+    public abstract class SUPERPOCOMODEL
     {
         public int ID { get; set; }
         public DateTime OLUSTURMATARIHI { get; set; } = DateTime.Now;
