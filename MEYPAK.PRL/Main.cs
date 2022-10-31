@@ -232,11 +232,18 @@ namespace MEYPAK.PRL
 
         private void accordionControlElement28_Click(object sender, EventArgs e)
         {
-            panel2.Controls.Clear();
+            XtraTabPage page = new XtraTabPage();
+            fStokSayim = new FStokSayim();
+            page.Name = "TPStokSayim" + i;
+            page.Text = "Stok Sayım";
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+             
             fStokSayim.TopLevel = false;
             fStokSayim.AutoScroll = true;
             fStokSayim.Dock = DockStyle.Fill;
-            panel2.Controls.Add(fStokSayim);
+            page.Controls.Add(fStokSayim);
             fStokSayim.Show();
         }
 
