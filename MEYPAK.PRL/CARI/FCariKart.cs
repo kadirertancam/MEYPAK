@@ -206,5 +206,10 @@ namespace MEYPAK.PRL.CARI
             doldur();
 
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
