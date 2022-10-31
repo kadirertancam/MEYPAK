@@ -69,15 +69,14 @@ namespace MEYPAK.WEB.Controllers.STOKController
             //string url = "http://213.238.167.117:8080/Stok/PagingList?skip="+b+"&take="+a+"&requireTotalCount=true";
             //_tempPocoStok.Data(url);
             _tempPocoStok.Data(ServisList.StokListeServis);
-            return DataSourceLoader.Load(_tempPocoStok.obje, loadOptions);
+            return DataSourceLoader.Load(_tempPocoStok.obje.AsEnumerable(), loadOptions);
         }
 
         [HttpDelete]
-        public async Task<IActionResult> StokDelete(int id)
+        public void StokDelete(int id)
         {
-            _tempPocoStok.Data(ServisList.StokDeleteByIdServis,id :id.ToString());
+            _tempPocoStok.Data(ServisList.StokDeleteByIdServis);
             ViewBag.Durum = "Başarıyla silindi.";
-            return View();
         }
 
         [HttpPut]
