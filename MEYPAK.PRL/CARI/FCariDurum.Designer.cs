@@ -28,180 +28,176 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FCariDurum));
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.buttonEdit1 = new DevExpress.XtraEditors.ButtonEdit();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.GCCariDurum = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.PLCariDurum = new System.Windows.Forms.Panel();
+            this.TECariKodu = new DevExpress.XtraEditors.TextEdit();
+            this.LBCariKodu = new DevExpress.XtraEditors.LabelControl();
+            this.BTCariKodSec = new DevExpress.XtraEditors.ButtonEdit();
+            this.LBBorc = new DevExpress.XtraEditors.LabelControl();
+            this.Alacak = new DevExpress.XtraEditors.LabelControl();
+            this.LBBakiye = new DevExpress.XtraEditors.LabelControl();
+            this.LBBorcDeger = new DevExpress.XtraEditors.LabelControl();
+            this.LBBakiyeDeger = new DevExpress.XtraEditors.LabelControl();
+            this.LBAlacakDeger = new DevExpress.XtraEditors.LabelControl();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GCCariDurum)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            this.PLCariDurum.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TECariKodu.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BTCariKodSec.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.panel3);
-            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.PLCariDurum);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1184, 584);
             this.panel1.TabIndex = 0;
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.label7);
-            this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.textEdit1);
-            this.panel2.Controls.Add(this.buttonEdit1);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1184, 100);
-            this.panel2.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 15);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Cari Kodu";
-            // 
-            // buttonEdit1
-            // 
-            this.buttonEdit1.Location = new System.Drawing.Point(77, 12);
-            this.buttonEdit1.Name = "buttonEdit1";
-            this.buttonEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonEdit1.Properties.Appearance.Options.UseFont = true;
-            this.buttonEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.buttonEdit1.Size = new System.Drawing.Size(168, 28);
-            this.buttonEdit1.TabIndex = 2;
-            // 
-            // textEdit1
-            // 
-            this.textEdit1.Location = new System.Drawing.Point(77, 46);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textEdit1.Properties.Appearance.Options.UseFont = true;
-            this.textEdit1.Size = new System.Drawing.Size(168, 28);
-            this.textEdit1.TabIndex = 3;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(314, 18);
-            this.label2.Name = "label2";
-            this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label2.Size = new System.Drawing.Size(47, 25);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Borç";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(419, 18);
-            this.label3.Name = "label3";
-            this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label3.Size = new System.Drawing.Size(63, 25);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Alacak";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(528, 18);
-            this.label4.Name = "label4";
-            this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label4.Size = new System.Drawing.Size(62, 25);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Bakiye";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(344, 54);
-            this.label5.Name = "label5";
-            this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label5.Size = new System.Drawing.Size(17, 20);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "0";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(465, 54);
-            this.label6.Name = "label6";
-            this.label6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label6.Size = new System.Drawing.Size(17, 20);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "0";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(573, 54);
-            this.label7.Name = "label7";
-            this.label7.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label7.Size = new System.Drawing.Size(17, 20);
-            this.label7.TabIndex = 5;
-            this.label7.Text = "0";
-            // 
-            // gridControl1
-            // 
-            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(0, 0);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1184, 484);
-            this.gridControl1.TabIndex = 1;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
-            // 
-            // gridView1
-            // 
-            this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.Name = "gridView1";
-            // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.gridControl1);
+            this.panel3.Controls.Add(this.GCCariDurum);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 100);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1184, 484);
             this.panel3.TabIndex = 2;
+            // 
+            // GCCariDurum
+            // 
+            this.GCCariDurum.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GCCariDurum.Location = new System.Drawing.Point(0, 0);
+            this.GCCariDurum.MainView = this.gridView1;
+            this.GCCariDurum.Name = "GCCariDurum";
+            this.GCCariDurum.Size = new System.Drawing.Size(1184, 484);
+            this.GCCariDurum.TabIndex = 1;
+            this.GCCariDurum.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
+            // gridView1
+            // 
+            this.gridView1.GridControl = this.GCCariDurum;
+            this.gridView1.Name = "gridView1";
+            // 
+            // PLCariDurum
+            // 
+            this.PLCariDurum.Controls.Add(this.LBAlacakDeger);
+            this.PLCariDurum.Controls.Add(this.LBBakiyeDeger);
+            this.PLCariDurum.Controls.Add(this.LBBorcDeger);
+            this.PLCariDurum.Controls.Add(this.LBBakiye);
+            this.PLCariDurum.Controls.Add(this.Alacak);
+            this.PLCariDurum.Controls.Add(this.LBBorc);
+            this.PLCariDurum.Controls.Add(this.LBCariKodu);
+            this.PLCariDurum.Controls.Add(this.TECariKodu);
+            this.PLCariDurum.Controls.Add(this.BTCariKodSec);
+            this.PLCariDurum.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PLCariDurum.Location = new System.Drawing.Point(0, 0);
+            this.PLCariDurum.Name = "PLCariDurum";
+            this.PLCariDurum.Size = new System.Drawing.Size(1184, 100);
+            this.PLCariDurum.TabIndex = 0;
+            // 
+            // TECariKodu
+            // 
+            this.TECariKodu.Location = new System.Drawing.Point(77, 46);
+            this.TECariKodu.Name = "TECariKodu";
+            this.TECariKodu.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TECariKodu.Properties.Appearance.Options.UseFont = true;
+            this.TECariKodu.Size = new System.Drawing.Size(168, 28);
+            this.TECariKodu.TabIndex = 3;
+            // 
+            // LBCariKodu
+            // 
+            this.LBCariKodu.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBCariKodu.Appearance.Options.UseFont = true;
+            this.LBCariKodu.Location = new System.Drawing.Point(12, 18);
+            this.LBCariKodu.Name = "LBCariKodu";
+            this.LBCariKodu.Size = new System.Drawing.Size(51, 14);
+            this.LBCariKodu.TabIndex = 6;
+            this.LBCariKodu.Text = "Cari Kodu";
+            // 
+            // BTCariKodSec
+            // 
+            this.BTCariKodSec.EditValue = "Seç";
+            this.BTCariKodSec.Location = new System.Drawing.Point(77, 10);
+            this.BTCariKodSec.Name = "BTCariKodSec";
+            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
+            this.BTCariKodSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.BTCariKodSec.Size = new System.Drawing.Size(168, 33);
+            this.BTCariKodSec.TabIndex = 2;
+            // 
+            // LBBorc
+            // 
+            this.LBBorc.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBBorc.Appearance.Options.UseFont = true;
+            this.LBBorc.Location = new System.Drawing.Point(330, 20);
+            this.LBBorc.Name = "LBBorc";
+            this.LBBorc.Size = new System.Drawing.Size(31, 19);
+            this.LBBorc.TabIndex = 7;
+            this.LBBorc.Text = "Borç";
+            // 
+            // Alacak
+            // 
+            this.Alacak.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Alacak.Appearance.Options.UseFont = true;
+            this.Alacak.Location = new System.Drawing.Point(435, 20);
+            this.Alacak.Name = "Alacak";
+            this.Alacak.Size = new System.Drawing.Size(47, 19);
+            this.Alacak.TabIndex = 8;
+            this.Alacak.Text = "Alacak";
+            // 
+            // LBBakiye
+            // 
+            this.LBBakiye.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBBakiye.Appearance.Options.UseFont = true;
+            this.LBBakiye.Location = new System.Drawing.Point(545, 20);
+            this.LBBakiye.Name = "LBBakiye";
+            this.LBBakiye.Size = new System.Drawing.Size(45, 19);
+            this.LBBakiye.TabIndex = 9;
+            this.LBBakiye.Text = "Bakiye";
+            // 
+            // LBBorcDeger
+            // 
+            this.LBBorcDeger.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBBorcDeger.Appearance.Options.UseFont = true;
+            this.LBBorcDeger.Location = new System.Drawing.Point(341, 50);
+            this.LBBorcDeger.Name = "LBBorcDeger";
+            this.LBBorcDeger.Size = new System.Drawing.Size(9, 19);
+            this.LBBorcDeger.TabIndex = 10;
+            this.LBBorcDeger.Text = "0";
+            // 
+            // LBBakiyeDeger
+            // 
+            this.LBBakiyeDeger.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBBakiyeDeger.Appearance.Options.UseFont = true;
+            this.LBBakiyeDeger.Location = new System.Drawing.Point(564, 50);
+            this.LBBakiyeDeger.Name = "LBBakiyeDeger";
+            this.LBBakiyeDeger.Size = new System.Drawing.Size(9, 19);
+            this.LBBakiyeDeger.TabIndex = 11;
+            this.LBBakiyeDeger.Text = "0";
+            // 
+            // LBAlacakDeger
+            // 
+            this.LBAlacakDeger.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBAlacakDeger.Appearance.Options.UseFont = true;
+            this.LBAlacakDeger.Location = new System.Drawing.Point(452, 50);
+            this.LBAlacakDeger.Name = "LBAlacakDeger";
+            this.LBAlacakDeger.Size = new System.Drawing.Size(9, 19);
+            this.LBAlacakDeger.TabIndex = 12;
+            this.LBAlacakDeger.Text = "0";
             // 
             // FCariDurum
             // 
@@ -212,13 +208,13 @@
             this.Name = "FCariDurum";
             this.Text = "FCariDurum";
             this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.GCCariDurum)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            this.PLCariDurum.ResumeLayout(false);
+            this.PLCariDurum.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TECariKodu.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BTCariKodSec.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -226,18 +222,18 @@
         #endregion
 
         private Panel panel1;
-        private Panel panel2;
-        private DevExpress.XtraEditors.ButtonEdit buttonEdit1;
-        private Label label1;
+        private Panel PLCariDurum;
         private Panel panel3;
-        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.GridControl GCCariDurum;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private Label label7;
-        private Label label6;
-        private Label label5;
-        private Label label4;
-        private Label label3;
-        private Label label2;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.TextEdit TECariKodu;
+        private DevExpress.XtraEditors.LabelControl LBCariKodu;
+        private DevExpress.XtraEditors.ButtonEdit BTCariKodSec;
+        private DevExpress.XtraEditors.LabelControl LBBorc;
+        private DevExpress.XtraEditors.LabelControl LBAlacakDeger;
+        private DevExpress.XtraEditors.LabelControl LBBakiyeDeger;
+        private DevExpress.XtraEditors.LabelControl LBBorcDeger;
+        private DevExpress.XtraEditors.LabelControl LBBakiye;
+        private DevExpress.XtraEditors.LabelControl Alacak;
     }
 }

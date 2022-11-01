@@ -20,7 +20,7 @@ namespace MEYPAK.PRL.CARI
             InitializeComponent();
             _cariHarServis = new GenericWebServis<PocoCARIHAR>();
             _tempCARIKART = new PocoCARIKART();
-            radioGroup1.SelectedIndex = 0;
+            RGCariHareket.SelectedIndex = 0;
         }
         GenericWebServis<PocoCARIHAR> _cariHarServis;
         FCariList _fCariList;
@@ -28,7 +28,7 @@ namespace MEYPAK.PRL.CARI
 
         public void Doldur()
         {
-            TBCariKodu.Text = _tempCARIKART.KOD;
+            BTCariKodu.Text = _tempCARIKART.KOD;
             TBCariAdi.Text = _tempCARIKART.UNVAN!=""? _tempCARIKART.ADI + " " + _tempCARIKART.SOYADI : _tempCARIKART.UNVAN;
         }
 
@@ -38,9 +38,9 @@ namespace MEYPAK.PRL.CARI
             {
                 CARIID=_tempCARIKART.ID,
                 ACIKLAMA = TBAciklama.Text,
-                ALACAK = radioGroup1.SelectedIndex == 1 ? Convert.ToDecimal(TBFiyat.Text) : 0,
-                BORC=  radioGroup1.SelectedIndex == 0 ?Convert.ToDecimal(TBFiyat.Text) : 0,
-                BELGE_NO=TBBelgeNo.Text,
+                ALACAK = RGCariHareket.SelectedIndex == 1 ? Convert.ToDecimal(TBFiyat.Text) : 0,
+                BORC=  RGCariHareket.SelectedIndex == 0 ?Convert.ToDecimal(TBFiyat.Text) : 0,
+                BELGE_NO=TEBelgeNo.Text,
                 HAREKETTIPI=5,
                 KUR=Convert.ToDecimal(TBKur.Text),
                 TUTAR=Convert.ToDecimal(TBFiyat.Text),

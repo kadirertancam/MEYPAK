@@ -97,5 +97,10 @@ namespace MEYPAK.PRL.DEPO
         {
             _depoTransferServis.Sil(_depoTransferServis.Getir(x => x.ID == Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value)));
         }
+
+        private void BTCikisDepoSec_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -29,7 +29,7 @@ namespace MEYPAK.PRL.CARI
         private void FCariList_Load(object sender, EventArgs e)
         {
             _cariServis.Data(ServisList.CariListeServis);
-            gridControl1.DataSource = _cariServis.obje.Select(x=> new
+            GCCariList.DataSource = _cariServis.obje.Select(x=> new
             {
                 ID=x.ID,
                 CARIKODU=x.KOD,

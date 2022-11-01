@@ -59,14 +59,14 @@ namespace MEYPAK.PRL.DEPO
         private void button1_Click(object sender, EventArgs e)
         {
 
-            _Stok = _tempStok.Where(x => x.id.ToString() == comboBox1.SelectedValue.ToString()).FirstOrDefault();
+            _Stok = _tempStok.Where(x => x.id.ToString() == CBMalKabulCekiStokKodu.SelectedValue.ToString()).FirstOrDefault();
             _tempStokSevkiyatList = new PocoSTOKMALKABULLIST()
             {
                 STOKID = _Stok.id,
                 EMIRID = _tempEmir.ID,
                 DEPOID = _tempEmir.MPSIPARIS.DEPOID,
                 MIKTAR = 0,
-                SIPARISMIKTARI = _tempEmir.MPSIPARIS.MPSIPARISDETAYList.Where(x => x.STOKID.ToString() == comboBox1.SelectedValue.ToString()).FirstOrDefault().MIKTAR,
+                SIPARISMIKTARI = _tempEmir.MPSIPARIS.MPSIPARISDETAYList.Where(x => x.STOKID.ToString() == CBMalKabulCekiStokKodu.SelectedValue.ToString()).FirstOrDefault().MIKTAR,
                 //BIRIMID = _Stok.mpstokolcubr.Where(x => x.NUM == 1).Select(x => x.MPOLCUBR.ID).FirstOrDefault(),
             //    MPOLCUBR = _Stok.MPSTOKOLCUBRList.Where(x => x.NUM == 1).Select(x => x.MPOLCUBR).FirstOrDefault(),
                 MPDEPOEMIR = _tempEmir,
@@ -93,11 +93,11 @@ namespace MEYPAK.PRL.DEPO
         private void FMalKabulCekiPanel_Load(object sender, EventArgs e)
         {
             dataGridView1.DataSource = _tempList.Select(x => new PocoStokSevkiyatList { StokKodu = x.MPSTOK.kod, StokAdı = x.MPSTOK.adi, Birim = "0" }).ToList();
-            comboBox1.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            comboBox1.AutoCompleteSource = AutoCompleteSource.ListItems;
-            comboBox1.DisplayMember = "KOD";
-            comboBox1.ValueMember = "ID";
-            comboBox1.DataSource = _tempStok.Select(x => new { KOD = x.kod, ID = x.id }).ToList();
+            CBMalKabulCekiStokKodu.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            CBMalKabulCekiStokKodu.AutoCompleteSource = AutoCompleteSource.ListItems;
+            CBMalKabulCekiStokKodu.DisplayMember = "KOD";
+            CBMalKabulCekiStokKodu.ValueMember = "ID";
+            CBMalKabulCekiStokKodu.DataSource = _tempStok.Select(x => new { KOD = x.kod, ID = x.id }).ToList();
         }
     }
 }
