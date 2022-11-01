@@ -165,7 +165,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
             modelBuilder.Entity<MPSIPARISDETAY>()
  .Navigation(b => b.MPSTOKSEVKİYATLİST)
  .UsePropertyAccessMode(PropertyAccessMode.Property);
-
+             
 
 
 

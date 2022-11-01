@@ -442,11 +442,13 @@
             this.gridControl1.TabIndex = 16;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            this.gridControl1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.gridControl1_KeyPress);
             // 
             // gridView1
             // 
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
+            this.gridView1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.gridView1_KeyPress);
             // 
             // repositoryItemButtonEdit1
             // 
@@ -777,7 +779,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FMusteriSiparis";
-            this.Text = "FStokHareket";
+            this.Text = "FMusteriSiparis";
             this.Load += new System.EventHandler(this.FSiparis_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -867,7 +869,7 @@
         private TextBox TBKasa;
         private Label label1;
         private DevExpress.XtraGrid.GridControl gridControl1;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit1;
+        public DevExpress.XtraGrid.Views.Grid.GridView gridView1;
     }
 }

@@ -8,7 +8,7 @@ namespace MEYPAK.Entity.Models.CARI
 {
     public class MPCARIHAR:SUPERMODEL
     {
-        public string CARIID { get; set; }
+        public int CARIID { get; set; }
         public int HAREKETTIPI { get; set; }
         public decimal BORC { get; set; }
         public decimal ALACAK { get; set; }

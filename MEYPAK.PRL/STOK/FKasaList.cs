@@ -48,7 +48,7 @@ namespace MEYPAK.PRL.STOK
                 if (fStokKart != null)
                     fStokKart._tempKasa = _kasaServis.obje.Where(x => x.ID.ToString() == dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
             }
-            else if (_islem == "Siparis")
+            else if (_islem == "musterisiparis")
             {
                 if (fSiparis != null) 
                 fSiparis._tempKasa = _kasaServis.obje.Where(x => x.ID.ToString() == dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
