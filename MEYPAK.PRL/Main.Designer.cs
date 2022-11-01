@@ -884,6 +884,11 @@
             // 
             // accordionControlElement22
             // 
+            this.accordionControlElement22.HeaderTemplate.AddRange(new DevExpress.XtraBars.Navigation.HeaderElementInfo[] {
+            new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.Image),
+            new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.HeaderControl),
+            new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.ContextButtons),
+            new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.Text, DevExpress.XtraBars.Navigation.HeaderElementAlignment.Right)});
             this.accordionControlElement22.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement22.ImageOptions.Image")));
             this.accordionControlElement22.Name = "accordionControlElement22";
             this.accordionControlElement22.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;

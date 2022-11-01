@@ -29,68 +29,28 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FMalKabulCekiPanel));
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.LBStokKodu = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.groupBox1.SuspendLayout();
+            this.GBMalKabulCekiPanel = new DevExpress.XtraEditors.GroupControl();
+            this.LBMalKabulCekiStokKodu = new DevExpress.XtraEditors.LabelControl();
+            this.CBMalKabulCekiStokKodu = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.BTMalKabulCeki = new DevExpress.XtraEditors.SimpleButton();
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.GCMalKabulCekiPaneli1 = new DevExpress.XtraEditors.GroupControl();
+            this.BTDokumanlarKaydet = new DevExpress.XtraEditors.SimpleButton();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GBMalKabulCekiPanel)).BeginInit();
+            this.GBMalKabulCekiPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CBMalKabulCekiStokKodu.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GCMalKabulCekiPaneli1)).BeginInit();
+            this.GCMalKabulCekiPaneli1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.LBStokKodu);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(938, 167);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(164, 69);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(311, 36);
-            this.comboBox1.TabIndex = 3;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(510, 52);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 76);
-            this.button1.TabIndex = 2;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // LBStokKodu
-            // 
-            this.LBStokKodu.AutoSize = true;
-            this.LBStokKodu.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBStokKodu.ForeColor = System.Drawing.Color.White;
-            this.LBStokKodu.Location = new System.Drawing.Point(12, 69);
-            this.LBStokKodu.Name = "LBStokKodu";
-            this.LBStokKodu.Size = new System.Drawing.Size(122, 32);
-            this.LBStokKodu.TabIndex = 0;
-            this.LBStokKodu.Text = "Stok Kodu";
             // 
             // panel1
             // 
@@ -105,55 +65,103 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.dataGridView1);
-            this.panel3.Controls.Add(this.panel4);
+            this.panel3.Controls.Add(this.GCMalKabulCekiPaneli1);
+            this.panel3.Controls.Add(this.gridControl1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 167);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(938, 516);
             this.panel3.TabIndex = 3;
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(938, 457);
-            this.dataGridView1.TabIndex = 2;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.button2);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(0, 457);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(938, 59);
-            this.panel4.TabIndex = 1;
-            // 
-            // button2
-            // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.SystemColors.Control;
-            this.button2.Location = new System.Drawing.Point(795, 0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(143, 59);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "Kaydet";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.groupBox1);
+            this.panel2.Controls.Add(this.GBMalKabulCekiPanel);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(938, 167);
             this.panel2.TabIndex = 2;
+            // 
+            // GBMalKabulCekiPanel
+            // 
+            this.GBMalKabulCekiPanel.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.GBMalKabulCekiPanel.Appearance.BackColor2 = System.Drawing.Color.Transparent;
+            this.GBMalKabulCekiPanel.Appearance.Options.UseBackColor = true;
+            this.GBMalKabulCekiPanel.Controls.Add(this.BTMalKabulCeki);
+            this.GBMalKabulCekiPanel.Controls.Add(this.LBMalKabulCekiStokKodu);
+            this.GBMalKabulCekiPanel.Controls.Add(this.CBMalKabulCekiStokKodu);
+            this.GBMalKabulCekiPanel.GroupStyle = DevExpress.Utils.GroupStyle.Light;
+            this.GBMalKabulCekiPanel.Location = new System.Drawing.Point(0, 3);
+            this.GBMalKabulCekiPanel.Name = "GBMalKabulCekiPanel";
+            this.GBMalKabulCekiPanel.Size = new System.Drawing.Size(938, 164);
+            this.GBMalKabulCekiPanel.TabIndex = 3;
+            // 
+            // LBMalKabulCekiStokKodu
+            // 
+            this.LBMalKabulCekiStokKodu.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBMalKabulCekiStokKodu.Appearance.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.LBMalKabulCekiStokKodu.Appearance.Options.UseFont = true;
+            this.LBMalKabulCekiStokKodu.Appearance.Options.UseForeColor = true;
+            this.LBMalKabulCekiStokKodu.Location = new System.Drawing.Point(87, 66);
+            this.LBMalKabulCekiStokKodu.Name = "LBMalKabulCekiStokKodu";
+            this.LBMalKabulCekiStokKodu.Size = new System.Drawing.Size(85, 23);
+            this.LBMalKabulCekiStokKodu.TabIndex = 4;
+            this.LBMalKabulCekiStokKodu.Text = "Stok Kodu";
+            // 
+            // CBMalKabulCekiStokKodu
+            // 
+            this.CBMalKabulCekiStokKodu.Location = new System.Drawing.Point(193, 69);
+            this.CBMalKabulCekiStokKodu.Name = "CBMalKabulCekiStokKodu";
+            this.CBMalKabulCekiStokKodu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CBMalKabulCekiStokKodu.Size = new System.Drawing.Size(215, 20);
+            this.CBMalKabulCekiStokKodu.TabIndex = 5;
+            // 
+            // BTMalKabulCeki
+            // 
+            this.BTMalKabulCeki.Appearance.BackColor = System.Drawing.Color.Silver;
+            this.BTMalKabulCeki.Appearance.Options.UseBackColor = true;
+            this.BTMalKabulCeki.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BTMalKabulCeki.BackgroundImage")));
+            this.BTMalKabulCeki.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.BTMalKabulCeki.Location = new System.Drawing.Point(441, 41);
+            this.BTMalKabulCeki.Name = "BTMalKabulCeki";
+            this.BTMalKabulCeki.Size = new System.Drawing.Size(81, 79);
+            this.BTMalKabulCeki.TabIndex = 6;
+            // 
+            // gridControl1
+            // 
+            this.gridControl1.Location = new System.Drawing.Point(0, 3);
+            this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Name = "gridControl1";
+            this.gridControl1.Size = new System.Drawing.Size(938, 421);
+            this.gridControl1.TabIndex = 2;
+            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
+            // gridView1
+            // 
+            this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.Name = "gridView1";
+            // 
+            // GCMalKabulCekiPaneli1
+            // 
+            this.GCMalKabulCekiPaneli1.Controls.Add(this.BTDokumanlarKaydet);
+            this.GCMalKabulCekiPaneli1.GroupStyle = DevExpress.Utils.GroupStyle.Light;
+            this.GCMalKabulCekiPaneli1.Location = new System.Drawing.Point(2, 427);
+            this.GCMalKabulCekiPaneli1.Name = "GCMalKabulCekiPaneli1";
+            this.GCMalKabulCekiPaneli1.Size = new System.Drawing.Size(935, 86);
+            this.GCMalKabulCekiPaneli1.TabIndex = 3;
+            // 
+            // BTDokumanlarKaydet
+            // 
+            this.BTDokumanlarKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTDokumanlarKaydet.Appearance.Options.UseBackColor = true;
+            this.BTDokumanlarKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTDokumanlarKaydet.ImageOptions.Image")));
+            this.BTDokumanlarKaydet.Location = new System.Drawing.Point(804, 18);
+            this.BTDokumanlarKaydet.Name = "BTDokumanlarKaydet";
+            this.BTDokumanlarKaydet.Size = new System.Drawing.Size(117, 57);
+            this.BTDokumanlarKaydet.TabIndex = 61;
+            this.BTDokumanlarKaydet.Text = "Kaydet";
             // 
             // FMalKabulCekiPanel
             // 
@@ -164,28 +172,32 @@
             this.Name = "FMalKabulCekiPanel";
             this.Text = "FMalKabulCekiPanel";
             this.Load += new System.EventHandler(this.FMalKabulCekiPanel_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.panel4.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.GBMalKabulCekiPanel)).EndInit();
+            this.GBMalKabulCekiPanel.ResumeLayout(false);
+            this.GBMalKabulCekiPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CBMalKabulCekiStokKodu.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GCMalKabulCekiPaneli1)).EndInit();
+            this.GCMalKabulCekiPaneli1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private GroupBox groupBox1;
-        private ComboBox comboBox1;
-        private Button button1;
-        private Label LBStokKodu;
         private Panel panel1;
         private Panel panel3;
-        public DataGridView dataGridView1;
-        private Panel panel4;
-        private Button button2;
         private Panel panel2;
+        private DevExpress.XtraEditors.GroupControl GBMalKabulCekiPanel;
+        private DevExpress.XtraEditors.LabelControl LBMalKabulCekiStokKodu;
+        private DevExpress.XtraEditors.ComboBoxEdit CBMalKabulCekiStokKodu;
+        private DevExpress.XtraEditors.GroupControl GCMalKabulCekiPaneli1;
+        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraEditors.SimpleButton BTMalKabulCeki;
+        private DevExpress.XtraEditors.SimpleButton BTDokumanlarKaydet;
     }
 }

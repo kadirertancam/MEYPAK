@@ -87,7 +87,7 @@ namespace MEYPAK.PRL.CARI
             TBUnvan.Text = _tempCariKart.UNVAN;
             TBVadeGunu.Text = _tempCariKart.VADEGUNU.ToString();
             CBVDaire.Text = _tempCariKart.VERGIDAIRESI;
-            TBVno.Text = _tempCariKart.VERGINO;
+            TBVNo.Text = _tempCariKart.VERGINO;
             TBWebSite.Text = _tempCariKart.WEB;
         }
         private void panel8_Paint(object sender, PaintEventArgs e)
@@ -169,7 +169,7 @@ namespace MEYPAK.PRL.CARI
                 UNVAN = TBUnvan.Text,
                 VADEGUNU = int.Parse(TBVadeGunu.Text),
                 VERGIDAIRESI = CBVDaire.Text,
-                VERGINO = TBVno.Text,
+                VERGINO = TBVNo.Text,
                 WEB = TBWebSite.Text,
 
             });
@@ -210,6 +210,47 @@ namespace MEYPAK.PRL.CARI
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void labelControl3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelControl8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupControl2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void groupControl3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void TBSevkAdres_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+                
         }
     }
 }

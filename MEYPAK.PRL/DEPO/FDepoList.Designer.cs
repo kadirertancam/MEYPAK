@@ -28,37 +28,45 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.GCDepoList = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            ((System.ComponentModel.ISupportInitialize)(this.GCDepoList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // GCDepoList
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(800, 450);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+            this.GCDepoList.Location = new System.Drawing.Point(1, 2);
+            this.GCDepoList.MainView = this.gridView1;
+            this.GCDepoList.Name = "GCDepoList";
+            this.GCDepoList.Size = new System.Drawing.Size(796, 445);
+            this.GCDepoList.TabIndex = 0;
+            this.GCDepoList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
+            // gridView1
+            // 
+            this.gridView1.GridControl = this.GCDepoList;
+            this.gridView1.Name = "gridView1";
             // 
             // FDepoList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.GCDepoList);
             this.Name = "FDepoList";
             this.Text = "FDepoList";
             this.Load += new System.EventHandler(this.FDepoList_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GCDepoList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private DataGridView dataGridView1;
+        private DevExpress.XtraGrid.GridControl GCDepoList;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
     }
 }
