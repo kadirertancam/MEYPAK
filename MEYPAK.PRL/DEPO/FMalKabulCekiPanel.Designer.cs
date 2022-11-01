@@ -31,25 +31,25 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FMalKabulCekiPanel));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.GBMalKabulCekiPanel = new DevExpress.XtraEditors.GroupControl();
-            this.LBMalKabulCekiStokKodu = new DevExpress.XtraEditors.LabelControl();
-            this.CBMalKabulCekiStokKodu = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.BTMalKabulCeki = new DevExpress.XtraEditors.SimpleButton();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.GCMalKabulCekiPaneli1 = new DevExpress.XtraEditors.GroupControl();
             this.BTDokumanlarKaydet = new DevExpress.XtraEditors.SimpleButton();
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.GBMalKabulCekiPanel = new DevExpress.XtraEditors.GroupControl();
+            this.BTMalKabulCeki = new DevExpress.XtraEditors.SimpleButton();
+            this.LBMalKabulCekiStokKodu = new DevExpress.XtraEditors.LabelControl();
+            this.CBMalKabulCekiStokKodu = new DevExpress.XtraEditors.ComboBoxEdit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GCMalKabulCekiPaneli1)).BeginInit();
+            this.GCMalKabulCekiPaneli1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GBMalKabulCekiPanel)).BeginInit();
             this.GBMalKabulCekiPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CBMalKabulCekiStokKodu.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GCMalKabulCekiPaneli1)).BeginInit();
-            this.GCMalKabulCekiPaneli1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -73,6 +73,41 @@
             this.panel3.Size = new System.Drawing.Size(938, 516);
             this.panel3.TabIndex = 3;
             // 
+            // GCMalKabulCekiPaneli1
+            // 
+            this.GCMalKabulCekiPaneli1.Controls.Add(this.BTDokumanlarKaydet);
+            this.GCMalKabulCekiPaneli1.GroupStyle = DevExpress.Utils.GroupStyle.Light;
+            this.GCMalKabulCekiPaneli1.Location = new System.Drawing.Point(2, 427);
+            this.GCMalKabulCekiPaneli1.Name = "GCMalKabulCekiPaneli1";
+            this.GCMalKabulCekiPaneli1.Size = new System.Drawing.Size(935, 86);
+            this.GCMalKabulCekiPaneli1.TabIndex = 3;
+            // 
+            // BTDokumanlarKaydet
+            // 
+            this.BTDokumanlarKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTDokumanlarKaydet.Appearance.Options.UseBackColor = true;
+            this.BTDokumanlarKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTDokumanlarKaydet.ImageOptions.Image")));
+            this.BTDokumanlarKaydet.Location = new System.Drawing.Point(804, 18);
+            this.BTDokumanlarKaydet.Name = "BTDokumanlarKaydet";
+            this.BTDokumanlarKaydet.Size = new System.Drawing.Size(117, 57);
+            this.BTDokumanlarKaydet.TabIndex = 61;
+            this.BTDokumanlarKaydet.Text = "Kaydet";
+            // 
+            // gridControl1
+            // 
+            this.gridControl1.Location = new System.Drawing.Point(0, 3);
+            this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Name = "gridControl1";
+            this.gridControl1.Size = new System.Drawing.Size(938, 421);
+            this.gridControl1.TabIndex = 2;
+            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
+            // gridView1
+            // 
+            this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.Name = "gridView1";
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.GBMalKabulCekiPanel);
@@ -91,10 +126,21 @@
             this.GBMalKabulCekiPanel.Controls.Add(this.LBMalKabulCekiStokKodu);
             this.GBMalKabulCekiPanel.Controls.Add(this.CBMalKabulCekiStokKodu);
             this.GBMalKabulCekiPanel.GroupStyle = DevExpress.Utils.GroupStyle.Light;
-            this.GBMalKabulCekiPanel.Location = new System.Drawing.Point(0, 3);
+            this.GBMalKabulCekiPanel.Location = new System.Drawing.Point(2, 3);
             this.GBMalKabulCekiPanel.Name = "GBMalKabulCekiPanel";
-            this.GBMalKabulCekiPanel.Size = new System.Drawing.Size(938, 164);
+            this.GBMalKabulCekiPanel.Size = new System.Drawing.Size(933, 164);
             this.GBMalKabulCekiPanel.TabIndex = 3;
+            // 
+            // BTMalKabulCeki
+            // 
+            this.BTMalKabulCeki.Appearance.BackColor = System.Drawing.Color.Silver;
+            this.BTMalKabulCeki.Appearance.Options.UseBackColor = true;
+            this.BTMalKabulCeki.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BTMalKabulCeki.BackgroundImage")));
+            this.BTMalKabulCeki.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTMalKabulCeki.ImageOptions.Image")));
+            this.BTMalKabulCeki.Location = new System.Drawing.Point(425, 42);
+            this.BTMalKabulCeki.Name = "BTMalKabulCeki";
+            this.BTMalKabulCeki.Size = new System.Drawing.Size(73, 73);
+            this.BTMalKabulCeki.TabIndex = 6;
             // 
             // LBMalKabulCekiStokKodu
             // 
@@ -117,52 +163,6 @@
             this.CBMalKabulCekiStokKodu.Size = new System.Drawing.Size(215, 20);
             this.CBMalKabulCekiStokKodu.TabIndex = 5;
             // 
-            // BTMalKabulCeki
-            // 
-            this.BTMalKabulCeki.Appearance.BackColor = System.Drawing.Color.Silver;
-            this.BTMalKabulCeki.Appearance.Options.UseBackColor = true;
-            this.BTMalKabulCeki.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BTMalKabulCeki.BackgroundImage")));
-            this.BTMalKabulCeki.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.BTMalKabulCeki.Location = new System.Drawing.Point(441, 41);
-            this.BTMalKabulCeki.Name = "BTMalKabulCeki";
-            this.BTMalKabulCeki.Size = new System.Drawing.Size(81, 79);
-            this.BTMalKabulCeki.TabIndex = 6;
-            // 
-            // gridControl1
-            // 
-            this.gridControl1.Location = new System.Drawing.Point(0, 3);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(938, 421);
-            this.gridControl1.TabIndex = 2;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
-            // 
-            // gridView1
-            // 
-            this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.Name = "gridView1";
-            // 
-            // GCMalKabulCekiPaneli1
-            // 
-            this.GCMalKabulCekiPaneli1.Controls.Add(this.BTDokumanlarKaydet);
-            this.GCMalKabulCekiPaneli1.GroupStyle = DevExpress.Utils.GroupStyle.Light;
-            this.GCMalKabulCekiPaneli1.Location = new System.Drawing.Point(2, 427);
-            this.GCMalKabulCekiPaneli1.Name = "GCMalKabulCekiPaneli1";
-            this.GCMalKabulCekiPaneli1.Size = new System.Drawing.Size(935, 86);
-            this.GCMalKabulCekiPaneli1.TabIndex = 3;
-            // 
-            // BTDokumanlarKaydet
-            // 
-            this.BTDokumanlarKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.BTDokumanlarKaydet.Appearance.Options.UseBackColor = true;
-            this.BTDokumanlarKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTDokumanlarKaydet.ImageOptions.Image")));
-            this.BTDokumanlarKaydet.Location = new System.Drawing.Point(804, 18);
-            this.BTDokumanlarKaydet.Name = "BTDokumanlarKaydet";
-            this.BTDokumanlarKaydet.Size = new System.Drawing.Size(117, 57);
-            this.BTDokumanlarKaydet.TabIndex = 61;
-            this.BTDokumanlarKaydet.Text = "Kaydet";
-            // 
             // FMalKabulCekiPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -174,15 +174,15 @@
             this.Load += new System.EventHandler(this.FMalKabulCekiPanel_Load);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.GCMalKabulCekiPaneli1)).EndInit();
+            this.GCMalKabulCekiPaneli1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.GBMalKabulCekiPanel)).EndInit();
             this.GBMalKabulCekiPanel.ResumeLayout(false);
             this.GBMalKabulCekiPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CBMalKabulCekiStokKodu.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GCMalKabulCekiPaneli1)).EndInit();
-            this.GCMalKabulCekiPaneli1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
