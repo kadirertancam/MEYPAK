@@ -31,7 +31,7 @@ namespace MEYPAK.PRL.DEPO
 
         private void FDepoList_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = _depoServis.Listele();
+            GCDepoList.DataSource = _depoServis.Listele();
             depoKart = (FDepoKart)Application.OpenForms["FDepoKart"];
             depoTransferKart = (FDepolarArasıTransfer)Application.OpenForms["FDepolarArasıTransfer"];
             depoTransferBilgiKart = (FDepolarArasıTransferHar)Application.OpenForms["FDepolarArasıTransferBilgi"];
@@ -41,15 +41,15 @@ namespace MEYPAK.PRL.DEPO
         {
             if (_islem == "FDepoKart")
             {
-                depoKart._tempDepo = _depoServis.Getir(x => x.DEPOKODU == dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString()).FirstOrDefault();
+                depoKart._tempDepo = _depoServis.Getir(x => x.DEPOKODU == gridView1.GetFocusedRowCellValue("DEPOKODU")).FirstOrDefault();
             }
             else if (_islem == "FDepoTransferCıktı")
             {
-                depoTransferKart._CıktıDepo = _depoServis.Getir(x => x.DEPOKODU == dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString()).FirstOrDefault();
+                depoTransferKart._CıktıDepo = _depoServis.Getir(x => x.DEPOKODU == gridView1.GetFocusedRowCellValue("DEPOKODU")).FirstOrDefault();
             }
             else if (_islem == "FDepoTransferHedef")
             {
-                depoTransferKart._HedefDepo = _depoServis.Getir(x => x.DEPOKODU == dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString()).FirstOrDefault();
+                depoTransferKart._HedefDepo = _depoServis.Getir(x => x.DEPOKODU == gridView1.GetFocusedRowCellValue("DEPOKODU")).FirstOrDefault();
             }
             this.Close();
         }

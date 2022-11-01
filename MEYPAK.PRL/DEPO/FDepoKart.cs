@@ -69,7 +69,7 @@ namespace MEYPAK.PRL.DEPO
                 
             }));
             _depoServis.Data(ServisList.DepoListeServis);
-            dataGridView1.DataSource = _depoServis.obje;
+            GCDepoKart.DataSource = _depoServis.obje;
             Temizle(this.Controls);
         }
         
@@ -83,18 +83,18 @@ namespace MEYPAK.PRL.DEPO
         private void FDepoKart_Load(object sender, EventArgs e)
         {
             _depoServis.Data(ServisList.DepoListeServis);
-            dataGridView1.DataSource = _depoServis.obje;
+            GCDepoKart.DataSource = _depoServis.obje;
         }
 
         private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            _tempDepo = _depoServis.obje.Where(x => x.DEPOKODU == dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString()).FirstOrDefault();
+            _tempDepo = _depoServis.obje.Where(x => x.DEPOKODU == gridView1.GetFocusedRowCellValue("DEPOKODU").ToString()).FirstOrDefault();
             Doldur();
         }
 
         private void BTSil_Click(object sender, EventArgs e)
         {
-            _depoServis.Data(ServisList.DepoSilServis,(_depoServis.obje.Where(x => x.ID == Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value)).FirstOrDefault()));
+            _depoServis.Data(ServisList.DepoSilServis,(_depoServis.obje.Where(x => x.ID == Convert.ToInt32(gridView1.GetFocusedRowCellValue("DEPOKODU"))).FirstOrDefault()));
         }
     }
 }

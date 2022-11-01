@@ -40,7 +40,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.BTHedefDepoSec = new DevExpress.XtraEditors.SimpleButton();
             this.LBTransferCikisDepo = new DevExpress.XtraEditors.LabelControl();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TBHedefDepo = new System.Windows.Forms.TextBox();
             this.TBCikisDepo = new System.Windows.Forms.TextBox();
             this.LBTransferHedefDepo = new DevExpress.XtraEditors.LabelControl();
             this.panel1.SuspendLayout();
@@ -93,7 +93,7 @@
             this.groupControl1.Controls.Add(this.label1);
             this.groupControl1.Controls.Add(this.BTHedefDepoSec);
             this.groupControl1.Controls.Add(this.LBTransferCikisDepo);
-            this.groupControl1.Controls.Add(this.textBox1);
+            this.groupControl1.Controls.Add(this.TBHedefDepo);
             this.groupControl1.Controls.Add(this.TBCikisDepo);
             this.groupControl1.Controls.Add(this.LBTransferHedefDepo);
             this.groupControl1.GroupStyle = DevExpress.Utils.GroupStyle.Light;
@@ -188,12 +188,12 @@
             this.LBTransferCikisDepo.TabIndex = 11;
             this.LBTransferCikisDepo.Text = "Çıkış Depo";
             // 
-            // textBox1
+            // TBHedefDepo
             // 
-            this.textBox1.Location = new System.Drawing.Point(405, 33);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(207, 21);
-            this.textBox1.TabIndex = 58;
+            this.TBHedefDepo.Location = new System.Drawing.Point(405, 33);
+            this.TBHedefDepo.Name = "TBHedefDepo";
+            this.TBHedefDepo.Size = new System.Drawing.Size(207, 21);
+            this.TBHedefDepo.TabIndex = 58;
             // 
             // TBCikisDepo
             // 
@@ -240,7 +240,7 @@
         private DevExpress.XtraEditors.LabelControl LBTransferCikisDepo;
         private TextBox TBCikisDepo;
         private DevExpress.XtraEditors.SimpleButton BTHedefDepoSec;
-        private TextBox textBox1;
+        private TextBox TBHedefDepo;
         private DevExpress.XtraEditors.LabelControl LBTransferHedefDepo;
         private DevExpress.XtraEditors.SimpleButton BTDepoKartSil;
         private DevExpress.XtraEditors.SimpleButton BTDepolarArasiTransferKaydet;

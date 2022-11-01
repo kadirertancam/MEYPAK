@@ -39,7 +39,7 @@ namespace MEYPAK.PRL.DEPO
         {
             fDepoList = new FDepoList("FDepoTransferCıktı");
             fDepoList.ShowDialog();
-            TBCıkısDepo.Text = _CıktıDepo.DEPOADI;
+            TBCikisDepo.Text = _CıktıDepo.DEPOADI;
         }
 
         private void BTNHedefDepoSec_Click(object sender, EventArgs e)
@@ -74,19 +74,18 @@ namespace MEYPAK.PRL.DEPO
         }
         void DataGridDoldur()
         {
-            dataGridView1.DataSource = "";
+            GCDepolarArasiTransfer.DataSource = "";
             pocoDepolarArasıTransfer = _depoTransferServis.PocoDepolarArasıTransferListesi();
-            dataGridView1.DataSource = pocoDepolarArasıTransfer;
-            dataGridView1.Columns[0].Visible = false;
-            dataGridView1.Columns[dataGridView1.ColumnCount - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            GCDepolarArasiTransfer.DataSource = pocoDepolarArasıTransfer;
+            gridView1.Columns[0].Visible = false; 
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridView1.SelectedRows != null)
+            if (gridView1.GetSelectedRows() != null)
             {
 
-                _tempDepoTransfer = _depoTransferServis.Getir(x => x.ID == Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString())).FirstOrDefault();
+                _tempDepoTransfer = _depoTransferServis.Getir(x => x.ID == Convert.ToInt32(gridView1.GetFocusedRowCellValue("id").ToString())).FirstOrDefault();
                 fDepolarArasıTransferHar = new FDepolarArasıTransferHar(_tempDepoTransfer);
                 fDepolarArasıTransferHar.ShowDialog();
 
@@ -95,7 +94,7 @@ namespace MEYPAK.PRL.DEPO
 
         private void BTNSil_Click(object sender, EventArgs e)
         {
-            _depoTransferServis.Sil(_depoTransferServis.Getir(x => x.ID == Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value)));
+            _depoTransferServis.Sil(_depoTransferServis.Getir(x => x.ID == Convert.ToInt32(gridView1.GetFocusedRowCellValue("id"))));
         }
 
         private void BTCikisDepoSec_Click(object sender, EventArgs e)
