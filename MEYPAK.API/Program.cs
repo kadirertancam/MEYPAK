@@ -68,6 +68,7 @@ builder.Services.AddScoped<ICariKartServis, CariKartManager>();
 
 builder.Services.AddScoped<IAdresListDal, EFADRESLISTREPO>();
 builder.Services.AddScoped<IAdresListServis, AdresListManager>();
+ 
 #endregion
 #region STOK_Scoped_Islemleri
 

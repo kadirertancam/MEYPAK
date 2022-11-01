@@ -29,6 +29,10 @@ using MEYPAK.BLL.Assets;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraEditors.Controls;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraEditors;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using DevExpress.XtraGrid.Views.Base;
 
 namespace MEYPAK.PRL.SIPARIS
 {
@@ -55,7 +59,10 @@ namespace MEYPAK.PRL.SIPARIS
             _stokOlcuBr = new GenericWebServis<PocoSTOKOLCUBR>();
             _stokOlcuBr.Data(ServisList.StokOlcuBrListeServis);
             _olcuBr = new GenericWebServis<PocoOLCUBR>();
-            _olcuBr.Data(ServisList.OlcuBrListeServis);
+            _olcuBr.Data(ServisList.OlcuBrListeServis); 
+
+            gridView1.OptionsNavigation.AutoMoveRowFocus = true;
+            gridView1.OptionsNavigation.AutoFocusNewRow = true;
         }
         FKasaList fKasaList; 
         List<PocoSiparisKalem> _tempSiparisDetay = new List<PocoSiparisKalem>();
@@ -65,7 +72,7 @@ namespace MEYPAK.PRL.SIPARIS
         public PocoSTOK _tempStok;
         public PocoSTOKKASA _tempKasa;
         public PocoSIPARIS _tempSiparis;
-
+        
         private void FSiparis_Load(object sender, EventArgs e)
         {
             DataGridYapilandir();
@@ -73,7 +80,7 @@ namespace MEYPAK.PRL.SIPARIS
         }
         DataGridViewButtonColumn DGVStokSec;
         DataGridViewButtonColumn DGVKasaSec;
-        List<PocoOLCUBR> _tempOlcuBr = new List<PocoOLCUBR>();
+        List<PocoOLCUBR> _tempolcuBr;
         DataGridViewComboBoxColumn DGVFiyatList;
         DataGridViewComboBoxColumn DGVKasaList;
         GenericWebServis<PocoSIPARIS> _siparisServis;
@@ -81,6 +88,7 @@ namespace MEYPAK.PRL.SIPARIS
         GenericWebServis<PocoSIPARISDETAY> _siparisDetayServis;
         GenericWebServis<PocoSTOKOLCUBR> _stokOlcuBr;
         GenericWebServis<PocoOLCUBR> _olcuBr; 
+        FStokOlcuBrList _fStokOlcuBrList; 
         void temizle()
         {
             gridControl1.DataSource = "";
@@ -94,13 +102,8 @@ namespace MEYPAK.PRL.SIPARIS
             gridView1.Columns["KasaId"].Visible = false;
              
         }
-        DataGridViewButtonColumn btn = new DataGridViewButtonColumn()
-        {
-            HeaderText = "FATURALASTIR",
-            Text = "FATURALAŞTIR",
-            Name = "btn",
-            UseColumnTextForButtonValue = true,
-        };
+        
+        GridColumn gridColumn2;
         void DataGridYapilandir()
         {
             _tempStok = new PocoSTOK();
@@ -117,11 +120,37 @@ namespace MEYPAK.PRL.SIPARIS
             repositoryItemButtonEdit.NullText = "Seç";
             repositoryItemButtonEdit.NullValuePrompt = "Seç";
             
+
+
+            gridColumn2 = gridView1.Columns.AddVisible("BirimSec", "Sec");
+            RepositoryItemButtonEdit repositoryItemButton2 = new RepositoryItemButtonEdit();
+            repositoryItemButton2.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            repositoryItemButton2.NullText = "Sec";
+            repositoryItemButton2.NullValuePrompt = "Seç"; 
+
+
+            GridColumn gridColumn3 = gridView1.Columns.AddVisible("KasaSec", "Sec");
+            RepositoryItemButtonEdit repositoryItemButtonEdit3 = new RepositoryItemButtonEdit();
+            repositoryItemButtonEdit3.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            repositoryItemButtonEdit3.NullText = "Sec";
+            repositoryItemButtonEdit3.NullValuePrompt = "Seç";
+
+
+
             repositoryItemButtonEdit.ButtonClick += RepositoryItemButtonEdit_ButtonClick;
+            repositoryItemButtonEdit3.ButtonClick += RepositoryItemButtonEdit3_ButtonClick;
+            repositoryItemButton2.ButtonClick += RepositoryItemButtonEdit2_ButtonClick; 
+             
             gridControl1.RepositoryItems.Add(repositoryItemButtonEdit);
+            gridControl1.RepositoryItems.Add(repositoryItemButton2);
+            gridControl1.RepositoryItems.Add(repositoryItemButtonEdit3);
             gridColumn.ColumnEdit = repositoryItemButtonEdit;
+            gridColumn2.ColumnEdit = repositoryItemButton2;
+            gridColumn3.ColumnEdit = repositoryItemButtonEdit3;
             gridColumn.ShowButtonMode = DevExpress.XtraGrid.Views.Base.ShowButtonModeEnum.ShowAlways;
             gridView1.Columns["Seç"].VisibleIndex = 2;
+            gridView1.Columns["KasaSec"].VisibleIndex = 6;
+            gridView1.Columns["BirimSec"].VisibleIndex = 9;
             gridView1.Columns["StokId"].Visible = false;
             gridView1.Columns["MPSTOK"].Visible = false;
             gridView1.Columns["KasaId"].Visible = false;
@@ -157,20 +186,24 @@ namespace MEYPAK.PRL.SIPARIS
 
         }
 
+        private void RepositoryItemButtonEdit3_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            fKasaList = new FKasaList("musterisiparis");
+            fKasaList.ShowDialog();
+        }
+
+        private void RepositoryItemButtonEdit2_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            _fStokOlcuBrList = new FStokOlcuBrList("musterisiparis");
+            _fStokOlcuBrList.stokid = _tempStok.id;
+            _fStokOlcuBrList.ShowDialog();
+        }
+
+        private DataView clone = null;
         private void RepositoryItemButtonEdit_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
             _fStokList.ShowDialog();
-
-            var tempp = _stokOlcuBr.obje.Where(x => x.STOKID == _tempStok.id);
-            _olcuBr.Data(ServisList.OlcuBrListeServis);
-
-            foreach (var item in tempp)
-            {
-                _tempOlcuBr.Add(_olcuBr.obje.Where(x => x.ID == item.OLCUBRID).FirstOrDefault());
-            }
-            DGVOlcuBr.DataSource = _tempOlcuBr.Select(x => x.ADI).ToList();
-            //DGVtempCell = dataGridView1.Rows[e.RowIndex].Cells["DGVOlcuBr"];
-            //DGVtempCell.Value = DGVOlcuBr.Items[0].ToString();
+              
             _tempPocokalem = new PocoSiparisKalem()
             {
                 StokId = _tempStok.id,
@@ -284,9 +317,9 @@ namespace MEYPAK.PRL.SIPARIS
 
                 foreach (var item in tempp)
                 {
-                    _tempOlcuBr.Add(_olcuBr.obje.Where(x => x.ID == item.OLCUBRID).FirstOrDefault());
+                //    repositoryItemComboBox.Items.Add(_olcuBr.obje.Where(x => x.ID == item.OLCUBRID).FirstOrDefault());
                 }
-                DGVOlcuBr.DataSource = _tempOlcuBr.Select(x => x.ADI).ToList();
+             //   DGVOlcuBr.DataSource = _tempOlcuBr.Select(x => x.ADI).ToList();
                 //DGVtempCell = dataGridView1.Rows[e.RowIndex].Cells["DGVOlcuBr"];
                 //DGVtempCell.Value = DGVOlcuBr.Items[0].ToString();
                 _tempPocokalem = new PocoSiparisKalem()
@@ -336,58 +369,7 @@ namespace MEYPAK.PRL.SIPARIS
         private void dataGridView1_KeyPress(object sender, KeyPressEventArgs e)
         {
 
-            //if (e.KeyChar == (char)Keys.Enter || e.KeyChar == (char)Keys.Down)
-            //{
-                
-            //    gridControl1.DataSource = "";
-            //    _tempSiparisDetay.Add(new PocoSiparisKalem());
-            //    gridControl1.DataSource = _tempSiparisDetay;
-
-            //    gridView1.Columns["StokId"].Visible = false;
-            //    gridView1.Columns["MPSTOK"].Visible = false;
-            //    gridView1.Columns["Birim"].Visible = false;
-            //    gridView1.Columns["KasaId"].Visible = false;
-            //    //dataGridView1.Columns["DGVOlcuBr"].DisplayIndex = 6;
-            //    //dataGridView1.Columns["DGVFiyatList"].DisplayIndex = dataGridView1.ColumnCount - 1; 
-            //    //dataGridView1.Columns["StokKodu"].DisplayIndex = 0;
-            //    //dataGridView1.Columns["DGVStoKSec"].DisplayIndex = 1; 
-            //    //dataGridView1.Columns["StokAdı"].DisplayIndex = 2; 
-
-            //    //dataGridView1.Columns["DGVKasaSec"].DisplayIndex = 8;
-            //    //dataGridView1.Columns["DVGKasaList"].DisplayIndex = dataGridView1.ColumnCount-1;
-
-
-            //    for (int i = 0; i < gridView1.RowCount; i++)
-            //    {
-            //        gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "DGVOlcuBr", _tempSiparisDetay[i].Birim.ToString()) ;
-            //    }
-
-
-            //    ////dataGridView1.Invalidate();
-            //    //dataGridView1.Refresh();
-
-            //   // dataGridView1.Rows[dataGridView1.Rows.Count - 1].Cells["StokKodu"].Selected = true;
-            //    i = 0;
-
-            //}
-            //if (i == 0)
-            //{
-            //    if (e.KeyChar == (char)Keys.Tab)
-            //    {
-            //        if (dataGridView1.Rows.Count! > dataGridView1.CurrentCell.RowIndex)
-            //        {
-            //            if (dataGridView1.CurrentRow.Index >= 0 && dataGridView1.Columns[dataGridView1.CurrentCell.ColumnIndex].DisplayIndex - 1 == dataGridView1.Columns["StokKodu"].DisplayIndex)
-            //            {
-            //                dataGridView1.CurrentRow.Cells["Miktar"].Selected = true;
-            //            }
-            //            else if (dataGridView1.CurrentRow.Index >= 0 && dataGridView1.Columns[dataGridView1.CurrentCell.ColumnIndex].DisplayIndex - 1 == dataGridView1.Columns["Miktar"].DisplayIndex)
-            //            {
-            //                dataGridView1.CurrentRow.Cells["BirimFiyat"].Selected = true;
-            //            }
-            //        }
-
-            //    }
-            //}
+          
 
         }
 
@@ -396,6 +378,70 @@ namespace MEYPAK.PRL.SIPARIS
 
         }
         decimal birimfiyat = 0, kdv = 0, bsnc = 0, brutfiyat = 0, netfiyat = 0, nettoplam = 0, brüttoplam = 0, geneltoplam = 0, isktoplam = 0, kdvtoplam = 0, miktar = 0;
+
+        private void gridView1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter || e.KeyChar == (char)Keys.Down)
+            {
+               
+                    gridControl1.DataSource = "";
+                _tempSiparisDetay.Add(new PocoSiparisKalem());
+                gridControl1.DataSource = _tempSiparisDetay;
+
+                gridView1.Columns["StokId"].Visible = false;
+                gridView1.Columns["MPSTOK"].Visible = false; 
+                gridView1.Columns["KasaId"].Visible = false;
+                //dataGridView1.Columns["DGVOlcuBr"].DisplayIndex = 6;
+                //dataGridView1.Columns["DGVFiyatList"].DisplayIndex = dataGridView1.ColumnCount - 1; 
+                //dataGridView1.Columns["StokKodu"].DisplayIndex = 0;
+                //dataGridView1.Columns["DGVStoKSec"].DisplayIndex = 1; 
+                //dataGridView1.Columns["StokAdı"].DisplayIndex = 2; 
+
+                //dataGridView1.Columns["DGVKasaSec"].DisplayIndex = 8;
+                //dataGridView1.Columns["DVGKasaList"].DisplayIndex = dataGridView1.ColumnCount-1;
+
+
+                for (int i = 0; i < gridView1.RowCount; i++)
+                {
+                    gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "DGVOlcuBr", _tempSiparisDetay[i].Birim.ToString());
+                }
+                gridView1.FocusedRowHandle = gridView1.RowCount-1;
+                gridView1.FocusedColumn = gridView1.Columns["StokKodu"];
+
+                gridView1.Columns["Seç"].VisibleIndex = 2; 
+                gridView1.Columns["KasaSec"].VisibleIndex = 6;
+                gridView1.Columns["BirimSec"].VisibleIndex = 9;
+                ////dataGridView1.Invalidate();
+                //dataGridView1.Refresh();
+
+                i = 0;
+
+
+            }
+            if (i == 0)
+            {
+                if (e.KeyChar == (char)Keys.Tab)
+                {
+                    if (gridView1.RowCount! > gridView1.GetFocusedDataSourceRowIndex())
+                    {
+                        //if (gridView1.GetFocusedDataSourceRowIndex() >= 0 && gridView1.Columns[gridView1.GetFocusedRowCellValue(0) DisplayIndex - 1 == dataGridView1.Columns["StokKodu"].DisplayIndex)
+                        //{
+                        //    dataGridView1.CurrentRow.Cells["Miktar"].Selected = true;
+                        //}
+                        //else if (dataGridView1.CurrentRow.Index >= 0 && dataGridView1.Columns[dataGridView1.CurrentCell.ColumnIndex].DisplayIndex - 1 == dataGridView1.Columns["Miktar"].DisplayIndex)
+                        //{
+                        //    dataGridView1.CurrentRow.Cells["BirimFiyat"].Selected = true;
+                        //}
+                    }
+
+                }
+            }
+        }
+
+        private void gridControl1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+           
+        }
 
         private void BTSiparisSec_Click(object sender, EventArgs e)
         {

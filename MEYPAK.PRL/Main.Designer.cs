@@ -106,7 +106,6 @@
             this.accordionControlElement17 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement29 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement4 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement31 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement5 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement6 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement18 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -114,6 +113,10 @@
             this.accordionControlElement30 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement8 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement20 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement31 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement34 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement32 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement33 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement21 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement22 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement23 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -123,9 +126,6 @@
             this.accordionControlElement27 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
             this.applicationMenu1 = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
-            this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
-            this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
-            this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -492,6 +492,7 @@
             this.barButtonItem23.Caption = "Müşteri Siparişi";
             this.barButtonItem23.Id = 44;
             this.barButtonItem23.Name = "barButtonItem23";
+            this.barButtonItem23.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem23_ItemClick);
             // 
             // barButtonItem24
             // 
@@ -688,8 +689,7 @@
             this.accordionControlElement1.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.accordionControlElement2,
             this.accordionControlElement3,
-            this.accordionControlElement4,
-            this.accordionControlElement31});
+            this.accordionControlElement4});
             this.accordionControlElement1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement1.ImageOptions.Image")));
             this.accordionControlElement1.ImageOptions.SvgImageSize = new System.Drawing.Size(32, 32);
             this.accordionControlElement1.Name = "accordionControlElement1";
@@ -704,7 +704,6 @@
             this.accordionControlElement11,
             this.accordionControlElement13,
             this.accordionControlElement28});
-            this.accordionControlElement2.Expanded = true;
             this.accordionControlElement2.Name = "accordionControlElement2";
             this.accordionControlElement2.Text = "Tanımlar";
             // 
@@ -754,7 +753,6 @@
             this.accordionControlElement16,
             this.accordionControlElement17,
             this.accordionControlElement29});
-            this.accordionControlElement3.Expanded = true;
             this.accordionControlElement3.Name = "accordionControlElement3";
             this.accordionControlElement3.Text = "Hareketler";
             // 
@@ -794,12 +792,6 @@
             this.accordionControlElement4.Name = "accordionControlElement4";
             this.accordionControlElement4.Text = "Raporlar";
             // 
-            // accordionControlElement31
-            // 
-            this.accordionControlElement31.Name = "accordionControlElement31";
-            this.accordionControlElement31.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement31.Text = "Element31";
-            // 
             // accordionControlElement5
             // 
             this.accordionControlElement5.Appearance.Default.ForeColor = System.Drawing.Color.Silver;
@@ -808,7 +800,6 @@
             this.accordionControlElement6,
             this.accordionControlElement7,
             this.accordionControlElement8});
-            this.accordionControlElement5.Expanded = true;
             this.accordionControlElement5.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement5.ImageOptions.Image")));
             this.accordionControlElement5.Name = "accordionControlElement5";
             this.accordionControlElement5.Text = "Cari";
@@ -848,14 +839,45 @@
             // 
             // accordionControlElement20
             // 
+            this.accordionControlElement20.Appearance.Default.ForeColor = System.Drawing.Color.Silver;
+            this.accordionControlElement20.Appearance.Default.Options.UseForeColor = true;
+            this.accordionControlElement20.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.accordionControlElement31,
+            this.accordionControlElement32,
+            this.accordionControlElement33});
+            this.accordionControlElement20.Expanded = true;
             this.accordionControlElement20.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement20.ImageOptions.Image")));
             this.accordionControlElement20.Name = "accordionControlElement20";
-            this.accordionControlElement20.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement20.Text = "Element20";
+            this.accordionControlElement20.Text = "Fatura";
+            // 
+            // accordionControlElement31
+            // 
+            this.accordionControlElement31.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.accordionControlElement34});
+            this.accordionControlElement31.Expanded = true;
+            this.accordionControlElement31.Name = "accordionControlElement31";
+            this.accordionControlElement31.Text = "Tanımlar";
+            // 
+            // accordionControlElement34
+            // 
+            this.accordionControlElement34.Name = "accordionControlElement34";
+            this.accordionControlElement34.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement34.Text = "Müşteri Sipariş";
+            this.accordionControlElement34.Click += new System.EventHandler(this.accordionControlElement34_Click);
+            // 
+            // accordionControlElement32
+            // 
+            this.accordionControlElement32.Expanded = true;
+            this.accordionControlElement32.Name = "accordionControlElement32";
+            this.accordionControlElement32.Text = "Hareketler";
+            // 
+            // accordionControlElement33
+            // 
+            this.accordionControlElement33.Name = "accordionControlElement33";
+            this.accordionControlElement33.Text = "Raporlar";
             // 
             // accordionControlElement21
             // 
-            this.accordionControlElement21.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement21.ImageOptions.Image")));
             this.accordionControlElement21.Name = "accordionControlElement21";
             this.accordionControlElement21.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement21.Text = "Element21";
@@ -927,30 +949,6 @@
             // applicationMenu1
             // 
             this.applicationMenu1.Name = "applicationMenu1";
-            // xtraTabControl1
-            // 
-            this.xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.xtraTabControl1.Location = new System.Drawing.Point(0, 0);
-            this.xtraTabControl1.Name = "xtraTabControl1";
-            this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
-            this.xtraTabControl1.Size = new System.Drawing.Size(798, 551);
-            this.xtraTabControl1.TabIndex = 1;
-            this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
-            this.xtraTabPage1,
-            this.xtraTabPage2});
-            // 
-            // xtraTabPage1
-            // 
-            this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(796, 526);
-            this.xtraTabPage1.Text = "AnaSayfa";
-            // 
-            // xtraTabPage2
-            // 
-            this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(796, 526);
-            this.xtraTabPage2.Text = "xtraTabPage2";
-            // 
             // 
             // Main
             // 
@@ -1002,7 +1000,6 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement8;
         private DevExpress.XtraBars.Ribbon.ApplicationMenu applicationMenu1;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement19;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement20;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement21;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement22;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement23;
@@ -1070,6 +1067,10 @@
         private DevExpress.XtraTab.XtraTabControl xtraTabControl1;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
         private Panel panel6;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement20;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement31;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement34;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement32;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement33;
     }
 }

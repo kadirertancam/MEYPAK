@@ -269,5 +269,41 @@ namespace MEYPAK.PRL
             ClosePageButtonEventArgs arg = e as ClosePageButtonEventArgs;
             (arg.Page as XtraTabPage).PageVisible = false;
         }
+
+        private void barButtonItem23_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fSiparis = new FMusteriSiparis();
+            page.Name = "TPMusteriSiparis" + i;
+            page.Text = "Müşteri Sipariş";
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fSiparis.TopLevel = false;
+            fSiparis.AutoScroll = true;
+            fSiparis.Dock = DockStyle.Fill;
+            page.Controls.Add(fSiparis);
+            fSiparis.Show();
+            i++;
+        }
+
+        private void accordionControlElement34_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fSiparis = new FMusteriSiparis();
+            page.Name = "TPMusteriSiparis" + i;
+            page.Text = "Müşteri Sipariş";
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fSiparis.TopLevel = false;
+            fSiparis.AutoScroll = true;
+            fSiparis.Dock = DockStyle.Fill;
+            page.Controls.Add(fSiparis);
+            fSiparis.Show();
+            i++;
+        }
     }
 }

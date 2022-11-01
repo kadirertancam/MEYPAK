@@ -33,7 +33,7 @@ namespace MEYPAK.PRL.DEPO
 
         private void button2_Click(object sender, EventArgs e)
         {
-            List<PocoStokSevkiyatList> aaa = (List<PocoStokSevkiyatList>)dataGridView1.DataSource;
+            List<PocoStokSevkiyatList> aaa = (List<PocoStokSevkiyatList>)gridControl1.DataSource;
             int _id;
             foreach (var item in aaa)
             {
@@ -59,14 +59,14 @@ namespace MEYPAK.PRL.DEPO
         private void button1_Click(object sender, EventArgs e)
         {
 
-            _Stok = _tempStok.Where(x => x.id.ToString() == CBMalKabulCekiStokKodu.SelectedValue.ToString()).FirstOrDefault();
+            _Stok = _tempStok.Where(x => x.id.ToString() == CBMalKabulCekiStokKodu.GetSelectedDataRow().ToString()).FirstOrDefault();
             _tempStokSevkiyatList = new PocoSTOKMALKABULLIST()
             {
                 STOKID = _Stok.id,
                 EMIRID = _tempEmir.ID,
                 DEPOID = _tempEmir.MPSIPARIS.DEPOID,
                 MIKTAR = 0,
-                SIPARISMIKTARI = _tempEmir.MPSIPARIS.MPSIPARISDETAYList.Where(x => x.STOKID.ToString() == CBMalKabulCekiStokKodu.SelectedValue.ToString()).FirstOrDefault().MIKTAR,
+                SIPARISMIKTARI = _tempEmir.MPSIPARIS.MPSIPARISDETAYList.Where(x => x.STOKID.ToString() == CBMalKabulCekiStokKodu.GetSelectedDataRow().ToString()).FirstOrDefault().MIKTAR,
                 //BIRIMID = _Stok.mpstokolcubr.Where(x => x.NUM == 1).Select(x => x.MPOLCUBR.ID).FirstOrDefault(),
             //    MPOLCUBR = _Stok.MPSTOKOLCUBRList.Where(x => x.NUM == 1).Select(x => x.MPOLCUBR).FirstOrDefault(),
                 MPDEPOEMIR = _tempEmir,
@@ -75,11 +75,11 @@ namespace MEYPAK.PRL.DEPO
 
             };
             _tempList.Add(_tempStokSevkiyatList);
-            if (dataGridView1.DataSource != null)
+            if (gridControl1.DataSource != null)
             {
-                dataGridView1.DataSource = null;
+                gridControl1.DataSource = null;
             }
-            dataGridView1.DataSource = _tempList.Select(x => new PocoStokSevkiyatList()
+            gridControl1.DataSource = _tempList.Select(x => new PocoStokSevkiyatList()
             {
                 StokAdı = x.MPSTOK.adi,
                 StokKodu = x.MPSTOK.kod,
@@ -92,12 +92,9 @@ namespace MEYPAK.PRL.DEPO
 
         private void FMalKabulCekiPanel_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = _tempList.Select(x => new PocoStokSevkiyatList { StokKodu = x.MPSTOK.kod, StokAdı = x.MPSTOK.adi, Birim = "0" }).ToList();
-            CBMalKabulCekiStokKodu.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            CBMalKabulCekiStokKodu.AutoCompleteSource = AutoCompleteSource.ListItems;
-            CBMalKabulCekiStokKodu.DisplayMember = "KOD";
-            CBMalKabulCekiStokKodu.ValueMember = "ID";
-            CBMalKabulCekiStokKodu.DataSource = _tempStok.Select(x => new { KOD = x.kod, ID = x.id }).ToList();
+            gridControl1.DataSource = _tempList.Select(x => new PocoStokSevkiyatList { StokKodu = x.MPSTOK.kod, StokAdı = x.MPSTOK.adi, Birim = "0" }).ToList();
+         
+            CBMalKabulCekiStokKodu.Properties.DataSource = _tempStok.Select(x => new { KOD = x.kod, ID = x.id }).ToList();
         }
     }
 }

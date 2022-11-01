@@ -39,7 +39,7 @@
             this.GBMalKabulCekiPanel = new DevExpress.XtraEditors.GroupControl();
             this.BTMalKabulCeki = new DevExpress.XtraEditors.SimpleButton();
             this.LBMalKabulCekiStokKodu = new DevExpress.XtraEditors.LabelControl();
-            this.CBMalKabulCekiStokKodu = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.CBMalKabulCekiStokKodu = new DevExpress.XtraEditors.LookUpEdit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GCMalKabulCekiPaneli1)).BeginInit();
@@ -122,9 +122,9 @@
             this.GBMalKabulCekiPanel.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.GBMalKabulCekiPanel.Appearance.BackColor2 = System.Drawing.Color.Transparent;
             this.GBMalKabulCekiPanel.Appearance.Options.UseBackColor = true;
+            this.GBMalKabulCekiPanel.Controls.Add(this.CBMalKabulCekiStokKodu);
             this.GBMalKabulCekiPanel.Controls.Add(this.BTMalKabulCeki);
             this.GBMalKabulCekiPanel.Controls.Add(this.LBMalKabulCekiStokKodu);
-            this.GBMalKabulCekiPanel.Controls.Add(this.CBMalKabulCekiStokKodu);
             this.GBMalKabulCekiPanel.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             this.GBMalKabulCekiPanel.Location = new System.Drawing.Point(2, 3);
             this.GBMalKabulCekiPanel.Name = "GBMalKabulCekiPanel";
@@ -156,7 +156,7 @@
             // 
             // CBMalKabulCekiStokKodu
             // 
-            this.CBMalKabulCekiStokKodu.Location = new System.Drawing.Point(193, 69);
+            this.CBMalKabulCekiStokKodu.Location = new System.Drawing.Point(194, 69);
             this.CBMalKabulCekiStokKodu.Name = "CBMalKabulCekiStokKodu";
             this.CBMalKabulCekiStokKodu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -193,11 +193,11 @@
         private Panel panel2;
         private DevExpress.XtraEditors.GroupControl GBMalKabulCekiPanel;
         private DevExpress.XtraEditors.LabelControl LBMalKabulCekiStokKodu;
-        private DevExpress.XtraEditors.ComboBoxEdit CBMalKabulCekiStokKodu;
         private DevExpress.XtraEditors.GroupControl GCMalKabulCekiPaneli1;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraEditors.SimpleButton BTMalKabulCeki;
         private DevExpress.XtraEditors.SimpleButton BTDokumanlarKaydet;
+        private DevExpress.XtraEditors.LookUpEdit CBMalKabulCekiStokKodu;
     }
 }
