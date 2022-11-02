@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using MEYPAK.DAL.Concrete.ADONET;
+using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Hizmet;
 using MEYPAK.Interfaces.Stok;
@@ -12,7 +14,7 @@ namespace MEYPAK.API.Controllers.STOKControllers
     {
         private readonly IHizmetServis _hizmetServis; 
         private readonly IMapper _mapper;
-
+        private MPAdoContext<MPHIZMET> _adohizmetServis = new MPAdoContext<MPHIZMET>();
         public HIZMETController(IHizmetServis hizmetServis, IMapper mapper)
         {
             _hizmetServis = hizmetServis;
@@ -27,6 +29,21 @@ namespace MEYPAK.API.Controllers.STOKControllers
             {
                 var data = _hizmetServis.Listele();
                 return Ok(data);
+            }
+            catch (Exception ex)
+            {
+                return Problem("Belirsiz bir hata oluştu!" + ex.Message);
+            }
+        }
+        [HttpGet]
+        [Route("/[controller]/[action]")]
+        public IActionResult HIZMETListe2([FromQuery] string query)
+        {
+            try
+            {
+                _adohizmetServis.HepsiniGetir(query);
+
+                return Ok(_adohizmetServis.GenericList);
             }
             catch (Exception ex)
             {

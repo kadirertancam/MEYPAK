@@ -792,6 +792,16 @@
             this.CBOlcuBirim.Size = new System.Drawing.Size(121, 26);
             this.CBOlcuBirim.TabIndex = 0;
             // 
+            // CBOlcuBirim
+            // 
+            this.CBOlcuBirim.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CBOlcuBirim.FormattingEnabled = true;
+            this.CBOlcuBirim.Location = new System.Drawing.Point(18, 35);
+            this.CBOlcuBirim.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.CBOlcuBirim.Name = "CBOlcuBirim";
+            this.CBOlcuBirim.Size = new System.Drawing.Size(121, 26);
+            this.CBOlcuBirim.TabIndex = 0;
+            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.panel5);

@@ -19,13 +19,13 @@ namespace MEYPAK.Entity.PocoModels.STOK
         public string aciklama { get; set; } = "";
         public string belgE_NO { get; set; } = "";
         public int faturaid { get; set; } = 0;
-        public double kdv { get; set; } = 0;    
+        public decimal kdv { get; set; } = 0;    
         public int io { get; set; } = 0;
-        public double netfiyat { get; set; } = 0;
-        public double miktar { get; set; } = 0;
+        public decimal netfiyat { get; set; } = 0;
+        public decimal miktar { get; set; } = 0;
         public int birim { get; set; } = 0;
-        public double nettoplam { get; set; } = 0;
-        public double bruttoplam { get; set; } = 0;
+        public decimal nettoplam { get; set; } = 0;
+        public decimal bruttoplam { get; set; } = 0;
         public int sayimid { get; set; } = 0;
         public int kullaniciid { get; set; } = 0;
         public virtual PocoSTOK mpstok { get; set; }

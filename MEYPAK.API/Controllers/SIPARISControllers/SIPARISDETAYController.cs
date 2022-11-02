@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using MEYPAK.DAL.Concrete.ADONET;
+using MEYPAK.Entity.Models.SIPARIS;
 using MEYPAK.Entity.PocoModels.SIPARIS;
 using MEYPAK.Interfaces.Siparis;
 using MEYPAK.Interfaces.Stok;
@@ -12,7 +14,7 @@ namespace MEYPAK.API.Controllers.SIPARISControllers
     {
         private readonly ISiparisDetayServis _siparisDetayServis;
         private readonly IMapper _mapper;
-
+        private MPAdoContext<MPSIPARISDETAY> _adosiparisDetayServis = new MPAdoContext<MPSIPARISDETAY>();
         public SIPARISDETAYController(ISiparisDetayServis siparisDetayServis, IMapper mapper)
         {
             _siparisDetayServis = siparisDetayServis;
@@ -27,6 +29,21 @@ namespace MEYPAK.API.Controllers.SIPARISControllers
             {
                 var data = _siparisDetayServis.Listele();
                 return Ok(data);
+            }
+            catch (Exception ex)
+            {
+                return Problem("Belirsiz bir hata oluştu!" + ex.Message);
+            }
+        }
+        [HttpGet]
+        [Route("/[controller]/[action]")]
+        public IActionResult SIPARISDETAYListe2([FromQuery] string query)
+        {
+            try
+            {
+                _adosiparisDetayServis.HepsiniGetir(query);
+
+                return Ok(_adosiparisDetayServis.GenericList);
             }
             catch (Exception ex)
             {

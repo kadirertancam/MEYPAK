@@ -63,8 +63,8 @@ namespace MEYPAK.PRL.STOK
             stokServis.Data(ServisList.StokListeServis);
             TBStokBilgiStokKodu.Text = _tempStok.kod;
             TBStokBilgiStokAdi.Text = _tempStok.adi;
-            CBStokBilgiBirim.DataSource = stokOlcuBrServis.obje.Where(x => x.STOKID == _tempStok.id).Select(x => olcuBrServis.obje.Where(z => z.id == x.OLCUBRID).FirstOrDefault().adi).ToList();
-            TBStokBilgiBakiye.Text = (from ep in stokServis.obje join e in stokHarServis.obje on ep.id equals e.STOKID where ep.kod == _tempStok.kod select Convert.ToDecimal(e.IO.ToString() == "1" ? e.MIKTAR : 0) - Convert.ToDecimal(e.IO.ToString() == "0" ? e.MIKTAR : 0)).FirstOrDefault().ToString();
+            CBStokBilgiBirim.Properties.DataSource = stokOlcuBrServis.obje.Where(x => x.STOKID == _tempStok.id).Select(x => olcuBrServis.obje.Where(z => z.id == x.OLCUBRID).FirstOrDefault().adi).ToList();
+            TBStokBilgiBakiye.Text = (from ep in stokServis.obje join e in stokHarServis.obje on ep.id equals e.stokid where ep.kod == _tempStok.kod select Convert.ToDecimal(e.io.ToString() == "1" ? e.miktar : 0) - Convert.ToDecimal(e.io.ToString() == "0" ? e.miktar : 0)).FirstOrDefault().ToString();
 
             _tempStok = null;
         }
@@ -76,13 +76,13 @@ namespace MEYPAK.PRL.STOK
             if (_islemtipi == "düzenle")
             {
                 dataGridView1.DataSource = _tempStokSayimHarList; 
-                CBDepo.DataSource = depoServis.obje.Select(x => x.DEPOADI).ToList();
+                CBDepo.Properties.DataSource = depoServis.obje.Select(x => x.DEPOADI).ToList();
 
             }
             else if (_islemtipi == "kaydet")
             { 
                 _tempStokSayimHarList = new List<PocoStokSayimPanelList>();
-                CBDepo.DataSource = depoServis.obje.Select(x => x.DEPOADI).ToList();
+                CBDepo.Properties.DataSource = depoServis.obje.Select(x => x.DEPOADI).ToList();
                 foreach (var item in stokServis.obje)
                 {
                     _tempStokSayimHarList.Add(new PocoStokSayimPanelList()
@@ -179,7 +179,7 @@ namespace MEYPAK.PRL.STOK
                     FIYAT = Decimal.Parse(dataGridView1.Rows[i].Cells["Fiyat"].EditedFormattedValue.ToString()),
                     KUR = 1,
                     PARABR = 1,
-                    DEPOID = CBDepo.SelectedIndex,
+                    DEPOID = depoServis.obje.Where(x=>x.DEPOADI== CBDepo.SelectedText).FirstOrDefault().id,
                     STOKSAYIMID = sayimId
 
                 }));

@@ -44,17 +44,17 @@ namespace MEYPAK.PRL.STOK
                 
                 _stokHarServis.Data(ServisList.StokHarEkleServis,new PocoSTOKHAR()
                 {
-                    STOKID =item2.STOKID,
-                    ACIKLAMA="Sayım",
-                    MIKTAR=item2.MIKTAR,
-                    BIRIM=item2.BIRIMID,
-                    HAREKETTURU=7,
-                    DEPOID=item.DEPOID,
-                    NETFIYAT=item2.FIYAT,
-                    KDV=item2.MPSTOK.aliskdv,
+                    stokid =item2.STOKID,
+                    aciklama="Sayım",
+                    miktar=item2.MIKTAR,
+                    birim=item2.BIRIMID,
+                    hareketturu=7,
+                    depoid=item.DEPOID,
+                    netfiyat=item2.FIYAT,
+                    kdv=item2.MPSTOK.aliskdv,
                     kayittipi=0,
-                    IO=1,
-                    SAYIMID=item.id
+                    io=1,
+                    sayimid=item.id
                             });
                 }
                 item.DURUM = 1;
@@ -82,7 +82,7 @@ namespace MEYPAK.PRL.STOK
 
             foreach (var item2 in _stokSayimServis.obje.Where(x => x.SAYIMTARIHI == dateTimePicker1.Value && x.ACIKLAMA == textBox1.Text).FirstOrDefault().MPSTOKSAYIMHAR)
             {
-                var _temp = _stokHarServis.obje.Where(x => x.STOKID == item2.STOKID && x.SAYIMID == item2.id).ToList();
+                var _temp = _stokHarServis.obje.Where(x => x.stokid == item2.STOKID && x.sayimid == item2.id).ToList();
                 if(_temp.Count() > 0)
                 {
                     _stokHarServis.Data(ServisList.StokHarSilServis,null,null, _temp);

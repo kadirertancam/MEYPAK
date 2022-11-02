@@ -47,7 +47,7 @@ namespace MEYPAK.PRL.STOK
             stokSayimPanel = new FStokSayimPanel("kaydet");
             _stokSayimServis.Data(ServisList.StokSayimEkleServis,(new Entity.PocoModels.STOK.PocoSTOKSAYIM()
             {
-                SAYIMTARIHI = (DateTime)DEStokSayimTarihi.EditValue,
+                SAYIMTARIHI = (DateTime)DTStokSayimTarihi.EditValue,
                 ACIKLAMA = TBStokSayimAciklama.Text,
 
             }));
@@ -64,7 +64,7 @@ namespace MEYPAK.PRL.STOK
         private void FStokSayim_Load(object sender, EventArgs e)
         {
             _stokSayimServis.Data(ServisList.StokSayimListeServis);
-            DEStokSayimTarihi.EditValue = DateTime.Now.ToString("dd/MM/yyyy");
+            DTStokSayimTarihi.EditValue = DateTime.Now.ToString("dd/MM/yyyy");
             GCStokSayim.DataSource = _stokSayimServis.obje;
             gridView1.Columns["FIRMAID"].Visible = false;
             gridView1.Columns["SUBEID"].Visible = false;

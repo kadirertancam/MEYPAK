@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using MEYPAK.DAL.Concrete.ADONET;
+using MEYPAK.Entity.Models.DEPO;
 using MEYPAK.Entity.PocoModels.DEPO;
 using MEYPAK.Interfaces.Depo;
 using MEYPAK.Interfaces.Stok;
@@ -12,7 +14,7 @@ namespace MEYPAK.API.Controllers.DEPOControllers
     {
         private readonly IMapper _mapper;
         private readonly IDepoTransferHarServis _depoTransferHarServis;
-
+        private MPAdoContext<MPDEPOTRANSFERHAR> _adodepoTransferHarServis = new MPAdoContext<MPDEPOTRANSFERHAR>();
         public DEPOTRANSFERHARController(IMapper mapper, IDepoTransferHarServis depoTransferHarServis)
         {
             _mapper = mapper;
@@ -33,6 +35,21 @@ namespace MEYPAK.API.Controllers.DEPOControllers
                 return Problem("Belirsiz bir hata oluştu!" + ex.Message);
             }
         }
+        [HttpGet]
+        [Route("/[controller]/[action]")]
+        public IActionResult DEPOTRANSFERHARListe2([FromQuery] string query)
+        {
+            try
+            {
+                _adodepoTransferHarServis.HepsiniGetir(query);
+                return Ok(_adodepoTransferHarServis.GenericList);
+            }
+            catch (Exception ex)
+            {
+                return Problem("Belirsiz bir hata oluştu!" + ex.Message);
+            }
+        }
+
         [HttpPost]
         [Route("/[controller]/[action]")]
         public IActionResult DEPOTRANSFERHAREkleyadaGuncelle(PocoDEPOTRANSFERHAR pModel)
