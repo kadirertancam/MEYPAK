@@ -55,10 +55,10 @@ namespace MEYPAK.PRL.DEPO
             {
                 _tempDepoTransfer= _depoTransferServis.Ekle(new PocoDEPOTRANSFER()
                 {
-                    OLUSTURMATARIHI = DateTime.Now,
-                    GUNCELLEMETARIHI = DateTime.Now,
-                    CIKTIDEPOID = _CıktıDepo.ID,
-                    HEDEFDEPOID = _HedefDepo.ID,
+                    olusturmatarihi = DateTime.Now,
+                    guncellemetarihi = DateTime.Now,
+                    CIKTIDEPOID = _CıktıDepo.id,
+                    HEDEFDEPOID = _HedefDepo.id,
                     DONEM = DateTime.Now.ToString("yyyy"),
                     DURUM = 1
                 });
@@ -85,7 +85,7 @@ namespace MEYPAK.PRL.DEPO
             if (gridView1.GetSelectedRows() != null)
             {
 
-                _tempDepoTransfer = _depoTransferServis.Getir(x => x.ID == Convert.ToInt32(gridView1.GetFocusedRowCellValue("id").ToString())).FirstOrDefault();
+                _tempDepoTransfer = _depoTransferServis.Getir(x => x.id == Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString())).FirstOrDefault();
                 fDepolarArasıTransferHar = new FDepolarArasıTransferHar(_tempDepoTransfer);
                 fDepolarArasıTransferHar.ShowDialog();
 
@@ -94,12 +94,7 @@ namespace MEYPAK.PRL.DEPO
 
         private void BTNSil_Click(object sender, EventArgs e)
         {
-            _depoTransferServis.Sil(_depoTransferServis.Getir(x => x.ID == Convert.ToInt32(gridView1.GetFocusedRowCellValue("id"))));
-        }
-
-        private void BTCikisDepoSec_Click(object sender, EventArgs e)
-        {
-
+            _depoTransferServis.Sil(_depoTransferServis.Getir(x => x.id == Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value)));
         }
     }
 }

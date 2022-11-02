@@ -38,7 +38,7 @@ namespace MEYPAK.PRL.STOK
             DateTime dt = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells["SAYIMTARIHI"].Value.ToString());
             string aciklama = dataGridView1.Rows[e.RowIndex].Cells["ACIKLAMA"].Value.ToString();
             fSayimIsle._tempSayim = _stokSayimServis.obje.Where(x => x.ACIKLAMA== aciklama.ToString() ).FirstOrDefault();
-            fSayimIsle._id = int.Parse(dataGridView1.Rows[e.RowIndex].Cells["ID"].Value.ToString());
+            fSayimIsle._id = int.Parse(dataGridView1.Rows[e.RowIndex].Cells["id"].Value.ToString());
             this.Close();
         }
     }

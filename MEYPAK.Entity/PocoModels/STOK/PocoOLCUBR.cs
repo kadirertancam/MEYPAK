@@ -14,10 +14,10 @@ namespace MEYPAK.Entity.PocoModels.STOK
     public class PocoOLCUBR:SUPERPOCOMODEL
     {
         [StringLength(200)]
-        public string ADI { get; set; } = "";
+        public string adi { get; set; } = "";
         [StringLength(50)]
-        public string BIRIM { get; set; } = "";
-        public int KULLANICIID { get; set; } = 0;
+        public string birim { get; set; } = "";
+        public int kullaniciid { get; set; } = 0;
         [JsonIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PocoSTOKOLCUBR> MPSTOKOLCUBR { get; set; }

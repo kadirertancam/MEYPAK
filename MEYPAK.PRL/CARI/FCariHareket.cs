@@ -37,7 +37,7 @@ namespace MEYPAK.PRL.CARI
             _cariHarServis.Data(ServisList.CariHarListeServis);
             _fCariList = new FCariList("carihar");
             _fCariList.ShowDialog();
-            gridControl1.DataSource = _cariHarServis.obje.Where(x => x.CARIID == _tempCARIKART.ID);
+            gridControl1.DataSource = _cariHarServis.obje.Where(x => x.CARIID == _tempCARIKART.id);
         }
 
         private void radioGroup1_SelectedIndexChanged(object sender, EventArgs e)

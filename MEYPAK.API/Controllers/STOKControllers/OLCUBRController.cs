@@ -77,7 +77,7 @@ namespace MEYPAK.API.Controllers.STOKControllers
                 return Problem("Belirsiz bir hata oluştu!" + ex.Message);
             }
         }
-        [HttpDelete]
+        [HttpPost]
         [Route("/[controller]/[action]")]
         public IActionResult DeleteById([FromBody] int id)
         {

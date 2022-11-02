@@ -1,61 +1,84 @@
-﻿@using System.Data;
+﻿@using DevExtreme.AspNet.Mvc
 @using MEYPAK.Entity.PocoModels.STOK
-@model List<PocoOLCUBR>
+<div class="menu-container dx-swatch-additional">
 
 
 
+    <div id="data-grid-demo">
+        @(
+            Html.DevExtreme().DataGrid<PocoOLCUBR>()
+            .ID("gridContainer")
+            .ShowBorders(true)
+
+            .Paging(p => p.Enabled(true))
+            .Editing(e => e.Mode(GridEditMode.Popup)
+            .AllowUpdating(true)
+            .AllowAdding(true)
+            .AllowDeleting(true)
+            .Popup(p => p
+            .Title("Stok Kart")
+            .ShowTitle(true)
+            .Width(700)
+            .Height(525)
+            )
+            .Form(f => f.Items(items =>
+            {
+                items.AddGroup()
+                .ColCount(2)
+                .ColSpan(2)
+                .Items(groupItems =>
+                {
 
 
-<div class="content mt-3">
-    <div class="animated fadeIn">
-        <div class="row">
-
-            <div class="col-lg-6">
-                <div class="card">
-                    <div class="card-header">
-                        <strong class="card-title">Stok Listesi</strong>
-                    </div>
-                    <div class="card-body">
-                        <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
-                            <thead class="thead-dark">
-                                <tr>
-                                    @{
-                                        PocoOLCUBR aa = new PocoOLCUBR();
-
-                                        foreach (var item2 in aa.GetType().GetProperties())
-                                        {
-                                            <th>@item2.Name</th>
-                                        }
-                                    }
-                                </tr>
-                            </thead>
-                            <tbody>
-
-                                @foreach (PocoOLCUBR item in Model)
-                                {
-                                    <tr>
-                                        @foreach (var item2 in item.GetType().GetProperties())
-                                        {
-
-                                            <td>@item.GetType().GetProperty(item2.Name).GetValue(item, null)</td>
-                                        }
-                                    </tr>
-                                }
+                    groupItems.AddSimpleFor(m => m.adi);
+                    groupItems.AddSimpleFor(m => m.birim);
+                   
+               
+                
+                });
 
 
-                            </tbody>
-                        </table>
+            }))
+            )
+            .Columns(columns =>
+            {
 
-                    </div>
-                </div>
-            </div>
-        </div>
+                columns.AddFor(m => m.adi)
+                .Width(120);
+
+                columns.AddFor(m => m.birim);
+
+           
+
+            })
+            .DataSource(d => d.Mvc()
+            .Controller("STOK")
+            .LoadAction("OlcuBrGet").InsertAction("OlcuBrPost").UpdateAction("OlcuBrPut").DeleteAction("OlcuBrDelete").Key("id")
+
+            )
+            )
+
+
+
     </div>
+
+
+    @(Html.DevExtreme().SelectBox()
+        .ID("apptheme")
+        .ValueExpr("theme")
+        .DisplayExpr("name")
+        .DataSource(new object[] {
+    new { name = "Light", theme = "dx.light.css"},
+    new { name = "Dark", theme = "dx.dark.css"},
+
+        })
+        .OnSelectionChanged("changeTheme")
+        )
+    <script>
+        function changeTheme(e) {
+            var selectedTheme = e.component.option("value");
+            document.cookie = "currentTheme=" + selectedTheme + ";path=/";
+            window.location.reload();
+        }
+    </script>
 </div>
-
-
-
-
-
-
-

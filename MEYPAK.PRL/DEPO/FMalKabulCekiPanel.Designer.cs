@@ -126,9 +126,9 @@
             this.GBMalKabulCekiPanel.Controls.Add(this.BTMalKabulCeki);
             this.GBMalKabulCekiPanel.Controls.Add(this.LBMalKabulCekiStokKodu);
             this.GBMalKabulCekiPanel.GroupStyle = DevExpress.Utils.GroupStyle.Light;
-            this.GBMalKabulCekiPanel.Location = new System.Drawing.Point(0, 3);
+            this.GBMalKabulCekiPanel.Location = new System.Drawing.Point(2, 3);
             this.GBMalKabulCekiPanel.Name = "GBMalKabulCekiPanel";
-            this.GBMalKabulCekiPanel.Size = new System.Drawing.Size(938, 164);
+            this.GBMalKabulCekiPanel.Size = new System.Drawing.Size(933, 164);
             this.GBMalKabulCekiPanel.TabIndex = 3;
             // 
             // BTMalKabulCeki
@@ -137,9 +137,9 @@
             this.BTMalKabulCeki.Appearance.Options.UseBackColor = true;
             this.BTMalKabulCeki.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BTMalKabulCeki.BackgroundImage")));
             this.BTMalKabulCeki.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTMalKabulCeki.ImageOptions.Image")));
-            this.BTMalKabulCeki.Location = new System.Drawing.Point(441, 41);
+            this.BTMalKabulCeki.Location = new System.Drawing.Point(425, 42);
             this.BTMalKabulCeki.Name = "BTMalKabulCeki";
-            this.BTMalKabulCeki.Size = new System.Drawing.Size(81, 79);
+            this.BTMalKabulCeki.Size = new System.Drawing.Size(73, 73);
             this.BTMalKabulCeki.TabIndex = 6;
             // 
             // LBMalKabulCekiStokKodu
@@ -160,9 +160,8 @@
             this.CBMalKabulCekiStokKodu.Name = "CBMalKabulCekiStokKodu";
             this.CBMalKabulCekiStokKodu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.CBMalKabulCekiStokKodu.Properties.NullText = "";
-            this.CBMalKabulCekiStokKodu.Size = new System.Drawing.Size(199, 20);
-            this.CBMalKabulCekiStokKodu.TabIndex = 7;
+            this.CBMalKabulCekiStokKodu.Size = new System.Drawing.Size(215, 20);
+            this.CBMalKabulCekiStokKodu.TabIndex = 5;
             // 
             // FMalKabulCekiPanel
             // 

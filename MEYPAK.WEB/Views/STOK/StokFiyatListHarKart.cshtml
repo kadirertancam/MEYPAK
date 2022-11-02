@@ -6,7 +6,7 @@
 
     <div id="data-grid-demo">
         @(
-            Html.DevExtreme().DataGrid<PocoHIZMET>()
+            Html.DevExtreme().DataGrid<PocoSTOKFIYATLISTHAR>()
             .ID("gridContainer")
             .ShowBorders(true)
 
@@ -14,6 +14,7 @@
             .Editing(e => e.Mode(GridEditMode.Popup)
             .AllowUpdating(true)
             .AllowAdding(true)
+            .EditColumnName("Düzenle")
             .AllowDeleting(true)
             .Popup(p => p
             .Title("Stok Kart")
@@ -30,16 +31,11 @@
                 {
 
 
-                    groupItems.AddSimpleFor(m => m.adi);
-                    groupItems.AddSimpleFor(m => m.kod);
-                    groupItems.AddSimpleFor(m => m.kategoriid);
-                    groupItems.AddSimpleFor(m => m.grupkodu);
-                    groupItems.AddSimpleFor(m => m.donem);
+                    groupItems.AddSimpleFor(m => m.dovizid);
+                    groupItems.AddSimpleFor(m => m.kur);
+                    groupItems.AddSimpleFor(m => m.iskonto);
+                    groupItems.AddSimpleFor(m => m.netfiyat);
 
-                    groupItems.AddSimpleFor(m => m.aciklama);
-                    groupItems.AddSimpleFor(m => m.aciklamA5)
-                .ColSpan(2)
-                .Editor(editor => editor.TextArea().Height(100));
                 });
 
 
@@ -48,27 +44,19 @@
             .Columns(columns =>
             {
 
-                columns.AddFor(m => m.adi)
+                columns.AddFor(m => m.iskonto)
                 .Width(120);
 
-                columns.AddFor(m => m.kod);
+                columns.AddFor(m => m.netfiyat);
 
-                columns.AddFor(m => m.kategoriid);
+                columns.AddFor(m => m.mpstok.adi);
 
-                columns.AddFor(m => m.grupkodu);
 
-                columns.AddFor(m => m.donem)
-                .Width(65);
-
-                columns.AddFor(m => m.aciklama);
-
-                columns.AddFor(m => m.aciklamA5);
-                
 
             })
             .DataSource(d => d.Mvc()
             .Controller("STOK")
-            .LoadAction("HizmetGet").InsertAction("HizmetPost").UpdateAction("HizmetPut").DeleteAction("HizmetDelete").Key("id")
+            .LoadAction("StokFiyatListHarGet").InsertAction("StokFiyatListHarPost").UpdateAction("StokFiyatListHarPut").DeleteAction("StokFiyatListHarDelete").Key("id")
 
             )
             )

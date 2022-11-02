@@ -73,7 +73,7 @@ namespace MEYPAK.PRL.STOK
             if (_islem == "stokkart")
             {
                 if (fSTOKKART != null)
-                    fSTOKKART._tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+                    fSTOKKART._tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()).FirstOrDefault();
             }
             else if (_islem == "stoksayimpanel")
             {

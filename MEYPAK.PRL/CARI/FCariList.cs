@@ -35,7 +35,7 @@ namespace MEYPAK.PRL.CARI
             _cariServis.Data(ServisList.CariListeServis);
             GCCariList.DataSource = _cariServis.obje.Select(x=> new
             {
-                ID=x.ID,
+                ID=x.id,
                 CARIKODU=x.KOD,
                 CARIUNVAN=x.UNVAN,
                 VERGIDAIRESI=x.VERGIDAIRESI,
@@ -47,7 +47,7 @@ namespace MEYPAK.PRL.CARI
         private void gridView1_DoubleClick(object sender, EventArgs e)
         {
             if (_form == "carikart")
-                _cariKart._tempCariKart = _cariServis.obje.Where(x => x.ID.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+                _cariKart._tempCariKart = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()).FirstOrDefault();
             if(_form=="carihar")
                 _cariHareket._tempCARIKART= _cariServis.obje.Where(x => x.ID.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
             if (_form == "musterisiparis")

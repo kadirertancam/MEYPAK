@@ -41,14 +41,14 @@ namespace MEYPAK.PRL.STOK
         {
           _stokFiyatListServis.Data(ServisList.StokFiyatListEkleServis,new PocoSTOKFIYATLIST()
             {
-                FIYATLISTADI = TBFiyatListesiAdi.Text,
-                OLUSTURMATARIHI = DateTime.Now,
-                BASTAR = DTPBastar.Value,
-                BITTAR = DTPBittar.Value
+                fiyatlistadi = TBFiyatListesiAdi.Text,
+                olusturmatarihi = DateTime.Now,
+                bastar = DTPBastar.Value,
+                bittar = DTPBittar.Value
             });
             _stokFiyatListServis.Data(ServisList.StokFiyatListListeServis);
 
-            _tempSTOKFIYATLIST = _stokFiyatListServis.obje.Where(x => x.FIYATLISTADI == TBFiyatListesiAdi.Text ).FirstOrDefault();
+            _tempSTOKFIYATLIST = _stokFiyatListServis.obje.Where(x => x.fiyatlistadi == TBFiyatListesiAdi.Text ).FirstOrDefault();
 
           _stokFiyatListPanel = new FStokFiyatListPanel(_tempSTOKFIYATLIST);
             _stokFiyatListPanel.ShowDialog();
@@ -67,7 +67,7 @@ namespace MEYPAK.PRL.STOK
             if (dataGridView1.SelectedRows!=null)
             {
 
-                _tempSTOKFIYATLIST = _stokFiyatListServis.obje.Where(x => x.ID == Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString())).FirstOrDefault();
+                _tempSTOKFIYATLIST = _stokFiyatListServis.obje.Where(x => x.id == Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString())).FirstOrDefault();
                 _stokFiyatListPanel = new FStokFiyatListPanel(_tempSTOKFIYATLIST);
                 _stokFiyatListPanel.ShowDialog();
 
@@ -83,11 +83,11 @@ namespace MEYPAK.PRL.STOK
 
         private void BTSil_Click(object sender, EventArgs e)
         { 
-            _stokFiyatListServis.Data(ServisList.StokFiyatListSilServis,null,null,_stokFiyatListServis.obje.Where(x => x.ID == Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value)).ToList());
+            _stokFiyatListServis.Data(ServisList.StokFiyatListSilServis,null,null,_stokFiyatListServis.obje.Where(x => x.id == Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value)).ToList());
             _stokFiyatListServis.Data(ServisList.StokFiyatListListeServis);
             _stokFiyatListHarServis.Data(ServisList.StokFiyatListHarListeServis);
 
-            _stokFiyatListHarServis.Data(ServisList.StokFiyatListHarSilServis, null, null, _stokFiyatListHarServis.obje.Where(x => x.FIYATLISTID.ToString() == dataGridView1.SelectedRows[0].Cells[0].Value.ToString()).ToList());
+            _stokFiyatListHarServis.Data(ServisList.StokFiyatListHarSilServis, null, null, _stokFiyatListHarServis.obje.Where(x => x.fiyatlistid.ToString() == dataGridView1.SelectedRows[0].Cells[0].Value.ToString()).ToList());
             dataGridView1.DataSource= _stokFiyatListServis.obje;
         }
     }

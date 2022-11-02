@@ -1,6 +1,4 @@
-﻿@{
-    Layout = "_DevExtremeLayout";
-}
+﻿
 @using DevExtreme.AspNet.Mvc
 @using MEYPAK.Entity.PocoModels.STOK
 <div class="menu-container dx-swatch-additional">
@@ -12,7 +10,7 @@
             Html.DevExtreme().DataGrid<PocoSTOK>()
             .ID("gridContainer")
             .ShowBorders(true)
-
+            
             .Paging(p => p.Enabled(true))
             .Editing(e => e.Mode(GridEditMode.Popup)
             .AllowUpdating(true)
@@ -31,6 +29,7 @@
                 .ColSpan(2)
                 .Items(groupItems =>
                 {
+                   
 
                     groupItems.AddSimpleFor(m => m.adi);
                     groupItems.AddSimpleFor(m => m.kategoriid);
@@ -43,13 +42,13 @@
                 .ColSpan(2)
                 .Editor(editor => editor.TextArea().Height(100));
                 });
+                
 
-               
             }))
             )
             .Columns(columns =>
             {
-
+               
                 columns.AddFor(m => m.adi)
                 .Width(120);
 
@@ -70,8 +69,8 @@
             })
             .DataSource(d => d.Mvc()
             .Controller("STOK")
-            .LoadAction("StokGet").UpdateAction("StokEkle").DeleteAction("StokDelete").InsertAction("StokEkle").Key("id")
-
+            .LoadAction("StokGet").InsertAction("StokPost").UpdateAction("StokPut").DeleteAction("StokDelete").Key("id")
+            
             )
             )
 
@@ -98,5 +97,4 @@
             window.location.reload();
         }
     </script>
-
 </div>

@@ -38,7 +38,7 @@ namespace MEYPAK.PRL.DEPO
                 TBKod.Text = _tempDepo.DEPOKODU;
                 TBAdi.Text = _tempDepo.DEPOADI;
                 TBAciklama.Text = _tempDepo.ACIKLAMA;
-                id = _tempDepo.ID;
+                id = _tempDepo.id;
                 _tempDepo = null;
             }
         }
@@ -62,7 +62,7 @@ namespace MEYPAK.PRL.DEPO
         {
             _depoServis.Data(ServisList.DepoEkleServis,(new PocoDEPO()
             {
-                ID= id,
+                id = id,
                 DEPOKODU = TBKod.Text,
                 DEPOADI = TBAdi.Text,
                 ACIKLAMA=TBAciklama.Text,
@@ -94,7 +94,7 @@ namespace MEYPAK.PRL.DEPO
 
         private void BTSil_Click(object sender, EventArgs e)
         {
-            _depoServis.Data(ServisList.DepoSilServis,(_depoServis.obje.Where(x => x.ID == Convert.ToInt32(gridView1.GetFocusedRowCellValue("DEPOKODU"))).FirstOrDefault()));
+            _depoServis.Data(ServisList.DepoSilServis,(_depoServis.obje.Where(x => x.id == Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value)).FirstOrDefault()));
         }
     }
 }

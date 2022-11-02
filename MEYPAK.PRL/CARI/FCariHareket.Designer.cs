@@ -295,6 +295,7 @@
             // 
             this.RGCariHareket.Location = new System.Drawing.Point(345, 158);
             this.RGCariHareket.Name = "RGCariHareket";
+            this.RGCariHareket.Properties.AccessibleRole = System.Windows.Forms.AccessibleRole.RadioButton;
             this.RGCariHareket.Properties.Appearance.BackColor = System.Drawing.SystemColors.Control;
             this.RGCariHareket.Properties.Appearance.Options.UseBackColor = true;
             this.RGCariHareket.Properties.Columns = 2;
@@ -459,7 +460,6 @@
             this.BTCariHareketKaydet.Size = new System.Drawing.Size(113, 52);
             this.BTCariHareketKaydet.TabIndex = 59;
             this.BTCariHareketKaydet.Text = "Kaydet";
-            this.BTCariHareketKaydet.Click += new System.EventHandler(this.BTCariHareketKaydet_Click);
             // 
             // LBToplamBakiye
             // 

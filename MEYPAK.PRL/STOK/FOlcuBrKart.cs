@@ -40,17 +40,17 @@ namespace MEYPAK.PRL.STOK
             {
                 _OlcuBrServis.Data(ServisList.OlcuBrEkleServis, (new PocoOLCUBR()
                 {
-                    ADI = TBOlcuBrAdi.Text,
-                    BIRIM = TBOlcuBr.Text,
+                    adi = TBOlcuBrAdi.Text,
+                    birim = TBOlcuBr.Text,
                 }));
                
             }
             else
                  _OlcuBrServis.Data(ServisList.OlcuBrEkleServis, (new PocoOLCUBR()
                  {
-                    ID = id,
-                    ADI = TBOlcuBrAdi.Text,
-                    BIRIM = TBOlcuBr.Text,
+                    id = id,
+                    adi = TBOlcuBrAdi.Text,
+                    birim = TBOlcuBr.Text,
                 }));
             MessageBox.Show("Kayıt Başarılı.");
             id = 0;
@@ -60,7 +60,7 @@ namespace MEYPAK.PRL.STOK
         private void BTSil_Click(object sender, EventArgs e)
         {
             _OlcuBrServis.Data(ServisList.OlcuBrListeServis);
-            _OlcuBrServis.Data(ServisList.OlcuBrSilServis,_OlcuBrServis.obje.Where(x => x.ID.ToString() == dataGridView1.CurrentRow.Cells[0].Value.ToString()).FirstOrDefault()) ;
+            _OlcuBrServis.Data(ServisList.OlcuBrSilServis,_OlcuBrServis.obje.Where(x => x.id.ToString() == dataGridView1.CurrentRow.Cells[0].Value.ToString()).FirstOrDefault()) ;
             MessageBox.Show("Silme Başarılı");
            
             dataGridView1.DataSource = _OlcuBrServis.obje;

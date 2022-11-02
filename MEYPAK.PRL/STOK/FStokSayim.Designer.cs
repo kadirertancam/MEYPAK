@@ -28,26 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FStokSayim));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.GCStokSayim = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.BTSayimSil = new System.Windows.Forms.Button();
-            this.BTSayimGuncelle = new System.Windows.Forms.Button();
-            this.BTSayimKaydet = new System.Windows.Forms.Button();
+            this.GBStokSayim = new System.Windows.Forms.GroupBox();
+            this.DEStokSayimTarihi = new DevExpress.XtraEditors.DateEdit();
+            this.LBStokSayimAciklama = new DevExpress.XtraEditors.LabelControl();
+            this.LBSayimTarihi = new DevExpress.XtraEditors.LabelControl();
             this.TBAciklama = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.DTPSayimTarihi = new DevExpress.XtraEditors.DateTimeOffsetEdit();
+            this.BTStokSayimSil = new DevExpress.XtraEditors.SimpleButton();
+            this.BTStokSayimDegistir = new DevExpress.XtraEditors.SimpleButton();
+            this.BTStokSayimKaydet = new DevExpress.XtraEditors.SimpleButton();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GCStokSayim)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.panel2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DTPSayimTarihi.Properties)).BeginInit();
+            this.GBStokSayim.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DEStokSayimTarihi.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DEStokSayimTarihi.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -62,123 +64,130 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.gridControl1);
+            this.panel3.Controls.Add(this.GCStokSayim);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 91);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(837, 538);
             this.panel3.TabIndex = 3;
             // 
-            // gridControl1
+            // GCStokSayim
             // 
-            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(0, 0);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(837, 538);
-            this.gridControl1.TabIndex = 2;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.GCStokSayim.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GCStokSayim.Location = new System.Drawing.Point(0, 0);
+            this.GCStokSayim.MainView = this.gridView1;
+            this.GCStokSayim.Name = "GCStokSayim";
+            this.GCStokSayim.Size = new System.Drawing.Size(837, 538);
+            this.GCStokSayim.TabIndex = 2;
+            this.GCStokSayim.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
             // gridView1
             // 
-            this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.GridControl = this.GCStokSayim;
             this.gridView1.Name = "gridView1";
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.groupBox1);
+            this.panel2.Controls.Add(this.GBStokSayim);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(837, 91);
             this.panel2.TabIndex = 2;
             // 
-            // groupBox1
+            // GBStokSayim
             // 
-            this.groupBox1.Controls.Add(this.DTPSayimTarihi);
-            this.groupBox1.Controls.Add(this.BTSayimSil);
-            this.groupBox1.Controls.Add(this.BTSayimGuncelle);
-            this.groupBox1.Controls.Add(this.BTSayimKaydet);
-            this.groupBox1.Controls.Add(this.TBAciklama);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(837, 91);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Stok Sayım";
+            this.GBStokSayim.Controls.Add(this.BTStokSayimSil);
+            this.GBStokSayim.Controls.Add(this.BTStokSayimDegistir);
+            this.GBStokSayim.Controls.Add(this.DEStokSayimTarihi);
+            this.GBStokSayim.Controls.Add(this.BTStokSayimKaydet);
+            this.GBStokSayim.Controls.Add(this.LBStokSayimAciklama);
+            this.GBStokSayim.Controls.Add(this.LBSayimTarihi);
+            this.GBStokSayim.Controls.Add(this.TBAciklama);
+            this.GBStokSayim.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GBStokSayim.Location = new System.Drawing.Point(0, 0);
+            this.GBStokSayim.Name = "GBStokSayim";
+            this.GBStokSayim.Size = new System.Drawing.Size(837, 91);
+            this.GBStokSayim.TabIndex = 0;
+            this.GBStokSayim.TabStop = false;
+            this.GBStokSayim.Text = "Stok Sayım";
             // 
-            // BTSayimSil
+            // DEStokSayimTarihi
             // 
-            this.BTSayimSil.Location = new System.Drawing.Point(717, 28);
-            this.BTSayimSil.Name = "BTSayimSil";
-            this.BTSayimSil.Size = new System.Drawing.Size(96, 54);
-            this.BTSayimSil.TabIndex = 6;
-            this.BTSayimSil.Text = "Sil";
-            this.BTSayimSil.UseVisualStyleBackColor = true;
-            this.BTSayimSil.Click += new System.EventHandler(this.BTSayimSil_Click);
+            this.DEStokSayimTarihi.EditValue = new System.DateTime(2022, 11, 3, 0, 0, 0, 0);
+            this.DEStokSayimTarihi.Location = new System.Drawing.Point(90, 41);
+            this.DEStokSayimTarihi.Name = "DEStokSayimTarihi";
+            this.DEStokSayimTarihi.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.DEStokSayimTarihi.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.DEStokSayimTarihi.ShowToolTips = false;
+            this.DEStokSayimTarihi.Size = new System.Drawing.Size(150, 20);
+            this.DEStokSayimTarihi.TabIndex = 12;
+            this.DEStokSayimTarihi.EditValueChanged += new System.EventHandler(this.DEStokSayimTarihi_EditValueChanged);
             // 
-            // BTSayimGuncelle
+            // LBStokSayimAciklama
             // 
-            this.BTSayimGuncelle.Location = new System.Drawing.Point(615, 28);
-            this.BTSayimGuncelle.Name = "BTSayimGuncelle";
-            this.BTSayimGuncelle.Size = new System.Drawing.Size(96, 54);
-            this.BTSayimGuncelle.TabIndex = 5;
-            this.BTSayimGuncelle.Text = "Degistir";
-            this.BTSayimGuncelle.UseVisualStyleBackColor = true;
-            this.BTSayimGuncelle.Click += new System.EventHandler(this.BTSayimDuzenle_Click);
+            this.LBStokSayimAciklama.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBStokSayimAciklama.Appearance.Options.UseFont = true;
+            this.LBStokSayimAciklama.Location = new System.Drawing.Point(255, 43);
+            this.LBStokSayimAciklama.Name = "LBStokSayimAciklama";
+            this.LBStokSayimAciklama.Size = new System.Drawing.Size(46, 14);
+            this.LBStokSayimAciklama.TabIndex = 11;
+            this.LBStokSayimAciklama.Text = "Açıklama";
             // 
-            // BTSayimKaydet
+            // LBSayimTarihi
             // 
-            this.BTSayimKaydet.Location = new System.Drawing.Point(513, 28);
-            this.BTSayimKaydet.Name = "BTSayimKaydet";
-            this.BTSayimKaydet.Size = new System.Drawing.Size(96, 54);
-            this.BTSayimKaydet.TabIndex = 4;
-            this.BTSayimKaydet.Text = "Kaydet";
-            this.BTSayimKaydet.UseVisualStyleBackColor = true;
-            this.BTSayimKaydet.Click += new System.EventHandler(this.BTSayimKaydet_Click);
+            this.LBSayimTarihi.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBSayimTarihi.Appearance.Options.UseFont = true;
+            this.LBSayimTarihi.Location = new System.Drawing.Point(20, 43);
+            this.LBSayimTarihi.Name = "LBSayimTarihi";
+            this.LBSayimTarihi.Size = new System.Drawing.Size(64, 14);
+            this.LBSayimTarihi.TabIndex = 9;
+            this.LBSayimTarihi.Text = "Sayım Tarihi";
             // 
             // TBAciklama
             // 
-            this.TBAciklama.Location = new System.Drawing.Point(301, 45);
+            this.TBAciklama.Location = new System.Drawing.Point(307, 41);
+            this.TBAciklama.Multiline = true;
             this.TBAciklama.Name = "TBAciklama";
-            this.TBAciklama.Size = new System.Drawing.Size(154, 23);
+            this.TBAciklama.Size = new System.Drawing.Size(150, 20);
             this.TBAciklama.TabIndex = 3;
+            this.TBAciklama.TextChanged += new System.EventHandler(this.TBAciklama_TextChanged);
             // 
-            // label2
+            // BTStokSayimSil
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(239, 48);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 15);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Açıklama";
+            this.BTStokSayimSil.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTStokSayimSil.Appearance.Options.UseBackColor = true;
+            this.BTStokSayimSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTCariHareketSil.ImageOptions.Image")));
+            this.BTStokSayimSil.Location = new System.Drawing.Point(699, 22);
+            this.BTStokSayimSil.Name = "BTStokSayimSil";
+            this.BTStokSayimSil.Size = new System.Drawing.Size(94, 52);
+            this.BTStokSayimSil.TabIndex = 64;
+            this.BTStokSayimSil.Text = "Sil";
             // 
-            // label1
+            // BTStokSayimDegistir
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 48);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Sayım Tarihi";
+            this.BTStokSayimDegistir.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTStokSayimDegistir.Appearance.Options.UseBackColor = true;
+            this.BTStokSayimDegistir.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTCariHareketDegistir.ImageOptions.Image")));
+            this.BTStokSayimDegistir.Location = new System.Drawing.Point(599, 22);
+            this.BTStokSayimDegistir.Name = "BTStokSayimDegistir";
+            this.BTStokSayimDegistir.Size = new System.Drawing.Size(94, 52);
+            this.BTStokSayimDegistir.TabIndex = 63;
+            this.BTStokSayimDegistir.Text = "Değiştir";
             // 
-            // DTPSayimTarihi
+            // BTStokSayimKaydet
             // 
-            this.DTPSayimTarihi.EditValue = null;
-            this.DTPSayimTarihi.Location = new System.Drawing.Point(90, 43);
-            this.DTPSayimTarihi.Name = "DTPSayimTarihi";
-            this.DTPSayimTarihi.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.DTPSayimTarihi.Properties.DisplayFormat.FormatString = "d";
-            this.DTPSayimTarihi.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.DTPSayimTarihi.Properties.MaskSettings.Set("mask", "dd.MM.yyyy HH:mm");
-            this.DTPSayimTarihi.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.DTPSayimTarihi.Size = new System.Drawing.Size(143, 26);
-            this.DTPSayimTarihi.TabIndex = 8;
+            this.BTStokSayimKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTStokSayimKaydet.Appearance.Options.UseBackColor = true;
+            this.BTStokSayimKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTCariHareketKaydet.ImageOptions.Image")));
+            this.BTStokSayimKaydet.Location = new System.Drawing.Point(499, 22);
+            this.BTStokSayimKaydet.Name = "BTStokSayimKaydet";
+            this.BTStokSayimKaydet.Size = new System.Drawing.Size(94, 52);
+            this.BTStokSayimKaydet.TabIndex = 62;
+            this.BTStokSayimKaydet.Text = "Kaydet";
             // 
             // FStokSayim
             // 
@@ -192,12 +201,13 @@
             this.Load += new System.EventHandler(this.FStokSayim_Load);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GCStokSayim)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.panel2.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DTPSayimTarihi.Properties)).EndInit();
+            this.GBStokSayim.ResumeLayout(false);
+            this.GBStokSayim.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DEStokSayimTarihi.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DEStokSayimTarihi.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -207,15 +217,18 @@
         private Panel panel1;
         private Panel panel3;
         private Panel panel2;
-        private GroupBox groupBox1;
-        private Button BTSayimSil;
-        private Button BTSayimGuncelle;
-        private Button BTSayimKaydet;
+        private GroupBox GBStokSayim;
         private TextBox TBAciklama;
-        private Label label2;
-        private Label label1;
-        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.GridControl GCStokSayim;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraEditors.DateTimeOffsetEdit DTPSayimTarihi;
+        private DevExpress.XtraEditors.LabelControl LBSayimTarihi;
+        private DevExpress.XtraEditors.DateEdit DTStokSayimTarihi;
+        private DevExpress.XtraEditors.LabelControl LBStokSayimAciklama;
+        private DevExpress.XtraEditors.DateEdit DEStokSayimTarihi;
+        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.SimpleButton BTStokSayimSil;
+        private DevExpress.XtraEditors.SimpleButton BTStokSayimDegistir;
+        private DevExpress.XtraEditors.SimpleButton BTStokSayimKaydet;
     }
 }
