@@ -223,5 +223,14 @@ namespace MEYPAK.PRL.STOK
         }
         #endregion
 
+        private void labelControl1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void GBStokBilgi_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -58,7 +58,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="BTCariHareketKaydet.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="BTStokKartiKaydet.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAYAAAA6RwvCAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAu
         IgAALiIBquLdkgAAAkxJREFUWEftlUtIW0EUhkWpj5jER7q1LuymkEQoKhgihAoKIbhToemmhW5NCrqv
@@ -76,20 +76,21 @@
   </data>
   <data name="BTOlcuBirimiEkle.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAu
-        IgAALiIBquLdkgAAAjZJREFUSEu1kz1Im0EYxxWrxk+EWIyiRkzaxM1mSkHFD3DIVpUuiVM6iHVzaxzc
-        MplBDRSahELj1yooRPyCDC2koyYpumQwtlgiaEzEpKTvHzw47p44ncMP3vd3dxz3PM+/olQqPTukVA0p
-        VUNK1ZBSNaQsRzKZ7D0+PhqMRqP2y3T6JbWHgpQ8D/f5qqUl31x3t/G8Rlf30NnZldLrW39X1+qKoyOj
-        Ee3St9Q5HlIyioVC5dTkxEZbm+HC5/PN/b26amFriUTc7Ha7P+Niv9//gT8nQkqAF+ACh8Oxnclkmqk9
-        IBaL9ZtM5l/htfUpah2QEqBEeIF4wbdw+L32ile8i0Qiww2NTdlUKtXOe4YkGOgBSiR6u93+fWXVPyt6
-        m83245PHsyh6IAmAKUKt+R4wHi/5KPrlleUZi6XvRPRAEgBjiili/5ubW++s1r5ToJUlZzC0p/Hd/8b2
-        8/o604Q9+wf7QzW1ugI7wyMJgBxgTNm/VuuOQCDgCnwJuswm05nT6fyKb63Zk/+KhUrs2dndHa+vb8yy
-        MzySAAgacoAxFdfKlcvjWVgcGBg8FD2QBANBQw4kPza2FwqFpnmXvb2p017+JxgMunjPkAQDSUbzkQPe
-        53N31fw/8Hq981aL9TSfy70Q14AkeJBkBA05oNbxAlxgNPacxxPx19QeQEoeJBlBQw4wppgiNBk9QInw
-        gqcuAKQUQZIRNOQAY4opQpPRg3Il4iGlakipGlKqhpSqIaVaShX/AUNrzztb9/zDAAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAALiIAAC4iAari3ZIAAAI2SURBVEhLtZM9SJtBGMcVq8ZPhFiMokZM2sTNZkpBxQ9w
+        yFaVLolTOoh1c2sc3DKZQQ0UmoRC49cqKET8ggwtpKMmKbpkMLZYImhMxKSk7x88OO6eOJ3DD973d3cc
+        9zzPv6JUKj07pFQNKVVDStWQUjWkLEcymew9Pj4ajEaj9st0+iW1h4KUPA/3+aqlJd9cd7fxvEZX99DZ
+        2ZXS61t/V9fqiqMjoxHt0rfUOR5SMoqFQuXU5MRGW5vhwufzzf29umpha4lE3Ox2uz/jYr/f/4E/J0JK
+        gBfgAofDsZ3JZJqpPSAWi/WbTOZf4bX1KWodkBKgRHiBeMG3cPi99opXvItEIsMNjU3ZVCrVznuGJBjo
+        AUokervd/n1l1T8repvN9uOTx7MoeiAJgClCrfkeMB4v+Sj65ZXlGYul70T0QBIAY4opYv+bm1vvrNa+
+        U6CVJWcwtKfx3f/G9vP6OtOEPfsH+0M1tboCO8MjCYAcYEzZv1brjkAg4Ap8CbrMJtOZ0+n8im+t2ZP/
+        ioVK7NnZ3R2vr2/MsjM8kgAIGnKAMRXXypXL41lYHBgYPBQ9kAQDQUMOJD82thcKhaZ5l729qdNe/icY
+        DLp4z5AEA0lG85ED3udzd9X8P/B6vfNWi/U0n8u9ENeAJHiQZAQNOaDW8QJcYDT2nMcT8dfUHkBKHiQZ
+        QUMOMKaYIjQZPUCJ8IKnLgCkFEGSETTkAGOKKUKT0YNyJeIhpWpIqRpSqoaUqiGlWkoV/wFDa887W/f8
+        wwAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="simpleButton4.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="BTStokKartiRaporKodu9.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAu
         IgAALiIBquLdkgAAAiZJREFUSEu1lLFrU1EYxUuh1LooaCEgEmxFXOosJosGpItgO9R0qjRCpogk2FGt
@@ -104,7 +105,7 @@
         Chp7FeYFs/SrT61xSDFppJg0UkyWqOsv6p9Y9XcnPM4AAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="simpleButton5.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="BTStokKartiRaporKodu4.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAu
         IgAALiIBquLdkgAAAiZJREFUSEu1lLFrU1EYxUuh1LooaCEgEmxFXOosJosGpItgO9R0qjRCpogk2FGt
@@ -119,7 +120,7 @@
         Chp7FeYFs/SrT61xSDFppJg0UkyWqOsv6p9Y9XcnPM4AAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="simpleButton1.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="BTStokKartiRaporKodu6.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAu
         IgAALiIBquLdkgAAAiZJREFUSEu1lLFrU1EYxUuh1LooaCEgEmxFXOosJosGpItgO9R0qjRCpogk2FGt
@@ -134,7 +135,7 @@
         Chp7FeYFs/SrT61xSDFppJg0UkyWqOsv6p9Y9XcnPM4AAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="simpleButton2.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="BTStokKartiRaporKodu8.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAu
         IgAALiIBquLdkgAAAiZJREFUSEu1lLFrU1EYxUuh1LooaCEgEmxFXOosJosGpItgO9R0qjRCpogk2FGt
@@ -149,7 +150,7 @@
         Chp7FeYFs/SrT61xSDFppJg0UkyWqOsv6p9Y9XcnPM4AAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="simpleButton3.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="BTStokKartiRaporKodu1.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAu
         IgAALiIBquLdkgAAAiZJREFUSEu1lLFrU1EYxUuh1LooaCEgEmxFXOosJosGpItgO9R0qjRCpogk2FGt
@@ -164,7 +165,7 @@
         Chp7FeYFs/SrT61xSDFppJg0UkyWqOsv6p9Y9XcnPM4AAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="simpleButton6.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="BTStokKartiRaporKodu7.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAu
         IgAALiIBquLdkgAAAiZJREFUSEu1lLFrU1EYxUuh1LooaCEgEmxFXOosJosGpItgO9R0qjRCpogk2FGt
@@ -179,7 +180,7 @@
         Chp7FeYFs/SrT61xSDFppJg0UkyWqOsv6p9Y9XcnPM4AAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="simpleButton10.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="BTStokKartiRaporKodu5.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAu
         IgAALiIBquLdkgAAAiZJREFUSEu1lLFrU1EYxUuh1LooaCEgEmxFXOosJosGpItgO9R0qjRCpogk2FGt
@@ -194,7 +195,7 @@
         Chp7FeYFs/SrT61xSDFppJg0UkyWqOsv6p9Y9XcnPM4AAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="simpleButton11.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="BTStokKartiRaporKodu3.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAu
         IgAALiIBquLdkgAAAiZJREFUSEu1lLFrU1EYxUuh1LooaCEgEmxFXOosJosGpItgO9R0qjRCpogk2FGt
@@ -209,7 +210,7 @@
         Chp7FeYFs/SrT61xSDFppJg0UkyWqOsv6p9Y9XcnPM4AAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="simpleButton12.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="BTStokKartiRaporKodu2.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAu
         IgAALiIBquLdkgAAAiZJREFUSEu1lLFrU1EYxUuh1LooaCEgEmxFXOosJosGpItgO9R0qjRCpogk2FGt
