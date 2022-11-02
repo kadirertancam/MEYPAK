@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.PocoModels.STOK;
+using DevExpress.XtraEditors;
 
 namespace MEYPAK.PRL.STOK
 {
@@ -30,23 +31,19 @@ namespace MEYPAK.PRL.STOK
         FSayimIsle fSayimIsle;
         private void FSayimList_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = _stokSayimServis.obje;
+            DGSayimList.DataSource = _stokSayimServis.obje;
             fSayimIsle = (FSayimIsle)Application.OpenForms["FSayimIsle"];
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            DateTime dt = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells["SAYIMTARIHI"].Value.ToString());
-            string aciklama = dataGridView1.Rows[e.RowIndex].Cells["ACIKLAMA"].Value.ToString();
+            DateTime dt = Convert.ToDateTime(DGSayimList.Rows[e.RowIndex].Cells["SAYIMTARIHI"].Value.ToString());
+            string aciklama = DGSayimList.Rows[e.RowIndex].Cells["ACIKLAMA"].Value.ToString();
             fSayimIsle._tempSayim = _stokSayimServis.obje.Where(x => x.ACIKLAMA== aciklama.ToString() ).FirstOrDefault();
-            fSayimIsle._id = int.Parse(dataGridView1.Rows[e.RowIndex].Cells["id"].Value.ToString());
+            fSayimIsle._id = int.Parse(DGSayimList.Rows[e.RowIndex].Cells["id"].Value.ToString());
             this.Close();
         }
 
-       
-        private void lookUpEdit1_EditValueChanged_1(object sender, EventArgs e)
-        {
-           
-        }
+        
     }
 }

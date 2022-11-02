@@ -36,7 +36,7 @@ namespace MEYPAK.PRL.STOK
         private void button2_Click(object sender, EventArgs e)
         {
             _stokSayimServis.Data(ServisList.StokSayimListeServis);
-            foreach (var item in _stokSayimServis.obje.Where(x=>x.SAYIMTARIHI==dateTimePicker1.Value && x.ACIKLAMA==textBox1.Text))
+            foreach (var item in _stokSayimServis.obje.Where(x=>x.SAYIMTARIHI==dateTimePicker1.Value && x.ACIKLAMA==TBSayimAciklama.Text))
             { 
                 foreach (var item2 in item.MPSTOKSAYIMHAR)
                 {
@@ -69,7 +69,7 @@ namespace MEYPAK.PRL.STOK
             fSayimList.ShowDialog();
             if (_tempSayim != null)
             {
-                textBox1.Text = _tempSayim.ACIKLAMA;
+                TBSayimAciklama.Text = _tempSayim.ACIKLAMA;
                 dateTimePicker1.Value = _tempSayim.SAYIMTARIHI;
             }
 
@@ -80,7 +80,7 @@ namespace MEYPAK.PRL.STOK
             _stokSayimServis.Data(ServisList.StokSayimListeServis);
             _stokHarServis.Data(ServisList.StokHarListeServis);
 
-            foreach (var item2 in _stokSayimServis.obje.Where(x => x.SAYIMTARIHI == dateTimePicker1.Value && x.ACIKLAMA == textBox1.Text).FirstOrDefault().MPSTOKSAYIMHAR)
+            foreach (var item2 in _stokSayimServis.obje.Where(x => x.SAYIMTARIHI == dateTimePicker1.Value && x.ACIKLAMA == TBSayimAciklama.Text).FirstOrDefault().MPSTOKSAYIMHAR)
             {
                 var _temp = _stokHarServis.obje.Where(x => x.stokid == item2.STOKID && x.sayimid == item2.id).ToList();
                 if(_temp.Count() > 0)
@@ -93,5 +93,7 @@ namespace MEYPAK.PRL.STOK
 
 
         }
+
+       
     } 
 }

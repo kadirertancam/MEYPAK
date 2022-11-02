@@ -28,63 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FSayimIsle));
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.LBSayimAciklama = new DevExpress.XtraEditors.LabelControl();
+            this.TBSayimAciklama = new DevExpress.XtraEditors.TextEdit();
+            this.LBSayimTarihi = new DevExpress.XtraEditors.LabelControl();
+            this.LBDurumu = new DevExpress.XtraEditors.LabelControl();
+            this.BTSayimİsleSec = new DevExpress.XtraEditors.SimpleButton();
+            this.BTSayimIsle = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            ((System.ComponentModel.ISupportInitialize)(this.TBSayimAciklama.Properties)).BeginInit();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(252, 123);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(101, 35);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Kaldır";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(145, 123);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(101, 35);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "İşle";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(109, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(211, 23);
-            this.textBox1.TabIndex = 1;
-            // 
-            // button3
-            // 
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(316, 12);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(37, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Seç";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 15);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Sayım Açıklama";
             // 
             // dateTimePicker1
             // 
@@ -92,24 +47,6 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 23);
             this.dateTimePicker1.TabIndex = 4;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 56);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 15);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Sayım Tarihi";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 85);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(51, 15);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Durumu";
             // 
             // label4
             // 
@@ -120,37 +57,118 @@
             this.label4.Size = new System.Drawing.Size(0, 15);
             this.label4.TabIndex = 7;
             // 
+            // LBSayimAciklama
+            // 
+            this.LBSayimAciklama.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBSayimAciklama.Appearance.Options.UseFont = true;
+            this.LBSayimAciklama.Location = new System.Drawing.Point(12, 16);
+            this.LBSayimAciklama.Name = "LBSayimAciklama";
+            this.LBSayimAciklama.Size = new System.Drawing.Size(81, 14);
+            this.LBSayimAciklama.TabIndex = 8;
+            this.LBSayimAciklama.Text = "Sayım Açıklama";
+            // 
+            // TBSayimAciklama
+            // 
+            this.TBSayimAciklama.Location = new System.Drawing.Point(109, 10);
+            this.TBSayimAciklama.Name = "TBSayimAciklama";
+            this.TBSayimAciklama.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.TBSayimAciklama.Size = new System.Drawing.Size(200, 26);
+            this.TBSayimAciklama.TabIndex = 34;
+            // 
+            // LBSayimTarihi
+            // 
+            this.LBSayimTarihi.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBSayimTarihi.Appearance.Options.UseFont = true;
+            this.LBSayimTarihi.Location = new System.Drawing.Point(12, 55);
+            this.LBSayimTarihi.Name = "LBSayimTarihi";
+            this.LBSayimTarihi.Size = new System.Drawing.Size(64, 14);
+            this.LBSayimTarihi.TabIndex = 35;
+            this.LBSayimTarihi.Text = "Sayım Tarihi";
+            // 
+            // LBDurumu
+            // 
+            this.LBDurumu.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBDurumu.Appearance.Options.UseFont = true;
+            this.LBDurumu.Location = new System.Drawing.Point(12, 95);
+            this.LBDurumu.Name = "LBDurumu";
+            this.LBDurumu.Size = new System.Drawing.Size(43, 14);
+            this.LBDurumu.TabIndex = 36;
+            this.LBDurumu.Text = "Durumu";
+            // 
+            // BTSayimİsleSec
+            // 
+            this.BTSayimİsleSec.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTSayimİsleSec.Appearance.BackColor2 = System.Drawing.Color.Black;
+            this.BTSayimİsleSec.Appearance.BorderColor = System.Drawing.Color.Black;
+            this.BTSayimİsleSec.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.BTSayimİsleSec.Appearance.Options.UseBackColor = true;
+            this.BTSayimİsleSec.Appearance.Options.UseBorderColor = true;
+            this.BTSayimİsleSec.Appearance.Options.UseFont = true;
+            this.BTSayimİsleSec.Appearance.Options.UseForeColor = true;
+            this.BTSayimİsleSec.AppearanceDisabled.BorderColor = System.Drawing.Color.Black;
+            this.BTSayimİsleSec.AppearanceDisabled.Options.UseBorderColor = true;
+            this.BTSayimİsleSec.AppearanceHovered.BorderColor = System.Drawing.Color.Black;
+            this.BTSayimİsleSec.AppearanceHovered.Options.UseBorderColor = true;
+            this.BTSayimİsleSec.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTSayimİsleSec.ImageOptions.Image")));
+            this.BTSayimİsleSec.Location = new System.Drawing.Point(250, 10);
+            this.BTSayimİsleSec.Name = "BTSayimİsleSec";
+            this.BTSayimİsleSec.Size = new System.Drawing.Size(59, 26);
+            this.BTSayimİsleSec.TabIndex = 60;
+            this.BTSayimİsleSec.Text = "Seç";
+            // 
+            // BTSayimIsle
+            // 
+            this.BTSayimIsle.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.BTSayimIsle.Appearance.Options.UseBackColor = true;
+            this.BTSayimIsle.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.BTSayimIsle.Location = new System.Drawing.Point(145, 123);
+            this.BTSayimIsle.Name = "BTSayimIsle";
+            this.BTSayimIsle.Size = new System.Drawing.Size(101, 35);
+            this.BTSayimIsle.TabIndex = 61;
+            this.BTSayimIsle.Text = "İşle";
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.simpleButton1.Appearance.Options.UseBackColor = true;
+            this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image1")));
+            this.simpleButton1.Location = new System.Drawing.Point(252, 123);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(101, 35);
+            this.simpleButton1.TabIndex = 62;
+            this.simpleButton1.Text = "Kaldır";
+            // 
             // FSayimIsle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(384, 170);
+            this.Controls.Add(this.simpleButton1);
+            this.Controls.Add(this.BTSayimIsle);
+            this.Controls.Add(this.BTSayimİsleSec);
+            this.Controls.Add(this.LBDurumu);
+            this.Controls.Add(this.LBSayimTarihi);
+            this.Controls.Add(this.TBSayimAciklama);
+            this.Controls.Add(this.LBSayimAciklama);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
             this.Name = "FSayimIsle";
             this.Text = "FSayimIsle";
+            ((System.ComponentModel.ISupportInitialize)(this.TBSayimAciklama.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private Button button1;
-        private Button button2;
-        private TextBox textBox1;
-        private Button button3;
-        private Label label1;
         private DateTimePicker dateTimePicker1;
-        private Label label2;
-        private Label label3;
         private Label label4;
+        private DevExpress.XtraEditors.LabelControl LBSayimAciklama;
+        private DevExpress.XtraEditors.TextEdit TBSayimAciklama;
+        private DevExpress.XtraEditors.LabelControl LBSayimTarihi;
+        private DevExpress.XtraEditors.LabelControl LBDurumu;
+        private DevExpress.XtraEditors.SimpleButton BTSayimİsleSec;
+        private DevExpress.XtraEditors.SimpleButton BTSayimIsle;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
     }
 }
