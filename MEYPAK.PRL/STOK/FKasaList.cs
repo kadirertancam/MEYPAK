@@ -34,7 +34,7 @@ namespace MEYPAK.PRL.STOK
         
         private void FKasaList_Load(object sender, EventArgs e)
         {   _kasaServis.Data(ServisList.StokKasaListeServis);
-            gridControl1.DataSource = _kasaServis.obje.Where(x=>x.kayittipi==0).Select(x=> new { x.id,x.KASAADI});
+            GCKasaList.DataSource = _kasaServis.obje.Where(x=>x.kayittipi==0).Select(x=> new { x.id,x.KASAADI});
             fStokKart = (FStokKart)Application.OpenForms["FStokKart"];
             fSiparis = (FMusteriSiparis)Application.OpenForms["FMusteriSiparis"];
             fSatınAlmaSiparis = (FSatınAlmaSiparis)Application.OpenForms["FSatınAlmaSiparis"];

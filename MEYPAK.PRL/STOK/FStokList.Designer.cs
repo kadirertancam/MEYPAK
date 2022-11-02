@@ -34,9 +34,9 @@
             this.GCStokList = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.TSStokList = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.TSDuzenle = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.TSEkle = new System.Windows.Forms.ToolStripButton();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GCStokList)).BeginInit();
@@ -87,9 +87,9 @@
             // TSStokList
             // 
             this.TSStokList.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
+            this.TSDuzenle,
             this.toolStripSeparator1,
-            this.toolStripButton2});
+            this.TSEkle});
             this.TSStokList.Location = new System.Drawing.Point(0, 0);
             this.TSStokList.Name = "TSStokList";
             this.TSStokList.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -97,28 +97,28 @@
             this.TSStokList.TabIndex = 1;
             this.TSStokList.Text = "toolStrip1";
             // 
-            // toolStripButton1
+            // TSDuzenle
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "toolStripButton1";
+            this.TSDuzenle.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.TSDuzenle.Image = ((System.Drawing.Image)(resources.GetObject("TSDuzenle.Image")));
+            this.TSDuzenle.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TSDuzenle.Name = "TSDuzenle";
+            this.TSDuzenle.Size = new System.Drawing.Size(23, 22);
+            this.TSDuzenle.Text = "toolStripButton1";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
-            // toolStripButton2
+            // TSEkle
             // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton2.Text = "toolStripButton2";
+            this.TSEkle.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.TSEkle.Image = ((System.Drawing.Image)(resources.GetObject("TSEkle.Image")));
+            this.TSEkle.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TSEkle.Name = "TSEkle";
+            this.TSEkle.Size = new System.Drawing.Size(23, 22);
+            this.TSEkle.Text = "toolStripButton2";
             // 
             // FStokList
             // 
@@ -144,9 +144,9 @@
         private Panel panel1;
         private Panel panel2;
         private ToolStrip TSStokList;
-        private ToolStripButton toolStripButton1;
+        private ToolStripButton TSDuzenle;
         private ToolStripSeparator toolStripSeparator1;
-        private ToolStripButton toolStripButton2;
+        private ToolStripButton TSEkle;
         private DevExpress.XtraGrid.GridControl GCStokList;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
     }

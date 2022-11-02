@@ -72,7 +72,7 @@ namespace MEYPAK.PRL.STOK
             {
                 PocoSTOKKATEGORI mPKATEGORI = new PocoSTOKKATEGORI()
                 {
-                    Acıklama = TBAcıklama.Text,
+                    Acıklama = TBAciklama.Text,
                     UstId = Convert.ToInt32(treeView1.SelectedNode.Name.ToString())
 
                 };
@@ -91,11 +91,11 @@ namespace MEYPAK.PRL.STOK
 
         private void BTNYeniKategori_Click(object sender, EventArgs e)
         {
-            if (TBAcıklama.Text != null && TBAcıklama.Text != "")
+            if (TBAciklama.Text != null && TBAciklama.Text != "")
             {
                 PocoSTOKKATEGORI mPKATEGORI = new PocoSTOKKATEGORI()
                 {
-                    Acıklama = TBAcıklama.Text,
+                    Acıklama = TBAciklama.Text,
                     UstId = 0
                 };
                 _kategoriServis.Data(ServisList.StokKategoriEkleServis, mPKATEGORI);

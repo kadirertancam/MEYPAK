@@ -28,14 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FKategoriList));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.BTNAltKategoriEkle = new System.Windows.Forms.Button();
-            this.BTNYeniKategori = new System.Windows.Forms.Button();
-            this.TBAcıklama = new System.Windows.Forms.TextBox();
             this.treeView1 = new System.Windows.Forms.TreeView();
+            this.TBKategoriList = new DevExpress.XtraEditors.TextEdit();
+            this.BTNAltKategoriEkle = new DevExpress.XtraEditors.SimpleButton();
+            this.BTNYeniKategori = new DevExpress.XtraEditors.SimpleButton();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TBKategoriList.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -51,40 +53,13 @@
             // 
             this.panel2.Controls.Add(this.BTNAltKategoriEkle);
             this.panel2.Controls.Add(this.BTNYeniKategori);
-            this.panel2.Controls.Add(this.TBAcıklama);
+            this.panel2.Controls.Add(this.TBKategoriList);
             this.panel2.Controls.Add(this.treeView1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(800, 450);
             this.panel2.TabIndex = 2;
-            // 
-            // BTNAltKategoriEkle
-            // 
-            this.BTNAltKategoriEkle.Location = new System.Drawing.Point(235, 59);
-            this.BTNAltKategoriEkle.Name = "BTNAltKategoriEkle";
-            this.BTNAltKategoriEkle.Size = new System.Drawing.Size(126, 23);
-            this.BTNAltKategoriEkle.TabIndex = 5;
-            this.BTNAltKategoriEkle.Text = "Alt Kategori Ekle";
-            this.BTNAltKategoriEkle.UseVisualStyleBackColor = true;
-            this.BTNAltKategoriEkle.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // BTNYeniKategori
-            // 
-            this.BTNYeniKategori.Location = new System.Drawing.Point(235, 12);
-            this.BTNYeniKategori.Name = "BTNYeniKategori";
-            this.BTNYeniKategori.Size = new System.Drawing.Size(126, 23);
-            this.BTNYeniKategori.TabIndex = 3;
-            this.BTNYeniKategori.Text = "Yeni Kategori Ekle";
-            this.BTNYeniKategori.UseVisualStyleBackColor = true;
-            this.BTNYeniKategori.Click += new System.EventHandler(this.BTNYeniKategori_Click);
-            // 
-            // TBAcıklama
-            // 
-            this.TBAcıklama.Location = new System.Drawing.Point(50, 33);
-            this.TBAcıklama.Name = "TBAcıklama";
-            this.TBAcıklama.Size = new System.Drawing.Size(158, 23);
-            this.TBAcıklama.TabIndex = 1;
             // 
             // treeView1
             // 
@@ -97,6 +72,38 @@
             this.treeView1.DoubleClick += new System.EventHandler(this.treeView1_DoubleClick);
             this.treeView1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.treeView1_KeyPress);
             // 
+            // TBKategoriList
+            // 
+            this.TBKategoriList.Location = new System.Drawing.Point(48, 39);
+            this.TBKategoriList.Name = "TBKategoriList";
+            this.TBKategoriList.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TBKategoriList.Properties.Appearance.Options.UseFont = true;
+            this.TBKategoriList.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.TBKategoriList.Size = new System.Drawing.Size(194, 26);
+            this.TBKategoriList.TabIndex = 20;
+            // 
+            // BTNAltKategoriEkle
+            // 
+            this.BTNAltKategoriEkle.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTNAltKategoriEkle.Appearance.Options.UseBackColor = true;
+            this.BTNAltKategoriEkle.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTStokHarSil.ImageOptions.Image")));
+            this.BTNAltKategoriEkle.Location = new System.Drawing.Point(265, 56);
+            this.BTNAltKategoriEkle.Name = "BTNAltKategoriEkle";
+            this.BTNAltKategoriEkle.Size = new System.Drawing.Size(163, 32);
+            this.BTNAltKategoriEkle.TabIndex = 78;
+            this.BTNAltKategoriEkle.Text = "Alt Kategori Ekle";
+            // 
+            // BTNYeniKategori
+            // 
+            this.BTNYeniKategori.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTNYeniKategori.Appearance.Options.UseBackColor = true;
+            this.BTNYeniKategori.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTStokHarDegistir.ImageOptions.Image")));
+            this.BTNYeniKategori.Location = new System.Drawing.Point(265, 12);
+            this.BTNYeniKategori.Name = "BTNYeniKategori";
+            this.BTNYeniKategori.Size = new System.Drawing.Size(163, 32);
+            this.BTNYeniKategori.TabIndex = 77;
+            this.BTNYeniKategori.Text = "Yeni Kategori Ekle";
+            // 
             // FKategoriList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -104,11 +111,11 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panel1);
             this.Name = "FKategoriList";
-            this.Text = "FStokList";
+            this.Text = "FKategoriList";
             this.Load += new System.EventHandler(this.FKategoriList_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TBKategoriList.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -117,8 +124,8 @@
         private Panel panel1;
         private Panel panel2;
         private TreeView treeView1;
-        private Button BTNAltKategoriEkle;
-        private Button BTNYeniKategori;
-        private TextBox TBAcıklama;
+        private DevExpress.XtraEditors.TextEdit TBKategoriList;
+        private DevExpress.XtraEditors.SimpleButton BTNAltKategoriEkle;
+        private DevExpress.XtraEditors.SimpleButton BTNYeniKategori;
     }
 }
