@@ -90,13 +90,13 @@ namespace MEYPAK.API.Controllers.STOK
             }
         }
 
-        [HttpDelete]
+        [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult DeleteById([FromBody]int id)
+        public IActionResult DeleteById([FromQuery]string id)
         {
             try
             {
-               bool succes = _stokServis.DeleteById(id);
+                bool succes = _stokServis.DeleteById(Convert.ToInt32(id));
                 if (succes)
                 return Ok(id +" Başarıyla Silindi");
                 else

@@ -97,7 +97,7 @@ namespace MEYPAK.PRL.DEPO
             comboBox1.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             comboBox1.AutoCompleteSource = AutoCompleteSource.ListItems;
             comboBox1.DisplayMember = "KOD";
-            comboBox1.ValueMember = "ID";
+            comboBox1.ValueMember = "id";
             comboBox1.DataSource = _tempStok.Select(x => new { KOD = x.kod, ID = x.id }).ToList(); 
 
             //comboBox1.AutoCompleteCustomSource=(_tempStok.Select(x=> new { x.KOD,x.ID }).ToArray()); 

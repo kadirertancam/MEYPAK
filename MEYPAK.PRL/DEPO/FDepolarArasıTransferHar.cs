@@ -46,10 +46,10 @@ namespace MEYPAK.PRL.DEPO
         {
             if (_arasıtransfer != null)
             {
-                TBCikisDepo.Text = _depoServis.Getir(x => x.ID == _arasıtransfer.CIKTIDEPOID).FirstOrDefault().DEPOADI;
-                TBHedefDepo.Text = _depoServis.Getir(x => x.ID == _arasıtransfer.HEDEFDEPOID).FirstOrDefault().DEPOADI;
+                TBCikisDepo.Text = _depoServis.Getir(x => x.id == _arasıtransfer.CIKTIDEPOID).FirstOrDefault().DEPOADI;
+                TBHedefDepo.Text = _depoServis.Getir(x => x.id == _arasıtransfer.HEDEFDEPOID).FirstOrDefault().DEPOADI;
                 TBDurum.Text = _arasıtransfer.DURUM.ToString();
-                DTPOlusturmaTarihi.Value = _arasıtransfer.OLUSTURMATARIHI;
+                DTPOlusturmaTarihi.Value = _arasıtransfer.olusturmatarihi;
             }
             if (_tempStok != null)
             {
@@ -62,8 +62,8 @@ namespace MEYPAK.PRL.DEPO
         {
             if (_arasıtransfer != null)
             {
-                GCTransferHar.DataSource = "";
-                GCTransferHar.DataSource = _depoTransferHarServis.Getir(x => x.DEPOTRANSFERID == _arasıtransfer.ID);
+                dataGridView1.DataSource = "";
+                dataGridView1.DataSource = _depoTransferHarServis.Getir(x => x.DEPOTRANSFERID == _arasıtransfer.id);
             }
 
         }
@@ -74,9 +74,9 @@ namespace MEYPAK.PRL.DEPO
             {
                 _depoTransferHarServis.Ekle(new PocoDEPOTRANSFERHAR
                 {
-                    DEPOTRANSFERID = _arasıtransfer.ID,
-                    OLUSTURMATARIHI = DateTime.Now,
-                    GUNCELLEMETARIHI = DateTime.Now,
+                    DEPOTRANSFERID = _arasıtransfer.id,
+                    olusturmatarihi = DateTime.Now,
+                    guncellemetarihi = DateTime.Now,
                     STOKID = _tempStok.id,
                     MIKTAR = Convert.ToInt32(TBMiktar.Text),
                     DONEM = DateTime.Now.ToString("yyyy"),
@@ -106,7 +106,7 @@ namespace MEYPAK.PRL.DEPO
 
         private void button4_Click(object sender, EventArgs e)
         {
-            _depoTransferHarServis.Sil(_depoTransferHarServis.Getir(x => x.ID == Convert.ToInt32(gridView1.GetFocusedRowCellValue("id"))));
+            _depoTransferHarServis.Sil(_depoTransferHarServis.Getir(x => x.id == Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value)));
         }
 
         private void TBMiktar_KeyPress(object sender, KeyPressEventArgs e)

@@ -75,6 +75,7 @@
             this.barButtonItem28 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem29 = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItem15 = new DevExpress.XtraBars.BarSubItem();
+            this.barSubItem16 = new DevExpress.XtraBars.BarSubItem();
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.barHeaderItem1 = new DevExpress.XtraBars.BarHeaderItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
@@ -126,6 +127,17 @@
             this.accordionControlElement27 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
             this.applicationMenu1 = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
+            this.barSubItem17 = new DevExpress.XtraBars.BarSubItem();
+            this.barSubItem18 = new DevExpress.XtraBars.BarSubItem();
+            this.barSubItem19 = new DevExpress.XtraBars.BarSubItem();
+            this.barButtonItem30 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem31 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem32 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem33 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem34 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem35 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem36 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem37 = new DevExpress.XtraBars.BarButtonItem();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -264,8 +276,20 @@
             this.barButtonItem27,
             this.barButtonItem28,
             this.barButtonItem29,
-            this.barHeaderItem1});
-            this.barManager1.MaxItemId = 55;
+            this.barHeaderItem1,
+            this.barSubItem16,
+            this.barSubItem17,
+            this.barSubItem18,
+            this.barSubItem19,
+            this.barButtonItem30,
+            this.barButtonItem31,
+            this.barButtonItem32,
+            this.barButtonItem33,
+            this.barButtonItem34,
+            this.barButtonItem35,
+            this.barButtonItem36,
+            this.barButtonItem37});
+            this.barManager1.MaxItemId = 67;
             this.barManager1.StatusBar = this.bar2;
             // 
             // bar1
@@ -284,7 +308,8 @@
             this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem1, true),
             new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem8),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem12)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem12),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem16)});
             this.bar1.Text = "Custom 2";
             // 
             // barSubItem1
@@ -545,6 +570,18 @@
             this.barSubItem15.Caption = "Raporlar";
             this.barSubItem15.Id = 38;
             this.barSubItem15.Name = "barSubItem15";
+            // 
+            // barSubItem16
+            // 
+            this.barSubItem16.Caption = "Parametreler";
+            this.barSubItem16.Id = 55;
+            this.barSubItem16.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem17),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem18),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem19),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem30),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem37)});
+            this.barSubItem16.Name = "barSubItem16";
             // 
             // bar2
             // 
@@ -950,6 +987,81 @@
             // 
             this.applicationMenu1.Name = "applicationMenu1";
             // 
+            // barSubItem17
+            // 
+            this.barSubItem17.Caption = "Stok Parametreleri";
+            this.barSubItem17.Id = 56;
+            this.barSubItem17.Name = "barSubItem17";
+            // 
+            // barSubItem18
+            // 
+            this.barSubItem18.Caption = "Cari Parametreleri";
+            this.barSubItem18.Id = 57;
+            this.barSubItem18.Name = "barSubItem18";
+            // 
+            // barSubItem19
+            // 
+            this.barSubItem19.Caption = "Fatura Parametreleri";
+            this.barSubItem19.Id = 58;
+            this.barSubItem19.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem31),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem32),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem33),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem34),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem35),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem36)});
+            this.barSubItem19.Name = "barSubItem19";
+            // 
+            // barButtonItem30
+            // 
+            this.barButtonItem30.Caption = "Parametreler";
+            this.barButtonItem30.Id = 59;
+            this.barButtonItem30.Name = "barButtonItem30";
+            // 
+            // barButtonItem31
+            // 
+            this.barButtonItem31.Caption = "Satış Fatura";
+            this.barButtonItem31.Id = 60;
+            this.barButtonItem31.Name = "barButtonItem31";
+            // 
+            // barButtonItem32
+            // 
+            this.barButtonItem32.Caption = "Alış Fatura";
+            this.barButtonItem32.Id = 61;
+            this.barButtonItem32.Name = "barButtonItem32";
+            // 
+            // barButtonItem33
+            // 
+            this.barButtonItem33.Caption = "Satış İrsaliye";
+            this.barButtonItem33.Id = 62;
+            this.barButtonItem33.Name = "barButtonItem33";
+            // 
+            // barButtonItem34
+            // 
+            this.barButtonItem34.Caption = "Alış İrsaliye";
+            this.barButtonItem34.Id = 63;
+            this.barButtonItem34.Name = "barButtonItem34";
+            // 
+            // barButtonItem35
+            // 
+            this.barButtonItem35.Caption = "Müşteri Sipariş";
+            this.barButtonItem35.Id = 64;
+            this.barButtonItem35.Name = "barButtonItem35";
+            this.barButtonItem35.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem35_ItemClick);
+            // 
+            // barButtonItem36
+            // 
+            this.barButtonItem36.Caption = "Satınalma Sipariş";
+            this.barButtonItem36.Id = 65;
+            this.barButtonItem36.Name = "barButtonItem36";
+            // 
+            // barButtonItem37
+            // 
+            this.barButtonItem37.Caption = "Para Birimi";
+            this.barButtonItem37.Id = 66;
+            this.barButtonItem37.Name = "barButtonItem37";
+            this.barButtonItem37.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem37_ItemClick);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1072,5 +1184,17 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement34;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement32;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement33;
+        private DevExpress.XtraBars.BarSubItem barSubItem16;
+        private DevExpress.XtraBars.BarSubItem barSubItem17;
+        private DevExpress.XtraBars.BarSubItem barSubItem18;
+        private DevExpress.XtraBars.BarSubItem barSubItem19;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem31;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem32;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem33;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem34;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem35;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem36;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem30;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem37;
     }
 }

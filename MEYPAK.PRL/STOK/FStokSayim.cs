@@ -54,9 +54,9 @@ namespace MEYPAK.PRL.STOK
             _stokSayimServis.Data(ServisList.StokSayimListeServis);
             GCStokSayim.DataSource = _stokSayimServis.obje;
 
-            stokSayimPanel.sayimId = _stokSayimServis.obje.Where(x => x.ACIKLAMA == TBAciklama.Text ).FirstOrDefault().ID;
-            TBAciklama.Text = "";
-            DEStokSayimTarihi.EditValue = DateTime.Now;
+            stokSayimPanel.sayimId = _stokSayimServis.obje.Where(x => x.ACIKLAMA == TBAciklama.Text ).FirstOrDefault().id;
+                TBAciklama.Text = "";
+            DTPSayimTarihi.EditValue = DateTime.Now;
             stokSayimPanel.ShowDialog();
 
         }
@@ -69,7 +69,7 @@ namespace MEYPAK.PRL.STOK
             gridView1.Columns["FIRMAID"].Visible = false;
             gridView1.Columns["SUBEID"].Visible = false;
             gridView1.Columns["DEPOID"].Visible = false;
-            gridView1.Columns["ID"].Visible = false; 
+            gridView1.Columns["id"].Visible = false; 
             gridView1.Columns["KAYITTIPI"].Visible = false; 
             gridView1.Columns["ESKIID"].Visible = false; 
             gridView1.Columns["OLUSTURMATARIHI"].Visible = false; 
@@ -81,20 +81,20 @@ namespace MEYPAK.PRL.STOK
         {
             TBAciklama.Text = gridView1.GetFocusedRowCellValue("ACIKLAMA").ToString();
             DTPSayimTarihi.EditValue = Convert.ToDateTime(gridView1.GetFocusedRowCellValue("SAYIMTARIHI"));
-            _tempId = Convert.ToInt32(gridView1.GetFocusedRowCellValue("ID"));
+            _tempId = Convert.ToInt32(gridView1.GetFocusedRowCellValue("id"));
         }
 
         private void BTSayimDuzenle_Click(object sender, EventArgs e)
         {
             stokSayimPanel = new FStokSayimPanel("düzenle");
             var a = _stokSayimHarServis.obje.Where(x => x.STOKSAYIMID == _tempId);
-            stokSayimPanel._tempStokSayimHarList = a.Select(x=> new Entity.PocoModels.PocoStokSayimPanelList() { StokAdı=x.MPSTOK.adi,StokKodu=x.MPSTOK.kod,Birim=x.MPOLCUBR.ADI,Fiyat=x.FIYAT,Miktar=x.MIKTAR}).ToList();
+            stokSayimPanel._tempStokSayimHarList = a.Select(x=> new Entity.PocoModels.PocoStokSayimPanelList() { StokAdı=x.MPSTOK.adi,StokKodu=x.MPSTOK.kod,Birim=x.MPOLCUBR.adi,Fiyat=x.FIYAT,Miktar=x.MIKTAR}).ToList();
             stokSayimPanel.ShowDialog();
         }
 
         private void BTSayimSil_Click(object sender, EventArgs e)
         {
-            _stokSayimServis.Data(ServisList.StokSayimSilServis,null,null,(_stokSayimServis.obje.Where(x => x.ID== Convert.ToInt32(gridView1.GetFocusedRowCellValue("ID").ToString()))).ToList());
+            _stokSayimServis.Data(ServisList.StokSayimSilServis,null,null,(_stokSayimServis.obje.Where(x => x.id== Convert.ToInt32(gridView1.GetFocusedRowCellValue("id").ToString()))).ToList());
             _stokSayimServis.Data(ServisList.StokSayimListeServis);
             GCStokSayim.DataSource = _stokSayimServis.obje;
         }

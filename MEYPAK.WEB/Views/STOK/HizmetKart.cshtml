@@ -1,57 +1,99 @@
-﻿@using MEYPAK.Entity.PocoModels.STOK
-@model List<PocoHIZMET>
+﻿@using DevExtreme.AspNet.Mvc
+@using MEYPAK.Entity.PocoModels.STOK
+<div class="menu-container dx-swatch-additional">
 
 
 
+    <div id="data-grid-demo">
+        @(
+            Html.DevExtreme().DataGrid<PocoHIZMET>()
+            .ID("gridContainer")
+            .ShowBorders(true)
+
+            .Paging(p => p.Enabled(true))
+            .Editing(e => e.Mode(GridEditMode.Popup)
+            .AllowUpdating(true)
+            .AllowAdding(true)
+            .AllowDeleting(true)
+            .Popup(p => p
+            .Title("Stok Kart")
+            .ShowTitle(true)
+            .Width(700)
+            .Height(525)
+            )
+            .Form(f => f.Items(items =>
+            {
+                items.AddGroup()
+                .ColCount(2)
+                .ColSpan(2)
+                .Items(groupItems =>
+                {
 
 
-<div class="content mt-3">
-    <div class="animated fadeIn">
-        <div class="row">
+                    groupItems.AddSimpleFor(m => m.adi);
+                    groupItems.AddSimpleFor(m => m.kod);
+                    groupItems.AddSimpleFor(m => m.kategoriid);
+                    groupItems.AddSimpleFor(m => m.grupkodu);
+                    groupItems.AddSimpleFor(m => m.donem);
 
-            <div class="col-lg-6">
-                <div class="card">
-                    <div class="card-header">
-                        <strong class="card-title">Stok Listesi</strong>
-                    </div>
-                    <div class="card-body">
-                        <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
-                            <thead class="thead-dark">
-                                <tr>
-                                    @{
-                                        PocoHIZMET aa = new PocoHIZMET();
+                    groupItems.AddSimpleFor(m => m.aciklama);
+                    groupItems.AddSimpleFor(m => m.aciklamA5)
+                .ColSpan(2)
+                .Editor(editor => editor.TextArea().Height(100));
+                });
 
-                                        foreach (var item2 in aa.GetType().GetProperties())
-                                        {
-                                            <th>@item2.Name + " " + @item2.PropertyType.Name</th>
-                                        }
-                                    }
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (PocoHIZMET item in Model)
-                                {
-                                    <tr>
-                                        @foreach (var item2 in item.GetType().GetProperties())
-                                        {
 
-                                            <td>@item.GetType().GetProperty(item2.Name).GetValue(item, null)</td>
-                                        }
-                                    </tr>
-                                }
-                            </tbody>
-                        </table>
+            }))
+            )
+            .Columns(columns =>
+            {
 
-                    </div>
-                </div>
-            </div>
-        </div>
+                columns.AddFor(m => m.adi)
+                .Width(120);
+
+                columns.AddFor(m => m.kod);
+
+                columns.AddFor(m => m.kategoriid);
+
+                columns.AddFor(m => m.grupkodu);
+
+                columns.AddFor(m => m.donem)
+                .Width(65);
+
+                columns.AddFor(m => m.aciklama);
+
+                columns.AddFor(m => m.aciklamA5);
+                
+
+            })
+            .DataSource(d => d.Mvc()
+            .Controller("STOK")
+            .LoadAction("HizmetGet").InsertAction("HizmetPost").UpdateAction("HizmetPut").DeleteAction("HizmetDelete").Key("id")
+
+            )
+            )
+
+
+
     </div>
+
+
+    @(Html.DevExtreme().SelectBox()
+        .ID("apptheme")
+        .ValueExpr("theme")
+        .DisplayExpr("name")
+        .DataSource(new object[] {
+    new { name = "Light", theme = "dx.light.css"},
+    new { name = "Dark", theme = "dx.dark.css"},
+
+        })
+        .OnSelectionChanged("changeTheme")
+        )
+    <script>
+        function changeTheme(e) {
+            var selectedTheme = e.component.option("value");
+            document.cookie = "currentTheme=" + selectedTheme + ";path=/";
+            window.location.reload();
+        }
+    </script>
 </div>
-
-
-
-
-
-
-

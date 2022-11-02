@@ -80,6 +80,8 @@
             this.gridView1.GridControl = this.GCStokList;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
+            this.gridView1.OptionsView.ShowFooter = true;
+            this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.DoubleClick += new System.EventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // TSStokList

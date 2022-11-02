@@ -87,7 +87,7 @@ namespace MEYPAK.PRL
             TBStokAdi.Text = _tempStok.adi;
             TBSatisOtv.Text = _tempStok.satisotv.ToString();
             TBSatisKdv.Text = _tempStok.satiskdv.ToString();
-            TBMarka.Text = _markaServis.obje.Where(x=>x.ID.ToString()==_tempStok.markaid.ToString()).FirstOrDefault().ADI.ToString();
+            TBMarka.Text = _markaServis.obje.Where(x=>x.id.ToString()==_tempStok.markaid.ToString()).FirstOrDefault().ADI.ToString();
             TBSatisKdv.Text = _tempStok.kategoriid.ToString();
             TBGrupKodu.Text = _tempStok.grupkodu.ToString();
             TBAlisOtv.Text = _tempStok.alisotv.ToString();
@@ -137,7 +137,7 @@ namespace MEYPAK.PRL
             _PocoOlcuBrServis.Data(ServisList.OlcuBrListeServis);
             _tempPocoOLCUBR = _PocoOlcuBrServis.obje;
             _PocoSTOKOLCUBR = _StokOlcuBrServis.obje;
-            CBOlcuBr1.DataSource = _tempPocoOLCUBR.Select(x => x.ADI).ToList();
+            CBOlcuBr1.DataSource = _tempPocoOLCUBR.Select(x => x.adi).ToList();
 
         }
         private void BTKaydet_Click(object sender, EventArgs e)                 // Stok Kayıt
@@ -188,10 +188,10 @@ namespace MEYPAK.PRL
             _tempStok = new PocoSTOK()
             {
                 id = stokid,
-                kod = BTStokKodu.Text,
-                adi = TBStokAdi.Text,
-                markaid = _markaServis.obje.Where(x => x.ADI == TBMarka.Text).FirstOrDefault().ID,
-                kategoriid = _tempKategori.ID,
+                kod = TBStokKodu.Text,
+                adi = TBStokAdı.Text,
+                markaid = _markaServis.obje.Where(x => x.ADI == TBMarka.Text).FirstOrDefault().id,
+                kategoriid = _tempKategori.id,
                 kasaid = 1,//_tempKasa.ID,
                 grupkodu = int.Parse(TBGrupKodu.Text),
                 aciklama = MEAciklama.Text,
@@ -259,7 +259,7 @@ namespace MEYPAK.PRL
             }
             _tempStokOlcuBr = new PocoSTOKOLCUBR()
             {
-                OLCUBRID = _tempPocoOLCUBR.Where(x => x.ADI == CBOlcuBr1.SelectedValue.ToString()).FirstOrDefault().ID,
+                OLCUBRID = _tempPocoOLCUBR.Where(x => x.adi == CBOlcuBr1.SelectedValue.ToString()).FirstOrDefault().id,
                 NUM = dataGridView1.RowCount + 1,
                 KATSAYI = Convert.ToDecimal(TBKatsayi.Text),
 
@@ -389,7 +389,7 @@ namespace MEYPAK.PRL
             fMarkaKart.ShowDialog();
             if (_tempMarka != null)
             {
-                markaid = _tempMarka.ID;
+                markaid = _tempMarka.id;
                 TBMarka.Text = _tempMarka.ADI;
                 _tempMarka = null;
             }

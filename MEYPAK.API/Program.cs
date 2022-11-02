@@ -37,6 +37,10 @@ using MEYPAK.BLL.CARI;
 using MEYPAK.Entity.IdentityModels;
 using Microsoft.AspNetCore.Identity;
 using System.Data.Entity;
+using MEYPAK.DAL.Abstract.ParametreDal;
+using MEYPAK.DAL.Concrete.EntityFramework.Repository.ParametreRepo;
+using MEYPAK.Interfaces.Parametre;
+using MEYPAK.BLL.PARAMETRE;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -57,7 +61,10 @@ builder.Services.AddDbContext<MEYPAKContext>(options =>
 });
 
 
-
+#region Parametre
+builder.Services.AddScoped<IParaBirimDal, EFParaBirimRepo>();
+builder.Services.AddScoped<IParaBirimServis, ParaBirimManager>();
+#endregion
 #region Cari
 
 builder.Services.AddScoped<ICariHarDal, EFCariHarRepo>();

@@ -82,9 +82,9 @@ namespace MEYPAK.PRL.STOK
                 _id = _tempStok.id;
                 TBStokKodu.Text = _tempStok.kod;
                 TBStokAdi.Text = _tempStok.adi;
-                var adi= _stokOlcuBrServis.obje.Where(x => x.STOKID == _tempStok.id).Select(x => _olcuBrServis.obje.Where(z => z.ID.ToString() == x.OLCUBRID.ToString()).FirstOrDefault().ADI).ToList();
+                var adi= _stokOlcuBrServis.obje.Where(x => x.STOKID == _tempStok.id).Select(x => _olcuBrServis.obje.Where(z => z.id.ToString() == x.OLCUBRID.ToString()).FirstOrDefault().adi).ToList();
                 CBBirim.Properties.DataSource = adi; //_stokOlcuBrServis.Getir(x => x.STOKID == _id).Select(x => _olcuBrServis.Getir(z => z.ID == x.OLCUBRID).FirstOrDefault().ADI).ToList();
-                CBBirim.Properties.ValueMember = "ID";
+                CBBirim.Properties.ValueMember = "id";
                 CBBirim.Properties.DisplayMember = "ADI";
                 CBBirim.EditValue = adi.FirstOrDefault();
                 //TBFiyat.Text = IO == 1 ? _tempStok.AFIYAT1.ToString() : _tempStok.SATISKDV.ToString();
@@ -93,15 +93,15 @@ namespace MEYPAK.PRL.STOK
                 {
                     Acıklama=x.ACIKLAMA,
                     BelgeNo=x.BELGE_NO,
-                    Birim=_olcuBrServis.obje.Where(z=>z.ID==x.BIRIM).FirstOrDefault().ADI,
+                    Birim=_olcuBrServis.obje.Where(z=>z.id==x.BIRIM).FirstOrDefault().adi,
                     BrutToplam=x.BRUTTOPLAM,
                     Cikis=x.IO==0?x.MIKTAR:0,
                     Giris=x.IO==1?x.MIKTAR:0,
-                    Depo=_depoServis.obje.Where(z=>z.ID==x.DEPOID).FirstOrDefault().DEPOADI,
+                    Depo=_depoServis.obje.Where(z=>z.id==x.DEPOID).FirstOrDefault().DEPOADI,
                     HareketTuru=x.HAREKETTURU==5?"Muhtelif":x.HAREKETTURU==1?"Satış Faturası":x.HAREKETTURU==2?"Alış Faturası":x.HAREKETTURU==3?"Satış İade":x.HAREKETTURU==4?"Alış İade":x.HAREKETTURU==6?"DAT":"",
                     NetFiyat=x.NETFIYAT,
                     NetToplam=x.NETTOPLAM,
-                    Tarih=x.OLUSTURMATARIHI
+                    Tarih=x.olusturmatarihi
                 }).ToList();
                 gridView1.RefreshData();
                 // _tempStok = null;
@@ -150,8 +150,8 @@ namespace MEYPAK.PRL.STOK
                 BELGE_NO = TBBelgeNo.Text,
                 ACIKLAMA = TBAciklama.Text,
                 IO = this.IO,
-                BIRIM = _olcuBrServis.obje.Where(x => x.ADI == CBBirim.EditValue).FirstOrDefault().ID,
-                DEPOID = _depoServis.obje.Where(x => x.DEPOADI.ToString() == CBDepo.EditValue.ToString()).FirstOrDefault().ID,
+                BIRIM = _olcuBrServis.obje.Where(x => x.adi == CBBirim.EditValue).FirstOrDefault().id,
+                DEPOID = _depoServis.obje.Where(x => x.DEPOADI.ToString() == CBDepo.EditValue.ToString()).FirstOrDefault().id,
                 MIKTAR = Convert.ToDecimal(TBMiktar.Text),
                 HAREKETTURU = 5,         //Muhtelif
                 FATURAID = 0,
@@ -160,7 +160,7 @@ namespace MEYPAK.PRL.STOK
                 NETTOPLAM = Convert.ToDecimal(TBFiyat.Text) * Convert.ToDecimal(TBMiktar.Text),
                 BRUTTOPLAM = KdvEkle(Convert.ToDecimal(TBFiyat.Text) * Convert.ToDecimal(TBMiktar.Text)),
             }));
-            gridControl1.DataSource = _stokHarServis.obje.Where(x=>x.ID==_id);
+            gridControl1.DataSource = _stokHarServis.obje.Where(x=>x.id ==_id);
             TBMiktar.Text = "";
             TBBelgeNo.Text = "";
             TBAciklama.Text = "";
@@ -203,7 +203,7 @@ namespace MEYPAK.PRL.STOK
 
         private void BTNSil_Click(object sender, EventArgs e)
         {
-            _stokHarServis.Data(ServisList.StokHarSilServis,(_stokHarServis.obje.Where(x => x.ID == Convert.ToInt32(gridView1.GetFocusedRowCellValue("ID"))).FirstOrDefault()));
+            _stokHarServis.Data(ServisList.StokHarSilServis,(_stokHarServis.obje.Where(x => x.id == Convert.ToInt32(gridView1.GetFocusedRowCellValue("id"))).FirstOrDefault()));
 
         }
 

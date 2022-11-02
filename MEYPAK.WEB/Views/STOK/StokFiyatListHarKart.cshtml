@@ -1,0 +1,87 @@
+﻿@using DevExtreme.AspNet.Mvc
+@using MEYPAK.Entity.PocoModels.STOK
+<div class="menu-container dx-swatch-additional">
+
+
+
+    <div id="data-grid-demo">
+        @(
+            Html.DevExtreme().DataGrid<PocoSTOKFIYATLISTHAR>()
+            .ID("gridContainer")
+            .ShowBorders(true)
+
+            .Paging(p => p.Enabled(true))
+            .Editing(e => e.Mode(GridEditMode.Popup)
+            .AllowUpdating(true)
+            .AllowAdding(true)
+            .EditColumnName("Düzenle")
+            .AllowDeleting(true)
+            .Popup(p => p
+            .Title("Stok Kart")
+            .ShowTitle(true)
+            .Width(700)
+            .Height(525)
+            )
+            .Form(f => f.Items(items =>
+            {
+                items.AddGroup()
+                .ColCount(2)
+                .ColSpan(2)
+                .Items(groupItems =>
+                {
+
+
+                    groupItems.AddSimpleFor(m => m.dovizid);
+                    groupItems.AddSimpleFor(m => m.kur);
+                    groupItems.AddSimpleFor(m => m.iskonto);
+                    groupItems.AddSimpleFor(m => m.netfiyat);
+
+                });
+
+
+            }))
+            )
+            .Columns(columns =>
+            {
+
+                columns.AddFor(m => m.iskonto)
+                .Width(120);
+
+                columns.AddFor(m => m.netfiyat);
+
+                columns.AddFor(m => m.mpstok.adi);
+
+
+
+            })
+            .DataSource(d => d.Mvc()
+            .Controller("STOK")
+            .LoadAction("StokFiyatListHarGet").InsertAction("StokFiyatListHarPost").UpdateAction("StokFiyatListHarPut").DeleteAction("StokFiyatListHarDelete").Key("id")
+
+            )
+            )
+
+
+
+    </div>
+
+
+    @(Html.DevExtreme().SelectBox()
+        .ID("apptheme")
+        .ValueExpr("theme")
+        .DisplayExpr("name")
+        .DataSource(new object[] {
+    new { name = "Light", theme = "dx.light.css"},
+    new { name = "Dark", theme = "dx.dark.css"},
+
+        })
+        .OnSelectionChanged("changeTheme")
+        )
+    <script>
+        function changeTheme(e) {
+            var selectedTheme = e.component.option("value");
+            document.cookie = "currentTheme=" + selectedTheme + ";path=/";
+            window.location.reload();
+        }
+    </script>
+</div>

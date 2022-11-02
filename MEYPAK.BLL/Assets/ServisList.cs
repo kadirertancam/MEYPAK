@@ -8,7 +8,10 @@ namespace MEYPAK.BLL.Assets
 {
     public static class ServisList
     {
-        
+        #region
+
+        #endregion
+
         #region Araç
         public const string AracListeServis = "http://213.238.167.117:8080/ARAC/ARACListe";
         public const string AracEkleServis = "http://213.238.167.117:8080/ARAC/ARACEkleyadaGuncelle";

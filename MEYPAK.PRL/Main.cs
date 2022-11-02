@@ -305,5 +305,15 @@ namespace MEYPAK.PRL
             fSiparis.Show();
             i++;
         }
+
+        private void barButtonItem35_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+        }
+
+        private void barButtonItem37_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+        }
     }
 }

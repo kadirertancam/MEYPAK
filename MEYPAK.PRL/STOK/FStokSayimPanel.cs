@@ -63,7 +63,7 @@ namespace MEYPAK.PRL.STOK
             stokServis.Data(ServisList.StokListeServis);
             TBStokKodu.Text = _tempStok.kod;
             TBStokAdi.Text = _tempStok.adi;
-            CBStokBirim.DataSource = stokOlcuBrServis.obje.Where(x => x.STOKID == _tempStok.id).Select(x => olcuBrServis.obje.Where(z => z.ID == x.OLCUBRID).FirstOrDefault().ADI).ToList();
+            CBStokBirim.DataSource = stokOlcuBrServis.obje.Where(x => x.STOKID == _tempStok.id).Select(x => olcuBrServis.obje.Where(z => z.id == x.OLCUBRID).FirstOrDefault().adi).ToList();
             TBBakiye.Text = (from ep in stokServis.obje join e in stokHarServis.obje on ep.id equals e.STOKID where ep.kod == _tempStok.kod select Convert.ToDecimal(e.IO.ToString() == "1" ? e.MIKTAR : 0) - Convert.ToDecimal(e.IO.ToString() == "0" ? e.MIKTAR : 0)).FirstOrDefault().ToString();
 
             _tempStok = null;

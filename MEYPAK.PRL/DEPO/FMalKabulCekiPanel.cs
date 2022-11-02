@@ -41,13 +41,13 @@ namespace MEYPAK.PRL.DEPO
                 _stokMalKabulListServis.EkleyadaGuncelle(new PocoSTOKMALKABULLIST()
                 {
                     STOKID = _id,
-                    EMIRID = _tempEmir.ID,
+                    EMIRID = _tempEmir.id,
                     BIRIMID = StaticContext._siparisDetayServis.Getir(x => x.SIPARISID == _tempEmir.SIPARISID && x.STOKID == _id).FirstOrDefault().BIRIMID,
                     MIKTAR = item.Miktar,
                     DEPOID = _tempEmir.MPSIPARIS.DEPOID,
                     SIRKETID = 0,
                     SIPARISMIKTARI = _tempEmir.MPSIPARIS.MPSIPARISDETAYList.Where(x => x.STOKID == _id).Sum(x => x.MIKTAR),
-                    SIPARISDETAYID = _tempList.Where(x => x.MPSIPARISDETAY.STOKID == _id && x.EMIRID == _tempEmir.ID).FirstOrDefault().MPSIPARISDETAY.ID,
+                    SIPARISDETAYID = _tempList.Where(x => x.MPSIPARISDETAY.STOKID == _id && x.EMIRID == _tempEmir.id).FirstOrDefault().MPSIPARISDETAY.id,
                     SUBEID = 0,
                     KULLANICIID = 0
                 });
@@ -63,7 +63,7 @@ namespace MEYPAK.PRL.DEPO
             _tempStokSevkiyatList = new PocoSTOKMALKABULLIST()
             {
                 STOKID = _Stok.id,
-                EMIRID = _tempEmir.ID,
+                EMIRID = _tempEmir.id,
                 DEPOID = _tempEmir.MPSIPARIS.DEPOID,
                 MIKTAR = 0,
                 SIPARISMIKTARI = _tempEmir.MPSIPARIS.MPSIPARISDETAYList.Where(x => x.STOKID.ToString() == CBMalKabulCekiStokKodu.GetSelectedDataRow().ToString()).FirstOrDefault().MIKTAR,
@@ -83,7 +83,7 @@ namespace MEYPAK.PRL.DEPO
             {
                 StokAdı = x.MPSTOK.adi,
                 StokKodu = x.MPSTOK.kod,
-                Birim = x.MPOLCUBR.ADI,
+                Birim = x.MPOLCUBR.adi,
                 Miktar = x.MIKTAR,
                 ID = x.STOKID,
                 MPSTOK = _Stok

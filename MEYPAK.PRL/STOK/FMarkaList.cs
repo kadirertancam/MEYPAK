@@ -45,7 +45,7 @@ namespace MEYPAK.PRL.STOK
 
         private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            FSTOKKART._tempMarka = _markaServis.obje.Where(x=>x.ID.ToString()==dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
+            FSTOKKART._tempMarka = _markaServis.obje.Where(x=>x.id.ToString()==dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
             this.Close();
         }
     }

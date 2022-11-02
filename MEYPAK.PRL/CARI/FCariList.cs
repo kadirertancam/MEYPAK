@@ -1,5 +1,6 @@
 ﻿using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.PocoModels.CARI;
+using MEYPAK.PRL.SIPARIS;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,18 +21,21 @@ namespace MEYPAK.PRL.CARI
             InitializeComponent();
             _form = form;
             _cariServis = new GenericWebServis<PocoCARIKART>();
-            _cariKart = (FCariKart)Application.OpenForms["FCariKart"];
-            _cariHareket = (FCariHareket)Application.OpenForms["FCariHareket"];
+           
         }
         GenericWebServis<PocoCARIKART> _cariServis;
         FCariKart _cariKart;
         FCariHareket _cariHareket;
+        FMusteriSiparis _fmusteriSiparis;
         private void FCariList_Load(object sender, EventArgs e)
         {
+            _cariKart = (FCariKart)Application.OpenForms["FCariKart"];
+            _cariHareket = (FCariHareket)Application.OpenForms["FCariHareket"];
+            _fmusteriSiparis = (FMusteriSiparis)Application.OpenForms["FMusteriSiparis"];
             _cariServis.Data(ServisList.CariListeServis);
             GCCariList.DataSource = _cariServis.obje.Select(x=> new
             {
-                ID=x.ID,
+                ID=x.id,
                 CARIKODU=x.KOD,
                 CARIUNVAN=x.UNVAN,
                 VERGIDAIRESI=x.VERGIDAIRESI,
@@ -43,9 +47,14 @@ namespace MEYPAK.PRL.CARI
         private void gridView1_DoubleClick(object sender, EventArgs e)
         {
             if (_form == "carikart")
-                _cariKart._tempCariKart = _cariServis.obje.Where(x => x.ID.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+                _cariKart._tempCariKart = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()).FirstOrDefault();
             if(_form=="carihar")
                 _cariHareket._tempCARIKART= _cariServis.obje.Where(x => x.ID.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+            if (_form == "musterisiparis")
+            {
+                _fmusteriSiparis.TBCariKodu.Text = _cariServis.obje.Where(x => x.ID.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault().KOD;
+                _fmusteriSiparis.TBCariAdi.Text = _cariServis.obje.Where(x => x.ID.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault().UNVAN;
+            }
             this.Close();
         }
     }
