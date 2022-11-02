@@ -21,6 +21,7 @@ namespace MEYPAK.PRL.STOK
     {
         public FSayimList()
         {
+            int secilen;
             InitializeComponent();
             _stokSayimServis = new GenericWebServis<PocoSTOKSAYIM>();
             _stokSayimServis.Data(ServisList.StokSayimListeServis);
@@ -40,6 +41,12 @@ namespace MEYPAK.PRL.STOK
             fSayimIsle._tempSayim = _stokSayimServis.obje.Where(x => x.ACIKLAMA== aciklama.ToString() ).FirstOrDefault();
             fSayimIsle._id = int.Parse(dataGridView1.Rows[e.RowIndex].Cells["id"].Value.ToString());
             this.Close();
+        }
+
+       
+        private void lookUpEdit1_EditValueChanged_1(object sender, EventArgs e)
+        {
+           
         }
     }
 }

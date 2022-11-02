@@ -28,38 +28,43 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.components = new System.ComponentModel.Container();
+            this.stokSayimManagerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
+            ((System.ComponentModel.ISupportInitialize)(this.stokSayimManagerBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // stokSayimManagerBindingSource
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(800, 450);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+            this.stokSayimManagerBindingSource.DataSource = typeof(MEYPAK.BLL.STOK.StokSayimManager);
+            // 
+            // lookUpEdit1
+            // 
+            this.lookUpEdit1.Location = new System.Drawing.Point(219, 136);
+            this.lookUpEdit1.Name = "lookUpEdit1";
+            this.lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpEdit1.Size = new System.Drawing.Size(100, 20);
+            this.lookUpEdit1.TabIndex = 0;
             // 
             // FSayimList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.lookUpEdit1);
             this.Name = "FSayimList";
             this.Text = "FSayimList";
             this.Load += new System.EventHandler(this.FSayimList_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stokSayimManagerBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private DataGridView dataGridView1;
+        private BindingSource stokSayimManagerBindingSource;
+        private DevExpress.XtraEditors.LookUpEdit lookUpEdit1;
     }
 }
