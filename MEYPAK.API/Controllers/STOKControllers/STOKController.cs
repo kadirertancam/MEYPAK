@@ -46,6 +46,22 @@ namespace MEYPAK.API.Controllers.STOK
             }
         }
 
+        [HttpGet]
+        [Route("/[controller]/[action]")]
+        public IActionResult STOKListe(string Query)
+        {
+            try
+            {
+                var data = _stokServis.Listele().AsQueryable();
+                data = 
+                return Ok(data);
+            }
+            catch (Exception ex)
+            {
+                return Problem("Belirsiz bir hata oluştu!" + ex.Message);
+            }
+        }
+
 
         [HttpPost]
         [Route("/[controller]/[action]")]
