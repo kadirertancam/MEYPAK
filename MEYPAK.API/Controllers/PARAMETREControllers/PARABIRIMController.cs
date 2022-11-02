@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using MEYPAK.DAL.Concrete.ADONET;
+using MEYPAK.Entity.Models.PARAMETRE;
 using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.PARAMETRE;
 using MEYPAK.Interfaces.Cari;
@@ -13,7 +15,7 @@ namespace MEYPAK.API.Controllers.PARAMETREControllers
     {
         private readonly IMapper _mapper;
         private readonly IParaBirimServis paraBirimServis;
-
+        private MPAdoContext<MPPARABIRIM> _adoparaBirimServis;
         public PARABIRIMCONTROLLER(IMapper mapper, IParaBirimServis cariServis)
         {
             _mapper = mapper;
@@ -35,6 +37,21 @@ namespace MEYPAK.API.Controllers.PARAMETREControllers
                 return Problem("Belirsiz bir hata oluştu!" + ex.Message);
             }
         }
+        [HttpGet]
+        [Route("/[controller]/[action]")]
+        public IActionResult PARABIRIMListe2([FromQuery] string query)
+        {
+            try
+            {
+                _adoparaBirimServis.HepsiniGetir(query);
+                return Ok(_adoparaBirimServis.GenericList);
+            }
+            catch (Exception ex)
+            {
+                return Problem("Belirsiz bir hata oluştu!" + ex.Message);
+            }
+        }
+
         [HttpPost]
         [Route("/[controller]/[action]")]
         public IActionResult PARABIRIMEkleyadaGuncelle(PocoPARABIRIM pModel)

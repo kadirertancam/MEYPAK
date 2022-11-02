@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using MEYPAK.DAL.Abstract.DepoDal;
+using MEYPAK.DAL.Concrete.ADONET;
+using MEYPAK.Entity.Models.DEPO;
 using MEYPAK.Entity.PocoModels.DEPO;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Depo;
@@ -14,7 +16,7 @@ namespace MEYPAK.API.Controllers.DEPOControllers
     {
         private readonly IMapper _mapper;
         private readonly IDepoEmirServis _depoEmirServis;
-
+        private MPAdoContext<MPDEPOEMIR> _adodepoEmirServis = new MPAdoContext<MPDEPOEMIR>();
         public DEPOEMIRController(IMapper mapper, IDepoEmirServis depoEmirServis)
         {
             _mapper = mapper;
@@ -35,6 +37,21 @@ namespace MEYPAK.API.Controllers.DEPOControllers
                 return Problem("Belirsiz bir hata oluştu!" + ex.Message);
             }
         }
+        [HttpGet]
+        [Route("/[controller]/[action]")]
+        public IActionResult DEPOEMIRListe2([FromQuery] string query)
+        {
+            try
+            {
+                _adodepoEmirServis.HepsiniGetir(query);
+                return Ok(_adodepoEmirServis.GenericList);
+            }
+            catch (Exception ex)
+            {
+                return Problem("Belirsiz bir hata oluştu!" + ex.Message);
+            }
+        }
+
         [HttpPost]
         [Route("/[controller]/[action]")]
         public IActionResult DEPOEMIREkleyadaGuncelle(PocoDEPOEMIR pModel)

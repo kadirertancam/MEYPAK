@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using MEYPAK.DAL.Concrete.ADONET;
+using MEYPAK.Entity.Models.DEPO;
 using MEYPAK.Entity.PocoModels.DEPO;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Depo;
@@ -14,7 +16,7 @@ namespace MEYPAK.API.Controllers.DEPOControllers
 
         private readonly IMapper _mapper;
         private readonly IStokSevkiyatListServis _stokSevkiyatListServis;
-
+        private MPAdoContext<MPSTOKSEVKİYATLİST> _adostokSevkiyatListServis = new MPAdoContext<MPSTOKSEVKİYATLİST>();
         public STOKSEVKIYATLISTController(IMapper mapper, IStokSevkiyatListServis stokSevkiyatListServis)
         {
             _mapper = mapper;
@@ -35,6 +37,21 @@ namespace MEYPAK.API.Controllers.DEPOControllers
                 return Problem("Belirsiz bir hata oluştu!" + ex.Message);
             }
         }
+        [HttpGet]
+        [Route("/[controller]/[action]")]
+        public IActionResult STOKSEVKIYATLISTListe2([FromQuery] string query)
+        {
+            try
+            {
+                _adostokSevkiyatListServis.HepsiniGetir(query);
+                return Ok(_adostokSevkiyatListServis.GenericList);
+            }
+            catch (Exception ex)
+            {
+                return Problem("Belirsiz bir hata oluştu!" + ex.Message);
+            }
+        }
+
         [HttpPost]
         [Route("/[controller]/[action]")]
         public IActionResult STOKSEVKIYATLISTEkleyadaGuncelle(PocoSTOKSEVKIYATLIST pModel)

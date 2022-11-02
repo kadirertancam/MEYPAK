@@ -174,7 +174,7 @@
             this.TBStokSayimAciklama.Name = "TBStokSayimAciklama";
             this.TBStokSayimAciklama.Size = new System.Drawing.Size(140, 24);
             this.TBStokSayimAciklama.TabIndex = 3;
-            this.TBStokSayimAciklama.TextChanged += new System.EventHandler(this.TBAciklama_TextChanged);
+            
             // 
             // DTStokSayimTarih
             // 

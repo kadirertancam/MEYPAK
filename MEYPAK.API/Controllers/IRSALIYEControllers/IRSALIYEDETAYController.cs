@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using MEYPAK.DAL.Concrete.ADONET;
+using MEYPAK.Entity.Models.IRSALIYE;
 using MEYPAK.Entity.PocoModels.IRSALIYE;
 using MEYPAK.Interfaces.IRSALIYE;
 using MEYPAK.Interfaces.Stok;
@@ -12,7 +14,7 @@ namespace MEYPAK.API.Controllers.IRSALIYEControllers
     {
         private readonly IMapper _mapper;
         private readonly IIrsaliyeDetayServis _ırsaliyeDetayServis;
-
+        private MPAdoContext<MPIRSALIYEDETAY> _adoırsaliyeDetayServis = new MPAdoContext<MPIRSALIYEDETAY>();
         public IRSALIYEDETAYController(IMapper mapper, IIrsaliyeDetayServis irsaliyeDetayServis)
         {
             _mapper = mapper;
@@ -33,6 +35,21 @@ namespace MEYPAK.API.Controllers.IRSALIYEControllers
                 return Problem("Belirsiz bir hata oluştu!" + ex.Message);
             }
         }
+        [HttpGet]
+        [Route("/[controller]/[action]")]
+        public IActionResult IRSALIYEDETAYListe2([FromQuery] string query)
+        {
+            try
+            {
+                _adoırsaliyeDetayServis.HepsiniGetir(query);
+                return Ok(_adoırsaliyeDetayServis.GenericList);
+            }
+            catch (Exception ex)
+            {
+                return Problem("Belirsiz bir hata oluştu!" + ex.Message);
+            }
+        }
+
         [HttpPost]
         [Route("/[controller]/[action]")]
         public IActionResult IRSALIYEDETAYEkleyadaGuncelle(PocoIRSALIYEDETAY pModel)

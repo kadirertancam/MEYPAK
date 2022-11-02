@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using MEYPAK.DAL.Concrete.ADONET;
+using MEYPAK.Entity.Models.DEPO;
 using MEYPAK.Entity.PocoModels.DEPO;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Depo;
@@ -13,7 +15,7 @@ namespace MEYPAK.API.Controllers.DEPOControllers
     {
         private readonly IMapper _mapper;
         private readonly IDepoCekiListServis _depoCekiListServis;
-
+        private MPAdoContext<MPDEPOCEKILIST> _adodepoCekiListServis = new MPAdoContext<MPDEPOCEKILIST>();
         public DEPOCEKILISTController(IMapper mapper, IDepoCekiListServis depoCekiListServis)
         {
             _mapper = mapper;
@@ -28,6 +30,20 @@ namespace MEYPAK.API.Controllers.DEPOControllers
             {
                 var data = _depoCekiListServis.Listele();
                 return Ok(data);
+            }
+            catch (Exception ex)
+            {
+                return Problem("Belirsiz bir hata oluştu!" + ex.Message);
+            }
+        }
+        [HttpGet]
+        [Route("/[controller]/[action]")]
+        public IActionResult DEPOCEKILISTListe2([FromQuery] string query)
+        {
+            try
+            {
+                _adodepoCekiListServis.HepsiniGetir(query);
+                return Ok(_adodepoCekiListServis.GenericList);
             }
             catch (Exception ex)
             {

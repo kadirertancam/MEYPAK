@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using MEYPAK.DAL.Concrete.ADONET;
+using MEYPAK.Entity.Models.PERSONEL;
 using MEYPAK.Entity.PocoModels.PERSONEL;
 using MEYPAK.Entity.PocoModels.SIPARIS;
 using MEYPAK.Interfaces.Personel;
@@ -14,7 +16,7 @@ namespace MEYPAK.API.Controllers.PERSONELControllers
     {
         private readonly IPersonelServis _personelServis;
         private readonly IMapper _mapper;
-
+        private MPAdoContext<MPPERSONEL> _adopersonelServis = new MPAdoContext<MPPERSONEL>();
         public PERSONELController(IPersonelServis personelServis, IMapper mapper)
         {
             _personelServis = personelServis;
@@ -35,7 +37,20 @@ namespace MEYPAK.API.Controllers.PERSONELControllers
                 return Problem("Belirsiz bir hata oluştu!" + ex.Message);
             }
         }
-
+        [HttpGet]
+        [Route("/[controller]/[action]")]
+        public IActionResult PERSONELListe2([FromQuery] string query)
+        {
+            try
+            {
+                _adopersonelServis.HepsiniGetir(query);
+                return Ok(_adopersonelServis.GenericList);
+            }
+            catch (Exception ex)
+            {
+                return Problem("Belirsiz bir hata oluştu!" + ex.Message);
+            }
+        }
         [HttpPost]
         [Route("/[controller]/[action]")]
         public IActionResult PERSONELEkleyadaGuncelle(PocoPERSONEL pModel)

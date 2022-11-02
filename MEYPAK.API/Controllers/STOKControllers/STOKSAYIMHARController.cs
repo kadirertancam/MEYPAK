@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using MEYPAK.DAL.Concrete.ADONET;
+using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Stok;
 using Microsoft.AspNetCore.Mvc;
@@ -11,7 +13,7 @@ namespace MEYPAK.API.Controllers.STOKControllers
     {
         private readonly IStokSayimHarServis _stoksayimHarServis;
         private readonly IMapper _mapper;
-
+        private MPAdoContext<MPSTOKSAYIMHAR> _adostoksayimHarServis = new MPAdoContext<MPSTOKSAYIMHAR>();
         public STOKSAYIMHARController(IStokSayimHarServis stoksayimHarServis, IMapper mapper)
         {
             _stoksayimHarServis = stoksayimHarServis;
@@ -26,6 +28,21 @@ namespace MEYPAK.API.Controllers.STOKControllers
             {
                 var data = _stoksayimHarServis.Listele();
                 return Ok(data);
+            }
+            catch (Exception ex)
+            {
+                return Problem("Belirsiz bir hata oluştu!" + ex.Message);
+            }
+        }
+        [HttpGet]
+        [Route("/[controller]/[action]")]
+        public IActionResult STOKSAYIMHARListe2([FromQuery] string query)
+        {
+            try
+            {
+                _adostoksayimHarServis.HepsiniGetir(query);
+
+                return Ok(_adostoksayimHarServis.GenericList);
             }
             catch (Exception ex)
             {

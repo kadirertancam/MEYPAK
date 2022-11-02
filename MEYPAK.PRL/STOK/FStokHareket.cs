@@ -89,7 +89,7 @@ namespace MEYPAK.PRL.STOK
                 CBBirim.EditValue = adi.FirstOrDefault();
                 //TBFiyat.Text = IO == 1 ? _tempStok.AFIYAT1.ToString() : _tempStok.SATISKDV.ToString();
                 BakiyeGuncelle();
-                gridControl1.DataSource = _stokHarServis.obje.Where(x=>x.stokid==_tempStok.id).Select( x=> new PocoStokHareketListesi()
+                GCStokHareket.DataSource = _stokHarServis.obje.Where(x=>x.STOKID==_tempStok.id).Select( x=> new PocoStokHareketListesi()
                 {
                     Acıklama=x.aciklama,
                     BelgeNo=x.belgE_NO,
@@ -133,7 +133,7 @@ namespace MEYPAK.PRL.STOK
             CBDepo.Properties.DataSource = depo;
             CBDepo.EditValue = depo.FirstOrDefault();
             _tempdgvStok.Add(new PocoStokHareketListesi());
-            gridControl1.DataSource = _tempdgvStok;
+            GCStokHareket.DataSource = _tempdgvStok;
             ((ListBox)CLBDepo).DataSource = _depoServis.obje.Select(x => x.DEPOADI).ToList();
 
         }
@@ -160,7 +160,7 @@ namespace MEYPAK.PRL.STOK
                 nettoplam = Convert.ToDecimal(TBFiyat.Text) * Convert.ToDecimal(TBMiktar.Text),
                 bruttoplam = KdvEkle(Convert.ToDecimal(TBFiyat.Text) * Convert.ToDecimal(TBMiktar.Text)),
             }));
-            gridControl1.DataSource = _stokHarServis.obje.Where(x=>x.id ==_id);
+            GCStokHareket.DataSource = _stokHarServis.obje.Where(x=>x.id ==_id);
             TBMiktar.Text = "";
             TBBelgeNo.Text = "";
             TBAciklama.Text = "";
@@ -262,5 +262,7 @@ namespace MEYPAK.PRL.STOK
         {
 
         }
+
+        
     }
 }

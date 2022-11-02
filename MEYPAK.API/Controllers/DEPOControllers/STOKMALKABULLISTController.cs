@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using MEYPAK.DAL.Concrete.ADONET;
+using MEYPAK.Entity.Models.DEPO;
 using MEYPAK.Entity.PocoModels.DEPO;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Depo;
@@ -13,7 +15,7 @@ namespace MEYPAK.API.Controllers.DEPOControllers
     {
         private readonly IMapper _mapper;
         private readonly IStokMalKabulListServis _stokMalKabulListServis;
-
+        private MPAdoContext<MPSTOKMALKABULLIST> _adostokMalKabulListServis = new MPAdoContext<MPSTOKMALKABULLIST>();
         public STOKMALKABULLISTController(IMapper mapper, IStokMalKabulListServis stokMalKabulListServis)
         {
             _mapper = mapper;
@@ -34,6 +36,21 @@ namespace MEYPAK.API.Controllers.DEPOControllers
                 return Problem("Belirsiz bir hata oluştu!" + ex.Message);
             }
         }
+        [HttpGet]
+        [Route("/[controller]/[action]")]
+        public IActionResult STOKMALKABULLISTListe2([FromQuery] string query)
+        {
+            try
+            {
+                _adostokMalKabulListServis.HepsiniGetir(query);
+                return Ok(_adostokMalKabulListServis.GenericList);
+            }
+            catch (Exception ex)
+            {
+                return Problem("Belirsiz bir hata oluştu!" + ex.Message);
+            }
+        }
+
         [HttpPost]
         [Route("/[controller]/[action]")]
         public IActionResult STOKMALKABULLISTEkleyadaGuncelle(PocoSTOKMALKABULLIST pModel)

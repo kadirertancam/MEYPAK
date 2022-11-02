@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using MEYPAK.DAL.Concrete.ADONET;
+using MEYPAK.Entity.Models.ARAC;
 using MEYPAK.Entity.PocoModels.ARAC;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Arac;
@@ -13,7 +15,7 @@ namespace MEYPAK.API.Controllers.ARAC
     {
         private readonly IMapper _mapper;
         private readonly IAracServis _aracServis;
-
+        private MPAdoContext<MPARACLAR> _adoaracServis = new MPAdoContext<MPARACLAR>();
         public ARACController(IMapper mapper, IAracServis aracServis)
         {
             _mapper = mapper;
@@ -28,6 +30,20 @@ namespace MEYPAK.API.Controllers.ARAC
             {
                 var data = _aracServis.Listele();
                 return Ok(data);
+            }
+            catch (Exception ex)
+            {
+                return Problem("Belirsiz bir hata oluştu!" + ex.Message);
+            }
+        }
+        [HttpGet]
+        [Route("/[controller]/[action]")]
+        public IActionResult ARACListe2([FromQuery] string query)
+        {
+            try
+            {
+                _adoaracServis.HepsiniGetir(query);
+                return Ok(_adoaracServis.GenericList);
             }
             catch (Exception ex)
             {
