@@ -49,7 +49,8 @@ namespace MEYPAK.WEB.Controllers.STOKController
             _logger = logger;
 
         }
-
+        // GenericObject<int> Stokfiyatlistid;
+        //apiden guid isteği atılıp 
 
 
         #region STOK
@@ -252,10 +253,9 @@ namespace MEYPAK.WEB.Controllers.STOKController
             PocoSTOKFIYATLIST newPoco = new PocoSTOKFIYATLIST();
             JsonConvert.PopulateObject(values, newPoco);
             _tempPocoStokFiyatList.Data(ServisList.StokFiyatListEkleServis, newPoco);
+            return View("StokFiyatListHarKart");
             return Redirect("StokFiyatListHarKart?id="+_tempPocoStokFiyatList.obje2.id);
-
-            ViewBag.Durum = "Başarıyla eklendi.";
-            return Ok();
+            
         }
         [HttpDelete]
         public void StokFiyatListDelete(int key)
@@ -270,13 +270,15 @@ namespace MEYPAK.WEB.Controllers.STOKController
         #endregion
 
         #region STOKFIYATLISTHAR
-        GenericObject<int> Stokfiyatlistid;
+      
         [HttpGet]
         public async Task<IActionResult> StokFiyatListHarKart(int id)
         {
-            //apiden guid isteği atılıp 
-            ViewBag.FiyatList = $"{id}";
+            HttpCookie Cookie = new HttpCookie("FiyatList");
+            Cookie["FiyatListid"] = $"{id}";
             return View();
+            Cookie.Expires = DateTime.Now.AddSeconds(2);
+            Response.Cookies.Add(Cookie);
         }
 
         [HttpGet]
