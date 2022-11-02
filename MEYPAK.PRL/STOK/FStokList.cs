@@ -3,6 +3,7 @@ using MEYPAK.BLL.STOK;
 using MEYPAK.DAL.Abstract;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository;
+using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Stok;
 using MEYPAK.PRL.Assets;
@@ -42,14 +43,19 @@ namespace MEYPAK.PRL.STOK
             _OlcuBrServis.Data(ServisList.OlcuBrListeServis);
             _stokOlcuBrServis = new GenericWebServis<PocoSTOKOLCUBR>();
             _stokServis = new GenericWebServis<PocoSTOK>();
+            _stokMarka = new GenericWebServis<PocoSTOKMARKA>();
         }
         GenericWebServis<PocoSTOK> _stokServis ; 
         GenericWebServis<PocoSTOKOLCUBR> _stokOlcuBrServis ;
         GenericWebServis<PocoOLCUBR> _OlcuBrServis ;
+        GenericWebServis<PocoSTOKMARKA> _stokMarka;
         private void FStokList_Load(object sender, EventArgs e)
         {
+            
+
+            _stokMarka.Data(ServisList.StokMarkaListeServis);
             _stokServis.Data(ServisList.StokListeServis);
-            gridControl1.DataSource = _stokServis.obje.Select(x => new { x.id, x.kod, x.adi, x.grupkodu, x.olcubR1, x.markaid }).ToList();
+            gridControl1.DataSource = _stokServis.obje.Where(x=>x.kayittipi==0).Select(x => new { ID=x.id, KOD=x.kod, ADI=x.adi, GRUPKODU=x.grupkodu, OLCUBR=x.olcubR1, MARKA= _stokMarka.obje.Where(z=>z.ID==x.markaid).Select(z=>z.ADI).FirstOrDefault() }).ToList();
 
             fSTOKKART = (FStokKart)Application.OpenForms["FStokKart"];
             fStokHareket = (FStokHareket)Application.OpenForms["FStokHareket"];
@@ -87,7 +93,7 @@ namespace MEYPAK.PRL.STOK
             else if (_islem == "siparis")
             {
                 if (fSiparis != null)
-                    fSiparis._tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()).FirstOrDefault();
+                    fSiparis._tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
             }
             else if (_islem == "FDepolarArasıTransferHar")
             {

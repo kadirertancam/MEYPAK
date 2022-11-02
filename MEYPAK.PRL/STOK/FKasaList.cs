@@ -34,7 +34,7 @@ namespace MEYPAK.PRL.STOK
         
         private void FKasaList_Load(object sender, EventArgs e)
         {   _kasaServis.Data(ServisList.StokKasaListeServis);
-            dataGridView1.DataSource = _kasaServis.obje;
+            gridControl1.DataSource = _kasaServis.obje.Where(x=>x.KAYITTIPI==0).Select(x=> new { x.ID,x.KASAADI});
             fStokKart = (FStokKart)Application.OpenForms["FStokKart"];
             fSiparis = (FMusteriSiparis)Application.OpenForms["FMusteriSiparis"];
             fSatınAlmaSiparis = (FSatınAlmaSiparis)Application.OpenForms["FSatınAlmaSiparis"];
@@ -42,26 +42,29 @@ namespace MEYPAK.PRL.STOK
         }
         private void dataGridView1_DoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+           
+        }
+
+        private void gridView1_DoubleClick(object sender, EventArgs e)
+        {
             _kasaServis.Data(ServisList.StokKasaListeServis);
             if (_islem == "Stok")
             {
                 if (fStokKart != null)
-                    fStokKart._tempKasa = _kasaServis.obje.Where(x => x.ID.ToString() == dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
+                    fStokKart._tempKasa = _kasaServis.obje.Where(x => x.ID.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
             }
             else if (_islem == "musterisiparis")
             {
-                if (fSiparis != null) 
-                fSiparis._tempKasa = _kasaServis.obje.Where(x => x.ID.ToString() == dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
+                if (fSiparis != null)
+                    fSiparis.gridView1.SetFocusedRowCellValue("KasaAdı", _kasaServis.obje.Where(x => x.ID.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault().KASAADI);
             }
             else if (_islem == "SatinAlmaSiparis")
             {
-                if (fSatınAlmaSiparis != null) 
-                fSatınAlmaSiparis._tempKasa = _kasaServis.obje.Where(x => x.ID.ToString() == dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
+                if (fSatınAlmaSiparis != null)
+                    fSatınAlmaSiparis._tempKasa = _kasaServis.obje.Where(x => x.ID.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
             }
 
             this.Close();
         }
-
-
     }
 }

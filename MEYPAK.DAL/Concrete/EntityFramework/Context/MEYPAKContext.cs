@@ -4,6 +4,7 @@ using MEYPAK.Entity.Models.ARAC;
 using MEYPAK.Entity.Models.CARI;
 using MEYPAK.Entity.Models.DEPO;
 using MEYPAK.Entity.Models.IRSALIYE;
+using MEYPAK.Entity.Models.PARAMETRE;
 using MEYPAK.Entity.Models.PERSONEL;
 using MEYPAK.Entity.Models.SIPARIS;
 using MEYPAK.Entity.Models.STOK;
@@ -57,7 +58,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
         public DbSet<MPIRSALIYESIPARISDETAYILISKI> MPIRSALIYESIPARISDETAYILISKI { get; set; }
         public DbSet<MPIRSALIYEDETAY> MPIRSALIYEDETAY { get; set; }
         public DbSet<MPSATINALMAMALKABULEMRIHAR> MPSATINALMAMALKABULEMRIHAR { get; set; }
- 
+        public DbSet<MPPARABIRIM> MPPARABIRIM { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

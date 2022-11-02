@@ -3,6 +3,7 @@ using MEYPAK.Entity.Models.ARAC;
 using MEYPAK.Entity.Models.CARI;
 using MEYPAK.Entity.Models.DEPO;
 using MEYPAK.Entity.Models.IRSALIYE;
+using MEYPAK.Entity.Models.PARAMETRE;
 using MEYPAK.Entity.Models.PERSONEL;
 using MEYPAK.Entity.Models.SIPARIS;
 using MEYPAK.Entity.Models.STOK;
@@ -10,6 +11,7 @@ using MEYPAK.Entity.PocoModels.ARAC;
 using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.DEPO;
 using MEYPAK.Entity.PocoModels.IRSALIYE;
+using MEYPAK.Entity.PocoModels.PARAMETRE;
 using MEYPAK.Entity.PocoModels.PERSONEL;
 using MEYPAK.Entity.PocoModels.SIPARIS;
 using MEYPAK.Entity.PocoModels.STOK;
@@ -25,6 +27,10 @@ namespace MEYPAK.Entity.Mappings
     {
         public Maps()
         {
+
+            //PARAMETRE
+
+            CreateMap<MPPARABIRIM, PocoPARABIRIM>().ReverseMap();
 
             //CARI
             CreateMap<ADRESLIST, PocoAdresList>().ReverseMap();

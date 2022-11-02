@@ -30,26 +30,7 @@ namespace MEYPAK.PRL.CARI
         {
             BTCariKodu.Text = _tempCARIKART.KOD;
             TBCariAdi.Text = _tempCARIKART.UNVAN!=""? _tempCARIKART.ADI + " " + _tempCARIKART.SOYADI : _tempCARIKART.UNVAN;
-        }
-
-        private void BTKaydet_Click(object sender, EventArgs e)
-        {
-            _cariHarServis.Data(ServisList.CariHarEkleServis, new PocoCARIHAR()
-            {
-                CARIID=_tempCARIKART.ID,
-                ACIKLAMA = TBAciklama.Text,
-                ALACAK = RGCariHareket.SelectedIndex == 1 ? Convert.ToDecimal(TBFiyat.Text) : 0,
-                BORC=  RGCariHareket.SelectedIndex == 0 ?Convert.ToDecimal(TBFiyat.Text) : 0,
-                BELGE_NO=TEBelgeNo.Text,
-                HAREKETTIPI=5,
-                KUR=Convert.ToDecimal(TBKur.Text),
-                TUTAR=Convert.ToDecimal(TBFiyat.Text),
-                PARABIRIMID=1,  //TODO:Parabirimi Tablosu eklendikten sonra kontrol edilecek
-                HAREKETTARIHI= DateTime.Now
-                
-            }); 
-
-        }
+        } 
 
         private void TBCariKodu_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
@@ -62,16 +43,29 @@ namespace MEYPAK.PRL.CARI
         private void radioGroup1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
-        }
+        } 
 
         private void LBTarih_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void BTCariHareketKaydet_Click(object sender, EventArgs e)
+        {
+            _cariHarServis.Data(ServisList.CariHarEkleServis, new PocoCARIHAR()
+            {
+                CARIID = _tempCARIKART.ID,
+                ACIKLAMA = TBAciklama.Text,
+                ALACAK = RGCariHareket.SelectedIndex == 1 ? Convert.ToDecimal(TBFiyat.Text) : 0,
+                BORC = RGCariHareket.SelectedIndex == 0 ? Convert.ToDecimal(TBFiyat.Text) : 0,
+                BELGE_NO = TEBelgeNo.Text,
+                HAREKETTIPI = 5,
+                KUR = Convert.ToDecimal(TBKur.Text),
+                TUTAR = Convert.ToDecimal(TBFiyat.Text),
+                PARABIRIMID = 1,  //TODO:Parabirimi Tablosu eklendikten sonra kontrol edilecek
+                HAREKETTARIHI = DateTime.Now
+
+            });
         }
     }
 }

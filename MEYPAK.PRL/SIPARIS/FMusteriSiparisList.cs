@@ -40,7 +40,7 @@ namespace MEYPAK.PRL.SIPARIS
             {
                 if (fmusteriSiparis != null)
                 {
-                    fmusteriSiparis._tempSiparis = _mSiparisServis.obje.Where(x => x.ID.ToString() == dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
+                    fmusteriSiparis._tempSiparis = _mSiparisServis.obje.Where(x => x.ID.ToString() == dataGridView1.Rows[e.RowIndex].Cells["ID"].Value.ToString()).FirstOrDefault();
                 }
 
             }
