@@ -1,5 +1,6 @@
 ﻿using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.PocoModels.CARI;
+using MEYPAK.Entity.PocoModels.STOK;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,15 +18,25 @@ namespace MEYPAK.PRL.CARI
         public FCariDurum()
         {
             InitializeComponent();
-            _carikart = new GenericWebServis<PocoCARIKART>();
+            _stok = new GenericWebServis<PocoSTOK>();
         }
-        GenericWebServis<PocoCARIKART> _carikart;
+        GenericWebServis<PocoSTOK> _stok;
 
         private void GCCariDurum_Click(object sender, EventArgs e)
         {
-            _carikart.Data(ServisList.CariListeServis);
+          
+        }
 
-            gridLookUpEdit1.Properties.DataSource = _carikart.obje.Select(x => x.ADI);
+        private void FCariDurum_Load(object sender, EventArgs e)
+        {
+            _stok.Data(ServisList.CariListeServis);
+
+         //   gridLookUpEdit1.Properties.DataSource = _stok.obje.Select(x => x.adi);
+        }
+
+        private void LBCariKodu_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

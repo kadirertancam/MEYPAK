@@ -15,6 +15,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.PocoModels.STOK;
+using DevExpress.XtraEditors;
+using DevExpress.Utils;
 
 namespace MEYPAK.PRL.STOK
 {
@@ -45,15 +47,16 @@ namespace MEYPAK.PRL.STOK
             stokSayimPanel = new FStokSayimPanel("kaydet");
             _stokSayimServis.Data(ServisList.StokSayimEkleServis,(new Entity.PocoModels.STOK.PocoSTOKSAYIM()
             {
-                SAYIMTARIHI = (DateTime)DTPSayimTarihi.EditValue,
+                SAYIMTARIHI = (DateTime)DEStokSayimTarihi.EditValue,
                 ACIKLAMA = TBAciklama.Text,
+
             }));
             _stokSayimServis.Data(ServisList.StokSayimListeServis);
-            gridControl1.DataSource = _stokSayimServis.obje;
+            GCStokSayim.DataSource = _stokSayimServis.obje;
 
             stokSayimPanel.sayimId = _stokSayimServis.obje.Where(x => x.ACIKLAMA == TBAciklama.Text ).FirstOrDefault().ID;
-                TBAciklama.Text = "";
-            DTPSayimTarihi.EditValue = DateTime.Now;
+            TBAciklama.Text = "";
+            DEStokSayimTarihi.EditValue = DateTime.Now;
             stokSayimPanel.ShowDialog();
 
         }
@@ -61,8 +64,8 @@ namespace MEYPAK.PRL.STOK
         private void FStokSayim_Load(object sender, EventArgs e)
         {
             _stokSayimServis.Data(ServisList.StokSayimListeServis);
-            DTPSayimTarihi.EditValue = DateTime.Now.ToString("dd/MM/yyyy HH.mm");
-            gridControl1.DataSource = _stokSayimServis.obje;
+            DEStokSayimTarihi.EditValue = DateTime.Now.ToString("dd/MM/yyyy");
+            GCStokSayim.DataSource = _stokSayimServis.obje;
             gridView1.Columns["FIRMAID"].Visible = false;
             gridView1.Columns["SUBEID"].Visible = false;
             gridView1.Columns["DEPOID"].Visible = false;
@@ -93,7 +96,19 @@ namespace MEYPAK.PRL.STOK
         {
             _stokSayimServis.Data(ServisList.StokSayimSilServis,null,null,(_stokSayimServis.obje.Where(x => x.ID== Convert.ToInt32(gridView1.GetFocusedRowCellValue("ID").ToString()))).ToList());
             _stokSayimServis.Data(ServisList.StokSayimListeServis);
-            gridControl1.DataSource = _stokSayimServis.obje;
+            GCStokSayim.DataSource = _stokSayimServis.obje;
+        }
+
+       
+
+        private void TBAciklama_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DEStokSayimTarihi_EditValueChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

@@ -16,62 +16,62 @@ namespace MEYPAK.Entity.PocoModels.STOK
 {
     public class PocoSTOK
     {
-        
+
         public int id { get; set; }
         public DateTime olusturmatarihi { get; set; } = DateTime.Now;
         public DateTime guncellemetarihi { get; set; } = DateTime.Now;
         public byte kayittipi { get; set; } = 0;
         public int eskiid { get; set; } = 0;
-        public int sirketid { get; set; }
-        public int subeid { get; set; }
-        public int kasaid { get; set; }
-        public string kod { get; set; }
-        public string adi { get; set; }
-        public int markaid { get; set; }
-        public int kategoriid { get; set; }
-        public int olcubR1 { get; set; }
-        public int sdovizid { get; set; }
-        public int adovizid { get; set; }
-        public decimal sfiyaT1 { get; set; }
-        public decimal sfiyaT2 { get; set; }
-        public decimal sfiyaT3 { get; set; }
-        public decimal sfiyaT4 { get; set; }
-        public decimal sfiyaT5 { get; set; }
-        public decimal afiyaT1 { get; set; }
-        public decimal afiyaT2 { get; set; }
-        public decimal afiyaT3 { get; set; }
-        public decimal afiyaT4 { get; set; }
-        public decimal afiyaT5 { get; set; }
-        public decimal satiskdv { get; set; }
-        public decimal aliskdv { get; set; }
-        public decimal satisotv { get; set; }
-        public decimal alisotv { get; set; }
-        public int grupkodu { get; set; }
-        public string aciklama { get; set; }
-        public string aciklamA1 { get; set; }
-        public string aciklamA2 { get; set; }
-        public string aciklamA3 { get; set; }
-        public string aciklamA4 { get; set; }
-        public string aciklamA5 { get; set; }
-        public decimal saciklama { get; set; }
-        public decimal saciklamA1 { get; set; }
-        public decimal saciklamA2 { get; set; }
-        public decimal saciklamA3 { get; set; }
-        public decimal saciklamA4 { get; set; }
-        public decimal saciklamA5 { get; set; }
-        public string raporkodu { get; set; }
-        public string raporkodU1 { get; set; }
-        public string raporkodU2 { get; set; }
-        public string raporkodU3 { get; set; }
-        public string raporkodU4 { get; set; }
-        public string raporkodU5 { get; set; }
-        public string raporkodU6 { get; set; }
-        public string raporkodU7 { get; set; }
-        public string raporkodU8 { get; set; }
-        public string raporkodU9 { get; set; }
-        public int gtin { get; set; }
-        public int kullaniciid { get; set; }
-        public string donem { get; set; }
+        public int sirketid { get; set; } = 0;
+        public int subeid { get; set; } = 0;
+        public int kasaid { get; set; } = 0;
+        public string kod { get; set; } = "";
+        public string adi { get; set; } = "";
+        public int markaid { get; set; } = 0;
+        public int kategoriid { get; set; } = 0;
+        public int olcubR1 { get; set; } = 0;
+        public int sdovizid { get; set; } = 0;
+        public int adovizid { get; set; } = 0;
+        public decimal sfiyaT1 { get; set; } = 0;
+        public decimal sfiyaT2 { get; set; } = 0;
+        public decimal sfiyaT3 { get; set; } = 0;
+        public decimal sfiyaT4 { get; set; } = 0;
+        public decimal sfiyaT5 { get; set; } = 0;
+        public decimal afiyaT1 { get; set; } = 0;
+        public decimal afiyaT2 { get; set; } = 0;
+        public decimal afiyaT3 { get; set; } = 0;
+        public decimal afiyaT4 { get; set; } = 0;
+        public decimal afiyaT5 { get; set; } = 0;
+        public decimal satiskdv { get; set; } = 0;
+        public decimal aliskdv { get; set; } = 0;
+        public decimal satisotv { get; set; } = 0;
+        public decimal alisotv { get; set; } = 0;
+        public int? grupkodu { get; set; } = 0;
+        public string aciklama { get; set; } = "";
+        public string aciklamA1 { get; set; }   = "";
+        public string aciklamA2 { get; set; }   = "";
+        public string aciklamA3 { get; set; }   = "";
+        public string aciklamA4 { get; set; }   = "";
+        public string aciklamA5 { get; set; }   = "";
+        public decimal saciklama { get; set; } = 0;
+        public decimal saciklamA1 { get; set; } = 0;
+        public decimal saciklamA2 { get; set; } = 0;
+        public decimal saciklamA3 { get; set; } = 0;
+        public decimal saciklamA4 { get; set; } = 0;
+        public decimal saciklamA5 { get; set; } = 0;
+        public string raporkodu { get; set; }   = "";
+        public string raporkodU1 { get; set; }  = "";
+        public string raporkodU2 { get; set; }  = "";
+        public string raporkodU3 { get; set; }  = "";
+        public string raporkodU4 { get; set; }  = "";
+        public string raporkodU5 { get; set; }  = "";
+        public string raporkodU6 { get; set; }  = "";
+        public string raporkodU7 { get; set; }  = "";
+        public string raporkodU8 { get; set; }  = "";
+        public string raporkodU9 { get; set; } = "";
+        public int gtin { get; set; } = 0;
+        public int kullaniciid { get; set; } = 0;
+        public string donem { get; set; } = "";
         public List<object> mpstokolcubr { get; set; }
         public List<object> mpstokhar { get; set; }
         public List<object> mpstoksayimhar { get; set; }

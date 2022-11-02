@@ -49,7 +49,7 @@ namespace MEYPAK.PRL.STOK
         private void FStokList_Load(object sender, EventArgs e)
         {
             _stokServis.Data(ServisList.StokListeServis);
-            gridControl1.DataSource = _stokServis.obje.Select(x => new { x.id, x.kod, x.adi, x.grupkodu, x.olcubR1, x.markaid }).ToList();
+            GCStokList.DataSource = _stokServis.obje.Select(x => new { x.id, x.kod, x.adi, x.grupkodu, x.olcubR1, x.markaid }).ToList();
 
             fSTOKKART = (FStokKart)Application.OpenForms["FStokKart"];
             fStokHareket = (FStokHareket)Application.OpenForms["FStokHareket"];
@@ -67,7 +67,7 @@ namespace MEYPAK.PRL.STOK
             if (_islem == "stokkart")
             {
                 if (fSTOKKART != null)
-                    fSTOKKART._tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+                    fSTOKKART._tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()).FirstOrDefault();
             }
             else if (_islem == "stoksayimpanel")
             {
