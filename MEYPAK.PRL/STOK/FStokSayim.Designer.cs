@@ -35,21 +35,21 @@
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.GBStokSayim = new System.Windows.Forms.GroupBox();
-            this.DEStokSayimTarihi = new DevExpress.XtraEditors.DateEdit();
-            this.LBStokSayimAciklama = new DevExpress.XtraEditors.LabelControl();
-            this.LBSayimTarihi = new DevExpress.XtraEditors.LabelControl();
-            this.TBAciklama = new System.Windows.Forms.TextBox();
             this.BTStokSayimSil = new DevExpress.XtraEditors.SimpleButton();
             this.BTStokSayimDegistir = new DevExpress.XtraEditors.SimpleButton();
             this.BTStokSayimKaydet = new DevExpress.XtraEditors.SimpleButton();
+            this.LBStokSayimAciklama = new DevExpress.XtraEditors.LabelControl();
+            this.LBSayimTarihi = new DevExpress.XtraEditors.LabelControl();
+            this.TBStokSayimAciklama = new System.Windows.Forms.TextBox();
+            this.DTStokSayimTarih = new DevExpress.XtraEditors.DateEdit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GCStokSayim)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.panel2.SuspendLayout();
             this.GBStokSayim.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DEStokSayimTarihi.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DEStokSayimTarihi.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DTStokSayimTarih.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DTStokSayimTarih.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -98,13 +98,13 @@
             // 
             // GBStokSayim
             // 
+            this.GBStokSayim.Controls.Add(this.DTStokSayimTarih);
             this.GBStokSayim.Controls.Add(this.BTStokSayimSil);
             this.GBStokSayim.Controls.Add(this.BTStokSayimDegistir);
-            this.GBStokSayim.Controls.Add(this.DEStokSayimTarihi);
             this.GBStokSayim.Controls.Add(this.BTStokSayimKaydet);
             this.GBStokSayim.Controls.Add(this.LBStokSayimAciklama);
             this.GBStokSayim.Controls.Add(this.LBSayimTarihi);
-            this.GBStokSayim.Controls.Add(this.TBAciklama);
+            this.GBStokSayim.Controls.Add(this.TBStokSayimAciklama);
             this.GBStokSayim.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GBStokSayim.Location = new System.Drawing.Point(0, 0);
             this.GBStokSayim.Name = "GBStokSayim";
@@ -113,25 +113,44 @@
             this.GBStokSayim.TabStop = false;
             this.GBStokSayim.Text = "Stok Sayım";
             // 
-            // DEStokSayimTarihi
+            // BTStokSayimSil
             // 
-            this.DEStokSayimTarihi.EditValue = new System.DateTime(2022, 11, 3, 0, 0, 0, 0);
-            this.DEStokSayimTarihi.Location = new System.Drawing.Point(90, 41);
-            this.DEStokSayimTarihi.Name = "DEStokSayimTarihi";
-            this.DEStokSayimTarihi.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.DEStokSayimTarihi.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.DEStokSayimTarihi.ShowToolTips = false;
-            this.DEStokSayimTarihi.Size = new System.Drawing.Size(150, 20);
-            this.DEStokSayimTarihi.TabIndex = 12;
-            this.DEStokSayimTarihi.EditValueChanged += new System.EventHandler(this.DEStokSayimTarihi_EditValueChanged);
+            this.BTStokSayimSil.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTStokSayimSil.Appearance.Options.UseBackColor = true;
+            this.BTStokSayimSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTStokSayimSil.ImageOptions.Image")));
+            this.BTStokSayimSil.Location = new System.Drawing.Point(697, 22);
+            this.BTStokSayimSil.Name = "BTStokSayimSil";
+            this.BTStokSayimSil.Size = new System.Drawing.Size(94, 52);
+            this.BTStokSayimSil.TabIndex = 64;
+            this.BTStokSayimSil.Text = "Sil";
+            // 
+            // BTStokSayimDegistir
+            // 
+            this.BTStokSayimDegistir.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTStokSayimDegistir.Appearance.Options.UseBackColor = true;
+            this.BTStokSayimDegistir.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTStokSayimDegistir.ImageOptions.Image")));
+            this.BTStokSayimDegistir.Location = new System.Drawing.Point(597, 22);
+            this.BTStokSayimDegistir.Name = "BTStokSayimDegistir";
+            this.BTStokSayimDegistir.Size = new System.Drawing.Size(94, 52);
+            this.BTStokSayimDegistir.TabIndex = 63;
+            this.BTStokSayimDegistir.Text = "Değiştir";
+            // 
+            // BTStokSayimKaydet
+            // 
+            this.BTStokSayimKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTStokSayimKaydet.Appearance.Options.UseBackColor = true;
+            this.BTStokSayimKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("c.ImageOptions.Image")));
+            this.BTStokSayimKaydet.Location = new System.Drawing.Point(497, 22);
+            this.BTStokSayimKaydet.Name = "BTStokSayimKaydet";
+            this.BTStokSayimKaydet.Size = new System.Drawing.Size(94, 52);
+            this.BTStokSayimKaydet.TabIndex = 62;
+            this.BTStokSayimKaydet.Text = "Kaydet";
             // 
             // LBStokSayimAciklama
             // 
             this.LBStokSayimAciklama.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBStokSayimAciklama.Appearance.Options.UseFont = true;
-            this.LBStokSayimAciklama.Location = new System.Drawing.Point(255, 43);
+            this.LBStokSayimAciklama.Location = new System.Drawing.Point(248, 43);
             this.LBStokSayimAciklama.Name = "LBStokSayimAciklama";
             this.LBStokSayimAciklama.Size = new System.Drawing.Size(46, 14);
             this.LBStokSayimAciklama.TabIndex = 11;
@@ -147,47 +166,35 @@
             this.LBSayimTarihi.TabIndex = 9;
             this.LBSayimTarihi.Text = "Sayım Tarihi";
             // 
-            // TBAciklama
+            // TBStokSayimAciklama
             // 
-            this.TBAciklama.Location = new System.Drawing.Point(307, 41);
-            this.TBAciklama.Multiline = true;
-            this.TBAciklama.Name = "TBAciklama";
-            this.TBAciklama.Size = new System.Drawing.Size(150, 20);
-            this.TBAciklama.TabIndex = 3;
-            this.TBAciklama.TextChanged += new System.EventHandler(this.TBAciklama_TextChanged);
+            this.TBStokSayimAciklama.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TBStokSayimAciklama.Location = new System.Drawing.Point(300, 38);
+            this.TBStokSayimAciklama.Multiline = true;
+            this.TBStokSayimAciklama.Name = "TBStokSayimAciklama";
+            this.TBStokSayimAciklama.Size = new System.Drawing.Size(140, 24);
+            this.TBStokSayimAciklama.TabIndex = 3;
+            this.TBStokSayimAciklama.TextChanged += new System.EventHandler(this.TBAciklama_TextChanged);
             // 
-            // BTStokSayimSil
+            // DTStokSayimTarih
             // 
-            this.BTStokSayimSil.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.BTStokSayimSil.Appearance.Options.UseBackColor = true;
-            this.BTStokSayimSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTCariHareketSil.ImageOptions.Image")));
-            this.BTStokSayimSil.Location = new System.Drawing.Point(699, 22);
-            this.BTStokSayimSil.Name = "BTStokSayimSil";
-            this.BTStokSayimSil.Size = new System.Drawing.Size(94, 52);
-            this.BTStokSayimSil.TabIndex = 64;
-            this.BTStokSayimSil.Text = "Sil";
-            // 
-            // BTStokSayimDegistir
-            // 
-            this.BTStokSayimDegistir.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.BTStokSayimDegistir.Appearance.Options.UseBackColor = true;
-            this.BTStokSayimDegistir.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTCariHareketDegistir.ImageOptions.Image")));
-            this.BTStokSayimDegistir.Location = new System.Drawing.Point(599, 22);
-            this.BTStokSayimDegistir.Name = "BTStokSayimDegistir";
-            this.BTStokSayimDegistir.Size = new System.Drawing.Size(94, 52);
-            this.BTStokSayimDegistir.TabIndex = 63;
-            this.BTStokSayimDegistir.Text = "Değiştir";
-            // 
-            // BTStokSayimKaydet
-            // 
-            this.BTStokSayimKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.BTStokSayimKaydet.Appearance.Options.UseBackColor = true;
-            this.BTStokSayimKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTCariHareketKaydet.ImageOptions.Image")));
-            this.BTStokSayimKaydet.Location = new System.Drawing.Point(499, 22);
-            this.BTStokSayimKaydet.Name = "BTStokSayimKaydet";
-            this.BTStokSayimKaydet.Size = new System.Drawing.Size(94, 52);
-            this.BTStokSayimKaydet.TabIndex = 62;
-            this.BTStokSayimKaydet.Text = "Kaydet";
+            this.DTStokSayimTarih.EditValue = new System.DateTime(2022, 11, 2, 12, 14, 48, 0);
+            this.DTStokSayimTarih.Location = new System.Drawing.Point(90, 38);
+            this.DTStokSayimTarih.Name = "DTStokSayimTarih";
+            this.DTStokSayimTarih.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DTStokSayimTarih.Properties.Appearance.Options.UseFont = true;
+            this.DTStokSayimTarih.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.SpinDown)});
+            this.DTStokSayimTarih.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.ClassicNew;
+            this.DTStokSayimTarih.Properties.MaskSettings.Set("mask", "f");
+            this.DTStokSayimTarih.Properties.VistaCalendarInitialViewStyle = DevExpress.XtraEditors.VistaCalendarInitialViewStyle.YearsGroupView;
+            this.DTStokSayimTarih.Properties.VistaCalendarViewStyle = ((DevExpress.XtraEditors.VistaCalendarViewStyle)(((((DevExpress.XtraEditors.VistaCalendarViewStyle.MonthView | DevExpress.XtraEditors.VistaCalendarViewStyle.YearView) 
+            | DevExpress.XtraEditors.VistaCalendarViewStyle.QuarterView) 
+            | DevExpress.XtraEditors.VistaCalendarViewStyle.YearsGroupView) 
+            | DevExpress.XtraEditors.VistaCalendarViewStyle.CenturyView)));
+            this.DTStokSayimTarih.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
+            this.DTStokSayimTarih.Size = new System.Drawing.Size(140, 24);
+            this.DTStokSayimTarih.TabIndex = 65;
             // 
             // FStokSayim
             // 
@@ -206,8 +213,8 @@
             this.panel2.ResumeLayout(false);
             this.GBStokSayim.ResumeLayout(false);
             this.GBStokSayim.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DEStokSayimTarihi.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DEStokSayimTarihi.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DTStokSayimTarih.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DTStokSayimTarih.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -218,17 +225,17 @@
         private Panel panel3;
         private Panel panel2;
         private GroupBox GBStokSayim;
-        private TextBox TBAciklama;
+        private TextBox TBStokSayimAciklama;
         private DevExpress.XtraGrid.GridControl GCStokSayim;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraEditors.DateTimeOffsetEdit DTPSayimTarihi;
         private DevExpress.XtraEditors.LabelControl LBSayimTarihi;
         private DevExpress.XtraEditors.DateEdit DTStokSayimTarihi;
         private DevExpress.XtraEditors.LabelControl LBStokSayimAciklama;
-        private DevExpress.XtraEditors.DateEdit DEStokSayimTarihi;
         private DevExpress.XtraEditors.TextEdit textEdit1;
         private DevExpress.XtraEditors.SimpleButton BTStokSayimSil;
         private DevExpress.XtraEditors.SimpleButton BTStokSayimDegistir;
         private DevExpress.XtraEditors.SimpleButton BTStokSayimKaydet;
+        private DevExpress.XtraEditors.DateEdit DTStokSayimTarih;
     }
 }

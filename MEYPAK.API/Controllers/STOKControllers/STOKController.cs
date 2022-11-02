@@ -10,6 +10,7 @@ using MEYPAK.Interfaces.Stok;
 using Microsoft.AspNetCore.Mvc;
 
 using Newtonsoft.Json;
+using Remote.Linq.SimpleQuery;
 using System;
 using System.Linq.Expressions;
 using System.Text.Json.Nodes;
@@ -39,6 +40,21 @@ namespace MEYPAK.API.Controllers.STOK
             {
                 var data = _stokServis.Listele();
                 return Ok(data);
+            }
+            catch (Exception ex)
+            {
+                return Problem("Belirsiz bir hata oluştu!" + ex.Message);
+            }
+        }
+
+        [HttpGet]
+        [Route("/[controller]/[action]")]
+        public IActionResult STOKListe(Query<PocoSTOK> query)
+        {
+            try
+            {
+  
+                return Ok(_stokServis.Listele().ApplyQuery(query).ToList());
             }
             catch (Exception ex)
             {

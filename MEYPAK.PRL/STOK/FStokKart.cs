@@ -390,7 +390,7 @@ namespace MEYPAK.PRL
             if (_tempMarka != null)
             {
                 markaid = _tempMarka.id;
-                TBMarka.Text = _tempMarka.ADI;
+                BTMarka.Text = _tempMarka.ADI;
                 _tempMarka = null;
             }
         }

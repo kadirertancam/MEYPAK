@@ -43,11 +43,17 @@
             this.BTNSil = new System.Windows.Forms.Button();
             this.BTNGuncelle = new System.Windows.Forms.Button();
             this.BTKaydet = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.GBStokHareket = new System.Windows.Forms.GroupBox();
+            this.CBBirim = new DevExpress.XtraEditors.GridLookUpEdit();
+            this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.CBParaBirimi = new DevExpress.XtraEditors.GridLookUpEdit();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.TBFiyat = new DevExpress.XtraEditors.TextEdit();
+            this.CBDepo = new DevExpress.XtraEditors.GridLookUpEdit();
+            this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.TBKdv = new DevExpress.XtraEditors.TextEdit();
             this.TBKur = new DevExpress.XtraEditors.TextEdit();
+            this.TBMiktar = new DevExpress.XtraEditors.TextEdit();
             this.TBAciklama = new DevExpress.XtraEditors.MemoEdit();
             this.TBBelgeNo = new DevExpress.XtraEditors.TextEdit();
             this.DTPTarih = new DevExpress.XtraEditors.DateTimeOffsetEdit();
@@ -56,48 +62,42 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.RBCikis = new System.Windows.Forms.RadioButton();
             this.RBGiris = new System.Windows.Forms.RadioButton();
+            this.label14 = new System.Windows.Forms.Label();
             this.CLBDepo = new System.Windows.Forms.CheckedListBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.CBBirim = new DevExpress.XtraEditors.GridLookUpEdit();
-            this.label4 = new System.Windows.Forms.Label();
-            this.TBMiktar = new DevExpress.XtraEditors.TextEdit();
             this.label6 = new System.Windows.Forms.Label();
-            this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.CBDepo = new DevExpress.XtraEditors.GridLookUpEdit();
+            this.label4 = new System.Windows.Forms.Label();
             this.CHBKdvDahil = new System.Windows.Forms.CheckBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.TBKdv = new DevExpress.XtraEditors.TextEdit();
+            this.label3 = new System.Windows.Forms.Label();
+            this.LBStokHarStokKodu = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.panel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.GBStokHareket.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CBBirim.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBParaBirimi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBFiyat.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CBDepo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBKdv.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBKur.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBMiktar.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBAciklama.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBBelgeNo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPTarih.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBStokAdi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBStokKodu.Properties)).BeginInit();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CBBirim.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TBMiktar.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CBDepo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TBKdv.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -141,7 +141,7 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.groupBox2);
-            this.panel2.Controls.Add(this.groupBox1);
+            this.panel2.Controls.Add(this.GBStokHareket);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
@@ -260,41 +260,61 @@
             this.BTKaydet.UseVisualStyleBackColor = true;
             this.BTKaydet.Click += new System.EventHandler(this.BTKaydet_Click);
             // 
-            // groupBox1
+            // GBStokHareket
             // 
-            this.groupBox1.Controls.Add(this.CBBirim);
-            this.groupBox1.Controls.Add(this.CBParaBirimi);
-            this.groupBox1.Controls.Add(this.TBFiyat);
-            this.groupBox1.Controls.Add(this.CBDepo);
-            this.groupBox1.Controls.Add(this.TBKdv);
-            this.groupBox1.Controls.Add(this.TBKur);
-            this.groupBox1.Controls.Add(this.TBMiktar);
-            this.groupBox1.Controls.Add(this.TBAciklama);
-            this.groupBox1.Controls.Add(this.TBBelgeNo);
-            this.groupBox1.Controls.Add(this.DTPTarih);
-            this.groupBox1.Controls.Add(this.TBStokAdi);
-            this.groupBox1.Controls.Add(this.TBStokKodu);
-            this.groupBox1.Controls.Add(this.groupBox3);
-            this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Controls.Add(this.CLBDepo);
-            this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.CHBKdvDahil);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(904, 206);
-            this.groupBox1.TabIndex = 2;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Stok Hareket";
+            this.GBStokHareket.Controls.Add(this.CBBirim);
+            this.GBStokHareket.Controls.Add(this.CBParaBirimi);
+            this.GBStokHareket.Controls.Add(this.TBFiyat);
+            this.GBStokHareket.Controls.Add(this.CBDepo);
+            this.GBStokHareket.Controls.Add(this.TBKdv);
+            this.GBStokHareket.Controls.Add(this.TBKur);
+            this.GBStokHareket.Controls.Add(this.TBMiktar);
+            this.GBStokHareket.Controls.Add(this.TBAciklama);
+            this.GBStokHareket.Controls.Add(this.TBBelgeNo);
+            this.GBStokHareket.Controls.Add(this.DTPTarih);
+            this.GBStokHareket.Controls.Add(this.TBStokAdi);
+            this.GBStokHareket.Controls.Add(this.TBStokKodu);
+            this.GBStokHareket.Controls.Add(this.groupBox3);
+            this.GBStokHareket.Controls.Add(this.label14);
+            this.GBStokHareket.Controls.Add(this.CLBDepo);
+            this.GBStokHareket.Controls.Add(this.label10);
+            this.GBStokHareket.Controls.Add(this.label9);
+            this.GBStokHareket.Controls.Add(this.label7);
+            this.GBStokHareket.Controls.Add(this.label8);
+            this.GBStokHareket.Controls.Add(this.label2);
+            this.GBStokHareket.Controls.Add(this.label5);
+            this.GBStokHareket.Controls.Add(this.label6);
+            this.GBStokHareket.Controls.Add(this.label4);
+            this.GBStokHareket.Controls.Add(this.CHBKdvDahil);
+            this.GBStokHareket.Controls.Add(this.label3);
+            this.GBStokHareket.Controls.Add(this.LBStokHarStokKodu);
+            this.GBStokHareket.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.GBStokHareket.Location = new System.Drawing.Point(12, 12);
+            this.GBStokHareket.Name = "GBStokHareket";
+            this.GBStokHareket.Size = new System.Drawing.Size(904, 206);
+            this.GBStokHareket.TabIndex = 2;
+            this.GBStokHareket.TabStop = false;
+            this.GBStokHareket.Text = "Stok Hareket";
+            // 
+            // CBBirim
+            // 
+            this.CBBirim.EditValue = "";
+            this.CBBirim.Location = new System.Drawing.Point(356, 125);
+            this.CBBirim.Name = "CBBirim";
+            this.CBBirim.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CBBirim.Properties.NullText = "";
+            this.CBBirim.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.CBBirim.Properties.PopupView = this.gridView3;
+            this.CBBirim.Size = new System.Drawing.Size(150, 26);
+            this.CBBirim.TabIndex = 36;
+            // 
+            // gridView3
+            // 
+            this.gridView3.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView3.Name = "gridView3";
+            this.gridView3.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView3.OptionsView.ShowGroupPanel = false;
             // 
             // CBParaBirimi
             // 
@@ -324,6 +344,34 @@
             this.TBFiyat.Size = new System.Drawing.Size(149, 26);
             this.TBFiyat.TabIndex = 33;
             // 
+            // CBDepo
+            // 
+            this.CBDepo.EditValue = "";
+            this.CBDepo.Location = new System.Drawing.Point(74, 85);
+            this.CBDepo.Name = "CBDepo";
+            this.CBDepo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CBDepo.Properties.NullText = "";
+            this.CBDepo.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.CBDepo.Properties.PopupView = this.gridLookUpEdit1View;
+            this.CBDepo.Size = new System.Drawing.Size(150, 26);
+            this.CBDepo.TabIndex = 34;
+            // 
+            // gridLookUpEdit1View
+            // 
+            this.gridLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridLookUpEdit1View.Name = "gridLookUpEdit1View";
+            this.gridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            // 
+            // TBKdv
+            // 
+            this.TBKdv.Location = new System.Drawing.Point(610, 27);
+            this.TBKdv.Name = "TBKdv";
+            this.TBKdv.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.TBKdv.Size = new System.Drawing.Size(149, 26);
+            this.TBKdv.TabIndex = 33;
+            // 
             // TBKur
             // 
             this.TBKur.Location = new System.Drawing.Point(610, 155);
@@ -331,6 +379,14 @@
             this.TBKur.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.TBKur.Size = new System.Drawing.Size(149, 26);
             this.TBKur.TabIndex = 33;
+            // 
+            // TBMiktar
+            // 
+            this.TBMiktar.Location = new System.Drawing.Point(356, 93);
+            this.TBMiktar.Name = "TBMiktar";
+            this.TBMiktar.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.TBMiktar.Size = new System.Drawing.Size(100, 26);
+            this.TBMiktar.TabIndex = 33;
             // 
             // TBAciklama
             // 
@@ -418,6 +474,16 @@
             this.RBGiris.Text = "Giriş";
             this.RBGiris.UseVisualStyleBackColor = true;
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label14.Location = new System.Drawing.Point(289, 130);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(32, 14);
+            this.label14.TabIndex = 28;
+            this.label14.Text = "Birim";
+            // 
             // CLBDepo
             // 
             this.CLBDepo.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -426,6 +492,16 @@
             this.CLBDepo.Name = "CLBDepo";
             this.CLBDepo.Size = new System.Drawing.Size(132, 140);
             this.CLBDepo.TabIndex = 25;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label10.Location = new System.Drawing.Point(543, 28);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(46, 14);
+            this.label10.TabIndex = 24;
+            this.label10.Text = "KDV %";
             // 
             // label9
             // 
@@ -477,74 +553,6 @@
             this.label5.TabIndex = 11;
             this.label5.Text = "Para Birimi";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(289, 30);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 14);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Açıklama";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(8, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 14);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Stok Kodu";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label14.Location = new System.Drawing.Point(289, 130);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(32, 14);
-            this.label14.TabIndex = 28;
-            this.label14.Text = "Birim";
-            // 
-            // gridView3
-            // 
-            this.gridView3.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridView3.Name = "gridView3";
-            this.gridView3.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridView3.OptionsView.ShowGroupPanel = false;
-            // 
-            // CBBirim
-            // 
-            this.CBBirim.EditValue = "";
-            this.CBBirim.Location = new System.Drawing.Point(356, 125);
-            this.CBBirim.Name = "CBBirim";
-            this.CBBirim.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.CBBirim.Properties.NullText = "";
-            this.CBBirim.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.CBBirim.Properties.PopupView = this.gridView3;
-            this.CBBirim.Size = new System.Drawing.Size(150, 26);
-            this.CBBirim.TabIndex = 36;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(289, 96);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(39, 14);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Miktar";
-            // 
-            // TBMiktar
-            // 
-            this.TBMiktar.Location = new System.Drawing.Point(356, 93);
-            this.TBMiktar.Name = "TBMiktar";
-            this.TBMiktar.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.TBMiktar.Size = new System.Drawing.Size(100, 26);
-            this.TBMiktar.TabIndex = 33;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -555,25 +563,15 @@
             this.label6.TabIndex = 13;
             this.label6.Text = "Depo";
             // 
-            // gridLookUpEdit1View
+            // label4
             // 
-            this.gridLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridLookUpEdit1View.Name = "gridLookUpEdit1View";
-            this.gridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
-            // 
-            // CBDepo
-            // 
-            this.CBDepo.EditValue = "";
-            this.CBDepo.Location = new System.Drawing.Point(74, 85);
-            this.CBDepo.Name = "CBDepo";
-            this.CBDepo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.CBDepo.Properties.NullText = "";
-            this.CBDepo.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.CBDepo.Properties.PopupView = this.gridLookUpEdit1View;
-            this.CBDepo.Size = new System.Drawing.Size(150, 26);
-            this.CBDepo.TabIndex = 34;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(289, 96);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(39, 14);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Miktar";
             // 
             // CHBKdvDahil
             // 
@@ -586,23 +584,25 @@
             this.CHBKdvDahil.Text = "KDV Dahil";
             this.CHBKdvDahil.UseVisualStyleBackColor = true;
             // 
-            // label10
+            // label3
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label10.Location = new System.Drawing.Point(543, 28);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(46, 14);
-            this.label10.TabIndex = 24;
-            this.label10.Text = "KDV %";
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(289, 30);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(53, 14);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Açıklama";
             // 
-            // TBKdv
+            // LBStokHarStokKodu
             // 
-            this.TBKdv.Location = new System.Drawing.Point(610, 27);
-            this.TBKdv.Name = "TBKdv";
-            this.TBKdv.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.TBKdv.Size = new System.Drawing.Size(149, 26);
-            this.TBKdv.TabIndex = 33;
+            this.LBStokHarStokKodu.AutoSize = true;
+            this.LBStokHarStokKodu.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBStokHarStokKodu.Location = new System.Drawing.Point(8, 29);
+            this.LBStokHarStokKodu.Name = "LBStokHarStokKodu";
+            this.LBStokHarStokKodu.Size = new System.Drawing.Size(64, 14);
+            this.LBStokHarStokKodu.TabIndex = 0;
+            this.LBStokHarStokKodu.Text = "Stok Kodu";
             // 
             // FStokHareket
             // 
@@ -621,12 +621,18 @@
             this.panel2.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.GBStokHareket.ResumeLayout(false);
+            this.GBStokHareket.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CBBirim.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBParaBirimi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBFiyat.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CBDepo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBKdv.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBKur.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBMiktar.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBAciklama.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBBelgeNo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPTarih.Properties)).EndInit();
@@ -634,12 +640,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.TBStokKodu.Properties)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CBBirim.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TBMiktar.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CBDepo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TBKdv.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -659,7 +659,7 @@
         private Button BTNSil;
         private Button BTNGuncelle;
         private Button BTKaydet;
-        private GroupBox groupBox1;
+        private GroupBox GBStokHareket;
         private CheckedListBox CLBDepo;
         private Label label9;
         private Label label8;
@@ -667,7 +667,7 @@
         private Label label2;
         private Label label5;
         private Label label3;
-        private Label label1;
+        private Label LBStokHarStokKodu;
         private GroupBox groupBox3;
         private RadioButton RBCikis;
         private RadioButton RBGiris;

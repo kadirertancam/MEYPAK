@@ -19,6 +19,8 @@ using DevExtreme.AspNet.Data;
 using DevExtreme.AspNet.Mvc;
 using Ninject.Infrastructure.Language;
 using MEYPAK.WEB.Assets;
+using System.ServiceModel.Channels;
+
 
 namespace MEYPAK.WEB.Controllers.STOKController
 {
@@ -49,7 +51,8 @@ namespace MEYPAK.WEB.Controllers.STOKController
             _logger = logger;
 
         }
-
+        // GenericObject<int> Stokfiyatlistid;
+        //apiden guid isteği atılıp 
 
 
         #region STOK
@@ -68,7 +71,7 @@ namespace MEYPAK.WEB.Controllers.STOKController
             //string url = "http://213.238.167.117:8080/Stok/PagingList?skip="+b+"&take="+a+"&requireTotalCount=true";
             //_tempPocoStok.Data(url);
             _tempPocoStok.Data(ServisList.StokListeServis);
-            return DataSourceLoader.Load(_tempPocoStok.obje.Where(x=> x.kayittipi==0).Reverse().AsEnumerable(), loadOptions);
+            return DataSourceLoader.Load(_tempPocoStok.obje.Where(x => x.kayittipi == 0).Reverse().AsEnumerable(), loadOptions);
         }
         [HttpPut]
         public async Task<IActionResult> StokPut(int key, string values)
@@ -100,7 +103,7 @@ namespace MEYPAK.WEB.Controllers.STOKController
             string url = ServisList.StokDeleteByIdServis;
             url += "?id=";
             url += key;
-            _tempPocoStok.Data(url,method:HttpMethod.Post);
+            _tempPocoStok.Data(url, method: HttpMethod.Post);
             ViewBag.Durum = "Başarıyla silindi.";
         }
 
@@ -252,10 +255,9 @@ namespace MEYPAK.WEB.Controllers.STOKController
             PocoSTOKFIYATLIST newPoco = new PocoSTOKFIYATLIST();
             JsonConvert.PopulateObject(values, newPoco);
             _tempPocoStokFiyatList.Data(ServisList.StokFiyatListEkleServis, newPoco);
-            return Redirect("StokFiyatListHarKart?id="+_tempPocoStokFiyatList.obje2.id);
+            return View("StokFiyatListHarKart");
+            return Redirect("StokFiyatListHarKart?id=" + _tempPocoStokFiyatList.obje2.id);
 
-            ViewBag.Durum = "Başarıyla eklendi.";
-            return Ok();
         }
         [HttpDelete]
         public void StokFiyatListDelete(int key)
@@ -270,27 +272,19 @@ namespace MEYPAK.WEB.Controllers.STOKController
         #endregion
 
         #region STOKFIYATLISTHAR
-        GenericObject<int> Stokfiyatlistid;
+
         [HttpGet]
         public async Task<IActionResult> StokFiyatListHarKart(int id)
         {
-            //apiden guid isteği atılıp 
-            ViewBag.FiyatList = $"{id}";
             return View();
         }
 
         [HttpGet]
-        public object StokFiyatListHarGet(DataSourceLoadOptions loadOptions,int id)
+        public object StokFiyatListHarGet(DataSourceLoadOptions loadOptions)
         {
-                if (ViewBag.FiyatList != null)
-                {
-                string a = ViewBag.FiyatList.Message;
-                
-                _tempPocoStokFiyatHarList.Data(ServisList.StokFiyatListHarListeServis);
-                    return DataSourceLoader.Load(_tempPocoStokFiyatHarList.obje.Where(x => x.kayittipi == 0 && x.fiyatlistid == Convert.ToInt32(a)).Reverse().AsEnumerable(), loadOptions);
-                }
-            
-            return Ok();
+            _tempPocoStokFiyatHarList.Data(ServisList.StokFiyatListHarListeServis);
+            return DataSourceLoader.Load(_tempPocoStokFiyatHarList.obje.Where(x => x.kayittipi == 0).Reverse().AsEnumerable(), loadOptions);
+
         }
         [HttpPut]
         public async Task<IActionResult> StokFiyatListHarPut(int key, string values)
@@ -327,6 +321,59 @@ namespace MEYPAK.WEB.Controllers.STOKController
         }
 
         #endregion
+
+        #region STOKHAR
+
+        [HttpGet]
+        public async Task<IActionResult> StokHarKart(int id)
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public object StokHarGet(DataSourceLoadOptions loadOptions)
+        {
+            _tempPocoStokHar.Data(ServisList.StokHarListeServis);
+            return DataSourceLoader.Load(_tempPocoStokHar.obje.Where(x => x.kayittipi == 0).Reverse().AsEnumerable(), loadOptions);
+
+        }
+        [HttpPut]
+        public async Task<IActionResult> StokHarPut(int key, string values)
+        { //güncellenecek
+            _tempPocoStokHar.Data(ServisList.StokHarListeServis);
+            var employee = _tempPocoStokHar.obje.First(a => a.id == key);
+            JsonConvert.PopulateObject(values, employee);
+
+            //_tempPocoStok.Data(ServisList.StokEkleServis, id);
+
+            _tempPocoStokHar.Data(ServisList.StokHarEkleServis, employee);
+            var b = _tempPocoStokHar.obje;
+            ViewBag.Durum = "Başarıyla Güncellendi.";
+            return Ok();
+        }
+        [HttpPost]
+        public async Task<IActionResult> StokHarPost(string values)
+        {
+            PocoSTOKHAR newPoco = new PocoSTOKHAR();
+            JsonConvert.PopulateObject(values, newPoco);
+            _tempPocoStokHar.Data(ServisList.StokHarEkleServis, newPoco);
+
+            ViewBag.Durum = "Başarıyla eklendi.";
+            return Ok();
+        }
+        [HttpDelete]
+        public void StokHarDelete(int key)
+        {
+            string url = ServisList.StokHarDeleteByIdServis;
+            url += "?id=";
+            url += key;
+            _tempPocoStokHar.Data(url, method: HttpMethod.Post);
+            ViewBag.Durum = "Başarıyla silindi.";
+        }
+
+        #endregion
+
+
 
 
 
