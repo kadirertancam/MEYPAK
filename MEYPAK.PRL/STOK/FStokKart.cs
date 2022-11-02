@@ -81,7 +81,7 @@ namespace MEYPAK.PRL
             if (_tempStok != null)
             {
                 stokid = _tempStok.id;
-                BTStokKodu.Text = _tempStok.kod;
+                TBStokKodu.Text = _tempStok.kod;
                 
             }
             TBStokAdi.Text = _tempStok.adi;
@@ -116,9 +116,9 @@ namespace MEYPAK.PRL
         private void TBStokKodu_Leave(object sender, EventArgs e)               // TBStokkodu doluyken stok kodu kontrolü yapıp tempstok doldurulur.
         {
             _PocoStokServis.Data(ServisList.StokListeServis);
-            if (BTStokKodu.Text != "")
+            if (TBStokKodu.Text != "")
             {
-                _tempStok = _PocoStokServis.obje.Where(x => x.kod == BTStokKodu.Text).FirstOrDefault();
+                _tempStok = _PocoStokServis.obje.Where(x => x.kod == TBStokKodu.Text).FirstOrDefault();
                 if (_tempStok != null)
                     tbDoldur();
                 else
@@ -189,7 +189,7 @@ namespace MEYPAK.PRL
             {
                 id = stokid,
                 kod = TBStokKodu.Text,
-                adi = TBStokAdı.Text,
+                adi = TBStokAdi.Text,
                 markaid = _markaServis.obje.Where(x => x.ADI == TBMarka.Text).FirstOrDefault().id,
                 kategoriid = _tempKategori.id,
                 kasaid = 1,//_tempKasa.ID,
@@ -220,7 +220,7 @@ namespace MEYPAK.PRL
             _tempStok = _PocoStokServis.obje.Where(x => x.kod == _tempStok.kod).FirstOrDefault();
             foreach (var item in stokOlculist)
             {
-                item.STOKID = _PocoStokServis.obje.Where(x => x.kod == BTStokKodu.Text).FirstOrDefault().id;
+                item.STOKID = _PocoStokServis.obje.Where(x => x.kod == TBStokKodu.Text).FirstOrDefault().id;
                 _StokOlcuBrServis.Data(ServisList.StokOlcuBrEkleServis, item);
             }
 
@@ -228,7 +228,7 @@ namespace MEYPAK.PRL
             if (snc != null)
                 MessageBox.Show("Kayıt Başarılı.");
             Temizle(this.Controls);
-            BTStokKodu.Text = "";
+            TBStokKodu.Text = "";
 
             dataGridView1.DataSource = "";
         }

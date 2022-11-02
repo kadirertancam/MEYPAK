@@ -70,10 +70,10 @@ namespace MEYPAK.PRL.STOK
             gridView1.Columns["SUBEID"].Visible = false;
             gridView1.Columns["DEPOID"].Visible = false;
             gridView1.Columns["id"].Visible = false; 
-            gridView1.Columns["KAYITTIPI"].Visible = false; 
-            gridView1.Columns["ESKIID"].Visible = false; 
-            gridView1.Columns["OLUSTURMATARIHI"].Visible = false; 
-            gridView1.Columns["GUNCELLEMETARIHI"].Visible = false; 
+            gridView1.Columns["kayittipi"].Visible = false; 
+            gridView1.Columns["eskiid"].Visible = false; 
+            gridView1.Columns["olusturmatarihi"].Visible = false; 
+            gridView1.Columns["guncellemetarihi"].Visible = false; 
 
         }
 

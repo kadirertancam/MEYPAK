@@ -62,8 +62,8 @@ namespace MEYPAK.PRL.DEPO
         {
             if (_arasıtransfer != null)
             {
-                dataGridView1.DataSource = "";
-                dataGridView1.DataSource = _depoTransferHarServis.Getir(x => x.DEPOTRANSFERID == _arasıtransfer.id);
+                GCTransferHar.DataSource = "";
+                GCTransferHar.DataSource = _depoTransferHarServis.Getir(x => x.DEPOTRANSFERID == _arasıtransfer.id);
             }
 
         }
@@ -106,7 +106,7 @@ namespace MEYPAK.PRL.DEPO
 
         private void button4_Click(object sender, EventArgs e)
         {
-            _depoTransferHarServis.Sil(_depoTransferHarServis.Getir(x => x.id == Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value)));
+            _depoTransferHarServis.Sil(_depoTransferHarServis.Getir(x => x.id == Convert.ToInt32(gridView1.GetFocusedRowCellValue("id"))));
         }
 
         private void TBMiktar_KeyPress(object sender, KeyPressEventArgs e)

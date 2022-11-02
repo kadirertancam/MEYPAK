@@ -143,6 +143,33 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.panel6 = new System.Windows.Forms.Panel();
             this.GBStokKartiRaporKodu = new System.Windows.Forms.GroupBox();
+            this.BTStokKartiRaporKodu9 = new DevExpress.XtraEditors.SimpleButton();
+            this.BTStokKartiRaporKodu4 = new DevExpress.XtraEditors.SimpleButton();
+            this.TEStokKartRaporKodu9 = new DevExpress.XtraEditors.TextEdit();
+            this.BTStokKartiRaporKodu6 = new DevExpress.XtraEditors.SimpleButton();
+            this.BTStokKartiRaporKodu8 = new DevExpress.XtraEditors.SimpleButton();
+            this.BTStokKartiRaporKodu1 = new DevExpress.XtraEditors.SimpleButton();
+            this.BTStokKartiRaporKodu7 = new DevExpress.XtraEditors.SimpleButton();
+            this.BTStokKartiRaporKodu5 = new DevExpress.XtraEditors.SimpleButton();
+            this.TEStokKartRaporKodu6 = new DevExpress.XtraEditors.TextEdit();
+            this.TEStokKartRaporKodu5 = new DevExpress.XtraEditors.TextEdit();
+            this.TEStokKartRaporKodu8 = new DevExpress.XtraEditors.TextEdit();
+            this.TEStokKartRaporKodu7 = new DevExpress.XtraEditors.TextEdit();
+            this.BTStokKartiRaporKodu3 = new DevExpress.XtraEditors.SimpleButton();
+            this.BTStokKartiRaporKodu2 = new DevExpress.XtraEditors.SimpleButton();
+            this.TEStokKartRaporKodu4 = new DevExpress.XtraEditors.TextEdit();
+            this.TEStokKartRaporKodu3 = new DevExpress.XtraEditors.TextEdit();
+            this.TEStokKartRaporKodu2 = new DevExpress.XtraEditors.TextEdit();
+            this.TEStokKartRaporKodu1 = new DevExpress.XtraEditors.TextEdit();
+            this.LBStokKartiRaporKodu9 = new DevExpress.XtraEditors.LabelControl();
+            this.LBStokKartiRaporKodu8 = new DevExpress.XtraEditors.LabelControl();
+            this.LBStokKartiRaporKodu7 = new DevExpress.XtraEditors.LabelControl();
+            this.LBStokKartiRaporKodu6 = new DevExpress.XtraEditors.LabelControl();
+            this.LBStokKartiRaporKodu5 = new DevExpress.XtraEditors.LabelControl();
+            this.LBStokKartiRaporKodu4 = new DevExpress.XtraEditors.LabelControl();
+            this.LBStokKartiRaporKodu3 = new DevExpress.XtraEditors.LabelControl();
+            this.LBStokKartiRaporKodu2 = new DevExpress.XtraEditors.LabelControl();
+            this.LBStokKartiRaporKodu1 = new DevExpress.XtraEditors.LabelControl();
             this.panel2 = new System.Windows.Forms.Panel();
             this.GBStokKarti = new System.Windows.Forms.GroupBox();
             this.GBSatisKartiOzellik = new System.Windows.Forms.GroupBox();
@@ -170,34 +197,7 @@
             this.TBKategori = new DevExpress.XtraEditors.ButtonEdit();
             this.TBMarka = new DevExpress.XtraEditors.ButtonEdit();
             this.TBStokAdi = new DevExpress.XtraEditors.TextEdit();
-            this.BTStokKodu = new DevExpress.XtraEditors.ButtonEdit();
-            this.LBStokKartiRaporKodu1 = new DevExpress.XtraEditors.LabelControl();
-            this.LBStokKartiRaporKodu8 = new DevExpress.XtraEditors.LabelControl();
-            this.LBStokKartiRaporKodu7 = new DevExpress.XtraEditors.LabelControl();
-            this.LBStokKartiRaporKodu6 = new DevExpress.XtraEditors.LabelControl();
-            this.LBStokKartiRaporKodu5 = new DevExpress.XtraEditors.LabelControl();
-            this.LBStokKartiRaporKodu4 = new DevExpress.XtraEditors.LabelControl();
-            this.LBStokKartiRaporKodu3 = new DevExpress.XtraEditors.LabelControl();
-            this.LBStokKartiRaporKodu2 = new DevExpress.XtraEditors.LabelControl();
-            this.LBStokKartiRaporKodu9 = new DevExpress.XtraEditors.LabelControl();
-            this.BTStokKartiRaporKodu2 = new DevExpress.XtraEditors.SimpleButton();
-            this.BTStokKartiRaporKodu3 = new DevExpress.XtraEditors.SimpleButton();
-            this.BTStokKartiRaporKodu1 = new DevExpress.XtraEditors.SimpleButton();
-            this.TEStokKartRaporKodu1 = new DevExpress.XtraEditors.TextEdit();
-            this.TEStokKartRaporKodu2 = new DevExpress.XtraEditors.TextEdit();
-            this.TEStokKartRaporKodu3 = new DevExpress.XtraEditors.TextEdit();
-            this.TEStokKartRaporKodu4 = new DevExpress.XtraEditors.TextEdit();
-            this.TEStokKartRaporKodu5 = new DevExpress.XtraEditors.TextEdit();
-            this.TEStokKartRaporKodu6 = new DevExpress.XtraEditors.TextEdit();
-            this.BTStokKartiRaporKodu4 = new DevExpress.XtraEditors.SimpleButton();
-            this.BTStokKartiRaporKodu6 = new DevExpress.XtraEditors.SimpleButton();
-            this.BTStokKartiRaporKodu5 = new DevExpress.XtraEditors.SimpleButton();
-            this.BTStokKartiRaporKodu8 = new DevExpress.XtraEditors.SimpleButton();
-            this.BTStokKartiRaporKodu9 = new DevExpress.XtraEditors.SimpleButton();
-            this.BTStokKartiRaporKodu7 = new DevExpress.XtraEditors.SimpleButton();
-            this.TEStokKartRaporKodu9 = new DevExpress.XtraEditors.TextEdit();
-            this.TEStokKartRaporKodu7 = new DevExpress.XtraEditors.TextEdit();
-            this.TEStokKartRaporKodu8 = new DevExpress.XtraEditors.TextEdit();
+            this.TBStokKodu = new DevExpress.XtraEditors.ButtonEdit();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -239,6 +239,15 @@
             this.tabPage4.SuspendLayout();
             this.panel6.SuspendLayout();
             this.GBStokKartiRaporKodu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TEStokKartRaporKodu9.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TEStokKartRaporKodu6.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TEStokKartRaporKodu5.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TEStokKartRaporKodu8.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TEStokKartRaporKodu7.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TEStokKartRaporKodu4.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TEStokKartRaporKodu3.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TEStokKartRaporKodu2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TEStokKartRaporKodu1.Properties)).BeginInit();
             this.panel2.SuspendLayout();
             this.GBStokKarti.SuspendLayout();
             this.GBSatisKartiOzellik.SuspendLayout();
@@ -255,16 +264,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.TBKategori.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBMarka.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBStokAdi.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BTStokKodu.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TEStokKartRaporKodu1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TEStokKartRaporKodu2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TEStokKartRaporKodu3.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TEStokKartRaporKodu4.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TEStokKartRaporKodu5.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TEStokKartRaporKodu6.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TEStokKartRaporKodu9.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TEStokKartRaporKodu7.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TEStokKartRaporKodu8.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBStokKodu.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -293,7 +293,7 @@
             // 
             this.BTStokKartiKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
             this.BTStokKartiKaydet.Appearance.Options.UseBackColor = true;
-            this.BTStokKartiKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTCariHareketKaydet.ImageOptions.Image")));
+            this.BTStokKartiKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTStokKartiKaydet.ImageOptions.Image")));
             this.BTStokKartiKaydet.Location = new System.Drawing.Point(940, 25);
             this.BTStokKartiKaydet.Name = "BTStokKartiKaydet";
             this.BTStokKartiKaydet.Size = new System.Drawing.Size(128, 65);
@@ -1400,6 +1400,384 @@
             this.GBStokKartiRaporKodu.TabStop = false;
             this.GBStokKartiRaporKodu.Text = "Açıklama";
             // 
+            // BTStokKartiRaporKodu9
+            // 
+            this.BTStokKartiRaporKodu9.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTStokKartiRaporKodu9.Appearance.BackColor2 = System.Drawing.Color.Black;
+            this.BTStokKartiRaporKodu9.Appearance.BorderColor = System.Drawing.Color.Black;
+            this.BTStokKartiRaporKodu9.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.BTStokKartiRaporKodu9.Appearance.Options.UseBackColor = true;
+            this.BTStokKartiRaporKodu9.Appearance.Options.UseBorderColor = true;
+            this.BTStokKartiRaporKodu9.Appearance.Options.UseFont = true;
+            this.BTStokKartiRaporKodu9.Appearance.Options.UseForeColor = true;
+            this.BTStokKartiRaporKodu9.AppearanceDisabled.BorderColor = System.Drawing.Color.Black;
+            this.BTStokKartiRaporKodu9.AppearanceDisabled.Options.UseBorderColor = true;
+            this.BTStokKartiRaporKodu9.AppearanceHovered.BorderColor = System.Drawing.Color.Black;
+            this.BTStokKartiRaporKodu9.AppearanceHovered.Options.UseBorderColor = true;
+            this.BTStokKartiRaporKodu9.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTStokKartiRaporKodu9.ImageOptions.Image")));
+            this.BTStokKartiRaporKodu9.Location = new System.Drawing.Point(1024, 146);
+            this.BTStokKartiRaporKodu9.Name = "BTStokKartiRaporKodu9";
+            this.BTStokKartiRaporKodu9.Size = new System.Drawing.Size(59, 26);
+            this.BTStokKartiRaporKodu9.TabIndex = 101;
+            this.BTStokKartiRaporKodu9.Text = "Seç";
+            // 
+            // BTStokKartiRaporKodu4
+            // 
+            this.BTStokKartiRaporKodu4.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTStokKartiRaporKodu4.Appearance.BackColor2 = System.Drawing.Color.Black;
+            this.BTStokKartiRaporKodu4.Appearance.BorderColor = System.Drawing.Color.Black;
+            this.BTStokKartiRaporKodu4.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.BTStokKartiRaporKodu4.Appearance.Options.UseBackColor = true;
+            this.BTStokKartiRaporKodu4.Appearance.Options.UseBorderColor = true;
+            this.BTStokKartiRaporKodu4.Appearance.Options.UseFont = true;
+            this.BTStokKartiRaporKodu4.Appearance.Options.UseForeColor = true;
+            this.BTStokKartiRaporKodu4.AppearanceDisabled.BorderColor = System.Drawing.Color.Black;
+            this.BTStokKartiRaporKodu4.AppearanceDisabled.Options.UseBorderColor = true;
+            this.BTStokKartiRaporKodu4.AppearanceHovered.BorderColor = System.Drawing.Color.Black;
+            this.BTStokKartiRaporKodu4.AppearanceHovered.Options.UseBorderColor = true;
+            this.BTStokKartiRaporKodu4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTStokKartiRaporKodu4.ImageOptions.Image")));
+            this.BTStokKartiRaporKodu4.Location = new System.Drawing.Point(620, 44);
+            this.BTStokKartiRaporKodu4.Name = "BTStokKartiRaporKodu4";
+            this.BTStokKartiRaporKodu4.Size = new System.Drawing.Size(59, 26);
+            this.BTStokKartiRaporKodu4.TabIndex = 85;
+            this.BTStokKartiRaporKodu4.Text = "Seç";
+            // 
+            // TEStokKartRaporKodu9
+            // 
+            this.TEStokKartRaporKodu9.Location = new System.Drawing.Point(771, 146);
+            this.TEStokKartRaporKodu9.Name = "TEStokKartRaporKodu9";
+            this.TEStokKartRaporKodu9.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TEStokKartRaporKodu9.Properties.Appearance.Options.UseFont = true;
+            this.TEStokKartRaporKodu9.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.TEStokKartRaporKodu9.Size = new System.Drawing.Size(312, 26);
+            this.TEStokKartRaporKodu9.TabIndex = 100;
+            // 
+            // BTStokKartiRaporKodu6
+            // 
+            this.BTStokKartiRaporKodu6.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTStokKartiRaporKodu6.Appearance.BackColor2 = System.Drawing.Color.Black;
+            this.BTStokKartiRaporKodu6.Appearance.BorderColor = System.Drawing.Color.Black;
+            this.BTStokKartiRaporKodu6.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.BTStokKartiRaporKodu6.Appearance.Options.UseBackColor = true;
+            this.BTStokKartiRaporKodu6.Appearance.Options.UseBorderColor = true;
+            this.BTStokKartiRaporKodu6.Appearance.Options.UseFont = true;
+            this.BTStokKartiRaporKodu6.Appearance.Options.UseForeColor = true;
+            this.BTStokKartiRaporKodu6.AppearanceDisabled.BorderColor = System.Drawing.Color.Black;
+            this.BTStokKartiRaporKodu6.AppearanceDisabled.Options.UseBorderColor = true;
+            this.BTStokKartiRaporKodu6.AppearanceHovered.BorderColor = System.Drawing.Color.Black;
+            this.BTStokKartiRaporKodu6.AppearanceHovered.Options.UseBorderColor = true;
+            this.BTStokKartiRaporKodu6.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTStokKartiRaporKodu6.ImageOptions.Image")));
+            this.BTStokKartiRaporKodu6.Location = new System.Drawing.Point(620, 146);
+            this.BTStokKartiRaporKodu6.Name = "BTStokKartiRaporKodu6";
+            this.BTStokKartiRaporKodu6.Size = new System.Drawing.Size(59, 26);
+            this.BTStokKartiRaporKodu6.TabIndex = 87;
+            this.BTStokKartiRaporKodu6.Text = "Seç";
+            // 
+            // BTStokKartiRaporKodu8
+            // 
+            this.BTStokKartiRaporKodu8.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTStokKartiRaporKodu8.Appearance.BackColor2 = System.Drawing.Color.Black;
+            this.BTStokKartiRaporKodu8.Appearance.BorderColor = System.Drawing.Color.Black;
+            this.BTStokKartiRaporKodu8.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.BTStokKartiRaporKodu8.Appearance.Options.UseBackColor = true;
+            this.BTStokKartiRaporKodu8.Appearance.Options.UseBorderColor = true;
+            this.BTStokKartiRaporKodu8.Appearance.Options.UseFont = true;
+            this.BTStokKartiRaporKodu8.Appearance.Options.UseForeColor = true;
+            this.BTStokKartiRaporKodu8.AppearanceDisabled.BorderColor = System.Drawing.Color.Black;
+            this.BTStokKartiRaporKodu8.AppearanceDisabled.Options.UseBorderColor = true;
+            this.BTStokKartiRaporKodu8.AppearanceHovered.BorderColor = System.Drawing.Color.Black;
+            this.BTStokKartiRaporKodu8.AppearanceHovered.Options.UseBorderColor = true;
+            this.BTStokKartiRaporKodu8.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTStokKartiRaporKodu8.ImageOptions.Image")));
+            this.BTStokKartiRaporKodu8.Location = new System.Drawing.Point(1024, 96);
+            this.BTStokKartiRaporKodu8.Name = "BTStokKartiRaporKodu8";
+            this.BTStokKartiRaporKodu8.Size = new System.Drawing.Size(59, 26);
+            this.BTStokKartiRaporKodu8.TabIndex = 97;
+            this.BTStokKartiRaporKodu8.Text = "Seç";
+            // 
+            // BTStokKartiRaporKodu1
+            // 
+            this.BTStokKartiRaporKodu1.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTStokKartiRaporKodu1.Appearance.BackColor2 = System.Drawing.Color.Black;
+            this.BTStokKartiRaporKodu1.Appearance.BorderColor = System.Drawing.Color.Black;
+            this.BTStokKartiRaporKodu1.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.BTStokKartiRaporKodu1.Appearance.Options.UseBackColor = true;
+            this.BTStokKartiRaporKodu1.Appearance.Options.UseBorderColor = true;
+            this.BTStokKartiRaporKodu1.Appearance.Options.UseFont = true;
+            this.BTStokKartiRaporKodu1.Appearance.Options.UseForeColor = true;
+            this.BTStokKartiRaporKodu1.AppearanceDisabled.BorderColor = System.Drawing.Color.Black;
+            this.BTStokKartiRaporKodu1.AppearanceDisabled.Options.UseBorderColor = true;
+            this.BTStokKartiRaporKodu1.AppearanceHovered.BorderColor = System.Drawing.Color.Black;
+            this.BTStokKartiRaporKodu1.AppearanceHovered.Options.UseBorderColor = true;
+            this.BTStokKartiRaporKodu1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTStokKartiRaporKodu1.ImageOptions.Image")));
+            this.BTStokKartiRaporKodu1.Location = new System.Drawing.Point(259, 44);
+            this.BTStokKartiRaporKodu1.Name = "BTStokKartiRaporKodu1";
+            this.BTStokKartiRaporKodu1.Size = new System.Drawing.Size(59, 26);
+            this.BTStokKartiRaporKodu1.TabIndex = 59;
+            this.BTStokKartiRaporKodu1.Text = "Seç";
+            // 
+            // BTStokKartiRaporKodu7
+            // 
+            this.BTStokKartiRaporKodu7.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTStokKartiRaporKodu7.Appearance.BackColor2 = System.Drawing.Color.Black;
+            this.BTStokKartiRaporKodu7.Appearance.BorderColor = System.Drawing.Color.Black;
+            this.BTStokKartiRaporKodu7.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.BTStokKartiRaporKodu7.Appearance.Options.UseBackColor = true;
+            this.BTStokKartiRaporKodu7.Appearance.Options.UseBorderColor = true;
+            this.BTStokKartiRaporKodu7.Appearance.Options.UseFont = true;
+            this.BTStokKartiRaporKodu7.Appearance.Options.UseForeColor = true;
+            this.BTStokKartiRaporKodu7.AppearanceDisabled.BorderColor = System.Drawing.Color.Black;
+            this.BTStokKartiRaporKodu7.AppearanceDisabled.Options.UseBorderColor = true;
+            this.BTStokKartiRaporKodu7.AppearanceHovered.BorderColor = System.Drawing.Color.Black;
+            this.BTStokKartiRaporKodu7.AppearanceHovered.Options.UseBorderColor = true;
+            this.BTStokKartiRaporKodu7.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTStokKartiRaporKodu7.ImageOptions.Image")));
+            this.BTStokKartiRaporKodu7.Location = new System.Drawing.Point(1024, 43);
+            this.BTStokKartiRaporKodu7.Name = "BTStokKartiRaporKodu7";
+            this.BTStokKartiRaporKodu7.Size = new System.Drawing.Size(59, 26);
+            this.BTStokKartiRaporKodu7.TabIndex = 99;
+            this.BTStokKartiRaporKodu7.Text = "Seç";
+            // 
+            // BTStokKartiRaporKodu5
+            // 
+            this.BTStokKartiRaporKodu5.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTStokKartiRaporKodu5.Appearance.BackColor2 = System.Drawing.Color.Black;
+            this.BTStokKartiRaporKodu5.Appearance.BorderColor = System.Drawing.Color.Black;
+            this.BTStokKartiRaporKodu5.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.BTStokKartiRaporKodu5.Appearance.Options.UseBackColor = true;
+            this.BTStokKartiRaporKodu5.Appearance.Options.UseBorderColor = true;
+            this.BTStokKartiRaporKodu5.Appearance.Options.UseFont = true;
+            this.BTStokKartiRaporKodu5.Appearance.Options.UseForeColor = true;
+            this.BTStokKartiRaporKodu5.AppearanceDisabled.BorderColor = System.Drawing.Color.Black;
+            this.BTStokKartiRaporKodu5.AppearanceDisabled.Options.UseBorderColor = true;
+            this.BTStokKartiRaporKodu5.AppearanceHovered.BorderColor = System.Drawing.Color.Black;
+            this.BTStokKartiRaporKodu5.AppearanceHovered.Options.UseBorderColor = true;
+            this.BTStokKartiRaporKodu5.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTStokKartiRaporKodu5.ImageOptions.Image")));
+            this.BTStokKartiRaporKodu5.Location = new System.Drawing.Point(620, 95);
+            this.BTStokKartiRaporKodu5.Name = "BTStokKartiRaporKodu5";
+            this.BTStokKartiRaporKodu5.Size = new System.Drawing.Size(59, 26);
+            this.BTStokKartiRaporKodu5.TabIndex = 86;
+            this.BTStokKartiRaporKodu5.Text = "Seç";
+            // 
+            // TEStokKartRaporKodu6
+            // 
+            this.TEStokKartRaporKodu6.Location = new System.Drawing.Point(367, 146);
+            this.TEStokKartRaporKodu6.Name = "TEStokKartRaporKodu6";
+            this.TEStokKartRaporKodu6.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TEStokKartRaporKodu6.Properties.Appearance.Options.UseFont = true;
+            this.TEStokKartRaporKodu6.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.TEStokKartRaporKodu6.Size = new System.Drawing.Size(312, 26);
+            this.TEStokKartRaporKodu6.TabIndex = 86;
+            // 
+            // TEStokKartRaporKodu5
+            // 
+            this.TEStokKartRaporKodu5.Location = new System.Drawing.Point(367, 95);
+            this.TEStokKartRaporKodu5.Name = "TEStokKartRaporKodu5";
+            this.TEStokKartRaporKodu5.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TEStokKartRaporKodu5.Properties.Appearance.Options.UseFont = true;
+            this.TEStokKartRaporKodu5.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.TEStokKartRaporKodu5.Size = new System.Drawing.Size(312, 26);
+            this.TEStokKartRaporKodu5.TabIndex = 85;
+            // 
+            // TEStokKartRaporKodu8
+            // 
+            this.TEStokKartRaporKodu8.Location = new System.Drawing.Point(771, 96);
+            this.TEStokKartRaporKodu8.Name = "TEStokKartRaporKodu8";
+            this.TEStokKartRaporKodu8.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TEStokKartRaporKodu8.Properties.Appearance.Options.UseFont = true;
+            this.TEStokKartRaporKodu8.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.TEStokKartRaporKodu8.Size = new System.Drawing.Size(312, 26);
+            this.TEStokKartRaporKodu8.TabIndex = 96;
+            // 
+            // TEStokKartRaporKodu7
+            // 
+            this.TEStokKartRaporKodu7.Location = new System.Drawing.Point(771, 43);
+            this.TEStokKartRaporKodu7.Name = "TEStokKartRaporKodu7";
+            this.TEStokKartRaporKodu7.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TEStokKartRaporKodu7.Properties.Appearance.Options.UseFont = true;
+            this.TEStokKartRaporKodu7.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.TEStokKartRaporKodu7.Size = new System.Drawing.Size(312, 26);
+            this.TEStokKartRaporKodu7.TabIndex = 98;
+            // 
+            // BTStokKartiRaporKodu3
+            // 
+            this.BTStokKartiRaporKodu3.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTStokKartiRaporKodu3.Appearance.BackColor2 = System.Drawing.Color.Black;
+            this.BTStokKartiRaporKodu3.Appearance.BorderColor = System.Drawing.Color.Black;
+            this.BTStokKartiRaporKodu3.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.BTStokKartiRaporKodu3.Appearance.Options.UseBackColor = true;
+            this.BTStokKartiRaporKodu3.Appearance.Options.UseBorderColor = true;
+            this.BTStokKartiRaporKodu3.Appearance.Options.UseFont = true;
+            this.BTStokKartiRaporKodu3.Appearance.Options.UseForeColor = true;
+            this.BTStokKartiRaporKodu3.AppearanceDisabled.BorderColor = System.Drawing.Color.Black;
+            this.BTStokKartiRaporKodu3.AppearanceDisabled.Options.UseBorderColor = true;
+            this.BTStokKartiRaporKodu3.AppearanceHovered.BorderColor = System.Drawing.Color.Black;
+            this.BTStokKartiRaporKodu3.AppearanceHovered.Options.UseBorderColor = true;
+            this.BTStokKartiRaporKodu3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTStokKartiRaporKodu3.ImageOptions.Image")));
+            this.BTStokKartiRaporKodu3.Location = new System.Drawing.Point(259, 146);
+            this.BTStokKartiRaporKodu3.Name = "BTStokKartiRaporKodu3";
+            this.BTStokKartiRaporKodu3.Size = new System.Drawing.Size(59, 26);
+            this.BTStokKartiRaporKodu3.TabIndex = 63;
+            this.BTStokKartiRaporKodu3.Text = "Seç";
+            // 
+            // BTStokKartiRaporKodu2
+            // 
+            this.BTStokKartiRaporKodu2.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTStokKartiRaporKodu2.Appearance.BackColor2 = System.Drawing.Color.Black;
+            this.BTStokKartiRaporKodu2.Appearance.BorderColor = System.Drawing.Color.Black;
+            this.BTStokKartiRaporKodu2.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.BTStokKartiRaporKodu2.Appearance.Options.UseBackColor = true;
+            this.BTStokKartiRaporKodu2.Appearance.Options.UseBorderColor = true;
+            this.BTStokKartiRaporKodu2.Appearance.Options.UseFont = true;
+            this.BTStokKartiRaporKodu2.Appearance.Options.UseForeColor = true;
+            this.BTStokKartiRaporKodu2.AppearanceDisabled.BorderColor = System.Drawing.Color.Black;
+            this.BTStokKartiRaporKodu2.AppearanceDisabled.Options.UseBorderColor = true;
+            this.BTStokKartiRaporKodu2.AppearanceHovered.BorderColor = System.Drawing.Color.Black;
+            this.BTStokKartiRaporKodu2.AppearanceHovered.Options.UseBorderColor = true;
+            this.BTStokKartiRaporKodu2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTStokKartiRaporKodu2.ImageOptions.Image")));
+            this.BTStokKartiRaporKodu2.Location = new System.Drawing.Point(259, 97);
+            this.BTStokKartiRaporKodu2.Name = "BTStokKartiRaporKodu2";
+            this.BTStokKartiRaporKodu2.Size = new System.Drawing.Size(59, 26);
+            this.BTStokKartiRaporKodu2.TabIndex = 60;
+            this.BTStokKartiRaporKodu2.Text = "Seç";
+            // 
+            // TEStokKartRaporKodu4
+            // 
+            this.TEStokKartRaporKodu4.Location = new System.Drawing.Point(367, 44);
+            this.TEStokKartRaporKodu4.Name = "TEStokKartRaporKodu4";
+            this.TEStokKartRaporKodu4.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TEStokKartRaporKodu4.Properties.Appearance.Options.UseFont = true;
+            this.TEStokKartRaporKodu4.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.TEStokKartRaporKodu4.Size = new System.Drawing.Size(312, 26);
+            this.TEStokKartRaporKodu4.TabIndex = 84;
+            // 
+            // TEStokKartRaporKodu3
+            // 
+            this.TEStokKartRaporKodu3.Location = new System.Drawing.Point(6, 146);
+            this.TEStokKartRaporKodu3.Name = "TEStokKartRaporKodu3";
+            this.TEStokKartRaporKodu3.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TEStokKartRaporKodu3.Properties.Appearance.Options.UseFont = true;
+            this.TEStokKartRaporKodu3.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.TEStokKartRaporKodu3.Size = new System.Drawing.Size(312, 26);
+            this.TEStokKartRaporKodu3.TabIndex = 83;
+            // 
+            // TEStokKartRaporKodu2
+            // 
+            this.TEStokKartRaporKodu2.Location = new System.Drawing.Point(6, 97);
+            this.TEStokKartRaporKodu2.Name = "TEStokKartRaporKodu2";
+            this.TEStokKartRaporKodu2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TEStokKartRaporKodu2.Properties.Appearance.Options.UseFont = true;
+            this.TEStokKartRaporKodu2.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.TEStokKartRaporKodu2.Size = new System.Drawing.Size(312, 26);
+            this.TEStokKartRaporKodu2.TabIndex = 82;
+            // 
+            // TEStokKartRaporKodu1
+            // 
+            this.TEStokKartRaporKodu1.Location = new System.Drawing.Point(6, 44);
+            this.TEStokKartRaporKodu1.Name = "TEStokKartRaporKodu1";
+            this.TEStokKartRaporKodu1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TEStokKartRaporKodu1.Properties.Appearance.Options.UseFont = true;
+            this.TEStokKartRaporKodu1.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.TEStokKartRaporKodu1.Size = new System.Drawing.Size(312, 26);
+            this.TEStokKartRaporKodu1.TabIndex = 20;
+            // 
+            // LBStokKartiRaporKodu9
+            // 
+            this.LBStokKartiRaporKodu9.AllowHtmlTextInToolTip = DevExpress.Utils.DefaultBoolean.True;
+            this.LBStokKartiRaporKodu9.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBStokKartiRaporKodu9.Appearance.Options.UseFont = true;
+            this.LBStokKartiRaporKodu9.Location = new System.Drawing.Point(771, 129);
+            this.LBStokKartiRaporKodu9.Name = "LBStokKartiRaporKodu9";
+            this.LBStokKartiRaporKodu9.Size = new System.Drawing.Size(74, 14);
+            this.LBStokKartiRaporKodu9.TabIndex = 28;
+            this.LBStokKartiRaporKodu9.Text = "Rapor Kodu 9";
+            // 
+            // LBStokKartiRaporKodu8
+            // 
+            this.LBStokKartiRaporKodu8.AllowHtmlTextInToolTip = DevExpress.Utils.DefaultBoolean.True;
+            this.LBStokKartiRaporKodu8.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBStokKartiRaporKodu8.Appearance.Options.UseFont = true;
+            this.LBStokKartiRaporKodu8.Location = new System.Drawing.Point(771, 76);
+            this.LBStokKartiRaporKodu8.Name = "LBStokKartiRaporKodu8";
+            this.LBStokKartiRaporKodu8.Size = new System.Drawing.Size(74, 14);
+            this.LBStokKartiRaporKodu8.TabIndex = 28;
+            this.LBStokKartiRaporKodu8.Text = "Rapor Kodu 8";
+            // 
+            // LBStokKartiRaporKodu7
+            // 
+            this.LBStokKartiRaporKodu7.AllowHtmlTextInToolTip = DevExpress.Utils.DefaultBoolean.True;
+            this.LBStokKartiRaporKodu7.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBStokKartiRaporKodu7.Appearance.Options.UseFont = true;
+            this.LBStokKartiRaporKodu7.Location = new System.Drawing.Point(771, 24);
+            this.LBStokKartiRaporKodu7.Name = "LBStokKartiRaporKodu7";
+            this.LBStokKartiRaporKodu7.Size = new System.Drawing.Size(74, 14);
+            this.LBStokKartiRaporKodu7.TabIndex = 29;
+            this.LBStokKartiRaporKodu7.Text = "Rapor Kodu 7";
+            // 
+            // LBStokKartiRaporKodu6
+            // 
+            this.LBStokKartiRaporKodu6.AllowHtmlTextInToolTip = DevExpress.Utils.DefaultBoolean.True;
+            this.LBStokKartiRaporKodu6.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBStokKartiRaporKodu6.Appearance.Options.UseFont = true;
+            this.LBStokKartiRaporKodu6.Location = new System.Drawing.Point(367, 129);
+            this.LBStokKartiRaporKodu6.Name = "LBStokKartiRaporKodu6";
+            this.LBStokKartiRaporKodu6.Size = new System.Drawing.Size(74, 14);
+            this.LBStokKartiRaporKodu6.TabIndex = 30;
+            this.LBStokKartiRaporKodu6.Text = "Rapor Kodu 6";
+            // 
+            // LBStokKartiRaporKodu5
+            // 
+            this.LBStokKartiRaporKodu5.AllowHtmlTextInToolTip = DevExpress.Utils.DefaultBoolean.True;
+            this.LBStokKartiRaporKodu5.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBStokKartiRaporKodu5.Appearance.Options.UseFont = true;
+            this.LBStokKartiRaporKodu5.Location = new System.Drawing.Point(367, 76);
+            this.LBStokKartiRaporKodu5.Name = "LBStokKartiRaporKodu5";
+            this.LBStokKartiRaporKodu5.Size = new System.Drawing.Size(74, 14);
+            this.LBStokKartiRaporKodu5.TabIndex = 31;
+            this.LBStokKartiRaporKodu5.Text = "Rapor Kodu 5";
+            // 
+            // LBStokKartiRaporKodu4
+            // 
+            this.LBStokKartiRaporKodu4.AllowHtmlTextInToolTip = DevExpress.Utils.DefaultBoolean.True;
+            this.LBStokKartiRaporKodu4.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBStokKartiRaporKodu4.Appearance.Options.UseFont = true;
+            this.LBStokKartiRaporKodu4.Location = new System.Drawing.Point(367, 24);
+            this.LBStokKartiRaporKodu4.Name = "LBStokKartiRaporKodu4";
+            this.LBStokKartiRaporKodu4.Size = new System.Drawing.Size(74, 14);
+            this.LBStokKartiRaporKodu4.TabIndex = 32;
+            this.LBStokKartiRaporKodu4.Text = "Rapor Kodu 4";
+            // 
+            // LBStokKartiRaporKodu3
+            // 
+            this.LBStokKartiRaporKodu3.AllowHtmlTextInToolTip = DevExpress.Utils.DefaultBoolean.True;
+            this.LBStokKartiRaporKodu3.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBStokKartiRaporKodu3.Appearance.Options.UseFont = true;
+            this.LBStokKartiRaporKodu3.Location = new System.Drawing.Point(9, 129);
+            this.LBStokKartiRaporKodu3.Name = "LBStokKartiRaporKodu3";
+            this.LBStokKartiRaporKodu3.Size = new System.Drawing.Size(74, 14);
+            this.LBStokKartiRaporKodu3.TabIndex = 33;
+            this.LBStokKartiRaporKodu3.Text = "Rapor Kodu 3";
+            // 
+            // LBStokKartiRaporKodu2
+            // 
+            this.LBStokKartiRaporKodu2.AllowHtmlTextInToolTip = DevExpress.Utils.DefaultBoolean.True;
+            this.LBStokKartiRaporKodu2.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBStokKartiRaporKodu2.Appearance.Options.UseFont = true;
+            this.LBStokKartiRaporKodu2.Location = new System.Drawing.Point(9, 76);
+            this.LBStokKartiRaporKodu2.Name = "LBStokKartiRaporKodu2";
+            this.LBStokKartiRaporKodu2.Size = new System.Drawing.Size(74, 14);
+            this.LBStokKartiRaporKodu2.TabIndex = 34;
+            this.LBStokKartiRaporKodu2.Text = "Rapor Kodu 2";
+            // 
+            // LBStokKartiRaporKodu1
+            // 
+            this.LBStokKartiRaporKodu1.AllowHtmlTextInToolTip = DevExpress.Utils.DefaultBoolean.True;
+            this.LBStokKartiRaporKodu1.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBStokKartiRaporKodu1.Appearance.Options.UseFont = true;
+            this.LBStokKartiRaporKodu1.Location = new System.Drawing.Point(9, 24);
+            this.LBStokKartiRaporKodu1.Name = "LBStokKartiRaporKodu1";
+            this.LBStokKartiRaporKodu1.Size = new System.Drawing.Size(74, 14);
+            this.LBStokKartiRaporKodu1.TabIndex = 27;
+            this.LBStokKartiRaporKodu1.Text = "Rapor Kodu 1";
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.GBStokKarti);
@@ -1563,7 +1941,7 @@
             this.GBStokKartiGenel.Controls.Add(this.TBKategori);
             this.GBStokKartiGenel.Controls.Add(this.TBMarka);
             this.GBStokKartiGenel.Controls.Add(this.TBStokAdi);
-            this.GBStokKartiGenel.Controls.Add(this.BTStokKodu);
+            this.GBStokKartiGenel.Controls.Add(this.TBStokKodu);
             this.GBStokKartiGenel.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.GBStokKartiGenel.Location = new System.Drawing.Point(8, 19);
             this.GBStokKartiGenel.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
@@ -1719,397 +2097,19 @@
             this.TBStokAdi.Size = new System.Drawing.Size(194, 26);
             this.TBStokAdi.TabIndex = 19;
             // 
-            // BTStokKodu
+            // TBStokKodu
             // 
-            this.BTStokKodu.Location = new System.Drawing.Point(90, 32);
-            this.BTStokKodu.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.BTStokKodu.Name = "BTStokKodu";
-            this.BTStokKodu.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.BTStokKodu.Properties.Appearance.Options.UseFont = true;
-            this.BTStokKodu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.TBStokKodu.Location = new System.Drawing.Point(90, 32);
+            this.TBStokKodu.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.TBStokKodu.Name = "TBStokKodu";
+            this.TBStokKodu.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TBStokKodu.Properties.Appearance.Options.UseFont = true;
+            this.TBStokKodu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.BTStokKodu.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.BTStokKodu.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.buttonEdit1_Properties_ButtonClick);
-            this.BTStokKodu.Size = new System.Drawing.Size(194, 26);
-            this.BTStokKodu.TabIndex = 3;
-            // 
-            // LBStokKartiRaporKodu1
-            // 
-            this.LBStokKartiRaporKodu1.AllowHtmlTextInToolTip = DevExpress.Utils.DefaultBoolean.True;
-            this.LBStokKartiRaporKodu1.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBStokKartiRaporKodu1.Appearance.Options.UseFont = true;
-            this.LBStokKartiRaporKodu1.Location = new System.Drawing.Point(9, 24);
-            this.LBStokKartiRaporKodu1.Name = "LBStokKartiRaporKodu1";
-            this.LBStokKartiRaporKodu1.Size = new System.Drawing.Size(74, 14);
-            this.LBStokKartiRaporKodu1.TabIndex = 27;
-            this.LBStokKartiRaporKodu1.Text = "Rapor Kodu 1";
-            // 
-            // LBStokKartiRaporKodu8
-            // 
-            this.LBStokKartiRaporKodu8.AllowHtmlTextInToolTip = DevExpress.Utils.DefaultBoolean.True;
-            this.LBStokKartiRaporKodu8.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBStokKartiRaporKodu8.Appearance.Options.UseFont = true;
-            this.LBStokKartiRaporKodu8.Location = new System.Drawing.Point(771, 76);
-            this.LBStokKartiRaporKodu8.Name = "LBStokKartiRaporKodu8";
-            this.LBStokKartiRaporKodu8.Size = new System.Drawing.Size(74, 14);
-            this.LBStokKartiRaporKodu8.TabIndex = 28;
-            this.LBStokKartiRaporKodu8.Text = "Rapor Kodu 8";
-            // 
-            // LBStokKartiRaporKodu7
-            // 
-            this.LBStokKartiRaporKodu7.AllowHtmlTextInToolTip = DevExpress.Utils.DefaultBoolean.True;
-            this.LBStokKartiRaporKodu7.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBStokKartiRaporKodu7.Appearance.Options.UseFont = true;
-            this.LBStokKartiRaporKodu7.Location = new System.Drawing.Point(771, 24);
-            this.LBStokKartiRaporKodu7.Name = "LBStokKartiRaporKodu7";
-            this.LBStokKartiRaporKodu7.Size = new System.Drawing.Size(74, 14);
-            this.LBStokKartiRaporKodu7.TabIndex = 29;
-            this.LBStokKartiRaporKodu7.Text = "Rapor Kodu 7";
-            // 
-            // LBStokKartiRaporKodu6
-            // 
-            this.LBStokKartiRaporKodu6.AllowHtmlTextInToolTip = DevExpress.Utils.DefaultBoolean.True;
-            this.LBStokKartiRaporKodu6.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBStokKartiRaporKodu6.Appearance.Options.UseFont = true;
-            this.LBStokKartiRaporKodu6.Location = new System.Drawing.Point(367, 129);
-            this.LBStokKartiRaporKodu6.Name = "LBStokKartiRaporKodu6";
-            this.LBStokKartiRaporKodu6.Size = new System.Drawing.Size(74, 14);
-            this.LBStokKartiRaporKodu6.TabIndex = 30;
-            this.LBStokKartiRaporKodu6.Text = "Rapor Kodu 6";
-            // 
-            // LBStokKartiRaporKodu5
-            // 
-            this.LBStokKartiRaporKodu5.AllowHtmlTextInToolTip = DevExpress.Utils.DefaultBoolean.True;
-            this.LBStokKartiRaporKodu5.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBStokKartiRaporKodu5.Appearance.Options.UseFont = true;
-            this.LBStokKartiRaporKodu5.Location = new System.Drawing.Point(367, 76);
-            this.LBStokKartiRaporKodu5.Name = "LBStokKartiRaporKodu5";
-            this.LBStokKartiRaporKodu5.Size = new System.Drawing.Size(74, 14);
-            this.LBStokKartiRaporKodu5.TabIndex = 31;
-            this.LBStokKartiRaporKodu5.Text = "Rapor Kodu 5";
-            // 
-            // LBStokKartiRaporKodu4
-            // 
-            this.LBStokKartiRaporKodu4.AllowHtmlTextInToolTip = DevExpress.Utils.DefaultBoolean.True;
-            this.LBStokKartiRaporKodu4.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBStokKartiRaporKodu4.Appearance.Options.UseFont = true;
-            this.LBStokKartiRaporKodu4.Location = new System.Drawing.Point(367, 24);
-            this.LBStokKartiRaporKodu4.Name = "LBStokKartiRaporKodu4";
-            this.LBStokKartiRaporKodu4.Size = new System.Drawing.Size(74, 14);
-            this.LBStokKartiRaporKodu4.TabIndex = 32;
-            this.LBStokKartiRaporKodu4.Text = "Rapor Kodu 4";
-            // 
-            // LBStokKartiRaporKodu3
-            // 
-            this.LBStokKartiRaporKodu3.AllowHtmlTextInToolTip = DevExpress.Utils.DefaultBoolean.True;
-            this.LBStokKartiRaporKodu3.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBStokKartiRaporKodu3.Appearance.Options.UseFont = true;
-            this.LBStokKartiRaporKodu3.Location = new System.Drawing.Point(9, 129);
-            this.LBStokKartiRaporKodu3.Name = "LBStokKartiRaporKodu3";
-            this.LBStokKartiRaporKodu3.Size = new System.Drawing.Size(74, 14);
-            this.LBStokKartiRaporKodu3.TabIndex = 33;
-            this.LBStokKartiRaporKodu3.Text = "Rapor Kodu 3";
-            // 
-            // LBStokKartiRaporKodu2
-            // 
-            this.LBStokKartiRaporKodu2.AllowHtmlTextInToolTip = DevExpress.Utils.DefaultBoolean.True;
-            this.LBStokKartiRaporKodu2.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBStokKartiRaporKodu2.Appearance.Options.UseFont = true;
-            this.LBStokKartiRaporKodu2.Location = new System.Drawing.Point(9, 76);
-            this.LBStokKartiRaporKodu2.Name = "LBStokKartiRaporKodu2";
-            this.LBStokKartiRaporKodu2.Size = new System.Drawing.Size(74, 14);
-            this.LBStokKartiRaporKodu2.TabIndex = 34;
-            this.LBStokKartiRaporKodu2.Text = "Rapor Kodu 2";
-            // 
-            // LBStokKartiRaporKodu9
-            // 
-            this.LBStokKartiRaporKodu9.AllowHtmlTextInToolTip = DevExpress.Utils.DefaultBoolean.True;
-            this.LBStokKartiRaporKodu9.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBStokKartiRaporKodu9.Appearance.Options.UseFont = true;
-            this.LBStokKartiRaporKodu9.Location = new System.Drawing.Point(771, 129);
-            this.LBStokKartiRaporKodu9.Name = "LBStokKartiRaporKodu9";
-            this.LBStokKartiRaporKodu9.Size = new System.Drawing.Size(74, 14);
-            this.LBStokKartiRaporKodu9.TabIndex = 28;
-            this.LBStokKartiRaporKodu9.Text = "Rapor Kodu 9";
-            // 
-            // BTStokKartiRaporKodu2
-            // 
-            this.BTStokKartiRaporKodu2.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.BTStokKartiRaporKodu2.Appearance.BackColor2 = System.Drawing.Color.Black;
-            this.BTStokKartiRaporKodu2.Appearance.BorderColor = System.Drawing.Color.Black;
-            this.BTStokKartiRaporKodu2.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.BTStokKartiRaporKodu2.Appearance.Options.UseBackColor = true;
-            this.BTStokKartiRaporKodu2.Appearance.Options.UseBorderColor = true;
-            this.BTStokKartiRaporKodu2.Appearance.Options.UseFont = true;
-            this.BTStokKartiRaporKodu2.Appearance.Options.UseForeColor = true;
-            this.BTStokKartiRaporKodu2.AppearanceDisabled.BorderColor = System.Drawing.Color.Black;
-            this.BTStokKartiRaporKodu2.AppearanceDisabled.Options.UseBorderColor = true;
-            this.BTStokKartiRaporKodu2.AppearanceHovered.BorderColor = System.Drawing.Color.Black;
-            this.BTStokKartiRaporKodu2.AppearanceHovered.Options.UseBorderColor = true;
-            this.BTStokKartiRaporKodu2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton4.ImageOptions.Image")));
-            this.BTStokKartiRaporKodu2.Location = new System.Drawing.Point(259, 97);
-            this.BTStokKartiRaporKodu2.Name = "BTStokKartiRaporKodu2";
-            this.BTStokKartiRaporKodu2.Size = new System.Drawing.Size(59, 26);
-            this.BTStokKartiRaporKodu2.TabIndex = 60;
-            this.BTStokKartiRaporKodu2.Text = "Seç";
-            // 
-            // BTStokKartiRaporKodu3
-            // 
-            this.BTStokKartiRaporKodu3.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.BTStokKartiRaporKodu3.Appearance.BackColor2 = System.Drawing.Color.Black;
-            this.BTStokKartiRaporKodu3.Appearance.BorderColor = System.Drawing.Color.Black;
-            this.BTStokKartiRaporKodu3.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.BTStokKartiRaporKodu3.Appearance.Options.UseBackColor = true;
-            this.BTStokKartiRaporKodu3.Appearance.Options.UseBorderColor = true;
-            this.BTStokKartiRaporKodu3.Appearance.Options.UseFont = true;
-            this.BTStokKartiRaporKodu3.Appearance.Options.UseForeColor = true;
-            this.BTStokKartiRaporKodu3.AppearanceDisabled.BorderColor = System.Drawing.Color.Black;
-            this.BTStokKartiRaporKodu3.AppearanceDisabled.Options.UseBorderColor = true;
-            this.BTStokKartiRaporKodu3.AppearanceHovered.BorderColor = System.Drawing.Color.Black;
-            this.BTStokKartiRaporKodu3.AppearanceHovered.Options.UseBorderColor = true;
-            this.BTStokKartiRaporKodu3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton5.ImageOptions.Image")));
-            this.BTStokKartiRaporKodu3.Location = new System.Drawing.Point(259, 146);
-            this.BTStokKartiRaporKodu3.Name = "BTStokKartiRaporKodu3";
-            this.BTStokKartiRaporKodu3.Size = new System.Drawing.Size(59, 26);
-            this.BTStokKartiRaporKodu3.TabIndex = 63;
-            this.BTStokKartiRaporKodu3.Text = "Seç";
-            // 
-            // BTStokKartiRaporKodu1
-            // 
-            this.BTStokKartiRaporKodu1.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.BTStokKartiRaporKodu1.Appearance.BackColor2 = System.Drawing.Color.Black;
-            this.BTStokKartiRaporKodu1.Appearance.BorderColor = System.Drawing.Color.Black;
-            this.BTStokKartiRaporKodu1.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.BTStokKartiRaporKodu1.Appearance.Options.UseBackColor = true;
-            this.BTStokKartiRaporKodu1.Appearance.Options.UseBorderColor = true;
-            this.BTStokKartiRaporKodu1.Appearance.Options.UseFont = true;
-            this.BTStokKartiRaporKodu1.Appearance.Options.UseForeColor = true;
-            this.BTStokKartiRaporKodu1.AppearanceDisabled.BorderColor = System.Drawing.Color.Black;
-            this.BTStokKartiRaporKodu1.AppearanceDisabled.Options.UseBorderColor = true;
-            this.BTStokKartiRaporKodu1.AppearanceHovered.BorderColor = System.Drawing.Color.Black;
-            this.BTStokKartiRaporKodu1.AppearanceHovered.Options.UseBorderColor = true;
-            this.BTStokKartiRaporKodu1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.BTStokKartiRaporKodu1.Location = new System.Drawing.Point(259, 44);
-            this.BTStokKartiRaporKodu1.Name = "BTStokKartiRaporKodu1";
-            this.BTStokKartiRaporKodu1.Size = new System.Drawing.Size(59, 26);
-            this.BTStokKartiRaporKodu1.TabIndex = 59;
-            this.BTStokKartiRaporKodu1.Text = "Seç";
-            // 
-            // TEStokKartRaporKodu1
-            // 
-            this.TEStokKartRaporKodu1.Location = new System.Drawing.Point(6, 44);
-            this.TEStokKartRaporKodu1.Name = "TEStokKartRaporKodu1";
-            this.TEStokKartRaporKodu1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TEStokKartRaporKodu1.Properties.Appearance.Options.UseFont = true;
-            this.TEStokKartRaporKodu1.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.TEStokKartRaporKodu1.Size = new System.Drawing.Size(312, 26);
-            this.TEStokKartRaporKodu1.TabIndex = 20;
-            // 
-            // TEStokKartRaporKodu2
-            // 
-            this.TEStokKartRaporKodu2.Location = new System.Drawing.Point(6, 97);
-            this.TEStokKartRaporKodu2.Name = "TEStokKartRaporKodu2";
-            this.TEStokKartRaporKodu2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TEStokKartRaporKodu2.Properties.Appearance.Options.UseFont = true;
-            this.TEStokKartRaporKodu2.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.TEStokKartRaporKodu2.Size = new System.Drawing.Size(312, 26);
-            this.TEStokKartRaporKodu2.TabIndex = 82;
-            // 
-            // TEStokKartRaporKodu3
-            // 
-            this.TEStokKartRaporKodu3.Location = new System.Drawing.Point(6, 146);
-            this.TEStokKartRaporKodu3.Name = "TEStokKartRaporKodu3";
-            this.TEStokKartRaporKodu3.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TEStokKartRaporKodu3.Properties.Appearance.Options.UseFont = true;
-            this.TEStokKartRaporKodu3.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.TEStokKartRaporKodu3.Size = new System.Drawing.Size(312, 26);
-            this.TEStokKartRaporKodu3.TabIndex = 83;
-            // 
-            // TEStokKartRaporKodu4
-            // 
-            this.TEStokKartRaporKodu4.Location = new System.Drawing.Point(367, 44);
-            this.TEStokKartRaporKodu4.Name = "TEStokKartRaporKodu4";
-            this.TEStokKartRaporKodu4.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TEStokKartRaporKodu4.Properties.Appearance.Options.UseFont = true;
-            this.TEStokKartRaporKodu4.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.TEStokKartRaporKodu4.Size = new System.Drawing.Size(312, 26);
-            this.TEStokKartRaporKodu4.TabIndex = 84;
-            // 
-            // TEStokKartRaporKodu5
-            // 
-            this.TEStokKartRaporKodu5.Location = new System.Drawing.Point(367, 95);
-            this.TEStokKartRaporKodu5.Name = "TEStokKartRaporKodu5";
-            this.TEStokKartRaporKodu5.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TEStokKartRaporKodu5.Properties.Appearance.Options.UseFont = true;
-            this.TEStokKartRaporKodu5.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.TEStokKartRaporKodu5.Size = new System.Drawing.Size(312, 26);
-            this.TEStokKartRaporKodu5.TabIndex = 85;
-            // 
-            // TEStokKartRaporKodu6
-            // 
-            this.TEStokKartRaporKodu6.Location = new System.Drawing.Point(367, 146);
-            this.TEStokKartRaporKodu6.Name = "TEStokKartRaporKodu6";
-            this.TEStokKartRaporKodu6.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TEStokKartRaporKodu6.Properties.Appearance.Options.UseFont = true;
-            this.TEStokKartRaporKodu6.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.TEStokKartRaporKodu6.Size = new System.Drawing.Size(312, 26);
-            this.TEStokKartRaporKodu6.TabIndex = 86;
-            // 
-            // BTStokKartiRaporKodu4
-            // 
-            this.BTStokKartiRaporKodu4.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.BTStokKartiRaporKodu4.Appearance.BackColor2 = System.Drawing.Color.Black;
-            this.BTStokKartiRaporKodu4.Appearance.BorderColor = System.Drawing.Color.Black;
-            this.BTStokKartiRaporKodu4.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.BTStokKartiRaporKodu4.Appearance.Options.UseBackColor = true;
-            this.BTStokKartiRaporKodu4.Appearance.Options.UseBorderColor = true;
-            this.BTStokKartiRaporKodu4.Appearance.Options.UseFont = true;
-            this.BTStokKartiRaporKodu4.Appearance.Options.UseForeColor = true;
-            this.BTStokKartiRaporKodu4.AppearanceDisabled.BorderColor = System.Drawing.Color.Black;
-            this.BTStokKartiRaporKodu4.AppearanceDisabled.Options.UseBorderColor = true;
-            this.BTStokKartiRaporKodu4.AppearanceHovered.BorderColor = System.Drawing.Color.Black;
-            this.BTStokKartiRaporKodu4.AppearanceHovered.Options.UseBorderColor = true;
-            this.BTStokKartiRaporKodu4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
-            this.BTStokKartiRaporKodu4.Location = new System.Drawing.Point(620, 44);
-            this.BTStokKartiRaporKodu4.Name = "BTStokKartiRaporKodu4";
-            this.BTStokKartiRaporKodu4.Size = new System.Drawing.Size(59, 26);
-            this.BTStokKartiRaporKodu4.TabIndex = 85;
-            this.BTStokKartiRaporKodu4.Text = "Seç";
-            // 
-            // BTStokKartiRaporKodu6
-            // 
-            this.BTStokKartiRaporKodu6.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.BTStokKartiRaporKodu6.Appearance.BackColor2 = System.Drawing.Color.Black;
-            this.BTStokKartiRaporKodu6.Appearance.BorderColor = System.Drawing.Color.Black;
-            this.BTStokKartiRaporKodu6.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.BTStokKartiRaporKodu6.Appearance.Options.UseBackColor = true;
-            this.BTStokKartiRaporKodu6.Appearance.Options.UseBorderColor = true;
-            this.BTStokKartiRaporKodu6.Appearance.Options.UseFont = true;
-            this.BTStokKartiRaporKodu6.Appearance.Options.UseForeColor = true;
-            this.BTStokKartiRaporKodu6.AppearanceDisabled.BorderColor = System.Drawing.Color.Black;
-            this.BTStokKartiRaporKodu6.AppearanceDisabled.Options.UseBorderColor = true;
-            this.BTStokKartiRaporKodu6.AppearanceHovered.BorderColor = System.Drawing.Color.Black;
-            this.BTStokKartiRaporKodu6.AppearanceHovered.Options.UseBorderColor = true;
-            this.BTStokKartiRaporKodu6.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton3.ImageOptions.Image")));
-            this.BTStokKartiRaporKodu6.Location = new System.Drawing.Point(620, 146);
-            this.BTStokKartiRaporKodu6.Name = "BTStokKartiRaporKodu6";
-            this.BTStokKartiRaporKodu6.Size = new System.Drawing.Size(59, 26);
-            this.BTStokKartiRaporKodu6.TabIndex = 87;
-            this.BTStokKartiRaporKodu6.Text = "Seç";
-            // 
-            // BTStokKartiRaporKodu5
-            // 
-            this.BTStokKartiRaporKodu5.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.BTStokKartiRaporKodu5.Appearance.BackColor2 = System.Drawing.Color.Black;
-            this.BTStokKartiRaporKodu5.Appearance.BorderColor = System.Drawing.Color.Black;
-            this.BTStokKartiRaporKodu5.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.BTStokKartiRaporKodu5.Appearance.Options.UseBackColor = true;
-            this.BTStokKartiRaporKodu5.Appearance.Options.UseBorderColor = true;
-            this.BTStokKartiRaporKodu5.Appearance.Options.UseFont = true;
-            this.BTStokKartiRaporKodu5.Appearance.Options.UseForeColor = true;
-            this.BTStokKartiRaporKodu5.AppearanceDisabled.BorderColor = System.Drawing.Color.Black;
-            this.BTStokKartiRaporKodu5.AppearanceDisabled.Options.UseBorderColor = true;
-            this.BTStokKartiRaporKodu5.AppearanceHovered.BorderColor = System.Drawing.Color.Black;
-            this.BTStokKartiRaporKodu5.AppearanceHovered.Options.UseBorderColor = true;
-            this.BTStokKartiRaporKodu5.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton6.ImageOptions.Image")));
-            this.BTStokKartiRaporKodu5.Location = new System.Drawing.Point(620, 95);
-            this.BTStokKartiRaporKodu5.Name = "BTStokKartiRaporKodu5";
-            this.BTStokKartiRaporKodu5.Size = new System.Drawing.Size(59, 26);
-            this.BTStokKartiRaporKodu5.TabIndex = 86;
-            this.BTStokKartiRaporKodu5.Text = "Seç";
-            // 
-            // BTStokKartiRaporKodu8
-            // 
-            this.BTStokKartiRaporKodu8.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.BTStokKartiRaporKodu8.Appearance.BackColor2 = System.Drawing.Color.Black;
-            this.BTStokKartiRaporKodu8.Appearance.BorderColor = System.Drawing.Color.Black;
-            this.BTStokKartiRaporKodu8.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.BTStokKartiRaporKodu8.Appearance.Options.UseBackColor = true;
-            this.BTStokKartiRaporKodu8.Appearance.Options.UseBorderColor = true;
-            this.BTStokKartiRaporKodu8.Appearance.Options.UseFont = true;
-            this.BTStokKartiRaporKodu8.Appearance.Options.UseForeColor = true;
-            this.BTStokKartiRaporKodu8.AppearanceDisabled.BorderColor = System.Drawing.Color.Black;
-            this.BTStokKartiRaporKodu8.AppearanceDisabled.Options.UseBorderColor = true;
-            this.BTStokKartiRaporKodu8.AppearanceHovered.BorderColor = System.Drawing.Color.Black;
-            this.BTStokKartiRaporKodu8.AppearanceHovered.Options.UseBorderColor = true;
-            this.BTStokKartiRaporKodu8.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton10.ImageOptions.Image")));
-            this.BTStokKartiRaporKodu8.Location = new System.Drawing.Point(1024, 96);
-            this.BTStokKartiRaporKodu8.Name = "BTStokKartiRaporKodu8";
-            this.BTStokKartiRaporKodu8.Size = new System.Drawing.Size(59, 26);
-            this.BTStokKartiRaporKodu8.TabIndex = 97;
-            this.BTStokKartiRaporKodu8.Text = "Seç";
-            // 
-            // BTStokKartiRaporKodu9
-            // 
-            this.BTStokKartiRaporKodu9.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.BTStokKartiRaporKodu9.Appearance.BackColor2 = System.Drawing.Color.Black;
-            this.BTStokKartiRaporKodu9.Appearance.BorderColor = System.Drawing.Color.Black;
-            this.BTStokKartiRaporKodu9.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.BTStokKartiRaporKodu9.Appearance.Options.UseBackColor = true;
-            this.BTStokKartiRaporKodu9.Appearance.Options.UseBorderColor = true;
-            this.BTStokKartiRaporKodu9.Appearance.Options.UseFont = true;
-            this.BTStokKartiRaporKodu9.Appearance.Options.UseForeColor = true;
-            this.BTStokKartiRaporKodu9.AppearanceDisabled.BorderColor = System.Drawing.Color.Black;
-            this.BTStokKartiRaporKodu9.AppearanceDisabled.Options.UseBorderColor = true;
-            this.BTStokKartiRaporKodu9.AppearanceHovered.BorderColor = System.Drawing.Color.Black;
-            this.BTStokKartiRaporKodu9.AppearanceHovered.Options.UseBorderColor = true;
-            this.BTStokKartiRaporKodu9.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton11.ImageOptions.Image")));
-            this.BTStokKartiRaporKodu9.Location = new System.Drawing.Point(1024, 146);
-            this.BTStokKartiRaporKodu9.Name = "BTStokKartiRaporKodu9";
-            this.BTStokKartiRaporKodu9.Size = new System.Drawing.Size(59, 26);
-            this.BTStokKartiRaporKodu9.TabIndex = 101;
-            this.BTStokKartiRaporKodu9.Text = "Seç";
-            // 
-            // BTStokKartiRaporKodu7
-            // 
-            this.BTStokKartiRaporKodu7.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.BTStokKartiRaporKodu7.Appearance.BackColor2 = System.Drawing.Color.Black;
-            this.BTStokKartiRaporKodu7.Appearance.BorderColor = System.Drawing.Color.Black;
-            this.BTStokKartiRaporKodu7.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.BTStokKartiRaporKodu7.Appearance.Options.UseBackColor = true;
-            this.BTStokKartiRaporKodu7.Appearance.Options.UseBorderColor = true;
-            this.BTStokKartiRaporKodu7.Appearance.Options.UseFont = true;
-            this.BTStokKartiRaporKodu7.Appearance.Options.UseForeColor = true;
-            this.BTStokKartiRaporKodu7.AppearanceDisabled.BorderColor = System.Drawing.Color.Black;
-            this.BTStokKartiRaporKodu7.AppearanceDisabled.Options.UseBorderColor = true;
-            this.BTStokKartiRaporKodu7.AppearanceHovered.BorderColor = System.Drawing.Color.Black;
-            this.BTStokKartiRaporKodu7.AppearanceHovered.Options.UseBorderColor = true;
-            this.BTStokKartiRaporKodu7.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton12.ImageOptions.Image")));
-            this.BTStokKartiRaporKodu7.Location = new System.Drawing.Point(1024, 43);
-            this.BTStokKartiRaporKodu7.Name = "BTStokKartiRaporKodu7";
-            this.BTStokKartiRaporKodu7.Size = new System.Drawing.Size(59, 26);
-            this.BTStokKartiRaporKodu7.TabIndex = 99;
-            this.BTStokKartiRaporKodu7.Text = "Seç";
-            // 
-            // TEStokKartRaporKodu9
-            // 
-            this.TEStokKartRaporKodu9.Location = new System.Drawing.Point(771, 146);
-            this.TEStokKartRaporKodu9.Name = "TEStokKartRaporKodu9";
-            this.TEStokKartRaporKodu9.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TEStokKartRaporKodu9.Properties.Appearance.Options.UseFont = true;
-            this.TEStokKartRaporKodu9.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.TEStokKartRaporKodu9.Size = new System.Drawing.Size(312, 26);
-            this.TEStokKartRaporKodu9.TabIndex = 100;
-            // 
-            // TEStokKartRaporKodu7
-            // 
-            this.TEStokKartRaporKodu7.Location = new System.Drawing.Point(771, 43);
-            this.TEStokKartRaporKodu7.Name = "TEStokKartRaporKodu7";
-            this.TEStokKartRaporKodu7.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TEStokKartRaporKodu7.Properties.Appearance.Options.UseFont = true;
-            this.TEStokKartRaporKodu7.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.TEStokKartRaporKodu7.Size = new System.Drawing.Size(312, 26);
-            this.TEStokKartRaporKodu7.TabIndex = 98;
-            // 
-            // TEStokKartRaporKodu8
-            // 
-            this.TEStokKartRaporKodu8.Location = new System.Drawing.Point(771, 96);
-            this.TEStokKartRaporKodu8.Name = "TEStokKartRaporKodu8";
-            this.TEStokKartRaporKodu8.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TEStokKartRaporKodu8.Properties.Appearance.Options.UseFont = true;
-            this.TEStokKartRaporKodu8.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.TEStokKartRaporKodu8.Size = new System.Drawing.Size(312, 26);
-            this.TEStokKartRaporKodu8.TabIndex = 96;
+            this.TBStokKodu.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.TBStokKodu.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.buttonEdit1_Properties_ButtonClick);
+            this.TBStokKodu.Size = new System.Drawing.Size(194, 26);
+            this.TBStokKodu.TabIndex = 3;
             // 
             // FStokKart
             // 
@@ -2170,6 +2170,15 @@
             this.panel6.ResumeLayout(false);
             this.GBStokKartiRaporKodu.ResumeLayout(false);
             this.GBStokKartiRaporKodu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TEStokKartRaporKodu9.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TEStokKartRaporKodu6.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TEStokKartRaporKodu5.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TEStokKartRaporKodu8.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TEStokKartRaporKodu7.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TEStokKartRaporKodu4.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TEStokKartRaporKodu3.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TEStokKartRaporKodu2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TEStokKartRaporKodu1.Properties)).EndInit();
             this.panel2.ResumeLayout(false);
             this.GBStokKarti.ResumeLayout(false);
             this.GBSatisKartiOzellik.ResumeLayout(false);
@@ -2188,16 +2197,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.TBKategori.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBMarka.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBStokAdi.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BTStokKodu.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TEStokKartRaporKodu1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TEStokKartRaporKodu2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TEStokKartRaporKodu3.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TEStokKartRaporKodu4.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TEStokKartRaporKodu5.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TEStokKartRaporKodu6.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TEStokKartRaporKodu9.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TEStokKartRaporKodu7.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TEStokKartRaporKodu8.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBStokKodu.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2240,7 +2240,7 @@
         private Panel panel7;
         private TextBox TBKatsayi;
         private ComboBox CBOlcuBr1;
-        private DevExpress.XtraEditors.ButtonEdit BTStokKodu;
+        private DevExpress.XtraEditors.ButtonEdit TBStokKodu;
         private DevExpress.XtraEditors.ButtonEdit TBMarka;
         private DevExpress.XtraEditors.TextEdit TBStokAdi;
         private DevExpress.XtraEditors.ButtonEdit TBKategori;

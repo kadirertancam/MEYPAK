@@ -460,6 +460,7 @@
             this.BTCariHareketKaydet.Size = new System.Drawing.Size(113, 52);
             this.BTCariHareketKaydet.TabIndex = 59;
             this.BTCariHareketKaydet.Text = "Kaydet";
+            this.BTCariHareketKaydet.Click += new System.EventHandler(this.BTCariHareketKaydet_Click_1);
             // 
             // LBToplamBakiye
             // 

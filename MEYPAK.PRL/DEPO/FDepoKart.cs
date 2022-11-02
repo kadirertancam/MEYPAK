@@ -94,7 +94,7 @@ namespace MEYPAK.PRL.DEPO
 
         private void BTSil_Click(object sender, EventArgs e)
         {
-            _depoServis.Data(ServisList.DepoSilServis,(_depoServis.obje.Where(x => x.id == Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value)).FirstOrDefault()));
+            _depoServis.Data(ServisList.DepoSilServis,(_depoServis.obje.Where(x => x.id == Convert.ToInt32(gridView1.GetFocusedRowCellValue("id"))).FirstOrDefault()));
         }
     }
 }

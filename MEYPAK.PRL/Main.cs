@@ -31,17 +31,16 @@ namespace MEYPAK.PRL
         public Main()
         {
             InitializeComponent(); 
-            fStokHareket = new FStokHareket();
-            fDepoKart = new FDepoKart();
-            fStokSayim=new FStokSayim();
-            fOlcuBrKart = new FOlcuBrKart();
-            fSayimIsle = new FSayimIsle();
-            fSiparis = new FMusteriSiparis();
-            fSevkiyatPanel= new FSevkiyatPanel();
-            fMalKabulPanel = new FMalKabulPanel();
-            fSatınAlmaSiparis = new FSatınAlmaSiparis();
-            fStokFiyatList = new FStokFiyatList();
-            fCariHareket = new FCariHareket();
+            
+             
+            
+            
+            
+            
+            
+            
+        
+         
         }
         #region TANIMLAR
         FSevkiyatPanel fSevkiyatPanel;
@@ -88,6 +87,7 @@ namespace MEYPAK.PRL
 
         private void depoTanımToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //fDepoKart = new FDepoKart();
             //panel2.Controls.Clear();
             //fDepoKart.TopLevel = false;
             //fDepoKart.AutoScroll = true;
@@ -108,12 +108,13 @@ namespace MEYPAK.PRL
 
         private void ölçüBirimTanımToolStripMenuItem_Click(object sender, EventArgs e)
         {
-        //    panel2.Controls.Clear();
-        //    fOlcuBrKart.TopLevel = false;
-        //    fOlcuBrKart.AutoScroll = true;
-        //    fOlcuBrKart.Dock = DockStyle.Fill;
-        //    panel2.Controls.Add(fOlcuBrKart);
-        //    fOlcuBrKart.Show();
+            //fOlcuBrKart = new FOlcuBrKart();
+            //    panel2.Controls.Clear();
+            //    fOlcuBrKart.TopLevel = false;
+            //    fOlcuBrKart.AutoScroll = true;
+            //    fOlcuBrKart.Dock = DockStyle.Fill;
+            //    panel2.Controls.Add(fOlcuBrKart);
+            //    fOlcuBrKart.Show();
 
         }
 
@@ -124,6 +125,7 @@ namespace MEYPAK.PRL
 
         private void sayımİşleToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //fSayimIsle = new FSayimIsle();
             //panel2.Controls.Clear();
             //fSayimIsle.TopLevel = false;
             //fSayimIsle.AutoScroll = true;
@@ -144,6 +146,7 @@ namespace MEYPAK.PRL
 
         private void sevkiyatToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //fSevkiyatPanel= new FSevkiyatPanel();
             //panel2.Controls.Clear();
             //fSevkiyatPanel.TopLevel = false;
             //fSevkiyatPanel.AutoScroll = true;
@@ -161,6 +164,7 @@ namespace MEYPAK.PRL
 
         private void malKabulToolStripMenuItem_Click(object sender, EventArgs e)
         {
+           // fMalKabulPanel = new FMalKabulPanel();
             //panel2.Controls.Clear();
             //fMalKabulPanel.TopLevel = false;
             //fMalKabulPanel.AutoScroll = true;
@@ -177,6 +181,7 @@ namespace MEYPAK.PRL
         }
         private void satınAlmaSiparişTanımToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // fSatınAlmaSiparis = new FSatınAlmaSiparis();
             //panel2.Controls.Clear();
             //fSatınAlmaSiparis.TopLevel = false;
             //fSatınAlmaSiparis.AutoScroll = true;
@@ -187,6 +192,7 @@ namespace MEYPAK.PRL
 
         private void stokListeFiyatTanımToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //fStokFiyatList = new FStokFiyatList();
             //panel2.Controls.Clear();
             //fStokFiyatList.TopLevel = false;
             //fStokFiyatList.AutoScroll = true;
@@ -250,24 +256,35 @@ namespace MEYPAK.PRL
         private void accordionControlElement30_Click(object sender, EventArgs e)
         {
             XtraTabPage page = new XtraTabPage();
-            fStokHareket = new FStokHareket();
+            fCariHareket = new FCariHareket();
             page.Name = "TPCariHareket" + i;
             page.Text = "Cari Hareket";
+            page.Tag = "TPCariHareket" + i;
+
+
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
             xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
-             
+            xtraTabControl1.SelectedTabPage = page; 
             fCariHareket.TopLevel = false;
             fCariHareket.AutoScroll = true;
             fCariHareket.Dock = DockStyle.Fill;
             page.Controls.Add(fCariHareket);
             fCariHareket.Show();
         }
+         
 
         private void xtraTabControl1_CloseButtonClick(object sender, EventArgs e)
         {
             ClosePageButtonEventArgs arg = e as ClosePageButtonEventArgs;
             (arg.Page as XtraTabPage).PageVisible = false;
+            foreach (Form frm in Application.OpenForms)
+            {
+                if((arg.Page as XtraTabPage).Tag== frm.Tag)
+                {
+                    frm.Dispose();
+                }
+            } 
+            (arg.Page as XtraTabPage).Dispose();
         }
 
         private void barButtonItem23_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

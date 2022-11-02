@@ -29,7 +29,7 @@ namespace MEYPAK.PRL.CARI
         public void Doldur()
         {
             BTCariKodu.Text = _tempCARIKART.KOD;
-            TBCariAdi.Text = _tempCARIKART.UNVAN!=""? _tempCARIKART.ADI + " " + _tempCARIKART.SOYADI : _tempCARIKART.UNVAN;
+            TBCariAdi.Text = _tempCARIKART.UNVAN==""? _tempCARIKART.ADI + " " + _tempCARIKART.SOYADI : _tempCARIKART.UNVAN;
         } 
 
         private void TBCariKodu_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -37,6 +37,7 @@ namespace MEYPAK.PRL.CARI
             _cariHarServis.Data(ServisList.CariHarListeServis);
             _fCariList = new FCariList("carihar");
             _fCariList.ShowDialog();
+            Doldur();
             gridControl1.DataSource = _cariHarServis.obje.Where(x => x.CARIID == _tempCARIKART.id);
         }
 
@@ -52,9 +53,14 @@ namespace MEYPAK.PRL.CARI
 
         private void BTCariHareketKaydet_Click(object sender, EventArgs e)
         {
+           
+        }
+
+        private void BTCariHareketKaydet_Click_1(object sender, EventArgs e)
+        {
             _cariHarServis.Data(ServisList.CariHarEkleServis, new PocoCARIHAR()
             {
-                CARIID = _tempCARIKART.ID,
+                CARIID = _tempCARIKART.id,
                 ACIKLAMA = TBAciklama.Text,
                 ALACAK = RGCariHareket.SelectedIndex == 1 ? Convert.ToDecimal(TBFiyat.Text) : 0,
                 BORC = RGCariHareket.SelectedIndex == 0 ? Convert.ToDecimal(TBFiyat.Text) : 0,
@@ -66,6 +72,7 @@ namespace MEYPAK.PRL.CARI
                 HAREKETTARIHI = DateTime.Now
 
             });
+            _cariHarServis.Data(ServisList.CariHarListeServis)
         }
     }
 }

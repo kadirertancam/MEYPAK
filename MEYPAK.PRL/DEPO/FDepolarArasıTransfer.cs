@@ -85,7 +85,7 @@ namespace MEYPAK.PRL.DEPO
             if (gridView1.GetSelectedRows() != null)
             {
 
-                _tempDepoTransfer = _depoTransferServis.Getir(x => x.id == Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString())).FirstOrDefault();
+                _tempDepoTransfer = _depoTransferServis.Getir(x => x.id == Convert.ToInt32(gridView1.GetFocusedRowCellValue("id").ToString())).FirstOrDefault();
                 fDepolarArasıTransferHar = new FDepolarArasıTransferHar(_tempDepoTransfer);
                 fDepolarArasıTransferHar.ShowDialog();
 
@@ -94,7 +94,7 @@ namespace MEYPAK.PRL.DEPO
 
         private void BTNSil_Click(object sender, EventArgs e)
         {
-            _depoTransferServis.Sil(_depoTransferServis.Getir(x => x.id == Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value)));
+            _depoTransferServis.Sil(_depoTransferServis.Getir(x => x.id == Convert.ToInt32(gridView1.GetFocusedRowCellValue("id"))));
         }
     }
 }

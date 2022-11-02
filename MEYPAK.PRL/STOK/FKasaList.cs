@@ -34,7 +34,7 @@ namespace MEYPAK.PRL.STOK
         
         private void FKasaList_Load(object sender, EventArgs e)
         {   _kasaServis.Data(ServisList.StokKasaListeServis);
-            gridControl1.DataSource = _kasaServis.obje.Where(x=>x.KAYITTIPI==0).Select(x=> new { x.ID,x.KASAADI});
+            gridControl1.DataSource = _kasaServis.obje.Where(x=>x.kayittipi==0).Select(x=> new { x.id,x.KASAADI});
             fStokKart = (FStokKart)Application.OpenForms["FStokKart"];
             fSiparis = (FMusteriSiparis)Application.OpenForms["FMusteriSiparis"];
             fSatınAlmaSiparis = (FSatınAlmaSiparis)Application.OpenForms["FSatınAlmaSiparis"];
@@ -51,17 +51,17 @@ namespace MEYPAK.PRL.STOK
             if (_islem == "Stok")
             {
                 if (fStokKart != null)
-                    fStokKart._tempKasa = _kasaServis.obje.Where(x => x.ID.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+                    fStokKart._tempKasa = _kasaServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
             }
             else if (_islem == "musterisiparis")
             {
                 if (fSiparis != null)
-                    fSiparis.gridView1.SetFocusedRowCellValue("KasaAdı", _kasaServis.obje.Where(x => x.ID.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault().KASAADI);
+                    fSiparis.gridView1.SetFocusedRowCellValue("KasaAdı", _kasaServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault().KASAADI);
             }
             else if (_islem == "SatinAlmaSiparis")
             {
                 if (fSatınAlmaSiparis != null)
-                    fSatınAlmaSiparis._tempKasa = _kasaServis.obje.Where(x => x.ID.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+                    fSatınAlmaSiparis._tempKasa = _kasaServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
             }
 
             this.Close();

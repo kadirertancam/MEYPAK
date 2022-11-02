@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).BeginInit();
             this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
@@ -55,14 +55,14 @@
             this.panel1.Size = new System.Drawing.Size(800, 60);
             this.panel1.TabIndex = 0;
             // 
-            // panel2
+            // panel4
             // 
-            this.panel2.Controls.Add(this.gridControl1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 60);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(800, 390);
-            this.panel2.TabIndex = 1;
+            this.panel4.Controls.Add(this.lookUpEdit1);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(0, 35);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(800, 25);
+            this.panel4.TabIndex = 2;
             // 
             // lookUpEdit1
             // 
@@ -85,15 +85,6 @@
             this.panel3.Size = new System.Drawing.Size(800, 35);
             this.panel3.TabIndex = 1;
             // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.lookUpEdit1);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(0, 35);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(800, 25);
-            this.panel4.TabIndex = 2;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -102,6 +93,15 @@
             this.label1.Size = new System.Drawing.Size(25, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "Seç";
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.gridControl1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 60);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(800, 390);
+            this.panel2.TabIndex = 1;
             // 
             // gridControl1
             // 
@@ -130,11 +130,11 @@
             this.Name = "FParametre";
             this.Text = "FParametre";
             this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.panel4.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);

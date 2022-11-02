@@ -55,7 +55,7 @@ namespace MEYPAK.PRL.STOK
 
             _stokMarka.Data(ServisList.StokMarkaListeServis);
             _stokServis.Data(ServisList.StokListeServis);
-            gridControl1.DataSource = _stokServis.obje.Where(x=>x.kayittipi==0).Select(x => new { ID=x.id, KOD=x.kod, ADI=x.adi, GRUPKODU=x.grupkodu, OLCUBR=x.olcubR1, MARKA= _stokMarka.obje.Where(z=>z.ID==x.markaid).Select(z=>z.ADI).FirstOrDefault() }).ToList();
+            GCStokList.DataSource = _stokServis.obje.Where(x=>x.kayittipi==0).Select(x => new { ID=x.id, KOD=x.kod, ADI=x.adi, GRUPKODU=x.grupkodu, OLCUBR=x.olcubR1, MARKA= _stokMarka.obje.Where(z=>z.id==x.markaid).Select(z=>z.ADI).FirstOrDefault() }).ToList();
 
             fSTOKKART = (FStokKart)Application.OpenForms["FStokKart"];
             fStokHareket = (FStokHareket)Application.OpenForms["FStokHareket"];
@@ -73,22 +73,22 @@ namespace MEYPAK.PRL.STOK
             if (_islem == "stokkart")
             {
                 if (fSTOKKART != null)
-                    fSTOKKART._tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()).FirstOrDefault();
+                    fSTOKKART._tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
             }
             else if (_islem == "stoksayimpanel")
             {
                 if (fstokSayimPanel != null)
-                    fstokSayimPanel._tempStok = _stokServis.obje.Where(x=>x.id.ToString()== gridView1.GetFocusedRowCellValue("id").ToString()).FirstOrDefault();
+                    fstokSayimPanel._tempStok = _stokServis.obje.Where(x=>x.id.ToString()== gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
             }
             else if (_islem == "stokhar")
             {
                 if (fStokHareket != null)
-                    fStokHareket._tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()).FirstOrDefault();
+                    fStokHareket._tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
             }
             else if (_islem == "stokfiyatlistpanel")
             {
                 if (fstokFiyatListPanel != null)
-                    fstokFiyatListPanel._tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()).FirstOrDefault();
+                    fstokFiyatListPanel._tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
             }
             else if (_islem == "siparis")
             {
@@ -98,11 +98,11 @@ namespace MEYPAK.PRL.STOK
             else if (_islem == "FDepolarArasıTransferHar")
             {
                 if (fDepolarArasıHar != null)
-                    fDepolarArasıHar._tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()).FirstOrDefault();
+                    fDepolarArasıHar._tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
             }else if (_islem == "SatinAlmaSiparis")
             {
                 if (_fSatınAlmaSiparis != null)
-                    _fSatınAlmaSiparis._tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()).FirstOrDefault();
+                    _fSatınAlmaSiparis._tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
 
             }
 
