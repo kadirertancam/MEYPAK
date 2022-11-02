@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FCariHareket));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.TBFiyat = new DevExpress.XtraEditors.TextEdit();
             this.TBKur = new DevExpress.XtraEditors.TextEdit();
             this.TBAciklama = new DevExpress.XtraEditors.MemoEdit();
@@ -60,15 +60,15 @@
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.LBCariHToplamCikis = new DevExpress.XtraEditors.LabelControl();
+            this.LBCariHToplamBorc = new DevExpress.XtraEditors.LabelControl();
             this.LBCariHBakiye = new DevExpress.XtraEditors.LabelControl();
-            this.LBCariHToplamGiris = new DevExpress.XtraEditors.LabelControl();
+            this.LBCariHToplamAlacak = new DevExpress.XtraEditors.LabelControl();
             this.BTCariHareketSil = new DevExpress.XtraEditors.SimpleButton();
             this.BTCariHareketDegistir = new DevExpress.XtraEditors.SimpleButton();
             this.BTCariHareketKaydet = new DevExpress.XtraEditors.SimpleButton();
             this.LBToplamBakiye = new System.Windows.Forms.Label();
-            this.LBToplamCikisDeger = new System.Windows.Forms.Label();
-            this.LBToplamGirisDeger = new System.Windows.Forms.Label();
+            this.LBToplamBorcDeger = new System.Windows.Forms.Label();
+            this.LBToplamAlacakDeger = new System.Windows.Forms.Label();
             this.LBBakiye = new System.Windows.Forms.Label();
             this.LBToplamCikis = new System.Windows.Forms.Label();
             this.LBToplamGiris = new System.Windows.Forms.Label();
@@ -152,9 +152,9 @@
             // 
             this.BTCariKodu.Location = new System.Drawing.Point(87, 21);
             this.BTCariKodu.Name = "BTCariKodu";
-            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
             this.BTCariKodu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTCariKodu.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.BTCariKodu.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.TBCariKodu_Properties_ButtonClick);
             this.BTCariKodu.Size = new System.Drawing.Size(175, 33);
@@ -370,15 +370,15 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.LBCariHToplamCikis);
+            this.groupBox2.Controls.Add(this.LBCariHToplamBorc);
             this.groupBox2.Controls.Add(this.LBCariHBakiye);
-            this.groupBox2.Controls.Add(this.LBCariHToplamGiris);
+            this.groupBox2.Controls.Add(this.LBCariHToplamAlacak);
             this.groupBox2.Controls.Add(this.BTCariHareketSil);
             this.groupBox2.Controls.Add(this.BTCariHareketDegistir);
             this.groupBox2.Controls.Add(this.BTCariHareketKaydet);
             this.groupBox2.Controls.Add(this.LBToplamBakiye);
-            this.groupBox2.Controls.Add(this.LBToplamCikisDeger);
-            this.groupBox2.Controls.Add(this.LBToplamGirisDeger);
+            this.groupBox2.Controls.Add(this.LBToplamBorcDeger);
+            this.groupBox2.Controls.Add(this.LBToplamAlacakDeger);
             this.groupBox2.Controls.Add(this.LBBakiye);
             this.groupBox2.Controls.Add(this.LBToplamCikis);
             this.groupBox2.Controls.Add(this.LBToplamGiris);
@@ -392,17 +392,17 @@
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             // 
-            // LBCariHToplamCikis
+            // LBCariHToplamBorc
             // 
-            this.LBCariHToplamCikis.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.LBCariHToplamCikis.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.LBCariHToplamCikis.Appearance.Options.UseFont = true;
-            this.LBCariHToplamCikis.Appearance.Options.UseForeColor = true;
-            this.LBCariHToplamCikis.Location = new System.Drawing.Point(548, 16);
-            this.LBCariHToplamCikis.Name = "LBCariHToplamCikis";
-            this.LBCariHToplamCikis.Size = new System.Drawing.Size(75, 14);
-            this.LBCariHToplamCikis.TabIndex = 64;
-            this.LBCariHToplamCikis.Text = "Toplam Çıkış";
+            this.LBCariHToplamBorc.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.LBCariHToplamBorc.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.LBCariHToplamBorc.Appearance.Options.UseFont = true;
+            this.LBCariHToplamBorc.Appearance.Options.UseForeColor = true;
+            this.LBCariHToplamBorc.Location = new System.Drawing.Point(548, 16);
+            this.LBCariHToplamBorc.Name = "LBCariHToplamBorc";
+            this.LBCariHToplamBorc.Size = new System.Drawing.Size(75, 14);
+            this.LBCariHToplamBorc.TabIndex = 64;
+            this.LBCariHToplamBorc.Text = "Toplam Borç";
             // 
             // LBCariHBakiye
             // 
@@ -416,17 +416,17 @@
             this.LBCariHBakiye.TabIndex = 63;
             this.LBCariHBakiye.Text = "Bakiye";
             // 
-            // LBCariHToplamGiris
+            // LBCariHToplamAlacak
             // 
-            this.LBCariHToplamGiris.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.LBCariHToplamGiris.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.LBCariHToplamGiris.Appearance.Options.UseFont = true;
-            this.LBCariHToplamGiris.Appearance.Options.UseForeColor = true;
-            this.LBCariHToplamGiris.Location = new System.Drawing.Point(447, 16);
-            this.LBCariHToplamGiris.Name = "LBCariHToplamGiris";
-            this.LBCariHToplamGiris.Size = new System.Drawing.Size(73, 14);
-            this.LBCariHToplamGiris.TabIndex = 62;
-            this.LBCariHToplamGiris.Text = "Toplam Giriş";
+            this.LBCariHToplamAlacak.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.LBCariHToplamAlacak.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.LBCariHToplamAlacak.Appearance.Options.UseFont = true;
+            this.LBCariHToplamAlacak.Appearance.Options.UseForeColor = true;
+            this.LBCariHToplamAlacak.Location = new System.Drawing.Point(447, 16);
+            this.LBCariHToplamAlacak.Name = "LBCariHToplamAlacak";
+            this.LBCariHToplamAlacak.Size = new System.Drawing.Size(88, 14);
+            this.LBCariHToplamAlacak.TabIndex = 62;
+            this.LBCariHToplamAlacak.Text = "Toplam Alacak";
             // 
             // BTCariHareketSil
             // 
@@ -473,27 +473,27 @@
             this.LBToplamBakiye.TabIndex = 10;
             this.LBToplamBakiye.Text = "0,00";
             // 
-            // LBToplamCikisDeger
+            // LBToplamBorcDeger
             // 
-            this.LBToplamCikisDeger.AutoSize = true;
-            this.LBToplamCikisDeger.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBToplamCikisDeger.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.LBToplamCikisDeger.Location = new System.Drawing.Point(559, 33);
-            this.LBToplamCikisDeger.Name = "LBToplamCikisDeger";
-            this.LBToplamCikisDeger.Size = new System.Drawing.Size(49, 28);
-            this.LBToplamCikisDeger.TabIndex = 11;
-            this.LBToplamCikisDeger.Text = "0,00";
+            this.LBToplamBorcDeger.AutoSize = true;
+            this.LBToplamBorcDeger.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBToplamBorcDeger.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.LBToplamBorcDeger.Location = new System.Drawing.Point(559, 33);
+            this.LBToplamBorcDeger.Name = "LBToplamBorcDeger";
+            this.LBToplamBorcDeger.Size = new System.Drawing.Size(49, 28);
+            this.LBToplamBorcDeger.TabIndex = 11;
+            this.LBToplamBorcDeger.Text = "0,00";
             // 
-            // LBToplamGirisDeger
+            // LBToplamAlacakDeger
             // 
-            this.LBToplamGirisDeger.AutoSize = true;
-            this.LBToplamGirisDeger.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBToplamGirisDeger.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.LBToplamGirisDeger.Location = new System.Drawing.Point(455, 33);
-            this.LBToplamGirisDeger.Name = "LBToplamGirisDeger";
-            this.LBToplamGirisDeger.Size = new System.Drawing.Size(49, 28);
-            this.LBToplamGirisDeger.TabIndex = 12;
-            this.LBToplamGirisDeger.Text = "0,00";
+            this.LBToplamAlacakDeger.AutoSize = true;
+            this.LBToplamAlacakDeger.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBToplamAlacakDeger.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.LBToplamAlacakDeger.Location = new System.Drawing.Point(455, 33);
+            this.LBToplamAlacakDeger.Name = "LBToplamAlacakDeger";
+            this.LBToplamAlacakDeger.Size = new System.Drawing.Size(49, 28);
+            this.LBToplamAlacakDeger.TabIndex = 12;
+            this.LBToplamAlacakDeger.Text = "0,00";
             // 
             // LBBakiye
             // 
@@ -625,8 +625,8 @@
         private Label label12;
         private Label label11;
         private Label LBToplamBakiye;
-        private Label LBToplamCikisDeger;
-        private Label LBToplamGirisDeger;
+        private Label LBToplamBorcDeger;
+        private Label LBToplamAlacakDeger;
         private DevExpress.XtraEditors.RadioGroup RGCariHareket;
         private DevExpress.XtraEditors.LabelControl LBTarih;
         private DevExpress.XtraEditors.LabelControl LBCariKodu;
@@ -639,8 +639,8 @@
         private DevExpress.XtraEditors.SimpleButton BTCariHareketKaydet;
         private DevExpress.XtraEditors.SimpleButton BTCariHareketDegistir;
         private DevExpress.XtraEditors.SimpleButton BTCariHareketSil;
-        private DevExpress.XtraEditors.LabelControl LBCariHToplamGiris;
-        private DevExpress.XtraEditors.LabelControl LBCariHToplamCikis;
+        private DevExpress.XtraEditors.LabelControl LBCariHToplamAlacak;
+        private DevExpress.XtraEditors.LabelControl LBCariHToplamBorc;
         private DevExpress.XtraEditors.LabelControl LBCariHBakiye;
     }
 }

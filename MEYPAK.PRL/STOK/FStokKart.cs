@@ -64,7 +64,7 @@ namespace MEYPAK.PRL
             {
                 if (ctrl is TextBoxBase)
                 {
-                    if (ctrl.Name != "TBStokKodu")
+                    if (ctrl.Name != "BTStokKodu")
                         ctrl.Text = String.Empty;
                 }
                 else
@@ -81,18 +81,18 @@ namespace MEYPAK.PRL
             if (_tempStok != null)
             {
                 stokid = _tempStok.id;
-                TBStokKodu.Text = _tempStok.kod;
+                BTStokKodu.Text = _tempStok.kod;
                 
             }
             TBStokAdi.Text = _tempStok.adi;
             TBSatisOtv.Text = _tempStok.satisotv.ToString();
             TBSatisKdv.Text = _tempStok.satiskdv.ToString();
-            TBMarka.Text = _markaServis.obje.Where(x=>x.id.ToString()==_tempStok.markaid.ToString()).FirstOrDefault().ADI.ToString();
+            BTMarka.Text = _markaServis.obje.Where(x=>x.id.ToString()==_tempStok.markaid.ToString()).FirstOrDefault().ADI.ToString();
             TBSatisKdv.Text = _tempStok.kategoriid.ToString();
-            TBGrupKodu.Text = _tempStok.grupkodu.ToString();
+            BTGrupKodu.Text = _tempStok.grupkodu.ToString();
             TBAlisOtv.Text = _tempStok.alisotv.ToString();
             TBAlisKdv.Text = _tempStok.aliskdv.ToString();
-            MEAciklama.Text = _tempStok.aciklama;
+            TBAciklama.Text = _tempStok.aciklama;
             CBSDoviz.SelectedIndex = _tempStok.sdovizid;
             CBADoviz.SelectedIndex = _tempStok.adovizid;
             TBAFiyat1.Text = Convert.ToString(_tempStok.afiyaT1);
@@ -105,7 +105,7 @@ namespace MEYPAK.PRL
             TBSFiyat3.Text = Convert.ToString(_tempStok.sfiyaT3);
             TBSFiyat4.Text = Convert.ToString(_tempStok.sfiyaT4);
             TBSFiyat5.Text = Convert.ToString(_tempStok.sfiyaT5);
-            CBOlcuBr1.SelectedIndex = _tempStok.olcubR1;
+            CBOlcuBirim.SelectedIndex = _tempStok.olcubR1;
             //dataGridView1.DataSource = _tempStok.MPSTOKOLCUBR.ToList();
             dataGridView1.Refresh();
             //var a = _PocoStokServis.obje.Select(x=>x.mpst.Select(z=>z));
@@ -113,12 +113,12 @@ namespace MEYPAK.PRL
             _tempStok = null;
         }
 
-        private void TBStokKodu_Leave(object sender, EventArgs e)               // TBStokkodu doluyken stok kodu kontrolü yapıp tempstok doldurulur.
+        private void BTStokKodu_Leave(object sender, EventArgs e)               // BTStokKodu doluyken stok kodu kontrolü yapıp tempstok doldurulur.
         {
             _PocoStokServis.Data(ServisList.StokListeServis);
-            if (TBStokKodu.Text != "")
+            if (BTStokKodu.Text != "")
             {
-                _tempStok = _PocoStokServis.obje.Where(x => x.kod == TBStokKodu.Text).FirstOrDefault();
+                _tempStok = _PocoStokServis.obje.Where(x => x.kod == BTStokKodu.Text).FirstOrDefault();
                 if (_tempStok != null)
                     tbDoldur();
                 else
@@ -137,7 +137,7 @@ namespace MEYPAK.PRL
             _PocoOlcuBrServis.Data(ServisList.OlcuBrListeServis);
             _tempPocoOLCUBR = _PocoOlcuBrServis.obje;
             _PocoSTOKOLCUBR = _StokOlcuBrServis.obje;
-            CBOlcuBr1.DataSource = _tempPocoOLCUBR.Select(x => x.adi).ToList();
+            CBOlcuBirim.DataSource = _tempPocoOLCUBR.Select(x => x.adi).ToList();
 
         }
         private void BTKaydet_Click(object sender, EventArgs e)                 // Stok Kayıt
@@ -188,13 +188,13 @@ namespace MEYPAK.PRL
             _tempStok = new PocoSTOK()
             {
                 id = stokid,
-                kod = TBStokKodu.Text,
+                kod = BTStokKodu.Text,
                 adi = TBStokAdi.Text,
-                markaid = _markaServis.obje.Where(x => x.ADI == TBMarka.Text).FirstOrDefault().id,
+                markaid = _markaServis.obje.Where(x => x.ADI == BTMarka.Text).FirstOrDefault().id,
                 kategoriid = _tempKategori.id,
                 kasaid = 1,//_tempKasa.ID,
-                grupkodu = int.Parse(TBGrupKodu.Text),
-                aciklama = MEAciklama.Text,
+                grupkodu = int.Parse(BTGrupKodu.Text),
+                aciklama = TBAciklama.Text,
                 satiskdv = Convert.ToDecimal(TBSatisKdv.Text),
                 aliskdv = Convert.ToDecimal(TBAlisKdv.Text),
                 satisotv = Convert.ToDecimal(TBSatisOtv.Text),
@@ -220,7 +220,7 @@ namespace MEYPAK.PRL
             _tempStok = _PocoStokServis.obje.Where(x => x.kod == _tempStok.kod).FirstOrDefault();
             foreach (var item in stokOlculist)
             {
-                item.STOKID = _PocoStokServis.obje.Where(x => x.kod == TBStokKodu.Text).FirstOrDefault().id;
+                item.STOKID = _PocoStokServis.obje.Where(x => x.kod == BTStokKodu.Text).FirstOrDefault().id;
                 _StokOlcuBrServis.Data(ServisList.StokOlcuBrEkleServis, item);
             }
 
@@ -228,7 +228,7 @@ namespace MEYPAK.PRL
             if (snc != null)
                 MessageBox.Show("Kayıt Başarılı.");
             Temizle(this.Controls);
-            TBStokKodu.Text = "";
+            BTStokKodu.Text = "";
 
             dataGridView1.DataSource = "";
         }
@@ -259,7 +259,7 @@ namespace MEYPAK.PRL
             }
             _tempStokOlcuBr = new PocoSTOKOLCUBR()
             {
-                OLCUBRID = _tempPocoOLCUBR.Where(x => x.adi == CBOlcuBr1.SelectedValue.ToString()).FirstOrDefault().id,
+                OLCUBRID = _tempPocoOLCUBR.Where(x => x.adi == CBOlcuBirim.SelectedValue.ToString()).FirstOrDefault().id,
                 NUM = dataGridView1.RowCount + 1,
                 KATSAYI = Convert.ToDecimal(TBKatsayi.Text),
 
@@ -419,7 +419,7 @@ namespace MEYPAK.PRL
             FKasaList fKasaList = new FKasaList("Stok");
             fKasaList.ShowDialog();
             if (_tempKasa != null)
-                TBKasa.Text = _tempKasa.KASAADI;
+                BTKasa.Text = _tempKasa.KASAADI;
         }
 
         private void LBStokKartiAciklama3_Click(object sender, EventArgs e)

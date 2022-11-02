@@ -38,7 +38,7 @@ namespace MEYPAK.PRL.STOK
             musteriSiparis = (FMusteriSiparis)Application.OpenForms["FMusteriSiparis"];
             _olcuBr.Data(ServisList.OlcuBrListeServis);
             _stokOlcuBr.Data(ServisList.StokOlcuBrListeServis);
-            GCStokOlcuList.DataSource = _stokOlcuBr.obje.Where(x=>x.STOKID==stokid).Select(x=> _olcuBr.obje.Where(z=>z.id==x.OLCUBRID).Select(z=>z.adi).FirstOrDefault()).ToList();
+            GCStokOlcuBrList.DataSource = _stokOlcuBr.obje.Where(x=>x.STOKID==stokid).Select(x=> _olcuBr.obje.Where(z=>z.id==x.OLCUBRID).Select(z=>z.adi).FirstOrDefault()).ToList();
         }
 
         private void gridView1_DoubleClick(object sender, EventArgs e)

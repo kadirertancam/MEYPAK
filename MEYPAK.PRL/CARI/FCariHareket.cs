@@ -30,6 +30,10 @@ namespace MEYPAK.PRL.CARI
         {
             BTCariKodu.Text = _tempCARIKART.KOD;
             TBCariAdi.Text = _tempCARIKART.UNVAN==""? _tempCARIKART.ADI + " " + _tempCARIKART.SOYADI : _tempCARIKART.UNVAN;
+            gridControl1.DataSource = _cariHarServis.obje.Where(x => x.CARIID == _tempCARIKART.id);
+            LBCariHToplamAlacak.Text = _cariHarServis.obje.Where(x => x.CARIID == _tempCARIKART.id).Sum(x => x.ALACAK).ToString();
+            LBCariHToplamBorc.Text = _cariHarServis.obje.Where(x => x.CARIID == _tempCARIKART.id).Sum(x => x.BORC).ToString();
+            LBCariHBakiye.Text = _cariHarServis.obje.Where(x => x.CARIID == _tempCARIKART.id).Sum(x => x.BORC - x.ALACAK).ToString();
         } 
 
         private void TBCariKodu_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -37,8 +41,9 @@ namespace MEYPAK.PRL.CARI
             _cariHarServis.Data(ServisList.CariHarListeServis);
             _fCariList = new FCariList("carihar");
             _fCariList.ShowDialog();
+            temizle();
             Doldur();
-            gridControl1.DataSource = _cariHarServis.obje.Where(x => x.CARIID == _tempCARIKART.id);
+          
         }
 
         private void radioGroup1_SelectedIndexChanged(object sender, EventArgs e)
@@ -72,7 +77,15 @@ namespace MEYPAK.PRL.CARI
                 HAREKETTARIHI = DateTime.Now
 
             });
-            _cariHarServis.Data(ServisList.CariHarListeServis)
+            temizle();
+            Doldur();
+        }
+        void temizle()
+        {
+            TBAciklama.Text = "";
+            TBFiyat.Text = "";
+            TBKur.Text = "0";
+            TEBelgeNo.Text = ""; 
         }
     }
 }
