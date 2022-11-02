@@ -67,16 +67,16 @@ namespace MEYPAK.PRL.STOK
         void BakiyeGuncelle()
         {
             _stokHarServis.Data(ServisList.StokHarListeServis);
-            LBToplamGiris.Text = _stokHarServis.obje.Where(x => x.io == 1 && x.stokid == _id).Sum(x => x.miktar).ToString();
-            LBToplamCikis.Text = _stokHarServis.obje.Where(x => x.io == 0 && x.stokid == _id).Sum(x => x.miktar).ToString();
-            LBBakiye.Text = (_stokHarServis.obje.Where(x => x.io == 1 && x.stokid == _id).Sum(x => x.miktar) - _stokHarServis.obje.Where(x => x.io == 0 && x.stokid == _id).Sum(x => x.miktar)).ToString();
+            LBStokHarToplamGirisDeger.Text = _stokHarServis.obje.Where(x => x.io == 1 && x.stokid == _id).Sum(x => x.miktar).ToString();
+            LBStokHarToplamCikisDeger.Text = _stokHarServis.obje.Where(x => x.io == 0 && x.stokid == _id).Sum(x => x.miktar).ToString();
+            LBStokHarBakiyeDeger.Text = (_stokHarServis.obje.Where(x => x.io == 1 && x.stokid == _id).Sum(x => x.miktar) - _stokHarServis.obje.Where(x => x.io == 0 && x.stokid == _id).Sum(x => x.miktar)).ToString();
         }
         void Doldur()
         {
             _stokHarServis.Data(ServisList.StokHarListeServis);
             _stokOlcuBrServis.Data(ServisList.StokOlcuBrListeServis);
             _depoServis.Data(ServisList.DepoListeServis);
-            IO = RBGiris.Checked == true ? 1 : 0;
+            IO = RGStokHarGirisCikis.SelectedIndex == 0 ? 1 : 0;
             if (_tempStok != null)
             {
                 _id = _tempStok.id;
@@ -89,7 +89,7 @@ namespace MEYPAK.PRL.STOK
                 CBBirim.EditValue = adi.FirstOrDefault();
                 //TBFiyat.Text = IO == 1 ? _tempStok.AFIYAT1.ToString() : _tempStok.SATISKDV.ToString();
                 BakiyeGuncelle();
-                GCStokHareket.DataSource = _stokHarServis.obje.Where(x=>x.STOKID==_tempStok.id).Select( x=> new PocoStokHareketListesi()
+                GCStokHareket.DataSource = _stokHarServis.obje.Where(x=>x.stokid==_tempStok.id).Select( x=> new PocoStokHareketListesi()
                 {
                     Acıklama=x.aciklama,
                     BelgeNo=x.belgE_NO,
@@ -134,13 +134,13 @@ namespace MEYPAK.PRL.STOK
             CBDepo.EditValue = depo.FirstOrDefault();
             _tempdgvStok.Add(new PocoStokHareketListesi());
             GCStokHareket.DataSource = _tempdgvStok;
-            ((ListBox)CLBDepo).DataSource = _depoServis.obje.Select(x => x.DEPOADI).ToList();
+            CLBDepo.DataSource = _depoServis.obje.Select(x => x.DEPOADI).ToList();
 
         }
 
         private void BTKaydet_Click(object sender, EventArgs e)
         {
-            IO = RBGiris.Checked == true ? 1 : 0;
+            IO = RGStokHarGirisCikis.SelectedIndex==0? 1 : 0;
 
             _depoServis.Data(ServisList.DepoListeServis);
 
