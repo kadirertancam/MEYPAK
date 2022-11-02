@@ -237,11 +237,11 @@ namespace MEYPAK.PRL.SIPARIS
                 KUR = Convert.ToDecimal(TBKur.Text),
                 BELGENO = TBBelgeNo.Text,
                 VADETARIHI = DTPVadeTarihi.Value,
-                GUNCELLEMETARIHI = DateTime.Now,
+                guncellemetarihi = DateTime.Now,
                 VADEGUNU = Convert.ToInt32(TBSVadeGunu.Text),
                 CARIADI = TBCariAdi.Text,
                 CARIID = 0,
-                DEPOID = _depoServis.obje.Where(x => x.DEPOADI == CBDepo.SelectedValue).FirstOrDefault().ID,
+                DEPOID = _depoServis.obje.Where(x => x.DEPOADI == CBDepo.SelectedValue).FirstOrDefault().id,
                 DOVIZID = 0,
                 ISKONTOTOPLAM = _tempSiparisDetay.Sum(x => x.İskontoTutarı),
                 KDVTOPLAM = _tempSiparisDetay.Sum(x => x.KdvTutarı),
@@ -266,13 +266,13 @@ namespace MEYPAK.PRL.SIPARIS
                     KASAID = item.KasaId,
                     NETTOPLAM = item.NetToplam,
                     NETFIYAT = item.NetFiyat,
-                    BIRIMID = _olcuBr.obje.Where(x=>x.ADI.ToString()== gridView1.GetRowCellValue(gridView1.FocusedRowHandle,"DGVOlcuBr").ToString()).FirstOrDefault().ID ,
+                    BIRIMID = _olcuBr.obje.Where(x=>x.adi.ToString()== gridView1.GetRowCellValue(gridView1.FocusedRowHandle,"DGVOlcuBr").ToString()).FirstOrDefault().id ,
                     DOVIZID = 0,
                     MIKTAR = item.Miktar,
                     ISTKONTO1 = item.İskonto1,
                     ISTKONTO2 = item.İskonto2,
                     ISTKONTO3 = item.İskonto3,
-                    SIPARISID = _siparisServis.obje2.ID, ///ID gelecek
+                    SIPARISID = _siparisServis.obje2.id, ///ID gelecek
 
                     BRUTFIYAT = item.BrütFiyat,
                     BRUTTOPLAM = item.BrütFiyat * item.Miktar,
@@ -328,7 +328,7 @@ namespace MEYPAK.PRL.SIPARIS
                     MPSTOK = _tempStok,
                     StokKodu = _tempStok.kod,
                     StokAdı = _tempStok.adi,
-                    Birim = _olcuBr.obje.Where(x=>x.ADI== gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "DGVOlcuBr").ToString()).FirstOrDefault().ADI,
+                    Birim = _olcuBr.obje.Where(x=>x.adi== gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "DGVOlcuBr").ToString()).FirstOrDefault().adi,
                     KasaAdı = "",
                     Kdv = _tempStok.satiskdv,
                     Doviz = "TL", //_tempStok.SDOVIZID 
@@ -359,7 +359,7 @@ namespace MEYPAK.PRL.SIPARIS
                         gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "KasaAdı", _tempKasa.KASAADI);
                    
                     _tempPocokalem.KasaAdı = _tempKasa.KASAADI;
-                    _tempPocokalem.KasaId = _tempKasa.ID;
+                    _tempPocokalem.KasaId = _tempKasa.id;
                     }
 
                 }

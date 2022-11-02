@@ -46,17 +46,17 @@ namespace MEYPAK.PRL.STOK
             if (_islem == "Stok")
             {
                 if (fStokKart != null)
-                    fStokKart._tempKasa = _kasaServis.obje.Where(x => x.ID.ToString() == dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
+                    fStokKart._tempKasa = _kasaServis.obje.Where(x => x.id.ToString() == dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
             }
             else if (_islem == "musterisiparis")
             {
                 if (fSiparis != null) 
-                fSiparis._tempKasa = _kasaServis.obje.Where(x => x.ID.ToString() == dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
+                fSiparis._tempKasa = _kasaServis.obje.Where(x => x.id.ToString() == dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
             }
             else if (_islem == "SatinAlmaSiparis")
             {
                 if (fSatınAlmaSiparis != null) 
-                fSatınAlmaSiparis._tempKasa = _kasaServis.obje.Where(x => x.ID.ToString() == dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
+                fSatınAlmaSiparis._tempKasa = _kasaServis.obje.Where(x => x.id.ToString() == dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
             }
 
             this.Close();

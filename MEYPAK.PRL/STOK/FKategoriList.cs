@@ -56,11 +56,11 @@ namespace MEYPAK.PRL.STOK
         {
             foreach (var item in data.Where(x => x.UstId == ustid))
             {
-                var A = ustNode.Nodes.Add(item.ID.ToString(), item.Acıklama);
+                var A = ustNode.Nodes.Add(item.id.ToString(), item.Acıklama);
 
-                if (_kategoriServis.obje.Where(x => x.UstId == item.ID).Count() > 0)
+                if (_kategoriServis.obje.Where(x => x.UstId == item.id).Count() > 0)
                 {
-                    A = TreeViewDon(ref A, data, item.ID);
+                    A = TreeViewDon(ref A, data, item.id);
                 }
             }
             return ustNode;
@@ -123,7 +123,7 @@ namespace MEYPAK.PRL.STOK
                     {
                         if (fStokKart != null)
                         {
-                            fStokKart._tempKategori = _kategoriServis.obje.Where(x => x.ID == Convert.ToInt32(treeView1.SelectedNode.Name)).FirstOrDefault();
+                            fStokKart._tempKategori = _kategoriServis.obje.Where(x => x.id == Convert.ToInt32(treeView1.SelectedNode.Name)).FirstOrDefault();
                             this.Close();
                         }
                     }

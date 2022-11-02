@@ -94,7 +94,7 @@ namespace MEYPAK.PRL.PERSONEL
         {
             if (_tempPersonel != null)
             {
-                id = _tempPersonel.ID;
+                id = _tempPersonel.id;
                 TBAdi.Text = _tempPersonel.ADI;
                 TBSoyadi.Text = _tempPersonel.SOYADI;
                 TBTelefon.Text = _tempPersonel.TEL;
@@ -265,7 +265,7 @@ namespace MEYPAK.PRL.PERSONEL
         private void button4_Click(object sender, EventArgs e)
         {
 
-            _personelServis.Sil(_personelServis.Getir(x => x.ID == _tempPersonel.ID));
+            _personelServis.Sil(_personelServis.Getir(x => x.id == _tempPersonel.id));
         }
 
         private void BTPersonelSec_Click(object sender, EventArgs e)

@@ -35,7 +35,7 @@ namespace MEYPAK.PRL.STOK
                 KASAADI =TBKasaAdi.Text,
                 ACIKLAMA = TBAciklama.Text,
                 KASAKODU = TBKasaKodu.Text,
-                OLUSTURMATARIHI = DateTime.Now,
+                olusturmatarihi = DateTime.Now,
             });
             MessageBox.Show("Kasa Başarıyla Eklendi.");
             Doldur();

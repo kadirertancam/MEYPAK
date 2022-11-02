@@ -64,24 +64,24 @@ namespace MEYPAK.PRL.STOK
         }
         void DataGridiDoldur()
         {
-            if (_fiyatlist.ID != null && _stokFiyatListHarServis.obje.Where(x => x.FIYATLISTID == _fiyatlist.ID).ToList().Count>0)
-            {   _mpStokFiyatListHar = _stokFiyatListHarServis.obje.Where(x =>x.FIYATLISTID==_fiyatlist.ID).ToList();
+            if (_fiyatlist.id != null && _stokFiyatListHarServis.obje.Where(x => x.fiyatlistid == _fiyatlist.id).ToList().Count>0)
+            {   _mpStokFiyatListHar = _stokFiyatListHarServis.obje.Where(x =>x.fiyatlistid==_fiyatlist.id).ToList();
                 dataGridView1.DataSource = _mpStokFiyatListHar;
             }
         }
         void DataGrideEkle()
         {
-            if (_fiyatlist.ID != null && stokid!=0)
+            if (_fiyatlist.id != null && stokid!=0)
             {
                 PocoSTOKFIYATLISTHAR mpStok = new PocoSTOKFIYATLISTHAR()
                 {
-                    FIYATLISTID = _fiyatlist.ID,
+                    fiyatlistid = _fiyatlist.id,
                     // DOVIZID=CMBDovizId.SelectedValue,
-                    GUNCELLEMETARIHI = DateTime.Now,
-                    NETFIYAT = Convert.ToInt32(TBFiyat.Text),
-                    STOKID = stokid,
-                    KUR = Convert.ToInt32(TBKur.Text),
-                    ISKONTO =Convert.ToInt32( TBIskonto.Text)
+                    guncellemetarihi = DateTime.Now,
+                    netfiyat = Convert.ToInt32(TBFiyat.Text),
+                    stokid = stokid,
+                    kur = Convert.ToInt32(TBKur.Text),
+                    iskonto =Convert.ToInt32( TBIskonto.Text)
                 };
 
                 _mpStokFiyatListHar.Add(mpStok);
@@ -115,12 +115,12 @@ namespace MEYPAK.PRL.STOK
             if (dataGridView1.SelectedRows != null)
             {   //todo burdan id çekip güncelleme işlemi yapılabilecek.
                 stokfiyatharid = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value);
-                _fiyatlisthar = _stokFiyatListHarServis.obje.Where(x=> x.ID==stokfiyatharid).FirstOrDefault();
-                TBStokKodu.Text = _stokServis.obje.Where(x=> x.id==_fiyatlisthar.STOKID).FirstOrDefault().kod;
-                TBKur.Text = _fiyatlisthar.KUR.ToString();
-                TBStokAdi.Text = _stokServis.obje.Where(x => x.id == _fiyatlisthar.STOKID).FirstOrDefault().adi;
-                TBIskonto.Text= _fiyatlisthar.ISKONTO.ToString();  
-                TBFiyat.Text = _fiyatlisthar.NETFIYAT.ToString();
+                _fiyatlisthar = _stokFiyatListHarServis.obje.Where(x=> x.id==stokfiyatharid).FirstOrDefault();
+                TBStokKodu.Text = _stokServis.obje.Where(x=> x.id==_fiyatlisthar.stokid).FirstOrDefault().kod;
+                TBKur.Text = _fiyatlisthar.kur.ToString();
+                TBStokAdi.Text = _stokServis.obje.Where(x => x.id == _fiyatlisthar.stokid).FirstOrDefault().adi;
+                TBIskonto.Text= _fiyatlisthar.iskonto.ToString();  
+                TBFiyat.Text = _fiyatlisthar.netfiyat.ToString();
             }
         }
 

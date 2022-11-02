@@ -330,11 +330,11 @@ namespace MEYPAK.PRL.SIPARIS
                 KUR = Convert.ToDecimal(TBKur.Text),
                 BELGENO = TBBelgeNo.Text,
                 VADETARIHI = DTPVadeTarihi.Value,
-                GUNCELLEMETARIHI = DateTime.Now,
+                guncellemetarihi = DateTime.Now,
                 VADEGUNU = Convert.ToInt32(TBSVadeGunu.Text),
                 CARIADI = TBCariAdi.Text,
                 CARIID = 0,
-                DEPOID = _depoServis.obje.Where(x => x.DEPOADI == CBDepo.SelectedValue).FirstOrDefault().ID,
+                DEPOID = _depoServis.obje.Where(x => x.DEPOADI == CBDepo.SelectedValue).FirstOrDefault().id,
                 DOVIZID = 0,
                 ISKONTOTOPLAM = _tempSiparisDetay.Sum(x => x.İskontoTutarı),
                 KDVTOPLAM = _tempSiparisDetay.Sum(x => x.KdvTutarı),
@@ -359,13 +359,13 @@ namespace MEYPAK.PRL.SIPARIS
                     KASAID = item.KasaId,
                     NETTOPLAM = item.NetToplam,
                     NETFIYAT = item.NetFiyat,
-                    BIRIMID = _olcuBr.obje.Where(x => x.ADI.ToString() == dataGridView1.Rows[i].Cells["DGVOlcuBr"].Value.ToString()).FirstOrDefault().ID,
+                    BIRIMID = _olcuBr.obje.Where(x => x.adi.ToString() == dataGridView1.Rows[i].Cells["DGVOlcuBr"].Value.ToString()).FirstOrDefault().id,
                     DOVIZID = 0,
                     MIKTAR = item.Miktar,
                     ISTKONTO1 = item.İskonto1,
                     ISTKONTO2 = item.İskonto2,
                     ISTKONTO3 = item.İskonto3,
-                    SIPARISID = _siparisServis.obje2.ID, ///ID gelecek
+                    SIPARISID = _siparisServis.obje2.id, ///ID gelecek
 
                     BRUTFIYAT = item.BrütFiyat,
                     BRUTTOPLAM = item.BrütFiyat * item.Miktar,
@@ -405,9 +405,9 @@ namespace MEYPAK.PRL.SIPARIS
 
                 foreach (var item in tempp)
                 {
-                    _tempOlcuBr.Add(_olcuBr.obje.Where(x => x.ID == item.OLCUBRID).FirstOrDefault());
+                    _tempOlcuBr.Add(_olcuBr.obje.Where(x => x.id == item.OLCUBRID).FirstOrDefault());
                 }
-                DGVOlcuBr.DataSource = _tempOlcuBr.Select(x => x.ADI).ToList();
+                DGVOlcuBr.DataSource = _tempOlcuBr.Select(x => x.adi).ToList();
                 DGVtempCell = dataGridView1.Rows[e.RowIndex].Cells["DGVOlcuBr"];
                 DGVtempCell.Value = DGVOlcuBr.Items[0].ToString();
                 _tempPocokalem = new PocoSiparisKalem()
@@ -416,7 +416,7 @@ namespace MEYPAK.PRL.SIPARIS
                     MPSTOK = _tempStok,
                     StokKodu = _tempStok.kod,
                     StokAdı = _tempStok.adi,
-                    Birim = _olcuBr.obje.Where(x => x.ADI == dataGridView1.Rows[e.RowIndex].Cells["DGVOlcuBr"].Value.ToString()).FirstOrDefault().ADI,
+                    Birim = _olcuBr.obje.Where(x => x.adi == dataGridView1.Rows[e.RowIndex].Cells["DGVOlcuBr"].Value.ToString()).FirstOrDefault().adi,
                     KasaAdı = "",
                     Kdv = _tempStok.satiskdv,
                     Doviz = "TL", //_tempStok.SDOVIZID 
@@ -448,7 +448,7 @@ namespace MEYPAK.PRL.SIPARIS
                         dataGridView1.Rows[e.RowIndex].Cells["KasaAdı"].Value = _tempKasa.KASAADI;
 
                         _tempPocokalem.KasaAdı = _tempKasa.KASAADI;
-                        _tempPocokalem.KasaId = _tempKasa.ID;
+                        _tempPocokalem.KasaId = _tempKasa.id;
                     }
 
                 }

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Interfaces.Cari;
+using MEYPAK.Interfaces.Depo;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MEYPAK.API.Controllers.CARIControllers
@@ -68,6 +69,24 @@ namespace MEYPAK.API.Controllers.CARIControllers
             {
                 var data = _cariHarServis.Guncelle(pModel);
                 return Ok(data);
+            }
+            catch (Exception ex)
+            {
+                return Problem("Belirsiz bir hata oluştu!" + ex.Message);
+            }
+        }
+
+        [HttpPost]
+        [Route("/[controller]/[action]")]
+        public IActionResult DeleteById([FromBody] int id)
+        {
+            try
+            {
+                bool succes = _cariHarServis.DeleteById(id);
+                if (succes)
+                    return Ok(id + " Başarıyla Silindi");
+                else
+                    return Ok(id + " Silinemedi.");
             }
             catch (Exception ex)
             {

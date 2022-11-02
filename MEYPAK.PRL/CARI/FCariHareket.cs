@@ -36,7 +36,7 @@ namespace MEYPAK.PRL.CARI
         {
             _cariHarServis.Data(ServisList.CariHarEkleServis, new PocoCARIHAR()
             {
-                CARIID=_tempCARIKART.ID,
+                CARIID=_tempCARIKART.id,
                 ACIKLAMA = TBAciklama.Text,
                 ALACAK = RGCariHareket.SelectedIndex == 1 ? Convert.ToDecimal(TBFiyat.Text) : 0,
                 BORC=  RGCariHareket.SelectedIndex == 0 ?Convert.ToDecimal(TBFiyat.Text) : 0,
@@ -56,7 +56,7 @@ namespace MEYPAK.PRL.CARI
             _cariHarServis.Data(ServisList.CariHarListeServis);
             _fCariList = new FCariList("carihar");
             _fCariList.ShowDialog();
-            gridControl1.DataSource = _cariHarServis.obje.Where(x => x.CARIID == _tempCARIKART.ID);
+            gridControl1.DataSource = _cariHarServis.obje.Where(x => x.CARIID == _tempCARIKART.id);
         }
 
         private void radioGroup1_SelectedIndexChanged(object sender, EventArgs e)

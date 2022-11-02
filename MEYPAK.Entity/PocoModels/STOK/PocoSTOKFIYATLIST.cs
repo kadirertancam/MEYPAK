@@ -10,13 +10,13 @@ namespace MEYPAK.Entity.PocoModels.STOK
 {
     public class PocoSTOKFIYATLIST:SUPERPOCOMODEL
     {
-        public int SIRKETID { get; set; } = 0;
-        public int SUBEID { get; set; } = 0;
-        public string FIYATLISTADI { get; set; }
-        public DateTime BASTAR { get; set; } = DateTime.Now;
-        public DateTime BITTAR { get; set; } = DateTime.Now;
-        public int KULLANICIID { get; set; } = 0;
-        public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
+        public int sirketid { get; set; } = 0;
+        public int subeid { get; set; } = 0;
+        public string fiyatlistadi { get; set; } = "";
+        public DateTime bastar { get; set; }
+        public DateTime bittar { get; set; } 
+        public int kullaniciid { get; set; } = 0;
+        public string donem { get; set; } = DateTime.Now.ToString("yyyy");
         public List<PocoSTOKHAR> MPSTOKHAR { get; set; }
         public List<PocoSTOKFIYATLISTHAR> MPSTOKFIYATLISTHARList { get; set; }
     }

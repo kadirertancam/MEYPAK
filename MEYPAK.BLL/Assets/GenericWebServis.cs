@@ -31,7 +31,7 @@ namespace MEYPAK.BLL.Assets
         public List<T> obje;
         public T obje2;
      
-        public void Data(string servis,T model=null,string parameters=null,List<T> modellist=null,string id=null)
+        public void Data(string servis,T model=null,string parameters=null,List<T> modellist=null,string id=null, HttpMethod method =null)
         {
             if(modellist!=null)
                 serialize = JsonConvert.SerializeObject(modellist);
@@ -42,8 +42,10 @@ namespace MEYPAK.BLL.Assets
             servis= parameters != null ? servis + "?$" + parameters : servis;
             HttpRequestMessage client;
             HttpClient httpClient = new HttpClient();
-            if(model == null && modellist == null)
-            client = new HttpRequestMessage(HttpMethod.Get, servis);
+            if (method != null)
+                client = new HttpRequestMessage(method,servis);
+            else if (model == null && modellist == null)
+                client = new HttpRequestMessage(HttpMethod.Get, servis);
             else
                 client = new HttpRequestMessage(HttpMethod.Post, servis);
             client.Headers.Add("Connection", "keep-alive");
@@ -68,7 +70,7 @@ namespace MEYPAK.BLL.Assets
             try
             {
 
-                if (model == null&&modellist==null)
+                if (model == null&&modellist==null && method==null)
                     obje = JsonConvert.DeserializeObject<List<T>>(a);
                 if (model != null) 
                     obje2 = JsonConvert.DeserializeObject<T>(a);

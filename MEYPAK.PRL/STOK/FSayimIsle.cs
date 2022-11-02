@@ -52,9 +52,9 @@ namespace MEYPAK.PRL.STOK
                     DEPOID=item.DEPOID,
                     NETFIYAT=item2.FIYAT,
                     KDV=item2.MPSTOK.aliskdv,
-                    KAYITTIPI=0,
+                    kayittipi=0,
                     IO=1,
-                    SAYIMID=item.ID
+                    SAYIMID=item.id
                             });
                 }
                 item.DURUM = 1;
@@ -82,7 +82,7 @@ namespace MEYPAK.PRL.STOK
 
             foreach (var item2 in _stokSayimServis.obje.Where(x => x.SAYIMTARIHI == dateTimePicker1.Value && x.ACIKLAMA == textBox1.Text).FirstOrDefault().MPSTOKSAYIMHAR)
             {
-                var _temp = _stokHarServis.obje.Where(x => x.STOKID == item2.STOKID && x.SAYIMID == item2.ID).ToList();
+                var _temp = _stokHarServis.obje.Where(x => x.STOKID == item2.STOKID && x.SAYIMID == item2.id).ToList();
                 if(_temp.Count() > 0)
                 {
                     _stokHarServis.Data(ServisList.StokHarSilServis,null,null, _temp);
