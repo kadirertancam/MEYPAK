@@ -119,7 +119,7 @@ namespace MEYPAK.BLL.Assets
 
         #region StokHar
         public const string StokHarListeServis =       "http://213.238.167.117:8080/STOKHAR/STOKHARListe";
-        public const string StokHarEkleServis = "http://213.238.167.117:8080/STOKHAR/STOKHAREkleyadaGuncelle";
+        public const string StokHarEkleServis =     "http://213.238.167.117:8080/STOKHAR/STOKHAREkleyadaGuncelle";
         public const string StokHarSilServis =               "http://213.238.167.117:8080/STOKHAR/STOKHARSil";
         public const string StokHarGuncelleServis = "http://213.238.167.117:8080/STOKHAR/STOKHARGuncelle";
         public const string StokHarDeleteByIdServis = "http://213.238.167.117:8080/STOKHAR/DeleteById";

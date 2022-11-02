@@ -9,27 +9,25 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.Entity.PocoModels.STOK
 {
-    public class PocoSTOKHAR:SUPERPOCOMODEL
+    public class PocoSTOKHAR : SUPERPOCOMODEL
     {
-        public int STOKID { get; set; }
-        public int HAREKETTURU { get; set; }        // 1SATIS-2ALIS-3SATISIADE-4ALISIADE-5MUHTELIF-6DAT-7Sayim
-        public int SIRKETID { get; set; } = 0;
-        public int SUBEID { get; set; } = 0;
-        public int DEPOID { get; set; } = 0;
-        [StringLength(500)]
-        public string ACIKLAMA { get; set; } = "";
-        [StringLength(100)]
-        public string BELGE_NO { get; set; } = "";
-        public int FATURAID { get; set; } = 0;
-        public decimal KDV { get; set; } = 0;
-        public int IO { get; set; } = 0;
-        public decimal NETFIYAT { get; set; } = 0;
-        public decimal MIKTAR { get; set; } = 0;
-        public int BIRIM { get; set; } = 0;
-        public decimal NETTOPLAM { get; set; } = 0;
-        public decimal BRUTTOPLAM { get; set; } = 0;
-        public int SAYIMID { get; set; } = 0;
-        public int KULLANICIID { get; set; } = 0;
-        public virtual PocoSTOK MPSTOK { get; set; }
+        public int stokid { get; set; }
+        public int hareketturu { get; set; }
+        public int sirketid { get; set; } = 0;
+        public int subeid { get; set; } =0;
+        public int depoid { get; set; } = 0;
+        public string aciklama { get; set; } = "";
+        public string belgE_NO { get; set; } = "";
+        public int faturaid { get; set; } = 0;
+        public double kdv { get; set; } = 0;    
+        public int io { get; set; } = 0;
+        public double netfiyat { get; set; } = 0;
+        public double miktar { get; set; } = 0;
+        public int birim { get; set; } = 0;
+        public double nettoplam { get; set; } = 0;
+        public double bruttoplam { get; set; } = 0;
+        public int sayimid { get; set; } = 0;
+        public int kullaniciid { get; set; } = 0;
+        public virtual PocoSTOK mpstok { get; set; }
     }
 }

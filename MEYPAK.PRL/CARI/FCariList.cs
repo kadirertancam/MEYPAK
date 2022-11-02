@@ -49,11 +49,11 @@ namespace MEYPAK.PRL.CARI
             if (_form == "carikart")
                 _cariKart._tempCariKart = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()).FirstOrDefault();
             if(_form=="carihar")
-                _cariHareket._tempCARIKART= _cariServis.obje.Where(x => x.ID.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+                _cariHareket._tempCARIKART= _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
             if (_form == "musterisiparis")
             {
-                _fmusteriSiparis.TBCariKodu.Text = _cariServis.obje.Where(x => x.ID.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault().KOD;
-                _fmusteriSiparis.TBCariAdi.Text = _cariServis.obje.Where(x => x.ID.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault().UNVAN;
+                _fmusteriSiparis.TBCariKodu.Text = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault().KOD;
+                _fmusteriSiparis.TBCariAdi.Text = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault().UNVAN;
             }
             this.Close();
         }

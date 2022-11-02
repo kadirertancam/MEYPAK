@@ -76,6 +76,17 @@
             this.barButtonItem29 = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItem15 = new DevExpress.XtraBars.BarSubItem();
             this.barSubItem16 = new DevExpress.XtraBars.BarSubItem();
+            this.barSubItem17 = new DevExpress.XtraBars.BarSubItem();
+            this.barSubItem18 = new DevExpress.XtraBars.BarSubItem();
+            this.barSubItem19 = new DevExpress.XtraBars.BarSubItem();
+            this.barButtonItem31 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem32 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem33 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem34 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem35 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem36 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem30 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem37 = new DevExpress.XtraBars.BarButtonItem();
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.barHeaderItem1 = new DevExpress.XtraBars.BarHeaderItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
@@ -127,17 +138,6 @@
             this.accordionControlElement27 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
             this.applicationMenu1 = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
-            this.barSubItem17 = new DevExpress.XtraBars.BarSubItem();
-            this.barSubItem18 = new DevExpress.XtraBars.BarSubItem();
-            this.barSubItem19 = new DevExpress.XtraBars.BarSubItem();
-            this.barButtonItem30 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem31 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem32 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem33 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem34 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem35 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem36 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem37 = new DevExpress.XtraBars.BarButtonItem();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -583,6 +583,81 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem37)});
             this.barSubItem16.Name = "barSubItem16";
             // 
+            // barSubItem17
+            // 
+            this.barSubItem17.Caption = "Stok Parametreleri";
+            this.barSubItem17.Id = 56;
+            this.barSubItem17.Name = "barSubItem17";
+            // 
+            // barSubItem18
+            // 
+            this.barSubItem18.Caption = "Cari Parametreleri";
+            this.barSubItem18.Id = 57;
+            this.barSubItem18.Name = "barSubItem18";
+            // 
+            // barSubItem19
+            // 
+            this.barSubItem19.Caption = "Fatura Parametreleri";
+            this.barSubItem19.Id = 58;
+            this.barSubItem19.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem31),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem32),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem33),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem34),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem35),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem36)});
+            this.barSubItem19.Name = "barSubItem19";
+            // 
+            // barButtonItem31
+            // 
+            this.barButtonItem31.Caption = "Satış Fatura";
+            this.barButtonItem31.Id = 60;
+            this.barButtonItem31.Name = "barButtonItem31";
+            // 
+            // barButtonItem32
+            // 
+            this.barButtonItem32.Caption = "Alış Fatura";
+            this.barButtonItem32.Id = 61;
+            this.barButtonItem32.Name = "barButtonItem32";
+            // 
+            // barButtonItem33
+            // 
+            this.barButtonItem33.Caption = "Satış İrsaliye";
+            this.barButtonItem33.Id = 62;
+            this.barButtonItem33.Name = "barButtonItem33";
+            // 
+            // barButtonItem34
+            // 
+            this.barButtonItem34.Caption = "Alış İrsaliye";
+            this.barButtonItem34.Id = 63;
+            this.barButtonItem34.Name = "barButtonItem34";
+            // 
+            // barButtonItem35
+            // 
+            this.barButtonItem35.Caption = "Müşteri Sipariş";
+            this.barButtonItem35.Id = 64;
+            this.barButtonItem35.Name = "barButtonItem35";
+            this.barButtonItem35.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem35_ItemClick);
+            // 
+            // barButtonItem36
+            // 
+            this.barButtonItem36.Caption = "Satınalma Sipariş";
+            this.barButtonItem36.Id = 65;
+            this.barButtonItem36.Name = "barButtonItem36";
+            // 
+            // barButtonItem30
+            // 
+            this.barButtonItem30.Caption = "Parametreler";
+            this.barButtonItem30.Id = 59;
+            this.barButtonItem30.Name = "barButtonItem30";
+            // 
+            // barButtonItem37
+            // 
+            this.barButtonItem37.Caption = "Para Birimi";
+            this.barButtonItem37.Id = 66;
+            this.barButtonItem37.Name = "barButtonItem37";
+            this.barButtonItem37.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem37_ItemClick);
+            // 
             // bar2
             // 
             this.bar2.BarName = "Custom 3";
@@ -986,81 +1061,6 @@
             // applicationMenu1
             // 
             this.applicationMenu1.Name = "applicationMenu1";
-            // 
-            // barSubItem17
-            // 
-            this.barSubItem17.Caption = "Stok Parametreleri";
-            this.barSubItem17.Id = 56;
-            this.barSubItem17.Name = "barSubItem17";
-            // 
-            // barSubItem18
-            // 
-            this.barSubItem18.Caption = "Cari Parametreleri";
-            this.barSubItem18.Id = 57;
-            this.barSubItem18.Name = "barSubItem18";
-            // 
-            // barSubItem19
-            // 
-            this.barSubItem19.Caption = "Fatura Parametreleri";
-            this.barSubItem19.Id = 58;
-            this.barSubItem19.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem31),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem32),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem33),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem34),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem35),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem36)});
-            this.barSubItem19.Name = "barSubItem19";
-            // 
-            // barButtonItem30
-            // 
-            this.barButtonItem30.Caption = "Parametreler";
-            this.barButtonItem30.Id = 59;
-            this.barButtonItem30.Name = "barButtonItem30";
-            // 
-            // barButtonItem31
-            // 
-            this.barButtonItem31.Caption = "Satış Fatura";
-            this.barButtonItem31.Id = 60;
-            this.barButtonItem31.Name = "barButtonItem31";
-            // 
-            // barButtonItem32
-            // 
-            this.barButtonItem32.Caption = "Alış Fatura";
-            this.barButtonItem32.Id = 61;
-            this.barButtonItem32.Name = "barButtonItem32";
-            // 
-            // barButtonItem33
-            // 
-            this.barButtonItem33.Caption = "Satış İrsaliye";
-            this.barButtonItem33.Id = 62;
-            this.barButtonItem33.Name = "barButtonItem33";
-            // 
-            // barButtonItem34
-            // 
-            this.barButtonItem34.Caption = "Alış İrsaliye";
-            this.barButtonItem34.Id = 63;
-            this.barButtonItem34.Name = "barButtonItem34";
-            // 
-            // barButtonItem35
-            // 
-            this.barButtonItem35.Caption = "Müşteri Sipariş";
-            this.barButtonItem35.Id = 64;
-            this.barButtonItem35.Name = "barButtonItem35";
-            this.barButtonItem35.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem35_ItemClick);
-            // 
-            // barButtonItem36
-            // 
-            this.barButtonItem36.Caption = "Satınalma Sipariş";
-            this.barButtonItem36.Id = 65;
-            this.barButtonItem36.Name = "barButtonItem36";
-            // 
-            // barButtonItem37
-            // 
-            this.barButtonItem37.Caption = "Para Birimi";
-            this.barButtonItem37.Id = 66;
-            this.barButtonItem37.Name = "barButtonItem37";
-            this.barButtonItem37.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem37_ItemClick);
             // 
             // Main
             // 
