@@ -61,10 +61,10 @@ namespace MEYPAK.PRL.STOK
             olcuBrServis.Data(ServisList.OlcuBrListeServis);
             stokOlcuBrServis.Data(ServisList.StokOlcuBrListeServis);
             stokServis.Data(ServisList.StokListeServis);
-            TBStokKodu.Text = _tempStok.kod;
-            TBStokAdi.Text = _tempStok.adi;
-            CBStokBirim.DataSource = stokOlcuBrServis.obje.Where(x => x.STOKID == _tempStok.id).Select(x => olcuBrServis.obje.Where(z => z.id == x.OLCUBRID).FirstOrDefault().adi).ToList();
-            TBBakiye.Text = (from ep in stokServis.obje join e in stokHarServis.obje on ep.id equals e.STOKID where ep.kod == _tempStok.kod select Convert.ToDecimal(e.IO.ToString() == "1" ? e.MIKTAR : 0) - Convert.ToDecimal(e.IO.ToString() == "0" ? e.MIKTAR : 0)).FirstOrDefault().ToString();
+            TBStokBilgiStokKodu.Text = _tempStok.kod;
+            TBStokBilgiStokAdi.Text = _tempStok.adi;
+            CBStokBilgiBirim.DataSource = stokOlcuBrServis.obje.Where(x => x.STOKID == _tempStok.id).Select(x => olcuBrServis.obje.Where(z => z.id == x.OLCUBRID).FirstOrDefault().adi).ToList();
+            TBStokBilgiBakiye.Text = (from ep in stokServis.obje join e in stokHarServis.obje on ep.id equals e.STOKID where ep.kod == _tempStok.kod select Convert.ToDecimal(e.IO.ToString() == "1" ? e.MIKTAR : 0) - Convert.ToDecimal(e.IO.ToString() == "0" ? e.MIKTAR : 0)).FirstOrDefault().ToString();
 
             _tempStok = null;
         }
@@ -160,9 +160,9 @@ namespace MEYPAK.PRL.STOK
             stokServis.Data(ServisList.StokListeServis);
             _tempStokSayimHarList.Add(new PocoStokSayimPanelList()
             {
-                StokKodu = TBStokKodu.Text,
-                StokAdı = TBStokAdi.Text,
-                ID = stokServis.obje.Where(x => x.kod == TBStokKodu.Text).FirstOrDefault().id
+                StokKodu = TBStokBilgiStokKodu.Text,
+                StokAdı = TBStokBilgiStokAdi.Text,
+                ID = stokServis.obje.Where(x => x.kod == TBStokBilgiStokKodu.Text).FirstOrDefault().id
             });
         }
 
@@ -223,14 +223,6 @@ namespace MEYPAK.PRL.STOK
         }
         #endregion
 
-        private void labelControl1_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void GBStokBilgi_Enter(object sender, EventArgs e)
-        {
-
-        }
     }
 }

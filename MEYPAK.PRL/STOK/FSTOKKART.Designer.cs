@@ -29,9 +29,19 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FStokKart));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions5 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject17 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject18 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject19 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject20 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions6 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject21 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject22 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject23 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject24 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -47,16 +57,6 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions5 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject17 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject18 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject19 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject20 = new DevExpress.Utils.SerializableAppearanceObject();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.BTStokKartiKaydet = new DevExpress.XtraEditors.SimpleButton();
@@ -99,19 +99,19 @@
             this.LBKatsayi = new DevExpress.XtraEditors.LabelControl();
             this.LBBirim = new DevExpress.XtraEditors.LabelControl();
             this.TBKatsayi = new System.Windows.Forms.TextBox();
-            this.CBOlcuBr1 = new System.Windows.Forms.ComboBox();
+            this.CBOlcuBirim = new System.Windows.Forms.ComboBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
             this.GBStokKartiSayisalAciklama = new System.Windows.Forms.GroupBox();
-            this.SESayisalAciklama5 = new DevExpress.XtraEditors.SpinEdit();
-            this.SESayisalAciklama2 = new DevExpress.XtraEditors.SpinEdit();
-            this.SESayisalAciklama3 = new DevExpress.XtraEditors.SpinEdit();
-            this.SESayisalAciklama4 = new DevExpress.XtraEditors.SpinEdit();
-            this.SESayisalAciklama6 = new DevExpress.XtraEditors.SpinEdit();
-            this.SESayisalAciklama7 = new DevExpress.XtraEditors.SpinEdit();
-            this.SESayisalAciklama8 = new DevExpress.XtraEditors.SpinEdit();
-            this.SESayisalAciklama9 = new DevExpress.XtraEditors.SpinEdit();
-            this.SESayisalAciklama1 = new DevExpress.XtraEditors.SpinEdit();
+            this.NUDSayisalAciklama5 = new DevExpress.XtraEditors.SpinEdit();
+            this.NUDSayisalAciklama2 = new DevExpress.XtraEditors.SpinEdit();
+            this.NUDSayisalAciklama3 = new DevExpress.XtraEditors.SpinEdit();
+            this.NUDSayisalAciklama4 = new DevExpress.XtraEditors.SpinEdit();
+            this.NUDSayisalAciklama6 = new DevExpress.XtraEditors.SpinEdit();
+            this.NUDSayisalAciklama7 = new DevExpress.XtraEditors.SpinEdit();
+            this.NUDSayisalAciklama8 = new DevExpress.XtraEditors.SpinEdit();
+            this.NUDSayisalAciklama9 = new DevExpress.XtraEditors.SpinEdit();
+            this.NUDSayisalAciklama1 = new DevExpress.XtraEditors.SpinEdit();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -122,7 +122,16 @@
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.LBStokKartiSayisalAciklama1 = new DevExpress.XtraEditors.LabelControl();
             this.GBStokKartiAciklamalar = new System.Windows.Forms.GroupBox();
+            this.TBAciklama7 = new DevExpress.XtraEditors.TextEdit();
+            this.TBAciklama9 = new DevExpress.XtraEditors.TextEdit();
+            this.TBAciklama4 = new DevExpress.XtraEditors.TextEdit();
+            this.TBAciklama8 = new DevExpress.XtraEditors.TextEdit();
+            this.TBAciklama1 = new DevExpress.XtraEditors.TextEdit();
+            this.TBAciklama6 = new DevExpress.XtraEditors.TextEdit();
+            this.TBAciklama3 = new DevExpress.XtraEditors.TextEdit();
+            this.TBAciklama5 = new DevExpress.XtraEditors.TextEdit();
             this.LBStokKartiAciklama9 = new DevExpress.XtraEditors.LabelControl();
+            this.TBAciklama2 = new DevExpress.XtraEditors.TextEdit();
             this.LBStokKartiAciklama8 = new DevExpress.XtraEditors.LabelControl();
             this.LBStokKartiAciklama7 = new DevExpress.XtraEditors.LabelControl();
             this.LBStokKartiAciklama6 = new DevExpress.XtraEditors.LabelControl();
@@ -182,22 +191,13 @@
             this.LBMarka = new DevExpress.XtraEditors.LabelControl();
             this.LBStokAdi = new DevExpress.XtraEditors.LabelControl();
             this.LBStokKodu = new DevExpress.XtraEditors.LabelControl();
-            this.MEAciklama = new DevExpress.XtraEditors.MemoEdit();
-            this.TBKasa = new DevExpress.XtraEditors.ButtonEdit();
-            this.TBGrupKodu = new DevExpress.XtraEditors.ButtonEdit();
-            this.TBKategori = new DevExpress.XtraEditors.ButtonEdit();
-            this.TBMarka = new DevExpress.XtraEditors.ButtonEdit();
+            this.TBAciklama = new DevExpress.XtraEditors.MemoEdit();
+            this.BTKasa = new DevExpress.XtraEditors.ButtonEdit();
+            this.BTGrupKodu = new DevExpress.XtraEditors.ButtonEdit();
+            this.BTKategori = new DevExpress.XtraEditors.ButtonEdit();
+            this.BTMarka = new DevExpress.XtraEditors.ButtonEdit();
             this.TBStokAdi = new DevExpress.XtraEditors.TextEdit();
             this.BTStokKodu = new DevExpress.XtraEditors.ButtonEdit();
-            this.TEAciklama1 = new DevExpress.XtraEditors.TextEdit();
-            this.TEAciklama2 = new DevExpress.XtraEditors.TextEdit();
-            this.TEAciklama3 = new DevExpress.XtraEditors.TextEdit();
-            this.TEAciklama4 = new DevExpress.XtraEditors.TextEdit();
-            this.TEAciklama6 = new DevExpress.XtraEditors.TextEdit();
-            this.TEAciklama5 = new DevExpress.XtraEditors.TextEdit();
-            this.TEAciklama7 = new DevExpress.XtraEditors.TextEdit();
-            this.TEAciklama9 = new DevExpress.XtraEditors.TextEdit();
-            this.TEAciklama8 = new DevExpress.XtraEditors.TextEdit();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -226,16 +226,25 @@
             this.tabPage3.SuspendLayout();
             this.panel5.SuspendLayout();
             this.GBStokKartiSayisalAciklama.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SESayisalAciklama5.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SESayisalAciklama2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SESayisalAciklama3.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SESayisalAciklama4.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SESayisalAciklama6.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SESayisalAciklama7.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SESayisalAciklama8.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SESayisalAciklama9.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SESayisalAciklama1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUDSayisalAciklama5.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUDSayisalAciklama2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUDSayisalAciklama3.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUDSayisalAciklama4.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUDSayisalAciklama6.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUDSayisalAciklama7.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUDSayisalAciklama8.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUDSayisalAciklama9.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUDSayisalAciklama1.Properties)).BeginInit();
             this.GBStokKartiAciklamalar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TBAciklama7.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBAciklama9.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBAciklama4.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBAciklama8.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBAciklama1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBAciklama6.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBAciklama3.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBAciklama5.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBAciklama2.Properties)).BeginInit();
             this.tabPage4.SuspendLayout();
             this.panel6.SuspendLayout();
             this.GBStokKartiRaporKodu.SuspendLayout();
@@ -258,22 +267,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.TBAlisKdv.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBSatisKdv.Properties)).BeginInit();
             this.GBStokKartiGenel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MEAciklama.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TBKasa.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TBGrupKodu.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TBKategori.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TBMarka.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBAciklama.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BTKasa.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BTGrupKodu.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BTKategori.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BTMarka.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBStokAdi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTStokKodu.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TEAciklama1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TEAciklama2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TEAciklama3.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TEAciklama4.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TEAciklama6.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TEAciklama5.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TEAciklama7.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TEAciklama9.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TEAciklama8.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -285,17 +285,17 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1089, 793);
+            this.panel1.Size = new System.Drawing.Size(1128, 795);
             this.panel1.TabIndex = 0;
             // 
             // panel4
             // 
             this.panel4.Controls.Add(this.BTStokKartiKaydet);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(0, 691);
+            this.panel4.Location = new System.Drawing.Point(0, 693);
             this.panel4.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1089, 102);
+            this.panel4.Size = new System.Drawing.Size(1128, 102);
             this.panel4.TabIndex = 4;
             // 
             // BTStokKartiKaydet
@@ -316,7 +316,7 @@
             this.panel3.Location = new System.Drawing.Point(0, 356);
             this.panel3.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1089, 420);
+            this.panel3.Size = new System.Drawing.Size(1128, 420);
             this.panel3.TabIndex = 3;
             // 
             // tabControl1
@@ -330,7 +330,7 @@
             this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1089, 420);
+            this.tabControl1.Size = new System.Drawing.Size(1128, 420);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -668,35 +668,35 @@
             // dataGridView1
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.dataGridView1.Name = "dataGridView1";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(1073, 288);
             this.dataGridView1.TabIndex = 0;
@@ -730,7 +730,7 @@
             this.GBOlcuBirimleriUstPanel.Controls.Add(this.LBKatsayi);
             this.GBOlcuBirimleriUstPanel.Controls.Add(this.LBBirim);
             this.GBOlcuBirimleriUstPanel.Controls.Add(this.TBKatsayi);
-            this.GBOlcuBirimleriUstPanel.Controls.Add(this.CBOlcuBr1);
+            this.GBOlcuBirimleriUstPanel.Controls.Add(this.CBOlcuBirim);
             this.GBOlcuBirimleriUstPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.GBOlcuBirimleriUstPanel.Location = new System.Drawing.Point(4, 18);
             this.GBOlcuBirimleriUstPanel.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
@@ -782,15 +782,15 @@
             this.TBKatsayi.Size = new System.Drawing.Size(100, 26);
             this.TBKatsayi.TabIndex = 3;
             // 
-            // CBOlcuBr1
+            // CBOlcuBirim
             // 
-            this.CBOlcuBr1.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CBOlcuBr1.FormattingEnabled = true;
-            this.CBOlcuBr1.Location = new System.Drawing.Point(18, 35);
-            this.CBOlcuBr1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.CBOlcuBr1.Name = "CBOlcuBr1";
-            this.CBOlcuBr1.Size = new System.Drawing.Size(121, 26);
-            this.CBOlcuBr1.TabIndex = 0;
+            this.CBOlcuBirim.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CBOlcuBirim.FormattingEnabled = true;
+            this.CBOlcuBirim.Location = new System.Drawing.Point(18, 35);
+            this.CBOlcuBirim.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.CBOlcuBirim.Name = "CBOlcuBirim";
+            this.CBOlcuBirim.Size = new System.Drawing.Size(121, 26);
+            this.CBOlcuBirim.TabIndex = 0;
             // 
             // tabPage3
             // 
@@ -798,7 +798,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 24);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1081, 392);
+            this.tabPage3.Size = new System.Drawing.Size(1120, 392);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Açıklamalar";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -812,20 +812,20 @@
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1081, 392);
+            this.panel5.Size = new System.Drawing.Size(1120, 392);
             this.panel5.TabIndex = 0;
             // 
             // GBStokKartiSayisalAciklama
             // 
-            this.GBStokKartiSayisalAciklama.Controls.Add(this.SESayisalAciklama5);
-            this.GBStokKartiSayisalAciklama.Controls.Add(this.SESayisalAciklama2);
-            this.GBStokKartiSayisalAciklama.Controls.Add(this.SESayisalAciklama3);
-            this.GBStokKartiSayisalAciklama.Controls.Add(this.SESayisalAciklama4);
-            this.GBStokKartiSayisalAciklama.Controls.Add(this.SESayisalAciklama6);
-            this.GBStokKartiSayisalAciklama.Controls.Add(this.SESayisalAciklama7);
-            this.GBStokKartiSayisalAciklama.Controls.Add(this.SESayisalAciklama8);
-            this.GBStokKartiSayisalAciklama.Controls.Add(this.SESayisalAciklama9);
-            this.GBStokKartiSayisalAciklama.Controls.Add(this.SESayisalAciklama1);
+            this.GBStokKartiSayisalAciklama.Controls.Add(this.NUDSayisalAciklama5);
+            this.GBStokKartiSayisalAciklama.Controls.Add(this.NUDSayisalAciklama2);
+            this.GBStokKartiSayisalAciklama.Controls.Add(this.NUDSayisalAciklama3);
+            this.GBStokKartiSayisalAciklama.Controls.Add(this.NUDSayisalAciklama4);
+            this.GBStokKartiSayisalAciklama.Controls.Add(this.NUDSayisalAciklama6);
+            this.GBStokKartiSayisalAciklama.Controls.Add(this.NUDSayisalAciklama7);
+            this.GBStokKartiSayisalAciklama.Controls.Add(this.NUDSayisalAciklama8);
+            this.GBStokKartiSayisalAciklama.Controls.Add(this.NUDSayisalAciklama9);
+            this.GBStokKartiSayisalAciklama.Controls.Add(this.NUDSayisalAciklama1);
             this.GBStokKartiSayisalAciklama.Controls.Add(this.labelControl9);
             this.GBStokKartiSayisalAciklama.Controls.Add(this.labelControl5);
             this.GBStokKartiSayisalAciklama.Controls.Add(this.labelControl1);
@@ -844,230 +844,230 @@
             this.GBStokKartiSayisalAciklama.TabStop = false;
             this.GBStokKartiSayisalAciklama.Text = "Sayısal Açıklama";
             // 
-            // SESayisalAciklama5
+            // NUDSayisalAciklama5
             // 
-            this.SESayisalAciklama5.EditValue = new decimal(new int[] {
+            this.NUDSayisalAciklama5.EditValue = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.SESayisalAciklama5.Location = new System.Drawing.Point(377, 96);
-            this.SESayisalAciklama5.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.SESayisalAciklama5.Name = "SESayisalAciklama5";
-            this.SESayisalAciklama5.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SESayisalAciklama5.Properties.Appearance.Options.UseFont = true;
-            this.SESayisalAciklama5.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.NUDSayisalAciklama5.Location = new System.Drawing.Point(377, 96);
+            this.NUDSayisalAciklama5.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.NUDSayisalAciklama5.Name = "NUDSayisalAciklama5";
+            this.NUDSayisalAciklama5.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.NUDSayisalAciklama5.Properties.Appearance.Options.UseFont = true;
+            this.NUDSayisalAciklama5.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.SESayisalAciklama5.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.SESayisalAciklama5.Properties.Increment = new decimal(new int[] {
+            this.NUDSayisalAciklama5.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.NUDSayisalAciklama5.Properties.Increment = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.SESayisalAciklama5.Properties.MaskSettings.Set("mask", "d");
-            this.SESayisalAciklama5.Properties.Name = "SESayisalAciklama1";
-            this.SESayisalAciklama5.Size = new System.Drawing.Size(310, 26);
-            this.SESayisalAciklama5.TabIndex = 35;
+            this.NUDSayisalAciklama5.Properties.MaskSettings.Set("mask", "d");
+            this.NUDSayisalAciklama5.Properties.Name = "SESayisalAciklama1";
+            this.NUDSayisalAciklama5.Size = new System.Drawing.Size(310, 26);
+            this.NUDSayisalAciklama5.TabIndex = 35;
             // 
-            // SESayisalAciklama2
+            // NUDSayisalAciklama2
             // 
-            this.SESayisalAciklama2.EditValue = new decimal(new int[] {
+            this.NUDSayisalAciklama2.EditValue = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.SESayisalAciklama2.Location = new System.Drawing.Point(6, 96);
-            this.SESayisalAciklama2.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.SESayisalAciklama2.Name = "SESayisalAciklama2";
-            this.SESayisalAciklama2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SESayisalAciklama2.Properties.Appearance.Options.UseFont = true;
-            this.SESayisalAciklama2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.NUDSayisalAciklama2.Location = new System.Drawing.Point(6, 96);
+            this.NUDSayisalAciklama2.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.NUDSayisalAciklama2.Name = "NUDSayisalAciklama2";
+            this.NUDSayisalAciklama2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.NUDSayisalAciklama2.Properties.Appearance.Options.UseFont = true;
+            this.NUDSayisalAciklama2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.SESayisalAciklama2.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.SESayisalAciklama2.Properties.Increment = new decimal(new int[] {
+            this.NUDSayisalAciklama2.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.NUDSayisalAciklama2.Properties.Increment = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.SESayisalAciklama2.Properties.MaskSettings.Set("mask", "d");
-            this.SESayisalAciklama2.Properties.Name = "SESayisalAciklama1";
-            this.SESayisalAciklama2.Size = new System.Drawing.Size(310, 26);
-            this.SESayisalAciklama2.TabIndex = 34;
+            this.NUDSayisalAciklama2.Properties.MaskSettings.Set("mask", "d");
+            this.NUDSayisalAciklama2.Properties.Name = "SESayisalAciklama1";
+            this.NUDSayisalAciklama2.Size = new System.Drawing.Size(310, 26);
+            this.NUDSayisalAciklama2.TabIndex = 34;
             // 
-            // SESayisalAciklama3
+            // NUDSayisalAciklama3
             // 
-            this.SESayisalAciklama3.EditValue = new decimal(new int[] {
+            this.NUDSayisalAciklama3.EditValue = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.SESayisalAciklama3.Location = new System.Drawing.Point(6, 147);
-            this.SESayisalAciklama3.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.SESayisalAciklama3.Name = "SESayisalAciklama3";
-            this.SESayisalAciklama3.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SESayisalAciklama3.Properties.Appearance.Options.UseFont = true;
-            this.SESayisalAciklama3.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.NUDSayisalAciklama3.Location = new System.Drawing.Point(6, 147);
+            this.NUDSayisalAciklama3.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.NUDSayisalAciklama3.Name = "NUDSayisalAciklama3";
+            this.NUDSayisalAciklama3.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.NUDSayisalAciklama3.Properties.Appearance.Options.UseFont = true;
+            this.NUDSayisalAciklama3.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.SESayisalAciklama3.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.SESayisalAciklama3.Properties.Increment = new decimal(new int[] {
+            this.NUDSayisalAciklama3.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.NUDSayisalAciklama3.Properties.Increment = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.SESayisalAciklama3.Properties.MaskSettings.Set("mask", "d");
-            this.SESayisalAciklama3.Properties.Name = "SESayisalAciklama1";
-            this.SESayisalAciklama3.Size = new System.Drawing.Size(310, 26);
-            this.SESayisalAciklama3.TabIndex = 33;
+            this.NUDSayisalAciklama3.Properties.MaskSettings.Set("mask", "d");
+            this.NUDSayisalAciklama3.Properties.Name = "SESayisalAciklama1";
+            this.NUDSayisalAciklama3.Size = new System.Drawing.Size(310, 26);
+            this.NUDSayisalAciklama3.TabIndex = 33;
             // 
-            // SESayisalAciklama4
+            // NUDSayisalAciklama4
             // 
-            this.SESayisalAciklama4.EditValue = new decimal(new int[] {
+            this.NUDSayisalAciklama4.EditValue = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.SESayisalAciklama4.Location = new System.Drawing.Point(376, 48);
-            this.SESayisalAciklama4.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.SESayisalAciklama4.Name = "SESayisalAciklama4";
-            this.SESayisalAciklama4.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SESayisalAciklama4.Properties.Appearance.Options.UseFont = true;
-            this.SESayisalAciklama4.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.NUDSayisalAciklama4.Location = new System.Drawing.Point(376, 48);
+            this.NUDSayisalAciklama4.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.NUDSayisalAciklama4.Name = "NUDSayisalAciklama4";
+            this.NUDSayisalAciklama4.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.NUDSayisalAciklama4.Properties.Appearance.Options.UseFont = true;
+            this.NUDSayisalAciklama4.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.SESayisalAciklama4.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.SESayisalAciklama4.Properties.Increment = new decimal(new int[] {
+            this.NUDSayisalAciklama4.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.NUDSayisalAciklama4.Properties.Increment = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.SESayisalAciklama4.Properties.MaskSettings.Set("mask", "d");
-            this.SESayisalAciklama4.Properties.Name = "SESayisalAciklama1";
-            this.SESayisalAciklama4.Size = new System.Drawing.Size(310, 26);
-            this.SESayisalAciklama4.TabIndex = 32;
+            this.NUDSayisalAciklama4.Properties.MaskSettings.Set("mask", "d");
+            this.NUDSayisalAciklama4.Properties.Name = "SESayisalAciklama1";
+            this.NUDSayisalAciklama4.Size = new System.Drawing.Size(310, 26);
+            this.NUDSayisalAciklama4.TabIndex = 32;
             // 
-            // SESayisalAciklama6
+            // NUDSayisalAciklama6
             // 
-            this.SESayisalAciklama6.EditValue = new decimal(new int[] {
+            this.NUDSayisalAciklama6.EditValue = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.SESayisalAciklama6.Location = new System.Drawing.Point(376, 147);
-            this.SESayisalAciklama6.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.SESayisalAciklama6.Name = "SESayisalAciklama6";
-            this.SESayisalAciklama6.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SESayisalAciklama6.Properties.Appearance.Options.UseFont = true;
-            this.SESayisalAciklama6.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.NUDSayisalAciklama6.Location = new System.Drawing.Point(376, 147);
+            this.NUDSayisalAciklama6.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.NUDSayisalAciklama6.Name = "NUDSayisalAciklama6";
+            this.NUDSayisalAciklama6.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.NUDSayisalAciklama6.Properties.Appearance.Options.UseFont = true;
+            this.NUDSayisalAciklama6.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.SESayisalAciklama6.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.SESayisalAciklama6.Properties.Increment = new decimal(new int[] {
+            this.NUDSayisalAciklama6.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.NUDSayisalAciklama6.Properties.Increment = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.SESayisalAciklama6.Properties.MaskSettings.Set("mask", "d");
-            this.SESayisalAciklama6.Properties.Name = "SESayisalAciklama1";
-            this.SESayisalAciklama6.Size = new System.Drawing.Size(310, 26);
-            this.SESayisalAciklama6.TabIndex = 31;
+            this.NUDSayisalAciklama6.Properties.MaskSettings.Set("mask", "d");
+            this.NUDSayisalAciklama6.Properties.Name = "SESayisalAciklama1";
+            this.NUDSayisalAciklama6.Size = new System.Drawing.Size(310, 26);
+            this.NUDSayisalAciklama6.TabIndex = 31;
             // 
-            // SESayisalAciklama7
+            // NUDSayisalAciklama7
             // 
-            this.SESayisalAciklama7.EditValue = new decimal(new int[] {
+            this.NUDSayisalAciklama7.EditValue = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.SESayisalAciklama7.Location = new System.Drawing.Point(746, 48);
-            this.SESayisalAciklama7.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.SESayisalAciklama7.Name = "SESayisalAciklama7";
-            this.SESayisalAciklama7.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SESayisalAciklama7.Properties.Appearance.Options.UseFont = true;
-            this.SESayisalAciklama7.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.NUDSayisalAciklama7.Location = new System.Drawing.Point(746, 48);
+            this.NUDSayisalAciklama7.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.NUDSayisalAciklama7.Name = "NUDSayisalAciklama7";
+            this.NUDSayisalAciklama7.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.NUDSayisalAciklama7.Properties.Appearance.Options.UseFont = true;
+            this.NUDSayisalAciklama7.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.SESayisalAciklama7.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.SESayisalAciklama7.Properties.Increment = new decimal(new int[] {
+            this.NUDSayisalAciklama7.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.NUDSayisalAciklama7.Properties.Increment = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.SESayisalAciklama7.Properties.MaskSettings.Set("mask", "d");
-            this.SESayisalAciklama7.Properties.Name = "SESayisalAciklama1";
-            this.SESayisalAciklama7.Size = new System.Drawing.Size(310, 26);
-            this.SESayisalAciklama7.TabIndex = 30;
+            this.NUDSayisalAciklama7.Properties.MaskSettings.Set("mask", "d");
+            this.NUDSayisalAciklama7.Properties.Name = "SESayisalAciklama1";
+            this.NUDSayisalAciklama7.Size = new System.Drawing.Size(310, 26);
+            this.NUDSayisalAciklama7.TabIndex = 30;
             // 
-            // SESayisalAciklama8
+            // NUDSayisalAciklama8
             // 
-            this.SESayisalAciklama8.EditValue = new decimal(new int[] {
+            this.NUDSayisalAciklama8.EditValue = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.SESayisalAciklama8.Location = new System.Drawing.Point(745, 103);
-            this.SESayisalAciklama8.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.SESayisalAciklama8.Name = "SESayisalAciklama8";
-            this.SESayisalAciklama8.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SESayisalAciklama8.Properties.Appearance.Options.UseFont = true;
-            this.SESayisalAciklama8.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.NUDSayisalAciklama8.Location = new System.Drawing.Point(745, 103);
+            this.NUDSayisalAciklama8.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.NUDSayisalAciklama8.Name = "NUDSayisalAciklama8";
+            this.NUDSayisalAciklama8.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.NUDSayisalAciklama8.Properties.Appearance.Options.UseFont = true;
+            this.NUDSayisalAciklama8.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.SESayisalAciklama8.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.SESayisalAciklama8.Properties.Increment = new decimal(new int[] {
+            this.NUDSayisalAciklama8.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.NUDSayisalAciklama8.Properties.Increment = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.SESayisalAciklama8.Properties.MaskSettings.Set("mask", "d");
-            this.SESayisalAciklama8.Properties.Name = "SESayisalAciklama1";
-            this.SESayisalAciklama8.Size = new System.Drawing.Size(310, 26);
-            this.SESayisalAciklama8.TabIndex = 29;
+            this.NUDSayisalAciklama8.Properties.MaskSettings.Set("mask", "d");
+            this.NUDSayisalAciklama8.Properties.Name = "SESayisalAciklama1";
+            this.NUDSayisalAciklama8.Size = new System.Drawing.Size(310, 26);
+            this.NUDSayisalAciklama8.TabIndex = 29;
             // 
-            // SESayisalAciklama9
+            // NUDSayisalAciklama9
             // 
-            this.SESayisalAciklama9.EditValue = new decimal(new int[] {
+            this.NUDSayisalAciklama9.EditValue = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.SESayisalAciklama9.Location = new System.Drawing.Point(745, 147);
-            this.SESayisalAciklama9.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.SESayisalAciklama9.Name = "SESayisalAciklama9";
-            this.SESayisalAciklama9.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SESayisalAciklama9.Properties.Appearance.Options.UseFont = true;
-            this.SESayisalAciklama9.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.NUDSayisalAciklama9.Location = new System.Drawing.Point(745, 147);
+            this.NUDSayisalAciklama9.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.NUDSayisalAciklama9.Name = "NUDSayisalAciklama9";
+            this.NUDSayisalAciklama9.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.NUDSayisalAciklama9.Properties.Appearance.Options.UseFont = true;
+            this.NUDSayisalAciklama9.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.SESayisalAciklama9.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.SESayisalAciklama9.Properties.Increment = new decimal(new int[] {
+            this.NUDSayisalAciklama9.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.NUDSayisalAciklama9.Properties.Increment = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.SESayisalAciklama9.Properties.MaskSettings.Set("mask", "d");
-            this.SESayisalAciklama9.Properties.Name = "SESayisalAciklama1";
-            this.SESayisalAciklama9.Size = new System.Drawing.Size(310, 26);
-            this.SESayisalAciklama9.TabIndex = 28;
+            this.NUDSayisalAciklama9.Properties.MaskSettings.Set("mask", "d");
+            this.NUDSayisalAciklama9.Properties.Name = "SESayisalAciklama1";
+            this.NUDSayisalAciklama9.Size = new System.Drawing.Size(310, 26);
+            this.NUDSayisalAciklama9.TabIndex = 28;
             // 
-            // SESayisalAciklama1
+            // NUDSayisalAciklama1
             // 
-            this.SESayisalAciklama1.EditValue = new decimal(new int[] {
+            this.NUDSayisalAciklama1.EditValue = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.SESayisalAciklama1.Location = new System.Drawing.Point(6, 50);
-            this.SESayisalAciklama1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.SESayisalAciklama1.Name = "SESayisalAciklama1";
-            this.SESayisalAciklama1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SESayisalAciklama1.Properties.Appearance.Options.UseFont = true;
-            this.SESayisalAciklama1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.NUDSayisalAciklama1.Location = new System.Drawing.Point(6, 50);
+            this.NUDSayisalAciklama1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.NUDSayisalAciklama1.Name = "NUDSayisalAciklama1";
+            this.NUDSayisalAciklama1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.NUDSayisalAciklama1.Properties.Appearance.Options.UseFont = true;
+            this.NUDSayisalAciklama1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.SESayisalAciklama1.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.SESayisalAciklama1.Properties.Increment = new decimal(new int[] {
+            this.NUDSayisalAciklama1.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.NUDSayisalAciklama1.Properties.Increment = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.SESayisalAciklama1.Properties.MaskSettings.Set("mask", "d");
-            this.SESayisalAciklama1.Properties.Name = "SESayisalAciklama1";
-            this.SESayisalAciklama1.Size = new System.Drawing.Size(312, 26);
-            this.SESayisalAciklama1.TabIndex = 27;
+            this.NUDSayisalAciklama1.Properties.MaskSettings.Set("mask", "d");
+            this.NUDSayisalAciklama1.Properties.Name = "SESayisalAciklama1";
+            this.NUDSayisalAciklama1.Size = new System.Drawing.Size(312, 26);
+            this.NUDSayisalAciklama1.TabIndex = 27;
             // 
             // labelControl9
             // 
@@ -1162,16 +1162,16 @@
             // 
             // GBStokKartiAciklamalar
             // 
-            this.GBStokKartiAciklamalar.Controls.Add(this.TEAciklama7);
-            this.GBStokKartiAciklamalar.Controls.Add(this.TEAciklama9);
-            this.GBStokKartiAciklamalar.Controls.Add(this.TEAciklama4);
-            this.GBStokKartiAciklamalar.Controls.Add(this.TEAciklama8);
-            this.GBStokKartiAciklamalar.Controls.Add(this.TEAciklama1);
-            this.GBStokKartiAciklamalar.Controls.Add(this.TEAciklama6);
-            this.GBStokKartiAciklamalar.Controls.Add(this.TEAciklama3);
-            this.GBStokKartiAciklamalar.Controls.Add(this.TEAciklama5);
+            this.GBStokKartiAciklamalar.Controls.Add(this.TBAciklama7);
+            this.GBStokKartiAciklamalar.Controls.Add(this.TBAciklama9);
+            this.GBStokKartiAciklamalar.Controls.Add(this.TBAciklama4);
+            this.GBStokKartiAciklamalar.Controls.Add(this.TBAciklama8);
+            this.GBStokKartiAciklamalar.Controls.Add(this.TBAciklama1);
+            this.GBStokKartiAciklamalar.Controls.Add(this.TBAciklama6);
+            this.GBStokKartiAciklamalar.Controls.Add(this.TBAciklama3);
+            this.GBStokKartiAciklamalar.Controls.Add(this.TBAciklama5);
             this.GBStokKartiAciklamalar.Controls.Add(this.LBStokKartiAciklama9);
-            this.GBStokKartiAciklamalar.Controls.Add(this.TEAciklama2);
+            this.GBStokKartiAciklamalar.Controls.Add(this.TBAciklama2);
             this.GBStokKartiAciklamalar.Controls.Add(this.LBStokKartiAciklama8);
             this.GBStokKartiAciklamalar.Controls.Add(this.LBStokKartiAciklama7);
             this.GBStokKartiAciklamalar.Controls.Add(this.LBStokKartiAciklama6);
@@ -1189,6 +1189,86 @@
             this.GBStokKartiAciklamalar.TabStop = false;
             this.GBStokKartiAciklamalar.Text = "Açıklama";
             // 
+            // TBAciklama7
+            // 
+            this.TBAciklama7.Location = new System.Drawing.Point(747, 46);
+            this.TBAciklama7.Name = "TBAciklama7";
+            this.TBAciklama7.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TBAciklama7.Properties.Appearance.Options.UseFont = true;
+            this.TBAciklama7.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.TBAciklama7.Size = new System.Drawing.Size(312, 26);
+            this.TBAciklama7.TabIndex = 24;
+            // 
+            // TBAciklama9
+            // 
+            this.TBAciklama9.Location = new System.Drawing.Point(747, 147);
+            this.TBAciklama9.Name = "TBAciklama9";
+            this.TBAciklama9.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TBAciklama9.Properties.Appearance.Options.UseFont = true;
+            this.TBAciklama9.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.TBAciklama9.Size = new System.Drawing.Size(312, 26);
+            this.TBAciklama9.TabIndex = 26;
+            // 
+            // TBAciklama4
+            // 
+            this.TBAciklama4.Location = new System.Drawing.Point(378, 46);
+            this.TBAciklama4.Name = "TBAciklama4";
+            this.TBAciklama4.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TBAciklama4.Properties.Appearance.Options.UseFont = true;
+            this.TBAciklama4.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.TBAciklama4.Size = new System.Drawing.Size(312, 26);
+            this.TBAciklama4.TabIndex = 24;
+            // 
+            // TBAciklama8
+            // 
+            this.TBAciklama8.Location = new System.Drawing.Point(747, 98);
+            this.TBAciklama8.Name = "TBAciklama8";
+            this.TBAciklama8.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TBAciklama8.Properties.Appearance.Options.UseFont = true;
+            this.TBAciklama8.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.TBAciklama8.Size = new System.Drawing.Size(312, 26);
+            this.TBAciklama8.TabIndex = 25;
+            // 
+            // TBAciklama1
+            // 
+            this.TBAciklama1.Location = new System.Drawing.Point(6, 46);
+            this.TBAciklama1.Name = "TBAciklama1";
+            this.TBAciklama1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TBAciklama1.Properties.Appearance.Options.UseFont = true;
+            this.TBAciklama1.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.TBAciklama1.Size = new System.Drawing.Size(312, 26);
+            this.TBAciklama1.TabIndex = 21;
+            // 
+            // TBAciklama6
+            // 
+            this.TBAciklama6.Location = new System.Drawing.Point(378, 147);
+            this.TBAciklama6.Name = "TBAciklama6";
+            this.TBAciklama6.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TBAciklama6.Properties.Appearance.Options.UseFont = true;
+            this.TBAciklama6.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.TBAciklama6.Size = new System.Drawing.Size(312, 26);
+            this.TBAciklama6.TabIndex = 26;
+            // 
+            // TBAciklama3
+            // 
+            this.TBAciklama3.Location = new System.Drawing.Point(6, 147);
+            this.TBAciklama3.Name = "TBAciklama3";
+            this.TBAciklama3.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TBAciklama3.Properties.Appearance.Options.UseFont = true;
+            this.TBAciklama3.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.TBAciklama3.Size = new System.Drawing.Size(312, 26);
+            this.TBAciklama3.TabIndex = 23;
+            // 
+            // TBAciklama5
+            // 
+            this.TBAciklama5.Location = new System.Drawing.Point(378, 98);
+            this.TBAciklama5.Name = "TBAciklama5";
+            this.TBAciklama5.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TBAciklama5.Properties.Appearance.Options.UseFont = true;
+            this.TBAciklama5.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.TBAciklama5.Size = new System.Drawing.Size(312, 26);
+            this.TBAciklama5.TabIndex = 25;
+            // 
             // LBStokKartiAciklama9
             // 
             this.LBStokKartiAciklama9.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -1198,6 +1278,16 @@
             this.LBStokKartiAciklama9.Size = new System.Drawing.Size(57, 14);
             this.LBStokKartiAciklama9.TabIndex = 4;
             this.LBStokKartiAciklama9.Text = "Açıklama 9";
+            // 
+            // TBAciklama2
+            // 
+            this.TBAciklama2.Location = new System.Drawing.Point(6, 98);
+            this.TBAciklama2.Name = "TBAciklama2";
+            this.TBAciklama2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TBAciklama2.Properties.Appearance.Options.UseFont = true;
+            this.TBAciklama2.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.TBAciklama2.Size = new System.Drawing.Size(312, 26);
+            this.TBAciklama2.TabIndex = 22;
             // 
             // LBStokKartiAciklama8
             // 
@@ -1726,7 +1816,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1089, 356);
+            this.panel2.Size = new System.Drawing.Size(1128, 356);
             this.panel2.TabIndex = 2;
             // 
             // GBStokKarti
@@ -1739,7 +1829,7 @@
             this.GBStokKarti.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.GBStokKarti.Name = "GBStokKarti";
             this.GBStokKarti.Padding = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.GBStokKarti.Size = new System.Drawing.Size(1089, 352);
+            this.GBStokKarti.Size = new System.Drawing.Size(1128, 352);
             this.GBStokKarti.TabIndex = 1;
             this.GBStokKarti.TabStop = false;
             this.GBStokKarti.Text = "Stok Kartı";
@@ -1876,11 +1966,11 @@
             this.GBStokKartiGenel.Controls.Add(this.LBMarka);
             this.GBStokKartiGenel.Controls.Add(this.LBStokAdi);
             this.GBStokKartiGenel.Controls.Add(this.LBStokKodu);
-            this.GBStokKartiGenel.Controls.Add(this.MEAciklama);
-            this.GBStokKartiGenel.Controls.Add(this.TBKasa);
-            this.GBStokKartiGenel.Controls.Add(this.TBGrupKodu);
-            this.GBStokKartiGenel.Controls.Add(this.TBKategori);
-            this.GBStokKartiGenel.Controls.Add(this.TBMarka);
+            this.GBStokKartiGenel.Controls.Add(this.TBAciklama);
+            this.GBStokKartiGenel.Controls.Add(this.BTKasa);
+            this.GBStokKartiGenel.Controls.Add(this.BTGrupKodu);
+            this.GBStokKartiGenel.Controls.Add(this.BTKategori);
+            this.GBStokKartiGenel.Controls.Add(this.BTMarka);
             this.GBStokKartiGenel.Controls.Add(this.TBStokAdi);
             this.GBStokKartiGenel.Controls.Add(this.BTStokKodu);
             this.GBStokKartiGenel.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -1963,70 +2053,70 @@
             this.LBStokKodu.TabIndex = 3;
             this.LBStokKodu.Text = "Stok Kodu";
             // 
-            // MEAciklama
+            // TBAciklama
             // 
-            this.MEAciklama.Location = new System.Drawing.Point(90, 227);
-            this.MEAciklama.Name = "MEAciklama";
-            this.MEAciklama.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.MEAciklama.Properties.Appearance.Options.UseFont = true;
-            this.MEAciklama.Size = new System.Drawing.Size(194, 85);
-            this.MEAciklama.TabIndex = 24;
+            this.TBAciklama.Location = new System.Drawing.Point(90, 227);
+            this.TBAciklama.Name = "TBAciklama";
+            this.TBAciklama.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TBAciklama.Properties.Appearance.Options.UseFont = true;
+            this.TBAciklama.Size = new System.Drawing.Size(194, 85);
+            this.TBAciklama.TabIndex = 24;
             // 
-            // TBKasa
+            // BTKasa
             // 
-            this.TBKasa.Location = new System.Drawing.Point(90, 195);
-            this.TBKasa.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.TBKasa.Name = "TBKasa";
-            this.TBKasa.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TBKasa.Properties.Appearance.Options.UseFont = true;
-            this.TBKasa.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.BTKasa.Location = new System.Drawing.Point(90, 195);
+            this.BTKasa.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.BTKasa.Name = "BTKasa";
+            this.BTKasa.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.BTKasa.Properties.Appearance.Options.UseFont = true;
+            this.BTKasa.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.BTKasa.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.BTKasa.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.buttonEdit5_Properties_ButtonClick);
+            this.BTKasa.Size = new System.Drawing.Size(194, 26);
+            this.BTKasa.TabIndex = 23;
+            // 
+            // BTGrupKodu
+            // 
+            this.BTGrupKodu.Location = new System.Drawing.Point(90, 165);
+            this.BTGrupKodu.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.BTGrupKodu.Name = "BTGrupKodu";
+            this.BTGrupKodu.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.BTGrupKodu.Properties.Appearance.Options.UseFont = true;
+            this.BTGrupKodu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions6, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject21, serializableAppearanceObject22, serializableAppearanceObject23, serializableAppearanceObject24, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.BTGrupKodu.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.BTGrupKodu.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.buttonEdit4_Properties_ButtonClick);
+            this.BTGrupKodu.Size = new System.Drawing.Size(194, 26);
+            this.BTGrupKodu.TabIndex = 22;
+            // 
+            // BTKategori
+            // 
+            this.BTKategori.Location = new System.Drawing.Point(90, 135);
+            this.BTKategori.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.BTKategori.Name = "BTKategori";
+            this.BTKategori.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.BTKategori.Properties.Appearance.Options.UseFont = true;
+            this.BTKategori.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.TBKasa.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.TBKasa.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.buttonEdit5_Properties_ButtonClick);
-            this.TBKasa.Size = new System.Drawing.Size(194, 26);
-            this.TBKasa.TabIndex = 23;
+            this.BTKategori.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.BTKategori.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.buttonEdit3_Properties_ButtonClick);
+            this.BTKategori.Size = new System.Drawing.Size(194, 26);
+            this.BTKategori.TabIndex = 21;
             // 
-            // TBGrupKodu
+            // BTMarka
             // 
-            this.TBGrupKodu.Location = new System.Drawing.Point(90, 165);
-            this.TBGrupKodu.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.TBGrupKodu.Name = "TBGrupKodu";
-            this.TBGrupKodu.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TBGrupKodu.Properties.Appearance.Options.UseFont = true;
-            this.TBGrupKodu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.BTMarka.Location = new System.Drawing.Point(90, 101);
+            this.BTMarka.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.BTMarka.Name = "BTMarka";
+            this.BTMarka.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.BTMarka.Properties.Appearance.Options.UseFont = true;
+            this.BTMarka.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.TBGrupKodu.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.TBGrupKodu.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.buttonEdit4_Properties_ButtonClick);
-            this.TBGrupKodu.Size = new System.Drawing.Size(194, 26);
-            this.TBGrupKodu.TabIndex = 22;
-            // 
-            // TBKategori
-            // 
-            this.TBKategori.Location = new System.Drawing.Point(90, 135);
-            this.TBKategori.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.TBKategori.Name = "TBKategori";
-            this.TBKategori.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TBKategori.Properties.Appearance.Options.UseFont = true;
-            this.TBKategori.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.TBKategori.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.TBKategori.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.buttonEdit3_Properties_ButtonClick);
-            this.TBKategori.Size = new System.Drawing.Size(194, 26);
-            this.TBKategori.TabIndex = 21;
-            // 
-            // TBMarka
-            // 
-            this.TBMarka.Location = new System.Drawing.Point(90, 101);
-            this.TBMarka.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.TBMarka.Name = "TBMarka";
-            this.TBMarka.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TBMarka.Properties.Appearance.Options.UseFont = true;
-            this.TBMarka.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.TBMarka.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.TBMarka.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.buttonEdit2_Properties_ButtonClick);
-            this.TBMarka.Size = new System.Drawing.Size(194, 26);
-            this.TBMarka.TabIndex = 20;
+            this.BTMarka.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.BTMarka.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.buttonEdit2_Properties_ButtonClick);
+            this.BTMarka.Size = new System.Drawing.Size(194, 26);
+            this.BTMarka.TabIndex = 20;
             // 
             // TBStokAdi
             // 
@@ -2046,107 +2136,17 @@
             this.BTStokKodu.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.BTStokKodu.Properties.Appearance.Options.UseFont = true;
             this.BTStokKodu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTStokKodu.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.BTStokKodu.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.buttonEdit1_Properties_ButtonClick);
             this.BTStokKodu.Size = new System.Drawing.Size(194, 26);
             this.BTStokKodu.TabIndex = 3;
             // 
-            // TEAciklama1
-            // 
-            this.TEAciklama1.Location = new System.Drawing.Point(6, 46);
-            this.TEAciklama1.Name = "TEAciklama1";
-            this.TEAciklama1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TEAciklama1.Properties.Appearance.Options.UseFont = true;
-            this.TEAciklama1.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.TEAciklama1.Size = new System.Drawing.Size(312, 26);
-            this.TEAciklama1.TabIndex = 21;
-            // 
-            // TEAciklama2
-            // 
-            this.TEAciklama2.Location = new System.Drawing.Point(6, 98);
-            this.TEAciklama2.Name = "TEAciklama2";
-            this.TEAciklama2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TEAciklama2.Properties.Appearance.Options.UseFont = true;
-            this.TEAciklama2.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.TEAciklama2.Size = new System.Drawing.Size(312, 26);
-            this.TEAciklama2.TabIndex = 22;
-            // 
-            // TEAciklama3
-            // 
-            this.TEAciklama3.Location = new System.Drawing.Point(6, 147);
-            this.TEAciklama3.Name = "TEAciklama3";
-            this.TEAciklama3.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TEAciklama3.Properties.Appearance.Options.UseFont = true;
-            this.TEAciklama3.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.TEAciklama3.Size = new System.Drawing.Size(312, 26);
-            this.TEAciklama3.TabIndex = 23;
-            // 
-            // TEAciklama4
-            // 
-            this.TEAciklama4.Location = new System.Drawing.Point(378, 46);
-            this.TEAciklama4.Name = "TEAciklama4";
-            this.TEAciklama4.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TEAciklama4.Properties.Appearance.Options.UseFont = true;
-            this.TEAciklama4.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.TEAciklama4.Size = new System.Drawing.Size(312, 26);
-            this.TEAciklama4.TabIndex = 24;
-            // 
-            // TEAciklama6
-            // 
-            this.TEAciklama6.Location = new System.Drawing.Point(378, 147);
-            this.TEAciklama6.Name = "TEAciklama6";
-            this.TEAciklama6.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TEAciklama6.Properties.Appearance.Options.UseFont = true;
-            this.TEAciklama6.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.TEAciklama6.Size = new System.Drawing.Size(312, 26);
-            this.TEAciklama6.TabIndex = 26;
-            // 
-            // TEAciklama5
-            // 
-            this.TEAciklama5.Location = new System.Drawing.Point(378, 98);
-            this.TEAciklama5.Name = "TEAciklama5";
-            this.TEAciklama5.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TEAciklama5.Properties.Appearance.Options.UseFont = true;
-            this.TEAciklama5.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.TEAciklama5.Size = new System.Drawing.Size(312, 26);
-            this.TEAciklama5.TabIndex = 25;
-            // 
-            // TEAciklama7
-            // 
-            this.TEAciklama7.Location = new System.Drawing.Point(747, 46);
-            this.TEAciklama7.Name = "TEAciklama7";
-            this.TEAciklama7.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TEAciklama7.Properties.Appearance.Options.UseFont = true;
-            this.TEAciklama7.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.TEAciklama7.Size = new System.Drawing.Size(312, 26);
-            this.TEAciklama7.TabIndex = 24;
-            // 
-            // TEAciklama9
-            // 
-            this.TEAciklama9.Location = new System.Drawing.Point(747, 147);
-            this.TEAciklama9.Name = "TEAciklama9";
-            this.TEAciklama9.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TEAciklama9.Properties.Appearance.Options.UseFont = true;
-            this.TEAciklama9.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.TEAciklama9.Size = new System.Drawing.Size(312, 26);
-            this.TEAciklama9.TabIndex = 26;
-            // 
-            // TEAciklama8
-            // 
-            this.TEAciklama8.Location = new System.Drawing.Point(747, 98);
-            this.TEAciklama8.Name = "TEAciklama8";
-            this.TEAciklama8.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TEAciklama8.Properties.Appearance.Options.UseFont = true;
-            this.TEAciklama8.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.TEAciklama8.Size = new System.Drawing.Size(312, 26);
-            this.TEAciklama8.TabIndex = 25;
-            // 
             // FStokKart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1089, 793);
+            this.ClientSize = new System.Drawing.Size(1128, 795);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -2186,17 +2186,26 @@
             this.panel5.ResumeLayout(false);
             this.GBStokKartiSayisalAciklama.ResumeLayout(false);
             this.GBStokKartiSayisalAciklama.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SESayisalAciklama5.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SESayisalAciklama2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SESayisalAciklama3.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SESayisalAciklama4.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SESayisalAciklama6.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SESayisalAciklama7.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SESayisalAciklama8.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SESayisalAciklama9.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SESayisalAciklama1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUDSayisalAciklama5.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUDSayisalAciklama2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUDSayisalAciklama3.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUDSayisalAciklama4.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUDSayisalAciklama6.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUDSayisalAciklama7.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUDSayisalAciklama8.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUDSayisalAciklama9.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUDSayisalAciklama1.Properties)).EndInit();
             this.GBStokKartiAciklamalar.ResumeLayout(false);
             this.GBStokKartiAciklamalar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TBAciklama7.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBAciklama9.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBAciklama4.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBAciklama8.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBAciklama1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBAciklama6.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBAciklama3.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBAciklama5.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBAciklama2.Properties)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.GBStokKartiRaporKodu.ResumeLayout(false);
@@ -2222,22 +2231,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.TBSatisKdv.Properties)).EndInit();
             this.GBStokKartiGenel.ResumeLayout(false);
             this.GBStokKartiGenel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MEAciklama.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TBKasa.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TBGrupKodu.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TBKategori.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TBMarka.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBAciklama.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BTKasa.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BTGrupKodu.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BTKategori.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BTMarka.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBStokAdi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTStokKodu.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TEAciklama1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TEAciklama2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TEAciklama3.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TEAciklama4.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TEAciklama6.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TEAciklama5.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TEAciklama7.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TEAciklama9.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TEAciklama8.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2270,19 +2270,19 @@
         private DataGridView dataGridView1;
         private Panel panel7;
         private TextBox TBKatsayi;
-        private ComboBox CBOlcuBr1;
+        private ComboBox CBOlcuBirim;
         private DevExpress.XtraEditors.ButtonEdit BTStokKodu;
-        private DevExpress.XtraEditors.ButtonEdit TBMarka;
+        private DevExpress.XtraEditors.ButtonEdit BTMarka;
         private DevExpress.XtraEditors.TextEdit TBStokAdi;
-        private DevExpress.XtraEditors.ButtonEdit TBKategori;
-        private DevExpress.XtraEditors.ButtonEdit TBGrupKodu;
-        private DevExpress.XtraEditors.ButtonEdit TBKasa;
+        private DevExpress.XtraEditors.ButtonEdit BTKategori;
+        private DevExpress.XtraEditors.ButtonEdit BTGrupKodu;
+        private DevExpress.XtraEditors.ButtonEdit BTKasa;
         private DevExpress.XtraEditors.TextEdit TBSatisKdv;
         private DevExpress.XtraEditors.TextEdit TBAlisKdv;
         private DevExpress.XtraEditors.TextEdit TBSatisOtv;
         private DevExpress.XtraEditors.TextEdit TBAlisOtv;
         private DevExpress.XtraEditors.CheckEdit CEStokKartiOzellik;
-        private DevExpress.XtraEditors.MemoEdit MEAciklama;
+        private DevExpress.XtraEditors.MemoEdit TBAciklama;
         private DevExpress.XtraEditors.TextEdit TBAFiyat5;
         private DevExpress.XtraEditors.TextEdit TBAFiyat4;
         private DevExpress.XtraEditors.TextEdit TBAFiyat3;
@@ -2340,15 +2340,15 @@
         private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraEditors.LabelControl labelControl7;
         private DevExpress.XtraEditors.LabelControl labelControl8;
-        private DevExpress.XtraEditors.SpinEdit SESayisalAciklama1;
-        private DevExpress.XtraEditors.SpinEdit SESayisalAciklama5;
-        private DevExpress.XtraEditors.SpinEdit SESayisalAciklama2;
-        private DevExpress.XtraEditors.SpinEdit SESayisalAciklama3;
-        private DevExpress.XtraEditors.SpinEdit SESayisalAciklama4;
-        private DevExpress.XtraEditors.SpinEdit SESayisalAciklama6;
-        private DevExpress.XtraEditors.SpinEdit SESayisalAciklama7;
-        private DevExpress.XtraEditors.SpinEdit SESayisalAciklama8;
-        private DevExpress.XtraEditors.SpinEdit SESayisalAciklama9;
+        private DevExpress.XtraEditors.SpinEdit NUDSayisalAciklama1;
+        private DevExpress.XtraEditors.SpinEdit NUDSayisalAciklama5;
+        private DevExpress.XtraEditors.SpinEdit NUDSayisalAciklama2;
+        private DevExpress.XtraEditors.SpinEdit NUDSayisalAciklama3;
+        private DevExpress.XtraEditors.SpinEdit NUDSayisalAciklama4;
+        private DevExpress.XtraEditors.SpinEdit NUDSayisalAciklama6;
+        private DevExpress.XtraEditors.SpinEdit NUDSayisalAciklama7;
+        private DevExpress.XtraEditors.SpinEdit NUDSayisalAciklama8;
+        private DevExpress.XtraEditors.SpinEdit NUDSayisalAciklama9;
         private DevExpress.XtraEditors.LabelControl LBStokKartiRaporKodu1;
         private DevExpress.XtraEditors.LabelControl LBStokKartiRaporKodu9;
         private DevExpress.XtraEditors.LabelControl LBStokKartiRaporKodu8;
@@ -2376,14 +2376,14 @@
         private DevExpress.XtraEditors.TextEdit TEStokKartRaporKodu3;
         private DevExpress.XtraEditors.TextEdit TEStokKartRaporKodu2;
         private DevExpress.XtraEditors.TextEdit TEStokKartRaporKodu1;
-        private DevExpress.XtraEditors.TextEdit TEAciklama1;
-        private DevExpress.XtraEditors.TextEdit TEAciklama3;
-        private DevExpress.XtraEditors.TextEdit TEAciklama2;
-        private DevExpress.XtraEditors.TextEdit TEAciklama7;
-        private DevExpress.XtraEditors.TextEdit TEAciklama9;
-        private DevExpress.XtraEditors.TextEdit TEAciklama4;
-        private DevExpress.XtraEditors.TextEdit TEAciklama8;
-        private DevExpress.XtraEditors.TextEdit TEAciklama6;
-        private DevExpress.XtraEditors.TextEdit TEAciklama5;
+        private DevExpress.XtraEditors.TextEdit TBAciklama1;
+        private DevExpress.XtraEditors.TextEdit TBAciklama3;
+        private DevExpress.XtraEditors.TextEdit TBAciklama2;
+        private DevExpress.XtraEditors.TextEdit TBAciklama7;
+        private DevExpress.XtraEditors.TextEdit TBAciklama9;
+        private DevExpress.XtraEditors.TextEdit TBAciklama4;
+        private DevExpress.XtraEditors.TextEdit TBAciklama8;
+        private DevExpress.XtraEditors.TextEdit TBAciklama6;
+        private DevExpress.XtraEditors.TextEdit TBAciklama5;
     }
 }

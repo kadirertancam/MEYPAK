@@ -48,14 +48,14 @@ namespace MEYPAK.PRL.STOK
             _stokSayimServis.Data(ServisList.StokSayimEkleServis,(new Entity.PocoModels.STOK.PocoSTOKSAYIM()
             {
                 SAYIMTARIHI = (DateTime)DEStokSayimTarihi.EditValue,
-                ACIKLAMA = TBAciklama.Text,
+                ACIKLAMA = TBStokSayimAciklama.Text,
 
             }));
             _stokSayimServis.Data(ServisList.StokSayimListeServis);
             GCStokSayim.DataSource = _stokSayimServis.obje;
 
-            stokSayimPanel.sayimId = _stokSayimServis.obje.Where(x => x.ACIKLAMA == TBAciklama.Text ).FirstOrDefault().id;
-                TBAciklama.Text = "";
+            stokSayimPanel.sayimId = _stokSayimServis.obje.Where(x => x.ACIKLAMA == TBStokSayimAciklama.Text ).FirstOrDefault().id;
+                TBStokSayimAciklama.Text = "";
             DTPSayimTarihi.EditValue = DateTime.Now;
             stokSayimPanel.ShowDialog();
 
@@ -79,7 +79,7 @@ namespace MEYPAK.PRL.STOK
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            TBAciklama.Text = gridView1.GetFocusedRowCellValue("ACIKLAMA").ToString();
+            TBStokSayimAciklama.Text = gridView1.GetFocusedRowCellValue("ACIKLAMA").ToString();
             DTPSayimTarihi.EditValue = Convert.ToDateTime(gridView1.GetFocusedRowCellValue("SAYIMTARIHI"));
             _tempId = Convert.ToInt32(gridView1.GetFocusedRowCellValue("id"));
         }
