@@ -1,30 +1,22 @@
 ﻿using AutoMapper;
-using MEYPAK.BLL.STOK;
-using MEYPAK.DAL.Concrete.EntityFramework.Context;
-using MEYPAK.DAL.Concrete.EntityFramework.Repository;
-using MEYPAK.Entity.Mappings;
+using MEYPAK.DAL.Concrete.ADONET;
 using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Entity.PocoModels.STOK;
-using MEYPAK.Interfaces.Hizmet;
-using MEYPAK.Interfaces.Stok; 
+using MEYPAK.Interfaces.Stok;
 using Microsoft.AspNetCore.Mvc;
 
-using Newtonsoft.Json;
-using Remote.Linq.SimpleQuery;
-using System;
-using System.Linq.Expressions;
-using System.Text.Json.Nodes;
 
 namespace MEYPAK.API.Controllers.STOK
 {
     [ApiController]
     [Route("[controller]")]
-    
+
     public class StokController : Controller
     {
-       
+
         private readonly IMapper _mapper;
         private readonly IStokServis _stokServis;
+        private MPAdoContext<MPSTOK> _adostokservis = new MPAdoContext<MPSTOK>();
         public StokController(IMapper mapper, IStokServis stokServis)
         {
             _mapper = mapper;
@@ -49,12 +41,13 @@ namespace MEYPAK.API.Controllers.STOK
 
         [HttpGet]
         [Route("/[controller]/[action]")]
-        public IActionResult STOKListe(Query<PocoSTOK> query)
+        public IActionResult STOKListe2([FromQuery]string query)
         {
             try
             {
-  
-                return Ok(_stokServis.Listele().ApplyQuery(query).ToList());
+                _adostokservis.HepsiniGetir(query);
+               
+                return Ok(_adostokservis.GenericList);
             }
             catch (Exception ex)
             {
@@ -100,7 +93,7 @@ namespace MEYPAK.API.Controllers.STOK
                 var data = _stokServis.Guncelle(pModel);
                 return Ok(data);
             }
-            catch (Exception ex )
+            catch (Exception ex)
             {
                 return Problem("Belirsiz bir hata oluştu!" + ex.Message);
             }
@@ -108,15 +101,15 @@ namespace MEYPAK.API.Controllers.STOK
 
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult DeleteById([FromQuery]string id)
+        public IActionResult DeleteById([FromQuery] string id)
         {
             try
             {
                 bool succes = _stokServis.DeleteById(Convert.ToInt32(id));
                 if (succes)
-                return Ok(id +" Başarıyla Silindi");
+                    return Ok(id + " Başarıyla Silindi");
                 else
-                return Ok(id + " Silinemedi.");
+                    return Ok(id + " Silinemedi.");
             }
             catch (Exception ex)
             {
@@ -125,13 +118,13 @@ namespace MEYPAK.API.Controllers.STOK
         }
 
         [HttpGet]
-        [Route("/[controller]/[action]")] 
+        [Route("/[controller]/[action]")]
         public IActionResult PagingList(int skip, int take)
         {
             try
             {
-                
-                
+
+
                 return Ok(_stokServis.PagingList(skip, take));
             }
             catch (Exception ex)

@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using MEYPAK.DAL.Concrete.ADONET;
+using MEYPAK.Entity.Models.CARI;
 using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Cari;
@@ -15,7 +17,7 @@ namespace MEYPAK.API.Controllers.CARIControllers
     {
         private readonly IMapper _mapper;
         private readonly ICariKartServis _cariServis;
-
+        private MPAdoContext<MPCARIKART> _adocariServis = new MPAdoContext<MPCARIKART>();
         public CARIController(IMapper mapper, ICariKartServis cariServis)
         {
             _mapper = mapper;
@@ -31,6 +33,20 @@ namespace MEYPAK.API.Controllers.CARIControllers
             {
                 var data = _cariServis.Listele();
                 return Ok(data);
+            }
+            catch (Exception ex)
+            {
+                return Problem("Belirsiz bir hata oluştu!" + ex.Message);
+            }
+        }
+        [HttpGet]
+        [Route("/[controller]/[action]")]
+        public IActionResult CARIListe2([FromQuery] string query)
+        {
+            try
+            {
+                _adocariServis.HepsiniGetir(query);
+                return Ok(_adocariServis.GenericList);
             }
             catch (Exception ex)
             {

@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using MEYPAK.DAL.Concrete.ADONET;
+using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Stok;
 using Microsoft.AspNetCore.Mvc;
@@ -13,7 +15,7 @@ namespace MEYPAK.API.Controllers.STOK
 
         private readonly IStokFiyatListServis _stokFiyatListServis;
         private readonly IMapper _mapper;
-
+        private MPAdoContext<MPSTOKFIYATLIST> _adostokFiyatListServis = new MPAdoContext<MPSTOKFIYATLIST>();
         public STOKFIYATLISTController(IStokFiyatListServis stokFiyatListServis, IMapper mapper)
         {
             _stokFiyatListServis = stokFiyatListServis;
@@ -28,6 +30,21 @@ namespace MEYPAK.API.Controllers.STOK
             {
                 var data = _stokFiyatListServis.Listele();
                 return Ok(data);
+            }
+            catch (Exception ex)
+            {
+                return Problem("Belirsiz bir hata oluştu!" + ex.Message);
+            }
+        }
+        [HttpGet]
+        [Route("/[controller]/[action]")]
+        public IActionResult STOKFIYATLISTListe2([FromQuery] string query)
+        {
+            try
+            {
+                _adostokFiyatListServis.HepsiniGetir(query);
+
+                return Ok(_adostokFiyatListServis.GenericList);
             }
             catch (Exception ex)
             {

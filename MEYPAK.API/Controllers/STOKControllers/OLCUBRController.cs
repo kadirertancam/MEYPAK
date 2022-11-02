@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using MEYPAK.DAL.Concrete.ADONET;
+using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Stok;
 using Microsoft.AspNetCore.Mvc;
@@ -11,7 +13,7 @@ namespace MEYPAK.API.Controllers.STOKControllers
     {
         private readonly IMapper _mapper;
         private readonly IOlcuBrServis _olcuBrServis;
-
+        private MPAdoContext<MPOLCUBR> _adoolcuBrServis = new MPAdoContext<MPOLCUBR>();
         public OLCUBRController(IMapper mapper, IOlcuBrServis olcuBrServis)
         {
             _mapper = mapper;
@@ -28,6 +30,22 @@ namespace MEYPAK.API.Controllers.STOKControllers
                 return Ok(data);
             }
             catch (Exception ex )
+            {
+                return Problem("Belirsiz bir hata oluştu!" + ex.Message);
+            }
+        }
+
+        [HttpGet]
+        [Route("/[controller]/[action]")]
+        public IActionResult OLCUBRListe2([FromQuery] string query)
+        {
+            try
+            {
+                _adoolcuBrServis.HepsiniGetir(query);
+
+                return Ok(_adoolcuBrServis.GenericList);
+            }
+            catch (Exception ex)
             {
                 return Problem("Belirsiz bir hata oluştu!" + ex.Message);
             }
