@@ -99,7 +99,6 @@
             this.LBKatsayi = new DevExpress.XtraEditors.LabelControl();
             this.LBBirim = new DevExpress.XtraEditors.LabelControl();
             this.TBKatsayi = new System.Windows.Forms.TextBox();
-            this.CBOlcuBirim = new System.Windows.Forms.ComboBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
             this.GBStokKartiSayisalAciklama = new System.Windows.Forms.GroupBox();
@@ -198,6 +197,8 @@
             this.BTMarka = new DevExpress.XtraEditors.ButtonEdit();
             this.TBStokAdi = new DevExpress.XtraEditors.TextEdit();
             this.BTStokKodu = new DevExpress.XtraEditors.ButtonEdit();
+            this.CBBirim = new DevExpress.XtraEditors.GridLookUpEdit();
+            this.CBBirimView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -274,6 +275,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.BTMarka.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBStokAdi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTStokKodu.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CBBirim.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CBBirimView)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -726,11 +729,11 @@
             // 
             // GBOlcuBirimleriUstPanel
             // 
+            this.GBOlcuBirimleriUstPanel.Controls.Add(this.CBBirim);
             this.GBOlcuBirimleriUstPanel.Controls.Add(this.BTOlcuBirimiEkle);
             this.GBOlcuBirimleriUstPanel.Controls.Add(this.LBKatsayi);
             this.GBOlcuBirimleriUstPanel.Controls.Add(this.LBBirim);
             this.GBOlcuBirimleriUstPanel.Controls.Add(this.TBKatsayi);
-            this.GBOlcuBirimleriUstPanel.Controls.Add(this.CBOlcuBirim);
             this.GBOlcuBirimleriUstPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.GBOlcuBirimleriUstPanel.Location = new System.Drawing.Point(4, 18);
             this.GBOlcuBirimleriUstPanel.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
@@ -747,7 +750,7 @@
             this.BTOlcuBirimiEkle.Appearance.Options.UseBackColor = true;
             this.BTOlcuBirimiEkle.Appearance.Options.UseFont = true;
             this.BTOlcuBirimiEkle.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTOlcuBirimiEkle.ImageOptions.Image")));
-            this.BTOlcuBirimiEkle.Location = new System.Drawing.Point(276, 35);
+            this.BTOlcuBirimiEkle.Location = new System.Drawing.Point(384, 35);
             this.BTOlcuBirimiEkle.Name = "BTOlcuBirimiEkle";
             this.BTOlcuBirimiEkle.Size = new System.Drawing.Size(74, 26);
             this.BTOlcuBirimiEkle.TabIndex = 7;
@@ -757,7 +760,7 @@
             // 
             this.LBKatsayi.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBKatsayi.Appearance.Options.UseFont = true;
-            this.LBKatsayi.Location = new System.Drawing.Point(159, 15);
+            this.LBKatsayi.Location = new System.Drawing.Point(205, 15);
             this.LBKatsayi.Name = "LBKatsayi";
             this.LBKatsayi.Size = new System.Drawing.Size(37, 14);
             this.LBKatsayi.TabIndex = 6;
@@ -776,31 +779,11 @@
             // TBKatsayi
             // 
             this.TBKatsayi.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TBKatsayi.Location = new System.Drawing.Point(159, 35);
+            this.TBKatsayi.Location = new System.Drawing.Point(205, 35);
             this.TBKatsayi.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.TBKatsayi.Name = "TBKatsayi";
-            this.TBKatsayi.Size = new System.Drawing.Size(100, 26);
+            this.TBKatsayi.Size = new System.Drawing.Size(161, 26);
             this.TBKatsayi.TabIndex = 3;
-            // 
-            // CBOlcuBirim
-            // 
-            this.CBOlcuBirim.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CBOlcuBirim.FormattingEnabled = true;
-            this.CBOlcuBirim.Location = new System.Drawing.Point(18, 35);
-            this.CBOlcuBirim.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.CBOlcuBirim.Name = "CBOlcuBirim";
-            this.CBOlcuBirim.Size = new System.Drawing.Size(121, 26);
-            this.CBOlcuBirim.TabIndex = 0;
-            // 
-            // CBOlcuBirim
-            // 
-            this.CBOlcuBirim.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CBOlcuBirim.FormattingEnabled = true;
-            this.CBOlcuBirim.Location = new System.Drawing.Point(18, 35);
-            this.CBOlcuBirim.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.CBOlcuBirim.Name = "CBOlcuBirim";
-            this.CBOlcuBirim.Size = new System.Drawing.Size(121, 26);
-            this.CBOlcuBirim.TabIndex = 0;
             // 
             // tabPage3
             // 
@@ -1158,7 +1141,7 @@
             this.labelControl8.Size = new System.Drawing.Size(95, 14);
             this.labelControl8.TabIndex = 11;
             this.labelControl8.Text = "Sayısal Açıklama 2";
-            this.labelControl8.Click += new System.EventHandler(this.labelControl8_Click);
+            
             // 
             // LBStokKartiSayisalAciklama1
             // 
@@ -1328,7 +1311,7 @@
             this.LBStokKartiAciklama6.Size = new System.Drawing.Size(57, 14);
             this.LBStokKartiAciklama6.TabIndex = 6;
             this.LBStokKartiAciklama6.Text = "Açıklama 6";
-            this.LBStokKartiAciklama6.Click += new System.EventHandler(this.LBStokKartiAciklama6_Click);
+            
             // 
             // LBStokKartiAciklama5
             // 
@@ -1359,7 +1342,7 @@
             this.LBStokKartiAciklama3.Size = new System.Drawing.Size(57, 14);
             this.LBStokKartiAciklama3.TabIndex = 9;
             this.LBStokKartiAciklama3.Text = "Açıklama 3";
-            this.LBStokKartiAciklama3.Click += new System.EventHandler(this.LBStokKartiAciklama3_Click);
+            
             // 
             // LBStokKartiAciklama2
             // 
@@ -1861,7 +1844,7 @@
             // 
             this.CEStokKartiOzellik.Location = new System.Drawing.Point(22, 34);
             this.CEStokKartiOzellik.Name = "CEStokKartiOzellik";
-            this.CEStokKartiOzellik.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CEStokKartiOzellik.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CEStokKartiOzellik.Properties.Appearance.Options.UseFont = true;
             this.CEStokKartiOzellik.Properties.Caption = "Aktif";
             this.CEStokKartiOzellik.Size = new System.Drawing.Size(75, 20);
@@ -2096,7 +2079,6 @@
             this.BTGrupKodu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTGrupKodu.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.BTGrupKodu.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.buttonEdit4_Properties_ButtonClick);
             this.BTGrupKodu.Size = new System.Drawing.Size(194, 26);
             this.BTGrupKodu.TabIndex = 22;
             // 
@@ -2151,6 +2133,26 @@
             this.BTStokKodu.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.buttonEdit1_Properties_ButtonClick);
             this.BTStokKodu.Size = new System.Drawing.Size(194, 26);
             this.BTStokKodu.TabIndex = 3;
+            // 
+            // CBBirim
+            // 
+            this.CBBirim.EditValue = "";
+            this.CBBirim.Location = new System.Drawing.Point(15, 36);
+            this.CBBirim.Name = "CBBirim";
+            this.CBBirim.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CBBirim.Properties.NullText = "";
+            this.CBBirim.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.CBBirim.Properties.PopupView = this.CBBirimView;
+            this.CBBirim.Size = new System.Drawing.Size(161, 26);
+            this.CBBirim.TabIndex = 37;
+            // 
+            // CBBirimView
+            // 
+            this.CBBirimView.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.CBBirimView.Name = "CBBirimView";
+            this.CBBirimView.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.CBBirimView.OptionsView.ShowGroupPanel = false;
             // 
             // FStokKart
             // 
@@ -2248,6 +2250,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.BTMarka.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBStokAdi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTStokKodu.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CBBirim.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CBBirimView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2394,5 +2398,7 @@
         private DevExpress.XtraEditors.TextEdit TBAciklama8;
         private DevExpress.XtraEditors.TextEdit TBAciklama6;
         private DevExpress.XtraEditors.TextEdit TBAciklama5;
+        private DevExpress.XtraEditors.GridLookUpEdit CBBirim;
+        private DevExpress.XtraGrid.Views.Grid.GridView CBBirimView;
     }
 }

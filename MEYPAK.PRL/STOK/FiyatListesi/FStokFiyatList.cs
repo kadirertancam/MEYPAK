@@ -43,8 +43,8 @@ namespace MEYPAK.PRL.STOK
             {
                 fiyatlistadi = TBFiyatListesiAdi.Text,
                 olusturmatarihi = DateTime.Now,
-                bastar = DTPBasTar.Value,
-                bittar = DTPBitisTar.Value
+                bastar = DTBasTar.Value,
+                bittar = DTBitisTar.Value
             });
             _stokFiyatListServis.Data(ServisList.StokFiyatListListeServis);
 

@@ -311,7 +311,7 @@
             // 
             this.DTStokTarih.CalendarFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.DTStokTarih.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DTStokTarih.Location = new System.Drawing.Point(75, 122);
+            this.DTStokTarih.Location = new System.Drawing.Point(80, 122);
             this.DTStokTarih.Name = "DTStokTarih";
             this.DTStokTarih.Size = new System.Drawing.Size(180, 21);
             this.DTStokTarih.TabIndex = 77;
@@ -321,7 +321,7 @@
             // 
             this.CLBDepo.Items.AddRange(new DevExpress.XtraEditors.Controls.CheckedListBoxItem[] {
             new DevExpress.XtraEditors.Controls.CheckedListBoxItem(true, "CLBDepo")});
-            this.CLBDepo.Location = new System.Drawing.Point(784, 24);
+            this.CLBDepo.Location = new System.Drawing.Point(788, 24);
             this.CLBDepo.MultiColumn = true;
             this.CLBDepo.Name = "CLBDepo";
             this.CLBDepo.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
@@ -332,7 +332,7 @@
             // 
             this.LBStokHarFiyat.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBStokHarFiyat.Appearance.Options.UseFont = true;
-            this.LBStokHarFiyat.Location = new System.Drawing.Point(557, 98);
+            this.LBStokHarFiyat.Location = new System.Drawing.Point(562, 97);
             this.LBStokHarFiyat.Name = "LBStokHarFiyat";
             this.LBStokHarFiyat.Size = new System.Drawing.Size(25, 14);
             this.LBStokHarFiyat.TabIndex = 47;
@@ -365,7 +365,7 @@
             // 
             this.LBStokHarKDV.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBStokHarKDV.Appearance.Options.UseFont = true;
-            this.LBStokHarKDV.Location = new System.Drawing.Point(548, 29);
+            this.LBStokHarKDV.Location = new System.Drawing.Point(548, 30);
             this.LBStokHarKDV.Name = "LBStokHarKDV";
             this.LBStokHarKDV.Size = new System.Drawing.Size(39, 14);
             this.LBStokHarKDV.TabIndex = 44;
@@ -452,7 +452,7 @@
             // CBBirim
             // 
             this.CBBirim.EditValue = "";
-            this.CBBirim.Location = new System.Drawing.Point(334, 122);
+            this.CBBirim.Location = new System.Drawing.Point(338, 122);
             this.CBBirim.Name = "CBBirim";
             this.CBBirim.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -472,7 +472,7 @@
             // CBParaBirimi
             // 
             this.CBParaBirimi.EditValue = "";
-            this.CBParaBirimi.Location = new System.Drawing.Point(591, 123);
+            this.CBParaBirimi.Location = new System.Drawing.Point(596, 123);
             this.CBParaBirimi.Name = "CBParaBirimi";
             this.CBParaBirimi.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -491,7 +491,7 @@
             // 
             // TBFiyat
             // 
-            this.TBFiyat.Location = new System.Drawing.Point(591, 90);
+            this.TBFiyat.Location = new System.Drawing.Point(596, 90);
             this.TBFiyat.Name = "TBFiyat";
             this.TBFiyat.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.TBFiyat.Size = new System.Drawing.Size(180, 26);
@@ -500,7 +500,7 @@
             // CBDepo
             // 
             this.CBDepo.EditValue = "";
-            this.CBDepo.Location = new System.Drawing.Point(75, 88);
+            this.CBDepo.Location = new System.Drawing.Point(80, 88);
             this.CBDepo.Name = "CBDepo";
             this.CBDepo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -519,7 +519,7 @@
             // 
             // TBKdv
             // 
-            this.TBKdv.Location = new System.Drawing.Point(593, 24);
+            this.TBKdv.Location = new System.Drawing.Point(598, 24);
             this.TBKdv.Name = "TBKdv";
             this.TBKdv.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.TBKdv.Size = new System.Drawing.Size(180, 26);
@@ -527,7 +527,7 @@
             // 
             // TBKur
             // 
-            this.TBKur.Location = new System.Drawing.Point(591, 156);
+            this.TBKur.Location = new System.Drawing.Point(596, 156);
             this.TBKur.Name = "TBKur";
             this.TBKur.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.TBKur.Size = new System.Drawing.Size(180, 26);
@@ -535,7 +535,7 @@
             // 
             // TBMiktar
             // 
-            this.TBMiktar.Location = new System.Drawing.Point(334, 90);
+            this.TBMiktar.Location = new System.Drawing.Point(338, 90);
             this.TBMiktar.Name = "TBMiktar";
             this.TBMiktar.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.TBMiktar.Size = new System.Drawing.Size(181, 26);
@@ -543,14 +543,14 @@
             // 
             // TBAciklama
             // 
-            this.TBAciklama.Location = new System.Drawing.Point(334, 17);
+            this.TBAciklama.Location = new System.Drawing.Point(338, 17);
             this.TBAciklama.Name = "TBAciklama";
             this.TBAciklama.Size = new System.Drawing.Size(181, 67);
             this.TBAciklama.TabIndex = 32;
             // 
             // TBBelgeNo
             // 
-            this.TBBelgeNo.Location = new System.Drawing.Point(75, 153);
+            this.TBBelgeNo.Location = new System.Drawing.Point(80, 153);
             this.TBBelgeNo.Name = "TBBelgeNo";
             this.TBBelgeNo.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.TBBelgeNo.Size = new System.Drawing.Size(180, 26);
@@ -559,7 +559,7 @@
             // TBStokAdi
             // 
             this.TBStokAdi.Enabled = false;
-            this.TBStokAdi.Location = new System.Drawing.Point(75, 55);
+            this.TBStokAdi.Location = new System.Drawing.Point(80, 55);
             this.TBStokAdi.Name = "TBStokAdi";
             this.TBStokAdi.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.TBStokAdi.Size = new System.Drawing.Size(180, 26);
@@ -567,7 +567,7 @@
             // 
             // TBStokKodu
             // 
-            this.TBStokKodu.Location = new System.Drawing.Point(75, 23);
+            this.TBStokKodu.Location = new System.Drawing.Point(80, 23);
             this.TBStokKodu.Name = "TBStokKodu";
             this.TBStokKodu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
@@ -580,7 +580,7 @@
             // 
             this.groupBox3.Controls.Add(this.RGStokHarGirisCikis);
             this.groupBox3.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox3.Location = new System.Drawing.Point(334, 153);
+            this.groupBox3.Location = new System.Drawing.Point(338, 153);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(181, 47);
             this.groupBox3.TabIndex = 29;
@@ -606,7 +606,7 @@
             // 
             this.CHBKdvDahil.AutoSize = true;
             this.CHBKdvDahil.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CHBKdvDahil.Location = new System.Drawing.Point(600, 56);
+            this.CHBKdvDahil.Location = new System.Drawing.Point(605, 56);
             this.CHBKdvDahil.Name = "CHBKdvDahil";
             this.CHBKdvDahil.Size = new System.Drawing.Size(71, 17);
             this.CHBKdvDahil.TabIndex = 7;

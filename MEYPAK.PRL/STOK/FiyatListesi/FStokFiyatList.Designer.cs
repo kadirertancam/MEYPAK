@@ -34,15 +34,15 @@
             this.DGFiyatListesi = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.DTPBitisTar = new System.Windows.Forms.DateTimePicker();
-            this.DTPBasTar = new System.Windows.Forms.DateTimePicker();
+            this.DTBitisTar = new System.Windows.Forms.DateTimePicker();
+            this.DTBasTar = new System.Windows.Forms.DateTimePicker();
             this.BTFiyatListesiSil = new DevExpress.XtraEditors.SimpleButton();
             this.BTFiyatListesiKaydet = new DevExpress.XtraEditors.SimpleButton();
             this.CBAktif = new DevExpress.XtraEditors.CheckedListBoxControl();
             this.CBBitisTar = new DevExpress.XtraEditors.CheckedListBoxControl();
             this.LBBasTar = new DevExpress.XtraEditors.LabelControl();
             this.TBFiyatListesiAdi = new DevExpress.XtraEditors.TextEdit();
-            this.LBFiyatListesiAdi = new DevExpress.XtraEditors.LabelControl();
+            this.LBListeAdi = new DevExpress.XtraEditors.LabelControl();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGFiyatListesi)).BeginInit();
@@ -97,15 +97,15 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.DTPBitisTar);
-            this.groupBox1.Controls.Add(this.DTPBasTar);
+            this.groupBox1.Controls.Add(this.DTBitisTar);
+            this.groupBox1.Controls.Add(this.DTBasTar);
             this.groupBox1.Controls.Add(this.BTFiyatListesiSil);
             this.groupBox1.Controls.Add(this.BTFiyatListesiKaydet);
             this.groupBox1.Controls.Add(this.CBAktif);
             this.groupBox1.Controls.Add(this.CBBitisTar);
             this.groupBox1.Controls.Add(this.LBBasTar);
             this.groupBox1.Controls.Add(this.TBFiyatListesiAdi);
-            this.groupBox1.Controls.Add(this.LBFiyatListesiAdi);
+            this.groupBox1.Controls.Add(this.LBListeAdi);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
@@ -114,20 +114,20 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Stok Fiyat Listesi";
             // 
-            // DTPBitisTar
+            // DTBitisTar
             // 
-            this.DTPBitisTar.Location = new System.Drawing.Point(529, 45);
-            this.DTPBitisTar.Name = "DTPBitisTar";
-            this.DTPBitisTar.Size = new System.Drawing.Size(200, 23);
-            this.DTPBitisTar.TabIndex = 73;
+            this.DTBitisTar.Location = new System.Drawing.Point(529, 45);
+            this.DTBitisTar.Name = "DTBitisTar";
+            this.DTBitisTar.Size = new System.Drawing.Size(200, 23);
+            this.DTBitisTar.TabIndex = 73;
             // 
-            // DTPBasTar
+            // DTBasTar
             // 
-            this.DTPBasTar.Location = new System.Drawing.Point(304, 45);
-            this.DTPBasTar.Name = "DTPBasTar";
-            this.DTPBasTar.Size = new System.Drawing.Size(191, 23);
-            this.DTPBasTar.TabIndex = 72;
-            this.DTPBasTar.Value = new System.DateTime(2022, 11, 3, 10, 53, 10, 0);
+            this.DTBasTar.Location = new System.Drawing.Point(304, 45);
+            this.DTBasTar.Name = "DTBasTar";
+            this.DTBasTar.Size = new System.Drawing.Size(191, 23);
+            this.DTBasTar.TabIndex = 72;
+            this.DTBasTar.Value = new System.DateTime(2022, 11, 3, 10, 53, 10, 0);
             // 
             // BTFiyatListesiSil
             // 
@@ -211,15 +211,15 @@
             this.TBFiyatListesiAdi.Size = new System.Drawing.Size(176, 26);
             this.TBFiyatListesiAdi.TabIndex = 63;
             // 
-            // LBFiyatListesiAdi
+            // LBListeAdi
             // 
-            this.LBFiyatListesiAdi.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBFiyatListesiAdi.Appearance.Options.UseFont = true;
-            this.LBFiyatListesiAdi.Location = new System.Drawing.Point(6, 51);
-            this.LBFiyatListesiAdi.Name = "LBFiyatListesiAdi";
-            this.LBFiyatListesiAdi.Size = new System.Drawing.Size(82, 14);
-            this.LBFiyatListesiAdi.TabIndex = 9;
-            this.LBFiyatListesiAdi.Text = "Fiyat Listesi Adı";
+            this.LBListeAdi.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBListeAdi.Appearance.Options.UseFont = true;
+            this.LBListeAdi.Location = new System.Drawing.Point(6, 51);
+            this.LBListeAdi.Name = "LBListeAdi";
+            this.LBListeAdi.Size = new System.Drawing.Size(82, 14);
+            this.LBListeAdi.TabIndex = 9;
+            this.LBListeAdi.Text = "Fiyat Listesi Adı";
             // 
             // FStokFiyatList
             // 
@@ -251,14 +251,14 @@
         private DataGridView DGFiyatListesi;
         private Panel panel2;
         private GroupBox groupBox1;
-        private DevExpress.XtraEditors.LabelControl LBFiyatListesiAdi;
+        private DevExpress.XtraEditors.LabelControl LBListeAdi;
         private DevExpress.XtraEditors.TextEdit TBFiyatListesiAdi;
         private DevExpress.XtraEditors.LabelControl LBBasTar;
         private DevExpress.XtraEditors.CheckedListBoxControl CBBitisTar;
         private DevExpress.XtraEditors.CheckedListBoxControl CBAktif;
         private DevExpress.XtraEditors.SimpleButton BTFiyatListesiSil;
         private DevExpress.XtraEditors.SimpleButton BTFiyatListesiKaydet;
-        private DateTimePicker DTPBasTar;
-        private DateTimePicker DTPBitisTar;
+        private DateTimePicker DTBasTar;
+        private DateTimePicker DTBitisTar;
     }
 }

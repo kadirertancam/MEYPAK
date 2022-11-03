@@ -17,6 +17,7 @@ using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.BLL.Assets;
 using MEYPAK.Interfaces;
+using DevExpress.Utils.MVVM;
 
 namespace MEYPAK.PRL
 {
@@ -35,6 +36,7 @@ namespace MEYPAK.PRL
             _markaServis = new GenericWebServis<PocoSTOKMARKA>();
             _StokOlcuBrServis.Data(ServisList.StokOlcuBrListeServis);
             stokOlculist = new List<PocoSTOKOLCUBR>();
+            
         }
         #region Tanımlar
         PocoSTOKOLCUBR _tempStokOlcuBr;
@@ -105,7 +107,7 @@ namespace MEYPAK.PRL
             TBSFiyat3.Text = Convert.ToString(_tempStok.sfiyaT3);
             TBSFiyat4.Text = Convert.ToString(_tempStok.sfiyaT4);
             TBSFiyat5.Text = Convert.ToString(_tempStok.sfiyaT5);
-            CBOlcuBirim.SelectedIndex = _tempStok.olcubR1;
+            CBBirim.Text = _tempStokOlcuBr.ToString();
             //dataGridView1.DataSource = _tempStok.MPSTOKOLCUBR.ToList();
             dataGridView1.Refresh();
             //var a = _PocoStokServis.obje.Select(x=>x.mpst.Select(z=>z));
@@ -137,8 +139,8 @@ namespace MEYPAK.PRL
             _PocoOlcuBrServis.Data(ServisList.OlcuBrListeServis);
             _tempPocoOLCUBR = _PocoOlcuBrServis.obje;
             _PocoSTOKOLCUBR = _StokOlcuBrServis.obje;
-            CBOlcuBirim.DataSource = _tempPocoOLCUBR.Select(x => x.adi).ToList();
-
+            CBBirim.Properties.DataSource = _tempPocoOLCUBR.Select(x => x.adi).ToList();
+            
         }
         private void BTKaydet_Click(object sender, EventArgs e)                 // Stok Kayıt
         {
@@ -236,20 +238,9 @@ namespace MEYPAK.PRL
             _PocoStokServis.Data(ServisList.StokSilServis,null,null,_PocoStokServis.obje.Where(x => x.id == stokid).ToList());
             Temizle(this.Controls);
         }
-        private void BTMarkaSec_Click(object sender, EventArgs e)
-        {
-         
-        }
+       
 
-        private void BTKategoriSec_Click(object sender, EventArgs e)
-        {
-        }
-        private void BTNKasaSec_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void button3_Click(object sender, EventArgs e)
+        private void BTOlcuBirimiEkle_Click(object sender, EventArgs e)
         {
 
             if (dataGridView1.Rows.Count == 0)
@@ -258,7 +249,7 @@ namespace MEYPAK.PRL
             }
             _tempStokOlcuBr = new PocoSTOKOLCUBR()
             {
-                OLCUBRID = _tempPocoOLCUBR.Where(x => x.adi == CBOlcuBirim.SelectedValue.ToString()).FirstOrDefault().id,
+                OLCUBRID = _tempPocoOLCUBR.Where(x => x.adi == CBBirim.EditValue.ToString()).FirstOrDefault().id,
                 NUM = dataGridView1.RowCount + 1,
                 KATSAYI = Convert.ToDecimal(TBKatsayi.Text),
 
@@ -269,11 +260,7 @@ namespace MEYPAK.PRL
             dataGridView1.Refresh();
         }
 
-        private void BTStokSec_Click(object sender, EventArgs e)
-        {
-
-          
-        }
+       
         #endregion
 
         #region KeyPress
@@ -403,15 +390,7 @@ namespace MEYPAK.PRL
                 TBSatisKdv.Text = _tempKategori.Acıklama;
         }
 
-        private void BTNGrupSec_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonEdit4_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
-        {
-
-        }
+        
 
         private void buttonEdit5_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
@@ -421,21 +400,7 @@ namespace MEYPAK.PRL
                 BTKasa.Text = _tempKasa.KASAADI;
         }
 
-        private void LBStokKartiAciklama3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LBStokKartiAciklama6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelControl8_Click(object sender, EventArgs e)
-        {
-
-        }
-
+       
     
 
         private void TBSatisOtv_KeyPress(object sender, KeyPressEventArgs e)
