@@ -1,27 +1,7 @@
-﻿using MEYPAK.BLL.STOK;
-using MEYPAK.DAL.Concrete.EntityFramework.Repository;
-using MEYPAK.DAL.Concrete.EntityFramework.Context;
-using MEYPAK.DAL.Concrete.EntityFramework.Repository;
-using MEYPAK.Entity.PocoModels;
-using MEYPAK.Interfaces.Depo;
-using MEYPAK.Interfaces.Siparis;
-using MEYPAK.Interfaces.Stok;
-using MEYPAK.PRL.Assets;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using MEYPAK.Entity.PocoModels;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using MEYPAK.PRL.STOK;
-using MEYPAK.BLL.DEPO;
 using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
-using MEYPAK.PRL.Assets.Scripts;
-using MEYPAK.Entity.Models.STOK;
-using MEYPAK.Entity.Models.SIPARIS;
 using MEYPAK.Entity.PocoModels.SIPARIS;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Entity.PocoModels.DEPO;
@@ -30,12 +10,9 @@ using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraGrid.Views.Grid;
-using DevExpress.XtraEditors;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using DevExpress.XtraGrid.Views.Base;
 using MEYPAK.PRL.CARI;
 using MEYPAK.Entity.PocoModels.CARI;
-using MEYPAK.Entity.Models.CARI;
 
 namespace MEYPAK.PRL.SIPARIS
 {
@@ -83,7 +60,7 @@ namespace MEYPAK.PRL.SIPARIS
         private void FSiparis_Load(object sender, EventArgs e)
         {
             DataGridYapilandir();
-            CBParaBirimi.SelectedIndex = 0;
+            CBParaBirimi.EditValue = 0;
         }
         DataGridViewButtonColumn DGVStokSec;
         DataGridViewButtonColumn DGVKasaSec;
@@ -242,13 +219,13 @@ namespace MEYPAK.PRL.SIPARIS
             {
                 ACIKLAMA = TBAciklama.Text,
                 KUR = Convert.ToDecimal(TBKur.Text),
-                BELGENO = TBBelgeNo.Text,
+                BELGENO = TBSiparisNo.Text,
                 VADETARIHI = DTPVadeTarihi.Value,
                 guncellemetarihi = DateTime.Now,
                 VADEGUNU = Convert.ToInt32(TBGun.Text),
                 CARIADI = TBCariAdi.Text,
                 CARIID = _cariKart.obje.Where(x=>x.KOD==TBCariKodu.Text).FirstOrDefault().id,
-                DEPOID = _depoServis.obje.Where(x => x.DEPOADI == CBDepo.SelectedValue).FirstOrDefault().id,
+                DEPOID = _depoServis.obje.Where(x => x.DEPOADI == CBDepo.EditValue).FirstOrDefault().id,
                 DOVIZID = 0,
                 ISKONTOTOPLAM = _tempSiparisDetay.Sum(x => x.İskontoTutarı),
                 KDVTOPLAM = _tempSiparisDetay.Sum(x => x.KdvTutarı),
@@ -580,15 +557,15 @@ namespace MEYPAK.PRL.SIPARIS
             FMusteriSiparisList fMusteriSiparisList = new FMusteriSiparisList("Siparis");
             fMusteriSiparisList.ShowDialog();
             if (_tempSiparis != null)
-                TBBelgeNo.Text = _tempSiparis.BELGENO;
+            TBSiparisNo.Text = _tempSiparis.BELGENO;
             //todo : TBCariKodu.Text = 
             TBCariAdi.Text = _tempSiparis.CARIADI;
             //TODO TBKasa.Text = 
-            DTPTarih.Value = _tempSiparis.SIPARISTARIHI;
+            DTSiparisTarih.Value = _tempSiparis.SIPARISTARIHI;
             TBAciklama.Text = _tempSiparis.ACIKLAMA;
             DTPVadeTarihi.Value = _tempSiparis.VADETARIHI;
-            DTPSevkiyatTarihi.Value = _tempSiparis.SEVKIYATTARIHI;
-            TBSVadeGunu.Text = _tempSiparis.VADEGUNU.ToString();
+            DTSevkiyatTarih.Value = _tempSiparis.SEVKIYATTARIHI;
+            TBGun.Text = _tempSiparis.VADEGUNU.ToString();
         }
 
         private void BTNKasaSec_Click(object sender, EventArgs e)

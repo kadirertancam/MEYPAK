@@ -40,8 +40,8 @@ namespace MEYPAK.PRL.SIPARIS
         private void BTNSiparisFiltrele_Click(object sender, EventArgs e)
         {
             DGSiparis.DataSource = "";
-            mpSiparis = _siparisServis.Listele().Where(x => (DateTime)x.SIPARISTARIHI>=dateTimePicker1.Value).ToList();
-            mpSiparis = mpSiparis.Where(x => (DateTime)x.SIPARISTARIHI<=dateTimePicker2.Value).ToList();
+            mpSiparis = _siparisServis.Listele().Where(x => (DateTime)x.SIPARISTARIHI>=DTItibarenTar.Value).ToList();
+            mpSiparis = mpSiparis.Where(x => (DateTime)x.SIPARISTARIHI<=DTKadarTar.Value).ToList();
             DGSiparis.DataSource=mpSiparis;
         }
 
@@ -53,11 +53,11 @@ namespace MEYPAK.PRL.SIPARIS
         }
 
         private void dataGridSiparisDetay_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {   
-            LBLSiparisMik.Text = DGSiparisDetay.Rows[e.RowIndex].Cells["MIKTAR"].Value.ToString();
-            LBLBekleyenMik.Text= DGSiparisDetay.Rows[e.RowIndex].Cells["BEKLEYENMIKTAR"].Value.ToString();
+        {
+            LBSiparisMiktar.Text = DGSiparisDetay.Rows[e.RowIndex].Cells["MIKTAR"].Value.ToString();
+            LBBekleyenMiktar.Text= DGSiparisDetay.Rows[e.RowIndex].Cells["BEKLEYENMIKTAR"].Value.ToString();
             var a = Enum.GetNames(typeof(SiparisDurum));
-            LBLDurum.Text = a[(byte)DGSiparisDetay.Rows[e.RowIndex].Cells["HAREKETDURUMU"].Value];
+            LBDurum.Text = a[(byte)DGSiparisDetay.Rows[e.RowIndex].Cells["HAREKETDURUMU"].Value];
         }
         
         private void BTNIrsaliyeOlustur_Click(object sender, EventArgs e)

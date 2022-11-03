@@ -1,29 +1,8 @@
-﻿using MEYPAK.BLL.DEPO;
-using MEYPAK.BLL.STOK;
-using MEYPAK.DAL.Abstract;
-using MEYPAK.DAL.Concrete.EntityFramework.Repository;
-using MEYPAK.DAL.Concrete.EntityFramework.Context;
-using MEYPAK.DAL.Concrete.EntityFramework.Repository;
-using MEYPAK.Entity.PocoModels;
-using MEYPAK.Interfaces.Depo;
-using MEYPAK.Interfaces.Stok;
-using MEYPAK.PRL.Assets;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using MEYPAK.Entity.PocoModels;
 using System.Data;
-using System.Drawing;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Net.Mime.MediaTypeNames;
-using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.PocoModels.DEPO;
-using DevExpress.XtraEditors;
 
 namespace MEYPAK.PRL.STOK
 {

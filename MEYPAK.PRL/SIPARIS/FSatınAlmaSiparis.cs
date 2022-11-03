@@ -35,7 +35,7 @@ namespace MEYPAK.PRL.SIPARIS
             DGSatinAlmaSiparis.MultiSelect = false;
             _depoServis = new GenericWebServis<PocoDEPO>();
             _depoServis.Data(ServisList.DepoListeServis);
-            CBDepo.DataSource = _depoServis.obje.Select(x => x.DEPOADI).ToList();
+            CBDepo.Properties.DataSource = _depoServis.obje.Select(x => x.DEPOADI).ToList();
             _siparisServis = new GenericWebServis<PocoSIPARIS>();
             _siparisServis.Data(ServisList.SiparisListeServis);
             _siparisDetayServis = new GenericWebServis<PocoSIPARISDETAY>();
@@ -241,15 +241,15 @@ namespace MEYPAK.PRL.SIPARIS
             FMusteriSiparisList fMusteriSiparisList = new FMusteriSiparisList("Siparis");
             fMusteriSiparisList.ShowDialog();
             if (_tempSiparis != null)
-                TBBelgeNo.Text = _tempSiparis.BELGENO;
+                TBSiparisNo.Text = _tempSiparis.BELGENO;
             //todo : TBCariKodu.Text = 
             TBCariAdi.Text = _tempSiparis.CARIADI;
             //TODO TBKasa.Text = 
-            DTPTarih.Value = _tempSiparis.SIPARISTARIHI;
+            DTSiparisTarih.Value = _tempSiparis.SIPARISTARIHI;
             TBAciklama.Text = _tempSiparis.ACIKLAMA;
             DTPVadeTarihi.Value = _tempSiparis.VADETARIHI;
-            DTPSevkiyatTarihi.Value = _tempSiparis.SEVKIYATTARIHI;
-            TBSVadeGunu.Text = _tempSiparis.VADEGUNU.ToString();
+            DTSevkiyatTarih.Value = _tempSiparis.SEVKIYATTARIHI;
+            TBGun.Text = _tempSiparis.VADEGUNU.ToString();
         }
 
         private void BTNKasaSec_Click(object sender, EventArgs e)
@@ -318,7 +318,7 @@ namespace MEYPAK.PRL.SIPARIS
         private void SatınAlmaSiparis_Load(object sender, EventArgs e)
         {
             DataGridYapilandir();
-            CBParaBirimi.SelectedIndex = 0;
+            CBParaBirimi.EditValue = 0;
         }
 
         private void BTKaydet_Click(object sender, EventArgs e)
@@ -328,13 +328,13 @@ namespace MEYPAK.PRL.SIPARIS
             {
                 ACIKLAMA = TBAciklama.Text,
                 KUR = Convert.ToDecimal(TBKur.Text),
-                BELGENO = TBBelgeNo.Text,
+                BELGENO = BTBelgeNoSec.Text,
                 VADETARIHI = DTPVadeTarihi.Value,
                 guncellemetarihi = DateTime.Now,
-                VADEGUNU = Convert.ToInt32(TBSVadeGunu.Text),
+                VADEGUNU = Convert.ToInt32(TBGun.Text),
                 CARIADI = TBCariAdi.Text,
                 CARIID = 0,
-                DEPOID = _depoServis.obje.Where(x => x.DEPOADI == CBDepo.SelectedValue).FirstOrDefault().id,
+                DEPOID = _depoServis.obje.Where(x => x.DEPOADI == CBDepo.EditValue).FirstOrDefault().id,
                 DOVIZID = 0,
                 ISKONTOTOPLAM = _tempSiparisDetay.Sum(x => x.İskontoTutarı),
                 KDVTOPLAM = _tempSiparisDetay.Sum(x => x.KdvTutarı),

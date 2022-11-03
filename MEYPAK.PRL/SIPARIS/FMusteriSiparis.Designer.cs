@@ -32,7 +32,15 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.TBIskonto = new DevExpress.XtraEditors.TextEdit();
+            this.LBIskonto = new DevExpress.XtraEditors.LabelControl();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.TBAIskonto3 = new DevExpress.XtraEditors.TextEdit();
+            this.TBAIskonto1 = new DevExpress.XtraEditors.TextEdit();
+            this.TBAIskonto2 = new DevExpress.XtraEditors.TextEdit();
+            this.LBAltIskonto3 = new DevExpress.XtraEditors.LabelControl();
+            this.LBAltIskonto2 = new DevExpress.XtraEditors.LabelControl();
+            this.LBAltIskonto1 = new DevExpress.XtraEditors.LabelControl();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -56,7 +64,6 @@
             this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.LUSiparisNo = new DevExpress.XtraEditors.LookUpEdit();
             this.TBGun = new DevExpress.XtraEditors.TextEdit();
             this.DTSevkiyatTarih = new System.Windows.Forms.DateTimePicker();
             this.LBGun = new DevExpress.XtraEditors.LabelControl();
@@ -68,7 +75,7 @@
             this.CBDepo = new DevExpress.XtraEditors.GridLookUpEdit();
             this.CBDepoView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.CHBKdvDahil = new System.Windows.Forms.CheckBox();
-            this.DTStokTarih = new System.Windows.Forms.DateTimePicker();
+            this.DTSiparisTarih = new System.Windows.Forms.DateTimePicker();
             this.BTKasaSec = new DevExpress.XtraEditors.SimpleButton();
             this.TBKasa = new DevExpress.XtraEditors.TextEdit();
             this.CBAltHesap = new DevExpress.XtraEditors.GridLookUpEdit();
@@ -90,18 +97,14 @@
             this.LBCariAdi = new DevExpress.XtraEditors.LabelControl();
             this.LBCariKodu = new DevExpress.XtraEditors.LabelControl();
             this.LBSsiparisNo = new DevExpress.XtraEditors.LabelControl();
-            this.LBIskonto = new DevExpress.XtraEditors.LabelControl();
-            this.LBAltIskonto3 = new DevExpress.XtraEditors.LabelControl();
-            this.LBAltIskonto2 = new DevExpress.XtraEditors.LabelControl();
-            this.LBAltIskonto1 = new DevExpress.XtraEditors.LabelControl();
-            this.TBAIskonto1 = new DevExpress.XtraEditors.TextEdit();
-            this.TBAIskonto2 = new DevExpress.XtraEditors.TextEdit();
-            this.TBAIskonto3 = new DevExpress.XtraEditors.TextEdit();
-            this.TBIskonto = new DevExpress.XtraEditors.TextEdit();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TBIskonto.Properties)).BeginInit();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TBAIskonto3.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBAIskonto1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBAIskonto2.Properties)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel7.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -112,7 +115,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).BeginInit();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.LUSiparisNo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBGun.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBAciklama.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBKur.Properties)).BeginInit();
@@ -126,10 +128,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.TBCariAdi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBCariKodu.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBSiparisNo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TBAIskonto1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TBAIskonto2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TBAIskonto3.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TBIskonto.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -165,6 +163,30 @@
             this.panel8.Size = new System.Drawing.Size(336, 236);
             this.panel8.TabIndex = 27;
             // 
+            // TBIskonto
+            // 
+            this.TBIskonto.Location = new System.Drawing.Point(114, 22);
+            this.TBIskonto.Name = "TBIskonto";
+            this.TBIskonto.Properties.Appearance.BackColor = System.Drawing.Color.Gray;
+            this.TBIskonto.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TBIskonto.Properties.Appearance.ForeColor = System.Drawing.Color.Transparent;
+            this.TBIskonto.Properties.Appearance.Options.UseBackColor = true;
+            this.TBIskonto.Properties.Appearance.Options.UseFont = true;
+            this.TBIskonto.Properties.Appearance.Options.UseForeColor = true;
+            this.TBIskonto.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.TBIskonto.Size = new System.Drawing.Size(138, 22);
+            this.TBIskonto.TabIndex = 136;
+            // 
+            // LBIskonto
+            // 
+            this.LBIskonto.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBIskonto.Appearance.Options.UseFont = true;
+            this.LBIskonto.Location = new System.Drawing.Point(22, 24);
+            this.LBIskonto.Name = "LBIskonto";
+            this.LBIskonto.Size = new System.Drawing.Size(69, 14);
+            this.LBIskonto.TabIndex = 126;
+            this.LBIskonto.Text = "Satır İskonto";
+            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.TBAIskonto3);
@@ -179,6 +201,66 @@
             this.groupBox3.TabIndex = 25;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Alt İskonto";
+            // 
+            // TBAIskonto3
+            // 
+            this.TBAIskonto3.Location = new System.Drawing.Point(100, 80);
+            this.TBAIskonto3.Name = "TBAIskonto3";
+            this.TBAIskonto3.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TBAIskonto3.Properties.Appearance.Options.UseFont = true;
+            this.TBAIskonto3.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.TBAIskonto3.Size = new System.Drawing.Size(138, 22);
+            this.TBAIskonto3.TabIndex = 137;
+            // 
+            // TBAIskonto1
+            // 
+            this.TBAIskonto1.Location = new System.Drawing.Point(100, 22);
+            this.TBAIskonto1.Name = "TBAIskonto1";
+            this.TBAIskonto1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TBAIskonto1.Properties.Appearance.Options.UseFont = true;
+            this.TBAIskonto1.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.TBAIskonto1.Size = new System.Drawing.Size(138, 22);
+            this.TBAIskonto1.TabIndex = 135;
+            // 
+            // TBAIskonto2
+            // 
+            this.TBAIskonto2.Location = new System.Drawing.Point(100, 52);
+            this.TBAIskonto2.Name = "TBAIskonto2";
+            this.TBAIskonto2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TBAIskonto2.Properties.Appearance.Options.UseFont = true;
+            this.TBAIskonto2.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.TBAIskonto2.Size = new System.Drawing.Size(138, 22);
+            this.TBAIskonto2.TabIndex = 136;
+            // 
+            // LBAltIskonto3
+            // 
+            this.LBAltIskonto3.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBAltIskonto3.Appearance.Options.UseFont = true;
+            this.LBAltIskonto3.Location = new System.Drawing.Point(9, 86);
+            this.LBAltIskonto3.Name = "LBAltIskonto3";
+            this.LBAltIskonto3.Size = new System.Drawing.Size(71, 14);
+            this.LBAltIskonto3.TabIndex = 127;
+            this.LBAltIskonto3.Text = "Alt İskonto 3";
+            // 
+            // LBAltIskonto2
+            // 
+            this.LBAltIskonto2.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBAltIskonto2.Appearance.Options.UseFont = true;
+            this.LBAltIskonto2.Location = new System.Drawing.Point(9, 57);
+            this.LBAltIskonto2.Name = "LBAltIskonto2";
+            this.LBAltIskonto2.Size = new System.Drawing.Size(71, 14);
+            this.LBAltIskonto2.TabIndex = 128;
+            this.LBAltIskonto2.Text = "Alt İskonto 2";
+            // 
+            // LBAltIskonto1
+            // 
+            this.LBAltIskonto1.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBAltIskonto1.Appearance.Options.UseFont = true;
+            this.LBAltIskonto1.Location = new System.Drawing.Point(9, 28);
+            this.LBAltIskonto1.Name = "LBAltIskonto1";
+            this.LBAltIskonto1.Size = new System.Drawing.Size(71, 14);
+            this.LBAltIskonto1.TabIndex = 129;
+            this.LBAltIskonto1.Text = "Alt İskonto 1";
             // 
             // panel5
             // 
@@ -417,7 +499,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.LUSiparisNo);
             this.groupBox1.Controls.Add(this.TBGun);
             this.groupBox1.Controls.Add(this.DTSevkiyatTarih);
             this.groupBox1.Controls.Add(this.LBGun);
@@ -427,7 +508,7 @@
             this.groupBox1.Controls.Add(this.CBParaBirimi);
             this.groupBox1.Controls.Add(this.CBDepo);
             this.groupBox1.Controls.Add(this.CHBKdvDahil);
-            this.groupBox1.Controls.Add(this.DTStokTarih);
+            this.groupBox1.Controls.Add(this.DTSiparisTarih);
             this.groupBox1.Controls.Add(this.BTKasaSec);
             this.groupBox1.Controls.Add(this.TBKasa);
             this.groupBox1.Controls.Add(this.CBAltHesap);
@@ -455,18 +536,6 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Müşteri Sipariş";
-            // 
-            // LUSiparisNo
-            // 
-            this.LUSiparisNo.Location = new System.Drawing.Point(102, 38);
-            this.LUSiparisNo.Name = "LUSiparisNo";
-            this.LUSiparisNo.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LUSiparisNo.Properties.Appearance.Options.UseFont = true;
-            this.LUSiparisNo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.LUSiparisNo.Properties.NullText = "";
-            this.LUSiparisNo.Size = new System.Drawing.Size(61, 24);
-            this.LUSiparisNo.TabIndex = 148;
             // 
             // TBGun
             // 
@@ -574,15 +643,15 @@
             this.CHBKdvDahil.Text = "KDV Dahil";
             this.CHBKdvDahil.UseVisualStyleBackColor = true;
             // 
-            // DTStokTarih
+            // DTSiparisTarih
             // 
-            this.DTStokTarih.CalendarFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DTStokTarih.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DTStokTarih.Location = new System.Drawing.Point(470, 35);
-            this.DTStokTarih.Name = "DTStokTarih";
-            this.DTStokTarih.Size = new System.Drawing.Size(222, 21);
-            this.DTStokTarih.TabIndex = 138;
-            this.DTStokTarih.Value = new System.DateTime(2022, 11, 3, 13, 26, 0, 0);
+            this.DTSiparisTarih.CalendarFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DTSiparisTarih.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DTSiparisTarih.Location = new System.Drawing.Point(470, 35);
+            this.DTSiparisTarih.Name = "DTSiparisTarih";
+            this.DTSiparisTarih.Size = new System.Drawing.Size(222, 21);
+            this.DTSiparisTarih.TabIndex = 138;
+            this.DTSiparisTarih.Value = new System.DateTime(2022, 11, 3, 13, 26, 0, 0);
             // 
             // BTKasaSec
             // 
@@ -825,90 +894,6 @@
             this.LBSsiparisNo.TabIndex = 118;
             this.LBSsiparisNo.Text = "Sipariş No";
             // 
-            // LBIskonto
-            // 
-            this.LBIskonto.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBIskonto.Appearance.Options.UseFont = true;
-            this.LBIskonto.Location = new System.Drawing.Point(22, 20);
-            this.LBIskonto.Name = "LBIskonto";
-            this.LBIskonto.Size = new System.Drawing.Size(69, 14);
-            this.LBIskonto.TabIndex = 126;
-            this.LBIskonto.Text = "Satır İskonto";
-            // 
-            // LBAltIskonto3
-            // 
-            this.LBAltIskonto3.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBAltIskonto3.Appearance.Options.UseFont = true;
-            this.LBAltIskonto3.Location = new System.Drawing.Point(9, 86);
-            this.LBAltIskonto3.Name = "LBAltIskonto3";
-            this.LBAltIskonto3.Size = new System.Drawing.Size(71, 14);
-            this.LBAltIskonto3.TabIndex = 127;
-            this.LBAltIskonto3.Text = "Alt İskonto 3";
-            // 
-            // LBAltIskonto2
-            // 
-            this.LBAltIskonto2.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBAltIskonto2.Appearance.Options.UseFont = true;
-            this.LBAltIskonto2.Location = new System.Drawing.Point(9, 57);
-            this.LBAltIskonto2.Name = "LBAltIskonto2";
-            this.LBAltIskonto2.Size = new System.Drawing.Size(71, 14);
-            this.LBAltIskonto2.TabIndex = 128;
-            this.LBAltIskonto2.Text = "Alt İskonto 2";
-            // 
-            // LBAltIskonto1
-            // 
-            this.LBAltIskonto1.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBAltIskonto1.Appearance.Options.UseFont = true;
-            this.LBAltIskonto1.Location = new System.Drawing.Point(9, 28);
-            this.LBAltIskonto1.Name = "LBAltIskonto1";
-            this.LBAltIskonto1.Size = new System.Drawing.Size(71, 14);
-            this.LBAltIskonto1.TabIndex = 129;
-            this.LBAltIskonto1.Text = "Alt İskonto 1";
-            // 
-            // TBAIskonto1
-            // 
-            this.TBAIskonto1.Location = new System.Drawing.Point(100, 22);
-            this.TBAIskonto1.Name = "TBAIskonto1";
-            this.TBAIskonto1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TBAIskonto1.Properties.Appearance.Options.UseFont = true;
-            this.TBAIskonto1.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.TBAIskonto1.Size = new System.Drawing.Size(138, 22);
-            this.TBAIskonto1.TabIndex = 135;
-            // 
-            // TBAIskonto2
-            // 
-            this.TBAIskonto2.Location = new System.Drawing.Point(100, 52);
-            this.TBAIskonto2.Name = "TBAIskonto2";
-            this.TBAIskonto2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TBAIskonto2.Properties.Appearance.Options.UseFont = true;
-            this.TBAIskonto2.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.TBAIskonto2.Size = new System.Drawing.Size(138, 22);
-            this.TBAIskonto2.TabIndex = 136;
-            // 
-            // TBAIskonto3
-            // 
-            this.TBAIskonto3.Location = new System.Drawing.Point(100, 80);
-            this.TBAIskonto3.Name = "TBAIskonto3";
-            this.TBAIskonto3.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TBAIskonto3.Properties.Appearance.Options.UseFont = true;
-            this.TBAIskonto3.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.TBAIskonto3.Size = new System.Drawing.Size(138, 22);
-            this.TBAIskonto3.TabIndex = 137;
-            // 
-            // TBIskonto
-            // 
-            this.TBIskonto.Location = new System.Drawing.Point(114, 18);
-            this.TBIskonto.Name = "TBIskonto";
-            this.TBIskonto.Properties.Appearance.BackColor = System.Drawing.Color.Gray;
-            this.TBIskonto.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TBIskonto.Properties.Appearance.ForeColor = System.Drawing.Color.Transparent;
-            this.TBIskonto.Properties.Appearance.Options.UseBackColor = true;
-            this.TBIskonto.Properties.Appearance.Options.UseFont = true;
-            this.TBIskonto.Properties.Appearance.Options.UseForeColor = true;
-            this.TBIskonto.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.TBIskonto.Size = new System.Drawing.Size(138, 22);
-            this.TBIskonto.TabIndex = 136;
-            // 
             // FMusteriSiparis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -924,8 +909,12 @@
             this.panel4.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TBIskonto.Properties)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TBAIskonto3.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBAIskonto1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBAIskonto2.Properties)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
@@ -938,7 +927,6 @@
             this.panel2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.LUSiparisNo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBGun.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBAciklama.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBKur.Properties)).EndInit();
@@ -952,10 +940,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.TBCariAdi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBCariKodu.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBSiparisNo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TBAIskonto1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TBAIskonto2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TBAIskonto3.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TBIskonto.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1000,7 +984,7 @@
         private DevExpress.XtraEditors.GridLookUpEdit CBDepo;
         private DevExpress.XtraGrid.Views.Grid.GridView CBDepoView;
         private CheckBox CHBKdvDahil;
-        private DateTimePicker DTStokTarih;
+        private DateTimePicker DTSiparisTarih;
         private DevExpress.XtraEditors.SimpleButton BTKasaSec;
         private DevExpress.XtraEditors.TextEdit TBKasa;
         private DevExpress.XtraEditors.GridLookUpEdit CBAltHesap;
@@ -1022,7 +1006,6 @@
         private DevExpress.XtraEditors.LabelControl LBCariAdi;
         private DevExpress.XtraEditors.LabelControl LBCariKodu;
         private DevExpress.XtraEditors.LabelControl LBSsiparisNo;
-        private DevExpress.XtraEditors.LookUpEdit LUSiparisNo;
         private DevExpress.XtraEditors.LabelControl LBIskonto;
         private DevExpress.XtraEditors.TextEdit TBAIskonto3;
         private DevExpress.XtraEditors.TextEdit TBAIskonto1;
