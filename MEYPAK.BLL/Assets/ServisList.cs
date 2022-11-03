@@ -11,6 +11,7 @@ namespace MEYPAK.BLL.Assets
         #region
 
         #endregion
+        public const string FiltreServis = "http://213.238.167.117:8080/ARAC/2?query=";
 
         #region Araç
         public const string AracListeServis = "http://213.238.167.117:8080/ARAC/ARACListe";
@@ -18,8 +19,8 @@ namespace MEYPAK.BLL.Assets
         public const string AracSilServis = "http://213.238.167.117:8080/ARAC/ARACSil";
         public const string AracGuncelleServis = "http://213.238.167.117:8080/ARAC/ARACGuncelle";
         public const string AracDeleteByIdServis = "http://213.238.167.117:8080/ARAC/DeleteById";
+        public const string AracListeFiltreServis = "http://213.238.167.117:8080/ARAC/ARACListe2?query=";
 
-       
 
         #endregion
 
@@ -46,6 +47,7 @@ namespace MEYPAK.BLL.Assets
         public const string CariHarEkleServis =         "http://213.238.167.117:8080/CARIHAR/CARIHAREkleyadaGuncelle";
         public const string CariHarSilServis =          "http://213.238.167.117:8080/CARIHAR/CARIHARSil";
         public const string CariHarGuncelleServis =     "http://213.238.167.117:8080/CARIHAR/CARIHARGuncelle";
+        public const string CariHarFiltreServis = "http://213.238.167.117:8080/ARAC/CARIHARListe2?query=";
         #endregion
 
         #region StokSevkiyatList
@@ -143,7 +145,7 @@ namespace MEYPAK.BLL.Assets
         public const string StokFiyatListDeleteByIdServis = "http://213.238.167.117:8080/STOKFIYATLIST/DeleteById";
         #endregion
 
-        public const string DeleteByIdServis = "http://213.238.167.117:8080/ARAC/DeleteById";
+       
 
         #region Stok
         public const string StokListeServis =    "http://213.238.167.117:8080/STOK/StokListe";

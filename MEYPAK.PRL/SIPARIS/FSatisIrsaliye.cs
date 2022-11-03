@@ -26,8 +26,8 @@ namespace MEYPAK.PRL.SIPARIS
             DGVFiyatList = new DataGridViewComboBoxColumn();
             DGVKasaSec = new DataGridViewButtonColumn();
             DGVKasaList = new DataGridViewComboBoxColumn();
-            _fStokList = new FStokList("siparis");
-            fKasaList = new FKasaList("Siparis");
+            _fStokList = new FStokList(this.Tag.ToString(),"siparis");
+            fKasaList = new FKasaList(this.Tag.ToString(),"Siparis");
             dataGridView1.MultiSelect = false;
             CBDepo.DataSource = StaticContext._depoServis.Listele().Select(x => x.DEPOADI).ToList();
         }

@@ -143,8 +143,7 @@ namespace MEYPAK.PRL
         private void BTKaydet_Click(object sender, EventArgs e)                 // Stok Kayıt
         {
 
-
-
+          
             //Parallel.For(0, 50000, x =>
 
             //    {
@@ -376,7 +375,7 @@ namespace MEYPAK.PRL
 
         private void buttonEdit1_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            FStokList fStokList = new FStokList("stokkart");
+            FStokList fStokList = new FStokList(this.Tag.ToString(), "stokkart");
             fStokList.ShowDialog();
             if (_tempStok != null)
                 if (_tempStok.id > 0) 
@@ -416,7 +415,7 @@ namespace MEYPAK.PRL
 
         private void buttonEdit5_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            FKasaList fKasaList = new FKasaList("Stok");
+            FKasaList fKasaList = new FKasaList(this.Tag.ToString(),"Stok");
             fKasaList.ShowDialog();
             if (_tempKasa != null)
                 BTKasa.Text = _tempKasa.KASAADI;
@@ -436,6 +435,8 @@ namespace MEYPAK.PRL
         {
 
         }
+
+    
 
         private void TBSatisOtv_KeyPress(object sender, KeyPressEventArgs e)
         {

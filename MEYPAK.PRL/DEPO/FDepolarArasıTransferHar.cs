@@ -94,7 +94,7 @@ namespace MEYPAK.PRL.DEPO
         private void BTNStokSec_Click(object sender, EventArgs e)
         {
 
-            FStokList fStokList = new FStokList("FDepolarArasıTransferHar");
+            FStokList fStokList = new FStokList(this.Tag.ToString(),"FDepolarArasıTransferHar");
             fStokList.ShowDialog();
             if (_tempStok != null)
                 if (_tempStok.id > 0)

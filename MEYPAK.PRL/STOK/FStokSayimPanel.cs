@@ -36,7 +36,7 @@ namespace MEYPAK.PRL.STOK
         {
             InitializeComponent();
             this._islemtipi = islemtipi;
-            fStokList = new FStokList("stoksayimpanel");
+            fStokList = new FStokList(this.Tag.ToString(),"stoksayimpanel");
             stokSayimHarServis = new GenericWebServis<PocoSTOKSAYIMHAR>();
             stokSayimHarServis.Data(ServisList.StokSayimHarListeServis);
             stokServis = new GenericWebServis<PocoSTOK>();

@@ -31,15 +31,15 @@ namespace MEYPAK.PRL.CARI
             BTCariKodu.Text = _tempCARIKART.KOD;
             TBCariAdi.Text = _tempCARIKART.UNVAN==""? _tempCARIKART.ADI + " " + _tempCARIKART.SOYADI : _tempCARIKART.UNVAN;
             gridControl1.DataSource = _cariHarServis.obje.Where(x => x.CARIID == _tempCARIKART.id);
-            LBCariHToplamAlacak.Text = _cariHarServis.obje.Where(x => x.CARIID == _tempCARIKART.id).Sum(x => x.ALACAK).ToString();
-            LBCariHToplamBorc.Text = _cariHarServis.obje.Where(x => x.CARIID == _tempCARIKART.id).Sum(x => x.BORC).ToString();
-            LBCariHBakiye.Text = _cariHarServis.obje.Where(x => x.CARIID == _tempCARIKART.id).Sum(x => x.BORC - x.ALACAK).ToString();
+            LBToplamAlacakDeger.Text = _cariHarServis.obje.Where(x => x.CARIID == _tempCARIKART.id).Sum(x => x.ALACAK).ToString();
+            LBToplamBorcDeger.Text = _cariHarServis.obje.Where(x => x.CARIID == _tempCARIKART.id).Sum(x => x.BORC).ToString();
+            LBToplamBakiye.Text = _cariHarServis.obje.Where(x => x.CARIID == _tempCARIKART.id).Sum(x => x.BORC - x.ALACAK).ToString();
         } 
 
         private void TBCariKodu_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             _cariHarServis.Data(ServisList.CariHarListeServis);
-            _fCariList = new FCariList("carihar");
+            _fCariList = new FCariList(this.Tag.ToString(),"carihar");
             _fCariList.ShowDialog();
             temizle();
             Doldur();
@@ -67,8 +67,8 @@ namespace MEYPAK.PRL.CARI
             {
                 CARIID = _tempCARIKART.id,
                 ACIKLAMA = TBAciklama.Text,
-                ALACAK = RGCariHareket.SelectedIndex == 1 ? Convert.ToDecimal(TBFiyat.Text) : 0,
-                BORC = RGCariHareket.SelectedIndex == 0 ? Convert.ToDecimal(TBFiyat.Text) : 0,
+                ALACAK = RGCariHareket.SelectedIndex == 0 ? Convert.ToDecimal(TBFiyat.Text) : 0,
+                BORC = RGCariHareket.SelectedIndex == 1 ? Convert.ToDecimal(TBFiyat.Text) : 0,
                 BELGE_NO = TEBelgeNo.Text,
                 HAREKETTIPI = 5,
                 KUR = Convert.ToDecimal(TBKur.Text),
@@ -86,6 +86,11 @@ namespace MEYPAK.PRL.CARI
             TBFiyat.Text = "";
             TBKur.Text = "0";
             TEBelgeNo.Text = ""; 
+        }
+
+        private void FCariHareket_Load(object sender, EventArgs e)
+        {
+            DTTarih.EditValue = DateTime.Now;
         }
     }
 }

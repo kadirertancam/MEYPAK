@@ -24,6 +24,7 @@
             )
             .Form(f => f.Items(items =>
             {
+
                 items.AddGroup()
                 .ColCount(2)
                 .ColSpan(2)
@@ -34,8 +35,10 @@
                     groupItems.AddSimpleFor(m => m.fiyatlistadi);
                     groupItems.AddSimpleFor(m => m.bastar);
                     groupItems.AddSimpleFor(m => m.bittar);
-              
+
                 });
+
+
 
 
             }))
@@ -50,12 +53,12 @@
 
                 columns.AddFor(m => m.bittar);
 
-              
+
 
             })
-            .DataSource(d => d.Mvc()
-            .Controller("STOK")
-            .LoadAction("StokFiyatListGet").InsertAction("StokFiyatListPost").UpdateAction("StokFiyatListPut").DeleteAction("StokFiyatListDelete").Key("id")
+            .DataSource(d =>
+            d.Mvc().Controller("STOK").LoadAction("StokFiyatListGet").OnInserted("AlertName()").InsertAction("StokFiyatListPost").UpdateAction("StokFiyatListPut").DeleteAction("StokFiyatListDelete").Key("id")
+
 
             )
             )
@@ -63,7 +66,6 @@
 
 
     </div>
-
 
     @(Html.DevExtreme().SelectBox()
         .ID("apptheme")
@@ -76,11 +78,63 @@
         })
         .OnSelectionChanged("changeTheme")
         )
+
+
+
+    <script>
+
+        function AlertName() {
+        @if (1 == 1)
+        {
+            
+           
+        }
+         window.location.href = "";
+        }
+        
+    </script>
+
+
     <script>
         function changeTheme(e) {
             var selectedTheme = e.component.option("value");
             document.cookie = "currentTheme=" + selectedTheme + ";path=/";
             window.location.reload();
         }
+    </script>
+
+    <script>
+        $(function () {
+            $("#gridContainer").dxDataGrid({
+                // ...
+                onRowInserting: function (e) {
+                    const deferred = $.Deferred();
+                    const promptPromise = DevExpress.ui.dialog.confirm("Are you sure?", "Confirm changes");
+                    promptPromise.done((dialogResult) => {
+                        if (dialogResult) {
+                            $.ajax({
+                                url: "https://url/to/your/validation/service",
+                                dataType: "json",
+                                data: e.newData,
+                                success: function (validationResult) {
+                                    if (validationResult.errorText) {
+                                        deferred.reject(validationResult.errorText);
+                                    } else {
+                                        deferred.resolve(false);
+                                    }
+                                },
+                                error: function () {
+                                    deferred.reject("Data Loading Error");
+                                },
+                                timeout: 5000
+                            });
+                        } else {
+                            deferred.resolve(true);
+                        }
+                    });
+                    e.cancel = deferred.promise();
+                }
+            })
+        })
     </script>
 </div>

@@ -18,9 +18,9 @@ namespace MEYPAK.PRL.CARI
         public FCariDurum()
         {
             InitializeComponent();
-            _stok = new GenericWebServis<PocoSTOK>();
+            _cariKart = new GenericWebServis<PocoCARIKART>();
         }
-        GenericWebServis<PocoSTOK> _stok;
+        GenericWebServis<PocoCARIKART> _cariKart;
 
         private void GCCariDurum_Click(object sender, EventArgs e)
         {
@@ -29,7 +29,7 @@ namespace MEYPAK.PRL.CARI
 
         private void FCariDurum_Load(object sender, EventArgs e)
         {
-            _stok.Data(ServisList.CariListeServis);
+            _cariKart.Data(ServisList.CariListeServis);
 
          //   gridLookUpEdit1.Properties.DataSource = _stok.obje.Select(x => x.adi);
         }

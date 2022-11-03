@@ -47,7 +47,7 @@ namespace MEYPAK.PRL.STOK
 
         private void button1_Click(object sender, EventArgs e)
         {
-            FStokList fStokList = new FStokList("stokfiyatlistpanel");
+            FStokList fStokList = new FStokList(this.Tag.ToString(),"stokfiyatlistpanel");
             fStokList.ShowDialog();
             if (_tempStok != null)
                 if (_tempStok.id > 0)

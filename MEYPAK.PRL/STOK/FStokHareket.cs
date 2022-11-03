@@ -98,11 +98,11 @@ namespace MEYPAK.PRL.STOK
                     Cikis=x.io==0?x.miktar:0,
                     Giris=x.io==1?x.miktar:0,
                     Depo=_depoServis.obje.Where(z=>z.id==x.depoid).FirstOrDefault().DEPOADI,
-                    HareketTuru=x.hareketturu==5?"Muhtelif":x.hareketturu==1?"Satış Faturası":x.hareketturu==2?"Alış Faturası":x.hareketturu==3?"Satış İade":x.hareketturu==4?"Alış İade":x.hareketturu==6?"DAT":"",
+                    HareketTuru=x.hareketturu==5?"Muhtelif":x.hareketturu==1?"Satış Faturası":x.hareketturu==2?"Alış Faturası":x.hareketturu==3?"Satış İade":x.hareketturu==4?"Alış İade":x.hareketturu==6?"DAT" : x.hareketturu == 0 ? "Muhtelif" : "",
                     NetFiyat=x.netfiyat,
                     NetToplam=x.nettoplam,
                     Tarih=x.olusturmatarihi
-                }).ToList();
+                });
                 gridView1.RefreshData();
                 // _tempStok = null;
 
@@ -174,7 +174,7 @@ namespace MEYPAK.PRL.STOK
         private void BTStokSec_Click(object sender, EventArgs e)
         {
             _tempStok = null;
-            FStokList fStokList = new FStokList("stokhar");
+            FStokList fStokList = new FStokList(this.Tag.ToString(), "stokhar");
             fStokList.ShowDialog();
 
             Doldur();
@@ -249,7 +249,7 @@ namespace MEYPAK.PRL.STOK
         private void buttonEdit1_Properties_Click(object sender, EventArgs e)
         {
             _tempStok = null;
-            FStokList fStokList = new FStokList("stokhar");
+            FStokList fStokList = new FStokList(this.Tag.ToString(), "stokhar");
             fStokList.ShowDialog();
 
             Doldur();

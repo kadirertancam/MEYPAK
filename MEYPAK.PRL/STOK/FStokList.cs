@@ -1,4 +1,6 @@
-﻿using MEYPAK.BLL.Assets;
+﻿using DevExpress.XtraTab.ViewInfo;
+using DevExpress.XtraTab;
+using MEYPAK.BLL.Assets;
 using MEYPAK.BLL.STOK;
 using MEYPAK.DAL.Abstract;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
@@ -33,11 +35,12 @@ namespace MEYPAK.PRL.STOK
         FDepolarArasıTransferHar fDepolarArasıHar;
         int id;
         string _islem;
-        public FStokList(string islem="")
+        string _form;
+        public FStokList(string form="", string islem = "")
         {
             InitializeComponent();
             this._islem = islem;
-
+            this._form = form;
 
             _OlcuBrServis = new GenericWebServis<PocoOLCUBR>();
             _OlcuBrServis.Data(ServisList.OlcuBrListeServis);
@@ -45,28 +48,48 @@ namespace MEYPAK.PRL.STOK
             _stokServis = new GenericWebServis<PocoSTOK>();
             _stokMarka = new GenericWebServis<PocoSTOKMARKA>();
         }
-        GenericWebServis<PocoSTOK> _stokServis ; 
-        GenericWebServis<PocoSTOKOLCUBR> _stokOlcuBrServis ;
-        GenericWebServis<PocoOLCUBR> _OlcuBrServis ;
+        GenericWebServis<PocoSTOK> _stokServis;
+        GenericWebServis<PocoSTOKOLCUBR> _stokOlcuBrServis;
+        GenericWebServis<PocoOLCUBR> _OlcuBrServis;
         GenericWebServis<PocoSTOKMARKA> _stokMarka;
+        Form tempForm;
         private void FStokList_Load(object sender, EventArgs e)
         {
-            
 
+            foreach (Form frm in Application.OpenForms)
+            {
+                if (_form == frm.Tag)
+                {
+                    if (frm.Name.Contains("FStokHareket"))
+                        fStokHareket = (FStokHareket)frm;
+                    if (frm.Name.Contains("FStokKart"))
+                        fSTOKKART = (FStokKart)frm;
+                    if (frm.Name.Contains("FStokSayimPanel"))
+                        fstokSayimPanel = (FStokSayimPanel)frm;
+                    if(frm.Name.Contains("FStokFiyatListPanel"))
+                        fstokFiyatListPanel=(FStokFiyatListPanel)frm;
+                    if (frm.Name.Contains("FDepolarArasıTransferHar"))
+                        fDepolarArasıHar=(FDepolarArasıTransferHar)frm;
+                    if (frm.Name.Contains("FMusteriSiparis"))
+                        fSiparis=(FMusteriSiparis)frm;
+                    if (frm.Name.Contains("FSatınAlmaSiparis"))
+                        _fSatınAlmaSiparis=(FSatınAlmaSiparis)frm;
+                }
+            }
             _stokMarka.Data(ServisList.StokMarkaListeServis);
             _stokServis.Data(ServisList.StokListeServis);
-            GCStokList.DataSource = _stokServis.obje.Where(x=>x.kayittipi==0).Select(x => new { ID=x.id, KOD=x.kod, ADI=x.adi, GRUPKODU=x.grupkodu, OLCUBR=x.olcubR1, MARKA= _stokMarka.obje.Where(z=>z.id==x.markaid).Select(z=>z.ADI).FirstOrDefault() }).ToList();
+            GCStokList.DataSource = _stokServis.obje.Where(x => x.kayittipi == 0).Select(x => new { ID = x.id, KOD = x.kod, ADI = x.adi, GRUPKODU = x.grupkodu, OLCUBR = x.olcubR1, MARKA = _stokMarka.obje.Where(z => z.id == x.markaid).Select(z => z.ADI).FirstOrDefault() }).ToList();
 
-            fSTOKKART = (FStokKart)Application.OpenForms["FStokKart"];
-            fStokHareket = (FStokHareket)Application.OpenForms["FStokHareket"];
-            fstokSayimPanel = (FStokSayimPanel)Application.OpenForms["FStokSayimPanel"];
-            fstokFiyatListPanel = (FStokFiyatListPanel)Application.OpenForms["FStokFiyatListPanel"];
-            fDepolarArasıHar = (FDepolarArasıTransferHar)Application.OpenForms["FDepolarArasıTransferHar"];
-            fSiparis = (FMusteriSiparis)Application.OpenForms["FMusteriSiparis"];
-            _fSatınAlmaSiparis= (FSatınAlmaSiparis)Application.OpenForms["FSatınAlmaSiparis"];
+            //fSTOKKART =  (FStokKart)Application.OpenForms["FStokKart"];
+            //fStokHareket = (FStokHareket)Application.OpenForms["FStokHareket"];
+            //fstokSayimPanel = (FStokSayimPanel)Application.OpenForms["FStokSayimPanel"];
+            //fstokFiyatListPanel = (FStokFiyatListPanel)Application.OpenForms["FStokFiyatListPanel"];
+            //fDepolarArasıHar = (FDepolarArasıTransferHar)Application.OpenForms["FDepolarArasıTransferHar"];
+            //fSiparis = (FMusteriSiparis)Application.OpenForms["FMusteriSiparis"];
+            //_fSatınAlmaSiparis= (FSatınAlmaSiparis)Application.OpenForms["FSatınAlmaSiparis"];
 
         }
-        private void dataGridView1_CellDoubleClick(object sender, EventArgs  e)
+        private void dataGridView1_CellDoubleClick(object sender, EventArgs e)
         {
 
             _stokServis.Data(ServisList.StokListeServis);
@@ -78,7 +101,7 @@ namespace MEYPAK.PRL.STOK
             else if (_islem == "stoksayimpanel")
             {
                 if (fstokSayimPanel != null)
-                    fstokSayimPanel._tempStok = _stokServis.obje.Where(x=>x.id.ToString()== gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+                    fstokSayimPanel._tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
             }
             else if (_islem == "stokhar")
             {
@@ -99,7 +122,8 @@ namespace MEYPAK.PRL.STOK
             {
                 if (fDepolarArasıHar != null)
                     fDepolarArasıHar._tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
-            }else if (_islem == "SatinAlmaSiparis")
+            }
+            else if (_islem == "SatinAlmaSiparis")
             {
                 if (_fSatınAlmaSiparis != null)
                     _fSatınAlmaSiparis._tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
@@ -109,6 +133,6 @@ namespace MEYPAK.PRL.STOK
             this.Close();
         }
 
-        
+
     }
 }
