@@ -94,7 +94,7 @@ namespace MEYPAK.API.Controllers.IRSALIYEControllers
         }
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult DeleteById([FromBody] int id)
+        public IActionResult DeleteById([FromQuery] int id)
         {
             try
             {

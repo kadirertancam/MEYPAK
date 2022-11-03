@@ -17,7 +17,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
 
         public MPSTOKFIYATLISTHAR EkleyadaGuncelle(MPSTOKFIYATLISTHAR entity)
         {
-            bool exists = _context.MPSTOKFIYATLIST.Any(x => x.ID == entity.ID);
+            bool exists = _context.MPSTOKFIYATLISTHAR.Any(x => x.ID == entity.ID);
             if (!exists)
             {
                 _context.MPSTOKFIYATLISTHAR.Add(entity);

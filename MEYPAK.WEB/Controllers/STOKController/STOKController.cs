@@ -284,6 +284,7 @@ namespace MEYPAK.WEB.Controllers.STOKController
             PocoSTOKFIYATLISTHAR newPoco = new PocoSTOKFIYATLISTHAR();
             JsonConvert.PopulateObject(values, newPoco);
             newPoco.fiyatlistid = tempstokkartid;
+            newPoco.stokid = 1;
             _tempPocoStokFiyatHarList.Data(ServisList.StokFiyatListHarEkleServis, newPoco);
             
             ViewBag.Durum = "Başarıyla eklendi.";
