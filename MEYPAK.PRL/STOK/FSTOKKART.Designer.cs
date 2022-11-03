@@ -2280,7 +2280,6 @@
         private DataGridView dataGridView1;
         private Panel panel7;
         private TextBox TBKatsayi;
-        private ComboBox CBOlcuBirim;
         private DevExpress.XtraEditors.ButtonEdit BTStokKodu;
         private DevExpress.XtraEditors.ButtonEdit BTMarka;
         private DevExpress.XtraEditors.TextEdit TBStokAdi;
