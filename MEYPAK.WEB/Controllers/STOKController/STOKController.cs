@@ -1,27 +1,10 @@
-﻿using MEYPAK.DAL.Concrete.EntityFramework.Context;
-using Microsoft.AspNetCore.Mvc;
-using MEYPAK.Interfaces.Stok;
-using MEYPAK.Entity.Models.STOK;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Data;
-using System.Net.Http.Headers;
 using Newtonsoft.Json;
 using MEYPAK.Entity.PocoModels.STOK;
-using MEYPAK.WEB.Models;
-using Newtonsoft.Json.Linq;
-using System.Text;
-using System.Text.Json.Serialization;
-using System.Text.Json;
-using JsonSerializer = System.Text.Json.JsonSerializer;
-using System.Text.RegularExpressions;
 using MEYPAK.BLL.Assets;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using DevExtreme.AspNet.Data;
 using DevExtreme.AspNet.Mvc;
-using Ninject.Infrastructure.Language;
-using MEYPAK.WEB.Assets;
-using System.ServiceModel.Channels;
-
-
 namespace MEYPAK.WEB.Controllers.STOKController
 {
     public class StokController : Controller
@@ -221,7 +204,8 @@ namespace MEYPAK.WEB.Controllers.STOKController
 
         [HttpGet]
         public async Task<IActionResult> StokFiyatListKart()
-        {
+        { 
+
             return View();
         }
 
@@ -247,15 +231,15 @@ namespace MEYPAK.WEB.Controllers.STOKController
             _tempPocoStokFiyatList.Data(ServisList.StokFiyatListEkleServis, employee);
             var b = _tempPocoStokFiyatList.obje;
             ViewBag.Durum = "Başarıyla Güncellendi.";
-            return Ok();
+            return Ok(_tempPocoStokFiyatList.obje.FirstOrDefault().id);
         }
         [HttpPost]
-        public async Task<IActionResult> StokFiyatListPost(string values)
+        public   IActionResult StokFiyatListPost(string values)
         {
             PocoSTOKFIYATLIST newPoco = new PocoSTOKFIYATLIST();
             JsonConvert.PopulateObject(values, newPoco);
             _tempPocoStokFiyatList.Data(ServisList.StokFiyatListEkleServis, newPoco);
-            return View("StokFiyatListHarKart");
+            ViewBag.Redirect = "fdsfds";
             return Redirect("StokFiyatListHarKart?id=" + _tempPocoStokFiyatList.obje2.id);
 
         }
@@ -274,9 +258,16 @@ namespace MEYPAK.WEB.Controllers.STOKController
         #region STOKFIYATLISTHAR
 
         [HttpGet]
-        public async Task<IActionResult> StokFiyatListHarKart(int id)
+        public   IActionResult StokFiyatListHarKart(int id)
         {
-            return View();
+            if (id != 0)
+                return View();
+            //return RedirectToAction("StokFiyatListKart"); //View(id);
+            else
+            {  
+                    return View(); 
+                //
+            }
         }
 
         [HttpGet]

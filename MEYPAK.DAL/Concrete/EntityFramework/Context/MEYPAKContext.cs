@@ -14,7 +14,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MEYPAK.DAL.Concrete.EntityFramework.Context
 {
-    public partial class MEYPAKContext :IdentityDbContext<MPUSER,MPROLE,string>   
+    public partial class MEYPAKContext :DbContext
     {
         public MEYPAKContext()
         {
