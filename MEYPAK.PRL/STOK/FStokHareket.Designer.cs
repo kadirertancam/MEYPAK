@@ -343,7 +343,7 @@
             // 
             this.LBStokHarParaBirimi.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBStokHarParaBirimi.Appearance.Options.UseFont = true;
-            this.LBStokHarParaBirimi.Location = new System.Drawing.Point(531, 129);
+            this.LBStokHarParaBirimi.Location = new System.Drawing.Point(531, 130);
             this.LBStokHarParaBirimi.Name = "LBStokHarParaBirimi";
             this.LBStokHarParaBirimi.Size = new System.Drawing.Size(54, 14);
             this.LBStokHarParaBirimi.TabIndex = 46;
@@ -376,7 +376,7 @@
             // 
             this.LBStokHarAciklama.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBStokHarAciklama.Appearance.Options.UseFont = true;
-            this.LBStokHarAciklama.Location = new System.Drawing.Point(271, 24);
+            this.LBStokHarAciklama.Location = new System.Drawing.Point(271, 26);
             this.LBStokHarAciklama.Name = "LBStokHarAciklama";
             this.LBStokHarAciklama.Size = new System.Drawing.Size(57, 14);
             this.LBStokHarAciklama.TabIndex = 43;
@@ -387,7 +387,7 @@
             // 
             this.LBStokHarMiktar.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBStokHarMiktar.Appearance.Options.UseFont = true;
-            this.LBStokHarMiktar.Location = new System.Drawing.Point(294, 97);
+            this.LBStokHarMiktar.Location = new System.Drawing.Point(294, 99);
             this.LBStokHarMiktar.Name = "LBStokHarMiktar";
             this.LBStokHarMiktar.Size = new System.Drawing.Size(32, 14);
             this.LBStokHarMiktar.TabIndex = 42;
@@ -398,7 +398,7 @@
             // 
             this.LBStokHarBirim.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBStokHarBirim.Appearance.Options.UseFont = true;
-            this.LBStokHarBirim.Location = new System.Drawing.Point(301, 130);
+            this.LBStokHarBirim.Location = new System.Drawing.Point(301, 132);
             this.LBStokHarBirim.Name = "LBStokHarBirim";
             this.LBStokHarBirim.Size = new System.Drawing.Size(25, 14);
             this.LBStokHarBirim.TabIndex = 41;
@@ -452,7 +452,7 @@
             // CBBirim
             // 
             this.CBBirim.EditValue = "";
-            this.CBBirim.Location = new System.Drawing.Point(338, 122);
+            this.CBBirim.Location = new System.Drawing.Point(338, 125);
             this.CBBirim.Name = "CBBirim";
             this.CBBirim.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -535,7 +535,7 @@
             // 
             // TBMiktar
             // 
-            this.TBMiktar.Location = new System.Drawing.Point(338, 90);
+            this.TBMiktar.Location = new System.Drawing.Point(338, 93);
             this.TBMiktar.Name = "TBMiktar";
             this.TBMiktar.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.TBMiktar.Size = new System.Drawing.Size(181, 26);
@@ -543,7 +543,7 @@
             // 
             // TBAciklama
             // 
-            this.TBAciklama.Location = new System.Drawing.Point(338, 17);
+            this.TBAciklama.Location = new System.Drawing.Point(338, 20);
             this.TBAciklama.Name = "TBAciklama";
             this.TBAciklama.Size = new System.Drawing.Size(181, 67);
             this.TBAciklama.TabIndex = 32;
@@ -580,7 +580,7 @@
             // 
             this.groupBox3.Controls.Add(this.RGStokHarGirisCikis);
             this.groupBox3.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox3.Location = new System.Drawing.Point(338, 153);
+            this.groupBox3.Location = new System.Drawing.Point(338, 156);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(181, 47);
             this.groupBox3.TabIndex = 29;
