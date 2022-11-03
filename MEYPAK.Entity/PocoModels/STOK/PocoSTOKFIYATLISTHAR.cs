@@ -10,16 +10,18 @@ namespace MEYPAK.Entity.PocoModels.STOK
 {
     public class PocoSTOKFIYATLISTHAR:SUPERPOCOMODEL
     {
-        public int sirketid { get; set; }
-        public int subeid { get; set; }
-        public int stokid { get; set; }
+        public int sirketid { get; set; }=0;
+        public int subeid { get; set; } = 0;
+        [ForeignKey("mpstok")]
+        public int stokid { get; set; } = 0;
+        [ForeignKey("mpstokfiyatlist")]
         public int fiyatlistid { get; set; }
-        public int dovizid { get; set; }
-        public double kur { get; set; }
-        public double netfiyat { get; set; }
-        public double iskonto { get; set; }
-        public int kullaniciid { get; set; }
-        public int aktif { get; set; }
+        public int dovizid { get; set; } = 0;
+        public double kur { get; set; } = 0;
+        public double netfiyat { get; set; } = 0;
+        public double iskonto { get; set; } = 0;
+        public int kullaniciid { get; set; } = 0;
+        public int aktif { get; set; } = 0;
         public virtual PocoSTOK mpstok { get; set; }
         public virtual PocoSTOKFIYATLIST mpstokfiyatlist { get; set; }
         
