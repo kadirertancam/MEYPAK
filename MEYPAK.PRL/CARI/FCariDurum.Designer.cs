@@ -33,6 +33,8 @@
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.PLCariDurum = new System.Windows.Forms.Panel();
+            this.TECariKodu = new DevExpress.XtraEditors.TextEdit();
+            this.BECariKoduSec = new DevExpress.XtraEditors.ButtonEdit();
             this.LBAlacakDeger = new DevExpress.XtraEditors.LabelControl();
             this.LBBakiyeDeger = new DevExpress.XtraEditors.LabelControl();
             this.LBBorcDeger = new DevExpress.XtraEditors.LabelControl();
@@ -40,15 +42,13 @@
             this.Alacak = new DevExpress.XtraEditors.LabelControl();
             this.LBBorc = new DevExpress.XtraEditors.LabelControl();
             this.LBCariKodu = new DevExpress.XtraEditors.LabelControl();
-            this.BECariKoduSec = new DevExpress.XtraEditors.ButtonEdit();
-            this.TECariKodu = new DevExpress.XtraEditors.TextEdit();
             this.panel1.SuspendLayout();
             this.PLCariDurum1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.PLCariDurum.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BECariKoduSec.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TECariKodu.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BECariKoduSec.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -102,6 +102,22 @@
             this.PLCariDurum.Name = "PLCariDurum";
             this.PLCariDurum.Size = new System.Drawing.Size(1184, 100);
             this.PLCariDurum.TabIndex = 0;
+            // 
+            // TECariKodu
+            // 
+            this.TECariKodu.Location = new System.Drawing.Point(149, 59);
+            this.TECariKodu.Name = "TECariKodu";
+            this.TECariKodu.Size = new System.Drawing.Size(174, 20);
+            this.TECariKodu.TabIndex = 14;
+            // 
+            // BECariKoduSec
+            // 
+            this.BECariKoduSec.Location = new System.Drawing.Point(149, 32);
+            this.BECariKoduSec.Name = "BECariKoduSec";
+            this.BECariKoduSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.BECariKoduSec.Size = new System.Drawing.Size(174, 20);
+            this.BECariKoduSec.TabIndex = 13;
             // 
             // LBAlacakDeger
             // 
@@ -174,28 +190,13 @@
             this.LBCariKodu.Text = "Cari Kodu";
             this.LBCariKodu.Click += new System.EventHandler(this.LBCariKodu_Click);
             // 
-            // BECariKoduSec
-            // 
-            this.BECariKoduSec.Location = new System.Drawing.Point(149, 32);
-            this.BECariKoduSec.Name = "BECariKoduSec";
-            this.BECariKoduSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.BECariKoduSec.Size = new System.Drawing.Size(174, 20);
-            this.BECariKoduSec.TabIndex = 13;
-            // 
-            // TECariKodu
-            // 
-            this.TECariKodu.Location = new System.Drawing.Point(149, 59);
-            this.TECariKodu.Name = "TECariKodu";
-            this.TECariKodu.Size = new System.Drawing.Size(174, 20);
-            this.TECariKodu.TabIndex = 14;
-            // 
             // FCariDurum
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 584);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FCariDurum";
             this.Text = "FCariDurum";
             this.Load += new System.EventHandler(this.FCariDurum_Load);
@@ -205,8 +206,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.PLCariDurum.ResumeLayout(false);
             this.PLCariDurum.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BECariKoduSec.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TECariKodu.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BECariKoduSec.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -30,8 +30,8 @@ namespace MEYPAK.PRL.SIPARIS
             DGVFiyatList = new DataGridViewComboBoxColumn();
             DGVKasaSec = new DataGridViewButtonColumn();
             DGVKasaList = new DataGridViewComboBoxColumn();
-            _fStokList = new FStokList("SatinAlmaSiparis");
-            fKasaList = new FKasaList("SatinAlmaSiparis");
+            _fStokList = new FStokList(this.Tag.ToString(),"SatinAlmaSiparis");
+            fKasaList = new FKasaList(this.Tag.ToString(),"SatinAlmaSiparis");
             dataGridView1.MultiSelect = false;
             _depoServis = new GenericWebServis<PocoDEPO>();
             _depoServis.Data(ServisList.DepoListeServis);
@@ -254,7 +254,7 @@ namespace MEYPAK.PRL.SIPARIS
 
         private void BTNKasaSec_Click(object sender, EventArgs e)
         {
-            FKasaList fKasaList = new FKasaList("Siparis");
+            FKasaList fKasaList = new FKasaList(this.Tag.ToString(),"Siparis");
             fKasaList.ShowDialog();
             if (_tempKasa != null)
                 TBKasa.Text = _tempKasa.KASAADI;

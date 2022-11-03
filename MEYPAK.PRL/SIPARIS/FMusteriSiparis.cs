@@ -50,8 +50,8 @@ namespace MEYPAK.PRL.SIPARIS
             DGVFiyatList = new DataGridViewComboBoxColumn();
             DGVKasaSec = new DataGridViewButtonColumn();
             DGVKasaList = new DataGridViewComboBoxColumn();
-            _fStokList = new FStokList("siparis");
-            fKasaList = new FKasaList("Siparis");
+            _fStokList = new FStokList(this.Tag.ToString(),"siparis");
+            fKasaList = new FKasaList(this.Tag.ToString(),"Siparis");
             _depoServis = new GenericWebServis<PocoDEPO>();
             _depoServis.Data(ServisList.DepoListeServis);
             CBDepo.DataSource = _depoServis.obje.Select(x => x.DEPOADI).ToList();
@@ -65,7 +65,7 @@ namespace MEYPAK.PRL.SIPARIS
             _olcuBr.Data(ServisList.OlcuBrListeServis);
             _cariKart = new GenericWebServis<PocoCARIKART>();
             _cariKart.Data(ServisList.CariListeServis);
-            _fCariList = new FCariList("musterisiparis");
+            _fCariList = new FCariList(this.Tag.ToString(),"musterisiparis");
 
             gridView1.OptionsNavigation.AutoMoveRowFocus = true;
             gridView1.OptionsNavigation.AutoFocusNewRow = true;
@@ -195,7 +195,7 @@ namespace MEYPAK.PRL.SIPARIS
 
         private void RepositoryItemButtonEdit3_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
-            fKasaList = new FKasaList("musterisiparis");
+            fKasaList = new FKasaList(this.Tag.ToString(),"musterisiparis");
             fKasaList.ShowDialog();
         }
 
@@ -614,7 +614,7 @@ namespace MEYPAK.PRL.SIPARIS
 
         private void BTNKasaSec_Click(object sender, EventArgs e)
         {
-            FKasaList fKasaList = new FKasaList("Siparis");
+            FKasaList fKasaList = new FKasaList(this.Tag.ToString(),"Siparis");
             fKasaList.ShowDialog();
             if (_tempKasa != null)
                 TBKasa.Text = _tempKasa.KASAADI;

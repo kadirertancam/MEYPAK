@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FCariHareket));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.TBFiyat = new DevExpress.XtraEditors.TextEdit();
             this.TBKur = new DevExpress.XtraEditors.TextEdit();
             this.TBAciklama = new DevExpress.XtraEditors.MemoEdit();
@@ -152,9 +152,9 @@
             // 
             this.BTCariKodu.Location = new System.Drawing.Point(87, 21);
             this.BTCariKodu.Name = "BTCariKodu";
-            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
+            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
             this.BTCariKodu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTCariKodu.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.BTCariKodu.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.TBCariKodu_Properties_ButtonClick);
             this.BTCariKodu.Size = new System.Drawing.Size(175, 33);
@@ -410,7 +410,7 @@
             this.LBCariHBakiye.Appearance.ForeColor = System.Drawing.Color.Red;
             this.LBCariHBakiye.Appearance.Options.UseFont = true;
             this.LBCariHBakiye.Appearance.Options.UseForeColor = true;
-            this.LBCariHBakiye.Location = new System.Drawing.Point(658, 16);
+            this.LBCariHBakiye.Location = new System.Drawing.Point(673, 16);
             this.LBCariHBakiye.Name = "LBCariHBakiye";
             this.LBCariHBakiye.Size = new System.Drawing.Size(39, 14);
             this.LBCariHBakiye.TabIndex = 63;
@@ -422,7 +422,7 @@
             this.LBCariHToplamAlacak.Appearance.ForeColor = System.Drawing.Color.Red;
             this.LBCariHToplamAlacak.Appearance.Options.UseFont = true;
             this.LBCariHToplamAlacak.Appearance.Options.UseForeColor = true;
-            this.LBCariHToplamAlacak.Location = new System.Drawing.Point(447, 16);
+            this.LBCariHToplamAlacak.Location = new System.Drawing.Point(424, 16);
             this.LBCariHToplamAlacak.Name = "LBCariHToplamAlacak";
             this.LBCariHToplamAlacak.Size = new System.Drawing.Size(88, 14);
             this.LBCariHToplamAlacak.TabIndex = 62;
@@ -467,7 +467,7 @@
             this.LBToplamBakiye.AutoSize = true;
             this.LBToplamBakiye.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBToplamBakiye.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.LBToplamBakiye.Location = new System.Drawing.Point(655, 33);
+            this.LBToplamBakiye.Location = new System.Drawing.Point(670, 33);
             this.LBToplamBakiye.Name = "LBToplamBakiye";
             this.LBToplamBakiye.Size = new System.Drawing.Size(49, 28);
             this.LBToplamBakiye.TabIndex = 10;
@@ -489,7 +489,7 @@
             this.LBToplamAlacakDeger.AutoSize = true;
             this.LBToplamAlacakDeger.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBToplamAlacakDeger.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.LBToplamAlacakDeger.Location = new System.Drawing.Point(455, 33);
+            this.LBToplamAlacakDeger.Location = new System.Drawing.Point(432, 33);
             this.LBToplamAlacakDeger.Name = "LBToplamAlacakDeger";
             this.LBToplamAlacakDeger.Size = new System.Drawing.Size(49, 28);
             this.LBToplamAlacakDeger.TabIndex = 12;
@@ -576,6 +576,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FCariHareket";
             this.Text = "FCariHareket";
+            this.Load += new System.EventHandler(this.FCariHareket_Load);
             ((System.ComponentModel.ISupportInitialize)(this.TBFiyat.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBKur.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBAciklama.Properties)).EndInit();

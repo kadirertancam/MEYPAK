@@ -1,4 +1,5 @@
 ﻿using MEYPAK.BLL.Assets;
+using MEYPAK.Entity.Models.SIPARIS;
 using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.PRL.SIPARIS;
 using System;
@@ -15,10 +16,12 @@ namespace MEYPAK.PRL.CARI
 {
     public partial class FCariList : Form
     {
+        string _islem;
         string _form;
-        public FCariList(string form="")
+        public FCariList(string form="",string islem="")
         {
             InitializeComponent();
+            _islem = islem;
             _form = form;
             _cariServis = new GenericWebServis<PocoCARIKART>();
            
@@ -29,9 +32,19 @@ namespace MEYPAK.PRL.CARI
         FMusteriSiparis _fmusteriSiparis;
         private void FCariList_Load(object sender, EventArgs e)
         {
-            _cariKart = (FCariKart)Application.OpenForms["FCariKart"];
-            _cariHareket = (FCariHareket)Application.OpenForms["FCariHareket"];
-            _fmusteriSiparis = (FMusteriSiparis)Application.OpenForms["FMusteriSiparis"];
+            foreach (Form frm in Application.OpenForms)
+            {
+                if (_form == frm.Tag)
+                {
+                    if (frm.Name.Contains("FCariKart"))
+                        _cariKart = (FCariKart)frm;
+                    if (frm.Name.Contains("FCariHareket"))
+                        _cariHareket = (FCariHareket)frm;
+                    if (frm.Name.Contains("FMusteriSiparis"))
+                        _fmusteriSiparis = (FMusteriSiparis)frm;
+                }
+            }
+           
             _cariServis.Data(ServisList.CariListeServis);
             GCCariList.DataSource = _cariServis.obje.Select(x=> new
             {
@@ -46,11 +59,11 @@ namespace MEYPAK.PRL.CARI
 
         private void gridView1_DoubleClick(object sender, EventArgs e)
         {
-            if (_form == "carikart")
+            if (_islem == "carikart")
                 _cariKart._tempCariKart = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()).FirstOrDefault();
-            if(_form=="carihar")
+            if(_islem=="carihar")
                 _cariHareket._tempCARIKART= _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
-            if (_form == "musterisiparis")
+            if (_islem == "musterisiparis")
             {
                 _fmusteriSiparis.TBCariKodu.Text = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault().KOD;
                 _fmusteriSiparis.TBCariAdi.Text = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault().UNVAN;
