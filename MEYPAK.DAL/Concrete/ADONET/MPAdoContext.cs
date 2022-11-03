@@ -12,8 +12,7 @@ namespace MEYPAK.DAL.Concrete.ADONET
         public MPAdoContext()
         {
             GenericList = new List<T>();
-            genericT = new T();
-            HepsiniGetir();
+            genericT = new T(); 
         }
         public List<T> GenericList;
 
@@ -31,13 +30,24 @@ namespace MEYPAK.DAL.Concrete.ADONET
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
                     genericT = new T();
-
-                    for (int j = 0; j < genericT.GetType().GetProperties().Count()-7; j++)
+                    var k = 0;
+                    for (int j = 0; j < genericT.GetType().GetProperties().Count(); j++)
                     {
-                        var a = dt.Rows[i][dt.Columns[j].ColumnName];
-                        if (a.ToString() != "{}")
+                       
+                        var ba = genericT.GetType().GetProperties()[j].Name.Substring(0, 2).ToString();
+                        if (ba != "MP" && ba != "mp")
                         {
-                            genericT.GetType().GetProperty(dt.Columns[j].ColumnName).SetValue(genericT, dt.Rows[i][dt.Columns[j].ColumnName]);
+
+                            var a = dt.Rows[i][dt.Columns[k].ColumnName];
+                            if (a.ToString() != "{}")
+                            {
+                                genericT.GetType().GetProperty(dt.Columns[k].ColumnName).SetValue(genericT, dt.Rows[i][dt.Columns[k].ColumnName]);
+                            }
+                            k++;
+                        }
+                        else
+                        { 
+                            var aasd = 1;
                         }
 
 
@@ -55,13 +65,20 @@ namespace MEYPAK.DAL.Concrete.ADONET
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
                     genericT = new T();
-
+                    var k = 0;
                     for (int j = 0; j < genericT.GetType().GetProperties().Count()-7; j++)
                     {
-                        var a = dt.Rows[i][dt.Columns[j].ColumnName];
-                        if (a.ToString() != "{}")
+
+                        var ba = genericT.GetType().GetProperties()[j].Name.Substring(0, 2).ToString();
+                        if (ba != "MP" && ba != "mp")
                         {
-                            genericT.GetType().GetProperty(dt.Columns[j].ColumnName).SetValue(genericT, dt.Rows[i][dt.Columns[j].ColumnName]);
+
+                            var a = dt.Rows[i][dt.Columns[k].ColumnName];
+                            if (a.ToString() != "{}")
+                            {
+                                genericT.GetType().GetProperty(dt.Columns[k].ColumnName).SetValue(genericT, dt.Rows[i][dt.Columns[k].ColumnName]);
+                            }
+                            k++;
                         }
                     }
                     GenericList.Add(genericT);

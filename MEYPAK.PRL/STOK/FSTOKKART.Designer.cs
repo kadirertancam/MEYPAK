@@ -303,7 +303,7 @@
             this.BTStokKartiKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
             this.BTStokKartiKaydet.Appearance.Options.UseBackColor = true;
             this.BTStokKartiKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTStokKartiKaydet.ImageOptions.Image")));
-            this.BTStokKartiKaydet.Location = new System.Drawing.Point(940, 25);
+            this.BTStokKartiKaydet.Location = new System.Drawing.Point(966, 4);
             this.BTStokKartiKaydet.Name = "BTStokKartiKaydet";
             this.BTStokKartiKaydet.Size = new System.Drawing.Size(128, 65);
             this.BTStokKartiKaydet.TabIndex = 60;
@@ -781,6 +781,16 @@
             this.TBKatsayi.Name = "TBKatsayi";
             this.TBKatsayi.Size = new System.Drawing.Size(100, 26);
             this.TBKatsayi.TabIndex = 3;
+            // 
+            // CBOlcuBirim
+            // 
+            this.CBOlcuBirim.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CBOlcuBirim.FormattingEnabled = true;
+            this.CBOlcuBirim.Location = new System.Drawing.Point(18, 35);
+            this.CBOlcuBirim.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.CBOlcuBirim.Name = "CBOlcuBirim";
+            this.CBOlcuBirim.Size = new System.Drawing.Size(121, 26);
+            this.CBOlcuBirim.TabIndex = 0;
             // 
             // CBOlcuBirim
             // 

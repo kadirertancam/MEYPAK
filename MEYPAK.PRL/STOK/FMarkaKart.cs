@@ -33,7 +33,7 @@ namespace MEYPAK.PRL.STOK
         private void FMarkaKart_Load(object sender, EventArgs e)
         {
             _markaServis.Data(ServisList.StokMarkaListeServis);
-           dataGridView1.DataSource= _markaServis.obje;
+           DGMarkaKart.DataSource= _markaServis.obje;
         }
 
         private void BTKaydet_Click(object sender, EventArgs e)
@@ -53,13 +53,13 @@ namespace MEYPAK.PRL.STOK
                 Temizle(this.Controls);
 
             _markaServis.Data(ServisList.StokMarkaListeServis);
-            dataGridView1.DataSource = _markaServis.obje;
+            DGMarkaKart.DataSource = _markaServis.obje;
 
         }
 
         private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            _tempMarka = _markaServis.obje.Where(x=>x.id.ToString()==dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
+            _tempMarka = _markaServis.obje.Where(x=>x.id.ToString()==DGMarkaKart.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
             TBMarkaAdi.Text = _tempMarka.ADI;
             TBAciklama.Text = _tempMarka.ACIKLAMA;
             id = _tempMarka.id;
@@ -70,7 +70,7 @@ namespace MEYPAK.PRL.STOK
             if(_tempMarka!=null)
             _markaServis.Data(ServisList.StokMarkaSilServis,null,"filter=ID eq"+ _tempMarka.id);
             _markaServis.Data(ServisList.StokMarkaListeServis);
-            dataGridView1.DataSource= _markaServis.obje;
+            DGMarkaKart.DataSource= _markaServis.obje;
             
         }
 

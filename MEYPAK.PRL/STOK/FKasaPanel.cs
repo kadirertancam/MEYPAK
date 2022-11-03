@@ -49,8 +49,8 @@ namespace MEYPAK.PRL.STOK
         void Doldur()
         {
             _kasaServis.Data(ServisList.StokKasaListeServis);
-            dataGridView1.DataSource = "";
-            dataGridView1.DataSource = _kasaServis.obje;
+            DGKasaPanel.DataSource = "";
+            DGKasaPanel.DataSource = _kasaServis.obje;
         }
     }
 }
