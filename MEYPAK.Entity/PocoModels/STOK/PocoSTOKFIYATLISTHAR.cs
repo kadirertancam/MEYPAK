@@ -12,9 +12,7 @@ namespace MEYPAK.Entity.PocoModels.STOK
     {
         public int sirketid { get; set; }=0;
         public int subeid { get; set; } = 0;
-        [ForeignKey("mpstok")]
         public int stokid { get; set; } = 0;
-        [ForeignKey("mpstokfiyatlist")]
         public int fiyatlistid { get; set; }
         public int dovizid { get; set; } = 0;
         public double kur { get; set; } = 0;
