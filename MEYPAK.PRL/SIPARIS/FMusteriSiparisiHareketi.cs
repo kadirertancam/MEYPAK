@@ -32,38 +32,38 @@ namespace MEYPAK.PRL.SIPARIS
 
         private void FSiparisIrsaliyelestir_Load(object sender, EventArgs e)
         {
-            dataGridSiparis.DataSource = _siparisServis.Listele();
+            DGSiparis.DataSource = _siparisServis.Listele();
            
             
         }
 
         private void BTNSiparisFiltrele_Click(object sender, EventArgs e)
         {
-            dataGridSiparis.DataSource = "";
+            DGSiparis.DataSource = "";
             mpSiparis = _siparisServis.Listele().Where(x => (DateTime)x.SIPARISTARIHI>=dateTimePicker1.Value).ToList();
             mpSiparis = mpSiparis.Where(x => (DateTime)x.SIPARISTARIHI<=dateTimePicker2.Value).ToList();
-            dataGridSiparis.DataSource=mpSiparis;
+            DGSiparis.DataSource=mpSiparis;
         }
 
         private void dataGridSiparis_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            _mpSiparisDetay= _siparisdetayServis.Getir(x => x.SIPARISID == (int)dataGridSiparis.Rows[e.RowIndex].Cells[0].Value);
-            dataGridSiparisDetay.DataSource = _mpSiparisDetay;
+            _mpSiparisDetay= _siparisdetayServis.Getir(x => x.SIPARISID == (int)DGSiparis.Rows[e.RowIndex].Cells[0].Value);
+            DGSiparisDetay.DataSource = _mpSiparisDetay;
             GridYapılandır();
         }
 
         private void dataGridSiparisDetay_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {   
-            LBLSiparisMik.Text = dataGridSiparisDetay.Rows[e.RowIndex].Cells["MIKTAR"].Value.ToString();
-            LBLBekleyenMik.Text= dataGridSiparisDetay.Rows[e.RowIndex].Cells["BEKLEYENMIKTAR"].Value.ToString();
+            LBLSiparisMik.Text = DGSiparisDetay.Rows[e.RowIndex].Cells["MIKTAR"].Value.ToString();
+            LBLBekleyenMik.Text= DGSiparisDetay.Rows[e.RowIndex].Cells["BEKLEYENMIKTAR"].Value.ToString();
             var a = Enum.GetNames(typeof(SiparisDurum));
-            LBLDurum.Text = a[(byte)dataGridSiparisDetay.Rows[e.RowIndex].Cells["HAREKETDURUMU"].Value];
+            LBLDurum.Text = a[(byte)DGSiparisDetay.Rows[e.RowIndex].Cells["HAREKETDURUMU"].Value];
         }
         
         private void BTNIrsaliyeOlustur_Click(object sender, EventArgs e)
         {
             FSatisIrsaliye fIrsaliyeOlustur = new FSatisIrsaliye();
-            foreach (DataGridViewRow item in dataGridSiparisDetay.Rows)
+            foreach (DataGridViewRow item in DGSiparisDetay.Rows)
             {
                 if (Convert.ToBoolean(item.Cells["DVGCheckBox"].Value) == true)
                 {
@@ -84,8 +84,10 @@ namespace MEYPAK.PRL.SIPARIS
             DVGCheckBox.TrueValue = true;
 
 
-            dataGridSiparisDetay.Columns.Add(DVGCheckBox);
-            dataGridSiparisDetay.Columns["DVGCheckBox"].DisplayIndex = 0;
+            DGSiparisDetay.Columns.Add(DVGCheckBox);
+            DGSiparisDetay.Columns["DVGCheckBox"].DisplayIndex = 0;
         }
+
+        
     }
 }

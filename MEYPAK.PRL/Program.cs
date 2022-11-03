@@ -23,7 +23,7 @@ namespace MEYPAK.PRL
             NinjectFactory.CompositionRoot.Initialize(a);
             ApplicationConfiguration.Initialize();
             Application.EnableVisualStyles();
-            Application.Run(new FSatisIrsaliye());
+            Application.Run(new Main());
         }
     }
 }

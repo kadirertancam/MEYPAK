@@ -28,38 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.DGMusteriSiparis = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.DGMusteriSiparis)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // DGMusteriSiparis
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(800, 450);
-            this.dataGridView1.TabIndex = 2;
-            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+            this.DGMusteriSiparis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGMusteriSiparis.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DGMusteriSiparis.Location = new System.Drawing.Point(0, 0);
+            this.DGMusteriSiparis.Name = "DGMusteriSiparis";
+            this.DGMusteriSiparis.ReadOnly = true;
+            this.DGMusteriSiparis.RowTemplate.Height = 25;
+            this.DGMusteriSiparis.Size = new System.Drawing.Size(800, 450);
+            this.DGMusteriSiparis.TabIndex = 2;
+            this.DGMusteriSiparis.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // FMusteriSiparisList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.DGMusteriSiparis);
             this.Name = "FMusteriSiparisList";
             this.Text = "FMusteriSiparisList";
             this.Load += new System.EventHandler(this.FMusteriSiparisList_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGMusteriSiparis)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private DataGridView dataGridView1;
+        private DataGridView DGMusteriSiparis;
     }
 }

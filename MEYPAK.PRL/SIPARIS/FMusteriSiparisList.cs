@@ -29,7 +29,7 @@ namespace MEYPAK.PRL.SIPARIS
         {
             fmusteriSiparis = (FMusteriSiparis)Application.OpenForms["FMusteriSiparis"];
             _mSiparisServis.Data(ServisList.SiparisListeServis);
-            dataGridView1.DataSource = _mSiparisServis.obje;
+            DGMusteriSiparis.DataSource = _mSiparisServis.obje;
         }
 
 
@@ -40,7 +40,7 @@ namespace MEYPAK.PRL.SIPARIS
             {
                 if (fmusteriSiparis != null)
                 {
-                    fmusteriSiparis._tempSiparis = _mSiparisServis.obje.Where(x => x.id.ToString() == dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
+                    fmusteriSiparis._tempSiparis = _mSiparisServis.obje.Where(x => x.id.ToString() == DGMusteriSiparis.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
                 }
 
             }
