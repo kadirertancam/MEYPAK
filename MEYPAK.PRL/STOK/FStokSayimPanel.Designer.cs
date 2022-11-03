@@ -28,12 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FStokSayimPanel));
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.GBStokBilgi = new System.Windows.Forms.GroupBox();
-            this.BTStokSayimTemizle = new DevExpress.XtraEditors.SimpleButton();
-            this.BTStokSayimSil = new DevExpress.XtraEditors.SimpleButton();
             this.BTStokBilgiKaydet = new DevExpress.XtraEditors.SimpleButton();
+            this.BTStokSayimSil = new DevExpress.XtraEditors.SimpleButton();
+            this.BTStokSayimTemizle = new DevExpress.XtraEditors.SimpleButton();
+            this.CBBirim = new DevExpress.XtraEditors.GridLookUpEdit();
+            this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.LBBakiye = new DevExpress.XtraEditors.LabelControl();
             this.BTStokKoduSec = new DevExpress.XtraEditors.SimpleButton();
             this.LBStokBilgiFiyat = new DevExpress.XtraEditors.LabelControl();
             this.LBStokBilgiMiktar = new DevExpress.XtraEditors.LabelControl();
@@ -44,36 +49,39 @@
             this.TBStokBilgiStokAdi = new DevExpress.XtraEditors.TextEdit();
             this.TBStokBilgiStokKodu = new DevExpress.XtraEditors.TextEdit();
             this.LBStokBilgiStokKodu = new DevExpress.XtraEditors.LabelControl();
-            this.LBStokBilgiBakiye = new System.Windows.Forms.Label();
             this.GBStokSayim = new System.Windows.Forms.GroupBox();
-            this.DTStokSayimPanelTarih = new DevExpress.XtraEditors.DateEdit();
+            this.CBStokSayimDepo = new DevExpress.XtraEditors.GridLookUpEdit();
+            this.gridLookUpEdit2View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.DTStokSayimTarih = new System.Windows.Forms.DateTimePicker();
             this.LBStokSayimPanelDepo = new DevExpress.XtraEditors.LabelControl();
             this.LBStokSayimPanelTarih = new DevExpress.XtraEditors.LabelControl();
+            this.stokSayimManagerBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.stokSayimManagerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.BTStokSayimCik = new DevExpress.XtraEditors.SimpleButton();
-            this.BTStokSayimKaydet = new DevExpress.XtraEditors.SimpleButton();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.CBDepo = new DevExpress.XtraEditors.LookUpEdit();
-            this.CBStokBilgiBirim = new DevExpress.XtraEditors.LookUpEdit();
+            this.DGStokSayim = new System.Windows.Forms.DataGridView();
+            this.BTStokSayimKaydet = new DevExpress.XtraEditors.SimpleButton();
+            this.BTÇık = new DevExpress.XtraEditors.SimpleButton();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.GBStokBilgi.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CBBirim.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBStokBilgiFiyat.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBStokBilgiMiktar.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBStokBilgiBakiye.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBStokBilgiStokAdi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBStokBilgiStokKodu.Properties)).BeginInit();
             this.GBStokSayim.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DTStokSayimPanelTarih.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DTStokSayimPanelTarih.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CBStokSayimDepo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit2View)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stokSayimManagerBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stokSayimManagerBindingSource)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CBDepo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CBStokBilgiBirim.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGStokSayim)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -99,10 +107,11 @@
             // 
             // GBStokBilgi
             // 
-            this.GBStokBilgi.Controls.Add(this.CBStokBilgiBirim);
-            this.GBStokBilgi.Controls.Add(this.BTStokSayimTemizle);
-            this.GBStokBilgi.Controls.Add(this.BTStokSayimSil);
             this.GBStokBilgi.Controls.Add(this.BTStokBilgiKaydet);
+            this.GBStokBilgi.Controls.Add(this.BTStokSayimSil);
+            this.GBStokBilgi.Controls.Add(this.BTStokSayimTemizle);
+            this.GBStokBilgi.Controls.Add(this.CBBirim);
+            this.GBStokBilgi.Controls.Add(this.LBBakiye);
             this.GBStokBilgi.Controls.Add(this.BTStokKoduSec);
             this.GBStokBilgi.Controls.Add(this.LBStokBilgiFiyat);
             this.GBStokBilgi.Controls.Add(this.LBStokBilgiMiktar);
@@ -113,7 +122,6 @@
             this.GBStokBilgi.Controls.Add(this.TBStokBilgiStokAdi);
             this.GBStokBilgi.Controls.Add(this.TBStokBilgiStokKodu);
             this.GBStokBilgi.Controls.Add(this.LBStokBilgiStokKodu);
-            this.GBStokBilgi.Controls.Add(this.LBStokBilgiBakiye);
             this.GBStokBilgi.Dock = System.Windows.Forms.DockStyle.Top;
             this.GBStokBilgi.Location = new System.Drawing.Point(3, 94);
             this.GBStokBilgi.Name = "GBStokBilgi";
@@ -122,35 +130,68 @@
             this.GBStokBilgi.TabStop = false;
             this.GBStokBilgi.Text = "Stok Bilgi";
             // 
-            // BTStokSayimTemizle
+            // BTStokBilgiKaydet
             // 
-            this.BTStokSayimTemizle.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.BTStokSayimTemizle.Appearance.Options.UseBackColor = true;
-            this.BTStokSayimTemizle.Location = new System.Drawing.Point(831, 37);
-            this.BTStokSayimTemizle.Name = "BTStokSayimTemizle";
-            this.BTStokSayimTemizle.Size = new System.Drawing.Size(94, 52);
-            this.BTStokSayimTemizle.TabIndex = 68;
-            this.BTStokSayimTemizle.Text = "Temizle";
+            this.BTStokBilgiKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTStokBilgiKaydet.Appearance.Options.UseBackColor = true;
+            this.BTStokBilgiKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTStokHarKaydet.ImageOptions.Image")));
+            this.BTStokBilgiKaydet.Location = new System.Drawing.Point(731, 44);
+            this.BTStokBilgiKaydet.Name = "BTStokBilgiKaydet";
+            this.BTStokBilgiKaydet.Size = new System.Drawing.Size(94, 52);
+            this.BTStokBilgiKaydet.TabIndex = 77;
+            this.BTStokBilgiKaydet.Text = "Kaydet";
             // 
             // BTStokSayimSil
             // 
             this.BTStokSayimSil.Appearance.BackColor = System.Drawing.Color.Gainsboro;
             this.BTStokSayimSil.Appearance.Options.UseBackColor = true;
-            this.BTStokSayimSil.Location = new System.Drawing.Point(731, 37);
+            this.BTStokSayimSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTStokSayimSil.ImageOptions.Image")));
+            this.BTStokSayimSil.Location = new System.Drawing.Point(831, 44);
             this.BTStokSayimSil.Name = "BTStokSayimSil";
             this.BTStokSayimSil.Size = new System.Drawing.Size(94, 52);
-            this.BTStokSayimSil.TabIndex = 67;
+            this.BTStokSayimSil.TabIndex = 78;
             this.BTStokSayimSil.Text = "Sil";
             // 
-            // BTStokBilgiKaydet
+            // BTStokSayimTemizle
             // 
-            this.BTStokBilgiKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.BTStokBilgiKaydet.Appearance.Options.UseBackColor = true;
-            this.BTStokBilgiKaydet.Location = new System.Drawing.Point(631, 37);
-            this.BTStokBilgiKaydet.Name = "BTStokBilgiKaydet";
-            this.BTStokBilgiKaydet.Size = new System.Drawing.Size(94, 52);
-            this.BTStokBilgiKaydet.TabIndex = 66;
-            this.BTStokBilgiKaydet.Text = "Kaydet";
+            this.BTStokSayimTemizle.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTStokSayimTemizle.Appearance.Options.UseBackColor = true;
+            this.BTStokSayimTemizle.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTStokSayimTemizle.ImageOptions.Image")));
+            this.BTStokSayimTemizle.Location = new System.Drawing.Point(931, 44);
+            this.BTStokSayimTemizle.Name = "BTStokSayimTemizle";
+            this.BTStokSayimTemizle.Size = new System.Drawing.Size(94, 52);
+            this.BTStokSayimTemizle.TabIndex = 79;
+            this.BTStokSayimTemizle.Text = "Temizle";
+            // 
+            // CBBirim
+            // 
+            this.CBBirim.EditValue = "";
+            this.CBBirim.Location = new System.Drawing.Point(378, 21);
+            this.CBBirim.Name = "CBBirim";
+            this.CBBirim.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CBBirim.Properties.NullText = "";
+            this.CBBirim.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.CBBirim.Properties.PopupView = this.gridLookUpEdit1View;
+            this.CBBirim.Size = new System.Drawing.Size(200, 26);
+            this.CBBirim.TabIndex = 80;
+            // 
+            // gridLookUpEdit1View
+            // 
+            this.gridLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridLookUpEdit1View.Name = "gridLookUpEdit1View";
+            this.gridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            // 
+            // LBBakiye
+            // 
+            this.LBBakiye.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBBakiye.Appearance.Options.UseFont = true;
+            this.LBBakiye.Location = new System.Drawing.Point(58, 94);
+            this.LBBakiye.Name = "LBBakiye";
+            this.LBBakiye.Size = new System.Drawing.Size(34, 14);
+            this.LBBakiye.TabIndex = 69;
+            this.LBBakiye.Text = "Bakiye";
             // 
             // BTStokKoduSec
             // 
@@ -166,10 +207,11 @@
             this.BTStokKoduSec.AppearanceDisabled.Options.UseBorderColor = true;
             this.BTStokKoduSec.AppearanceHovered.BorderColor = System.Drawing.Color.Black;
             this.BTStokKoduSec.AppearanceHovered.Options.UseBorderColor = true;
-            this.BTStokKoduSec.Location = new System.Drawing.Point(235, 22);
+            this.BTStokKoduSec.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTStokKoduSec.ImageOptions.Image")));
+            this.BTStokKoduSec.Location = new System.Drawing.Point(239, 22);
             this.BTStokKoduSec.Name = "BTStokKoduSec";
-            this.BTStokKoduSec.Size = new System.Drawing.Size(63, 26);
-            this.BTStokKoduSec.TabIndex = 61;
+            this.BTStokKoduSec.Size = new System.Drawing.Size(59, 26);
+            this.BTStokKoduSec.TabIndex = 60;
             this.BTStokKoduSec.Text = "Seç";
             // 
             // LBStokBilgiFiyat
@@ -256,25 +298,16 @@
             // 
             this.LBStokBilgiStokKodu.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBStokBilgiStokKodu.Appearance.Options.UseFont = true;
-            this.LBStokBilgiStokKodu.Location = new System.Drawing.Point(18, 34);
+            this.LBStokBilgiStokKodu.Location = new System.Drawing.Point(35, 30);
             this.LBStokBilgiStokKodu.Name = "LBStokBilgiStokKodu";
             this.LBStokBilgiStokKodu.Size = new System.Drawing.Size(57, 14);
             this.LBStokBilgiStokKodu.TabIndex = 23;
             this.LBStokBilgiStokKodu.Text = "Stok Kodu";
             // 
-            // LBStokBilgiBakiye
-            // 
-            this.LBStokBilgiBakiye.AutoSize = true;
-            this.LBStokBilgiBakiye.Location = new System.Drawing.Point(18, 94);
-            this.LBStokBilgiBakiye.Name = "LBStokBilgiBakiye";
-            this.LBStokBilgiBakiye.Size = new System.Drawing.Size(41, 15);
-            this.LBStokBilgiBakiye.TabIndex = 5;
-            this.LBStokBilgiBakiye.Text = "Bakiye";
-            // 
             // GBStokSayim
             // 
-            this.GBStokSayim.Controls.Add(this.CBDepo);
-            this.GBStokSayim.Controls.Add(this.DTStokSayimPanelTarih);
+            this.GBStokSayim.Controls.Add(this.CBStokSayimDepo);
+            this.GBStokSayim.Controls.Add(this.DTStokSayimTarih);
             this.GBStokSayim.Controls.Add(this.LBStokSayimPanelDepo);
             this.GBStokSayim.Controls.Add(this.LBStokSayimPanelTarih);
             this.GBStokSayim.Dock = System.Windows.Forms.DockStyle.Top;
@@ -285,33 +318,41 @@
             this.GBStokSayim.TabStop = false;
             this.GBStokSayim.Text = "Genel";
             // 
-            // DTStokSayimPanelTarih
+            // CBStokSayimDepo
             // 
-            this.DTStokSayimPanelTarih.EditValue = new System.DateTime(2022, 11, 2, 12, 14, 48, 0);
-            this.DTStokSayimPanelTarih.Location = new System.Drawing.Point(98, 14);
-            this.DTStokSayimPanelTarih.Name = "DTStokSayimPanelTarih";
-            this.DTStokSayimPanelTarih.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DTStokSayimPanelTarih.Properties.Appearance.Options.UseFont = true;
-            this.DTStokSayimPanelTarih.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.SpinDown)});
-            this.DTStokSayimPanelTarih.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.CBStokSayimDepo.EditValue = "";
+            this.CBStokSayimDepo.Location = new System.Drawing.Point(98, 43);
+            this.CBStokSayimDepo.Name = "CBStokSayimDepo";
+            this.CBStokSayimDepo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.DTStokSayimPanelTarih.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.ClassicNew;
-            this.DTStokSayimPanelTarih.Properties.MaskSettings.Set("mask", "f");
-            this.DTStokSayimPanelTarih.Properties.VistaCalendarInitialViewStyle = DevExpress.XtraEditors.VistaCalendarInitialViewStyle.YearsGroupView;
-            this.DTStokSayimPanelTarih.Properties.VistaCalendarViewStyle = ((DevExpress.XtraEditors.VistaCalendarViewStyle)(((((DevExpress.XtraEditors.VistaCalendarViewStyle.MonthView | DevExpress.XtraEditors.VistaCalendarViewStyle.YearView) 
-            | DevExpress.XtraEditors.VistaCalendarViewStyle.QuarterView) 
-            | DevExpress.XtraEditors.VistaCalendarViewStyle.YearsGroupView) 
-            | DevExpress.XtraEditors.VistaCalendarViewStyle.CenturyView)));
-            this.DTStokSayimPanelTarih.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
-            this.DTStokSayimPanelTarih.Size = new System.Drawing.Size(200, 24);
-            this.DTStokSayimPanelTarih.TabIndex = 12;
+            this.CBStokSayimDepo.Properties.NullText = "";
+            this.CBStokSayimDepo.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.CBStokSayimDepo.Properties.PopupView = this.gridLookUpEdit2View;
+            this.CBStokSayimDepo.Size = new System.Drawing.Size(200, 26);
+            this.CBStokSayimDepo.TabIndex = 79;
+            // 
+            // gridLookUpEdit2View
+            // 
+            this.gridLookUpEdit2View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridLookUpEdit2View.Name = "gridLookUpEdit2View";
+            this.gridLookUpEdit2View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridLookUpEdit2View.OptionsView.ShowGroupPanel = false;
+            // 
+            // DTStokSayimTarih
+            // 
+            this.DTStokSayimTarih.CalendarFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DTStokSayimTarih.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DTStokSayimTarih.Location = new System.Drawing.Point(98, 14);
+            this.DTStokSayimTarih.Name = "DTStokSayimTarih";
+            this.DTStokSayimTarih.Size = new System.Drawing.Size(200, 21);
+            this.DTStokSayimTarih.TabIndex = 78;
+            this.DTStokSayimTarih.Value = new System.DateTime(2022, 11, 3, 13, 26, 0, 0);
             // 
             // LBStokSayimPanelDepo
             // 
             this.LBStokSayimPanelDepo.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBStokSayimPanelDepo.Appearance.Options.UseFont = true;
-            this.LBStokSayimPanelDepo.Location = new System.Drawing.Point(18, 45);
+            this.LBStokSayimPanelDepo.Location = new System.Drawing.Point(63, 48);
             this.LBStokSayimPanelDepo.Name = "LBStokSayimPanelDepo";
             this.LBStokSayimPanelDepo.Size = new System.Drawing.Size(29, 14);
             this.LBStokSayimPanelDepo.TabIndex = 11;
@@ -321,11 +362,19 @@
             // 
             this.LBStokSayimPanelTarih.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBStokSayimPanelTarih.Appearance.Options.UseFont = true;
-            this.LBStokSayimPanelTarih.Location = new System.Drawing.Point(18, 19);
+            this.LBStokSayimPanelTarih.Location = new System.Drawing.Point(65, 19);
             this.LBStokSayimPanelTarih.Name = "LBStokSayimPanelTarih";
             this.LBStokSayimPanelTarih.Size = new System.Drawing.Size(27, 14);
             this.LBStokSayimPanelTarih.TabIndex = 10;
             this.LBStokSayimPanelTarih.Text = "Tarih";
+            // 
+            // stokSayimManagerBindingSource1
+            // 
+            this.stokSayimManagerBindingSource1.DataSource = typeof(MEYPAK.BLL.STOK.StokSayimManager);
+            // 
+            // stokSayimManagerBindingSource
+            // 
+            this.stokSayimManagerBindingSource.DataSource = typeof(MEYPAK.BLL.STOK.StokSayimManager);
             // 
             // panel2
             // 
@@ -339,81 +388,59 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.BTStokSayimCik);
             this.panel4.Controls.Add(this.BTStokSayimKaydet);
+            this.panel4.Controls.Add(this.BTÇık);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 333);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1051, 64);
             this.panel4.TabIndex = 2;
             // 
-            // BTStokSayimCik
-            // 
-            this.BTStokSayimCik.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.BTStokSayimCik.Appearance.Options.UseBackColor = true;
-            this.BTStokSayimCik.Location = new System.Drawing.Point(934, 6);
-            this.BTStokSayimCik.Name = "BTStokSayimCik";
-            this.BTStokSayimCik.Size = new System.Drawing.Size(94, 52);
-            this.BTStokSayimCik.TabIndex = 69;
-            this.BTStokSayimCik.Text = "Çık";
-            // 
-            // BTStokSayimKaydet
-            // 
-            this.BTStokSayimKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.BTStokSayimKaydet.Appearance.Options.UseBackColor = true;
-            this.BTStokSayimKaydet.Location = new System.Drawing.Point(834, 6);
-            this.BTStokSayimKaydet.Name = "BTStokSayimKaydet";
-            this.BTStokSayimKaydet.Size = new System.Drawing.Size(94, 52);
-            this.BTStokSayimKaydet.TabIndex = 68;
-            this.BTStokSayimKaydet.Text = "Kaydet";
-            // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.dataGridView1);
+            this.panel3.Controls.Add(this.DGStokSayim);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1051, 333);
             this.panel3.TabIndex = 1;
             // 
-            // dataGridView1
+            // DGStokSayim
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1051, 333);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CurrentCellDirtyStateChanged += new System.EventHandler(this.dataGridView1_CurrentCellDirtyStateChanged);
-            this.dataGridView1.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridView1_RowsAdded);
+            this.DGStokSayim.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.DGStokSayim.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGStokSayim.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DGStokSayim.Location = new System.Drawing.Point(0, 0);
+            this.DGStokSayim.Name = "DGStokSayim";
+            this.DGStokSayim.ReadOnly = true;
+            this.DGStokSayim.RowTemplate.Height = 25;
+            this.DGStokSayim.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DGStokSayim.Size = new System.Drawing.Size(1051, 333);
+            this.DGStokSayim.TabIndex = 0;
+            this.DGStokSayim.CurrentCellDirtyStateChanged += new System.EventHandler(this.dataGridView1_CurrentCellDirtyStateChanged);
+            this.DGStokSayim.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridView1_RowsAdded);
             // 
-            // CBDepo
+            // BTStokSayimKaydet
             // 
-            this.CBDepo.Location = new System.Drawing.Point(98, 44);
-            this.CBDepo.Name = "CBDepo";
-            this.CBDepo.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CBDepo.Properties.Appearance.Options.UseFont = true;
-            this.CBDepo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.CBDepo.Properties.NullText = "";
-            this.CBDepo.Size = new System.Drawing.Size(200, 22);
-            this.CBDepo.TabIndex = 23;
+            this.BTStokSayimKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTStokSayimKaydet.Appearance.Options.UseBackColor = true;
+            this.BTStokSayimKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.BTStokSayimKaydet.Location = new System.Drawing.Point(837, 6);
+            this.BTStokSayimKaydet.Name = "BTStokSayimKaydet";
+            this.BTStokSayimKaydet.Size = new System.Drawing.Size(94, 52);
+            this.BTStokSayimKaydet.TabIndex = 79;
+            this.BTStokSayimKaydet.Text = "Kaydet";
             // 
-            // CBStokBilgiBirim
+            // BTÇık
             // 
-            this.CBStokBilgiBirim.Location = new System.Drawing.Point(378, 26);
-            this.CBStokBilgiBirim.Name = "CBStokBilgiBirim";
-            this.CBStokBilgiBirim.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CBStokBilgiBirim.Properties.Appearance.Options.UseFont = true;
-            this.CBStokBilgiBirim.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.CBStokBilgiBirim.Properties.NullText = "";
-            this.CBStokBilgiBirim.Size = new System.Drawing.Size(200, 22);
-            this.CBStokBilgiBirim.TabIndex = 24;
+            this.BTÇık.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTÇık.Appearance.Options.UseBackColor = true;
+            this.BTÇık.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
+            this.BTÇık.Location = new System.Drawing.Point(937, 6);
+            this.BTÇık.Name = "BTÇık";
+            this.BTÇık.Size = new System.Drawing.Size(94, 52);
+            this.BTÇık.TabIndex = 80;
+            this.BTÇık.Text = "Çık";
             // 
             // FStokSayimPanel
             // 
@@ -429,6 +456,8 @@
             this.groupBox1.ResumeLayout(false);
             this.GBStokBilgi.ResumeLayout(false);
             this.GBStokBilgi.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CBBirim.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBStokBilgiFiyat.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBStokBilgiMiktar.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBStokBilgiBakiye.Properties)).EndInit();
@@ -436,14 +465,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.TBStokBilgiStokKodu.Properties)).EndInit();
             this.GBStokSayim.ResumeLayout(false);
             this.GBStokSayim.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DTStokSayimPanelTarih.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DTStokSayimPanelTarih.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CBStokSayimDepo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit2View)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stokSayimManagerBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stokSayimManagerBindingSource)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CBDepo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CBStokBilgiBirim.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGStokSayim)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -453,31 +482,37 @@
         private Panel panel1;
         private GroupBox groupBox1;
         private GroupBox GBStokBilgi;
-        private Label LBStokBilgiBakiye;
         private GroupBox GBStokSayim;
         private Panel panel2;
-        private DataGridView dataGridView1;
+        private DataGridView DGStokSayim;
         private Panel panel4;
         private Panel panel3;
         private DevExpress.XtraEditors.LabelControl LBStokSayimPanelTarih;
         private DevExpress.XtraEditors.LabelControl LBStokSayimPanelDepo;
-        private DevExpress.XtraEditors.DateEdit DTStokSayimPanelTarih;
         private DevExpress.XtraEditors.LabelControl LBStokBilgiStokKodu;
         private DevExpress.XtraEditors.TextEdit TBStokBilgiBakiye;
         private DevExpress.XtraEditors.TextEdit TBStokBilgiStokAdi;
-        private DevExpress.XtraEditors.SimpleButton BTStokKoduSec;
         private DevExpress.XtraEditors.TextEdit TBStokBilgiStokKodu;
         private DevExpress.XtraEditors.TextEdit TBStokBilgiFiyat;
         private DevExpress.XtraEditors.TextEdit TBStokBilgiMiktar;
         private DevExpress.XtraEditors.LabelControl LBStokBilgiBirim;
         private DevExpress.XtraEditors.LabelControl LBStokBilgiMiktar;
         private DevExpress.XtraEditors.LabelControl LBStokBilgiFiyat;
-        private DevExpress.XtraEditors.SimpleButton BTStokSayimTemizle;
-        private DevExpress.XtraEditors.SimpleButton BTStokSayimSil;
+        private DevExpress.XtraEditors.SimpleButton BTStokKoduSec;
+        private DateTimePicker dateTimePicker1;
+        private BindingSource stokSayimManagerBindingSource;
+        private ComboBox comboBox1;
+        private BindingSource stokSayimManagerBindingSource1;
+        private DevExpress.XtraEditors.GridLookUpEdit CBBirim;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridLookUpEdit1View;
+        private DateTimePicker DTStokSayimTarih;
+        private DevExpress.XtraEditors.GridLookUpEdit CBStokSayimDepo;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridLookUpEdit2View;
+        private DevExpress.XtraEditors.LabelControl LBBakiye;
         private DevExpress.XtraEditors.SimpleButton BTStokBilgiKaydet;
-        private DevExpress.XtraEditors.SimpleButton BTStokSayimCik;
+        private DevExpress.XtraEditors.SimpleButton BTStokSayimSil;
+        private DevExpress.XtraEditors.SimpleButton BTStokSayimTemizle;
         private DevExpress.XtraEditors.SimpleButton BTStokSayimKaydet;
-        private DevExpress.XtraEditors.LookUpEdit CBDepo;
-        private DevExpress.XtraEditors.LookUpEdit CBStokBilgiBirim;
+        private DevExpress.XtraEditors.SimpleButton BTÇık;
     }
 }

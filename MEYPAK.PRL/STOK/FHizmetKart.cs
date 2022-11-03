@@ -16,5 +16,7 @@ namespace MEYPAK.PRL.STOK
         {
             InitializeComponent();
         }
+
+        
     }
 }

@@ -127,7 +127,7 @@ namespace MEYPAK.PRL.STOK
         
         private void FStokHareket_Load(object sender, EventArgs e)
         {
-            DTPTarih.EditValue = DateTime.Now;
+            DTStokTarih.Value = DateTime.Now;
             _depoServis.Data(ServisList.DepoListeServis);
             var depo= _depoServis.obje.Select(x => x.DEPOADI).ToList();
             CBDepo.Properties.DataSource = depo;
@@ -180,10 +180,7 @@ namespace MEYPAK.PRL.STOK
             Doldur();
         }
 
-        private void TBStokKodu_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void TBStokKodu_Leave(object sender, EventArgs e)
         {
@@ -258,11 +255,7 @@ namespace MEYPAK.PRL.STOK
             Doldur();
         }
 
-        private void CLBSube_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
+       
         
     }
 }

@@ -14,6 +14,7 @@ namespace MEYPAK.Entity.PocoModels.STOK
         public int AltID { get; set; } = 0;
         [StringLength(100), Required]
         public string Acıklama { get; set; }
+        //TODO: Acıklama --> adi olarak değişecek
         [Required]
         public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
     }

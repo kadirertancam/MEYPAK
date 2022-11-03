@@ -25,6 +25,8 @@ using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.PocoModels.DEPO;
+using DevExpress.XtraEditors;
+using System.Windows.Media.Animation;
 
 namespace MEYPAK.PRL.STOK
 {
@@ -63,7 +65,7 @@ namespace MEYPAK.PRL.STOK
             stokServis.Data(ServisList.StokListeServis);
             TBStokBilgiStokKodu.Text = _tempStok.kod;
             TBStokBilgiStokAdi.Text = _tempStok.adi;
-            CBStokBilgiBirim.Properties.DataSource = stokOlcuBrServis.obje.Where(x => x.STOKID == _tempStok.id).Select(x => olcuBrServis.obje.Where(z => z.id == x.OLCUBRID).FirstOrDefault().adi).ToList();
+            CBStokSayimDepo.Properties.DataSource = stokOlcuBrServis.obje.Where(x => x.STOKID == _tempStok.id).Select(x => olcuBrServis.obje.Where(z => z.id == x.OLCUBRID).FirstOrDefault().adi).ToList();
             TBStokBilgiBakiye.Text = (from ep in stokServis.obje join e in stokHarServis.obje on ep.id equals e.stokid where ep.kod == _tempStok.kod select Convert.ToDecimal(e.io.ToString() == "1" ? e.miktar : 0) - Convert.ToDecimal(e.io.ToString() == "0" ? e.miktar : 0)).FirstOrDefault().ToString();
 
             _tempStok = null;
@@ -75,14 +77,14 @@ namespace MEYPAK.PRL.STOK
             stokServis.Data(ServisList.StokListeServis);
             if (_islemtipi == "düzenle")
             {
-                dataGridView1.DataSource = _tempStokSayimHarList; 
-                CBDepo.Properties.DataSource = depoServis.obje.Select(x => x.DEPOADI).ToList();
+                DGStokSayim.DataSource = _tempStokSayimHarList;
+                CBStokSayimDepo.Properties.DataSource = depoServis.obje.Select(x => x.DEPOADI).ToList();
 
             }
             else if (_islemtipi == "kaydet")
             { 
                 _tempStokSayimHarList = new List<PocoStokSayimPanelList>();
-                CBDepo.Properties.DataSource = depoServis.obje.Select(x => x.DEPOADI).ToList();
+                CBStokSayimDepo.Properties.DataSource = depoServis.obje.Select(x => x.DEPOADI).ToList();
                 foreach (var item in stokServis.obje)
                 {
                     _tempStokSayimHarList.Add(new PocoStokSayimPanelList()
@@ -101,7 +103,7 @@ namespace MEYPAK.PRL.STOK
                 //dgvBtColumn.HeaderText = "Seç"; 
                 //dgvBtColumn.FlatStyle = FlatStyle.Flat;
                 //dgvBtColumn.DisplayIndex = 1; 
-                dataGridView1.DataSource = _tempStokSayimHarList;
+                DGStokSayim.DataSource = _tempStokSayimHarList;
                 //dataGridView1.Columns.Add(dgvBtColumn);
                 //dataGridView1.CellClick += DataGridView1_CellClick;
                 //for (int i = 0; i < dataGridView1.Rows.Count; i++)
@@ -131,17 +133,17 @@ namespace MEYPAK.PRL.STOK
 
         private void dataGridView1_CurrentCellDirtyStateChanged(object sender, EventArgs e)
         {
-            if (dataGridView1.IsCurrentCellDirty)
+            if (DGStokSayim.IsCurrentCellDirty)
             {
-                dataGridView1.CommitEdit(DataGridViewDataErrorContexts.Commit);
+                DGStokSayim.CommitEdit(DataGridViewDataErrorContexts.Commit);
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             _tempStokSayimHarList = new List<PocoStokSayimPanelList>();
-            dataGridView1.DataSource = _tempStokSayimHarList;
-            dataGridView1.Refresh();
+            DGStokSayim.DataSource = _tempStokSayimHarList;
+            DGStokSayim.Refresh();
         }
 
         private void dataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
@@ -169,31 +171,32 @@ namespace MEYPAK.PRL.STOK
         private void button4_Click(object sender, EventArgs e)
         {
             stokServis.Data(ServisList.StokListeServis);
-            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            for (int i = 0; i < DGStokSayim.Rows.Count; i++)
             {
 
-                stokSayimHarServis.Data(ServisList.StokSayimHarEkleServis,(new PocoSTOKSAYIMHAR()
+                stokSayimHarServis.Data(ServisList.StokSayimHarEkleServis, (new PocoSTOKSAYIMHAR()
                 {
-                    STOKID = stokServis.obje.Where(x => x.kod == dataGridView1.Rows[i].Cells["StokKodu"].Value.ToString()).FirstOrDefault().id,
-                    MIKTAR = Decimal.Parse(dataGridView1.Rows[i].Cells["Miktar"].EditedFormattedValue.ToString()),
-                    FIYAT = Decimal.Parse(dataGridView1.Rows[i].Cells["Fiyat"].EditedFormattedValue.ToString()),
+                   
+                    STOKID = stokServis.obje.Where(x => x.kod == DGStokSayim.Rows[i].Cells["StokKodu"].Value.ToString()).FirstOrDefault().id,
+                    MIKTAR = Decimal.Parse(DGStokSayim.Rows[i].Cells["Miktar"].EditedFormattedValue.ToString()),
+                    FIYAT = Decimal.Parse(DGStokSayim.Rows[i].Cells["Fiyat"].EditedFormattedValue.ToString()),
                     KUR = 1,
                     PARABR = 1,
-                    DEPOID = depoServis.obje.Where(x=>x.DEPOADI== CBDepo.SelectedText).FirstOrDefault().id,
+                    DEPOID = depoServis.obje.Where(x=>x.DEPOADI== CBStokSayimDepo.SelectedText).FirstOrDefault().id,
                     STOKSAYIMID = sayimId
 
-                }));
+                })) ;
 
             }
         }
 
         private void BTNSil_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 0)
+            if (DGStokSayim.SelectedRows.Count > 0)
             {
-                _tempStokSayimHarList.Remove(_tempStokSayimHarList[dataGridView1.SelectedRows[0].Index]);
-                dataGridView1.DataSource = "";
-                dataGridView1.DataSource = _tempStokSayimHarList;
+                _tempStokSayimHarList.Remove(_tempStokSayimHarList[DGStokSayim.SelectedRows[0].Index]);
+                DGStokSayim.DataSource = "";
+                DGStokSayim.DataSource = _tempStokSayimHarList;
             }
         }
         #region KeyPress
@@ -221,8 +224,12 @@ namespace MEYPAK.PRL.STOK
                 e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
             }
         }
+
+
+
+
         #endregion
 
-
+       
     }
 }
