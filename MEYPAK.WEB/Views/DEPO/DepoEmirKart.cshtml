@@ -1,12 +1,12 @@
 ﻿@using DevExtreme.AspNet.Mvc
-@using MEYPAK.Entity.PocoModels.STOK
+@using MEYPAK.Entity.PocoModels.DEPO
 <div class="menu-container dx-swatch-additional">
 
 
 
     <div id="data-grid-demo">
         @(
-            Html.DevExtreme().DataGrid<PocoSTOKKASA>()
+            Html.DevExtreme().DataGrid<PocoDEPO>()
             .ID("gridContainer")
             .ShowBorders(true)
 
@@ -16,7 +16,7 @@
             .AllowAdding(true)
             .AllowDeleting(true)
             .Popup(p => p
-            .Title("Stok Kasa Kart")
+            .Title("Stok Kart")
             .ShowTitle(true)
             .Width(700)
             .Height(525)
@@ -30,10 +30,10 @@
                 {
 
 
-                    groupItems.AddSimpleFor(m => m.kasaadi);
-                    groupItems.AddSimpleFor(m => m.kasakodu);
+                    groupItems.AddSimpleFor(m => m.depoadi);
+                    groupItems.AddSimpleFor(m => m.depokodu);
                     groupItems.AddSimpleFor(m => m.aciklama);
-                    
+
                 });
 
 
@@ -42,12 +42,14 @@
             .Columns(columns =>
             {
 
-                columns.AddFor(m => m.kasaadi)
+                columns.AddFor(m => m.depoadi)
                 .Width(120);
 
-                columns.AddFor(m => m.kasakodu);
+                columns.AddFor(m => m.depokodu);
 
                 columns.AddFor(m => m.aciklama);
+
+
 
                 columns.Add()
                 .Type(GridCommandColumnType.Buttons)
@@ -56,11 +58,10 @@
                     b.Add().Name(GridColumnButtonName.Edit).Text("Düzenle");
                     b.Add().Name(GridColumnButtonName.Delete).Text("Sil");
                 });
-
             })
             .DataSource(d => d.Mvc()
-            .Controller("STOK")
-            .LoadAction("StokKasaGet").InsertAction("StokKasaPost").UpdateAction("StokKasaPut").DeleteAction("StokKasaDelete").Key("id")
+            .Controller("DEPO")
+            .LoadAction("DepoGet").InsertAction("DepoPost").UpdateAction("DepoPut").DeleteAction("DepoDelete").Key("id")
 
             )
             )
@@ -75,7 +76,7 @@
         .ValueExpr("theme")
         .DisplayExpr("name")
         .DataSource(new object[] {
-    new { name = "Güdnüz", theme = "dx.light.css"},
+    new { name = "Gündüz", theme = "dx.light.css"},
     new { name = "Gece", theme = "dx.dark.css"},
 
         })

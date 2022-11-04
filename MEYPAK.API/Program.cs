@@ -192,7 +192,9 @@ builder.Services.AddIdentity<MPUSER, MPROLE>(options =>
     options.Password.RequireNonAlphanumeric = false;
     options.Password.RequireDigit = false;
     options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_@.";
-}).AddDefaultTokenProviders().AddEntityFrameworkStores<MEYPAKContext>();
+}).AddEntityFrameworkStores<MEYPAKContext>().AddDefaultTokenProviders();
+
+builder.Services.AddMvc();
 
 builder.Services.AddControllers().AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 

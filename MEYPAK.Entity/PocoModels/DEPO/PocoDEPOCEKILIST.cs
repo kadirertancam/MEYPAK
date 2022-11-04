@@ -8,9 +8,9 @@ namespace MEYPAK.Entity.PocoModels.DEPO
 {
     public class PocoDEPOCEKILIST:SUPERPOCOMODEL
     {
-        public int ISEMRIID { get; set; }
-        public int STOKID { get; set; }
-        public int BIRIMID { get; set; }
-        public int MIKTAR { get; set; }
+        public int isemriid { get; set; }
+        public int stokid { get; set; }
+        public int birimid { get; set; }
+        public int miktar { get; set; }
     }
 }

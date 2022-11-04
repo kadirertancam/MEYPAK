@@ -35,9 +35,9 @@ namespace MEYPAK.PRL.DEPO
             if (_tempDepo != null)
             {
                 _depoServis = new GenericWebServis<PocoDEPO>();
-                TBKod.Text = _tempDepo.DEPOKODU;
-                TBAdi.Text = _tempDepo.DEPOADI;
-                TBAciklama.Text = _tempDepo.ACIKLAMA;
+                TBKod.Text = _tempDepo.depokodu;
+                TBAdi.Text = _tempDepo.depoadi;
+                TBAciklama.Text = _tempDepo.aciklama;
                 id = _tempDepo.id;
                 _tempDepo = null;
             }
@@ -63,9 +63,9 @@ namespace MEYPAK.PRL.DEPO
             _depoServis.Data(ServisList.DepoEkleServis,(new PocoDEPO()
             {
                 id = id,
-                DEPOKODU = TBKod.Text,
-                DEPOADI = TBAdi.Text,
-                ACIKLAMA=TBAciklama.Text,
+                depokodu = TBKod.Text,
+                depoadi = TBAdi.Text,
+                aciklama =TBAciklama.Text,
                 
             }));
             _depoServis.Data(ServisList.DepoListeServis);
@@ -88,7 +88,7 @@ namespace MEYPAK.PRL.DEPO
 
         private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            _tempDepo = _depoServis.obje.Where(x => x.DEPOKODU == gridView1.GetFocusedRowCellValue("DEPOKODU").ToString()).FirstOrDefault();
+            _tempDepo = _depoServis.obje.Where(x => x.depokodu == gridView1.GetFocusedRowCellValue("depokodu").ToString()).FirstOrDefault();
             Doldur();
         }
 

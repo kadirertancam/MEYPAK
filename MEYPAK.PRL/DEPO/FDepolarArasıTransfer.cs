@@ -39,14 +39,14 @@ namespace MEYPAK.PRL.DEPO
         {
             fDepoList = new FDepoList("FDepoTransferCıktı");
             fDepoList.ShowDialog();
-            TBCikisDepo.Text = _CıktıDepo.DEPOADI;
+            TBCikisDepo.Text = _CıktıDepo.depoadi;
         }
 
         private void BTNHedefDepoSec_Click(object sender, EventArgs e)
         {
             fDepoList = new FDepoList("FDepoTransferHedef");
             fDepoList.ShowDialog();
-            TBHedefDepo.Text = _HedefDepo.DEPOADI;
+            TBHedefDepo.Text = _HedefDepo.depoadi;
         }
 
         private void BTDepoTransferKaydet_Click(object sender, EventArgs e)
@@ -57,10 +57,10 @@ namespace MEYPAK.PRL.DEPO
                 {
                     olusturmatarihi = DateTime.Now,
                     guncellemetarihi = DateTime.Now,
-                    CIKTIDEPOID = _CıktıDepo.id,
-                    HEDEFDEPOID = _HedefDepo.id,
-                    DONEM = DateTime.Now.ToString("yyyy"),
-                    DURUM = 1
+                    ciktidepoid = _CıktıDepo.id,
+                    hedefdepoid = _HedefDepo.id,
+                    donem = DateTime.Now.ToString("yyyy"),
+                    durum = 1
                 });
                 FDepolarArasıTransferHar arasıTransferBilgi = new FDepolarArasıTransferHar(_tempDepoTransfer) ;
                 DataGridDoldur();

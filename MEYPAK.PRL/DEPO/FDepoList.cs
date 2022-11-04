@@ -41,15 +41,15 @@ namespace MEYPAK.PRL.DEPO
         {
             if (_islem == "FDepoKart")
             {
-                depoKart._tempDepo = _depoServis.Getir(x => x.DEPOKODU == gridView1.GetFocusedRowCellValue("DEPOKODU")).FirstOrDefault();
+                depoKart._tempDepo = _depoServis.Getir(x => x.depokodu == gridView1.GetFocusedRowCellValue("depokodu")).FirstOrDefault();
             }
             else if (_islem == "FDepoTransferCıktı")
             {
-                depoTransferKart._CıktıDepo = _depoServis.Getir(x => x.DEPOKODU == gridView1.GetFocusedRowCellValue("DEPOKODU")).FirstOrDefault();
+                depoTransferKart._CıktıDepo = _depoServis.Getir(x => x.depokodu == gridView1.GetFocusedRowCellValue("depokodu")).FirstOrDefault();
             }
             else if (_islem == "FDepoTransferHedef")
             {
-                depoTransferKart._HedefDepo = _depoServis.Getir(x => x.DEPOKODU == gridView1.GetFocusedRowCellValue("DEPOKODU")).FirstOrDefault();
+                depoTransferKart._HedefDepo = _depoServis.Getir(x => x.depokodu == gridView1.GetFocusedRowCellValue("depokodu")).FirstOrDefault();
             }
             this.Close();
         }

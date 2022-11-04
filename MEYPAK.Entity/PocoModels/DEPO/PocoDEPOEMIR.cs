@@ -6,21 +6,21 @@ namespace MEYPAK.Entity.PocoModels.DEPO
 {
     public class PocoDEPOEMIR:SUPERPOCOMODEL
     {
-        public DateTime TARIH { get; set; }
-        public int DEPOID { get; set; }
-        public int SIRA { get; set; }
-        public int TIP { get; set; }
-        public int SIPARISID { get; set; }
-        public int DURUM { get; set; }
-        public decimal MIKTAR { get; set; }
-        public string ACIKLAMA { get; set; }
-        public PocoSIPARIS MPSIPARIS { get; set; }
-        public PocoSTOK MPSTOK { get; set; }
-        public PocoDEPO MPDEPO { get; set; }
+        public DateTime tarih { get; set; }
+        public int depoid { get; set; }
+        public int sira { get; set; }
+        public int tip { get; set; }
+        public int siparisid { get; set; }
+        public int durum { get; set; }
+        public decimal miktar { get; set; }
+        public string aciklama { get; set; }
+        public PocoSIPARIS mpsiparis { get; set; }
+        public PocoSTOK mpstok { get; set; }
+        public PocoDEPO mpdepo { get; set; }
 
-        public virtual List<PocoSIPARISSEVKEMIRHAR> MPSIPARISSEVKEMRIHAR { get; set; }
-        public virtual List<PocoSTOKSEVKIYATLIST> MPSTOKSEVKİYATLİST { get; set; }
+        public virtual List<PocoSIPARISSEVKEMIRHAR> mpsiparissevkemrihar { get; set; }
+        public virtual List<PocoSTOKSEVKIYATLIST> mpstoksevkiyatlist { get; set; }
 
-        public virtual List<PocoSTOKMALKABULLIST> MPSTOKMALKABULLIST { get; set; }
+        public virtual List<PocoSTOKMALKABULLIST> mpstokmalkabullist { get; set; }
     }
 }

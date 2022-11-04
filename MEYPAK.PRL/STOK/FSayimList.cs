@@ -39,7 +39,7 @@ namespace MEYPAK.PRL.STOK
         {
             DateTime dt = Convert.ToDateTime(DGSayimList.Rows[e.RowIndex].Cells["SAYIMTARIHI"].Value.ToString());
             string aciklama = DGSayimList.Rows[e.RowIndex].Cells["ACIKLAMA"].Value.ToString();
-            fSayimIsle._tempSayim = _stokSayimServis.obje.Where(x => x.ACIKLAMA== aciklama.ToString() ).FirstOrDefault();
+            fSayimIsle._tempSayim = _stokSayimServis.obje.Where(x => x.aciklama== aciklama.ToString() ).FirstOrDefault();
             fSayimIsle._id = int.Parse(DGSayimList.Rows[e.RowIndex].Cells["id"].Value.ToString());
             this.Close();
         }

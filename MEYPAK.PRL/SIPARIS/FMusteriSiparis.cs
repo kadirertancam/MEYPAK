@@ -31,7 +31,7 @@ namespace MEYPAK.PRL.SIPARIS
 
             _depoServis = new GenericWebServis<PocoDEPO>();
             _depoServis.Data(ServisList.DepoListeServis);
-            CBDepo.Properties.DataSource = _depoServis.obje.Select(x => x.DEPOADI).ToList();
+            CBDepo.Properties.DataSource = _depoServis.obje.Select(x => x.depoadi).ToList();
             _siparisServis = new GenericWebServis<PocoSIPARIS>();
             _siparisServis.Data(ServisList.SiparisListeServis);
             _siparisDetayServis = new GenericWebServis<PocoSIPARISDETAY>();
@@ -246,7 +246,7 @@ namespace MEYPAK.PRL.SIPARIS
             int i = 0;
             foreach (var item in _tempSiparisDetay.Where(x => x.StokKodu != "").ToList())
             {
-                var stokolcubr = _stokOlcuBr.obje.Where(x => x.STOKID == item.StokId).FirstOrDefault();
+                var stokolcubr = _stokOlcuBr.obje.Where(x => x.stokid == item.StokId).FirstOrDefault();
 
                 _siparisDetayServis.Data(ServisList.SiparisDetayEkleServis, new PocoSIPARISDETAY()
                 {
@@ -303,7 +303,7 @@ namespace MEYPAK.PRL.SIPARIS
             {
                 _fStokList.ShowDialog();
 
-                var tempp = _stokOlcuBr.obje.Where(x => x.STOKID == _tempStok.id);
+                var tempp = _stokOlcuBr.obje.Where(x => x.stokid == _tempStok.id);
                 _olcuBr.Data(ServisList.OlcuBrListeServis);
 
                 foreach (var item in tempp)
