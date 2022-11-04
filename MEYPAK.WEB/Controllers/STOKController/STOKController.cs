@@ -457,7 +457,59 @@ namespace MEYPAK.WEB.Controllers.STOKController
 
         #endregion
 
+        #region STOKMARKA
 
+        [HttpGet]
+        public async Task<IActionResult> StokMarkaKart()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public object StokMarkaGet(DataSourceLoadOptions loadOptions)
+        {
+            //var a = loadOptions.Take;
+            //var b = loadOptions.Skip;
+            //string url = "http://213.238.167.117:8080/Stok/PagingList?skip="+b+"&take="+a+"&requireTotalCount=true";
+            //_tempPocoStok.Data(url);
+            _tempPocoStok.Data(ServisList.StokListeServis);
+            return DataSourceLoader.Load(_tempPocoStok.obje.Where(x => x.kayittipi == 0).Reverse().AsEnumerable(), loadOptions);
+        }
+        [HttpPut]
+        public async Task<IActionResult> StokMarkaPut(int key, string values)
+        { //güncellenecek
+            _tempPocoStok.Data(ServisList.StokListeServis);
+            var employee = _tempPocoStok.obje.First(a => a.id == key);
+            JsonConvert.PopulateObject(values, employee);
+
+            //_tempPocoStok.Data(ServisList.StokEkleServis, id);
+
+            _tempPocoStok.Data(ServisList.StokEkleServis, employee);
+
+            ViewBag.Durum = "Başarıyla Güncellendi.";
+            return Ok();
+        }
+        [HttpPost]
+        public async Task<IActionResult> StokMarkaPost(string values)
+        {
+            PocoSTOK newPoco = new PocoSTOK();
+            JsonConvert.PopulateObject(values, newPoco);
+            _tempPocoStok.Data(ServisList.StokEkleServis, newPoco);
+
+            ViewBag.Durum = "Başarıyla eklendi.";
+            return Ok();
+        }
+        [HttpDelete]
+        public void StokMarkaDelete(int key)
+        {
+            string url = ServisList.StokDeleteByIdServis;
+            url += "?id=";
+            url += key;
+            _tempPocoStok.Data(url, method: HttpMethod.Post);
+            ViewBag.Durum = "Başarıyla silindi.";
+        }
+
+        #endregion
 
 
 
