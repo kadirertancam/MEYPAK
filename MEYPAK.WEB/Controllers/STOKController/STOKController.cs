@@ -26,9 +26,8 @@ namespace MEYPAK.WEB.Controllers.STOKController
         GenericWebServis<PocoSTOKSAYIMHAR> _tempPocoStokSayimHar = new GenericWebServis<PocoSTOKSAYIMHAR>();
 
 
-
         static List<PocoSTOK> PocoSTOKs = new List<PocoSTOK>();
-
+        static int tempstokkartid = 0;
         public StokController(ILogger<StokController> logger)
         {
             _logger = logger;
@@ -66,7 +65,7 @@ namespace MEYPAK.WEB.Controllers.STOKController
             //_tempPocoStok.Data(ServisList.StokEkleServis, id);
 
             _tempPocoStok.Data(ServisList.StokEkleServis, employee);
-            var b = _tempPocoStok.obje;
+
             ViewBag.Durum = "Başarıyla Güncellendi.";
             return Ok();
         }
@@ -120,7 +119,6 @@ namespace MEYPAK.WEB.Controllers.STOKController
             //_tempPocoStok.Data(ServisList.StokEkleServis, id);
 
             _tempPocoHizmet.Data(ServisList.HizmetEkleServis, employee);
-            var b = _tempPocoHizmet.obje;
             ViewBag.Durum = "Başarıyla Güncellendi.";
             return Ok();
         }
@@ -174,7 +172,6 @@ namespace MEYPAK.WEB.Controllers.STOKController
             //_tempPocoStok.Data(ServisList.StokEkleServis, id);
 
             _tempPocoOlcuBr.Data(ServisList.OlcuBrEkleServis, employee);
-            var b = _tempPocoOlcuBr.obje;
             ViewBag.Durum = "Başarıyla Güncellendi.";
             return Ok();
         }
@@ -205,7 +202,7 @@ namespace MEYPAK.WEB.Controllers.STOKController
         [HttpGet]
         public async Task<IActionResult> StokFiyatListKart()
         { 
-
+            tempstokkartid=0;
             return View();
         }
 
@@ -229,7 +226,6 @@ namespace MEYPAK.WEB.Controllers.STOKController
             //_tempPocoStok.Data(ServisList.StokEkleServis, id);
 
             _tempPocoStokFiyatList.Data(ServisList.StokFiyatListEkleServis, employee);
-            var b = _tempPocoStokFiyatList.obje;
             ViewBag.Durum = "Başarıyla Güncellendi.";
             return Ok(_tempPocoStokFiyatList.obje.FirstOrDefault().id);
         }
@@ -239,8 +235,8 @@ namespace MEYPAK.WEB.Controllers.STOKController
             PocoSTOKFIYATLIST newPoco = new PocoSTOKFIYATLIST();
             JsonConvert.PopulateObject(values, newPoco);
             _tempPocoStokFiyatList.Data(ServisList.StokFiyatListEkleServis, newPoco);
-            ViewBag.Redirect = "fdsfds";
-            return Redirect("StokFiyatListHarKart?id=" + _tempPocoStokFiyatList.obje2.id);
+            tempstokkartid = _tempPocoStokFiyatList.obje2.id;
+            return Ok();
 
         }
         [HttpDelete]
@@ -258,56 +254,49 @@ namespace MEYPAK.WEB.Controllers.STOKController
         #region STOKFIYATLISTHAR
 
         [HttpGet]
-        public   IActionResult StokFiyatListHarKart(int id)
+        public   IActionResult StokFiyatListHarKart()
         {
-            if (id != 0)
+            if (tempstokkartid != 0)
                 return View();
-            //return RedirectToAction("StokFiyatListKart"); //View(id);
-            else
-            {  
-                    return View(); 
-                //
-            }
+            else 
+                return Redirect("http://localhost:5232/Home/Error"); 
         }
 
         [HttpGet]
         public object StokFiyatListHarGet(DataSourceLoadOptions loadOptions)
         {
             _tempPocoStokFiyatHarList.Data(ServisList.StokFiyatListHarListeServis);
-            return DataSourceLoader.Load(_tempPocoStokFiyatHarList.obje.Where(x => x.kayittipi == 0).Reverse().AsEnumerable(), loadOptions);
-
+            return DataSourceLoader.Load(_tempPocoStokFiyatHarList.obje.Where(x => x.kayittipi == 0 && x.fiyatlistid == tempstokkartid).Reverse().AsEnumerable(), loadOptions);
         }
         [HttpPut]
         public async Task<IActionResult> StokFiyatListHarPut(int key, string values)
         { //güncellenecek
-            _tempPocoStokFiyatList.Data(ServisList.StokFiyatListListeServis);
-            var employee = _tempPocoStokFiyatList.obje.First(a => a.id == key);
+            _tempPocoStokFiyatHarList.Data(ServisList.StokFiyatListHarListeServis);
+            var employee = _tempPocoStokFiyatHarList.obje.First(a => a.id == key);
             JsonConvert.PopulateObject(values, employee);
-
-            //_tempPocoStok.Data(ServisList.StokEkleServis, id);
-
-            _tempPocoStokFiyatList.Data(ServisList.StokFiyatListEkleServis, employee);
-            var b = _tempPocoStokFiyatList.obje;
+            _tempPocoStokFiyatHarList.Data(ServisList.StokFiyatListHarEkleServis, employee);
             ViewBag.Durum = "Başarıyla Güncellendi.";
             return Ok();
         }
         [HttpPost]
         public async Task<IActionResult> StokFiyatListHarPost(string values)
         {
-            PocoSTOKFIYATLIST newPoco = new PocoSTOKFIYATLIST();
+            PocoSTOKFIYATLISTHAR newPoco = new PocoSTOKFIYATLISTHAR();
             JsonConvert.PopulateObject(values, newPoco);
-            _tempPocoStokFiyatList.Data(ServisList.StokFiyatListEkleServis, newPoco);
-
+            newPoco.fiyatlistid = tempstokkartid;
+            newPoco.stokid = 1;
+            _tempPocoStokFiyatHarList.Data(ServisList.StokFiyatListHarEkleServis, newPoco);
+            
             ViewBag.Durum = "Başarıyla eklendi.";
             return Ok();
         }
         [HttpDelete]
         public void StokFiyatListHarDelete(int key)
         {
-            string url = ServisList.StokFiyatListDeleteByIdServis;
+            string url = ServisList.StokFiyatListHarDeleteByIdServis;
             url += "?id=";
             url += key;
-            _tempPocoStokFiyatList.Data(url, method: HttpMethod.Post);
+            _tempPocoStokFiyatHarList.Data(url, method: HttpMethod.Post);
             ViewBag.Durum = "Başarıyla silindi.";
         }
 
@@ -338,7 +327,6 @@ namespace MEYPAK.WEB.Controllers.STOKController
             //_tempPocoStok.Data(ServisList.StokEkleServis, id);
 
             _tempPocoStokHar.Data(ServisList.StokHarEkleServis, employee);
-            var b = _tempPocoStokHar.obje;
             ViewBag.Durum = "Başarıyla Güncellendi.";
             return Ok();
         }
@@ -364,11 +352,164 @@ namespace MEYPAK.WEB.Controllers.STOKController
 
         #endregion
 
+        #region STOKKASA
 
+        [HttpGet]
+        public async Task<IActionResult> StokKasaKart(int id)
+        {
+            return View();
+        }
 
+        [HttpGet]
+        public object StokKasaGet(DataSourceLoadOptions loadOptions)
+        {
+            _tempPocoStokKasa.Data(ServisList.StokKasaListeServis);
+            return DataSourceLoader.Load(_tempPocoStokKasa.obje.Where(x => x.kayittipi == 0).Reverse().AsEnumerable(), loadOptions);
 
+        }
+        [HttpPut]
+        public async Task<IActionResult> StokKasaPut(int key, string values)
+        { //güncellenecek
+            _tempPocoStokKasa.Data(ServisList.StokKasaListeServis);
+            var employee = _tempPocoStokKasa.obje.First(a => a.id == key);
+            JsonConvert.PopulateObject(values, employee);
 
+            //_tempPocoStok.Data(ServisList.StokEkleServis, id);
 
+            _tempPocoStokKasa.Data(ServisList.StokKasaEkleServis, employee);
+ 
+            ViewBag.Durum = "Başarıyla Güncellendi.";
+            return Ok();
+        }
+        [HttpPost]
+        public async Task<IActionResult> StokKasaPost(string values)
+        {
+            PocoSTOKKASA newPoco = new PocoSTOKKASA();
+            JsonConvert.PopulateObject(values, newPoco);
+            _tempPocoStokKasa.Data(ServisList.StokKasaEkleServis, newPoco);
+
+            ViewBag.Durum = "Başarıyla eklendi.";
+            return Ok();
+        }
+        [HttpDelete]
+        public void StokKasaDelete(int key)
+        {
+            string url = ServisList.StokKasaDeleteByIdServis;
+            url += "?id=";
+            url += key;
+            _tempPocoStokKasa.Data(url, method: HttpMethod.Post);
+            ViewBag.Durum = "Başarıyla silindi.";
+        }
+
+        #endregion
+
+        #region STOKKATEGORI
+
+        [HttpGet]
+        public async Task<IActionResult> StokKategoriKart()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public object StokKategoriGet(DataSourceLoadOptions loadOptions)
+        {
+            //var a = loadOptions.Take;
+            //var b = loadOptions.Skip;
+            //string url = "http://213.238.167.117:8080/Stok/PagingList?skip="+b+"&take="+a+"&requireTotalCount=true";
+            //_tempPocoStok.Data(url);
+            _tempPocoStokKategori.Data(ServisList.StokKategoriListeServis);
+            return DataSourceLoader.Load(_tempPocoStokKategori.obje.Where(x => x.kayittipi == 0).Reverse().AsEnumerable(), loadOptions);
+        }
+        [HttpPut]
+        public async Task<IActionResult> StokKategoriPut(int key, string values)
+        { //güncellenecek
+            _tempPocoStokKategori.Data(ServisList.StokKategoriListeServis);
+            var employee = _tempPocoStokKategori.obje.First(a => a.id == key);
+            JsonConvert.PopulateObject(values, employee);
+
+            //_tempPocoStok.Data(ServisList.StokEkleServis, id);
+
+            _tempPocoStokKategori.Data(ServisList.StokKategoriEkleServis, employee);
+
+            ViewBag.Durum = "Başarıyla Güncellendi.";
+            return Ok();
+        }
+        [HttpPost]
+        public async Task<IActionResult> StokKategoriPost(string values)
+        {
+            PocoSTOKKATEGORI newPoco = new PocoSTOKKATEGORI();
+            JsonConvert.PopulateObject(values, newPoco);
+            _tempPocoStokKategori.Data(ServisList.StokKategoriEkleServis, newPoco);
+
+            ViewBag.Durum = "Başarıyla eklendi.";
+            return Ok();
+        }
+        [HttpDelete]
+        public void StokKategoriDelete(int key)
+        {
+            string url = ServisList.StokKategoriDeleteByIdServis;
+            url += "?id=";
+            url += key;
+            _tempPocoStokKategori.Data(url, method: HttpMethod.Post);
+            ViewBag.Durum = "Başarıyla silindi.";
+        }
+
+        #endregion
+
+        #region STOKMARKA
+
+        [HttpGet]
+        public async Task<IActionResult> StokMarkaKart()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public object StokMarkaGet(DataSourceLoadOptions loadOptions)
+        {
+            //var a = loadOptions.Take;
+            //var b = loadOptions.Skip;
+            //string url = "http://213.238.167.117:8080/Stok/PagingList?skip="+b+"&take="+a+"&requireTotalCount=true";
+            //_tempPocoStok.Data(url);
+            _tempPocoStokMarka.Data(ServisList.StokMarkaListeServis);
+            return DataSourceLoader.Load(_tempPocoStokMarka.obje.Where(x => x.kayittipi == 0).Reverse().AsEnumerable(), loadOptions);
+        }
+        [HttpPut]
+        public async Task<IActionResult> StokMarkaPut(int key, string values)
+        { //güncellenecek
+            _tempPocoStokMarka.Data(ServisList.StokMarkaListeServis);
+            var employee = _tempPocoStokMarka.obje.First(a => a.id == key);
+            JsonConvert.PopulateObject(values, employee);
+
+            //_tempPocoStok.Data(ServisList.StokEkleServis, id);
+
+            _tempPocoStokMarka.Data(ServisList.StokMarkaEkleServis, employee);
+
+            ViewBag.Durum = "Başarıyla Güncellendi.";
+            return Ok();
+        }
+        [HttpPost]
+        public async Task<IActionResult> StokMarkaPost(string values)
+        {
+            PocoSTOKMARKA newPoco = new PocoSTOKMARKA();
+            JsonConvert.PopulateObject(values, newPoco);
+            _tempPocoStokMarka.Data(ServisList.StokMarkaEkleServis, newPoco);
+
+            ViewBag.Durum = "Başarıyla eklendi.";
+            return Ok();
+        }
+        [HttpDelete]
+        public void StokMarkaDelete(int key)
+        {
+            string url = ServisList.StokMarkaDeleteByIdServis;
+            url += "?id=";
+            url += key;
+            _tempPocoStokMarka.Data(url, method: HttpMethod.Post);
+            ViewBag.Durum = "Başarıyla silindi.";
+        }
+
+        #endregion
 
 
 
@@ -380,7 +521,7 @@ namespace MEYPAK.WEB.Controllers.STOKController
 
         #region old_controller
 
-        //#region STOK
+        #region STOK
 
 
 
@@ -445,9 +586,9 @@ namespace MEYPAK.WEB.Controllers.STOKController
         //    return DataSourceLoader.Load(_tempPocoHizmet.obje, loadOptions);
         //}
 
-        //#endregion
+        #endregion
 
-        //#region OLCUBR
+        #region OLCUBR
         //[HttpGet]
         //public async Task<IActionResult> OlcuBrKart()
         //{
@@ -493,9 +634,9 @@ namespace MEYPAK.WEB.Controllers.STOKController
         //    return DataSourceLoader.Load(_tempPocoOlcuBr.obje, loadOptions);
         //}
 
-        //#endregion
+        #endregion
 
-        //#region STOKFIYATLIST
+        #region STOKFIYATLIST
 
         //[HttpGet]
 
@@ -545,9 +686,9 @@ namespace MEYPAK.WEB.Controllers.STOKController
         //}
 
 
-        //#endregion
+        #endregion
 
-        //#region STOKFIYATLISTHAR
+        #region STOKFIYATLISTHAR
 
         //[HttpGet]
 
@@ -596,9 +737,9 @@ namespace MEYPAK.WEB.Controllers.STOKController
         //    return DataSourceLoader.Load(_tempPocoStokFiyatHarList.obje, loadOptions);
         //}
 
-        //#endregion
+        #endregion
 
-        //#region STOKHAR
+        #region STOKHAR
 
         //[HttpGet]
         //public async Task<IActionResult> StokHarKart()
@@ -649,9 +790,9 @@ namespace MEYPAK.WEB.Controllers.STOKController
         //    _tempPocoStokHar.Data(url);
         //    return DataSourceLoader.Load(_tempPocoStokHar.obje, loadOptions);
         //}
-        //#endregion
+        #endregion
 
-        //#region STOKKASA
+        #region STOKKASA
 
 
         //[HttpGet]
@@ -701,9 +842,9 @@ namespace MEYPAK.WEB.Controllers.STOKController
         //    _tempPocoStokHar.Data(url);
         //    return DataSourceLoader.Load(_tempPocoStokHar.obje, loadOptions);
         //}
-        //#endregion
+        #endregion
 
-        //#region STOKKATEGORI
+        #region STOKKATEGORI
 
 
         //[HttpGet]
@@ -754,9 +895,9 @@ namespace MEYPAK.WEB.Controllers.STOKController
         //    _tempPocoStokKategori.Data(url);
         //    return DataSourceLoader.Load(_tempPocoStokKategori.obje, loadOptions);
         //}
-        //#endregion
+        #endregion
 
-        //#region STOKMARKA
+        #region STOKMARKA
 
 
         //[HttpGet]
@@ -797,9 +938,9 @@ namespace MEYPAK.WEB.Controllers.STOKController
         //    ViewBag.Durum = "Başarıyla silindi.";
         //    return View();
         //}
-        //#endregion
+        #endregion
 
-        //#region STOKOLCUBR
+        #region STOKOLCUBR
 
 
         //[HttpGet]
@@ -840,9 +981,9 @@ namespace MEYPAK.WEB.Controllers.STOKController
         //    ViewBag.Durum = "Başarıyla silindi.";
         //    return View();
         //}
-        //#endregion
+        #endregion
 
-        //#region STOKSAYIM
+        #region STOKSAYIM
 
 
         //[HttpGet]
@@ -883,9 +1024,9 @@ namespace MEYPAK.WEB.Controllers.STOKController
         //    ViewBag.Durum = "Başarıyla silindi.";
         //    return View();
         //}
-        //#endregion
+        #endregion
 
-        //#region STOKSAYIMHAR
+        #region STOKSAYIMHAR
 
 
         //[HttpGet]
@@ -926,7 +1067,7 @@ namespace MEYPAK.WEB.Controllers.STOKController
         //    ViewBag.Durum = "Başarıyla Silindi.";
         //    return View();
         //}
-        //#endregion
+        #endregion
 
         #endregion
     }

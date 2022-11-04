@@ -37,9 +37,9 @@
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.GBMalKabulCekiPanel = new DevExpress.XtraEditors.GroupControl();
+            this.CBMalKabulCekiStokKodu = new DevExpress.XtraEditors.LookUpEdit();
             this.BTMalKabulCeki = new DevExpress.XtraEditors.SimpleButton();
             this.LBMalKabulCekiStokKodu = new DevExpress.XtraEditors.LabelControl();
-            this.CBMalKabulCekiStokKodu = new DevExpress.XtraEditors.LookUpEdit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GCMalKabulCekiPaneli1)).BeginInit();
@@ -87,7 +87,7 @@
             this.BTDokumanlarKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
             this.BTDokumanlarKaydet.Appearance.Options.UseBackColor = true;
             this.BTDokumanlarKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTDokumanlarKaydet.ImageOptions.Image")));
-            this.BTDokumanlarKaydet.Location = new System.Drawing.Point(804, 18);
+            this.BTDokumanlarKaydet.Location = new System.Drawing.Point(807, 14);
             this.BTDokumanlarKaydet.Name = "BTDokumanlarKaydet";
             this.BTDokumanlarKaydet.Size = new System.Drawing.Size(117, 57);
             this.BTDokumanlarKaydet.TabIndex = 61;
@@ -131,6 +131,15 @@
             this.GBMalKabulCekiPanel.Size = new System.Drawing.Size(933, 164);
             this.GBMalKabulCekiPanel.TabIndex = 3;
             // 
+            // CBMalKabulCekiStokKodu
+            // 
+            this.CBMalKabulCekiStokKodu.Location = new System.Drawing.Point(194, 69);
+            this.CBMalKabulCekiStokKodu.Name = "CBMalKabulCekiStokKodu";
+            this.CBMalKabulCekiStokKodu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CBMalKabulCekiStokKodu.Size = new System.Drawing.Size(215, 20);
+            this.CBMalKabulCekiStokKodu.TabIndex = 5;
+            // 
             // BTMalKabulCeki
             // 
             this.BTMalKabulCeki.Appearance.BackColor = System.Drawing.Color.Silver;
@@ -153,15 +162,6 @@
             this.LBMalKabulCekiStokKodu.Size = new System.Drawing.Size(85, 23);
             this.LBMalKabulCekiStokKodu.TabIndex = 4;
             this.LBMalKabulCekiStokKodu.Text = "Stok Kodu";
-            // 
-            // CBMalKabulCekiStokKodu
-            // 
-            this.CBMalKabulCekiStokKodu.Location = new System.Drawing.Point(194, 69);
-            this.CBMalKabulCekiStokKodu.Name = "CBMalKabulCekiStokKodu";
-            this.CBMalKabulCekiStokKodu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.CBMalKabulCekiStokKodu.Size = new System.Drawing.Size(215, 20);
-            this.CBMalKabulCekiStokKodu.TabIndex = 5;
             // 
             // FMalKabulCekiPanel
             // 

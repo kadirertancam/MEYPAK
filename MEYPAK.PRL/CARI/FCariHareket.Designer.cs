@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FCariHareket));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.TBFiyat = new DevExpress.XtraEditors.TextEdit();
             this.TBKur = new DevExpress.XtraEditors.TextEdit();
             this.TBAciklama = new DevExpress.XtraEditors.MemoEdit();
@@ -152,9 +152,9 @@
             // 
             this.BTCariKodu.Location = new System.Drawing.Point(87, 21);
             this.BTCariKodu.Name = "BTCariKodu";
-            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
             this.BTCariKodu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTCariKodu.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.BTCariKodu.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.TBCariKodu_Properties_ButtonClick);
             this.BTCariKodu.Size = new System.Drawing.Size(175, 33);
@@ -209,7 +209,7 @@
             // 
             this.LBCariAdi.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBCariAdi.Appearance.Options.UseFont = true;
-            this.LBCariAdi.Location = new System.Drawing.Point(6, 64);
+            this.LBCariAdi.Location = new System.Drawing.Point(35, 63);
             this.LBCariAdi.Name = "LBCariAdi";
             this.LBCariAdi.Size = new System.Drawing.Size(40, 14);
             this.LBCariAdi.TabIndex = 39;
@@ -219,7 +219,7 @@
             // 
             this.LBFiyat.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBFiyat.Appearance.Options.UseFont = true;
-            this.LBFiyat.Location = new System.Drawing.Point(289, 130);
+            this.LBFiyat.Location = new System.Drawing.Point(310, 131);
             this.LBFiyat.Name = "LBFiyat";
             this.LBFiyat.Size = new System.Drawing.Size(25, 14);
             this.LBFiyat.TabIndex = 38;
@@ -230,7 +230,7 @@
             // 
             this.LBKur.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBKur.Appearance.Options.UseFont = true;
-            this.LBKur.Location = new System.Drawing.Point(289, 98);
+            this.LBKur.Location = new System.Drawing.Point(317, 98);
             this.LBKur.Name = "LBKur";
             this.LBKur.Size = new System.Drawing.Size(18, 14);
             this.LBKur.TabIndex = 38;
@@ -252,7 +252,7 @@
             // 
             this.LBParaBirimi.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBParaBirimi.Appearance.Options.UseFont = true;
-            this.LBParaBirimi.Location = new System.Drawing.Point(6, 162);
+            this.LBParaBirimi.Location = new System.Drawing.Point(21, 161);
             this.LBParaBirimi.Name = "LBParaBirimi";
             this.LBParaBirimi.Size = new System.Drawing.Size(54, 14);
             this.LBParaBirimi.TabIndex = 38;
@@ -263,7 +263,7 @@
             // 
             this.LBBelgeNo.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBBelgeNo.Appearance.Options.UseFont = true;
-            this.LBBelgeNo.Location = new System.Drawing.Point(6, 128);
+            this.LBBelgeNo.Location = new System.Drawing.Point(26, 127);
             this.LBBelgeNo.Name = "LBBelgeNo";
             this.LBBelgeNo.Size = new System.Drawing.Size(49, 14);
             this.LBBelgeNo.TabIndex = 38;
@@ -274,7 +274,7 @@
             // 
             this.LBTarih.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBTarih.Appearance.Options.UseFont = true;
-            this.LBTarih.Location = new System.Drawing.Point(6, 96);
+            this.LBTarih.Location = new System.Drawing.Point(48, 94);
             this.LBTarih.Name = "LBTarih";
             this.LBTarih.Size = new System.Drawing.Size(27, 14);
             this.LBTarih.TabIndex = 38;
@@ -285,7 +285,7 @@
             // 
             this.LBCariKodu.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBCariKodu.Appearance.Options.UseFont = true;
-            this.LBCariKodu.Location = new System.Drawing.Point(6, 28);
+            this.LBCariKodu.Location = new System.Drawing.Point(24, 27);
             this.LBCariKodu.Name = "LBCariKodu";
             this.LBCariKodu.Size = new System.Drawing.Size(51, 14);
             this.LBCariKodu.TabIndex = 37;

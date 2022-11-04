@@ -51,7 +51,7 @@ namespace MEYPAK.PRL.STOK
             }
 
             _kasaServis.Data(ServisList.StokKasaListeServis);
-            GCKasaList.DataSource = _kasaServis.obje.Where(x=>x.kayittipi==0).Select(x=> new { x.id,x.KASAADI});
+            GCKasaList.DataSource = _kasaServis.obje.Where(x=>x.kayittipi==0).Select(x=> new { x.id,x.kasaadi});
  
 
         }

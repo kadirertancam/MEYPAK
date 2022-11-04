@@ -28,39 +28,43 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.BTNKasaSec = new System.Windows.Forms.Button();
-            this.TBKasa = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.BTSiparisSec = new System.Windows.Forms.Button();
-            this.LBSiparis = new System.Windows.Forms.Label();
-            this.TBBelgeNo = new System.Windows.Forms.TextBox();
-            this.LBLSevkiyatTarihi = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.LBLAltHesap = new System.Windows.Forms.Label();
-            this.CMBAltHesap = new System.Windows.Forms.ComboBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.CBParaBirimi = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.TBSVadeGunu = new System.Windows.Forms.TextBox();
-            this.TBKur = new System.Windows.Forms.TextBox();
-            this.DTPVadeTarihi = new System.Windows.Forms.DateTimePicker();
-            this.label8 = new System.Windows.Forms.Label();
-            this.LBLCariAdi = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.DTPTarih = new System.Windows.Forms.DateTimePicker();
-            this.CBDepo = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.CHBKdvDahil = new System.Windows.Forms.CheckBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.TBAciklama = new System.Windows.Forms.TextBox();
-            this.TBCariAdi = new System.Windows.Forms.TextBox();
-            this.BTStokSec = new System.Windows.Forms.Button();
-            this.TBStokKodu = new System.Windows.Forms.TextBox();
-            this.LBLCariKodu = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FSatisIrsaliye));
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.TBGun = new DevExpress.XtraEditors.TextEdit();
+            this.DTSevkiyatTarih = new System.Windows.Forms.DateTimePicker();
+            this.LBGun = new DevExpress.XtraEditors.LabelControl();
+            this.DTPVadeTarihi = new System.Windows.Forms.DateTimePicker();
+            this.TBAciklama = new DevExpress.XtraEditors.MemoEdit();
+            this.TBKur = new DevExpress.XtraEditors.TextEdit();
+            this.CBParaBirimi = new DevExpress.XtraEditors.GridLookUpEdit();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.CBDepo = new DevExpress.XtraEditors.GridLookUpEdit();
+            this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.CHBKdvDahil = new System.Windows.Forms.CheckBox();
+            this.DTStokTarih = new System.Windows.Forms.DateTimePicker();
+            this.BTKasaSec = new DevExpress.XtraEditors.SimpleButton();
+            this.TBKasa = new DevExpress.XtraEditors.TextEdit();
+            this.CBAltHesap = new DevExpress.XtraEditors.GridLookUpEdit();
+            this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.TBCariAdi = new DevExpress.XtraEditors.TextEdit();
+            this.BTCariKoduSec = new DevExpress.XtraEditors.SimpleButton();
+            this.TBCariKodu = new DevExpress.XtraEditors.TextEdit();
+            this.BTBelgeNoSec = new DevExpress.XtraEditors.SimpleButton();
+            this.TBSiparisNo = new DevExpress.XtraEditors.TextEdit();
+            this.LBKur = new DevExpress.XtraEditors.LabelControl();
+            this.LBAciklama = new DevExpress.XtraEditors.LabelControl();
+            this.LBVadeTar = new DevExpress.XtraEditors.LabelControl();
+            this.LBSevkiyatTar = new DevExpress.XtraEditors.LabelControl();
+            this.LBParaBirimi = new DevExpress.XtraEditors.LabelControl();
+            this.LBSiparisTar = new DevExpress.XtraEditors.LabelControl();
+            this.LBKasa = new DevExpress.XtraEditors.LabelControl();
+            this.LBDepo = new DevExpress.XtraEditors.LabelControl();
+            this.LBAltHesap = new DevExpress.XtraEditors.LabelControl();
+            this.LBCariAdi = new DevExpress.XtraEditors.LabelControl();
+            this.LBCariKodu = new DevExpress.XtraEditors.LabelControl();
+            this.LBSsiparisNo = new DevExpress.XtraEditors.LabelControl();
+            this.DGIrsaliyeOlustur = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -92,7 +96,20 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBGun.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBAciklama.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBKur.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CBParaBirimi.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CBDepo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBKasa.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CBAltHesap.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBCariAdi.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBCariKodu.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBSiparisNo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGIrsaliyeOlustur)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -102,269 +119,6 @@
             this.panel6.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // BTNKasaSec
-            // 
-            this.BTNKasaSec.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BTNKasaSec.Location = new System.Drawing.Point(186, 148);
-            this.BTNKasaSec.Name = "BTNKasaSec";
-            this.BTNKasaSec.Size = new System.Drawing.Size(36, 23);
-            this.BTNKasaSec.TabIndex = 41;
-            this.BTNKasaSec.Text = "Seç";
-            this.BTNKasaSec.UseVisualStyleBackColor = true;
-            // 
-            // TBKasa
-            // 
-            this.TBKasa.Location = new System.Drawing.Point(73, 148);
-            this.TBKasa.Name = "TBKasa";
-            this.TBKasa.Size = new System.Drawing.Size(118, 23);
-            this.TBKasa.TabIndex = 40;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 152);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(31, 15);
-            this.label1.TabIndex = 39;
-            this.label1.Text = "Kasa";
-            // 
-            // BTSiparisSec
-            // 
-            this.BTSiparisSec.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BTSiparisSec.Location = new System.Drawing.Point(185, 28);
-            this.BTSiparisSec.Name = "BTSiparisSec";
-            this.BTSiparisSec.Size = new System.Drawing.Size(36, 23);
-            this.BTSiparisSec.TabIndex = 2;
-            this.BTSiparisSec.Text = "Seç";
-            this.BTSiparisSec.UseVisualStyleBackColor = true;
-            // 
-            // LBSiparis
-            // 
-            this.LBSiparis.AutoSize = true;
-            this.LBSiparis.Location = new System.Drawing.Point(6, 31);
-            this.LBSiparis.Name = "LBSiparis";
-            this.LBSiparis.Size = new System.Drawing.Size(60, 15);
-            this.LBSiparis.TabIndex = 38;
-            this.LBSiparis.Text = "Sipariş No";
-            // 
-            // TBBelgeNo
-            // 
-            this.TBBelgeNo.Location = new System.Drawing.Point(72, 28);
-            this.TBBelgeNo.Name = "TBBelgeNo";
-            this.TBBelgeNo.Size = new System.Drawing.Size(118, 23);
-            this.TBBelgeNo.TabIndex = 1;
-            this.TBBelgeNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // LBLSevkiyatTarihi
-            // 
-            this.LBLSevkiyatTarihi.AutoSize = true;
-            this.LBLSevkiyatTarihi.Location = new System.Drawing.Point(589, 177);
-            this.LBLSevkiyatTarihi.Name = "LBLSevkiyatTarihi";
-            this.LBLSevkiyatTarihi.Size = new System.Drawing.Size(81, 15);
-            this.LBLSevkiyatTarihi.TabIndex = 36;
-            this.LBLSevkiyatTarihi.Text = "Sevkiyat Tarihi";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(676, 171);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(137, 23);
-            this.dateTimePicker1.TabIndex = 11;
-            // 
-            // LBLAltHesap
-            // 
-            this.LBLAltHesap.AutoSize = true;
-            this.LBLAltHesap.Location = new System.Drawing.Point(6, 118);
-            this.LBLAltHesap.Name = "LBLAltHesap";
-            this.LBLAltHesap.Size = new System.Drawing.Size(55, 15);
-            this.LBLAltHesap.TabIndex = 34;
-            this.LBLAltHesap.Text = "AltHesap";
-            // 
-            // CMBAltHesap
-            // 
-            this.CMBAltHesap.FormattingEnabled = true;
-            this.CMBAltHesap.Location = new System.Drawing.Point(72, 115);
-            this.CMBAltHesap.Name = "CMBAltHesap";
-            this.CMBAltHesap.Size = new System.Drawing.Size(149, 23);
-            this.CMBAltHesap.TabIndex = 6;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(784, 137);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(29, 15);
-            this.label17.TabIndex = 33;
-            this.label17.Text = "Gün";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(589, 140);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(63, 15);
-            this.label16.TabIndex = 32;
-            this.label16.Text = "Vade Tarihi";
-            // 
-            // CBParaBirimi
-            // 
-            this.CBParaBirimi.FormattingEnabled = true;
-            this.CBParaBirimi.Items.AddRange(new object[] {
-            "TL"});
-            this.CBParaBirimi.Location = new System.Drawing.Point(347, 113);
-            this.CBParaBirimi.Name = "CBParaBirimi";
-            this.CBParaBirimi.Size = new System.Drawing.Size(69, 23);
-            this.CBParaBirimi.TabIndex = 13;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(277, 121);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(64, 15);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Para Birimi";
-            // 
-            // TBSVadeGunu
-            // 
-            this.TBSVadeGunu.Location = new System.Drawing.Point(819, 134);
-            this.TBSVadeGunu.Name = "TBSVadeGunu";
-            this.TBSVadeGunu.Size = new System.Drawing.Size(46, 23);
-            this.TBSVadeGunu.TabIndex = 10;
-            this.TBSVadeGunu.Text = "0";
-            // 
-            // TBKur
-            // 
-            this.TBKur.Location = new System.Drawing.Point(347, 144);
-            this.TBKur.Name = "TBKur";
-            this.TBKur.Size = new System.Drawing.Size(149, 23);
-            this.TBKur.TabIndex = 14;
-            this.TBKur.Text = "1,00";
-            this.TBKur.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // DTPVadeTarihi
-            // 
-            this.DTPVadeTarihi.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DTPVadeTarihi.Location = new System.Drawing.Point(676, 134);
-            this.DTPVadeTarihi.Name = "DTPVadeTarihi";
-            this.DTPVadeTarihi.Size = new System.Drawing.Size(103, 23);
-            this.DTPVadeTarihi.TabIndex = 9;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(280, 152);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(25, 15);
-            this.label8.TabIndex = 20;
-            this.label8.Text = "Kur";
-            // 
-            // LBLCariAdi
-            // 
-            this.LBLCariAdi.AutoSize = true;
-            this.LBLCariAdi.Location = new System.Drawing.Point(6, 89);
-            this.LBLCariAdi.Name = "LBLCariAdi";
-            this.LBLCariAdi.Size = new System.Drawing.Size(49, 15);
-            this.LBLCariAdi.TabIndex = 0;
-            this.LBLCariAdi.Text = "Cari Adı";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(280, 31);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(72, 15);
-            this.label7.TabIndex = 18;
-            this.label7.Text = "Siparis Tarihi";
-            // 
-            // DTPTarih
-            // 
-            this.DTPTarih.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DTPTarih.Location = new System.Drawing.Point(355, 25);
-            this.DTPTarih.Name = "DTPTarih";
-            this.DTPTarih.Size = new System.Drawing.Size(148, 23);
-            this.DTPTarih.TabIndex = 7;
-            // 
-            // CBDepo
-            // 
-            this.CBDepo.FormattingEnabled = true;
-            this.CBDepo.Location = new System.Drawing.Point(347, 84);
-            this.CBDepo.Name = "CBDepo";
-            this.CBDepo.Size = new System.Drawing.Size(149, 23);
-            this.CBDepo.TabIndex = 12;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(281, 87);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 15);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "Depo";
-            // 
-            // CHBKdvDahil
-            // 
-            this.CHBKdvDahil.AutoSize = true;
-            this.CHBKdvDahil.Location = new System.Drawing.Point(354, 54);
-            this.CHBKdvDahil.Name = "CHBKdvDahil";
-            this.CHBKdvDahil.Size = new System.Drawing.Size(78, 19);
-            this.CHBKdvDahil.TabIndex = 8;
-            this.CHBKdvDahil.Text = "KDV Dahil";
-            this.CHBKdvDahil.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(591, 32);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 15);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Açıklama";
-            // 
-            // TBAciklama
-            // 
-            this.TBAciklama.Location = new System.Drawing.Point(652, 30);
-            this.TBAciklama.Multiline = true;
-            this.TBAciklama.Name = "TBAciklama";
-            this.TBAciklama.Size = new System.Drawing.Size(167, 81);
-            this.TBAciklama.TabIndex = 8;
-            // 
-            // TBCariAdi
-            // 
-            this.TBCariAdi.Enabled = false;
-            this.TBCariAdi.Location = new System.Drawing.Point(72, 86);
-            this.TBCariAdi.Name = "TBCariAdi";
-            this.TBCariAdi.Size = new System.Drawing.Size(149, 23);
-            this.TBCariAdi.TabIndex = 5;
-            this.TBCariAdi.TabStop = false;
-            // 
-            // BTStokSec
-            // 
-            this.BTStokSec.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BTStokSec.Location = new System.Drawing.Point(185, 57);
-            this.BTStokSec.Name = "BTStokSec";
-            this.BTStokSec.Size = new System.Drawing.Size(36, 23);
-            this.BTStokSec.TabIndex = 4;
-            this.BTStokSec.Text = "Seç";
-            this.BTStokSec.UseVisualStyleBackColor = true;
-            // 
-            // TBStokKodu
-            // 
-            this.TBStokKodu.Location = new System.Drawing.Point(72, 57);
-            this.TBStokKodu.Name = "TBStokKodu";
-            this.TBStokKodu.Size = new System.Drawing.Size(118, 23);
-            this.TBStokKodu.TabIndex = 3;
-            // 
-            // LBLCariKodu
-            // 
-            this.LBLCariKodu.AutoSize = true;
-            this.LBLCariKodu.Location = new System.Drawing.Point(6, 61);
-            this.LBLCariKodu.Name = "LBLCariKodu";
-            this.LBLCariKodu.Size = new System.Drawing.Size(59, 15);
-            this.LBLCariKodu.TabIndex = 0;
-            this.LBLCariKodu.Text = "Cari Kodu";
             // 
             // panel2
             // 
@@ -377,54 +131,411 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.BTNKasaSec);
-            this.groupBox1.Controls.Add(this.TBKasa);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.BTSiparisSec);
-            this.groupBox1.Controls.Add(this.LBSiparis);
-            this.groupBox1.Controls.Add(this.TBBelgeNo);
-            this.groupBox1.Controls.Add(this.LBLSevkiyatTarihi);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
-            this.groupBox1.Controls.Add(this.LBLAltHesap);
-            this.groupBox1.Controls.Add(this.CMBAltHesap);
-            this.groupBox1.Controls.Add(this.label17);
-            this.groupBox1.Controls.Add(this.label16);
-            this.groupBox1.Controls.Add(this.CBParaBirimi);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.TBSVadeGunu);
-            this.groupBox1.Controls.Add(this.TBKur);
+            this.groupBox1.Controls.Add(this.TBGun);
+            this.groupBox1.Controls.Add(this.DTSevkiyatTarih);
+            this.groupBox1.Controls.Add(this.LBGun);
             this.groupBox1.Controls.Add(this.DTPVadeTarihi);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.LBLCariAdi);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.DTPTarih);
-            this.groupBox1.Controls.Add(this.CBDepo);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.CHBKdvDahil);
-            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.TBAciklama);
+            this.groupBox1.Controls.Add(this.TBKur);
+            this.groupBox1.Controls.Add(this.CBParaBirimi);
+            this.groupBox1.Controls.Add(this.CBDepo);
+            this.groupBox1.Controls.Add(this.CHBKdvDahil);
+            this.groupBox1.Controls.Add(this.DTStokTarih);
+            this.groupBox1.Controls.Add(this.BTKasaSec);
+            this.groupBox1.Controls.Add(this.TBKasa);
+            this.groupBox1.Controls.Add(this.CBAltHesap);
             this.groupBox1.Controls.Add(this.TBCariAdi);
-            this.groupBox1.Controls.Add(this.BTStokSec);
-            this.groupBox1.Controls.Add(this.TBStokKodu);
-            this.groupBox1.Controls.Add(this.LBLCariKodu);
+            this.groupBox1.Controls.Add(this.BTCariKoduSec);
+            this.groupBox1.Controls.Add(this.TBCariKodu);
+            this.groupBox1.Controls.Add(this.BTBelgeNoSec);
+            this.groupBox1.Controls.Add(this.TBSiparisNo);
+            this.groupBox1.Controls.Add(this.LBKur);
+            this.groupBox1.Controls.Add(this.LBAciklama);
+            this.groupBox1.Controls.Add(this.LBVadeTar);
+            this.groupBox1.Controls.Add(this.LBSevkiyatTar);
+            this.groupBox1.Controls.Add(this.LBParaBirimi);
+            this.groupBox1.Controls.Add(this.LBSiparisTar);
+            this.groupBox1.Controls.Add(this.LBKasa);
+            this.groupBox1.Controls.Add(this.LBDepo);
+            this.groupBox1.Controls.Add(this.LBAltHesap);
+            this.groupBox1.Controls.Add(this.LBCariAdi);
+            this.groupBox1.Controls.Add(this.LBCariKodu);
+            this.groupBox1.Controls.Add(this.LBSsiparisNo);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1884, 213);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Stok Hareket";
+            this.groupBox1.Text = "Satış İrsaliye";
             // 
-            // dataGridView1
+            // TBGun
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(1884, 521);
-            this.dataGridView1.TabIndex = 15;
+            this.TBGun.EditValue = "0";
+            this.TBGun.Location = new System.Drawing.Point(1019, 116);
+            this.TBGun.Name = "TBGun";
+            this.TBGun.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.TBGun.Size = new System.Drawing.Size(44, 26);
+            this.TBGun.TabIndex = 87;
+            // 
+            // DTSevkiyatTarih
+            // 
+            this.DTSevkiyatTarih.CalendarFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DTSevkiyatTarih.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DTSevkiyatTarih.Location = new System.Drawing.Point(784, 153);
+            this.DTSevkiyatTarih.Name = "DTSevkiyatTarih";
+            this.DTSevkiyatTarih.Size = new System.Drawing.Size(181, 21);
+            this.DTSevkiyatTarih.TabIndex = 86;
+            this.DTSevkiyatTarih.Value = new System.DateTime(2022, 11, 3, 13, 26, 0, 0);
+            // 
+            // LBGun
+            // 
+            this.LBGun.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBGun.Appearance.Options.UseFont = true;
+            this.LBGun.Location = new System.Drawing.Point(982, 121);
+            this.LBGun.Name = "LBGun";
+            this.LBGun.Size = new System.Drawing.Size(22, 14);
+            this.LBGun.TabIndex = 85;
+            this.LBGun.Text = "Gün";
+            // 
+            // DTPVadeTarihi
+            // 
+            this.DTPVadeTarihi.CalendarFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DTPVadeTarihi.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DTPVadeTarihi.Location = new System.Drawing.Point(784, 119);
+            this.DTPVadeTarihi.Name = "DTPVadeTarihi";
+            this.DTPVadeTarihi.Size = new System.Drawing.Size(181, 21);
+            this.DTPVadeTarihi.TabIndex = 84;
+            this.DTPVadeTarihi.Value = new System.DateTime(2022, 11, 3, 13, 26, 0, 0);
+            // 
+            // TBAciklama
+            // 
+            this.TBAciklama.Location = new System.Drawing.Point(784, 36);
+            this.TBAciklama.Name = "TBAciklama";
+            this.TBAciklama.Size = new System.Drawing.Size(181, 67);
+            this.TBAciklama.TabIndex = 83;
+            // 
+            // TBKur
+            // 
+            this.TBKur.EditValue = "1,00";
+            this.TBKur.Location = new System.Drawing.Point(441, 166);
+            this.TBKur.Name = "TBKur";
+            this.TBKur.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.TBKur.Size = new System.Drawing.Size(222, 26);
+            this.TBKur.TabIndex = 82;
+            // 
+            // CBParaBirimi
+            // 
+            this.CBParaBirimi.EditValue = "";
+            this.CBParaBirimi.Location = new System.Drawing.Point(441, 132);
+            this.CBParaBirimi.Name = "CBParaBirimi";
+            this.CBParaBirimi.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CBParaBirimi.Properties.NullText = "";
+            this.CBParaBirimi.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.CBParaBirimi.Properties.PopupView = this.gridView1;
+            this.CBParaBirimi.Size = new System.Drawing.Size(78, 26);
+            this.CBParaBirimi.TabIndex = 81;
+            // 
+            // gridView1
+            // 
+            this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView1.OptionsView.ShowGroupPanel = false;
+            // 
+            // CBDepo
+            // 
+            this.CBDepo.EditValue = "";
+            this.CBDepo.Location = new System.Drawing.Point(441, 95);
+            this.CBDepo.Name = "CBDepo";
+            this.CBDepo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CBDepo.Properties.NullText = "";
+            this.CBDepo.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.CBDepo.Properties.PopupView = this.gridLookUpEdit1View;
+            this.CBDepo.Size = new System.Drawing.Size(222, 26);
+            this.CBDepo.TabIndex = 80;
+            // 
+            // gridLookUpEdit1View
+            // 
+            this.gridLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridLookUpEdit1View.Name = "gridLookUpEdit1View";
+            this.gridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            // 
+            // CHBKdvDahil
+            // 
+            this.CHBKdvDahil.AutoSize = true;
+            this.CHBKdvDahil.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CHBKdvDahil.Location = new System.Drawing.Point(448, 65);
+            this.CHBKdvDahil.Name = "CHBKdvDahil";
+            this.CHBKdvDahil.Size = new System.Drawing.Size(71, 17);
+            this.CHBKdvDahil.TabIndex = 79;
+            this.CHBKdvDahil.Text = "KDV Dahil";
+            this.CHBKdvDahil.UseVisualStyleBackColor = true;
+            // 
+            // DTStokTarih
+            // 
+            this.DTStokTarih.CalendarFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DTStokTarih.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DTStokTarih.Location = new System.Drawing.Point(441, 38);
+            this.DTStokTarih.Name = "DTStokTarih";
+            this.DTStokTarih.Size = new System.Drawing.Size(222, 21);
+            this.DTStokTarih.TabIndex = 78;
+            this.DTStokTarih.Value = new System.DateTime(2022, 11, 3, 13, 26, 0, 0);
+            // 
+            // BTKasaSec
+            // 
+            this.BTKasaSec.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTKasaSec.Appearance.BackColor2 = System.Drawing.Color.Black;
+            this.BTKasaSec.Appearance.BorderColor = System.Drawing.Color.Black;
+            this.BTKasaSec.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.BTKasaSec.Appearance.Options.UseBackColor = true;
+            this.BTKasaSec.Appearance.Options.UseBorderColor = true;
+            this.BTKasaSec.Appearance.Options.UseFont = true;
+            this.BTKasaSec.Appearance.Options.UseForeColor = true;
+            this.BTKasaSec.AppearanceDisabled.BorderColor = System.Drawing.Color.Black;
+            this.BTKasaSec.AppearanceDisabled.Options.UseBorderColor = true;
+            this.BTKasaSec.AppearanceHovered.BorderColor = System.Drawing.Color.Black;
+            this.BTKasaSec.AppearanceHovered.Options.UseBorderColor = true;
+            this.BTKasaSec.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.BTKasaSec.Location = new System.Drawing.Point(228, 173);
+            this.BTKasaSec.Name = "BTKasaSec";
+            this.BTKasaSec.Size = new System.Drawing.Size(65, 26);
+            this.BTKasaSec.TabIndex = 67;
+            this.BTKasaSec.Text = "Seç";
+            // 
+            // TBKasa
+            // 
+            this.TBKasa.Location = new System.Drawing.Point(71, 173);
+            this.TBKasa.Name = "TBKasa";
+            this.TBKasa.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TBKasa.Properties.Appearance.Options.UseFont = true;
+            this.TBKasa.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.TBKasa.Size = new System.Drawing.Size(222, 26);
+            this.TBKasa.TabIndex = 66;
+            // 
+            // CBAltHesap
+            // 
+            this.CBAltHesap.EditValue = "";
+            this.CBAltHesap.Location = new System.Drawing.Point(72, 141);
+            this.CBAltHesap.Name = "CBAltHesap";
+            this.CBAltHesap.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CBAltHesap.Properties.NullText = "";
+            this.CBAltHesap.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.CBAltHesap.Properties.PopupView = this.gridView3;
+            this.CBAltHesap.Size = new System.Drawing.Size(223, 26);
+            this.CBAltHesap.TabIndex = 65;
+            // 
+            // gridView3
+            // 
+            this.gridView3.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView3.Name = "gridView3";
+            this.gridView3.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView3.OptionsView.ShowGroupPanel = false;
+            // 
+            // TBCariAdi
+            // 
+            this.TBCariAdi.Location = new System.Drawing.Point(73, 107);
+            this.TBCariAdi.Name = "TBCariAdi";
+            this.TBCariAdi.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.TBCariAdi.Size = new System.Drawing.Size(222, 26);
+            this.TBCariAdi.TabIndex = 64;
+            // 
+            // BTCariKoduSec
+            // 
+            this.BTCariKoduSec.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTCariKoduSec.Appearance.BackColor2 = System.Drawing.Color.Black;
+            this.BTCariKoduSec.Appearance.BorderColor = System.Drawing.Color.Black;
+            this.BTCariKoduSec.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.BTCariKoduSec.Appearance.Options.UseBackColor = true;
+            this.BTCariKoduSec.Appearance.Options.UseBorderColor = true;
+            this.BTCariKoduSec.Appearance.Options.UseFont = true;
+            this.BTCariKoduSec.Appearance.Options.UseForeColor = true;
+            this.BTCariKoduSec.AppearanceDisabled.BorderColor = System.Drawing.Color.Black;
+            this.BTCariKoduSec.AppearanceDisabled.Options.UseBorderColor = true;
+            this.BTCariKoduSec.AppearanceHovered.BorderColor = System.Drawing.Color.Black;
+            this.BTCariKoduSec.AppearanceHovered.Options.UseBorderColor = true;
+            this.BTCariKoduSec.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTCariKoduSec.ImageOptions.Image")));
+            this.BTCariKoduSec.Location = new System.Drawing.Point(230, 72);
+            this.BTCariKoduSec.Name = "BTCariKoduSec";
+            this.BTCariKoduSec.Size = new System.Drawing.Size(65, 26);
+            this.BTCariKoduSec.TabIndex = 63;
+            this.BTCariKoduSec.Text = "Seç";
+            // 
+            // TBCariKodu
+            // 
+            this.TBCariKodu.Location = new System.Drawing.Point(73, 72);
+            this.TBCariKodu.Name = "TBCariKodu";
+            this.TBCariKodu.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TBCariKodu.Properties.Appearance.Options.UseFont = true;
+            this.TBCariKodu.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.TBCariKodu.Size = new System.Drawing.Size(222, 26);
+            this.TBCariKodu.TabIndex = 62;
+            // 
+            // BTBelgeNoSec
+            // 
+            this.BTBelgeNoSec.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTBelgeNoSec.Appearance.BackColor2 = System.Drawing.Color.Black;
+            this.BTBelgeNoSec.Appearance.BorderColor = System.Drawing.Color.Black;
+            this.BTBelgeNoSec.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.BTBelgeNoSec.Appearance.Options.UseBackColor = true;
+            this.BTBelgeNoSec.Appearance.Options.UseBorderColor = true;
+            this.BTBelgeNoSec.Appearance.Options.UseFont = true;
+            this.BTBelgeNoSec.Appearance.Options.UseForeColor = true;
+            this.BTBelgeNoSec.AppearanceDisabled.BorderColor = System.Drawing.Color.Black;
+            this.BTBelgeNoSec.AppearanceDisabled.Options.UseBorderColor = true;
+            this.BTBelgeNoSec.AppearanceHovered.BorderColor = System.Drawing.Color.Black;
+            this.BTBelgeNoSec.AppearanceHovered.Options.UseBorderColor = true;
+            this.BTBelgeNoSec.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTBelgeNoSec.ImageOptions.Image")));
+            this.BTBelgeNoSec.Location = new System.Drawing.Point(230, 37);
+            this.BTBelgeNoSec.Name = "BTBelgeNoSec";
+            this.BTBelgeNoSec.Size = new System.Drawing.Size(65, 26);
+            this.BTBelgeNoSec.TabIndex = 61;
+            this.BTBelgeNoSec.Text = "Seç";
+            // 
+            // TBSiparisNo
+            // 
+            this.TBSiparisNo.Location = new System.Drawing.Point(73, 37);
+            this.TBSiparisNo.Name = "TBSiparisNo";
+            this.TBSiparisNo.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TBSiparisNo.Properties.Appearance.Options.UseFont = true;
+            this.TBSiparisNo.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.TBSiparisNo.Size = new System.Drawing.Size(222, 26);
+            this.TBSiparisNo.TabIndex = 60;
+            // 
+            // LBKur
+            // 
+            this.LBKur.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBKur.Appearance.Options.UseFont = true;
+            this.LBKur.Location = new System.Drawing.Point(414, 173);
+            this.LBKur.Name = "LBKur";
+            this.LBKur.Size = new System.Drawing.Size(18, 14);
+            this.LBKur.TabIndex = 54;
+            this.LBKur.Text = "Kur";
+            // 
+            // LBAciklama
+            // 
+            this.LBAciklama.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBAciklama.Appearance.Options.UseFont = true;
+            this.LBAciklama.Location = new System.Drawing.Point(724, 42);
+            this.LBAciklama.Name = "LBAciklama";
+            this.LBAciklama.Size = new System.Drawing.Size(46, 14);
+            this.LBAciklama.TabIndex = 53;
+            this.LBAciklama.Text = "Açıklama";
+            // 
+            // LBVadeTar
+            // 
+            this.LBVadeTar.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBVadeTar.Appearance.Options.UseFont = true;
+            this.LBVadeTar.Location = new System.Drawing.Point(709, 119);
+            this.LBVadeTar.Name = "LBVadeTar";
+            this.LBVadeTar.Size = new System.Drawing.Size(61, 14);
+            this.LBVadeTar.TabIndex = 52;
+            this.LBVadeTar.Text = "Vade Tarihi";
+            // 
+            // LBSevkiyatTar
+            // 
+            this.LBSevkiyatTar.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBSevkiyatTar.Appearance.Options.UseFont = true;
+            this.LBSevkiyatTar.Location = new System.Drawing.Point(692, 158);
+            this.LBSevkiyatTar.Name = "LBSevkiyatTar";
+            this.LBSevkiyatTar.Size = new System.Drawing.Size(78, 14);
+            this.LBSevkiyatTar.TabIndex = 51;
+            this.LBSevkiyatTar.Text = "Sevkiyat Tarihi";
+            // 
+            // LBParaBirimi
+            // 
+            this.LBParaBirimi.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBParaBirimi.Appearance.Options.UseFont = true;
+            this.LBParaBirimi.Location = new System.Drawing.Point(378, 137);
+            this.LBParaBirimi.Name = "LBParaBirimi";
+            this.LBParaBirimi.Size = new System.Drawing.Size(54, 14);
+            this.LBParaBirimi.TabIndex = 50;
+            this.LBParaBirimi.Text = "Para Birimi";
+            // 
+            // LBSiparisTar
+            // 
+            this.LBSiparisTar.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBSiparisTar.Appearance.Options.UseFont = true;
+            this.LBSiparisTar.Location = new System.Drawing.Point(366, 42);
+            this.LBSiparisTar.Name = "LBSiparisTar";
+            this.LBSiparisTar.Size = new System.Drawing.Size(66, 14);
+            this.LBSiparisTar.TabIndex = 48;
+            this.LBSiparisTar.Text = "Sipariş Tarihi";
+            // 
+            // LBKasa
+            // 
+            this.LBKasa.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBKasa.Appearance.Options.UseFont = true;
+            this.LBKasa.Location = new System.Drawing.Point(40, 178);
+            this.LBKasa.Name = "LBKasa";
+            this.LBKasa.Size = new System.Drawing.Size(24, 14);
+            this.LBKasa.TabIndex = 47;
+            this.LBKasa.Text = "Kasa";
+            // 
+            // LBDepo
+            // 
+            this.LBDepo.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBDepo.Appearance.Options.UseFont = true;
+            this.LBDepo.Location = new System.Drawing.Point(403, 101);
+            this.LBDepo.Name = "LBDepo";
+            this.LBDepo.Size = new System.Drawing.Size(29, 14);
+            this.LBDepo.TabIndex = 46;
+            this.LBDepo.Text = "Depo";
+            // 
+            // LBAltHesap
+            // 
+            this.LBAltHesap.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBAltHesap.Appearance.Options.UseFont = true;
+            this.LBAltHesap.Location = new System.Drawing.Point(13, 144);
+            this.LBAltHesap.Name = "LBAltHesap";
+            this.LBAltHesap.Size = new System.Drawing.Size(52, 14);
+            this.LBAltHesap.TabIndex = 45;
+            this.LBAltHesap.Text = "Alt Hesap";
+            // 
+            // LBCariAdi
+            // 
+            this.LBCariAdi.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBCariAdi.Appearance.Options.UseFont = true;
+            this.LBCariAdi.Location = new System.Drawing.Point(24, 112);
+            this.LBCariAdi.Name = "LBCariAdi";
+            this.LBCariAdi.Size = new System.Drawing.Size(40, 14);
+            this.LBCariAdi.TabIndex = 44;
+            this.LBCariAdi.Text = "Cari Adı";
+            // 
+            // LBCariKodu
+            // 
+            this.LBCariKodu.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBCariKodu.Appearance.Options.UseFont = true;
+            this.LBCariKodu.Location = new System.Drawing.Point(14, 77);
+            this.LBCariKodu.Name = "LBCariKodu";
+            this.LBCariKodu.Size = new System.Drawing.Size(51, 14);
+            this.LBCariKodu.TabIndex = 43;
+            this.LBCariKodu.Text = "Cari Kodu";
+            // 
+            // LBSsiparisNo
+            // 
+            this.LBSsiparisNo.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBSsiparisNo.Appearance.Options.UseFont = true;
+            this.LBSsiparisNo.Location = new System.Drawing.Point(13, 45);
+            this.LBSsiparisNo.Name = "LBSsiparisNo";
+            this.LBSsiparisNo.Size = new System.Drawing.Size(52, 14);
+            this.LBSsiparisNo.TabIndex = 42;
+            this.LBSsiparisNo.Text = "Sipariş No";
+            // 
+            // DGIrsaliyeOlustur
+            // 
+            this.DGIrsaliyeOlustur.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.DGIrsaliyeOlustur.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGIrsaliyeOlustur.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DGIrsaliyeOlustur.Location = new System.Drawing.Point(0, 0);
+            this.DGIrsaliyeOlustur.Name = "DGIrsaliyeOlustur";
+            this.DGIrsaliyeOlustur.RowTemplate.Height = 25;
+            this.DGIrsaliyeOlustur.Size = new System.Drawing.Size(1884, 521);
+            this.DGIrsaliyeOlustur.TabIndex = 15;
             // 
             // panel1
             // 
@@ -729,26 +840,39 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.dataGridView1);
+            this.panel3.Controls.Add(this.DGIrsaliyeOlustur);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 213);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1884, 521);
             this.panel3.TabIndex = 1;
             // 
-            // FIrsaliyeOlustur
+            // FSatisIrsaliye
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1884, 961);
             this.Controls.Add(this.panel1);
-            this.Name = "FIrsaliyeOlustur";
+            this.Name = "FSatisIrsaliye";
             this.Text = "FIrsaliyeOlustur";
             this.Load += new System.EventHandler(this.FIrsaliyeOlustur_Load);
             this.panel2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBGun.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBAciklama.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBKur.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CBParaBirimi.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CBDepo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBKasa.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CBAltHesap.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBCariAdi.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBCariKodu.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBSiparisNo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGIrsaliyeOlustur)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel4.ResumeLayout(false);
@@ -766,40 +890,8 @@
         }
 
         #endregion
-
-        private Button BTNKasaSec;
-        private TextBox TBKasa;
-        private Label label1;
-        private Button BTSiparisSec;
-        private Label LBSiparis;
-        private TextBox TBBelgeNo;
-        private Label LBLSevkiyatTarihi;
-        private DateTimePicker dateTimePicker1;
-        private Label LBLAltHesap;
-        private ComboBox CMBAltHesap;
-        private Label label17;
-        private Label label16;
-        private ComboBox CBParaBirimi;
-        private Label label5;
-        private TextBox TBSVadeGunu;
-        private TextBox TBKur;
-        private DateTimePicker DTPVadeTarihi;
-        private Label label8;
-        private Label LBLCariAdi;
-        private Label label7;
-        private DateTimePicker DTPTarih;
-        private ComboBox CBDepo;
-        private Label label6;
-        private CheckBox CHBKdvDahil;
-        private Label label3;
-        private TextBox TBAciklama;
-        private TextBox TBCariAdi;
-        private Button BTStokSec;
-        private TextBox TBStokKodu;
-        private Label LBLCariKodu;
         private Panel panel2;
-        private GroupBox groupBox1;
-        private DataGridView dataGridView1;
+        private DataGridView DGIrsaliyeOlustur;
         private Panel panel1;
         private Panel panel4;
         private Panel panel8;
@@ -830,5 +922,39 @@
         private Button BTNDegistir;
         private Button BTNSil;
         private Panel panel3;
+        private GroupBox groupBox1;
+        private DevExpress.XtraEditors.LabelControl LBParaBirimi;
+        private DevExpress.XtraEditors.LabelControl LBSiparisTar;
+        private DevExpress.XtraEditors.LabelControl LBKasa;
+        private DevExpress.XtraEditors.LabelControl LBDepo;
+        private DevExpress.XtraEditors.LabelControl LBAltHesap;
+        private DevExpress.XtraEditors.LabelControl LBCariAdi;
+        private DevExpress.XtraEditors.LabelControl LBCariKodu;
+        private DevExpress.XtraEditors.LabelControl LBSsiparisNo;
+        private DevExpress.XtraEditors.LabelControl LBKur;
+        private DevExpress.XtraEditors.LabelControl LBAciklama;
+        private DevExpress.XtraEditors.LabelControl LBVadeTar;
+        private DevExpress.XtraEditors.LabelControl LBSevkiyatTar;
+        private DevExpress.XtraEditors.SimpleButton BTBelgeNoSec;
+        private DevExpress.XtraEditors.TextEdit TBSiparisNo;
+        private DevExpress.XtraEditors.SimpleButton BTCariKoduSec;
+        private DevExpress.XtraEditors.TextEdit TBCariKodu;
+        private DevExpress.XtraEditors.TextEdit TBCariAdi;
+        private DevExpress.XtraEditors.GridLookUpEdit CBAltHesap;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView3;
+        private DevExpress.XtraEditors.SimpleButton BTKasaSec;
+        private DevExpress.XtraEditors.TextEdit TBKasa;
+        private DateTimePicker DTStokTarih;
+        private DevExpress.XtraEditors.GridLookUpEdit CBParaBirimi;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraEditors.GridLookUpEdit CBDepo;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridLookUpEdit1View;
+        private CheckBox CHBKdvDahil;
+        private DevExpress.XtraEditors.TextEdit TBKur;
+        private DateTimePicker DTPVadeTarihi;
+        private DevExpress.XtraEditors.MemoEdit TBAciklama;
+        private DateTimePicker DTSevkiyatTarih;
+        private DevExpress.XtraEditors.LabelControl LBGun;
+        private DevExpress.XtraEditors.TextEdit TBGun;
     }
 }

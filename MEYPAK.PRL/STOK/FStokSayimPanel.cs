@@ -25,6 +25,8 @@ using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.PocoModels.DEPO;
+using DevExpress.XtraEditors;
+using System.Windows.Media.Animation;
 
 namespace MEYPAK.PRL.STOK
 {
@@ -62,7 +64,7 @@ namespace MEYPAK.PRL.STOK
             stokServis.Data(ServisList.StokListeServis);
             TBStokBilgiStokKodu.Text = _tempStok.kod;
             TBStokBilgiStokAdi.Text = _tempStok.adi;
-            CBStokBilgiBirim.Properties.DataSource = stokOlcuBrServis.obje.Where(x => x.STOKID == _tempStok.id).Select(x => olcuBrServis.obje.Where(z => z.id == x.OLCUBRID).FirstOrDefault().adi).ToList();
+            CBStokSayimDepo.Properties.DataSource = stokOlcuBrServis.obje.Where(x => x.STOKID == _tempStok.id).Select(x => olcuBrServis.obje.Where(z => z.id == x.OLCUBRID).FirstOrDefault().adi).ToList();
             TBStokBilgiBakiye.Text = (from ep in stokServis.obje join e in stokHarServis.obje on ep.id equals e.stokid where ep.kod == _tempStok.kod select Convert.ToDecimal(e.io.ToString() == "1" ? e.miktar : 0) - Convert.ToDecimal(e.io.ToString() == "0" ? e.miktar : 0)).FirstOrDefault().ToString();
 
             _tempStok = null;
@@ -79,8 +81,8 @@ namespace MEYPAK.PRL.STOK
 
             if (_islemtipi == "düzenle")
             {
-                gridControl1.DataSource = _tempStokSayimHarList; 
-                CBDepo.Properties.DataSource = depoServis.obje.Select(x => x.DEPOADI).ToList();
+                DGStokSayim.DataSource = _tempStokSayimHarList;
+                CBStokSayimDepo.Properties.DataSource = depoServis.obje.Select(x => x.DEPOADI).ToList();
 
             }
             else if (_islemtipi == "kaydet")
@@ -105,7 +107,7 @@ namespace MEYPAK.PRL.STOK
                 //dgvBtColumn.HeaderText = "Seç"; 
                 //dgvBtColumn.FlatStyle = FlatStyle.Flat;
                 //dgvBtColumn.DisplayIndex = 1; 
-                gridControl1.DataSource = _tempStokSayimHarList;
+                DGStokSayim.DataSource = _tempStokSayimHarList;
                 //dataGridView1.Columns.Add(dgvBtColumn);
                 //dataGridView1.CellClick += DataGridView1_CellClick;
                 //for (int i = 0; i < dataGridView1.Rows.Count; i++)
@@ -144,8 +146,8 @@ namespace MEYPAK.PRL.STOK
         private void button2_Click(object sender, EventArgs e)
         {
             _tempStokSayimHarList = new List<PocoStokSayimPanelList>();
-            gridControl1.DataSource = _tempStokSayimHarList;
-            gridControl1.Refresh();
+            DGStokSayim.DataSource = _tempStokSayimHarList;
+            DGStokSayim.Refresh();
         }
 
         private void dataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
@@ -209,6 +211,9 @@ namespace MEYPAK.PRL.STOK
                 e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
             }
         }
+
+
+
 
         #endregion
 

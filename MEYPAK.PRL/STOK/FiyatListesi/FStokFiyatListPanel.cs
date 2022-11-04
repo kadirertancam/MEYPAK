@@ -53,7 +53,7 @@ namespace MEYPAK.PRL.STOK
                 if (_tempStok.id > 0)
                 {
                     stokid = _tempStok.id;
-                    TBStokKodu.Text = _tempStok.kod;
+                    TBIskonto.Text = _tempStok.kod;
                     TBStokAdi.Text = _tempStok.adi;
                 }
         }
@@ -116,7 +116,7 @@ namespace MEYPAK.PRL.STOK
             {   //todo burdan id çekip güncelleme işlemi yapılabilecek.
                 stokfiyatharid = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value);
                 _fiyatlisthar = _stokFiyatListHarServis.obje.Where(x=> x.id==stokfiyatharid).FirstOrDefault();
-                TBStokKodu.Text = _stokServis.obje.Where(x=> x.id==_fiyatlisthar.stokid).FirstOrDefault().kod;
+                TBIskonto.Text = _stokServis.obje.Where(x=> x.id==_fiyatlisthar.stokid).FirstOrDefault().kod;
                 TBKur.Text = _fiyatlisthar.kur.ToString();
                 TBStokAdi.Text = _stokServis.obje.Where(x => x.id == _fiyatlisthar.stokid).FirstOrDefault().adi;
                 TBIskonto.Text= _fiyatlisthar.iskonto.ToString();  

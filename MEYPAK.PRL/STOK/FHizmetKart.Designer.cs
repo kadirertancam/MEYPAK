@@ -28,20 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FHizmetKart));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.PNUstBilgi = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.PNUstBilgi = new System.Windows.Forms.Panel();
             this.GBHizmetGenelBilgi = new System.Windows.Forms.GroupBox();
-            this.LBHizmetKodu = new System.Windows.Forms.Label();
-            this.TBHizmetKodu = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.LBHizmetAdi = new DevExpress.XtraEditors.LabelControl();
+            this.LBHizmetKodu1 = new DevExpress.XtraEditors.LabelControl();
+            this.LBHizmetKodu = new DevExpress.XtraEditors.LabelControl();
+            this.TBHizmetAdi = new DevExpress.XtraEditors.TextEdit();
+            this.TBHizmetKodu2 = new DevExpress.XtraEditors.TextEdit();
+            this.TBHizmetKodu = new DevExpress.XtraEditors.TextEdit();
+            this.BTHizmetKoduSec = new DevExpress.XtraEditors.SimpleButton();
             this.panel1.SuspendLayout();
             this.PNUstBilgi.SuspendLayout();
             this.GBHizmetGenelBilgi.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TBHizmetAdi.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBHizmetKodu2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBHizmetKodu.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -54,6 +58,14 @@
             this.panel1.Size = new System.Drawing.Size(1156, 632);
             this.panel1.TabIndex = 0;
             // 
+            // panel3
+            // 
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 231);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1156, 401);
+            this.panel3.TabIndex = 1;
+            // 
             // PNUstBilgi
             // 
             this.PNUstBilgi.Controls.Add(this.GBHizmetGenelBilgi);
@@ -63,22 +75,14 @@
             this.PNUstBilgi.Size = new System.Drawing.Size(1156, 231);
             this.PNUstBilgi.TabIndex = 0;
             // 
-            // panel3
-            // 
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 231);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1156, 401);
-            this.panel3.TabIndex = 1;
-            // 
             // GBHizmetGenelBilgi
             // 
-            this.GBHizmetGenelBilgi.Controls.Add(this.textBox2);
-            this.GBHizmetGenelBilgi.Controls.Add(this.label2);
-            this.GBHizmetGenelBilgi.Controls.Add(this.textBox1);
-            this.GBHizmetGenelBilgi.Controls.Add(this.label1);
-            this.GBHizmetGenelBilgi.Controls.Add(this.button1);
+            this.GBHizmetGenelBilgi.Controls.Add(this.BTHizmetKoduSec);
             this.GBHizmetGenelBilgi.Controls.Add(this.TBHizmetKodu);
+            this.GBHizmetGenelBilgi.Controls.Add(this.TBHizmetKodu2);
+            this.GBHizmetGenelBilgi.Controls.Add(this.TBHizmetAdi);
+            this.GBHizmetGenelBilgi.Controls.Add(this.LBHizmetAdi);
+            this.GBHizmetGenelBilgi.Controls.Add(this.LBHizmetKodu1);
             this.GBHizmetGenelBilgi.Controls.Add(this.LBHizmetKodu);
             this.GBHizmetGenelBilgi.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GBHizmetGenelBilgi.Location = new System.Drawing.Point(0, 0);
@@ -88,63 +92,83 @@
             this.GBHizmetGenelBilgi.TabStop = false;
             this.GBHizmetGenelBilgi.Text = "Genel Bilgi";
             // 
+            // LBHizmetAdi
+            // 
+            this.LBHizmetAdi.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBHizmetAdi.Appearance.Options.UseFont = true;
+            this.LBHizmetAdi.Location = new System.Drawing.Point(31, 108);
+            this.LBHizmetAdi.Name = "LBHizmetAdi";
+            this.LBHizmetAdi.Size = new System.Drawing.Size(58, 14);
+            this.LBHizmetAdi.TabIndex = 9;
+            this.LBHizmetAdi.Text = "Hizmet Adı";
+            // 
+            // LBHizmetKodu1
+            // 
+            this.LBHizmetKodu1.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBHizmetKodu1.Appearance.Options.UseFont = true;
+            this.LBHizmetKodu1.Location = new System.Drawing.Point(20, 76);
+            this.LBHizmetKodu1.Name = "LBHizmetKodu1";
+            this.LBHizmetKodu1.Size = new System.Drawing.Size(69, 14);
+            this.LBHizmetKodu1.TabIndex = 8;
+            this.LBHizmetKodu1.Text = "Hizmet Kodu";
+            // 
             // LBHizmetKodu
             // 
-            this.LBHizmetKodu.AutoSize = true;
-            this.LBHizmetKodu.Location = new System.Drawing.Point(13, 43);
+            this.LBHizmetKodu.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBHizmetKodu.Appearance.Options.UseFont = true;
+            this.LBHizmetKodu.Location = new System.Drawing.Point(20, 43);
             this.LBHizmetKodu.Name = "LBHizmetKodu";
-            this.LBHizmetKodu.Size = new System.Drawing.Size(76, 15);
-            this.LBHizmetKodu.TabIndex = 0;
+            this.LBHizmetKodu.Size = new System.Drawing.Size(69, 14);
+            this.LBHizmetKodu.TabIndex = 7;
             this.LBHizmetKodu.Text = "Hizmet Kodu";
+            // 
+            // TBHizmetAdi
+            // 
+            this.TBHizmetAdi.Enabled = false;
+            this.TBHizmetAdi.Location = new System.Drawing.Point(95, 103);
+            this.TBHizmetAdi.Name = "TBHizmetAdi";
+            this.TBHizmetAdi.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.TBHizmetAdi.Size = new System.Drawing.Size(226, 26);
+            this.TBHizmetAdi.TabIndex = 31;
+            // 
+            // TBHizmetKodu2
+            // 
+            this.TBHizmetKodu2.Enabled = false;
+            this.TBHizmetKodu2.Location = new System.Drawing.Point(95, 71);
+            this.TBHizmetKodu2.Name = "TBHizmetKodu2";
+            this.TBHizmetKodu2.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.TBHizmetKodu2.Size = new System.Drawing.Size(226, 26);
+            this.TBHizmetKodu2.TabIndex = 32;
             // 
             // TBHizmetKodu
             // 
-            this.TBHizmetKodu.Location = new System.Drawing.Point(95, 40);
+            this.TBHizmetKodu.Enabled = false;
+            this.TBHizmetKodu.Location = new System.Drawing.Point(95, 38);
             this.TBHizmetKodu.Name = "TBHizmetKodu";
-            this.TBHizmetKodu.Size = new System.Drawing.Size(162, 23);
-            this.TBHizmetKodu.TabIndex = 1;
+            this.TBHizmetKodu.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.TBHizmetKodu.Size = new System.Drawing.Size(226, 26);
+            this.TBHizmetKodu.TabIndex = 33;
             // 
-            // button1
+            // BTHizmetKoduSec
             // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(256, 40);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(36, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Seç";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(95, 69);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(162, 23);
-            this.textBox1.TabIndex = 4;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 72);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 15);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Hizmet Adı";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(95, 98);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(162, 23);
-            this.textBox2.TabIndex = 6;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 101);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 15);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Hizmet Adı";
+            this.BTHizmetKoduSec.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTHizmetKoduSec.Appearance.BackColor2 = System.Drawing.Color.Black;
+            this.BTHizmetKoduSec.Appearance.BorderColor = System.Drawing.Color.Black;
+            this.BTHizmetKoduSec.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.BTHizmetKoduSec.Appearance.Options.UseBackColor = true;
+            this.BTHizmetKoduSec.Appearance.Options.UseBorderColor = true;
+            this.BTHizmetKoduSec.Appearance.Options.UseFont = true;
+            this.BTHizmetKoduSec.Appearance.Options.UseForeColor = true;
+            this.BTHizmetKoduSec.AppearanceDisabled.BorderColor = System.Drawing.Color.Black;
+            this.BTHizmetKoduSec.AppearanceDisabled.Options.UseBorderColor = true;
+            this.BTHizmetKoduSec.AppearanceHovered.BorderColor = System.Drawing.Color.Black;
+            this.BTHizmetKoduSec.AppearanceHovered.Options.UseBorderColor = true;
+            this.BTHizmetKoduSec.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTStokKartiRaporKodu1.ImageOptions.Image")));
+            this.BTHizmetKoduSec.Location = new System.Drawing.Point(262, 38);
+            this.BTHizmetKoduSec.Name = "BTHizmetKoduSec";
+            this.BTHizmetKoduSec.Size = new System.Drawing.Size(59, 26);
+            this.BTHizmetKoduSec.TabIndex = 60;
+            this.BTHizmetKoduSec.Text = "Seç";
             // 
             // FHizmetKart
             // 
@@ -158,6 +182,9 @@
             this.PNUstBilgi.ResumeLayout(false);
             this.GBHizmetGenelBilgi.ResumeLayout(false);
             this.GBHizmetGenelBilgi.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TBHizmetAdi.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBHizmetKodu2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBHizmetKodu.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -168,12 +195,12 @@
         private Panel panel3;
         private Panel PNUstBilgi;
         private GroupBox GBHizmetGenelBilgi;
-        private TextBox textBox2;
-        private Label label2;
-        private TextBox textBox1;
-        private Label label1;
-        private Button button1;
-        private TextBox TBHizmetKodu;
-        private Label LBHizmetKodu;
+        private DevExpress.XtraEditors.LabelControl LBHizmetKodu1;
+        private DevExpress.XtraEditors.LabelControl LBHizmetKodu;
+        private DevExpress.XtraEditors.LabelControl LBHizmetAdi;
+        private DevExpress.XtraEditors.TextEdit TBHizmetKodu;
+        private DevExpress.XtraEditors.TextEdit TBHizmetKodu2;
+        private DevExpress.XtraEditors.TextEdit TBHizmetAdi;
+        private DevExpress.XtraEditors.SimpleButton BTHizmetKoduSec;
     }
 }

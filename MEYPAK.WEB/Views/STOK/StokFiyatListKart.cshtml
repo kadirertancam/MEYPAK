@@ -2,9 +2,9 @@
 @using MEYPAK.Entity.PocoModels.STOK
 <div class="menu-container dx-swatch-additional">
 
-
-
+   
     <div id="data-grid-demo">
+
         @(
             Html.DevExtreme().DataGrid<PocoSTOKFIYATLIST>()
             .ID("gridContainer")
@@ -53,11 +53,19 @@
 
                 columns.AddFor(m => m.bittar);
 
+                columns.Add()
+                .Type(GridCommandColumnType.Buttons)
+                .Buttons(b =>
+                {
+                    b.Add().Name(GridColumnButtonName.Edit).Text("Düzenle");
+                    b.Add().Name(GridColumnButtonName.Delete).Text("Sil");
+                });
 
-
-            }).OnRowRemoving(" window.location.href = \"StokFiyatListHarKart\";")
-            .DataSource(d =>
-            d.Mvc().Controller("STOK").LoadAction("StokFiyatListGet").InsertAction("StokFiyatListPost").UpdateAction("StokFiyatListPut").DeleteAction("StokFiyatListDelete").Key("id")
+            })
+            .OnRowInserted("Efe").DataSource(d =>
+            d.Mvc()
+            .Controller("STOK")
+            .LoadAction("StokFiyatListGet").InsertAction("StokFiyatListPost").UpdateAction("StokFiyatListPut").DeleteAction("StokFiyatListDelete").Key("id")
 
 
             )
@@ -80,29 +88,12 @@
         )
 
 
-    @{
-        if (ViewBag.Redirect != null)
-        {
-            <script>
-
-                function AlertName() {
-
-                   
-                }
-
-            </script>
+    <script>
+        function Efe() {
+            window.location.replace("http://localhost:5232/Stok/StokFiyatListHarKart");
         }
-        else
-        {
-            <script>
+    </script>
 
-                function AlertName() {
- 
-                }
-
-            </script>
-        }
-    }
 
 
     <script>

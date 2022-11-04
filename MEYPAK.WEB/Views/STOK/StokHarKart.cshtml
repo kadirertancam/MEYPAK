@@ -59,6 +59,14 @@
                 .ValueExpr("id")
                 );
 
+                columns.Add()
+                .Type(GridCommandColumnType.Buttons)
+                .Buttons(b =>
+                {
+                    b.Add().Name(GridColumnButtonName.Edit).Text("Düzenle");
+                    b.Add().Name(GridColumnButtonName.Delete).Text("Sil");
+                });
+
             })
             .DataSource(d => d.Mvc()
             .Controller("STOK")

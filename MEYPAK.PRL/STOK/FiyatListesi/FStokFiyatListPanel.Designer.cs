@@ -28,86 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.BTStokSil = new System.Windows.Forms.Button();
-            this.BTTemizle = new System.Windows.Forms.Button();
-            this.BTStokKaydet = new System.Windows.Forms.Button();
-            this.TBFiyat = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FStokFiyatListPanel));
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.BTCık = new System.Windows.Forms.Button();
-            this.BTKaydet = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.TBStokAdi = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.TBIskonto = new System.Windows.Forms.TextBox();
-            this.LBIskonto = new System.Windows.Forms.Label();
-            this.CMBDovizId = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.TBKur = new System.Windows.Forms.TextBox();
-            this.LBKur = new System.Windows.Forms.Label();
-            this.TBStokKodu = new System.Windows.Forms.TextBox();
+            this.TBFiyat = new DevExpress.XtraEditors.TextEdit();
+            this.TBKur = new DevExpress.XtraEditors.TextEdit();
+            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.TBStokAdi = new DevExpress.XtraEditors.TextEdit();
+            this.BTStokKoduSec = new DevExpress.XtraEditors.SimpleButton();
+            this.TBIskonto = new DevExpress.XtraEditors.TextEdit();
+            this.LBKur = new DevExpress.XtraEditors.LabelControl();
+            this.LBStokkodu = new DevExpress.XtraEditors.LabelControl();
+            this.LBDoviz = new DevExpress.XtraEditors.LabelControl();
+            this.LBFiyat = new DevExpress.XtraEditors.LabelControl();
+            this.LBIskonto = new DevExpress.XtraEditors.LabelControl();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.CBDoviz = new DevExpress.XtraEditors.GridLookUpEdit();
+            this.CBDepoView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.BTStokSil = new DevExpress.XtraEditors.SimpleButton();
+            this.BTStokKaydet = new DevExpress.XtraEditors.SimpleButton();
+            this.BTTemizle = new DevExpress.XtraEditors.SimpleButton();
+            this.BTCık = new DevExpress.XtraEditors.SimpleButton();
+            this.BTKaydet = new DevExpress.XtraEditors.SimpleButton();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TBFiyat.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBKur.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBStokAdi.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBIskonto.Properties)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CBDoviz.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CBDepoView)).BeginInit();
             this.SuspendLayout();
-            // 
-            // BTStokSil
-            // 
-            this.BTStokSil.Location = new System.Drawing.Point(711, 44);
-            this.BTStokSil.Name = "BTStokSil";
-            this.BTStokSil.Size = new System.Drawing.Size(84, 67);
-            this.BTStokSil.TabIndex = 13;
-            this.BTStokSil.Text = "Sil";
-            this.BTStokSil.UseVisualStyleBackColor = true;
-            this.BTStokSil.Click += new System.EventHandler(this.BTStokSil_Click);
-            // 
-            // BTTemizle
-            // 
-            this.BTTemizle.Location = new System.Drawing.Point(801, 44);
-            this.BTTemizle.Name = "BTTemizle";
-            this.BTTemizle.Size = new System.Drawing.Size(84, 67);
-            this.BTTemizle.TabIndex = 12;
-            this.BTTemizle.Text = "Temizle";
-            this.BTTemizle.UseVisualStyleBackColor = true;
-            this.BTTemizle.Click += new System.EventHandler(this.BTTemizle_Click);
-            // 
-            // BTStokKaydet
-            // 
-            this.BTStokKaydet.Location = new System.Drawing.Point(621, 44);
-            this.BTStokKaydet.Name = "BTStokKaydet";
-            this.BTStokKaydet.Size = new System.Drawing.Size(84, 67);
-            this.BTStokKaydet.TabIndex = 12;
-            this.BTStokKaydet.Text = "Kaydet";
-            this.BTStokKaydet.UseVisualStyleBackColor = true;
-            this.BTStokKaydet.Click += new System.EventHandler(this.BTStokKaydet_Click);
-            // 
-            // TBFiyat
-            // 
-            this.TBFiyat.Location = new System.Drawing.Point(415, 88);
-            this.TBFiyat.Name = "TBFiyat";
-            this.TBFiyat.Size = new System.Drawing.Size(173, 23);
-            this.TBFiyat.TabIndex = 12;
-            this.TBFiyat.Text = "0";
-            this.TBFiyat.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBFiyat_KeyPress);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(331, 91);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(32, 15);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "Fiyat";
             // 
             // panel2
             // 
@@ -128,26 +89,6 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1039, 61);
             this.panel4.TabIndex = 2;
-            // 
-            // BTCık
-            // 
-            this.BTCık.Location = new System.Drawing.Point(937, 6);
-            this.BTCık.Name = "BTCık";
-            this.BTCık.Size = new System.Drawing.Size(90, 44);
-            this.BTCık.TabIndex = 1;
-            this.BTCık.Text = "Çık";
-            this.BTCık.UseVisualStyleBackColor = true;
-            this.BTCık.Click += new System.EventHandler(this.BTCık_Click);
-            // 
-            // BTKaydet
-            // 
-            this.BTKaydet.Location = new System.Drawing.Point(841, 6);
-            this.BTKaydet.Name = "BTKaydet";
-            this.BTKaydet.Size = new System.Drawing.Size(90, 44);
-            this.BTKaydet.TabIndex = 0;
-            this.BTKaydet.Text = "Kaydet";
-            this.BTKaydet.UseVisualStyleBackColor = true;
-            this.BTKaydet.Click += new System.EventHandler(this.button4_Click);
             // 
             // panel3
             // 
@@ -172,51 +113,23 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_DoubleClick);
             // 
-            // TBStokAdi
-            // 
-            this.TBStokAdi.Enabled = false;
-            this.TBStokAdi.Location = new System.Drawing.Point(100, 59);
-            this.TBStokAdi.Name = "TBStokAdi";
-            this.TBStokAdi.Size = new System.Drawing.Size(173, 23);
-            this.TBStokAdi.TabIndex = 3;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 33);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Stok Kodu";
-            // 
-            // button1
-            // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(236, 30);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(37, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Seç";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.TBIskonto);
-            this.groupBox3.Controls.Add(this.LBIskonto);
-            this.groupBox3.Controls.Add(this.CMBDovizId);
-            this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.Controls.Add(this.BTStokSil);
             this.groupBox3.Controls.Add(this.BTTemizle);
+            this.groupBox3.Controls.Add(this.BTStokSil);
+            this.groupBox3.Controls.Add(this.CBDoviz);
             this.groupBox3.Controls.Add(this.BTStokKaydet);
             this.groupBox3.Controls.Add(this.TBFiyat);
-            this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.TBKur);
-            this.groupBox3.Controls.Add(this.LBKur);
+            this.groupBox3.Controls.Add(this.textEdit1);
             this.groupBox3.Controls.Add(this.TBStokAdi);
-            this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Controls.Add(this.button1);
-            this.groupBox3.Controls.Add(this.TBStokKodu);
+            this.groupBox3.Controls.Add(this.BTStokKoduSec);
+            this.groupBox3.Controls.Add(this.TBIskonto);
+            this.groupBox3.Controls.Add(this.LBKur);
+            this.groupBox3.Controls.Add(this.LBStokkodu);
+            this.groupBox3.Controls.Add(this.LBDoviz);
+            this.groupBox3.Controls.Add(this.LBFiyat);
+            this.groupBox3.Controls.Add(this.LBIskonto);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox3.Location = new System.Drawing.Point(3, 19);
             this.groupBox3.Name = "groupBox3";
@@ -225,63 +138,117 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Stok Bilgi";
             // 
-            // TBIskonto
+            // TBFiyat
             // 
-            this.TBIskonto.Location = new System.Drawing.Point(100, 91);
-            this.TBIskonto.Name = "TBIskonto";
-            this.TBIskonto.Size = new System.Drawing.Size(173, 23);
-            this.TBIskonto.TabIndex = 17;
-            this.TBIskonto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBIskonto_KeyPress);
-            // 
-            // LBIskonto
-            // 
-            this.LBIskonto.AutoSize = true;
-            this.LBIskonto.Location = new System.Drawing.Point(16, 94);
-            this.LBIskonto.Name = "LBIskonto";
-            this.LBIskonto.Size = new System.Drawing.Size(46, 15);
-            this.LBIskonto.TabIndex = 16;
-            this.LBIskonto.Text = "İskonto";
-            // 
-            // CMBDovizId
-            // 
-            this.CMBDovizId.FormattingEnabled = true;
-            this.CMBDovizId.Location = new System.Drawing.Point(415, 30);
-            this.CMBDovizId.Name = "CMBDovizId";
-            this.CMBDovizId.Size = new System.Drawing.Size(173, 23);
-            this.CMBDovizId.TabIndex = 15;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(331, 33);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(36, 15);
-            this.label2.TabIndex = 14;
-            this.label2.Text = "Döviz";
+            this.TBFiyat.EditValue = "0";
+            this.TBFiyat.Location = new System.Drawing.Point(406, 86);
+            this.TBFiyat.Name = "TBFiyat";
+            this.TBFiyat.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.TBFiyat.Size = new System.Drawing.Size(200, 26);
+            this.TBFiyat.TabIndex = 66;
             // 
             // TBKur
             // 
-            this.TBKur.Location = new System.Drawing.Point(415, 59);
+            this.TBKur.Location = new System.Drawing.Point(406, 54);
             this.TBKur.Name = "TBKur";
-            this.TBKur.Size = new System.Drawing.Size(173, 23);
-            this.TBKur.TabIndex = 6;
-            this.TBKur.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBKur_KeyPress);
+            this.TBKur.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.TBKur.Size = new System.Drawing.Size(200, 26);
+            this.TBKur.TabIndex = 65;
+            // 
+            // textEdit1
+            // 
+            this.textEdit1.Location = new System.Drawing.Point(100, 87);
+            this.textEdit1.Name = "textEdit1";
+            this.textEdit1.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.textEdit1.Size = new System.Drawing.Size(200, 26);
+            this.textEdit1.TabIndex = 64;
+            // 
+            // TBStokAdi
+            // 
+            this.TBStokAdi.Location = new System.Drawing.Point(100, 54);
+            this.TBStokAdi.Name = "TBStokAdi";
+            this.TBStokAdi.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.TBStokAdi.Size = new System.Drawing.Size(200, 26);
+            this.TBStokAdi.TabIndex = 63;
+            // 
+            // BTStokKoduSec
+            // 
+            this.BTStokKoduSec.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTStokKoduSec.Appearance.BackColor2 = System.Drawing.Color.Black;
+            this.BTStokKoduSec.Appearance.BorderColor = System.Drawing.Color.Black;
+            this.BTStokKoduSec.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.BTStokKoduSec.Appearance.Options.UseBackColor = true;
+            this.BTStokKoduSec.Appearance.Options.UseBorderColor = true;
+            this.BTStokKoduSec.Appearance.Options.UseFont = true;
+            this.BTStokKoduSec.Appearance.Options.UseForeColor = true;
+            this.BTStokKoduSec.AppearanceDisabled.BorderColor = System.Drawing.Color.Black;
+            this.BTStokKoduSec.AppearanceDisabled.Options.UseBorderColor = true;
+            this.BTStokKoduSec.AppearanceHovered.BorderColor = System.Drawing.Color.Black;
+            this.BTStokKoduSec.AppearanceHovered.Options.UseBorderColor = true;
+            this.BTStokKoduSec.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTStokKoduSec.ImageOptions.Image")));
+            this.BTStokKoduSec.Location = new System.Drawing.Point(241, 20);
+            this.BTStokKoduSec.Name = "BTStokKoduSec";
+            this.BTStokKoduSec.Size = new System.Drawing.Size(59, 26);
+            this.BTStokKoduSec.TabIndex = 62;
+            this.BTStokKoduSec.Text = "Seç";
+            // 
+            // TBIskonto
+            // 
+            this.TBIskonto.Location = new System.Drawing.Point(100, 20);
+            this.TBIskonto.Name = "TBIskonto";
+            this.TBIskonto.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.TBIskonto.Size = new System.Drawing.Size(200, 26);
+            this.TBIskonto.TabIndex = 61;
             // 
             // LBKur
             // 
-            this.LBKur.AutoSize = true;
-            this.LBKur.Location = new System.Drawing.Point(331, 62);
+            this.LBKur.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBKur.Appearance.Options.UseFont = true;
+            this.LBKur.Location = new System.Drawing.Point(370, 60);
             this.LBKur.Name = "LBKur";
-            this.LBKur.Size = new System.Drawing.Size(25, 15);
-            this.LBKur.TabIndex = 5;
+            this.LBKur.Size = new System.Drawing.Size(18, 14);
+            this.LBKur.TabIndex = 22;
             this.LBKur.Text = "Kur";
             // 
-            // TBStokKodu
+            // LBStokkodu
             // 
-            this.TBStokKodu.Location = new System.Drawing.Point(100, 30);
-            this.TBStokKodu.Name = "TBStokKodu";
-            this.TBStokKodu.Size = new System.Drawing.Size(140, 23);
-            this.TBStokKodu.TabIndex = 1;
+            this.LBStokkodu.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBStokkodu.Appearance.Options.UseFont = true;
+            this.LBStokkodu.Location = new System.Drawing.Point(37, 25);
+            this.LBStokkodu.Name = "LBStokkodu";
+            this.LBStokkodu.Size = new System.Drawing.Size(57, 14);
+            this.LBStokkodu.TabIndex = 18;
+            this.LBStokkodu.Text = "Stok Kodu";
+            // 
+            // LBDoviz
+            // 
+            this.LBDoviz.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBDoviz.Appearance.Options.UseFont = true;
+            this.LBDoviz.Location = new System.Drawing.Point(360, 30);
+            this.LBDoviz.Name = "LBDoviz";
+            this.LBDoviz.Size = new System.Drawing.Size(28, 14);
+            this.LBDoviz.TabIndex = 20;
+            this.LBDoviz.Text = "Döviz";
+            // 
+            // LBFiyat
+            // 
+            this.LBFiyat.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBFiyat.Appearance.Options.UseFont = true;
+            this.LBFiyat.Location = new System.Drawing.Point(363, 91);
+            this.LBFiyat.Name = "LBFiyat";
+            this.LBFiyat.Size = new System.Drawing.Size(25, 14);
+            this.LBFiyat.TabIndex = 21;
+            this.LBFiyat.Text = "Fiyat";
+            // 
+            // LBIskonto
+            // 
+            this.LBIskonto.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBIskonto.Appearance.Options.UseFont = true;
+            this.LBIskonto.Location = new System.Drawing.Point(53, 93);
+            this.LBIskonto.Name = "LBIskonto";
+            this.LBIskonto.Size = new System.Drawing.Size(41, 14);
+            this.LBIskonto.TabIndex = 19;
+            this.LBIskonto.Text = "İskonto";
             // 
             // groupBox1
             // 
@@ -303,6 +270,81 @@
             this.panel1.Size = new System.Drawing.Size(1039, 150);
             this.panel1.TabIndex = 2;
             // 
+            // CBDoviz
+            // 
+            this.CBDoviz.EditValue = "";
+            this.CBDoviz.Location = new System.Drawing.Point(406, 20);
+            this.CBDoviz.Name = "CBDoviz";
+            this.CBDoviz.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CBDoviz.Properties.NullText = "";
+            this.CBDoviz.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.CBDoviz.Properties.PopupView = this.CBDepoView;
+            this.CBDoviz.Size = new System.Drawing.Size(200, 26);
+            this.CBDoviz.TabIndex = 67;
+            // 
+            // CBDepoView
+            // 
+            this.CBDepoView.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.CBDepoView.Name = "CBDepoView";
+            this.CBDepoView.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.CBDepoView.OptionsView.ShowGroupPanel = false;
+            // 
+            // BTStokSil
+            // 
+            this.BTStokSil.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTStokSil.Appearance.Options.UseBackColor = true;
+            this.BTStokSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTFiyatListesiSil.ImageOptions.Image")));
+            this.BTStokSil.Location = new System.Drawing.Point(792, 41);
+            this.BTStokSil.Name = "BTStokSil";
+            this.BTStokSil.Size = new System.Drawing.Size(113, 52);
+            this.BTStokSil.TabIndex = 73;
+            this.BTStokSil.Text = "Sil";
+            // 
+            // BTStokKaydet
+            // 
+            this.BTStokKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTStokKaydet.Appearance.Options.UseBackColor = true;
+            this.BTStokKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTFiyatListesiKaydet.ImageOptions.Image")));
+            this.BTStokKaydet.Location = new System.Drawing.Point(673, 41);
+            this.BTStokKaydet.Name = "BTStokKaydet";
+            this.BTStokKaydet.Size = new System.Drawing.Size(113, 52);
+            this.BTStokKaydet.TabIndex = 72;
+            this.BTStokKaydet.Text = "Kaydet";
+            // 
+            // BTTemizle
+            // 
+            this.BTTemizle.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTTemizle.Appearance.Options.UseBackColor = true;
+            this.BTTemizle.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.BTTemizle.Location = new System.Drawing.Point(911, 41);
+            this.BTTemizle.Name = "BTTemizle";
+            this.BTTemizle.Size = new System.Drawing.Size(113, 52);
+            this.BTTemizle.TabIndex = 74;
+            this.BTTemizle.Text = "Temizle";
+            // 
+            // BTCık
+            // 
+            this.BTCık.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTCık.Appearance.Options.UseBackColor = true;
+            this.BTCık.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTKasaPanelSil.ImageOptions.Image")));
+            this.BTCık.Location = new System.Drawing.Point(933, 4);
+            this.BTCık.Name = "BTCık";
+            this.BTCık.Size = new System.Drawing.Size(94, 52);
+            this.BTCık.TabIndex = 81;
+            this.BTCık.Text = "Çık";
+            // 
+            // BTKaydet
+            // 
+            this.BTKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTKaydet.Appearance.Options.UseBackColor = true;
+            this.BTKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTKasaPanelKaydet.ImageOptions.Image")));
+            this.BTKaydet.Location = new System.Drawing.Point(833, 4);
+            this.BTKaydet.Name = "BTKaydet";
+            this.BTKaydet.Size = new System.Drawing.Size(94, 52);
+            this.BTKaydet.TabIndex = 80;
+            this.BTKaydet.Text = "Kaydet";
+            // 
             // FStokFiyatListPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -319,37 +361,44 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TBFiyat.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBKur.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBStokAdi.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBIskonto.Properties)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.CBDoviz.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CBDepoView)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private Button BTStokSil;
-        private Button BTTemizle;
-        private Button BTStokKaydet;
-        private TextBox TBFiyat;
-        private Label label7;
         private Panel panel2;
         private Panel panel4;
-        private Button BTCık;
-        private Button BTKaydet;
         private Panel panel3;
         private DataGridView dataGridView1;
-        private TextBox TBStokAdi;
-        private Label label1;
-        private Button button1;
         private GroupBox groupBox3;
-        private ComboBox CMBDovizId;
-        private Label label2;
-        private TextBox TBKur;
-        private Label LBKur;
-        private TextBox TBStokKodu;
         private GroupBox groupBox1;
         private Panel panel1;
-        private TextBox TBIskonto;
-        private Label LBIskonto;
+        private DevExpress.XtraEditors.LabelControl LBStokkodu;
+        private DevExpress.XtraEditors.LabelControl LBIskonto;
+        private DevExpress.XtraEditors.LabelControl LBKur;
+        private DevExpress.XtraEditors.LabelControl LBFiyat;
+        private DevExpress.XtraEditors.LabelControl LBDoviz;
+        private DevExpress.XtraEditors.SimpleButton BTStokKoduSec;
+        private DevExpress.XtraEditors.TextEdit TBIskonto;
+        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.TextEdit TBStokAdi;
+        private DevExpress.XtraEditors.TextEdit TBFiyat;
+        private DevExpress.XtraEditors.TextEdit TBKur;
+        private DevExpress.XtraEditors.GridLookUpEdit CBDoviz;
+        private DevExpress.XtraGrid.Views.Grid.GridView CBDepoView;
+        private DevExpress.XtraEditors.SimpleButton BTStokSil;
+        private DevExpress.XtraEditors.SimpleButton BTStokKaydet;
+        private DevExpress.XtraEditors.SimpleButton BTTemizle;
+        private DevExpress.XtraEditors.SimpleButton BTCık;
+        private DevExpress.XtraEditors.SimpleButton BTKaydet;
     }
 }

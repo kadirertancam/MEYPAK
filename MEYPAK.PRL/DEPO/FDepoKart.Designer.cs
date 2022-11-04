@@ -31,30 +31,32 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FDepoKart));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.GCDepoKart = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.GCGenelBilgi = new DevExpress.XtraEditors.GroupControl();
             this.CBAktif = new DevExpress.XtraEditors.CheckedListBoxControl();
             this.TBAciklama = new System.Windows.Forms.TextBox();
             this.LBDepoKartSubeler = new DevExpress.XtraEditors.LabelControl();
-            this.TBAdi = new System.Windows.Forms.TextBox();
-            this.BTDepoKartSec = new DevExpress.XtraEditors.SimpleButton();
             this.CLBSubeler = new System.Windows.Forms.CheckedListBox();
             this.LBDepoKartAdi = new DevExpress.XtraEditors.LabelControl();
-            this.TBKod = new System.Windows.Forms.TextBox();
             this.LBDepoKartAciklama = new DevExpress.XtraEditors.LabelControl();
             this.LBDepoKartKod = new DevExpress.XtraEditors.LabelControl();
             this.BTDepoKartSil = new DevExpress.XtraEditors.SimpleButton();
             this.BTDepoKartEkle = new DevExpress.XtraEditors.SimpleButton();
-            this.GCDepoKart = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.TBKod = new DevExpress.XtraEditors.TextEdit();
+            this.TBAdi = new DevExpress.XtraEditors.TextEdit();
+            this.BTDepoKartSec = new DevExpress.XtraEditors.SimpleButton();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GCDepoKart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GCGenelBilgi)).BeginInit();
             this.GCGenelBilgi.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CBAktif)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GCDepoKart)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBKod.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBAdi.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -76,6 +78,21 @@
             this.panel3.Size = new System.Drawing.Size(561, 221);
             this.panel3.TabIndex = 1;
             // 
+            // GCDepoKart
+            // 
+            this.GCDepoKart.Location = new System.Drawing.Point(0, 3);
+            this.GCDepoKart.MainView = this.gridView1;
+            this.GCDepoKart.Name = "GCDepoKart";
+            this.GCDepoKart.Size = new System.Drawing.Size(561, 218);
+            this.GCDepoKart.TabIndex = 1;
+            this.GCDepoKart.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
+            // gridView1
+            // 
+            this.gridView1.GridControl = this.GCDepoKart;
+            this.gridView1.Name = "gridView1";
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.GCGenelBilgi);
@@ -89,14 +106,14 @@
             // 
             // GCGenelBilgi
             // 
+            this.GCGenelBilgi.Controls.Add(this.BTDepoKartSec);
+            this.GCGenelBilgi.Controls.Add(this.TBAdi);
+            this.GCGenelBilgi.Controls.Add(this.TBKod);
             this.GCGenelBilgi.Controls.Add(this.CBAktif);
             this.GCGenelBilgi.Controls.Add(this.TBAciklama);
             this.GCGenelBilgi.Controls.Add(this.LBDepoKartSubeler);
-            this.GCGenelBilgi.Controls.Add(this.TBAdi);
-            this.GCGenelBilgi.Controls.Add(this.BTDepoKartSec);
             this.GCGenelBilgi.Controls.Add(this.CLBSubeler);
             this.GCGenelBilgi.Controls.Add(this.LBDepoKartAdi);
-            this.GCGenelBilgi.Controls.Add(this.TBKod);
             this.GCGenelBilgi.Controls.Add(this.LBDepoKartAciklama);
             this.GCGenelBilgi.Controls.Add(this.LBDepoKartKod);
             this.GCGenelBilgi.GroupStyle = DevExpress.Utils.GroupStyle.Light;
@@ -127,10 +144,10 @@
             // 
             // TBAciklama
             // 
-            this.TBAciklama.Location = new System.Drawing.Point(72, 82);
+            this.TBAciklama.Location = new System.Drawing.Point(82, 82);
             this.TBAciklama.Multiline = true;
             this.TBAciklama.Name = "TBAciklama";
-            this.TBAciklama.Size = new System.Drawing.Size(198, 61);
+            this.TBAciklama.Size = new System.Drawing.Size(180, 61);
             this.TBAciklama.TabIndex = 3;
             // 
             // LBDepoKartSubeler
@@ -142,34 +159,6 @@
             this.LBDepoKartSubeler.Size = new System.Drawing.Size(41, 14);
             this.LBDepoKartSubeler.TabIndex = 57;
             this.LBDepoKartSubeler.Text = "Şubeler";
-            // 
-            // TBAdi
-            // 
-            this.TBAdi.Location = new System.Drawing.Point(72, 53);
-            this.TBAdi.Name = "TBAdi";
-            this.TBAdi.Size = new System.Drawing.Size(198, 21);
-            this.TBAdi.TabIndex = 1;
-            // 
-            // BTDepoKartSec
-            // 
-            this.BTDepoKartSec.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.BTDepoKartSec.Appearance.BackColor2 = System.Drawing.Color.Black;
-            this.BTDepoKartSec.Appearance.BorderColor = System.Drawing.Color.Black;
-            this.BTDepoKartSec.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.BTDepoKartSec.Appearance.Options.UseBackColor = true;
-            this.BTDepoKartSec.Appearance.Options.UseBorderColor = true;
-            this.BTDepoKartSec.Appearance.Options.UseFont = true;
-            this.BTDepoKartSec.Appearance.Options.UseForeColor = true;
-            this.BTDepoKartSec.AppearanceDisabled.BorderColor = System.Drawing.Color.Black;
-            this.BTDepoKartSec.AppearanceDisabled.Options.UseBorderColor = true;
-            this.BTDepoKartSec.AppearanceHovered.BorderColor = System.Drawing.Color.Black;
-            this.BTDepoKartSec.AppearanceHovered.Options.UseBorderColor = true;
-            this.BTDepoKartSec.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTDepoKartSec.ImageOptions.Image")));
-            this.BTDepoKartSec.Location = new System.Drawing.Point(211, 24);
-            this.BTDepoKartSec.Name = "BTDepoKartSec";
-            this.BTDepoKartSec.Size = new System.Drawing.Size(59, 21);
-            this.BTDepoKartSec.TabIndex = 56;
-            this.BTDepoKartSec.Text = "Seç";
             // 
             // CLBSubeler
             // 
@@ -183,24 +172,17 @@
             // 
             this.LBDepoKartAdi.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBDepoKartAdi.Appearance.Options.UseFont = true;
-            this.LBDepoKartAdi.Location = new System.Drawing.Point(16, 56);
+            this.LBDepoKartAdi.Location = new System.Drawing.Point(56, 56);
             this.LBDepoKartAdi.Name = "LBDepoKartAdi";
             this.LBDepoKartAdi.Size = new System.Drawing.Size(17, 14);
             this.LBDepoKartAdi.TabIndex = 4;
             this.LBDepoKartAdi.Text = "Adı";
             // 
-            // TBKod
-            // 
-            this.TBKod.Location = new System.Drawing.Point(72, 24);
-            this.TBKod.Name = "TBKod";
-            this.TBKod.Size = new System.Drawing.Size(198, 21);
-            this.TBKod.TabIndex = 8;
-            // 
             // LBDepoKartAciklama
             // 
             this.LBDepoKartAciklama.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBDepoKartAciklama.Appearance.Options.UseFont = true;
-            this.LBDepoKartAciklama.Location = new System.Drawing.Point(16, 85);
+            this.LBDepoKartAciklama.Location = new System.Drawing.Point(27, 85);
             this.LBDepoKartAciklama.Name = "LBDepoKartAciklama";
             this.LBDepoKartAciklama.Size = new System.Drawing.Size(46, 14);
             this.LBDepoKartAciklama.TabIndex = 5;
@@ -210,7 +192,7 @@
             // 
             this.LBDepoKartKod.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBDepoKartKod.Appearance.Options.UseFont = true;
-            this.LBDepoKartKod.Location = new System.Drawing.Point(16, 27);
+            this.LBDepoKartKod.Location = new System.Drawing.Point(52, 28);
             this.LBDepoKartKod.Name = "LBDepoKartKod";
             this.LBDepoKartKod.Size = new System.Drawing.Size(21, 14);
             this.LBDepoKartKod.TabIndex = 3;
@@ -240,20 +222,44 @@
             this.BTDepoKartEkle.TabIndex = 46;
             this.BTDepoKartEkle.Text = "Ekle";
             // 
-            // GCDepoKart
+            // TBKod
             // 
-            this.GCDepoKart.Location = new System.Drawing.Point(0, 3);
-            this.GCDepoKart.MainView = this.gridView1;
-            this.GCDepoKart.Name = "GCDepoKart";
-            this.GCDepoKart.Size = new System.Drawing.Size(561, 218);
-            this.GCDepoKart.TabIndex = 1;
-            this.GCDepoKart.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
+            this.TBKod.Enabled = false;
+            this.TBKod.Location = new System.Drawing.Point(82, 22);
+            this.TBKod.Name = "TBKod";
+            this.TBKod.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.TBKod.Size = new System.Drawing.Size(180, 26);
+            this.TBKod.TabIndex = 59;
             // 
-            // gridView1
+            // TBAdi
             // 
-            this.gridView1.GridControl = this.GCDepoKart;
-            this.gridView1.Name = "gridView1";
+            this.TBAdi.Enabled = false;
+            this.TBAdi.Location = new System.Drawing.Point(82, 54);
+            this.TBAdi.Name = "TBAdi";
+            this.TBAdi.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.TBAdi.Size = new System.Drawing.Size(180, 26);
+            this.TBAdi.TabIndex = 60;
+            // 
+            // BTDepoKartSec
+            // 
+            this.BTDepoKartSec.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTDepoKartSec.Appearance.BackColor2 = System.Drawing.Color.Black;
+            this.BTDepoKartSec.Appearance.BorderColor = System.Drawing.Color.Black;
+            this.BTDepoKartSec.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.BTDepoKartSec.Appearance.Options.UseBackColor = true;
+            this.BTDepoKartSec.Appearance.Options.UseBorderColor = true;
+            this.BTDepoKartSec.Appearance.Options.UseFont = true;
+            this.BTDepoKartSec.Appearance.Options.UseForeColor = true;
+            this.BTDepoKartSec.AppearanceDisabled.BorderColor = System.Drawing.Color.Black;
+            this.BTDepoKartSec.AppearanceDisabled.Options.UseBorderColor = true;
+            this.BTDepoKartSec.AppearanceHovered.BorderColor = System.Drawing.Color.Black;
+            this.BTDepoKartSec.AppearanceHovered.Options.UseBorderColor = true;
+            this.BTDepoKartSec.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTStokKartiRaporKodu1.ImageOptions.Image")));
+            this.BTDepoKartSec.Location = new System.Drawing.Point(203, 22);
+            this.BTDepoKartSec.Name = "BTDepoKartSec";
+            this.BTDepoKartSec.Size = new System.Drawing.Size(59, 26);
+            this.BTDepoKartSec.TabIndex = 61;
+            this.BTDepoKartSec.Text = "Seç";
             // 
             // FDepoKart
             // 
@@ -267,13 +273,15 @@
             this.Load += new System.EventHandler(this.FDepoKart_Load);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.GCDepoKart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.GCGenelBilgi)).EndInit();
             this.GCGenelBilgi.ResumeLayout(false);
             this.GCGenelBilgi.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CBAktif)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GCDepoKart)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBKod.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBAdi.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -285,18 +293,18 @@
         private Panel panel2;
         private CheckedListBox CLBSubeler;
         private TextBox TBAciklama;
-        private TextBox TBAdi;
-        private TextBox TBKod;
         private DevExpress.XtraEditors.GroupControl GCGenelBilgi;
         private DevExpress.XtraEditors.LabelControl LBDepoKartKod;
         private DevExpress.XtraEditors.LabelControl LBDepoKartAdi;
         private DevExpress.XtraEditors.LabelControl LBDepoKartAciklama;
         private DevExpress.XtraEditors.LabelControl LBDepoKartSubeler;
-        private DevExpress.XtraEditors.SimpleButton BTDepoKartSec;
         private DevExpress.XtraEditors.CheckedListBoxControl CBAktif;
         private DevExpress.XtraEditors.SimpleButton BTDepoKartSil;
         private DevExpress.XtraEditors.SimpleButton BTDepoKartEkle;
         private DevExpress.XtraGrid.GridControl GCDepoKart;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraEditors.TextEdit TBKod;
+        private DevExpress.XtraEditors.TextEdit TBAdi;
+        private DevExpress.XtraEditors.SimpleButton BTDepoKartSec;
     }
 }

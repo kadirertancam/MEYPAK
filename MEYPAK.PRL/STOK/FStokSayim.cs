@@ -50,7 +50,7 @@ namespace MEYPAK.PRL.STOK
         private void FStokSayim_Load(object sender, EventArgs e)
         {
             _stokSayimServis.Data(ServisList.StokSayimListeServis);
-            DTStokSayimTarih.EditValue = DateTime.Now.ToString("dd/MM/yyyy");
+            DTStokTarih.Value = DateTime.Now;
             GCStokSayim.DataSource = _stokSayimServis.obje;
             gridView1.Columns["FIRMAID"].Visible = false;
             gridView1.Columns["SUBEID"].Visible = false;

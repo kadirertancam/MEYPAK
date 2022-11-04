@@ -9,14 +9,11 @@ namespace MEYPAK.Entity.PocoModels.STOK
 {
     public class PocoSTOKKASA:SUPERPOCOMODEL
     {
-        public int SIRKETID { get; set; }
-        public int SUBEID { get; set; }
-        [StringLength(100), Required]
-        public string KASAKODU { get; set; }
-        [StringLength(100)]
-        public string KASAADI { get; set; } = "";
-        [StringLength(200)]
-        public string ACIKLAMA { get; set; } = "";
-        public byte AKTIF { get; set; }
+        public int sirketid { get; set; } = 0;
+        public int subeid { get; set; } = 0;
+        public string kasakodu { get; set; } = "";
+        public string kasaadi { get; set; } = "";
+        public string aciklama { get; set; } = "";
+        public byte aktif { get; set; } = 0;
     }
 }

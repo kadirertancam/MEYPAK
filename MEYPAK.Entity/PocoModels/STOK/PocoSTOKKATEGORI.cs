@@ -10,11 +10,9 @@ namespace MEYPAK.Entity.PocoModels.STOK
 {
     public class PocoSTOKKATEGORI:SUPERPOCOMODEL
     {
-        public int UstId { get; set; }=0;
-        public int AltID { get; set; } = 0;
-        [StringLength(100), Required]
-        public string Acıklama { get; set; }
-        [Required]
-        public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
+        public int ustId { get; set; }=0;
+        public int altID { get; set; }=0;
+        public string acıklama { get; set; } = "";
+        public string donem { get; set; } = DateTime.Now.ToString("yyyy");
     }
 }

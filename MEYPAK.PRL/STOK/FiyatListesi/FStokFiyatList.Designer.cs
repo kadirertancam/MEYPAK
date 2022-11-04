@@ -28,25 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FStokFiyatList));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.DGFiyatListesi = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.CHBBittar = new System.Windows.Forms.CheckBox();
-            this.CHBAktif = new System.Windows.Forms.CheckBox();
-            this.DTPBittar = new System.Windows.Forms.DateTimePicker();
-            this.DTPBastar = new System.Windows.Forms.DateTimePicker();
-            this.BTSil = new System.Windows.Forms.Button();
-            this.BTKaydet = new System.Windows.Forms.Button();
-            this.LBBastar = new System.Windows.Forms.Label();
-            this.LBFiyatListesiAdi = new System.Windows.Forms.Label();
-            this.TBFiyatListesiAdi = new System.Windows.Forms.TextBox();
+            this.DTBitisTar = new System.Windows.Forms.DateTimePicker();
+            this.DTBasTar = new System.Windows.Forms.DateTimePicker();
+            this.BTFiyatListesiSil = new DevExpress.XtraEditors.SimpleButton();
+            this.BTFiyatListesiKaydet = new DevExpress.XtraEditors.SimpleButton();
+            this.CBAktif = new DevExpress.XtraEditors.CheckedListBoxControl();
+            this.CBBitisTar = new DevExpress.XtraEditors.CheckedListBoxControl();
+            this.LBBasTar = new DevExpress.XtraEditors.LabelControl();
+            this.TBFiyatListesiAdi = new DevExpress.XtraEditors.TextEdit();
+            this.LBListeAdi = new DevExpress.XtraEditors.LabelControl();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGFiyatListesi)).BeginInit();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CBAktif)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CBBitisTar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBFiyatListesiAdi.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -61,26 +65,26 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.dataGridView1);
+            this.panel3.Controls.Add(this.DGFiyatListesi);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 109);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1079, 536);
             this.panel3.TabIndex = 1;
             // 
-            // dataGridView1
+            // DGFiyatListesi
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1079, 536);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+            this.DGFiyatListesi.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.DGFiyatListesi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGFiyatListesi.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DGFiyatListesi.Location = new System.Drawing.Point(0, 0);
+            this.DGFiyatListesi.Name = "DGFiyatListesi";
+            this.DGFiyatListesi.ReadOnly = true;
+            this.DGFiyatListesi.RowTemplate.Height = 25;
+            this.DGFiyatListesi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DGFiyatListesi.Size = new System.Drawing.Size(1079, 536);
+            this.DGFiyatListesi.TabIndex = 0;
+            this.DGFiyatListesi.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // panel2
             // 
@@ -93,103 +97,129 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.CHBBittar);
-            this.groupBox1.Controls.Add(this.CHBAktif);
-            this.groupBox1.Controls.Add(this.DTPBittar);
-            this.groupBox1.Controls.Add(this.DTPBastar);
-            this.groupBox1.Controls.Add(this.BTSil);
-            this.groupBox1.Controls.Add(this.BTKaydet);
-            this.groupBox1.Controls.Add(this.LBBastar);
-            this.groupBox1.Controls.Add(this.LBFiyatListesiAdi);
+            this.groupBox1.Controls.Add(this.DTBitisTar);
+            this.groupBox1.Controls.Add(this.DTBasTar);
+            this.groupBox1.Controls.Add(this.BTFiyatListesiSil);
+            this.groupBox1.Controls.Add(this.BTFiyatListesiKaydet);
+            this.groupBox1.Controls.Add(this.CBAktif);
+            this.groupBox1.Controls.Add(this.CBBitisTar);
+            this.groupBox1.Controls.Add(this.LBBasTar);
             this.groupBox1.Controls.Add(this.TBFiyatListesiAdi);
+            this.groupBox1.Controls.Add(this.LBListeAdi);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1079, 94);
+            this.groupBox1.Size = new System.Drawing.Size(1079, 106);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Fiyat Listesi";
+            this.groupBox1.Text = "Stok Fiyat Listesi";
             // 
-            // CHBBittar
+            // DTBitisTar
             // 
-            this.CHBBittar.AutoSize = true;
-            this.CHBBittar.Location = new System.Drawing.Point(541, 45);
-            this.CHBBittar.Name = "CHBBittar";
-            this.CHBBittar.Size = new System.Drawing.Size(79, 19);
-            this.CHBBittar.TabIndex = 8;
-            this.CHBBittar.Text = "Bitiş Tarihi";
-            this.CHBBittar.UseVisualStyleBackColor = true;
+            this.DTBitisTar.Location = new System.Drawing.Point(529, 45);
+            this.DTBitisTar.Name = "DTBitisTar";
+            this.DTBitisTar.Size = new System.Drawing.Size(200, 23);
+            this.DTBitisTar.TabIndex = 73;
             // 
-            // CHBAktif
+            // DTBasTar
             // 
-            this.CHBAktif.AutoSize = true;
-            this.CHBAktif.Location = new System.Drawing.Point(110, 69);
-            this.CHBAktif.Name = "CHBAktif";
-            this.CHBAktif.Size = new System.Drawing.Size(51, 19);
-            this.CHBAktif.TabIndex = 7;
-            this.CHBAktif.Text = "Aktif";
-            this.CHBAktif.UseVisualStyleBackColor = true;
+            this.DTBasTar.Location = new System.Drawing.Point(304, 45);
+            this.DTBasTar.Name = "DTBasTar";
+            this.DTBasTar.Size = new System.Drawing.Size(191, 23);
+            this.DTBasTar.TabIndex = 72;
+            this.DTBasTar.Value = new System.DateTime(2022, 11, 3, 10, 53, 10, 0);
             // 
-            // DTPBittar
+            // BTFiyatListesiSil
             // 
-            this.DTPBittar.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DTPBittar.Location = new System.Drawing.Point(628, 41);
-            this.DTPBittar.Name = "DTPBittar";
-            this.DTPBittar.Size = new System.Drawing.Size(152, 23);
-            this.DTPBittar.TabIndex = 6;
+            this.BTFiyatListesiSil.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTFiyatListesiSil.Appearance.Options.UseBackColor = true;
+            this.BTFiyatListesiSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTFiyatListesiSil.ImageOptions.Image")));
+            this.BTFiyatListesiSil.Location = new System.Drawing.Point(915, 27);
+            this.BTFiyatListesiSil.Name = "BTFiyatListesiSil";
+            this.BTFiyatListesiSil.Size = new System.Drawing.Size(113, 52);
+            this.BTFiyatListesiSil.TabIndex = 71;
+            this.BTFiyatListesiSil.Text = "Sil";
             // 
-            // DTPBastar
+            // BTFiyatListesiKaydet
             // 
-            this.DTPBastar.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DTPBastar.Location = new System.Drawing.Point(381, 41);
-            this.DTPBastar.Name = "DTPBastar";
-            this.DTPBastar.Size = new System.Drawing.Size(152, 23);
-            this.DTPBastar.TabIndex = 5;
+            this.BTFiyatListesiKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTFiyatListesiKaydet.Appearance.Options.UseBackColor = true;
+            this.BTFiyatListesiKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTFiyatListesiKaydet.ImageOptions.Image")));
+            this.BTFiyatListesiKaydet.Location = new System.Drawing.Point(792, 27);
+            this.BTFiyatListesiKaydet.Name = "BTFiyatListesiKaydet";
+            this.BTFiyatListesiKaydet.Size = new System.Drawing.Size(113, 52);
+            this.BTFiyatListesiKaydet.TabIndex = 70;
+            this.BTFiyatListesiKaydet.Text = "Kaydet";
             // 
-            // BTSil
+            // CBAktif
             // 
-            this.BTSil.Location = new System.Drawing.Point(960, 38);
-            this.BTSil.Name = "BTSil";
-            this.BTSil.Size = new System.Drawing.Size(105, 53);
-            this.BTSil.TabIndex = 4;
-            this.BTSil.Text = "Sil";
-            this.BTSil.UseVisualStyleBackColor = true;
-            this.BTSil.Click += new System.EventHandler(this.BTSil_Click);
+            this.CBAktif.Appearance.BackColor = System.Drawing.SystemColors.Control;
+            this.CBAktif.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CBAktif.Appearance.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.CBAktif.Appearance.Options.UseBackColor = true;
+            this.CBAktif.Appearance.Options.UseFont = true;
+            this.CBAktif.Appearance.Options.UseForeColor = true;
+            this.CBAktif.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.CBAktif.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.CBAktif.CheckOnClick = true;
+            this.CBAktif.IncrementalSearch = true;
+            this.CBAktif.Items.AddRange(new DevExpress.XtraEditors.Controls.CheckedListBoxItem[] {
+            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(true, "Aktif")});
+            this.CBAktif.Location = new System.Drawing.Point(94, 77);
+            this.CBAktif.Name = "CBAktif";
+            this.CBAktif.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.CBAktif.Size = new System.Drawing.Size(76, 21);
+            this.CBAktif.TabIndex = 69;
             // 
-            // BTKaydet
+            // CBBitisTar
             // 
-            this.BTKaydet.Location = new System.Drawing.Point(849, 38);
-            this.BTKaydet.Name = "BTKaydet";
-            this.BTKaydet.Size = new System.Drawing.Size(105, 53);
-            this.BTKaydet.TabIndex = 4;
-            this.BTKaydet.Text = "Kaydet";
-            this.BTKaydet.UseVisualStyleBackColor = true;
-            this.BTKaydet.Click += new System.EventHandler(this.BTKayet_Click);
+            this.CBBitisTar.Appearance.BackColor = System.Drawing.SystemColors.Control;
+            this.CBBitisTar.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CBBitisTar.Appearance.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.CBBitisTar.Appearance.Options.UseBackColor = true;
+            this.CBBitisTar.Appearance.Options.UseFont = true;
+            this.CBBitisTar.Appearance.Options.UseForeColor = true;
+            this.CBBitisTar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.CBBitisTar.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.CBBitisTar.CheckOnClick = true;
+            this.CBBitisTar.IncrementalSearch = true;
+            this.CBBitisTar.Items.AddRange(new DevExpress.XtraEditors.Controls.CheckedListBoxItem[] {
+            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(true, "Bitiş Tarihi")});
+            this.CBBitisTar.Location = new System.Drawing.Point(529, 22);
+            this.CBBitisTar.Name = "CBBitisTar";
+            this.CBBitisTar.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.CBBitisTar.Size = new System.Drawing.Size(76, 21);
+            this.CBBitisTar.TabIndex = 68;
             // 
-            // LBBastar
+            // LBBasTar
             // 
-            this.LBBastar.AutoSize = true;
-            this.LBBastar.Location = new System.Drawing.Point(292, 44);
-            this.LBBastar.Name = "LBBastar";
-            this.LBBastar.Size = new System.Drawing.Size(88, 15);
-            this.LBBastar.TabIndex = 2;
-            this.LBBastar.Text = "Başlangıç Tarihi";
-            // 
-            // LBFiyatListesiAdi
-            // 
-            this.LBFiyatListesiAdi.AutoSize = true;
-            this.LBFiyatListesiAdi.Location = new System.Drawing.Point(16, 44);
-            this.LBFiyatListesiAdi.Name = "LBFiyatListesiAdi";
-            this.LBFiyatListesiAdi.Size = new System.Drawing.Size(88, 15);
-            this.LBFiyatListesiAdi.TabIndex = 1;
-            this.LBFiyatListesiAdi.Text = "Fiyat Listesi Adı";
+            this.LBBasTar.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBBasTar.Appearance.Options.UseFont = true;
+            this.LBBasTar.Location = new System.Drawing.Point(304, 25);
+            this.LBBasTar.Name = "LBBasTar";
+            this.LBBasTar.Size = new System.Drawing.Size(81, 14);
+            this.LBBasTar.TabIndex = 64;
+            this.LBBasTar.Text = "Başlangıç Tarihi";
             // 
             // TBFiyatListesiAdi
             // 
-            this.TBFiyatListesiAdi.Location = new System.Drawing.Point(110, 41);
+            this.TBFiyatListesiAdi.Location = new System.Drawing.Point(94, 45);
             this.TBFiyatListesiAdi.Name = "TBFiyatListesiAdi";
-            this.TBFiyatListesiAdi.Size = new System.Drawing.Size(156, 23);
-            this.TBFiyatListesiAdi.TabIndex = 0;
+            this.TBFiyatListesiAdi.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TBFiyatListesiAdi.Properties.Appearance.Options.UseFont = true;
+            this.TBFiyatListesiAdi.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.TBFiyatListesiAdi.Size = new System.Drawing.Size(176, 26);
+            this.TBFiyatListesiAdi.TabIndex = 63;
+            // 
+            // LBListeAdi
+            // 
+            this.LBListeAdi.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBListeAdi.Appearance.Options.UseFont = true;
+            this.LBListeAdi.Location = new System.Drawing.Point(6, 51);
+            this.LBListeAdi.Name = "LBListeAdi";
+            this.LBListeAdi.Size = new System.Drawing.Size(82, 14);
+            this.LBListeAdi.TabIndex = 9;
+            this.LBListeAdi.Text = "Fiyat Listesi Adı";
             // 
             // FStokFiyatList
             // 
@@ -203,10 +233,13 @@
             this.Load += new System.EventHandler(this.FStokFiyatList_Load);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGFiyatListesi)).EndInit();
             this.panel2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CBAktif)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CBBitisTar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBFiyatListesiAdi.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -215,17 +248,17 @@
 
         private Panel panel1;
         private Panel panel3;
-        private DataGridView dataGridView1;
+        private DataGridView DGFiyatListesi;
         private Panel panel2;
         private GroupBox groupBox1;
-        private CheckBox CHBAktif;
-        private DateTimePicker DTPBittar;
-        private DateTimePicker DTPBastar;
-        private Button BTSil;
-        private Button BTKaydet;
-        private Label LBBastar;
-        private Label LBFiyatListesiAdi;
-        private TextBox TBFiyatListesiAdi;
-        private CheckBox CHBBittar;
+        private DevExpress.XtraEditors.LabelControl LBListeAdi;
+        private DevExpress.XtraEditors.TextEdit TBFiyatListesiAdi;
+        private DevExpress.XtraEditors.LabelControl LBBasTar;
+        private DevExpress.XtraEditors.CheckedListBoxControl CBBitisTar;
+        private DevExpress.XtraEditors.CheckedListBoxControl CBAktif;
+        private DevExpress.XtraEditors.SimpleButton BTFiyatListesiSil;
+        private DevExpress.XtraEditors.SimpleButton BTFiyatListesiKaydet;
+        private DateTimePicker DTBasTar;
+        private DateTimePicker DTBitisTar;
     }
 }

@@ -43,8 +43,8 @@ namespace MEYPAK.PRL.STOK
             {
                 fiyatlistadi = TBFiyatListesiAdi.Text,
                 olusturmatarihi = DateTime.Now,
-                bastar = DTPBastar.Value,
-                bittar = DTPBittar.Value
+                bastar = DTBasTar.Value,
+                bittar = DTBitisTar.Value
             });
             _stokFiyatListServis.Data(ServisList.StokFiyatListListeServis);
 
@@ -64,10 +64,10 @@ namespace MEYPAK.PRL.STOK
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridView1.SelectedRows!=null)
+            if (DGFiyatListesi.SelectedRows!=null)
             {
 
-                _tempSTOKFIYATLIST = _stokFiyatListServis.obje.Where(x => x.id == Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString())).FirstOrDefault();
+                _tempSTOKFIYATLIST = _stokFiyatListServis.obje.Where(x => x.id == Convert.ToInt32(DGFiyatListesi.Rows[e.RowIndex].Cells[0].Value.ToString())).FirstOrDefault();
                 _stokFiyatListPanel = new FStokFiyatListPanel(_tempSTOKFIYATLIST);
                 _stokFiyatListPanel.ShowDialog();
 
@@ -76,19 +76,21 @@ namespace MEYPAK.PRL.STOK
 
         void StokFiyatListesiniGetir()
         {
-            dataGridView1.DataSource = _stokFiyatListServis.obje;
-            dataGridView1.Columns[0].Visible = false; 
-            dataGridView1.Columns[dataGridView1.ColumnCount-1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            DGFiyatListesi.DataSource = _stokFiyatListServis.obje;
+            DGFiyatListesi.Columns[0].Visible = false; 
+            DGFiyatListesi.Columns[DGFiyatListesi.ColumnCount-1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
         private void BTSil_Click(object sender, EventArgs e)
         { 
-            _stokFiyatListServis.Data(ServisList.StokFiyatListSilServis,null,null,_stokFiyatListServis.obje.Where(x => x.id == Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value)).ToList());
+            _stokFiyatListServis.Data(ServisList.StokFiyatListSilServis,null,null,_stokFiyatListServis.obje.Where(x => x.id == Convert.ToInt32(DGFiyatListesi.SelectedRows[0].Cells[0].Value)).ToList());
             _stokFiyatListServis.Data(ServisList.StokFiyatListListeServis);
             _stokFiyatListHarServis.Data(ServisList.StokFiyatListHarListeServis);
 
-            _stokFiyatListHarServis.Data(ServisList.StokFiyatListHarSilServis, null, null, _stokFiyatListHarServis.obje.Where(x => x.fiyatlistid.ToString() == dataGridView1.SelectedRows[0].Cells[0].Value.ToString()).ToList());
-            dataGridView1.DataSource= _stokFiyatListServis.obje;
+            _stokFiyatListHarServis.Data(ServisList.StokFiyatListHarSilServis, null, null, _stokFiyatListHarServis.obje.Where(x => x.fiyatlistid.ToString() == DGFiyatListesi.SelectedRows[0].Cells[0].Value.ToString()).ToList());
+            DGFiyatListesi.DataSource= _stokFiyatListServis.obje;
         }
+
+       
     }
 }

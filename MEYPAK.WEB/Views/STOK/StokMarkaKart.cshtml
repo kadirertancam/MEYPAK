@@ -6,7 +6,7 @@
 
     <div id="data-grid-demo">
         @(
-            Html.DevExtreme().DataGrid<PocoOLCUBR>()
+            Html.DevExtreme().DataGrid<PocoSTOKMARKA>()
             .ID("gridContainer")
             .ShowBorders(true)
 
@@ -31,10 +31,8 @@
 
 
                     groupItems.AddSimpleFor(m => m.adi);
-                    groupItems.AddSimpleFor(m => m.birim);
-                   
+                    groupItems.AddSimpleFor(m => m.aciklama);
                
-                
                 });
 
 
@@ -46,7 +44,10 @@
                 columns.AddFor(m => m.adi)
                 .Width(120);
 
-                columns.AddFor(m => m.birim);
+                columns.AddFor(m => m.aciklama);
+
+
+
 
                 columns.Add()
                 .Type(GridCommandColumnType.Buttons)
@@ -55,11 +56,10 @@
                     b.Add().Name(GridColumnButtonName.Edit).Text("Düzenle");
                     b.Add().Name(GridColumnButtonName.Delete).Text("Sil");
                 });
-
             })
             .DataSource(d => d.Mvc()
             .Controller("STOK")
-            .LoadAction("OlcuBrGet").InsertAction("OlcuBrPost").UpdateAction("OlcuBrPut").DeleteAction("OlcuBrDelete").Key("id")
+            .LoadAction("StokMarkaGet").InsertAction("StokMarkaPost").UpdateAction("StokMarkaPut").DeleteAction("StokMarkaDelete").Key("id")
 
             )
             )

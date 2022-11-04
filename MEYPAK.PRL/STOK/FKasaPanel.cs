@@ -32,9 +32,9 @@ namespace MEYPAK.PRL.STOK
         {
             _kasaServis.Data(ServisList.StokKasaEkleServis,new PocoSTOKKASA
             {
-                KASAADI =TBKasaAdi.Text,
-                ACIKLAMA = TBAciklama.Text,
-                KASAKODU = TBKasaKodu.Text,
+                kasaadi =TBAdi.Text,
+                aciklama = TBAciklama.Text,
+                kasakodu = TBKodu.Text,
                 olusturmatarihi = DateTime.Now,
             });
             MessageBox.Show("Kasa Başarıyla Eklendi.");

@@ -49,11 +49,11 @@ namespace MEYPAK.PRL.DEPO
                 TBCikisDepo.Text = _depoServis.Getir(x => x.id == _arasıtransfer.CIKTIDEPOID).FirstOrDefault().DEPOADI;
                 TBHedefDepo.Text = _depoServis.Getir(x => x.id == _arasıtransfer.HEDEFDEPOID).FirstOrDefault().DEPOADI;
                 TBDurum.Text = _arasıtransfer.DURUM.ToString();
-                DTPOlusturmaTarihi.Value = _arasıtransfer.olusturmatarihi;
+                LBOlusturmaTar.Text = _arasıtransfer.olusturmatarihi.ToString();
             }
             if (_tempStok != null)
             {
-                TBStokAdı.Text = _tempStok.kod.ToString();
+                TBStok.Text = _tempStok.kod.ToString();
             }
 
         }
