@@ -31,7 +31,7 @@ namespace MEYPAK.PRL.STOK
         FStokSayimPanel fstokSayimPanel;
         FStokFiyatListPanel fstokFiyatListPanel;
         FMusteriSiparis fSiparis;
-        FSatınAlmaSiparis _fSatınAlmaSiparis;
+        FSatinAlmaSiparis _fSatınAlmaSiparis;
         FDepolarArasıTransferHar fDepolarArasıHar;
         int id;
         string _islem;
@@ -73,7 +73,7 @@ namespace MEYPAK.PRL.STOK
                     if (frm.Name.Contains("FMusteriSiparis"))
                         fSiparis=(FMusteriSiparis)frm;
                     if (frm.Name.Contains("FSatınAlmaSiparis"))
-                        _fSatınAlmaSiparis=(FSatınAlmaSiparis)frm;
+                        _fSatınAlmaSiparis=(FSatinAlmaSiparis)frm;
                 }
             }
             _stokMarka.Data(ServisList.StokMarkaListeServis);

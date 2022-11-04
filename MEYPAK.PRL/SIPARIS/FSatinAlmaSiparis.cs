@@ -1,25 +1,48 @@
-﻿using DevExpress.XtraEditors.Controls;
-using DevExpress.XtraEditors.Repository;
-using DevExpress.XtraGrid.Columns;
-using DevExpress.XtraGrid.Views.Base;
-using DevExpress.XtraGrid.Views.Grid;
-using MEYPAK.BLL.Assets;
+﻿using MEYPAK.BLL.STOK;
+using MEYPAK.DAL.Concrete.EntityFramework.Repository;
+using MEYPAK.DAL.Concrete.EntityFramework.Context;
+using MEYPAK.DAL.Concrete.EntityFramework.Repository;
 using MEYPAK.Entity.PocoModels;
-using MEYPAK.Entity.PocoModels.CARI;
-using MEYPAK.Entity.PocoModels.DEPO;
+using MEYPAK.Interfaces.Depo;
+using MEYPAK.Interfaces.Siparis;
+using MEYPAK.Interfaces.Stok;
+using MEYPAK.PRL.Assets;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using MEYPAK.PRL.STOK;
+using MEYPAK.BLL.DEPO;
+using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
+using MEYPAK.PRL.Assets.Scripts;
+using MEYPAK.Entity.Models.STOK;
+using MEYPAK.Entity.Models.SIPARIS;
 using MEYPAK.Entity.PocoModels.SIPARIS;
 using MEYPAK.Entity.PocoModels.STOK;
+using MEYPAK.Entity.PocoModels.DEPO;
+using MEYPAK.BLL.Assets;
+using DevExpress.XtraGrid.Columns;
+using DevExpress.XtraEditors.Repository;
+using DevExpress.XtraEditors.Controls;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraEditors;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using DevExpress.XtraGrid.Views.Base;
 using MEYPAK.PRL.CARI;
-using MEYPAK.PRL.STOK;
-using System.Data;
-using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
+using MEYPAK.Entity.PocoModels.CARI;
+using MEYPAK.Entity.Models.CARI;
 
 namespace MEYPAK.PRL.SIPARIS
 {
-    public partial class FMusteriSiparis : Form
+    public partial class FSatinAlmaSiparis : Form
     {
 
-        public FMusteriSiparis()
+        public FSatinAlmaSiparis()
         {
             InitializeComponent();
 
@@ -27,8 +50,8 @@ namespace MEYPAK.PRL.SIPARIS
             DGVFiyatList = new DataGridViewComboBoxColumn();
             DGVKasaSec = new DataGridViewButtonColumn();
             DGVKasaList = new DataGridViewComboBoxColumn();
-
-
+         
+            
             _depoServis = new GenericWebServis<PocoDEPO>();
             _depoServis.Data(ServisList.DepoListeServis);
             CBDepo.DataSource = _depoServis.obje.Select(x => x.DEPOADI).ToList();
@@ -43,7 +66,7 @@ namespace MEYPAK.PRL.SIPARIS
             _cariKart = new GenericWebServis<PocoCARIKART>();
             _cariKart.Data(ServisList.CariListeServis);
             _stokServis = new GenericWebServis<PocoSTOK>();
-
+           
 
             gridView1.OptionsNavigation.AutoMoveRowFocus = true;
             gridView1.OptionsNavigation.AutoFocusNewRow = true;
@@ -51,7 +74,6 @@ namespace MEYPAK.PRL.SIPARIS
         FKasaList fKasaList;
         List<PocoSiparisKalem> _tempSiparisDetay = new List<PocoSiparisKalem>();
         DataGridViewComboBoxColumn DGVOlcuBr = new DataGridViewComboBoxColumn();
-        
         PocoSiparisKalem _tempPocokalem;
         FStokList _fStokList;
         FCariList _fCariList;
@@ -59,10 +81,9 @@ namespace MEYPAK.PRL.SIPARIS
         public PocoSTOKKASA _tempKasa;
         public PocoSIPARIS _tempSiparis;
         public PocoCARIKART _tempCariKart;
-
         private void FSiparis_Load(object sender, EventArgs e)
         {
-
+            
             DataGridYapilandir();
             CBParaBirimi.SelectedIndex = 0;
         }
@@ -87,7 +108,7 @@ namespace MEYPAK.PRL.SIPARIS
             gridControl1.DataSource = _tempSiparisDetay;
             //DGVOlcuBr.DataSource = _tempStok.MPSTOKOLCUBR.Select(x => x.MPOLCUBR.ADI).ToList();
             gridView1.Columns["StokId"].Visible = false;
-            gridView1.Columns["MPSTOK"].Visible = false;
+            gridView1.Columns["MPSTOK"].Visible = false; 
             gridView1.Columns["KasaId"].Visible = false;
 
         }
@@ -230,7 +251,7 @@ namespace MEYPAK.PRL.SIPARIS
                 guncellemetarihi = DateTime.Now,
                 VADEGUNU = Convert.ToInt32(TBSVadeGunu.Text),
                 CARIADI = TBCariAdi.Text,
-                CARIID = _cariKart.obje.Where(x => x.KOD == TBCariKodu.Text).FirstOrDefault().id,
+                CARIID = _cariKart.obje.Where(x=>x.KOD==TBCariKodu.Text).FirstOrDefault().id,
                 DEPOID = _depoServis.obje.Where(x => x.DEPOADI == CBDepo.SelectedValue).FirstOrDefault().id,
                 DOVIZID = 0,
                 ISKONTOTOPLAM = _tempSiparisDetay.Sum(x => x.İskontoTutarı),
@@ -238,7 +259,7 @@ namespace MEYPAK.PRL.SIPARIS
                 BRUTTOPLAM = _tempSiparisDetay.Sum(x => x.BrütToplam),
                 NETTOPLAM = _tempSiparisDetay.Sum(x => x.NetToplam),
                 GENELTOPLAM = _tempSiparisDetay.Sum(x => x.KdvTutarı) + _tempSiparisDetay.Sum(x => x.NetToplam),
-                TIP = 0,
+                TIP = 1,
 
             });
             _stokOlcuBr.Data(ServisList.StokOlcuBrListeServis);
@@ -257,7 +278,7 @@ namespace MEYPAK.PRL.SIPARIS
                     KASAID = item.KasaId,
                     NETTOPLAM = item.NetToplam,
                     NETFIYAT = item.NetFiyat,
-                    BIRIMID = _olcuBr.obje.Where(x => x.adi.ToString() == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Birim").ToString()).FirstOrDefault().id,
+                    BIRIMID = _olcuBr.obje.Where(x=>x.adi.ToString()== gridView1.GetRowCellValue(gridView1.FocusedRowHandle,"Birim").ToString()).FirstOrDefault().id ,
                     DOVIZID = 0,
                     MIKTAR = item.Miktar,
                     ISTKONTO1 = item.İskonto1,
@@ -270,7 +291,7 @@ namespace MEYPAK.PRL.SIPARIS
                     BEKLEYENMIKTAR = 0,
                     HAREKETDURUMU = 0,
                     LISTEFIYATID = 0,
-                    TIP = 0,
+                    TIP = 1,
                     KDVTUTARI = item.KdvTutarı
                 });
                 i++;
@@ -319,7 +340,7 @@ namespace MEYPAK.PRL.SIPARIS
                     MPSTOK = _tempStok,
                     StokKodu = _tempStok.kod,
                     StokAdı = _tempStok.adi,
-                    Birim = _olcuBr.obje.Where(x => x.adi == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "DGVOlcuBr").ToString()).FirstOrDefault().adi,
+                    Birim = _olcuBr.obje.Where(x=>x.adi== gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "DGVOlcuBr").ToString()).FirstOrDefault().adi,
                     KasaAdı = "",
                     Kdv = _tempStok.satiskdv,
                     Doviz = "TL", //_tempStok.SDOVIZID 
@@ -348,9 +369,9 @@ namespace MEYPAK.PRL.SIPARIS
                     {
                         TBKasa.Text = _tempKasa.KASAADI;
                         gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "KasaAdı", _tempKasa.KASAADI);
-
-                        _tempPocokalem.KasaAdı = _tempKasa.KASAADI;
-                        _tempPocokalem.KasaId = _tempKasa.id;
+                   
+                    _tempPocokalem.KasaAdı = _tempKasa.KASAADI;
+                    _tempPocokalem.KasaId = _tempKasa.id;
                     }
 
                 }
@@ -567,17 +588,12 @@ namespace MEYPAK.PRL.SIPARIS
             }
         }
 
-
+         
 
         private void BTCariSec_Click(object sender, EventArgs e)
         {
             _fCariList = new FCariList(this.Tag.ToString(), "musterisiparis");
             _fCariList.ShowDialog();
-            if (_tempCariKart != null)
-            {
-                TBCariKodu.Text = _tempCariKart.KOD;
-                TBCariAdi.Text = _tempCariKart.ADI;
-            }
         }
 
         private void gridControl1_KeyPress(object sender, KeyPressEventArgs e)
@@ -587,36 +603,38 @@ namespace MEYPAK.PRL.SIPARIS
 
         private void BTSiparisSec_Click(object sender, EventArgs e)
         {
-            FMusteriSiparisList fMusteriSiparisList = new FMusteriSiparisList(this.Tag.ToString(), "Siparis");
-            fMusteriSiparisList.ShowDialog();
+            FMusteriSiparisList FSatinAlmaSiparisList = new FMusteriSiparisList(this.Tag.ToString(), "satinalmasiparis");
+            FSatinAlmaSiparisList.ShowDialog();
             if (_tempSiparis != null)
-                TBBelgeNo.Text = _tempSiparis.BELGENO;
-            //todo : TBCariKodu.Text = 
-            TBCariKodu.Text = _cariKart.obje.Where(x => x.id == _tempSiparis.CARIID).FirstOrDefault().KOD;
-            TBCariAdi.Text = _tempSiparis.CARIADI;
-            _stokServis.Data(ServisList.StokListeServis);
-            //TODO TBKasa.Text = 
-            DTPTarih.Value = _tempSiparis.SIPARISTARIHI;
-            TBAciklama.Text = _tempSiparis.ACIKLAMA;
-            DTPVadeTarihi.Value = _tempSiparis.VADETARIHI;
-            DTPSevkiyatTarihi.Value = _tempSiparis.SEVKIYATTARIHI;
-            TBSVadeGunu.Text = _tempSiparis.VADEGUNU.ToString();
-            _siparisDetayServis.Data(ServisList.SiparisDetayListeServis + 2, null, "query=SIPARISID=" + _tempSiparis.id.ToString());
-            gridControl1.DataSource = _siparisDetayServis.obje.Select(x => new PocoSiparisKalem()
             {
-                StokId = x.STOKID,
-                StokKodu = _stokServis.obje.Where(z => z.id == x.STOKID).FirstOrDefault().kod,//,  TODOO:BAKILACAAAK
-                StokAdı = _stokServis.obje.Where(z => z.id == x.STOKID).FirstOrDefault().adi,
-                Birim = "0",// _olcuBr.obje.Where(x => x.ADI == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "DGVOlcuBr").ToString()).FirstOrDefault().ADI,
-                KasaAdı = "",
-                Kdv = _tempStok.satiskdv,
-                Doviz = "TL", //_tempStok.SDOVIZID 
-            });
+                TBBelgeNo.Text = _tempSiparis.BELGENO;
+                //todo : TBCariKodu.Text = 
+                TBCariKodu.Text = _cariKart.obje.Where(x => x.id == _tempSiparis.id).FirstOrDefault().KOD;
+                TBCariAdi.Text = _tempSiparis.CARIADI;
+                _stokServis.Data(ServisList.StokListeServis);
+                //TODO TBKasa.Text = 
+                DTPTarih.Value = _tempSiparis.SIPARISTARIHI;
+                TBAciklama.Text = _tempSiparis.ACIKLAMA;
+                DTPVadeTarihi.Value = _tempSiparis.VADETARIHI;
+                DTPSevkiyatTarihi.Value = _tempSiparis.SEVKIYATTARIHI;
+                TBSVadeGunu.Text = _tempSiparis.VADEGUNU.ToString();
+                _siparisDetayServis.Data(ServisList.SiparisDetayListeServis + 2, null, "query=SIPARISID=" + _tempSiparis.id.ToString());
+                gridControl1.DataSource = _siparisDetayServis.obje.Select(x => new PocoSiparisKalem()
+                {
+                    StokId = x.STOKID,
+                    StokKodu = _stokServis.obje.Where(z => z.id == x.STOKID).FirstOrDefault().kod,//,  TODOO:BAKILACAAAK
+                    StokAdı = _stokServis.obje.Where(z => z.id == x.STOKID).FirstOrDefault().adi,
+                    Birim = "0",// _olcuBr.obje.Where(x => x.ADI == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "DGVOlcuBr").ToString()).FirstOrDefault().ADI,
+                    KasaAdı = "",
+                    Kdv = _tempStok.satiskdv,
+                    Doviz = "TL", //_tempStok.SDOVIZID 
+                });
+            }
         }
-
+            
         private void BTNKasaSec_Click(object sender, EventArgs e)
         {
-            FKasaList fKasaList = new FKasaList(this.Tag.ToString(), "Siparis");
+            FKasaList fKasaList = new FKasaList(this.Tag.ToString(),"Siparis");
             fKasaList.ShowDialog();
             if (_tempKasa != null)
                 TBKasa.Text = _tempKasa.KASAADI;

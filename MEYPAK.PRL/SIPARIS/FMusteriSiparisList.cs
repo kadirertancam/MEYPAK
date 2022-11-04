@@ -1,4 +1,5 @@
 ﻿using MEYPAK.BLL.Assets;
+using MEYPAK.Entity.Models.SIPARIS;
 using MEYPAK.Entity.PocoModels.SIPARIS;
 using MEYPAK.Interfaces.Stok;
 using System;
@@ -16,33 +17,78 @@ namespace MEYPAK.PRL.SIPARIS
     public partial class FMusteriSiparisList : Form
     {
         string _islem;
+        string _form;
         FMusteriSiparis fmusteriSiparis;
+        FSatinAlmaSiparis fsatinalmaSiparis;
         GenericWebServis<PocoSIPARIS> _mSiparisServis;
-        public FMusteriSiparisList(string islem="")
+        public FMusteriSiparisList(string form,string islem="")
         {
             InitializeComponent();
             _islem = islem;
+            _form = form;   
             _mSiparisServis = new GenericWebServis<PocoSIPARIS>();
         }
 
         private void FMusteriSiparisList_Load(object sender, EventArgs e)
         {
-            fmusteriSiparis = (FMusteriSiparis)Application.OpenForms["FMusteriSiparis"];
+            foreach (Form frm in Application.OpenForms)
+            {
+                if (_form == frm.Tag)
+                {
+                    if (frm.Name.Contains("FMusteriSiparis"))
+                        fmusteriSiparis = (FMusteriSiparis)frm;
+                    if (frm.Name.Contains("FSatinAlmaSiparis"))
+                        fsatinalmaSiparis = (FSatinAlmaSiparis)frm;
+                }
+            } 
             _mSiparisServis.Data(ServisList.SiparisListeServis);
-            dataGridView1.DataSource = _mSiparisServis.obje;
+            if(_islem=="satinalmasiparis")
+                gridControl1.DataSource = _mSiparisServis.obje.Where(x=>x.TIP==1).Select(x => new
+                {
+                    ID = x.id,
+                    x.SIPARISTARIHI,
+                    x.BELGENO,
+                    x.CARIADI,
+                    x.ALTHESAPID,
+                    x.DEPOID,
+                    x.GENELTOPLAM
+                });
+            if (_islem == "Siparis") 
+                gridControl1.DataSource = _mSiparisServis.obje.Where(x => x.TIP == 0).Select(x => new
+                {
+                    ID = x.id,
+                    x.SIPARISTARIHI,
+                    x.BELGENO,
+                    x.CARIADI,
+                    x.ALTHESAPID,
+                    x.DEPOID,
+                    x.GENELTOPLAM
+                }); 
         }
 
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+           
+        }
+
+        private void gridView1_DoubleClick(object sender, EventArgs e)
         {
             _mSiparisServis.Data(ServisList.SiparisListeServis);
             if (_islem == "Siparis")
             {
                 if (fmusteriSiparis != null)
                 {
-                    fmusteriSiparis._tempSiparis = _mSiparisServis.obje.Where(x => x.id.ToString() == dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
+                    fmusteriSiparis._tempSiparis = _mSiparisServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
                 }
 
+            }
+            if(_islem == "satinalmasiparis")
+            {
+                if (fsatinalmaSiparis != null)
+                {
+                    fsatinalmaSiparis._tempSiparis= _mSiparisServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+                }
             }
             this.Close();
         }

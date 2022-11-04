@@ -31,6 +31,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.GBStokBilgi = new System.Windows.Forms.GroupBox();
+            this.CBStokBilgiBirim = new DevExpress.XtraEditors.LookUpEdit();
             this.BTStokSayimTemizle = new DevExpress.XtraEditors.SimpleButton();
             this.BTStokSayimSil = new DevExpress.XtraEditors.SimpleButton();
             this.BTStokBilgiKaydet = new DevExpress.XtraEditors.SimpleButton();
@@ -46,6 +47,7 @@
             this.LBStokBilgiStokKodu = new DevExpress.XtraEditors.LabelControl();
             this.LBStokBilgiBakiye = new System.Windows.Forms.Label();
             this.GBStokSayim = new System.Windows.Forms.GroupBox();
+            this.CBDepo = new DevExpress.XtraEditors.LookUpEdit();
             this.DTStokSayimPanelTarih = new DevExpress.XtraEditors.DateEdit();
             this.LBStokSayimPanelDepo = new DevExpress.XtraEditors.LabelControl();
             this.LBStokSayimPanelTarih = new DevExpress.XtraEditors.LabelControl();
@@ -54,26 +56,26 @@
             this.BTStokSayimCik = new DevExpress.XtraEditors.SimpleButton();
             this.BTStokSayimKaydet = new DevExpress.XtraEditors.SimpleButton();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.CBDepo = new DevExpress.XtraEditors.LookUpEdit();
-            this.CBStokBilgiBirim = new DevExpress.XtraEditors.LookUpEdit();
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.GBStokBilgi.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CBStokBilgiBirim.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBStokBilgiFiyat.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBStokBilgiMiktar.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBStokBilgiBakiye.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBStokBilgiStokAdi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBStokBilgiStokKodu.Properties)).BeginInit();
             this.GBStokSayim.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CBDepo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTStokSayimPanelTarih.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTStokSayimPanelTarih.Properties)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CBDepo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CBStokBilgiBirim.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -121,6 +123,18 @@
             this.GBStokBilgi.TabIndex = 11;
             this.GBStokBilgi.TabStop = false;
             this.GBStokBilgi.Text = "Stok Bilgi";
+            // 
+            // CBStokBilgiBirim
+            // 
+            this.CBStokBilgiBirim.Location = new System.Drawing.Point(378, 26);
+            this.CBStokBilgiBirim.Name = "CBStokBilgiBirim";
+            this.CBStokBilgiBirim.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CBStokBilgiBirim.Properties.Appearance.Options.UseFont = true;
+            this.CBStokBilgiBirim.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CBStokBilgiBirim.Properties.NullText = "";
+            this.CBStokBilgiBirim.Size = new System.Drawing.Size(200, 22);
+            this.CBStokBilgiBirim.TabIndex = 24;
             // 
             // BTStokSayimTemizle
             // 
@@ -285,6 +299,18 @@
             this.GBStokSayim.TabStop = false;
             this.GBStokSayim.Text = "Genel";
             // 
+            // CBDepo
+            // 
+            this.CBDepo.Location = new System.Drawing.Point(98, 44);
+            this.CBDepo.Name = "CBDepo";
+            this.CBDepo.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CBDepo.Properties.Appearance.Options.UseFont = true;
+            this.CBDepo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CBDepo.Properties.NullText = "";
+            this.CBDepo.Size = new System.Drawing.Size(200, 22);
+            this.CBDepo.TabIndex = 23;
+            // 
             // DTStokSayimPanelTarih
             // 
             this.DTStokSayimPanelTarih.EditValue = new System.DateTime(2022, 11, 2, 12, 14, 48, 0);
@@ -366,54 +392,32 @@
             this.BTStokSayimKaydet.Size = new System.Drawing.Size(94, 52);
             this.BTStokSayimKaydet.TabIndex = 68;
             this.BTStokSayimKaydet.Text = "Kaydet";
+            this.BTStokSayimKaydet.Click += new System.EventHandler(this.BTStokSayimKaydet_Click);
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.dataGridView1);
+            this.panel3.Controls.Add(this.gridControl1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1051, 333);
             this.panel3.TabIndex = 1;
             // 
-            // dataGridView1
+            // gridControl1
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1051, 333);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CurrentCellDirtyStateChanged += new System.EventHandler(this.dataGridView1_CurrentCellDirtyStateChanged);
-            this.dataGridView1.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridView1_RowsAdded);
+            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl1.Location = new System.Drawing.Point(0, 0);
+            this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Name = "gridControl1";
+            this.gridControl1.Size = new System.Drawing.Size(1051, 333);
+            this.gridControl1.TabIndex = 1;
+            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
             // 
-            // CBDepo
+            // gridView1
             // 
-            this.CBDepo.Location = new System.Drawing.Point(98, 44);
-            this.CBDepo.Name = "CBDepo";
-            this.CBDepo.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CBDepo.Properties.Appearance.Options.UseFont = true;
-            this.CBDepo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.CBDepo.Properties.NullText = "";
-            this.CBDepo.Size = new System.Drawing.Size(200, 22);
-            this.CBDepo.TabIndex = 23;
-            // 
-            // CBStokBilgiBirim
-            // 
-            this.CBStokBilgiBirim.Location = new System.Drawing.Point(378, 26);
-            this.CBStokBilgiBirim.Name = "CBStokBilgiBirim";
-            this.CBStokBilgiBirim.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CBStokBilgiBirim.Properties.Appearance.Options.UseFont = true;
-            this.CBStokBilgiBirim.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.CBStokBilgiBirim.Properties.NullText = "";
-            this.CBStokBilgiBirim.Size = new System.Drawing.Size(200, 22);
-            this.CBStokBilgiBirim.TabIndex = 24;
+            this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.Name = "gridView1";
             // 
             // FStokSayimPanel
             // 
@@ -429,6 +433,7 @@
             this.groupBox1.ResumeLayout(false);
             this.GBStokBilgi.ResumeLayout(false);
             this.GBStokBilgi.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CBStokBilgiBirim.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBStokBilgiFiyat.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBStokBilgiMiktar.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBStokBilgiBakiye.Properties)).EndInit();
@@ -436,14 +441,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.TBStokBilgiStokKodu.Properties)).EndInit();
             this.GBStokSayim.ResumeLayout(false);
             this.GBStokSayim.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CBDepo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTStokSayimPanelTarih.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTStokSayimPanelTarih.Properties)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CBDepo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CBStokBilgiBirim.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -456,7 +461,6 @@
         private Label LBStokBilgiBakiye;
         private GroupBox GBStokSayim;
         private Panel panel2;
-        private DataGridView dataGridView1;
         private Panel panel4;
         private Panel panel3;
         private DevExpress.XtraEditors.LabelControl LBStokSayimPanelTarih;
@@ -479,5 +483,7 @@
         private DevExpress.XtraEditors.SimpleButton BTStokSayimKaydet;
         private DevExpress.XtraEditors.LookUpEdit CBDepo;
         private DevExpress.XtraEditors.LookUpEdit CBStokBilgiBirim;
+        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
     }
 }

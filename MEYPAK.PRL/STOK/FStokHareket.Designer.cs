@@ -36,7 +36,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.BTStokHarSil = new DevExpress.XtraEditors.SimpleButton();
-            this.BTStokHarDegistir = new DevExpress.XtraEditors.SimpleButton();
             this.BTStokHarKaydet = new DevExpress.XtraEditors.SimpleButton();
             this.LBStokHarBakiyeDeger = new DevExpress.XtraEditors.LabelControl();
             this.LBStokHarToplamCikisDeger = new DevExpress.XtraEditors.LabelControl();
@@ -140,6 +139,7 @@
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsView.ShowFooter = true;
+            this.gridView1.DoubleClick += new System.EventHandler(this.gridView1_DoubleClick);
             // 
             // panel2
             // 
@@ -154,7 +154,6 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.BTStokHarSil);
-            this.groupBox2.Controls.Add(this.BTStokHarDegistir);
             this.groupBox2.Controls.Add(this.BTStokHarKaydet);
             this.groupBox2.Controls.Add(this.LBStokHarBakiyeDeger);
             this.groupBox2.Controls.Add(this.LBStokHarToplamCikisDeger);
@@ -173,22 +172,12 @@
             this.BTStokHarSil.Appearance.BackColor = System.Drawing.Color.Gainsboro;
             this.BTStokHarSil.Appearance.Options.UseBackColor = true;
             this.BTStokHarSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTStokHarSil.ImageOptions.Image")));
-            this.BTStokHarSil.Location = new System.Drawing.Point(206, 11);
+            this.BTStokHarSil.Location = new System.Drawing.Point(106, 10);
             this.BTStokHarSil.Name = "BTStokHarSil";
             this.BTStokHarSil.Size = new System.Drawing.Size(94, 52);
             this.BTStokHarSil.TabIndex = 76;
             this.BTStokHarSil.Text = "Sil";
-            // 
-            // BTStokHarDegistir
-            // 
-            this.BTStokHarDegistir.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.BTStokHarDegistir.Appearance.Options.UseBackColor = true;
-            this.BTStokHarDegistir.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTStokHarDegistir.ImageOptions.Image")));
-            this.BTStokHarDegistir.Location = new System.Drawing.Point(106, 11);
-            this.BTStokHarDegistir.Name = "BTStokHarDegistir";
-            this.BTStokHarDegistir.Size = new System.Drawing.Size(94, 52);
-            this.BTStokHarDegistir.TabIndex = 75;
-            this.BTStokHarDegistir.Text = "Değiştir";
+            this.BTStokHarSil.Click += new System.EventHandler(this.BTStokHarSil_Click);
             // 
             // BTStokHarKaydet
             // 
@@ -200,6 +189,7 @@
             this.BTStokHarKaydet.Size = new System.Drawing.Size(94, 52);
             this.BTStokHarKaydet.TabIndex = 74;
             this.BTStokHarKaydet.Text = "Kaydet";
+            this.BTStokHarKaydet.Click += new System.EventHandler(this.BTStokHarKaydet_Click);
             // 
             // LBStokHarBakiyeDeger
             // 
@@ -498,6 +488,7 @@
             // 
             // TBFiyat
             // 
+            this.TBFiyat.EditValue = "0";
             this.TBFiyat.Location = new System.Drawing.Point(591, 90);
             this.TBFiyat.Name = "TBFiyat";
             this.TBFiyat.Properties.Padding = new System.Windows.Forms.Padding(3);
@@ -526,6 +517,7 @@
             // 
             // TBKdv
             // 
+            this.TBKdv.EditValue = "0";
             this.TBKdv.Location = new System.Drawing.Point(593, 24);
             this.TBKdv.Name = "TBKdv";
             this.TBKdv.Properties.Padding = new System.Windows.Forms.Padding(3);
@@ -534,6 +526,7 @@
             // 
             // TBKur
             // 
+            this.TBKur.EditValue = "1";
             this.TBKur.Location = new System.Drawing.Point(591, 156);
             this.TBKur.Name = "TBKur";
             this.TBKur.Properties.Padding = new System.Windows.Forms.Padding(3);
@@ -542,6 +535,7 @@
             // 
             // TBMiktar
             // 
+            this.TBMiktar.EditValue = "0";
             this.TBMiktar.Location = new System.Drawing.Point(342, 93);
             this.TBMiktar.Name = "TBMiktar";
             this.TBMiktar.Properties.Padding = new System.Windows.Forms.Padding(3);
@@ -708,7 +702,6 @@
         private DevExpress.XtraEditors.LabelControl LBStokHarBakiyeDeger;
         private DevExpress.XtraEditors.LabelControl LBStokHarToplamCikisDeger;
         private DevExpress.XtraEditors.SimpleButton BTStokHarSil;
-        private DevExpress.XtraEditors.SimpleButton BTStokHarDegistir;
         private DevExpress.XtraEditors.SimpleButton BTStokHarKaydet;
     }
 }

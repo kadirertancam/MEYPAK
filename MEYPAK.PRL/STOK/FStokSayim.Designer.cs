@@ -35,13 +35,13 @@
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.GBStokSayim = new System.Windows.Forms.GroupBox();
+            this.DTStokSayimTarih = new DevExpress.XtraEditors.DateEdit();
             this.BTStokSayimSil = new DevExpress.XtraEditors.SimpleButton();
             this.BTStokSayimDegistir = new DevExpress.XtraEditors.SimpleButton();
             this.BTStokSayimKaydet = new DevExpress.XtraEditors.SimpleButton();
             this.LBStokSayimAciklama = new DevExpress.XtraEditors.LabelControl();
             this.LBSayimTarihi = new DevExpress.XtraEditors.LabelControl();
             this.TBStokSayimAciklama = new System.Windows.Forms.TextBox();
-            this.DTStokSayimTarih = new DevExpress.XtraEditors.DateEdit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GCStokSayim)).BeginInit();
@@ -113,6 +113,26 @@
             this.GBStokSayim.TabStop = false;
             this.GBStokSayim.Text = "Stok Sayım";
             // 
+            // DTStokSayimTarih
+            // 
+            this.DTStokSayimTarih.EditValue = new System.DateTime(2022, 11, 2, 12, 14, 48, 0);
+            this.DTStokSayimTarih.Location = new System.Drawing.Point(90, 38);
+            this.DTStokSayimTarih.Name = "DTStokSayimTarih";
+            this.DTStokSayimTarih.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DTStokSayimTarih.Properties.Appearance.Options.UseFont = true;
+            this.DTStokSayimTarih.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.SpinDown)});
+            this.DTStokSayimTarih.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.ClassicNew;
+            this.DTStokSayimTarih.Properties.MaskSettings.Set("mask", "f");
+            this.DTStokSayimTarih.Properties.VistaCalendarInitialViewStyle = DevExpress.XtraEditors.VistaCalendarInitialViewStyle.YearsGroupView;
+            this.DTStokSayimTarih.Properties.VistaCalendarViewStyle = ((DevExpress.XtraEditors.VistaCalendarViewStyle)(((((DevExpress.XtraEditors.VistaCalendarViewStyle.MonthView | DevExpress.XtraEditors.VistaCalendarViewStyle.YearView) 
+            | DevExpress.XtraEditors.VistaCalendarViewStyle.QuarterView) 
+            | DevExpress.XtraEditors.VistaCalendarViewStyle.YearsGroupView) 
+            | DevExpress.XtraEditors.VistaCalendarViewStyle.CenturyView)));
+            this.DTStokSayimTarih.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
+            this.DTStokSayimTarih.Size = new System.Drawing.Size(140, 24);
+            this.DTStokSayimTarih.TabIndex = 65;
+            // 
             // BTStokSayimSil
             // 
             this.BTStokSayimSil.Appearance.BackColor = System.Drawing.Color.Gainsboro;
@@ -139,12 +159,13 @@
             // 
             this.BTStokSayimKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
             this.BTStokSayimKaydet.Appearance.Options.UseBackColor = true;
-            this.BTStokSayimKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("c.ImageOptions.Image")));
+            this.BTStokSayimKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTStokSayimKaydet.ImageOptions.Image")));
             this.BTStokSayimKaydet.Location = new System.Drawing.Point(497, 22);
             this.BTStokSayimKaydet.Name = "BTStokSayimKaydet";
             this.BTStokSayimKaydet.Size = new System.Drawing.Size(94, 52);
             this.BTStokSayimKaydet.TabIndex = 62;
             this.BTStokSayimKaydet.Text = "Kaydet";
+            this.BTStokSayimKaydet.Click += new System.EventHandler(this.BTStokSayimKaydet_Click);
             // 
             // LBStokSayimAciklama
             // 
@@ -174,27 +195,6 @@
             this.TBStokSayimAciklama.Name = "TBStokSayimAciklama";
             this.TBStokSayimAciklama.Size = new System.Drawing.Size(140, 24);
             this.TBStokSayimAciklama.TabIndex = 3;
-            
-            // 
-            // DTStokSayimTarih
-            // 
-            this.DTStokSayimTarih.EditValue = new System.DateTime(2022, 11, 2, 12, 14, 48, 0);
-            this.DTStokSayimTarih.Location = new System.Drawing.Point(90, 38);
-            this.DTStokSayimTarih.Name = "DTStokSayimTarih";
-            this.DTStokSayimTarih.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DTStokSayimTarih.Properties.Appearance.Options.UseFont = true;
-            this.DTStokSayimTarih.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.SpinDown)});
-            this.DTStokSayimTarih.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.ClassicNew;
-            this.DTStokSayimTarih.Properties.MaskSettings.Set("mask", "f");
-            this.DTStokSayimTarih.Properties.VistaCalendarInitialViewStyle = DevExpress.XtraEditors.VistaCalendarInitialViewStyle.YearsGroupView;
-            this.DTStokSayimTarih.Properties.VistaCalendarViewStyle = ((DevExpress.XtraEditors.VistaCalendarViewStyle)(((((DevExpress.XtraEditors.VistaCalendarViewStyle.MonthView | DevExpress.XtraEditors.VistaCalendarViewStyle.YearView) 
-            | DevExpress.XtraEditors.VistaCalendarViewStyle.QuarterView) 
-            | DevExpress.XtraEditors.VistaCalendarViewStyle.YearsGroupView) 
-            | DevExpress.XtraEditors.VistaCalendarViewStyle.CenturyView)));
-            this.DTStokSayimTarih.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
-            this.DTStokSayimTarih.Size = new System.Drawing.Size(140, 24);
-            this.DTStokSayimTarih.TabIndex = 65;
             // 
             // FStokSayim
             // 

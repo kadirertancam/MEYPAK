@@ -55,9 +55,9 @@
 
 
 
-            })
+            }).OnRowRemoving(" window.location.href = \"StokFiyatListHarKart\";")
             .DataSource(d =>
-            d.Mvc().Controller("STOK").LoadAction("StokFiyatListGet").OnInserted("AlertName()").InsertAction("StokFiyatListPost").UpdateAction("StokFiyatListPut").DeleteAction("StokFiyatListDelete").Key("id")
+            d.Mvc().Controller("STOK").LoadAction("StokFiyatListGet").InsertAction("StokFiyatListPost").UpdateAction("StokFiyatListPut").DeleteAction("StokFiyatListDelete").Key("id")
 
 
             )
@@ -80,19 +80,29 @@
         )
 
 
-
-    <script>
-
-        function AlertName() {
-        @if (1 == 1)
+    @{
+        if (ViewBag.Redirect != null)
         {
-            
-           
+            <script>
+
+                function AlertName() {
+
+                   
+                }
+
+            </script>
         }
-         window.location.href = "";
+        else
+        {
+            <script>
+
+                function AlertName() {
+ 
+                }
+
+            </script>
         }
-        
-    </script>
+    }
 
 
     <script>
