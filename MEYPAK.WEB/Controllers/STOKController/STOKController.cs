@@ -457,7 +457,59 @@ namespace MEYPAK.WEB.Controllers.STOKController
 
         #endregion
 
+        #region STOKMARKA
 
+        [HttpGet]
+        public async Task<IActionResult> StokMarkaKart()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public object StokMarkaGet(DataSourceLoadOptions loadOptions)
+        {
+            //var a = loadOptions.Take;
+            //var b = loadOptions.Skip;
+            //string url = "http://213.238.167.117:8080/Stok/PagingList?skip="+b+"&take="+a+"&requireTotalCount=true";
+            //_tempPocoStok.Data(url);
+            _tempPocoStokMarka.Data(ServisList.StokMarkaListeServis);
+            return DataSourceLoader.Load(_tempPocoStokMarka.obje.Where(x => x.kayittipi == 0).Reverse().AsEnumerable(), loadOptions);
+        }
+        [HttpPut]
+        public async Task<IActionResult> StokMarkaPut(int key, string values)
+        { //güncellenecek
+            _tempPocoStokMarka.Data(ServisList.StokMarkaListeServis);
+            var employee = _tempPocoStokMarka.obje.First(a => a.id == key);
+            JsonConvert.PopulateObject(values, employee);
+
+            //_tempPocoStok.Data(ServisList.StokEkleServis, id);
+
+            _tempPocoStokMarka.Data(ServisList.StokMarkaEkleServis, employee);
+
+            ViewBag.Durum = "Başarıyla Güncellendi.";
+            return Ok();
+        }
+        [HttpPost]
+        public async Task<IActionResult> StokMarkaPost(string values)
+        {
+            PocoSTOKMARKA newPoco = new PocoSTOKMARKA();
+            JsonConvert.PopulateObject(values, newPoco);
+            _tempPocoStokMarka.Data(ServisList.StokMarkaEkleServis, newPoco);
+
+            ViewBag.Durum = "Başarıyla eklendi.";
+            return Ok();
+        }
+        [HttpDelete]
+        public void StokMarkaDelete(int key)
+        {
+            string url = ServisList.StokMarkaDeleteByIdServis;
+            url += "?id=";
+            url += key;
+            _tempPocoStokMarka.Data(url, method: HttpMethod.Post);
+            ViewBag.Durum = "Başarıyla silindi.";
+        }
+
+        #endregion
 
 
 

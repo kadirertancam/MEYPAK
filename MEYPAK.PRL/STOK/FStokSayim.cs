@@ -43,21 +43,7 @@ namespace MEYPAK.PRL.STOK
 
         private void BTSayimKaydet_Click(object sender, EventArgs e)
         {
-            _stokSayimServis.Data(ServisList.StokSayimListeServis);
-            stokSayimPanel = new FStokSayimPanel("kaydet");
-            _stokSayimServis.Data(ServisList.StokSayimEkleServis,(new Entity.PocoModels.STOK.PocoSTOKSAYIM()
-            {
-                SAYIMTARIHI = (DateTime)DTStokSayimTarihi.EditValue,
-                ACIKLAMA = TBStokSayimAciklama.Text,
-
-            }));
-            _stokSayimServis.Data(ServisList.StokSayimListeServis);
-            GCStokSayim.DataSource = _stokSayimServis.obje;
-
-            stokSayimPanel.sayimId = _stokSayimServis.obje.Where(x => x.ACIKLAMA == TBStokSayimAciklama.Text ).FirstOrDefault().id;
-                TBStokSayimAciklama.Text = "";
-            DTPSayimTarihi.EditValue = DateTime.Now;
-            stokSayimPanel.ShowDialog();
+           
 
         }
 
@@ -99,5 +85,39 @@ namespace MEYPAK.PRL.STOK
             GCStokSayim.DataSource = _stokSayimServis.obje;
         }
 
+       
+
+        private void TBAciklama_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DEStokSayimTarihi_EditValueChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void BTStokSayimKaydet_Click(object sender, EventArgs e)
+        {
+            _stokSayimServis.Data(ServisList.StokSayimListeServis);
+
+           
+            stokSayimPanel = new FStokSayimPanel("kaydet");
+            stokSayimPanel.Name = "FStokSayimPanel";
+            stokSayimPanel.Tag = "TPStokSayimPanel" + 1;
+            _stokSayimServis.Data(ServisList.StokSayimEkleServis, (new Entity.PocoModels.STOK.PocoSTOKSAYIM()
+            {
+                SAYIMTARIHI = Convert.ToDateTime(DTStokSayimTarih.EditValue.ToString()),
+                ACIKLAMA = TBStokSayimAciklama.Text,
+
+            }));
+            _stokSayimServis.Data(ServisList.StokSayimListeServis);
+            GCStokSayim.DataSource = _stokSayimServis.obje;
+
+            stokSayimPanel.sayimId = _stokSayimServis.obje.Where(x => x.ACIKLAMA == TBStokSayimAciklama.Text).FirstOrDefault().id;
+            TBStokSayimAciklama.Text = "";
+            DTStokSayimTarih.EditValue = DateTime.Now;
+            stokSayimPanel.ShowDialog();
+        }
     }
 }

@@ -65,11 +65,13 @@ namespace MEYPAK.PRL.STOK
                 CBBirim.Properties.DataSource = adi; //_stokOlcuBrServis.Getir(x => x.stokid == _id).Select(x => _olcuBrServis.Getir(z => z.ID == x.OLCUBRID).FirstOrDefault().ADI).ToList();
                 CBBirim.Properties.ValueMember = "id";
                 CBBirim.Properties.DisplayMember = "ADI";
+                TBKdv.Text = _tempStok.satiskdv.ToString();
                 CBBirim.EditValue = adi.FirstOrDefault();
                 //TBFiyat.Text = IO == 1 ? _tempStok.AFIYAT1.ToString() : _tempStok.SATISKDV.ToString();
                 BakiyeGuncelle();
                 GCStokHareket.DataSource = _stokHarServis.obje.Where(x=>x.stokid==_tempStok.id).Select( x=> new PocoStokHareketListesi()
                 {
+                    STOKID=x.stokid,
                     Acıklama=x.aciklama,
                     BelgeNo=x.belgE_NO,
                     Birim=_olcuBrServis.obje.Where(z=>z.id==x.birim).FirstOrDefault().adi,
@@ -82,6 +84,7 @@ namespace MEYPAK.PRL.STOK
                     NetToplam=x.nettoplam,
                     Tarih=x.olusturmatarihi
                 });
+                gridView1.Columns["STOKID"].Visible = false;
                 gridView1.RefreshData();
                 // _tempStok = null;
 
@@ -119,34 +122,7 @@ namespace MEYPAK.PRL.STOK
 
         private void BTKaydet_Click(object sender, EventArgs e)
         {
-            IO = RGStokHarGirisCikis.SelectedIndex==0? 1 : 0;
-
-            _depoServis.Data(ServisList.DepoListeServis);
-
-            _stokHarServis.Data(ServisList.StokHarEkleServis,(new PocoSTOKHAR()
-            {
-                stokid = _id,
-                belgE_NO = TBBelgeNo.Text,
-                aciklama = TBAciklama.Text,
-                io = this.IO,
-                birim = _olcuBrServis.obje.Where(x => x.adi == CBBirim.EditValue).FirstOrDefault().id,
-                depoid = _depoServis.obje.Where(x => x.DEPOADI.ToString() == CBDepo.EditValue.ToString()).FirstOrDefault().id,
-                miktar = Convert.ToDecimal(TBMiktar.Text),
-                hareketturu = 5,         //Muhtelif
-                faturaid = 0,
-                netfiyat = Convert.ToDecimal(TBFiyat.Text),
-                kdv = Convert.ToDecimal(TBKdv.Text),
-                nettoplam = Convert.ToDecimal(TBFiyat.Text) * Convert.ToDecimal(TBMiktar.Text),
-                bruttoplam = KdvEkle(Convert.ToDecimal(TBFiyat.Text) * Convert.ToDecimal(TBMiktar.Text)),
-            }));
-            GCStokHareket.DataSource = _stokHarServis.obje.Where(x=>x.id ==_id);
-            TBMiktar.Text = "";
-            TBBelgeNo.Text = "";
-            TBAciklama.Text = "";
-            TBFiyat.Text = "";
-            BakiyeGuncelle();
-            //Temizle(this.Controls);
-            // dataGridView1.DataSource = _tempdgvStok;
+           
 
         }
 
@@ -172,15 +148,12 @@ namespace MEYPAK.PRL.STOK
 
         private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            _tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("STOKID").ToString()).FirstOrDefault();
-            TBMiktar.Text = gridView1.GetFocusedRowCellValue("MIKTAR").ToString();
-            Doldur();
+           
         }
 
         private void BTNSil_Click(object sender, EventArgs e)
         {
-            _stokHarServis.Data(ServisList.StokHarSilServis,(_stokHarServis.obje.Where(x => x.id == Convert.ToInt32(gridView1.GetFocusedRowCellValue("id"))).FirstOrDefault()));
-
+           
         }
 
         #region KeyPress
@@ -234,7 +207,76 @@ namespace MEYPAK.PRL.STOK
             Doldur();
         }
 
-       
-        
+        private void CLBSube_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BTStokHarKaydet_Click(object sender, EventArgs e)
+        {
+            IO = RGStokHarGirisCikis.SelectedIndex == 0 ? 1 : 0;
+
+            _depoServis.Data(ServisList.DepoListeServis);
+
+            _stokHarServis.Data(ServisList.StokHarEkleServis, (new PocoSTOKHAR()
+            {
+                stokid = _id,
+                belgE_NO = TBBelgeNo.Text,
+                aciklama = TBAciklama.Text,
+                io = this.IO,
+                birim = _olcuBrServis.obje.Where(x => x.adi == CBBirim.EditValue).FirstOrDefault().id,
+                depoid = _depoServis.obje.Where(x => x.DEPOADI.ToString() == CBDepo.EditValue.ToString()).FirstOrDefault().id,
+                miktar = Convert.ToDecimal(TBMiktar.Text),
+                hareketturu = 5,         //Muhtelif
+                faturaid = 0,
+                netfiyat = Convert.ToDecimal(TBFiyat.Text),
+                kdv = Convert.ToDecimal(TBKdv.Text),
+                nettoplam = Convert.ToDecimal(TBFiyat.Text) * Convert.ToDecimal(TBMiktar.Text),
+                bruttoplam = KdvEkle(Convert.ToDecimal(TBFiyat.Text) * Convert.ToDecimal(TBMiktar.Text)),
+            }));
+            _stokHarServis.Data(ServisList.StokHarListeServis);
+            GCStokHareket.DataSource = _stokHarServis.obje.Where(x => x.id == _id);
+            TBMiktar.Text = "0";
+            TBBelgeNo.Text = "";
+            TBAciklama.Text = "";
+            TBFiyat.Text = "0";
+            BakiyeGuncelle();
+            GCStokHareket.DataSource = _stokHarServis.obje.Where(x => x.stokid == _tempStok.id).Select(x => new PocoStokHareketListesi()
+            {
+                Acıklama = x.aciklama,
+                BelgeNo = x.belgE_NO,
+                Birim = _olcuBrServis.obje.Where(z => z.id == x.birim).FirstOrDefault().adi,
+                BrutToplam = x.bruttoplam,
+                Cikis = x.io == 0 ? x.miktar : 0,
+                Giris = x.io == 1 ? x.miktar : 0,
+                Depo = _depoServis.obje.Where(z => z.id == x.depoid).FirstOrDefault().DEPOADI,
+                HareketTuru = x.hareketturu == 5 ? "Muhtelif" : x.hareketturu == 1 ? "Satış Faturası" : x.hareketturu == 2 ? "Alış Faturası" : x.hareketturu == 3 ? "Satış İade" : x.hareketturu == 4 ? "Alış İade" : x.hareketturu == 6 ? "DAT" : x.hareketturu == 0 ? "Muhtelif" : "",
+                NetFiyat = x.netfiyat,
+                NetToplam = x.nettoplam,
+                Tarih = x.olusturmatarihi
+            });
+            //Temizle(this.Controls);
+            // dataGridView1.DataSource = _tempdgvStok;
+        }
+
+        private void BTStokHarSil_Click(object sender, EventArgs e)
+        {
+            _stokHarServis.Data(ServisList.StokHarSilServis, (_stokHarServis.obje.Where(x => x.id == Convert.ToInt32(gridView1.GetFocusedRowCellValue("id"))).FirstOrDefault()));
+
+        }
+
+        private void BTStokHarDegistir_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gridView1_DoubleClick(object sender, EventArgs e)
+        {
+            _tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("STOKID").ToString()).FirstOrDefault();
+            TBMiktar.Text = gridView1.GetFocusedRowCellValue("Giris").ToString()=="0"? gridView1.GetFocusedRowCellValue("Cikis").ToString(): gridView1.GetFocusedRowCellValue("Giris").ToString();
+            RGStokHarGirisCikis.SelectedIndex = gridView1.GetFocusedRowCellValue("Giris").ToString() == "0" ? 1 : 0;
+            TBFiyat.Text = gridView1.GetFocusedRowCellValue("NetFiyat").ToString();
+            Doldur();
+        }
     }
 }

@@ -72,7 +72,7 @@ namespace MEYPAK.PRL
             TBStokAdi.Text = _tempStok.adi;
             TBSatisOtv.Text = _tempStok.satisotv.ToString();
             TBSatisKdv.Text = _tempStok.satiskdv.ToString();
-            BTMarka.Text = _markaServis.obje.Where(x=>x.id.ToString()==_tempStok.markaid.ToString()).FirstOrDefault().ADI.ToString();
+            BTMarka.Text = _markaServis.obje.Where(x=>x.id.ToString()==_tempStok.markaid.ToString()).FirstOrDefault().adi.ToString();
             TBSatisKdv.Text = _tempStok.kategoriid.ToString();
             BTGrupKodu.Text = _tempStok.grupkodu.ToString();
             TBAlisOtv.Text = _tempStok.alisotv.ToString();
@@ -174,7 +174,7 @@ namespace MEYPAK.PRL
                 id = stokid,
                 kod = BTStokKodu.Text,
                 adi = TBStokAdi.Text,
-                markaid = _markaServis.obje.Where(x => x.ADI == BTMarka.Text).FirstOrDefault().id,
+                markaid = _markaServis.obje.Where(x => x.adi == BTMarka.Text).FirstOrDefault().id,
                 kategoriid = _tempKategori.id,
                 kasaid = 1,//_tempKasa.ID,
                 grupkodu = int.Parse(BTGrupKodu.Text),
@@ -359,7 +359,7 @@ namespace MEYPAK.PRL
             if (_tempMarka != null)
             {
                 markaid = _tempMarka.id;
-                BTMarka.Text = _tempMarka.ADI;
+                BTMarka.Text = _tempMarka.adi;
                 _tempMarka = null;
             }
         }

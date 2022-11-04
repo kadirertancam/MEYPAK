@@ -39,7 +39,7 @@ namespace MEYPAK.BLL.Assets
             serialize = JsonConvert.SerializeObject(model);
             //string empty = "\" \"";
             //serialize = Regex.Replace(serialize, @"\bnull\b", $"{empty}");
-            servis= parameters != null ? servis + "?$" + parameters : servis;
+            servis= parameters != null ? servis + "?" + parameters : servis;
             HttpRequestMessage client;
             HttpClient httpClient = new HttpClient();
             if (method != null)

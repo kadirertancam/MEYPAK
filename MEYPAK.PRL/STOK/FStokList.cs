@@ -31,7 +31,7 @@ namespace MEYPAK.PRL.STOK
         FStokSayimPanel fstokSayimPanel;
         FStokFiyatListPanel fstokFiyatListPanel;
         FMusteriSiparis fSiparis;
-        FSatınAlmaSiparis _fSatınAlmaSiparis;
+        FSatinAlmaSiparis _fSatınAlmaSiparis;
         FDepolarArasıTransferHar fDepolarArasıHar;
         int id;
         string _islem;
@@ -73,12 +73,12 @@ namespace MEYPAK.PRL.STOK
                     if (frm.Name.Contains("FMusteriSiparis"))
                         fSiparis=(FMusteriSiparis)frm;
                     if (frm.Name.Contains("FSatınAlmaSiparis"))
-                        _fSatınAlmaSiparis=(FSatınAlmaSiparis)frm;
+                        _fSatınAlmaSiparis=(FSatinAlmaSiparis)frm;
                 }
             }
             _stokMarka.Data(ServisList.StokMarkaListeServis);
             _stokServis.Data(ServisList.StokListeServis);
-            GCStokList.DataSource = _stokServis.obje.Where(x => x.kayittipi == 0).Select(x => new { ID = x.id, KOD = x.kod, ADI = x.adi, GRUPKODU = x.grupkodu, OLCUBR = x.olcubR1, MARKA = _stokMarka.obje.Where(z => z.id == x.markaid).Select(z => z.ADI).FirstOrDefault() }).ToList();
+            GCStokList.DataSource = _stokServis.obje.Where(x => x.kayittipi == 0).Select(x => new { ID = x.id, KOD = x.kod, ADI = x.adi, GRUPKODU = x.grupkodu, OLCUBR = x.olcubR1, MARKA = _stokMarka.obje.Where(z => z.id == x.markaid).Select(z => z.adi).FirstOrDefault() }).ToList();
 
             //fSTOKKART =  (FStokKart)Application.OpenForms["FStokKart"];
             //fStokHareket = (FStokHareket)Application.OpenForms["FStokHareket"];

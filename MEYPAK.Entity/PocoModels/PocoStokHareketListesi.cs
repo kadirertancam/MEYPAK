@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 namespace MEYPAK.Entity.PocoModels
 {
     public class PocoStokHareketListesi
-    { 
+    {
+        public int STOKID { get; set; }
         public DateTime Tarih { get; set; }
         public string BelgeNo { get; set; }
         public string Acıklama { get; set; }

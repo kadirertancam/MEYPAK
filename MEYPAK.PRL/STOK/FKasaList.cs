@@ -23,7 +23,7 @@ namespace MEYPAK.PRL.STOK
     {
         FStokKart fStokKart;
         FMusteriSiparis fSiparis;
-        FSatınAlmaSiparis fSatınAlmaSiparis;
+        FSatinAlmaSiparis fSatınAlmaSiparis;
         GenericWebServis<PocoSTOKKASA> _kasaServis;
         string _islem;
         string _form;
@@ -31,6 +31,7 @@ namespace MEYPAK.PRL.STOK
         {
             InitializeComponent();
             this._islem = islem;
+            this._form = form;
             _kasaServis = new GenericWebServis<PocoSTOKKASA>();
         }
         
@@ -45,7 +46,7 @@ namespace MEYPAK.PRL.STOK
                     if (frm.Name.Contains("FMusteriSiparis"))
                         fSiparis = (FMusteriSiparis)frm;
                     if (frm.Name.Contains("FSatınAlmaSiparis"))
-                        fSatınAlmaSiparis = (FSatınAlmaSiparis)frm; 
+                        fSatınAlmaSiparis = (FSatinAlmaSiparis)frm; 
                 }
             }
 
@@ -70,7 +71,7 @@ namespace MEYPAK.PRL.STOK
             else if (_islem == "musterisiparis")
             {
                 if (fSiparis != null)
-                    fSiparis.gridView1.SetFocusedRowCellValue("KasaAdı", _kasaServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault().kasaadi);
+                    fSiparis.gridView1.SetFocusedRowCellValue("KasaAdı", _kasaServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()).FirstOrDefault().kasaadi);
             }
             else if (_islem == "SatinAlmaSiparis")
             {

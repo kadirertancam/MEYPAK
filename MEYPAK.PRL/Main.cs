@@ -30,7 +30,22 @@ namespace MEYPAK.PRL
     {
         public Main()
         {
-            InitializeComponent();  
+            InitializeComponent();
+            foreach (var type in Assembly.GetExecutingAssembly().GetTypes())
+            {
+                foreach (var method in type.GetMethods(BindingFlags.DeclaredOnly |
+                                    BindingFlags.NonPublic |
+                                    BindingFlags.Public | BindingFlags.Instance |
+                                    BindingFlags.Static))
+                {
+                    if ((method.Attributes & MethodAttributes.Abstract) == MethodAttributes.Abstract || method.ContainsGenericParameters)
+                    {
+                        continue;
+                    }
+                    System.Runtime.CompilerServices.RuntimeHelpers.PrepareMethod(method.MethodHandle);
+
+                }
+            }
         }
         #region TANIMLAR
         FSevkiyatPanel fSevkiyatPanel;
@@ -41,8 +56,8 @@ namespace MEYPAK.PRL
         FStokSayim fStokSayim;
         FSayimIsle fSayimIsle;
         FMusteriSiparis fSiparis;
-        FMalKabulPanel fMalKabulPanel;
-        FSatınAlmaSiparis fSatınAlmaSiparis;
+        FSatinAlmaSiparis fSatinAlmaSiparis;
+        FMalKabulPanel fMalKabulPanel; 
         FStokFiyatList fStokFiyatList;
         FCariHareket fCariHareket;
         FCariDurum fCariDurum;
@@ -222,6 +237,31 @@ namespace MEYPAK.PRL
             page.Controls.Add(fCariDurum);
             fCariDurum.Show();
             i++;
+        }
+
+        private void accordionControlElement37_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fSatinAlmaSiparis = new FSatinAlmaSiparis();
+            page.Name = "TPSatinAlmaSiparis" + i;
+            page.Text = "SatınAlma Sipariş";
+            page.Tag = "TPSatinAlmaSiparis" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fSatinAlmaSiparis.TopLevel = false;
+            fSatinAlmaSiparis.AutoScroll = true;
+            fSatinAlmaSiparis.Dock = DockStyle.Fill;
+            fSatinAlmaSiparis.Tag = "TPSatinAlmaSiparis" + i;
+            page.Controls.Add(fSatinAlmaSiparis);
+            fSatinAlmaSiparis.Show();
+            i++;
+        }
+
+        private void accordionControlElement29_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
