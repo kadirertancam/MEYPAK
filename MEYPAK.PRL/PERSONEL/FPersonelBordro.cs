@@ -17,14 +17,6 @@ namespace MEYPAK.PRL.PERSONEL
             InitializeComponent();
         }
 
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BTPersonelSec_Click(object sender, EventArgs e)
-        {
-            
-        }
+       
     }
 }

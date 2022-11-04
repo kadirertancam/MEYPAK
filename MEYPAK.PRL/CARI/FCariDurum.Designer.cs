@@ -33,8 +33,6 @@
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.PLCariDurum = new System.Windows.Forms.Panel();
-            this.TECariKodu = new DevExpress.XtraEditors.TextEdit();
-            this.BECariKoduSec = new DevExpress.XtraEditors.ButtonEdit();
             this.LBAlacakDeger = new DevExpress.XtraEditors.LabelControl();
             this.LBBakiyeDeger = new DevExpress.XtraEditors.LabelControl();
             this.LBBorcDeger = new DevExpress.XtraEditors.LabelControl();
@@ -42,6 +40,8 @@
             this.Alacak = new DevExpress.XtraEditors.LabelControl();
             this.LBBorc = new DevExpress.XtraEditors.LabelControl();
             this.LBCariKodu = new DevExpress.XtraEditors.LabelControl();
+            this.TECariKodu = new DevExpress.XtraEditors.TextEdit();
+            this.BECariKoduSec = new DevExpress.XtraEditors.ButtonEdit();
             this.panel1.SuspendLayout();
             this.PLCariDurum1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
@@ -88,8 +88,8 @@
             // 
             // PLCariDurum
             // 
-            this.PLCariDurum.Controls.Add(this.TECariKodu);
             this.PLCariDurum.Controls.Add(this.BECariKoduSec);
+            this.PLCariDurum.Controls.Add(this.TECariKodu);
             this.PLCariDurum.Controls.Add(this.LBAlacakDeger);
             this.PLCariDurum.Controls.Add(this.LBBakiyeDeger);
             this.PLCariDurum.Controls.Add(this.LBBorcDeger);
@@ -102,22 +102,6 @@
             this.PLCariDurum.Name = "PLCariDurum";
             this.PLCariDurum.Size = new System.Drawing.Size(1184, 100);
             this.PLCariDurum.TabIndex = 0;
-            // 
-            // TECariKodu
-            // 
-            this.TECariKodu.Location = new System.Drawing.Point(149, 59);
-            this.TECariKodu.Name = "TECariKodu";
-            this.TECariKodu.Size = new System.Drawing.Size(174, 20);
-            this.TECariKodu.TabIndex = 14;
-            // 
-            // BECariKoduSec
-            // 
-            this.BECariKoduSec.Location = new System.Drawing.Point(149, 32);
-            this.BECariKoduSec.Name = "BECariKoduSec";
-            this.BECariKoduSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.BECariKoduSec.Size = new System.Drawing.Size(174, 20);
-            this.BECariKoduSec.TabIndex = 13;
             // 
             // LBAlacakDeger
             // 
@@ -183,12 +167,33 @@
             // 
             this.LBCariKodu.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBCariKodu.Appearance.Options.UseFont = true;
-            this.LBCariKodu.Location = new System.Drawing.Point(79, 35);
+            this.LBCariKodu.Location = new System.Drawing.Point(92, 34);
             this.LBCariKodu.Name = "LBCariKodu";
             this.LBCariKodu.Size = new System.Drawing.Size(51, 14);
             this.LBCariKodu.TabIndex = 6;
             this.LBCariKodu.Text = "Cari Kodu";
             this.LBCariKodu.Click += new System.EventHandler(this.LBCariKodu_Click);
+            // 
+            // TECariKodu
+            // 
+            this.TECariKodu.EditValue = "";
+            this.TECariKodu.Location = new System.Drawing.Point(149, 58);
+            this.TECariKodu.Name = "TECariKodu";
+            this.TECariKodu.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TECariKodu.Properties.Appearance.Options.UseFont = true;
+            this.TECariKodu.Size = new System.Drawing.Size(180, 24);
+            this.TECariKodu.TabIndex = 62;
+            // 
+            // BECariKoduSec
+            // 
+            this.BECariKoduSec.Location = new System.Drawing.Point(149, 26);
+            this.BECariKoduSec.Name = "BECariKoduSec";
+            this.BECariKoduSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.BECariKoduSec.Properties.Padding = new System.Windows.Forms.Padding(3);
+            
+            this.BECariKoduSec.Size = new System.Drawing.Size(180, 26);
+            this.BECariKoduSec.TabIndex = 63;
             // 
             // FCariDurum
             // 
@@ -226,7 +231,7 @@
         private DevExpress.XtraEditors.LabelControl Alacak;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraEditors.ButtonEdit BECariKoduSec;
         private DevExpress.XtraEditors.TextEdit TECariKodu;
+        private DevExpress.XtraEditors.ButtonEdit BECariKoduSec;
     }
 }

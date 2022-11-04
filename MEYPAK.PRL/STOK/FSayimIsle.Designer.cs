@@ -61,7 +61,7 @@
             // 
             this.LBSayimAciklama.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBSayimAciklama.Appearance.Options.UseFont = true;
-            this.LBSayimAciklama.Location = new System.Drawing.Point(12, 16);
+            this.LBSayimAciklama.Location = new System.Drawing.Point(17, 15);
             this.LBSayimAciklama.Name = "LBSayimAciklama";
             this.LBSayimAciklama.Size = new System.Drawing.Size(81, 14);
             this.LBSayimAciklama.TabIndex = 8;
@@ -79,7 +79,7 @@
             // 
             this.LBSayimTarihi.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBSayimTarihi.Appearance.Options.UseFont = true;
-            this.LBSayimTarihi.Location = new System.Drawing.Point(12, 55);
+            this.LBSayimTarihi.Location = new System.Drawing.Point(34, 56);
             this.LBSayimTarihi.Name = "LBSayimTarihi";
             this.LBSayimTarihi.Size = new System.Drawing.Size(64, 14);
             this.LBSayimTarihi.TabIndex = 35;
@@ -89,7 +89,7 @@
             // 
             this.LBDurumu.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBDurumu.Appearance.Options.UseFont = true;
-            this.LBDurumu.Location = new System.Drawing.Point(12, 95);
+            this.LBDurumu.Location = new System.Drawing.Point(55, 89);
             this.LBDurumu.Name = "LBDurumu";
             this.LBDurumu.Size = new System.Drawing.Size(43, 14);
             this.LBDurumu.TabIndex = 36;
@@ -120,7 +120,7 @@
             // 
             this.BTSayimIsle.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
             this.BTSayimIsle.Appearance.Options.UseBackColor = true;
-            this.BTSayimIsle.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.BTSayimIsle.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTSayimIsle.ImageOptions.Image")));
             this.BTSayimIsle.Location = new System.Drawing.Point(145, 123);
             this.BTSayimIsle.Name = "BTSayimIsle";
             this.BTSayimIsle.Size = new System.Drawing.Size(101, 35);
@@ -131,7 +131,7 @@
             // 
             this.simpleButton1.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
             this.simpleButton1.Appearance.Options.UseBackColor = true;
-            this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image1")));
+            this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
             this.simpleButton1.Location = new System.Drawing.Point(252, 123);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(101, 35);
