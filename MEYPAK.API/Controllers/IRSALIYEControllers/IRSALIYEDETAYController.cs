@@ -28,6 +28,7 @@ namespace MEYPAK.API.Controllers.IRSALIYEControllers
             try
             {
                 var data = _ırsaliyeDetayServis.Listele();
+                
                 return Ok(data);
             }
             catch (Exception ex)
