@@ -115,7 +115,7 @@
             // 
             this.DTStokTarih.CalendarFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.DTStokTarih.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DTStokTarih.Location = new System.Drawing.Point(90, 36);
+            this.DTStokTarih.Location = new System.Drawing.Point(100, 36);
             this.DTStokTarih.Name = "DTStokTarih";
             this.DTStokTarih.Size = new System.Drawing.Size(180, 21);
             this.DTStokTarih.TabIndex = 78;
@@ -125,7 +125,7 @@
             // 
             this.BTSil.Appearance.BackColor = System.Drawing.Color.Gainsboro;
             this.BTSil.Appearance.Options.UseBackColor = true;
-            this.BTSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTStokSayimSil.ImageOptions.Image")));
+            this.BTSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTSil.ImageOptions.Image")));
             this.BTSil.Location = new System.Drawing.Point(725, 22);
             this.BTSil.Name = "BTSil";
             this.BTSil.Size = new System.Drawing.Size(94, 52);
@@ -136,7 +136,7 @@
             // 
             this.BTDegistir.Appearance.BackColor = System.Drawing.Color.Gainsboro;
             this.BTDegistir.Appearance.Options.UseBackColor = true;
-            this.BTDegistir.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTStokSayimDegistir.ImageOptions.Image")));
+            this.BTDegistir.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTDegistir.ImageOptions.Image")));
             this.BTDegistir.Location = new System.Drawing.Point(625, 22);
             this.BTDegistir.Name = "BTDegistir";
             this.BTDegistir.Size = new System.Drawing.Size(94, 52);
@@ -147,7 +147,7 @@
             // 
             this.BTKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
             this.BTKaydet.Appearance.Options.UseBackColor = true;
-            this.BTKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTStokSayimKaydet.ImageOptions.Image")));
+            this.BTKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTKaydet.ImageOptions.Image")));
             this.BTKaydet.Location = new System.Drawing.Point(525, 22);
             this.BTKaydet.Name = "BTKaydet";
             this.BTKaydet.Size = new System.Drawing.Size(94, 52);
@@ -158,7 +158,7 @@
             // 
             this.LBAciklama.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBAciklama.Appearance.Options.UseFont = true;
-            this.LBAciklama.Location = new System.Drawing.Point(287, 40);
+            this.LBAciklama.Location = new System.Drawing.Point(302, 40);
             this.LBAciklama.Name = "LBAciklama";
             this.LBAciklama.Size = new System.Drawing.Size(46, 14);
             this.LBAciklama.TabIndex = 11;
@@ -177,7 +177,7 @@
             // TBAciklama
             // 
             this.TBAciklama.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TBAciklama.Location = new System.Drawing.Point(339, 36);
+            this.TBAciklama.Location = new System.Drawing.Point(363, 36);
             this.TBAciklama.Multiline = true;
             this.TBAciklama.Name = "TBAciklama";
             this.TBAciklama.Size = new System.Drawing.Size(140, 24);

@@ -108,7 +108,7 @@
             this.BESeri.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.BESeri.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.BESeri.Properties.Click += new System.EventHandler(this.buttonEdit1_Properties_Click);
+            
             this.BESeri.Size = new System.Drawing.Size(180, 26);
             this.BESeri.TabIndex = 9;
             // 
@@ -151,16 +151,15 @@
             // 
             this.GBSeriTanim.Controls.Add(this.RGStokHarGirisCikis);
             this.GBSeriTanim.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.GBSeriTanim.Location = new System.Drawing.Point(437, 23);
+            this.GBSeriTanim.Location = new System.Drawing.Point(435, 23);
             this.GBSeriTanim.Name = "GBSeriTanim";
             this.GBSeriTanim.Size = new System.Drawing.Size(324, 52);
             this.GBSeriTanim.TabIndex = 76;
             this.GBSeriTanim.TabStop = false;
-            this.GBSeriTanim.Text = "Belge";
             // 
             // RGStokHarGirisCikis
             // 
-            this.RGStokHarGirisCikis.Location = new System.Drawing.Point(19, 15);
+            this.RGStokHarGirisCikis.Location = new System.Drawing.Point(13, 14);
             this.RGStokHarGirisCikis.Name = "RGStokHarGirisCikis";
             this.RGStokHarGirisCikis.Properties.Appearance.BackColor = System.Drawing.SystemColors.Control;
             this.RGStokHarGirisCikis.Properties.Appearance.Options.UseBackColor = true;

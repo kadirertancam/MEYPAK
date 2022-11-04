@@ -35,13 +35,22 @@
             this.BTTransferHalSil = new DevExpress.XtraEditors.SimpleButton();
             this.BTDepolarArasiTransferKaydet = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.TBMiktar = new DevExpress.XtraEditors.TextEdit();
+            this.CBBirim = new DevExpress.XtraEditors.GridLookUpEdit();
+            this.CBDepoView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.BTStokSec = new DevExpress.XtraEditors.SimpleButton();
+            this.TBStok = new DevExpress.XtraEditors.TextEdit();
+            this.DTOlusturmaTarihi = new System.Windows.Forms.DateTimePicker();
+            this.TBDurum = new DevExpress.XtraEditors.TextEdit();
+            this.TBHedefDepo = new DevExpress.XtraEditors.TextEdit();
+            this.TBCikisDepo = new DevExpress.XtraEditors.TextEdit();
             this.TBAciklama = new System.Windows.Forms.TextBox();
             this.LBTransferHarBirim = new DevExpress.XtraEditors.LabelControl();
             this.LBTransferHarAciklama = new DevExpress.XtraEditors.LabelControl();
             this.LBTransferHarMiktar = new DevExpress.XtraEditors.LabelControl();
-            this.LBTransferTarStok = new DevExpress.XtraEditors.LabelControl();
+            this.LBTransferStok = new DevExpress.XtraEditors.LabelControl();
             this.LBTransferHarHedefDepo = new DevExpress.XtraEditors.LabelControl();
-            this.LBTransferHarOlusTarihi = new DevExpress.XtraEditors.LabelControl();
+            this.LBOlusturmaTar = new DevExpress.XtraEditors.LabelControl();
             this.LBTransferHarDurum = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.LBTransferHarCikisDepo = new DevExpress.XtraEditors.LabelControl();
@@ -51,30 +60,21 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.GCTransferHar = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.TBCikisDepo = new DevExpress.XtraEditors.TextEdit();
-            this.TBHedefDepo = new DevExpress.XtraEditors.TextEdit();
-            this.TBDurum = new DevExpress.XtraEditors.TextEdit();
-            this.DTOlusturmaTarihi = new System.Windows.Forms.DateTimePicker();
-            this.BTStokSec = new DevExpress.XtraEditors.SimpleButton();
-            this.TBStok = new DevExpress.XtraEditors.TextEdit();
-            this.CBBirim = new DevExpress.XtraEditors.GridLookUpEdit();
-            this.CBDepoView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.TBMiktar = new DevExpress.XtraEditors.TextEdit();
             this.PLDepolarArasiTransferHar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GCTransferHal)).BeginInit();
             this.GCTransferHal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TBMiktar.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CBBirim.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CBDepoView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBStok.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBDurum.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBHedefDepo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBCikisDepo.Properties)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GCTransferHar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TBCikisDepo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TBHedefDepo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TBDurum.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TBStok.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CBBirim.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CBDepoView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TBMiktar.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // PLDepolarArasiTransferHar
@@ -149,9 +149,9 @@
             this.groupControl1.Controls.Add(this.LBTransferHarBirim);
             this.groupControl1.Controls.Add(this.LBTransferHarAciklama);
             this.groupControl1.Controls.Add(this.LBTransferHarMiktar);
-            this.groupControl1.Controls.Add(this.LBTransferTarStok);
+            this.groupControl1.Controls.Add(this.LBTransferStok);
             this.groupControl1.Controls.Add(this.LBTransferHarHedefDepo);
-            this.groupControl1.Controls.Add(this.LBTransferHarOlusTarihi);
+            this.groupControl1.Controls.Add(this.LBOlusturmaTar);
             this.groupControl1.Controls.Add(this.LBTransferHarDurum);
             this.groupControl1.Controls.Add(this.labelControl5);
             this.groupControl1.Controls.Add(this.LBTransferHarCikisDepo);
@@ -164,6 +164,107 @@
             this.groupControl1.Size = new System.Drawing.Size(791, 190);
             this.groupControl1.TabIndex = 1;
             this.groupControl1.Text = "Depolar Arası Transfer Bilgi";
+            // 
+            // TBMiktar
+            // 
+            this.TBMiktar.Location = new System.Drawing.Point(445, 99);
+            this.TBMiktar.Name = "TBMiktar";
+            this.TBMiktar.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TBMiktar.Properties.Appearance.Options.UseFont = true;
+            this.TBMiktar.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.TBMiktar.Size = new System.Drawing.Size(194, 26);
+            this.TBMiktar.TabIndex = 82;
+            // 
+            // CBBirim
+            // 
+            this.CBBirim.EditValue = "";
+            this.CBBirim.Location = new System.Drawing.Point(445, 66);
+            this.CBBirim.Name = "CBBirim";
+            this.CBBirim.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CBBirim.Properties.NullText = "";
+            this.CBBirim.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.CBBirim.Properties.PopupView = this.CBDepoView;
+            this.CBBirim.Size = new System.Drawing.Size(194, 26);
+            this.CBBirim.TabIndex = 81;
+            // 
+            // CBDepoView
+            // 
+            this.CBDepoView.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.CBDepoView.Name = "CBDepoView";
+            this.CBDepoView.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.CBDepoView.OptionsView.ShowGroupPanel = false;
+            // 
+            // BTStokSec
+            // 
+            this.BTStokSec.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTStokSec.Appearance.BackColor2 = System.Drawing.Color.Black;
+            this.BTStokSec.Appearance.BorderColor = System.Drawing.Color.Black;
+            this.BTStokSec.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.BTStokSec.Appearance.Options.UseBackColor = true;
+            this.BTStokSec.Appearance.Options.UseBorderColor = true;
+            this.BTStokSec.Appearance.Options.UseFont = true;
+            this.BTStokSec.Appearance.Options.UseForeColor = true;
+            this.BTStokSec.AppearanceDisabled.BorderColor = System.Drawing.Color.Black;
+            this.BTStokSec.AppearanceDisabled.Options.UseBorderColor = true;
+            this.BTStokSec.AppearanceHovered.BorderColor = System.Drawing.Color.Black;
+            this.BTStokSec.AppearanceHovered.Options.UseBorderColor = true;
+            this.BTStokSec.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTStokSec.ImageOptions.Image")));
+            this.BTStokSec.Location = new System.Drawing.Point(580, 33);
+            this.BTStokSec.Name = "BTStokSec";
+            this.BTStokSec.Size = new System.Drawing.Size(59, 26);
+            this.BTStokSec.TabIndex = 80;
+            this.BTStokSec.Text = "Seç";
+            // 
+            // TBStok
+            // 
+            this.TBStok.Location = new System.Drawing.Point(445, 33);
+            this.TBStok.Name = "TBStok";
+            this.TBStok.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TBStok.Properties.Appearance.Options.UseFont = true;
+            this.TBStok.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.TBStok.Size = new System.Drawing.Size(194, 26);
+            this.TBStok.TabIndex = 79;
+            // 
+            // DTOlusturmaTarihi
+            // 
+            this.DTOlusturmaTarihi.CalendarFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DTOlusturmaTarihi.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DTOlusturmaTarihi.Location = new System.Drawing.Point(119, 136);
+            this.DTOlusturmaTarihi.Name = "DTOlusturmaTarihi";
+            this.DTOlusturmaTarihi.Size = new System.Drawing.Size(196, 21);
+            this.DTOlusturmaTarihi.TabIndex = 78;
+            this.DTOlusturmaTarihi.Value = new System.DateTime(2022, 11, 3, 13, 26, 0, 0);
+            // 
+            // TBDurum
+            // 
+            this.TBDurum.Location = new System.Drawing.Point(119, 99);
+            this.TBDurum.Name = "TBDurum";
+            this.TBDurum.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TBDurum.Properties.Appearance.Options.UseFont = true;
+            this.TBDurum.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.TBDurum.Size = new System.Drawing.Size(194, 26);
+            this.TBDurum.TabIndex = 59;
+            // 
+            // TBHedefDepo
+            // 
+            this.TBHedefDepo.Location = new System.Drawing.Point(119, 65);
+            this.TBHedefDepo.Name = "TBHedefDepo";
+            this.TBHedefDepo.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TBHedefDepo.Properties.Appearance.Options.UseFont = true;
+            this.TBHedefDepo.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.TBHedefDepo.Size = new System.Drawing.Size(194, 26);
+            this.TBHedefDepo.TabIndex = 58;
+            // 
+            // TBCikisDepo
+            // 
+            this.TBCikisDepo.Location = new System.Drawing.Point(119, 33);
+            this.TBCikisDepo.Name = "TBCikisDepo";
+            this.TBCikisDepo.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TBCikisDepo.Properties.Appearance.Options.UseFont = true;
+            this.TBCikisDepo.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.TBCikisDepo.Size = new System.Drawing.Size(194, 26);
+            this.TBCikisDepo.TabIndex = 57;
             // 
             // TBAciklama
             // 
@@ -203,15 +304,15 @@
             this.LBTransferHarMiktar.TabIndex = 43;
             this.LBTransferHarMiktar.Text = "Miktar";
             // 
-            // LBTransferTarStok
+            // LBTransferStok
             // 
-            this.LBTransferTarStok.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBTransferTarStok.Appearance.Options.UseFont = true;
-            this.LBTransferTarStok.Location = new System.Drawing.Point(403, 39);
-            this.LBTransferTarStok.Name = "LBTransferTarStok";
-            this.LBTransferTarStok.Size = new System.Drawing.Size(26, 14);
-            this.LBTransferTarStok.TabIndex = 42;
-            this.LBTransferTarStok.Text = "Stok";
+            this.LBTransferStok.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBTransferStok.Appearance.Options.UseFont = true;
+            this.LBTransferStok.Location = new System.Drawing.Point(403, 39);
+            this.LBTransferStok.Name = "LBTransferStok";
+            this.LBTransferStok.Size = new System.Drawing.Size(26, 14);
+            this.LBTransferStok.TabIndex = 42;
+            this.LBTransferStok.Text = "Stok";
             // 
             // LBTransferHarHedefDepo
             // 
@@ -223,15 +324,15 @@
             this.LBTransferHarHedefDepo.TabIndex = 41;
             this.LBTransferHarHedefDepo.Text = "Hedef Depo";
             // 
-            // LBTransferHarOlusTarihi
+            // LBOlusturmaTar
             // 
-            this.LBTransferHarOlusTarihi.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBTransferHarOlusTarihi.Appearance.Options.UseFont = true;
-            this.LBTransferHarOlusTarihi.Location = new System.Drawing.Point(32, 141);
-            this.LBTransferHarOlusTarihi.Name = "LBTransferHarOlusTarihi";
-            this.LBTransferHarOlusTarihi.Size = new System.Drawing.Size(81, 14);
-            this.LBTransferHarOlusTarihi.TabIndex = 40;
-            this.LBTransferHarOlusTarihi.Text = "Oluşturma Tar.";
+            this.LBOlusturmaTar.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBOlusturmaTar.Appearance.Options.UseFont = true;
+            this.LBOlusturmaTar.Location = new System.Drawing.Point(32, 141);
+            this.LBOlusturmaTar.Name = "LBOlusturmaTar";
+            this.LBOlusturmaTar.Size = new System.Drawing.Size(81, 14);
+            this.LBOlusturmaTar.TabIndex = 40;
+            this.LBOlusturmaTar.Text = "Oluşturma Tar.";
             // 
             // LBTransferHarDurum
             // 
@@ -314,107 +415,6 @@
             this.gridView1.GridControl = this.GCTransferHar;
             this.gridView1.Name = "gridView1";
             // 
-            // TBCikisDepo
-            // 
-            this.TBCikisDepo.Location = new System.Drawing.Point(119, 33);
-            this.TBCikisDepo.Name = "TBCikisDepo";
-            this.TBCikisDepo.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TBCikisDepo.Properties.Appearance.Options.UseFont = true;
-            this.TBCikisDepo.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.TBCikisDepo.Size = new System.Drawing.Size(194, 26);
-            this.TBCikisDepo.TabIndex = 57;
-            // 
-            // TBHedefDepo
-            // 
-            this.TBHedefDepo.Location = new System.Drawing.Point(119, 65);
-            this.TBHedefDepo.Name = "TBHedefDepo";
-            this.TBHedefDepo.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TBHedefDepo.Properties.Appearance.Options.UseFont = true;
-            this.TBHedefDepo.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.TBHedefDepo.Size = new System.Drawing.Size(194, 26);
-            this.TBHedefDepo.TabIndex = 58;
-            // 
-            // TBDurum
-            // 
-            this.TBDurum.Location = new System.Drawing.Point(119, 99);
-            this.TBDurum.Name = "TBDurum";
-            this.TBDurum.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TBDurum.Properties.Appearance.Options.UseFont = true;
-            this.TBDurum.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.TBDurum.Size = new System.Drawing.Size(194, 26);
-            this.TBDurum.TabIndex = 59;
-            // 
-            // DTOlusturmaTarihi
-            // 
-            this.DTOlusturmaTarihi.CalendarFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DTOlusturmaTarihi.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DTOlusturmaTarihi.Location = new System.Drawing.Point(119, 136);
-            this.DTOlusturmaTarihi.Name = "DTOlusturmaTarihi";
-            this.DTOlusturmaTarihi.Size = new System.Drawing.Size(196, 21);
-            this.DTOlusturmaTarihi.TabIndex = 78;
-            this.DTOlusturmaTarihi.Value = new System.DateTime(2022, 11, 3, 13, 26, 0, 0);
-            // 
-            // BTStokSec
-            // 
-            this.BTStokSec.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.BTStokSec.Appearance.BackColor2 = System.Drawing.Color.Black;
-            this.BTStokSec.Appearance.BorderColor = System.Drawing.Color.Black;
-            this.BTStokSec.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.BTStokSec.Appearance.Options.UseBackColor = true;
-            this.BTStokSec.Appearance.Options.UseBorderColor = true;
-            this.BTStokSec.Appearance.Options.UseFont = true;
-            this.BTStokSec.Appearance.Options.UseForeColor = true;
-            this.BTStokSec.AppearanceDisabled.BorderColor = System.Drawing.Color.Black;
-            this.BTStokSec.AppearanceDisabled.Options.UseBorderColor = true;
-            this.BTStokSec.AppearanceHovered.BorderColor = System.Drawing.Color.Black;
-            this.BTStokSec.AppearanceHovered.Options.UseBorderColor = true;
-            this.BTStokSec.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTStokKartiRaporKodu1.ImageOptions.Image")));
-            this.BTStokSec.Location = new System.Drawing.Point(580, 33);
-            this.BTStokSec.Name = "BTStokSec";
-            this.BTStokSec.Size = new System.Drawing.Size(59, 26);
-            this.BTStokSec.TabIndex = 80;
-            this.BTStokSec.Text = "Seç";
-            // 
-            // TBStok
-            // 
-            this.TBStok.Location = new System.Drawing.Point(445, 33);
-            this.TBStok.Name = "TBStok";
-            this.TBStok.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TBStok.Properties.Appearance.Options.UseFont = true;
-            this.TBStok.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.TBStok.Size = new System.Drawing.Size(194, 26);
-            this.TBStok.TabIndex = 79;
-            // 
-            // CBBirim
-            // 
-            this.CBBirim.EditValue = "";
-            this.CBBirim.Location = new System.Drawing.Point(445, 66);
-            this.CBBirim.Name = "CBBirim";
-            this.CBBirim.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.CBBirim.Properties.NullText = "";
-            this.CBBirim.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.CBBirim.Properties.PopupView = this.CBDepoView;
-            this.CBBirim.Size = new System.Drawing.Size(194, 26);
-            this.CBBirim.TabIndex = 81;
-            // 
-            // CBDepoView
-            // 
-            this.CBDepoView.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.CBDepoView.Name = "CBDepoView";
-            this.CBDepoView.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.CBDepoView.OptionsView.ShowGroupPanel = false;
-            // 
-            // TBMiktar
-            // 
-            this.TBMiktar.Location = new System.Drawing.Point(445, 99);
-            this.TBMiktar.Name = "TBMiktar";
-            this.TBMiktar.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TBMiktar.Properties.Appearance.Options.UseFont = true;
-            this.TBMiktar.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.TBMiktar.Size = new System.Drawing.Size(194, 26);
-            this.TBMiktar.TabIndex = 82;
-            // 
             // FDepolarArasıTransferHar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -430,16 +430,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TBMiktar.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CBBirim.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CBDepoView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBStok.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBDurum.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBHedefDepo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBCikisDepo.Properties)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.GCTransferHar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TBCikisDepo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TBHedefDepo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TBDurum.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TBStok.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CBBirim.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CBDepoView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TBMiktar.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -456,9 +456,9 @@
         private DevExpress.XtraEditors.LabelControl LBTransferHarBirim;
         private DevExpress.XtraEditors.LabelControl LBTransferHarAciklama;
         private DevExpress.XtraEditors.LabelControl LBTransferHarMiktar;
-        private DevExpress.XtraEditors.LabelControl LBTransferTarStok;
+        private DevExpress.XtraEditors.LabelControl LBTransferStok;
         private DevExpress.XtraEditors.LabelControl LBTransferHarHedefDepo;
-        private DevExpress.XtraEditors.LabelControl LBTransferHarOlusTarihi;
+        private DevExpress.XtraEditors.LabelControl LBOlusturmaTar;
         private DevExpress.XtraEditors.LabelControl LBTransferHarDurum;
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.LabelControl LBTransferHarCikisDepo;
