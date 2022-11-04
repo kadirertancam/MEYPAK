@@ -50,7 +50,7 @@ namespace MEYPAK.PRL.STOK
             }
 
             _kasaServis.Data(ServisList.StokKasaListeServis);
-            GCKasaList.DataSource = _kasaServis.obje.Where(x=>x.kayittipi==0).Select(x=> new { x.id,x.KASAADI});
+            GCKasaList.DataSource = _kasaServis.obje.Where(x=>x.kayittipi==0).Select(x=> new { x.id,x.kasaadi});
  
 
         }
@@ -70,7 +70,7 @@ namespace MEYPAK.PRL.STOK
             else if (_islem == "musterisiparis")
             {
                 if (fSiparis != null)
-                    fSiparis.gridView1.SetFocusedRowCellValue("KasaAdı", _kasaServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault().KASAADI);
+                    fSiparis.gridView1.SetFocusedRowCellValue("KasaAdı", _kasaServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault().kasaadi);
             }
             else if (_islem == "SatinAlmaSiparis")
             {

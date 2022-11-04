@@ -1,23 +1,6 @@
-﻿using MEYPAK.BLL.DEPO;
-using MEYPAK.BLL.HIZMET;
-using MEYPAK.BLL.STOK;
-using MEYPAK.DAL;
-using MEYPAK.DAL.Concrete.EntityFramework.Repository;
-using MEYPAK.DAL.Concrete.EntityFramework.Context;
-using MEYPAK.DAL.Concrete.EntityFramework.Repository;
-using MEYPAK.Interfaces.Depo;
-using MEYPAK.Interfaces.Hizmet;
-using MEYPAK.Interfaces.Stok;
-using MEYPAK.PRL.Assets;
-using MEYPAK.PRL.STOK;
-using System.Drawing;
-using System.Globalization;
-using System.Text.RegularExpressions;
-using MEYPAK.Entity.Models.STOK;
+﻿using MEYPAK.PRL.STOK;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.BLL.Assets;
-using MEYPAK.Interfaces;
-using DevExpress.Utils.MVVM;
 
 namespace MEYPAK.PRL
 {

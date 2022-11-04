@@ -257,7 +257,7 @@ namespace MEYPAK.PRL.SIPARIS
             FKasaList fKasaList = new FKasaList(this.Tag.ToString(),"Siparis");
             fKasaList.ShowDialog();
             if (_tempKasa != null)
-                TBKasa.Text = _tempKasa.KASAADI;
+                TBKasa.Text = _tempKasa.kasaadi;
         }
 
         private void dataGridView1_RowLeave(object sender, DataGridViewCellEventArgs e)
@@ -444,10 +444,10 @@ namespace MEYPAK.PRL.SIPARIS
 
                     if (_tempKasa != null)
                     {
-                        TBKasa.Text = _tempKasa.KASAADI;
-                        DGSatinAlmaSiparis.Rows[e.RowIndex].Cells["KasaAdı"].Value = _tempKasa.KASAADI;
+                        TBKasa.Text = _tempKasa.kasaadi;
+                        DGSatinAlmaSiparis.Rows[e.RowIndex].Cells["KasaAdı"].Value = _tempKasa.kasaadi;
 
-                        _tempPocokalem.KasaAdı = _tempKasa.KASAADI;
+                        _tempPocokalem.KasaAdı = _tempKasa.kasaadi;
                         _tempPocokalem.KasaId = _tempKasa.id;
                     }
 

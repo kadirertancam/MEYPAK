@@ -340,10 +340,10 @@ namespace MEYPAK.PRL.SIPARIS
 
                     if (_tempKasa != null)
                     {
-                        TBKasa.Text = _tempKasa.KASAADI;
-                        gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "KasaAdı", _tempKasa.KASAADI);
+                        TBKasa.Text = _tempKasa.kasaadi;
+                        gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "KasaAdı", _tempKasa.kasaadi);
                    
-                    _tempPocokalem.KasaAdı = _tempKasa.KASAADI;
+                    _tempPocokalem.KasaAdı = _tempKasa.kasaadi;
                     _tempPocokalem.KasaId = _tempKasa.id;
                     }
 
@@ -573,7 +573,7 @@ namespace MEYPAK.PRL.SIPARIS
             FKasaList fKasaList = new FKasaList(this.Tag.ToString(),"Siparis");
             fKasaList.ShowDialog();
             if (_tempKasa != null)
-                TBKasa.Text = _tempKasa.KASAADI;
+                TBKasa.Text = _tempKasa.kasaadi;
         }
 
         private void dataGridView1_CellLeave(object sender, DataGridViewCellEventArgs e)

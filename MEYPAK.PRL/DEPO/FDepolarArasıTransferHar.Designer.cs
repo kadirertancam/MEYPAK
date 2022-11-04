@@ -230,7 +230,7 @@
             // 
             this.DTOlusturmaTarihi.CalendarFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.DTOlusturmaTarihi.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DTOlusturmaTarihi.Location = new System.Drawing.Point(119, 136);
+            this.DTOlusturmaTarihi.Location = new System.Drawing.Point(128, 136);
             this.DTOlusturmaTarihi.Name = "DTOlusturmaTarihi";
             this.DTOlusturmaTarihi.Size = new System.Drawing.Size(196, 21);
             this.DTOlusturmaTarihi.TabIndex = 78;
@@ -238,7 +238,7 @@
             // 
             // TBDurum
             // 
-            this.TBDurum.Location = new System.Drawing.Point(119, 99);
+            this.TBDurum.Location = new System.Drawing.Point(128, 99);
             this.TBDurum.Name = "TBDurum";
             this.TBDurum.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TBDurum.Properties.Appearance.Options.UseFont = true;
@@ -248,7 +248,7 @@
             // 
             // TBHedefDepo
             // 
-            this.TBHedefDepo.Location = new System.Drawing.Point(119, 65);
+            this.TBHedefDepo.Location = new System.Drawing.Point(128, 65);
             this.TBHedefDepo.Name = "TBHedefDepo";
             this.TBHedefDepo.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TBHedefDepo.Properties.Appearance.Options.UseFont = true;
@@ -258,7 +258,7 @@
             // 
             // TBCikisDepo
             // 
-            this.TBCikisDepo.Location = new System.Drawing.Point(119, 33);
+            this.TBCikisDepo.Location = new System.Drawing.Point(128, 33);
             this.TBCikisDepo.Name = "TBCikisDepo";
             this.TBCikisDepo.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TBCikisDepo.Properties.Appearance.Options.UseFont = true;
