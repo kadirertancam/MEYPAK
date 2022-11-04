@@ -48,7 +48,13 @@
                 columns.AddFor(m => m.netfiyat);
                 columns.AddFor(m => m.mpstok.adi);
 
-
+                columns.Add()
+                .Type(GridCommandColumnType.Buttons)
+                .Buttons(b =>
+                {
+                    b.Add().Name(GridColumnButtonName.Edit).Text("Düzenle");
+                    b.Add().Name(GridColumnButtonName.Delete).Text("Sil");
+                });
 
             })
             .DataSource(d => d.Mvc()

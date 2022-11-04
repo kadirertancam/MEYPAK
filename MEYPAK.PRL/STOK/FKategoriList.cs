@@ -54,11 +54,11 @@ namespace MEYPAK.PRL.STOK
 
         TreeNode TreeViewDon(ref TreeNode ustNode, List<PocoSTOKKATEGORI> data, int ustid = 0)
         {
-            foreach (var item in data.Where(x => x.UstId == ustid))
+            foreach (var item in data.Where(x => x.ustId == ustid))
             {
-                var A = ustNode.Nodes.Add(item.id.ToString(), item.Acıklama);
+                var A = ustNode.Nodes.Add(item.id.ToString(), item.acıklama);
 
-                if (_kategoriServis.obje.Where(x => x.UstId == item.id).Count() > 0)
+                if (_kategoriServis.obje.Where(x => x.ustId == item.id).Count() > 0)
                 {
                     A = TreeViewDon(ref A, data, item.id);
                 }
@@ -72,8 +72,8 @@ namespace MEYPAK.PRL.STOK
             {
                 PocoSTOKKATEGORI mPKATEGORI = new PocoSTOKKATEGORI()
                 {
-                    Acıklama = TBKategoriList.Text,
-                    UstId = Convert.ToInt32(treeView1.SelectedNode.Name.ToString())
+                    acıklama = TBKategoriList.Text,
+                    ustId = Convert.ToInt32(treeView1.SelectedNode.Name.ToString())
 
                 };
                 _kategoriServis.Data(ServisList.StokKategoriEkleServis, mPKATEGORI);
@@ -95,8 +95,8 @@ namespace MEYPAK.PRL.STOK
             {
                 PocoSTOKKATEGORI mPKATEGORI = new PocoSTOKKATEGORI()
                 {
-                    Acıklama = TBKategoriList.Text,
-                    UstId = 0
+                    acıklama = TBKategoriList.Text,
+                    ustId = 0
                 };
                 _kategoriServis.Data(ServisList.StokKategoriEkleServis, mPKATEGORI);
                 MessageBox.Show("Başarıyla Eklendi");

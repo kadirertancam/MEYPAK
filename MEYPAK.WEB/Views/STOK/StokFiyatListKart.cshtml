@@ -53,7 +53,13 @@
 
                 columns.AddFor(m => m.bittar);
 
-
+                columns.Add()
+                .Type(GridCommandColumnType.Buttons)
+                .Buttons(b =>
+                {
+                    b.Add().Name(GridColumnButtonName.Edit).Text("Düzenle");
+                    b.Add().Name(GridColumnButtonName.Delete).Text("Sil");
+                });
 
             })
             .OnRowInserted("Efe").DataSource(d =>

@@ -387,7 +387,7 @@ namespace MEYPAK.PRL
             FKategoriList fKategoriKart = new FKategoriList("Stok");
             fKategoriKart.ShowDialog();
             if (_tempKategori != null)
-                TBSatisKdv.Text = _tempKategori.Acıklama;
+                TBSatisKdv.Text = _tempKategori.acıklama;
         }
 
         
@@ -397,7 +397,7 @@ namespace MEYPAK.PRL
             FKasaList fKasaList = new FKasaList(this.Tag.ToString(),"Stok");
             fKasaList.ShowDialog();
             if (_tempKasa != null)
-                BTKasa.Text = _tempKasa.KASAADI;
+                BTKasa.Text = _tempKasa.kasaadi;
         }
 
        
