@@ -17,13 +17,18 @@ namespace MEYPAK.PRL.PARAMETRELER
         {
             InitializeComponent();
         }
-        //TODO: Kullanıcı Yapısı Kurgulandıktan Sonra Bakılacak
+        //TODO: Kullanıcı Yapısı Kurgulandıktan Sonra Bakılacakss
         private void radioGroup1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
         private void FSeriTanim_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BESeri_EditValueChanged(object sender, EventArgs e)
         {
 
         }

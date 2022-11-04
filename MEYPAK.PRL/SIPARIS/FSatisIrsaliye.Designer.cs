@@ -218,7 +218,7 @@
             // TBKur
             // 
             this.TBKur.EditValue = "1,00";
-            this.TBKur.Location = new System.Drawing.Point(441, 166);
+            this.TBKur.Location = new System.Drawing.Point(445, 166);
             this.TBKur.Name = "TBKur";
             this.TBKur.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.TBKur.Size = new System.Drawing.Size(222, 26);
@@ -227,7 +227,7 @@
             // CBParaBirimi
             // 
             this.CBParaBirimi.EditValue = "";
-            this.CBParaBirimi.Location = new System.Drawing.Point(441, 132);
+            this.CBParaBirimi.Location = new System.Drawing.Point(445, 132);
             this.CBParaBirimi.Name = "CBParaBirimi";
             this.CBParaBirimi.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -247,7 +247,7 @@
             // CBDepo
             // 
             this.CBDepo.EditValue = "";
-            this.CBDepo.Location = new System.Drawing.Point(441, 95);
+            this.CBDepo.Location = new System.Drawing.Point(445, 95);
             this.CBDepo.Name = "CBDepo";
             this.CBDepo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -268,7 +268,7 @@
             // 
             this.CHBKdvDahil.AutoSize = true;
             this.CHBKdvDahil.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CHBKdvDahil.Location = new System.Drawing.Point(448, 65);
+            this.CHBKdvDahil.Location = new System.Drawing.Point(452, 65);
             this.CHBKdvDahil.Name = "CHBKdvDahil";
             this.CHBKdvDahil.Size = new System.Drawing.Size(71, 17);
             this.CHBKdvDahil.TabIndex = 79;
@@ -279,7 +279,7 @@
             // 
             this.DTStokTarih.CalendarFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.DTStokTarih.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DTStokTarih.Location = new System.Drawing.Point(441, 38);
+            this.DTStokTarih.Location = new System.Drawing.Point(445, 38);
             this.DTStokTarih.Name = "DTStokTarih";
             this.DTStokTarih.Size = new System.Drawing.Size(222, 21);
             this.DTStokTarih.TabIndex = 78;
@@ -299,8 +299,8 @@
             this.BTKasaSec.AppearanceDisabled.Options.UseBorderColor = true;
             this.BTKasaSec.AppearanceHovered.BorderColor = System.Drawing.Color.Black;
             this.BTKasaSec.AppearanceHovered.Options.UseBorderColor = true;
-            this.BTKasaSec.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.BTKasaSec.Location = new System.Drawing.Point(228, 173);
+            this.BTKasaSec.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTKasaSec.ImageOptions.Image")));
+            this.BTKasaSec.Location = new System.Drawing.Point(232, 173);
             this.BTKasaSec.Name = "BTKasaSec";
             this.BTKasaSec.Size = new System.Drawing.Size(65, 26);
             this.BTKasaSec.TabIndex = 67;
@@ -308,7 +308,7 @@
             // 
             // TBKasa
             // 
-            this.TBKasa.Location = new System.Drawing.Point(71, 173);
+            this.TBKasa.Location = new System.Drawing.Point(75, 173);
             this.TBKasa.Name = "TBKasa";
             this.TBKasa.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TBKasa.Properties.Appearance.Options.UseFont = true;
@@ -319,7 +319,7 @@
             // CBAltHesap
             // 
             this.CBAltHesap.EditValue = "";
-            this.CBAltHesap.Location = new System.Drawing.Point(72, 141);
+            this.CBAltHesap.Location = new System.Drawing.Point(76, 141);
             this.CBAltHesap.Name = "CBAltHesap";
             this.CBAltHesap.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -338,7 +338,7 @@
             // 
             // TBCariAdi
             // 
-            this.TBCariAdi.Location = new System.Drawing.Point(73, 107);
+            this.TBCariAdi.Location = new System.Drawing.Point(77, 107);
             this.TBCariAdi.Name = "TBCariAdi";
             this.TBCariAdi.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.TBCariAdi.Size = new System.Drawing.Size(222, 26);
@@ -359,7 +359,7 @@
             this.BTCariKoduSec.AppearanceHovered.BorderColor = System.Drawing.Color.Black;
             this.BTCariKoduSec.AppearanceHovered.Options.UseBorderColor = true;
             this.BTCariKoduSec.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTCariKoduSec.ImageOptions.Image")));
-            this.BTCariKoduSec.Location = new System.Drawing.Point(230, 72);
+            this.BTCariKoduSec.Location = new System.Drawing.Point(234, 72);
             this.BTCariKoduSec.Name = "BTCariKoduSec";
             this.BTCariKoduSec.Size = new System.Drawing.Size(65, 26);
             this.BTCariKoduSec.TabIndex = 63;
@@ -367,7 +367,7 @@
             // 
             // TBCariKodu
             // 
-            this.TBCariKodu.Location = new System.Drawing.Point(73, 72);
+            this.TBCariKodu.Location = new System.Drawing.Point(77, 72);
             this.TBCariKodu.Name = "TBCariKodu";
             this.TBCariKodu.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TBCariKodu.Properties.Appearance.Options.UseFont = true;
@@ -390,7 +390,7 @@
             this.BTBelgeNoSec.AppearanceHovered.BorderColor = System.Drawing.Color.Black;
             this.BTBelgeNoSec.AppearanceHovered.Options.UseBorderColor = true;
             this.BTBelgeNoSec.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTBelgeNoSec.ImageOptions.Image")));
-            this.BTBelgeNoSec.Location = new System.Drawing.Point(230, 37);
+            this.BTBelgeNoSec.Location = new System.Drawing.Point(234, 37);
             this.BTBelgeNoSec.Name = "BTBelgeNoSec";
             this.BTBelgeNoSec.Size = new System.Drawing.Size(65, 26);
             this.BTBelgeNoSec.TabIndex = 61;
@@ -398,7 +398,7 @@
             // 
             // TBSiparisNo
             // 
-            this.TBSiparisNo.Location = new System.Drawing.Point(73, 37);
+            this.TBSiparisNo.Location = new System.Drawing.Point(77, 37);
             this.TBSiparisNo.Name = "TBSiparisNo";
             this.TBSiparisNo.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TBSiparisNo.Properties.Appearance.Options.UseFont = true;

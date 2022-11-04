@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.Entity.IdentityModels
 {
-    public class MPROLE : IdentityRole
+    public class MPROLE : IdentityRole<string>
     {
         public string ACIKLAMA { get; set; }
         public DateTime OLUSTURMATARIHI { get; set; } = DateTime.Now;

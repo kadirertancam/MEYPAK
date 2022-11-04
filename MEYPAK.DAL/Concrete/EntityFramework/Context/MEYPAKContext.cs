@@ -14,7 +14,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MEYPAK.DAL.Concrete.EntityFramework.Context
 {
-    public partial class MEYPAKContext :DbContext
+
+    public partial class MEYPAKContext : IdentityDbContext<MPUSER,MPROLE,string>
     {
         public MEYPAKContext()
         {
@@ -27,6 +28,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
             
 
         }
+       
 
         public DbSet<MPCARIHAR> MPCARIHAR { get; set; }
         public DbSet<MPCARIKART> MPCARIKART { get; set; }
@@ -64,7 +66,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=213.238.167.117;Database=MEYPAK;User Id=sa;Password=sapass_1;");
+                optionsBuilder.UseSqlServer("Server=213.238.167.117;Database=MEYPAK2;User Id=sa;Password=sapass_1;");
             }
         }
 

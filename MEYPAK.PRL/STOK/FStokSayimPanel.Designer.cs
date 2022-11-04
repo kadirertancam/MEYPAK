@@ -59,10 +59,10 @@
             this.stokSayimManagerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.DGStokSayim = new System.Windows.Forms.DataGridView();
             this.BTStokSayimKaydet = new DevExpress.XtraEditors.SimpleButton();
             this.BTÇık = new DevExpress.XtraEditors.SimpleButton();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.DGStokSayim = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.GBStokBilgi.SuspendLayout();
@@ -134,7 +134,7 @@
             // 
             this.BTStokBilgiKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
             this.BTStokBilgiKaydet.Appearance.Options.UseBackColor = true;
-            this.BTStokBilgiKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTStokHarKaydet.ImageOptions.Image")));
+            this.BTStokBilgiKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTStokBilgiKaydet.ImageOptions.Image")));
             this.BTStokBilgiKaydet.Location = new System.Drawing.Point(731, 44);
             this.BTStokBilgiKaydet.Name = "BTStokBilgiKaydet";
             this.BTStokBilgiKaydet.Size = new System.Drawing.Size(94, 52);
@@ -396,6 +396,28 @@
             this.panel4.Size = new System.Drawing.Size(1051, 64);
             this.panel4.TabIndex = 2;
             // 
+            // BTStokSayimKaydet
+            // 
+            this.BTStokSayimKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTStokSayimKaydet.Appearance.Options.UseBackColor = true;
+            this.BTStokSayimKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTStokSayimKaydet.ImageOptions.Image")));
+            this.BTStokSayimKaydet.Location = new System.Drawing.Point(837, 6);
+            this.BTStokSayimKaydet.Name = "BTStokSayimKaydet";
+            this.BTStokSayimKaydet.Size = new System.Drawing.Size(94, 52);
+            this.BTStokSayimKaydet.TabIndex = 79;
+            this.BTStokSayimKaydet.Text = "Kaydet";
+            // 
+            // BTÇık
+            // 
+            this.BTÇık.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTÇık.Appearance.Options.UseBackColor = true;
+            this.BTÇık.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTÇık.ImageOptions.Image")));
+            this.BTÇık.Location = new System.Drawing.Point(937, 6);
+            this.BTÇık.Name = "BTÇık";
+            this.BTÇık.Size = new System.Drawing.Size(94, 52);
+            this.BTÇık.TabIndex = 80;
+            this.BTÇık.Text = "Çık";
+            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.DGStokSayim);
@@ -419,28 +441,6 @@
             this.DGStokSayim.TabIndex = 0;
             this.DGStokSayim.CurrentCellDirtyStateChanged += new System.EventHandler(this.dataGridView1_CurrentCellDirtyStateChanged);
             this.DGStokSayim.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridView1_RowsAdded);
-            // 
-            // BTStokSayimKaydet
-            // 
-            this.BTStokSayimKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.BTStokSayimKaydet.Appearance.Options.UseBackColor = true;
-            this.BTStokSayimKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.BTStokSayimKaydet.Location = new System.Drawing.Point(837, 6);
-            this.BTStokSayimKaydet.Name = "BTStokSayimKaydet";
-            this.BTStokSayimKaydet.Size = new System.Drawing.Size(94, 52);
-            this.BTStokSayimKaydet.TabIndex = 79;
-            this.BTStokSayimKaydet.Text = "Kaydet";
-            // 
-            // BTÇık
-            // 
-            this.BTÇık.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.BTÇık.Appearance.Options.UseBackColor = true;
-            this.BTÇık.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
-            this.BTÇık.Location = new System.Drawing.Point(937, 6);
-            this.BTÇık.Name = "BTÇık";
-            this.BTÇık.Size = new System.Drawing.Size(94, 52);
-            this.BTÇık.TabIndex = 80;
-            this.BTÇık.Text = "Çık";
             // 
             // FStokSayimPanel
             // 

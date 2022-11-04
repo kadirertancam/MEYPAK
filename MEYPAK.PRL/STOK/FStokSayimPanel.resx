@@ -58,7 +58,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="BTStokHarKaydet.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="BTStokBilgiKaydet.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAYAAAA6RwvCAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAu
         IgAALiIBquLdkgAAAkxJREFUWEftlUtIW0EUhkWpj5jER7q1LuymkEQoKhgihAoKIbhToemmhW5NCrqv
@@ -132,7 +132,7 @@
   <metadata name="stokSayimManagerBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <data name="simpleButton1.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="BTStokSayimKaydet.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAYAAAA6RwvCAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAu
         IgAALiIBquLdkgAAAkxJREFUWEftlUtIW0EUhkWpj5jER7q1LuymkEQoKhgihAoKIbhToemmhW5NCrqv
@@ -148,22 +148,22 @@
         fwEZtNi4BhwMzgAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="simpleButton2.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="BTÇık.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAYAAAA6RwvCAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAALiIAAC4iAari3ZIAAAK8SURBVFhHzZdPTJJhHMddf0BYBsglO8CmVkS2carAtnKV
-        uLi0JB1dNNro1FqzQ2NuhbbZRQ41Dl0M01zkOvhWF/4c4hCHNpRq6lyUXNh08lK6RK2g5+fGxsvzo17Y
-        +0aHz4HP73m++/Lu5eV5a3K53H8BKqsBKqsBKvNMMczZuy5XP+EOHwYG7jmDwZARy/obqGRZtq7dbH6x
-        W1qbJeTK5Jfdbn+wtZHZiWWXApXnLZZnECqplW0ZDIZ3JlPrWz7oDutnoAjs7evrc2HZpaBEIBBoJUFZ
-        iVT2MxQq/zKPjY915r/E7NxsI7YGgxLDw8M3IKipsWm+eMaHzY3MDtgP+HzPL2JrMChBityEkJaWox+L
-        Z3wpKHIJm2NQQqAi2zc5KWLF5hiUEKLIbaez32azPUkkEvuwOQYlhChSCZQQq8j404kLvb1XHi0tLauw
-        OSXEKtLcfOAD5Npslx9jc0qIVSQcDh8jZeZIdra7u2t0JZVSFM45i4Fyirx8/eqcd2Skhy9ut/u6XL5n
-        HfJPt7VNFGZxggG+RcgvogGevrC2QuKFeZxwgG+RtbVVqe6Q7r1KVZ8uB/Lo/wH5CoUyVpjHCQfEukcA
-        3+SkhRTZJPnZoaH7jsIZZyEgVpGBwcFbUEKhrE97vd6u4jnnAyBWEaPJGIQrgZUAKCFWkdVvX+XTM9M6
-        bAZQQogimfXvu1g2VYfNSkEJIYpoNNp5uB/C4TfHsTkGJYQoAvsBQc4jev0RIYpUfh7xeDxXIWSvQrlS
-        7kkcSCaT6nwRZmqqHVuDQYnFxc8NSlX9CgQ5HNcekgP0yUgkcoIPfr//VKfVOgF7tRrtQjrNyovzS4FK
-        hmHOyGTy7T+nSlCp1cuxWOwgll0KVALRaFRnNJrgJStO+MIHibR2wdzRMRqPf9qPZf4JVFYDVFYDVFYD
-        VP57cjW/AYLo/PQm0zRcAAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAYAAAA6RwvCAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAu
+        IgAALiIBquLdkgAAArxJREFUWEfNl09MkmEcx11/QFgGyCU7wKZWRLZxqsC2cpW4uLQkHV002ujUWrND
+        Y26FttlFDjUOXQzTXOQ6+FYX/hziEIc2lGrqXJRc2HTyUrpEraDn58bGy/OjXtj7RofPgc/veb778u7l
+        5XlrcrncfwEqqwEqqwEq80wxzNm7Llc/4Q4fBgbuOYPBkBHL+huoZFm2rt1sfrFbWpsl5Mrkl91uf7C1
+        kdmJZZcClectlmcQKqmVbRkMhncmU+tbPugO62egCOzt6+tzYdmloEQgEGglQVmJVPYzFCr/Mo+Nj3Xm
+        v8Ts3GwjtgaDEsPDwzcgqKmxab54xofNjcwO2A/4fM8vYmswKEGK3ISQlpajH4tnfCkocgmbY1BCoCLb
+        NzkpYsXmGJQQoshtp7PfZrM9SSQS+7A5BiWEKFIJlBCryPjTiQu9vVceLS0tq7A5JcQq0tx84APk2myX
+        H2NzSohVJBwOHyNl5kh2tru7a3QllVIUzjmLgXKKvHz96px3ZKSHL263+7pcvmcd8k+3tU0UZnGCAb5F
+        yC+iAZ6+sLZC4oV5nHCAb5G1tVWp7pDuvUpVny4H8uj/AfkKhTJWmMcJB8S6RwDf5KSFFNkk+dmhofuO
+        whlnISBWkYHBwVtQQqGsT3u93q7iOecDIFYRo8kYhCuBlQAoIVaR1W9f5dMz0zpsBlBCiCKZ9e+7WDZV
+        h81KQQkhimg02nm4H8LhN8exOQYlhCgC+wFBziN6/REhilR+HvF4PFchZK9CuVLuSRxIJpPqfBFmaqod
+        W4NBicXFzw1KVf0KBDkc1x6SA/TJSCRygg9+v/9Up9U6AXu1Gu1COs3Ki/NLgUqGYc7IZPLtP6dKUKnV
+        y7FY7CCWXQpUAtFoVGc0muAlK074wgeJtHbB3NExGo9/2o9l/glUVgNUVgNUVgNU/ntyNb8Bguj89CbT
+        NFwAAAAASUVORK5CYII=
 </value>
   </data>
 </root>
