@@ -42,6 +42,7 @@
             this.LBAciklama = new DevExpress.XtraEditors.LabelControl();
             this.LBSayimTarihi = new DevExpress.XtraEditors.LabelControl();
             this.TBAciklama = new System.Windows.Forms.TextBox();
+            this.DTStokSayimTarih = new DevExpress.XtraEditors.DateEdit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GCStokSayim)).BeginInit();

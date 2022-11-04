@@ -71,7 +71,7 @@ namespace MEYPAK.PRL.STOK
             else if (_islem == "musterisiparis")
             {
                 if (fSiparis != null)
-                    fSiparis.gridView1.SetFocusedRowCellValue("KasaAdı", _kasaServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()).FirstOrDefault().KASAADI);
+                    fSiparis.gridView1.SetFocusedRowCellValue("KasaAdı", _kasaServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()).FirstOrDefault().kasaadi);
             }
             else if (_islem == "SatinAlmaSiparis")
             {

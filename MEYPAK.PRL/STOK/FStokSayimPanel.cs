@@ -180,11 +180,11 @@ namespace MEYPAK.PRL.STOK
 
         private void BTNSil_Click(object sender, EventArgs e)
         {
-            if (gridView1.SelectedRowsCount > 0)
-            {
-                gridView1.DeleteSelectedRows();
-                _tempStokSayimHarList= (List<PocoStokSayimPanelList>)gridControl1.DataSource; 
-            }
+            //if (DGStokSayim.Rows.SelectedRowsCount > 0)
+            //{
+            //    gridView1.DeleteSelectedRows();
+            //    _tempStokSayimHarList= (List<PocoStokSayimPanelList>)gridControl1.DataSource; 
+            //}
         }
         #region KeyPress
         private void TBMiktar_KeyPress(object sender, KeyPressEventArgs e)

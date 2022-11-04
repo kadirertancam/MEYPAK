@@ -42,8 +42,8 @@ namespace MEYPAK.PRL.STOK
             _markaServis.Data(ServisList.StokMarkaEkleServis, (new PocoSTOKMARKA()
             {
                 id = id,
-                ADI = TBMarkaAdi.Text,
-                ACIKLAMA = TBAciklama.Text,
+                adi = TBMarkaAdi.Text,
+                aciklama = TBAciklama.Text,
                 kayittipi = 0
             }));
                
@@ -60,8 +60,8 @@ namespace MEYPAK.PRL.STOK
         private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             _tempMarka = _markaServis.obje.Where(x=>x.id.ToString()==DGMarkaKart.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
-            TBMarkaAdi.Text = _tempMarka.ADI;
-            TBAciklama.Text = _tempMarka.ACIKLAMA;
+            TBMarkaAdi.Text = _tempMarka.adi;
+            TBAciklama.Text = _tempMarka.aciklama;
             id = _tempMarka.id;
         }
 

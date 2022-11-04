@@ -231,7 +231,7 @@ namespace MEYPAK.PRL.SIPARIS
                 VADEGUNU = Convert.ToInt32(TBGun.Text),
                 CARIADI = TBCariAdi.Text,
                 CARIID = _cariKart.obje.Where(x => x.KOD == TBCariKodu.Text).FirstOrDefault().id,
-                DEPOID = _depoServis.obje.Where(x => x.DEPOADI == CBDepo.SelectedValue).FirstOrDefault().id,
+                DEPOID = _depoServis.obje.Where(x => x.DEPOADI == CBDepo.EditValue).FirstOrDefault().id,
                 DOVIZID = 0,
                 ISKONTOTOPLAM = _tempSiparisDetay.Sum(x => x.İskontoTutarı),
                 KDVTOPLAM = _tempSiparisDetay.Sum(x => x.KdvTutarı),
@@ -346,10 +346,10 @@ namespace MEYPAK.PRL.SIPARIS
 
                     if (_tempKasa != null)
                     {
-                        TBKasa.Text = _tempKasa.KASAADI;
-                        gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "KasaAdı", _tempKasa.KASAADI);
+                        TBKasa.Text = _tempKasa.kasaadi;
+                        gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "KasaAdı", _tempKasa.kasaadi);
 
-                        _tempPocokalem.KasaAdı = _tempKasa.KASAADI;
+                        _tempPocokalem.KasaAdı = _tempKasa.kasaadi;
                         _tempPocokalem.KasaId = _tempKasa.id;
                     }
 
@@ -578,10 +578,10 @@ namespace MEYPAK.PRL.SIPARIS
             DTSiparisTarih.Value = _tempSiparis.SIPARISTARIHI;
             TBAciklama.Text = _tempSiparis.ACIKLAMA;
             DTPVadeTarihi.Value = _tempSiparis.VADETARIHI;
-            DTPSevkiyatTarihi.Value = _tempSiparis.SEVKIYATTARIHI;
-            TBSVadeGunu.Text = _tempSiparis.VADEGUNU.ToString();
+            DTSevkiyatTarih.Value = _tempSiparis.SEVKIYATTARIHI;
+            TBGun.Text = _tempSiparis.VADEGUNU.ToString();
             _siparisDetayServis.Data(ServisList.SiparisDetayListeServis + 2, null, "query=SIPARISID=" + _tempSiparis.id.ToString());
-            gridControl1.DataSource = _siparisDetayServis.obje.Select(x => new PocoSiparisKalem()
+            GCMusteriSiparis.DataSource = _siparisDetayServis.obje.Select(x => new PocoSiparisKalem()
             {
                 StokId = x.STOKID,
                 StokKodu = _stokServis.obje.Where(z => z.id == x.STOKID).FirstOrDefault().kod,//,  TODOO:BAKILACAAAK
