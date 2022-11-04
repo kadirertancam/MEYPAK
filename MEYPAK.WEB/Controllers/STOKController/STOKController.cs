@@ -403,6 +403,59 @@ namespace MEYPAK.WEB.Controllers.STOKController
 
         #endregion
 
+        #region STOKKATEGORI
+
+        [HttpGet]
+        public async Task<IActionResult> StokKategoriKart()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public object StokKategoriGet(DataSourceLoadOptions loadOptions)
+        {
+            //var a = loadOptions.Take;
+            //var b = loadOptions.Skip;
+            //string url = "http://213.238.167.117:8080/Stok/PagingList?skip="+b+"&take="+a+"&requireTotalCount=true";
+            //_tempPocoStok.Data(url);
+            _tempPocoStokKategori.Data(ServisList.StokKategoriListeServis);
+            return DataSourceLoader.Load(_tempPocoStokKategori.obje.Where(x => x.kayittipi == 0).Reverse().AsEnumerable(), loadOptions);
+        }
+        [HttpPut]
+        public async Task<IActionResult> StokKategoriPut(int key, string values)
+        { //güncellenecek
+            _tempPocoStokKategori.Data(ServisList.StokKategoriListeServis);
+            var employee = _tempPocoStokKategori.obje.First(a => a.id == key);
+            JsonConvert.PopulateObject(values, employee);
+
+            //_tempPocoStok.Data(ServisList.StokEkleServis, id);
+
+            _tempPocoStokKategori.Data(ServisList.StokKategoriEkleServis, employee);
+
+            ViewBag.Durum = "Başarıyla Güncellendi.";
+            return Ok();
+        }
+        [HttpPost]
+        public async Task<IActionResult> StokKategoriPost(string values)
+        {
+            PocoSTOKKATEGORI newPoco = new PocoSTOKKATEGORI();
+            JsonConvert.PopulateObject(values, newPoco);
+            _tempPocoStokKategori.Data(ServisList.StokKategoriEkleServis, newPoco);
+
+            ViewBag.Durum = "Başarıyla eklendi.";
+            return Ok();
+        }
+        [HttpDelete]
+        public void StokKategoriDelete(int key)
+        {
+            string url = ServisList.StokKategoriDeleteByIdServis;
+            url += "?id=";
+            url += key;
+            _tempPocoStokKategori.Data(url, method: HttpMethod.Post);
+            ViewBag.Durum = "Başarıyla silindi.";
+        }
+
+        #endregion
 
 
 

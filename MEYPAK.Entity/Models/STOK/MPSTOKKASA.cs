@@ -11,11 +11,11 @@ namespace MEYPAK.Entity.Models.STOK
     public class MPSTOKKASA:SUPERMODEL
     {
         
-        public int SIRKETID { get; set; }
-        public int SUBEID { get; set; }
-     
+        public int SIRKETID { get; set; } = 0;
+        public int SUBEID { get; set; }=0;
+
         [StringLength(100), Required]
-        public string KASAKODU { get; set; }
+        public string KASAKODU { get; set; } = "";
         [StringLength(100)]
         public string KASAADI { get; set; } = "";
         [StringLength(200)]
