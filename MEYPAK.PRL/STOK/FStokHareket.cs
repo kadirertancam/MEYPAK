@@ -225,7 +225,7 @@ namespace MEYPAK.PRL.STOK
                 aciklama = TBAciklama.Text,
                 io = this.IO,
                 birim = _olcuBrServis.obje.Where(x => x.adi == CBBirim.EditValue).FirstOrDefault().id,
-                depoid = _depoServis.obje.Where(x => x.DEPOADI.ToString() == CBDepo.EditValue.ToString()).FirstOrDefault().id,
+                depoid = _depoServis.obje.Where(x => x.depoadi.ToString() == CBDepo.EditValue.ToString()).FirstOrDefault().id,
                 miktar = Convert.ToDecimal(TBMiktar.Text),
                 hareketturu = 5,         //Muhtelif
                 faturaid = 0,
@@ -249,7 +249,7 @@ namespace MEYPAK.PRL.STOK
                 BrutToplam = x.bruttoplam,
                 Cikis = x.io == 0 ? x.miktar : 0,
                 Giris = x.io == 1 ? x.miktar : 0,
-                Depo = _depoServis.obje.Where(z => z.id == x.depoid).FirstOrDefault().DEPOADI,
+                Depo = _depoServis.obje.Where(z => z.id == x.depoid).FirstOrDefault().depoadi,
                 HareketTuru = x.hareketturu == 5 ? "Muhtelif" : x.hareketturu == 1 ? "Satış Faturası" : x.hareketturu == 2 ? "Alış Faturası" : x.hareketturu == 3 ? "Satış İade" : x.hareketturu == 4 ? "Alış İade" : x.hareketturu == 6 ? "DAT" : x.hareketturu == 0 ? "Muhtelif" : "",
                 NetFiyat = x.netfiyat,
                 NetToplam = x.nettoplam,

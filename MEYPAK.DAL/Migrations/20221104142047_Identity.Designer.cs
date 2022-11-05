@@ -12,17 +12,133 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MEYPAK.DAL.Migrations
 {
     [DbContext(typeof(MEYPAKContext))]
-    [Migration("20221022132733_StokTablosundanDepoidCikarildi")]
-    partial class StokTablosundanDepoidCikarildi
+    [Migration("20221104142047_Identity")]
+    partial class Identity
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.9")
+                .HasAnnotation("ProductVersion", "6.0.10")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+
+            modelBuilder.Entity("MEYPAK.Entity.IdentityModels.MPROLE", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ACIKLAMA")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("GUNCELLEMETARIHI")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<DateTime>("OLUSTURMATARIHI")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedName")
+                        .IsUnique()
+                        .HasDatabaseName("RoleNameIndex")
+                        .HasFilter("[NormalizedName] IS NOT NULL");
+
+                    b.ToTable("AspNetRoles", (string)null);
+                });
+
+            modelBuilder.Entity("MEYPAK.Entity.IdentityModels.MPUSER", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("AD")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("GUNCELLEMETARIHI")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<DateTime>("OLUSTURMATARIHI")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("SOYAD")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedEmail")
+                        .HasDatabaseName("EmailIndex");
+
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasDatabaseName("UserNameIndex")
+                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.ToTable("AspNetUsers", (string)null);
+                });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.ARAC.MPARACLAR", b =>
                 {
@@ -94,6 +210,304 @@ namespace MEYPAK.DAL.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("MPARACLAR");
+                });
+
+            modelBuilder.Entity("MEYPAK.Entity.Models.CARI.MPCARIHAR", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+
+                    b.Property<string>("ACIKLAMA")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("ALACAK")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("BELGE_NO")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("BORC")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("CARIID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ESKIID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("GUNCELLEMETARIHI")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("HAREKETTARIHI")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("HAREKETTIPI")
+                        .HasColumnType("int");
+
+                    b.Property<byte>("KAYITTIPI")
+                        .HasColumnType("tinyint");
+
+                    b.Property<decimal>("KUR")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime>("OLUSTURMATARIHI")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("PARABIRIMID")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("TUTAR")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("MPCARIHAR");
+                });
+
+            modelBuilder.Entity("MEYPAK.Entity.Models.CARI.MPCARIKART", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+
+                    b.Property<string>("ACIKLAMA")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ACIKLAMA1")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ACIKLAMA2")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ACIKLAMA3")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ACIKLAMA4")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ACIKLAMA5")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ACIKLAMA6")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ACIKLAMA7")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ACIKLAMA8")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ACIKLAMA9")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ADI")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ADRES")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AMUHKOD")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("APT")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CEPTEL")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DAIRE")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EPOSTA")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ESKIID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("FAX")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("FIYATNUM")
+                        .HasColumnType("int");
+
+                    b.Property<string>("GRUPKODU")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("GUNCELLEMETARIHI")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("IL")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ILCE")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("KATEGORI")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte>("KAYITTIPI")
+                        .HasColumnType("tinyint");
+
+                    b.Property<string>("KOD")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MAHALLE")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MUH_KOD")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("OLUSTURMATARIHI")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("POSTAKOD")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RAPORKOD1")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RAPORKOD2")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RAPORKOD3")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RAPORKOD4")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RAPORKOD5")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RAPORKOD6")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RAPORKOD7")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RAPORKOD8")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RAPORKOD9")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("SACIKLAMA1")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SACIKLAMA2")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SACIKLAMA3")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SACIKLAMA4")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SACIKLAMA5")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SACIKLAMA6")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SACIKLAMA7")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SACIKLAMA8")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SACIKLAMA9")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SMUHKOD")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SOKAK")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SOYADI")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TCNO")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TELEFON")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TELEFON2")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TIPI")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UNVAN")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("VADEGUNU")
+                        .HasColumnType("int");
+
+                    b.Property<string>("VERGIDAIRESI")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("VERGINO")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("WEB")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("MPCARIKART");
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.DEPO.MPDEPO", b =>
@@ -350,6 +764,9 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<DateTime>("OLUSTURMATARIHI")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("SATINALMAMALKABULEMRIHARID")
+                        .HasColumnType("int");
+
                     b.Property<int>("SIPARISDETAYID")
                         .HasColumnType("int");
 
@@ -370,6 +787,8 @@ namespace MEYPAK.DAL.Migrations
                     b.HasIndex("BIRIMID");
 
                     b.HasIndex("EMIRID");
+
+                    b.HasIndex("SATINALMAMALKABULEMRIHARID");
 
                     b.HasIndex("SIPARISDETAYID");
 
@@ -666,38 +1085,96 @@ namespace MEYPAK.DAL.Migrations
 
             modelBuilder.Entity("MEYPAK.Entity.Models.MPDEPOEMIRSIPARISKALEMILISKI", b =>
                 {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+
                     b.Property<int>("DEPOEMIRID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MPDEPOEMIRID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MPSIPARISDETAYID")
                         .HasColumnType("int");
 
                     b.Property<int>("SIPARISDETAYID")
                         .HasColumnType("int");
 
-                    b.Property<int>("ID")
-                        .HasColumnType("int");
+                    b.HasKey("ID");
 
-                    b.HasKey("DEPOEMIRID", "SIPARISDETAYID");
+                    b.HasIndex("MPDEPOEMIRID");
 
-                    b.HasIndex("SIPARISDETAYID");
+                    b.HasIndex("MPSIPARISDETAYID");
 
                     b.ToTable("MPDEPOEMIRSIPARISKALEMILISKI");
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.MPIRSALIYESIPARISDETAYILISKI", b =>
                 {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+
                     b.Property<int>("IRSALIYEDETAYID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MPIRSALIYEDETAYID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MPSIPARISDETAYID")
                         .HasColumnType("int");
 
                     b.Property<int>("SIPARISDETAYID")
                         .HasColumnType("int");
 
-                    b.Property<int>("ID")
-                        .HasColumnType("int");
+                    b.HasKey("ID");
 
-                    b.HasKey("IRSALIYEDETAYID", "SIPARISDETAYID");
+                    b.HasIndex("MPIRSALIYEDETAYID");
 
-                    b.HasIndex("SIPARISDETAYID");
+                    b.HasIndex("MPSIPARISDETAYID");
 
                     b.ToTable("MPIRSALIYESIPARISDETAYILISKI");
+                });
+
+            modelBuilder.Entity("MEYPAK.Entity.Models.PARAMETRE.MPPARABIRIM", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+
+                    b.Property<string>("ADI")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte>("AKTIF")
+                        .HasColumnType("tinyint");
+
+                    b.Property<int>("ESKIID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("GUNCELLEMETARIHI")
+                        .HasColumnType("datetime2");
+
+                    b.Property<byte>("KAYITTIPI")
+                        .HasColumnType("tinyint");
+
+                    b.Property<string>("KISAADI")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("OLUSTURMATARIHI")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("MPPARABIRIM");
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.PERSONEL.MPPERSONEL", b =>
@@ -818,6 +1295,61 @@ namespace MEYPAK.DAL.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("MPPERSONEL");
+                });
+
+            modelBuilder.Entity("MEYPAK.Entity.Models.SIPARIS.MPSATINALMAMALKABULEMRIHAR", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+
+                    b.Property<int>("EMIRID")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("EMIRMIKTARI")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("ESKIID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("GUNCELLEMETARIHI")
+                        .HasColumnType("datetime2");
+
+                    b.Property<byte>("KAYITTIPI")
+                        .HasColumnType("tinyint");
+
+                    b.Property<int>("KULLANICIID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("OLUSTURMATARIHI")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("SIPARISID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SIPARISKALEMID")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("SIPARISMIKTARI")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime>("TARIH")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("TIP")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("EMIRID");
+
+                    b.HasIndex("SIPARISID");
+
+                    b.HasIndex("SIPARISKALEMID");
+
+                    b.ToTable("MPSATINALMAMALKABULEMRIHAR");
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.SIPARIS.MPSIPARIS", b =>
@@ -1805,7 +2337,7 @@ namespace MEYPAK.DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("MPMARKA");
+                    b.ToTable("MPSTOKMARKA");
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.STOK.MPSTOKOLCUBR", b =>
@@ -1958,6 +2490,112 @@ namespace MEYPAK.DAL.Migrations
                     b.ToTable("MPSTOKSAYIMHAR");
                 });
 
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RoleId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetRoleClaims", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserClaims", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+                {
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProviderKey")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProviderDisplayName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("LoginProvider", "ProviderKey");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserLogins", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("RoleId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("UserId", "RoleId");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetUserRoles", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Value")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("UserId", "LoginProvider", "Name");
+
+                    b.ToTable("AspNetUserTokens", (string)null);
+                });
+
             modelBuilder.Entity("MEYPAK.Entity.Models.DEPO.MPDEPOEMIR", b =>
                 {
                     b.HasOne("MEYPAK.Entity.Models.DEPO.MPDEPO", "MPDEPO")
@@ -1969,7 +2607,7 @@ namespace MEYPAK.DAL.Migrations
                     b.HasOne("MEYPAK.Entity.Models.SIPARIS.MPSIPARIS", "MPSIPARIS")
                         .WithMany("MPDEPOEMIR")
                         .HasForeignKey("SIPARISID")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("MPDEPO");
@@ -2001,30 +2639,38 @@ namespace MEYPAK.DAL.Migrations
                     b.HasOne("MEYPAK.Entity.Models.STOK.MPOLCUBR", "MPOLCUBR")
                         .WithMany("MPSTOKMALKABULLIST")
                         .HasForeignKey("BIRIMID")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("MEYPAK.Entity.Models.DEPO.MPDEPOEMIR", "MPDEPOEMIR")
                         .WithMany("MPSTOKMALKABULLIST")
                         .HasForeignKey("EMIRID")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MEYPAK.Entity.Models.SIPARIS.MPSATINALMAMALKABULEMRIHAR", "MPSATINALMAMALKABULEMRIHAR")
+                        .WithMany("MPSTOKMALKABULLIST")
+                        .HasForeignKey("SATINALMAMALKABULEMRIHARID")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("MEYPAK.Entity.Models.SIPARIS.MPSIPARISDETAY", "MPSIPARISDETAY")
                         .WithMany("MPSTOKMALKABULLIST")
                         .HasForeignKey("SIPARISDETAYID")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("MEYPAK.Entity.Models.STOK.MPSTOK", "MPSTOK")
                         .WithMany("MPSTOKMALKABULLIST")
                         .HasForeignKey("STOKID")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("MPDEPOEMIR");
 
                     b.Navigation("MPOLCUBR");
+
+                    b.Navigation("MPSATINALMAMALKABULEMRIHAR");
 
                     b.Navigation("MPSIPARISDETAY");
 
@@ -2054,7 +2700,7 @@ namespace MEYPAK.DAL.Migrations
                     b.HasOne("MEYPAK.Entity.Models.SIPARIS.MPSIPARISDETAY", "MPSIPARISDETAY")
                         .WithMany("MPSTOKSEVKİYATLİST")
                         .HasForeignKey("SIPARISDETAYID")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("MEYPAK.Entity.Models.STOK.MPSTOK", "MPSTOK")
@@ -2079,7 +2725,7 @@ namespace MEYPAK.DAL.Migrations
                     b.HasOne("MEYPAK.Entity.Models.SIPARIS.MPSIPARIS", "MPSIPARIS")
                         .WithMany("MPIRSALIYE")
                         .HasForeignKey("SIPARISID")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("MPSIPARIS");
@@ -2100,14 +2746,14 @@ namespace MEYPAK.DAL.Migrations
                 {
                     b.HasOne("MEYPAK.Entity.Models.DEPO.MPDEPOEMIR", "MPDEPOEMIR")
                         .WithMany("MPDEPOEMIRSIPARISKALEMILISKI")
-                        .HasForeignKey("DEPOEMIRID")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .HasForeignKey("MPDEPOEMIRID")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("MEYPAK.Entity.Models.SIPARIS.MPSIPARISDETAY", "MPSIPARISDETAY")
                         .WithMany("MPDEPOEMIRSIPARISKALEMILISKI")
-                        .HasForeignKey("SIPARISDETAYID")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .HasForeignKey("MPSIPARISDETAYID")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("MPDEPOEMIR");
@@ -2119,17 +2765,44 @@ namespace MEYPAK.DAL.Migrations
                 {
                     b.HasOne("MEYPAK.Entity.Models.IRSALIYE.MPIRSALIYEDETAY", "MPIRSALIYEDETAY")
                         .WithMany("MPIRSALIYESIPARISDETAYILISKI")
-                        .HasForeignKey("IRSALIYEDETAYID")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .HasForeignKey("MPIRSALIYEDETAYID")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("MEYPAK.Entity.Models.SIPARIS.MPSIPARISDETAY", "MPSIPARISDETAY")
                         .WithMany("MPIRSALIYESIPARISDETAYILISKI")
-                        .HasForeignKey("SIPARISDETAYID")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .HasForeignKey("MPSIPARISDETAYID")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("MPIRSALIYEDETAY");
+
+                    b.Navigation("MPSIPARISDETAY");
+                });
+
+            modelBuilder.Entity("MEYPAK.Entity.Models.SIPARIS.MPSATINALMAMALKABULEMRIHAR", b =>
+                {
+                    b.HasOne("MEYPAK.Entity.Models.DEPO.MPDEPOEMIR", "MPDEPOEMIR")
+                        .WithMany()
+                        .HasForeignKey("EMIRID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MEYPAK.Entity.Models.SIPARIS.MPSIPARIS", "MPSIPARIS")
+                        .WithMany("MPSATINALMAMALKABULEMRIHAR")
+                        .HasForeignKey("SIPARISID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MEYPAK.Entity.Models.SIPARIS.MPSIPARISDETAY", "MPSIPARISDETAY")
+                        .WithMany("MPSATINALMAMALKABULEMRIHAR")
+                        .HasForeignKey("SIPARISKALEMID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("MPDEPOEMIR");
+
+                    b.Navigation("MPSIPARIS");
 
                     b.Navigation("MPSIPARISDETAY");
                 });
@@ -2162,7 +2835,7 @@ namespace MEYPAK.DAL.Migrations
                     b.HasOne("MEYPAK.Entity.Models.STOK.MPSTOK", "MPSTOK")
                         .WithMany("MPSIPARISDETAY")
                         .HasForeignKey("STOKID")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("MPIRSALIYE");
@@ -2275,6 +2948,57 @@ namespace MEYPAK.DAL.Migrations
                     b.Navigation("MPSTOKSAYIM");
                 });
 
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+                {
+                    b.HasOne("MEYPAK.Entity.IdentityModels.MPROLE", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+                {
+                    b.HasOne("MEYPAK.Entity.IdentityModels.MPUSER", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+                {
+                    b.HasOne("MEYPAK.Entity.IdentityModels.MPUSER", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+                {
+                    b.HasOne("MEYPAK.Entity.IdentityModels.MPROLE", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MEYPAK.Entity.IdentityModels.MPUSER", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+                {
+                    b.HasOne("MEYPAK.Entity.IdentityModels.MPUSER", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("MEYPAK.Entity.Models.DEPO.MPDEPO", b =>
                 {
                     b.Navigation("MPDEPOEMIR");
@@ -2296,11 +3020,18 @@ namespace MEYPAK.DAL.Migrations
                     b.Navigation("MPIRSALIYESIPARISDETAYILISKI");
                 });
 
+            modelBuilder.Entity("MEYPAK.Entity.Models.SIPARIS.MPSATINALMAMALKABULEMRIHAR", b =>
+                {
+                    b.Navigation("MPSTOKMALKABULLIST");
+                });
+
             modelBuilder.Entity("MEYPAK.Entity.Models.SIPARIS.MPSIPARIS", b =>
                 {
                     b.Navigation("MPDEPOEMIR");
 
                     b.Navigation("MPIRSALIYE");
+
+                    b.Navigation("MPSATINALMAMALKABULEMRIHAR");
 
                     b.Navigation("MPSIPARISDETAY");
 
@@ -2312,6 +3043,8 @@ namespace MEYPAK.DAL.Migrations
                     b.Navigation("MPDEPOEMIRSIPARISKALEMILISKI");
 
                     b.Navigation("MPIRSALIYESIPARISDETAYILISKI");
+
+                    b.Navigation("MPSATINALMAMALKABULEMRIHAR");
 
                     b.Navigation("MPSIPARISSEVKEMRIHAR");
 

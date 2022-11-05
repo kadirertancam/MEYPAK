@@ -107,14 +107,14 @@ namespace MEYPAK.PRL.STOK
             stokSayimPanel.Tag = "TPStokSayimPanel" + 1;
             _stokSayimServis.Data(ServisList.StokSayimEkleServis, (new Entity.PocoModels.STOK.PocoSTOKSAYIM()
             {
-                SAYIMTARIHI = Convert.ToDateTime(DTStokSayimTarih.EditValue.ToString()),
-                ACIKLAMA = TBStokSayimAciklama.Text,
+                sayimtarihi = Convert.ToDateTime(DTStokSayimTarih.EditValue.ToString()),
+                aciklama = TBStokSayimAciklama.Text,
 
             }));
             _stokSayimServis.Data(ServisList.StokSayimListeServis);
             GCStokSayim.DataSource = _stokSayimServis.obje;
 
-            stokSayimPanel.sayimId = _stokSayimServis.obje.Where(x => x.ACIKLAMA == TBStokSayimAciklama.Text).FirstOrDefault().id;
+            stokSayimPanel.sayimId = _stokSayimServis.obje.Where(x => x.aciklama == TBStokSayimAciklama.Text).FirstOrDefault().id;
             TBStokSayimAciklama.Text = "";
             DTStokSayimTarih.EditValue = DateTime.Now;
             stokSayimPanel.ShowDialog();

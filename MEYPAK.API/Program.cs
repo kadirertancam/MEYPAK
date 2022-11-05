@@ -36,6 +36,7 @@ using MEYPAK.DAL.Abstract.ParametreDal;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository.ParametreRepo;
 using MEYPAK.Interfaces.Parametre;
 using MEYPAK.BLL.PARAMETRE;
+using System.Data.Entity;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -44,17 +45,39 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 //MaplemeAyarlarý
-builder.Services.AddAutoMapper(x =>
-{
-    x.AddExpressionMapping(); //expressionlari maplemek içindir
-    x.AddProfile(typeof(Maps));
-});
-builder.Services.AddControllers(options => options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true);
+
+//builder.Services.AddControllers(options => options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true);
 builder.Services.AddDbContext<MEYPAKContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("MyCon"));
 });
 
+builder.Services.AddIdentity<MPUSER, MPROLE>(options =>
+{
+    options.User.RequireUniqueEmail = true;
+    options.Password.RequiredLength = 5;
+    options.Password.RequireLowercase = false;
+    options.Password.RequireUppercase = false;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireDigit = false;
+    options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_@.";
+}).AddDefaultTokenProviders().AddEntityFrameworkStores<MEYPAKContext>();
+
+builder.Services.AddControllersWithViews()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+        options.JsonSerializerOptions.WriteIndented = true;
+        options.JsonSerializerOptions.PropertyNamingPolicy = null;
+
+    });
+
+builder.Services.AddSession();
+builder.Services.AddAutoMapper(x =>
+{
+    x.AddExpressionMapping(); //expressionlari maplemek içindir
+    x.AddProfile(typeof(Maps));
+});
 
 
 #region Parametre
@@ -179,20 +202,8 @@ builder.Services.AddScoped<IAracServis, AracManager>();
 #endregion
 
 
-builder.Services.AddIdentity<MPUSER, MPROLE>(options =>
-{
-    options.User.RequireUniqueEmail = false;
-    options.Password.RequiredLength = 5;
-    options.Password.RequireLowercase = false;
-    options.Password.RequireUppercase = false;
-    options.Password.RequireNonAlphanumeric = false;
-    options.Password.RequireDigit = false;
-    options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_@.";
-}).AddEntityFrameworkStores<MEYPAKContext>().AddDefaultTokenProviders();
 
-builder.Services.AddMvc();
 
-builder.Services.AddControllers().AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -201,6 +212,7 @@ builder.Services.AddSwaggerGen();
 
 
 var app = builder.Build();
+app.UseSession();
 app.UseDeveloperExceptionPage();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -208,7 +220,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+app.UseAuthentication(); //Login ve logout iþlemlerinde  
 app.UseAuthorization();
 
 app.MapControllers();

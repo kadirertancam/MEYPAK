@@ -40,7 +40,7 @@ namespace MEYPAK.WEB.Controllers.STOKController
         #region STOK
 
         [HttpGet]
-        public async Task<IActionResult> StokKart()
+        public IActionResult StokKart()
         {
             return View();
         }
@@ -94,7 +94,7 @@ namespace MEYPAK.WEB.Controllers.STOKController
         #region HİZMET
 
         [HttpGet]
-        public async Task<IActionResult> HizmetKart()
+        public IActionResult HizmetKart()
         {
             return View();
         }
@@ -147,7 +147,7 @@ namespace MEYPAK.WEB.Controllers.STOKController
         #region OLCUBR
 
         [HttpGet]
-        public async Task<IActionResult> OlcuBrKart()
+        public IActionResult OlcuBrKart()
         {
             return View();
         }
