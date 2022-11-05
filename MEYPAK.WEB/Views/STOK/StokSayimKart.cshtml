@@ -16,7 +16,7 @@
             .AllowAdding(true)
             .AllowDeleting(true)
             .Popup(p => p
-            .Title("Stok Kart")
+            .Title("Stok Sayım Kart")
             .ShowTitle(true)
             .Width(700)
             .Height(525)
@@ -64,6 +64,7 @@
                     b.Add().Name(GridColumnButtonName.Delete).Text("Sil");
                 });
             })
+            .OnRowInserted("Efe")
             .DataSource(d => d.Mvc()
             .Controller("STOK")
             .LoadAction("StokSayimGet").InsertAction("StokSayimPost").UpdateAction("StokSayimPut").DeleteAction("StokSayimDelete").Key("id")
@@ -75,7 +76,11 @@
 
     </div>
 
-
+    <script>
+        function Efe() {
+            window.location.replace("http://localhost:5232/Stok/StokSayimHarKart");
+        }
+    </script>
     @(Html.DevExtreme().SelectBox()
         .ID("apptheme")
         .ValueExpr("theme")

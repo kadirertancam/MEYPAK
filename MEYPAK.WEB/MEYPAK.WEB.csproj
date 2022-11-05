@@ -29,4 +29,7 @@
     <PackageReference Include="DevExtreme.AspNet.Core" Version="22.1.3" />
     <PackageReference Include="DevExtreme.AspNet.Data" Version="2.8.6" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\SIPARIS\" />
+  </ItemGroup>
 </Project>

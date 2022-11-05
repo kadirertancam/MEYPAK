@@ -22,7 +22,7 @@ namespace MEYPAK.WEB.Controllers
         {
             _logger = logger;
         }
-
+        static int depotransferid = 0;
 
         #region DEPO
 
@@ -173,6 +173,7 @@ namespace MEYPAK.WEB.Controllers
             PocoDEPOTRANSFER newPoco = new PocoDEPOTRANSFER();
             JsonConvert.PopulateObject(values, newPoco);
             _tempPocoDepoTransfer.Data(ServisList.DepoTransferEkleServis, newPoco);
+            depotransferid = _tempPocoDepoTransfer.obje2.id;
             return Ok();
         }
         [HttpDelete]
@@ -187,16 +188,23 @@ namespace MEYPAK.WEB.Controllers
         #region DEPOTRANSFERHAR
 
         [HttpGet]
-        public async Task<IActionResult> DepoTransferHarKart()
+        public async Task<IActionResult> DepoTransferHarKart([FromQuery] int id)
         {
-            return View();
+            if (id != 0)
+            {
+                depotransferid = id;
+            }
+            if (depotransferid != 0)
+                return View();
+            else
+                return Redirect("http://localhost:5232/Home/Error");
         }
 
         [HttpGet]
         public object DepoTransferHarGet(DataSourceLoadOptions loadOptions)
         {
             _tempPocoDepoTransferHar.Data(ServisList.DepoTransferHarListeServis);
-            return DataSourceLoader.Load(_tempPocoDepoTransferHar.obje.Where(x => x.kayittipi == 0).Reverse().AsEnumerable(), loadOptions);
+            return DataSourceLoader.Load(_tempPocoDepoTransferHar.obje.Where(x => x.kayittipi == 0&& x.depotransferid==depotransferid).Reverse().AsEnumerable(), loadOptions);
         }
         [HttpPut]
         public async Task<IActionResult> DepoTransferHarPut(int key, string values)
@@ -212,6 +220,7 @@ namespace MEYPAK.WEB.Controllers
         {
             PocoDEPOTRANSFERHAR newPoco = new PocoDEPOTRANSFERHAR();
             JsonConvert.PopulateObject(values, newPoco);
+            newPoco.depotransferid = depotransferid;
             _tempPocoDepoTransferHar.Data(ServisList.DepoTransferHarEkleServis, newPoco);
             return Ok();
         }
@@ -275,31 +284,31 @@ namespace MEYPAK.WEB.Controllers
         [HttpGet]
         public object StokSevkiyatListGet(DataSourceLoadOptions loadOptions)
         {
-            _tempPocoStokMalKabulList.Data(ServisList.StokMalKabulListListeServis);
-            return DataSourceLoader.Load(_tempPocoStokMalKabulList.obje.Where(x => x.kayittipi == 0).Reverse().AsEnumerable(), loadOptions);
+            _tempPocoStokSevkiyatList.Data(ServisList.StokSevkiyatListListeServis);
+            return DataSourceLoader.Load(_tempPocoStokSevkiyatList.obje.Where(x => x.kayittipi == 0).Reverse().AsEnumerable(), loadOptions);
         }
         [HttpPut]
         public async Task<IActionResult> StokSevkiyatListPut(int key, string values)
         { //güncellenecek
-            _tempPocoStokMalKabulList.Data(ServisList.StokMalKabulListListeServis);
-            var employee = _tempPocoStokMalKabulList.obje.First(a => a.id == key);
+            _tempPocoStokSevkiyatList.Data(ServisList.StokSevkiyatListListeServis);
+            var employee = _tempPocoStokSevkiyatList.obje.First(a => a.id == key);
             JsonConvert.PopulateObject(values, employee);
-            _tempPocoStokMalKabulList.Data(ServisList.StokMalKabulListEkleServis, employee);
+            _tempPocoStokSevkiyatList.Data(ServisList.StokSevkiyatListEkleServis, employee);
             return Ok();
         }
         [HttpPost]
         public async Task<IActionResult> StokSevkiyatListPost(string values)
         {
-            PocoSTOKMALKABULLIST newPoco = new PocoSTOKMALKABULLIST();
+            PocoSTOKSEVKIYATLIST newPoco = new PocoSTOKSEVKIYATLIST();
             JsonConvert.PopulateObject(values, newPoco);
-            _tempPocoStokMalKabulList.Data(ServisList.StokMalKabulListEkleServis, newPoco);
+            _tempPocoStokSevkiyatList.Data(ServisList.StokSevkiyatListEkleServis, newPoco);
             return Ok();
         }
         [HttpDelete]
         public void StokSevkiyatListDelete(int key)
         {
-            string url = ServisList.StokMalKabulListDeleteByIdServis + "?id=" + key;
-            _tempPocoStokMalKabulList.Data(url, method: HttpMethod.Post);
+            string url = ServisList.StokSevkiyatListDeleteByIdServis + "?id=" + key;
+            _tempPocoStokSevkiyatList.Data(url, method: HttpMethod.Post);
         }
 
         #endregion

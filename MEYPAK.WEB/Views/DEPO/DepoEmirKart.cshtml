@@ -31,9 +31,9 @@
 
 
                     groupItems.AddSimpleFor(m => m.aciklama);
+                    groupItems.AddSimpleFor(m => m.depoid);
                     groupItems.AddSimpleFor(m => m.miktar);
                     groupItems.AddSimpleFor(m => m.siparisid);
-                    groupItems.AddSimpleFor(m => m.depoid);
 
 
                 });
@@ -48,10 +48,17 @@
                 .Width(120);
 
                 columns.AddFor(m => m.miktar);
-                columns.AddFor(m => m.depoid);
+                columns.AddFor(m => m.depoid)
+                .Width(150)
+                .Visible(true)
+                .Lookup(lookup => lookup
+                .DataSource(ds => ds.Mvc().Controller("DEPO").LoadAction("DepoGet").Key("id"))
+                .DataSourceOptions(dso => dso.Sort(sort => sort.AddSorting("depoadi")))
+                .ValueExpr("id")
+                .DisplayExpr("depoadi")
+                );
                 columns.AddFor(m => m.siparisid);
-
-
+ 
 
                 columns.Add()
                 .Type(GridCommandColumnType.Buttons)

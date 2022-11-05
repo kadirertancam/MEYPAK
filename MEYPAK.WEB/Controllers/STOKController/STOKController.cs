@@ -254,8 +254,12 @@ namespace MEYPAK.WEB.Controllers.STOKController
         #region STOKFIYATLISTHAR
 
         [HttpGet]
-        public   IActionResult StokFiyatListHarKart()
+        public   IActionResult StokFiyatListHarKart([FromQuery] int id)
         {
+            if (id!=0)
+            {
+                tempstokkartid = id;
+            }
             if (tempstokkartid != 0)
                 return View();
             else 
@@ -284,7 +288,6 @@ namespace MEYPAK.WEB.Controllers.STOKController
             PocoSTOKFIYATLISTHAR newPoco = new PocoSTOKFIYATLISTHAR();
             JsonConvert.PopulateObject(values, newPoco);
             newPoco.fiyatlistid = tempstokkartid;
-            newPoco.stokid = 1;
             _tempPocoStokFiyatHarList.Data(ServisList.StokFiyatListHarEkleServis, newPoco);
             
             ViewBag.Durum = "Başarıyla eklendi.";
@@ -565,6 +568,52 @@ namespace MEYPAK.WEB.Controllers.STOKController
 
         #endregion
 
+        #region STOKOLCUBR
+
+        [HttpGet]
+        public IActionResult StokOlcuBrKart()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public object StokOlcuBrGet(DataSourceLoadOptions loadOptions)
+        {
+            _tempPocoStokOlcuBr.Data(ServisList.StokOlcuBrListeServis);
+            return DataSourceLoader.Load(_tempPocoStokOlcuBr.obje.Where(x => x.kayittipi == 0).Reverse().AsEnumerable(), loadOptions);
+        }
+        [HttpPut]
+        public async Task<IActionResult> StokOlcuBrPut(int key, string values)
+        { 
+            _tempPocoStokOlcuBr.Data(ServisList.StokOlcuBrListeServis);
+            var employee = _tempPocoStokOlcuBr.obje.First(a => a.id == key);
+            JsonConvert.PopulateObject(values, employee);
+            _tempPocoStokOlcuBr.Data(ServisList.StokOlcuBrEkleServis, employee);
+
+            ViewBag.Durum = "Başarıyla Güncellendi.";
+            return Ok();
+        }
+        [HttpPost]
+        public async Task<IActionResult> StokOlcuBrPost(string values)
+        {
+            PocoSTOKOLCUBR newPoco = new PocoSTOKOLCUBR();
+            JsonConvert.PopulateObject(values, newPoco);
+            _tempPocoStokOlcuBr.Data(ServisList.StokOlcuBrEkleServis, newPoco);
+
+            ViewBag.Durum = "Başarıyla eklendi.";
+            return Ok();
+        }
+        [HttpDelete]
+        public void StokOlcuBrDelete(int key)
+        {
+            string url = ServisList.StokOlcuBrDeleteByIdServis;
+            url += "?id=";
+            url += key;
+            _tempPocoStokOlcuBr.Data(url, method: HttpMethod.Post);
+            ViewBag.Durum = "Başarıyla silindi.";
+        }
+
+        #endregion
 
 
         #region old_controller

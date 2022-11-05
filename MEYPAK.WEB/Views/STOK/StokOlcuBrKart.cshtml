@@ -16,7 +16,7 @@
             .AllowAdding(true)
             .AllowDeleting(true)
             .Popup(p => p
-            .Title("Stok Kart")
+            .Title("Stok Olcu Birim Kart")
             .ShowTitle(true)
             .Width(700)
             .Height(525)
@@ -33,6 +33,8 @@
                     groupItems.AddSimpleFor(m => m.stokid);
                     groupItems.AddSimpleFor(m => m.katsayi);
                     groupItems.AddSimpleFor(m => m.num);
+                    groupItems.AddSimpleFor(m => m.olcubrid);
+                    
             
                 });
 
@@ -50,6 +52,13 @@
                 .ValueExpr("id")
                 );
 
+                columns.AddFor(m => m.olcubrid)
+                .Width(125)
+                .Lookup(lookup => lookup
+                .DataSource(d => d.Mvc().Controller("STOK").LoadAction("OlcuBrGet").Key("id"))
+                .DisplayExpr("adi")
+                .ValueExpr("id")
+                );
                 columns.AddFor(m => m.katsayi);
 
                 columns.AddFor(m => m.num);

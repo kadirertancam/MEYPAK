@@ -17,7 +17,7 @@
             .EditColumnName("Düzenle")
             .AllowDeleting(true)
             .Popup(p => p
-            .Title("Stok Kart")
+            .Title("Stok Fiyat List Hareket Kart")
             .ShowTitle(true)
             .Width(700)
             .Height(525)
@@ -33,6 +33,8 @@
 
                     groupItems.AddSimpleFor(m => m.iskonto);
                     groupItems.AddSimpleFor(m => m.netfiyat);
+                    groupItems.AddSimpleFor(m => m.stokid);
+
       
 
                 });
@@ -43,10 +45,15 @@
             .Columns(columns =>
             {
 
-                columns.AddFor(m => m.iskonto)
-                .Width(120);
+                columns.AddFor(m => m.iskonto);
                 columns.AddFor(m => m.netfiyat);
-                columns.AddFor(m => m.mpstok.adi);
+                columns.AddFor(m => m.stokid)
+                .Width(125)
+                .Lookup(lookup => lookup
+                .DataSource(d => d.Mvc().Controller("STOK").LoadAction("STOKGet").Key("id"))
+                .DisplayExpr("adi")
+                .ValueExpr("id")
+                );
 
                 columns.Add()
                 .Type(GridCommandColumnType.Buttons)
