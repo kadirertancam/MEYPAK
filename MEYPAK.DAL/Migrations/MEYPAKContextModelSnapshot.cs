@@ -22,6 +22,122 @@ namespace MEYPAK.DAL.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("MEYPAK.Entity.IdentityModels.MPROLE", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ACIKLAMA")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("GUNCELLEMETARIHI")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<DateTime>("OLUSTURMATARIHI")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedName")
+                        .IsUnique()
+                        .HasDatabaseName("RoleNameIndex")
+                        .HasFilter("[NormalizedName] IS NOT NULL");
+
+                    b.ToTable("AspNetRoles", (string)null);
+                });
+
+            modelBuilder.Entity("MEYPAK.Entity.IdentityModels.MPUSER", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("AD")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("GUNCELLEMETARIHI")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<DateTime>("OLUSTURMATARIHI")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("SOYAD")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedEmail")
+                        .HasDatabaseName("EmailIndex");
+
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasDatabaseName("UserNameIndex")
+                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.ToTable("AspNetUsers", (string)null);
+                });
+
             modelBuilder.Entity("MEYPAK.Entity.Models.ARAC.MPARACLAR", b =>
                 {
                     b.Property<int>("ID")
@@ -967,38 +1083,96 @@ namespace MEYPAK.DAL.Migrations
 
             modelBuilder.Entity("MEYPAK.Entity.Models.MPDEPOEMIRSIPARISKALEMILISKI", b =>
                 {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+
                     b.Property<int>("DEPOEMIRID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MPDEPOEMIRID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MPSIPARISDETAYID")
                         .HasColumnType("int");
 
                     b.Property<int>("SIPARISDETAYID")
                         .HasColumnType("int");
 
-                    b.Property<int>("ID")
-                        .HasColumnType("int");
+                    b.HasKey("ID");
 
-                    b.HasKey("DEPOEMIRID", "SIPARISDETAYID");
+                    b.HasIndex("MPDEPOEMIRID");
 
-                    b.HasIndex("SIPARISDETAYID");
+                    b.HasIndex("MPSIPARISDETAYID");
 
                     b.ToTable("MPDEPOEMIRSIPARISKALEMILISKI");
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.MPIRSALIYESIPARISDETAYILISKI", b =>
                 {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+
                     b.Property<int>("IRSALIYEDETAYID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MPIRSALIYEDETAYID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MPSIPARISDETAYID")
                         .HasColumnType("int");
 
                     b.Property<int>("SIPARISDETAYID")
                         .HasColumnType("int");
 
-                    b.Property<int>("ID")
-                        .HasColumnType("int");
+                    b.HasKey("ID");
 
-                    b.HasKey("IRSALIYEDETAYID", "SIPARISDETAYID");
+                    b.HasIndex("MPIRSALIYEDETAYID");
 
-                    b.HasIndex("SIPARISDETAYID");
+                    b.HasIndex("MPSIPARISDETAYID");
 
                     b.ToTable("MPIRSALIYESIPARISDETAYILISKI");
+                });
+
+            modelBuilder.Entity("MEYPAK.Entity.Models.PARAMETRE.MPPARABIRIM", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+
+                    b.Property<string>("ADI")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte>("AKTIF")
+                        .HasColumnType("tinyint");
+
+                    b.Property<int>("ESKIID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("GUNCELLEMETARIHI")
+                        .HasColumnType("datetime2");
+
+                    b.Property<byte>("KAYITTIPI")
+                        .HasColumnType("tinyint");
+
+                    b.Property<string>("KISAADI")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("OLUSTURMATARIHI")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("MPPARABIRIM");
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.PERSONEL.MPPERSONEL", b =>
@@ -2314,6 +2488,112 @@ namespace MEYPAK.DAL.Migrations
                     b.ToTable("MPSTOKSAYIMHAR");
                 });
 
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RoleId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetRoleClaims", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserClaims", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+                {
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProviderKey")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProviderDisplayName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("LoginProvider", "ProviderKey");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserLogins", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("RoleId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("UserId", "RoleId");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetUserRoles", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Value")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("UserId", "LoginProvider", "Name");
+
+                    b.ToTable("AspNetUserTokens", (string)null);
+                });
+
             modelBuilder.Entity("MEYPAK.Entity.Models.DEPO.MPDEPOEMIR", b =>
                 {
                     b.HasOne("MEYPAK.Entity.Models.DEPO.MPDEPO", "MPDEPO")
@@ -2325,7 +2605,7 @@ namespace MEYPAK.DAL.Migrations
                     b.HasOne("MEYPAK.Entity.Models.SIPARIS.MPSIPARIS", "MPSIPARIS")
                         .WithMany("MPDEPOEMIR")
                         .HasForeignKey("SIPARISID")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("MPDEPO");
@@ -2357,13 +2637,13 @@ namespace MEYPAK.DAL.Migrations
                     b.HasOne("MEYPAK.Entity.Models.STOK.MPOLCUBR", "MPOLCUBR")
                         .WithMany("MPSTOKMALKABULLIST")
                         .HasForeignKey("BIRIMID")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("MEYPAK.Entity.Models.DEPO.MPDEPOEMIR", "MPDEPOEMIR")
                         .WithMany("MPSTOKMALKABULLIST")
                         .HasForeignKey("EMIRID")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("MEYPAK.Entity.Models.SIPARIS.MPSATINALMAMALKABULEMRIHAR", "MPSATINALMAMALKABULEMRIHAR")
@@ -2375,13 +2655,13 @@ namespace MEYPAK.DAL.Migrations
                     b.HasOne("MEYPAK.Entity.Models.SIPARIS.MPSIPARISDETAY", "MPSIPARISDETAY")
                         .WithMany("MPSTOKMALKABULLIST")
                         .HasForeignKey("SIPARISDETAYID")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("MEYPAK.Entity.Models.STOK.MPSTOK", "MPSTOK")
                         .WithMany("MPSTOKMALKABULLIST")
                         .HasForeignKey("STOKID")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("MPDEPOEMIR");
@@ -2418,7 +2698,7 @@ namespace MEYPAK.DAL.Migrations
                     b.HasOne("MEYPAK.Entity.Models.SIPARIS.MPSIPARISDETAY", "MPSIPARISDETAY")
                         .WithMany("MPSTOKSEVKİYATLİST")
                         .HasForeignKey("SIPARISDETAYID")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("MEYPAK.Entity.Models.STOK.MPSTOK", "MPSTOK")
@@ -2443,7 +2723,7 @@ namespace MEYPAK.DAL.Migrations
                     b.HasOne("MEYPAK.Entity.Models.SIPARIS.MPSIPARIS", "MPSIPARIS")
                         .WithMany("MPIRSALIYE")
                         .HasForeignKey("SIPARISID")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("MPSIPARIS");
@@ -2464,14 +2744,14 @@ namespace MEYPAK.DAL.Migrations
                 {
                     b.HasOne("MEYPAK.Entity.Models.DEPO.MPDEPOEMIR", "MPDEPOEMIR")
                         .WithMany("MPDEPOEMIRSIPARISKALEMILISKI")
-                        .HasForeignKey("DEPOEMIRID")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .HasForeignKey("MPDEPOEMIRID")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("MEYPAK.Entity.Models.SIPARIS.MPSIPARISDETAY", "MPSIPARISDETAY")
                         .WithMany("MPDEPOEMIRSIPARISKALEMILISKI")
-                        .HasForeignKey("SIPARISDETAYID")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .HasForeignKey("MPSIPARISDETAYID")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("MPDEPOEMIR");
@@ -2483,14 +2763,14 @@ namespace MEYPAK.DAL.Migrations
                 {
                     b.HasOne("MEYPAK.Entity.Models.IRSALIYE.MPIRSALIYEDETAY", "MPIRSALIYEDETAY")
                         .WithMany("MPIRSALIYESIPARISDETAYILISKI")
-                        .HasForeignKey("IRSALIYEDETAYID")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .HasForeignKey("MPIRSALIYEDETAYID")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("MEYPAK.Entity.Models.SIPARIS.MPSIPARISDETAY", "MPSIPARISDETAY")
                         .WithMany("MPIRSALIYESIPARISDETAYILISKI")
-                        .HasForeignKey("SIPARISDETAYID")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .HasForeignKey("MPSIPARISDETAYID")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("MPIRSALIYEDETAY");
@@ -2553,7 +2833,7 @@ namespace MEYPAK.DAL.Migrations
                     b.HasOne("MEYPAK.Entity.Models.STOK.MPSTOK", "MPSTOK")
                         .WithMany("MPSIPARISDETAY")
                         .HasForeignKey("STOKID")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("MPIRSALIYE");
@@ -2664,6 +2944,57 @@ namespace MEYPAK.DAL.Migrations
                     b.Navigation("MPSTOK");
 
                     b.Navigation("MPSTOKSAYIM");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+                {
+                    b.HasOne("MEYPAK.Entity.IdentityModels.MPROLE", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+                {
+                    b.HasOne("MEYPAK.Entity.IdentityModels.MPUSER", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+                {
+                    b.HasOne("MEYPAK.Entity.IdentityModels.MPUSER", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+                {
+                    b.HasOne("MEYPAK.Entity.IdentityModels.MPROLE", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MEYPAK.Entity.IdentityModels.MPUSER", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+                {
+                    b.HasOne("MEYPAK.Entity.IdentityModels.MPUSER", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.DEPO.MPDEPO", b =>
