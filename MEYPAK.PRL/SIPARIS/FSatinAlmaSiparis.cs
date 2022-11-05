@@ -102,10 +102,10 @@ namespace MEYPAK.PRL.SIPARIS
         FStokOlcuBrList _fStokOlcuBrList;
         void temizle()
         {
-            gridControl1.DataSource = "";
+            GCMusteriSiparis.DataSource = "";
             _tempSiparisDetay.Clear();
             _tempSiparisDetay.Add(new PocoSiparisKalem());
-            gridControl1.DataSource = _tempSiparisDetay;
+            GCMusteriSiparis.DataSource = _tempSiparisDetay;
             //DGVOlcuBr.DataSource = _tempStok.MPSTOKOLCUBR.Select(x => x.MPOLCUBR.ADI).ToList();
             gridView1.Columns["StokId"].Visible = false;
             gridView1.Columns["MPSTOK"].Visible = false; 
@@ -118,7 +118,7 @@ namespace MEYPAK.PRL.SIPARIS
         {
             _tempStok = new PocoSTOK();
             _tempSiparisDetay.Add(new PocoSiparisKalem());
-            gridControl1.DataSource = _tempSiparisDetay;
+            GCMusteriSiparis.DataSource = _tempSiparisDetay;
             DGVStokSec.FlatStyle = FlatStyle.Flat;
             DGVOlcuBr.Name = "DGVOlcuBr";
             DGVOlcuBr.HeaderText = "Birim";
@@ -151,9 +151,9 @@ namespace MEYPAK.PRL.SIPARIS
             repositoryItemButtonEdit3.ButtonClick += RepositoryItemButtonEdit3_ButtonClick;
             repositoryItemButton2.ButtonClick += RepositoryItemButtonEdit2_ButtonClick;
 
-            gridControl1.RepositoryItems.Add(repositoryItemButtonEdit);
-            gridControl1.RepositoryItems.Add(repositoryItemButton2);
-            gridControl1.RepositoryItems.Add(repositoryItemButtonEdit3);
+            GCMusteriSiparis.RepositoryItems.Add(repositoryItemButtonEdit);
+            GCMusteriSiparis.RepositoryItems.Add(repositoryItemButton2);
+            GCMusteriSiparis.RepositoryItems.Add(repositoryItemButtonEdit3);
             gridColumn.ColumnEdit = repositoryItemButtonEdit;
             gridColumn2.ColumnEdit = repositoryItemButton2;
             gridColumn3.ColumnEdit = repositoryItemButtonEdit3;
@@ -233,7 +233,7 @@ namespace MEYPAK.PRL.SIPARIS
 
             /* DGVFiyatList.DataSource = _tempStok.MPSTOKFIYATLISTHAR.Select(x => x.MPSTOKFIYATLIST.FIYATLISTADI).ToList();*/ //////////////////////////// BAKILCAK
             _tempSiparisDetay[gridView1.FocusedRowHandle] = _tempPocokalem;
-            gridControl1.DataSource = _tempSiparisDetay;
+            GCMusteriSiparis.DataSource = _tempSiparisDetay;
             gridView1.RefreshData();
 
         }
@@ -352,7 +352,7 @@ namespace MEYPAK.PRL.SIPARIS
 
                 /*  DGVFiyatList.DataSource = _tempStok.MPSTOKFIYATLISTHAR.Select(x => x.MPSTOKFIYATLIST.FIYATLISTADI).ToList();*/ //////////////////////////// BAKILCAK
                 _tempSiparisDetay[e.RowIndex] = _tempPocokalem;
-                gridControl1.DataSource = _tempSiparisDetay;
+                GCMusteriSiparis.DataSource = _tempSiparisDetay;
 
 
                 gridView1.Invalidate();
@@ -362,17 +362,6 @@ namespace MEYPAK.PRL.SIPARIS
                 if (_tempPocokalem != null)
                 {
 
-
-                    fKasaList.ShowDialog();
-
-                    if (_tempKasa != null)
-                    {
-                        BTKasaSec.Text = _tempKasa.kasaadi;
-                        gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "KasaAdı", _tempKasa.kasaadi);
-                   
-                    _tempPocokalem.KasaAdı = _tempKasa.kasaadi;
-                    _tempPocokalem.KasaId = _tempKasa.id;
-                    }
 
                 }
             }
@@ -390,9 +379,9 @@ namespace MEYPAK.PRL.SIPARIS
             if (e.KeyChar == (char)Keys.Enter || e.KeyChar == (char)Keys.Down)
             {
 
-                gridControl1.DataSource = "";
+                GCMusteriSiparis.DataSource = "";
                 _tempSiparisDetay.Add(new PocoSiparisKalem());
-                gridControl1.DataSource = _tempSiparisDetay;
+                GCMusteriSiparis.DataSource = _tempSiparisDetay;
 
 
                 //dataGridView1.Columns["DGVOlcuBr"].DisplayIndex = 6;
@@ -590,7 +579,10 @@ namespace MEYPAK.PRL.SIPARIS
             _fCariList.ShowDialog();
         }
 
-       
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
 
         private void gridControl1_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -615,7 +607,7 @@ namespace MEYPAK.PRL.SIPARIS
                 DTSevkiyatTar.Value = _tempSiparis.SEVKIYATTARIHI;
                 DTVadeTar.Text = _tempSiparis.VADEGUNU.ToString();
                 _siparisDetayServis.Data(ServisList.SiparisDetayListeServis + 2, null, "query=SIPARISID=" + _tempSiparis.id.ToString());
-                gridControl1.DataSource = _siparisDetayServis.obje.Select(x => new PocoSiparisKalem()
+                GCMusteriSiparis.DataSource = _siparisDetayServis.obje.Select(x => new PocoSiparisKalem()
                 {
                     StokId = x.STOKID,
                     StokKodu = _stokServis.obje.Where(z => z.id == x.STOKID).FirstOrDefault().kod,//,  TODOO:BAKILACAAAK
@@ -628,13 +620,7 @@ namespace MEYPAK.PRL.SIPARIS
             }
         }
             
-        private void BTNKasaSec_Click(object sender, EventArgs e)
-        {
-            FKasaList fKasaList = new FKasaList(this.Tag.ToString(),"Siparis");
-            fKasaList.ShowDialog();
-            if (_tempKasa != null)
-                BTKasaSec.Text = _tempKasa.kasaadi;
-        }
+       
 
         private void dataGridView1_CellLeave(object sender, DataGridViewCellEventArgs e)
         {

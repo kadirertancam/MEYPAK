@@ -26,7 +26,7 @@ namespace MEYPAK.PRL.DEPO
     {
         PocoDEPOTRANSFER _arasıtransfer;
         public PocoSTOK _tempStok;
-        IDepoServis _depoServis ;
+        IDepoServis _depoServis;
         IDepoTransferServis _depoTransferServis ;
         IDepoTransferHarServis _depoTransferHarServis ;
         public FDepolarArasıTransferHar(PocoDEPOTRANSFER arasıTransfer)
