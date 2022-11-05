@@ -217,69 +217,7 @@ namespace MEYPAK.PRL.SIPARIS
 
         }
 
-        private void BTKaydet_Click(object sender, EventArgs e)
-        {
-            _cariKart.Data(ServisList.CariListeServis);
-
-            _siparisServis.Data(ServisList.SiparisEkleServis, new PocoSIPARIS()
-            {
-                ACIKLAMA = TBAciklama.Text,
-                KUR = Convert.ToDecimal(TBKur.Text),
-                BELGENO = BTSiparisSec.Text,
-                VADETARIHI = DTVadeTar.Value,
-                guncellemetarihi = DateTime.Now,
-                VADEGUNU = Convert.ToInt32(TBVadeGun.Text),
-                CARIADI = TBCariAdi.Text,
-                CARIID = _cariKart.obje.Where(x => x.KOD == TBCariAdi.Text).FirstOrDefault().id,
-                DEPOID = _depoServis.obje.Where(x => x.depoadi == CBDepo.EditValue).FirstOrDefault().id,
-                DOVIZID = 0,
-                ISKONTOTOPLAM = _tempSiparisDetay.Sum(x => x.İskontoTutarı),
-                KDVTOPLAM = _tempSiparisDetay.Sum(x => x.KdvTutarı),
-                BRUTTOPLAM = _tempSiparisDetay.Sum(x => x.BrütToplam),
-                NETTOPLAM = _tempSiparisDetay.Sum(x => x.NetToplam),
-                GENELTOPLAM = _tempSiparisDetay.Sum(x => x.KdvTutarı) + _tempSiparisDetay.Sum(x => x.NetToplam),
-                TIP = 0,
-
-            });
-            _stokOlcuBr.Data(ServisList.StokOlcuBrListeServis);
-            _olcuBr.Data(ServisList.OlcuBrListeServis);
-            int i = 0;
-            foreach (var item in _tempSiparisDetay.Where(x => x.StokKodu != "").ToList())
-            {
-                var stokolcubr = _stokOlcuBr.obje.Where(x => x.stokid == item.StokId).FirstOrDefault();
-
-                _siparisDetayServis.Data(ServisList.SiparisDetayEkleServis, new PocoSIPARISDETAY()
-                {
-                    STOKID = item.StokId,
-                    STOKADI = item.StokAdı,
-                    ACIKLAMA = item.Acıklama,
-                    KDV = item.Kdv,
-                    KASAID = item.KasaId,
-                    NETTOPLAM = item.NetToplam,
-                    NETFIYAT = item.NetFiyat,
-                    BIRIMID = _olcuBr.obje.Where(x => x.adi.ToString() == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Birim").ToString()).FirstOrDefault().id,
-                    DOVIZID = 0,
-                    MIKTAR = item.Miktar,
-                    ISTKONTO1 = item.İskonto1,
-                    ISTKONTO2 = item.İskonto2,
-                    ISTKONTO3 = item.İskonto3,
-                    SIPARISID = _siparisServis.obje2.id, ///ID gelecek
-
-                    BRUTFIYAT = item.BrütFiyat,
-                    BRUTTOPLAM = item.BrütFiyat * item.Miktar,
-                    BEKLEYENMIKTAR = 0,
-                    HAREKETDURUMU = 0,
-                    LISTEFIYATID = 0,
-                    TIP = 0,
-                    KDVTUTARI = item.KdvTutarı
-                });
-                i++;
-            }
-            temizle();
-            //DataGrideSiparisleriGetir();
-        }
-
-
+       
 
 
         public void Temizle(Control.ControlCollection ctrlCollection)
@@ -492,7 +430,120 @@ namespace MEYPAK.PRL.SIPARIS
             }
         }
 
-       
+        private void BTKaydet_Click_1(object sender, EventArgs e)
+        {
+            _cariKart.Data(ServisList.CariListeServis);
+
+            _siparisServis.Data(ServisList.SiparisEkleServis, new PocoSIPARIS()
+            {
+                ACIKLAMA = TBAciklama.Text,
+                KUR = Convert.ToDecimal(TBKur.Text),
+                BELGENO = BTSiparisSec.Text,
+                VADETARIHI = DTVadeTar.Value,
+                guncellemetarihi = DateTime.Now,
+                VADEGUNU = Convert.ToInt32(TBVadeGun.Text),
+                CARIADI = TBCariAdi.Text,
+                CARIID = _cariKart.obje.Where(x => x.KOD == TBCariAdi.Text).FirstOrDefault().id,
+                DEPOID = _depoServis.obje.Where(x => x.depoadi == CBDepo.EditValue).FirstOrDefault().id,
+                DOVIZID = 0,
+                ISKONTOTOPLAM = _tempSiparisDetay.Sum(x => x.İskontoTutarı),
+                KDVTOPLAM = _tempSiparisDetay.Sum(x => x.KdvTutarı),
+                BRUTTOPLAM = _tempSiparisDetay.Sum(x => x.BrütToplam),
+                NETTOPLAM = _tempSiparisDetay.Sum(x => x.NetToplam),
+                GENELTOPLAM = _tempSiparisDetay.Sum(x => x.KdvTutarı) + _tempSiparisDetay.Sum(x => x.NetToplam),
+                TIP = 0,
+
+            });
+            _stokOlcuBr.Data(ServisList.StokOlcuBrListeServis);
+            _olcuBr.Data(ServisList.OlcuBrListeServis);
+            int i = 0;
+            foreach (var item in _tempSiparisDetay.Where(x => x.StokKodu != "").ToList())
+            {
+                var stokolcubr = _stokOlcuBr.obje.Where(x => x.stokid == item.StokId).FirstOrDefault();
+
+                _siparisDetayServis.Data(ServisList.SiparisDetayEkleServis, new PocoSIPARISDETAY()
+                {
+                    STOKID = item.StokId,
+                    STOKADI = item.StokAdı,
+                    ACIKLAMA = item.Acıklama,
+                    KDV = item.Kdv,
+                    KASAID = item.KasaId,
+                    NETTOPLAM = item.NetToplam,
+                    NETFIYAT = item.NetFiyat,
+                    BIRIMID = _olcuBr.obje.Where(x => x.adi.ToString() == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Birim").ToString()).FirstOrDefault().id,
+                    DOVIZID = 0,
+                    MIKTAR = item.Miktar,
+                    ISTKONTO1 = item.İskonto1,
+                    ISTKONTO2 = item.İskonto2,
+                    ISTKONTO3 = item.İskonto3,
+                    SIPARISID = _siparisServis.obje2.id, ///ID gelecek
+
+                    BRUTFIYAT = item.BrütFiyat,
+                    BRUTTOPLAM = item.BrütFiyat * item.Miktar,
+                    BEKLEYENMIKTAR = 0,
+                    HAREKETDURUMU = 0,
+                    LISTEFIYATID = 0,
+                    TIP = 0,
+                    KDVTUTARI = item.KdvTutarı
+                });
+                i++;
+            }
+            temizle();
+            //DataGrideSiparisleriGetir();
+        }
+
+        //TODO
+        private void BTDegistir_Click(object sender, EventArgs e)
+        {
+
+        }
+        //TODO
+
+        private void BTSil_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BTCariSec_EditValueChanged(object sender, EventArgs e)
+        {
+
+            _fCariList = new FCariList(this.Tag.ToString(), "musterisiparis");
+            _fCariList.ShowDialog();
+            if (_tempCariKart != null)
+            {
+                BTCariSec.Text = _tempCariKart.KOD;
+                TBCariAdi.Text = _tempCariKart.ADI;
+            }
+        }
+
+        private void BTSiparisSec_EditValueChanged(object sender, EventArgs e)
+        {
+            FMusteriSiparisList fMusteriSiparisList = new FMusteriSiparisList(this.Tag.ToString(), "Siparis");
+            fMusteriSiparisList.ShowDialog();
+            if (_tempSiparis != null)
+                BTSiparisSec.Text = _tempSiparis.BELGENO;
+            //todo : TBCariKodu.Text = 
+            BTCariSec.Text = _cariKart.obje.Where(x => x.id == _tempSiparis.CARIID).FirstOrDefault().KOD;
+            TBCariAdi.Text = _tempSiparis.CARIADI;
+            _stokServis.Data(ServisList.StokListeServis);
+            //TODO TBKasa.Text = 
+            DTSiparisTar.Value = _tempSiparis.SIPARISTARIHI;
+            TBAciklama.Text = _tempSiparis.ACIKLAMA;
+            DTVadeTar.Value = _tempSiparis.VADETARIHI;
+            DTSevkiyatTar.Value = _tempSiparis.SEVKIYATTARIHI;
+            TBVadeGun.Text = _tempSiparis.VADEGUNU.ToString();
+            _siparisDetayServis.Data(ServisList.SiparisDetayListeServis + 2, null, "query=SIPARISID=" + _tempSiparis.id.ToString());
+            GCMusteriSiparis.DataSource = _siparisDetayServis.obje.Select(x => new PocoSiparisKalem()
+            {
+                StokId = x.STOKID,
+                StokKodu = _stokServis.obje.Where(z => z.id == x.STOKID).FirstOrDefault().kod,//,  TODOO:BAKILACAAAK
+                StokAdı = _stokServis.obje.Where(z => z.id == x.STOKID).FirstOrDefault().adi,
+                Birim = "0",// _olcuBr.obje.Where(x => x.ADI == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "DGVOlcuBr").ToString()).FirstOrDefault().ADI,
+                KasaAdı = "",
+                Kdv = _tempStok.satiskdv,
+                Doviz = "TL", //_tempStok.SDOVIZID 
+            });
+        }
 
         private void gridView1_CustomRowCellEditForEditing(object sender, CustomRowCellEditEventArgs e)
         {
@@ -552,47 +603,8 @@ namespace MEYPAK.PRL.SIPARIS
 
 
 
-        private void BTCariSec_Click(object sender, EventArgs e)
-        {
-            _fCariList = new FCariList(this.Tag.ToString(), "musterisiparis");
-            _fCariList.ShowDialog();
-            if (_tempCariKart != null)
-            {
-                BTCariSec.Text = _tempCariKart.KOD;
-                TBCariAdi.Text = _tempCariKart.ADI;
-            }
-        }
-
-       
-        private void BTSiparisSec_Click(object sender, EventArgs e)
-        {
-            FMusteriSiparisList fMusteriSiparisList = new FMusteriSiparisList(this.Tag.ToString(), "Siparis");
-            fMusteriSiparisList.ShowDialog();
-            if (_tempSiparis != null)
-            BTSiparisSec.Text = _tempSiparis.BELGENO;
-            //todo : TBCariKodu.Text = 
-            BTCariSec.Text = _cariKart.obje.Where(x => x.id == _tempSiparis.CARIID).FirstOrDefault().KOD;
-            TBCariAdi.Text = _tempSiparis.CARIADI;
-            _stokServis.Data(ServisList.StokListeServis);
-            //TODO TBKasa.Text = 
-            DTSiparisTar.Value = _tempSiparis.SIPARISTARIHI;
-            TBAciklama.Text = _tempSiparis.ACIKLAMA;
-            DTVadeTar.Value = _tempSiparis.VADETARIHI;
-            DTSevkiyatTar.Value = _tempSiparis.SEVKIYATTARIHI;
-            TBVadeGun.Text = _tempSiparis.VADEGUNU.ToString();
-            _siparisDetayServis.Data(ServisList.SiparisDetayListeServis + 2, null, "query=SIPARISID=" + _tempSiparis.id.ToString());
-            GCMusteriSiparis.DataSource = _siparisDetayServis.obje.Select(x => new PocoSiparisKalem()
-            {
-                StokId = x.STOKID,
-                StokKodu = _stokServis.obje.Where(z => z.id == x.STOKID).FirstOrDefault().kod,//,  TODOO:BAKILACAAAK
-                StokAdı = _stokServis.obje.Where(z => z.id == x.STOKID).FirstOrDefault().adi,
-                Birim = "0",// _olcuBr.obje.Where(x => x.ADI == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "DGVOlcuBr").ToString()).FirstOrDefault().ADI,
-                KasaAdı = "",
-                Kdv = _tempStok.satiskdv,
-                Doviz = "TL", //_tempStok.SDOVIZID 
-            });
-        }
-
+        
+   
        
         private void dataGridView1_CellLeave(object sender, DataGridViewCellEventArgs e)
         {

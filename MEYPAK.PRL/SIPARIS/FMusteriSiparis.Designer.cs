@@ -64,6 +64,7 @@
             this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.TBAciklama = new DevExpress.XtraEditors.MemoEdit();
             this.DTSevkiyatTar = new System.Windows.Forms.DateTimePicker();
             this.LBSiparisNo = new DevExpress.XtraEditors.LabelControl();
             this.TBVadeGun = new DevExpress.XtraEditors.TextEdit();
@@ -89,7 +90,6 @@
             this.LBVadeTar = new DevExpress.XtraEditors.LabelControl();
             this.BTSiparisSec = new DevExpress.XtraEditors.ButtonEdit();
             this.LBAciklama = new DevExpress.XtraEditors.LabelControl();
-            this.TBAciklama = new DevExpress.XtraEditors.MemoEdit();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -113,6 +113,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).BeginInit();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TBAciklama.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBVadeGun.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBKur.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBParaBirimi.Properties)).BeginInit();
@@ -122,7 +123,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.TBCariAdi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTCariSec.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTSiparisSec.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TBAciklama.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -420,6 +420,7 @@
             this.BTSil.Size = new System.Drawing.Size(95, 49);
             this.BTSil.TabIndex = 33;
             this.BTSil.Text = "Sil";
+            this.BTSil.Click += new System.EventHandler(this.BTSil_Click);
             // 
             // BTDegistir
             // 
@@ -431,6 +432,7 @@
             this.BTDegistir.Size = new System.Drawing.Size(95, 49);
             this.BTDegistir.TabIndex = 32;
             this.BTDegistir.Text = "Değiştir";
+            this.BTDegistir.Click += new System.EventHandler(this.BTDegistir_Click);
             // 
             // BTKaydet
             // 
@@ -442,6 +444,7 @@
             this.BTKaydet.Size = new System.Drawing.Size(95, 49);
             this.BTKaydet.TabIndex = 31;
             this.BTKaydet.Text = "Kaydet";
+            this.BTKaydet.Click += new System.EventHandler(this.BTKaydet_Click_1);
             // 
             // panel3
             // 
@@ -525,6 +528,13 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Müşteri Sipariş";
+            // 
+            // TBAciklama
+            // 
+            this.TBAciklama.Location = new System.Drawing.Point(753, 41);
+            this.TBAciklama.Name = "TBAciklama";
+            this.TBAciklama.Size = new System.Drawing.Size(167, 86);
+            this.TBAciklama.TabIndex = 109;
             // 
             // DTSevkiyatTar
             // 
@@ -728,6 +738,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.BTCariSec.Size = new System.Drawing.Size(177, 20);
             this.BTCariSec.TabIndex = 96;
+            this.BTCariSec.EditValueChanged += new System.EventHandler(this.BTCariSec_EditValueChanged);
             // 
             // LBVadeTar
             // 
@@ -747,6 +758,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.BTSiparisSec.Size = new System.Drawing.Size(177, 20);
             this.BTSiparisSec.TabIndex = 95;
+            this.BTSiparisSec.EditValueChanged += new System.EventHandler(this.BTSiparisSec_EditValueChanged);
             // 
             // LBAciklama
             // 
@@ -757,13 +769,6 @@
             this.LBAciklama.Size = new System.Drawing.Size(45, 13);
             this.LBAciklama.TabIndex = 94;
             this.LBAciklama.Text = "Açıklama";
-            // 
-            // TBAciklama
-            // 
-            this.TBAciklama.Location = new System.Drawing.Point(753, 41);
-            this.TBAciklama.Name = "TBAciklama";
-            this.TBAciklama.Size = new System.Drawing.Size(167, 86);
-            this.TBAciklama.TabIndex = 109;
             // 
             // FMusteriSiparis
             // 
@@ -803,6 +808,7 @@
             this.panel2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TBAciklama.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBVadeGun.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBKur.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBParaBirimi.Properties)).EndInit();
@@ -812,7 +818,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.TBCariAdi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTCariSec.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTSiparisSec.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TBAciklama.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

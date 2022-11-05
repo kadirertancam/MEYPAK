@@ -225,14 +225,14 @@ namespace MEYPAK.PRL.STOK
 
                 stokSayimHarServis.Data(ServisList.StokSayimHarEkleServis, (new PocoSTOKSAYIMHAR()
                 {
-                    STOKID = stokServis.obje.Where(x => x.kod == gridView1.GetRowCellValue(i,"StokKodu").ToString()).FirstOrDefault().id,
-                    MIKTAR = Decimal.Parse(gridView1.GetRowCellValue(i,"Miktar").ToString()),
-                    FIYAT = Decimal.Parse(gridView1.GetRowCellValue(i,"Fiyat").ToString()),
-                    BIRIMID= olcuBrServis.obje.Where(x=>x.adi==gridView1.GetRowCellValue(i,"birim")).FirstOrDefault().id,
-                    KUR = 1,
-                    PARABR = 1,
-                    DEPOID = depoServis.obje.Where(x => x.depoadi == CBDepo.EditValue).FirstOrDefault().id,
-                    STOKSAYIMID = sayimId
+                    stokid = stokServis.obje.Where(x => x.kod == gridView1.GetRowCellValue(i,"StokKodu").ToString()).FirstOrDefault().id,
+                    miktar = Decimal.Parse(gridView1.GetRowCellValue(i,"Miktar").ToString()),
+                    fiyat= Decimal.Parse(gridView1.GetRowCellValue(i,"Fiyat").ToString()),
+                    birimid = olcuBrServis.obje.Where(x=>x.adi==gridView1.GetRowCellValue(i,"birim")).FirstOrDefault().id,
+                    kur = 1,
+                    parabr = 1,
+                    depoid = depoServis.obje.Where(x => x.depoadi == CBDepo.EditValue).FirstOrDefault().id,
+                    stoksayimid = sayimId
 
                 }));
 

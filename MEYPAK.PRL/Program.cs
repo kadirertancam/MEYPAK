@@ -25,7 +25,7 @@ namespace MEYPAK.PRL
             NinjectFactory.CompositionRoot.Initialize(a);
             ApplicationConfiguration.Initialize();
             Application.EnableVisualStyles();
-            Application.Run(new FKategoriList());
+            Application.Run(new FStokSayim());
         }
 
         public class ApplicationDbContext : DbContext
