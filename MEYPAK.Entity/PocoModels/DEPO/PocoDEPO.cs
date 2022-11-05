@@ -9,13 +9,9 @@ namespace MEYPAK.Entity.PocoModels.DEPO
 {
     public class PocoDEPO:SUPERPOCOMODEL
     {
-        public int SIRKETID { get; set; }
-        [StringLength(100)]
-        [Required]
-        public string DEPOKODU { get; set; }
-        [StringLength(100)]
-        public string DEPOADI { get; set; } = "";
-        [StringLength(200)]
-        public string ACIKLAMA { get; set; } = "";
+        public int sirketid { get; set; }=0;
+        public string depokodu { get; set; }
+        public string depoadi { get; set; } = "";
+        public string aciklama { get; set; } = "";
     }
 }

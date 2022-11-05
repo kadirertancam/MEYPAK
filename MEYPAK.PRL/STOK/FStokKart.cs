@@ -204,7 +204,7 @@ namespace MEYPAK.PRL
             _tempStok = _PocoStokServis.obje.Where(x => x.kod == _tempStok.kod).FirstOrDefault();
             foreach (var item in stokOlculist)
             {
-                item.STOKID = _PocoStokServis.obje.Where(x => x.kod == BTStokKodu.Text).FirstOrDefault().id;
+                item.stokid = _PocoStokServis.obje.Where(x => x.kod == BTStokKodu.Text).FirstOrDefault().id;
                 _StokOlcuBrServis.Data(ServisList.StokOlcuBrEkleServis, item);
             }
 
@@ -232,9 +232,9 @@ namespace MEYPAK.PRL
             }
             _tempStokOlcuBr = new PocoSTOKOLCUBR()
             {
-                OLCUBRID = _tempPocoOLCUBR.Where(x => x.adi == CBBirim.EditValue.ToString()).FirstOrDefault().id,
-                NUM = dataGridView1.RowCount + 1,
-                KATSAYI = Convert.ToDecimal(TBKatsayi.Text),
+                olcubrid = _tempPocoOLCUBR.Where(x => x.adi == CBBirim.EditValue.ToString()).FirstOrDefault().id,
+                num = dataGridView1.RowCount + 1,
+                katsayi = Convert.ToDecimal(TBKatsayi.Text),
 
 
             };

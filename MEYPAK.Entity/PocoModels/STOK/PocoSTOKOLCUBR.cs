@@ -10,13 +10,13 @@ namespace MEYPAK.Entity.PocoModels.STOK
 {
     public class PocoSTOKOLCUBR:SUPERPOCOMODEL
     {
-        public int NUM { get; set; }                //Sıra numarası
-        public decimal KATSAYI { get; set; }
-        public int KULLANICIID { get; set; }
-        public int STOKID { get; set; } 
-        public virtual PocoSTOK MPSTOK { get; set; }
-        public int OLCUBRID { get; set; }
-        public virtual PocoOLCUBR MPOLCUBR { get; set; }
+        public int num { get; set; } 
+        public decimal katsayi { get; set; }
+        public int kullaniciid { get; set; }
+        public int stokid { get; set; } 
+        public virtual PocoSTOK mpstok { get; set; }
+        public int olcubrid { get; set; }
+        public virtual PocoOLCUBR mpolcubr { get; set; }
 
     }
 }

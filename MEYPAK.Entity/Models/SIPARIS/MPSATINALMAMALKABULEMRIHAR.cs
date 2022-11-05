@@ -21,9 +21,9 @@ namespace MEYPAK.Entity.Models.SIPARIS
         public int SIPARISKALEMID { get; set; }
         public decimal SIPARISMIKTARI { get; set; }
         public decimal EMIRMIKTARI { get; set; }
-        public MPSIPARIS MPSIPARIS { get; set; }
-        public MPSIPARISDETAY MPSIPARISDETAY { get; set; }
-        public MPDEPOEMIR MPDEPOEMIR { get; set; } 
+        public virtual MPSIPARIS MPSIPARIS { get; set; }
+        public virtual MPSIPARISDETAY MPSIPARISDETAY { get; set; }
+        public virtual MPDEPOEMIR MPDEPOEMIR { get; set; } 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MPSTOKMALKABULLIST> MPSTOKMALKABULLIST { get; set; }
 

@@ -40,16 +40,16 @@ namespace MEYPAK.PRL.DEPO
                 _id = _tempStok.Where(x => x.kod == item.StokKodu).FirstOrDefault().id; 
                 _stokMalKabulListServis.EkleyadaGuncelle(new PocoSTOKMALKABULLIST()
                 {
-                    STOKID = _id,
-                    EMIRID = _tempEmir.id,
-                    BIRIMID = StaticContext._siparisDetayServis.Getir(x => x.SIPARISID == _tempEmir.SIPARISID && x.STOKID == _id).FirstOrDefault().BIRIMID,
-                    MIKTAR = item.Miktar,
-                    DEPOID = _tempEmir.MPSIPARIS.DEPOID,
-                    SIRKETID = 0,
-                    SIPARISMIKTARI = _tempEmir.MPSIPARIS.MPSIPARISDETAYList.Where(x => x.STOKID == _id).Sum(x => x.MIKTAR),
-                    SIPARISDETAYID = _tempList.Where(x => x.MPSIPARISDETAY.STOKID == _id && x.EMIRID == _tempEmir.id).FirstOrDefault().MPSIPARISDETAY.id,
-                    SUBEID = 0,
-                    KULLANICIID = 0
+                    stokid = _id,
+                    emirid = _tempEmir.id,
+                    birimid = StaticContext._siparisDetayServis.Getir(x => x.SIPARISID == _tempEmir.siparisid && x.STOKID == _id).FirstOrDefault().BIRIMID,
+                    miktar = item.Miktar,
+                    depoid = _tempEmir.mpsiparis.DEPOID,
+                    sirketid = 0,
+                    siparismiktari = _tempEmir.mpsiparis.MPSIPARISDETAYList.Where(x => x.STOKID == _id).Sum(x => x.MIKTAR),
+                    siparisdetayid = _tempList.Where(x => x.mpsiparisdetay.STOKID == _id && x.emirid == _tempEmir.id).FirstOrDefault().mpsiparisdetay.id,
+                    subeid = 0,
+                    kullaniciid = 0
                 });
 
                 this.Close();
@@ -62,15 +62,15 @@ namespace MEYPAK.PRL.DEPO
             _Stok = _tempStok.Where(x => x.id.ToString() == CBMalKabulCekiStokKodu.GetSelectedDataRow().ToString()).FirstOrDefault();
             _tempStokSevkiyatList = new PocoSTOKMALKABULLIST()
             {
-                STOKID = _Stok.id,
-                EMIRID = _tempEmir.id,
-                DEPOID = _tempEmir.MPSIPARIS.DEPOID,
-                MIKTAR = 0,
-                SIPARISMIKTARI = _tempEmir.MPSIPARIS.MPSIPARISDETAYList.Where(x => x.STOKID.ToString() == CBMalKabulCekiStokKodu.GetSelectedDataRow().ToString()).FirstOrDefault().MIKTAR,
+                stokid = _Stok.id,
+                emirid = _tempEmir.id,
+                depoid = _tempEmir.mpsiparis.DEPOID,
+                miktar = 0,
+                siparismiktari = _tempEmir.mpsiparis.MPSIPARISDETAYList.Where(x => x.STOKID.ToString() == CBMalKabulCekiStokKodu.GetSelectedDataRow().ToString()).FirstOrDefault().MIKTAR,
                 //BIRIMID = _Stok.mpstokolcubr.Where(x => x.NUM == 1).Select(x => x.MPOLCUBR.ID).FirstOrDefault(),
             //    MPOLCUBR = _Stok.MPSTOKOLCUBRList.Where(x => x.NUM == 1).Select(x => x.MPOLCUBR).FirstOrDefault(),
-                MPDEPOEMIR = _tempEmir,
-                MPSTOK = _Stok,
+                mpdepoemir = _tempEmir,
+                mpstok = _Stok,
 
 
             };
@@ -81,18 +81,18 @@ namespace MEYPAK.PRL.DEPO
             }
             gridControl1.DataSource = _tempList.Select(x => new PocoStokSevkiyatList()
             {
-                StokAdı = x.MPSTOK.adi,
-                StokKodu = x.MPSTOK.kod,
-                Birim = x.MPOLCUBR.adi,
-                Miktar = x.MIKTAR,
-                ID = x.STOKID,
+                StokAdı = x.mpstok.adi,
+                StokKodu = x.mpstok.kod,
+                Birim = x.mpolcubr.adi,
+                Miktar = x.miktar,
+                ID = x.stokid,
                 MPSTOK = _Stok
             }).ToList();
         }
 
         private void FMalKabulCekiPanel_Load(object sender, EventArgs e)
         {
-            gridControl1.DataSource = _tempList.Select(x => new PocoStokSevkiyatList { StokKodu = x.MPSTOK.kod, StokAdı = x.MPSTOK.adi, Birim = "0" }).ToList();
+            gridControl1.DataSource = _tempList.Select(x => new PocoStokSevkiyatList { StokKodu = x.mpstok.kod, StokAdı = x.mpstok.adi, Birim = "0" }).ToList();
          
             CBMalKabulCekiStokKodu.Properties.DataSource = _tempStok.Select(x => new { KOD = x.kod, ID = x.id }).ToList();
         }

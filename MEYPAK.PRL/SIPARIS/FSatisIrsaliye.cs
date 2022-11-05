@@ -29,7 +29,7 @@ namespace MEYPAK.PRL.SIPARIS
             _fStokList = new FStokList(this.Tag.ToString(),"siparis");
             fKasaList = new FKasaList(this.Tag.ToString(),"Siparis");
             DGIrsaliyeOlustur.MultiSelect = false;
-            CBDepo.Properties.DataSource = StaticContext._depoServis.Listele().Select(x => x.DEPOADI).ToList();
+            CBDepo.Properties.DataSource = StaticContext._depoServis.Listele().Select(x => x.depoadi).ToList();
         }
         FKasaList fKasaList;
         List<PocoIRSALIYEDETAY> _tempIrsaliyeDetay = new List<PocoIRSALIYEDETAY>();

@@ -511,11 +511,59 @@ namespace MEYPAK.WEB.Controllers.STOKController
 
         #endregion
 
+        #region STOKSAYIMHAR
 
+        [HttpGet]
+        public async Task<IActionResult> StokSayimHarKart()
+        {
+            return View();
+        }
 
+        [HttpGet]
+        public object StokSayimHarGet(DataSourceLoadOptions loadOptions)
+        {
+            //var a = loadOptions.Take;
+            //var b = loadOptions.Skip;
+            //string url = "http://213.238.167.117:8080/Stok/PagingList?skip="+b+"&take="+a+"&requireTotalCount=true";
+            //_tempPocoStok.Data(url);
+            _tempPocoStokSayimHar.Data(ServisList.StokSayimHarListeServis);
+            return DataSourceLoader.Load(_tempPocoStokSayimHar.obje.Where(x => x.kayittipi == 0).Reverse().AsEnumerable(), loadOptions);
+        }
+        [HttpPut]
+        public async Task<IActionResult> StokSayimHarPut(int key, string values)
+        { //güncellenecek
+            _tempPocoStokSayimHar.Data(ServisList.StokSayimHarListeServis);
+            var employee = _tempPocoStokSayimHar.obje.First(a => a.id == key);
+            JsonConvert.PopulateObject(values, employee);
 
+            //_tempPocoStok.Data(ServisList.StokEkleServis, id);
 
+            _tempPocoStokSayimHar.Data(ServisList.StokSayimHarEkleServis, employee);
 
+            ViewBag.Durum = "Başarıyla Güncellendi.";
+            return Ok();
+        }
+        [HttpPost]
+        public async Task<IActionResult> StokSayimHarPost(string values)
+        {
+            PocoSTOKSAYIMHAR newPoco = new PocoSTOKSAYIMHAR();
+            JsonConvert.PopulateObject(values, newPoco);
+            _tempPocoStokSayimHar.Data(ServisList.StokSayimHarEkleServis, newPoco);
+
+            ViewBag.Durum = "Başarıyla eklendi.";
+            return Ok();
+        }
+        [HttpDelete]
+        public void StokSayimHarDelete(int key)
+        {
+            string url = ServisList.StokSayimHarDeleteByIdServis;
+            url += "?id=";
+            url += key;
+            _tempPocoStokSayimHar.Data(url, method: HttpMethod.Post);
+            ViewBag.Durum = "Başarıyla silindi.";
+        }
+
+        #endregion
 
 
 
