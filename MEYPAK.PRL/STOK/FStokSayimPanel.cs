@@ -88,13 +88,13 @@ namespace MEYPAK.PRL.STOK
             else if (_islemtipi == "kaydet")
             { 
                 _tempStokSayimHarList = new List<PocoStokSayimPanelList>();
-                CBDepo.Properties.DataSource = depoServis.obje.Select(x => x.DEPOADI).ToList();
+                CBDepo.Properties.DataSource = depoServis.obje.Select(x => x.depoadi).ToList();
                 foreach (var item in stokServis.obje.Where(x=>x.kayittipi==0))
                 {
                     _tempStokSayimHarList.Add(new PocoStokSayimPanelList()
                     {
                         StokAdı = item.adi,
-                        Birim = olcuBrServis.obje.Where(x=>x.id== (stokOlcuBrServis.obje.Where(z=>z.NUM==1 && z.STOKID==item.id).Select(z=>z.OLCUBRID).FirstOrDefault())).FirstOrDefault().adi, //TODO: İlgili stoğun ölçü birimi gelecek fakat bütün stoklarda ölçü birim tanımlı değil. isterseniz veritabanını yapılandırabilirsiiz.
+                        Birim = olcuBrServis.obje.Where(x=>x.id== (stokOlcuBrServis.obje.Where(z=>z.num==1 && z.stokid==item.id).Select(z=>z.olcubrid).FirstOrDefault())).FirstOrDefault().adi, //TODO: İlgili stoğun ölçü birimi gelecek fakat bütün stoklarda ölçü birim tanımlı değil. isterseniz veritabanını yapılandırabilirsiiz.
                         Fiyat = 1,
                         Miktar = 0,
                         StokKodu = item.kod
@@ -232,7 +232,7 @@ namespace MEYPAK.PRL.STOK
                     BIRIMID= olcuBrServis.obje.Where(x=>x.adi==gridView1.GetRowCellValue(i,"birim")).FirstOrDefault().id,
                     KUR = 1,
                     PARABR = 1,
-                    DEPOID = depoServis.obje.Where(x => x.DEPOADI == CBDepo.EditValue).FirstOrDefault().id,
+                    DEPOID = depoServis.obje.Where(x => x.depoadi == CBDepo.EditValue).FirstOrDefault().id,
                     STOKSAYIMID = sayimId
 
                 }));

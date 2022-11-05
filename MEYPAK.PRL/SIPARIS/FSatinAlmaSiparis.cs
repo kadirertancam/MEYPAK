@@ -1,7 +1,6 @@
 ﻿using MEYPAK.BLL.STOK;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
-using MEYPAK.DAL.Concrete.EntityFramework.Repository;
 using MEYPAK.Entity.PocoModels;
 using MEYPAK.Interfaces.Depo;
 using MEYPAK.Interfaces.Siparis;
@@ -86,7 +85,7 @@ namespace MEYPAK.PRL.SIPARIS
             
             DataGridYapilandir();
             //SelectedIndex
-            CBParaBirimi.EditValue = 0;
+            
         }
         DataGridViewButtonColumn DGVStokSec;
         DataGridViewButtonColumn DGVKasaSec;
@@ -253,7 +252,7 @@ namespace MEYPAK.PRL.SIPARIS
                 VADEGUNU = Convert.ToInt32(DTPVadeTarihi.Text),
                 CARIADI = TBCariAdi.Text,
                 CARIID = _cariKart.obje.Where(x=>x.KOD==TBCariKodu.Text).FirstOrDefault().id,
-                DEPOID = _depoServis.obje.Where(x => x.DEPOADI == CBDepo.EditValue).FirstOrDefault().id,
+                DEPOID = _depoServis.obje.Where(x => x.depoadi == CBDepo.EditValue).FirstOrDefault().id,
                 DOVIZID = 0,
                 ISKONTOTOPLAM = _tempSiparisDetay.Sum(x => x.İskontoTutarı),
                 KDVTOPLAM = _tempSiparisDetay.Sum(x => x.KdvTutarı),
@@ -268,7 +267,7 @@ namespace MEYPAK.PRL.SIPARIS
             int i = 0;
             foreach (var item in _tempSiparisDetay.Where(x => x.StokKodu != "").ToList())
             {
-                var stokolcubr = _stokOlcuBr.obje.Where(x => x.STOKID == item.StokId).FirstOrDefault();
+                var stokolcubr = _stokOlcuBr.obje.Where(x => x.stokid == item.StokId).FirstOrDefault();
 
                 _siparisDetayServis.Data(ServisList.SiparisDetayEkleServis, new PocoSIPARISDETAY()
                 {
@@ -325,7 +324,7 @@ namespace MEYPAK.PRL.SIPARIS
             {
                 _fStokList.ShowDialog();
 
-                var tempp = _stokOlcuBr.obje.Where(x => x.STOKID == _tempStok.id);
+                var tempp = _stokOlcuBr.obje.Where(x => x.stokid == _tempStok.id);
                 _olcuBr.Data(ServisList.OlcuBrListeServis);
 
                 foreach (var item in tempp)
@@ -475,7 +474,7 @@ namespace MEYPAK.PRL.SIPARIS
             if (sy == 0)
             {
                 sy = 1;
-                if (CBKdvDahil.Checked == false)
+                if (CHBKdvDahil.Checked == false)
                 {
                     birimfiyat = Convert.ToDecimal(gridView1.GetFocusedRowCellValue("BirimFiyat"));
                     brutfiyat = birimfiyat;
@@ -698,13 +697,6 @@ namespace MEYPAK.PRL.SIPARIS
             //    }
             //}
         }
-
-
-
-
-
-
-
     }
 
 }
