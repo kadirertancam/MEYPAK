@@ -89,7 +89,7 @@
             this.LBCariKodu = new DevExpress.XtraEditors.LabelControl();
             this.LBSiparisNo = new DevExpress.XtraEditors.LabelControl();
             this.LBVadeGun = new System.Windows.Forms.Label();
-            this.TBAciklama = new System.Windows.Forms.TextBox();
+            this.TBAciklama = new DevExpress.XtraEditors.MemoEdit();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -122,6 +122,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.TBCariAdi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTCariSec.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTSiparisSec.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBAciklama.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -496,6 +497,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.TBAciklama);
             this.groupBox1.Controls.Add(this.DTSevkiyatTar);
             this.groupBox1.Controls.Add(this.TBVadeGun);
             this.groupBox1.Controls.Add(this.DTVadeTar);
@@ -521,7 +523,6 @@
             this.groupBox1.Controls.Add(this.LBCariKodu);
             this.groupBox1.Controls.Add(this.LBSiparisNo);
             this.groupBox1.Controls.Add(this.LBVadeGun);
-            this.groupBox1.Controls.Add(this.TBAciklama);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
@@ -530,7 +531,7 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Müşteri Sipariş";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            
             // 
             // DTSevkiyatTar
             // 
@@ -766,13 +767,10 @@
             // 
             // TBAciklama
             // 
-            this.TBAciklama.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TBAciklama.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.TBAciklama.Location = new System.Drawing.Point(735, 43);
-            this.TBAciklama.Multiline = true;
+            this.TBAciklama.Location = new System.Drawing.Point(735, 42);
             this.TBAciklama.Name = "TBAciklama";
-            this.TBAciklama.Size = new System.Drawing.Size(167, 81);
-            this.TBAciklama.TabIndex = 8;
+            this.TBAciklama.Size = new System.Drawing.Size(167, 86);
+            this.TBAciklama.TabIndex = 81;
             // 
             // FSatinAlmaSiparis
             // 
@@ -821,6 +819,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.TBCariAdi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTCariSec.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTSiparisSec.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBAciklama.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -831,7 +830,6 @@
         private Panel panel3;
         private Panel panel2;
         private GroupBox groupBox1;
-        private TextBox TBAciklama;
         private Panel panel4;
         private Label LBVadeGun;
         private GroupBox groupBox3;
@@ -888,5 +886,6 @@
         private DevExpress.XtraEditors.SimpleButton BTKaydet;
         private DevExpress.XtraEditors.SimpleButton BTSil;
         private DevExpress.XtraEditors.SimpleButton BTDegistir;
+        private DevExpress.XtraEditors.MemoEdit TBAciklama;
     }
 }

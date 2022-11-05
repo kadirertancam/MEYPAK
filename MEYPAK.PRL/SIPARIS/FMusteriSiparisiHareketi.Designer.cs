@@ -43,21 +43,21 @@
             this.LBMiktarDeger = new DevExpress.XtraEditors.LabelControl();
             this.LBBekleyenMiktar = new DevExpress.XtraEditors.LabelControl();
             this.LBSiparisMiktar = new DevExpress.XtraEditors.LabelControl();
-            this.DGSiparisDetay = new System.Windows.Forms.DataGridView();
+            this.GCSiparisDetay = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.BTIrsaliye = new DevExpress.XtraEditors.SimpleButton();
             this.BTFatura = new DevExpress.XtraEditors.SimpleButton();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.DGSiparis = new System.Windows.Forms.DataGridView();
+            this.GCSiparis = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DGSiparisDetay)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GCSiparisDetay)).BeginInit();
             this.panel3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DGSiparis)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GCSiparis)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -131,7 +131,7 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.groupBox2);
-            this.panel2.Controls.Add(this.DGSiparisDetay);
+            this.panel2.Controls.Add(this.GCSiparisDetay);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 357);
             this.panel2.Name = "panel2";
@@ -226,16 +226,16 @@
             this.LBSiparisMiktar.TabIndex = 6;
             this.LBSiparisMiktar.Text = "Sipariş Miktarı:";
             // 
-            // DGSiparisDetay
+            // GCSiparisDetay
             // 
-            this.DGSiparisDetay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGSiparisDetay.Dock = System.Windows.Forms.DockStyle.Left;
-            this.DGSiparisDetay.Location = new System.Drawing.Point(0, 0);
-            this.DGSiparisDetay.Name = "DGSiparisDetay";
-            this.DGSiparisDetay.RowTemplate.Height = 25;
-            this.DGSiparisDetay.Size = new System.Drawing.Size(1109, 227);
-            this.DGSiparisDetay.TabIndex = 0;
-            this.DGSiparisDetay.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridSiparisDetay_CellDoubleClick);
+            this.GCSiparisDetay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GCSiparisDetay.Dock = System.Windows.Forms.DockStyle.Left;
+            this.GCSiparisDetay.Location = new System.Drawing.Point(0, 0);
+            this.GCSiparisDetay.Name = "GCSiparisDetay";
+            this.GCSiparisDetay.RowTemplate.Height = 25;
+            this.GCSiparisDetay.Size = new System.Drawing.Size(1109, 227);
+            this.GCSiparisDetay.TabIndex = 0;
+            this.GCSiparisDetay.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridSiparisDetay_CellDoubleClick);
             // 
             // panel3
             // 
@@ -282,23 +282,23 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.DGSiparis);
+            this.panel4.Controls.Add(this.GCSiparis);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 68);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1237, 223);
             this.panel4.TabIndex = 3;
             // 
-            // DGSiparis
+            // GCSiparis
             // 
-            this.DGSiparis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGSiparis.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DGSiparis.Location = new System.Drawing.Point(0, 0);
-            this.DGSiparis.Name = "DGSiparis";
-            this.DGSiparis.RowTemplate.Height = 25;
-            this.DGSiparis.Size = new System.Drawing.Size(1237, 223);
-            this.DGSiparis.TabIndex = 0;
-            this.DGSiparis.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridSiparis_CellDoubleClick);
+            this.GCSiparis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GCSiparis.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GCSiparis.Location = new System.Drawing.Point(0, 0);
+            this.GCSiparis.Name = "GCSiparis";
+            this.GCSiparis.RowTemplate.Height = 25;
+            this.GCSiparis.Size = new System.Drawing.Size(1237, 223);
+            this.GCSiparis.TabIndex = 0;
+            this.GCSiparis.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridSiparis_CellDoubleClick);
             // 
             // FMusteriSiparisiHareketi
             // 
@@ -318,11 +318,11 @@
             this.panel2.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DGSiparisDetay)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GCSiparisDetay)).EndInit();
             this.panel3.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.DGSiparis)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GCSiparis)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -334,8 +334,8 @@
         private Panel panel3;
         private GroupBox groupBox1;
         private Panel panel4;
-        private DataGridView DGSiparis;
-        private DataGridView DGSiparisDetay;
+        private DataGridView GCSiparis;
+        private DataGridView GCSiparisDetay;
         private GroupBox groupBox2;
         private DevExpress.XtraEditors.LabelControl LBItibaren;
         private DevExpress.XtraEditors.LabelControl LBKadar;

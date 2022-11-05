@@ -56,7 +56,6 @@
             this.LBCariKodu = new DevExpress.XtraEditors.LabelControl();
             this.LBSiparisNo = new DevExpress.XtraEditors.LabelControl();
             this.LBVadeGun = new System.Windows.Forms.Label();
-            this.TBAciklama = new System.Windows.Forms.TextBox();
             this.GCIrsaliye = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -87,6 +86,7 @@
             this.BTKaydet = new DevExpress.XtraEditors.SimpleButton();
             this.BTNSil = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TBVadeGun.Properties)).BeginInit();
@@ -116,6 +116,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.TBKDVTutar.Properties)).BeginInit();
             this.panel6.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -129,6 +130,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.memoEdit1);
             this.groupBox1.Controls.Add(this.DTSevkiyatTar);
             this.groupBox1.Controls.Add(this.TBVadeGun);
             this.groupBox1.Controls.Add(this.DTVadeTar);
@@ -154,7 +156,6 @@
             this.groupBox1.Controls.Add(this.LBCariKodu);
             this.groupBox1.Controls.Add(this.LBSiparisNo);
             this.groupBox1.Controls.Add(this.LBVadeGun);
-            this.groupBox1.Controls.Add(this.TBAciklama);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
@@ -397,16 +398,6 @@
             this.LBVadeGun.Size = new System.Drawing.Size(29, 13);
             this.LBVadeGun.TabIndex = 82;
             this.LBVadeGun.Text = "Gün";
-            // 
-            // TBAciklama
-            // 
-            this.TBAciklama.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TBAciklama.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.TBAciklama.Location = new System.Drawing.Point(732, 40);
-            this.TBAciklama.Multiline = true;
-            this.TBAciklama.Name = "TBAciklama";
-            this.TBAciklama.Size = new System.Drawing.Size(167, 81);
-            this.TBAciklama.TabIndex = 81;
             // 
             // GCIrsaliye
             // 
@@ -736,6 +727,13 @@
             this.panel3.Size = new System.Drawing.Size(1884, 521);
             this.panel3.TabIndex = 1;
             // 
+            // memoEdit1
+            // 
+            this.memoEdit1.Location = new System.Drawing.Point(732, 40);
+            this.memoEdit1.Name = "memoEdit1";
+            this.memoEdit1.Size = new System.Drawing.Size(167, 86);
+            this.memoEdit1.TabIndex = 109;
+            // 
             // FSatisIrsaliye
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -779,6 +777,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.TBKDVTutar.Properties)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -821,7 +820,6 @@
         private DevExpress.XtraEditors.LabelControl LBCariKodu;
         private DevExpress.XtraEditors.LabelControl LBSiparisNo;
         private Label LBVadeGun;
-        private TextBox TBAciklama;
         private GroupBox groupBox3;
         private DevExpress.XtraEditors.TextEdit TBAltIskonto3;
         private DevExpress.XtraEditors.TextEdit TBAltIskonto2;
@@ -843,5 +841,6 @@
         private DevExpress.XtraEditors.TextEdit TBKDVTutar;
         private DevExpress.XtraEditors.SimpleButton BTDegistir;
         private DevExpress.XtraEditors.SimpleButton BTKaydet;
+        private DevExpress.XtraEditors.MemoEdit memoEdit1;
     }
 }

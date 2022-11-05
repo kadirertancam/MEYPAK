@@ -28,26 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.DGMusteriSiparis = new DevExpress.XtraGrid.GridControl();
+            this.GCMusteriSiparisList = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            ((System.ComponentModel.ISupportInitialize)(this.DGMusteriSiparis)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GCMusteriSiparisList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // DGMusteriSiparis
+            // GCMusteriSiparisList
             // 
-            this.DGMusteriSiparis.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DGMusteriSiparis.Location = new System.Drawing.Point(0, 0);
-            this.DGMusteriSiparis.MainView = this.gridView1;
-            this.DGMusteriSiparis.Name = "DGMusteriSiparis";
-            this.DGMusteriSiparis.Size = new System.Drawing.Size(800, 450);
-            this.DGMusteriSiparis.TabIndex = 0;
-            this.DGMusteriSiparis.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.GCMusteriSiparisList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GCMusteriSiparisList.Location = new System.Drawing.Point(0, 0);
+            this.GCMusteriSiparisList.MainView = this.gridView1;
+            this.GCMusteriSiparisList.Name = "GCMusteriSiparisList";
+            this.GCMusteriSiparisList.Size = new System.Drawing.Size(800, 450);
+            this.GCMusteriSiparisList.TabIndex = 0;
+            this.GCMusteriSiparisList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
             // gridView1
             // 
-            this.gridView1.GridControl = this.DGMusteriSiparis;
+            this.gridView1.GridControl = this.GCMusteriSiparisList;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
             // 
@@ -56,11 +56,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.DGMusteriSiparis);
+            this.Controls.Add(this.GCMusteriSiparisList);
             this.Name = "FMusteriSiparisList";
             this.Text = "FMusteriSiparisList";
             this.Load += new System.EventHandler(this.FMusteriSiparisList_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.DGMusteriSiparis)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GCMusteriSiparisList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -70,6 +70,6 @@
 
         private DevExpress.XtraGrid.GridControl GCMusteriSiparis;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraGrid.GridControl DGMusteriSiparis;
+        private DevExpress.XtraGrid.GridControl GCMusteriSiparisList;
     }
 }

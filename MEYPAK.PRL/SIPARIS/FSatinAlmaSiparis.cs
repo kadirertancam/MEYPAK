@@ -579,11 +579,7 @@ namespace MEYPAK.PRL.SIPARIS
             _fCariList.ShowDialog();
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void gridControl1_KeyPress(object sender, KeyPressEventArgs e)
         {
 
