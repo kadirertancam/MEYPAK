@@ -1,7 +1,6 @@
 ﻿using MEYPAK.BLL.STOK;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
-
 using MEYPAK.Entity.PocoModels;
 using MEYPAK.Interfaces.Depo;
 using MEYPAK.Interfaces.Siparis;
@@ -54,7 +53,7 @@ namespace MEYPAK.PRL.SIPARIS
             
             _depoServis = new GenericWebServis<PocoDEPO>();
             _depoServis.Data(ServisList.DepoListeServis);
-            CBDepo.DataSource = _depoServis.obje.Select(x => x.depoadi).ToList();
+            CBDepo.Properties.DataSource = _depoServis.obje.Select(x => x.depoadi).ToList();
             _siparisServis = new GenericWebServis<PocoSIPARIS>();
             _siparisServis.Data(ServisList.SiparisListeServis);
             _siparisDetayServis = new GenericWebServis<PocoSIPARISDETAY>();
@@ -247,13 +246,13 @@ namespace MEYPAK.PRL.SIPARIS
             {
                 ACIKLAMA = TBAciklama.Text,
                 KUR = Convert.ToDecimal(TBKur.Text),
-                BELGENO = TBBelgeNo.Text,
-                VADETARIHI = DTPVadeTarihi.Value,
+                BELGENO = TBCariAdi.Text,
+                VADETARIHI = DTVadeTar.Value,
                 guncellemetarihi = DateTime.Now,
-                VADEGUNU = Convert.ToInt32(DTPVadeTarihi.Text),
+                VADEGUNU = Convert.ToInt32(DTVadeTar.Text),
                 CARIADI = TBCariAdi.Text,
-                CARIID = _cariKart.obje.Where(x=>x.KOD==TBCariKodu.Text).FirstOrDefault().id,
-                DEPOID = _depoServis.obje.Where(x => x.depoadi == CBDepo.SelectedValue).FirstOrDefault().id,
+                //CARIID = _cariKart.obje.Where(x=>x.KOD==TBCariAdi.Text).FirstOrDefault().id,
+                DEPOID = _depoServis.obje.Where(x => x.depoadi == CBDepo.EditValue).FirstOrDefault().id,
                 DOVIZID = 0,
                 ISKONTOTOPLAM = _tempSiparisDetay.Sum(x => x.İskontoTutarı),
                 KDVTOPLAM = _tempSiparisDetay.Sum(x => x.KdvTutarı),
@@ -368,7 +367,7 @@ namespace MEYPAK.PRL.SIPARIS
 
                     if (_tempKasa != null)
                     {
-                        TBKasa.Text = _tempKasa.kasaadi;
+                        BTKasaSec.Text = _tempKasa.kasaadi;
                         gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "KasaAdı", _tempKasa.kasaadi);
                    
                     _tempPocokalem.KasaAdı = _tempKasa.kasaadi;
@@ -379,13 +378,7 @@ namespace MEYPAK.PRL.SIPARIS
             }
         }
         int i;
-        private void dataGridView1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-
-
-        }
-
+  
         private void dataGridView1_Leave(object sender, EventArgs e)
         {
 
@@ -475,7 +468,7 @@ namespace MEYPAK.PRL.SIPARIS
             if (sy == 0)
             {
                 sy = 1;
-                if (CHBKdvDahil.Checked == false)
+                if (CBKdvDahil.Checked == false)
                 {
                     birimfiyat = Convert.ToDecimal(gridView1.GetFocusedRowCellValue("BirimFiyat"));
                     brutfiyat = birimfiyat;
@@ -518,11 +511,11 @@ namespace MEYPAK.PRL.SIPARIS
                 gridView1.SetFocusedRowCellValue("NetFiyat", decimal.Round(netfiyat, 2));
 
 
-                TBBrutToplam.Text = decimal.Round(_tempSiparisDetay.Sum(x => x.BrütToplam), 2).ToString();
-                TBIskontoToplam.Text = decimal.Round(_tempSiparisDetay.Sum(x => x.İskontoTutarı), 2).ToString();
-                TBKdvTutari.Text = decimal.Round(_tempSiparisDetay.Sum(x => x.KdvTutarı), 2).ToString();
-                TBGenelToplam.Text = decimal.Round(_tempSiparisDetay.Sum(x => x.NetToplam + x.KdvTutarı), 2).ToString();
-                TBAraToplam.Text = decimal.Round(_tempSiparisDetay.Sum(x => x.NetToplam), 2).ToString();
+                TBBrutTop.Text = decimal.Round(_tempSiparisDetay.Sum(x => x.BrütToplam), 2).ToString();
+                TBIskontoTop.Text = decimal.Round(_tempSiparisDetay.Sum(x => x.İskontoTutarı), 2).ToString();
+                TBKDVTutar.Text = decimal.Round(_tempSiparisDetay.Sum(x => x.KdvTutarı), 2).ToString();
+                TBGenelTop.Text = decimal.Round(_tempSiparisDetay.Sum(x => x.NetToplam + x.KdvTutarı), 2).ToString();
+                TBAraTop.Text = decimal.Round(_tempSiparisDetay.Sum(x => x.NetToplam), 2).ToString();
                 sy = 0;
             }
         }
@@ -597,6 +590,8 @@ namespace MEYPAK.PRL.SIPARIS
             _fCariList.ShowDialog();
         }
 
+       
+
         private void gridControl1_KeyPress(object sender, KeyPressEventArgs e)
         {
 
@@ -608,17 +603,17 @@ namespace MEYPAK.PRL.SIPARIS
             FSatinAlmaSiparisList.ShowDialog();
             if (_tempSiparis != null)
             {
-                TBBelgeNo.Text = _tempSiparis.BELGENO;
-                //todo : TBCariKodu.Text = 
-                TBCariKodu.Text = _cariKart.obje.Where(x => x.id == _tempSiparis.id).FirstOrDefault().KOD;
+                TBCariAdi.Text = _tempSiparis.BELGENO;
+                
+                BTCariSec.Text = _cariKart.obje.Where(x => x.id == _tempSiparis.id).FirstOrDefault().KOD;
                 TBCariAdi.Text = _tempSiparis.CARIADI;
                 _stokServis.Data(ServisList.StokListeServis);
                 //TODO TBKasa.Text = 
-                DTPTarih.Value = _tempSiparis.SIPARISTARIHI;
+                DTSiparisTar.Value = _tempSiparis.SIPARISTARIHI;
                 TBAciklama.Text = _tempSiparis.ACIKLAMA;
-                DTPVadeTarihi.Value = _tempSiparis.VADETARIHI;
-                DTPSevkiyatTarihi.Value = _tempSiparis.SEVKIYATTARIHI;
-                DTPVadeTarihi.Text = _tempSiparis.VADEGUNU.ToString();
+                DTVadeTar.Value = _tempSiparis.VADETARIHI;
+                DTSevkiyatTar.Value = _tempSiparis.SEVKIYATTARIHI;
+                DTVadeTar.Text = _tempSiparis.VADEGUNU.ToString();
                 _siparisDetayServis.Data(ServisList.SiparisDetayListeServis + 2, null, "query=SIPARISID=" + _tempSiparis.id.ToString());
                 gridControl1.DataSource = _siparisDetayServis.obje.Select(x => new PocoSiparisKalem()
                 {
@@ -638,7 +633,7 @@ namespace MEYPAK.PRL.SIPARIS
             FKasaList fKasaList = new FKasaList(this.Tag.ToString(),"Siparis");
             fKasaList.ShowDialog();
             if (_tempKasa != null)
-                TBKasa.Text = _tempKasa.kasaadi;
+                BTKasaSec.Text = _tempKasa.kasaadi;
         }
 
         private void dataGridView1_CellLeave(object sender, DataGridViewCellEventArgs e)

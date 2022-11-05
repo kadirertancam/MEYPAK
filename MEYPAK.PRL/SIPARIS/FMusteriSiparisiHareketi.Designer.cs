@@ -263,7 +263,7 @@
             this.BTIrsaliye.Appearance.BackColor = System.Drawing.Color.Gainsboro;
             this.BTIrsaliye.Appearance.Options.UseBackColor = true;
             this.BTIrsaliye.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTIrsaliye.ImageOptions.Image")));
-            this.BTIrsaliye.Location = new System.Drawing.Point(203, 6);
+            this.BTIrsaliye.Location = new System.Drawing.Point(197, 11);
             this.BTIrsaliye.Name = "BTIrsaliye";
             this.BTIrsaliye.Size = new System.Drawing.Size(157, 52);
             this.BTIrsaliye.TabIndex = 82;
@@ -274,7 +274,7 @@
             this.BTFatura.Appearance.BackColor = System.Drawing.Color.Gainsboro;
             this.BTFatura.Appearance.Options.UseBackColor = true;
             this.BTFatura.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTFatura.ImageOptions.Image")));
-            this.BTFatura.Location = new System.Drawing.Point(40, 6);
+            this.BTFatura.Location = new System.Drawing.Point(25, 11);
             this.BTFatura.Name = "BTFatura";
             this.BTFatura.Size = new System.Drawing.Size(157, 52);
             this.BTFatura.TabIndex = 81;
