@@ -225,12 +225,12 @@ namespace MEYPAK.PRL.SIPARIS
             {
                 ACIKLAMA = TBAciklama.Text,
                 KUR = Convert.ToDecimal(TBKur.Text),
-                BELGENO = TBSiparisNo.Text,
-                VADETARIHI = DTPVadeTarihi.Value,
+                BELGENO = BTSiparisSec.Text,
+                VADETARIHI = DTVadeTar.Value,
                 guncellemetarihi = DateTime.Now,
-                VADEGUNU = Convert.ToInt32(TBGun.Text),
+                VADEGUNU = Convert.ToInt32(TBVadeGun.Text),
                 CARIADI = TBCariAdi.Text,
-                CARIID = _cariKart.obje.Where(x => x.KOD == TBCariKodu.Text).FirstOrDefault().id,
+                CARIID = _cariKart.obje.Where(x => x.KOD == TBCariAdi.Text).FirstOrDefault().id,
                 DEPOID = _depoServis.obje.Where(x => x.depoadi == CBDepo.EditValue).FirstOrDefault().id,
                 DOVIZID = 0,
                 ISKONTOTOPLAM = _tempSiparisDetay.Sum(x => x.İskontoTutarı),
@@ -342,16 +342,16 @@ namespace MEYPAK.PRL.SIPARIS
                 {
 
 
-                    fKasaList.ShowDialog();
+                    //fKasaList.ShowDialog();
 
-                    if (_tempKasa != null)
-                    {
-                        TBKasa.Text = _tempKasa.kasaadi;
-                        gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "KasaAdı", _tempKasa.kasaadi);
+                    //if (_tempKasa != null)
+                    //{
+                    //    BTKasaSec.Text = _tempKasa.kasaadi;
+                    //    gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "KasaAdı", _tempKasa.kasaadi);
 
-                        _tempPocokalem.KasaAdı = _tempKasa.kasaadi;
-                        _tempPocokalem.KasaId = _tempKasa.id;
-                    }
+                    //    _tempPocokalem.KasaAdı = _tempKasa.kasaadi;
+                    //    _tempPocokalem.KasaId = _tempKasa.id;
+                    //}
 
                 }
             }
@@ -440,7 +440,7 @@ namespace MEYPAK.PRL.SIPARIS
             if (sy == 0)
             {
                 sy = 1;
-                if (CHBKdvDahil.Checked == false)
+                if (CBKdvDahil.Checked == false)
                 {
                     birimfiyat = Convert.ToDecimal(gridView1.GetFocusedRowCellValue("BirimFiyat"));
                     brutfiyat = birimfiyat;
@@ -483,11 +483,11 @@ namespace MEYPAK.PRL.SIPARIS
                 gridView1.SetFocusedRowCellValue("NetFiyat", decimal.Round(netfiyat, 2));
 
 
-                TBBrutToplam.Text = decimal.Round(_tempSiparisDetay.Sum(x => x.BrütToplam), 2).ToString();
-                TBIskontoToplam.Text = decimal.Round(_tempSiparisDetay.Sum(x => x.İskontoTutarı), 2).ToString();
-                TBKdvTutari.Text = decimal.Round(_tempSiparisDetay.Sum(x => x.KdvTutarı), 2).ToString();
-                TBGenelToplam.Text = decimal.Round(_tempSiparisDetay.Sum(x => x.NetToplam + x.KdvTutarı), 2).ToString();
-                TBAraToplam.Text = decimal.Round(_tempSiparisDetay.Sum(x => x.NetToplam), 2).ToString();
+                TBBrutTop.Text = decimal.Round(_tempSiparisDetay.Sum(x => x.BrütToplam), 2).ToString();
+                TBIskontoTop.Text = decimal.Round(_tempSiparisDetay.Sum(x => x.İskontoTutarı), 2).ToString();
+                TBKDVTutar.Text = decimal.Round(_tempSiparisDetay.Sum(x => x.KdvTutarı), 2).ToString();
+                TBGenelTop.Text = decimal.Round(_tempSiparisDetay.Sum(x => x.NetToplam + x.KdvTutarı), 2).ToString();
+                TBAraTop.Text = decimal.Round(_tempSiparisDetay.Sum(x => x.NetToplam), 2).ToString();
                 sy = 0;
             }
         }
@@ -558,7 +558,7 @@ namespace MEYPAK.PRL.SIPARIS
             _fCariList.ShowDialog();
             if (_tempCariKart != null)
             {
-                TBCariKodu.Text = _tempCariKart.KOD;
+                BTCariSec.Text = _tempCariKart.KOD;
                 TBCariAdi.Text = _tempCariKart.ADI;
             }
         }
@@ -569,17 +569,17 @@ namespace MEYPAK.PRL.SIPARIS
             FMusteriSiparisList fMusteriSiparisList = new FMusteriSiparisList(this.Tag.ToString(), "Siparis");
             fMusteriSiparisList.ShowDialog();
             if (_tempSiparis != null)
-            TBSiparisNo.Text = _tempSiparis.BELGENO;
+            BTSiparisSec.Text = _tempSiparis.BELGENO;
             //todo : TBCariKodu.Text = 
-            TBCariKodu.Text = _cariKart.obje.Where(x => x.id == _tempSiparis.CARIID).FirstOrDefault().KOD;
+            BTCariSec.Text = _cariKart.obje.Where(x => x.id == _tempSiparis.CARIID).FirstOrDefault().KOD;
             TBCariAdi.Text = _tempSiparis.CARIADI;
             _stokServis.Data(ServisList.StokListeServis);
             //TODO TBKasa.Text = 
-            DTSiparisTarih.Value = _tempSiparis.SIPARISTARIHI;
+            DTSiparisTar.Value = _tempSiparis.SIPARISTARIHI;
             TBAciklama.Text = _tempSiparis.ACIKLAMA;
-            DTPVadeTarihi.Value = _tempSiparis.VADETARIHI;
-            DTSevkiyatTarih.Value = _tempSiparis.SEVKIYATTARIHI;
-            TBGun.Text = _tempSiparis.VADEGUNU.ToString();
+            DTVadeTar.Value = _tempSiparis.VADETARIHI;
+            DTSevkiyatTar.Value = _tempSiparis.SEVKIYATTARIHI;
+            TBVadeGun.Text = _tempSiparis.VADEGUNU.ToString();
             _siparisDetayServis.Data(ServisList.SiparisDetayListeServis + 2, null, "query=SIPARISID=" + _tempSiparis.id.ToString());
             GCMusteriSiparis.DataSource = _siparisDetayServis.obje.Select(x => new PocoSiparisKalem()
             {
@@ -593,14 +593,7 @@ namespace MEYPAK.PRL.SIPARIS
             });
         }
 
-        private void BTNKasaSec_Click(object sender, EventArgs e)
-        {
-            FKasaList fKasaList = new FKasaList(this.Tag.ToString(), "Siparis");
-            fKasaList.ShowDialog();
-            if (_tempKasa != null)
-                TBKasa.Text = _tempKasa.kasaadi;
-        }
-
+       
         private void dataGridView1_CellLeave(object sender, DataGridViewCellEventArgs e)
         {
 

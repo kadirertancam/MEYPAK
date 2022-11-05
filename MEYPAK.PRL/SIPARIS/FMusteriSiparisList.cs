@@ -43,7 +43,7 @@ namespace MEYPAK.PRL.SIPARIS
             } 
             _mSiparisServis.Data(ServisList.SiparisListeServis);
             if(_islem=="satinalmasiparis")
-                gridControl1.DataSource = _mSiparisServis.obje.Where(x=>x.TIP==1).Select(x => new
+                GCMusteriSiparis.DataSource = _mSiparisServis.obje.Where(x=>x.TIP==1).Select(x => new
                 {
                     ID = x.id,
                     x.SIPARISTARIHI,
@@ -54,7 +54,7 @@ namespace MEYPAK.PRL.SIPARIS
                     x.GENELTOPLAM
                 });
             if (_islem == "Siparis") 
-                gridControl1.DataSource = _mSiparisServis.obje.Where(x => x.TIP == 0).Select(x => new
+                GCMusteriSiparis.DataSource = _mSiparisServis.obje.Where(x => x.TIP == 0).Select(x => new
                 {
                     ID = x.id,
                     x.SIPARISTARIHI,

@@ -105,7 +105,14 @@ namespace MEYPAK.PRL.DEPO
             DGVTopla.UseColumnTextForButtonValue = true;
             dataGridView1.Columns.Add(DGVTopla);
             dataGridView1.Columns["DGVTopla"].DefaultCellStyle.ForeColor = Color.Aqua;
-         
+            _siparisServis.Data(ServisList.SiparisListeServis);
+            _depoEmirServis.Data(ServisList.DepoEmirListeServis);
+            dataGridView1.DataSource =  _siparisServis.obje.Where(x => x.TIP == 0).Select(x => new { x.SEVKIYATTARIHI, x.BELGENO, x.CARIADI }).ToList();
+            _siparisServis.Data(ServisList.SiparisListeServis);
+            
+            dataGridView2.DataSource =  _depoEmirServis.obje.Select(x => new { x.id, BELGENO = _siparisServis.obje.Where(z => z.id == x.siparisid).FirstOrDefault().BELGENO, x.miktar, CARIADI = _siparisServis.obje.Where(z => z.id == x.siparisid).FirstOrDefault().CARIADI, DEPO = _siparisServis.obje.Where(z => z.id == x.siparisid).FirstOrDefault().DEPOID, x.tip, x.durum }).ToList();
+            dataGridView2.Refresh();
+
 
 
         }

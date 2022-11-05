@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FMusteriSiparisiHareketi));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.BTSiparisFiltrele = new DevExpress.XtraEditors.SimpleButton();
+            this.BTFiltrele = new DevExpress.XtraEditors.SimpleButton();
             this.DTKadarTar = new System.Windows.Forms.DateTimePicker();
             this.DTItibarenTar = new System.Windows.Forms.DateTimePicker();
             this.LBKadar = new DevExpress.XtraEditors.LabelControl();
@@ -62,7 +62,7 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.BTSiparisFiltrele);
+            this.panel1.Controls.Add(this.BTFiltrele);
             this.panel1.Controls.Add(this.DTKadarTar);
             this.panel1.Controls.Add(this.DTItibarenTar);
             this.panel1.Controls.Add(this.LBKadar);
@@ -73,16 +73,16 @@
             this.panel1.Size = new System.Drawing.Size(1237, 68);
             this.panel1.TabIndex = 0;
             // 
-            // BTSiparisFiltrele
+            // BTFiltrele
             // 
-            this.BTSiparisFiltrele.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.BTSiparisFiltrele.Appearance.Options.UseBackColor = true;
-            this.BTSiparisFiltrele.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTSiparisFiltrele.ImageOptions.Image")));
-            this.BTSiparisFiltrele.Location = new System.Drawing.Point(598, 6);
-            this.BTSiparisFiltrele.Name = "BTSiparisFiltrele";
-            this.BTSiparisFiltrele.Size = new System.Drawing.Size(157, 52);
-            this.BTSiparisFiltrele.TabIndex = 80;
-            this.BTSiparisFiltrele.Text = "Sipariş Filtrele";
+            this.BTFiltrele.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTFiltrele.Appearance.Options.UseBackColor = true;
+            this.BTFiltrele.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTFiltrele.ImageOptions.Image")));
+            this.BTFiltrele.Location = new System.Drawing.Point(588, 7);
+            this.BTFiltrele.Name = "BTFiltrele";
+            this.BTFiltrele.Size = new System.Drawing.Size(126, 49);
+            this.BTFiltrele.TabIndex = 81;
+            this.BTFiltrele.Text = "Sipariş Filtrele";
             // 
             // DTKadarTar
             // 
@@ -106,25 +106,25 @@
             // 
             // LBKadar
             // 
-            this.LBKadar.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.LBKadar.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.LBKadar.Appearance.ForeColor = System.Drawing.Color.White;
             this.LBKadar.Appearance.Options.UseFont = true;
             this.LBKadar.Appearance.Options.UseForeColor = true;
             this.LBKadar.Location = new System.Drawing.Point(286, 39);
             this.LBKadar.Name = "LBKadar";
-            this.LBKadar.Size = new System.Drawing.Size(93, 16);
+            this.LBKadar.Size = new System.Drawing.Size(90, 17);
             this.LBKadar.TabIndex = 6;
             this.LBKadar.Text = "Tarihine Kadar";
             // 
             // LBItibaren
             // 
-            this.LBItibaren.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.LBItibaren.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.LBItibaren.Appearance.ForeColor = System.Drawing.Color.White;
             this.LBItibaren.Appearance.Options.UseFont = true;
             this.LBItibaren.Appearance.Options.UseForeColor = true;
             this.LBItibaren.Location = new System.Drawing.Point(258, 10);
             this.LBItibaren.Name = "LBItibaren";
-            this.LBItibaren.Size = new System.Drawing.Size(121, 16);
+            this.LBItibaren.Size = new System.Drawing.Size(119, 17);
             this.LBItibaren.TabIndex = 5;
             this.LBItibaren.Text = "Tarihinden itibaren";
             // 
@@ -156,73 +156,73 @@
             // 
             // labelControl6
             // 
-            this.labelControl6.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelControl6.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelControl6.Appearance.ForeColor = System.Drawing.SystemColors.ControlText;
             this.labelControl6.Appearance.Options.UseFont = true;
             this.labelControl6.Appearance.Options.UseForeColor = true;
             this.labelControl6.Location = new System.Drawing.Point(28, 175);
             this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(4, 14);
+            this.labelControl6.Size = new System.Drawing.Size(4, 13);
             this.labelControl6.TabIndex = 15;
             this.labelControl6.Text = "-";
             // 
             // labelControl5
             // 
-            this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelControl5.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelControl5.Appearance.ForeColor = System.Drawing.SystemColors.ControlText;
             this.labelControl5.Appearance.Options.UseFont = true;
             this.labelControl5.Appearance.Options.UseForeColor = true;
             this.labelControl5.Location = new System.Drawing.Point(28, 122);
             this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(4, 14);
+            this.labelControl5.Size = new System.Drawing.Size(4, 13);
             this.labelControl5.TabIndex = 13;
             this.labelControl5.Text = "-";
             // 
             // LBDurum
             // 
-            this.LBDurum.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBDurum.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBDurum.Appearance.ForeColor = System.Drawing.SystemColors.ControlText;
             this.LBDurum.Appearance.Options.UseFont = true;
             this.LBDurum.Appearance.Options.UseForeColor = true;
             this.LBDurum.Location = new System.Drawing.Point(20, 155);
             this.LBDurum.Name = "LBDurum";
-            this.LBDurum.Size = new System.Drawing.Size(40, 14);
+            this.LBDurum.Size = new System.Drawing.Size(38, 13);
             this.LBDurum.TabIndex = 14;
             this.LBDurum.Text = "Durum:";
             // 
             // LBMiktarDeger
             // 
-            this.LBMiktarDeger.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBMiktarDeger.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBMiktarDeger.Appearance.ForeColor = System.Drawing.SystemColors.ControlText;
             this.LBMiktarDeger.Appearance.Options.UseFont = true;
             this.LBMiktarDeger.Appearance.Options.UseForeColor = true;
             this.LBMiktarDeger.Location = new System.Drawing.Point(28, 68);
             this.LBMiktarDeger.Name = "LBMiktarDeger";
-            this.LBMiktarDeger.Size = new System.Drawing.Size(4, 14);
+            this.LBMiktarDeger.Size = new System.Drawing.Size(4, 13);
             this.LBMiktarDeger.TabIndex = 11;
             this.LBMiktarDeger.Text = "-";
             // 
             // LBBekleyenMiktar
             // 
-            this.LBBekleyenMiktar.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBBekleyenMiktar.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBBekleyenMiktar.Appearance.ForeColor = System.Drawing.SystemColors.ControlText;
             this.LBBekleyenMiktar.Appearance.Options.UseFont = true;
             this.LBBekleyenMiktar.Appearance.Options.UseForeColor = true;
             this.LBBekleyenMiktar.Location = new System.Drawing.Point(20, 102);
             this.LBBekleyenMiktar.Name = "LBBekleyenMiktar";
-            this.LBBekleyenMiktar.Size = new System.Drawing.Size(91, 14);
+            this.LBBekleyenMiktar.Size = new System.Drawing.Size(87, 13);
             this.LBBekleyenMiktar.TabIndex = 12;
             this.LBBekleyenMiktar.Text = "Bekleyen Miktarı:";
             // 
             // LBSiparisMiktar
             // 
-            this.LBSiparisMiktar.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBSiparisMiktar.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBSiparisMiktar.Appearance.ForeColor = System.Drawing.SystemColors.ControlText;
             this.LBSiparisMiktar.Appearance.Options.UseFont = true;
             this.LBSiparisMiktar.Appearance.Options.UseForeColor = true;
             this.LBSiparisMiktar.Location = new System.Drawing.Point(20, 48);
             this.LBSiparisMiktar.Name = "LBSiparisMiktar";
-            this.LBSiparisMiktar.Size = new System.Drawing.Size(75, 14);
+            this.LBSiparisMiktar.Size = new System.Drawing.Size(76, 13);
             this.LBSiparisMiktar.TabIndex = 6;
             this.LBSiparisMiktar.Text = "Sipariş Miktarı:";
             // 
@@ -263,10 +263,10 @@
             this.BTIrsaliye.Appearance.BackColor = System.Drawing.Color.Gainsboro;
             this.BTIrsaliye.Appearance.Options.UseBackColor = true;
             this.BTIrsaliye.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTIrsaliye.ImageOptions.Image")));
-            this.BTIrsaliye.Location = new System.Drawing.Point(203, 6);
+            this.BTIrsaliye.Location = new System.Drawing.Point(174, 9);
             this.BTIrsaliye.Name = "BTIrsaliye";
-            this.BTIrsaliye.Size = new System.Drawing.Size(157, 52);
-            this.BTIrsaliye.TabIndex = 82;
+            this.BTIrsaliye.Size = new System.Drawing.Size(126, 49);
+            this.BTIrsaliye.TabIndex = 84;
             this.BTIrsaliye.Text = "İrsaliye Oluştur";
             // 
             // BTFatura
@@ -274,10 +274,10 @@
             this.BTFatura.Appearance.BackColor = System.Drawing.Color.Gainsboro;
             this.BTFatura.Appearance.Options.UseBackColor = true;
             this.BTFatura.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTFatura.ImageOptions.Image")));
-            this.BTFatura.Location = new System.Drawing.Point(40, 6);
+            this.BTFatura.Location = new System.Drawing.Point(33, 9);
             this.BTFatura.Name = "BTFatura";
-            this.BTFatura.Size = new System.Drawing.Size(157, 52);
-            this.BTFatura.TabIndex = 81;
+            this.BTFatura.Size = new System.Drawing.Size(126, 49);
+            this.BTFatura.TabIndex = 83;
             this.BTFatura.Text = "Fatura Oluştur";
             // 
             // panel4
@@ -341,14 +341,14 @@
         private DevExpress.XtraEditors.LabelControl LBKadar;
         private DateTimePicker DTKadarTar;
         private DateTimePicker DTItibarenTar;
-        private DevExpress.XtraEditors.SimpleButton BTSiparisFiltrele;
-        private DevExpress.XtraEditors.SimpleButton BTIrsaliye;
-        private DevExpress.XtraEditors.SimpleButton BTFatura;
         private DevExpress.XtraEditors.LabelControl LBMiktarDeger;
         private DevExpress.XtraEditors.LabelControl LBSiparisMiktar;
         private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.LabelControl LBDurum;
         private DevExpress.XtraEditors.LabelControl LBBekleyenMiktar;
+        private DevExpress.XtraEditors.SimpleButton BTFiltrele;
+        private DevExpress.XtraEditors.SimpleButton BTIrsaliye;
+        private DevExpress.XtraEditors.SimpleButton BTFatura;
     }
 }

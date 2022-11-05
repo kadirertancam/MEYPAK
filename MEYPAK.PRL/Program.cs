@@ -25,7 +25,7 @@ namespace MEYPAK.PRL
             NinjectFactory.CompositionRoot.Initialize(a);
             ApplicationConfiguration.Initialize();
             Application.EnableVisualStyles();
-            Application.Run(new FSeriTanim());
+            Application.Run(new FMusteriSiparisiHareketi());
         }
 
         public class ApplicationDbContext : DbContext
