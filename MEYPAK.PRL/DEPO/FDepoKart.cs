@@ -60,24 +60,12 @@ namespace MEYPAK.PRL.DEPO
 
         private void BTEkle_Click(object sender, EventArgs e)
         {
-            _depoServis.Data(ServisList.DepoEkleServis,(new PocoDEPO()
-            {
-                id = id,
-                depokodu = TBKod.Text,
-                depoadi = TBAdi.Text,
-                aciklama =TBAciklama.Text,
-                
-            }));
-            _depoServis.Data(ServisList.DepoListeServis);
-            GCDepoKart.DataSource = _depoServis.obje;
-            Temizle(this.Controls);
+           
         }
         
         private void BTSec_Click(object sender, EventArgs e)
         {
-            fDepoList = new FDepoList("FDepoKart");
-            fDepoList.ShowDialog();
-            Doldur();
+            
         }
 
         private void FDepoKart_Load(object sender, EventArgs e)
@@ -95,6 +83,29 @@ namespace MEYPAK.PRL.DEPO
         private void BTSil_Click(object sender, EventArgs e)
         {
             _depoServis.Data(ServisList.DepoSilServis,(_depoServis.obje.Where(x => x.id == Convert.ToInt32(gridView1.GetFocusedRowCellValue("id"))).FirstOrDefault()));
+        }
+
+        private void BTDepoKartEkle_Click(object sender, EventArgs e)
+        {
+            _depoServis.Data(ServisList.DepoEkleServis, (new PocoDEPO()
+            {
+                id = id,
+                depokodu = TBKod.Text,
+                depoadi = TBAdi.Text,
+                aciklama = TBAciklama.Text,
+
+            }));
+            _depoServis.Data(ServisList.DepoListeServis);
+            GCDepoKart.DataSource = _depoServis.obje;
+            Temizle(this.Controls);
+        }
+
+        private void BTDepoKartSec_Click(object sender, EventArgs e)
+        {
+            fDepoList = new FDepoList("FDepoKart");
+            fDepoList.ShowDialog();
+            Doldur();
+
         }
     }
 }

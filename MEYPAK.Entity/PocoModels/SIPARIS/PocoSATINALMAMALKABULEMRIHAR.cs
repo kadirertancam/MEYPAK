@@ -19,9 +19,6 @@ namespace MEYPAK.Entity.PocoModels.SIPARIS
         public decimal bekleyenmiktar { get; set; }
         public decimal siparismiktari { get; set; }
         public decimal emirmiktari { get; set; }
-        public int tip { get; set; }
-        public PocoSIPARIS mpsiparis { get; set; }
-        public PocoSIPARISDETAY misiparisdetay { get; set; }
-        public List<PocoSTOKMALKABULLIST> mpstokmalkabullist { get; set; }
+        public int tip { get; set; } 
     }
 }

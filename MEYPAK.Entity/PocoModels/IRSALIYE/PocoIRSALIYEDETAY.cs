@@ -36,7 +36,6 @@ namespace MEYPAK.Entity.PocoModels.IRSALIYE
         public int bekleyenmiktar { get; set; } = 0;
         public byte hareketdurumu { get; set; } = 0;
         public decimal kdv { get; set; } = 0;
-        public decimal kdvtutari { get; set; } = 0;
-        public virtual PocoSIPARIS mpsiparis { get; set; }
+        public decimal kdvtutari { get; set; } = 0; 
     }
 }

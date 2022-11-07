@@ -46,6 +46,6 @@ namespace MEYPAK.Entity.PocoModels.IRSALIYE
         public int personelid { get; set; }
         public bool durum { get; set; }
         [Required]
-        public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
+        public string donem { get; set; } = DateTime.Now.ToString("yyyy");
     }
 }

@@ -28,12 +28,12 @@ namespace MEYPAK.PRL.CARI
 
         public void Doldur()
         {
-            BTCariKodu.Text = _tempCARIKART.KOD;
-            TBCariAdi.Text = _tempCARIKART.UNVAN==""? _tempCARIKART.ADI + " " + _tempCARIKART.SOYADI : _tempCARIKART.UNVAN;
-            gridControl1.DataSource = _cariHarServis.obje.Where(x => x.CARIID == _tempCARIKART.id);
-            LBToplamAlacakDeger.Text = _cariHarServis.obje.Where(x => x.CARIID == _tempCARIKART.id).Sum(x => x.ALACAK).ToString();
-            LBToplamBorcDeger.Text = _cariHarServis.obje.Where(x => x.CARIID == _tempCARIKART.id).Sum(x => x.BORC).ToString();
-            LBToplamBakiye.Text = _cariHarServis.obje.Where(x => x.CARIID == _tempCARIKART.id).Sum(x => x.BORC - x.ALACAK).ToString();
+            BTCariKodu.Text = _tempCARIKART.kod;
+            TBCariAdi.Text = _tempCARIKART.unvan==""? _tempCARIKART.adi + " " + _tempCARIKART.soyadi : _tempCARIKART.unvan;
+            gridControl1.DataSource = _cariHarServis.obje.Where(x => x.cariid == _tempCARIKART.id);
+            LBToplamAlacakDeger.Text = _cariHarServis.obje.Where(x => x.cariid == _tempCARIKART.id).Sum(x => x.alacak).ToString();
+            LBToplamBorcDeger.Text = _cariHarServis.obje.Where(x => x.cariid == _tempCARIKART.id).Sum(x => x.borc).ToString();
+            LBToplamBakiye.Text = _cariHarServis.obje.Where(x => x.cariid == _tempCARIKART.id).Sum(x => x.borc - x.alacak).ToString();
         } 
 
         private void TBCariKodu_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -65,16 +65,16 @@ namespace MEYPAK.PRL.CARI
         {
             _cariHarServis.Data(ServisList.CariHarEkleServis, new PocoCARIHAR()
             {
-                CARIID = _tempCARIKART.id,
-                ACIKLAMA = TBAciklama.Text,
-                ALACAK = RGCariHareket.SelectedIndex == 0 ? Convert.ToDecimal(TBFiyat.Text) : 0,
-                BORC = RGCariHareket.SelectedIndex == 1 ? Convert.ToDecimal(TBFiyat.Text) : 0,
-                BELGE_NO = TEBelgeNo.Text,
-                HAREKETTIPI = 5,
-                KUR = Convert.ToDecimal(TBKur.Text),
-                TUTAR = Convert.ToDecimal(TBFiyat.Text),
-                PARABIRIMID = 1,  //TODO:Parabirimi Tablosu eklendikten sonra kontrol edilecek
-                HAREKETTARIHI = DateTime.Now
+                cariid = _tempCARIKART.id,
+                aciklama = TBAciklama.Text,
+                alacak = RGCariHareket.SelectedIndex == 0 ? Convert.ToDecimal(TBFiyat.Text) : 0,
+                borc = RGCariHareket.SelectedIndex == 1 ? Convert.ToDecimal(TBFiyat.Text) : 0,
+                belgE_NO = TEBelgeNo.Text,
+                harekettipi = 5,
+                kur = Convert.ToDecimal(TBKur.Text),
+                tutar = Convert.ToDecimal(TBFiyat.Text),
+                parabirimid = 1,  //TODO:Parabirimi Tablosu eklendikten sonra kontrol edilecek
+                harekettarihi = DateTime.Now
 
             });
             temizle();

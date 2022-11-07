@@ -61,6 +61,7 @@ namespace MEYPAK.PRL
         FStokFiyatList fStokFiyatList;
         FCariHareket fCariHareket;
         FCariDurum fCariDurum;
+        FCariKart fCariKart;
         #endregion
         void StokPanelAc()
         {
@@ -286,7 +287,22 @@ namespace MEYPAK.PRL
 
         private void accordionControlElement18_Click(object sender, EventArgs e)
         {
+            XtraTabPage page = new XtraTabPage();
+            fCariKart = new FCariKart();
+            page.Name = "TPCariKartPanel" + i;
+            page.Text = "Cari Kart Panel";
+            page.Tag = "TPCariKartPanel" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
 
+            fCariKart.TopLevel = false;
+            fCariKart.AutoScroll = true;
+            fCariKart.Dock = DockStyle.Fill;
+            fCariKart.Tag = "TPCariKartPanel" + i;
+            page.Controls.Add(fCariKart);
+            fCariKart.Show();
+            i++;
         }
 
         private void accordionControlElement10_Click(object sender, EventArgs e)
@@ -306,6 +322,26 @@ namespace MEYPAK.PRL
             fOlcuBrKart.Tag = "TPOlcuBrPanel" + i;
             page.Controls.Add(fOlcuBrKart);
             fOlcuBrKart.Show();
+            i++;
+        }
+
+        private void accordionControlElement13_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fDepoKart = new FDepoKart();
+            page.Name = "TPDepoKartPanel" + i;
+            page.Text = "Depo Panel";
+            page.Tag = "TPDepoKartPanel" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fDepoKart.TopLevel = false;
+            fDepoKart.AutoScroll = true;
+            fDepoKart.Dock = DockStyle.Fill;
+            fDepoKart.Tag = "TPDepoKartPanel" + i;
+            page.Controls.Add(fDepoKart);
+            fDepoKart.Show();
             i++;
         }
     }

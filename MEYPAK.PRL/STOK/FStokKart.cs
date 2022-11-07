@@ -352,6 +352,7 @@ namespace MEYPAK.PRL
                 sfiyaT5 = Convert.ToDecimal(TBSFiyat5.Text),
                 sdovizid = CBSDoviz.SelectedIndex,
                 adovizid = CBADoviz.SelectedIndex,
+                donem="2022"
 
 
             };

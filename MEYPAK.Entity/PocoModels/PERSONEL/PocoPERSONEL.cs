@@ -18,7 +18,7 @@ namespace MEYPAK.Entity.PocoModels.PERSONEL
         [StringLength(100)]
         public string soyadi { get; set; }
         [StringLength(200)]
-        public string adisoyadi => $"{ADI} {SOYADI}";
+        public string adisoyadi => $"{adi} {soyadi}";
         [StringLength(50)]
         public string sgksicil { get; set; }
         public DateTime dogumtar { get; set; }

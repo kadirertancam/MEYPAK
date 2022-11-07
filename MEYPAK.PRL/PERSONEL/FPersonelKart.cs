@@ -62,25 +62,25 @@ namespace MEYPAK.PRL.PERSONEL
             string hashresim = ImageToBase64(pictureBox1.Image);
             _personelServis.EkleyadaGuncelle(new PocoPERSONEL()
             {
-                TC = MTBTcKimlik.Text,
-                ADI = TBAdi.Text,
-                SOYADI = TBSoyadi.Text,
-                ADRES = TBAdres.Text,
-                TEL = TBTelefon.Text,
-                DOGUMTAR = DTPDogumTarihi.Value,
-                EHLIYETNO = TBEhliyetNo.Text,
-                ASKERLIK = TBAskerlik.Text,
-                EMAIL = TBEposta.Text,
-                GOREVI = CBGorevi.Text,
-                DURUM = 0,
-                ISBASTAR = DateTime.Now,
-                KANGRUBU = TBKanGrubu.Text,
-                MEDENIDURUM = mdurum,
-                PSIKOTAR = DTPPsikoTeknik.Value,
-                RESIM = hashresim,
-                SCR = TBScr.Text,
-                SGKSICIL = TBSgkSicilNo.Text,
-                ISBITTAR = Convert.ToDateTime("01/01/1799")
+                tc = MTBTcKimlik.Text,
+                adi = TBAdi.Text,
+                soyadi = TBSoyadi.Text,
+                adres = TBAdres.Text,
+                tel = TBTelefon.Text,
+                dogumtar = DTPDogumTarihi.Value,
+                ehliyetno = TBEhliyetNo.Text,
+                askerlik = TBAskerlik.Text,
+                email = TBEposta.Text,
+                gorevi = CBGorevi.Text,
+                durum = 0,
+                isbastar = DateTime.Now,
+                kangrubu = TBKanGrubu.Text,
+                medenidurum = mdurum,
+                psikotar = DTPPsikoTeknik.Value,
+                resim = hashresim,
+                scr = TBScr.Text,
+                sgksicil = TBSgkSicilNo.Text,
+                isbittar = Convert.ToDateTime("01/01/1799")
 
             });
         }
@@ -95,22 +95,22 @@ namespace MEYPAK.PRL.PERSONEL
             if (_tempPersonel != null)
             {
                 id = _tempPersonel.id;
-                TBAdi.Text = _tempPersonel.ADI;
-                TBSoyadi.Text = _tempPersonel.SOYADI;
-                TBTelefon.Text = _tempPersonel.TEL;
-                MTBTcKimlik.Text = _tempPersonel.TC;
-                TBScr.Text = _tempPersonel.SCR;
-                TBKanGrubu.Text = _tempPersonel.KANGRUBU;
-                TBEposta.Text = _tempPersonel.EMAIL;
-                TBEhliyetNo.Text = _tempPersonel.EHLIYETNO;
-                TBAskerlik.Text = _tempPersonel.ASKERLIK;
-                TBAdres.Text = _tempPersonel.ADRES;
-                pictureBox1.Image = Base64ToImage(_tempPersonel.RESIM);
-                TBSgkSicilNo.Text = _tempPersonel.SGKSICIL;
-                CBGorevi.SelectedIndex = CBGorevi.FindStringExact(_tempPersonel.GOREVI);
-                LBPanelIseBaslamaTarihi.Text = _tempPersonel.ISBASTAR.Date.ToString("dd/MM/yyyy");
-                _tempPsd = _tempPersonel.PSD;
-                switch (_tempPersonel.MEDENIDURUM)
+                TBAdi.Text = _tempPersonel.adi;
+                TBSoyadi.Text = _tempPersonel.soyadi;
+                TBTelefon.Text = _tempPersonel.tel;
+                MTBTcKimlik.Text = _tempPersonel.tc;
+                TBScr.Text = _tempPersonel.scr;
+                TBKanGrubu.Text = _tempPersonel.kangrubu;
+                TBEposta.Text = _tempPersonel.email;
+                TBEhliyetNo.Text = _tempPersonel.ehliyetno;
+                TBAskerlik.Text = _tempPersonel.askerlik;
+                TBAdres.Text = _tempPersonel.adres;
+                pictureBox1.Image = Base64ToImage(_tempPersonel.resim);
+                TBSgkSicilNo.Text = _tempPersonel.sgksicil;
+                CBGorevi.SelectedIndex = CBGorevi.FindStringExact(_tempPersonel.gorevi);
+                LBPanelIseBaslamaTarihi.Text = _tempPersonel.isbastar.Date.ToString("dd/MM/yyyy");
+                _tempPsd = _tempPersonel.psd;
+                switch (_tempPersonel.medenidurum)
                 {
                     case 0: RBBekar.Checked = true; break;
                     case 1: RBEvli.Checked = true; break;
@@ -323,7 +323,7 @@ namespace MEYPAK.PRL.PERSONEL
             if (MTBTcKimlik.Text != "")
             {
                 string _temptc = MTBTcKimlik.Text.ToString();
-                _tempPersonel = _personelServis.Getir(x => x.TC == _temptc).FirstOrDefault();
+                _tempPersonel = _personelServis.Getir(x => x.tc == _temptc).FirstOrDefault();
                 if (_tempPersonel != null)
                     Doldur();
                 else

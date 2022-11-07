@@ -591,7 +591,7 @@ namespace MEYPAK.PRL.SIPARIS
             {
                 TBCariAdi.Text = _tempSiparis.belgeno;
                 
-                BTCariSec.Text = _cariKart.obje.Where(x => x.id == _tempSiparis.id).FirstOrDefault().KOD;
+                BTCariSec.Text = _cariKart.obje.Where(x => x.id == _tempSiparis.id).FirstOrDefault().kod;
                 TBCariAdi.Text = _tempSiparis.cariadi;
                 _stokServis.Data(ServisList.StokListeServis);
                 //TODO TBKasa.Text = 

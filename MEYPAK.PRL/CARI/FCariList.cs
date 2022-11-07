@@ -49,11 +49,11 @@ namespace MEYPAK.PRL.CARI
             GCCariList.DataSource = _cariServis.obje.Select(x=> new
             {
                 ID=x.id,
-                CARIKODU=x.KOD,
-                CARIUNVAN=x.UNVAN,
-                VERGIDAIRESI=x.VERGIDAIRESI,
-                VERGINO=x.VERGINO,
-                x.IL,x.ILCE,x.GRUPKODU,x.KATEGORI,x.TELEFON,x.CEPTEL,x.EPOSTA
+                CARIKODU=x.kod,
+                CARIUNVAN=x.unvan,
+                VERGIDAIRESI=x.vergidairesi,
+                VERGINO=x.vergino,
+                x.il,x.ilce,x.grupkodu,x.kategori,x.telefon,x.ceptel,x.eposta
             });
         }
 

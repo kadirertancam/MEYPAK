@@ -35,6 +35,9 @@
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.GCGenelBilgi = new DevExpress.XtraEditors.GroupControl();
+            this.BTDepoKartSec = new DevExpress.XtraEditors.SimpleButton();
+            this.TBAdi = new DevExpress.XtraEditors.TextEdit();
+            this.TBKod = new DevExpress.XtraEditors.TextEdit();
             this.CBAktif = new DevExpress.XtraEditors.CheckedListBoxControl();
             this.TBAciklama = new System.Windows.Forms.TextBox();
             this.LBDepoKartSubeler = new DevExpress.XtraEditors.LabelControl();
@@ -44,9 +47,6 @@
             this.LBDepoKartKod = new DevExpress.XtraEditors.LabelControl();
             this.BTDepoKartSil = new DevExpress.XtraEditors.SimpleButton();
             this.BTDepoKartEkle = new DevExpress.XtraEditors.SimpleButton();
-            this.TBKod = new DevExpress.XtraEditors.TextEdit();
-            this.TBAdi = new DevExpress.XtraEditors.TextEdit();
-            this.BTDepoKartSec = new DevExpress.XtraEditors.SimpleButton();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GCDepoKart)).BeginInit();
@@ -54,9 +54,9 @@
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GCGenelBilgi)).BeginInit();
             this.GCGenelBilgi.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CBAktif)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TBKod.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBAdi.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBKod.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CBAktif)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -122,6 +122,44 @@
             this.GCGenelBilgi.Size = new System.Drawing.Size(556, 173);
             this.GCGenelBilgi.TabIndex = 1;
             this.GCGenelBilgi.Text = "Genel Bilgi";
+            // 
+            // BTDepoKartSec
+            // 
+            this.BTDepoKartSec.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTDepoKartSec.Appearance.BackColor2 = System.Drawing.Color.Black;
+            this.BTDepoKartSec.Appearance.BorderColor = System.Drawing.Color.Black;
+            this.BTDepoKartSec.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.BTDepoKartSec.Appearance.Options.UseBackColor = true;
+            this.BTDepoKartSec.Appearance.Options.UseBorderColor = true;
+            this.BTDepoKartSec.Appearance.Options.UseFont = true;
+            this.BTDepoKartSec.Appearance.Options.UseForeColor = true;
+            this.BTDepoKartSec.AppearanceDisabled.BorderColor = System.Drawing.Color.Black;
+            this.BTDepoKartSec.AppearanceDisabled.Options.UseBorderColor = true;
+            this.BTDepoKartSec.AppearanceHovered.BorderColor = System.Drawing.Color.Black;
+            this.BTDepoKartSec.AppearanceHovered.Options.UseBorderColor = true;
+            this.BTDepoKartSec.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTDepoKartSec.ImageOptions.Image")));
+            this.BTDepoKartSec.Location = new System.Drawing.Point(203, 22);
+            this.BTDepoKartSec.Name = "BTDepoKartSec";
+            this.BTDepoKartSec.Size = new System.Drawing.Size(59, 26);
+            this.BTDepoKartSec.TabIndex = 61;
+            this.BTDepoKartSec.Text = "Seç";
+            this.BTDepoKartSec.Click += new System.EventHandler(this.BTDepoKartSec_Click);
+            // 
+            // TBAdi
+            // 
+            this.TBAdi.Location = new System.Drawing.Point(82, 54);
+            this.TBAdi.Name = "TBAdi";
+            this.TBAdi.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.TBAdi.Size = new System.Drawing.Size(180, 26);
+            this.TBAdi.TabIndex = 60;
+            // 
+            // TBKod
+            // 
+            this.TBKod.Location = new System.Drawing.Point(82, 22);
+            this.TBKod.Name = "TBKod";
+            this.TBKod.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.TBKod.Size = new System.Drawing.Size(180, 26);
+            this.TBKod.TabIndex = 59;
             // 
             // CBAktif
             // 
@@ -221,45 +259,7 @@
             this.BTDepoKartEkle.Size = new System.Drawing.Size(82, 43);
             this.BTDepoKartEkle.TabIndex = 46;
             this.BTDepoKartEkle.Text = "Ekle";
-            // 
-            // TBKod
-            // 
-            this.TBKod.Enabled = false;
-            this.TBKod.Location = new System.Drawing.Point(82, 22);
-            this.TBKod.Name = "TBKod";
-            this.TBKod.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.TBKod.Size = new System.Drawing.Size(180, 26);
-            this.TBKod.TabIndex = 59;
-            // 
-            // TBAdi
-            // 
-            this.TBAdi.Enabled = false;
-            this.TBAdi.Location = new System.Drawing.Point(82, 54);
-            this.TBAdi.Name = "TBAdi";
-            this.TBAdi.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.TBAdi.Size = new System.Drawing.Size(180, 26);
-            this.TBAdi.TabIndex = 60;
-            // 
-            // BTDepoKartSec
-            // 
-            this.BTDepoKartSec.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.BTDepoKartSec.Appearance.BackColor2 = System.Drawing.Color.Black;
-            this.BTDepoKartSec.Appearance.BorderColor = System.Drawing.Color.Black;
-            this.BTDepoKartSec.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.BTDepoKartSec.Appearance.Options.UseBackColor = true;
-            this.BTDepoKartSec.Appearance.Options.UseBorderColor = true;
-            this.BTDepoKartSec.Appearance.Options.UseFont = true;
-            this.BTDepoKartSec.Appearance.Options.UseForeColor = true;
-            this.BTDepoKartSec.AppearanceDisabled.BorderColor = System.Drawing.Color.Black;
-            this.BTDepoKartSec.AppearanceDisabled.Options.UseBorderColor = true;
-            this.BTDepoKartSec.AppearanceHovered.BorderColor = System.Drawing.Color.Black;
-            this.BTDepoKartSec.AppearanceHovered.Options.UseBorderColor = true;
-            this.BTDepoKartSec.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTStokKartiRaporKodu1.ImageOptions.Image")));
-            this.BTDepoKartSec.Location = new System.Drawing.Point(203, 22);
-            this.BTDepoKartSec.Name = "BTDepoKartSec";
-            this.BTDepoKartSec.Size = new System.Drawing.Size(59, 26);
-            this.BTDepoKartSec.TabIndex = 61;
-            this.BTDepoKartSec.Text = "Seç";
+            this.BTDepoKartEkle.Click += new System.EventHandler(this.BTDepoKartEkle_Click);
             // 
             // FDepoKart
             // 
@@ -279,9 +279,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.GCGenelBilgi)).EndInit();
             this.GCGenelBilgi.ResumeLayout(false);
             this.GCGenelBilgi.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CBAktif)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TBKod.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBAdi.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBKod.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CBAktif)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -85,8 +85,7 @@ namespace MEYPAK.PRL.SIPARIS
             _tempSiparisDetay.Add(new PocoSiparisKalem());
             GCMusteriSiparis.DataSource = _tempSiparisDetay;
             //DGVOlcuBr.DataSource = _tempStok.MPSTOKOLCUBR.Select(x => x.MPOLCUBR.ADI).ToList();
-            gridView1.Columns["StokId"].Visible = false;
-            gridView1.Columns["MPSTOK"].Visible = false;
+            gridView1.Columns["StokId"].Visible = false; 
             gridView1.Columns["KasaId"].Visible = false;
 
         }
@@ -139,8 +138,7 @@ namespace MEYPAK.PRL.SIPARIS
             gridView1.Columns["Seç"].VisibleIndex = 2;
             gridView1.Columns["KasaSec"].VisibleIndex = 6;
             gridView1.Columns["BirimSec"].VisibleIndex = 9;
-            gridView1.Columns["StokId"].Visible = false;
-            gridView1.Columns["MPSTOK"].Visible = false;
+            gridView1.Columns["StokId"].Visible = false; 
             gridView1.Columns["KasaId"].Visible = false;
             //     gridView1.Columns["Birim"].Visible = false;
 
@@ -228,7 +226,7 @@ namespace MEYPAK.PRL.SIPARIS
                 guncellemetarihi = DateTime.Now,
                 vadegunu = Convert.ToInt32(TBGun.Text),
                 cariadi = TBCariAdi.Text,
-                cariid = _cariKart.obje.Where(x => x.KOD == TBCariKodu.Text).FirstOrDefault().id,
+                cariid = _cariKart.obje.Where(x => x.kod == TBCariKodu.Text).FirstOrDefault().id,
                 depoid = _depoServis.obje.Where(x => x.depoadi == CBDepo.EditValue).FirstOrDefault().id,
                 dovizid = 0,
                 istkontotoplam = _tempSiparisDetay.Sum(x => x.İskontoTutarı),
@@ -328,8 +326,7 @@ namespace MEYPAK.PRL.SIPARIS
                 gridView1.Columns["Seç"].VisibleIndex = 2;
                 gridView1.Columns["KasaSec"].VisibleIndex = 5;
                 gridView1.Columns["BirimSec"].VisibleIndex = 8;
-                gridView1.Columns["StokId"].Visible = false;
-                gridView1.Columns["MPSTOK"].Visible = false;
+                gridView1.Columns["StokId"].Visible = false; 
                 gridView1.Columns["KasaId"].Visible = false;
                 ////dataGridView1.Invalidate();
                 //dataGridView1.Refresh();
@@ -435,7 +432,7 @@ namespace MEYPAK.PRL.SIPARIS
                 TBSiparisNo.Text = _tempSiparis.belgeno;
                 //todo : TBCariKodu.Text = 
                 
-                TBCariKodu.Text = _cariKart.obje.Where(x => x.id == _tempSiparis.cariid).FirstOrDefault().KOD;
+                TBCariKodu.Text = _cariKart.obje.Where(x => x.id == _tempSiparis.cariid).FirstOrDefault().kod;
                 TBCariAdi.Text = _tempSiparis.cariadi;
                 _stokServis.Data(ServisList.StokListeServis);
                 //TODO TBKasa.Text = 
@@ -465,8 +462,8 @@ namespace MEYPAK.PRL.SIPARIS
             _fCariList.ShowDialog();
             if (_tempCariKart != null)
             {
-                TBCariKodu.Text = _tempCariKart.KOD;
-                TBCariAdi.Text = _tempCariKart.UNVAN == "" ? _tempCariKart.ADI + " " + _tempCariKart.SOYADI : _tempCariKart.UNVAN;
+                TBCariKodu.Text = _tempCariKart.kod;
+                TBCariAdi.Text = _tempCariKart.unvan == "" ? _tempCariKart.adi + " " + _tempCariKart.soyadi : _tempCariKart.unvan;
             }
         }
 
