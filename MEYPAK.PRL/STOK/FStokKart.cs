@@ -66,7 +66,7 @@ namespace MEYPAK.PRL
             if (_tempStok != null)
             {
                 stokid = _tempStok.id;
-                BTStokKodu.Text = _tempStok.kod;
+                BTStokSec.Text = _tempStok.kod;
                 
             }
             TBStokAdi.Text = _tempStok.adi;
@@ -74,7 +74,7 @@ namespace MEYPAK.PRL
             TBSatisKdv.Text = _tempStok.satiskdv.ToString();
             BTMarka.Text = _markaServis.obje.Where(x=>x.id.ToString()==_tempStok.markaid.ToString()).FirstOrDefault().adi.ToString();
             TBSatisKdv.Text = _tempStok.kategoriid.ToString();
-            BTGrupKodu.Text = _tempStok.grupkodu.ToString();
+            BTGrupSec.Text = _tempStok.grupkodu.ToString();
             TBAlisOtv.Text = _tempStok.alisotv.ToString();
             TBAlisKdv.Text = _tempStok.aliskdv.ToString();
             TBAciklama.Text = _tempStok.aciklama;
@@ -101,9 +101,9 @@ namespace MEYPAK.PRL
         private void BTStokKodu_Leave(object sender, EventArgs e)               // BTStokKodu doluyken stok kodu kontrolü yapıp tempstok doldurulur.
         {
             _PocoStokServis.Data(ServisList.StokListeServis);
-            if (BTStokKodu.Text != "")
+            if (BTStokSec.Text != "")
             {
-                _tempStok = _PocoStokServis.obje.Where(x => x.kod == BTStokKodu.Text).FirstOrDefault();
+                _tempStok = _PocoStokServis.obje.Where(x => x.kod == BTStokSec.Text).FirstOrDefault();
                 if (_tempStok != null)
                     tbDoldur();
                 else
@@ -172,12 +172,12 @@ namespace MEYPAK.PRL
             _tempStok = new PocoSTOK()
             {
                 id = stokid,
-                kod = BTStokKodu.Text,
+                kod = BTStokSec.Text,
                 adi = TBStokAdi.Text,
                 markaid = _markaServis.obje.Where(x => x.adi == BTMarka.Text).FirstOrDefault().id,
                 kategoriid = _tempKategori.id,
                 kasaid = 1,//_tempKasa.ID,
-                grupkodu = int.Parse(BTGrupKodu.Text),
+                grupkodu = int.Parse(BTGrupSec.Text),
                 aciklama = TBAciklama.Text,
                 satiskdv = Convert.ToDecimal(TBSatisKdv.Text),
                 aliskdv = Convert.ToDecimal(TBAlisKdv.Text),
@@ -204,7 +204,7 @@ namespace MEYPAK.PRL
             _tempStok = _PocoStokServis.obje.Where(x => x.kod == _tempStok.kod).FirstOrDefault();
             foreach (var item in stokOlculist)
             {
-                item.stokid = _PocoStokServis.obje.Where(x => x.kod == BTStokKodu.Text).FirstOrDefault().id;
+                item.stokid = _PocoStokServis.obje.Where(x => x.kod == BTStokSec.Text).FirstOrDefault().id;
                 _StokOlcuBrServis.Data(ServisList.StokOlcuBrEkleServis, item);
             }
 
@@ -212,7 +212,7 @@ namespace MEYPAK.PRL
             if (snc != null)
                 MessageBox.Show("Kayıt Başarılı.");
             Temizle(this.Controls);
-            BTStokKodu.Text = "";
+            BTStokSec.Text = "";
 
             dataGridView1.DataSource = "";
         }
@@ -343,7 +343,7 @@ namespace MEYPAK.PRL
             }
         }
 
-        private void buttonEdit1_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        private void BTStokSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             FStokList fStokList = new FStokList(this.Tag.ToString(), "stokkart");
             fStokList.ShowDialog();
@@ -352,7 +352,7 @@ namespace MEYPAK.PRL
                     tbDoldur(); 
         }
 
-        private void buttonEdit2_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        private void BTMarkaSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             FMarkaList fMarkaKart = new FMarkaList();
             fMarkaKart.ShowDialog();
@@ -364,7 +364,7 @@ namespace MEYPAK.PRL
             }
         }
 
-        private void buttonEdit3_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        private void BTKategoriSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
 
             FKategoriList fKategoriKart = new FKategoriList("Stok");
@@ -375,12 +375,12 @@ namespace MEYPAK.PRL
 
         
 
-        private void buttonEdit5_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        private void BTKasaSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             FKasaList fKasaList = new FKasaList(this.Tag.ToString(),"Stok");
             fKasaList.ShowDialog();
             if (_tempKasa != null)
-                BTKasa.Text = _tempKasa.kasaadi;
+                BTKasaSec.Text = _tempKasa.kasaadi;
         }
 
        
