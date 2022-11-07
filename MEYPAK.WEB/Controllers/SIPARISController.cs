@@ -106,6 +106,48 @@ namespace MEYPAK.WEB.Controllers
 
         #endregion
 
+        #region SIPARISSEVKEMRIHAR
+
+
+        [HttpGet]
+        public async Task<IActionResult> SiparisSevkEmriKart()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public object SiparisSevkEmriGet(DataSourceLoadOptions loadOptions)
+        {
+            _tempPocoSiparisSevkEmriHar.Data(ServisList.SiparisListeServis);
+            return DataSourceLoader.Load(_tempPocoSiparisSevkEmriHar.obje.Where(x => x.kayittipi == 0).Reverse().AsEnumerable(), loadOptions);
+        }
+        [HttpPut]
+        public async Task<IActionResult> SiparisSevkEmriPut(int key, string values)
+        { //güncellenecek
+            _tempPocoSiparisSevkEmriHar.Data(ServisList.SiparisListeServis);
+            var employee = _tempPocoSiparisSevkEmriHar.obje.First(a => a.id == key);
+            JsonConvert.PopulateObject(values, employee);
+            _tempPocoSiparisSevkEmriHar.Data(ServisList.SiparisSevkEmriHarEkleServis, employee);
+            return Ok();
+        }
+        [HttpPost]
+        public async Task<IActionResult> SiparisSevkEmriPost(string values)
+        {
+            PocoSIPARISSEVKEMIRHAR newPoco = new PocoSIPARISSEVKEMIRHAR();
+            JsonConvert.PopulateObject(values, newPoco);
+            _tempPocoSiparisSevkEmriHar.Data(ServisList.SiparisSevkEmriHarEkleServis, newPoco);
+            return Ok();
+        }
+        [HttpDelete]
+        public void SiparisSevkEmriDelete(int key)
+        {
+            string url = ServisList.SiparisDeleteByIdServis + "?id=" + key;
+            _tempPocoSiparisSevkEmriHar.Data(url, method: HttpMethod.Post);
+        }
+
+        #endregion
+
+
 
 
         #region old_Controllers

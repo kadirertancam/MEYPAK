@@ -1,4 +1,4 @@
-﻿@*@using DevExtreme.AspNet.Mvc
+﻿@using DevExtreme.AspNet.Mvc
 @using MEYPAK.Entity.PocoModels.SIPARIS
 <div class="menu-container dx-swatch-additional">
 
@@ -30,7 +30,7 @@
                 {
 
 
-                    groupItems.AddSimpleFor(m => m.depoid);
+                @*    groupItems.AddSimpleFor(m => m.);
                     groupItems.AddSimpleFor(m => m.cariid);
                     groupItems.AddSimpleFor(m => m.althesapid);
                     groupItems.AddSimpleFor(m => m.sirketid);
@@ -40,7 +40,7 @@
                     groupItems.AddSimpleFor(m => m.belgeno);
                     groupItems.AddSimpleFor(m => m.serino);
                     groupItems.AddSimpleFor(m => m.vadetarihi);
-                    groupItems.AddSimpleFor(m => m.vadegunu);
+                    groupItems.AddSimpleFor(m => m.vadegunu);*@
 
 
                     groupItems.AddSimpleFor(m => m.aciklama);
@@ -53,7 +53,7 @@
             .Columns(columns =>
             {
 
-                columns.AddFor(m => m.depoid)
+         @*       columns.AddFor(m => m.depoid)
                 .Width(150)
                 .Visible(true)
                 .Lookup(lookup => lookup
@@ -70,7 +70,7 @@
                 columns.AddFor(m => m.belgeno);
                 columns.AddFor(m => m.serino);
                 columns.AddFor(m => m.vadetarihi);
-                columns.AddFor(m => m.vadegunu);
+                columns.AddFor(m => m.vadegunu);*@
                 columns.AddFor(m => m.aciklama);
 
 
@@ -85,7 +85,7 @@
             })
             .DataSource(d => d.Mvc()
             .Controller("SIPARIS")
-            .LoadAction("SiparisGet").InsertAction("SiparisPost").UpdateAction("SiparisPut").DeleteAction("SiparisDelete").Key("id")
+            .LoadAction("SiparisDetayGet").InsertAction("SiparisDetayPost").UpdateAction("SiparisDetayPut").DeleteAction("SiparisDetayDelete").Key("id")
 
             )
             )
@@ -113,4 +113,4 @@
             window.location.reload();
         }
     </script>
-</div>*@
+</div>
