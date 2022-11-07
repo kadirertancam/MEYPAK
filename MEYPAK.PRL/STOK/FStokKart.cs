@@ -1,6 +1,7 @@
 ﻿using MEYPAK.PRL.STOK;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.BLL.Assets;
+using MEYPAK.Entity.PocoModels.PARAMETRE;
 
 namespace MEYPAK.PRL
 {
@@ -19,9 +20,13 @@ namespace MEYPAK.PRL
             _markaServis = new GenericWebServis<PocoSTOKMARKA>();
             _StokOlcuBrServis.Data(ServisList.StokOlcuBrListeServis);
             stokOlculist = new List<PocoSTOKOLCUBR>();
+            //stokParalist = new List<PocoPARABIRIM>();
+            //_PocoParaBrServis = new GenericWebServis<PocoPARABIRIM>();
+
             
         }
         #region Tanımlar
+        /*PocoPARABIRIM _paraBr;*/
         PocoSTOKOLCUBR _tempStokOlcuBr;
         public PocoSTOK _tempStok;
         public PocoSTOKKASA _tempKasa;
@@ -33,9 +38,13 @@ namespace MEYPAK.PRL
         GenericWebServis<PocoSTOK> _PocoStokServis;
         GenericWebServis<PocoOLCUBR> _PocoOlcuBrServis;
         GenericWebServis<PocoSTOKOLCUBR> _StokOlcuBrServis;
+        GenericWebServis<PocoPARABIRIM> _PocoParaBrServis;
         List<PocoSTOKOLCUBR> _PocoSTOKOLCUBR;
         List<PocoOLCUBR> _tempPocoOLCUBR;
         List<PocoSTOKOLCUBR> stokOlculist ;
+        private List<PocoPARABIRIM> stokParalist;
+        //List<PocoPARABIRIM> _pocoParaBIRIM;
+        
 
         int stokid = 0, markaid = 0, num = 0;
 
@@ -70,6 +79,7 @@ namespace MEYPAK.PRL
                 
             }
             TBStokAdi.Text = _tempStok.adi;
+
             TBSatisOtv.Text = _tempStok.satisotv.ToString();
             TBSatisKdv.Text = _tempStok.satiskdv.ToString();
             BTMarka.Text = _markaServis.obje.Where(x=>x.id.ToString()==_tempStok.markaid.ToString()).FirstOrDefault().adi.ToString();
@@ -78,8 +88,8 @@ namespace MEYPAK.PRL
             TBAlisOtv.Text = _tempStok.alisotv.ToString();
             TBAlisKdv.Text = _tempStok.aliskdv.ToString();
             TBAciklama.Text = _tempStok.aciklama;
-            CBSDoviz.SelectedIndex = _tempStok.sdovizid;
-            CBADoviz.SelectedIndex = _tempStok.adovizid;
+            //CBSDoviz.Text = _tempStok.ToString();
+            //CBADoviz.Text = _tempStok.ToString();
             TBAFiyat1.Text = Convert.ToString(_tempStok.afiyaT1);
             TBAFiyat2.Text = Convert.ToString(_tempStok.afiyaT2);
             TBAFiyat3.Text = Convert.ToString(_tempStok.afiyaT3);
@@ -98,7 +108,7 @@ namespace MEYPAK.PRL
             _tempStok = null;
         }
 
-        private void BTStokKodu_Leave(object sender, EventArgs e)               // BTStokKodu doluyken stok kodu kontrolü yapıp tempstok doldurulur.
+        private void BTStokSec_Leave(object sender, EventArgs e)               // BTStokKodu doluyken stok kodu kontrolü yapıp tempstok doldurulur.
         {
             _PocoStokServis.Data(ServisList.StokListeServis);
             if (BTStokSec.Text != "")
@@ -122,7 +132,10 @@ namespace MEYPAK.PRL
             _PocoOlcuBrServis.Data(ServisList.OlcuBrListeServis);
             _tempPocoOLCUBR = _PocoOlcuBrServis.obje;
             _PocoSTOKOLCUBR = _StokOlcuBrServis.obje;
-            CBBirim.Properties.DataSource = _tempPocoOLCUBR.Select(x => x.adi).ToList();
+            //_pocoParaBIRIM = _PocoParaBrServis.obje;
+            CBBirim.Properties.DataSource = _tempPocoOLCUBR.ToList();
+            //CBADoviz.Properties.DataSource = _pocoParaBIRIM.ToList();
+            //CBSDoviz.Properties.DataSource=_pocoParaBIRIM.Select(x =>x.ADI).ToList();   
             
         }
         private void BTKaydet_Click(object sender, EventArgs e)                 // Stok Kayıt
@@ -193,8 +206,8 @@ namespace MEYPAK.PRL
                 sfiyaT3 = Convert.ToDecimal(TBSFiyat3.Text),
                 sfiyaT4 = Convert.ToDecimal(TBSFiyat4.Text),
                 sfiyaT5 = Convert.ToDecimal(TBSFiyat5.Text),
-                sdovizid = CBSDoviz.SelectedIndex,
-                adovizid = CBADoviz.SelectedIndex,
+                sdovizid =Convert.ToInt32(CBSDoviz.Text),
+                adovizid  = Convert.ToInt32(CBADoviz.Text)
 
 
             };
@@ -242,6 +255,7 @@ namespace MEYPAK.PRL
             dataGridView1.DataSource = stokOlculist;
             dataGridView1.Refresh();
         }
+
 
        
         #endregion
