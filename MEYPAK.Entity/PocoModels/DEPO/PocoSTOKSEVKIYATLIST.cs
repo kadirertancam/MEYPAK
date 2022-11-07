@@ -14,20 +14,20 @@ namespace MEYPAK.Entity.PocoModels.DEPO
 {
     public class PocoSTOKSEVKIYATLIST:SUPERPOCOMODEL
     {
-        public int SIRKETID { get; set; } = 0;
-        public int SUBEID { get; set; } = 0;
-        public int DEPOID { get; set; } = 0;
-        public int STOKID { get; set; }
-        public int BIRIMID { get; set; }
-        public int SIPARISDETAYID { get; set; }
-        public decimal SIPARISMIKTARI { get; set; }
-        public decimal MIKTAR { get; set; }
-        public int EMIRID { get; set; }
-        public int KULLANICIID { get; set; } = 0;
-        public int SEVKEMRIHARID { get; set; }
-        public PocoOLCUBR MPOLCUBR { get; set; }
-        public PocoDEPOEMIR MPDEPOEMIR { get; set; }
-        public PocoSTOK MPSTOK { get; set; }
-        public PocoSIPARISDETAY MPSIPARISDETAY { get; set; }
+        public int sirketid { get; set; } = 0;
+        public int subeid { get; set; } = 0;
+        public int depoid { get; set; } = 0;
+        public int stokid { get; set; } = 0;
+        public int birimid { get; set; } = 0;
+        public int siparisdetayid { get; set; } = 0;
+        public decimal siparismiktari { get; set; } = 0;
+        public decimal miktar { get; set; } = 0;
+        public int emirid { get; set; } = 0;
+        public int kullaniciid { get; set; } = 0;
+        public int sevkemriharid { get; set; } =0;
+        public PocoOLCUBR mpolcubr { get; set; }
+        public PocoDEPOEMIR mpdepoemir { get; set; }
+        public PocoSTOK mpstok { get; set; }
+        public PocoSIPARISDETAY mpsiparisdetay { get; set; }
     }
 }

@@ -31,7 +31,7 @@ namespace MEYPAK.PRL.SIPARIS
 
             _depoServis = new GenericWebServis<PocoDEPO>();
             _depoServis.Data(ServisList.DepoListeServis);
-            CBDepo.Properties.DataSource = _depoServis.obje.Select(x => x.DEPOADI).ToList();
+            CBDepo.Properties.DataSource = _depoServis.obje.Select(x => x.depoadi).ToList();
             _siparisServis = new GenericWebServis<PocoSIPARIS>();
             _siparisServis.Data(ServisList.SiparisListeServis);
             _siparisDetayServis = new GenericWebServis<PocoSIPARISDETAY>();
@@ -217,69 +217,7 @@ namespace MEYPAK.PRL.SIPARIS
 
         }
 
-        private void BTKaydet_Click(object sender, EventArgs e)
-        {
-            _cariKart.Data(ServisList.CariListeServis);
-
-            _siparisServis.Data(ServisList.SiparisEkleServis, new PocoSIPARIS()
-            {
-                ACIKLAMA = TBAciklama.Text,
-                KUR = Convert.ToDecimal(TBKur.Text),
-                BELGENO = TBSiparisNo.Text,
-                VADETARIHI = DTPVadeTarihi.Value,
-                guncellemetarihi = DateTime.Now,
-                VADEGUNU = Convert.ToInt32(TBGun.Text),
-                CARIADI = TBCariAdi.Text,
-                CARIID = _cariKart.obje.Where(x => x.KOD == TBCariKodu.Text).FirstOrDefault().id,
-                DEPOID = _depoServis.obje.Where(x => x.DEPOADI == CBDepo.EditValue).FirstOrDefault().id,
-                DOVIZID = 0,
-                ISKONTOTOPLAM = _tempSiparisDetay.Sum(x => x.İskontoTutarı),
-                KDVTOPLAM = _tempSiparisDetay.Sum(x => x.KdvTutarı),
-                BRUTTOPLAM = _tempSiparisDetay.Sum(x => x.BrütToplam),
-                NETTOPLAM = _tempSiparisDetay.Sum(x => x.NetToplam),
-                GENELTOPLAM = _tempSiparisDetay.Sum(x => x.KdvTutarı) + _tempSiparisDetay.Sum(x => x.NetToplam),
-                TIP = 0,
-
-            });
-            _stokOlcuBr.Data(ServisList.StokOlcuBrListeServis);
-            _olcuBr.Data(ServisList.OlcuBrListeServis);
-            int i = 0;
-            foreach (var item in _tempSiparisDetay.Where(x => x.StokKodu != "").ToList())
-            {
-                var stokolcubr = _stokOlcuBr.obje.Where(x => x.STOKID == item.StokId).FirstOrDefault();
-
-                _siparisDetayServis.Data(ServisList.SiparisDetayEkleServis, new PocoSIPARISDETAY()
-                {
-                    STOKID = item.StokId,
-                    STOKADI = item.StokAdı,
-                    ACIKLAMA = item.Acıklama,
-                    KDV = item.Kdv,
-                    KASAID = item.KasaId,
-                    NETTOPLAM = item.NetToplam,
-                    NETFIYAT = item.NetFiyat,
-                    BIRIMID = _olcuBr.obje.Where(x => x.adi.ToString() == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Birim").ToString()).FirstOrDefault().id,
-                    DOVIZID = 0,
-                    MIKTAR = item.Miktar,
-                    ISTKONTO1 = item.İskonto1,
-                    ISTKONTO2 = item.İskonto2,
-                    ISTKONTO3 = item.İskonto3,
-                    SIPARISID = _siparisServis.obje2.id, ///ID gelecek
-
-                    BRUTFIYAT = item.BrütFiyat,
-                    BRUTTOPLAM = item.BrütFiyat * item.Miktar,
-                    BEKLEYENMIKTAR = 0,
-                    HAREKETDURUMU = 0,
-                    LISTEFIYATID = 0,
-                    TIP = 0,
-                    KDVTUTARI = item.KdvTutarı
-                });
-                i++;
-            }
-            temizle();
-            //DataGrideSiparisleriGetir();
-        }
-
-
+       
 
 
         public void Temizle(Control.ControlCollection ctrlCollection)
@@ -371,7 +309,7 @@ namespace MEYPAK.PRL.SIPARIS
             if (sy == 0)
             {
                 sy = 1;
-                if (CHBKdvDahil.Checked == false)
+                if (CBKdvDahil.Checked == false)
                 {
                     birimfiyat = Convert.ToDecimal(gridView1.GetFocusedRowCellValue("BirimFiyat"));
                     brutfiyat = birimfiyat;
@@ -414,11 +352,11 @@ namespace MEYPAK.PRL.SIPARIS
                 gridView1.SetFocusedRowCellValue("NetFiyat", decimal.Round(netfiyat, 2));
 
 
-                TBBrutToplam.Text = decimal.Round(_tempSiparisDetay.Sum(x => x.BrütToplam), 2).ToString();
-                TBIskontoToplam.Text = decimal.Round(_tempSiparisDetay.Sum(x => x.İskontoTutarı), 2).ToString();
-                TBKdvTutari.Text = decimal.Round(_tempSiparisDetay.Sum(x => x.KdvTutarı), 2).ToString();
-                TBGenelToplam.Text = decimal.Round(_tempSiparisDetay.Sum(x => x.NetToplam + x.KdvTutarı), 2).ToString();
-                TBAraToplam.Text = decimal.Round(_tempSiparisDetay.Sum(x => x.NetToplam), 2).ToString();
+                TBBrutTop.Text = decimal.Round(_tempSiparisDetay.Sum(x => x.BrütToplam), 2).ToString();
+                TBIskontoTop.Text = decimal.Round(_tempSiparisDetay.Sum(x => x.İskontoTutarı), 2).ToString();
+                TBKDVTutar.Text = decimal.Round(_tempSiparisDetay.Sum(x => x.KdvTutarı), 2).ToString();
+                TBGenelTop.Text = decimal.Round(_tempSiparisDetay.Sum(x => x.NetToplam + x.KdvTutarı), 2).ToString();
+                TBAraTop.Text = decimal.Round(_tempSiparisDetay.Sum(x => x.NetToplam), 2).ToString();
                 sy = 0;
             }
         }

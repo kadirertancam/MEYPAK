@@ -24,7 +24,7 @@ namespace MEYPAK.Entity.Models.DEPO
         public decimal MIKTAR { get; set; }
         public string ACIKLAMA { get; set; }
 
-        public MPSIPARIS MPSIPARIS { get; set; }
+        public virtual MPSIPARIS MPSIPARIS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MPSTOKSEVKİYATLİST> MPSTOKSEVKİYATLİST { get; set; }
         public ICollection<MPDEPOEMIRSIPARISKALEMILISKI> MPDEPOEMIRSIPARISKALEMILISKI { get; set; }
@@ -32,6 +32,6 @@ namespace MEYPAK.Entity.Models.DEPO
         public virtual ICollection<MPSTOKMALKABULLIST> MPSTOKMALKABULLIST { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MPSIPARISSEVKEMRIHAR> MPSIPARISSEVKEMRIHAR { get; set; }
-        public MPDEPO MPDEPO { get; set; }
+        public virtual MPDEPO MPDEPO { get; set; }
     }
 }

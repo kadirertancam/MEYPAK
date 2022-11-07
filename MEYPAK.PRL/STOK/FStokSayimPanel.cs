@@ -4,7 +4,6 @@ using MEYPAK.DAL.Abstract;
 using MEYPAK.DAL.Abstract.StokDal;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
-using MEYPAK.DAL.Concrete.EntityFramework.Repository;
 using MEYPAK.Entity.Models;
 using MEYPAK.Entity.PocoModels;
 using MEYPAK.Interfaces.Depo;
@@ -64,7 +63,7 @@ namespace MEYPAK.PRL.STOK
             stokServis.Data(ServisList.StokListeServis);
             TBStokBilgiStokKodu.Text = _tempStok.kod;
             TBStokBilgiStokAdi.Text = _tempStok.adi;
-            CBStokSayimDepo.Properties.DataSource = stokOlcuBrServis.obje.Where(x => x.STOKID == _tempStok.id).Select(x => olcuBrServis.obje.Where(z => z.id == x.OLCUBRID).FirstOrDefault().adi).ToList();
+            CBStokSayimDepo.Properties.DataSource = stokOlcuBrServis.obje.Where(x => x.stokid == _tempStok.id).Select(x => olcuBrServis.obje.Where(z => z.id == x.olcubrid).FirstOrDefault().adi).ToList();
             TBStokBilgiBakiye.Text = (from ep in stokServis.obje join e in stokHarServis.obje on ep.id equals e.stokid where ep.kod == _tempStok.kod select Convert.ToDecimal(e.io.ToString() == "1" ? e.miktar : 0) - Convert.ToDecimal(e.io.ToString() == "0" ? e.miktar : 0)).FirstOrDefault().ToString();
 
             _tempStok = null;
@@ -82,19 +81,19 @@ namespace MEYPAK.PRL.STOK
             if (_islemtipi == "düzenle")
             {
                 DGStokSayim.DataSource = _tempStokSayimHarList;
-                CBStokSayimDepo.Properties.DataSource = depoServis.obje.Select(x => x.DEPOADI).ToList();
+                CBStokSayimDepo.Properties.DataSource = depoServis.obje.Select(x => x.depoadi).ToList();
 
             }
             else if (_islemtipi == "kaydet")
             { 
                 _tempStokSayimHarList = new List<PocoStokSayimPanelList>();
-                CBDepo.Properties.DataSource = depoServis.obje.Select(x => x.DEPOADI).ToList();
+                CBDepo.Properties.DataSource = depoServis.obje.Select(x => x.depoadi).ToList();
                 foreach (var item in stokServis.obje.Where(x=>x.kayittipi==0))
                 {
                     _tempStokSayimHarList.Add(new PocoStokSayimPanelList()
                     {
                         StokAdı = item.adi,
-                        Birim = olcuBrServis.obje.Where(x=>x.id== (stokOlcuBrServis.obje.Where(z=>z.NUM==1 && z.STOKID==item.id).Select(z=>z.OLCUBRID).FirstOrDefault())).FirstOrDefault().adi, //TODO: İlgili stoğun ölçü birimi gelecek fakat bütün stoklarda ölçü birim tanımlı değil. isterseniz veritabanını yapılandırabilirsiiz.
+                        Birim = olcuBrServis.obje.Where(x=>x.id== (stokOlcuBrServis.obje.Where(z=>z.num==1 && z.stokid==item.id).Select(z=>z.olcubrid).FirstOrDefault())).FirstOrDefault().adi, //TODO: İlgili stoğun ölçü birimi gelecek fakat bütün stoklarda ölçü birim tanımlı değil. isterseniz veritabanını yapılandırabilirsiiz.
                         Fiyat = 1,
                         Miktar = 0,
                         StokKodu = item.kod
@@ -226,14 +225,14 @@ namespace MEYPAK.PRL.STOK
 
                 stokSayimHarServis.Data(ServisList.StokSayimHarEkleServis, (new PocoSTOKSAYIMHAR()
                 {
-                    STOKID = stokServis.obje.Where(x => x.kod == gridView1.GetRowCellValue(i,"StokKodu").ToString()).FirstOrDefault().id,
-                    MIKTAR = Decimal.Parse(gridView1.GetRowCellValue(i,"Miktar").ToString()),
-                    FIYAT = Decimal.Parse(gridView1.GetRowCellValue(i,"Fiyat").ToString()),
-                    BIRIMID= olcuBrServis.obje.Where(x=>x.adi==gridView1.GetRowCellValue(i,"birim")).FirstOrDefault().id,
-                    KUR = 1,
-                    PARABR = 1,
-                    DEPOID = depoServis.obje.Where(x => x.DEPOADI == CBDepo.EditValue).FirstOrDefault().id,
-                    STOKSAYIMID = sayimId
+                    stokid = stokServis.obje.Where(x => x.kod == gridView1.GetRowCellValue(i,"StokKodu").ToString()).FirstOrDefault().id,
+                    miktar = Decimal.Parse(gridView1.GetRowCellValue(i,"Miktar").ToString()),
+                    fiyat= Decimal.Parse(gridView1.GetRowCellValue(i,"Fiyat").ToString()),
+                    birimid = olcuBrServis.obje.Where(x=>x.adi==gridView1.GetRowCellValue(i,"birim")).FirstOrDefault().id,
+                    kur = 1,
+                    parabr = 1,
+                    depoid = depoServis.obje.Where(x => x.depoadi == CBDepo.EditValue).FirstOrDefault().id,
+                    stoksayimid = sayimId
 
                 }));
 

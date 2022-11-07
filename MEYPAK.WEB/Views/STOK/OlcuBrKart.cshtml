@@ -16,7 +16,7 @@
             .AllowAdding(true)
             .AllowDeleting(true)
             .Popup(p => p
-            .Title("Stok Kart")
+            .Title("Olcu Birim Kart")
             .ShowTitle(true)
             .Width(700)
             .Height(525)
@@ -74,8 +74,8 @@
         .ValueExpr("theme")
         .DisplayExpr("name")
         .DataSource(new object[] {
-    new { name = "Light", theme = "dx.light.css"},
-    new { name = "Dark", theme = "dx.dark.css"},
+    new { name = "Gündüz", theme = "dx.light.css"},
+    new { name = "Gece", theme = "dx.dark.css"},
 
         })
         .OnSelectionChanged("changeTheme")

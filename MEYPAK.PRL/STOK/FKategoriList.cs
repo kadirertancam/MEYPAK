@@ -66,7 +66,46 @@ namespace MEYPAK.PRL.STOK
             return ustNode;
         }
 
-        private void button3_Click(object sender, EventArgs e)
+      
+       
+        private void treeView1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                if (_islem == "Stok")
+                {
+                    if (treeView1.SelectedNode.Name != "" && treeView1.SelectedNode != null)
+                    {
+                        if (fStokKart != null)
+                        {
+                            fStokKart._tempKategori = _kategoriServis.obje.Where(x => x.id == Convert.ToInt32(treeView1.SelectedNode.Name)).FirstOrDefault();
+                            this.Close();
+                        }
+                    }
+                }
+            }
+            
+        }
+
+        private void BTYeniEkle_Click(object sender, EventArgs e)
+        {
+            if (TBKategoriList.Text != null && TBKategoriList.Text != "")
+            {
+                PocoSTOKKATEGORI mPKATEGORI = new PocoSTOKKATEGORI()
+                {
+                    acıklama = TBKategoriList.Text,
+                    ustId = 0
+                };
+                _kategoriServis.Data(ServisList.StokKategoriEkleServis, mPKATEGORI);
+                MessageBox.Show("Başarıyla Eklendi");
+            }
+            else
+            {
+                MessageBox.Show("Lütfen Yeni Kategori için bir isim giriniz.");
+            }
+        }
+
+        private void BTAltKateEkle_Click(object sender, EventArgs e)
         {
             if (treeView1.SelectedNode.Name != "" && treeView1.SelectedNode != null)
             {
@@ -88,50 +127,5 @@ namespace MEYPAK.PRL.STOK
                 MessageBox.Show("Lütfen alt kategori eklemek istediğiniz kategoriyi seçiniz.");
             }
         }
-
-        private void BTNYeniKategori_Click(object sender, EventArgs e)
-        {
-            if (TBKategoriList.Text != null && TBKategoriList.Text != "")
-            {
-                PocoSTOKKATEGORI mPKATEGORI = new PocoSTOKKATEGORI()
-                {
-                    acıklama = TBKategoriList.Text,
-                    ustId = 0
-                };
-                _kategoriServis.Data(ServisList.StokKategoriEkleServis, mPKATEGORI);
-                MessageBox.Show("Başarıyla Eklendi");
-            }
-            else
-            {
-                MessageBox.Show("Lütfen Yeni Kategori için bir isim giriniz.");
-            }
-
-        }
-
-        private void treeView1_DoubleClick(object sender, EventArgs e)
-        {
-        
-        }
-
-        private void treeView1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Enter)
-            {
-                if (_islem == "Stok")
-                {
-                    if (treeView1.SelectedNode.Name != "" && treeView1.SelectedNode != null)
-                    {
-                        if (fStokKart != null)
-                        {
-                            fStokKart._tempKategori = _kategoriServis.obje.Where(x => x.id == Convert.ToInt32(treeView1.SelectedNode.Name)).FirstOrDefault();
-                            this.Close();
-                        }
-                    }
-                }
-            }
-            
-        }
-
-       
     }
 }

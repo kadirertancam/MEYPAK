@@ -19,7 +19,7 @@
             .AllowDeleting(true)
             .AllowAdding(true)
             .Popup(p => p
-                .Title("Stok Kategori")
+                .Title("Stok Kategori Kart")
                 .ShowTitle(true)
                 .Width(700)
             )
@@ -31,7 +31,6 @@
   
 
             columns.AddFor(m => m.ustId)
-                .Width(150)
                 .Visible(false)
                 .Lookup(lookup => lookup
                     .DataSource(ds => ds.Mvc().Controller("STOK").LoadAction("StokKategoriGet").Key("id"))

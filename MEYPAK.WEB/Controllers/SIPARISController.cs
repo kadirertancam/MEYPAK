@@ -1,7 +1,11 @@
-﻿using MEYPAK.BLL.Assets;
+﻿using DevExtreme.AspNet.Data;
+using DevExtreme.AspNet.Mvc;
+using MEYPAK.BLL.Assets;
+using MEYPAK.Entity.PocoModels.DEPO;
 using MEYPAK.Entity.PocoModels.SIPARIS;
 using MEYPAK.Entity.PocoModels.STOK;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace MEYPAK.WEB.Controllers
 {
@@ -18,110 +22,200 @@ namespace MEYPAK.WEB.Controllers
         }
 
 
+
+
         #region SIPARIS
+        
 
         [HttpGet]
-
         public async Task<IActionResult> SiparisKart()
         {
-            _tempPocoSiparis.Data(ServisList.SiparisListeServis);
-
-            return View(_tempPocoSiparis.obje);
+            return View();
         }
 
         [HttpGet]
-        public IActionResult SiparisEkle()
+        public object SiparisGet(DataSourceLoadOptions loadOptions)
         {
-            return View();
+            _tempPocoSiparis.Data(ServisList.SiparisListeServis);
+            return DataSourceLoader.Load(_tempPocoSiparis.obje.Where(x => x.kayittipi == 0).Reverse().AsEnumerable(), loadOptions);
         }
-
+        [HttpPut]
+        public async Task<IActionResult> SiparisPut(int key, string values)
+        { //güncellenecek
+            _tempPocoSiparis.Data(ServisList.SiparisListeServis);
+            var employee = _tempPocoSiparis.obje.First(a => a.id == key);
+            JsonConvert.PopulateObject(values, employee);
+            _tempPocoSiparis.Data(ServisList.SiparisEkleServis, employee);
+            return Ok();
+        }
         [HttpPost]
-        public async Task<IActionResult> SiparisEkle(List<PocoSIPARIS> pModel)
+        public async Task<IActionResult> SiparisPost(string values)
         {
+            PocoSIPARIS newPoco = new PocoSIPARIS();
+            JsonConvert.PopulateObject(values, newPoco);
+            _tempPocoSiparis.Data(ServisList.SiparisEkleServis, newPoco);
+            return Ok();
+        }
+        [HttpDelete]
+        public void SiparisDelete(int key)
+        {
+            string url = ServisList.SiparisDeleteByIdServis + "?id=" + key;
+            _tempPocoSiparis.Data(url, method: HttpMethod.Post);
+        }
 
-            _tempPocoSiparis.Data(ServisList.SiparisSilServis,modellist: pModel);
+        #endregion
 
-            ViewBag.Durum = "Başarıyla silindi.";
+        #region SIPARISDETAY
+
+
+        [HttpGet]
+        public async Task<IActionResult> SiparisDetayKart()
+        {
             return View();
         }
+
+        [HttpGet]
+        public object SiparisDetayGet(DataSourceLoadOptions loadOptions)
+        {
+            _tempPocoSiparisDetay.Data(ServisList.SiparisDetayListeServis);
+            return DataSourceLoader.Load(_tempPocoSiparisDetay.obje.Where(x => x.kayittipi == 0).Reverse().AsEnumerable(), loadOptions);
+        }
+        [HttpPut]
+        public async Task<IActionResult> SiparisDetayPut(int key, string values)
+        { //güncellenecek
+            _tempPocoSiparisDetay.Data(ServisList.SiparisDetayListeServis);
+            var employee = _tempPocoSiparisDetay.obje.First(a => a.id == key);
+            JsonConvert.PopulateObject(values, employee);
+            _tempPocoSiparisDetay.Data(ServisList.SiparisDetayEkleServis, employee);
+            return Ok();
+        }
+        [HttpPost]
+        public async Task<IActionResult> SiparisDetayPost(string values)
+        {
+            PocoSIPARISDETAY newPoco = new PocoSIPARISDETAY();
+            JsonConvert.PopulateObject(values, newPoco);
+            _tempPocoSiparisDetay.Data(ServisList.SiparisDetayEkleServis, newPoco);
+            return Ok();
+        }
+        [HttpDelete]
+        public void SiparisDetayDelete(int key)
+        {
+            string url = ServisList.SiparisDetayDeleteByIdServis + "?id=" + key;
+            _tempPocoSiparisDetay.Data(url, method: HttpMethod.Post);
+        }
+
+        #endregion
+
+
+
+        #region old_Controllers
+        #region SIPARIS
+
+        //[HttpGet]
+
+        //public async Task<IActionResult> SiparisKart()
+        //{
+        //    _tempPocoSiparis.Data(ServisList.SiparisListeServis);
+
+        //    return View(_tempPocoSiparis.obje);
+        //}
+
+        //[HttpGet]
+        //public IActionResult SiparisEkle()
+        //{
+        //    return View();
+        //}
+
+        //[HttpPost]
+        //public async Task<IActionResult> SiparisEkle(List<PocoSIPARIS> pModel)
+        //{
+
+        //    _tempPocoSiparis.Data(ServisList.SiparisSilServis,modellist: pModel);
+
+        //    ViewBag.Durum = "Başarıyla silindi.";
+        //    return View();
+        //}
 
 
         #endregion
 
         #region SIPARISDETAY
 
-        [HttpGet]
+        //[HttpGet]
 
-        public async Task<IActionResult> SiparisDetayKart()
-        {
-            _tempPocoSiparisDetay.Data(ServisList.SiparisDetayListeServis);
+        //public async Task<IActionResult> SiparisDetayKart()
+        //{
+        //    _tempPocoSiparisDetay.Data(ServisList.SiparisDetayListeServis);
 
-            return View(_tempPocoSiparisDetay.obje);
-        }
+        //    return View(_tempPocoSiparisDetay.obje);
+        //}
 
-        [HttpGet]
-        public IActionResult SiparisDetayEkle()
-        {
-            return View();
-        }
+        //[HttpGet]
+        //public IActionResult SiparisDetayEkle()
+        //{
+        //    return View();
+        //}
 
-        [HttpPost]
-        public async Task<IActionResult> SiparisDetayEkle(List<PocoSIPARISDETAY> pModel)
-        {
+        //[HttpPost]
+        //public async Task<IActionResult> SiparisDetayEkle(List<PocoSIPARISDETAY> pModel)
+        //{
 
-            _tempPocoSiparisDetay.Data(ServisList.SiparisDetaySilServis,modellist: pModel);
+        //    _tempPocoSiparisDetay.Data(ServisList.SiparisDetaySilServis,modellist: pModel);
 
-            ViewBag.Durum = "Başarıyla silindi.";
-            return View();
-        }
+        //    ViewBag.Durum = "Başarıyla silindi.";
+        //    return View();
+        //}
 
 
         #endregion
 
         #region SIPARISSEVKEMRIHAR
 
-        [HttpGet]
+        //[HttpGet]
 
-        public async Task<IActionResult> SiparisSevkEmriKart()
-        {
-            _tempPocoSiparisSevkEmriHar.Data(ServisList.SiparisSevkEmriHarListeServis);
+        //public async Task<IActionResult> SiparisSevkEmriKart()
+        //{
+        //    _tempPocoSiparisSevkEmriHar.Data(ServisList.SiparisSevkEmriHarListeServis);
 
-            return View(_tempPocoSiparisSevkEmriHar.obje);
-        }
+        //    return View(_tempPocoSiparisSevkEmriHar.obje);
+        //}
 
-        [HttpGet]
-        public IActionResult SiparisSevkEmriEkle()
-        {
-            return View();
-        }
+        //[HttpGet]
+        //public IActionResult SiparisSevkEmriEkle()
+        //{
+        //    return View();
+        //}
 
-        [HttpPost]
-        public async Task<IActionResult> SiparisSevkEmriEkle(PocoSIPARISSEVKEMIRHAR pModel)
-        {
+        //[HttpPost]
+        //public async Task<IActionResult> SiparisSevkEmriEkle(PocoSIPARISSEVKEMIRHAR pModel)
+        //{
 
-            _tempPocoSiparisSevkEmriHar.Data(ServisList.SiparisSevkEmriHarEkleServis, pModel);
+        //    _tempPocoSiparisSevkEmriHar.Data(ServisList.SiparisSevkEmriHarEkleServis, pModel);
 
-            ViewBag.Durum = "Başarıyla eklendi.";
-            return View();
-        }
-        [HttpGet]
-        public IActionResult SiparisSevkEmriSil()
-        {
-            return View();
-        }
+        //    ViewBag.Durum = "Başarıyla eklendi.";
+        //    return View();
+        //}
+        //[HttpGet]
+        //public IActionResult SiparisSevkEmriSil()
+        //{
+        //    return View();
+        //}
 
-        [HttpPost]
-        public async Task<IActionResult> SiparisSevkEmriSil(List<PocoSIPARISSEVKEMIRHAR> pModel)
-        {
+        //[HttpPost]
+        //public async Task<IActionResult> SiparisSevkEmriSil(List<PocoSIPARISSEVKEMIRHAR> pModel)
+        //{
 
-            _tempPocoSiparisSevkEmriHar.Data(ServisList.SiparisSevkEmriHarEkleServis,modellist: pModel);
+        //    _tempPocoSiparisSevkEmriHar.Data(ServisList.SiparisSevkEmriHarEkleServis,modellist: pModel);
 
-            ViewBag.Durum = "Başarıyla silindi.";
-            return View();
-        }
+        //    ViewBag.Durum = "Başarıyla silindi.";
+        //    return View();
+        //}
 
 
         #endregion
+
+        #endregion
+
 
     }
 }

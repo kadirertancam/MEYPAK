@@ -16,7 +16,7 @@
             .AllowAdding(true)
             .AllowDeleting(true)
             .Popup(p => p
-            .Title("Stok Kart")
+            .Title("Hizmet Kart")
             .ShowTitle(true)
             .Width(700)
             .Height(525)
@@ -28,8 +28,6 @@
                 .ColSpan(2)
                 .Items(groupItems =>
                 {
-
-
                     groupItems.AddSimpleFor(m => m.adi);
                     groupItems.AddSimpleFor(m => m.kod);
                     groupItems.AddSimpleFor(m => m.kategoriid);
@@ -41,8 +39,6 @@
                 .ColSpan(2)
                 .Editor(editor => editor.TextArea().Height(100));
                 });
-
-
             }))
             )
             .Columns(columns =>
@@ -64,7 +60,7 @@
 
                 columns.AddFor(m => m.aciklamA5);
                 
-                  columns.Add()
+                columns.Add()
                 .Type(GridCommandColumnType.Buttons)
                 .Buttons(b =>
                 {
@@ -75,7 +71,6 @@
             .DataSource(d => d.Mvc()
             .Controller("STOK")
             .LoadAction("HizmetGet").InsertAction("HizmetPost").UpdateAction("HizmetPut").DeleteAction("HizmetDelete").Key("id")
-
             )
             )
 
@@ -89,8 +84,8 @@
         .ValueExpr("theme")
         .DisplayExpr("name")
         .DataSource(new object[] {
-    new { name = "Light", theme = "dx.light.css"},
-    new { name = "Dark", theme = "dx.dark.css"},
+    new { name = "Gündüz", theme = "dx.light.css"},
+    new { name = "Gece", theme = "dx.dark.css"},
 
         })
         .OnSelectionChanged("changeTheme")

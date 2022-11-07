@@ -33,21 +33,21 @@
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.LBSeri = new DevExpress.XtraEditors.LabelControl();
-            this.BESeri = new DevExpress.XtraEditors.ButtonEdit();
-            this.LBKullanici = new DevExpress.XtraEditors.LabelControl();
-            this.GBKullanici = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.BTSeriKaydet = new DevExpress.XtraEditors.SimpleButton();
             this.GBSeriTanim = new System.Windows.Forms.GroupBox();
             this.RGStokHarGirisCikis = new DevExpress.XtraEditors.RadioGroup();
+            this.BTSeriKaydet = new DevExpress.XtraEditors.SimpleButton();
+            this.LBKullanici = new DevExpress.XtraEditors.LabelControl();
+            this.GBKullanici = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.LBSeri = new DevExpress.XtraEditors.LabelControl();
+            this.BESeri = new DevExpress.XtraEditors.ButtonEdit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BESeri.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GBKullanici.Properties)).BeginInit();
             this.GBSeriTanim.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RGStokHarGirisCikis.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GBKullanici.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BESeri.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -90,63 +90,6 @@
             this.panel2.Size = new System.Drawing.Size(800, 86);
             this.panel2.TabIndex = 0;
             // 
-            // LBSeri
-            // 
-            this.LBSeri.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBSeri.Appearance.Options.UseFont = true;
-            this.LBSeri.Location = new System.Drawing.Point(44, 25);
-            this.LBSeri.Name = "LBSeri";
-            this.LBSeri.Size = new System.Drawing.Size(20, 14);
-            this.LBSeri.TabIndex = 8;
-            this.LBSeri.Text = "Seri";
-            this.LBSeri.ToolTipIconType = DevExpress.Utils.ToolTipIconType.Application;
-            // 
-            // BESeri
-            // 
-            this.BESeri.Location = new System.Drawing.Point(70, 20);
-            this.BESeri.Name = "BESeri";
-            this.BESeri.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.BESeri.Properties.Padding = new System.Windows.Forms.Padding(3);
-            
-            this.BESeri.Size = new System.Drawing.Size(180, 26);
-            this.BESeri.TabIndex = 9;
-            // 
-            // LBKullanici
-            // 
-            this.LBKullanici.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBKullanici.Appearance.Options.UseFont = true;
-            this.LBKullanici.Location = new System.Drawing.Point(18, 54);
-            this.LBKullanici.Name = "LBKullanici";
-            this.LBKullanici.Size = new System.Drawing.Size(46, 16);
-            this.LBKullanici.TabIndex = 32;
-            this.LBKullanici.Text = "Kullanıcı";
-            // 
-            // GBKullanici
-            // 
-            this.GBKullanici.Location = new System.Drawing.Point(70, 52);
-            this.GBKullanici.Name = "GBKullanici";
-            this.GBKullanici.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.GBKullanici.Properties.Appearance.Options.UseFont = true;
-            this.GBKullanici.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.GBKullanici.Properties.Items.AddRange(new object[] {
-            "TL"});
-            this.GBKullanici.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.GBKullanici.Size = new System.Drawing.Size(180, 26);
-            this.GBKullanici.TabIndex = 31;
-            // 
-            // BTSeriKaydet
-            // 
-            this.BTSeriKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.BTSeriKaydet.Appearance.Options.UseBackColor = true;
-            this.BTSeriKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTStokHarKaydet.ImageOptions.Image")));
-            this.BTSeriKaydet.Location = new System.Drawing.Point(269, 23);
-            this.BTSeriKaydet.Name = "BTSeriKaydet";
-            this.BTSeriKaydet.Size = new System.Drawing.Size(94, 52);
-            this.BTSeriKaydet.TabIndex = 75;
-            this.BTSeriKaydet.Text = "Kaydet";
-            // 
             // GBSeriTanim
             // 
             this.GBSeriTanim.Controls.Add(this.RGStokHarGirisCikis);
@@ -172,6 +115,63 @@
             this.RGStokHarGirisCikis.Size = new System.Drawing.Size(299, 29);
             this.RGStokHarGirisCikis.TabIndex = 7;
             // 
+            // BTSeriKaydet
+            // 
+            this.BTSeriKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTSeriKaydet.Appearance.Options.UseBackColor = true;
+            this.BTSeriKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTSeriKaydet.ImageOptions.Image")));
+            this.BTSeriKaydet.Location = new System.Drawing.Point(269, 23);
+            this.BTSeriKaydet.Name = "BTSeriKaydet";
+            this.BTSeriKaydet.Size = new System.Drawing.Size(94, 52);
+            this.BTSeriKaydet.TabIndex = 75;
+            this.BTSeriKaydet.Text = "Kaydet";
+            // 
+            // LBKullanici
+            // 
+            this.LBKullanici.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBKullanici.Appearance.Options.UseFont = true;
+            this.LBKullanici.Location = new System.Drawing.Point(18, 54);
+            this.LBKullanici.Name = "LBKullanici";
+            this.LBKullanici.Size = new System.Drawing.Size(46, 16);
+            this.LBKullanici.TabIndex = 32;
+            this.LBKullanici.Text = "Kullanıcı";
+            // 
+            // GBKullanici
+            // 
+            this.GBKullanici.Location = new System.Drawing.Point(75, 52);
+            this.GBKullanici.Name = "GBKullanici";
+            this.GBKullanici.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.GBKullanici.Properties.Appearance.Options.UseFont = true;
+            this.GBKullanici.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.GBKullanici.Properties.Items.AddRange(new object[] {
+            "TL"});
+            this.GBKullanici.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.GBKullanici.Size = new System.Drawing.Size(180, 26);
+            this.GBKullanici.TabIndex = 31;
+            // 
+            // LBSeri
+            // 
+            this.LBSeri.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBSeri.Appearance.Options.UseFont = true;
+            this.LBSeri.Location = new System.Drawing.Point(44, 25);
+            this.LBSeri.Name = "LBSeri";
+            this.LBSeri.Size = new System.Drawing.Size(20, 14);
+            this.LBSeri.TabIndex = 8;
+            this.LBSeri.Text = "Seri";
+            this.LBSeri.ToolTipIconType = DevExpress.Utils.ToolTipIconType.Application;
+            // 
+            // BESeri
+            // 
+            this.BESeri.Location = new System.Drawing.Point(75, 20);
+            this.BESeri.Name = "BESeri";
+            this.BESeri.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.BESeri.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.BESeri.Size = new System.Drawing.Size(180, 26);
+            this.BESeri.TabIndex = 9;
+            this.BESeri.EditValueChanged += new System.EventHandler(this.BESeri_EditValueChanged);
+            // 
             // FSeriTanim
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -186,10 +186,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BESeri.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GBKullanici.Properties)).EndInit();
             this.GBSeriTanim.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.RGStokHarGirisCikis.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GBKullanici.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BESeri.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

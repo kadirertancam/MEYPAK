@@ -11,21 +11,21 @@ namespace MEYPAK.Entity.PocoModels.STOK
 {
     public class PocoSTOKSAYIMHAR:SUPERPOCOMODEL
     {
-        public int FIRMAID { get; set; } = 0;
-        public int SUBEID { get; set; } = 0;
-        public int DEPOID { get; set; }
-        public int STOKSAYIMID { get; set; }
-        public decimal MIKTAR { get; set; }
-        public decimal FIYAT { get; set; }
-        public int PARABR { get; set; } = 1;
-        public decimal KUR { get; set; } = 1;
+        public int firmaid { get; set; } = 0;
+        public int subeid { get; set; } 
+        public int depoid { get; set; }
+        public int stoksayimid { get; set; }
+        public decimal miktar { get; set; }
+        public decimal fiyat { get; set; }
+        public int parabr { get; set; } = 1;
+        public decimal kur { get; set; } = 1;
         [JsonIgnore]
-        public virtual PocoSTOKSAYIM MPSTOKSAYIM { get; set; }
-        public int STOKID { get; set; }
+        public virtual PocoSTOKSAYIM mpstoksayim { get; set; }
+        public int stokid { get; set; }
         [JsonIgnore]
-        public virtual PocoSTOK MPSTOK { get; set; }
-        public int BIRIMID { get; set; }
+        public virtual PocoSTOK mpstok { get; set; }
+        public int birimid { get; set; }
         [JsonIgnore]
-        public virtual PocoOLCUBR MPOLCUBR { get; set; }
+        public virtual PocoOLCUBR mpolcubr { get; set; }
     }
 }

@@ -10,11 +10,11 @@ namespace MEYPAK.Entity.PocoModels.DEPO
     public class PocoDEPOTRANSFER:SUPERPOCOMODEL
     {
         [Required]
-        public int CIKTIDEPOID { get; set; }
+        public int ciktidepoid { get; set; }
         [Required]
-        public int HEDEFDEPOID { get; set; }
-        public byte DURUM { get; set; } = 0;
+        public int hedefdepoid { get; set; }
+        public byte durum { get; set; } = 0;
         [Required]
-        public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
+        public string donem { get; set; } = DateTime.Now.ToString("yyyy");
     }
 }

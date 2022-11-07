@@ -27,14 +27,14 @@ namespace MEYPAK.PRL.STOK
             _kasaServis = new GenericWebServis<PocoSTOKKASA>();
         }
         GenericWebServis<PocoSTOKKASA>_kasaServis;
-       
-        private void BTStokKaydet_Click(object sender, EventArgs e)
+
+        private void BTKaydet_Click(object sender, EventArgs e)
         {
-            _kasaServis.Data(ServisList.StokKasaEkleServis,new PocoSTOKKASA
+            _kasaServis.Data(ServisList.StokKasaEkleServis, new PocoSTOKKASA
             {
-                kasaadi =TBAdi.Text,
+                kasaadi = TBKasaAdi.Text,
                 aciklama = TBAciklama.Text,
-                kasakodu = TBKodu.Text,
+                kasakodu = TBKasaKodu.Text,
                 olusturmatarihi = DateTime.Now,
             });
             MessageBox.Show("Kasa Başarıyla Eklendi.");
@@ -51,6 +51,11 @@ namespace MEYPAK.PRL.STOK
             _kasaServis.Data(ServisList.StokKasaListeServis);
             DGKasaPanel.DataSource = "";
             DGKasaPanel.DataSource = _kasaServis.obje;
+        }
+
+        private void BTSil_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

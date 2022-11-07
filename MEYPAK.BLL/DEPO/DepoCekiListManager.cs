@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.BLL.DEPO
 {
-    internal class DepoCekiListManager : BaseManager<PocoDEPOCEKILIST,MPDEPOCEKILIST>, IDepoCekiListServis
+    public class DepoCekiListManager : BaseManager<PocoDEPOCEKILIST,MPDEPOCEKILIST>, IDepoCekiListServis
     {
         IDepoCekiListDal _depoCekiListDal;
         IMapper _mapper;

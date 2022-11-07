@@ -11,37 +11,37 @@ namespace MEYPAK.Entity.PocoModels.SIPARIS
 {
     public class PocoSIPARIS:SUPERPOCOMODEL
     {
-        public int SIRKETID { get; set; } = 0;
-        public int SUBEID { get; set; } = 0;
-        public int DEPOID { get; set; } = 0;
-        public int CARIID { get; set; } = 0;
-        public int ALTHESAPID { get; set; } = 0;
-        public int KULLANICIID { get; set; } = 0;
-        public DateTime SIPARISTARIHI { get; set; } = DateTime.Now;
-        public DateTime SEVKIYATTARIHI { get; set; } = DateTime.Now;
-        public DateTime VADETARIHI { get; set; } = DateTime.Now;
-        public byte KULLANICITIPI { get; set; } = 0;
-        public string CARIADI { get; set; } = "";
-        public int VADEGUNU { get; set; } = 0;
+        public int sirketid { get; set; } = 0;
+        public int subeid { get; set; } = 0;
+        public int depoid { get; set; } = 0;
+        public int cariid { get; set; } = 0;
+        public int althesapid { get; set; } = 0;
+        public int kullaniciid { get; set; } = 0;
+        public DateTime siparistarihi { get; set; } = DateTime.Now;
+        public DateTime sevkiyattarihi { get; set; } = DateTime.Now;
+        public DateTime vadetarihi { get; set; } = DateTime.Now;
+        public byte kullanicitipi { get; set; } = 0;
+        public string cariadi { get; set; } = "";
+        public int vadegunu { get; set; } = 0;
         [StringLength(200)]
-        public string ACIKLAMA { get; set; } = "";
+        public string aciklama { get; set; } = "";
         [StringLength(200)]
-        public string EKACIKLAMA { get; set; } = "";
-        public int DOVIZID { get; set; } = 0;
-        public decimal KUR { get; set; } = 0;
+        public string ekaciklama { get; set; } = "";
+        public int dovizid { get; set; } = 0;
+        public decimal kur { get; set; } = 0;
         [StringLength(50)]
-        public string SERINO { get; set; } = "";
-        public string BELGENO { get; set; } = "";
-        public bool KDVDAHİL { get; set; }
-        public decimal NETTOPLAM { get; set; } = 0;
-        public decimal KDVTOPLAM { get; set; } = 0;
-        public decimal ISKONTOTOPLAM { get; set; } = 0;
-        public decimal BRUTTOPLAM { get; set; } = 0;
-        public decimal GENELTOPLAM { get; set; } = 0;
-        public bool DURUM { get; set; }
-        public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
-        public int TIP { get; set; }
-        public virtual List<PocoSIPARISDETAY> MPSIPARISDETAYList { get; set; }
+        public string serino { get; set; } = "";
+        public string belgeno { get; set; } = "";
+        public bool kdvdahil { get; set; }
+        public decimal nettoplam { get; set; } = 0;
+        public decimal kdvtoplam { get; set; } = 0;
+        public decimal istkontotoplam { get; set; } = 0;
+        public decimal bruttoplam { get; set; } = 0;
+        public decimal geneltoplam { get; set; } = 0;
+        public bool durum { get; set; }
+        public string donem { get; set; } = DateTime.Now.ToString("yyyy");
+        public int tip { get; set; }
+        public virtual List<PocoSIPARISDETAY> mpsiparisdetaylist { get; set; }
 
     }
 }

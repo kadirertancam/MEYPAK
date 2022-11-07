@@ -26,7 +26,7 @@ namespace MEYPAK.PRL.DEPO
     {
         PocoDEPOTRANSFER _arasıtransfer;
         public PocoSTOK _tempStok;
-        IDepoServis _depoServis ;
+        IDepoServis _depoServis;
         IDepoTransferServis _depoTransferServis ;
         IDepoTransferHarServis _depoTransferHarServis ;
         public FDepolarArasıTransferHar(PocoDEPOTRANSFER arasıTransfer)
@@ -46,9 +46,9 @@ namespace MEYPAK.PRL.DEPO
         {
             if (_arasıtransfer != null)
             {
-                TBCikisDepo.Text = _depoServis.Getir(x => x.id == _arasıtransfer.CIKTIDEPOID).FirstOrDefault().DEPOADI;
-                TBHedefDepo.Text = _depoServis.Getir(x => x.id == _arasıtransfer.HEDEFDEPOID).FirstOrDefault().DEPOADI;
-                TBDurum.Text = _arasıtransfer.DURUM.ToString();
+                TBCikisDepo.Text = _depoServis.Getir(x => x.id == _arasıtransfer.ciktidepoid).FirstOrDefault().depoadi;
+                TBHedefDepo.Text = _depoServis.Getir(x => x.id == _arasıtransfer.hedefdepoid).FirstOrDefault().depoadi;
+                TBDurum.Text = _arasıtransfer.durum.ToString();
                 LBOlusturmaTar.Text = _arasıtransfer.olusturmatarihi.ToString();
             }
             if (_tempStok != null)
@@ -63,7 +63,7 @@ namespace MEYPAK.PRL.DEPO
             if (_arasıtransfer != null)
             {
                 GCTransferHar.DataSource = "";
-                GCTransferHar.DataSource = _depoTransferHarServis.Getir(x => x.DEPOTRANSFERID == _arasıtransfer.id);
+                GCTransferHar.DataSource = _depoTransferHarServis.Getir(x => x.depotransferid == _arasıtransfer.id);
             }
 
         }
@@ -74,12 +74,12 @@ namespace MEYPAK.PRL.DEPO
             {
                 _depoTransferHarServis.Ekle(new PocoDEPOTRANSFERHAR
                 {
-                    DEPOTRANSFERID = _arasıtransfer.id,
+                    depotransferid = _arasıtransfer.id,
                     olusturmatarihi = DateTime.Now,
                     guncellemetarihi = DateTime.Now,
-                    STOKID = _tempStok.id,
-                    MIKTAR = Convert.ToInt32(TBMiktar.Text),
-                    DONEM = DateTime.Now.ToString("yyyy"),
+                    stokid = _tempStok.id,
+                    miktar = Convert.ToInt32(TBMiktar.Text),
+                    donem = DateTime.Now.ToString("yyyy"),
                     // ACIKLAMA = TBAciklama.Text
 
                 });

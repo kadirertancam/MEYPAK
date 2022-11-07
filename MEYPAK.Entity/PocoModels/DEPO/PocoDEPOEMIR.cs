@@ -1,26 +1,27 @@
 ﻿using MEYPAK.Entity.Models.DEPO;
 using MEYPAK.Entity.PocoModels.SIPARIS;
 using MEYPAK.Entity.PocoModels.STOK;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MEYPAK.Entity.PocoModels.DEPO
 {
     public class PocoDEPOEMIR:SUPERPOCOMODEL
     {
-        public DateTime TARIH { get; set; }
-        public int DEPOID { get; set; }
-        public int SIRA { get; set; }
-        public int TIP { get; set; }
-        public int SIPARISID { get; set; }
-        public int DURUM { get; set; }
-        public decimal MIKTAR { get; set; }
-        public string ACIKLAMA { get; set; }
-        public PocoSIPARIS MPSIPARIS { get; set; }
-        public PocoSTOK MPSTOK { get; set; }
-        public PocoDEPO MPDEPO { get; set; }
+        public DateTime tarih { get; set; }=DateTime.Now;
+        public int depoid { get; set; }=0;
+        public int sira { get; set; } = 0;
+        public int tip { get; set; } = 0;
+        public int siparisid { get; set; } = 0;
+        public int durum { get; set; } = 0;
+        public decimal miktar { get; set; } = 0;
+        public string aciklama { get; set; } = "";
+        public virtual PocoSIPARIS mpsiparis { get; set; }
+        public virtual PocoSTOK mpstok { get; set; }
+        public virtual PocoDEPO mpdepo { get; set; }
 
-        public virtual List<PocoSIPARISSEVKEMIRHAR> MPSIPARISSEVKEMRIHAR { get; set; }
-        public virtual List<PocoSTOKSEVKIYATLIST> MPSTOKSEVKİYATLİST { get; set; }
+        public virtual List<PocoSIPARISSEVKEMIRHAR> mpsiparissevkemrihar { get; set; }
+        public virtual List<PocoSTOKSEVKIYATLIST> mpstoksevkiyatlist { get; set; }
 
-        public virtual List<PocoSTOKMALKABULLIST> MPSTOKMALKABULLIST { get; set; }
+        public virtual List<PocoSTOKMALKABULLIST> mpstokmalkabullist { get; set; }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.Entity.IdentityModels
 {
-    public class MPUSER : IdentityUser
+    public class MPUSER : IdentityUser<string>
     {
         public string AD { get; set; }
         public string SOYAD { get; set; }

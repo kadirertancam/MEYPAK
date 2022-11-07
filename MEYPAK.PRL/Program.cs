@@ -2,9 +2,11 @@ using MEYPAK.PRL.Assets;
 using MEYPAK.PRL.CARI;
 using MEYPAK.PRL.DEPO;
 using MEYPAK.PRL.MOBILIZ;
+using MEYPAK.PRL.PARAMETRELER;
 using MEYPAK.PRL.PERSONEL;
 using MEYPAK.PRL.SIPARIS;
 using MEYPAK.PRL.STOK;
+using Microsoft.EntityFrameworkCore;
 using static MEYPAK.PRL.Assets.NinjectFactory;
 
 namespace MEYPAK.PRL
@@ -24,6 +26,14 @@ namespace MEYPAK.PRL
             ApplicationConfiguration.Initialize();
             Application.EnableVisualStyles();
             Application.Run(new Main());
+        }
+
+        public class ApplicationDbContext : DbContext
+        {
+            public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+                : base(options)
+            {
+            }
         }
     }
 }

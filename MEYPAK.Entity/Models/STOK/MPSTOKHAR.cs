@@ -35,7 +35,7 @@ namespace MEYPAK.Entity.Models.STOK
         public int SAYIMID { get; set; } = 0;
         public int KULLANICIID { get; set; } = 0;
 
-        public MPSTOK MPSTOK { get; set; }
+        public virtual MPSTOK MPSTOK { get; set; }
 
 
     }
