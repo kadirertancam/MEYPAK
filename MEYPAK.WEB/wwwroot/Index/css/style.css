@@ -9601,18 +9601,18 @@ h6,
 }
 
 .bg-appointment {
-  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(~Index/img/panel-1.jpg), no-repeat center center;
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(../img/panel-1.jpg), no-repeat center center;
   background-size: cover;
 }
 
 .bg-pricing {
-    background: linear-gradient(rgba(33, 30, 28, 0.7), rgba(33, 40, 28, 0.7)), url(~Index/img/carousel-2.jpg), no-repeat center center;
+    background: linear-gradient(rgba(33, 30, 28, 0.7), rgba(33, 40, 28, 0.7)), url(../img/panel-1.jpg), no-repeat center center;
     background-size: cover;
 }
 
 .bg-jumbotron {
-  background: linear-gradient(rgba(33, 30, 28, 0.7), rgba(33, 40, 28, 0.7)), url(../img/carousel-3.jpg), no-repeat center center;
-  background-size: cover;
+    background: linear-gradient(rgba(33, 30, 28, 0.7), rgba(33, 40, 28, 0.7)), url(../img/panel-1.jpg), no-repeat center center;
+    background-size: cover;
 }
 
 @media (min-width: 992px) {
@@ -9692,13 +9692,11 @@ h6,
 
 @media (min-width: 992px) {
   .footer::after {
-    position: absolute;
-    content: "";
-    width: 1px;
+  
     height: 100%;
     top: 0;
     left: 50%;
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.0);
   }
 }
 

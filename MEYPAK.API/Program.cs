@@ -43,7 +43,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-
 //MaplemeAyarlarý
 
 //builder.Services.AddControllers(options => options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true);
@@ -78,6 +77,7 @@ builder.Services.AddAutoMapper(x =>
     x.AddExpressionMapping(); //expressionlari maplemek içindir
     x.AddProfile(typeof(Maps));
 });
+
 
 
 #region Parametre
