@@ -42,12 +42,12 @@ namespace MEYPAK.PRL.DEPO
                 {
                     stokid = _id,
                     emirid = _tempEmir.id,
-                    birimid = StaticContext._siparisDetayServis.Getir(x => x.SIPARISID == _tempEmir.siparisid && x.STOKID == _id).FirstOrDefault().BIRIMID,
+                    birimid = StaticContext._siparisDetayServis.Getir(x => x.siparisid == _tempEmir.siparisid && x.stokid == _id).FirstOrDefault().birimid,
                     miktar = item.Miktar,
                     depoid = _tempEmir.mpsiparis.depoid,
                     sirketid = 0,
-                    siparismiktari = _tempEmir.mpsiparis.mpsiparisdetaylist.Where(x => x.STOKID == _id).Sum(x => x.MIKTAR),
-                    siparisdetayid = _tempList.Where(x => x.mpsiparisdetay.STOKID == _id && x.emirid == _tempEmir.id).FirstOrDefault().mpsiparisdetay.id,
+                    siparismiktari = _tempEmir.mpsiparis.mpsiparisdetaylist.Where(x => x.stokid == _id).Sum(x => x.miktar),
+                    siparisdetayid = _tempList.Where(x => x.mpsiparisdetay.stokid == _id && x.emirid == _tempEmir.id).FirstOrDefault().mpsiparisdetay.id,
                     subeid = 0,
                     kullaniciid = 0
                 });
@@ -66,7 +66,7 @@ namespace MEYPAK.PRL.DEPO
                 emirid = _tempEmir.id,
                 depoid = _tempEmir.mpsiparis.depoid,
                 miktar = 0,
-                siparismiktari = _tempEmir.mpsiparis.mpsiparisdetaylist.Where(x => x.STOKID.ToString() == CBMalKabulCekiStokKodu.GetSelectedDataRow().ToString()).FirstOrDefault().MIKTAR,
+                siparismiktari = _tempEmir.mpsiparis.mpsiparisdetaylist.Where(x => x.stokid.ToString() == CBMalKabulCekiStokKodu.GetSelectedDataRow().ToString()).FirstOrDefault().miktar,
                 //BIRIMID = _Stok.mpstokolcubr.Where(x => x.NUM == 1).Select(x => x.MPOLCUBR.ID).FirstOrDefault(),
             //    MPOLCUBR = _Stok.MPSTOKOLCUBRList.Where(x => x.NUM == 1).Select(x => x.MPOLCUBR).FirstOrDefault(),
                 mpdepoemir = _tempEmir,

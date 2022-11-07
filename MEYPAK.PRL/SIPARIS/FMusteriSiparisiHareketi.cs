@@ -47,7 +47,7 @@ namespace MEYPAK.PRL.SIPARIS
 
         private void dataGridSiparis_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            _mpSiparisDetay= _siparisdetayServis.Getir(x => x.SIPARISID == (int)GCSiparis.Rows[e.RowIndex].Cells[0].Value);
+            _mpSiparisDetay= _siparisdetayServis.Getir(x => x.siparisid == (int)GCSiparis.Rows[e.RowIndex].Cells[0].Value);
             GCSiparisDetay.DataSource = _mpSiparisDetay;
             GridYapılandır();
         }

@@ -271,28 +271,28 @@ namespace MEYPAK.PRL.SIPARIS
 
                 _siparisDetayServis.Data(ServisList.SiparisDetayEkleServis, new PocoSIPARISDETAY()
                 {
-                    STOKID = item.StokId,
-                    STOKADI = item.StokAdı,
-                    ACIKLAMA = item.Acıklama,
-                    KDV = item.Kdv,
-                    KASAID = item.KasaId,
-                    NETTOPLAM = item.NetToplam,
-                    NETFIYAT = item.NetFiyat,
-                    BIRIMID = _olcuBr.obje.Where(x=>x.adi.ToString()== gridView1.GetRowCellValue(gridView1.FocusedRowHandle,"Birim").ToString()).FirstOrDefault().id ,
-                    DOVIZID = 0,
-                    MIKTAR = item.Miktar,
-                    ISTKONTO1 = item.İskonto1,
-                    ISTKONTO2 = item.İskonto2,
-                    ISTKONTO3 = item.İskonto3,
-                    SIPARISID = _siparisServis.obje2.id, ///ID gelecek
+                    stokid = item.StokId,
+                    stokadi = item.StokAdı,
+                    aciklama = item.Acıklama,
+                    kdv = item.Kdv,
+                    kasaid = item.KasaId,
+                    nettoplam = item.NetToplam,
+                    netfiyat = item.NetFiyat,
+                    birimid = _olcuBr.obje.Where(x=>x.adi.ToString()== gridView1.GetRowCellValue(gridView1.FocusedRowHandle,"Birim").ToString()).FirstOrDefault().id ,
+                    dovizid = 0,
+                    miktar = item.Miktar,
+                    istkontO1 = item.İskonto1,
+                    istkontO2 = item.İskonto2,
+                    istkontO3 = item.İskonto3,
+                    siparisid = _siparisServis.obje2.id, ///ID gelecek
 
-                    BRUTFIYAT = item.BrütFiyat,
-                    BRUTTOPLAM = item.BrütFiyat * item.Miktar,
-                    BEKLEYENMIKTAR = 0,
-                    HAREKETDURUMU = 0,
-                    LISTEFIYATID = 0,
-                    TIP = 1,
-                    KDVTUTARI = item.KdvTutarı
+                    brutfiyat = item.BrütFiyat,
+                    bruttoplam = item.BrütFiyat * item.Miktar,
+                    bekleyenmiktar = 0,
+                    hareketdurumu = 0,
+                    listefiyatid = 0,
+                    tip = 1,
+                    kdvtutari = item.KdvTutarı
                 });
                 i++;
             }
@@ -605,9 +605,9 @@ namespace MEYPAK.PRL.SIPARIS
                 _siparisDetayServis.Data(ServisList.SiparisDetayListeServis + 2, null, "query=SIPARISID=" + _tempSiparis.id.ToString());
                 GCMusteriSiparis.DataSource = _siparisDetayServis.obje.Select(x => new PocoSiparisKalem()
                 {
-                    StokId = x.STOKID,
-                    StokKodu = _stokServis.obje.Where(z => z.id == x.STOKID).FirstOrDefault().kod,//,  TODOO:BAKILACAAAK
-                    StokAdı = _stokServis.obje.Where(z => z.id == x.STOKID).FirstOrDefault().adi,
+                    StokId = x.stokid,
+                    StokKodu = _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().kod,//,  TODOO:BAKILACAAAK
+                    StokAdı = _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().adi,
                     Birim = "0",// _olcuBr.obje.Where(x => x.ADI == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "DGVOlcuBr").ToString()).FirstOrDefault().ADI,
                     KasaAdı = "",
                     Kdv = _tempStok.satiskdv,

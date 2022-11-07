@@ -20,51 +20,46 @@ namespace MEYPAK.Entity.PocoModels.SIPARIS
 {
     public class PocoSIPARISDETAY:SUPERPOCOMODEL
     {
-        public int SIPARISID { get; set; }=0;
+        public int siparisid { get; set; }=0;
         [DefaultValue(0)]
-        public int IRSALIYEID { get; set; } = 0;
+        public int irsaliyeid { get; set; } = 0;
         [DefaultValue(0)]
-        public int BIRIMID { get; set; }=0;
+        public int birimid { get; set; }=0;
         [DefaultValue(0)]
-        public int STOKID { get; set; }=0;
+        public int stokid { get; set; }=0;
         [DefaultValue(0)]
-        public int DOVIZID { get; set; } = 0;
+        public int dovizid { get; set; } = 0;
         [DefaultValue(0)]
-        public int LISTEFIYATID { get; set; } = 0;
+        public int listefiyatid { get; set; } = 0;
         [DefaultValue(0)]
-        public int KULLANICIID { get; set; } = 0;
+        public int kullaniciid { get; set; } = 0;
         [DefaultValue(0)]
-        public int KASAID { get; set; } = 0;
-        public byte TIP { get; set; } = 0;
+        public int kasaid { get; set; } = 0;
+        public byte tip { get; set; } = 0;
         [StringLength(50)]
-        public string STOKADI { get; set; } = "";
+        public string stokadi { get; set; } = "";
         [StringLength(200)]
-        public string ACIKLAMA { get; set; } = "";
-        public decimal MIKTAR { get; set; } = 0;
-        public decimal ISTKONTO1 { get; set; } = 0;
-        public decimal ISTKONTO2 { get; set; } = 0;
-        public decimal ISTKONTO3 { get; set; } = 0;
-        public decimal NETFIYAT { get; set; } = 0;
-        public decimal BRUTFIYAT { get; set; } = 0;
-        public decimal NETTOPLAM { get; set; } = 0;
-        public decimal BRUTTOPLAM { get; set; } = 0;
-        public int BEKLEYENMIKTAR { get; set; } = 0;
-        public byte HAREKETDURUMU { get; set; } = 0;
-        public decimal KDV { get; set; } = 0;
-        public decimal KDVTUTARI { get; set; } = 0;
-        public virtual PocoSIPARIS MPSIPARIS { get; set; }
-        public virtual PocoSTOK MPSTOK { get; set; }
-        public virtual PocoIRSALIYE MPIRSALIYE { get; set; }
+        public string aciklama { get; set; } = "";
+        public decimal miktar { get; set; } = 0;
+        public decimal istkontO1 { get; set; } = 0;
+        public decimal istkontO2 { get; set; } = 0;
+        public decimal istkontO3 { get; set; } = 0;
+        public decimal netfiyat { get; set; } = 0;
+        public decimal brutfiyat { get; set; } = 0;
+        public decimal nettoplam { get; set; } = 0;
+        public decimal bruttoplam { get; set; } = 0;
+        public int bekleyenmiktar { get; set; } = 0;
+        public byte hareketdurumu { get; set; } = 0;
+        public decimal kdv { get; set; } = 0;
+        public decimal kdvtutari { get; set; } = 0;
+        public virtual PocoSIPARIS mpsiparis { get; set; }
+        public virtual PocoSTOK mpstok { get; set; }
+        public virtual PocoIRSALIYE mpirsaliye { get; set; }
         //TODO BAKILACAK
-         
-        public virtual ICollection<MPIRSALIYESIPARISDETAYILISKI> MPIRSALIYESIPARISDETAYILISKI { get; set; }
-         
-        public virtual ICollection<PocoSTOKSEVKIYATLIST> MPSTOKSEVKİYATLİST { get; set; }
-       
-        public virtual ICollection<PocoSTOKMALKABULLIST> MPSTOKMALKABULLIST { get; set; }
-      
-        public virtual ICollection<MPDEPOEMIRSIPARISKALEMILISKI> MPDEPOEMIRSIPARISKALEMILISKI { get; set; }
-         
-        public virtual ICollection<PocoSIPARISSEVKEMIRHAR> MPSIPARISSEVKEMRIHAR { get; set; }
+        public virtual ICollection<MPIRSALIYESIPARISDETAYILISKI> mpirsaliyesiparisdetayiliski { get; set; }
+        public virtual ICollection<PocoSTOKSEVKIYATLIST> mpstoksevkİyatlİst { get; set; } 
+        public virtual ICollection<PocoSTOKMALKABULLIST> mpstokmalkabullist { get; set; }
+        public virtual ICollection<MPDEPOEMIRSIPARISKALEMILISKI> mpdepoemirsipariskalemiliski { get; set; } 
+        public virtual ICollection<PocoSIPARISSEVKEMIRHAR> mpsiparissevkemrihar { get; set; }
     }
 }
