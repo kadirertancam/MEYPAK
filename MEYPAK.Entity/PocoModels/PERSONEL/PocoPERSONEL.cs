@@ -9,43 +9,43 @@ namespace MEYPAK.Entity.PocoModels.PERSONEL
 {
     public class PocoPERSONEL:SUPERPOCOMODEL
     {
-        public int SIRKETID { get; set; }
-        public int SUBEID { get; set; }
+        public int sirketid { get; set; }
+        public int subeid { get; set; }
         [StringLength(11), Required]
-        public string TC { get; set; }
+        public string tc { get; set; }
         [StringLength(100)]
-        public string ADI { get; set; }
+        public string adi { get; set; }
         [StringLength(100)]
-        public string SOYADI { get; set; }
+        public string soyadi { get; set; }
         [StringLength(200)]
-        public string ADISOYADI => $"{ADI} {SOYADI}";
+        public string adisoyadi => $"{ADI} {SOYADI}";
         [StringLength(50)]
-        public string SGKSICIL { get; set; }
-        public DateTime DOGUMTAR { get; set; }
-        public DateTime ISBASTAR { get; set; }
-        public DateTime ISBITTAR { get; set; }
-        public string RESIM { get; set; }
+        public string sgksicil { get; set; }
+        public DateTime dogumtar { get; set; }
+        public DateTime isbastar { get; set; }
+        public DateTime isbittar { get; set; }
+        public string resim { get; set; }
         [StringLength(50)]
-        public string EHLIYETNO { get; set; }
+        public string ehliyetno { get; set; }
         [StringLength(11)]
-        public string TEL { get; set; }
+        public string tel { get; set; }
         [StringLength(100)]
-        public string EMAIL { get; set; }
+        public string email { get; set; }
         [StringLength(50)]
-        public string KANGRUBU { get; set; }
+        public string kangrubu { get; set; }
         [StringLength(500)]
-        public string ADRES { get; set; }
+        public string adres { get; set; }
         [StringLength(100)]
-        public string GOREVI { get; set; }
+        public string gorevi { get; set; }
         [StringLength(100)]
-        public string SCR { get; set; }
-        public DateTime PSIKOTAR { get; set; }
-        public int MEDENIDURUM { get; set; }
+        public string scr { get; set; }
+        public DateTime psikotar { get; set; }
+        public int medenidurum { get; set; }
         [StringLength(50)]
-        public string ASKERLIK { get; set; }
-        public byte DURUM { get; set; } = 0;
-        public int PSD { get; set; }
+        public string askerlik { get; set; }
+        public byte durum { get; set; } = 0;
+        public int psd { get; set; }
         [Required]
-        public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
+        public string donem { get; set; } = DateTime.Now.ToString("yyyy");
     }
 }

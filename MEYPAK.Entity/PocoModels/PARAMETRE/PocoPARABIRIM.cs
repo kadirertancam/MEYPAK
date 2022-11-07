@@ -8,8 +8,8 @@ namespace MEYPAK.Entity.PocoModels.PARAMETRE
 {
     public class PocoPARABIRIM:SUPERPOCOMODEL
     {
-        public string ADI { get; set; }
-        public string KISAADI { get; set; }
-        public byte AKTIF { get; set; }
+        public string adi { get; set; }
+        public string kisaadi { get; set; }
+        public byte aktif { get; set; }
     }
 }
