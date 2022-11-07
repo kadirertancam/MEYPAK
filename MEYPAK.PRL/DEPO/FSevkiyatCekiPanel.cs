@@ -33,10 +33,13 @@ namespace MEYPAK.PRL.DEPO
             _tempStokSevkiyatList = new PocoSTOKSEVKIYATLIST();
             _tempPocoStok = new GenericWebServis<PocoSTOK>();
             _tempPocoStok.Data(ServisList.StokListeServis);
-            _tempStok = _tempPocoStok.obje; 
-            
+            _tempStok = _tempPocoStok.obje;
+            _stokServis = new GenericWebServis<PocoSTOK>();
+
+
         } 
         GenericWebServis<PocoStokSevkiyatList> _stokSevkiyatListServis;
+        GenericWebServis<PocoSTOK> _stokServis;
         List<PocoSTOK> _tempStok;
         PocoSTOK _Stok;
         public PocoDEPOEMIR _tempEmir;
@@ -92,8 +95,9 @@ namespace MEYPAK.PRL.DEPO
 
         private void FSevkiyatCekiPanel_Load(object sender, EventArgs e)
         {
+            _stokServis.Data(ServisList.StokListeServis);
             // _tempList.Add(new PocoStokSevkiyatList());
-            dataGridView1.DataSource = _tempList.Select(x => new PocoStokSevkiyatList { StokKodu = x.mpstok.kod, StokAdı = x.mpstok.adi, Birim = "0" }).ToList();
+            dataGridView1.DataSource = _tempList.Select(x => new PocoStokSevkiyatList { StokKodu = _stokServis.obje.Where(z=>x.stokid==z.id).FirstOrDefault().kod, StokAdı = _stokServis.obje.Where(z => x.stokid == z.id).FirstOrDefault().adi, Birim = "0" }).ToList();
             comboBox1.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             comboBox1.AutoCompleteSource = AutoCompleteSource.ListItems;
             comboBox1.DisplayMember = "KOD";

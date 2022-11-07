@@ -14,7 +14,6 @@ namespace MEYPAK.Entity.Models.IRSALIYE
     public class MPIRSALIYE:SUPERMODEL
     {
 
-        [ForeignKey("MPSIPARIS")]
         public int SIPARISID { get; set; }
         [DefaultValue(0)]
         public int SIRKETID { get; set; } = 0;
@@ -60,7 +59,6 @@ namespace MEYPAK.Entity.Models.IRSALIYE
         [Required]
         public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
 
-        public virtual MPSIPARIS MPSIPARIS { get; set; }
 
     }
 }

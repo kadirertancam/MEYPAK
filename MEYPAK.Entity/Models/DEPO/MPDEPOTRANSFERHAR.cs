@@ -14,10 +14,8 @@ namespace MEYPAK.Entity.Models.DEPO
     {
    
         [Required]
-        [ForeignKey("MPDEPOTRANSFER")]
         public int DEPOTRANSFERID { get; set; }
         [Required]
-        [ForeignKey("MPSTOK")]
         public int STOKID { get; set; }
         public int MIKTAR { get; set; }
         //BİRİM ID EKLENECEK.
@@ -29,9 +27,6 @@ namespace MEYPAK.Entity.Models.DEPO
         public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
 
 
-        public virtual MPDEPOTRANSFER MPDEPOTRANSFER { get; set; }
-
-        public virtual MPSTOK MPSTOK { get; set; }
 
     }
 }

@@ -672,7 +672,7 @@
         private GroupBox groupBox4;
         private DataGridView dataGridView4;
         private Panel panel6;
-        private GroupBox groupBox3; 
+        private GroupBox groupBox3;
         private Panel panel2;
         private Panel panel5;
         private Panel panel4;

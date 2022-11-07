@@ -20,8 +20,6 @@ namespace MEYPAK.Entity.PocoModels.STOK
         public double iskonto { get; set; } = 0;
         public int kullaniciid { get; set; } = 0;
         public int aktif { get; set; } = 0;
-        public virtual PocoSTOK mpstok { get; set; }
-        public virtual PocoSTOKFIYATLIST mpstokfiyatlist { get; set; }
         
     }
 }

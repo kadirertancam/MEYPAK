@@ -52,14 +52,5 @@ namespace MEYPAK.Entity.PocoModels.SIPARIS
         public byte hareketdurumu { get; set; } = 0;
         public decimal kdv { get; set; } = 0;
         public decimal kdvtutari { get; set; } = 0;
-        public virtual PocoSIPARIS mpsiparis { get; set; }
-        public virtual PocoSTOK mpstok { get; set; }
-        public virtual PocoIRSALIYE mpirsaliye { get; set; }
-        //TODO BAKILACAK
-        public virtual ICollection<MPIRSALIYESIPARISDETAYILISKI> mpirsaliyesiparisdetayiliski { get; set; }
-        public virtual ICollection<PocoSTOKSEVKIYATLIST> mpstoksevkİyatlİst { get; set; } 
-        public virtual ICollection<PocoSTOKMALKABULLIST> mpstokmalkabullist { get; set; }
-        public virtual ICollection<MPDEPOEMIRSIPARISKALEMILISKI> mpdepoemirsipariskalemiliski { get; set; } 
-        public virtual ICollection<PocoSIPARISSEVKEMIRHAR> mpsiparissevkemrihar { get; set; }
     }
 }

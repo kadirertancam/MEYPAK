@@ -36,8 +36,8 @@ namespace MEYPAK.PRL.STOK
         static MEYPAKContext context = NinjectFactory.CompositionRoot.Resolve<MEYPAKContext>();
         GenericWebServis<PocoSTOKSAYIM> _stokSayimServis ;
         GenericWebServis<PocoSTOKSAYIMHAR> _stokSayimHarServis ;
-        GenericWebServis<PocoSTOK> _stokServis ; 
-        IOlcuBrServis _olcuBrServis ;
+        GenericWebServis<PocoSTOK> _stokServis ;
+        GenericWebServis<PocoOLCUBR> _olcuBrServis ;
         FStokSayimPanel stokSayimPanel;
         int _tempId=0;
 
@@ -100,7 +100,7 @@ namespace MEYPAK.PRL.STOK
         {
             stokSayimPanel = new FStokSayimPanel("düzenle");
             var a = _stokSayimHarServis.obje.Where(x => x.stoksayimid == _tempId);
-            stokSayimPanel._tempStokSayimHarList = a.Select(x => new Entity.PocoModels.PocoStokSayimPanelList() { StokAdı = x.mpstok.adi, StokKodu = x.mpstok.kod, Birim = x.mpolcubr.adi, Fiyat = x.fiyat, Miktar = x.miktar }).ToList();
+            stokSayimPanel._tempStokSayimHarList = a.Select(x => new Entity.PocoModels.PocoStokSayimPanelList() { StokAdı = _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().adi, StokKodu = _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().kod, Birim = _olcuBrServis.obje.Where(z => z.id == x.birimid).FirstOrDefault().adi, Fiyat = x.fiyat, Miktar = x.miktar }).ToList();
             stokSayimPanel.ShowDialog();
         }
 

@@ -18,14 +18,9 @@ namespace MEYPAK.Entity.Models.STOK
         public int NUM { get; set; }                //Sıra numarası
         public decimal KATSAYI { get; set; }
         public int KULLANICIID { get; set; }
-        [ForeignKey("MPSTOK")]
         public int STOKID { get; set; }
         
-        public virtual MPSTOK MPSTOK { get; set; }
-
-        [ForeignKey("MPOLCUBR")]
         public int OLCUBRID { get; set; } 
-        public virtual MPOLCUBR MPOLCUBR { get; set; }
 
 
     }

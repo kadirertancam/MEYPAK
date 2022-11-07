@@ -14,7 +14,7 @@ namespace MEYPAK.API.Controllers.SIPARISControllers
     {
         private readonly ISiparisDetayServis _siparisDetayServis;
         private readonly IMapper _mapper;
-        private MPAdoContext<MPSIPARISDETAY> _adosiparisDetayServis = new MPAdoContext<MPSIPARISDETAY>();
+        private MPAdoContext<MPSIPARISDETAY> _adosiparisDetayServis; //= new MPAdoContext<MPSIPARISDETAY>();
         public SIPARISDETAYController(ISiparisDetayServis siparisDetayServis, IMapper mapper)
         {
             _siparisDetayServis = siparisDetayServis;

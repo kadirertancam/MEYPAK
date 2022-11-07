@@ -15,12 +15,7 @@ namespace MEYPAK.Entity.Models.STOK
     public class MPSTOK:SUPERMODEL
     {
         public MPSTOK()
-        {
-            MPSTOKOLCUBR = new HashSet<MPSTOKOLCUBR>();
-            MPSTOKFIYATLISTHAR = new HashSet<MPSTOKFIYATLISTHAR>();
-
-            MPSTOKHAR = new HashSet<MPSTOKHAR>();
-            MPSTOKSAYIMHAR = new HashSet<MPSTOKSAYIMHAR>();
+        { 
 
 
 
@@ -73,7 +68,7 @@ namespace MEYPAK.Entity.Models.STOK
         public decimal SATISOTV { get; set; }
         [DefaultValue(0)]
         public decimal ALISOTV { get; set; }
-        public int GRUPKODU { get; set; }
+        public string GRUPKODU { get; set; }
         [StringLength(500)]
         public string ACIKLAMA { get; set; } = "";
         [StringLength(200)]
@@ -121,30 +116,9 @@ namespace MEYPAK.Entity.Models.STOK
         public int GTIN { get; set; }
         [DefaultValue(0)]
         public int KULLANICIID { get; set; }
-
-        [Required]
+         
         public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
 
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MPSTOKOLCUBR> MPSTOKOLCUBR { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MPSTOKHAR> MPSTOKHAR { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MPSTOKSAYIMHAR> MPSTOKSAYIMHAR { get; set; }
-
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MPSTOKFIYATLISTHAR> MPSTOKFIYATLISTHAR { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MPSIPARISDETAY> MPSIPARISDETAY { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MPSTOKSEVKİYATLİST> MPSTOKSEVKİYATLİST { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MPSTOKMALKABULLIST> MPSTOKMALKABULLIST { get; set; }
 
 
     }

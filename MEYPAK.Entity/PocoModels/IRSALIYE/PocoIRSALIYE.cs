@@ -47,6 +47,5 @@ namespace MEYPAK.Entity.PocoModels.IRSALIYE
         public bool DURUM { get; set; }
         [Required]
         public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
-        public virtual PocoSIPARIS MPSIPARIS { get; set; }
     }
 }

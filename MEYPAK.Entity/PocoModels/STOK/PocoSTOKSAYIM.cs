@@ -16,6 +16,5 @@ namespace MEYPAK.Entity.PocoModels.STOK
         public DateTime sayimtarihi { get; set; }
         public string aciklama { get; set; } = "";
         public int durum { get; set; } = 0; // işlendi 1 işlenmedi 0
-        public List<PocoSTOKSAYIMHAR> mpstoksayimhar { get; set; }
     }
 }

@@ -11,8 +11,7 @@ namespace MEYPAK.Entity.Models.STOK
     public class MPSTOKFIYATLIST:SUPERMODEL
     {
         public MPSTOKFIYATLIST()
-        {
-            MPSTOKFIYATLISTHAR = new HashSet<MPSTOKFIYATLISTHAR>();
+        { 
         }
 
         public int SIRKETID { get; set; } = 0;
@@ -24,7 +23,5 @@ namespace MEYPAK.Entity.Models.STOK
         [Required]
         public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MPSTOKFIYATLISTHAR> MPSTOKFIYATLISTHAR { get; set; }
-    }
+   }
 }

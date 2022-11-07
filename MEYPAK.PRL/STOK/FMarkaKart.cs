@@ -33,36 +33,19 @@ namespace MEYPAK.PRL.STOK
         private void FMarkaKart_Load(object sender, EventArgs e)
         {
             _markaServis.Data(ServisList.StokMarkaListeServis);
-           DGMarkaKart.DataSource= _markaServis.obje;
+           gridControl1.DataSource= _markaServis.obje;
         }
 
         private void BTKaydet_Click(object sender, EventArgs e)
         {
 
-            _markaServis.Data(ServisList.StokMarkaEkleServis, (new PocoSTOKMARKA()
-            {
-                id = id,
-                adi = TBMarkaAdi.Text,
-                aciklama = TBAciklama.Text,
-                kayittipi = 0
-            }));
-               
-                    MessageBox.Show("Başarılı.");
-                id = 0;
-                _tempMarka = null; 
-                Temizle(this.Controls);
-
-            _markaServis.Data(ServisList.StokMarkaListeServis);
-            DGMarkaKart.DataSource = _markaServis.obje;
+           
 
         }
 
         private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            _tempMarka = _markaServis.obje.Where(x=>x.id.ToString()==DGMarkaKart.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
-            TBMarkaAdi.Text = _tempMarka.adi;
-            TBAciklama.Text = _tempMarka.aciklama;
-            id = _tempMarka.id;
+          
         }
 
         private void BTSil_Click(object sender, EventArgs e)
@@ -70,7 +53,7 @@ namespace MEYPAK.PRL.STOK
             if(_tempMarka!=null)
             _markaServis.Data(ServisList.StokMarkaSilServis,null,"filter=ID eq"+ _tempMarka.id);
             _markaServis.Data(ServisList.StokMarkaListeServis);
-            DGMarkaKart.DataSource= _markaServis.obje;
+            gridControl1.DataSource= _markaServis.obje;
             
         }
 
@@ -91,5 +74,32 @@ namespace MEYPAK.PRL.STOK
             }
         }
 
+        private void BTMarkaKartKaydet_Click(object sender, EventArgs e)
+        {
+            _markaServis.Data(ServisList.StokMarkaEkleServis, (new PocoSTOKMARKA()
+            {
+                id = id,
+                adi = TBMarkaAdi.Text,
+                aciklama = TBAciklama.Text,
+                kayittipi = 0
+            }));
+
+            MessageBox.Show("Başarılı.");
+            id = 0;
+            _tempMarka = null;
+            Temizle(this.Controls);
+
+            _markaServis.Data(ServisList.StokMarkaListeServis);
+            gridControl1.DataSource = _markaServis.obje;
+        }
+
+        private void gridView1_DoubleClick(object sender, EventArgs e)
+        {
+            _tempMarka = _markaServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()).FirstOrDefault();
+            TBMarkaAdi.Text = _tempMarka.adi;
+            TBAciklama.Text = _tempMarka.aciklama;
+            id = _tempMarka.id;
+
+        }
     }
 }

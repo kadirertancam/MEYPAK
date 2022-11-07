@@ -25,9 +25,5 @@ namespace MEYPAK.Entity.PocoModels.DEPO
         public int emirid { get; set; } = 0;
         public int kullaniciid { get; set; } = 0;
         public int sevkemriharid { get; set; } =0;
-        public PocoOLCUBR mpolcubr { get; set; }
-        public PocoDEPOEMIR mpdepoemir { get; set; }
-        public PocoSTOK mpstok { get; set; }
-        public PocoSIPARISDETAY mpsiparisdetay { get; set; }
     }
 }

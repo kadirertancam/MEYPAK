@@ -14,8 +14,6 @@ namespace MEYPAK.Entity.Models
         [Key]
         public int ID { get; set; }
         public int DEPOEMIRID { get; set; }
-        public MPDEPOEMIR MPDEPOEMIR { get; set; }
         public int SIPARISDETAYID { get; set; }
-        public MPSIPARISDETAY MPSIPARISDETAY { get; set; }
     }
 }

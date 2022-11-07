@@ -14,9 +14,7 @@ namespace MEYPAK.Entity.PocoModels.STOK
         public decimal katsayi { get; set; }
         public int kullaniciid { get; set; }
         public int stokid { get; set; } 
-        public virtual PocoSTOK mpstok { get; set; }
         public int olcubrid { get; set; }
-        public virtual PocoOLCUBR mpolcubr { get; set; }
 
     }
 }

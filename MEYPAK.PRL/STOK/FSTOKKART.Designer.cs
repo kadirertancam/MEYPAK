@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FStokKart));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -91,10 +88,13 @@
             this.CBSDoviz = new DevExpress.XtraEditors.ComboBoxEdit();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panel7 = new System.Windows.Forms.Panel();
             this.GBOlcuBirimleri = new System.Windows.Forms.GroupBox();
             this.GBOlcuBirimleriUstPanel = new System.Windows.Forms.GroupBox();
+            this.CBBirim = new DevExpress.XtraEditors.GridLookUpEdit();
+            this.CBBirimView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.BTOlcuBirimiEkle = new DevExpress.XtraEditors.SimpleButton();
             this.LBKatsayi = new DevExpress.XtraEditors.LabelControl();
             this.LBBirim = new DevExpress.XtraEditors.LabelControl();
@@ -197,8 +197,6 @@
             this.BTMarka = new DevExpress.XtraEditors.ButtonEdit();
             this.TBStokAdi = new DevExpress.XtraEditors.TextEdit();
             this.BTStokKodu = new DevExpress.XtraEditors.ButtonEdit();
-            this.CBBirim = new DevExpress.XtraEditors.GridLookUpEdit();
-            this.CBBirimView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -220,10 +218,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.CBSDoviz.Properties)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.panel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.panel7.SuspendLayout();
             this.GBOlcuBirimleri.SuspendLayout();
             this.GBOlcuBirimleriUstPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CBBirim.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CBBirimView)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.panel5.SuspendLayout();
             this.GBStokKartiSayisalAciklama.SuspendLayout();
@@ -275,8 +276,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.BTMarka.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBStokAdi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTStokKodu.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CBBirim.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CBBirimView)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -311,6 +310,7 @@
             this.BTStokKartiKaydet.Size = new System.Drawing.Size(128, 65);
             this.BTStokKartiKaydet.TabIndex = 60;
             this.BTStokKartiKaydet.Text = "&Kaydet";
+            this.BTStokKartiKaydet.Click += new System.EventHandler(this.BTStokKartiKaydet_Click);
             // 
             // panel3
             // 
@@ -385,6 +385,7 @@
             // 
             // TBAFiyat5
             // 
+            this.TBAFiyat5.EditValue = "0";
             this.TBAFiyat5.Location = new System.Drawing.Point(85, 180);
             this.TBAFiyat5.Name = "TBAFiyat5";
             this.TBAFiyat5.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -405,6 +406,7 @@
             // 
             // TBAFiyat4
             // 
+            this.TBAFiyat4.EditValue = "0";
             this.TBAFiyat4.Location = new System.Drawing.Point(85, 151);
             this.TBAFiyat4.Name = "TBAFiyat4";
             this.TBAFiyat4.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -425,6 +427,7 @@
             // 
             // TBAFiyat3
             // 
+            this.TBAFiyat3.EditValue = "0";
             this.TBAFiyat3.Location = new System.Drawing.Point(85, 122);
             this.TBAFiyat3.Name = "TBAFiyat3";
             this.TBAFiyat3.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -445,6 +448,7 @@
             // 
             // TBAFiyat2
             // 
+            this.TBAFiyat2.EditValue = "0";
             this.TBAFiyat2.Location = new System.Drawing.Point(85, 93);
             this.TBAFiyat2.Name = "TBAFiyat2";
             this.TBAFiyat2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -465,6 +469,7 @@
             // 
             // TBAFiyat1
             // 
+            this.TBAFiyat1.EditValue = "0";
             this.TBAFiyat1.Location = new System.Drawing.Point(85, 63);
             this.TBAFiyat1.Name = "TBAFiyat1";
             this.TBAFiyat1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -485,6 +490,7 @@
             // 
             // CBADoviz
             // 
+            this.CBADoviz.EditValue = "TL";
             this.CBADoviz.Location = new System.Drawing.Point(85, 33);
             this.CBADoviz.Name = "CBADoviz";
             this.CBADoviz.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -583,6 +589,7 @@
             // 
             // TBSFiyat5
             // 
+            this.TBSFiyat5.EditValue = "0";
             this.TBSFiyat5.Location = new System.Drawing.Point(85, 189);
             this.TBSFiyat5.Name = "TBSFiyat5";
             this.TBSFiyat5.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -593,6 +600,7 @@
             // 
             // TBSFiyat4
             // 
+            this.TBSFiyat4.EditValue = "0";
             this.TBSFiyat4.Location = new System.Drawing.Point(85, 160);
             this.TBSFiyat4.Name = "TBSFiyat4";
             this.TBSFiyat4.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -603,6 +611,7 @@
             // 
             // TBSFiyat3
             // 
+            this.TBSFiyat3.EditValue = "0";
             this.TBSFiyat3.Location = new System.Drawing.Point(85, 131);
             this.TBSFiyat3.Name = "TBSFiyat3";
             this.TBSFiyat3.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -613,6 +622,7 @@
             // 
             // TBSFiyat2
             // 
+            this.TBSFiyat2.EditValue = "0";
             this.TBSFiyat2.Location = new System.Drawing.Point(85, 102);
             this.TBSFiyat2.Name = "TBSFiyat2";
             this.TBSFiyat2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -623,6 +633,7 @@
             // 
             // TBSFiyat1
             // 
+            this.TBSFiyat1.EditValue = "0";
             this.TBSFiyat1.Location = new System.Drawing.Point(85, 72);
             this.TBSFiyat1.Name = "TBSFiyat1";
             this.TBSFiyat1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -633,6 +644,7 @@
             // 
             // CBSDoviz
             // 
+            this.CBSDoviz.EditValue = "TL";
             this.CBSDoviz.Location = new System.Drawing.Point(85, 39);
             this.CBSDoviz.Name = "CBSDoviz";
             this.CBSDoviz.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -660,7 +672,7 @@
             // 
             // panel8
             // 
-            this.panel8.Controls.Add(this.dataGridView1);
+            this.panel8.Controls.Add(this.gridControl1);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel8.Location = new System.Drawing.Point(4, 102);
             this.panel8.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
@@ -668,41 +680,21 @@
             this.panel8.Size = new System.Drawing.Size(1112, 288);
             this.panel8.TabIndex = 4;
             // 
-            // dataGridView1
+            // gridControl1
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.dataGridView1.Name = "dataGridView1";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(1112, 288);
-            this.dataGridView1.TabIndex = 0;
+            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl1.Location = new System.Drawing.Point(0, 0);
+            this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Name = "gridControl1";
+            this.gridControl1.Size = new System.Drawing.Size(1112, 288);
+            this.gridControl1.TabIndex = 0;
+            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
+            // gridView1
+            // 
+            this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.Name = "gridView1";
             // 
             // panel7
             // 
@@ -743,6 +735,26 @@
             this.GBOlcuBirimleriUstPanel.TabIndex = 2;
             this.GBOlcuBirimleriUstPanel.TabStop = false;
             // 
+            // CBBirim
+            // 
+            this.CBBirim.EditValue = "";
+            this.CBBirim.Location = new System.Drawing.Point(15, 36);
+            this.CBBirim.Name = "CBBirim";
+            this.CBBirim.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CBBirim.Properties.NullText = "";
+            this.CBBirim.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.CBBirim.Properties.PopupView = this.CBBirimView;
+            this.CBBirim.Size = new System.Drawing.Size(161, 26);
+            this.CBBirim.TabIndex = 37;
+            // 
+            // CBBirimView
+            // 
+            this.CBBirimView.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.CBBirimView.Name = "CBBirimView";
+            this.CBBirimView.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.CBBirimView.OptionsView.ShowGroupPanel = false;
+            // 
             // BTOlcuBirimiEkle
             // 
             this.BTOlcuBirimiEkle.Appearance.BackColor = System.Drawing.Color.LightGray;
@@ -755,6 +767,7 @@
             this.BTOlcuBirimiEkle.Size = new System.Drawing.Size(74, 26);
             this.BTOlcuBirimiEkle.TabIndex = 7;
             this.BTOlcuBirimiEkle.Text = "&Ekle";
+            this.BTOlcuBirimiEkle.Click += new System.EventHandler(this.BTOlcuBirimiEkle_Click_1);
             // 
             // LBKatsayi
             // 
@@ -1141,7 +1154,6 @@
             this.labelControl8.Size = new System.Drawing.Size(95, 14);
             this.labelControl8.TabIndex = 11;
             this.labelControl8.Text = "Sayısal Açıklama 2";
-            
             // 
             // LBStokKartiSayisalAciklama1
             // 
@@ -1311,7 +1323,6 @@
             this.LBStokKartiAciklama6.Size = new System.Drawing.Size(57, 14);
             this.LBStokKartiAciklama6.TabIndex = 6;
             this.LBStokKartiAciklama6.Text = "Açıklama 6";
-            
             // 
             // LBStokKartiAciklama5
             // 
@@ -1342,7 +1353,6 @@
             this.LBStokKartiAciklama3.Size = new System.Drawing.Size(57, 14);
             this.LBStokKartiAciklama3.TabIndex = 9;
             this.LBStokKartiAciklama3.Text = "Açıklama 3";
-            
             // 
             // LBStokKartiAciklama2
             // 
@@ -1842,6 +1852,7 @@
             // 
             // CEStokKartiOzellik
             // 
+            this.CEStokKartiOzellik.EditValue = true;
             this.CEStokKartiOzellik.Location = new System.Drawing.Point(22, 34);
             this.CEStokKartiOzellik.Name = "CEStokKartiOzellik";
             this.CEStokKartiOzellik.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -1882,6 +1893,7 @@
             // 
             // TBAlisOtv
             // 
+            this.TBAlisOtv.EditValue = "0";
             this.TBAlisOtv.Location = new System.Drawing.Point(72, 119);
             this.TBAlisOtv.Name = "TBAlisOtv";
             this.TBAlisOtv.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -1902,6 +1914,7 @@
             // 
             // TBSatisOtv
             // 
+            this.TBSatisOtv.EditValue = "0";
             this.TBSatisOtv.Location = new System.Drawing.Point(72, 89);
             this.TBSatisOtv.Name = "TBSatisOtv";
             this.TBSatisOtv.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -1932,6 +1945,7 @@
             // 
             // TBAlisKdv
             // 
+            this.TBAlisKdv.EditValue = "0";
             this.TBAlisKdv.Location = new System.Drawing.Point(72, 60);
             this.TBAlisKdv.Name = "TBAlisKdv";
             this.TBAlisKdv.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -1942,6 +1956,7 @@
             // 
             // TBSatisKdv
             // 
+            this.TBSatisKdv.EditValue = "0";
             this.TBSatisKdv.Location = new System.Drawing.Point(72, 31);
             this.TBSatisKdv.Name = "TBSatisKdv";
             this.TBSatisKdv.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -2134,26 +2149,6 @@
             this.BTStokKodu.Size = new System.Drawing.Size(194, 26);
             this.BTStokKodu.TabIndex = 3;
             // 
-            // CBBirim
-            // 
-            this.CBBirim.EditValue = "";
-            this.CBBirim.Location = new System.Drawing.Point(15, 36);
-            this.CBBirim.Name = "CBBirim";
-            this.CBBirim.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.CBBirim.Properties.NullText = "";
-            this.CBBirim.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.CBBirim.Properties.PopupView = this.CBBirimView;
-            this.CBBirim.Size = new System.Drawing.Size(161, 26);
-            this.CBBirim.TabIndex = 37;
-            // 
-            // CBBirimView
-            // 
-            this.CBBirimView.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.CBBirimView.Name = "CBBirimView";
-            this.CBBirimView.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.CBBirimView.OptionsView.ShowGroupPanel = false;
-            // 
             // FStokKart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -2189,11 +2184,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.CBSDoviz.Properties)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.panel7.ResumeLayout(false);
             this.GBOlcuBirimleri.ResumeLayout(false);
             this.GBOlcuBirimleriUstPanel.ResumeLayout(false);
             this.GBOlcuBirimleriUstPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CBBirim.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CBBirimView)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.GBStokKartiSayisalAciklama.ResumeLayout(false);
@@ -2250,8 +2248,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.BTMarka.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBStokAdi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTStokKodu.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CBBirim.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CBBirimView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2281,7 +2277,6 @@
         private Panel panel6;
         private GroupBox GBStokKartiRaporKodu;
         private Panel panel8;
-        private DataGridView dataGridView1;
         private Panel panel7;
         private TextBox TBKatsayi;
         private DevExpress.XtraEditors.ButtonEdit BTStokKodu;
@@ -2400,5 +2395,7 @@
         private DevExpress.XtraEditors.TextEdit TBAciklama5;
         private DevExpress.XtraEditors.GridLookUpEdit CBBirim;
         private DevExpress.XtraGrid.Views.Grid.GridView CBBirimView;
+        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
     }
 }

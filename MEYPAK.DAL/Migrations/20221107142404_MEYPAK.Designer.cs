@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MEYPAK.DAL.Migrations
 {
     [DbContext(typeof(MEYPAKContext))]
-    [Migration("20221104142047_Identity")]
-    partial class Identity
+    [Migration("20221107142404_MEYPAK")]
+    partial class MEYPAK
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -637,10 +637,6 @@ namespace MEYPAK.DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("DEPOID");
-
-                    b.HasIndex("SIPARISID");
-
                     b.ToTable("MPDEPOEMIR");
                 });
 
@@ -725,10 +721,6 @@ namespace MEYPAK.DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("DEPOTRANSFERID");
-
-                    b.HasIndex("STOKID");
-
                     b.ToTable("MPDEPOTRANSFERHAR");
                 });
 
@@ -783,16 +775,6 @@ namespace MEYPAK.DAL.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("ID");
-
-                    b.HasIndex("BIRIMID");
-
-                    b.HasIndex("EMIRID");
-
-                    b.HasIndex("SATINALMAMALKABULEMRIHARID");
-
-                    b.HasIndex("SIPARISDETAYID");
-
-                    b.HasIndex("STOKID");
 
                     b.ToTable("MPSTOKMALKABULLIST");
                 });
@@ -851,16 +833,6 @@ namespace MEYPAK.DAL.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("ID");
-
-                    b.HasIndex("BIRIMID");
-
-                    b.HasIndex("EMIRID");
-
-                    b.HasIndex("SEVKEMRIHARID");
-
-                    b.HasIndex("SIPARISDETAYID");
-
-                    b.HasIndex("STOKID");
 
                     b.ToTable("MPSTOKSEVKİYATLİST");
                 });
@@ -984,8 +956,6 @@ namespace MEYPAK.DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("SIPARISID");
-
                     b.ToTable("MPIRSALIYE");
                 });
 
@@ -1078,38 +1048,7 @@ namespace MEYPAK.DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("SIPARISID");
-
                     b.ToTable("MPIRSALIYEDETAY");
-                });
-
-            modelBuilder.Entity("MEYPAK.Entity.Models.MPDEPOEMIRSIPARISKALEMILISKI", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
-
-                    b.Property<int>("DEPOEMIRID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MPDEPOEMIRID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MPSIPARISDETAYID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SIPARISDETAYID")
-                        .HasColumnType("int");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("MPDEPOEMIRID");
-
-                    b.HasIndex("MPSIPARISDETAYID");
-
-                    b.ToTable("MPDEPOEMIRSIPARISKALEMILISKI");
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.MPIRSALIYESIPARISDETAYILISKI", b =>
@@ -1123,20 +1062,10 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<int>("IRSALIYEDETAYID")
                         .HasColumnType("int");
 
-                    b.Property<int>("MPIRSALIYEDETAYID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MPSIPARISDETAYID")
-                        .HasColumnType("int");
-
                     b.Property<int>("SIPARISDETAYID")
                         .HasColumnType("int");
 
                     b.HasKey("ID");
-
-                    b.HasIndex("MPIRSALIYEDETAYID");
-
-                    b.HasIndex("MPSIPARISDETAYID");
 
                     b.ToTable("MPIRSALIYESIPARISDETAYILISKI");
                 });
@@ -1343,12 +1272,6 @@ namespace MEYPAK.DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("EMIRID");
-
-                    b.HasIndex("SIPARISID");
-
-                    b.HasIndex("SIPARISKALEMID");
-
                     b.ToTable("MPSATINALMAMALKABULEMRIHAR");
                 });
 
@@ -1465,8 +1388,6 @@ namespace MEYPAK.DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("DEPOID");
-
                     b.ToTable("MPSIPARIS");
                 });
 
@@ -1565,12 +1486,6 @@ namespace MEYPAK.DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("IRSALIYEID");
-
-                    b.HasIndex("SIPARISID");
-
-                    b.HasIndex("STOKID");
-
                     b.ToTable("MPSIPARISDETAY");
                 });
 
@@ -1619,12 +1534,6 @@ namespace MEYPAK.DAL.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("ID");
-
-                    b.HasIndex("EMIRID");
-
-                    b.HasIndex("SIPARISID");
-
-                    b.HasIndex("SIPARISKALEMID");
 
                     b.ToTable("MPSIPARISSEVKEMRIHAR");
                 });
@@ -1889,8 +1798,9 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<int>("ESKIID")
                         .HasColumnType("int");
 
-                    b.Property<int>("GRUPKODU")
-                        .HasColumnType("int");
+                    b.Property<string>("GRUPKODU")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("GTIN")
                         .HasColumnType("int");
@@ -2127,10 +2037,6 @@ namespace MEYPAK.DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("FIYATLISTID");
-
-                    b.HasIndex("STOKID");
-
                     b.ToTable("MPSTOKFIYATLISTHAR");
                 });
 
@@ -2210,8 +2116,6 @@ namespace MEYPAK.DAL.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("ID");
-
-                    b.HasIndex("STOKID");
 
                     b.ToTable("MPSTOKHAR");
                 });
@@ -2377,10 +2281,6 @@ namespace MEYPAK.DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("OLCUBRID");
-
-                    b.HasIndex("STOKID");
-
                     b.ToTable("MPSTOKOLCUBR");
                 });
 
@@ -2394,8 +2294,7 @@ namespace MEYPAK.DAL.Migrations
 
                     b.Property<string>("ACIKLAMA")
                         .IsRequired()
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("DEPOID")
                         .HasColumnType("int");
@@ -2480,12 +2379,6 @@ namespace MEYPAK.DAL.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("ID");
-
-                    b.HasIndex("BIRIMID");
-
-                    b.HasIndex("STOKID");
-
-                    b.HasIndex("STOKSAYIMID");
 
                     b.ToTable("MPSTOKSAYIMHAR");
                 });
@@ -2596,358 +2489,6 @@ namespace MEYPAK.DAL.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("MEYPAK.Entity.Models.DEPO.MPDEPOEMIR", b =>
-                {
-                    b.HasOne("MEYPAK.Entity.Models.DEPO.MPDEPO", "MPDEPO")
-                        .WithMany("MPDEPOEMIR")
-                        .HasForeignKey("DEPOID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MEYPAK.Entity.Models.SIPARIS.MPSIPARIS", "MPSIPARIS")
-                        .WithMany("MPDEPOEMIR")
-                        .HasForeignKey("SIPARISID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("MPDEPO");
-
-                    b.Navigation("MPSIPARIS");
-                });
-
-            modelBuilder.Entity("MEYPAK.Entity.Models.DEPO.MPDEPOTRANSFERHAR", b =>
-                {
-                    b.HasOne("MEYPAK.Entity.Models.DEPO.MPDEPOTRANSFER", "MPDEPOTRANSFER")
-                        .WithMany()
-                        .HasForeignKey("DEPOTRANSFERID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MEYPAK.Entity.Models.STOK.MPSTOK", "MPSTOK")
-                        .WithMany()
-                        .HasForeignKey("STOKID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("MPDEPOTRANSFER");
-
-                    b.Navigation("MPSTOK");
-                });
-
-            modelBuilder.Entity("MEYPAK.Entity.Models.DEPO.MPSTOKMALKABULLIST", b =>
-                {
-                    b.HasOne("MEYPAK.Entity.Models.STOK.MPOLCUBR", "MPOLCUBR")
-                        .WithMany("MPSTOKMALKABULLIST")
-                        .HasForeignKey("BIRIMID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MEYPAK.Entity.Models.DEPO.MPDEPOEMIR", "MPDEPOEMIR")
-                        .WithMany("MPSTOKMALKABULLIST")
-                        .HasForeignKey("EMIRID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MEYPAK.Entity.Models.SIPARIS.MPSATINALMAMALKABULEMRIHAR", "MPSATINALMAMALKABULEMRIHAR")
-                        .WithMany("MPSTOKMALKABULLIST")
-                        .HasForeignKey("SATINALMAMALKABULEMRIHARID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MEYPAK.Entity.Models.SIPARIS.MPSIPARISDETAY", "MPSIPARISDETAY")
-                        .WithMany("MPSTOKMALKABULLIST")
-                        .HasForeignKey("SIPARISDETAYID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MEYPAK.Entity.Models.STOK.MPSTOK", "MPSTOK")
-                        .WithMany("MPSTOKMALKABULLIST")
-                        .HasForeignKey("STOKID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("MPDEPOEMIR");
-
-                    b.Navigation("MPOLCUBR");
-
-                    b.Navigation("MPSATINALMAMALKABULEMRIHAR");
-
-                    b.Navigation("MPSIPARISDETAY");
-
-                    b.Navigation("MPSTOK");
-                });
-
-            modelBuilder.Entity("MEYPAK.Entity.Models.DEPO.MPSTOKSEVKİYATLİST", b =>
-                {
-                    b.HasOne("MEYPAK.Entity.Models.STOK.MPOLCUBR", "MPOLCUBR")
-                        .WithMany("MPSTOKSEVKİYATLİST")
-                        .HasForeignKey("BIRIMID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MEYPAK.Entity.Models.DEPO.MPDEPOEMIR", "MPDEPOEMIR")
-                        .WithMany("MPSTOKSEVKİYATLİST")
-                        .HasForeignKey("EMIRID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MEYPAK.Entity.Models.SIPARIS.MPSIPARISSEVKEMRIHAR", "MPSIPARISSEVKEMRIHAR")
-                        .WithMany("MPSTOKSEVKİYATLİST")
-                        .HasForeignKey("SEVKEMRIHARID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MEYPAK.Entity.Models.SIPARIS.MPSIPARISDETAY", "MPSIPARISDETAY")
-                        .WithMany("MPSTOKSEVKİYATLİST")
-                        .HasForeignKey("SIPARISDETAYID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MEYPAK.Entity.Models.STOK.MPSTOK", "MPSTOK")
-                        .WithMany("MPSTOKSEVKİYATLİST")
-                        .HasForeignKey("STOKID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("MPDEPOEMIR");
-
-                    b.Navigation("MPOLCUBR");
-
-                    b.Navigation("MPSIPARISDETAY");
-
-                    b.Navigation("MPSIPARISSEVKEMRIHAR");
-
-                    b.Navigation("MPSTOK");
-                });
-
-            modelBuilder.Entity("MEYPAK.Entity.Models.IRSALIYE.MPIRSALIYE", b =>
-                {
-                    b.HasOne("MEYPAK.Entity.Models.SIPARIS.MPSIPARIS", "MPSIPARIS")
-                        .WithMany("MPIRSALIYE")
-                        .HasForeignKey("SIPARISID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("MPSIPARIS");
-                });
-
-            modelBuilder.Entity("MEYPAK.Entity.Models.IRSALIYE.MPIRSALIYEDETAY", b =>
-                {
-                    b.HasOne("MEYPAK.Entity.Models.SIPARIS.MPSIPARIS", "MPSIPARIS")
-                        .WithMany()
-                        .HasForeignKey("SIPARISID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("MPSIPARIS");
-                });
-
-            modelBuilder.Entity("MEYPAK.Entity.Models.MPDEPOEMIRSIPARISKALEMILISKI", b =>
-                {
-                    b.HasOne("MEYPAK.Entity.Models.DEPO.MPDEPOEMIR", "MPDEPOEMIR")
-                        .WithMany("MPDEPOEMIRSIPARISKALEMILISKI")
-                        .HasForeignKey("MPDEPOEMIRID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MEYPAK.Entity.Models.SIPARIS.MPSIPARISDETAY", "MPSIPARISDETAY")
-                        .WithMany("MPDEPOEMIRSIPARISKALEMILISKI")
-                        .HasForeignKey("MPSIPARISDETAYID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("MPDEPOEMIR");
-
-                    b.Navigation("MPSIPARISDETAY");
-                });
-
-            modelBuilder.Entity("MEYPAK.Entity.Models.MPIRSALIYESIPARISDETAYILISKI", b =>
-                {
-                    b.HasOne("MEYPAK.Entity.Models.IRSALIYE.MPIRSALIYEDETAY", "MPIRSALIYEDETAY")
-                        .WithMany("MPIRSALIYESIPARISDETAYILISKI")
-                        .HasForeignKey("MPIRSALIYEDETAYID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MEYPAK.Entity.Models.SIPARIS.MPSIPARISDETAY", "MPSIPARISDETAY")
-                        .WithMany("MPIRSALIYESIPARISDETAYILISKI")
-                        .HasForeignKey("MPSIPARISDETAYID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("MPIRSALIYEDETAY");
-
-                    b.Navigation("MPSIPARISDETAY");
-                });
-
-            modelBuilder.Entity("MEYPAK.Entity.Models.SIPARIS.MPSATINALMAMALKABULEMRIHAR", b =>
-                {
-                    b.HasOne("MEYPAK.Entity.Models.DEPO.MPDEPOEMIR", "MPDEPOEMIR")
-                        .WithMany()
-                        .HasForeignKey("EMIRID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MEYPAK.Entity.Models.SIPARIS.MPSIPARIS", "MPSIPARIS")
-                        .WithMany("MPSATINALMAMALKABULEMRIHAR")
-                        .HasForeignKey("SIPARISID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MEYPAK.Entity.Models.SIPARIS.MPSIPARISDETAY", "MPSIPARISDETAY")
-                        .WithMany("MPSATINALMAMALKABULEMRIHAR")
-                        .HasForeignKey("SIPARISKALEMID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("MPDEPOEMIR");
-
-                    b.Navigation("MPSIPARIS");
-
-                    b.Navigation("MPSIPARISDETAY");
-                });
-
-            modelBuilder.Entity("MEYPAK.Entity.Models.SIPARIS.MPSIPARIS", b =>
-                {
-                    b.HasOne("MEYPAK.Entity.Models.DEPO.MPDEPO", "MPDEPO")
-                        .WithMany()
-                        .HasForeignKey("DEPOID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("MPDEPO");
-                });
-
-            modelBuilder.Entity("MEYPAK.Entity.Models.SIPARIS.MPSIPARISDETAY", b =>
-                {
-                    b.HasOne("MEYPAK.Entity.Models.IRSALIYE.MPIRSALIYE", "MPIRSALIYE")
-                        .WithMany()
-                        .HasForeignKey("IRSALIYEID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MEYPAK.Entity.Models.SIPARIS.MPSIPARIS", "MPSIPARIS")
-                        .WithMany("MPSIPARISDETAY")
-                        .HasForeignKey("SIPARISID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MEYPAK.Entity.Models.STOK.MPSTOK", "MPSTOK")
-                        .WithMany("MPSIPARISDETAY")
-                        .HasForeignKey("STOKID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("MPIRSALIYE");
-
-                    b.Navigation("MPSIPARIS");
-
-                    b.Navigation("MPSTOK");
-                });
-
-            modelBuilder.Entity("MEYPAK.Entity.Models.SIPARIS.MPSIPARISSEVKEMRIHAR", b =>
-                {
-                    b.HasOne("MEYPAK.Entity.Models.DEPO.MPDEPOEMIR", "MPDEPOEMIR")
-                        .WithMany("MPSIPARISSEVKEMRIHAR")
-                        .HasForeignKey("EMIRID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MEYPAK.Entity.Models.SIPARIS.MPSIPARIS", "MPSIPARIS")
-                        .WithMany("MPSIPARISSEVKEMRIHAR")
-                        .HasForeignKey("SIPARISID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MEYPAK.Entity.Models.SIPARIS.MPSIPARISDETAY", "MPSIPARISDETAY")
-                        .WithMany("MPSIPARISSEVKEMRIHAR")
-                        .HasForeignKey("SIPARISKALEMID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("MPDEPOEMIR");
-
-                    b.Navigation("MPSIPARIS");
-
-                    b.Navigation("MPSIPARISDETAY");
-                });
-
-            modelBuilder.Entity("MEYPAK.Entity.Models.STOK.MPSTOKFIYATLISTHAR", b =>
-                {
-                    b.HasOne("MEYPAK.Entity.Models.STOK.MPSTOKFIYATLIST", "MPSTOKFIYATLIST")
-                        .WithMany("MPSTOKFIYATLISTHAR")
-                        .HasForeignKey("FIYATLISTID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MEYPAK.Entity.Models.STOK.MPSTOK", "MPSTOK")
-                        .WithMany("MPSTOKFIYATLISTHAR")
-                        .HasForeignKey("STOKID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("MPSTOK");
-
-                    b.Navigation("MPSTOKFIYATLIST");
-                });
-
-            modelBuilder.Entity("MEYPAK.Entity.Models.STOK.MPSTOKHAR", b =>
-                {
-                    b.HasOne("MEYPAK.Entity.Models.STOK.MPSTOK", "MPSTOK")
-                        .WithMany("MPSTOKHAR")
-                        .HasForeignKey("STOKID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("MPSTOK");
-                });
-
-            modelBuilder.Entity("MEYPAK.Entity.Models.STOK.MPSTOKOLCUBR", b =>
-                {
-                    b.HasOne("MEYPAK.Entity.Models.STOK.MPOLCUBR", "MPOLCUBR")
-                        .WithMany("MPSTOKOLCUBR")
-                        .HasForeignKey("OLCUBRID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MEYPAK.Entity.Models.STOK.MPSTOK", "MPSTOK")
-                        .WithMany("MPSTOKOLCUBR")
-                        .HasForeignKey("STOKID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("MPOLCUBR");
-
-                    b.Navigation("MPSTOK");
-                });
-
-            modelBuilder.Entity("MEYPAK.Entity.Models.STOK.MPSTOKSAYIMHAR", b =>
-                {
-                    b.HasOne("MEYPAK.Entity.Models.STOK.MPOLCUBR", "MPOLCUBR")
-                        .WithMany("MPSTOKSAYIMHAR")
-                        .HasForeignKey("BIRIMID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MEYPAK.Entity.Models.STOK.MPSTOK", "MPSTOK")
-                        .WithMany("MPSTOKSAYIMHAR")
-                        .HasForeignKey("STOKID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MEYPAK.Entity.Models.STOK.MPSTOKSAYIM", "MPSTOKSAYIM")
-                        .WithMany("MPSTOKSAYIMHAR")
-                        .HasForeignKey("STOKSAYIMID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("MPOLCUBR");
-
-                    b.Navigation("MPSTOK");
-
-                    b.Navigation("MPSTOKSAYIM");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("MEYPAK.Entity.IdentityModels.MPROLE", null)
@@ -2997,103 +2538,6 @@ namespace MEYPAK.DAL.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("MEYPAK.Entity.Models.DEPO.MPDEPO", b =>
-                {
-                    b.Navigation("MPDEPOEMIR");
-                });
-
-            modelBuilder.Entity("MEYPAK.Entity.Models.DEPO.MPDEPOEMIR", b =>
-                {
-                    b.Navigation("MPDEPOEMIRSIPARISKALEMILISKI");
-
-                    b.Navigation("MPSIPARISSEVKEMRIHAR");
-
-                    b.Navigation("MPSTOKMALKABULLIST");
-
-                    b.Navigation("MPSTOKSEVKİYATLİST");
-                });
-
-            modelBuilder.Entity("MEYPAK.Entity.Models.IRSALIYE.MPIRSALIYEDETAY", b =>
-                {
-                    b.Navigation("MPIRSALIYESIPARISDETAYILISKI");
-                });
-
-            modelBuilder.Entity("MEYPAK.Entity.Models.SIPARIS.MPSATINALMAMALKABULEMRIHAR", b =>
-                {
-                    b.Navigation("MPSTOKMALKABULLIST");
-                });
-
-            modelBuilder.Entity("MEYPAK.Entity.Models.SIPARIS.MPSIPARIS", b =>
-                {
-                    b.Navigation("MPDEPOEMIR");
-
-                    b.Navigation("MPIRSALIYE");
-
-                    b.Navigation("MPSATINALMAMALKABULEMRIHAR");
-
-                    b.Navigation("MPSIPARISDETAY");
-
-                    b.Navigation("MPSIPARISSEVKEMRIHAR");
-                });
-
-            modelBuilder.Entity("MEYPAK.Entity.Models.SIPARIS.MPSIPARISDETAY", b =>
-                {
-                    b.Navigation("MPDEPOEMIRSIPARISKALEMILISKI");
-
-                    b.Navigation("MPIRSALIYESIPARISDETAYILISKI");
-
-                    b.Navigation("MPSATINALMAMALKABULEMRIHAR");
-
-                    b.Navigation("MPSIPARISSEVKEMRIHAR");
-
-                    b.Navigation("MPSTOKMALKABULLIST");
-
-                    b.Navigation("MPSTOKSEVKİYATLİST");
-                });
-
-            modelBuilder.Entity("MEYPAK.Entity.Models.SIPARIS.MPSIPARISSEVKEMRIHAR", b =>
-                {
-                    b.Navigation("MPSTOKSEVKİYATLİST");
-                });
-
-            modelBuilder.Entity("MEYPAK.Entity.Models.STOK.MPOLCUBR", b =>
-                {
-                    b.Navigation("MPSTOKMALKABULLIST");
-
-                    b.Navigation("MPSTOKOLCUBR");
-
-                    b.Navigation("MPSTOKSAYIMHAR");
-
-                    b.Navigation("MPSTOKSEVKİYATLİST");
-                });
-
-            modelBuilder.Entity("MEYPAK.Entity.Models.STOK.MPSTOK", b =>
-                {
-                    b.Navigation("MPSIPARISDETAY");
-
-                    b.Navigation("MPSTOKFIYATLISTHAR");
-
-                    b.Navigation("MPSTOKHAR");
-
-                    b.Navigation("MPSTOKMALKABULLIST");
-
-                    b.Navigation("MPSTOKOLCUBR");
-
-                    b.Navigation("MPSTOKSAYIMHAR");
-
-                    b.Navigation("MPSTOKSEVKİYATLİST");
-                });
-
-            modelBuilder.Entity("MEYPAK.Entity.Models.STOK.MPSTOKFIYATLIST", b =>
-                {
-                    b.Navigation("MPSTOKFIYATLISTHAR");
-                });
-
-            modelBuilder.Entity("MEYPAK.Entity.Models.STOK.MPSTOKSAYIM", b =>
-                {
-                    b.Navigation("MPSTOKSAYIMHAR");
                 });
 #pragma warning restore 612, 618
         }

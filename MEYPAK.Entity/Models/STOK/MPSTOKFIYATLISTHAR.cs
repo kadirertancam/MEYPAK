@@ -20,14 +20,9 @@ namespace MEYPAK.Entity.Models.STOK
         public int KULLANICIID { get; set; } 
         public int AKTIF { get; set; }
 
-
-        [ForeignKey("MPSTOK")]
         public int STOKID { get; set; }
-        public virtual MPSTOK MPSTOK { get; set; }
 
 
-        [ForeignKey("MPSTOKFIYATLIST")]
         public int FIYATLISTID { get; set; }
-        public virtual MPSTOKFIYATLIST MPSTOKFIYATLIST { get; set; } 
     }
 }

@@ -18,18 +18,6 @@ namespace MEYPAK.Entity.PocoModels.STOK
         [StringLength(50)]
         public string birim { get; set; } = "";
         public int kullaniciid { get; set; } = 0;
-        [JsonIgnore]
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PocoSTOKOLCUBR> MPSTOKOLCUBR { get; set; }
-        [JsonIgnore]
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PocoSTOKSAYIMHAR> MPSTOKSAYIMHAR { get; set; }
-        [JsonIgnore]
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PocoSTOKSEVKIYATLIST> MPSTOKSEVKİYATLİST { get; set; }
-        [JsonIgnore]
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PocoSTOKMALKABULLIST> MPSTOKMALKABULLIST { get; set; }
 
     }
 }

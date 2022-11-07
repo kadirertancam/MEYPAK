@@ -26,19 +26,24 @@ namespace MEYPAK.PRL.STOK
             InitializeComponent();
             fSayimList = new FSayimList();
             _stokSayimServis = new GenericWebServis<PocoSTOKSAYIM>();
-            _stokHarServis = new GenericWebServis<PocoSTOKHAR>(); 
+            _stokHarServis = new GenericWebServis<PocoSTOKHAR>();
+            _stokSayimHarServis = new GenericWebServis<PocoSTOKSAYIMHAR>();
+            _stokServis = new GenericWebServis<PocoSTOK>();
         } 
         GenericWebServis<PocoSTOKSAYIM> _stokSayimServis ; 
+        GenericWebServis<PocoSTOKSAYIMHAR> _stokSayimHarServis ; 
         GenericWebServis<PocoSTOKHAR> _stokHarServis ; 
+        GenericWebServis<PocoSTOK> _stokServis ; 
         public PocoSTOKSAYIM _tempSayim;
         public int _id;
         FSayimList fSayimList;
         private void button2_Click(object sender, EventArgs e)
         {
+            _stokServis.Data(ServisList.StokListeServis);
             _stokSayimServis.Data(ServisList.StokSayimListeServis);
             foreach (var item in _stokSayimServis.obje.Where(x=>x.sayimtarihi ==dateTimePicker1.Value && x.aciklama==TBSayimAciklama.Text))
             { 
-                foreach (var item2 in item.mpstoksayimhar)
+                foreach (var item2 in _stokSayimHarServis.obje.Where(x=>item.id==x.stoksayimid))
                 {
 
                 
@@ -51,7 +56,7 @@ namespace MEYPAK.PRL.STOK
                     hareketturu=7,
                     depoid=item.depoid,
                     netfiyat=item2.fiyat,
-                    kdv=item2.mpstok.aliskdv,
+                    kdv= _stokServis.obje.Where(z => z.id == item2.stokid).FirstOrDefault().aliskdv,
                     kayittipi=0,
                     io=1,
                     sayimid=item.id
@@ -80,7 +85,7 @@ namespace MEYPAK.PRL.STOK
             _stokSayimServis.Data(ServisList.StokSayimListeServis);
             _stokHarServis.Data(ServisList.StokHarListeServis);
 
-            foreach (var item2 in _stokSayimServis.obje.Where(x => x.sayimtarihi == dateTimePicker1.Value && x.aciklama == TBSayimAciklama.Text).FirstOrDefault().mpstoksayimhar)
+            foreach (var item2 in _stokSayimHarServis.obje.Where(z=>z.stoksayimid==_stokSayimServis.obje.Where(x => x.sayimtarihi == dateTimePicker1.Value && x.aciklama == TBSayimAciklama.Text).FirstOrDefault().id))
             {
                 var _temp = _stokHarServis.obje.Where(x => x.stokid == item2.stokid && x.sayimid == item2.id).ToList();
                 if(_temp.Count() > 0)

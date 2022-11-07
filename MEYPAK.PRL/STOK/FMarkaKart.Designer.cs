@@ -31,7 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FMarkaKart));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.DGMarkaKart = new System.Windows.Forms.DataGridView();
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.BTMarkaKartSil = new DevExpress.XtraEditors.SimpleButton();
             this.BTMarkaKartKaydet = new DevExpress.XtraEditors.SimpleButton();
@@ -42,7 +43,8 @@
             this.TBAciklama = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DGMarkaKart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TBMarkaAdi.Properties)).BeginInit();
@@ -60,24 +62,29 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.DGMarkaKart);
+            this.panel3.Controls.Add(this.gridControl1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 152);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(796, 406);
             this.panel3.TabIndex = 1;
             // 
-            // DGMarkaKart
+            // gridControl1
             // 
-            this.DGMarkaKart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGMarkaKart.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DGMarkaKart.Location = new System.Drawing.Point(0, 0);
-            this.DGMarkaKart.Name = "DGMarkaKart";
-            this.DGMarkaKart.ReadOnly = true;
-            this.DGMarkaKart.RowTemplate.Height = 25;
-            this.DGMarkaKart.Size = new System.Drawing.Size(796, 406);
-            this.DGMarkaKart.TabIndex = 0;
-            this.DGMarkaKart.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDoubleClick);
+            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl1.Location = new System.Drawing.Point(0, 0);
+            this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Name = "gridControl1";
+            this.gridControl1.Size = new System.Drawing.Size(796, 406);
+            this.gridControl1.TabIndex = 81;
+            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
+            // gridView1
+            // 
+            this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.DoubleClick += new System.EventHandler(this.gridView1_DoubleClick);
             // 
             // panel2
             // 
@@ -111,6 +118,7 @@
             this.BTMarkaKartKaydet.Size = new System.Drawing.Size(94, 52);
             this.BTMarkaKartKaydet.TabIndex = 79;
             this.BTMarkaKartKaydet.Text = "Kaydet";
+            this.BTMarkaKartKaydet.Click += new System.EventHandler(this.BTMarkaKartKaydet_Click);
             // 
             // groupBox1
             // 
@@ -127,7 +135,6 @@
             // 
             // TBMarkaAdi
             // 
-            this.TBMarkaAdi.Enabled = false;
             this.TBMarkaAdi.Location = new System.Drawing.Point(93, 21);
             this.TBMarkaAdi.Name = "TBMarkaAdi";
             this.TBMarkaAdi.Properties.Padding = new System.Windows.Forms.Padding(3);
@@ -173,7 +180,8 @@
             this.Load += new System.EventHandler(this.FMarkaKart_Load);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.DGMarkaKart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -188,12 +196,13 @@
         private Panel panel3;
         private Panel panel2;
         private TextBox TBAciklama;
-        private DataGridView DGMarkaKart;
         private GroupBox groupBox1;
         private DevExpress.XtraEditors.LabelControl LBMarkaAdi;
         private DevExpress.XtraEditors.LabelControl LBMarkaAciklama;
         private DevExpress.XtraEditors.SimpleButton BTMarkaKartSil;
         private DevExpress.XtraEditors.SimpleButton BTMarkaKartKaydet;
         private DevExpress.XtraEditors.TextEdit TBMarkaAdi;
+        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
     }
 }

@@ -17,7 +17,5 @@ namespace MEYPAK.Entity.PocoModels.DEPO
         public string aciklama { get; set; } = "";
         [Required]
         public string donem { get; set; } = DateTime.Now.ToString("yyyy");
-        public virtual PocoDEPOTRANSFER depotransfer { get; set; }
-        public virtual PocoSTOK stok { get; set; }
     }
 }

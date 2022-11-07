@@ -35,9 +35,6 @@ namespace MEYPAK.Entity.PocoModels
         public decimal NetToplam { get; set; } = 0;
         public decimal BrütToplam { get; set; } = 0; 
          
-        public virtual PocoSTOK MPSTOK {
-            get; set;
-        }
 
 
 

@@ -19,13 +19,7 @@ namespace MEYPAK.Entity.PocoModels.STOK
         public decimal fiyat { get; set; }
         public int parabr { get; set; } = 1;
         public decimal kur { get; set; } = 1;
-        [JsonIgnore]
-        public virtual PocoSTOKSAYIM mpstoksayim { get; set; }
         public int stokid { get; set; }
-        [JsonIgnore]
-        public virtual PocoSTOK mpstok { get; set; }
         public int birimid { get; set; }
-        [JsonIgnore]
-        public virtual PocoOLCUBR mpolcubr { get; set; }
     }
 }

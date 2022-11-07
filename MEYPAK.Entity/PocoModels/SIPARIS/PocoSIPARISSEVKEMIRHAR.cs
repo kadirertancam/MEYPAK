@@ -19,8 +19,5 @@ namespace MEYPAK.Entity.PocoModels.SIPARIS
         public decimal SIPARISMIKTARI { get; set; }
         public decimal EMIRMIKTARI { get; set; }
         public int TIP { get; set; }
-        public PocoSIPARIS MPSIPARIS { get; set; } 
-        public PocoSIPARISDETAY MPSIPARISDETAY { get; set; }
-        public List<PocoStokSevkiyatList> MPSTOKSEVKIYATLIST { get; set; }
     }
 }

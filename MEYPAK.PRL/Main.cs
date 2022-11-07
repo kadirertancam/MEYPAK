@@ -288,5 +288,25 @@ namespace MEYPAK.PRL
         {
 
         }
+
+        private void accordionControlElement10_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fOlcuBrKart = new FOlcuBrKart();
+            page.Name = "TPOlcuBrPanel" + i;
+            page.Text = "Ölçü Birim Panel";
+            page.Tag = "TPOlcuBrPanel" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fOlcuBrKart.TopLevel = false;
+            fOlcuBrKart.AutoScroll = true;
+            fOlcuBrKart.Dock = DockStyle.Fill;
+            fOlcuBrKart.Tag = "TPOlcuBrPanel" + i;
+            page.Controls.Add(fOlcuBrKart);
+            fOlcuBrKart.Show();
+            i++;
+        }
     }
 }

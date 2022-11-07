@@ -66,7 +66,7 @@ namespace MEYPAK.PRL.STOK
             if (_islem == "Stok")
             {
                 if (fStokKart != null)
-                    fStokKart._tempKasa = _kasaServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+                    fStokKart._tempKasa = _kasaServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()).FirstOrDefault();
             }
             else if (_islem == "musterisiparis")
             {
@@ -76,7 +76,7 @@ namespace MEYPAK.PRL.STOK
             else if (_islem == "SatinAlmaSiparis")
             {
                 if (fSatınAlmaSiparis != null)
-                    fSatınAlmaSiparis._tempKasa = _kasaServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+                    fSatınAlmaSiparis._tempKasa = _kasaServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()).FirstOrDefault();
             }
 
             this.Close();

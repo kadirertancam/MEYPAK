@@ -15,13 +15,5 @@ namespace MEYPAK.Entity.PocoModels.DEPO
         public int durum { get; set; } = 0;
         public decimal miktar { get; set; } = 0;
         public string aciklama { get; set; } = "";
-        public virtual PocoSIPARIS mpsiparis { get; set; }
-        public virtual PocoSTOK mpstok { get; set; }
-        public virtual PocoDEPO mpdepo { get; set; }
-
-        public virtual List<PocoSIPARISSEVKEMIRHAR> mpsiparissevkemrihar { get; set; }
-        public virtual List<PocoSTOKSEVKIYATLIST> mpstoksevkiyatlist { get; set; }
-
-        public virtual List<PocoSTOKMALKABULLIST> mpstokmalkabullist { get; set; }
     }
 }

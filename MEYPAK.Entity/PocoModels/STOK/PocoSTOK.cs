@@ -42,7 +42,7 @@ namespace MEYPAK.Entity.PocoModels.STOK
         public decimal aliskdv { get; set; }
         public decimal satisotv { get; set; }
         public decimal alisotv { get; set; }
-        public int grupkodu { get; set; }
+        public string grupkodu { get; set; }
         public string aciklama { get; set; } = "";
         public string aciklamA1 { get; set; } = "";
         public string aciklamA2 { get; set; } = "";
@@ -68,12 +68,5 @@ namespace MEYPAK.Entity.PocoModels.STOK
         public int gtin { get; set; }
         public int kullaniciid { get; set; }
         public string donem { get; set; }
-        public List<object> mpstokolcubr { get; set; }
-        public List<object> mpstokhar { get; set; }
-        public List<object> mpstoksayimhar { get; set; }
-        public List<object> mpstokfiyatlisthar { get; set; }
-        public List<object> mpsiparisdetay { get; set; }
-        public List<object> mpstoksevkİyatlİst { get; set; }
-        public List<object> mpstokmalkabullist { get; set; }
     }
 }

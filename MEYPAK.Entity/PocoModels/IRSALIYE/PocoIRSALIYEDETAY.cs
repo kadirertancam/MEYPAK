@@ -37,6 +37,5 @@ namespace MEYPAK.Entity.PocoModels.IRSALIYE
         public byte HAREKETDURUMU { get; set; } = 0;
         public decimal KDV { get; set; } = 0;
         public decimal KDVTUTARI { get; set; } = 0;
-        public virtual PocoSIPARIS MPSIPARIS { get; set; }
     }
 }

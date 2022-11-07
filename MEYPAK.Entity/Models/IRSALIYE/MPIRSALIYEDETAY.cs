@@ -14,7 +14,6 @@ namespace MEYPAK.Entity.Models.IRSALIYE
     public class MPIRSALIYEDETAY:SUPERMODEL
     {
 
-        [ForeignKey("MPSIPARIS")]
         public int SIPARISID { get; set; }
         [DefaultValue(0)]
         public int BIRIMID { get; set; }
@@ -46,11 +45,7 @@ namespace MEYPAK.Entity.Models.IRSALIYE
 
         public decimal KDV { get; set; } = 0;
         public decimal KDVTUTARI { get; set; } = 0;
-        public virtual MPSIPARIS MPSIPARIS { get; set; }
-       
-        public virtual ICollection<MPIRSALIYESIPARISDETAYILISKI>? MPIRSALIYESIPARISDETAYILISKI { get; set; }
-
-
+      
 
     }
 }

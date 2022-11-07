@@ -217,8 +217,7 @@ namespace MEYPAK.PRL.SIPARIS
 
             _tempPocokalem = new PocoSiparisKalem()
             {
-                StokId = _tempStok.id,
-                MPSTOK = _tempStok,
+                StokId = _tempStok.id, 
                 StokKodu = _tempStok.kod,
                 StokAdı = _tempStok.adi,
                 Birim = "0",// _olcuBr.obje.Where(x => x.ADI == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "DGVOlcuBr").ToString()).FirstOrDefault().ADI,
@@ -336,8 +335,7 @@ namespace MEYPAK.PRL.SIPARIS
                 //DGVtempCell.Value = DGVOlcuBr.Items[0].ToString();
                 _tempPocokalem = new PocoSiparisKalem()
                 {
-                    StokId = _tempStok.id,
-                    MPSTOK = _tempStok,
+                    StokId = _tempStok.id, 
                     StokKodu = _tempStok.kod,
                     StokAdı = _tempStok.adi,
                     Birim = _olcuBr.obje.Where(x=>x.adi== gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "DGVOlcuBr").ToString()).FirstOrDefault().adi,

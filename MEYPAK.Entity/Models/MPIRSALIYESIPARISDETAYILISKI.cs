@@ -16,9 +16,7 @@ namespace MEYPAK.Entity.Models
         public int ID { get; set; }
 
         public int SIPARISDETAYID { get; set; }
-        public virtual MPSIPARISDETAY MPSIPARISDETAY { get; set; }
 
         public int IRSALIYEDETAYID { get; set; }
-        public virtual MPIRSALIYEDETAY MPIRSALIYEDETAY { get; set; }
     }
 }

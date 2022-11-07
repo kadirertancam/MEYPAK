@@ -14,7 +14,6 @@ namespace MEYPAK.Entity.Models.STOK
     {
 
         [Required]
-        [ForeignKey("MPSTOK")]
         public int STOKID { get; set; }
         public int HAREKETTURU { get; set; }        // 1SATIS-2ALIS-3SATISIADE-4ALISIADE-5MUHTELIF-6DAT-7Sayim
         public int SIRKETID { get; set; } = 0;
@@ -35,7 +34,6 @@ namespace MEYPAK.Entity.Models.STOK
         public int SAYIMID { get; set; } = 0;
         public int KULLANICIID { get; set; } = 0;
 
-        public virtual MPSTOK MPSTOK { get; set; }
 
 
     }

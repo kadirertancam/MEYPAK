@@ -1,8 +1,11 @@
-﻿using MEYPAK.Entity.Models.IRSALIYE;
+﻿using MEYPAK.BLL.Assets;
+using MEYPAK.Entity.Models.IRSALIYE;
 using MEYPAK.Entity.Models.SIPARIS;
 using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Entity.PocoModels;
 using MEYPAK.Entity.PocoModels.IRSALIYE;
+using MEYPAK.Entity.PocoModels.STOK;
+using MEYPAK.Interfaces.Stok;
 using MEYPAK.PRL.Assets.Scripts;
 using MEYPAK.PRL.STOK;
 using System;
@@ -28,6 +31,7 @@ namespace MEYPAK.PRL.SIPARIS
             DGVKasaList = new DataGridViewComboBoxColumn();
             _fStokList = new FStokList(this.Tag.ToString(),"siparis");
             fKasaList = new FKasaList(this.Tag.ToString(),"Siparis");
+            _olcuBrServis = new GenericWebServis<PocoOLCUBR>();
             GCIrsaliye.MultiSelect = false;
             CBDepo.Properties.DataSource = StaticContext._depoServis.Listele().Select(x => x.depoadi).ToList();
         }
@@ -40,59 +44,60 @@ namespace MEYPAK.PRL.SIPARIS
         public MPSTOKKASA _tempKasa;
         DataGridViewButtonColumn DGVStokSec;
         DataGridViewButtonColumn DGVKasaSec;
+        GenericWebServis<PocoOLCUBR> _olcuBrServis;
 
         DataGridViewComboBoxColumn DGVFiyatList;
         DataGridViewComboBoxColumn DGVKasaList;
         DataGridViewCell DGVtempCell;
         void temizle()
         {
-            GCIrsaliye.DataSource = "";
-            _tempIrsaliyeDetay.Clear();
-            _tempIrsaliyeDetay.Add(new PocoIRSALIYEDETAY());
-            GCIrsaliye.DataSource = _tempIrsaliyeDetay;
-            DGVOlcuBr.DataSource = _tempStok.MPSTOKOLCUBR.Select(x => x.MPOLCUBR.ADI).ToList();
+            //GCIrsaliye.DataSource = "";
+            //_tempIrsaliyeDetay.Clear();
+            //_tempIrsaliyeDetay.Add(new PocoIRSALIYEDETAY());
+            //GCIrsaliye.DataSource = _tempIrsaliyeDetay;
+            //DGVOlcuBr.DataSource = _olc.Select(x => x.MPOLCUBR.ADI).ToList();
         }
         void DataGridYapilandir()
         {
+            //_olcuBrServis.Data(ServisList.OlcuBrListeServis);
+            //_tempStok = new MPSTOK();
+            //_tempIrsaliyeDetay.Add(new PocoIRSALIYEDETAY());
+            //GCIrsaliye.DataSource = _tempIrsaliyeDetay;
+            //DGVStokSec.FlatStyle = FlatStyle.Flat;
+            //DGVOlcuBr.Name = "DGVOlcuBr";
+            //DGVOlcuBr.HeaderText = "Birim";
+            //DGVOlcuBr.FlatStyle = FlatStyle.Flat;
+            //GCIrsaliye.Columns["Birim"].Visible = false;
+            //DGVOlcuBr.DataSource = _olcuBrServis.obje.Where(x=>x.).Select(x => x.MPOLCUBR.ADI).ToList();
+            //GCIrsaliye.Columns.Add(DGVOlcuBr);
+            //DGVStokSec.Name = "DGVStoKSec";
+            //DGVStokSec.HeaderText = "Seç";
+            //DGVStokSec.Text = "Seç";
+            //DGVStokSec.UseColumnTextForButtonValue = true;
+            //DGVFiyatList.Name = "DGVFiyatList";
+            //DGVFiyatList.FlatStyle = FlatStyle.Flat;
+            //GCIrsaliye.Columns.Add(DGVStokSec);
+            //GCIrsaliye.Columns.Add(DGVFiyatList);
+            //GCIrsaliye.Columns["StokId"].Visible = false;
+            //GCIrsaliye.Columns["MPSTOK"].Visible = false;
+            //GCIrsaliye.Columns["KasaId"].Visible = false;
+            //GCIrsaliye.Columns["DGVStoKSec"].DisplayIndex = 2;
+            //GCIrsaliye.Columns["DGVOlcuBr"].DisplayIndex = 5;
+            //GCIrsaliye.AllowUserToAddRows = false;
+            //GCIrsaliye.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
 
-            _tempStok = new MPSTOK();
-            _tempIrsaliyeDetay.Add(new PocoIRSALIYEDETAY());
-            GCIrsaliye.DataSource = _tempIrsaliyeDetay;
-            DGVStokSec.FlatStyle = FlatStyle.Flat;
-            DGVOlcuBr.Name = "DGVOlcuBr";
-            DGVOlcuBr.HeaderText = "Birim";
-            DGVOlcuBr.FlatStyle = FlatStyle.Flat;
-            GCIrsaliye.Columns["Birim"].Visible = false;
-            DGVOlcuBr.DataSource = _tempStok.MPSTOKOLCUBR.Select(x => x.MPOLCUBR.ADI).ToList();
-            GCIrsaliye.Columns.Add(DGVOlcuBr);
-            DGVStokSec.Name = "DGVStoKSec";
-            DGVStokSec.HeaderText = "Seç";
-            DGVStokSec.Text = "Seç";
-            DGVStokSec.UseColumnTextForButtonValue = true;
-            DGVFiyatList.Name = "DGVFiyatList";
-            DGVFiyatList.FlatStyle = FlatStyle.Flat;
-            GCIrsaliye.Columns.Add(DGVStokSec);
-            GCIrsaliye.Columns.Add(DGVFiyatList);
-            GCIrsaliye.Columns["StokId"].Visible = false;
-            GCIrsaliye.Columns["MPSTOK"].Visible = false;
-            GCIrsaliye.Columns["KasaId"].Visible = false;
-            GCIrsaliye.Columns["DGVStoKSec"].DisplayIndex = 2;
-            GCIrsaliye.Columns["DGVOlcuBr"].DisplayIndex = 5;
-            GCIrsaliye.AllowUserToAddRows = false;
-            GCIrsaliye.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            ////KASA SEÇME İŞLEMLERİ
+            //DGVKasaList.Name = "DVGKasaList";
+            //DGVKasaList.FlatStyle = FlatStyle.Flat;
+            //GCIrsaliye.Columns.Add(DGVKasaList);
 
-            //KASA SEÇME İŞLEMLERİ
-            DGVKasaList.Name = "DVGKasaList";
-            DGVKasaList.FlatStyle = FlatStyle.Flat;
-            GCIrsaliye.Columns.Add(DGVKasaList);
-
-            DGVKasaSec.FlatStyle = FlatStyle.Flat;
-            DGVKasaSec.Name = "DGVKasaSec";
-            DGVKasaSec.HeaderText = "Seç";
-            DGVKasaSec.Text = "Seç";
-            DGVKasaSec.UseColumnTextForButtonValue = true;
-            GCIrsaliye.Columns.Add(DGVKasaSec);
-            GCIrsaliye.Columns["DGVKasaSec"].DisplayIndex = 7;
+            //DGVKasaSec.FlatStyle = FlatStyle.Flat;
+            //DGVKasaSec.Name = "DGVKasaSec";
+            //DGVKasaSec.HeaderText = "Seç";
+            //DGVKasaSec.Text = "Seç";
+            //DGVKasaSec.UseColumnTextForButtonValue = true;
+            //GCIrsaliye.Columns.Add(DGVKasaSec);
+            //GCIrsaliye.Columns["DGVKasaSec"].DisplayIndex = 7;
 
         }
         private void BTKaydet_Click(object sender, EventArgs e)

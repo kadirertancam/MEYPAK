@@ -17,7 +17,5 @@ namespace MEYPAK.Entity.PocoModels.STOK
         public DateTime bittar { get; set; } 
         public int kullaniciid { get; set; } = 0;
         public string donem { get; set; } = DateTime.Now.ToString("yyyy");
-        public List<PocoSTOKHAR> MPSTOKHAR { get; set; }
-        public List<PocoSTOKFIYATLISTHAR> MPSTOKFIYATLISTHARList { get; set; }
     }
 }
