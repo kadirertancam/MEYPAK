@@ -14,28 +14,29 @@ namespace MEYPAK.Entity.PocoModels.IRSALIYE
 {
     public class PocoIRSALIYEDETAY:SUPERPOCOMODEL
     {
-        public int SIPARISID { get; set; }
-        public int BIRIMID { get; set; }
-        public int DOVIZID { get; set; } = 0;
-        public int LISTEFIYATID { get; set; } = 0;
-        public int KULLANICIID { get; set; } = 0;
-        public int KASAID { get; set; } = 0;
-        public byte TIP { get; set; } = 0;
+        public int siparisid { get; set; }
+        public int birimid { get; set; }
+        public int dovizid { get; set; } = 0;
+        public int listefiyatid { get; set; } = 0;
+        public int kullaniciid { get; set; } = 0;
+        public int kasaid { get; set; } = 0;
+        public byte tip { get; set; } = 0;
         [StringLength(50)]
-        public string STOKADI { get; set; } = "";
+        public string stokadi { get; set; } = "";
         [StringLength(200)]
-        public string ACIKLAMA { get; set; } = "";
-        public decimal MIKTAR { get; set; } = 0;
-        public decimal ISTKONTO1 { get; set; } = 0;
-        public decimal ISTKONTO2 { get; set; } = 0;
-        public decimal ISTKONTO3 { get; set; } = 0;
-        public decimal NETFIYAT { get; set; } = 0;
-        public decimal BRUTFIYAT { get; set; } = 0;
-        public decimal NETTOPLAM { get; set; } = 0;
-        public decimal BRUTTOPLAM { get; set; } = 0;
-        public int BEKLEYENMIKTAR { get; set; } = 0;
-        public byte HAREKETDURUMU { get; set; } = 0;
-        public decimal KDV { get; set; } = 0;
-        public decimal KDVTUTARI { get; set; } = 0;
+        public string aciklama { get; set; } = "";
+        public decimal miktar { get; set; } = 0;
+        public decimal istkontO1 { get; set; } = 0;
+        public decimal istkontO2 { get; set; } = 0;
+        public decimal istkontO3 { get; set; } = 0;
+        public decimal netfiyat { get; set; } = 0;
+        public decimal brutfiyat { get; set; } = 0;
+        public decimal nettoplam { get; set; } = 0;
+        public decimal bruttoplam { get; set; } = 0;
+        public int bekleyenmiktar { get; set; } = 0;
+        public byte hareketdurumu { get; set; } = 0;
+        public decimal kdv { get; set; } = 0;
+        public decimal kdvtutari { get; set; } = 0;
+        public virtual PocoSIPARIS mpsiparis { get; set; }
     }
 }
