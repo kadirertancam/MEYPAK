@@ -14,6 +14,7 @@ using MEYPAK.Entity.Models.IRSALIYE;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Entity.PocoModels.IRSALIYE;
 using MEYPAK.Entity.PocoModels.DEPO;
+using Newtonsoft.Json;
 
 namespace MEYPAK.Entity.PocoModels.SIPARIS
 {
@@ -55,10 +56,15 @@ namespace MEYPAK.Entity.PocoModels.SIPARIS
         public virtual PocoSTOK MPSTOK { get; set; }
         public virtual PocoIRSALIYE MPIRSALIYE { get; set; }
         //TODO BAKILACAK
+         
         public virtual ICollection<MPIRSALIYESIPARISDETAYILISKI> MPIRSALIYESIPARISDETAYILISKI { get; set; }
-        public virtual ICollection<PocoSTOKSEVKIYATLIST> MPSTOKSEVKİYATLİST { get; set; } 
+         
+        public virtual ICollection<PocoSTOKSEVKIYATLIST> MPSTOKSEVKİYATLİST { get; set; }
+       
         public virtual ICollection<PocoSTOKMALKABULLIST> MPSTOKMALKABULLIST { get; set; }
-        public virtual ICollection<MPDEPOEMIRSIPARISKALEMILISKI> MPDEPOEMIRSIPARISKALEMILISKI { get; set; } 
+      
+        public virtual ICollection<MPDEPOEMIRSIPARISKALEMILISKI> MPDEPOEMIRSIPARISKALEMILISKI { get; set; }
+         
         public virtual ICollection<PocoSIPARISSEVKEMIRHAR> MPSIPARISSEVKEMRIHAR { get; set; }
     }
 }

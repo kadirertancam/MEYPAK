@@ -21,7 +21,7 @@ namespace MEYPAK.Entity.Models.SIPARIS
         [DefaultValue(0)]
 
         [ForeignKey("MPIRSALIYE")]
-        public int IRSALIYEID { get; set; }
+        public int IRSALIYEID { get; set; }=0;
         [DefaultValue(0)]
         public int BIRIMID { get; set; }
         [DefaultValue(0)]
@@ -61,12 +61,12 @@ namespace MEYPAK.Entity.Models.SIPARIS
         public virtual MPSTOK MPSTOK { get; set; } 
 
         public virtual MPIRSALIYE MPIRSALIYE { get; set; }
-
+ 
         public virtual ICollection<MPIRSALIYESIPARISDETAYILISKI> MPIRSALIYESIPARISDETAYILISKI { get; set; }
-        public ICollection<MPSTOKSEVKİYATLİST> MPSTOKSEVKİYATLİST { get; set; }
+        public virtual ICollection<MPSTOKSEVKİYATLİST> MPSTOKSEVKİYATLİST { get; set; }
 
-        public ICollection<MPSTOKMALKABULLIST> MPSTOKMALKABULLIST { get; set; }
-        public ICollection<MPDEPOEMIRSIPARISKALEMILISKI> MPDEPOEMIRSIPARISKALEMILISKI { get; set; } 
+        public virtual ICollection<MPSTOKMALKABULLIST> MPSTOKMALKABULLIST { get; set; }
+        public virtual ICollection<MPDEPOEMIRSIPARISKALEMILISKI> MPDEPOEMIRSIPARISKALEMILISKI { get; set; } 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MPSIPARISSEVKEMRIHAR> MPSIPARISSEVKEMRIHAR { get; set; }
 

@@ -296,78 +296,9 @@ namespace MEYPAK.PRL.SIPARIS
                 }
             }
         }
-
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (gridView1.GetSelectedCells(gridView1.FocusedRowHandle).FirstOrDefault().Name == "DGVStoKSec")
-            {
-                _fStokList.ShowDialog();
-
-                var tempp = _stokOlcuBr.obje.Where(x => x.STOKID == _tempStok.id);
-                _olcuBr.Data(ServisList.OlcuBrListeServis);
-
-                foreach (var item in tempp)
-                {
-                    //    repositoryItemComboBox.Items.Add(_olcuBr.obje.Where(x => x.ID == item.OLCUBRID).FirstOrDefault());
-                }
-                //   DGVOlcuBr.DataSource = _tempOlcuBr.Select(x => x.ADI).ToList();
-                //DGVtempCell = dataGridView1.Rows[e.RowIndex].Cells["DGVOlcuBr"];
-                //DGVtempCell.Value = DGVOlcuBr.Items[0].ToString();
-                _tempPocokalem = new PocoSiparisKalem()
-                {
-                    StokId = _tempStok.id,
-                    MPSTOK = _tempStok,
-                    StokKodu = _tempStok.kod,
-                    StokAdı = _tempStok.adi,
-                    Birim = _olcuBr.obje.Where(x => x.adi == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "DGVOlcuBr").ToString()).FirstOrDefault().adi,
-                    KasaAdı = "",
-                    Kdv = _tempStok.satiskdv,
-                    Doviz = "TL", //_tempStok.SDOVIZID 
-                };
-
-
-
-                //TODO 24.10.2022 BAKILACAK
-
-                /*  DGVFiyatList.DataSource = _tempStok.MPSTOKFIYATLISTHAR.Select(x => x.MPSTOKFIYATLIST.FIYATLISTADI).ToList();*/ //////////////////////////// BAKILCAK
-                _tempSiparisDetay[e.RowIndex] = _tempPocokalem;
-                GCMusteriSiparis.DataSource = _tempSiparisDetay;
-
-
-                gridView1.Invalidate();
-            }
-            if (gridView1.GetSelectedCells(gridView1.FocusedRowHandle).FirstOrDefault().Name == "DGVKasaSec")
-            {
-                if (_tempPocokalem != null)
-                {
-
-
-                    fKasaList.ShowDialog();
-
-                    if (_tempKasa != null)
-                    {
-                        TBKasa.Text = _tempKasa.kasaadi;
-                        gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "KasaAdı", _tempKasa.kasaadi);
-
-                        _tempPocokalem.KasaAdı = _tempKasa.kasaadi;
-                        _tempPocokalem.KasaId = _tempKasa.id;
-                    }
-
-                }
-            }
-        }
-        int i;
-        private void dataGridView1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-
-
-        }
-
-        private void dataGridView1_Leave(object sender, EventArgs e)
-        {
-
-        }
+         
+        int i; 
+         
         decimal birimfiyat = 0, kdv = 0, bsnc = 0, brutfiyat = 0, netfiyat = 0, nettoplam = 0, brüttoplam = 0, geneltoplam = 0, isktoplam = 0, kdvtoplam = 0, miktar = 0;
 
         private void gridView1_KeyPress(object sender, KeyPressEventArgs e)
@@ -492,7 +423,54 @@ namespace MEYPAK.PRL.SIPARIS
             }
         }
 
-       
+        private void TBSiparisNo_Properties_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void TBSiparisNo_Properties_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            FMusteriSiparisList fMusteriSiparisList = new FMusteriSiparisList(this.Tag.ToString(), "Siparis");
+            fMusteriSiparisList.ShowDialog();
+            if (_tempSiparis != null)
+            {
+                TBSiparisNo.Text = _tempSiparis.BELGENO;
+                //todo : TBCariKodu.Text = 
+
+                TBCariKodu.Text = _cariKart.obje.Where(x => x.id == _tempSiparis.CARIID).FirstOrDefault().KOD;
+                TBCariAdi.Text = _tempSiparis.CARIADI;
+                _stokServis.Data(ServisList.StokListeServis);
+                //TODO TBKasa.Text = 
+                DTSiparisTarih.Value = _tempSiparis.SIPARISTARIHI;
+                TBAciklama.Text = _tempSiparis.ACIKLAMA;
+                DTPVadeTarihi.Value = _tempSiparis.VADETARIHI;
+                DTSevkiyatTarih.Value = _tempSiparis.SEVKIYATTARIHI;
+                TBGun.Text = _tempSiparis.VADEGUNU.ToString();
+                _siparisDetayServis.Data(ServisList.SiparisDetayListeServis + 2, null, "query=SIPARISID=" + _tempSiparis.id.ToString());
+                GCMusteriSiparis.DataSource = _siparisDetayServis.obje.Select(x => new PocoSiparisKalem()
+                {
+                    StokId = x.STOKID,
+                    StokKodu = _stokServis.obje.Where(z => z.id == x.STOKID).FirstOrDefault().kod,//,  TODOO:BAKILACAAAK
+                    StokAdı = _stokServis.obje.Where(z => z.id == x.STOKID).FirstOrDefault().adi,
+                    Birim = "0",// _olcuBr.obje.Where(x => x.ADI == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "DGVOlcuBr").ToString()).FirstOrDefault().ADI,
+                    KasaAdı = "",
+                    Kdv = _tempStok.satiskdv,
+                    Doviz = "TL", //_tempStok.SDOVIZID 
+                });
+            }
+        }
+
+        private void TBCariKodu_Properties_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+
+            _fCariList = new FCariList(this.Tag.ToString(), "musterisiparis");
+            _fCariList.ShowDialog();
+            if (_tempCariKart != null)
+            {
+                TBCariKodu.Text = _tempCariKart.KOD;
+                TBCariAdi.Text = _tempCariKart.UNVAN==""?_tempCariKart.ADI + " " +_tempCariKart.SOYADI:_tempCariKart.UNVAN;
+            }
+        }
 
         private void gridView1_CustomRowCellEditForEditing(object sender, CustomRowCellEditEventArgs e)
         {
@@ -554,52 +532,15 @@ namespace MEYPAK.PRL.SIPARIS
 
         private void BTCariSec_Click(object sender, EventArgs e)
         {
-            _fCariList = new FCariList(this.Tag.ToString(), "musterisiparis");
-            _fCariList.ShowDialog();
-            if (_tempCariKart != null)
-            {
-                TBCariKodu.Text = _tempCariKart.KOD;
-                TBCariAdi.Text = _tempCariKart.ADI;
-            }
         }
 
        
         private void BTSiparisSec_Click(object sender, EventArgs e)
         {
-            FMusteriSiparisList fMusteriSiparisList = new FMusteriSiparisList(this.Tag.ToString(), "Siparis");
-            fMusteriSiparisList.ShowDialog();
-            if (_tempSiparis != null)
-            TBSiparisNo.Text = _tempSiparis.BELGENO;
-            //todo : TBCariKodu.Text = 
-            TBCariKodu.Text = _cariKart.obje.Where(x => x.id == _tempSiparis.CARIID).FirstOrDefault().KOD;
-            TBCariAdi.Text = _tempSiparis.CARIADI;
-            _stokServis.Data(ServisList.StokListeServis);
-            //TODO TBKasa.Text = 
-            DTSiparisTarih.Value = _tempSiparis.SIPARISTARIHI;
-            TBAciklama.Text = _tempSiparis.ACIKLAMA;
-            DTPVadeTarihi.Value = _tempSiparis.VADETARIHI;
-            DTSevkiyatTarih.Value = _tempSiparis.SEVKIYATTARIHI;
-            TBGun.Text = _tempSiparis.VADEGUNU.ToString();
-            _siparisDetayServis.Data(ServisList.SiparisDetayListeServis + 2, null, "query=SIPARISID=" + _tempSiparis.id.ToString());
-            GCMusteriSiparis.DataSource = _siparisDetayServis.obje.Select(x => new PocoSiparisKalem()
-            {
-                StokId = x.STOKID,
-                StokKodu = _stokServis.obje.Where(z => z.id == x.STOKID).FirstOrDefault().kod,//,  TODOO:BAKILACAAAK
-                StokAdı = _stokServis.obje.Where(z => z.id == x.STOKID).FirstOrDefault().adi,
-                Birim = "0",// _olcuBr.obje.Where(x => x.ADI == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "DGVOlcuBr").ToString()).FirstOrDefault().ADI,
-                KasaAdı = "",
-                Kdv = _tempStok.satiskdv,
-                Doviz = "TL", //_tempStok.SDOVIZID 
-            });
+           
         }
 
-        private void BTNKasaSec_Click(object sender, EventArgs e)
-        {
-            FKasaList fKasaList = new FKasaList(this.Tag.ToString(), "Siparis");
-            fKasaList.ShowDialog();
-            if (_tempKasa != null)
-                TBKasa.Text = _tempKasa.kasaadi;
-        }
+      
 
         private void dataGridView1_CellLeave(object sender, DataGridViewCellEventArgs e)
         {

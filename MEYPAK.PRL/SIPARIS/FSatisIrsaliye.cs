@@ -156,6 +156,9 @@ namespace MEYPAK.PRL.SIPARIS
             // siparis detayı irsaliye detaya çevir.
         }
 
-        
+        private void BTKaydet_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

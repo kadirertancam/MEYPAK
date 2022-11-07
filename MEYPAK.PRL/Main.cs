@@ -263,5 +263,30 @@ namespace MEYPAK.PRL
         {
 
         }
+
+        private void accordionControlElement16_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fSevkiyatPanel = new FSevkiyatPanel();
+            page.Name = "TPSevkiyatPanel" + i;
+            page.Text = "Sevkiyat Panel";
+            page.Tag = "TPSevkiyatPanel" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fSevkiyatPanel.TopLevel = false;
+            fSevkiyatPanel.AutoScroll = true;
+            fSevkiyatPanel.Dock = DockStyle.Fill;
+            fSevkiyatPanel.Tag = "TPSevkiyatPanel" + i;
+            page.Controls.Add(fSevkiyatPanel);
+            fSevkiyatPanel.Show();
+            i++;
+        }
+
+        private void accordionControlElement18_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

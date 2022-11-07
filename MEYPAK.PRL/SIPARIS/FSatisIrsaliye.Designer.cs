@@ -299,7 +299,7 @@
             this.BTKasaSec.AppearanceDisabled.Options.UseBorderColor = true;
             this.BTKasaSec.AppearanceHovered.BorderColor = System.Drawing.Color.Black;
             this.BTKasaSec.AppearanceHovered.Options.UseBorderColor = true;
-            this.BTKasaSec.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.BTKasaSec.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTKasaSec.ImageOptions.Image")));
             this.BTKasaSec.Location = new System.Drawing.Point(228, 173);
             this.BTKasaSec.Name = "BTKasaSec";
             this.BTKasaSec.Size = new System.Drawing.Size(65, 26);
@@ -815,6 +815,7 @@
             this.BTKaydet.TabStop = false;
             this.BTKaydet.Text = "Kaydet";
             this.BTKaydet.UseVisualStyleBackColor = true;
+            this.BTKaydet.Click += new System.EventHandler(this.BTKaydet_Click_1);
             // 
             // BTNDegistir
             // 

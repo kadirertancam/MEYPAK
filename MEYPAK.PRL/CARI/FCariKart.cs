@@ -110,9 +110,86 @@ namespace MEYPAK.PRL.CARI
                 }
         }
 
-        private void BTKaydet_Click(object sender, EventArgs e)
+       
+
+        private void CBil_SelectedValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void CBil_TextChanged(object sender, EventArgs e)
+        {
+            CBilce.DataSource = _adresObje.data.Where(x => x.il_adi == CBil.SelectedValue).Select(x => x.ilceler.Select(z => z.ilce_adi).ToList()).FirstOrDefault();
+        }
+
+        private void CBilce_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+
+            _cariServis.Data(ServisList.CariSilServis, null, null);
+        }
+
+        private void BTCariSec_Click(object sender, EventArgs e)
+        {
+        
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            _fCariList = new FCariList(this.Tag.ToString(), "carikart");
+            _fCariList.ShowDialog();
+            if (_tempCariKart != null)
+                doldur();
+        }
+
+        private void checkButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void labelControl3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelControl8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupControl2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void groupControl3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void TBSevkAdres_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+                
+        }
+
+        private void BTSevkAdresKaydet_Click(object sender, EventArgs e)
+        {
             _cariServis.Data(ServisList.CariEkleServis, new PocoCARIKART()
             {
                 ACIKLAMA = TBAciklama.Text,
@@ -175,82 +252,6 @@ namespace MEYPAK.PRL.CARI
             });
 
 
-        }
-
-        private void CBil_SelectedValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void CBil_TextChanged(object sender, EventArgs e)
-        {
-            CBilce.DataSource = _adresObje.data.Where(x => x.il_adi == CBil.SelectedValue).Select(x => x.ilceler.Select(z => z.ilce_adi).ToList()).FirstOrDefault();
-        }
-
-        private void CBilce_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-
-            _cariServis.Data(ServisList.CariSilServis, null, null);
-        }
-
-        private void BTCariSec_Click(object sender, EventArgs e)
-        {
-            _fCariList = new FCariList(this.Tag.ToString(),"carikart");
-            _fCariList.ShowDialog();
-            if(_tempCariKart!=null)
-            doldur();
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void simpleButton1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkButton1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void labelControl3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelControl8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupControl2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void groupControl3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void TBSevkAdres_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-                
         }
     }
 }
