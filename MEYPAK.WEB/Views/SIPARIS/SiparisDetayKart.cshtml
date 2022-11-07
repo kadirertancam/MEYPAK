@@ -1,4 +1,4 @@
-﻿@using DevExtreme.AspNet.Mvc
+﻿@*@using DevExtreme.AspNet.Mvc
 @using MEYPAK.Entity.PocoModels.SIPARIS
 <div class="menu-container dx-swatch-additional">
 
@@ -6,7 +6,7 @@
 
     <div id="data-grid-demo">
         @(
-            Html.DevExtreme().DataGrid<PocoSIPARIS>()
+            Html.DevExtreme().DataGrid<PocoSIPARISDETAY>()
             .ID("gridContainer")
             .ShowBorders(true)
 
@@ -41,8 +41,8 @@
                     groupItems.AddSimpleFor(m => m.serino);
                     groupItems.AddSimpleFor(m => m.vadetarihi);
                     groupItems.AddSimpleFor(m => m.vadegunu);
-                   
-                    
+
+
                     groupItems.AddSimpleFor(m => m.aciklama);
 
                 });
@@ -113,4 +113,4 @@
             window.location.reload();
         }
     </script>
-</div>
+</div>*@

@@ -83,7 +83,7 @@ namespace MEYPAK.PRL.DEPO
             _stokServis.Data(ServisList.StokListeServis);
             _stokMalKabulListServis.Data(ServisList.StokMalKabulListListeServis);
             _olcuBrServis.Data(ServisList.OlcuBrListeServis); 
-            var tempsiparis = _siparisServis.obje.Where(x => x.BELGENO == dataGridView1.Rows[e.RowIndex].Cells["BELGENO"].Value.ToString()).FirstOrDefault();
+            var tempsiparis = _siparisServis.obje.Where(x => x.belgeno == dataGridView1.Rows[e.RowIndex].Cells["BELGENO"].Value.ToString()).FirstOrDefault();
             var tempsipdetay = _siparisDetayServis.obje.Where(x => x.SIPARISID == tempsiparis.id);
             _tempSiparisDetay = tempsipdetay.ToList();
 
@@ -92,13 +92,13 @@ namespace MEYPAK.PRL.DEPO
                 int i = 1;
                 _depoEmirServis.Data(ServisList.DepoEmirEkleServis, new PocoDEPOEMIR()
                 {
-                    siparisid = _siparisServis.obje.Where(x => x.BELGENO == dataGridView1.Rows[e.RowIndex].Cells["BELGENO"].Value.ToString()).FirstOrDefault().id,
+                    siparisid = _siparisServis.obje.Where(x => x.belgeno == dataGridView1.Rows[e.RowIndex].Cells["BELGENO"].Value.ToString()).FirstOrDefault().id,
                     miktar = _tempSiparisDetay.Sum(x => x.MIKTAR),
                     sira = i,
                     tarih = DateTime.Now,
                     tip = 1,   /// TOPLAMA EMRİ TIPI OUTPUT =0 INPUT=1
                     durum = 1,
-                    depoid = _siparisServis.obje.Where(x => x.BELGENO == dataGridView1.Rows[e.RowIndex].Cells["BELGENO"].Value.ToString()).FirstOrDefault().DEPOID,
+                    depoid = _siparisServis.obje.Where(x => x.belgeno == dataGridView1.Rows[e.RowIndex].Cells["BELGENO"].Value.ToString()).FirstOrDefault().depoid,
                     aciklama = "",
 
 
@@ -107,7 +107,7 @@ namespace MEYPAK.PRL.DEPO
 
 
                 _depoEmirServis.Data(ServisList.DepoEmirListeServis);
-                dataGridView2.DataSource = _depoEmirServis.obje.Select(x => new { x.id, _siparisServis.obje.Where(z => x.siparisid == z.id).FirstOrDefault().BELGENO, x.miktar, CARIADI = _siparisServis.obje.Where(z => z.id == x.siparisid).FirstOrDefault().CARIADI, _siparisServis.obje.Where(z => z.id == x.siparisid).FirstOrDefault().DEPOID, x.tip, x.durum }).ToList();
+                dataGridView2.DataSource = _depoEmirServis.obje.Select(x => new { x.id, _siparisServis.obje.Where(z => x.siparisid == z.id).FirstOrDefault().belgeno, x.miktar, CARIADI = _siparisServis.obje.Where(z => z.id == x.siparisid).FirstOrDefault().cariadi, _siparisServis.obje.Where(z => z.id == x.siparisid).FirstOrDefault().depoid, x.tip, x.durum }).ToList();
                 dataGridView2.Refresh();
                 foreach (var item in _tempSiparisDetay.Where(x => x.HAREKETDURUMU == 0).ToList())
                 {
@@ -130,7 +130,7 @@ namespace MEYPAK.PRL.DEPO
                     _stokMalKabulListServis.Data(ServisList.StokMalKabulListEkleServis, new PocoSTOKMALKABULLIST()
                     {
                         birimid = item.BIRIMID,
-                        depoid = _siparisServis.obje.Where(x => x.id == item.SIPARISID).FirstOrDefault().DEPOID,
+                        depoid = _siparisServis.obje.Where(x => x.id == item.SIPARISID).FirstOrDefault().depoid,
                         emirid = _depoEmirServis.obje.Where(x => x.siparisid == item.SIPARISID).FirstOrDefault().id,
                         miktar = item.MIKTAR,
                         stokid = item.STOKID,
@@ -142,7 +142,7 @@ namespace MEYPAK.PRL.DEPO
                     _siparisSevkEmriHarServis.Data(ServisList.SiparisSevkEmriHarListeServis);
                     dataGridView3.DataSource = _siparisSevkEmriHarServis.obje.Select(x =>
                     new {
-                        BELGENO = _siparisServis.obje.Where(z => z.id == x.SIPARISID).FirstOrDefault().BELGENO,
+                        BELGENO = _siparisServis.obje.Where(z => z.id == x.SIPARISID).FirstOrDefault().belgeno,
                         KOD = _stokServis.obje.Where(c => c.id == item.STOKID).FirstOrDefault().kod,
                         ADI = item.STOKADI,
                         x.EMIRID,
@@ -180,7 +180,7 @@ namespace MEYPAK.PRL.DEPO
             dataGridView4.DataSource = tempp2;
             dataGridView3.DataSource = _siparisSevkEmriHarServis.obje.Select(x =>
             new {
-                BELGENO = _siparisServis.obje.Where(z => z.id == x.SIPARISID).FirstOrDefault().BELGENO,
+                BELGENO = _siparisServis.obje.Where(z => z.id == x.SIPARISID).FirstOrDefault().belgeno,
                 KOD = _siparisDetayServis.obje.Where(z => z.SIPARISID == x.SIPARISID).Select(c => _stokServis.obje.Where(v => v.id == c.STOKID).Select(v => v.kod).FirstOrDefault()).FirstOrDefault() == null ? "" : "1",
                 ADI = _siparisDetayServis.obje.Where(z => z.SIPARISID == x.SIPARISID).Select(c => _stokServis.obje.Where(v => v.id == c.STOKID).Select(v => v.adi).FirstOrDefault()).FirstOrDefault() == null ? "" : "1",
                 x.EMIRID,
@@ -209,7 +209,7 @@ namespace MEYPAK.PRL.DEPO
             _stokMalKabulListServis.Data(ServisList.StokMalKabulListListeServis);
             dataGridView3.DataSource = _siparisSevkEmriHarServis.obje.Select(x =>
             new {
-                BELGENO = _siparisServis.obje.Where(z => z.id == x.SIPARISID).FirstOrDefault().BELGENO,
+                BELGENO = _siparisServis.obje.Where(z => z.id == x.SIPARISID).FirstOrDefault().belgeno,
                 KOD = _siparisDetayServis.obje.Where(z => z.SIPARISID == x.SIPARISID).Select(c => _stokServis.obje.Where(v => v.id == c.STOKID).Select(v => v.kod).FirstOrDefault()).FirstOrDefault() == null ? "" : "1",
                 ADI = _siparisDetayServis.obje.Where(z => z.SIPARISID == x.SIPARISID).Select(c => _stokServis.obje.Where(v => v.id == c.STOKID).Select(v => v.adi).FirstOrDefault()).FirstOrDefault() == null ? "" : "1",
                 x.EMIRID,

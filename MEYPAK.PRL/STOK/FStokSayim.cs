@@ -47,9 +47,9 @@ namespace MEYPAK.PRL.STOK
             _stokSayimServis.Data(ServisList.StokSayimListeServis);
             DTSayimTar.Value = DateTime.Now;
             GCStokSayim.DataSource = _stokSayimServis.obje;
-            gridView1.Columns["FIRMAID"].Visible = false;
-            gridView1.Columns["SUBEID"].Visible = false;
-            gridView1.Columns["DEPOID"].Visible = false;
+            gridView1.Columns["firmaid"].Visible = false;
+            gridView1.Columns["subeid"].Visible = false;
+            gridView1.Columns["depoid"].Visible = false;
             gridView1.Columns["id"].Visible = false; 
             gridView1.Columns["kayittipi"].Visible = false; 
             gridView1.Columns["eskiid"].Visible = false; 
@@ -60,8 +60,8 @@ namespace MEYPAK.PRL.STOK
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            TBAciklama.Text = gridView1.GetFocusedRowCellValue("ACIKLAMA").ToString();
-            DTPSayimTarihi.EditValue = Convert.ToDateTime(gridView1.GetFocusedRowCellValue("SAYIMTARIHI"));
+            TBAciklama.Text = gridView1.GetFocusedRowCellValue("aciklama").ToString();
+            DTPSayimTarihi.EditValue = Convert.ToDateTime(gridView1.GetFocusedRowCellValue("sayimtarihi"));
             _tempId = Convert.ToInt32(gridView1.GetFocusedRowCellValue("id"));
         }
 

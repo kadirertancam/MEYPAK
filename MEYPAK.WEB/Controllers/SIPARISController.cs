@@ -53,19 +53,58 @@ namespace MEYPAK.WEB.Controllers
         {
             PocoSIPARIS newPoco = new PocoSIPARIS();
             JsonConvert.PopulateObject(values, newPoco);
-            _tempPocoSiparis.Data(ServisList.DepoEkleServis, newPoco);
+            _tempPocoSiparis.Data(ServisList.SiparisEkleServis, newPoco);
             return Ok();
         }
         [HttpDelete]
         public void SiparisDelete(int key)
         {
-            string url = ServisList.DepoDeleteByIdServis + "?id=" + key;
+            string url = ServisList.SiparisDeleteByIdServis + "?id=" + key;
             _tempPocoSiparis.Data(url, method: HttpMethod.Post);
         }
 
         #endregion
 
+        #region SIPARISDETAY
 
+
+        [HttpGet]
+        public async Task<IActionResult> SiparisDetayKart()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public object SiparisDetayGet(DataSourceLoadOptions loadOptions)
+        {
+            _tempPocoSiparisDetay.Data(ServisList.SiparisDetayListeServis);
+            return DataSourceLoader.Load(_tempPocoSiparisDetay.obje.Where(x => x.kayittipi == 0).Reverse().AsEnumerable(), loadOptions);
+        }
+        [HttpPut]
+        public async Task<IActionResult> SiparisDetayPut(int key, string values)
+        { //güncellenecek
+            _tempPocoSiparisDetay.Data(ServisList.SiparisDetayListeServis);
+            var employee = _tempPocoSiparisDetay.obje.First(a => a.id == key);
+            JsonConvert.PopulateObject(values, employee);
+            _tempPocoSiparisDetay.Data(ServisList.SiparisDetayEkleServis, employee);
+            return Ok();
+        }
+        [HttpPost]
+        public async Task<IActionResult> SiparisDetayPost(string values)
+        {
+            PocoSIPARISDETAY newPoco = new PocoSIPARISDETAY();
+            JsonConvert.PopulateObject(values, newPoco);
+            _tempPocoSiparisDetay.Data(ServisList.SiparisDetayEkleServis, newPoco);
+            return Ok();
+        }
+        [HttpDelete]
+        public void SiparisDetayDelete(int key)
+        {
+            string url = ServisList.SiparisDetayDeleteByIdServis + "?id=" + key;
+            _tempPocoSiparisDetay.Data(url, method: HttpMethod.Post);
+        }
+
+        #endregion
 
 
 
