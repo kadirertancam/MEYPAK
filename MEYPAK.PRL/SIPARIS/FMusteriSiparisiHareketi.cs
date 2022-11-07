@@ -40,8 +40,8 @@ namespace MEYPAK.PRL.SIPARIS
         private void BTNSiparisFiltrele_Click(object sender, EventArgs e)
         {
             GCSiparis.DataSource = "";
-            mpSiparis = _siparisServis.Listele().Where(x => (DateTime)x.SIPARISTARIHI>=DTItibarenTar.Value).ToList();
-            mpSiparis = mpSiparis.Where(x => (DateTime)x.SIPARISTARIHI<=DTKadarTar.Value).ToList();
+            mpSiparis = _siparisServis.Listele().Where(x => (DateTime)x.siparistarihi >=DTItibarenTar.Value).ToList();
+            mpSiparis = mpSiparis.Where(x => (DateTime)x.siparistarihi <=DTKadarTar.Value).ToList();
             GCSiparis.DataSource=mpSiparis;
         }
 

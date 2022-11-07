@@ -30,6 +30,7 @@
                 {
                     groupItems.AddSimpleFor(m => m.adi);
                     groupItems.AddSimpleFor(m => m.kategoriid);
+                    groupItems.AddSimpleFor(m => m.kod);
 
                     groupItems.AddSimpleFor(m => m.kasaid);
 
@@ -52,7 +53,7 @@
 
                 columns.AddFor(m => m.adi)
                 .Width(120);
-
+                columns.AddFor(m => m.kod);
                 columns.AddFor(m => m.kategoriid)
                 .Width(150)
                 .Visible(true)

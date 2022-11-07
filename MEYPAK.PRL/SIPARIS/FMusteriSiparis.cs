@@ -436,22 +436,22 @@ namespace MEYPAK.PRL.SIPARIS
 
             _siparisServis.Data(ServisList.SiparisEkleServis, new PocoSIPARIS()
             {
-                ACIKLAMA = TBAciklama.Text,
-                KUR = Convert.ToDecimal(TBKur.Text),
-                BELGENO = BTSiparisSec.Text,
-                VADETARIHI = DTVadeTar.Value,
+                aciklama = TBAciklama.Text,
+                kur = Convert.ToDecimal(TBKur.Text),
+                belgeno = BTSiparisSec.Text,
+                vadetarihi = DTVadeTar.Value,
                 guncellemetarihi = DateTime.Now,
-                VADEGUNU = Convert.ToInt32(TBVadeGun.Text),
-                CARIADI = TBCariAdi.Text,
-                CARIID = _cariKart.obje.Where(x => x.KOD == TBCariAdi.Text).FirstOrDefault().id,
-                DEPOID = _depoServis.obje.Where(x => x.depoadi == CBDepo.EditValue).FirstOrDefault().id,
-                DOVIZID = 0,
-                ISKONTOTOPLAM = _tempSiparisDetay.Sum(x => x.İskontoTutarı),
-                KDVTOPLAM = _tempSiparisDetay.Sum(x => x.KdvTutarı),
-                BRUTTOPLAM = _tempSiparisDetay.Sum(x => x.BrütToplam),
-                NETTOPLAM = _tempSiparisDetay.Sum(x => x.NetToplam),
-                GENELTOPLAM = _tempSiparisDetay.Sum(x => x.KdvTutarı) + _tempSiparisDetay.Sum(x => x.NetToplam),
-                TIP = 0,
+                vadegunu = Convert.ToInt32(TBVadeGun.Text),
+                cariadi = TBCariAdi.Text,
+                cariid = _cariKart.obje.Where(x => x.KOD == TBCariAdi.Text).FirstOrDefault().id,
+                depoid = _depoServis.obje.Where(x => x.depoadi == CBDepo.EditValue).FirstOrDefault().id,
+                dovizid = 0,
+                istkontotoplam = _tempSiparisDetay.Sum(x => x.İskontoTutarı),
+                kdvtoplam = _tempSiparisDetay.Sum(x => x.KdvTutarı),
+                bruttoplam = _tempSiparisDetay.Sum(x => x.BrütToplam),
+                nettoplam = _tempSiparisDetay.Sum(x => x.NetToplam),
+                geneltoplam = _tempSiparisDetay.Sum(x => x.KdvTutarı) + _tempSiparisDetay.Sum(x => x.NetToplam),
+                tip = 0,
 
             });
             _stokOlcuBr.Data(ServisList.StokOlcuBrListeServis);
@@ -521,17 +521,17 @@ namespace MEYPAK.PRL.SIPARIS
             FMusteriSiparisList fMusteriSiparisList = new FMusteriSiparisList(this.Tag.ToString(), "Siparis");
             fMusteriSiparisList.ShowDialog();
             if (_tempSiparis != null)
-                BTSiparisSec.Text = _tempSiparis.BELGENO;
+                BTSiparisSec.Text = _tempSiparis.belgeno;
             //todo : TBCariKodu.Text = 
-            BTCariSec.Text = _cariKart.obje.Where(x => x.id == _tempSiparis.CARIID).FirstOrDefault().KOD;
-            TBCariAdi.Text = _tempSiparis.CARIADI;
+            BTCariSec.Text = _cariKart.obje.Where(x => x.id == _tempSiparis.cariid).FirstOrDefault().KOD;
+            TBCariAdi.Text = _tempSiparis.cariadi;
             _stokServis.Data(ServisList.StokListeServis);
             //TODO TBKasa.Text = 
-            DTSiparisTar.Value = _tempSiparis.SIPARISTARIHI;
-            TBAciklama.Text = _tempSiparis.ACIKLAMA;
-            DTVadeTar.Value = _tempSiparis.VADETARIHI;
-            DTSevkiyatTar.Value = _tempSiparis.SEVKIYATTARIHI;
-            TBVadeGun.Text = _tempSiparis.VADEGUNU.ToString();
+            DTSiparisTar.Value = _tempSiparis.siparistarihi;
+            TBAciklama.Text = _tempSiparis.aciklama;
+            DTVadeTar.Value = _tempSiparis.vadetarihi;
+            DTSevkiyatTar.Value = _tempSiparis.sevkiyattarihi;
+            TBVadeGun.Text = _tempSiparis.vadegunu.ToString();
             _siparisDetayServis.Data(ServisList.SiparisDetayListeServis + 2, null, "query=SIPARISID=" + _tempSiparis.id.ToString());
             GCMusteriSiparis.DataSource = _siparisDetayServis.obje.Select(x => new PocoSiparisKalem()
             {

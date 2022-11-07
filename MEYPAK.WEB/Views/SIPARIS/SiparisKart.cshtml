@@ -1,0 +1,92 @@
+﻿@*@using DevExtreme.AspNet.Mvc
+@using MEYPAK.Entity.PocoModels.SIPARIS
+<div class="menu-container dx-swatch-additional">
+
+
+
+    <div id="data-grid-demo">
+        @(
+            Html.DevExtreme().DataGrid<PocoSIPARIS>()
+            .ID("gridContainer")
+            .ShowBorders(true)
+
+            .Paging(p => p.Enabled(true))
+            .Editing(e => e.Mode(GridEditMode.Popup)
+            .AllowUpdating(true)
+            .AllowAdding(true)
+            .AllowDeleting(true)
+            .Popup(p => p
+            .Title("Depo Kart")
+            .ShowTitle(true)
+            .Width(700)
+            .Height(525)
+            )
+            .Form(f => f.Items(items =>
+            {
+                items.AddGroup()
+                .ColCount(2)
+                .ColSpan(2)
+                .Items(groupItems =>
+                {
+
+
+                    groupItems.AddSimpleFor(m => m.depoid);
+                    groupItems.AddSimpleFor(m => m.depokodu);
+                    groupItems.AddSimpleFor(m => m.aciklama);
+
+                });
+
+
+            }))
+            )
+            .Columns(columns =>
+            {
+
+                columns.AddFor(m => m.depoadi)
+                .Width(120);
+
+                columns.AddFor(m => m.depokodu);
+
+                columns.AddFor(m => m.aciklama);
+
+
+
+                columns.Add()
+                .Type(GridCommandColumnType.Buttons)
+                .Buttons(b =>
+                {
+                    b.Add().Name(GridColumnButtonName.Edit).Text("Düzenle");
+                    b.Add().Name(GridColumnButtonName.Delete).Text("Sil");
+                });
+            })
+            .DataSource(d => d.Mvc()
+            .Controller("DEPO")
+            .LoadAction("DepoGet").InsertAction("DepoPost").UpdateAction("DepoPut").DeleteAction("DepoDelete").Key("id")
+
+            )
+            )
+
+
+
+    </div>
+
+
+    @(Html.DevExtreme().SelectBox()
+        .ID("apptheme")
+        .ValueExpr("theme")
+        .DisplayExpr("name")
+        .DataSource(new object[] {
+    new { name = "Gündüz", theme = "dx.light.css"},
+    new { name = "Gece", theme = "dx.dark.css"},
+
+        })
+        .OnSelectionChanged("changeTheme")
+        )
+    <script>
+        function changeTheme(e) {
+            var selectedTheme = e.component.option("value");
+            document.cookie = "currentTheme=" + selectedTheme + ";path=/";
+            window.location.reload();
+        }
+    </script>
+</div>*@
