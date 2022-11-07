@@ -146,14 +146,13 @@ namespace MEYPAK.PRL.STOK
             }
         }
 
-        private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
            
         }
 
         private void BTNSil_Click(object sender, EventArgs e)
         {
-           
+            _stokHarServis.Data(ServisList.StokHarSilServis, 
+                (_stokHarServis.obje.Where(x => x.id == Convert.ToInt32(gridView1.GetFocusedRowCellValue("id"))).FirstOrDefault()));
         }
 
         #region KeyPress
