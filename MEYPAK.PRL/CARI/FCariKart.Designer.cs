@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FCariKart));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
@@ -162,8 +162,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.BTAMuhKodSec = new DevExpress.XtraEditors.SimpleButton();
-            this.BTSMuhKodSec = new DevExpress.XtraEditors.SimpleButton();
             this.LBAciklama = new DevExpress.XtraEditors.LabelControl();
             this.LBCariAd = new DevExpress.XtraEditors.LabelControl();
             this.LBCariSoyad = new DevExpress.XtraEditors.LabelControl();
@@ -175,15 +173,10 @@
             this.CBTipi = new System.Windows.Forms.ComboBox();
             this.TBCariSoyadi = new System.Windows.Forms.TextBox();
             this.TBCariAdi = new System.Windows.Forms.TextBox();
-            this.TBSMuhKodu = new System.Windows.Forms.TextBox();
-            this.TBAMuhKodu = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.CBAktif = new DevExpress.XtraEditors.CheckedListBoxControl();
-            this.BTKategoriSec = new DevExpress.XtraEditors.SimpleButton();
             this.LBGrupKodu = new DevExpress.XtraEditors.LabelControl();
             this.LBKategori = new DevExpress.XtraEditors.LabelControl();
-            this.BTGrupKoduSec = new DevExpress.XtraEditors.SimpleButton();
             this.LBAdres = new DevExpress.XtraEditors.LabelControl();
             this.LBEposta = new DevExpress.XtraEditors.LabelControl();
             this.LBWebSite = new DevExpress.XtraEditors.LabelControl();
@@ -191,7 +184,6 @@
             this.LBCepTel = new DevExpress.XtraEditors.LabelControl();
             this.LBTelefon2 = new DevExpress.XtraEditors.LabelControl();
             this.LBTelefon1 = new DevExpress.XtraEditors.LabelControl();
-            this.TBKategori = new System.Windows.Forms.TextBox();
             this.TBWebSite = new System.Windows.Forms.TextBox();
             this.TBFax = new System.Windows.Forms.TextBox();
             this.TBCepTel = new System.Windows.Forms.TextBox();
@@ -199,14 +191,9 @@
             this.TBEposta = new System.Windows.Forms.TextBox();
             this.TBTelefon2 = new System.Windows.Forms.TextBox();
             this.TBTelefon1 = new System.Windows.Forms.TextBox();
-            this.TBGrupKodu = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.BTMuhKoduSec = new DevExpress.XtraEditors.SimpleButton();
-            this.BTCariKodSec = new DevExpress.XtraEditors.SimpleButton();
             this.GBFiyat = new DevExpress.XtraEditors.GroupControl();
-            this.checkedListBoxControl2 = new DevExpress.XtraEditors.CheckedListBoxControl();
-            this.checkedListBoxControl4 = new DevExpress.XtraEditors.CheckedListBoxControl();
             this.RBFiyat2 = new DevExpress.XtraEditors.CheckedListBoxControl();
             this.RBFiyat1 = new DevExpress.XtraEditors.CheckedListBoxControl();
             this.RBFiyat3 = new DevExpress.XtraEditors.CheckedListBoxControl();
@@ -224,7 +211,6 @@
             this.LBUnvan = new DevExpress.XtraEditors.LabelControl();
             this.LBCariKodu = new DevExpress.XtraEditors.LabelControl();
             this.TBMahalle = new System.Windows.Forms.TextBox();
-            this.TBMuhKod = new System.Windows.Forms.TextBox();
             this.TBVadeGunu = new System.Windows.Forms.TextBox();
             this.TBTc = new System.Windows.Forms.TextBox();
             this.CBVDaire = new System.Windows.Forms.ComboBox();
@@ -240,9 +226,15 @@
             this.CBilce = new System.Windows.Forms.ComboBox();
             this.CBil = new System.Windows.Forms.ComboBox();
             this.CBUlke = new System.Windows.Forms.ComboBox();
-            this.TBUnvan = new System.Windows.Forms.TextBox();
-            this.TBCariKodu = new System.Windows.Forms.TextBox();
             this.sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
+            this.BTCariKodSec = new DevExpress.XtraEditors.ButtonEdit();
+            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.BTMuhKoduSec = new DevExpress.XtraEditors.ButtonEdit();
+            this.BTGrupKoduSec = new DevExpress.XtraEditors.ButtonEdit();
+            this.BTKategoriSec = new DevExpress.XtraEditors.ButtonEdit();
+            this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
+            this.buttonEdit1 = new DevExpress.XtraEditors.ButtonEdit();
+            this.buttonEdit2 = new DevExpress.XtraEditors.ButtonEdit();
             this.panel1.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -289,16 +281,21 @@
             this.groupBox4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CBAktif)).BeginInit();
             this.panel4.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GBFiyat)).BeginInit();
             this.GBFiyat.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.checkedListBoxControl2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkedListBoxControl4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RBFiyat2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RBFiyat1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RBFiyat3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BTCariKodSec.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BTMuhKoduSec.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BTGrupKoduSec.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BTKategoriSec.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit2.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -413,23 +410,23 @@
             // DGSevkAdres
             // 
             this.DGSevkAdres.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGSevkAdres.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGSevkAdres.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DGSevkAdres.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGSevkAdres.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGSevkAdres.DefaultCellStyle = dataGridViewCellStyle2;
             this.DGSevkAdres.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DGSevkAdres.Location = new System.Drawing.Point(0, 0);
             this.DGSevkAdres.Name = "DGSevkAdres";
@@ -1351,23 +1348,23 @@
             // 
             // DGWYetkili
             // 
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGWYetkili.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGWYetkili.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.DGWYetkili.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGWYetkili.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGWYetkili.DefaultCellStyle = dataGridViewCellStyle4;
             this.DGWYetkili.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DGWYetkili.Location = new System.Drawing.Point(0, 0);
             this.DGWYetkili.Name = "DGWYetkili";
@@ -1467,23 +1464,23 @@
             // 
             // dataGridView3
             // 
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView3.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView3.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView3.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView3.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView3.Location = new System.Drawing.Point(0, 0);
             this.dataGridView3.Name = "dataGridView3";
@@ -1604,23 +1601,23 @@
             // 
             // dataGridView4
             // 
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView4.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView4.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView4.DefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView4.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView4.Location = new System.Drawing.Point(0, 0);
             this.dataGridView4.Name = "dataGridView4";
@@ -1768,8 +1765,8 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.BTAMuhKodSec);
-            this.groupBox4.Controls.Add(this.BTSMuhKodSec);
+            this.groupBox4.Controls.Add(this.buttonEdit1);
+            this.groupBox4.Controls.Add(this.buttonEdit2);
             this.groupBox4.Controls.Add(this.LBAciklama);
             this.groupBox4.Controls.Add(this.LBCariAd);
             this.groupBox4.Controls.Add(this.LBCariSoyad);
@@ -1781,8 +1778,6 @@
             this.groupBox4.Controls.Add(this.CBTipi);
             this.groupBox4.Controls.Add(this.TBCariSoyadi);
             this.groupBox4.Controls.Add(this.TBCariAdi);
-            this.groupBox4.Controls.Add(this.TBSMuhKodu);
-            this.groupBox4.Controls.Add(this.TBAMuhKodu);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox4.Location = new System.Drawing.Point(0, 0);
             this.groupBox4.Name = "groupBox4";
@@ -1790,85 +1785,63 @@
             this.groupBox4.TabIndex = 3;
             this.groupBox4.TabStop = false;
             // 
-            // BTAMuhKodSec
-            // 
-            this.BTAMuhKodSec.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.BTAMuhKodSec.Appearance.Options.UseBackColor = true;
-            this.BTAMuhKodSec.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTAMuhKodSec.ImageOptions.Image")));
-            this.BTAMuhKodSec.Location = new System.Drawing.Point(269, 36);
-            this.BTAMuhKodSec.Name = "BTAMuhKodSec";
-            this.BTAMuhKodSec.Size = new System.Drawing.Size(59, 23);
-            this.BTAMuhKodSec.TabIndex = 62;
-            this.BTAMuhKodSec.Text = "Seç";
-            // 
-            // BTSMuhKodSec
-            // 
-            this.BTSMuhKodSec.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.BTSMuhKodSec.Appearance.Options.UseBackColor = true;
-            this.BTSMuhKodSec.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTSMuhKodSec.ImageOptions.Image")));
-            this.BTSMuhKodSec.Location = new System.Drawing.Point(269, 65);
-            this.BTSMuhKodSec.Name = "BTSMuhKodSec";
-            this.BTSMuhKodSec.Size = new System.Drawing.Size(59, 23);
-            this.BTSMuhKodSec.TabIndex = 61;
-            this.BTSMuhKodSec.Text = "Seç";
-            // 
             // LBAciklama
             // 
-            this.LBAciklama.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBAciklama.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBAciklama.Appearance.Options.UseFont = true;
             this.LBAciklama.Location = new System.Drawing.Point(44, 190);
             this.LBAciklama.Name = "LBAciklama";
-            this.LBAciklama.Size = new System.Drawing.Size(46, 14);
+            this.LBAciklama.Size = new System.Drawing.Size(45, 13);
             this.LBAciklama.TabIndex = 60;
             this.LBAciklama.Text = "Açıklama";
             // 
             // LBCariAd
             // 
-            this.LBCariAd.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBCariAd.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBCariAd.Appearance.Options.UseFont = true;
             this.LBCariAd.Location = new System.Drawing.Point(50, 100);
             this.LBCariAd.Name = "LBCariAd";
-            this.LBCariAd.Size = new System.Drawing.Size(40, 14);
+            this.LBCariAd.Size = new System.Drawing.Size(40, 13);
             this.LBCariAd.TabIndex = 59;
             this.LBCariAd.Text = "Cari Adı";
             // 
             // LBCariSoyad
             // 
-            this.LBCariSoyad.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBCariSoyad.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBCariSoyad.Appearance.Options.UseFont = true;
             this.LBCariSoyad.Location = new System.Drawing.Point(32, 132);
             this.LBCariSoyad.Name = "LBCariSoyad";
-            this.LBCariSoyad.Size = new System.Drawing.Size(58, 14);
+            this.LBCariSoyad.Size = new System.Drawing.Size(57, 13);
             this.LBCariSoyad.TabIndex = 58;
             this.LBCariSoyad.Text = "Cari Soyadı";
             // 
             // LBTip
             // 
-            this.LBTip.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBTip.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBTip.Appearance.Options.UseFont = true;
             this.LBTip.Location = new System.Drawing.Point(71, 161);
             this.LBTip.Name = "LBTip";
-            this.LBTip.Size = new System.Drawing.Size(19, 14);
+            this.LBTip.Size = new System.Drawing.Size(19, 13);
             this.LBTip.TabIndex = 57;
             this.LBTip.Text = "Tipi";
             // 
             // LBSMuhKodu
             // 
-            this.LBSMuhKodu.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBSMuhKodu.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBSMuhKodu.Appearance.Options.UseFont = true;
             this.LBSMuhKodu.Location = new System.Drawing.Point(20, 68);
             this.LBSMuhKodu.Name = "LBSMuhKodu";
-            this.LBSMuhKodu.Size = new System.Drawing.Size(70, 14);
+            this.LBSMuhKodu.Size = new System.Drawing.Size(66, 13);
             this.LBSMuhKodu.TabIndex = 56;
             this.LBSMuhKodu.Text = "S.Muh. Kodu";
             // 
             // LBAMuhKodu
             // 
-            this.LBAMuhKodu.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBAMuhKodu.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBAMuhKodu.Appearance.Options.UseFont = true;
             this.LBAMuhKodu.Location = new System.Drawing.Point(19, 41);
             this.LBAMuhKodu.Name = "LBAMuhKodu";
-            this.LBAMuhKodu.Size = new System.Drawing.Size(71, 14);
+            this.LBAMuhKodu.Size = new System.Drawing.Size(67, 13);
             this.LBAMuhKodu.TabIndex = 55;
             this.LBAMuhKodu.Text = "A.Muh. Kodu";
             // 
@@ -1877,7 +1850,7 @@
             this.TBAciklama.Location = new System.Drawing.Point(96, 184);
             this.TBAciklama.Multiline = true;
             this.TBAciklama.Name = "TBAciklama";
-            this.TBAciklama.Size = new System.Drawing.Size(232, 81);
+            this.TBAciklama.Size = new System.Drawing.Size(218, 81);
             this.TBAciklama.TabIndex = 52;
             // 
             // RBFiyat4
@@ -1907,29 +1880,15 @@
             // 
             this.TBCariSoyadi.Location = new System.Drawing.Point(96, 126);
             this.TBCariSoyadi.Name = "TBCariSoyadi";
-            this.TBCariSoyadi.Size = new System.Drawing.Size(232, 23);
+            this.TBCariSoyadi.Size = new System.Drawing.Size(218, 23);
             this.TBCariSoyadi.TabIndex = 3;
             // 
             // TBCariAdi
             // 
             this.TBCariAdi.Location = new System.Drawing.Point(96, 97);
             this.TBCariAdi.Name = "TBCariAdi";
-            this.TBCariAdi.Size = new System.Drawing.Size(232, 23);
+            this.TBCariAdi.Size = new System.Drawing.Size(218, 23);
             this.TBCariAdi.TabIndex = 2;
-            // 
-            // TBSMuhKodu
-            // 
-            this.TBSMuhKodu.Location = new System.Drawing.Point(96, 65);
-            this.TBSMuhKodu.Name = "TBSMuhKodu";
-            this.TBSMuhKodu.Size = new System.Drawing.Size(232, 23);
-            this.TBSMuhKodu.TabIndex = 1;
-            // 
-            // TBAMuhKodu
-            // 
-            this.TBAMuhKodu.Location = new System.Drawing.Point(96, 36);
-            this.TBAMuhKodu.Name = "TBAMuhKodu";
-            this.TBAMuhKodu.Size = new System.Drawing.Size(232, 23);
-            this.TBAMuhKodu.TabIndex = 0;
             // 
             // panel5
             // 
@@ -1943,11 +1902,11 @@
             // groupBox2
             // 
             this.groupBox2.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
-            this.groupBox2.Controls.Add(this.CBAktif);
+            this.groupBox2.Controls.Add(this.checkEdit1);
             this.groupBox2.Controls.Add(this.BTKategoriSec);
+            this.groupBox2.Controls.Add(this.BTGrupKoduSec);
             this.groupBox2.Controls.Add(this.LBGrupKodu);
             this.groupBox2.Controls.Add(this.LBKategori);
-            this.groupBox2.Controls.Add(this.BTGrupKoduSec);
             this.groupBox2.Controls.Add(this.LBAdres);
             this.groupBox2.Controls.Add(this.LBEposta);
             this.groupBox2.Controls.Add(this.LBWebSite);
@@ -1955,7 +1914,6 @@
             this.groupBox2.Controls.Add(this.LBCepTel);
             this.groupBox2.Controls.Add(this.LBTelefon2);
             this.groupBox2.Controls.Add(this.LBTelefon1);
-            this.groupBox2.Controls.Add(this.TBKategori);
             this.groupBox2.Controls.Add(this.TBWebSite);
             this.groupBox2.Controls.Add(this.TBFax);
             this.groupBox2.Controls.Add(this.TBCepTel);
@@ -1963,7 +1921,6 @@
             this.groupBox2.Controls.Add(this.TBEposta);
             this.groupBox2.Controls.Add(this.TBTelefon2);
             this.groupBox2.Controls.Add(this.TBTelefon1);
-            this.groupBox2.Controls.Add(this.TBGrupKodu);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
@@ -1972,163 +1929,115 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "İletişim Bilgileri";
             // 
-            // CBAktif
-            // 
-            this.CBAktif.Appearance.BackColor = System.Drawing.SystemColors.Control;
-            this.CBAktif.Appearance.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.CBAktif.Appearance.Options.UseBackColor = true;
-            this.CBAktif.Appearance.Options.UseFont = true;
-            this.CBAktif.Appearance.Options.UseForeColor = true;
-            this.CBAktif.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.CBAktif.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.CBAktif.CheckOnClick = true;
-            this.CBAktif.IncrementalSearch = true;
-            this.CBAktif.Items.AddRange(new DevExpress.XtraEditors.Controls.CheckedListBoxItem[] {
-            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(true, "Aktif", System.Windows.Forms.CheckState.Indeterminate)});
-            this.CBAktif.Location = new System.Drawing.Point(77, 359);
-            this.CBAktif.Name = "CBAktif";
-            this.CBAktif.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.CBAktif.Size = new System.Drawing.Size(76, 21);
-            this.CBAktif.TabIndex = 43;
-            // 
-            // BTKategoriSec
-            // 
-            this.BTKategoriSec.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.BTKategoriSec.Appearance.Options.UseBackColor = true;
-            this.BTKategoriSec.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTKategoriSec.ImageOptions.Image")));
-            this.BTKategoriSec.Location = new System.Drawing.Point(303, 329);
-            this.BTKategoriSec.Name = "BTKategoriSec";
-            this.BTKategoriSec.Size = new System.Drawing.Size(59, 23);
-            this.BTKategoriSec.TabIndex = 42;
-            this.BTKategoriSec.Text = "Seç";
-            // 
             // LBGrupKodu
             // 
-            this.LBGrupKodu.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBGrupKodu.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBGrupKodu.Appearance.Options.UseFont = true;
             this.LBGrupKodu.Location = new System.Drawing.Point(10, 301);
             this.LBGrupKodu.Name = "LBGrupKodu";
-            this.LBGrupKodu.Size = new System.Drawing.Size(58, 14);
+            this.LBGrupKodu.Size = new System.Drawing.Size(56, 13);
             this.LBGrupKodu.TabIndex = 40;
             this.LBGrupKodu.Text = "Grup Kodu";
             // 
             // LBKategori
             // 
-            this.LBKategori.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBKategori.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBKategori.Appearance.Options.UseFont = true;
             this.LBKategori.Location = new System.Drawing.Point(23, 332);
             this.LBKategori.Name = "LBKategori";
-            this.LBKategori.Size = new System.Drawing.Size(45, 14);
+            this.LBKategori.Size = new System.Drawing.Size(43, 13);
             this.LBKategori.TabIndex = 39;
             this.LBKategori.Text = "Kategori";
             // 
-            // BTGrupKoduSec
-            // 
-            this.BTGrupKoduSec.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.BTGrupKoduSec.Appearance.Options.UseBackColor = true;
-            this.BTGrupKoduSec.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTGrupKoduSec.ImageOptions.Image")));
-            this.BTGrupKoduSec.Location = new System.Drawing.Point(303, 297);
-            this.BTGrupKoduSec.Name = "BTGrupKoduSec";
-            this.BTGrupKoduSec.Size = new System.Drawing.Size(59, 23);
-            this.BTGrupKoduSec.TabIndex = 41;
-            this.BTGrupKoduSec.Text = "Seç";
-            // 
             // LBAdres
             // 
-            this.LBAdres.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBAdres.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBAdres.Appearance.Options.UseFont = true;
             this.LBAdres.Location = new System.Drawing.Point(37, 214);
             this.LBAdres.Name = "LBAdres";
-            this.LBAdres.Size = new System.Drawing.Size(31, 14);
+            this.LBAdres.Size = new System.Drawing.Size(29, 13);
             this.LBAdres.TabIndex = 38;
             this.LBAdres.Text = "Adres";
             // 
             // LBEposta
             // 
-            this.LBEposta.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBEposta.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBEposta.Appearance.Options.UseFont = true;
             this.LBEposta.Location = new System.Drawing.Point(31, 184);
             this.LBEposta.Name = "LBEposta";
-            this.LBEposta.Size = new System.Drawing.Size(37, 14);
+            this.LBEposta.Size = new System.Drawing.Size(35, 13);
             this.LBEposta.TabIndex = 37;
             this.LBEposta.Text = "Eposta";
             // 
             // LBWebSite
             // 
-            this.LBWebSite.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBWebSite.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBWebSite.Appearance.Options.UseFont = true;
             this.LBWebSite.Location = new System.Drawing.Point(17, 158);
             this.LBWebSite.Name = "LBWebSite";
-            this.LBWebSite.Size = new System.Drawing.Size(51, 14);
+            this.LBWebSite.Size = new System.Drawing.Size(46, 13);
             this.LBWebSite.TabIndex = 36;
             this.LBWebSite.Text = "Web Site";
             // 
             // LBFax
             // 
-            this.LBFax.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBFax.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBFax.Appearance.Options.UseFont = true;
             this.LBFax.Location = new System.Drawing.Point(50, 126);
             this.LBFax.Name = "LBFax";
-            this.LBFax.Size = new System.Drawing.Size(18, 14);
+            this.LBFax.Size = new System.Drawing.Size(17, 13);
             this.LBFax.TabIndex = 35;
             this.LBFax.Text = "Fax";
             // 
             // LBCepTel
             // 
-            this.LBCepTel.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBCepTel.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBCepTel.Appearance.Options.UseFont = true;
             this.LBCepTel.Location = new System.Drawing.Point(22, 97);
             this.LBCepTel.Name = "LBCepTel";
-            this.LBCepTel.Size = new System.Drawing.Size(46, 14);
+            this.LBCepTel.Size = new System.Drawing.Size(41, 13);
             this.LBCepTel.TabIndex = 34;
             this.LBCepTel.Text = "Cep Tel.";
             // 
             // LBTelefon2
             // 
-            this.LBTelefon2.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBTelefon2.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBTelefon2.Appearance.Options.UseFont = true;
             this.LBTelefon2.Location = new System.Drawing.Point(15, 68);
             this.LBTelefon2.Name = "LBTelefon2";
-            this.LBTelefon2.Size = new System.Drawing.Size(53, 14);
+            this.LBTelefon2.Size = new System.Drawing.Size(48, 13);
             this.LBTelefon2.TabIndex = 33;
             this.LBTelefon2.Text = "Telefon 2";
             // 
             // LBTelefon1
             // 
-            this.LBTelefon1.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBTelefon1.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBTelefon1.Appearance.Options.UseFont = true;
             this.LBTelefon1.Location = new System.Drawing.Point(15, 41);
             this.LBTelefon1.Name = "LBTelefon1";
-            this.LBTelefon1.Size = new System.Drawing.Size(53, 14);
+            this.LBTelefon1.Size = new System.Drawing.Size(48, 13);
             this.LBTelefon1.TabIndex = 32;
             this.LBTelefon1.Text = "Telefon 1";
-            // 
-            // TBKategori
-            // 
-            this.TBKategori.Location = new System.Drawing.Point(77, 329);
-            this.TBKategori.Name = "TBKategori";
-            this.TBKategori.Size = new System.Drawing.Size(285, 23);
-            this.TBKategori.TabIndex = 29;
             // 
             // TBWebSite
             // 
             this.TBWebSite.Location = new System.Drawing.Point(77, 152);
             this.TBWebSite.Name = "TBWebSite";
-            this.TBWebSite.Size = new System.Drawing.Size(285, 23);
+            this.TBWebSite.Size = new System.Drawing.Size(218, 23);
             this.TBWebSite.TabIndex = 4;
             // 
             // TBFax
             // 
             this.TBFax.Location = new System.Drawing.Point(77, 123);
             this.TBFax.Name = "TBFax";
-            this.TBFax.Size = new System.Drawing.Size(285, 23);
+            this.TBFax.Size = new System.Drawing.Size(218, 23);
             this.TBFax.TabIndex = 3;
             // 
             // TBCepTel
             // 
             this.TBCepTel.Location = new System.Drawing.Point(77, 94);
             this.TBCepTel.Name = "TBCepTel";
-            this.TBCepTel.Size = new System.Drawing.Size(285, 23);
+            this.TBCepTel.Size = new System.Drawing.Size(218, 23);
             this.TBCepTel.TabIndex = 2;
             // 
             // TBAdres
@@ -2136,36 +2045,29 @@
             this.TBAdres.Location = new System.Drawing.Point(77, 210);
             this.TBAdres.Multiline = true;
             this.TBAdres.Name = "TBAdres";
-            this.TBAdres.Size = new System.Drawing.Size(285, 81);
+            this.TBAdres.Size = new System.Drawing.Size(218, 81);
             this.TBAdres.TabIndex = 6;
             // 
             // TBEposta
             // 
             this.TBEposta.Location = new System.Drawing.Point(77, 181);
             this.TBEposta.Name = "TBEposta";
-            this.TBEposta.Size = new System.Drawing.Size(285, 23);
+            this.TBEposta.Size = new System.Drawing.Size(218, 23);
             this.TBEposta.TabIndex = 5;
             // 
             // TBTelefon2
             // 
             this.TBTelefon2.Location = new System.Drawing.Point(77, 65);
             this.TBTelefon2.Name = "TBTelefon2";
-            this.TBTelefon2.Size = new System.Drawing.Size(285, 23);
+            this.TBTelefon2.Size = new System.Drawing.Size(218, 23);
             this.TBTelefon2.TabIndex = 1;
             // 
             // TBTelefon1
             // 
             this.TBTelefon1.Location = new System.Drawing.Point(77, 36);
             this.TBTelefon1.Name = "TBTelefon1";
-            this.TBTelefon1.Size = new System.Drawing.Size(285, 23);
+            this.TBTelefon1.Size = new System.Drawing.Size(218, 23);
             this.TBTelefon1.TabIndex = 0;
-            // 
-            // TBGrupKodu
-            // 
-            this.TBGrupKodu.Location = new System.Drawing.Point(77, 297);
-            this.TBGrupKodu.Name = "TBGrupKodu";
-            this.TBGrupKodu.Size = new System.Drawing.Size(285, 23);
-            this.TBGrupKodu.TabIndex = 7;
             // 
             // panel4
             // 
@@ -2179,6 +2081,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.BTMuhKoduSec);
+            this.groupBox1.Controls.Add(this.textEdit1);
             this.groupBox1.Controls.Add(this.BTCariKodSec);
             this.groupBox1.Controls.Add(this.GBFiyat);
             this.groupBox1.Controls.Add(this.LBMuhKodu);
@@ -2195,7 +2098,6 @@
             this.groupBox1.Controls.Add(this.LBUnvan);
             this.groupBox1.Controls.Add(this.LBCariKodu);
             this.groupBox1.Controls.Add(this.TBMahalle);
-            this.groupBox1.Controls.Add(this.TBMuhKod);
             this.groupBox1.Controls.Add(this.TBVadeGunu);
             this.groupBox1.Controls.Add(this.TBTc);
             this.groupBox1.Controls.Add(this.CBVDaire);
@@ -2211,8 +2113,6 @@
             this.groupBox1.Controls.Add(this.CBilce);
             this.groupBox1.Controls.Add(this.CBil);
             this.groupBox1.Controls.Add(this.CBUlke);
-            this.groupBox1.Controls.Add(this.TBUnvan);
-            this.groupBox1.Controls.Add(this.TBCariKodu);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
@@ -2221,87 +2121,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Genel Bilgi";
             // 
-            // BTMuhKoduSec
-            // 
-            this.BTMuhKoduSec.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.BTMuhKoduSec.Appearance.BackColor2 = System.Drawing.Color.Black;
-            this.BTMuhKoduSec.Appearance.BorderColor = System.Drawing.Color.Black;
-            this.BTMuhKoduSec.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.BTMuhKoduSec.Appearance.Options.UseBackColor = true;
-            this.BTMuhKoduSec.Appearance.Options.UseBorderColor = true;
-            this.BTMuhKoduSec.Appearance.Options.UseForeColor = true;
-            this.BTMuhKoduSec.AppearanceDisabled.BorderColor = System.Drawing.Color.Black;
-            this.BTMuhKoduSec.AppearanceDisabled.Options.UseBorderColor = true;
-            this.BTMuhKoduSec.AppearanceHovered.BorderColor = System.Drawing.Color.Black;
-            this.BTMuhKoduSec.AppearanceHovered.Options.UseBorderColor = true;
-            this.BTMuhKoduSec.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTMuhKoduSec.ImageOptions.Image")));
-            this.BTMuhKoduSec.Location = new System.Drawing.Point(340, 415);
-            this.BTMuhKoduSec.Name = "BTMuhKoduSec";
-            this.BTMuhKoduSec.Size = new System.Drawing.Size(59, 23);
-            this.BTMuhKoduSec.TabIndex = 56;
-            this.BTMuhKoduSec.Text = "Seç";
-            // 
-            // BTCariKodSec
-            // 
-            this.BTCariKodSec.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.BTCariKodSec.Appearance.BackColor2 = System.Drawing.Color.Black;
-            this.BTCariKodSec.Appearance.BorderColor = System.Drawing.Color.Black;
-            this.BTCariKodSec.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.BTCariKodSec.Appearance.Options.UseBackColor = true;
-            this.BTCariKodSec.Appearance.Options.UseBorderColor = true;
-            this.BTCariKodSec.Appearance.Options.UseFont = true;
-            this.BTCariKodSec.Appearance.Options.UseForeColor = true;
-            this.BTCariKodSec.AppearanceDisabled.BorderColor = System.Drawing.Color.Black;
-            this.BTCariKodSec.AppearanceDisabled.Options.UseBorderColor = true;
-            this.BTCariKodSec.AppearanceHovered.BorderColor = System.Drawing.Color.Black;
-            this.BTCariKodSec.AppearanceHovered.Options.UseBorderColor = true;
-            this.BTCariKodSec.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTCariKodSec.ImageOptions.Image")));
-            this.BTCariKodSec.Location = new System.Drawing.Point(340, 36);
-            this.BTCariKodSec.Name = "BTCariKodSec";
-            this.BTCariKodSec.Size = new System.Drawing.Size(59, 23);
-            this.BTCariKodSec.TabIndex = 55;
-            this.BTCariKodSec.Text = "Seç";
-            this.BTCariKodSec.Click += new System.EventHandler(this.simpleButton1_Click);
-            // 
             // GBFiyat
             // 
-            this.GBFiyat.Controls.Add(this.checkedListBoxControl2);
-            this.GBFiyat.Controls.Add(this.checkedListBoxControl4);
             this.GBFiyat.Controls.Add(this.RBFiyat2);
             this.GBFiyat.Controls.Add(this.RBFiyat1);
             this.GBFiyat.Controls.Add(this.RBFiyat3);
             this.GBFiyat.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             this.GBFiyat.Location = new System.Drawing.Point(93, 355);
             this.GBFiyat.Name = "GBFiyat";
-            this.GBFiyat.Size = new System.Drawing.Size(306, 54);
+            this.GBFiyat.Size = new System.Drawing.Size(218, 54);
             this.GBFiyat.TabIndex = 54;
             this.GBFiyat.Text = "Fiyat";
-            // 
-            // checkedListBoxControl2
-            // 
-            this.checkedListBoxControl2.Appearance.BackColor = System.Drawing.SystemColors.Control;
-            this.checkedListBoxControl2.Appearance.Options.UseBackColor = true;
-            this.checkedListBoxControl2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.checkedListBoxControl2.CheckStyle = DevExpress.XtraEditors.Controls.CheckStyles.Radio;
-            this.checkedListBoxControl2.Items.AddRange(new DevExpress.XtraEditors.Controls.CheckedListBoxItem[] {
-            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(false, "Fiyat 5", System.Windows.Forms.CheckState.Indeterminate)});
-            this.checkedListBoxControl2.Location = new System.Drawing.Point(242, 21);
-            this.checkedListBoxControl2.Name = "checkedListBoxControl2";
-            this.checkedListBoxControl2.Size = new System.Drawing.Size(58, 24);
-            this.checkedListBoxControl2.TabIndex = 55;
-            // 
-            // checkedListBoxControl4
-            // 
-            this.checkedListBoxControl4.Appearance.BackColor = System.Drawing.SystemColors.Control;
-            this.checkedListBoxControl4.Appearance.Options.UseBackColor = true;
-            this.checkedListBoxControl4.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.checkedListBoxControl4.CheckStyle = DevExpress.XtraEditors.Controls.CheckStyles.Radio;
-            this.checkedListBoxControl4.Items.AddRange(new DevExpress.XtraEditors.Controls.CheckedListBoxItem[] {
-            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(false, "Fiyat 4", System.Windows.Forms.CheckState.Indeterminate)});
-            this.checkedListBoxControl4.Location = new System.Drawing.Point(183, 21);
-            this.checkedListBoxControl4.Name = "checkedListBoxControl4";
-            this.checkedListBoxControl4.Size = new System.Drawing.Size(58, 24);
-            this.checkedListBoxControl4.TabIndex = 57;
             // 
             // RBFiyat2
             // 
@@ -2344,131 +2174,131 @@
             // 
             // LBMuhKodu
             // 
-            this.LBMuhKodu.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBMuhKodu.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBMuhKodu.Appearance.Options.UseFont = true;
             this.LBMuhKodu.Location = new System.Drawing.Point(19, 419);
             this.LBMuhKodu.Name = "LBMuhKodu";
-            this.LBMuhKodu.Size = new System.Drawing.Size(59, 14);
+            this.LBMuhKodu.Size = new System.Drawing.Size(57, 13);
             this.LBMuhKodu.TabIndex = 54;
             this.LBMuhKodu.Text = "Muh. Kodu";
             // 
             // LBFiyat
             // 
-            this.LBFiyat.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBFiyat.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBFiyat.Appearance.Options.UseFont = true;
             this.LBFiyat.Location = new System.Drawing.Point(53, 379);
             this.LBFiyat.Name = "LBFiyat";
-            this.LBFiyat.Size = new System.Drawing.Size(25, 14);
+            this.LBFiyat.Size = new System.Drawing.Size(24, 13);
             this.LBFiyat.TabIndex = 53;
             this.LBFiyat.Text = "Fiyat";
             // 
             // LBVadeGunu
             // 
-            this.LBVadeGunu.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBVadeGunu.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBVadeGunu.Appearance.Options.UseFont = true;
-            this.LBVadeGunu.Location = new System.Drawing.Point(17, 329);
+            this.LBVadeGunu.Location = new System.Drawing.Point(18, 326);
             this.LBVadeGunu.Name = "LBVadeGunu";
-            this.LBVadeGunu.Size = new System.Drawing.Size(61, 14);
+            this.LBVadeGunu.Size = new System.Drawing.Size(58, 13);
             this.LBVadeGunu.TabIndex = 52;
             this.LBVadeGunu.Text = "Vade Günü";
             // 
             // LBTcNo
             // 
-            this.LBTcNo.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBTcNo.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBTcNo.Appearance.Options.UseFont = true;
-            this.LBTcNo.Location = new System.Drawing.Point(44, 301);
+            this.LBTcNo.Location = new System.Drawing.Point(45, 297);
             this.LBTcNo.Name = "LBTcNo";
-            this.LBTcNo.Size = new System.Drawing.Size(34, 14);
+            this.LBTcNo.Size = new System.Drawing.Size(31, 13);
             this.LBTcNo.TabIndex = 51;
             this.LBTcNo.Text = "TC No";
             // 
             // LBVDaireVNo
             // 
-            this.LBVDaireVNo.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBVDaireVNo.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBVDaireVNo.Appearance.Options.UseFont = true;
-            this.LBVDaireVNo.Location = new System.Drawing.Point(7, 272);
+            this.LBVDaireVNo.Location = new System.Drawing.Point(11, 268);
             this.LBVDaireVNo.Name = "LBVDaireVNo";
-            this.LBVDaireVNo.Size = new System.Drawing.Size(71, 14);
+            this.LBVDaireVNo.Size = new System.Drawing.Size(66, 13);
             this.LBVDaireVNo.TabIndex = 50;
             this.LBVDaireVNo.Text = "V.Daire/V.No";
             // 
             // LBPostaKodu
             // 
-            this.LBPostaKodu.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBPostaKodu.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBPostaKodu.Appearance.Options.UseFont = true;
-            this.LBPostaKodu.Location = new System.Drawing.Point(16, 242);
+            this.LBPostaKodu.Location = new System.Drawing.Point(19, 239);
             this.LBPostaKodu.Name = "LBPostaKodu";
-            this.LBPostaKodu.Size = new System.Drawing.Size(62, 14);
+            this.LBPostaKodu.Size = new System.Drawing.Size(58, 13);
             this.LBPostaKodu.TabIndex = 49;
             this.LBPostaKodu.Text = "Posta Kodu";
             // 
             // LBAptDaire
             // 
-            this.LBAptDaire.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBAptDaire.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBAptDaire.Appearance.Options.UseFont = true;
-            this.LBAptDaire.Location = new System.Drawing.Point(22, 213);
+            this.LBAptDaire.Location = new System.Drawing.Point(24, 210);
             this.LBAptDaire.Name = "LBAptDaire";
-            this.LBAptDaire.Size = new System.Drawing.Size(56, 14);
+            this.LBAptDaire.Size = new System.Drawing.Size(52, 13);
             this.LBAptDaire.TabIndex = 48;
             this.LBAptDaire.Text = "Apt./Daire";
             // 
             // LBSokak
             // 
-            this.LBSokak.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBSokak.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBSokak.Appearance.Options.UseFont = true;
-            this.LBSokak.Location = new System.Drawing.Point(45, 184);
+            this.LBSokak.Location = new System.Drawing.Point(45, 181);
             this.LBSokak.Name = "LBSokak";
-            this.LBSokak.Size = new System.Drawing.Size(33, 14);
+            this.LBSokak.Size = new System.Drawing.Size(31, 13);
             this.LBSokak.TabIndex = 47;
             this.LBSokak.Text = "Sokak";
             // 
             // LBMahalle
             // 
-            this.LBMahalle.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBMahalle.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBMahalle.Appearance.Options.UseFont = true;
-            this.LBMahalle.Location = new System.Drawing.Point(39, 155);
+            this.LBMahalle.Location = new System.Drawing.Point(35, 152);
             this.LBMahalle.Name = "LBMahalle";
-            this.LBMahalle.Size = new System.Drawing.Size(39, 14);
+            this.LBMahalle.Size = new System.Drawing.Size(41, 13);
             this.LBMahalle.TabIndex = 46;
             this.LBMahalle.Text = "Mahalle";
             // 
             // LBIlIlce
             // 
-            this.LBIlIlce.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBIlIlce.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBIlIlce.Appearance.Options.UseFont = true;
-            this.LBIlIlce.Location = new System.Drawing.Point(48, 126);
+            this.LBIlIlce.Location = new System.Drawing.Point(50, 123);
             this.LBIlIlce.Name = "LBIlIlce";
-            this.LBIlIlce.Size = new System.Drawing.Size(30, 14);
+            this.LBIlIlce.Size = new System.Drawing.Size(27, 13);
             this.LBIlIlce.TabIndex = 45;
             this.LBIlIlce.Text = "İl/İlçe";
             // 
             // LBUlke
             // 
-            this.LBUlke.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBUlke.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBUlke.Appearance.Options.UseFont = true;
-            this.LBUlke.Location = new System.Drawing.Point(55, 100);
+            this.LBUlke.Location = new System.Drawing.Point(54, 94);
             this.LBUlke.Name = "LBUlke";
-            this.LBUlke.Size = new System.Drawing.Size(23, 14);
+            this.LBUlke.Size = new System.Drawing.Size(23, 13);
             this.LBUlke.TabIndex = 44;
             this.LBUlke.Text = "Ülke";
             // 
             // LBUnvan
             // 
-            this.LBUnvan.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBUnvan.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBUnvan.Appearance.Options.UseFont = true;
-            this.LBUnvan.Location = new System.Drawing.Point(44, 68);
+            this.LBUnvan.Location = new System.Drawing.Point(43, 65);
             this.LBUnvan.Name = "LBUnvan";
-            this.LBUnvan.Size = new System.Drawing.Size(34, 14);
+            this.LBUnvan.Size = new System.Drawing.Size(33, 13);
             this.LBUnvan.TabIndex = 43;
             this.LBUnvan.Text = "Unvan";
             // 
             // LBCariKodu
             // 
-            this.LBCariKodu.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBCariKodu.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBCariKodu.Appearance.Options.UseFont = true;
             this.LBCariKodu.Location = new System.Drawing.Point(27, 39);
             this.LBCariKodu.Name = "LBCariKodu";
-            this.LBCariKodu.Size = new System.Drawing.Size(51, 14);
+            this.LBCariKodu.Size = new System.Drawing.Size(50, 13);
             this.LBCariKodu.TabIndex = 42;
             this.LBCariKodu.Text = "Cari Kodu";
             // 
@@ -2476,22 +2306,14 @@
             // 
             this.TBMahalle.Location = new System.Drawing.Point(93, 152);
             this.TBMahalle.Name = "TBMahalle";
-            this.TBMahalle.Size = new System.Drawing.Size(306, 23);
+            this.TBMahalle.Size = new System.Drawing.Size(218, 23);
             this.TBMahalle.TabIndex = 41;
-            // 
-            // TBMuhKod
-            // 
-            this.TBMuhKod.Location = new System.Drawing.Point(93, 415);
-            this.TBMuhKod.Name = "TBMuhKod";
-            this.TBMuhKod.Size = new System.Drawing.Size(306, 23);
-            this.TBMuhKod.TabIndex = 15;
-            this.TBMuhKod.Text = "0";
             // 
             // TBVadeGunu
             // 
             this.TBVadeGunu.Location = new System.Drawing.Point(93, 326);
             this.TBVadeGunu.Name = "TBVadeGunu";
-            this.TBVadeGunu.Size = new System.Drawing.Size(306, 23);
+            this.TBVadeGunu.Size = new System.Drawing.Size(218, 23);
             this.TBVadeGunu.TabIndex = 13;
             this.TBVadeGunu.Text = "0";
             // 
@@ -2499,7 +2321,7 @@
             // 
             this.TBTc.Location = new System.Drawing.Point(93, 297);
             this.TBTc.Name = "TBTc";
-            this.TBTc.Size = new System.Drawing.Size(306, 23);
+            this.TBTc.Size = new System.Drawing.Size(218, 23);
             this.TBTc.TabIndex = 12;
             // 
             // CBVDaire
@@ -2507,13 +2329,13 @@
             this.CBVDaire.FormattingEnabled = true;
             this.CBVDaire.Location = new System.Drawing.Point(93, 268);
             this.CBVDaire.Name = "CBVDaire";
-            this.CBVDaire.Size = new System.Drawing.Size(101, 23);
+            this.CBVDaire.Size = new System.Drawing.Size(85, 23);
             this.CBVDaire.TabIndex = 10;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(200, 272);
+            this.label14.Location = new System.Drawing.Point(184, 271);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(12, 15);
             this.label14.TabIndex = 30;
@@ -2522,7 +2344,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(198, 213);
+            this.label13.Location = new System.Drawing.Point(184, 214);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(12, 15);
             this.label13.TabIndex = 29;
@@ -2531,7 +2353,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(198, 126);
+            this.label6.Location = new System.Drawing.Point(184, 126);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(12, 15);
             this.label6.TabIndex = 28;
@@ -2539,16 +2361,16 @@
             // 
             // TBVNo
             // 
-            this.TBVNo.Location = new System.Drawing.Point(216, 268);
+            this.TBVNo.Location = new System.Drawing.Point(202, 268);
             this.TBVNo.Name = "TBVNo";
-            this.TBVNo.Size = new System.Drawing.Size(183, 23);
+            this.TBVNo.Size = new System.Drawing.Size(109, 23);
             this.TBVNo.TabIndex = 11;
             // 
             // TBPostaKodu
             // 
             this.TBPostaKodu.Location = new System.Drawing.Point(93, 239);
             this.TBPostaKodu.Name = "TBPostaKodu";
-            this.TBPostaKodu.Size = new System.Drawing.Size(306, 23);
+            this.TBPostaKodu.Size = new System.Drawing.Size(218, 23);
             this.TBPostaKodu.TabIndex = 9;
             // 
             // label10
@@ -2561,31 +2383,31 @@
             // 
             // TBDaire
             // 
-            this.TBDaire.Location = new System.Drawing.Point(216, 210);
+            this.TBDaire.Location = new System.Drawing.Point(202, 210);
             this.TBDaire.Name = "TBDaire";
-            this.TBDaire.Size = new System.Drawing.Size(183, 23);
+            this.TBDaire.Size = new System.Drawing.Size(109, 23);
             this.TBDaire.TabIndex = 8;
             // 
             // TBApt
             // 
             this.TBApt.Location = new System.Drawing.Point(93, 210);
             this.TBApt.Name = "TBApt";
-            this.TBApt.Size = new System.Drawing.Size(101, 23);
+            this.TBApt.Size = new System.Drawing.Size(85, 23);
             this.TBApt.TabIndex = 7;
             // 
             // TBSokak
             // 
             this.TBSokak.Location = new System.Drawing.Point(93, 181);
             this.TBSokak.Name = "TBSokak";
-            this.TBSokak.Size = new System.Drawing.Size(306, 23);
+            this.TBSokak.Size = new System.Drawing.Size(218, 23);
             this.TBSokak.TabIndex = 6;
             // 
             // CBilce
             // 
             this.CBilce.FormattingEnabled = true;
-            this.CBilce.Location = new System.Drawing.Point(216, 123);
+            this.CBilce.Location = new System.Drawing.Point(202, 123);
             this.CBilce.Name = "CBilce";
-            this.CBilce.Size = new System.Drawing.Size(183, 23);
+            this.CBilce.Size = new System.Drawing.Size(109, 23);
             this.CBilce.TabIndex = 4;
             this.CBilce.TextChanged += new System.EventHandler(this.CBilce_TextChanged);
             // 
@@ -2594,7 +2416,7 @@
             this.CBil.FormattingEnabled = true;
             this.CBil.Location = new System.Drawing.Point(93, 123);
             this.CBil.Name = "CBil";
-            this.CBil.Size = new System.Drawing.Size(101, 23);
+            this.CBil.Size = new System.Drawing.Size(85, 23);
             this.CBil.TabIndex = 3;
             this.CBil.SelectedValueChanged += new System.EventHandler(this.CBil_SelectedValueChanged);
             this.CBil.TextChanged += new System.EventHandler(this.CBil_TextChanged);
@@ -2604,22 +2426,8 @@
             this.CBUlke.FormattingEnabled = true;
             this.CBUlke.Location = new System.Drawing.Point(93, 94);
             this.CBUlke.Name = "CBUlke";
-            this.CBUlke.Size = new System.Drawing.Size(306, 23);
+            this.CBUlke.Size = new System.Drawing.Size(218, 23);
             this.CBUlke.TabIndex = 2;
-            // 
-            // TBUnvan
-            // 
-            this.TBUnvan.Location = new System.Drawing.Point(93, 65);
-            this.TBUnvan.Name = "TBUnvan";
-            this.TBUnvan.Size = new System.Drawing.Size(306, 23);
-            this.TBUnvan.TabIndex = 1;
-            // 
-            // TBCariKodu
-            // 
-            this.TBCariKodu.Location = new System.Drawing.Point(93, 36);
-            this.TBCariKodu.Name = "TBCariKodu";
-            this.TBCariKodu.Size = new System.Drawing.Size(306, 23);
-            this.TBCariKodu.TabIndex = 0;
             // 
             // sqlCommand1
             // 
@@ -2627,6 +2435,78 @@
             this.sqlCommand1.Connection = null;
             this.sqlCommand1.Notification = null;
             this.sqlCommand1.Transaction = null;
+            // 
+            // BTCariKodSec
+            // 
+            this.BTCariKodSec.Location = new System.Drawing.Point(93, 36);
+            this.BTCariKodSec.Name = "BTCariKodSec";
+            this.BTCariKodSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.BTCariKodSec.Size = new System.Drawing.Size(218, 20);
+            this.BTCariKodSec.TabIndex = 57;
+            // 
+            // textEdit1
+            // 
+            this.textEdit1.Location = new System.Drawing.Point(93, 65);
+            this.textEdit1.Name = "textEdit1";
+            this.textEdit1.Size = new System.Drawing.Size(218, 20);
+            this.textEdit1.TabIndex = 58;
+            // 
+            // BTMuhKoduSec
+            // 
+            this.BTMuhKoduSec.Location = new System.Drawing.Point(93, 417);
+            this.BTMuhKoduSec.Name = "BTMuhKoduSec";
+            this.BTMuhKoduSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.BTMuhKoduSec.Size = new System.Drawing.Size(218, 20);
+            this.BTMuhKoduSec.TabIndex = 59;
+            // 
+            // BTGrupKoduSec
+            // 
+            this.BTGrupKoduSec.Location = new System.Drawing.Point(77, 300);
+            this.BTGrupKoduSec.Name = "BTGrupKoduSec";
+            this.BTGrupKoduSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.BTGrupKoduSec.Size = new System.Drawing.Size(218, 20);
+            this.BTGrupKoduSec.TabIndex = 44;
+            // 
+            // BTKategoriSec
+            // 
+            this.BTKategoriSec.Location = new System.Drawing.Point(77, 327);
+            this.BTKategoriSec.Name = "BTKategoriSec";
+            this.BTKategoriSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.BTKategoriSec.Size = new System.Drawing.Size(218, 20);
+            this.BTKategoriSec.TabIndex = 45;
+            // 
+            // checkEdit1
+            // 
+            this.checkEdit1.EditValue = true;
+            this.checkEdit1.Location = new System.Drawing.Point(93, 363);
+            this.checkEdit1.Name = "checkEdit1";
+            this.checkEdit1.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.checkEdit1.Properties.Appearance.Options.UseFont = true;
+            this.checkEdit1.Properties.Caption = "Aktif";
+            this.checkEdit1.Size = new System.Drawing.Size(75, 20);
+            this.checkEdit1.TabIndex = 104;
+            // 
+            // buttonEdit1
+            // 
+            this.buttonEdit1.Location = new System.Drawing.Point(96, 66);
+            this.buttonEdit1.Name = "buttonEdit1";
+            this.buttonEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.buttonEdit1.Size = new System.Drawing.Size(218, 20);
+            this.buttonEdit1.TabIndex = 62;
+            // 
+            // buttonEdit2
+            // 
+            this.buttonEdit2.Location = new System.Drawing.Point(96, 39);
+            this.buttonEdit2.Name = "buttonEdit2";
+            this.buttonEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.buttonEdit2.Size = new System.Drawing.Size(218, 20);
+            this.buttonEdit2.TabIndex = 61;
             // 
             // FCariKart
             // 
@@ -2694,17 +2574,22 @@
             this.panel5.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CBAktif)).EndInit();
             this.panel4.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GBFiyat)).EndInit();
             this.GBFiyat.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.checkedListBoxControl2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkedListBoxControl4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RBFiyat2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RBFiyat1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RBFiyat3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BTCariKodSec.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BTMuhKoduSec.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BTGrupKoduSec.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BTKategoriSec.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit2.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2731,10 +2616,8 @@
         private TextBox TBEposta;
         private TextBox TBTelefon2;
         private TextBox TBTelefon1;
-        private TextBox TBGrupKodu;
         private Panel panel4;
         private GroupBox groupBox1;
-        private TextBox TBMuhKod;
         private RadioButton RBFiyat4;
         private TextBox TBVadeGunu;
         private TextBox TBTc;
@@ -2751,16 +2634,12 @@
         private ComboBox CBilce;
         private ComboBox CBil;
         private ComboBox CBUlke;
-        private TextBox TBUnvan;
-        private TextBox TBCariKodu;
         private DataGridView DGSevkAdres;
         private TextBox textBox21;
         private Panel panel10;
         private GroupBox groupBox4;
         private TextBox TBCariSoyadi;
         private TextBox TBCariAdi;
-        private TextBox TBSMuhKodu;
-        private TextBox TBAMuhKodu;
         private TabPage tabPage3;
         private Panel panel11;
         private TabPage tabPage4;
@@ -2775,7 +2654,6 @@
         private TextBox TBSirketPozisyonu;
         private TextBox TBYetkiliAdi;
         private ComboBox CBTipi;
-        private TextBox TBKategori;
         private TextBox TBMahalle;
         private Panel panel15;
         private DataGridView dataGridView3;
@@ -2799,22 +2677,15 @@
         private DevExpress.XtraEditors.LabelControl LBFiyat;
         private DevExpress.XtraEditors.LabelControl LBMuhKodu;
         private DevExpress.XtraEditors.GroupControl GBFiyat;
-        private DevExpress.XtraEditors.SimpleButton BTCariKodSec;
         private DevExpress.XtraEditors.LabelControl LBTelefon1;
         private DevExpress.XtraEditors.LabelControl LBTelefon2;
         private DevExpress.XtraEditors.LabelControl LBCepTel;
-        private DevExpress.XtraEditors.SimpleButton BTMuhKoduSec;
         private DevExpress.XtraEditors.LabelControl LBAdres;
         private DevExpress.XtraEditors.LabelControl LBEposta;
         private DevExpress.XtraEditors.LabelControl LBWebSite;
         private DevExpress.XtraEditors.LabelControl LBFax;
         private DevExpress.XtraEditors.LabelControl LBGrupKodu;
         private DevExpress.XtraEditors.LabelControl LBKategori;
-        private DevExpress.XtraEditors.SimpleButton BTKategoriSec;
-        private DevExpress.XtraEditors.SimpleButton BTGrupKoduSec;
-        private DevExpress.XtraEditors.CheckedListBoxControl CBAktif;
-        private DevExpress.XtraEditors.CheckedListBoxControl checkedListBoxControl2;
-        private DevExpress.XtraEditors.CheckedListBoxControl checkedListBoxControl4;
         private DevExpress.XtraEditors.CheckedListBoxControl RBFiyat2;
         private DevExpress.XtraEditors.CheckedListBoxControl RBFiyat1;
         private DevExpress.XtraEditors.CheckedListBoxControl RBFiyat3;
@@ -2824,8 +2695,6 @@
         private DevExpress.XtraEditors.LabelControl LBTip;
         private DevExpress.XtraEditors.LabelControl LBSMuhKodu;
         private DevExpress.XtraEditors.LabelControl LBAciklama;
-        private DevExpress.XtraEditors.SimpleButton BTAMuhKodSec;
-        private DevExpress.XtraEditors.SimpleButton BTSMuhKodSec;
         private DevExpress.XtraEditors.LabelControl LBSevkAdresKodu;
         private DevExpress.XtraEditors.CheckedListBoxControl CBSevkAdresKodu;
         private DevExpress.XtraEditors.LabelControl LBSevkAdres;
@@ -2917,5 +2786,13 @@
         private DevExpress.XtraEditors.SimpleButton BTDosyaYoluSec;
         private DevExpress.XtraEditors.SimpleButton BTDokumanlarSil;
         private DevExpress.XtraEditors.SimpleButton BTDokumanlarKaydet;
+        private DevExpress.XtraEditors.ButtonEdit BTCariKodSec;
+        private DevExpress.XtraEditors.ButtonEdit BTMuhKoduSec;
+        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.ButtonEdit BTKategoriSec;
+        private DevExpress.XtraEditors.ButtonEdit BTGrupKoduSec;
+        private DevExpress.XtraEditors.CheckEdit checkEdit1;
+        private DevExpress.XtraEditors.ButtonEdit buttonEdit1;
+        private DevExpress.XtraEditors.ButtonEdit buttonEdit2;
     }
 }

@@ -38,11 +38,11 @@ namespace MEYPAK.PRL
         GenericWebServis<PocoSTOK> _PocoStokServis;
         GenericWebServis<PocoOLCUBR> _PocoOlcuBrServis;
         GenericWebServis<PocoSTOKOLCUBR> _StokOlcuBrServis;
-        GenericWebServis<PocoPARABIRIM> _PocoParaBrServis;
+        //GenericWebServis<PocoPARABIRIM> _PocoParaBrServis;
         List<PocoSTOKOLCUBR> _PocoSTOKOLCUBR;
         List<PocoOLCUBR> _tempPocoOLCUBR;
         List<PocoSTOKOLCUBR> stokOlculist ;
-        private List<PocoPARABIRIM> stokParalist;
+        //private List<PocoPARABIRIM> stokParalist;
         //List<PocoPARABIRIM> _pocoParaBIRIM;
         
 
@@ -58,7 +58,7 @@ namespace MEYPAK.PRL
             {
                 if (ctrl is TextBoxBase)
                 {
-                    if (ctrl.Name != "BTStokKodu")
+                    if (ctrl.Name != "BTStokSec")
                         ctrl.Text = String.Empty;
                 }
                 else
@@ -82,14 +82,14 @@ namespace MEYPAK.PRL
 
             TBSatisOtv.Text = _tempStok.satisotv.ToString();
             TBSatisKdv.Text = _tempStok.satiskdv.ToString();
-            BTMarka.Text = _markaServis.obje.Where(x=>x.id.ToString()==_tempStok.markaid.ToString()).FirstOrDefault().adi.ToString();
+            BTMarkaSec.Text = _markaServis.obje.Where(x=>x.id.ToString()==_tempStok.markaid.ToString()).FirstOrDefault().adi.ToString();
             TBSatisKdv.Text = _tempStok.kategoriid.ToString();
             BTGrupSec.Text = _tempStok.grupkodu.ToString();
             TBAlisOtv.Text = _tempStok.alisotv.ToString();
             TBAlisKdv.Text = _tempStok.aliskdv.ToString();
             TBAciklama.Text = _tempStok.aciklama;
-            //CBSDoviz.Text = _tempStok.ToString();
-            //CBADoviz.Text = _tempStok.ToString();
+            CBSDoviz.Text = _tempStok.ToString();
+            CBADoviz.Text = _tempStok.ToString();
             TBAFiyat1.Text = Convert.ToString(_tempStok.afiyaT1);
             TBAFiyat2.Text = Convert.ToString(_tempStok.afiyaT2);
             TBAFiyat3.Text = Convert.ToString(_tempStok.afiyaT3);
@@ -133,7 +133,7 @@ namespace MEYPAK.PRL
             _tempPocoOLCUBR = _PocoOlcuBrServis.obje;
             _PocoSTOKOLCUBR = _StokOlcuBrServis.obje;
             //_pocoParaBIRIM = _PocoParaBrServis.obje;
-            CBBirim.Properties.DataSource = _tempPocoOLCUBR.ToList();
+            CBBirim.Properties.DataSource = _tempPocoOLCUBR.Select(x=> x.adi).ToList();
             //CBADoviz.Properties.DataSource = _pocoParaBIRIM.ToList();
             //CBSDoviz.Properties.DataSource=_pocoParaBIRIM.Select(x =>x.ADI).ToList();   
             
@@ -366,18 +366,7 @@ namespace MEYPAK.PRL
                     tbDoldur(); 
         }
 
-        private void BTMarkaSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
-        {
-            FMarkaList fMarkaKart = new FMarkaList();
-            fMarkaKart.ShowDialog();
-            if (_tempMarka != null)
-            {
-                markaid = _tempMarka.id;
-                BTMarka.Text = _tempMarka.adi;
-                _tempMarka = null;
-            }
-        }
-
+    
         private void BTKategoriSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
 
@@ -398,7 +387,17 @@ namespace MEYPAK.PRL
         }
 
        
-    
+        private void BTMarkaSec_EditValueChanged(object sender, EventArgs e)
+        {
+            FMarkaList fMarkaKart = new FMarkaList();
+            fMarkaKart.ShowDialog();
+            if (_tempMarka != null)
+            {
+                markaid = _tempMarka.id;
+                BTMarka.Text = _tempMarka.adi;
+                _tempMarka = null;
+            }
+        }
 
         private void TBSatisOtv_KeyPress(object sender, KeyPressEventArgs e)
         {

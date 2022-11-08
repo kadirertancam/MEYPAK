@@ -38,15 +38,15 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.LBOlcuBirim = new DevExpress.XtraEditors.LabelControl();
             this.LBOlcuBirimAdi = new DevExpress.XtraEditors.LabelControl();
-            this.TBOlcuBrAdi = new DevExpress.XtraEditors.TextEdit();
-            this.TBOlcuBr = new DevExpress.XtraEditors.TextEdit();
+            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGOlcuBrKart)).BeginInit();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TBOlcuBrAdi.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TBOlcuBr.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -115,8 +115,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.TBOlcuBr);
-            this.groupBox1.Controls.Add(this.TBOlcuBrAdi);
+            this.groupBox1.Controls.Add(this.textEdit2);
+            this.groupBox1.Controls.Add(this.textEdit1);
             this.groupBox1.Controls.Add(this.LBOlcuBirim);
             this.groupBox1.Controls.Add(this.LBOlcuBirimAdi);
             this.groupBox1.Location = new System.Drawing.Point(17, 17);
@@ -128,41 +128,37 @@
             // 
             // LBOlcuBirim
             // 
-            this.LBOlcuBirim.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBOlcuBirim.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBOlcuBirim.Appearance.Options.UseFont = true;
             this.LBOlcuBirim.Location = new System.Drawing.Point(65, 57);
             this.LBOlcuBirim.Name = "LBOlcuBirim";
-            this.LBOlcuBirim.Size = new System.Drawing.Size(25, 14);
+            this.LBOlcuBirim.Size = new System.Drawing.Size(25, 13);
             this.LBOlcuBirim.TabIndex = 11;
             this.LBOlcuBirim.Text = "Birim";
             // 
             // LBOlcuBirimAdi
             // 
-            this.LBOlcuBirimAdi.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBOlcuBirimAdi.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBOlcuBirimAdi.Appearance.Options.UseFont = true;
             this.LBOlcuBirimAdi.Location = new System.Drawing.Point(16, 26);
             this.LBOlcuBirimAdi.Name = "LBOlcuBirimAdi";
-            this.LBOlcuBirimAdi.Size = new System.Drawing.Size(74, 14);
+            this.LBOlcuBirimAdi.Size = new System.Drawing.Size(72, 13);
             this.LBOlcuBirimAdi.TabIndex = 10;
             this.LBOlcuBirimAdi.Text = "Ölçü Birim Adı";
             // 
-            // TBOlcuBrAdi
+            // textEdit1
             // 
-            this.TBOlcuBrAdi.Enabled = false;
-            this.TBOlcuBrAdi.Location = new System.Drawing.Point(96, 20);
-            this.TBOlcuBrAdi.Name = "TBOlcuBrAdi";
-            this.TBOlcuBrAdi.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.TBOlcuBrAdi.Size = new System.Drawing.Size(249, 26);
-            this.TBOlcuBrAdi.TabIndex = 79;
+            this.textEdit1.Location = new System.Drawing.Point(96, 23);
+            this.textEdit1.Name = "textEdit1";
+            this.textEdit1.Size = new System.Drawing.Size(203, 20);
+            this.textEdit1.TabIndex = 79;
             // 
-            // TBOlcuBr
+            // textEdit2
             // 
-            this.TBOlcuBr.Enabled = false;
-            this.TBOlcuBr.Location = new System.Drawing.Point(96, 52);
-            this.TBOlcuBr.Name = "TBOlcuBr";
-            this.TBOlcuBr.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.TBOlcuBr.Size = new System.Drawing.Size(249, 26);
-            this.TBOlcuBr.TabIndex = 80;
+            this.textEdit2.Location = new System.Drawing.Point(96, 52);
+            this.textEdit2.Name = "textEdit2";
+            this.textEdit2.Size = new System.Drawing.Size(203, 20);
+            this.textEdit2.TabIndex = 79;
             // 
             // FOlcuBrKart
             // 
@@ -179,8 +175,8 @@
             this.panel2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TBOlcuBrAdi.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TBOlcuBr.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -196,7 +192,7 @@
         private DevExpress.XtraEditors.LabelControl LBOlcuBirim;
         private DevExpress.XtraEditors.SimpleButton BTOlcuBrKartSil;
         private DevExpress.XtraEditors.SimpleButton BTOlcuBrKartKaydet;
-        private DevExpress.XtraEditors.TextEdit TBOlcuBrAdi;
-        private DevExpress.XtraEditors.TextEdit TBOlcuBr;
+        private DevExpress.XtraEditors.TextEdit textEdit2;
+        private DevExpress.XtraEditors.TextEdit textEdit1;
     }
 }

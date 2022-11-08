@@ -31,7 +31,7 @@ namespace MEYPAK.PRL.DEPO
 
         private void FDepoList_Load(object sender, EventArgs e)
         {
-            GCDepoList.DataSource = _depoServis.Listele();
+            DGDepoList.DataSource = _depoServis.Listele();
             depoKart = (FDepoKart)Application.OpenForms["FDepoKart"];
             depoTransferKart = (FDepolarArasıTransfer)Application.OpenForms["FDepolarArasıTransfer"];
             depoTransferBilgiKart = (FDepolarArasıTransferHar)Application.OpenForms["FDepolarArasıTransferBilgi"];

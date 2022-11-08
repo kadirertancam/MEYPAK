@@ -87,7 +87,7 @@
             // 
             this.BTSil.Appearance.BackColor = System.Drawing.Color.Gainsboro;
             this.BTSil.Appearance.Options.UseBackColor = true;
-            this.BTSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTDegistir.ImageOptions.Image")));
+            this.BTSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTSil.ImageOptions.Image")));
             this.BTSil.Location = new System.Drawing.Point(914, 57);
             this.BTSil.Name = "BTSil";
             this.BTSil.Size = new System.Drawing.Size(95, 49);
@@ -100,7 +100,7 @@
             this.BTKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
             this.BTKaydet.Appearance.Options.UseBackColor = true;
             this.BTKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTKaydet.ImageOptions.Image")));
-            this.BTKaydet.Location = new System.Drawing.Point(813, 58);
+            this.BTKaydet.Location = new System.Drawing.Point(813, 57);
             this.BTKaydet.Name = "BTKaydet";
             this.BTKaydet.Size = new System.Drawing.Size(95, 49);
             this.BTKaydet.TabIndex = 83;

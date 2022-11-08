@@ -15,7 +15,7 @@ namespace MEYPAK.PRL
     {
         /// <summary>
         ///  The main entry point for the application.
-        /// </summary>
+        /// </summary>CBBirim
         [STAThread]
         static void Main()
         {
@@ -25,7 +25,7 @@ namespace MEYPAK.PRL
             NinjectFactory.CompositionRoot.Initialize(a);
             ApplicationConfiguration.Initialize();
             Application.EnableVisualStyles();
-            Application.Run(new FStokKart());
+            Application.Run(new FSayimIsle());
         }
 
         public class ApplicationDbContext : DbContext

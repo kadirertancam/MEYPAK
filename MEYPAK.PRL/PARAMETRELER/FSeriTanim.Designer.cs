@@ -118,7 +118,9 @@
             // BTSeriKaydet
             // 
             this.BTSeriKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTSeriKaydet.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.BTSeriKaydet.Appearance.Options.UseBackColor = true;
+            this.BTSeriKaydet.Appearance.Options.UseFont = true;
             this.BTSeriKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTSeriKaydet.ImageOptions.Image")));
             this.BTSeriKaydet.Location = new System.Drawing.Point(269, 23);
             this.BTSeriKaydet.Name = "BTSeriKaydet";
@@ -128,11 +130,11 @@
             // 
             // LBKullanici
             // 
-            this.LBKullanici.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBKullanici.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBKullanici.Appearance.Options.UseFont = true;
             this.LBKullanici.Location = new System.Drawing.Point(18, 54);
             this.LBKullanici.Name = "LBKullanici";
-            this.LBKullanici.Size = new System.Drawing.Size(46, 16);
+            this.LBKullanici.Size = new System.Drawing.Size(43, 13);
             this.LBKullanici.TabIndex = 32;
             this.LBKullanici.Text = "Kullanıcı";
             // 
@@ -152,11 +154,11 @@
             // 
             // LBSeri
             // 
-            this.LBSeri.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBSeri.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBSeri.Appearance.Options.UseFont = true;
             this.LBSeri.Location = new System.Drawing.Point(44, 25);
             this.LBSeri.Name = "LBSeri";
-            this.LBSeri.Size = new System.Drawing.Size(20, 14);
+            this.LBSeri.Size = new System.Drawing.Size(19, 13);
             this.LBSeri.TabIndex = 8;
             this.LBSeri.Text = "Seri";
             this.LBSeri.ToolTipIconType = DevExpress.Utils.ToolTipIconType.Application;

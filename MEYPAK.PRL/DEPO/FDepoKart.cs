@@ -35,7 +35,7 @@ namespace MEYPAK.PRL.DEPO
             if (_tempDepo != null)
             {
                 _depoServis = new GenericWebServis<PocoDEPO>();
-                TBKod.Text = _tempDepo.depokodu;
+               BTKodSec.Text = _tempDepo.depokodu; //? 
                 TBAdi.Text = _tempDepo.depoadi;
                 TBAciklama.Text = _tempDepo.aciklama;
                 id = _tempDepo.id;
@@ -63,17 +63,17 @@ namespace MEYPAK.PRL.DEPO
             _depoServis.Data(ServisList.DepoEkleServis,(new PocoDEPO()
             {
                 id = id,
-                depokodu = TBKod.Text,
+                depokodu = BTKodSec.EditValue.ToString(),
                 depoadi = TBAdi.Text,
                 aciklama =TBAciklama.Text,
                 
             }));
             _depoServis.Data(ServisList.DepoListeServis);
-            GCDepoKart.DataSource = _depoServis.obje;
+            DGDepoKart.DataSource = _depoServis.obje;
             Temizle(this.Controls);
         }
         
-        private void BTSec_Click(object sender, EventArgs e)
+        private void BTKodSec_Click(object sender, EventArgs e)
         {
             fDepoList = new FDepoList("FDepoKart");
             fDepoList.ShowDialog();
@@ -83,7 +83,7 @@ namespace MEYPAK.PRL.DEPO
         private void FDepoKart_Load(object sender, EventArgs e)
         {
             _depoServis.Data(ServisList.DepoListeServis);
-            GCDepoKart.DataSource = _depoServis.obje;
+            DGDepoKart.DataSource = _depoServis.obje;
         }
 
         private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)

@@ -140,10 +140,8 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.GBOlcuBirimleri = new System.Windows.Forms.GroupBox();
             this.GBOlcuBirimleriUstPanel = new System.Windows.Forms.GroupBox();
-            this.CBBirim1 = new DevExpress.XtraEditors.LookUpEdit();
+            this.CBBirim = new DevExpress.XtraEditors.LookUpEdit();
             this.TBKatsayi = new DevExpress.XtraEditors.TextEdit();
-            this.CBBirim = new DevExpress.XtraEditors.GridLookUpEdit();
-            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.BTOlcuBirimiEkle = new DevExpress.XtraEditors.SimpleButton();
             this.LBKatsayi = new DevExpress.XtraEditors.LabelControl();
             this.LBBirim = new DevExpress.XtraEditors.LabelControl();
@@ -261,10 +259,8 @@
             this.panel7.SuspendLayout();
             this.GBOlcuBirimleri.SuspendLayout();
             this.GBOlcuBirimleriUstPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CBBirim1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TBKatsayi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBBirim.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBKatsayi.Properties)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.panel5.SuspendLayout();
             this.GBStokKartiSayisalAciklama.SuspendLayout();
@@ -730,9 +726,8 @@
             // 
             // GBOlcuBirimleriUstPanel
             // 
-            this.GBOlcuBirimleriUstPanel.Controls.Add(this.CBBirim1);
-            this.GBOlcuBirimleriUstPanel.Controls.Add(this.TBKatsayi);
             this.GBOlcuBirimleriUstPanel.Controls.Add(this.CBBirim);
+            this.GBOlcuBirimleriUstPanel.Controls.Add(this.TBKatsayi);
             this.GBOlcuBirimleriUstPanel.Controls.Add(this.BTOlcuBirimiEkle);
             this.GBOlcuBirimleriUstPanel.Controls.Add(this.LBKatsayi);
             this.GBOlcuBirimleriUstPanel.Controls.Add(this.LBBirim);
@@ -745,14 +740,15 @@
             this.GBOlcuBirimleriUstPanel.TabIndex = 2;
             this.GBOlcuBirimleriUstPanel.TabStop = false;
             // 
-            // CBBirim1
+            // CBBirim
             // 
-            this.CBBirim1.Location = new System.Drawing.Point(560, 32);
-            this.CBBirim1.Name = "CBBirim1";
-            this.CBBirim1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.CBBirim.Location = new System.Drawing.Point(18, 32);
+            this.CBBirim.Name = "CBBirim";
+            this.CBBirim.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.CBBirim1.Size = new System.Drawing.Size(89, 20);
-            this.CBBirim1.TabIndex = 40;
+            this.CBBirim.Properties.NullText = "";
+            this.CBBirim.Size = new System.Drawing.Size(153, 20);
+            this.CBBirim.TabIndex = 40;
             // 
             // TBKatsayi
             // 
@@ -760,24 +756,6 @@
             this.TBKatsayi.Name = "TBKatsayi";
             this.TBKatsayi.Size = new System.Drawing.Size(141, 20);
             this.TBKatsayi.TabIndex = 39;
-            // 
-            // CBBirim
-            // 
-            this.CBBirim.Location = new System.Drawing.Point(18, 34);
-            this.CBBirim.Name = "CBBirim";
-            this.CBBirim.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.CBBirim.Properties.NullText = "";
-            this.CBBirim.Properties.PopupView = this.gridView2;
-            this.CBBirim.Size = new System.Drawing.Size(141, 20);
-            this.CBBirim.TabIndex = 38;
-            // 
-            // gridView2
-            // 
-            this.gridView2.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridView2.Name = "gridView2";
-            this.gridView2.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridView2.OptionsView.ShowGroupPanel = false;
             // 
             // BTOlcuBirimiEkle
             // 
@@ -1704,6 +1682,8 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions12, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject45, serializableAppearanceObject46, serializableAppearanceObject47, serializableAppearanceObject48, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTStokSec.Size = new System.Drawing.Size(169, 22);
             this.BTStokSec.TabIndex = 3;
+           
+            this.BTStokSec.Click += new System.EventHandler(this.BTStokSec_Leave);
             // 
             // BTKategoriSec
             // 
@@ -1734,6 +1714,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions14, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject53, serializableAppearanceObject54, serializableAppearanceObject55, serializableAppearanceObject56, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTMarkaSec.Size = new System.Drawing.Size(169, 22);
             this.BTMarkaSec.TabIndex = 4;
+            this.BTMarkaSec.EditValueChanged += new System.EventHandler(this.BTMarkaSec_EditValueChanged);
             // 
             // LBKasa
             // 
@@ -1844,10 +1825,8 @@
             this.GBOlcuBirimleri.ResumeLayout(false);
             this.GBOlcuBirimleriUstPanel.ResumeLayout(false);
             this.GBOlcuBirimleriUstPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CBBirim1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TBKatsayi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBBirim.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBKatsayi.Properties)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.GBStokKartiSayisalAciklama.ResumeLayout(false);
@@ -2012,8 +1991,6 @@
         private DevExpress.XtraEditors.TextEdit TBAFiyat2;
         private DevExpress.XtraEditors.TextEdit TBAFiyat1;
         private DevExpress.XtraEditors.TextEdit TBKatsayi;
-        private DevExpress.XtraEditors.GridLookUpEdit CBBirim;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
         private DevExpress.XtraEditors.TextEdit TBAciklama1;
         private DevExpress.XtraEditors.TextEdit TBAciklama9;
         private DevExpress.XtraEditors.TextEdit TBAciklama8;
@@ -2044,6 +2021,6 @@
         private DevExpress.XtraEditors.ButtonEdit BTRaporSec1;
         private DevExpress.XtraEditors.LookUpEdit CBSDoviz;
         private DevExpress.XtraEditors.LookUpEdit CBADoviz;
-        private DevExpress.XtraEditors.LookUpEdit CBBirim1;
+        private DevExpress.XtraEditors.LookUpEdit CBBirim;
     }
 }

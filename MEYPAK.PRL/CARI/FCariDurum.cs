@@ -22,10 +22,7 @@ namespace MEYPAK.PRL.CARI
         }
         GenericWebServis<PocoCARIKART> _cariKart;
 
-        private void GCCariDurum_Click(object sender, EventArgs e)
-        {
-          
-        }
+       
 
         private void FCariDurum_Load(object sender, EventArgs e)
         {
@@ -34,7 +31,7 @@ namespace MEYPAK.PRL.CARI
          //   gridLookUpEdit1.Properties.DataSource = _stok.obje.Select(x => x.adi);
         }
 
-        private void LBCariKodu_Click(object sender, EventArgs e)
+        private void BTCariKoduSec_Click(object sender, EventArgs e)
         {
 
         }

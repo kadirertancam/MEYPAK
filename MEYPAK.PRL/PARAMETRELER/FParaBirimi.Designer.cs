@@ -34,12 +34,12 @@
             this.GCParaBirimi = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            this.LBParaBirimi = new DevExpress.XtraEditors.LabelControl();
-            this.LBKisa = new DevExpress.XtraEditors.LabelControl();
-            this.TBParaBirimi = new DevExpress.XtraEditors.TextEdit();
-            this.TBKisa = new DevExpress.XtraEditors.TextEdit();
-            this.CBAktif = new DevExpress.XtraEditors.CheckEdit();
             this.BTKaydet = new DevExpress.XtraEditors.SimpleButton();
+            this.CBAktif = new DevExpress.XtraEditors.CheckEdit();
+            this.TBKisa = new DevExpress.XtraEditors.TextEdit();
+            this.TBParaBirimi = new DevExpress.XtraEditors.TextEdit();
+            this.LBKisa = new DevExpress.XtraEditors.LabelControl();
+            this.LBParaBirimi = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
@@ -48,9 +48,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TBParaBirimi.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TBKisa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBAktif.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBKisa.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBParaBirimi.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -103,35 +103,26 @@
             this.panelControl2.Size = new System.Drawing.Size(796, 96);
             this.panelControl2.TabIndex = 0;
             // 
-            // LBParaBirimi
+            // BTKaydet
             // 
-            this.LBParaBirimi.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBParaBirimi.Appearance.Options.UseFont = true;
-            this.LBParaBirimi.Location = new System.Drawing.Point(23, 16);
-            this.LBParaBirimi.Name = "LBParaBirimi";
-            this.LBParaBirimi.Size = new System.Drawing.Size(54, 14);
-            this.LBParaBirimi.TabIndex = 6;
-            this.LBParaBirimi.Text = "Para Birimi";
+            this.BTKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTKaydet.Appearance.Options.UseBackColor = true;
+            this.BTKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTKaydet.ImageOptions.Image")));
+            this.BTKaydet.Location = new System.Drawing.Point(305, 14);
+            this.BTKaydet.Name = "BTKaydet";
+            this.BTKaydet.Size = new System.Drawing.Size(94, 52);
+            this.BTKaydet.TabIndex = 75;
+            this.BTKaydet.Text = "Kaydet";
             // 
-            // LBKisa
+            // CBAktif
             // 
-            this.LBKisa.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBKisa.Appearance.Options.UseFont = true;
-            this.LBKisa.Location = new System.Drawing.Point(57, 48);
-            this.LBKisa.Name = "LBKisa";
-            this.LBKisa.Size = new System.Drawing.Size(20, 14);
-            this.LBKisa.TabIndex = 7;
-            this.LBKisa.Text = "Kısa";
-            // 
-            // TBParaBirimi
-            // 
-            this.TBParaBirimi.Location = new System.Drawing.Point(83, 10);
-            this.TBParaBirimi.Name = "TBParaBirimi";
-            this.TBParaBirimi.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TBParaBirimi.Properties.Appearance.Options.UseFont = true;
-            this.TBParaBirimi.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.TBParaBirimi.Size = new System.Drawing.Size(194, 26);
-            this.TBParaBirimi.TabIndex = 20;
+            this.CBAktif.Location = new System.Drawing.Point(92, 74);
+            this.CBAktif.Name = "CBAktif";
+            this.CBAktif.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CBAktif.Properties.Appearance.Options.UseFont = true;
+            this.CBAktif.Properties.Caption = "Aktif";
+            this.CBAktif.Size = new System.Drawing.Size(75, 20);
+            this.CBAktif.TabIndex = 22;
             // 
             // TBKisa
             // 
@@ -143,26 +134,35 @@
             this.TBKisa.Size = new System.Drawing.Size(194, 26);
             this.TBKisa.TabIndex = 21;
             // 
-            // CBAktif
+            // TBParaBirimi
             // 
-            this.CBAktif.Location = new System.Drawing.Point(92, 74);
-            this.CBAktif.Name = "CBAktif";
-            this.CBAktif.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CBAktif.Properties.Appearance.Options.UseFont = true;
-            this.CBAktif.Properties.Caption = "Aktif";
-            this.CBAktif.Size = new System.Drawing.Size(75, 20);
-            this.CBAktif.TabIndex = 22;
+            this.TBParaBirimi.Location = new System.Drawing.Point(83, 10);
+            this.TBParaBirimi.Name = "TBParaBirimi";
+            this.TBParaBirimi.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TBParaBirimi.Properties.Appearance.Options.UseFont = true;
+            this.TBParaBirimi.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.TBParaBirimi.Size = new System.Drawing.Size(194, 26);
+            this.TBParaBirimi.TabIndex = 20;
             // 
-            // BTKaydet
+            // LBKisa
             // 
-            this.BTKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.BTKaydet.Appearance.Options.UseBackColor = true;
-            this.BTKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTStokHarKaydet.ImageOptions.Image")));
-            this.BTKaydet.Location = new System.Drawing.Point(305, 14);
-            this.BTKaydet.Name = "BTKaydet";
-            this.BTKaydet.Size = new System.Drawing.Size(94, 52);
-            this.BTKaydet.TabIndex = 75;
-            this.BTKaydet.Text = "Kaydet";
+            this.LBKisa.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBKisa.Appearance.Options.UseFont = true;
+            this.LBKisa.Location = new System.Drawing.Point(57, 48);
+            this.LBKisa.Name = "LBKisa";
+            this.LBKisa.Size = new System.Drawing.Size(20, 13);
+            this.LBKisa.TabIndex = 7;
+            this.LBKisa.Text = "Kısa";
+            // 
+            // LBParaBirimi
+            // 
+            this.LBParaBirimi.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBParaBirimi.Appearance.Options.UseFont = true;
+            this.LBParaBirimi.Location = new System.Drawing.Point(23, 16);
+            this.LBParaBirimi.Name = "LBParaBirimi";
+            this.LBParaBirimi.Size = new System.Drawing.Size(53, 13);
+            this.LBParaBirimi.TabIndex = 6;
+            this.LBParaBirimi.Text = "Para Birimi";
             // 
             // FParaBirimi
             // 
@@ -181,9 +181,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             this.panelControl2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TBParaBirimi.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TBKisa.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBAktif.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBKisa.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBParaBirimi.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

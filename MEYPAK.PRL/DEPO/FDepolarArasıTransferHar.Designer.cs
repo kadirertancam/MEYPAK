@@ -258,12 +258,12 @@
             // 
             // TBCikisDepo
             // 
-            this.TBCikisDepo.Location = new System.Drawing.Point(128, 33);
+            this.TBCikisDepo.Location = new System.Drawing.Point(128, 32);
             this.TBCikisDepo.Name = "TBCikisDepo";
             this.TBCikisDepo.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TBCikisDepo.Properties.Appearance.Options.UseFont = true;
             this.TBCikisDepo.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.TBCikisDepo.Size = new System.Drawing.Size(194, 26);
+            this.TBCikisDepo.Size = new System.Drawing.Size(165, 26);
             this.TBCikisDepo.TabIndex = 57;
             // 
             // TBAciklama
@@ -276,71 +276,71 @@
             // 
             // LBTransferHarBirim
             // 
-            this.LBTransferHarBirim.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBTransferHarBirim.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBTransferHarBirim.Appearance.Options.UseFont = true;
-            this.LBTransferHarBirim.Location = new System.Drawing.Point(404, 71);
+            this.LBTransferHarBirim.Location = new System.Drawing.Point(371, 67);
             this.LBTransferHarBirim.Name = "LBTransferHarBirim";
-            this.LBTransferHarBirim.Size = new System.Drawing.Size(25, 14);
+            this.LBTransferHarBirim.Size = new System.Drawing.Size(25, 13);
             this.LBTransferHarBirim.TabIndex = 45;
             this.LBTransferHarBirim.Text = "Birim";
             // 
             // LBTransferHarAciklama
             // 
-            this.LBTransferHarAciklama.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBTransferHarAciklama.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBTransferHarAciklama.Appearance.Options.UseFont = true;
-            this.LBTransferHarAciklama.Location = new System.Drawing.Point(383, 136);
+            this.LBTransferHarAciklama.Location = new System.Drawing.Point(351, 120);
             this.LBTransferHarAciklama.Name = "LBTransferHarAciklama";
-            this.LBTransferHarAciklama.Size = new System.Drawing.Size(46, 14);
+            this.LBTransferHarAciklama.Size = new System.Drawing.Size(45, 13);
             this.LBTransferHarAciklama.TabIndex = 44;
             this.LBTransferHarAciklama.Text = "Açıklama";
             // 
             // LBTransferHarMiktar
             // 
-            this.LBTransferHarMiktar.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBTransferHarMiktar.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBTransferHarMiktar.Appearance.Options.UseFont = true;
-            this.LBTransferHarMiktar.Location = new System.Drawing.Point(397, 105);
+            this.LBTransferHarMiktar.Location = new System.Drawing.Point(363, 95);
             this.LBTransferHarMiktar.Name = "LBTransferHarMiktar";
-            this.LBTransferHarMiktar.Size = new System.Drawing.Size(32, 14);
+            this.LBTransferHarMiktar.Size = new System.Drawing.Size(33, 13);
             this.LBTransferHarMiktar.TabIndex = 43;
             this.LBTransferHarMiktar.Text = "Miktar";
             // 
             // LBTransferStok
             // 
-            this.LBTransferStok.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBTransferStok.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBTransferStok.Appearance.Options.UseFont = true;
-            this.LBTransferStok.Location = new System.Drawing.Point(403, 39);
+            this.LBTransferStok.Location = new System.Drawing.Point(373, 39);
             this.LBTransferStok.Name = "LBTransferStok";
-            this.LBTransferStok.Size = new System.Drawing.Size(26, 14);
+            this.LBTransferStok.Size = new System.Drawing.Size(23, 13);
             this.LBTransferStok.TabIndex = 42;
             this.LBTransferStok.Text = "Stok";
             // 
             // LBTransferHarHedefDepo
             // 
-            this.LBTransferHarHedefDepo.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBTransferHarHedefDepo.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBTransferHarHedefDepo.Appearance.Options.UseFont = true;
-            this.LBTransferHarHedefDepo.Location = new System.Drawing.Point(47, 71);
+            this.LBTransferHarHedefDepo.Location = new System.Drawing.Point(51, 67);
             this.LBTransferHarHedefDepo.Name = "LBTransferHarHedefDepo";
-            this.LBTransferHarHedefDepo.Size = new System.Drawing.Size(66, 14);
+            this.LBTransferHarHedefDepo.Size = new System.Drawing.Size(62, 13);
             this.LBTransferHarHedefDepo.TabIndex = 41;
             this.LBTransferHarHedefDepo.Text = "Hedef Depo";
             // 
             // LBOlusturmaTar
             // 
-            this.LBOlusturmaTar.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBOlusturmaTar.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBOlusturmaTar.Appearance.Options.UseFont = true;
-            this.LBOlusturmaTar.Location = new System.Drawing.Point(32, 141);
+            this.LBOlusturmaTar.Location = new System.Drawing.Point(37, 120);
             this.LBOlusturmaTar.Name = "LBOlusturmaTar";
-            this.LBOlusturmaTar.Size = new System.Drawing.Size(81, 14);
+            this.LBOlusturmaTar.Size = new System.Drawing.Size(76, 13);
             this.LBOlusturmaTar.TabIndex = 40;
             this.LBOlusturmaTar.Text = "Oluşturma Tar.";
             // 
             // LBTransferHarDurum
             // 
-            this.LBTransferHarDurum.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBTransferHarDurum.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBTransferHarDurum.Appearance.Options.UseFont = true;
-            this.LBTransferHarDurum.Location = new System.Drawing.Point(77, 105);
+            this.LBTransferHarDurum.Location = new System.Drawing.Point(78, 95);
             this.LBTransferHarDurum.Name = "LBTransferHarDurum";
-            this.LBTransferHarDurum.Size = new System.Drawing.Size(36, 14);
+            this.LBTransferHarDurum.Size = new System.Drawing.Size(35, 13);
             this.LBTransferHarDurum.TabIndex = 39;
             this.LBTransferHarDurum.Text = "Durum";
             // 
@@ -355,11 +355,11 @@
             // 
             // LBTransferHarCikisDepo
             // 
-            this.LBTransferHarCikisDepo.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBTransferHarCikisDepo.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBTransferHarCikisDepo.Appearance.Options.UseFont = true;
             this.LBTransferHarCikisDepo.Location = new System.Drawing.Point(58, 39);
             this.LBTransferHarCikisDepo.Name = "LBTransferHarCikisDepo";
-            this.LBTransferHarCikisDepo.Size = new System.Drawing.Size(55, 14);
+            this.LBTransferHarCikisDepo.Size = new System.Drawing.Size(55, 13);
             this.LBTransferHarCikisDepo.TabIndex = 33;
             this.LBTransferHarCikisDepo.Text = "Çıkış Depo";
             // 

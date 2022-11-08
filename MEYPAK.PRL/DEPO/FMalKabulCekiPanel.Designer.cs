@@ -87,7 +87,7 @@
             this.BTDokumanlarKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
             this.BTDokumanlarKaydet.Appearance.Options.UseBackColor = true;
             this.BTDokumanlarKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTDokumanlarKaydet.ImageOptions.Image")));
-            this.BTDokumanlarKaydet.Location = new System.Drawing.Point(807, 14);
+            this.BTDokumanlarKaydet.Location = new System.Drawing.Point(796, 20);
             this.BTDokumanlarKaydet.Name = "BTDokumanlarKaydet";
             this.BTDokumanlarKaydet.Size = new System.Drawing.Size(117, 57);
             this.BTDokumanlarKaydet.TabIndex = 61;

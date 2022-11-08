@@ -33,19 +33,20 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.DGMarkaKart = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.BTMarkaKartSil = new DevExpress.XtraEditors.SimpleButton();
-            this.BTMarkaKartKaydet = new DevExpress.XtraEditors.SimpleButton();
+            this.BTSil = new DevExpress.XtraEditors.SimpleButton();
+            this.BTKaydet = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.TBMarkaAdi = new DevExpress.XtraEditors.TextEdit();
-            this.LBMarkaAciklama = new DevExpress.XtraEditors.LabelControl();
+            this.LBAciklama = new DevExpress.XtraEditors.LabelControl();
             this.LBMarkaAdi = new DevExpress.XtraEditors.LabelControl();
-            this.TBAciklama = new System.Windows.Forms.TextBox();
+            this.TBMarkaAdi = new DevExpress.XtraEditors.TextEdit();
+            this.TBAciklama = new DevExpress.XtraEditors.MemoEdit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGMarkaKart)).BeginInit();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TBMarkaAdi.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBAciklama.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -81,8 +82,8 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.BTMarkaKartSil);
-            this.panel2.Controls.Add(this.BTMarkaKartKaydet);
+            this.panel2.Controls.Add(this.BTSil);
+            this.panel2.Controls.Add(this.BTKaydet);
             this.panel2.Controls.Add(this.groupBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
@@ -90,77 +91,76 @@
             this.panel2.Size = new System.Drawing.Size(796, 152);
             this.panel2.TabIndex = 0;
             // 
-            // BTMarkaKartSil
+            // BTSil
             // 
-            this.BTMarkaKartSil.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.BTMarkaKartSil.Appearance.Options.UseBackColor = true;
-            this.BTMarkaKartSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTMarkaKartSil.ImageOptions.Image")));
-            this.BTMarkaKartSil.Location = new System.Drawing.Point(687, 88);
-            this.BTMarkaKartSil.Name = "BTMarkaKartSil";
-            this.BTMarkaKartSil.Size = new System.Drawing.Size(94, 52);
-            this.BTMarkaKartSil.TabIndex = 80;
-            this.BTMarkaKartSil.Text = "Sil";
+            this.BTSil.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTSil.Appearance.Options.UseBackColor = true;
+            this.BTSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTMarkaKartSil.ImageOptions.Image")));
+            this.BTSil.Location = new System.Drawing.Point(687, 88);
+            this.BTSil.Name = "BTSil";
+            this.BTSil.Size = new System.Drawing.Size(94, 52);
+            this.BTSil.TabIndex = 80;
+            this.BTSil.Text = "Sil";
+            this.BTSil.Click += new System.EventHandler(this.BTSil_Click);
             // 
-            // BTMarkaKartKaydet
+            // BTKaydet
             // 
-            this.BTMarkaKartKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.BTMarkaKartKaydet.Appearance.Options.UseBackColor = true;
-            this.BTMarkaKartKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTMarkaKartKaydet.ImageOptions.Image")));
-            this.BTMarkaKartKaydet.Location = new System.Drawing.Point(587, 88);
-            this.BTMarkaKartKaydet.Name = "BTMarkaKartKaydet";
-            this.BTMarkaKartKaydet.Size = new System.Drawing.Size(94, 52);
-            this.BTMarkaKartKaydet.TabIndex = 79;
-            this.BTMarkaKartKaydet.Text = "Kaydet";
+            this.BTKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTKaydet.Appearance.Options.UseBackColor = true;
+            this.BTKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTMarkaKartKaydet.ImageOptions.Image")));
+            this.BTKaydet.Location = new System.Drawing.Point(587, 88);
+            this.BTKaydet.Name = "BTKaydet";
+            this.BTKaydet.Size = new System.Drawing.Size(94, 52);
+            this.BTKaydet.TabIndex = 79;
+            this.BTKaydet.Text = "Kaydet";
+            this.BTKaydet.Click += new System.EventHandler(this.BTKaydet_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.TBMarkaAdi);
-            this.groupBox1.Controls.Add(this.LBMarkaAciklama);
-            this.groupBox1.Controls.Add(this.LBMarkaAdi);
             this.groupBox1.Controls.Add(this.TBAciklama);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Controls.Add(this.TBMarkaAdi);
+            this.groupBox1.Controls.Add(this.LBAciklama);
+            this.groupBox1.Controls.Add(this.LBMarkaAdi);
+            this.groupBox1.Location = new System.Drawing.Point(12, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(320, 134);
+            this.groupBox1.Size = new System.Drawing.Size(333, 140);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Genel";
             // 
-            // TBMarkaAdi
+            // LBAciklama
             // 
-            this.TBMarkaAdi.Enabled = false;
-            this.TBMarkaAdi.Location = new System.Drawing.Point(93, 21);
-            this.TBMarkaAdi.Name = "TBMarkaAdi";
-            this.TBMarkaAdi.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.TBMarkaAdi.Size = new System.Drawing.Size(206, 26);
-            this.TBMarkaAdi.TabIndex = 81;
-            // 
-            // LBMarkaAciklama
-            // 
-            this.LBMarkaAciklama.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBMarkaAciklama.Appearance.Options.UseFont = true;
-            this.LBMarkaAciklama.Location = new System.Drawing.Point(41, 52);
-            this.LBMarkaAciklama.Name = "LBMarkaAciklama";
-            this.LBMarkaAciklama.Size = new System.Drawing.Size(46, 14);
-            this.LBMarkaAciklama.TabIndex = 13;
-            this.LBMarkaAciklama.Text = "Açıklama";
+            this.LBAciklama.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBAciklama.Appearance.Options.UseFont = true;
+            this.LBAciklama.Location = new System.Drawing.Point(31, 52);
+            this.LBAciklama.Name = "LBAciklama";
+            this.LBAciklama.Size = new System.Drawing.Size(45, 13);
+            this.LBAciklama.TabIndex = 13;
+            this.LBAciklama.Text = "Açıklama";
             // 
             // LBMarkaAdi
             // 
-            this.LBMarkaAdi.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBMarkaAdi.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBMarkaAdi.Appearance.Options.UseFont = true;
-            this.LBMarkaAdi.Location = new System.Drawing.Point(35, 26);
+            this.LBMarkaAdi.Location = new System.Drawing.Point(24, 27);
             this.LBMarkaAdi.Name = "LBMarkaAdi";
-            this.LBMarkaAdi.Size = new System.Drawing.Size(52, 14);
+            this.LBMarkaAdi.Size = new System.Drawing.Size(52, 13);
             this.LBMarkaAdi.TabIndex = 12;
             this.LBMarkaAdi.Text = "Marka Adı";
             // 
+            // TBMarkaAdi
+            // 
+            this.TBMarkaAdi.Location = new System.Drawing.Point(93, 24);
+            this.TBMarkaAdi.Name = "TBMarkaAdi";
+            this.TBMarkaAdi.Size = new System.Drawing.Size(163, 20);
+            this.TBMarkaAdi.TabIndex = 81;
+            // 
             // TBAciklama
             // 
-            this.TBAciklama.Location = new System.Drawing.Point(93, 52);
-            this.TBAciklama.Multiline = true;
+            this.TBAciklama.Location = new System.Drawing.Point(93, 51);
             this.TBAciklama.Name = "TBAciklama";
-            this.TBAciklama.Size = new System.Drawing.Size(206, 76);
-            this.TBAciklama.TabIndex = 3;
+            this.TBAciklama.Size = new System.Drawing.Size(163, 77);
+            this.TBAciklama.TabIndex = 81;
             // 
             // FMarkaKart
             // 
@@ -178,6 +178,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TBMarkaAdi.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBAciklama.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -187,13 +188,13 @@
         private Panel panel1;
         private Panel panel3;
         private Panel panel2;
-        private TextBox TBAciklama;
         private DataGridView DGMarkaKart;
         private GroupBox groupBox1;
         private DevExpress.XtraEditors.LabelControl LBMarkaAdi;
-        private DevExpress.XtraEditors.LabelControl LBMarkaAciklama;
-        private DevExpress.XtraEditors.SimpleButton BTMarkaKartSil;
-        private DevExpress.XtraEditors.SimpleButton BTMarkaKartKaydet;
+        private DevExpress.XtraEditors.LabelControl LBAciklama;
+        private DevExpress.XtraEditors.SimpleButton BTSil;
+        private DevExpress.XtraEditors.SimpleButton BTKaydet;
         private DevExpress.XtraEditors.TextEdit TBMarkaAdi;
+        private DevExpress.XtraEditors.MemoEdit TBAciklama;
     }
 }
