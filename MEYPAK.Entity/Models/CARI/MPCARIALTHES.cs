@@ -1,0 +1,22 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace MEYPAK.Entity.Models.CARI
+{
+    public class MPCARIALTHES:SUPERMODEL
+    {
+        public MPCARIALTHES() { }
+
+        [StringLength(200)]
+        public string ADI { get; set; }
+        [DefaultValue(0)]
+        public int DOVIZID { get; set; } = 0;
+        public byte AKTIF { get; set; }
+
+    }
+}

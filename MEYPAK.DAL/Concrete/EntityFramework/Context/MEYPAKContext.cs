@@ -27,6 +27,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
        
 
         public DbSet<MPCARIHAR> MPCARIHAR { get; set; }
+        public DbSet<MPCARIALTHES> MPCARIALTHES { get; set; }
         public DbSet<MPCARIKART> MPCARIKART { get; set; }
         public DbSet<MPSTOKSEVKİYATLİST> MPSTOKSEVKİYATLİST { get; set; }
         public DbSet<MPSIPARISSEVKEMRIHAR> MPSIPARISSEVKEMRIHAR { get; set; }
