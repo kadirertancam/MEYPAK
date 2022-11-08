@@ -15,6 +15,7 @@ namespace MEYPAK.Entity.Models.CARI
         [StringLength(200)]
         public string ADI { get; set; }
         [DefaultValue(0)]
+        public string KOD { get; set; }
         public int DOVIZID { get; set; } = 0;
         public byte AKTIF { get; set; }
 
