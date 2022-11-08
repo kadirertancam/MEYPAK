@@ -5,6 +5,12 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="wwwroot\Template_Ven\**" />
+    <Content Remove="wwwroot\Template_Ven\**" />
+    <EmbeddedResource Remove="wwwroot\Template_Ven\**" />
+    <None Remove="wwwroot\Template_Ven\**" />
+  </ItemGroup>
+  <ItemGroup>
     <Compile Remove="Models\NinjectFactory.cs" />
     <Compile Remove="Models\PocoStokListTemp.cs" />
     <Compile Remove="Models\staticContext.cs" />
@@ -118,7 +124,20 @@
     <None Include="wwwroot\Index\scss\bootstrap\scss\_utilities.scss" />
     <None Include="wwwroot\Index\scss\bootstrap\scss\_variables.scss" />
     <None Include="wwwroot\Index\scss\style.scss" />
-    <None Include="wwwroot\Template_Ven\jquery-validation-unobtrusive\.vsts-pipelines\builds\ci-public.yml" />
+    <None Include="wwwroot\Login\css\bootstrap.css.map" />
+    <None Include="wwwroot\Login\css\bootstrap.min.css.map" />
+    <None Include="wwwroot\Login\css\font-awesome.css.map" />
+    <None Include="wwwroot\Login\css\style.css.map" />
+    <None Include="wwwroot\Login\js\bootstrap.js" />
+    <None Include="wwwroot\Login\js\bootstrap.js.map" />
+    <None Include="wwwroot\Login\js\bootstrap.min.js" />
+    <None Include="wwwroot\Login\js\bootstrap.min.js.map" />
+    <None Include="wwwroot\Login\js\jquery.js" />
+    <None Include="wwwroot\Login\js\jquery.min.js" />
+    <None Include="wwwroot\Login\js\jquery.min.map" />
+    <None Include="wwwroot\Login\js\main.js" />
+    <None Include="wwwroot\Login\js\popper.min.js" />
+    <None Include="wwwroot\Login\js\popper.min.js.map" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="DevExpress.Reporting.Core" Version="22.1.3" />
