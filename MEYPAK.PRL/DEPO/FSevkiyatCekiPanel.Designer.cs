@@ -32,16 +32,18 @@
             this.LBStokKodu = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.BTKaydet = new DevExpress.XtraEditors.SimpleButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.BTSevkiyatCeki = new DevExpress.XtraEditors.SimpleButton();
-            this.BTKaydet = new DevExpress.XtraEditors.SimpleButton();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -70,7 +72,7 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.dataGridView1);
+            this.panel3.Controls.Add(this.gridControl1);
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 167);
@@ -78,16 +80,40 @@
             this.panel3.Size = new System.Drawing.Size(840, 514);
             this.panel3.TabIndex = 3;
             // 
-            // dataGridView1
+            // gridControl1
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(840, 455);
-            this.dataGridView1.TabIndex = 2;
+            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl1.Location = new System.Drawing.Point(0, 0);
+            this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Name = "gridControl1";
+            this.gridControl1.Size = new System.Drawing.Size(840, 455);
+            this.gridControl1.TabIndex = 2;
+            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
+            // gridView1
+            // 
+            this.gridView1.Appearance.Empty.BackColor = System.Drawing.Color.DimGray;
+            this.gridView1.Appearance.Empty.Options.UseBackColor = true;
+            this.gridView1.Appearance.FixedLine.BackColor = System.Drawing.Color.DimGray;
+            this.gridView1.Appearance.FixedLine.BackColor2 = System.Drawing.Color.DimGray;
+            this.gridView1.Appearance.FixedLine.BorderColor = System.Drawing.Color.DimGray;
+            this.gridView1.Appearance.FixedLine.Options.UseBackColor = true;
+            this.gridView1.Appearance.FixedLine.Options.UseBorderColor = true;
+            this.gridView1.Appearance.GroupPanel.BackColor = System.Drawing.Color.DimGray;
+            this.gridView1.Appearance.GroupPanel.BackColor2 = System.Drawing.Color.DimGray;
+            this.gridView1.Appearance.GroupPanel.BorderColor = System.Drawing.Color.DimGray;
+            this.gridView1.Appearance.GroupPanel.Options.UseBackColor = true;
+            this.gridView1.Appearance.GroupPanel.Options.UseBorderColor = true;
+            this.gridView1.Appearance.GroupRow.BackColor = System.Drawing.Color.DimGray;
+            this.gridView1.Appearance.GroupRow.Options.UseBackColor = true;
+            this.gridView1.Appearance.HeaderPanel.BackColor = System.Drawing.Color.DimGray;
+            this.gridView1.Appearance.HeaderPanel.BackColor2 = System.Drawing.Color.DimGray;
+            this.gridView1.Appearance.HeaderPanel.BorderColor = System.Drawing.Color.DimGray;
+            this.gridView1.Appearance.HeaderPanel.Options.UseBackColor = true;
+            this.gridView1.Appearance.HeaderPanel.Options.UseBorderColor = true;
+            this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.Name = "gridView1";
             // 
             // panel4
             // 
@@ -97,6 +123,18 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(840, 59);
             this.panel4.TabIndex = 1;
+            // 
+            // BTKaydet
+            // 
+            this.BTKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTKaydet.Appearance.Options.UseBackColor = true;
+            this.BTKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTKaydet.ImageOptions.Image")));
+            this.BTKaydet.Location = new System.Drawing.Point(720, 2);
+            this.BTKaydet.Name = "BTKaydet";
+            this.BTKaydet.Size = new System.Drawing.Size(117, 57);
+            this.BTKaydet.TabIndex = 62;
+            this.BTKaydet.Text = "Kaydet";
+            this.BTKaydet.Click += new System.EventHandler(this.BTKaydet_Click);
             // 
             // panel2
             // 
@@ -119,6 +157,17 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
+            // BTSevkiyatCeki
+            // 
+            this.BTSevkiyatCeki.Appearance.BackColor = System.Drawing.Color.Silver;
+            this.BTSevkiyatCeki.Appearance.Options.UseBackColor = true;
+            this.BTSevkiyatCeki.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BTSevkiyatCeki.BackgroundImage")));
+            this.BTSevkiyatCeki.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTSevkiyatCeki.ImageOptions.Image")));
+            this.BTSevkiyatCeki.Location = new System.Drawing.Point(505, 48);
+            this.BTSevkiyatCeki.Name = "BTSevkiyatCeki";
+            this.BTSevkiyatCeki.Size = new System.Drawing.Size(73, 73);
+            this.BTSevkiyatCeki.TabIndex = 7;
+            // 
             // comboBox1
             // 
             this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -128,28 +177,6 @@
             this.comboBox1.Size = new System.Drawing.Size(311, 36);
             this.comboBox1.TabIndex = 3;
             this.comboBox1.TextChanged += new System.EventHandler(this.comboBox1_TextChanged);
-            // 
-            // BTSevkiyatCeki
-            // 
-            this.BTSevkiyatCeki.Appearance.BackColor = System.Drawing.Color.Silver;
-            this.BTSevkiyatCeki.Appearance.Options.UseBackColor = true;
-            this.BTSevkiyatCeki.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BTSevkiyatCeki.BackgroundImage")));
-            this.BTSevkiyatCeki.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTMalKabulCeki.ImageOptions.Image")));
-            this.BTSevkiyatCeki.Location = new System.Drawing.Point(505, 48);
-            this.BTSevkiyatCeki.Name = "BTSevkiyatCeki";
-            this.BTSevkiyatCeki.Size = new System.Drawing.Size(73, 73);
-            this.BTSevkiyatCeki.TabIndex = 7;
-            // 
-            // BTKaydet
-            // 
-            this.BTKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.BTKaydet.Appearance.Options.UseBackColor = true;
-            this.BTKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTDokumanlarKaydet.ImageOptions.Image")));
-            this.BTKaydet.Location = new System.Drawing.Point(720, 2);
-            this.BTKaydet.Name = "BTKaydet";
-            this.BTKaydet.Size = new System.Drawing.Size(117, 57);
-            this.BTKaydet.TabIndex = 62;
-            this.BTKaydet.Text = "Kaydet";
             // 
             // FSevkiyatCekiPanel
             // 
@@ -163,7 +190,8 @@
             this.Load += new System.EventHandler(this.FSevkiyatCekiPanel_Load);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
@@ -181,8 +209,9 @@
         private GroupBox groupBox1;
         private ComboBox comboBox1;
         private Panel panel4;
-        public DataGridView dataGridView1;
         private DevExpress.XtraEditors.SimpleButton BTSevkiyatCeki;
         private DevExpress.XtraEditors.SimpleButton BTKaydet;
+        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
     }
 }

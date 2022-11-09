@@ -4,11 +4,14 @@ using MEYPAK.BLL.STOK;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository;
 using MEYPAK.Entity.Models.DEPO;
+using MEYPAK.Entity.Models.SIPARIS;
 using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Entity.PocoModels;
 using MEYPAK.Entity.PocoModels.DEPO;
+using MEYPAK.Entity.PocoModels.SIPARIS;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Depo;
+using MEYPAK.Interfaces.Siparis;
 using MEYPAK.Interfaces.Stok;
 using MEYPAK.PRL.Assets;
 using MEYPAK.PRL.Assets.Scripts;
@@ -35,11 +38,20 @@ namespace MEYPAK.PRL.DEPO
             _tempPocoStok.Data(ServisList.StokListeServis);
             _tempStok = _tempPocoStok.obje;
             _stokServis = new GenericWebServis<PocoSTOK>();
+            _olcuBrServis = new GenericWebServis<PocoOLCUBR>();
+            _depoServis = new GenericWebServis<PocoDEPO>();
+            _siparisDetayServis = new GenericWebServis<PocoSIPARISDETAY>();
+            _siparisSevkEmriHar = new GenericWebServis<PocoSIPARISSEVKEMIRHAR>();
+            _stokSevkiyatListServis = new GenericWebServis<PocoSTOKSEVKIYATLIST>();
 
 
         } 
-        GenericWebServis<PocoStokSevkiyatList> _stokSevkiyatListServis;
+        GenericWebServis<PocoSTOKSEVKIYATLIST> _stokSevkiyatListServis;
         GenericWebServis<PocoSTOK> _stokServis;
+        GenericWebServis<PocoOLCUBR> _olcuBrServis;
+        GenericWebServis<PocoDEPO> _depoServis;
+        GenericWebServis<PocoSIPARISDETAY> _siparisDetayServis;
+        GenericWebServis<PocoSIPARISSEVKEMIRHAR> _siparisSevkEmriHar;
         List<PocoSTOK> _tempStok;
         PocoSTOK _Stok;
         public PocoDEPOEMIR _tempEmir;
@@ -96,8 +108,10 @@ namespace MEYPAK.PRL.DEPO
         private void FSevkiyatCekiPanel_Load(object sender, EventArgs e)
         {
             _stokServis.Data(ServisList.StokListeServis);
+            _olcuBrServis.Data(ServisList.OlcuBrListeServis);
             // _tempList.Add(new PocoStokSevkiyatList());
-            dataGridView1.DataSource = _tempList.Select(x => new PocoStokSevkiyatList { StokKodu = _stokServis.obje.Where(z=>x.stokid==z.id).FirstOrDefault().kod, StokAdı = _stokServis.obje.Where(z => x.stokid == z.id).FirstOrDefault().adi, Birim = "0" }).ToList();
+            gridControl1.DataSource = 
+                _tempList.Select(x => new CekiPanelList { StokKodu = _stokServis.obje.Where(z=>x.stokid==z.id).FirstOrDefault().kod, StokAdı = _stokServis.obje.Where(z => x.stokid == z.id).FirstOrDefault().adi, Birim = _olcuBrServis.obje.Where(z=>z.id==x.birimid).FirstOrDefault().adi,Miktar=0 });
             comboBox1.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             comboBox1.AutoCompleteSource = AutoCompleteSource.ListItems;
             comboBox1.DisplayMember = "KOD";
@@ -117,29 +131,35 @@ namespace MEYPAK.PRL.DEPO
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //List<PocoStokSevkiyatList> aaa = (List<PocoStokSevkiyatList>) dataGridView1.DataSource;
-            //int _id;
-            //foreach (var item in aaa)
-            //{
-            //    _id = StaticContext._stokServis.Getir(x => x.KOD == item.StokKodu).FirstOrDefault().ID;
-            //    StaticContext._stokSevkiyatListServis.OnYukle();
-            //    StaticContext._stokSevkiyatListServis.EkleyadaGuncelle(new PocoSTOKSEVKIYATLIST()
-            //    {
-
-            //        STOKID =_id,
-            //        EMIRID = _tempEmir.ID,
-            //        BIRIMID = StaticContext._siparisDetayServis.Getir(x=>x.SIPARISID==_tempEmir.SIPARISID && x.STOKID==_id).FirstOrDefault().BIRIMID,
-            //        MIKTAR = item.Miktar,
-            //        DEPOID = _tempEmir.MPSIPARIS.DEPOID,
-            //        SIRKETID = 0,
-            //        SIPARISMIKTARI = _tempEmir.MPSIPARIS.MPSIPARISDETAYList.Where(x => x.STOKID == _id).Sum(x => x.MIKTAR),
-            //        SIPARISDETAYID=_tempList.Where(x=>x.MPSIPARISDETAY.STOKID==_id && x.EMIRID==_tempEmir.ID ).FirstOrDefault().MPSIPARISDETAY.ID,
-            //        SUBEID=0,
-            //        KULLANICIID=0,SEVKEMRIHARID= _tempEmir.MPSIPARISSEVKEMRIHAR.Where(x => x.MPSIPARISDETAY.STOKID.ToString() == _id.ToString() && x.EMIRID == _tempEmir.ID).FirstOrDefault().ID
-            //    });
-            //}
+         
         }
 
-       
+        private void BTKaydet_Click(object sender, EventArgs e)
+        {
+            _siparisDetayServis.Data(ServisList.SiparisDetayListeServis);
+            _siparisSevkEmriHar.Data(ServisList.SiparisSevkEmriHarListeServis);
+            IEnumerable<CekiPanelList> aaa = (IEnumerable<CekiPanelList>)gridControl1.DataSource;
+            int _id;
+            foreach (var item in aaa)
+            {
+                _id = _stokServis.obje.Where(x => x.kod == item.StokKodu).FirstOrDefault().id;
+                
+                _stokSevkiyatListServis.Data(ServisList.StokSevkiyatListEkleServis,new PocoSTOKSEVKIYATLIST()
+                {
+                    
+                    stokid = _id,
+                    emirid = _tempEmir.id,
+                    birimid = _siparisDetayServis.obje.Where(x => x.siparisid == _tempEmir.siparisid && x.stokid == _id).FirstOrDefault().birimid,
+                    miktar = item.Miktar,
+                    depoid = _tempEmir.depoid,
+                    sirketid = 0,
+                    siparismiktari = _siparisDetayServis.obje.Where(x=>x.siparisid==_tempEmir.siparisid && x.stokid.ToString()==_id.ToString()).Sum(x=>x.miktar),
+                    siparisdetayid = _tempList.Where(x => _siparisDetayServis.obje.Where(z=>x.siparisdetayid==z.id).FirstOrDefault().stokid == _id && x.emirid == _tempEmir.id).FirstOrDefault().siparisdetayid,
+                    subeid = 0,
+                    kullaniciid = 0,
+                    sevkemriharid = _siparisSevkEmriHar.obje.Where(x => x.emirid==_tempEmir.id &&  _siparisDetayServis.obje.Where(z=>x.sipariskalemid == z.id).FirstOrDefault().stokid.ToString() == _id.ToString() && x.emirid == _tempEmir.id).FirstOrDefault().id
+                });
+            }
+        }
     }
 }

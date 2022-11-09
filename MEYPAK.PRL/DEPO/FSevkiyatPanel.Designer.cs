@@ -28,17 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FSevkiyatPanel));
             this.repositoryItemPictureEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.gridControl4 = new DevExpress.XtraGrid.GridControl();
+            this.tileView4 = new DevExpress.XtraGrid.Views.Tile.TileView();
             this.panel6 = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.gridControl3 = new DevExpress.XtraGrid.GridControl();
@@ -52,6 +49,7 @@
             this.KalanMiktar = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.Birim = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.IEDepo = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.DepoButon = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -83,7 +81,8 @@
             this.panel3.SuspendLayout();
             this.panel7.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tileView4)).BeginInit();
             this.panel6.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).BeginInit();
@@ -132,70 +131,40 @@
             // 
             this.panel7.Controls.Add(this.groupBox4);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(784, 0);
+            this.panel7.Location = new System.Drawing.Point(964, 0);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(1121, 243);
+            this.panel7.Size = new System.Drawing.Size(941, 243);
             this.panel7.TabIndex = 1;
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.dataGridView4);
+            this.groupBox4.Controls.Add(this.gridControl4);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox4.ForeColor = System.Drawing.Color.Chocolate;
             this.groupBox4.Location = new System.Drawing.Point(0, 0);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(1121, 243);
+            this.groupBox4.Size = new System.Drawing.Size(941, 243);
             this.groupBox4.TabIndex = 2;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "groupBox4";
             // 
-            // dataGridView4
+            // gridControl4
             // 
-            this.dataGridView4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView4.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView4.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Chocolate;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.DarkGreen;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView4.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView4.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dataGridView4.Location = new System.Drawing.Point(3, 19);
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Green;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView4.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkGray;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Green;
-            this.dataGridView4.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridView4.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.Gray;
-            this.dataGridView4.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.White;
-            this.dataGridView4.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.DarkGray;
-            this.dataGridView4.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
-            this.dataGridView4.RowTemplate.Height = 25;
-            this.dataGridView4.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView4.Size = new System.Drawing.Size(1115, 221);
-            this.dataGridView4.TabIndex = 0;
+            this.gridControl4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl4.Location = new System.Drawing.Point(3, 19);
+            this.gridControl4.MainView = this.tileView4;
+            this.gridControl4.Name = "gridControl4";
+            this.gridControl4.Size = new System.Drawing.Size(935, 221);
+            this.gridControl4.TabIndex = 0;
+            this.gridControl4.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.tileView4});
+            // 
+            // tileView4
+            // 
+            this.tileView4.Appearance.EmptySpace.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.tileView4.Appearance.EmptySpace.Options.UseBackColor = true;
+            this.tileView4.GridControl = this.gridControl4;
+            this.tileView4.Name = "tileView4";
             // 
             // panel6
             // 
@@ -203,7 +172,7 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(784, 243);
+            this.panel6.Size = new System.Drawing.Size(964, 243);
             this.panel6.TabIndex = 0;
             // 
             // groupBox3
@@ -213,7 +182,7 @@
             this.groupBox3.ForeColor = System.Drawing.Color.Chocolate;
             this.groupBox3.Location = new System.Drawing.Point(0, 0);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(784, 243);
+            this.groupBox3.Size = new System.Drawing.Size(964, 243);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "groupBox3";
@@ -224,13 +193,15 @@
             this.gridControl3.Location = new System.Drawing.Point(3, 19);
             this.gridControl3.MainView = this.tileView3;
             this.gridControl3.Name = "gridControl3";
-            this.gridControl3.Size = new System.Drawing.Size(778, 221);
+            this.gridControl3.Size = new System.Drawing.Size(958, 221);
             this.gridControl3.TabIndex = 0;
             this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.tileView3});
             // 
             // tileView3
             // 
+            this.tileView3.Appearance.EmptySpace.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.tileView3.Appearance.EmptySpace.Options.UseBackColor = true;
             this.tileView3.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.StokAdi,
             this.IEBelgeno,
@@ -240,7 +211,8 @@
             this.EmirMiktari,
             this.KalanMiktar,
             this.Birim,
-            this.IEDepo});
+            this.IEDepo,
+            this.DepoButon});
             this.tileView3.GridControl = this.gridControl3;
             this.tileView3.Name = "tileView3";
             this.tileView3.OptionsTiles.GroupTextPadding = new System.Windows.Forms.Padding(12, 8, 12, 8);
@@ -249,7 +221,7 @@
             this.tileView3.OptionsTiles.ItemPadding = new System.Windows.Forms.Padding(0);
             this.tileView3.OptionsTiles.LayoutMode = DevExpress.XtraGrid.Views.Tile.TileViewLayoutMode.List;
             this.tileView3.OptionsTiles.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.tileView3.OptionsTiles.Padding = new System.Windows.Forms.Padding(0);
+            this.tileView3.OptionsTiles.Padding = new System.Windows.Forms.Padding(3);
             this.tileView3.OptionsTiles.RowCount = 0;
             // 
             // 
@@ -338,6 +310,15 @@
             this.IEDepo.Visible = true;
             this.IEDepo.VisibleIndex = 8;
             // 
+            // DepoButon
+            // 
+            this.DepoButon.AccessibleName = "DepoButon";
+            this.DepoButon.Caption = "DepoButon";
+            this.DepoButon.FieldName = "DepoButon";
+            this.DepoButon.Name = "DepoButon";
+            this.DepoButon.Visible = true;
+            this.DepoButon.VisibleIndex = 9;
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.panel5);
@@ -352,9 +333,9 @@
             // 
             this.panel5.Controls.Add(this.tabControl1);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(1238, 0);
+            this.panel5.Location = new System.Drawing.Point(964, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(667, 616);
+            this.panel5.Size = new System.Drawing.Size(941, 616);
             this.panel5.TabIndex = 1;
             // 
             // tabControl1
@@ -365,7 +346,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(667, 616);
+            this.tabControl1.Size = new System.Drawing.Size(941, 616);
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl1.TabIndex = 0;
             this.tabControl1.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControl1_DrawItem);
@@ -378,7 +359,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(659, 588);
+            this.tabPage1.Size = new System.Drawing.Size(933, 588);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Toplama Emirleri";
             // 
@@ -388,13 +369,15 @@
             this.gridControl2.Location = new System.Drawing.Point(3, 3);
             this.gridControl2.MainView = this.tileView2;
             this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(653, 582);
+            this.gridControl2.Size = new System.Drawing.Size(927, 582);
             this.gridControl2.TabIndex = 0;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.tileView2});
             // 
             // tileView2
             // 
+            this.tileView2.Appearance.EmptySpace.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.tileView2.Appearance.EmptySpace.Options.UseBackColor = true;
             this.tileView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.ID,
             this.BELGENO,
@@ -491,7 +474,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(659, 588);
+            this.tabPage2.Size = new System.Drawing.Size(1113, 588);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Paketleme Emirleri";
             // 
@@ -502,7 +485,7 @@
             this.dataGridView5.Location = new System.Drawing.Point(3, 3);
             this.dataGridView5.Name = "dataGridView5";
             this.dataGridView5.RowTemplate.Height = 25;
-            this.dataGridView5.Size = new System.Drawing.Size(653, 582);
+            this.dataGridView5.Size = new System.Drawing.Size(1107, 582);
             this.dataGridView5.TabIndex = 0;
             // 
             // panel4
@@ -511,7 +494,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1238, 616);
+            this.panel4.Size = new System.Drawing.Size(964, 616);
             this.panel4.TabIndex = 0;
             // 
             // groupBox1
@@ -521,7 +504,7 @@
             this.groupBox1.ForeColor = System.Drawing.Color.Chocolate;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1238, 616);
+            this.groupBox1.Size = new System.Drawing.Size(964, 616);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
@@ -536,13 +519,15 @@
             this.repositoryItemPictureEdit1,
             this.repositoryItemImageEdit1,
             this.repositoryItemImageEdit2});
-            this.gridControl1.Size = new System.Drawing.Size(1232, 594);
+            this.gridControl1.Size = new System.Drawing.Size(958, 594);
             this.gridControl1.TabIndex = 1;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.tileView1});
             // 
             // tileView1
             // 
+            this.tileView1.Appearance.EmptySpace.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.tileView1.Appearance.EmptySpace.Options.UseBackColor = true;
             this.tileView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.CSevkiyatTarihi,
             this.CBelgeNo,
@@ -551,11 +536,12 @@
             this.CCerceve});
             this.tileView1.GridControl = this.gridControl1;
             this.tileView1.Name = "tileView1";
-            this.tileView1.OptionsTiles.ColumnCount = 3;
+            this.tileView1.OptionsTiles.GroupTextPadding = new System.Windows.Forms.Padding(12, 8, 12, 8);
             this.tileView1.OptionsTiles.IndentBetweenGroups = 0;
-            this.tileView1.OptionsTiles.IndentBetweenItems = 5;
+            this.tileView1.OptionsTiles.IndentBetweenItems = 0;
             this.tileView1.OptionsTiles.ItemPadding = new System.Windows.Forms.Padding(0);
-            this.tileView1.OptionsTiles.ItemSize = new System.Drawing.Size(362, 500);
+            this.tileView1.OptionsTiles.ItemSize = new System.Drawing.Size(362, 180);
+            this.tileView1.OptionsTiles.LayoutMode = DevExpress.XtraGrid.Views.Tile.TileViewLayoutMode.List;
             this.tileView1.OptionsTiles.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.tileView1.OptionsTiles.Padding = new System.Windows.Forms.Padding(5);
             this.tileView1.OptionsTiles.RowCount = 0;
@@ -641,7 +627,8 @@
             this.panel3.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tileView4)).EndInit();
             this.panel6.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).EndInit();
@@ -670,7 +657,6 @@
         private Panel panel3;
         private Panel panel7;
         private GroupBox groupBox4;
-        private DataGridView dataGridView4;
         private Panel panel6;
         private GroupBox groupBox3;
         private Panel panel2;
@@ -711,5 +697,8 @@
         private DevExpress.XtraGrid.Columns.TileViewColumn KalanMiktar;
         private DevExpress.XtraGrid.Columns.TileViewColumn Birim;
         private DevExpress.XtraGrid.Columns.TileViewColumn IEDepo;
+        private DevExpress.XtraGrid.GridControl gridControl4;
+        private DevExpress.XtraGrid.Views.Tile.TileView tileView4;
+        private DevExpress.XtraGrid.Columns.TileViewColumn DepoButon;
     }
 }

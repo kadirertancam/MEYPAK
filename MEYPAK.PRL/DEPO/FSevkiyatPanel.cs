@@ -59,6 +59,7 @@ namespace MEYPAK.PRL.DEPO
         DataGridViewButtonColumn DGVTopla;
         List<PocoSIPARIS> _tempSiparis;
         FSevkiyatCekiPanel _sevkiyatCekiPanel;
+        FDepoStokDurumList fDepoStokDurumList;
         List<PocoSIPARISDETAY> _tempSTOKSEVK;
         List<PocoSIPARISDETAY> _tempSiparisDetay;
         public GenericWebServis<PocoSIPARIS> _siparisServis;
@@ -70,6 +71,7 @@ namespace MEYPAK.PRL.DEPO
         public GenericWebServis<PocoSTOKMALKABULLIST> _stokMalKabulListServis;
         public GenericWebServis<PocoOLCUBR> _olcuBrServis;
         public GenericWebServis<PocoDEPO> _depoServis;
+        FDepoIsEmriPanel fDepoIsEmriPanel;
 
         #region TabControl Tasarım
         private Dictionary<TabPage, Color> TabColors = new Dictionary<TabPage, Color>();
@@ -224,83 +226,44 @@ namespace MEYPAK.PRL.DEPO
             //}
 
         }
+        public void OnDepoDurumClick(object o, DxHtmlElementMouseEventArgs args) {
+            fDepoStokDurumList = new FDepoStokDurumList(tileView3.GetFocusedRowCellValue("StokKodu").ToString());
+            fDepoStokDurumList.ShowDialog();
+
+        }
         public void onDetailButtonClick(object o, DxHtmlElementMouseEventArgs args)
         {
             var _belgeno = tileView1.GetFocusedRowCellValue("CBelgeNo").ToString();
             _siparisDetayServis.Data(ServisList.SiparisDetayListeServis);
             int i = 1;
             var tempsiparis = _siparisServis.obje.Where(x => x.belgeno == _belgeno).FirstOrDefault();
-            var tempsipdetay = _siparisDetayServis.obje.Where(x => x.siparisid == tempsiparis.id);
-            _tempSiparisDetay = tempsipdetay.ToList();
 
-
-            _depoEmirServis.Data(ServisList.DepoEmirEkleServis, new PocoDEPOEMIR()
-            {
-                siparisid = _siparisServis.obje.Where(x => x.belgeno == _belgeno).FirstOrDefault().id,
-                miktar = _tempSiparisDetay.Sum(x => x.miktar),
-                sira = i,
-                tarih = DateTime.Now,
-                tip = 0,   /// TOPLAMA EMRİ TIPI OUTPUT =0 INPUT=1
-                durum = 1,
-                depoid = _siparisServis.obje.Where(x => x.belgeno == _belgeno).FirstOrDefault().depoid,
-                aciklama = "",
-
-
-
-            });
-
+            fDepoIsEmriPanel = new FDepoIsEmriPanel(tempsiparis.id.ToString());
+            fDepoIsEmriPanel.ShowDialog();
 
             _depoEmirServis.Data(ServisList.DepoEmirListeServis);
+            _stokServis.Data(ServisList.StokListeServis);
+            _stokSevkiyatList.Data(ServisList.StokSevkiyatListListeServis);
+            _siparisSevkEmriHarServis.Data(ServisList.SiparisSevkEmriHarListeServis);
+
             gridControl2.DataSource = _depoEmirServis.obje.Select(x => new { ID = x.id, _siparisServis.obje.Where(z => x.siparisid == z.id).FirstOrDefault().belgeno, x.miktar, CARIADI = _siparisServis.obje.Where(z => z.id == x.siparisid).FirstOrDefault().cariadi, _siparisServis.obje.Where(z => z.id == x.siparisid).FirstOrDefault().depoid, x.tip, x.durum }).ToList();
             gridControl2.Refresh();
-            foreach (var item in _tempSiparisDetay.Where(x => x.hareketdurumu == 0).ToList())
-            {
-                item.hareketdurumu = 1;
-                _siparisDetayServis.Data(ServisList.SiparisDetayEkleServis, item);
 
+            gridControl3.DataSource = _siparisSevkEmriHarServis.obje.Where(x => x.emirid.ToString() == tileView2.GetFocusedRowCellValue("ID").ToString()).Select(x =>
+              new
+              {
+                  IEBELGENO = _siparisServis.obje.Where(z => z.id == x.siparisid).FirstOrDefault().belgeno,
+                  StokKodu = _siparisDetayServis.obje.Where(z => z.siparisid == x.siparisid).Select(c => _stokServis.obje.Where(v => v.id == c.stokid).Select(v => v.kod).FirstOrDefault()).FirstOrDefault() == null ? "" : "1",
+                  StokAdi = _siparisDetayServis.obje.Where(z => z.siparisid == x.siparisid).Select(c => _stokServis.obje.Where(v => v.id == c.stokid).Select(v => v.adi).FirstOrDefault()).FirstOrDefault() == null ? "" : "1",
+                  EmirNo = x.emirid,
+                  SiparisMiktari = x.siparismiktari,
+                  EmirMiktari = x.emirmiktari,
+                  KalanMiktar = _stokMalKabulListServis.obje.Where(z => z.emirid == x.emirid && z.siparisdetayid == x.sipariskalemid).
+                 GroupBy(x => new { _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().kod, _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().adi, BIRIM = _olcuBrServis.obje.Where(z => z.id == x.birimid).FirstOrDefault().adi, x.siparismiktari }).
+                 Select(x => x.Select(x => x.siparismiktari).FirstOrDefault() - x.Sum(z => z.miktar)).FirstOrDefault()
+              }).ToList();
+            gridControl3.Refresh();
 
-                _siparisSevkEmriHarServis.Data(ServisList.SiparisSevkEmriHarEkleServis, new PocoSIPARISSEVKEMIRHAR()
-                {
-                    emirmiktari = item.miktar,
-                    siparisid = item.siparisid,
-                    sipariskalemid = item.id,
-                    emriid = _depoEmirServis.obje.Where(x => x.siparisid == item.siparisid).FirstOrDefault().id,
-                    siparismiktari = item.miktar,
-                    kullaniciid = 0,
-                    tarih = DateTime.Now,
-                    tip = 0,
-
-                });
-                _stokSevkiyatList.Data(ServisList.StokSevkiyatListEkleServis, new PocoSTOKSEVKIYATLIST()
-                {
-                    birimid = item.birimid,
-                    depoid = _siparisServis.obje.Where(x => x.id == item.siparisid).FirstOrDefault().depoid,
-                    emirid = _depoEmirServis.obje.Where(x => x.siparisid == item.siparisid).FirstOrDefault().id,
-                    miktar = item.miktar,
-                    stokid = item.stokid,
-                    sevkemriharid = _siparisSevkEmriHarServis.obje2.id,
-                    siparisdetayid = item.siparisid
-
-                });
-                _stokServis.Data(ServisList.StokListeServis);
-                _stokSevkiyatList.Data(ServisList.StokSevkiyatListListeServis);
-                _siparisSevkEmriHarServis.Data(ServisList.SiparisSevkEmriHarListeServis);
-                gridControl3.DataSource = _siparisSevkEmriHarServis.obje.Select(x =>
-                 new
-                 {
-                     BELGENO = _siparisServis.obje.Where(z => z.id == x.siparisid).FirstOrDefault().belgeno,
-                     KOD = _siparisDetayServis.obje.Where(z => z.siparisid == x.siparisid).Select(c => _stokServis.obje.Where(v => v.id == c.stokid).Select(v => v.kod).FirstOrDefault()).FirstOrDefault() == null ? "" : "1",
-                     ADI = _siparisDetayServis.obje.Where(z => z.siparisid == x.siparisid).Select(c => _stokServis.obje.Where(v => v.id == c.stokid).Select(v => v.adi).FirstOrDefault()).FirstOrDefault() == null ? "" : "1",
-                     x.emriid,
-                     x.siparismiktari,
-                     x.emirmiktari,
-                     KalanMiktar = _stokMalKabulListServis.obje.Where(z => z.emirid == x.emriid && z.siparisdetayid == x.sipariskalemid).
-                GroupBy(x => new { _stokServis.obje.Where(z=>z.id==x.stokid).FirstOrDefault().kod, _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().adi, BIRIM = _olcuBrServis.obje.Where(z => z.id == x.birimid).FirstOrDefault().adi, x.siparismiktari }).
-                Select(x => x.Select(x => x.siparismiktari).FirstOrDefault() - x.Sum(z => z.miktar)).FirstOrDefault()
-                 }).ToList();
-                gridControl3.Refresh();
-                i++;
-            }
         }
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -330,26 +293,27 @@ namespace MEYPAK.PRL.DEPO
             _tempSTOKSEVK = tempp.Select(x => _siparisDetayServis.obje.Where(z => z.siparisid == x.siparisid).ToList()).FirstOrDefault();
             _sevkiyatCekiPanel = new FSevkiyatCekiPanel();
             _stokSevkiyatList.Data(ServisList.StokSevkiyatListListeServis);
-
+            _olcuBrServis.Data(ServisList.OlcuBrListeServis);
             _sevkiyatCekiPanel._tempEmir = tempp.FirstOrDefault();
             _sevkiyatCekiPanel._tempList = _stokSevkiyatList.obje.Select(x => new PocoSTOKSEVKIYATLIST() {   siparismiktari = x.miktar, depoid = x.depoid, birimid = x.birimid, emirid = int.Parse(tileView2.GetFocusedRowCellValue("ID").ToString()), siparisdetayid = x.id, stokid = x.stokid }).ToList();
 
             _sevkiyatCekiPanel.ShowDialog();
             var tempp2 = _stokSevkiyatList.obje.Where(x => x.emirid.ToString() == tileView2.GetFocusedRowCellValue("ID").ToString()).GroupBy(x => new { _stokServis.obje.Where(z=>z.id==x.stokid).FirstOrDefault().kod, _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().adi, BIRIM = _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().adi, x.siparismiktari }).Select(x => new { KOD = x.Select(x => _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().kod).FirstOrDefault(), ADI = x.Select(x => _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().adi).FirstOrDefault(), MIKTAR = x.Sum(z => z.miktar), SIPARISMIKTARI = x.Select(x => x.siparismiktari).FirstOrDefault(), KALANMIKTAR = x.Select(x => x.siparismiktari).FirstOrDefault() - x.Sum(z => z.miktar), BIRIM = x.Select(x => _olcuBrServis.obje.Where(z => z.id == x.birimid).FirstOrDefault().adi).FirstOrDefault() }).ToList();
-            dataGridView4.DataSource = tempp2;
-            gridControl3.DataSource = _siparisSevkEmriHarServis.obje.Select(x =>
-             new
-             {
-                 BELGENO = _siparisServis.obje.Where(z => z.id == x.siparisid).FirstOrDefault().belgeno,
-                 KOD = _siparisDetayServis.obje.Where(z => z.siparisid == x.siparisid).Select(c => _stokServis.obje.Where(v => v.id == c.stokid).Select(v => v.kod).FirstOrDefault()).FirstOrDefault() == null ? "" : "1",
-                 ADI = _siparisDetayServis.obje.Where(z => z.siparisid == x.siparisid).Select(c => _stokServis.obje.Where(v => v.id == c.stokid).Select(v => v.adi).FirstOrDefault()).FirstOrDefault() == null ? "" : "1",
-                 x.emriid,
-                 x.siparismiktari,
-                 x.emirmiktari,
-                 KALANMIKTAR = _stokMalKabulListServis.obje.Where(z => z.emirid == x.emriid && z.siparisdetayid == x.sipariskalemid).
-                GroupBy(x => new { _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().kod, _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().adi, BIRIM = _olcuBrServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().adi, x.siparismiktari }).
-                Select(x => x.Select(x => x.siparismiktari).FirstOrDefault() - x.Sum(z => z.miktar)).FirstOrDefault()
-             }).ToList();
+            gridControl4.DataSource = tempp2;
+            gridControl3.DataSource = _siparisSevkEmriHarServis.obje.Where(x => x.emirid.ToString() == tileView2.GetFocusedRowCellValue("ID").ToString()).Select(x =>
+              new
+              {
+                  IEBELGENO = _siparisServis.obje.Where(z => z.id == x.siparisid).FirstOrDefault().belgeno,
+                  StokKodu = _siparisDetayServis.obje.Where(z => z.siparisid == x.siparisid).Select(c => _stokServis.obje.Where(v => v.id == c.stokid).Select(v => v.kod).FirstOrDefault()).FirstOrDefault() == null ? "" : "1",
+                  StokAdi = _siparisDetayServis.obje.Where(z => z.siparisid == x.siparisid).Select(c => _stokServis.obje.Where(v => v.id == c.stokid).Select(v => v.adi).FirstOrDefault()).FirstOrDefault() == null ? "" : "1",
+                  EmirNo = x.emirid,
+                  SiparisMiktari = x.siparismiktari,
+                  EmirMiktari = x.emirmiktari,
+                  KalanMiktar = _stokMalKabulListServis.obje.Where(z => z.emirid == x.emirid && z.siparisdetayid == x.sipariskalemid).
+                 GroupBy(x => new { _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().kod, _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().adi, BIRIM = _olcuBrServis.obje.Where(z => z.id == x.birimid).FirstOrDefault().adi, x.siparismiktari }).
+                 Select(x => x.Select(x => x.siparismiktari).FirstOrDefault() - x.Sum(z => z.miktar)).FirstOrDefault()
+              }).ToList();
+            gridControl3.Refresh();
 
         }
 
@@ -368,18 +332,21 @@ namespace MEYPAK.PRL.DEPO
                 //dataGridView4.DataSource = tempp;
             }
             _stokMalKabulListServis.Data(ServisList.StokMalKabulListListeServis);
-            gridControl3.DataSource = _siparisSevkEmriHarServis.obje.Select(x =>
+            Bitmap bt = new Bitmap("C:\\Users\\User\\source\\repos\\Proje\\MEYPAK\\MEYPAK.PRL\\img\\icon-02.png");
+            
+            gridControl3.DataSource = _siparisSevkEmriHarServis.obje.Where(x=>x.emirid.ToString()== tileView2.GetFocusedRowCellValue("ID").ToString()).Select(x =>
              new
              {
-                 BELGENO = _siparisServis.obje.Where(z => z.id == x.siparisid).FirstOrDefault().belgeno,
-                 KOD = _siparisDetayServis.obje.Where(z => z.siparisid == x.siparisid).Select(c => _stokServis.obje.Where(v => v.id == c.stokid).Select(v => v.kod).FirstOrDefault()).FirstOrDefault() == null ? "" : "1",
-                 ADI = _siparisDetayServis.obje.Where(z => z.siparisid == x.siparisid).Select(c => _stokServis.obje.Where(v => v.id == c.stokid).Select(v => v.adi).FirstOrDefault()).FirstOrDefault() == null ? "" : "1",
-                 x.emriid,
-                 x.siparismiktari,
-                 x.emirmiktari,
-                 KALANMIKTAR = _stokMalKabulListServis.obje.Where(z => z.emirid == x.emriid && z.siparisdetayid == x.sipariskalemid).
+                 IEBELGENO = _siparisServis.obje.Where(z => z.id == x.siparisid).FirstOrDefault().belgeno,
+                 StokKodu =  _stokServis.obje.Where(z=>z.id== _siparisDetayServis.obje.Where(c=>c.id==x.sipariskalemid && c.siparisid==x.siparisid).FirstOrDefault().stokid).FirstOrDefault().kod,         
+                 StokAdi = _stokServis.obje.Where(z => z.id == _siparisDetayServis.obje.Where(c => c.id == x.sipariskalemid && c.siparisid == x.siparisid).FirstOrDefault().stokid).FirstOrDefault().adi,
+                 EmirNo =x.emirid,
+                 SiparisMiktari=x.siparismiktari,
+                 EmirMiktari=x.emirmiktari,
+                 KalanMiktar = _stokMalKabulListServis.obje.Where(z => z.emirid == x.emirid && z.siparisdetayid == x.sipariskalemid).
                 GroupBy(x => new { _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().kod, _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().adi, BIRIM = _olcuBrServis.obje.Where(z => z.id == x.birimid).FirstOrDefault().adi, x.siparismiktari }).
                 Select(x => x.Select(x => x.siparismiktari).FirstOrDefault() - x.Sum(z => z.miktar)).FirstOrDefault()
+             , DepoButon= bt
              }).ToList();
             gridControl3.Refresh();
 

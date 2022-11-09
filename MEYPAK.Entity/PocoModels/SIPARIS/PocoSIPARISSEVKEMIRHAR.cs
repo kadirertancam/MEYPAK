@@ -11,7 +11,7 @@ namespace MEYPAK.Entity.PocoModels.SIPARIS
     {
         public DateTime tarih { get; set; }
         public int kullaniciid { get; set; }
-        public int emriid { get; set; }
+        public int emirid { get; set; }
         public int siparisid { get; set; } 
         public int sipariskalemid { get; set; }
         public decimal depomiktar { get; set; }

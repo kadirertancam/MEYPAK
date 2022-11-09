@@ -59,10 +59,10 @@
   </resheader>
   <data name="tileView3.TileHtmlTemplate.Styles" xml:space="preserve">
     <value>.root {
-	height: 84px;
+	height: 122px;
 	font-family: "Segoe UI";
 	font-size: 14px;
-	background-color: @Window;
+	background-color: #252526;
 	border-style: solid;
 	border-width: 0px;
 	border-left-width: 4px;
@@ -74,10 +74,17 @@
 	margin-Left:16px;
 	margin-right:20px;
 	display:flex;
-	background-color:@Window;
+	background-color:#252526;
+}
+.flex-container{
+	display:flex;
+}
+.flex-container &gt; div{
+	width:100px;
+	height:100px;
 }
 .initials {
-	color: @White;
+	color: #252526;
 	font-weight: bold;
 	background-color: @Primary;
 	border-radius: 100px;
@@ -103,6 +110,21 @@
 	text-overflow:ellipsis;
 	overflow:hidden;
 	white-space:nowrap;
+	color:White
+}
+.plaintext2 {
+	
+	text-overflow:ellipsis;
+	overflow:hidden;
+	white-space:nowrap;
+	padding-left:50px;
+	color:White
+}
+.plaintext3 {
+	text-overflow:ellipsis; 
+	white-space:nowrap;
+	padding-left:0px;
+	color:White
 }
 .date {
 	align-self:center;
@@ -122,18 +144,21 @@
 	text-overflow:ellipsis;
 	overflow:hidden;
 	white-space:nowrap;
+	color:White;
 }
 .ab {
 	padding-left:62px;
 	text-overflow:ellipsis;
 	overflow:hidden;
 	white-space:nowrap;
+	color:White;
 }
 .ac {
 	padding-left:54px;
 	text-overflow:ellipsis;
 	overflow:hidden;
 	white-space:nowrap;
+	color:White;
 }
 .subject {
 	
@@ -141,19 +166,20 @@
 	overflow:hidden;
 	white-space:nowrap;
 }
-.buttons {
-	margin-right:-6px;
+.buttons { 
 	display:flex;
 	flex-wrap:nowrap;
-	justify-content:flex-end;
+	justify-content:center;
 }
 
 .btn {
-	width:18px;
-	height:18px;
+	width:50px;
+	margin-top:5px;
+	height:50px;
+	background-color:#36363B;
 	min-width:18px;
 	object-fit:contain;
-	opacity:0;
+	opacity:0.5;
 }
 
 .root:hover .btn { opacity: 0.5; }
@@ -170,16 +196,21 @@
 	&lt;div class="content"&gt;
 		&lt;div class="initials" id="initials"&gt;
 		&lt;div id="photo"&gt;&lt;img class="photo" src="${Photo}"/&gt;&lt;/div&gt;&lt;/div&gt;
-		&lt;div class="mail-content"&gt;
-			&lt;div class="from" id="from"&gt;${StokKodu} &lt;div class="aa"&gt; Sipariş Miktarı&lt;/div&gt; &lt;div class="aa"&gt; Emir Miktarı&lt;/div&gt;&lt;div class="aa"&gt; Kalan Miktar&lt;/div&gt;&lt;div class="aa"&gt;Depo Adı&lt;/div&gt;&lt;/div&gt; 
-			&lt;div class="from" id="subject"&gt;${StokAdi} &lt;div class="ab"&gt;${SiparisMiktari}&lt;/div&gt; &lt;div class="ac"&gt;${EmirMiktari}&lt;/div&gt; &lt;div class="ac"&gt;${KalanMiktar}&lt;/div&gt;&lt;div class="ac"&gt;${IEDepo}&lt;/div&gt;&lt;/div&gt;
-			&lt;div class="plaintext"&gt;${IEBelgeno}&lt;/div&gt;
+		&lt;div class="flex-container"&gt;
+			
+		 	&lt;div class="plaintext2"&gt; &lt;div&gt;${StokKodu}&lt;/div&gt; &lt;div style="padding-top:5px;"&gt;${StokAdi}&lt;/div&gt;
+		 		 &lt;div style="padding-top:5px;"&gt;${IEBelgeno}&lt;/div&gt; &lt;/div&gt;
+			&lt;div class="plaintext"&gt;Emir No&lt;div style="padding-top:5px;"&gt;${EmirNo}&lt;/div&gt;&lt;/div&gt;
+			&lt;div class="plaintext"&gt;Siparis Miktarı&lt;div style="padding-top:5px;"&gt;${SiparisMiktari}&lt;/div&gt;&lt;/div&gt;
+			&lt;div class="plaintext"&gt;Emir Miktarı&lt;div style="padding-top:5px;"&gt;${EmirMiktari}&lt;/div&gt;&lt;/div&gt;
+			&lt;div class="plaintext"&gt;Kalan Miktar&lt;div style="padding-top:5px;"&gt;${KalanMiktar}&lt;/div&gt;&lt;/div&gt;
 		&lt;/div&gt;
-		&lt;div&gt;
+		&lt;div class="plaintext3"&gt;
+			Depo Durumu
 			&lt;div class="buttons"&gt;
-				&lt;img class="btn" src="reply" onclick="OnReply"/&gt; 
-			&lt;/div&gt;
-			&lt;div class="date" id="date"&gt;${Date}&lt;/div&gt;
+			
+				&lt;img class="btn" src="${DepoButon}"  onclick="OnDepoDurumClick"/&gt; 
+			&lt;/div&gt; 
 		&lt;/div&gt;
 	&lt;/div&gt;
 &lt;/div&gt;</value>
@@ -256,15 +287,15 @@
 		&lt;div class="stripe" id="stripe"&gt;&lt;h1&gt;${ID}&lt;/h1&gt;&lt;/div&gt; 
 		&lt;div class="content"&gt;
 			&lt;div class="top-block"&gt;
-				&lt;div class="caption"&gt;&lt;b&gt;${BELGENO}&lt;/b&gt;&lt;/div&gt;
+				&lt;div class="caption"&gt;&lt;b style="color:white"&gt;${BELGENO}&lt;/b&gt;&lt;/div&gt;
 			&lt;/div&gt;
-			&lt;div class="description"&gt;${CARIADI}&lt;/div&gt;
+			&lt;div class="description"&gt;&lt;b style="color:white"&gt;${CARIADI}&lt;/b&gt;&lt;/div&gt;
 			&lt;div class="bottom-block"&gt;
 				&lt;div class="bottom-block-near"&gt;
-					&lt;div class="description"&gt;&lt;span style="color:Gray"&gt;Miktar: &lt;/span&gt;${MIKTAR}&lt;/div&gt;
-					&lt;div class="description"&gt;&lt;span style="color:Gray"&gt;DEPO: &lt;/span&gt;${DEPO}&lt;/div&gt;
+					&lt;div class="description"&gt;&lt;span style="color:white"&gt;Miktar: &lt;/span&gt;${MIKTAR}&lt;/div&gt;
+					&lt;div class="description"&gt;&lt;span style="color:white"&gt;DEPO: &lt;/span&gt;${DEPO}&lt;/div&gt;
 				&lt;/div&gt;
-				&lt;div class="status"&gt;${DURUM}%&lt;/div&gt;
+				&lt;div class="status"&gt;&lt;b style="color:white"&gt;${DURUM}%&lt;/b&gt;&lt;/div&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
@@ -3015,163 +3046,78 @@
 </value>
   </data>
   <data name="tileView1.TileHtmlTemplate.Styles" xml:space="preserve">
-    <value>
-
-
-.container {
-    padding: 16px;
-    display: flex;
-    flex-direction: column;
-    width: 328px;
+    <value>.container {
+	padding:6px;
+	background-color:#252526
+}
+:root:select .card{
+	background-color:@HighlightAlternate/0.1; 
+}
+.card {
+	font: 13px 'Segoe UI';
+	border-radius:3px;
+	background-color:#252526;
+	box-shadow:0px 2px 5px 0px #40000000;
+	
+	display:flex;
+}
+.stripe {
+	width:4px;
+	background-color:@Green;
+	border-radius:3px 0px 0px 3px;
+}
+.content {
+	width:100%;
+	padding:12px;
+	display:flex;
+	flex-direction:column;
+}
+.top-block {
+	display:flex;
+	flex-direction:row;
+}
+.caption {
+	font-size:16px;
+	flex-grow:1;
+	color:White;
+}
+:root:select .caption {
+	font-size:16px;
+	flex-grow:1;
+	color:Black;
+}
+.description {
+	margin-bottom:8px;
+	margin-top:6px;
+	white-space:pre-line;
+	color:White;
+}
+:root:select .description {
+	margin-bottom:8px;
+	margin-top:6px;
+	white-space:pre-line;
+	color:Black;
 }
  
-.item {
-    width: 298px;
-    height: auto;
-    background-color: @Window;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+.bottom-block {
+	display:flex;
+	flex-direction:row;
 }
-
-	.item:hover {
-		box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);		
-	}
-	
-	body:select .item {
-		border-width: 2px;
-		border-style: solid;
-		border-color: @HighlightAlternate;
-	}
-
-.price-label-container { 
-	
-	height: 32px;
-	width: 308px;
-	display: flex;
-	justify-content: flex-start; 
-	color:#000;
-	font-family: 'Segoe UI';
-	 font-size: 24px;
-    font-weight: bold; 
+.bottom-block-near {
+	flex-grow:1;
 }
-
-.a{
-	font-style:normal
+.status {
+	font-size:20px;
+	align-self:flex-end;
 }
-
-.price-label {
-	font-family: 'Segoe UI';
-	font-weight: bold;
-	font-size: 18px;
-	padding: 4px 12px;
-	background-color: @HighlightAlternate;
-	border-radius: 3px;
-	color: White;
-}
-
-.image_container {
-    display: flex;
-	flex-direction: column;
-	width: 250px;
-    height: 172px;
-	padding: 16px 24px 24px;    
-	
-	align-items: flex-start;
-	border-radius: 8px 8px 0px 0px;
-	background-color: white;
-}
-
-.car-image {
-    width: 250px;
-    height: 124px;
-    margin-top: 16px;
-    object-fit: contain;
-}
-
-.item_block {
-    width: 100%;
-    background-color: white;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-}
-
-.item_info_outer {
-	display: flex;
-	flex-direction: column;
-	padding: 16px 24px 24px;
-	border-radius: 0px 0px 8px 8px;
-	background-color: @WindowText/0.05;
-	justify-content: space-between;
-}
-
-	:root:select .item_info_outer {
-		background-color: @HighlightAlternate/0.1;
-	}
-	
-	:root:focus .item_info_outer {
-		background-color: @HighlightAlternate/0.1;
-	}	
-
-.item_info {
-	width: 100%;
-    display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-}
-
-.empty-space {
-	height: auto;
-}
-
-.name {
-    font-family: 'Segoe UI';
-    font-size: 24px;
-    font-weight: bold;
-    color: @WindowText;
-    margin-bottom: 3px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-}
-
-.category {
-	font-size: 10px;
-	font-weight: bold;
-	background-color: @WindowText/0.1;
-	color: @WindowText;
-	padding: 6px 8px 6px 8px;
-	border-radius: 2px;
-	margin-top: 11px;
-}
-
-.specs {
-    font-family: 'Segoe UI';
-	font-style: normal;
-	font-weight: normal;
-	font-size: 12px;
-	color: @WindowText;
-	margin: 1px 0;
-}
-
-
-.center-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
-}
-
 .button {
     width: 100%;
     height: auto;
     padding: 12px 0 12px 0;
     margin: 24px 0 0 0;
     border-radius: 6px;
-    color: @WindowText;
-    background-color: @Window;
+    color: White;
+    background-color: #434343;
             
     text-align: center;
     
@@ -3190,41 +3136,44 @@
 	.button:active {
 		color: rgba(255, 255, 255, 0.35);
 		box-shadow: initial;
-	}
-
-.item-container {
-	display: flex;
-	width: 320px;
-	height: 420px;
+	}.image_container {
+    display: flex;
+	flex-direction: column;
+	width: 250px;
+    height: 172px;
+	padding: 16px 24px 24px;    
+	
+	align-items: flex-start;
+	border-radius: 8px 8px 0px 0px;
+	background-color:#252526
+}
+.car-image {
+    width: 250px;
+    height: 124px;
+    margin-top: 16px;
+    object-fit: contain;
 }
 </value>
   </data>
   <data name="tileView1.TileHtmlTemplate.Template" xml:space="preserve">
     <value>&lt;div class="container"&gt;
-	&lt;div class="item" id="item"&gt;
-		&lt;div class="image_container" id="image-container"&gt;
-			&lt;div class="price-label-container"&gt;  ${CBelgeNo}
-			&lt;/div&gt;
+	&lt;div class="card"&gt; 
 			&lt;img class="car-image" src="${CResim}" id="car-image"&gt; 
-		&lt;/div&gt;
-		&lt;div class="item_info_outer"&gt;
-			&lt;div class="item_info" id="item_info"&gt;
-				&lt;div class="name" id="name-brand"&gt;${CCariAdi} &lt;/div&gt;
-				
-				 &lt;div class="category" id="name-category"&gt; &lt;b class="a"  id="name-category"&gt; Sevk Tarihi: &lt;/b&gt; ${CSevkiyatTarihi}&lt;/div&gt;
+		&lt;div class="content"&gt;
+			&lt;div class="top-block"&gt;
+				&lt;div class="caption"&gt;&lt;b style="color:white"&gt;${CBelgeNo}&lt;/b&gt;&lt;/div&gt;
 			&lt;/div&gt;
-			&lt;div class="item_info"&gt;
-		 	&lt;div id="detailButton" class="button" onclick="onDetailButtonClick"&gt;
+			&lt;div class="description"&gt; &lt;b style="color:white"&gt;${CCariAdi}&lt;/b&gt;&lt;/div&gt;
+			&lt;div class="bottom-block"&gt;
+				&lt;div class="bottom-block-near"&gt;
+					&lt;div class="description"&gt;&lt;span style="color:white"&gt;Sevk Tarihi: &lt;/span&gt;${CSevkiyatTarihi}&lt;/div&gt; 
+				&lt;/div&gt; 
+			 	&lt;div id="detailButton" class="button" onclick="onDetailButtonClick"&gt;
 					Toplama
 				&lt;/div&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
-&lt;/div&gt;
-
-
-
-
-</value>
+&lt;/div&gt;</value>
   </data>
 </root>
