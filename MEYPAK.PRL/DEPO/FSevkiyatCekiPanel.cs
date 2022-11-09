@@ -43,10 +43,12 @@ namespace MEYPAK.PRL.DEPO
             _siparisDetayServis = new GenericWebServis<PocoSIPARISDETAY>();
             _siparisSevkEmriHar = new GenericWebServis<PocoSIPARISSEVKEMIRHAR>();
             _stokSevkiyatListServis = new GenericWebServis<PocoSTOKSEVKIYATLIST>();
+            _depoCekiListServis = new GenericWebServis<PocoDEPOCEKILIST>();
 
 
         } 
         GenericWebServis<PocoSTOKSEVKIYATLIST> _stokSevkiyatListServis;
+        GenericWebServis<PocoDEPOCEKILIST> _depoCekiListServis;
         GenericWebServis<PocoSTOK> _stokServis;
         GenericWebServis<PocoOLCUBR> _olcuBrServis;
         GenericWebServis<PocoDEPO> _depoServis;

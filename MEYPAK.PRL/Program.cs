@@ -1,3 +1,4 @@
+using DevExpress.XtraEditors;
 using MEYPAK.PRL.Assets;
 using MEYPAK.PRL.CARI;
 using MEYPAK.PRL.DEPO;
@@ -21,11 +22,13 @@ namespace MEYPAK.PRL
         {
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration. 
+            WindowsFormsSettings.ForceDirectXPaint();
+
             DependencyModule a = new DependencyModule();
             NinjectFactory.CompositionRoot.Initialize(a);
             ApplicationConfiguration.Initialize();
             Application.EnableVisualStyles();
-            Application.Run(new FCariKart());
+            Application.Run(new Main());
         }
         //
 

@@ -51,8 +51,7 @@ namespace MEYPAK.PRL.DEPO
             _siparisDetayServis = new GenericWebServis<PocoSIPARISDETAY>();
             _siparisSevkEmriHarServis = new GenericWebServis<PocoSIPARISSEVKEMIRHAR>();
             _stokSevkiyatList = new GenericWebServis<PocoSTOKSEVKIYATLIST>();
-            _stokServis = new GenericWebServis<PocoSTOK>();
-            _stokMalKabulListServis = new GenericWebServis<PocoSTOKMALKABULLIST>();
+            _stokServis = new GenericWebServis<PocoSTOK>(); 
             _olcuBrServis = new GenericWebServis<PocoOLCUBR>();
             _depoServis = new GenericWebServis<PocoDEPO>();
         }
@@ -258,7 +257,7 @@ namespace MEYPAK.PRL.DEPO
                   EmirNo = x.emirid,
                   SiparisMiktari = x.siparismiktari,
                   EmirMiktari = x.emirmiktari,
-                  KalanMiktar = _stokMalKabulListServis.obje.Where(z => z.emirid == x.emirid && z.siparisdetayid == x.sipariskalemid).
+                  KalanMiktar = _stokSevkiyatList.obje.Where(z => z.emirid == x.emirid && z.siparisdetayid == x.sipariskalemid).
                  GroupBy(x => new { _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().kod, _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().adi, BIRIM = _olcuBrServis.obje.Where(z => z.id == x.birimid).FirstOrDefault().adi, x.siparismiktari }).
                  Select(x => x.Select(x => x.siparismiktari).FirstOrDefault() - x.Sum(z => z.miktar)).FirstOrDefault()
               }).ToList();
@@ -330,8 +329,7 @@ namespace MEYPAK.PRL.DEPO
             {
                 //var tempp = _stokSevkiyatList.obje.Where(x => x.EMIRID.ToString() == dataGridView2.Rows[e.RowIndex].Cells["id"].Value.ToString()).GroupBy(x => new { x.MPSTOK.kod, x.MPSTOK.adi, BIRIM = x.MPOLCUBR.adi, x.SIPARISMIKTARI }).Select(x => new { KOD = x.Select(x => x.MPSTOK.kod).FirstOrDefault(), ADI = x.Select(x => x.MPSTOK.adi).FirstOrDefault(), MIKTAR = x.Sum(z => z.MIKTAR), SIPARISMIKTARI = x.Select(x => x.SIPARISMIKTARI).FirstOrDefault(), KALANMIKTAR = x.Select(x => x.SIPARISMIKTARI).FirstOrDefault() - x.Sum(z => z.MIKTAR), BIRIM = x.Select(x => x.MPOLCUBR.adi).FirstOrDefault() }).ToList();
                 //dataGridView4.DataSource = tempp;
-            }
-            _stokMalKabulListServis.Data(ServisList.StokMalKabulListListeServis);
+            } 
             Bitmap bt = new Bitmap("C:\\Users\\User\\source\\repos\\Proje\\MEYPAK\\MEYPAK.PRL\\img\\icon-02.png");
             
             gridControl3.DataSource = _siparisSevkEmriHarServis.obje.Where(x=>x.emirid.ToString()== tileView2.GetFocusedRowCellValue("ID").ToString()).Select(x =>
@@ -343,7 +341,7 @@ namespace MEYPAK.PRL.DEPO
                  EmirNo =x.emirid,
                  SiparisMiktari=x.siparismiktari,
                  EmirMiktari=x.emirmiktari,
-                 KalanMiktar = _stokMalKabulListServis.obje.Where(z => z.emirid == x.emirid && z.siparisdetayid == x.sipariskalemid).
+                 KalanMiktar = _stokSevkiyatList.obje.Where(z => z.emirid == x.emirid && z.siparisdetayid == x.sipariskalemid).
                 GroupBy(x => new { _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().kod, _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().adi, BIRIM = _olcuBrServis.obje.Where(z => z.id == x.birimid).FirstOrDefault().adi, x.siparismiktari }).
                 Select(x => x.Select(x => x.siparismiktari).FirstOrDefault() - x.Sum(z => z.miktar)).FirstOrDefault()
              , DepoButon= bt
