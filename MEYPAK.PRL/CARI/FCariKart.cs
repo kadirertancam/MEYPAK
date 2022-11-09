@@ -1,9 +1,14 @@
-﻿using MEYPAK.BLL.Assets;
+﻿using DevExpress.XtraEditors;
+using DevExpress.XtraReports.Design;
+using DevExpress.XtraTab;
+using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.Models.CARI;
+using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.PARAMETRE;
 using MEYPAK.Interfaces.Cari;
 using MEYPAK.Interfaces.Parametre;
+using MEYPAK.PRL.STOK;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -19,8 +24,9 @@ using System.Windows.Forms;
 
 namespace MEYPAK.PRL.CARI
 {
-    public partial class FCariKart : Form
+    public partial class FCariKart : XtraForm
     {
+        int i = 0;
         public FCariKart()
         {
             InitializeComponent();
@@ -101,7 +107,7 @@ namespace MEYPAK.PRL.CARI
 
         }
         ADRESOBJECT.Root _adresObje;
-        private void FCariKart_Load(object sender, EventArgs e)
+        public void FCariKart_Load(object sender, EventArgs e)
         {
             string path = Application.StartupPath + "/il-ilce.json";
             using (FileStream s = File.Open(path, FileMode.Open))
@@ -114,6 +120,8 @@ namespace MEYPAK.PRL.CARI
 
                     CBil.DataSource = _adresObje.data.Select(x => x.il_adi).ToList();
                 }
+
+           
         }
 
        
@@ -262,12 +270,36 @@ namespace MEYPAK.PRL.CARI
 
         private void BTKoduSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            if (e.Button.Caption == "yeni")
+
+            if (e.Button.Caption == "Yeni")
             {
-                FCariAltHesap deneme = new FCariAltHesap();
-                deneme.Show();
-                deneme.Hide();
+
+                XtraTabPage page = new XtraTabPage();
+                FCariAltHesap fCariAltHesap = new FCariAltHesap();
+                Main main = new Main();
+                page.Name = "TPAltHesap" + i;
+                page.Text = "Alt Hesap";
+                page.Tag = "TPAltHesap" + i;
+                page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+                main.xtraTabControl1.TabPages.Add(page);
+                main.xtraTabControl1.SelectedTabPage = page;
+
+                fCariAltHesap.TopLevel = false ;
+                fCariAltHesap.AutoScroll = true;
+                fCariAltHesap.Dock = DockStyle.Top;
+                fCariAltHesap.Tag = "FCariAltHesap" + i;
+                page.Controls.Add(fCariAltHesap);
+                fCariAltHesap.Show();
+                i++;
+
+
             }
-        }
+            else if (e.Button.Caption == "Seç")
+            {
+                MessageBox.Show("merhaba");
+            }
+                    }
+
+      
     }
 }
