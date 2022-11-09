@@ -22,7 +22,9 @@ namespace MEYPAK.PRL.PARAMETRELER
         GenericWebServis<PocoPARABIRIM> _paraBirimServis;
         private void BTKaydet_Click(object sender, EventArgs e)
         {
-           // _paraBirimServis.Data(ServisList);
+          // _paraBirimServis.Data(ServisList);
         }
+
+      
     }
 }

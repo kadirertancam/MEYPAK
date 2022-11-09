@@ -1,7 +1,9 @@
 ﻿using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.Models.CARI;
 using MEYPAK.Entity.PocoModels.CARI;
+using MEYPAK.Entity.PocoModels.PARAMETRE;
 using MEYPAK.Interfaces.Cari;
+using MEYPAK.Interfaces.Parametre;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -24,11 +26,15 @@ namespace MEYPAK.PRL.CARI
             InitializeComponent();
             _adresListServis = new GenericWebServis<ADRESLIST>();
             _cariServis = new GenericWebServis<PocoCARIKART>();
+            _cariAltHesapServis = new GenericWebServis<PocoCARIALTHES>();
+            
 
         }
         GenericWebServis<ADRESLIST> _adresListServis;
         GenericWebServis<PocoCARIKART> _cariServis;
+        GenericWebServis<PocoCARIALTHES> _cariAltHesapServis;
         FCariList _fCariList;
+        
         public PocoCARIKART _tempCariKart;
 
         void doldur()
@@ -252,6 +258,16 @@ namespace MEYPAK.PRL.CARI
             });
 
 
+        }
+
+        private void BTKoduSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            if (e.Button.Caption == "yeni")
+            {
+                FCariAltHesap deneme = new FCariAltHesap();
+                deneme.Show();
+                deneme.Hide();
+            }
         }
     }
 }

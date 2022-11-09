@@ -23,7 +23,7 @@ namespace MEYPAK.PRL.STOK
             _depoServis.Data(ServisList.DepoListeServis);
             CBBirim.EditValue = "";
 
-            CBParaBirimi.EditValue = "";
+           
 
         }
         GenericWebServis<PocoSTOKHAR> _stokHarServis ;

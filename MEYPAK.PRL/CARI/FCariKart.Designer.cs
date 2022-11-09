@@ -37,6 +37,16 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
@@ -159,6 +169,13 @@
             this.TBDokumanAdi = new System.Windows.Forms.TextBox();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.DGAltHesap = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.panel18 = new System.Windows.Forms.Panel();
+            this.LBAdi = new DevExpress.XtraEditors.LabelControl();
+            this.TBAdi = new DevExpress.XtraEditors.TextEdit();
+            this.BTKoduSec = new DevExpress.XtraEditors.ButtonEdit();
+            this.LBAltHesKodu = new DevExpress.XtraEditors.LabelControl();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -243,6 +260,7 @@
             this.TBUnvan = new System.Windows.Forms.TextBox();
             this.TBCariKodu = new System.Windows.Forms.TextBox();
             this.sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.panel1.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -284,6 +302,12 @@
             this.panel17.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             this.panel16.SuspendLayout();
+            this.tabPage9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGAltHesap)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            this.panel18.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TBAdi.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BTKoduSec.Properties)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel10.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -1689,21 +1713,21 @@
             // 
             // LBDosyaYolu
             // 
-            this.LBDosyaYolu.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBDosyaYolu.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBDosyaYolu.Appearance.Options.UseFont = true;
-            this.LBDosyaYolu.Location = new System.Drawing.Point(11, 62);
+            this.LBDosyaYolu.Location = new System.Drawing.Point(25, 62);
             this.LBDosyaYolu.Name = "LBDosyaYolu";
-            this.LBDosyaYolu.Size = new System.Drawing.Size(60, 14);
+            this.LBDosyaYolu.Size = new System.Drawing.Size(56, 13);
             this.LBDosyaYolu.TabIndex = 42;
             this.LBDosyaYolu.Text = "Dosya Yolu";
             // 
             // LBDokumanAdi
             // 
-            this.LBDokumanAdi.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBDokumanAdi.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBDokumanAdi.Appearance.Options.UseFont = true;
             this.LBDokumanAdi.Location = new System.Drawing.Point(11, 32);
             this.LBDokumanAdi.Name = "LBDokumanAdi";
-            this.LBDokumanAdi.Size = new System.Drawing.Size(72, 14);
+            this.LBDokumanAdi.Size = new System.Drawing.Size(70, 13);
             this.LBDokumanAdi.TabIndex = 41;
             this.LBDokumanAdi.Text = "Döküman Adı";
             // 
@@ -1740,12 +1764,80 @@
             // 
             // tabPage9
             // 
+            this.tabPage9.Controls.Add(this.DGAltHesap);
+            this.tabPage9.Controls.Add(this.panel18);
             this.tabPage9.Location = new System.Drawing.Point(4, 24);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Size = new System.Drawing.Size(1133, 465);
             this.tabPage9.TabIndex = 8;
             this.tabPage9.Text = "AltHesap";
             this.tabPage9.UseVisualStyleBackColor = true;
+            // 
+            // DGAltHesap
+            // 
+            this.DGAltHesap.Location = new System.Drawing.Point(3, 102);
+            this.DGAltHesap.MainView = this.gridView1;
+            this.DGAltHesap.Name = "DGAltHesap";
+            this.DGAltHesap.Size = new System.Drawing.Size(1127, 303);
+            this.DGAltHesap.TabIndex = 1;
+            this.DGAltHesap.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
+            // gridView1
+            // 
+            this.gridView1.GridControl = this.DGAltHesap;
+            this.gridView1.Name = "gridView1";
+            // 
+            // panel18
+            // 
+            this.panel18.Controls.Add(this.simpleButton1);
+            this.panel18.Controls.Add(this.LBAdi);
+            this.panel18.Controls.Add(this.TBAdi);
+            this.panel18.Controls.Add(this.BTKoduSec);
+            this.panel18.Controls.Add(this.LBAltHesKodu);
+            this.panel18.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel18.Location = new System.Drawing.Point(0, 0);
+            this.panel18.Name = "panel18";
+            this.panel18.Size = new System.Drawing.Size(1133, 465);
+            this.panel18.TabIndex = 0;
+            // 
+            // LBAdi
+            // 
+            this.LBAdi.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBAdi.Appearance.Options.UseFont = true;
+            this.LBAdi.Location = new System.Drawing.Point(43, 56);
+            this.LBAdi.Name = "LBAdi";
+            this.LBAdi.Size = new System.Drawing.Size(69, 13);
+            this.LBAdi.TabIndex = 7;
+            this.LBAdi.Text = "Alt Hesap Adı";
+            // 
+            // TBAdi
+            // 
+            this.TBAdi.Location = new System.Drawing.Point(128, 53);
+            this.TBAdi.Name = "TBAdi";
+            this.TBAdi.Size = new System.Drawing.Size(202, 20);
+            this.TBAdi.TabIndex = 3;
+            // 
+            // BTKoduSec
+            // 
+            this.BTKoduSec.Location = new System.Drawing.Point(128, 23);
+            this.BTKoduSec.Name = "BTKoduSec";
+            this.BTKoduSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Yeni", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.BTKoduSec.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTKoduSec_Properties_ButtonClick);
+            this.BTKoduSec.Size = new System.Drawing.Size(202, 22);
+            this.BTKoduSec.TabIndex = 2;
+            // 
+            // LBAltHesKodu
+            // 
+            this.LBAltHesKodu.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBAltHesKodu.Appearance.Options.UseFont = true;
+            this.LBAltHesKodu.Location = new System.Drawing.Point(32, 26);
+            this.LBAltHesKodu.Name = "LBAltHesKodu";
+            this.LBAltHesKodu.Size = new System.Drawing.Size(79, 13);
+            this.LBAltHesKodu.TabIndex = 0;
+            this.LBAltHesKodu.Text = "Alt Hesap Kodu";
             // 
             // panel2
             // 
@@ -2629,6 +2721,14 @@
             this.sqlCommand1.Notification = null;
             this.sqlCommand1.Transaction = null;
             // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Location = new System.Drawing.Point(345, 17);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(126, 56);
+            this.simpleButton1.TabIndex = 8;
+            this.simpleButton1.Text = "Kaydet";
+            // 
             // FCariKart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -2688,6 +2788,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
             this.panel16.ResumeLayout(false);
             this.panel16.PerformLayout();
+            this.tabPage9.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DGAltHesap)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            this.panel18.ResumeLayout(false);
+            this.panel18.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TBAdi.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BTKoduSec.Properties)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
@@ -2918,5 +3025,13 @@
         private DevExpress.XtraEditors.SimpleButton BTDosyaYoluSec;
         private DevExpress.XtraEditors.SimpleButton BTDokumanlarSil;
         private DevExpress.XtraEditors.SimpleButton BTDokumanlarKaydet;
+        private Panel panel18;
+        private DevExpress.XtraEditors.LabelControl LBAltHesKodu;
+        private DevExpress.XtraEditors.TextEdit TBAdi;
+        private DevExpress.XtraEditors.ButtonEdit BTKoduSec;
+        private DevExpress.XtraEditors.LabelControl LBAdi;
+        private DevExpress.XtraGrid.GridControl DGAltHesap;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
     }
 }

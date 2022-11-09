@@ -16,11 +16,10 @@ namespace MEYPAK.API.Controllers.CARIControllers
         private readonly ICariAltHesServis _cariAltHesServis;
         private MPAdoContext<MPCARIALTHES> _adocariAltHesServis = new MPAdoContext<MPCARIALTHES>();
 
-        public CARIALTHESController(IMapper mapper, ICariAltHesServis cariAltHesServis, MPAdoContext<MPCARIALTHES> adocariAltHesServis)
+        public CARIALTHESController(IMapper mapper, ICariAltHesServis cariAltHesServis)
         {
             _mapper = mapper;
             _cariAltHesServis = cariAltHesServis;
-            _adocariAltHesServis = adocariAltHesServis;
         }
 
         [HttpGet]

@@ -276,5 +276,15 @@ namespace MEYPAK.BLL.Assets
 
         #endregion
 
+        #region  ParaBirimi
+        
+        public const string ParaBirimiListeServis = "http://213.238.167.117:8080/PARABIRIM/PARABIRIMListe";
+        public const string ParaBirimiEkleServis = "http://213.238.167.117:8080/PARABIRIM/PARABIRIMEkleyadaGuncelle";
+        public const string ParaBirimiSilServis = "http://213.238.167.117:8080/PARABIRIM/PARABIRIMSSil";
+        public const string ParaBirimiGuncelleServis = "http://213.238.167.117:8080/PARABIRIM/PARABIRIMGuncelle";
+        public const string ParaBirimiDeleteByIdServis = "http://213.238.167.117:8080/PARABIRIM/DeleteById";
+
+        #endregion
+
     }
 }
