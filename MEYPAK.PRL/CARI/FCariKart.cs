@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraReports.Design;
+using DevExpress.XtraSpellChecker;
 using DevExpress.XtraTab;
 using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.Models.CARI;
@@ -102,10 +103,7 @@ namespace MEYPAK.PRL.CARI
             TBVNo.Text = _tempCariKart.vergino;
             TBWebSite.Text = _tempCariKart.web;
         }
-        private void panel8_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        
         ADRESOBJECT.Root _adresObje;
         public void FCariKart_Load(object sender, EventArgs e)
         {
@@ -186,15 +184,7 @@ namespace MEYPAK.PRL.CARI
 
         }
 
-        private void groupControl2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void groupControl3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+       
 
         private void TBSevkAdres_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -274,31 +264,33 @@ namespace MEYPAK.PRL.CARI
             if (e.Button.Caption == "Yeni")
             {
 
-                XtraTabPage page = new XtraTabPage();
+                XtraTabPage page = new XtraTabPage(); 
                 FCariAltHesap fCariAltHesap = new FCariAltHesap();
-                Main main = new Main();
-                page.Name = "TPAltHesap" + i;
+                Main main = (Main)Application.OpenForms["Main"];
+                page.Name = "TPAltHesap";
                 page.Text = "Alt Hesap";
-                page.Tag = "TPAltHesap" + i;
+                page.Tag = "TPAltHesapPanel"; 
+               
                 page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
                 main.xtraTabControl1.TabPages.Add(page);
                 main.xtraTabControl1.SelectedTabPage = page;
 
-                fCariAltHesap.TopLevel = false ;
+                fCariAltHesap.TopLevel = false;
                 fCariAltHesap.AutoScroll = true;
                 fCariAltHesap.Dock = DockStyle.Top;
-                fCariAltHesap.Tag = "FCariAltHesap" + i;
+                //fCariAltHesap.Tag = "TPAltHesapPanel";
                 page.Controls.Add(fCariAltHesap);
                 fCariAltHesap.Show();
                 i++;
 
 
+
             }
             else if (e.Button.Caption == "Seç")
             {
-                MessageBox.Show("merhaba");
+               
             }
-                    }
+          }
 
       
     }
