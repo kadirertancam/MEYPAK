@@ -172,6 +172,7 @@
             this.DGAltHesap = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panel18 = new System.Windows.Forms.Panel();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.LBAdi = new DevExpress.XtraEditors.LabelControl();
             this.TBAdi = new DevExpress.XtraEditors.TextEdit();
             this.BTKoduSec = new DevExpress.XtraEditors.ButtonEdit();
@@ -260,7 +261,6 @@
             this.TBUnvan = new System.Windows.Forms.TextBox();
             this.TBCariKodu = new System.Windows.Forms.TextBox();
             this.sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.panel1.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -1801,6 +1801,14 @@
             this.panel18.Size = new System.Drawing.Size(1133, 465);
             this.panel18.TabIndex = 0;
             // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Location = new System.Drawing.Point(345, 17);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(126, 56);
+            this.simpleButton1.TabIndex = 8;
+            this.simpleButton1.Text = "Kaydet";
+            // 
             // LBAdi
             // 
             this.LBAdi.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -1828,6 +1836,8 @@
             this.BTKoduSec.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTKoduSec_Properties_ButtonClick);
             this.BTKoduSec.Size = new System.Drawing.Size(202, 22);
             this.BTKoduSec.TabIndex = 2;
+            this.BTKoduSec.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTKoduSec_Properties_ButtonClick);
+            
             // 
             // LBAltHesKodu
             // 
@@ -2720,14 +2730,6 @@
             this.sqlCommand1.Connection = null;
             this.sqlCommand1.Notification = null;
             this.sqlCommand1.Transaction = null;
-            // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Location = new System.Drawing.Point(345, 17);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(126, 56);
-            this.simpleButton1.TabIndex = 8;
-            this.simpleButton1.Text = "Kaydet";
             // 
             // FCariKart
             // 

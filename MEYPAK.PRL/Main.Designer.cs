@@ -141,6 +141,7 @@
             this.accordionControlElement27 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
             this.applicationMenu1 = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
+            this.accordionContentContainer1 = new DevExpress.XtraBars.Navigation.AccordionContentContainer();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -149,6 +150,7 @@
             this.xtraTabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
+            this.accordionControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.applicationMenu1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -757,6 +759,7 @@
             // 
             // accordionControl1
             // 
+            this.accordionControl1.Controls.Add(this.accordionContentContainer1);
             this.accordionControl1.Dock = System.Windows.Forms.DockStyle.Left;
             this.accordionControl1.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.accordionControlElement19,
@@ -878,6 +881,7 @@
             // 
             // accordionControlElement14
             // 
+            this.accordionControlElement14.ContentContainer = this.accordionContentContainer1;
             this.accordionControlElement14.Name = "accordionControlElement14";
             this.accordionControlElement14.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement14.Text = "Stok Hareket";
@@ -911,6 +915,7 @@
             // 
             // accordionControlElement4
             // 
+            this.accordionControlElement4.Expanded = true;
             this.accordionControlElement4.Name = "accordionControlElement4";
             this.accordionControlElement4.Text = "Raporlar";
             // 
@@ -1015,7 +1020,6 @@
             // 
             // accordionControlElement32
             // 
-            this.accordionControlElement32.Expanded = true;
             this.accordionControlElement32.Name = "accordionControlElement32";
             this.accordionControlElement32.Text = "Hareketler";
             // 
@@ -1093,6 +1097,12 @@
             // 
             this.applicationMenu1.Name = "applicationMenu1";
             // 
+            // accordionContentContainer1
+            // 
+            this.accordionContentContainer1.Name = "accordionContentContainer1";
+            this.accordionContentContainer1.Size = new System.Drawing.Size(220, 76);
+            this.accordionContentContainer1.TabIndex = 3;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1113,6 +1123,7 @@
             this.xtraTabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).EndInit();
+            this.accordionControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.applicationMenu1)).EndInit();
             this.ResumeLayout(false);
 
@@ -1209,7 +1220,6 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem18;
         private DevExpress.XtraBars.Bar bar2;
         private DevExpress.XtraBars.BarHeaderItem barHeaderItem1;
-        private DevExpress.XtraTab.XtraTabControl xtraTabControl1;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
         private Panel panel6;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement20;
@@ -1232,5 +1242,7 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement35;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement36;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement37;
+        public DevExpress.XtraTab.XtraTabControl xtraTabControl1;
+        private DevExpress.XtraBars.Navigation.AccordionContentContainer accordionContentContainer1;
     }
 }
