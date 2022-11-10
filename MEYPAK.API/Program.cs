@@ -37,7 +37,8 @@ using MEYPAK.DAL.Concrete.EntityFramework.Repository.ParametreRepo;
 using MEYPAK.Interfaces.Parametre;
 using MEYPAK.BLL.PARAMETRE;
 using System.Data.Entity;
-
+using MEYPAK.Entity.Models.PERSONEL;
+using MEYPAK.DAL.Concrete.EntityFramework.Repository.PersonelRepo;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -184,6 +185,12 @@ builder.Services.AddScoped<IHizmetServis, HizmetManager>();
 
 builder.Services.AddScoped<IPersonelDal, EFPersonelRepo>();
 builder.Services.AddScoped<IPersonelServis, PersonelManager>();
+
+builder.Services.AddScoped<IPersonelDepartmanDal, EFPersonelDepartmanRepo>();
+builder.Services.AddScoped<IPersonelDepartmanServis, PersonelDepartmanManager>();
+
+builder.Services.AddScoped<IPersonelGorevDal, EFPersonelGorevRepo>();
+builder.Services.AddScoped<IPersonelGorevServis, PersonelGorevManager>();
 #endregion
 #region SIPARIS_Scoped_Islemleri
 builder.Services.AddScoped<ISiparisDal, EFSiparisRepo>();

@@ -28,738 +28,878 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.TBSgkSicilNo = new System.Windows.Forms.TextBox();
-            this.LBSgkSicilNo = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.RBBosanmis = new System.Windows.Forms.RadioButton();
-            this.RBEvli = new System.Windows.Forms.RadioButton();
-            this.RBBekar = new System.Windows.Forms.RadioButton();
-            this.PNCikis = new System.Windows.Forms.Panel();
-            this.BTCikisIptal = new System.Windows.Forms.Button();
-            this.BTCikisKaydet = new System.Windows.Forms.Button();
-            this.TBIstenAyrılmaNedeni = new System.Windows.Forms.TextBox();
-            this.LBIstenAyrılmaNedeni = new System.Windows.Forms.Label();
-            this.DTPPsikoTeknik = new System.Windows.Forms.DateTimePicker();
-            this.LBPsikoTeknik = new System.Windows.Forms.Label();
-            this.CBGorevi = new System.Windows.Forms.ComboBox();
-            this.LBGorevi = new System.Windows.Forms.Label();
-            this.TBEposta = new System.Windows.Forms.TextBox();
-            this.LBEposta = new System.Windows.Forms.Label();
-            this.DTPDogumTarihi = new System.Windows.Forms.DateTimePicker();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.BTPersonelSec = new System.Windows.Forms.Button();
-            this.MTBTcKimlik = new System.Windows.Forms.MaskedTextBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.LBPanelIseBaslamaTarihi = new System.Windows.Forms.Label();
-            this.LBSigortasizPersonelKayit = new System.Windows.Forms.Label();
-            this.BTCikisIslemi = new System.Windows.Forms.Button();
-            this.LBPanelGorevi = new System.Windows.Forms.Label();
-            this.LBLabelGorevi = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.LBPanelSoyadi = new System.Windows.Forms.Label();
-            this.LBPanelAdi = new System.Windows.Forms.Label();
-            this.LBPanelTc = new System.Windows.Forms.Label();
-            this.LBLabelTc = new System.Windows.Forms.Label();
-            this.LBLabelSoyadi = new System.Windows.Forms.Label();
-            this.LBLabelAdi = new System.Windows.Forms.Label();
-            this.TBScr = new System.Windows.Forms.TextBox();
-            this.LBScr = new System.Windows.Forms.Label();
-            this.TBEhliyetNo = new System.Windows.Forms.TextBox();
-            this.LBEhliyetNo = new System.Windows.Forms.Label();
-            this.LBMedeniDurum = new System.Windows.Forms.Label();
-            this.TBAskerlik = new System.Windows.Forms.TextBox();
-            this.LBAskerlik = new System.Windows.Forms.Label();
-            this.LBTcKimlik = new System.Windows.Forms.Label();
-            this.LBDogumTarihi = new System.Windows.Forms.Label();
-            this.TBKanGrubu = new System.Windows.Forms.TextBox();
-            this.LBKanGrubu = new System.Windows.Forms.Label();
-            this.TBTelefon = new System.Windows.Forms.TextBox();
-            this.LBTelefon = new System.Windows.Forms.Label();
-            this.TBAdres = new System.Windows.Forms.TextBox();
-            this.LBAdres = new System.Windows.Forms.Label();
-            this.TBSoyadi = new System.Windows.Forms.TextBox();
-            this.LBSoyadi = new System.Windows.Forms.Label();
-            this.TBAdi = new System.Windows.Forms.TextBox();
-            this.LBAdi = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.PNCikis.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
+            this.xtraTabControl2 = new DevExpress.XtraTab.XtraTabControl();
+            this.XTPKimlik = new DevExpress.XtraTab.XtraTabPage();
+            this.comboBoxEdit2 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.textEdit24 = new DevExpress.XtraEditors.TextEdit();
+            this.textEdit23 = new DevExpress.XtraEditors.TextEdit();
+            this.textEdit22 = new DevExpress.XtraEditors.TextEdit();
+            this.textEdit21 = new DevExpress.XtraEditors.TextEdit();
+            this.textEdit20 = new DevExpress.XtraEditors.TextEdit();
+            this.textEdit4 = new DevExpress.XtraEditors.TextEdit();
+            this.textEdit19 = new DevExpress.XtraEditors.TextEdit();
+            this.textEdit18 = new DevExpress.XtraEditors.TextEdit();
+            this.textEdit17 = new DevExpress.XtraEditors.TextEdit();
+            this.textEdit16 = new DevExpress.XtraEditors.TextEdit();
+            this.textEdit15 = new DevExpress.XtraEditors.TextEdit();
+            this.textEdit14 = new DevExpress.XtraEditors.TextEdit();
+            this.textEdit13 = new DevExpress.XtraEditors.TextEdit();
+            this.textEdit12 = new DevExpress.XtraEditors.TextEdit();
+            this.textEdit11 = new DevExpress.XtraEditors.TextEdit();
+            this.LBNCuzdanKayNo = new DevExpress.XtraEditors.LabelControl();
+            this.LBNufusCuzdanVerTar = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.LBSiraNo = new DevExpress.XtraEditors.LabelControl();
+            this.LBKanGrup = new DevExpress.XtraEditors.LabelControl();
+            this.LBCiltNo = new DevExpress.XtraEditors.LabelControl();
+            this.LBAileSiraNo = new DevExpress.XtraEditors.LabelControl();
+            this.LBUlke = new DevExpress.XtraEditors.LabelControl();
+            this.LBNufusMahalle = new DevExpress.XtraEditors.LabelControl();
+            this.LBNufusIlce = new DevExpress.XtraEditors.LabelControl();
+            this.LBNufusIl = new DevExpress.XtraEditors.LabelControl();
+            this.LBIlkSoyad = new DevExpress.XtraEditors.LabelControl();
+            this.LBUyruk = new DevExpress.XtraEditors.LabelControl();
+            this.LBMedeniDurum = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.LBBabaAdi = new DevExpress.XtraEditors.LabelControl();
+            this.LBAnneAdi = new DevExpress.XtraEditors.LabelControl();
+            this.XTPKisisel = new DevExpress.XtraTab.XtraTabPage();
+            this.xtraTabPage3 = new DevExpress.XtraTab.XtraTabPage();
+            this.XTPBanka = new DevExpress.XtraTab.XtraTabPage();
+            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.CBGorev = new DevExpress.XtraEditors.LookUpEdit();
+            this.CBDepartman = new DevExpress.XtraEditors.LookUpEdit();
+            this.comboBoxEdit3 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.textEdit10 = new DevExpress.XtraEditors.TextEdit();
+            this.textEdit9 = new DevExpress.XtraEditors.TextEdit();
+            this.textEdit8 = new DevExpress.XtraEditors.TextEdit();
+            this.textEdit5 = new DevExpress.XtraEditors.TextEdit();
+            this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
+            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
+            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.LBSGKSicilNo = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.LBGOREV = new DevExpress.XtraEditors.LabelControl();
+            this.LBDepartman = new DevExpress.XtraEditors.LabelControl();
+            this.LBCinsiyet = new DevExpress.XtraEditors.LabelControl();
+            this.LBTC = new DevExpress.XtraEditors.LabelControl();
+            this.LBSoyad = new DevExpress.XtraEditors.LabelControl();
+            this.LBAd = new DevExpress.XtraEditors.LabelControl();
+            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
+            this.LBDogumTar = new DevExpress.XtraEditors.LabelControl();
+            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
+            this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
+            this.panelControl4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl2)).BeginInit();
+            this.xtraTabControl2.SuspendLayout();
+            this.XTPKimlik.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit24.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit23.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit22.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit21.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit20.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit19.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit18.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit17.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit16.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit15.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit14.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit13.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit12.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit11.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
+            this.panelControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CBGorev.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CBDepartman.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit3.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit10.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit9.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit8.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
+            this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
+            this.xtraTabControl1.SuspendLayout();
+            this.xtraTabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.groupBox1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(752, 523);
-            this.panel1.TabIndex = 0;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.TBSgkSicilNo);
-            this.groupBox1.Controls.Add(this.LBSgkSicilNo);
-            this.groupBox1.Controls.Add(this.groupBox3);
-            this.groupBox1.Controls.Add(this.PNCikis);
-            this.groupBox1.Controls.Add(this.DTPPsikoTeknik);
-            this.groupBox1.Controls.Add(this.LBPsikoTeknik);
-            this.groupBox1.Controls.Add(this.CBGorevi);
-            this.groupBox1.Controls.Add(this.LBGorevi);
-            this.groupBox1.Controls.Add(this.TBEposta);
-            this.groupBox1.Controls.Add(this.LBEposta);
-            this.groupBox1.Controls.Add(this.DTPDogumTarihi);
-            this.groupBox1.Controls.Add(this.button4);
-            this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.BTPersonelSec);
-            this.groupBox1.Controls.Add(this.MTBTcKimlik);
-            this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Controls.Add(this.TBScr);
-            this.groupBox1.Controls.Add(this.LBScr);
-            this.groupBox1.Controls.Add(this.TBEhliyetNo);
-            this.groupBox1.Controls.Add(this.LBEhliyetNo);
-            this.groupBox1.Controls.Add(this.LBMedeniDurum);
-            this.groupBox1.Controls.Add(this.TBAskerlik);
-            this.groupBox1.Controls.Add(this.LBAskerlik);
-            this.groupBox1.Controls.Add(this.LBTcKimlik);
-            this.groupBox1.Controls.Add(this.LBDogumTarihi);
-            this.groupBox1.Controls.Add(this.TBKanGrubu);
-            this.groupBox1.Controls.Add(this.LBKanGrubu);
-            this.groupBox1.Controls.Add(this.TBTelefon);
-            this.groupBox1.Controls.Add(this.LBTelefon);
-            this.groupBox1.Controls.Add(this.TBAdres);
-            this.groupBox1.Controls.Add(this.LBAdres);
-            this.groupBox1.Controls.Add(this.TBSoyadi);
-            this.groupBox1.Controls.Add(this.LBSoyadi);
-            this.groupBox1.Controls.Add(this.TBAdi);
-            this.groupBox1.Controls.Add(this.LBAdi);
-            this.groupBox1.Location = new System.Drawing.Point(12, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(732, 508);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Personel";
-            // 
-            // TBSgkSicilNo
-            // 
-            this.TBSgkSicilNo.Location = new System.Drawing.Point(522, 396);
-            this.TBSgkSicilNo.Name = "TBSgkSicilNo";
-            this.TBSgkSicilNo.Size = new System.Drawing.Size(193, 23);
-            this.TBSgkSicilNo.TabIndex = 17;
-            // 
-            // LBSgkSicilNo
-            // 
-            this.LBSgkSicilNo.AutoSize = true;
-            this.LBSgkSicilNo.Location = new System.Drawing.Point(445, 399);
-            this.LBSgkSicilNo.Name = "LBSgkSicilNo";
-            this.LBSgkSicilNo.Size = new System.Drawing.Size(71, 15);
-            this.LBSgkSicilNo.TabIndex = 24;
-            this.LBSgkSicilNo.Text = "SGK Sicil No";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.RBBosanmis);
-            this.groupBox3.Controls.Add(this.RBEvli);
-            this.groupBox3.Controls.Add(this.RBBekar);
-            this.groupBox3.Location = new System.Drawing.Point(104, 422);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(215, 48);
-            this.groupBox3.TabIndex = 23;
-            this.groupBox3.TabStop = false;
-            // 
-            // RBBosanmis
-            // 
-            this.RBBosanmis.AutoSize = true;
-            this.RBBosanmis.Location = new System.Drawing.Point(115, 22);
-            this.RBBosanmis.Name = "RBBosanmis";
-            this.RBBosanmis.Size = new System.Drawing.Size(76, 19);
-            this.RBBosanmis.TabIndex = 10;
-            this.RBBosanmis.TabStop = true;
-            this.RBBosanmis.Text = "Boşanmış";
-            this.RBBosanmis.UseVisualStyleBackColor = true;
-            // 
-            // RBEvli
-            // 
-            this.RBEvli.AutoSize = true;
-            this.RBEvli.Location = new System.Drawing.Point(66, 22);
-            this.RBEvli.Name = "RBEvli";
-            this.RBEvli.Size = new System.Drawing.Size(43, 19);
-            this.RBEvli.TabIndex = 9;
-            this.RBEvli.TabStop = true;
-            this.RBEvli.Text = "Evli";
-            this.RBEvli.UseVisualStyleBackColor = true;
-            // 
-            // RBBekar
-            // 
-            this.RBBekar.AutoSize = true;
-            this.RBBekar.Location = new System.Drawing.Point(6, 22);
-            this.RBBekar.Name = "RBBekar";
-            this.RBBekar.Size = new System.Drawing.Size(54, 19);
-            this.RBBekar.TabIndex = 8;
-            this.RBBekar.TabStop = true;
-            this.RBBekar.Text = "Bekar";
-            this.RBBekar.UseVisualStyleBackColor = true;
-            // 
-            // PNCikis
-            // 
-            this.PNCikis.Controls.Add(this.BTCikisIptal);
-            this.PNCikis.Controls.Add(this.BTCikisKaydet);
-            this.PNCikis.Controls.Add(this.TBIstenAyrılmaNedeni);
-            this.PNCikis.Controls.Add(this.LBIstenAyrılmaNedeni);
-            this.PNCikis.Location = new System.Drawing.Point(470, 191);
-            this.PNCikis.Name = "PNCikis";
-            this.PNCikis.Size = new System.Drawing.Size(201, 90);
-            this.PNCikis.TabIndex = 22;
-            this.PNCikis.Visible = false;
-            // 
-            // BTCikisIptal
-            // 
-            this.BTCikisIptal.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.BTCikisIptal.Location = new System.Drawing.Point(123, 60);
-            this.BTCikisIptal.Name = "BTCikisIptal";
-            this.BTCikisIptal.Size = new System.Drawing.Size(75, 23);
-            this.BTCikisIptal.TabIndex = 3;
-            this.BTCikisIptal.TabStop = false;
-            this.BTCikisIptal.Text = "İptal";
-            this.BTCikisIptal.UseVisualStyleBackColor = true;
-            // 
-            // BTCikisKaydet
-            // 
-            this.BTCikisKaydet.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.BTCikisKaydet.Location = new System.Drawing.Point(48, 60);
-            this.BTCikisKaydet.Name = "BTCikisKaydet";
-            this.BTCikisKaydet.Size = new System.Drawing.Size(75, 23);
-            this.BTCikisKaydet.TabIndex = 2;
-            this.BTCikisKaydet.TabStop = false;
-            this.BTCikisKaydet.Text = "Kaydet";
-            this.BTCikisKaydet.UseVisualStyleBackColor = true;
-            // 
-            // TBIstenAyrılmaNedeni
-            // 
-            this.TBIstenAyrılmaNedeni.Location = new System.Drawing.Point(11, 28);
-            this.TBIstenAyrılmaNedeni.Name = "TBIstenAyrılmaNedeni";
-            this.TBIstenAyrılmaNedeni.Size = new System.Drawing.Size(187, 23);
-            this.TBIstenAyrılmaNedeni.TabIndex = 15;
-            // 
-            // LBIstenAyrılmaNedeni
-            // 
-            this.LBIstenAyrılmaNedeni.AutoSize = true;
-            this.LBIstenAyrılmaNedeni.Location = new System.Drawing.Point(3, 10);
-            this.LBIstenAyrılmaNedeni.Name = "LBIstenAyrılmaNedeni";
-            this.LBIstenAyrılmaNedeni.Size = new System.Drawing.Size(114, 15);
-            this.LBIstenAyrılmaNedeni.TabIndex = 0;
-            this.LBIstenAyrılmaNedeni.Text = "İşten Ayrılma Sebebi";
-            // 
-            // DTPPsikoTeknik
-            // 
-            this.DTPPsikoTeknik.Location = new System.Drawing.Point(529, 280);
-            this.DTPPsikoTeknik.Name = "DTPPsikoTeknik";
-            this.DTPPsikoTeknik.Size = new System.Drawing.Size(186, 23);
-            this.DTPPsikoTeknik.TabIndex = 13;
-            // 
-            // LBPsikoTeknik
-            // 
-            this.LBPsikoTeknik.AutoSize = true;
-            this.LBPsikoTeknik.Location = new System.Drawing.Point(445, 283);
-            this.LBPsikoTeknik.Name = "LBPsikoTeknik";
-            this.LBPsikoTeknik.Size = new System.Drawing.Size(71, 15);
-            this.LBPsikoTeknik.TabIndex = 19;
-            this.LBPsikoTeknik.Text = "Psiko Teknik";
-            // 
-            // CBGorevi
-            // 
-            this.CBGorevi.FormattingEnabled = true;
-            this.CBGorevi.Items.AddRange(new object[] {
-            "Muhasebe",
-            "Yazılım",
-            "Şoför"});
-            this.CBGorevi.Location = new System.Drawing.Point(507, 222);
-            this.CBGorevi.Name = "CBGorevi";
-            this.CBGorevi.Size = new System.Drawing.Size(208, 23);
-            this.CBGorevi.TabIndex = 11;
-            this.CBGorevi.SelectedIndexChanged += new System.EventHandler(this.CBGorevi_SelectedIndexChanged);
-            // 
-            // LBGorevi
-            // 
-            this.LBGorevi.AutoSize = true;
-            this.LBGorevi.Location = new System.Drawing.Point(445, 225);
-            this.LBGorevi.Name = "LBGorevi";
-            this.LBGorevi.Size = new System.Drawing.Size(41, 15);
-            this.LBGorevi.TabIndex = 17;
-            this.LBGorevi.Text = "Görevi";
-            // 
-            // TBEposta
-            // 
-            this.TBEposta.Location = new System.Drawing.Point(73, 398);
-            this.TBEposta.Name = "TBEposta";
-            this.TBEposta.Size = new System.Drawing.Size(208, 23);
-            this.TBEposta.TabIndex = 7;
-            // 
-            // LBEposta
-            // 
-            this.LBEposta.AutoSize = true;
-            this.LBEposta.Location = new System.Drawing.Point(11, 401);
-            this.LBEposta.Name = "LBEposta";
-            this.LBEposta.Size = new System.Drawing.Size(42, 15);
-            this.LBEposta.TabIndex = 15;
-            this.LBEposta.Text = "EPosta";
-            // 
-            // DTPDogumTarihi
-            // 
-            this.DTPDogumTarihi.Location = new System.Drawing.Point(95, 309);
-            this.DTPDogumTarihi.Name = "DTPDogumTarihi";
-            this.DTPDogumTarihi.Size = new System.Drawing.Size(186, 23);
-            this.DTPDogumTarihi.TabIndex = 4;
-            // 
-            // button4
-            // 
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.button4.Location = new System.Drawing.Point(642, 439);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(73, 53);
-            this.button4.TabIndex = 14;
-            this.button4.TabStop = false;
-            this.button4.Text = "Sil";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // button3
-            // 
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.button3.Location = new System.Drawing.Point(563, 440);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(73, 53);
-            this.button3.TabIndex = 13;
-            this.button3.TabStop = false;
-            this.button3.Text = "Kaydet";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // BTPersonelSec
-            // 
-            this.BTPersonelSec.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BTPersonelSec.Location = new System.Drawing.Point(242, 222);
-            this.BTPersonelSec.Name = "BTPersonelSec";
-            this.BTPersonelSec.Size = new System.Drawing.Size(39, 23);
-            this.BTPersonelSec.TabIndex = 12;
-            this.BTPersonelSec.TabStop = false;
-            this.BTPersonelSec.Text = "Seç";
-            this.BTPersonelSec.UseVisualStyleBackColor = true;
-            this.BTPersonelSec.Click += new System.EventHandler(this.BTPersonelSec_Click);
-            // 
-            // MTBTcKimlik
-            // 
-            this.MTBTcKimlik.Location = new System.Drawing.Point(73, 222);
-            this.MTBTcKimlik.Mask = "00000000000";
-            this.MTBTcKimlik.Name = "MTBTcKimlik";
-            this.MTBTcKimlik.Size = new System.Drawing.Size(173, 23);
-            this.MTBTcKimlik.TabIndex = 1;
-            this.MTBTcKimlik.Click += new System.EventHandler(this.maskedTextBox1_Click);
-            this.MTBTcKimlik.TextChanged += new System.EventHandler(this.MTBTcKimlik_TextChanged);
-            this.MTBTcKimlik.Enter += new System.EventHandler(this.maskedTextBox1_Enter);
-            this.MTBTcKimlik.Leave += new System.EventHandler(this.MTBTcKimlik_Leave);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.LBPanelIseBaslamaTarihi);
-            this.groupBox2.Controls.Add(this.LBSigortasizPersonelKayit);
-            this.groupBox2.Controls.Add(this.BTCikisIslemi);
-            this.groupBox2.Controls.Add(this.LBPanelGorevi);
-            this.groupBox2.Controls.Add(this.LBLabelGorevi);
-            this.groupBox2.Controls.Add(this.label18);
-            this.groupBox2.Controls.Add(this.label17);
-            this.groupBox2.Controls.Add(this.pictureBox1);
-            this.groupBox2.Controls.Add(this.LBPanelSoyadi);
-            this.groupBox2.Controls.Add(this.LBPanelAdi);
-            this.groupBox2.Controls.Add(this.LBPanelTc);
-            this.groupBox2.Controls.Add(this.LBLabelTc);
-            this.groupBox2.Controls.Add(this.LBLabelSoyadi);
-            this.groupBox2.Controls.Add(this.LBLabelAdi);
-            this.groupBox2.Location = new System.Drawing.Point(11, 22);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(715, 181);
-            this.groupBox2.TabIndex = 10;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Genel Bilgi";
-            // 
-            // LBPanelIseBaslamaTarihi
-            // 
-            this.LBPanelIseBaslamaTarihi.AutoSize = true;
-            this.LBPanelIseBaslamaTarihi.Location = new System.Drawing.Point(129, 124);
-            this.LBPanelIseBaslamaTarihi.Name = "LBPanelIseBaslamaTarihi";
-            this.LBPanelIseBaslamaTarihi.Size = new System.Drawing.Size(0, 15);
-            this.LBPanelIseBaslamaTarihi.TabIndex = 15;
-            // 
-            // LBSigortasizPersonelKayit
-            // 
-            this.LBSigortasizPersonelKayit.AutoSize = true;
-            this.LBSigortasizPersonelKayit.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBSigortasizPersonelKayit.ForeColor = System.Drawing.Color.Red;
-            this.LBSigortasizPersonelKayit.Location = new System.Drawing.Point(457, -5);
-            this.LBSigortasizPersonelKayit.Name = "LBSigortasizPersonelKayit";
-            this.LBSigortasizPersonelKayit.Size = new System.Drawing.Size(247, 30);
-            this.LBSigortasizPersonelKayit.TabIndex = 14;
-            this.LBSigortasizPersonelKayit.Text = "Sigortasız Personel Kayıt";
-            this.LBSigortasizPersonelKayit.Visible = false;
-            // 
-            // BTCikisIslemi
-            // 
-            this.BTCikisIslemi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.BTCikisIslemi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BTCikisIslemi.ForeColor = System.Drawing.SystemColors.Control;
-            this.BTCikisIslemi.Location = new System.Drawing.Point(459, 124);
-            this.BTCikisIslemi.Name = "BTCikisIslemi";
-            this.BTCikisIslemi.Size = new System.Drawing.Size(86, 41);
-            this.BTCikisIslemi.TabIndex = 13;
-            this.BTCikisIslemi.TabStop = false;
-            this.BTCikisIslemi.Text = "Çıkış İşlemi";
-            this.BTCikisIslemi.UseVisualStyleBackColor = false;
-            this.BTCikisIslemi.Click += new System.EventHandler(this.BTCikisIslemi_Click);
-            // 
-            // LBPanelGorevi
-            // 
-            this.LBPanelGorevi.AutoSize = true;
-            this.LBPanelGorevi.Location = new System.Drawing.Point(314, 39);
-            this.LBPanelGorevi.Name = "LBPanelGorevi";
-            this.LBPanelGorevi.Size = new System.Drawing.Size(0, 15);
-            this.LBPanelGorevi.TabIndex = 11;
-            // 
-            // LBLabelGorevi
-            // 
-            this.LBLabelGorevi.AutoSize = true;
-            this.LBLabelGorevi.Location = new System.Drawing.Point(247, 39);
-            this.LBLabelGorevi.Name = "LBLabelGorevi";
-            this.LBLabelGorevi.Size = new System.Drawing.Size(44, 15);
-            this.LBLabelGorevi.TabIndex = 10;
-            this.LBLabelGorevi.Text = "Görevi:";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(247, 124);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(73, 15);
-            this.label18.TabIndex = 8;
-            this.label18.Text = "Ayrılış Tarihi:";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(21, 124);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(102, 15);
-            this.label17.TabIndex = 7;
-            this.label17.Text = "İşe Başlama Tarihi:";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(577, 28);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(127, 153);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.DoubleClick += new System.EventHandler(this.pictureBox1_DoubleClick);
-            // 
-            // LBPanelSoyadi
-            // 
-            this.LBPanelSoyadi.AutoSize = true;
-            this.LBPanelSoyadi.Location = new System.Drawing.Point(94, 94);
-            this.LBPanelSoyadi.Name = "LBPanelSoyadi";
-            this.LBPanelSoyadi.Size = new System.Drawing.Size(0, 15);
-            this.LBPanelSoyadi.TabIndex = 5;
-            // 
-            // LBPanelAdi
-            // 
-            this.LBPanelAdi.AutoSize = true;
-            this.LBPanelAdi.Location = new System.Drawing.Point(94, 66);
-            this.LBPanelAdi.Name = "LBPanelAdi";
-            this.LBPanelAdi.Size = new System.Drawing.Size(0, 15);
-            this.LBPanelAdi.TabIndex = 4;
-            // 
-            // LBPanelTc
-            // 
-            this.LBPanelTc.AutoSize = true;
-            this.LBPanelTc.Location = new System.Drawing.Point(94, 39);
-            this.LBPanelTc.Name = "LBPanelTc";
-            this.LBPanelTc.Size = new System.Drawing.Size(0, 15);
-            this.LBPanelTc.TabIndex = 3;
-            // 
-            // LBLabelTc
-            // 
-            this.LBLabelTc.AutoSize = true;
-            this.LBLabelTc.Location = new System.Drawing.Point(21, 39);
-            this.LBLabelTc.Name = "LBLabelTc";
-            this.LBLabelTc.Size = new System.Drawing.Size(59, 15);
-            this.LBLabelTc.TabIndex = 2;
-            this.LBLabelTc.Text = "TC Kimlik:";
-            // 
-            // LBLabelSoyadi
-            // 
-            this.LBLabelSoyadi.AutoSize = true;
-            this.LBLabelSoyadi.Location = new System.Drawing.Point(21, 94);
-            this.LBLabelSoyadi.Name = "LBLabelSoyadi";
-            this.LBLabelSoyadi.Size = new System.Drawing.Size(45, 15);
-            this.LBLabelSoyadi.TabIndex = 1;
-            this.LBLabelSoyadi.Text = "Soyadı:";
-            // 
-            // LBLabelAdi
-            // 
-            this.LBLabelAdi.AutoSize = true;
-            this.LBLabelAdi.Location = new System.Drawing.Point(21, 66);
-            this.LBLabelAdi.Name = "LBLabelAdi";
-            this.LBLabelAdi.Size = new System.Drawing.Size(28, 15);
-            this.LBLabelAdi.TabIndex = 0;
-            this.LBLabelAdi.Text = "Adı:";
-            // 
-            // TBScr
-            // 
-            this.TBScr.Location = new System.Drawing.Point(507, 338);
-            this.TBScr.Name = "TBScr";
-            this.TBScr.Size = new System.Drawing.Size(208, 23);
-            this.TBScr.TabIndex = 15;
-            // 
-            // LBScr
-            // 
-            this.LBScr.AutoSize = true;
-            this.LBScr.Location = new System.Drawing.Point(445, 341);
-            this.LBScr.Name = "LBScr";
-            this.LBScr.Size = new System.Drawing.Size(28, 15);
-            this.LBScr.TabIndex = 8;
-            this.LBScr.Text = "SCR";
-            // 
-            // TBEhliyetNo
-            // 
-            this.TBEhliyetNo.Location = new System.Drawing.Point(507, 309);
-            this.TBEhliyetNo.Name = "TBEhliyetNo";
-            this.TBEhliyetNo.Size = new System.Drawing.Size(208, 23);
-            this.TBEhliyetNo.TabIndex = 14;
-            // 
-            // LBEhliyetNo
-            // 
-            this.LBEhliyetNo.AutoSize = true;
-            this.LBEhliyetNo.Location = new System.Drawing.Point(445, 312);
-            this.LBEhliyetNo.Name = "LBEhliyetNo";
-            this.LBEhliyetNo.Size = new System.Drawing.Size(61, 15);
-            this.LBEhliyetNo.TabIndex = 4;
-            this.LBEhliyetNo.Text = "Ehliyet No";
+            // panelControl1
+            // 
+            this.panelControl1.Controls.Add(this.panelControl4);
+            this.panelControl1.Controls.Add(this.panelControl3);
+            this.panelControl1.Controls.Add(this.panelControl2);
+            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl1.Location = new System.Drawing.Point(0, 0);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(1119, 656);
+            this.panelControl1.TabIndex = 0;
+            // 
+            // panelControl4
+            // 
+            this.panelControl4.Controls.Add(this.xtraTabControl2);
+            this.panelControl4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl4.Location = new System.Drawing.Point(319, 207);
+            this.panelControl4.Name = "panelControl4";
+            this.panelControl4.Size = new System.Drawing.Size(798, 447);
+            this.panelControl4.TabIndex = 2;
+            // 
+            // xtraTabControl2
+            // 
+            this.xtraTabControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.xtraTabControl2.Location = new System.Drawing.Point(2, 2);
+            this.xtraTabControl2.Name = "xtraTabControl2";
+            this.xtraTabControl2.SelectedTabPage = this.XTPKimlik;
+            this.xtraTabControl2.Size = new System.Drawing.Size(794, 443);
+            this.xtraTabControl2.TabIndex = 0;
+            this.xtraTabControl2.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.XTPKisisel,
+            this.XTPKimlik,
+            this.xtraTabPage3,
+            this.XTPBanka});
+            // 
+            // XTPKimlik
+            // 
+            this.XTPKimlik.Controls.Add(this.comboBoxEdit2);
+            this.XTPKimlik.Controls.Add(this.comboBoxEdit1);
+            this.XTPKimlik.Controls.Add(this.textEdit24);
+            this.XTPKimlik.Controls.Add(this.textEdit23);
+            this.XTPKimlik.Controls.Add(this.textEdit22);
+            this.XTPKimlik.Controls.Add(this.textEdit21);
+            this.XTPKimlik.Controls.Add(this.textEdit20);
+            this.XTPKimlik.Controls.Add(this.textEdit4);
+            this.XTPKimlik.Controls.Add(this.textEdit19);
+            this.XTPKimlik.Controls.Add(this.textEdit18);
+            this.XTPKimlik.Controls.Add(this.textEdit17);
+            this.XTPKimlik.Controls.Add(this.textEdit16);
+            this.XTPKimlik.Controls.Add(this.textEdit15);
+            this.XTPKimlik.Controls.Add(this.textEdit14);
+            this.XTPKimlik.Controls.Add(this.textEdit13);
+            this.XTPKimlik.Controls.Add(this.textEdit12);
+            this.XTPKimlik.Controls.Add(this.textEdit11);
+            this.XTPKimlik.Controls.Add(this.LBNCuzdanKayNo);
+            this.XTPKimlik.Controls.Add(this.LBNufusCuzdanVerTar);
+            this.XTPKimlik.Controls.Add(this.labelControl5);
+            this.XTPKimlik.Controls.Add(this.LBSiraNo);
+            this.XTPKimlik.Controls.Add(this.LBKanGrup);
+            this.XTPKimlik.Controls.Add(this.LBCiltNo);
+            this.XTPKimlik.Controls.Add(this.LBAileSiraNo);
+            this.XTPKimlik.Controls.Add(this.LBUlke);
+            this.XTPKimlik.Controls.Add(this.LBNufusMahalle);
+            this.XTPKimlik.Controls.Add(this.LBNufusIlce);
+            this.XTPKimlik.Controls.Add(this.LBNufusIl);
+            this.XTPKimlik.Controls.Add(this.LBIlkSoyad);
+            this.XTPKimlik.Controls.Add(this.LBUyruk);
+            this.XTPKimlik.Controls.Add(this.LBMedeniDurum);
+            this.XTPKimlik.Controls.Add(this.labelControl3);
+            this.XTPKimlik.Controls.Add(this.LBBabaAdi);
+            this.XTPKimlik.Controls.Add(this.LBAnneAdi);
+            this.XTPKimlik.Name = "XTPKimlik";
+            this.XTPKimlik.Size = new System.Drawing.Size(792, 418);
+            this.XTPKimlik.Text = "Kimlik-Adres Bilgileri";
+            // 
+            // comboBoxEdit2
+            // 
+            this.comboBoxEdit2.Location = new System.Drawing.Point(94, 151);
+            this.comboBoxEdit2.Name = "comboBoxEdit2";
+            this.comboBoxEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEdit2.Properties.Items.AddRange(new object[] {
+            "T.C. Vatandaşı",
+            "Yabancı"});
+            this.comboBoxEdit2.Size = new System.Drawing.Size(146, 20);
+            this.comboBoxEdit2.TabIndex = 41;
+            // 
+            // comboBoxEdit1
+            // 
+            this.comboBoxEdit1.Location = new System.Drawing.Point(94, 246);
+            this.comboBoxEdit1.Name = "comboBoxEdit1";
+            this.comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEdit1.Properties.Items.AddRange(new object[] {
+            "O Rh-pozitif",
+            "O Rh-negatif",
+            "A Rh-pozitif",
+            "A Rh-negatif",
+            "B Rh-pozitif",
+            "B Rh-negatif",
+            "AB Rh-pozitif",
+            "AB Rh-negatif"});
+            this.comboBoxEdit1.Size = new System.Drawing.Size(146, 20);
+            this.comboBoxEdit1.TabIndex = 40;
+            // 
+            // textEdit24
+            // 
+            this.textEdit24.Location = new System.Drawing.Point(94, 214);
+            this.textEdit24.Name = "textEdit24";
+            this.textEdit24.Size = new System.Drawing.Size(146, 20);
+            this.textEdit24.TabIndex = 39;
+            // 
+            // textEdit23
+            // 
+            this.textEdit23.Location = new System.Drawing.Point(94, 181);
+            this.textEdit23.Name = "textEdit23";
+            this.textEdit23.Size = new System.Drawing.Size(146, 20);
+            this.textEdit23.TabIndex = 38;
+            // 
+            // textEdit22
+            // 
+            this.textEdit22.Location = new System.Drawing.Point(464, 279);
+            this.textEdit22.Name = "textEdit22";
+            this.textEdit22.Size = new System.Drawing.Size(146, 20);
+            this.textEdit22.TabIndex = 37;
+            // 
+            // textEdit21
+            // 
+            this.textEdit21.Location = new System.Drawing.Point(464, 246);
+            this.textEdit21.Name = "textEdit21";
+            this.textEdit21.Size = new System.Drawing.Size(146, 20);
+            this.textEdit21.TabIndex = 36;
+            // 
+            // textEdit20
+            // 
+            this.textEdit20.Location = new System.Drawing.Point(464, 214);
+            this.textEdit20.Name = "textEdit20";
+            this.textEdit20.Size = new System.Drawing.Size(146, 20);
+            this.textEdit20.TabIndex = 35;
+            // 
+            // textEdit4
+            // 
+            this.textEdit4.Location = new System.Drawing.Point(464, 183);
+            this.textEdit4.Name = "textEdit4";
+            this.textEdit4.Size = new System.Drawing.Size(146, 20);
+            this.textEdit4.TabIndex = 34;
+            // 
+            // textEdit19
+            // 
+            this.textEdit19.Location = new System.Drawing.Point(464, 120);
+            this.textEdit19.Name = "textEdit19";
+            this.textEdit19.Size = new System.Drawing.Size(146, 20);
+            this.textEdit19.TabIndex = 31;
+            // 
+            // textEdit18
+            // 
+            this.textEdit18.Location = new System.Drawing.Point(464, 87);
+            this.textEdit18.Name = "textEdit18";
+            this.textEdit18.Size = new System.Drawing.Size(146, 20);
+            this.textEdit18.TabIndex = 30;
+            // 
+            // textEdit17
+            // 
+            this.textEdit17.Location = new System.Drawing.Point(464, 58);
+            this.textEdit17.Name = "textEdit17";
+            this.textEdit17.Size = new System.Drawing.Size(146, 20);
+            this.textEdit17.TabIndex = 29;
+            // 
+            // textEdit16
+            // 
+            this.textEdit16.Location = new System.Drawing.Point(464, 29);
+            this.textEdit16.Name = "textEdit16";
+            this.textEdit16.Size = new System.Drawing.Size(146, 20);
+            this.textEdit16.TabIndex = 28;
+            // 
+            // textEdit15
+            // 
+            this.textEdit15.Location = new System.Drawing.Point(464, 152);
+            this.textEdit15.Name = "textEdit15";
+            this.textEdit15.Size = new System.Drawing.Size(146, 20);
+            this.textEdit15.TabIndex = 27;
+            // 
+            // textEdit14
+            // 
+            this.textEdit14.Location = new System.Drawing.Point(94, 120);
+            this.textEdit14.Name = "textEdit14";
+            this.textEdit14.Size = new System.Drawing.Size(146, 20);
+            this.textEdit14.TabIndex = 26;
+            // 
+            // textEdit13
+            // 
+            this.textEdit13.Location = new System.Drawing.Point(94, 87);
+            this.textEdit13.Name = "textEdit13";
+            this.textEdit13.Size = new System.Drawing.Size(146, 20);
+            this.textEdit13.TabIndex = 25;
+            // 
+            // textEdit12
+            // 
+            this.textEdit12.Location = new System.Drawing.Point(94, 58);
+            this.textEdit12.Name = "textEdit12";
+            this.textEdit12.Size = new System.Drawing.Size(146, 20);
+            this.textEdit12.TabIndex = 24;
+            // 
+            // textEdit11
+            // 
+            this.textEdit11.Location = new System.Drawing.Point(94, 29);
+            this.textEdit11.Name = "textEdit11";
+            this.textEdit11.Size = new System.Drawing.Size(146, 20);
+            this.textEdit11.TabIndex = 23;
+            // 
+            // LBNCuzdanKayNo
+            // 
+            this.LBNCuzdanKayNo.Location = new System.Drawing.Point(376, 282);
+            this.LBNCuzdanKayNo.Name = "LBNCuzdanKayNo";
+            this.LBNCuzdanKayNo.Size = new System.Drawing.Size(82, 13);
+            this.LBNCuzdanKayNo.TabIndex = 22;
+            this.LBNCuzdanKayNo.Text = "Nuf.Cüz.KayıtNO";
+            // 
+            // LBNufusCuzdanVerTar
+            // 
+            this.LBNufusCuzdanVerTar.Location = new System.Drawing.Point(379, 248);
+            this.LBNufusCuzdanVerTar.Name = "LBNufusCuzdanVerTar";
+            this.LBNufusCuzdanVerTar.Size = new System.Drawing.Size(79, 13);
+            this.LBNufusCuzdanVerTar.TabIndex = 21;
+            this.LBNufusCuzdanVerTar.Text = "Nuf.Cüz.Ver.Tar";
+            // 
+            // labelControl5
+            // 
+            this.labelControl5.Location = new System.Drawing.Point(379, 215);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(79, 13);
+            this.labelControl5.TabIndex = 20;
+            this.labelControl5.Text = "Nuf.Cüz.Seri NO";
+            // 
+            // LBSiraNo
+            // 
+            this.LBSiraNo.Location = new System.Drawing.Point(416, 186);
+            this.LBSiraNo.Name = "LBSiraNo";
+            this.LBSiraNo.Size = new System.Drawing.Size(42, 13);
+            this.LBSiraNo.TabIndex = 19;
+            this.LBSiraNo.Text = "SIRA NO";
+            // 
+            // LBKanGrup
+            // 
+            this.LBKanGrup.Location = new System.Drawing.Point(36, 249);
+            this.LBKanGrup.Name = "LBKanGrup";
+            this.LBKanGrup.Size = new System.Drawing.Size(57, 13);
+            this.LBKanGrup.TabIndex = 18;
+            this.LBKanGrup.Text = "KAN GRUBU";
+            // 
+            // LBCiltNo
+            // 
+            this.LBCiltNo.Location = new System.Drawing.Point(418, 121);
+            this.LBCiltNo.Name = "LBCiltNo";
+            this.LBCiltNo.Size = new System.Drawing.Size(40, 13);
+            this.LBCiltNo.TabIndex = 17;
+            this.LBCiltNo.Text = "CİLT NO";
+            // 
+            // LBAileSiraNo
+            // 
+            this.LBAileSiraNo.Location = new System.Drawing.Point(391, 154);
+            this.LBAileSiraNo.Name = "LBAileSiraNo";
+            this.LBAileSiraNo.Size = new System.Drawing.Size(67, 13);
+            this.LBAileSiraNo.TabIndex = 16;
+            this.LBAileSiraNo.Text = "AİLE SIRA NO";
+            // 
+            // LBUlke
+            // 
+            this.LBUlke.Location = new System.Drawing.Point(64, 184);
+            this.LBUlke.Name = "LBUlke";
+            this.LBUlke.Size = new System.Drawing.Size(24, 13);
+            this.LBUlke.TabIndex = 15;
+            this.LBUlke.Text = "ÜLKE";
+            // 
+            // LBNufusMahalle
+            // 
+            this.LBNufusMahalle.Location = new System.Drawing.Point(362, 90);
+            this.LBNufusMahalle.Name = "LBNufusMahalle";
+            this.LBNufusMahalle.Size = new System.Drawing.Size(96, 13);
+            this.LBNufusMahalle.TabIndex = 14;
+            this.LBNufusMahalle.Text = "Nuf.kay.old.Mahalle";
+            // 
+            // LBNufusIlce
+            // 
+            this.LBNufusIlce.Location = new System.Drawing.Point(376, 61);
+            this.LBNufusIlce.Name = "LBNufusIlce";
+            this.LBNufusIlce.Size = new System.Drawing.Size(82, 13);
+            this.LBNufusIlce.TabIndex = 13;
+            this.LBNufusIlce.Text = "Nuf.kay.old.İLÇE";
+            // 
+            // LBNufusIl
+            // 
+            this.LBNufusIl.Location = new System.Drawing.Point(389, 32);
+            this.LBNufusIl.Name = "LBNufusIl";
+            this.LBNufusIl.Size = new System.Drawing.Size(69, 13);
+            this.LBNufusIl.TabIndex = 12;
+            this.LBNufusIl.Text = "Nuf.kay.old.İL";
+            // 
+            // LBIlkSoyad
+            // 
+            this.LBIlkSoyad.Location = new System.Drawing.Point(36, 217);
+            this.LBIlkSoyad.Name = "LBIlkSoyad";
+            this.LBIlkSoyad.Size = new System.Drawing.Size(52, 13);
+            this.LBIlkSoyad.TabIndex = 11;
+            this.LBIlkSoyad.Text = "İLK SOYAD";
+            // 
+            // LBUyruk
+            // 
+            this.LBUyruk.Location = new System.Drawing.Point(47, 155);
+            this.LBUyruk.Name = "LBUyruk";
+            this.LBUyruk.Size = new System.Drawing.Size(41, 13);
+            this.LBUyruk.TabIndex = 10;
+            this.LBUyruk.Text = "UYRUĞU";
             // 
             // LBMedeniDurum
             // 
-            this.LBMedeniDurum.AutoSize = true;
-            this.LBMedeniDurum.Location = new System.Drawing.Point(11, 444);
+            this.LBMedeniDurum.Location = new System.Drawing.Point(11, 123);
             this.LBMedeniDurum.Name = "LBMedeniDurum";
-            this.LBMedeniDurum.Size = new System.Drawing.Size(87, 15);
-            this.LBMedeniDurum.TabIndex = 5;
-            this.LBMedeniDurum.Text = "Medeni Durum";
+            this.LBMedeniDurum.Size = new System.Drawing.Size(77, 13);
+            this.LBMedeniDurum.TabIndex = 9;
+            this.LBMedeniDurum.Text = "MEDENİ DURUM";
             // 
-            // TBAskerlik
+            // labelControl3
             // 
-            this.TBAskerlik.Location = new System.Drawing.Point(507, 251);
-            this.TBAskerlik.Name = "TBAskerlik";
-            this.TBAskerlik.Size = new System.Drawing.Size(208, 23);
-            this.TBAskerlik.TabIndex = 12;
+            this.labelControl3.Location = new System.Drawing.Point(29, 90);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(59, 13);
+            this.labelControl3.TabIndex = 8;
+            this.labelControl3.Text = "DOGUM YER";
             // 
-            // LBAskerlik
+            // LBBabaAdi
             // 
-            this.LBAskerlik.AutoSize = true;
-            this.LBAskerlik.Location = new System.Drawing.Point(445, 254);
-            this.LBAskerlik.Name = "LBAskerlik";
-            this.LBAskerlik.Size = new System.Drawing.Size(48, 15);
-            this.LBAskerlik.TabIndex = 2;
-            this.LBAskerlik.Text = "Askerlik";
+            this.LBBabaAdi.Location = new System.Drawing.Point(41, 61);
+            this.LBBabaAdi.Name = "LBBabaAdi";
+            this.LBBabaAdi.Size = new System.Drawing.Size(47, 13);
+            this.LBBabaAdi.TabIndex = 7;
+            this.LBBabaAdi.Text = "BABA ADI";
             // 
-            // LBTcKimlik
+            // LBAnneAdi
             // 
-            this.LBTcKimlik.AutoSize = true;
-            this.LBTcKimlik.Location = new System.Drawing.Point(11, 225);
-            this.LBTcKimlik.Name = "LBTcKimlik";
-            this.LBTcKimlik.Size = new System.Drawing.Size(56, 15);
-            this.LBTcKimlik.TabIndex = 0;
-            this.LBTcKimlik.Text = "TC Kimlik";
+            this.LBAnneAdi.Location = new System.Drawing.Point(40, 32);
+            this.LBAnneAdi.Name = "LBAnneAdi";
+            this.LBAnneAdi.Size = new System.Drawing.Size(48, 13);
+            this.LBAnneAdi.TabIndex = 5;
+            this.LBAnneAdi.Text = "ANNE ADI";
             // 
-            // LBDogumTarihi
+            // XTPKisisel
             // 
-            this.LBDogumTarihi.AutoSize = true;
-            this.LBDogumTarihi.Location = new System.Drawing.Point(11, 312);
-            this.LBDogumTarihi.Name = "LBDogumTarihi";
-            this.LBDogumTarihi.Size = new System.Drawing.Size(78, 15);
-            this.LBDogumTarihi.TabIndex = 0;
-            this.LBDogumTarihi.Text = "Doğum Tarihi";
+            this.XTPKisisel.Name = "XTPKisisel";
+            this.XTPKisisel.Size = new System.Drawing.Size(792, 418);
+            this.XTPKisisel.Text = "Kişisel Bilgiler";
             // 
-            // TBKanGrubu
+            // xtraTabPage3
             // 
-            this.TBKanGrubu.Location = new System.Drawing.Point(507, 367);
-            this.TBKanGrubu.Name = "TBKanGrubu";
-            this.TBKanGrubu.Size = new System.Drawing.Size(208, 23);
-            this.TBKanGrubu.TabIndex = 16;
+            this.xtraTabPage3.Name = "xtraTabPage3";
+            this.xtraTabPage3.Size = new System.Drawing.Size(792, 418);
+            this.xtraTabPage3.Text = "Öğrenim ve Diğer B.";
             // 
-            // LBKanGrubu
+            // XTPBanka
             // 
-            this.LBKanGrubu.AutoSize = true;
-            this.LBKanGrubu.Location = new System.Drawing.Point(445, 370);
-            this.LBKanGrubu.Name = "LBKanGrubu";
-            this.LBKanGrubu.Size = new System.Drawing.Size(63, 15);
-            this.LBKanGrubu.TabIndex = 0;
-            this.LBKanGrubu.Text = "Kan Grubu";
+            this.XTPBanka.Name = "XTPBanka";
+            this.XTPBanka.Size = new System.Drawing.Size(792, 418);
+            this.XTPBanka.Text = "Banka Bilgileri";
             // 
-            // TBTelefon
+            // panelControl3
             // 
-            this.TBTelefon.Location = new System.Drawing.Point(73, 367);
-            this.TBTelefon.Name = "TBTelefon";
-            this.TBTelefon.Size = new System.Drawing.Size(208, 23);
-            this.TBTelefon.TabIndex = 6;
-            this.TBTelefon.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBTelefon_KeyPress);
+            this.panelControl3.Controls.Add(this.CBGorev);
+            this.panelControl3.Controls.Add(this.CBDepartman);
+            this.panelControl3.Controls.Add(this.comboBoxEdit3);
+            this.panelControl3.Controls.Add(this.textEdit10);
+            this.panelControl3.Controls.Add(this.textEdit9);
+            this.panelControl3.Controls.Add(this.textEdit8);
+            this.panelControl3.Controls.Add(this.textEdit5);
+            this.panelControl3.Controls.Add(this.textEdit3);
+            this.panelControl3.Controls.Add(this.textEdit2);
+            this.panelControl3.Controls.Add(this.textEdit1);
+            this.panelControl3.Controls.Add(this.LBSGKSicilNo);
+            this.panelControl3.Controls.Add(this.labelControl2);
+            this.panelControl3.Controls.Add(this.labelControl1);
+            this.panelControl3.Controls.Add(this.LBGOREV);
+            this.panelControl3.Controls.Add(this.LBDepartman);
+            this.panelControl3.Controls.Add(this.LBCinsiyet);
+            this.panelControl3.Controls.Add(this.LBTC);
+            this.panelControl3.Controls.Add(this.LBSoyad);
+            this.panelControl3.Controls.Add(this.LBAd);
+            this.panelControl3.Controls.Add(this.pictureEdit1);
+            this.panelControl3.Controls.Add(this.LBDogumTar);
+            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl3.Location = new System.Drawing.Point(319, 2);
+            this.panelControl3.Name = "panelControl3";
+            this.panelControl3.Size = new System.Drawing.Size(798, 205);
+            this.panelControl3.TabIndex = 1;
             // 
-            // LBTelefon
+            // CBGorev
             // 
-            this.LBTelefon.AutoSize = true;
-            this.LBTelefon.Location = new System.Drawing.Point(11, 370);
-            this.LBTelefon.Name = "LBTelefon";
-            this.LBTelefon.Size = new System.Drawing.Size(45, 15);
-            this.LBTelefon.TabIndex = 0;
-            this.LBTelefon.Text = "Telefon";
+            this.CBGorev.Location = new System.Drawing.Point(542, 78);
+            this.CBGorev.Name = "CBGorev";
+            this.CBGorev.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Ekle", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.CBGorev.Properties.NullText = "Seçiniz..";
+            this.CBGorev.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.lookUpEdit2_Properties_ButtonClick);
+            this.CBGorev.Size = new System.Drawing.Size(146, 22);
+            this.CBGorev.TabIndex = 26;
             // 
-            // TBAdres
+            // CBDepartman
             // 
-            this.TBAdres.Location = new System.Drawing.Point(73, 338);
-            this.TBAdres.Name = "TBAdres";
-            this.TBAdres.Size = new System.Drawing.Size(208, 23);
-            this.TBAdres.TabIndex = 5;
+            this.CBDepartman.Location = new System.Drawing.Point(542, 50);
+            this.CBDepartman.Name = "CBDepartman";
+            this.CBDepartman.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Ekle", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.CBDepartman.Properties.NullText = "Seçiniz..";
+            this.CBDepartman.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.lookUpEdit1_Properties_ButtonClick);
+            this.CBDepartman.Size = new System.Drawing.Size(146, 22);
+            this.CBDepartman.TabIndex = 25;
             // 
-            // LBAdres
+            // comboBoxEdit3
             // 
-            this.LBAdres.AutoSize = true;
-            this.LBAdres.Location = new System.Drawing.Point(11, 341);
-            this.LBAdres.Name = "LBAdres";
-            this.LBAdres.Size = new System.Drawing.Size(37, 15);
-            this.LBAdres.TabIndex = 0;
-            this.LBAdres.Text = "Adres";
+            this.comboBoxEdit3.Location = new System.Drawing.Point(223, 112);
+            this.comboBoxEdit3.Name = "comboBoxEdit3";
+            this.comboBoxEdit3.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEdit3.Properties.Items.AddRange(new object[] {
+            "ERKEK",
+            "KADIN"});
+            this.comboBoxEdit3.Size = new System.Drawing.Size(146, 20);
+            this.comboBoxEdit3.TabIndex = 22;
             // 
-            // TBSoyadi
+            // textEdit10
             // 
-            this.TBSoyadi.Location = new System.Drawing.Point(73, 280);
-            this.TBSoyadi.Name = "TBSoyadi";
-            this.TBSoyadi.Size = new System.Drawing.Size(208, 23);
-            this.TBSoyadi.TabIndex = 3;
-            this.TBSoyadi.TextChanged += new System.EventHandler(this.TBSoyadi_TextChanged);
+            this.textEdit10.Location = new System.Drawing.Point(223, 142);
+            this.textEdit10.Name = "textEdit10";
+            this.textEdit10.Size = new System.Drawing.Size(146, 20);
+            this.textEdit10.TabIndex = 20;
             // 
-            // LBSoyadi
+            // textEdit9
             // 
-            this.LBSoyadi.AutoSize = true;
-            this.LBSoyadi.Location = new System.Drawing.Point(11, 283);
-            this.LBSoyadi.Name = "LBSoyadi";
-            this.LBSoyadi.Size = new System.Drawing.Size(42, 15);
-            this.LBSoyadi.TabIndex = 0;
-            this.LBSoyadi.Text = "Soyadı";
+            this.textEdit9.Location = new System.Drawing.Point(542, 142);
+            this.textEdit9.Name = "textEdit9";
+            this.textEdit9.Size = new System.Drawing.Size(146, 20);
+            this.textEdit9.TabIndex = 19;
             // 
-            // TBAdi
+            // textEdit8
             // 
-            this.TBAdi.Location = new System.Drawing.Point(73, 251);
-            this.TBAdi.Name = "TBAdi";
-            this.TBAdi.Size = new System.Drawing.Size(208, 23);
-            this.TBAdi.TabIndex = 2;
-            this.TBAdi.TextChanged += new System.EventHandler(this.TBAdi_TextChanged);
+            this.textEdit8.Location = new System.Drawing.Point(542, 112);
+            this.textEdit8.Name = "textEdit8";
+            this.textEdit8.Properties.EditFormat.FormatString = "d";
+            this.textEdit8.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.textEdit8.Size = new System.Drawing.Size(146, 20);
+            this.textEdit8.TabIndex = 18;
             // 
-            // LBAdi
+            // textEdit5
             // 
-            this.LBAdi.AutoSize = true;
-            this.LBAdi.Location = new System.Drawing.Point(11, 254);
-            this.LBAdi.Name = "LBAdi";
-            this.LBAdi.Size = new System.Drawing.Size(25, 15);
-            this.LBAdi.TabIndex = 0;
-            this.LBAdi.Text = "Adı";
+            this.textEdit5.Location = new System.Drawing.Point(542, 23);
+            this.textEdit5.Name = "textEdit5";
+            this.textEdit5.Size = new System.Drawing.Size(146, 20);
+            this.textEdit5.TabIndex = 15;
+            // 
+            // textEdit3
+            // 
+            this.textEdit3.Location = new System.Drawing.Point(223, 82);
+            this.textEdit3.Name = "textEdit3";
+            this.textEdit3.Size = new System.Drawing.Size(146, 20);
+            this.textEdit3.TabIndex = 13;
+            // 
+            // textEdit2
+            // 
+            this.textEdit2.Location = new System.Drawing.Point(223, 51);
+            this.textEdit2.Name = "textEdit2";
+            this.textEdit2.Size = new System.Drawing.Size(146, 20);
+            this.textEdit2.TabIndex = 12;
+            // 
+            // textEdit1
+            // 
+            this.textEdit1.Location = new System.Drawing.Point(223, 23);
+            this.textEdit1.Name = "textEdit1";
+            this.textEdit1.Size = new System.Drawing.Size(146, 20);
+            this.textEdit1.TabIndex = 11;
+            // 
+            // LBSGKSicilNo
+            // 
+            this.LBSGKSicilNo.Location = new System.Drawing.Point(470, 26);
+            this.LBSGKSicilNo.Name = "LBSGKSicilNo";
+            this.LBSGKSicilNo.Size = new System.Drawing.Size(66, 13);
+            this.LBSGKSicilNo.TabIndex = 10;
+            this.LBSGKSicilNo.Text = "SGK SİCİL NO";
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Location = new System.Drawing.Point(450, 145);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(86, 13);
+            this.labelControl2.TabIndex = 8;
+            this.labelControl2.Text = "İŞTEN ÇIKIŞ TAR.";
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Location = new System.Drawing.Point(462, 115);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(74, 13);
+            this.labelControl1.TabIndex = 7;
+            this.labelControl1.Text = "İŞE GİRİŞ TAR.";
+            // 
+            // LBGOREV
+            // 
+            this.LBGOREV.Location = new System.Drawing.Point(502, 82);
+            this.LBGOREV.Name = "LBGOREV";
+            this.LBGOREV.Size = new System.Drawing.Size(34, 13);
+            this.LBGOREV.TabIndex = 6;
+            this.LBGOREV.Text = "GOREV";
+            // 
+            // LBDepartman
+            // 
+            this.LBDepartman.Location = new System.Drawing.Point(472, 54);
+            this.LBDepartman.Name = "LBDepartman";
+            this.LBDepartman.Size = new System.Drawing.Size(64, 13);
+            this.LBDepartman.TabIndex = 5;
+            this.LBDepartman.Text = "DEPARTMAN ";
+            // 
+            // LBCinsiyet
+            // 
+            this.LBCinsiyet.Location = new System.Drawing.Point(168, 115);
+            this.LBCinsiyet.Name = "LBCinsiyet";
+            this.LBCinsiyet.Size = new System.Drawing.Size(49, 13);
+            this.LBCinsiyet.TabIndex = 4;
+            this.LBCinsiyet.Text = "CİNSİYET ";
+            // 
+            // LBTC
+            // 
+            this.LBTC.Location = new System.Drawing.Point(196, 26);
+            this.LBTC.Name = "LBTC";
+            this.LBTC.Size = new System.Drawing.Size(21, 13);
+            this.LBTC.TabIndex = 3;
+            this.LBTC.Text = "T.C.";
+            // 
+            // LBSoyad
+            // 
+            this.LBSoyad.Location = new System.Drawing.Point(176, 85);
+            this.LBSoyad.Name = "LBSoyad";
+            this.LBSoyad.Size = new System.Drawing.Size(41, 13);
+            this.LBSoyad.TabIndex = 2;
+            this.LBSoyad.Text = "SOYADI ";
+            // 
+            // LBAd
+            // 
+            this.LBAd.Location = new System.Drawing.Point(196, 54);
+            this.LBAd.Name = "LBAd";
+            this.LBAd.Size = new System.Drawing.Size(21, 13);
+            this.LBAd.TabIndex = 1;
+            this.LBAd.Text = "ADI ";
+            // 
+            // pictureEdit1
+            // 
+            this.pictureEdit1.Location = new System.Drawing.Point(22, 23);
+            this.pictureEdit1.Name = "pictureEdit1";
+            this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pictureEdit1.Size = new System.Drawing.Size(117, 127);
+            this.pictureEdit1.TabIndex = 0;
+            // 
+            // LBDogumTar
+            // 
+            this.LBDogumTar.Location = new System.Drawing.Point(145, 145);
+            this.LBDogumTar.Name = "LBDogumTar";
+            this.LBDogumTar.Size = new System.Drawing.Size(64, 13);
+            this.LBDogumTar.TabIndex = 6;
+            this.LBDogumTar.Text = "DOGUM TAR.";
+            // 
+            // panelControl2
+            // 
+            this.panelControl2.Controls.Add(this.xtraTabControl1);
+            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelControl2.Location = new System.Drawing.Point(2, 2);
+            this.panelControl2.Name = "panelControl2";
+            this.panelControl2.Size = new System.Drawing.Size(317, 652);
+            this.panelControl2.TabIndex = 0;
+            // 
+            // xtraTabControl1
+            // 
+            this.xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.xtraTabControl1.Location = new System.Drawing.Point(2, 2);
+            this.xtraTabControl1.Name = "xtraTabControl1";
+            this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
+            this.xtraTabControl1.Size = new System.Drawing.Size(313, 648);
+            this.xtraTabControl1.TabIndex = 0;
+            this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.xtraTabPage1,
+            this.xtraTabPage2});
+            // 
+            // xtraTabPage1
+            // 
+            this.xtraTabPage1.Controls.Add(this.gridControl1);
+            this.xtraTabPage1.Name = "xtraTabPage1";
+            this.xtraTabPage1.Size = new System.Drawing.Size(311, 623);
+            this.xtraTabPage1.Text = "AKTIF PERSONEL";
+            // 
+            // gridControl1
+            // 
+            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl1.Location = new System.Drawing.Point(0, 0);
+            this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Name = "gridControl1";
+            this.gridControl1.Size = new System.Drawing.Size(311, 623);
+            this.gridControl1.TabIndex = 0;
+            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
+            // gridView1
+            // 
+            this.gridView1.DetailHeight = 303;
+            this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.Name = "gridView1";
+            // 
+            // xtraTabPage2
+            // 
+            this.xtraTabPage2.Name = "xtraTabPage2";
+            this.xtraTabPage2.Size = new System.Drawing.Size(311, 623);
+            this.xtraTabPage2.Text = "PASIF PERSONEL";
             // 
             // FPersonelKart
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(752, 523);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(1119, 656);
+            this.Controls.Add(this.panelControl1);
+            this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Name = "FPersonelKart";
             this.Text = "FPersonelKart";
-            this.Load += new System.EventHandler(this.FPersonelKart_Load);
-            this.panel1.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.PNCikis.ResumeLayout(false);
-            this.PNCikis.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            this.panelControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
+            this.panelControl4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl2)).EndInit();
+            this.xtraTabControl2.ResumeLayout(false);
+            this.XTPKimlik.ResumeLayout(false);
+            this.XTPKimlik.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit24.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit23.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit22.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit21.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit20.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit19.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit18.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit17.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit16.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit15.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit14.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit13.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit12.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit11.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
+            this.panelControl3.ResumeLayout(false);
+            this.panelControl3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CBGorev.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CBDepartman.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit3.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit10.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit9.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit8.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
+            this.panelControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
+            this.xtraTabControl1.ResumeLayout(false);
+            this.xtraTabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private Panel panel1;
-        private GroupBox groupBox1;
-        private Label LBTcKimlik;
-        private Label LBDogumTarihi;
-        private TextBox TBSoyadi;
-        private Label LBSoyadi;
-        private TextBox TBAdi;
-        private Label LBAdi;
-        private TextBox TBKanGrubu;
-        private Label LBKanGrubu;
-        private TextBox TBTelefon;
-        private Label LBTelefon;
-        private TextBox TBAdres;
-        private Label LBAdres;
-        private MaskedTextBox MTBTcKimlik;
-        private GroupBox groupBox2;
-        private Label LBPanelGorevi;
-        private Label LBLabelGorevi;
-        private Label label18;
-        private Label label17;
-        private PictureBox pictureBox1;
-        private Label LBPanelSoyadi;
-        private Label LBPanelAdi;
-        private Label LBPanelTc;
-        private Label LBLabelTc;
-        private Label LBLabelSoyadi;
-        private Label LBLabelAdi;
-        private TextBox TBScr;
-        private Label LBScr;
-        private TextBox TBEhliyetNo;
-        private Label LBEhliyetNo;
-        private Label LBMedeniDurum;
-        private TextBox TBAskerlik;
-        private Label LBAskerlik;
-        private Button BTPersonelSec;
-        private Button BTCikisIslemi;
-        private DateTimePicker DTPDogumTarihi;
-        private Button button4;
-        private Button button3;
-        private DateTimePicker DTPPsikoTeknik;
-        private Label LBPsikoTeknik;
-        private ComboBox CBGorevi;
-        private Label LBGorevi;
-        private TextBox TBEposta;
-        private Label LBEposta;
-        private Panel PNCikis;
-        private Label LBIstenAyrılmaNedeni;
-        private Button BTCikisIptal;
-        private Button BTCikisKaydet;
-        private TextBox TBIstenAyrılmaNedeni;
-        private GroupBox groupBox3;
-        private RadioButton RBBosanmis;
-        private RadioButton RBEvli;
-        private RadioButton RBBekar;
-        private TextBox TBSgkSicilNo;
-        private Label LBSgkSicilNo;
-        private Label LBSigortasizPersonelKayit;
-        private Label LBPanelIseBaslamaTarihi;
+        private DevExpress.XtraEditors.PanelControl panelControl1;
+        private DevExpress.XtraEditors.PanelControl panelControl4;
+        private DevExpress.XtraEditors.PanelControl panelControl3;
+        private DevExpress.XtraEditors.LabelControl LBDepartman;
+        private DevExpress.XtraEditors.LabelControl LBCinsiyet;
+        private DevExpress.XtraEditors.LabelControl LBTC;
+        private DevExpress.XtraEditors.LabelControl LBSoyad;
+        private DevExpress.XtraEditors.LabelControl LBAd;
+        private DevExpress.XtraEditors.PictureEdit pictureEdit1;
+        private DevExpress.XtraEditors.PanelControl panelControl2;
+        private DevExpress.XtraTab.XtraTabControl xtraTabControl1;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
+        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage2;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.LabelControl LBGOREV;
+        private DevExpress.XtraTab.XtraTabControl xtraTabControl2;
+        private DevExpress.XtraTab.XtraTabPage XTPKimlik;
+        private DevExpress.XtraEditors.LabelControl LBNufusIlce;
+        private DevExpress.XtraEditors.LabelControl LBNufusIl;
+        private DevExpress.XtraEditors.LabelControl LBIlkSoyad;
+        private DevExpress.XtraEditors.LabelControl LBUyruk;
+        private DevExpress.XtraEditors.LabelControl LBMedeniDurum;
+        private DevExpress.XtraEditors.LabelControl labelControl3;
+        private DevExpress.XtraEditors.LabelControl LBBabaAdi;
+        private DevExpress.XtraEditors.LabelControl LBDogumTar;
+        private DevExpress.XtraEditors.LabelControl LBAnneAdi;
+        private DevExpress.XtraTab.XtraTabPage XTPKisisel;
+        private DevExpress.XtraTab.XtraTabPage XTPBanka;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage3;
+        private DevExpress.XtraEditors.TextEdit textEdit19;
+        private DevExpress.XtraEditors.TextEdit textEdit18;
+        private DevExpress.XtraEditors.TextEdit textEdit17;
+        private DevExpress.XtraEditors.TextEdit textEdit16;
+        private DevExpress.XtraEditors.TextEdit textEdit15;
+        private DevExpress.XtraEditors.TextEdit textEdit14;
+        private DevExpress.XtraEditors.TextEdit textEdit13;
+        private DevExpress.XtraEditors.TextEdit textEdit12;
+        private DevExpress.XtraEditors.TextEdit textEdit11;
+        private DevExpress.XtraEditors.LabelControl LBNCuzdanKayNo;
+        private DevExpress.XtraEditors.LabelControl LBNufusCuzdanVerTar;
+        private DevExpress.XtraEditors.LabelControl labelControl5;
+        private DevExpress.XtraEditors.LabelControl LBSiraNo;
+        private DevExpress.XtraEditors.LabelControl LBKanGrup;
+        private DevExpress.XtraEditors.LabelControl LBCiltNo;
+        private DevExpress.XtraEditors.LabelControl LBAileSiraNo;
+        private DevExpress.XtraEditors.LabelControl LBUlke;
+        private DevExpress.XtraEditors.LabelControl LBNufusMahalle;
+        private DevExpress.XtraEditors.TextEdit textEdit10;
+        private DevExpress.XtraEditors.TextEdit textEdit9;
+        private DevExpress.XtraEditors.TextEdit textEdit8;
+        private DevExpress.XtraEditors.TextEdit textEdit5;
+        private DevExpress.XtraEditors.TextEdit textEdit3;
+        private DevExpress.XtraEditors.TextEdit textEdit2;
+        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.LabelControl LBSGKSicilNo;
+        private DevExpress.XtraEditors.TextEdit textEdit24;
+        private DevExpress.XtraEditors.TextEdit textEdit23;
+        private DevExpress.XtraEditors.TextEdit textEdit22;
+        private DevExpress.XtraEditors.TextEdit textEdit21;
+        private DevExpress.XtraEditors.TextEdit textEdit20;
+        private DevExpress.XtraEditors.TextEdit textEdit4;
+        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit2;
+        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
+        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit3;
+        private DevExpress.XtraEditors.LookUpEdit CBGorev;
+        private DevExpress.XtraEditors.LookUpEdit CBDepartman;
     }
 }

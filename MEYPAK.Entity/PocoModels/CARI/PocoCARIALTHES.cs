@@ -11,7 +11,7 @@ namespace MEYPAK.Entity.PocoModels.CARI
 
       
         public string adi { get; set; }
-        public string kod { get; set; }
+        public string kod { get; set; } 
         public int dovizid { get; set; }
         public int aktif { get; set; }
 

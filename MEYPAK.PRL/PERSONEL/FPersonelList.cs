@@ -39,7 +39,7 @@ namespace MEYPAK.PRL.PERSONEL
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            FPersonelKart._tempPersonel = _personelServis.obje.Where(x=>x.id.ToString()==DGPersonelList.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
+           // FPersonelKart._tempPersonel = _personelServis.obje.Where(x=>x.id.ToString()==DGPersonelList.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
             this.Close();
         }
     }

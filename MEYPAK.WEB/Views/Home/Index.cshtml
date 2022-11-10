@@ -1,5 +1,4 @@
 ﻿@{
-
     Layout = null;
 }
 <!DOCTYPE html>
@@ -9,7 +8,7 @@
     <meta charset="utf-8">
     <title>Eliz Meypak Bilişim</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-   
+
 
     <!-- Favicon -->
     <link href="~/images/Index/favicon.png" rel="icon">
@@ -63,31 +62,33 @@
         </div>
     </div>-->
     <!-- Topbar End -->
-    <!-- Navbar Start  -->
-    <div class="container-fluid p-0">
+    <!-- Navbar Start -->
+    <div class="container-fluid p-0" id="Anasayfa">
         <nav class="navbar navbar-expand-lg bg-dark navbar-expand-lg py-3 py-lg-0 px-lg-12">
             <a href="index.html" class="navbar-brand ml-lg-12">
-                <img class="img-fluid" src="~/Index/img/logo.png" alt="" width="200" height="100">
+                <img class="img-fluid" src="~/img/Index/logo.png" alt="" width="200" height="100">
             </a>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
+            <!--  -->  <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
                 <div class="navbar-nav m-auto py-0">
-                    <a href="index.html" class="nav-item nav-link active">Home</a>
-                    <a href="about.html" class="nav-item nav-link">About</a>
-                    <a href="service.html" class="nav-item nav-link">Services</a>
-                    <a href="price.html" class="nav-item nav-link">Pricing</a>
+                    <a href="#Anasayfa" class="nav-item nav-link active">Anasayfa</a>
+                    <a href="#Cozumler" class="nav-item nav-link">Çözümlerimiz</a>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Hizmetlerimiz</a>
                         <div class="dropdown-menu rounded-0 m-0">
-                            <a href="appointment.html" class="dropdown-item">Appointment</a>
-                            <a href="opening.html" class="dropdown-item">Open Hours</a>
-                            <a href="team.html" class="dropdown-item">Our Team</a>
-                            <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                            <a href="#Uretim" class="dropdown-item">Üretim Çözümü</a>
+                            <a href="#Muhasebe" class="dropdown-item">Muhasebe Çözümleri</a>
+                            <a href="#DepoYonetim" class="dropdown-item">Depo Yönetimi</a>
+                            <a href="#Raporlama" class="dropdown-item">Özel Raporlama</a>
+                            <a href="#KasaTakip" class="dropdown-item">Kasa Takibi</a>
+                            <a href="#Loglama" class="dropdown-item">Loglama Sistemi</a>
+                            <a href="#Donusum" class="dropdown-item">E-dönüşüm</a>
+                            <a href="#Proje" class="dropdown-item">Proje Takibi</a>
                         </div>
                     </div>
-                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                    <a href="#Iletisim" class="nav-item nav-link">İletisim</a>
                 </div>
                 <a href="/Home/Login" class="btn btn-primary d-none d-lg-block">Giriş Yap</a>
             </div>
@@ -102,26 +103,29 @@
             <ol class="carousel-indicators">
                 <li data-target="#header-carousel" data-slide-to="0" class="active"></li>
                 <li data-target="#header-carousel" data-slide-to="1"></li>
-            @*    <li data-target="#header-carousel" data-slide-to="2"></li>
-                <li data-target="#header-carousel" data-slide-to="3"></li>*@
+                @*  <li data-target="#header-carousel" data-slide-to="2"></li>*@
+                @* <li data-target="#header-carousel" data-slide-to="3"></li>*@
             </ol>
             <div class="carousel-inner">
-
                 <div class="carousel-item position-relative active" style="min-height: 100vh;">
-                    <img class="position-absolute w-100 h-100" src="~/Index/img/panel-2.jpg" style="object-fit: cover;">
-                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                        <div class="p-3" style="max-width: 900px;">
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item position-relative" style="min-height: 100vh;">
-                    <img class="position-absolute w-100 h-100" src="~/Index/img/panel-1.jpg" style="object-fit: cover;">
+                    <img class="position-absolute w-100 h-100" src="~/img/Index/panel-3.jpg" style="object-fit: cover;">
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3" style="max-width: 900px;">
                             <h6 class="text-white text-uppercase mb-3 animate__animated animate__fadeInDown" style="letter-spacing: 3px;">Eliz Meypak</h6>
                             <h3 class="display-3 text-capitalize text-white mb-3">Hal'den Anlarız</h3>
                             <p class="mx-md-5 px-5">Sizin yerinize biz hal'den anlayalım. <br />Haldeki tüm hareketlerinizi tek ekrandan yönetin.</p>
-                            <input type="button" class="btn btn-outline-light py-3 px-4 mt-3 animate__animated animate__fadeInUp" onclick="kaydir()" value="Detaylı bilgi" />
+                            <a class="btn btn-outline-light py-3 px-4 mt-3 animate__animated animate__fadeInUp" href="#Iletisim">Detaylı Bilgi</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item position-relative" style="min-height: 100vh;">
+                    <img class="position-absolute w-100 h-100" src="~/img/Index/panel-1.jpg" style="object-fit: cover;">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <div class="p-3" style="max-width: 900px;">
+                            <h6 class="text-white text-uppercase mb-3 animate__animated animate__fadeInDown" style="letter-spacing: 3px;">Eliz Meypak</h6>
+                            <h3 class="display-3 text-capitalize text-white mb-3">Hal'den Anlarız</h3>
+                            <p class="mx-md-5 px-5">Sizin yerinize biz hal'den anlayalım. <br />Haldeki tüm hareketlerinizi tek ekrandan yönetin.</p>
+                            <a class="btn btn-outline-light py-3 px-4 mt-3 animate__animated animate__fadeInUp" href="#Iletisim">Detaylı Bilgi</a>
                         </div>
                     </div>
                 </div>
@@ -130,260 +134,220 @@
     </div>
     <!-- Carousel End -->
     <!-- About Start -->
-    <div style="background-image: url('https://i.ibb.co/w4DBHNQ/DENEME.png');">
-    <div class="container-fluid py-5">
+    <div style="background-image: url('https://i.ibb.co/wc4rKhV/BACKGROUND.png');">
+        <div class="container-fluid py-5">
             <div class="container py-5">
-            <div class="row align-items-center">
-                <div class="col-lg-6 pb-5 pb-lg-0">
-                    <img class="img-fluid w-100" src="~/Index/img/inovasyon.jpg" alt="">
-                </div>
-                <div class="col-lg-6" >
-                    <h6 class="d-inline-block text-primary text-uppercase bg-light py-1 px-2">ELİZ MEYPAK İLE</h6>
-                    <h1 class="mb-4">İnovatif Çözümler</h1>
-                        <p class="pl-4 border-left border-primary">Dolores lorem lorem ipsum sit et ipsum. Sadip sea amet diam dolore sed et. Sit rebum labore sit sit ut vero no sit. Et elitr stet dolor sed sit et sed ipsum et kasd erat duo eos et erat</p>
-                    <div class="row pt-3">
-                        <div class="col-6">
-                            <div class="bg-light text-center p-4">
-                                <h3 class="display-4 text-primary" data-toggle="counter-up">99</h3>
-                                <h6 class="text-uppercase">Spa Specialist</h6>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="bg-light text-center p-4">
-                                <h3 class="display-4 text-primary" data-toggle="counter-up">999</h3>
-                                <h6 class="text-uppercase">Happy Clients</h6>
-                            </div>
-                        </div>
+                <div class="row align-items-center">
+                    <div class="col-lg-6 pb-5 pb-lg-0">
+                        <img class="img-fluid w-100" src="~/img/Index/inovasyon.jpg" alt="">
                     </div>
-                </div>
-            </div>
-        </div>
-
-            <div class="container py-5">
-            <div class="row align-items-center">
-                <div class="col-lg-6 pb-5 pb-lg-0">
-                        <img class="img-fluid w-100" src="~/Index/img/kolaykullanım.jpg" alt="">
-                </div>
-                <div class="col-lg-6">
+                    <div class="col-lg-6">
                         <h6 class="d-inline-block text-primary text-uppercase bg-light py-1 px-2">ELİZ MEYPAK İLE</h6>
-                    <h1 class="mb-4">Kolay Kullanım</h1>
-                    <p class="pl-4 border-left border-primary">Dolores lorem lorem ipsum sit et ipsum. Sadip sea amet diam dolore sed et. Sit rebum labore sit sit ut vero no sit. Et elitr stet dolor sed sit et sed ipsum et kasd erat duo eos et erat</p>
-                    <div class="row pt-3">
-                        <div class="col-6">
-                            <div class="bg-light text-center p-4">
-                                <h3 class="display-4 text-primary" data-toggle="counter-up">99</h3>
-                                <h6 class="text-uppercase">Spa Specialist</h6>
+                        <h1 class="mb-4">İnovatif Çözümler</h1>
+                        <p class="pl-4 border-left border-primary">Gelişmiş İnovasyon çözümlerimizle şirketinize doğru strateji ve vizyon sağlıyoruz.</p>
+                        <div class="row pt-3">
+                            <div class="col-6">
+                                <div class=" text-center p-4">
+                                    <a href="#Iletisim" class="w3-button w3-light-grey" style="font-size: 1.8rem;font-weight: 150;line-height: 0.6;">Detaylı Bilgi</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container py-5">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 pb-5 pb-lg-0">
+                        <img class="img-fluid w-100" src="~/img/Index/kolaykullanım.jpg" alt="">
+                    </div>
+                    <div class="col-lg-6">
+                        <h6 class="d-inline-block text-primary text-uppercase bg-light py-1 px-2">ELİZ MEYPAK İLE</h6>
+                        <h1 class="mb-4">Kolay Kullanım</h1>
+                        <p class="pl-4 border-left border-primary">Eliz Meypak Yazılım sayesinde hızlı ve pratik çözüm kolaylığını sizlere sağlıyoruz.</p>
+                        <div class="row pt-3">
+                            <div class="col-6">
+                                <div class=" text-center p-4">
+                                    <a href="#Iletisim" class="w3-button w3-light-grey" style="font-size: 1.8rem;font-weight: 150;line-height: 0.6;">Detaylı Bilgi</a>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-6">
-                            <div class="bg-light text-center p-4">
-                                <h3 class="display-4 text-primary" data-toggle="counter-up">999</h3>
-                                <h6 class="text-uppercase">Happy Clients</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="container py-5">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 pb-5 pb-lg-0">
+                        <img class="img-fluid w-100" src="~/img/Index/erisim.jpg" alt="">
+                    </div>
+                    <div class="col-lg-6">
+                        <h6 class="d-inline-block text-primary text-uppercase bg-light py-1 px-2">ELİZ MEYPAK İLE</h6>
+                        <h1 class="mb-4">Her Yerden Erişim</h1>
+                        <p class="pl-4 border-left border-primary">Kurumsal yönetim hizmetlerimize tüm cihazlarınızdan kolaylıkla erişim sağlayabilirsiniz.</p>
+                        <div class="row pt-3">
+                            <div class="col-6">
+                                <div class=" text-center p-4">
+                                    <a href="#Iletisim" class="w3-button w3-light-grey" style="font-size: 1.8rem;font-weight: 150;line-height: 0.6;">Detaylı Bilgi</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="container py-5">
-            <div class="row align-items-center">
-                <div class="col-lg-6 pb-5 pb-lg-0">
-                    <img class="img-fluid w-100" src="~/Index/img/erisim.jpg" alt="">
-                </div>
+        <!-- About End -->
+        <!-- Service Start -->
+
+        <div class="container-fluid px-0 py-5 my-5">
+            <div class="row mx-0 justify-content-center text-center">
                 <div class="col-lg-6">
-                    <h6 class="d-inline-block text-primary text-uppercase bg-light py-1 px-2">ELİZ MEYPAK İLE</h6>
-                    <h1 class="mb-4">Her Yerden Erişim</h1>
-                    <p class="pl-4 border-left border-primary">Dolores lorem lorem ipsum sit et ipsum. Sadip sea amet diam dolore sed et. Sit rebum labore sit sit ut vero no sit. Et elitr stet dolor sed sit et sed ipsum et kasd erat duo eos et erat</p>
-                    <div class="row pt-3">
-                        <div class="col-6">
-                            <div class="bg-light text-center p-4">
-                                <h3 class="display-4 text-primary" data-toggle="counter-up">99</h3>
-                                <h6 class="text-uppercase">Spa Specialist</h6>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="bg-light text-center p-4">
-                                <h3 class="display-4 text-primary" data-toggle="counter-up">999</h3>
-                                <h6 class="text-uppercase">Happy Clients</h6>
-                            </div>
+                    <h6 class="d-inline-block bg-light text-primary text-uppercase py-1 px-2">Hizmetlerimiz</h6>
+                    <h1>Sağladığımız çözüm odaklı hizmetlerimiz.</h1>
+                </div>
+            </div>
+            <div class="owl-carousel service-carousel">
+                <div class="service-item position-relative" id="Cozumler">
+                    <img class="img-fluid" src="~/img/Index/uretim.jpg" alt="">
+                    <div class="service-text text-center">
+                        <h4 class="text-white font-weight-medium px-3">Üretim Çözümleri</h4>
+                        <p class="text-white px-3 mb-3"></p>
+                        <div class="w-100 bg-white text-center p-4">
+                            <a class="btn btn-primary" href="#Uretim">Detaylı Bilgi</a>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    <!-- About End -->
-    <!-- Service Start -->
-    <div class="container-fluid px-0 py-5 my-5">
-        <div class="row mx-0 justify-content-center text-center">
-            <div class="col-lg-6">
-                <h6 class="d-inline-block bg-light text-primary text-uppercase py-1 px-2">Hizmetlerimiz</h6>
-                <h1>Sağladığımız çözüm odaklı hizmetlerimiz.</h1>
-            </div>
-        </div>
-        <div class="owl-carousel service-carousel">
-            <div class="service-item position-relative">
-                <img class="img-fluid" src="~/Index/img/uretim.jpg" alt="">
-                <div class="service-text text-center">
-                    <h4 class="text-white font-weight-medium px-3">Üretim Çözümleri</h4>
-                    <p class="text-white px-3 mb-3"></p>
-                    <div class="w-100 bg-white text-center p-4">
-                        <a class="btn btn-primary" href="">Detaylı Bilgi</a>
+                <div class="service-item position-relative">
+                    <img class="img-fluid" src="~/img/Index/muhasebe.jpg" alt="">
+                    <div class="service-text text-center">
+                        <h4 class="text-white font-weight-medium px-3">Muhasebe Çözümleri</h4>
+                        <p class="text-white px-3 mb-3"></p>
+                        <div class="w-100 bg-white text-center p-4">
+                            <a class="btn btn-primary" href="#Muhasebe">Detaylı Bilgi</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-item position-relative">
+                    <img class="img-fluid" src="~/img/Index/depo.jpg" alt="">
+                    <div class="service-text text-center">
+                        <h4 class="text-white font-weight-medium px-3">Depo Yönetimi</h4>
+                        <p class="text-white px-3 mb-3"></p>
+                        <div class="w-100 bg-white text-center p-4">
+                            <a class="btn btn-primary" href="#DepoYonetim">Detaylı Bilgi</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-item position-relative">
+                    <img class="img-fluid" src="~/img/Index/raporlama.jpg" alt="">
+                    <div class="service-text text-center">
+                        <h4 class="text-white font-weight-medium px-3">Özel Raporlama</h4>
+                        <p class="text-white px-3 mb-3"></p>
+                        <div class="w-100 bg-white text-center p-4">
+                            <a class="btn btn-primary" href="#Raporlama">Detaylı Bilgi</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-item position-relative">
+                    <img class="img-fluid" src="~/img/Index/kasa.jpg" alt="">
+                    <div class="service-text text-center">
+                        <h4 class="text-white font-weight-medium px-3">Kasa Takibi</h4>
+                        <p class="text-white px-3 mb-3"></p>
+                        <div class="w-100 bg-white text-center p-4">
+                            <a class="btn btn-primary" href="#KasaTakip">Detaylı Bilgi</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-item position-relative">
+                    <img class="img-fluid" src="~/img/Index/log.jpg" alt="">
+                    <div class="service-text text-center">
+                        <h4 class="text-white font-weight-medium px-3">Loglama Sistemimiz</h4>
+                        <p class="text-white px-3 mb-3"></p>
+                        <div class="w-100 bg-white text-center p-4">
+                            <a class="btn btn-primary" href="#Loglama">Detaylı Bilgi</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-item position-relative">
+                    <img class="img-fluid" src="~/img/Index/donusum.jpg" alt="">
+                    <div class="service-text text-center">
+                        <h4 class="text-white font-weight-medium px-3">E-Dönüşüm</h4>
+                        <p class="text-white px-3 mb-3"></p>
+                        <div class="w-100 bg-white text-center p-4">
+                            <a class="btn btn-primary" href="#Donusum">Detaylı Bilgi</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-item position-relative">
+                    <img class="img-fluid" src="~/img/Index/proje.jpg" alt="">
+                    <div class="service-text text-center">
+                        <h4 class="text-white font-weight-medium px-3">Proje Takibi</h4>
+                        <p class="text-white px-3 mb-3"></p>
+                        <div class="w-100 bg-white text-center p-4">
+                            <a class="btn btn-primary" href="#Proje">Detaylı Bilgi</a>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="service-item position-relative">
-                <img class="img-fluid" src="~/Index/img/muhasebe.jpg" alt="">
-                <div class="service-text text-center">
-                    <h4 class="text-white font-weight-medium px-3">Muhasebe Çözümleri</h4>
-                    <p class="text-white px-3 mb-3"></p>
-                    <div class="w-100 bg-white text-center p-4">
-                        <a class="btn btn-primary" href="">Detaylı Bilgi</a>
-                    </div>
-                </div>
-            </div>
-            <div class="service-item position-relative">
-                <img class="img-fluid" src="~/Index/img/depo.jpg" alt="">
-                <div class="service-text text-center">
-                    <h4 class="text-white font-weight-medium px-3">Depo Yönetimi</h4>
-                    <p class="text-white px-3 mb-3"></p>
-                    <div class="w-100 bg-white text-center p-4">
-                        <a class="btn btn-primary" href="">Detaylı Bilgi</a>
-                    </div>
-                </div>
-            </div>
-            <div class="service-item position-relative">
-                <img class="img-fluid" src="~/Index/img/raporlama.jpg" alt="">
-                <div class="service-text text-center">
-                    <h4 class="text-white font-weight-medium px-3">Özel Raporlama</h4>
-                    <p class="text-white px-3 mb-3"></p>
-                    <div class="w-100 bg-white text-center p-4">
-                        <a class="btn btn-primary" href="">Detaylı Bilgi</a>
-                    </div>
-                </div>
-            </div>
-            <div class="service-item position-relative">
-                <img class="img-fluid" src="~/Index/img/kasa.jpg" alt="">
-                <div class="service-text text-center">
-                    <h4 class="text-white font-weight-medium px-3">Kasa Takibi</h4>
-                    <p class="text-white px-3 mb-3"></p>
-                    <div class="w-100 bg-white text-center p-4">
-                        <a class="btn btn-primary" href="">Detaylı Bilgi</a>
-                    </div>
-                </div>
-            </div>
-            <div class="service-item position-relative">
-                <img class="img-fluid" src="~/Index/img/log.jpg" alt="">
-                <div class="service-text text-center">
-                    <h4 class="text-white font-weight-medium px-3">Loglama Sistemimiz</h4>
-                    <p class="text-white px-3 mb-3"></p>
-                    <div class="w-100 bg-white text-center p-4">
-                        <a class="btn btn-primary" href="">Detaylı Bilgi</a>
-                    </div>
-                </div>
-            </div>
-            <div class="service-item position-relative">
-                <img class="img-fluid" src="~/Index/img/donusum.jpg" alt="">
-                <div class="service-text text-center">
-                    <h4 class="text-white font-weight-medium px-3">E-Dönüşüm</h4>
-                    <p class="text-white px-3 mb-3"></p>
-                    <div class="w-100 bg-white text-center p-4">
-                        <a class="btn btn-primary" href="">Detaylı Bilgi</a>
-                    </div>
-                </div>
-            </div>
-            <div class="service-item position-relative">
-                <img class="img-fluid" src="~/Index/img/proje.jpg" alt="">
-                <div class="service-text text-center">
-                    <h4 class="text-white font-weight-medium px-3">Proje Takibi</h4>
-                    <p class="text-white px-3 mb-3"></p>
-                    <div class="w-100 bg-white text-center p-4">
-                        <a class="btn btn-primary" href="">Detaylı Bilgi</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row justify-content-center bg-appointment mx-0">
-            <div class="col-lg-6 py-5">
-                <div class="p-5 my-5" style="background: rgba(33, 30, 28, 0.5);">
-                    <h1 class="text-white text-center mb-4">Bizimle İletişime Geçin</h1>
-                    <form>
-                        <div class="form-row">
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <input type="text" class="form-control bg-transparent p-4" placeholder="Adınız" required="required" />
+
+            <div class="row justify-content-center bg-appointment mx-0">
+                <div class="col-lg-6 py-5">
+                    <div class="p-5 my-5" style="background: rgba(33, 30, 28, 0.5);">
+                        <h1 class="text-white text-center mb-4">Bizimle İletişime Geçin</h1>
+                        <form>
+                            <div class="form-row" id="Iletisim">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control  p-4" placeholder="Adınız" required="required" />
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <input type="email" class="form-control bg-transparent p-4" placeholder="Soyadınız" required="required" />
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <input type="email" class="form-control  p-4" placeholder="Soyadınız" required="required" />
+                                    </div>
                                 </div>
-                            </div>
                             </div><div class="form-row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control bg-transparent p-4" placeholder="Email" required="required" />
+                                        <input type="text" class="form-control  p-4" placeholder="Email" required="required" />
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <input type="email" class="form-control bg-transparent p-4" placeholder="Telefon" required="required" />
+                                        <input type="email" class="form-control  p-4" placeholder="Telefon" required="required" />
                                     </div>
                                 </div>
                             </div>
-                        <div class="form-row">
-                          
-                                <button class="btn btn-primary btn-block" type="submit" style="height: 47px;">Biz Size Ulaşalım</button>
-                        </div>
-                    </form>
-                </div>
+                            <div class="form-row">
 
-            </div>
-        </div>
-    </div>
-    <!-- Service End -->
-    <!-- Open Hours Start -->
-    <div class="container-fluid py-5">
-        <div class="container py-5">
-            <div class="row">
-                <div class="col-lg-6" style="min-height: 500px;">
-                    <div class="position-relative h-100">
-                        <img class="position-absolute w-100 h-100" src="~/Index/img/raporlama.jpg" style="object-fit: cover;">
+                                <button class="btn btn-primary btn-block" type="submit" style="height: 47px;">Biz Size Ulaşalım</button>
+                            </div>
+                        </form>
                     </div>
-                </div>
-                <div class="col-lg-6 pt-5 pb-lg-5">
-                    <div class="hours-text bg-light p-4 p-lg-5 my-lg-5">
-                        <h6 class="d-inline-block text-white text-uppercase bg-primary py-1 px-2">Rapordan fazlası</h6>
-                        <h1 class="mb-4">Raporlar artık birer<br /> Sanat eseri</h1>
-                        <p>Dolores lorem lorem ipsum sit et ipsum. Sadip sea amet diam dolore sed et. Sit rebum labore sit sit ut vero no sit. Et elitr stet dolor sed sit et sed ipsum et kasd ut. Erat duo eos et erat sed diam duo</p>
-                        <ul class="list-inline">
-                            <li class="h6 py-1"><i class="far fa-circle text-primary mr-3"></i>Lorem lorem</li>
-                            <li class="h6 py-1"><i class="far fa-circle text-primary mr-3"></i>Lorem Lorem</li>
-                            <li class="h6 py-1"><i class="far fa-circle text-primary mr-3"></i>Lorem lorem</li>
-                        </ul>
-                       
-                    </div>
+
                 </div>
             </div>
         </div>
-        </div>
-        <div class="container-fluid py-5">
+
+        <!-- Service End -->
+        <!-- Open Hours Start -->
+
+
+        <div class="container-fluid py-5" id="Proje">
             <div class="container py-5">
                 <div class="row">
                     <div class="col-lg-6" style="min-height: 500px;">
                         <div class="position-relative h-100">
-                            <img class="position-absolute w-100 h-100" src="~/Index/img/uretim.jpg" style="object-fit: cover;">
+                            <img class="position-absolute w-100 h-100" src="~/img/Index/proje.jpg" style="object-fit: cover;">
                         </div>
                     </div>
                     <div class="col-lg-6 pt-5 pb-lg-5">
                         <div class="hours-text bg-light p-4 p-lg-5 my-lg-5">
-                            <h6 class="d-inline-block text-white text-uppercase bg-primary py-1 px-2">Üretirken kaybetmeyin</h6>
-                            <h1 class="mb-4">Üretimde<br /> Kuş Bakışı</h1>
-                            <p>Dolores lorem lorem ipsum sit et ipsum. Sadip sea amet diam dolore sed et. Sit rebum labore sit sit ut vero no sit. Et elitr stet dolor sed sit et sed ipsum et kasd ut. Erat duo eos et erat sed diam duo</p>
+                            <h6 class="d-inline-block text-white text-uppercase bg-primary py-1 px-2">Proje Takip+</h6>
+                            <h1 class="mb-4">---------</h1>
+                            <p>Şirket projelerinizi kolaylıkla takip edebilir, ekibinizle projeleri anlık olarak izleyebilir ve sürece her noktadan hakim olabilirsiniz.</p>
                             <ul class="list-inline">
-                                <li class="h6 py-1"><i class="far fa-circle text-primary mr-3"></i>Lorem lorem</li>
-                                <li class="h6 py-1"><i class="far fa-circle text-primary mr-3"></i>Lorem Lorem</li>
-                                <li class="h6 py-1"><i class="far fa-circle text-primary mr-3"></i>Lorem lorem</li>
+                                <li class="h6 py-1"><i class="far fa-circle text-primary mr-3"></i>MÜŞTERİ TAKİP</li>
+                                <li class="h6 py-1"><i class="far fa-circle text-primary mr-3"></i>SÜREÇ TAKİP</li>
+                                <li class="h6 py-1"><i class="far fa-circle text-primary mr-3"></i>ÜRÜN TAKİP</li>
                             </ul>
 
                         </div>
@@ -391,41 +355,207 @@
                 </div>
             </div>
         </div>
-    <!-- Open Hours End -->
- 
+        <div class="container-fluid py-5" id="Donusum">
+            <div class="container py-5">
+                <div class="row">
+                    <div class="col-lg-6" style="min-height: 500px;">
+                        <div class="position-relative h-100">
+                            <img class="position-absolute w-100 h-100" src="~/img/Index/donusum.jpg" style="object-fit: cover;">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 pt-5 pb-lg-5">
+                        <div class="hours-text bg-light p-4 p-lg-5 my-lg-5">
+                            <h6 class="d-inline-block text-white text-uppercase bg-primary py-1 px-2">E-Dönüşüm+</h6>
+                            <h1 class="mb-4">Dönüştürüyoruz.</h1>
+                            <p> E – Dönüşüm ürünlerimiz sayesinde kurumsal faaliyetlerinizi kolaylıkla dijital ortama taşıyın. </p>
+                            <ul class="list-inline">
+                                <li class="h6 py-1"><i class="far fa-circle text-primary mr-3"></i>E-ARŞİV</li>
+                                <li class="h6 py-1"><i class="far fa-circle text-primary mr-3"></i>E-FATURA</li>
+                                <li class="h6 py-1"><i class="far fa-circle text-primary mr-3"></i>E-İRSALİYE</li>
+                            </ul>
 
-    </div>
-    <!-- Footer Start -->
-    <div class="footer container-fluid position-relative bg-dark py-5" style="margin-top: 90px;">
-        <div class="container pt-5">
-            <div class="row">
-                <div class="col-lg-3"></div>
-                <div class="col-lg-6 pr-lg-5 mb-5">
-                    <a href="index.html" class="navbar-brand">
-                        <img class="img-fluid" src="~/Index/img/logo.png" alt="" width="200" height="100">
-                    </a>
-                    <p>Aliquyam sed elitr elitr erat sed diam ipsum eirmod eos lorem nonumy. Tempor sea ipsum diam  sed clita dolore eos dolores magna erat dolore sed stet justo et dolor.</p>
-                    <p><i class="fa fa-map-marker-alt mr-2"></i>Çankaya/ANKARA</p>
-                    <p><i class="fa fa-phone-alt mr-2"></i>+905000000000</p>
-                    <p><i class="fa fa-envelope mr-2"></i>info@elizmeypak.com</p>
-                    <div class="d-flex justify-content-start mt-4">
-                        <a class="btn btn-lg btn-primary btn-lg-square mr-2" href="#"><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-lg btn-primary btn-lg-square mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-lg btn-primary btn-lg-square mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a class="btn btn-lg btn-primary btn-lg-square" href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-3"></div>
+            </div>
+        </div>
+        <div class="container-fluid py-5" id="Loglama">
+            <div class="container py-5">
+                <div class="row">
+                    <div class="col-lg-6" style="min-height: 500px;">
+                        <div class="position-relative h-100">
+                            <img class="position-absolute w-100 h-100" src="~/img/Index/log.jpg" style="object-fit: cover;">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 pt-5 pb-lg-5">
+                        <div class="hours-text bg-light p-4 p-lg-5 my-lg-5">
+                            <h6 class="d-inline-block text-white text-uppercase bg-primary py-1 px-2">Log+</h6>
+                            <h1 class="mb-4">Hiç kayıp yok!</h1>
+                            <p>Eliz Meypak Gelişmiş Loglama Sistemi ile her detay kayıt altında.</p>
+                            <ul class="list-inline">
+                                <li class="h6 py-1"><i class="far fa-circle text-primary mr-3"></i>Veri Merkezi Hizmetleri</li>
+                                <li class="h6 py-1"><i class="far fa-circle text-primary mr-3"></i>Erişim Hizmeti</li>
+                                <li class="h6 py-1"><i class="far fa-circle text-primary mr-3"></i>Güvenlik Hizmeti</li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid py-5" id="KasaTakip">
+            <div class="container py-5">
+                <div class="row">
+                    <div class="col-lg-6" style="min-height: 500px;">
+                        <div class="position-relative h-100">
+                            <img class="position-absolute w-100 h-100" src="~/img/Index/kasa.jpg" style="object-fit: cover;">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 pt-5 pb-lg-5">
+                        <div class="hours-text bg-light p-4 p-lg-5 my-lg-5">
+                            <h6 class="d-inline-block text-white text-uppercase bg-primary py-1 px-2">Kasa Takip+</h6>
+                            <h1 class="mb-4">Avucumuzun içi gibi</h1>
+                            <p>Sistemimiz sayesinde zorlanmadan kasa takip kolaylıklarımızdan faydalanın.</p>
+                            <ul class="list-inline">
+                                <li class="h6 py-1"><i class="far fa-circle text-primary mr-3"></i>Günlük Stok Verileri</li>
+                                <li class="h6 py-1"><i class="far fa-circle text-primary mr-3"></i>Mobil Stok Takip</li>
+                                <li class="h6 py-1"><i class="far fa-circle text-primary mr-3"></i>Detaylı Kasa Takip Raporlama</li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid py-5" id="Raporlama">
+            <div class="container py-5">
+                <div class="row">
+                    <div class="col-lg-6" style="min-height: 500px;">
+                        <div class="position-relative h-100">
+                            <img class="position-absolute w-100 h-100" src="~/img/Index/raporlama.jpg" style="object-fit: cover;">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 pt-5 pb-lg-5">
+                        <div class="hours-text bg-light p-4 p-lg-5 my-lg-5">
+                            <h6 class="d-inline-block text-white text-uppercase bg-primary py-1 px-2">Raporlama+</h6>
+                            <h1 class="mb-4">Üretimde<br /> Kuş Bakışı</h1>
+                            <p>Dijital pazarlamadaki en önemli noktalardan biri doğru raporlamadır. Ekibimiz her şeyi kapsayan gelişmiş ve kapsamlı raporlar hazırlayıp sunmaktadır. Firmanız için özel olarak oluşturulan bu raporlar, aşağıda saydıklarımız da kapsayarak, size her ay daha ayrıntılı veriler sağlar.</p>
+                            <ul class="list-inline">
+                                <li class="h6 py-1"><i class="far fa-circle text-primary mr-3"></i>Finansal Raporlar</li>
+                                <li class="h6 py-1"><i class="far fa-circle text-primary mr-3"></i>Satış/Pazarlama Analiz Raporları</li>
+                                <li class="h6 py-1"><i class="far fa-circle text-primary mr-3"></i>Yönetim Raporları</li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid py-5" id="DepoYonetim">
+            <div class="container py-5">
+                <div class="row">
+                    <div class="col-lg-6" style="min-height: 500px;">
+                        <div class="position-relative h-100">
+                            <img class="position-absolute w-100 h-100" src="~/img/Index/depo.jpg" style="object-fit: cover;">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 pt-5 pb-lg-5">
+                        <div class="hours-text bg-light p-4 p-lg-5 my-lg-5">
+                            <h6 class="d-inline-block text-white text-uppercase bg-primary py-1 px-2">Depo+</h6>
+                            <h1 class="mb-4">Giren sinek sayısını biliyoruz.</h1>
+                            <p>Depo takibi sistemimiz sayesinde mal kabul, stok takibi, sevkiyat gibi tüm işlemlerinizi kolaylıkla takip edebilirsiniz.</p>
+                            <ul class="list-inline">
+                                <li class="h6 py-1"><i class="far fa-circle text-primary mr-3"></i>Mal Kabul</li>
+                                <li class="h6 py-1"><i class="far fa-circle text-primary mr-3"></i>Stok Takibi</li>
+                                <li class="h6 py-1"><i class="far fa-circle text-primary mr-3"></i>Sevkiyat İşlemleri</li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid py-5" id="Muhasebe">
+            <div class="container py-5">
+                <div class="row">
+                    <div class="col-lg-6" style="min-height: 500px;">
+                        <div class="position-relative h-100">
+                            <img class="position-absolute w-100 h-100" src="~/img/Index/muhasebe.jpg" style="object-fit: cover;">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 pt-5 pb-lg-5">
+                        <div class="hours-text bg-light p-4 p-lg-5 my-lg-5">
+                            <h6 class="d-inline-block text-white text-uppercase bg-primary py-1 px-2">Muhasebe+</h6>
+                            <h1 class="mb-4">Üretimde<br /> Kuş Bakışı</h1>
+                            <p>Muhasebe çözümlerimiz ışığında ön muhasebe ve genel muhasebe konularında süreçlerinizi kapsamlı olarak takip edin.</p>
+                            <ul class="list-inline">
+                                <li class="h6 py-1"><i class="far fa-circle text-primary mr-3"></i>Maliyet Muhasebesi</li>
+                                <li class="h6 py-1"><i class="far fa-circle text-primary mr-3"></i>Genel Muhasebe</li>
+                                <li class="h6 py-1"><i class="far fa-circle text-primary mr-3"></i>Bordro Yönetimi</li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid py-5" id="Uretim">
+            <div class="container py-5">
+                <div class="row">
+                    <div class="col-lg-6" style="min-height: 500px;">
+                        <div class="position-relative h-100">
+                            <img class="position-absolute w-100 h-100" src="~/img/Index/uretim.jpg" style="object-fit: cover;">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 pt-5 pb-lg-5">
+                        <div class="hours-text bg-light p-4 p-lg-5 my-lg-5">
+                            <h6 class="d-inline-block text-white text-uppercase bg-primary py-1 px-2">Üretim+</h6>
+                            <h1 class="mb-4">Üretimde<br /> Kuş Bakışı</h1>
+                            <p>Tüm üretim süreçlerini takip edebileceğiniz hızlı ve etkin çözümlerimizle yanınızdayız. </p>
+                            <ul class="list-inline">
+                                <li class="h6 py-1"><i class="far fa-circle text-primary mr-3"></i>Üretim Planlama</li>
+                                <li class="h6 py-1"><i class="far fa-circle text-primary mr-3"></i>Üretim,Atık,Fire Takibi</li>
+                                <li class="h6 py-1"><i class="far fa-circle text-primary mr-3"></i>Üretim Analizleri</li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Open Hours End -->
+    </div>
+    <!-- Footer Start -->
+    <div class="footer container-fluid position-relative bg-dark">
+        <div class="container p-5">
+            <div class="row">
+                <div class="col-lg-12 pr-lg-5 mb-5" style="text-align: center;">
+                    <a href="index.html" class="navbar-brand">
+                        <img class="img-fluid" src="~/img/Index/logo.png" alt="" width="200" height="100">
+                    </a>
+                    <br />
+                    <p style="text-align: center;">Aliquyam sed elitr elitr erat sed diam ipsum eirmod eos lorem nonumy.<br /> Tempor sea ipsum diam  sed clita dolore eos dolores magna erat dolore sed stet justo et dolor.</p>
+                    <p><i class="fa fa-map-marker-alt mr-2"></i>Çankaya/ANKARA</p>
+                    <p><i class="fa fa-phone-alt mr-2"></i>+905304671690</p>
+                    <p><i class="fa fa-envelope mr-2"></i>info@elizmeypak.com</p>
+                    <div class="d-flex justify-content-center mt-4">
+                        <a class="btn btn-lg btn-primary btn-lg-square mr-2" href="https://twitter.com/ElizMeypak"><i class="fab fa-twitter"></i></a>
+                        <!--      <a class="btn btn-lg btn-primary btn-lg-square mr-2" href="#"><i class="fab fa-facebook-f"></i></a>-->
+                        <a class="btn btn-lg btn-primary btn-lg-square mr-2" href="https://www.instagram.com/elizmeypak/"><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-lg btn-primary btn-lg-square " href="https://www.linkedin.com/company/eliz-meypak-bili%C5%9Fim"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
-    <div class="container-fluid bg-dark text-light border-top py-4" style="border-color: rgba(256, 256, 256, .15) !important;">
+    <div class="container-fluid bg-dark text-light border-top " style="border-color: rgba(256, 256, 256, .15) !important;">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 text-center text-md-left mb-3 mb-md-0">
+                <div class="col-md-12 text-start text-md-left mb-3 mb-md-0">
                     <p class="m-0 text-white">&copy; <a href="#">Eliz Meypak Bilişim Teknoloji</a>. Tüm Hakları Saklıdır..</p>
                 </div>
-
             </div>
         </div>
     </div>
@@ -451,11 +581,47 @@
 
     <!-- Template Javascript -->
     <script src="~/Index/js/main.js"></script>
+
+
     <script>
-        function kaydir() {
-            window.scrollBy(0, 500)
-        }
+        $('a[href*="#"]')
+            // Remove links that don't actually link to anything
+            .not('[href="#"]')
+            .not('[href="#0"]')
+            .click(function (event) {
+                // On-page links
+                if (
+                    location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+                    &&
+                    location.hostname == this.hostname
+                ) {
+                    // Figure out element to scroll to
+                    var target = $(this.hash);
+                    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                    // Does a scroll target exist?
+                    if (target.length) {
+                        // Only prevent default if animation is actually gonna happen
+                        event.preventDefault();
+                        $('html, body').animate({
+                            scrollTop: target.offset().top
+                        }, 1000, function () {
+                            // Callback after animation
+                            // Must change focus!
+                            var $target = $(target);
+                            $target.focus();
+                            if ($target.is(":focus")) { // Checking if the target was focused
+                                return false;
+                            } else {
+                                $target.attr('tabindex', '-1'); // Adding tabindex for elements not focusable
+                                $target.focus(); // Set focus again
+                            };
+                        });
+                    }
+                }
+            });
     </script>
+
+
 </body>
 
 </html>

@@ -1,7 +1,10 @@
-﻿using DevExpress.Text.Interop;
+﻿using DevExpress.Mvvm.POCO;
+using DevExpress.Text.Interop;
 using MEYPAK.BLL.Assets;
 using MEYPAK.DAL.Abstract.CariDal;
 using MEYPAK.Entity.Models.DEPO;
+using MEYPAK.Entity.Models.STOK;
+using MEYPAK.Entity.PocoModels;
 using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.DEPO;
 using MEYPAK.Entity.PocoModels.PARAMETRE;
@@ -26,14 +29,15 @@ namespace MEYPAK.PRL.CARI
 {
     public partial class FCariAltHesap : Form
     {
-      
+
+        string islemtipi = "Kayıt";
         public FCariAltHesap()
         {
             InitializeComponent();
             _cariAltHesapServis = new GenericWebServis<PocoCARIALTHES>();
             _parabirIMServis = new GenericWebServis<PocoPARABIRIM>();
             _parabirIMServis.Data(ServisList.ParaBirimiListeServis);
-            CBDoviz.Properties.DataSource = _parabirIMServis.obje.Select(x => x.adi).ToList();
+            CBDoviz.Properties.DataSource = _parabirIMServis.obje.Select(x => x.adi).ToList(); //comboxun içini parabirim formundan doldurur
         }
 
         #region Tanımlar
@@ -52,8 +56,15 @@ namespace MEYPAK.PRL.CARI
             {
                 if (ctrl is TextBoxBase)
                 {
-                    if (ctrl.Name != "TBCariAdi")
+                    if (ctrl.Name != "TBAdi")
                         ctrl.Text = String.Empty;
+                    else if (ctrl.Name != "TBKodu")
+                        ctrl.Text = String.Empty;
+                    else if (ctrl.Name != "CBDoviz")
+                        ctrl.Text= String.Empty;    
+                    {
+
+                    }
                 }
                 else
                 {
@@ -62,55 +73,63 @@ namespace MEYPAK.PRL.CARI
             }
 
         }
-         void Doldur()
+         void DataGridDoldur()
         {
-            
             _cariAltHesapServis.Data(ServisList.CariAltHesListeServis);
-            _parabirIMServis.Data(ServisList.ParaBirimiListeServis);
-            DGAltHesap.DataSource = "";
-            DGAltHesap.DataSource = _cariAltHesapServis.obje;
-            CBDoviz.Properties.DataSource = _parabirIMServis.obje;
+            DGAltHesap.DataSource = _cariAltHesapServis.obje.Select(x => new { 
+                x.id, 
+                x.adi, 
+                x.kod,
+                x.dovizid,
+                x.aktif,
+                x.olusturmatarihi });
+            DGAltHesap.Refresh();
+            gridView1.RefreshData();
+            DGAltHesap.RefreshDataSource();
 
         }
         private void FCariAltHesap_Load(object sender, EventArgs e)
         {
-
-           // DGAltHesapYapilandir();
-            CBDoviz.EditValue = 0;
+            DataGridDoldur();
+            //CBDoviz.EditValue = 0;
         }
-        
+        int id;
         private void BTKaydet_Click(object sender, EventArgs e)
         {
-
-            try
+            if (islemtipi == "Kayıt")
             {
-                _cariAltHesapServis.Data(ServisList.CariAltHesEkleServis, new PocoCARIALTHES()
+                _cariAltHesapServis.Data(ServisList.CariAltHesEkleServis, (new PocoCARIALTHES()
                 {
-                    adi = TBCariAdi.Text,
-                    aktif = CBAktif.Checked==true?1:0,
-                    dovizid = _parabirIMServis.obje.Where(x=>x.adi==CBDoviz.EditValue.ToString()).FirstOrDefault().id
-                });
+                    adi = TBAdi.Text,
+                    kod = TBKodu.Text,
+                    dovizid = _parabirIMServis.obje.Where(x => x.adi.ToString() == CBDoviz.EditValue.ToString()).FirstOrDefault().id,
+                    aktif = 1,
+
+                }));
+
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            else
+                _cariAltHesapServis.Data(ServisList.CariAltHesEkleServis, (new PocoCARIALTHES()
+                {
+                    id = id,
+                    adi = TBAdi.Text,
+                    kod= TBKodu.Text,
+                    dovizid = _parabirIMServis.obje.Where(x => x.adi.ToString()  == CBDoviz.EditValue.ToString()).FirstOrDefault().id,
+                    aktif = 1,
+
+                })); 
+            MessageBox.Show("Alt Hesap başarıyla eklendi!");
+            DataGridDoldur();
+
         }
 
-
-        void DGAltHesapYapilandir()
-        {
-            DGAltHesap.Name = "DGAltHesap";
-            DGAltHesap.Text = "Döviz";
-        }
+       
         private void BTSil_Click(object sender, EventArgs e)
         {
-           // _cariAltHesapServis.Data(ServisList.DepoSilServis, _cariAltHesapServis.obje.Where(x => x.id == Convert.ToInt32(DGAltHesap.GetFocusedRowCellValue("id"))).FirstOrDefault());
-        }
-
-        private void CBDoviz_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            ////_cariAltHesapServis.Data(ServisList.CariAltHesSilServis, null, null, (_cariAltHesapServis.obje.Where(x => x.id == Convert.ToInt32(DGAltHesap.GetFocusedDataRow(id).ToString();
+            //_cariAltHesapServis.Data(ServisList.CariAltHesListeServis);
+            //DGAltHesap.DataSource = _cariAltHesapServis.obje;
+            // _cariAltHesapServis.Data(ServisList.DepoSilServis, _cariAltHesapServis.obje.Where(x => x.id == Convert.ToInt32(DGAltHesap.GetFocusedRowCellValue("id"))).FirstOrDefault());
         }
 
 #endregion

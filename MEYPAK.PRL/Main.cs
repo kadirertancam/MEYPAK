@@ -62,6 +62,7 @@ namespace MEYPAK.PRL
         FCariHareket fCariHareket;
         FCariDurum fCariDurum;
         FCariKart fCariKart;
+        FCariAltHesap fCariAltHesap;
         #endregion
         void StokPanelAc()
         {
