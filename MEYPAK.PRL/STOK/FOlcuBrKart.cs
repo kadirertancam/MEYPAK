@@ -34,10 +34,7 @@ namespace MEYPAK.PRL.STOK
             DataGridDoldur();
         }
         int id;
-        private void BTKaydet_Click(object sender, EventArgs e)
-        { 
-           
-        }
+       
 
         private void BTSil_Click(object sender, EventArgs e)
         {
@@ -56,9 +53,7 @@ namespace MEYPAK.PRL.STOK
         {
             _OlcuBrServis.Data(ServisList.OlcuBrListeServis); 
             gridControl1.DataSource = _OlcuBrServis.obje.Select(x=> new {x.id,x.adi,x.birim,x.olusturmatarihi});
-            
             gridControl1.Refresh();
-            gridView1.RefreshData();
             gridControl1.RefreshDataSource();
         }
 
