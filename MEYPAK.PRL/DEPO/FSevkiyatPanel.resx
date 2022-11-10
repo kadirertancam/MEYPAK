@@ -57,8 +57,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="tileView3.TileHtmlTemplate.Styles" xml:space="preserve">
-    <value>.root {
+  <data name="tileView4.TileHtmlTemplate.Styles" xml:space="preserve">
+    <value>
+.root {
 	height: 122px;
 	font-family: "Segoe UI";
 	font-size: 14px;
@@ -191,6 +192,162 @@
 .root:hover .opaque { opacity: 1; }
 .root .opaque:hover { opacity: 1; }</value>
   </data>
+  <data name="tileView4.TileHtmlTemplate.Template" xml:space="preserve">
+    <value>&lt;div class="root" id="root"&gt;
+	&lt;div class="content"&gt; 
+		&lt;div class="flex-container"&gt;
+			
+		 &lt;div class="plaintext"&gt;Stok Kodu&lt;div style="padding-top:5px;"&gt;${KOD}&lt;/div&gt;&lt;/div&gt;
+		  &lt;div class="plaintext"&gt;Stok Adı&lt;div style="padding-top:5px;"&gt;${ADI}&lt;/div&gt;&lt;/div&gt;
+			 &lt;div class="plaintext"&gt;Miktar&lt;div style="padding-top:5px;"&gt;${CKMIKTAR}&lt;/div&gt;&lt;/div&gt;
+			&lt;div class="plaintext"&gt;Birim&lt;div style="padding-top:5px;"&gt;${CBIRIM}&lt;/div&gt;&lt;/div&gt;
+			&lt;div class="plaintext"&gt;Depo&lt;div style="padding-top:5px;"&gt;${CDEPO}&lt;/div&gt;&lt;/div&gt;
+
+			
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</value>
+  </data>
+  <data name="tileView3.TileHtmlTemplate.Styles" xml:space="preserve">
+    <value>.root {
+	height: 122px;
+	font-family: "Segoe UI";
+	font-size: 14px;
+	background-color: #252526;
+	border-style: solid;
+	border-width: 0px;
+	border-left-width: 4px;
+	border-left-color: @Primary;
+}
+.content {
+	margin-top:18%;
+	margin-bottom:18%;
+	margin-Left:16px;
+	margin-right:20px;
+	display:flex;
+	background-color:#252526;
+}
+.flex-container{
+	display:flex;
+}
+.flex-container &gt; div{
+	width:100px;
+	height:100px;
+}
+.initials {
+	color: #252526;
+	font-weight: bold;
+	background-color: @Primary;
+	border-radius: 100px;
+	width: 32px;
+	height: 32px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.photo {
+	width:32px;
+	height:32px;
+	border-radius:100px;
+	border: solid 1px @Primary;
+	object-fit:contain;
+	background-color:white;
+}
+.mail-content {
+	flex-grow: 1;
+	margin-left: 8px;
+}
+.plaintext {
+	text-overflow:ellipsis;
+	overflow:hidden;
+	white-space:nowrap;
+	color:White
+}
+.plaintext2 {
+	
+	text-overflow:ellipsis;
+	overflow:hidden;
+	white-space:nowrap;
+	padding-left:50px;
+	color:White
+}
+.plaintext3 {
+	text-overflow:ellipsis; 
+	white-space:nowrap;
+	padding-left:0px;
+	color:White
+}
+.plaintext4 {
+	text-overflow:ellipsis; 
+	white-space:nowrap;
+	padding-right:20px;
+	color:White
+}
+.date {
+	align-self:center;
+	text-align:right;
+}
+.from {
+	
+	display:flex;
+	text-overflow:ellipsis;
+	overflow:hidden;
+	white-space:nowrap;
+	margin-top:0px;
+	font-weight:normal;
+}
+.aa {
+	padding-left:50px;
+	text-overflow:ellipsis;
+	overflow:hidden;
+	white-space:nowrap;
+	color:White;
+}
+.ab {
+	padding-left:62px;
+	text-overflow:ellipsis;
+	overflow:hidden;
+	white-space:nowrap;
+	color:White;
+}
+.ac {
+	padding-left:54px;
+	text-overflow:ellipsis;
+	overflow:hidden;
+	white-space:nowrap;
+	color:White;
+}
+.subject {
+	
+	text-overflow:ellipsis;
+	overflow:hidden;
+	white-space:nowrap;
+}
+.buttons { 
+	display:flex;
+	flex-wrap:nowrap;
+	justify-content:center;
+}
+
+.btn {
+	width:50px;
+	margin-top:5px;
+	height:50px;
+	background-color:#36363B;
+	min-width:18px;
+	object-fit:contain;
+	opacity:0.5;
+}
+
+.root:hover .btn { opacity: 0.5; }
+.root .btn:hover { opacity: 1; }
+  
+.root .btn-flag:hover { opacity: 1; }
+
+.opaque { opacity:1; }
+.root:hover .opaque { opacity: 1; }
+.root .opaque:hover { opacity: 1; }</value>
+  </data>
   <data name="tileView3.TileHtmlTemplate.Template" xml:space="preserve">
     <value>&lt;div class="root" id="root"&gt;
 	&lt;div class="content"&gt;
@@ -201,7 +358,7 @@
 		 	&lt;div class="plaintext2"&gt; &lt;div&gt;${StokKodu}&lt;/div&gt; &lt;div style="padding-top:5px;"&gt;${StokAdi}&lt;/div&gt;
 		 		 &lt;div style="padding-top:5px;"&gt;${IEBelgeno}&lt;/div&gt; &lt;/div&gt;
 			&lt;div class="plaintext"&gt;Emir No&lt;div style="padding-top:5px;"&gt;${EmirNo}&lt;/div&gt;&lt;/div&gt;
-			&lt;div class="plaintext"&gt;Siparis Miktarı&lt;div style="padding-top:5px;"&gt;${SiparisMiktari}&lt;/div&gt;&lt;/div&gt;
+			&lt;div class="plaintext4"&gt;T. Siparis Miktarı&lt;div style="padding-top:5px;"&gt;${SiparisMiktari}&lt;/div&gt;&lt;/div&gt;
 			&lt;div class="plaintext"&gt;Emir Miktarı&lt;div style="padding-top:5px;"&gt;${EmirMiktari}&lt;/div&gt;&lt;/div&gt;
 			&lt;div class="plaintext"&gt;Kalan Miktar&lt;div style="padding-top:5px;"&gt;${KalanMiktar}&lt;/div&gt;&lt;/div&gt;
 		&lt;/div&gt;
@@ -235,9 +392,25 @@
 	background-color:@Green;
 	border-radius:3px 0px 0px 3px;
 }
+.plaintext {
+	text-overflow:ellipsis;
+	overflow:hidden;
+	white-space:nowrap;
+	color:White;
+	display:flex;
+}
+.plaintext2 { 
+	text-overflow:ellipsis;
+	overflow:hidden;
+	white-space:nowrap;
+	padding-left:50px;
+	color:White;
+	display: inline-block;
+}
 .content {
 	width:100%;
 	padding:12px;
+	padding-right:30px;
 	display:flex;
 	flex-direction:column;
 }
@@ -255,12 +428,23 @@
 	flex-grow:1;
 	color:Black;
 }
-.description {
+.description2 {
 	margin-bottom:8px;
 	margin-top:6px;
+	font-size:20px;
+	font-style:normal;
 	white-space:pre-line;
 	color:White;
+	display:inline-block;
 }
+.description {
+	margin-bottom:8px;
+	margin-top:6px; 
+	white-space:pre-line;
+	color:White;
+	display:flex;
+}
+
 :root:select .description {
 	margin-bottom:8px;
 	margin-top:6px;
@@ -276,9 +460,60 @@
 	flex-grow:1;
 }
 .status {
-	font-size:20px;
-	align-self:flex-end;
+	width:250px;
+	height:30px;
+	background-color:#222; 
+	justify-content:center;
+	display:flex;
+	align-items:center;
+	padding-bottom:20px;
+	
+	
 }
+.spann{
+	text-align:center;
+	margin:auto;
+	justify-content:center;
+	display:flex;
+	align-items:center;	
+	margin-bottom:10px;
+	
+}.spann2{  
+	border:1px solid #fff;
+} 
+
+
+
+
+.overflow1 {
+	overflow: visible;
+}
+
+.overflow2 {
+	overflow: hidden;
+}
+
+body {
+	color: @ControlText;
+}
+
+.container2 {
+	margin-bottom: 10px;
+	background-color: @Window;
+	padding: 10px;
+	padding-top: 0px;
+	width: 300px;
+}
+
+.item2 {
+	
+}
+
+.white-text2 {
+	color: @White;
+	text-align:right;
+}
+
 </value>
   </data>
   <data name="tileView2.TileHtmlTemplate.Template" xml:space="preserve">
@@ -292,10 +527,9 @@
 			&lt;div class="description"&gt;&lt;b style="color:white"&gt;${CARIADI}&lt;/b&gt;&lt;/div&gt;
 			&lt;div class="bottom-block"&gt;
 				&lt;div class="bottom-block-near"&gt;
-					&lt;div class="description"&gt;&lt;span style="color:white"&gt;Miktar: &lt;/span&gt;${MIKTAR}&lt;/div&gt;
-					&lt;div class="description"&gt;&lt;span style="color:white"&gt;DEPO: &lt;/span&gt;${DEPO}&lt;/div&gt;
+					 	&lt;div class="description"&gt;&lt;span style="color:white"&gt;DEPO: &lt;/span&gt;${DEPO}&lt;/div&gt;
 				&lt;/div&gt;
-				&lt;div class="status"&gt;&lt;b style="color:white"&gt;${DURUM}%&lt;/b&gt;&lt;/div&gt;
+			 &lt;div class="description2"&gt;${DURUM}&lt;span&gt;%&lt;/span&gt;&lt;/div&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;

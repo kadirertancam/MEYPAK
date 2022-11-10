@@ -41,32 +41,27 @@ namespace MEYPAK.PRL.DEPO
             _olcuBrServis = new GenericWebServis<PocoOLCUBR>();
             _depoServis = new GenericWebServis<PocoDEPO>();
             _siparisDetayServis = new GenericWebServis<PocoSIPARISDETAY>();
-            _siparisSevkEmriHar = new GenericWebServis<PocoSIPARISSEVKEMIRHAR>();
-            _stokSevkiyatListServis = new GenericWebServis<PocoSTOKSEVKIYATLIST>();
+            _siparisSevkEmriHar = new GenericWebServis<PocoSIPARISSEVKEMIRHAR>(); 
             _depoCekiListServis = new GenericWebServis<PocoDEPOCEKILIST>();
+            _stokSevkiyatListServis = new GenericWebServis<PocoSTOKSEVKIYATLIST>();
 
 
-        } 
-        GenericWebServis<PocoSTOKSEVKIYATLIST> _stokSevkiyatListServis;
+        }  
         GenericWebServis<PocoDEPOCEKILIST> _depoCekiListServis;
         GenericWebServis<PocoSTOK> _stokServis;
         GenericWebServis<PocoOLCUBR> _olcuBrServis;
         GenericWebServis<PocoDEPO> _depoServis;
         GenericWebServis<PocoSIPARISDETAY> _siparisDetayServis;
         GenericWebServis<PocoSIPARISSEVKEMIRHAR> _siparisSevkEmriHar;
+        GenericWebServis<PocoSTOKSEVKIYATLIST> _stokSevkiyatListServis;
         List<PocoSTOK> _tempStok;
         PocoSTOK _Stok;
         public PocoDEPOEMIR _tempEmir;
         PocoSTOKSEVKIYATLIST _tempStokSevkiyatList;
         
-        public List<PocoSTOKSEVKIYATLIST> _tempList; 
+        public List<PocoDEPOCEKILIST> _tempList; 
         private void button1_Click(object sender, EventArgs e)
-        {
-
-
-
-
-
+        { 
 
 
             //_stokServis.Data(ServisList.StokListeServis);
@@ -113,7 +108,7 @@ namespace MEYPAK.PRL.DEPO
             _olcuBrServis.Data(ServisList.OlcuBrListeServis);
             // _tempList.Add(new PocoStokSevkiyatList());
             gridControl1.DataSource = 
-                _tempList.Select(x => new CekiPanelList { StokKodu = _stokServis.obje.Where(z=>x.stokid==z.id).FirstOrDefault().kod, StokAdı = _stokServis.obje.Where(z => x.stokid == z.id).FirstOrDefault().adi, Birim = _olcuBrServis.obje.Where(z=>z.id==x.birimid).FirstOrDefault().adi,Miktar=0 });
+                _tempList.Select(x => new CekiPanelList { ID= x.id,StokKodu = _stokServis.obje.Where(z=>x.stokid==z.id).FirstOrDefault().kod, StokAdı = _stokServis.obje.Where(z => x.stokid == z.id).FirstOrDefault().adi, Birim = _olcuBrServis.obje.Where(z=>z.id==x.birimid).FirstOrDefault().adi,Miktar=x.miktar });
             comboBox1.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             comboBox1.AutoCompleteSource = AutoCompleteSource.ListItems;
             comboBox1.DisplayMember = "KOD";
@@ -139,29 +134,51 @@ namespace MEYPAK.PRL.DEPO
         private void BTKaydet_Click(object sender, EventArgs e)
         {
             _siparisDetayServis.Data(ServisList.SiparisDetayListeServis);
-            _siparisSevkEmriHar.Data(ServisList.SiparisSevkEmriHarListeServis);
-            IEnumerable<CekiPanelList> aaa = (IEnumerable<CekiPanelList>)gridControl1.DataSource;
+            _siparisSevkEmriHar.Data(ServisList.SiparisSevkEmriHarListeServis); 
             int _id;
-            foreach (var item in aaa)
+            for (int i = 0; i < gridView1.RowCount; i++) 
             {
-                _id = _stokServis.obje.Where(x => x.kod == item.StokKodu).FirstOrDefault().id;
-                
-                _stokSevkiyatListServis.Data(ServisList.StokSevkiyatListEkleServis,new PocoSTOKSEVKIYATLIST()
+                _id = _stokServis.obje.Where(x => x.kod == gridView1.GetRowCellValue(i,"StokKodu")).FirstOrDefault().id;
+
+                _depoCekiListServis.Data(ServisList.DepoCekiListEkleServis,new PocoDEPOCEKILIST()
                 {
-                    
-                    stokid = _id,
-                    emirid = _tempEmir.id,
+                    id= Convert.ToInt32(gridView1.GetRowCellValue(i, "ID").ToString()),
+                    stokid = _id, 
                     birimid = _siparisDetayServis.obje.Where(x => x.siparisid == _tempEmir.siparisid && x.stokid == _id).FirstOrDefault().birimid,
-                    miktar = item.Miktar,
-                    depoid = _tempEmir.depoid,
-                    sirketid = 0,
-                    siparismiktari = _siparisDetayServis.obje.Where(x=>x.siparisid==_tempEmir.siparisid && x.stokid.ToString()==_id.ToString()).Sum(x=>x.miktar),
-                    siparisdetayid = _tempList.Where(x => _siparisDetayServis.obje.Where(z=>x.siparisdetayid==z.id).FirstOrDefault().stokid == _id && x.emirid == _tempEmir.id).FirstOrDefault().siparisdetayid,
-                    subeid = 0,
-                    kullaniciid = 0,
-                    sevkemriharid = _siparisSevkEmriHar.obje.Where(x => x.emirid==_tempEmir.id &&  _siparisDetayServis.obje.Where(z=>x.sipariskalemid == z.id).FirstOrDefault().stokid.ToString() == _id.ToString() && x.emirid == _tempEmir.id).FirstOrDefault().id
+                    miktar = Convert.ToDecimal(gridView1.GetRowCellValue(i, "Miktar")),
+                    isemriid=_tempEmir.id,depoid=_tempEmir.depoid
+
+                    
                 });
             }
+            _depoCekiListServis.Data(ServisList.DepoCekiListListeServis);
+            _stokSevkiyatListServis.Data(ServisList.StokSevkiyatListListeServis);
+            var taaa = _stokSevkiyatListServis.obje.Where(x =>  x.emirid == _tempEmir.id);
+            foreach (var item in taaa)
+            {
+                _stokSevkiyatListServis.Data(ServisList.StokSevkiyatListEkleServis,
+                    new PocoSTOKSEVKIYATLIST()
+                    {
+                        id = item.id,
+                        miktar = item.miktar,
+                        birimid = item.birimid,
+                        depoid = item.depoid,
+                        emirid = item.emirid,
+                        eskiid = item.eskiid,
+                        guncellemetarihi = item.guncellemetarihi,
+                        kayittipi = item.kayittipi,
+                        kullaniciid = item.kullaniciid,
+                        olusturmatarihi = item.olusturmatarihi,
+                        sevkemriharid = item.sevkemriharid,
+                        siparisdetayid = item.siparisdetayid,
+                        siparismiktari = item.siparismiktari,
+                        sirketid = item.sirketid,
+                        stokid = item.stokid,
+                        subeid = item.subeid,
+                        kalanmiktar = item.miktar - _depoCekiListServis.obje.Where(x => x.stokid == item.stokid && x.isemriid == item.emirid).FirstOrDefault().miktar
+                    });
+            }
+            this.Close();
         }
     }
 }

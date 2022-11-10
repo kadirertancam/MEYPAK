@@ -13,9 +13,9 @@ namespace MEYPAK.Entity.Models.DEPO
 
         public int ISEMRIID { get; set; }
         public int STOKID { get; set; }
-
+        public int DEPOID { get; set; }
         public int BIRIMID { get; set; }
-        public int MIKTAR { get; set; }
+        public decimal MIKTAR { get; set; }
 
     }
 }
