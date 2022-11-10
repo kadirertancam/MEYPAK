@@ -190,6 +190,33 @@ namespace MEYPAK.BLL.Assets
 
         #endregion
 
+        #region PersonelBanka
+        public const string PersonelBankaListeServis = "http://213.238.167.117:8080/PERSONELBANKA/PERSONELBANKAListe";
+        public const string PersonelBankaEkleServis = "http://213.238.167.117:8080/PERSONELBANKA/PERSONELBANKAEkleyadaGuncelle";
+        public const string PersonelBankaSilServis = "http://213.238.167.117:8080/PERSONELBANKA/PERSONELBANKASil";
+        public const string PersonelBankaGuncelleServis = "http://213.238.167.117:8080/PERSONELBANKA/PERSONELBANKAGuncelle";
+        public const string PersonelBankaDeleteByIdServis = "http://213.238.167.117:8080/PERSONELBANKA/DeleteById";
+
+        #endregion
+
+        #region PersonelGorev
+        public const string PersonelGorevListeServis =      "http://213.238.167.117:8080/PERSONELGOREV/PERSONELGOREVListe";
+        public const string PersonelGorevEkleServis =       "http://213.238.167.117:8080/PERSONELGOREV/PERSONELGOREVEkleyadaGuncelle";
+        public const string PersonelGorevSilServis =        "http://213.238.167.117:8080/PERSONELGOREV/PERSONELGOREVSil";
+        public const string PersonelGorevGuncelleServis =   "http://213.238.167.117:8080/PERSONELGOREV/PERSONELGOREVGuncelle";
+        public const string PersonelGorevDeleteByIdServis = "http://213.238.167.117:8080/PERSONELGOREV/DeleteById";
+
+        #endregion
+
+        #region PersonelDepartman
+        public const string PersonelDepartmanListeServis =      "http://213.238.167.117:8080/PERSONELDEPARTMAN/PERSONELDEPARTMANListe";
+        public const string PersonelDepartmanEkleServis =       "http://213.238.167.117:8080/PERSONELDEPARTMAN/PERSONELDEPARTMANEkleyadaGuncelle";
+        public const string PersonelDepartmanSilServis =        "http://213.238.167.117:8080/PERSONELDEPARTMAN/PERSONELDEPARTMANSil";
+        public const string PersonelDepartmanGuncelleServis =   "http://213.238.167.117:8080/PERSONELDEPARTMAN/PERSONELDEPARTMANGuncelle";
+        public const string PersonelDepartmanDeleteByIdServis = "http://213.238.167.117:8080/PERSONELDEPARTMAN/DeleteById";
+
+        #endregion
+
         #region OlcuBr
         public const string OlcuBrListeServis =      "http://213.238.167.117:8080/OLCUBR/OLCUBRListe";
         public const string OlcuBrEkleServis = "http://213.238.167.117:8080/OLCUBR/OLCUBREkleyadaGuncelle";

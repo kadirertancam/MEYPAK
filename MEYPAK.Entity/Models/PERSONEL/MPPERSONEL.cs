@@ -25,8 +25,8 @@ namespace MEYPAK.Entity.Models.PERSONEL
         [StringLength(50)]
         public DateTime DOGUMTAR { get; set; }
         public bool CINSIYET { get; set; }
-        public string DEPARTMAN { get; set; }
-        public string GOREV { get; set; }
+        public int PERSONELDEPARTMANID { get; set; }
+        public int PERSONELGOREVID { get; set; }
         public string SGKSICILNO { get; set; }
         public DateTime ISBASTAR { get; set; }
         public DateTime ISBITTAR { get; set; }

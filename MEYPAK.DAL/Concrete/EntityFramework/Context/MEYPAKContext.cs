@@ -44,6 +44,8 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
         public DbSet<MPARACLAR> MPARACLAR { get; set; }
         public DbSet<MPPERSONEL> MPPERSONEL { get; set; }
         public DbSet<MPPERSONELBANKA> MPPERSONELBANKA { get; set; }
+        public DbSet<MPPERSONELDEPARTMAN> MPPERSONELDEPARTMAN { get; set; }
+        public DbSet<MPPERSONELGOREV> MPPERSONELGOREV { get; set; }
         public DbSet<MPSTOKSAYIM> MPSTOKSAYIM { get; set; }
         public DbSet<MPSTOKSAYIMHAR> MPSTOKSAYIMHAR { get; set; }
         public DbSet<MPOLCUBR> MPOLCUBR { get; set; }

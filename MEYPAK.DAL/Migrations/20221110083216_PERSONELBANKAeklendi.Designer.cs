@@ -4,6 +4,7 @@ using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MEYPAK.DAL.Migrations
 {
     [DbContext(typeof(MEYPAKContext))]
-    partial class MEYPAKContextModelSnapshot : ModelSnapshot
+    [Migration("20221110083216_PERSONELBANKAeklendi")]
+    partial class PERSONELBANKAeklendi
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1222,6 +1224,10 @@ namespace MEYPAK.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("DEPARTMAN")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("DOGUMTAR")
                         .HasMaxLength(50)
                         .HasColumnType("datetime2");
@@ -1242,6 +1248,10 @@ namespace MEYPAK.DAL.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("G506MADSAN")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("GOREV")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -1322,12 +1332,6 @@ namespace MEYPAK.DAL.Migrations
 
                     b.Property<byte>("PANTOLONOLCUSU")
                         .HasColumnType("tinyint");
-
-                    b.Property<int>("PERSONELDEPARTMANID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PERSONELGOREVID")
-                        .HasColumnType("int");
 
                     b.Property<string>("RESIM")
                         .IsRequired()
@@ -1436,67 +1440,6 @@ namespace MEYPAK.DAL.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("MPPERSONELBANKA");
-                });
-
-            modelBuilder.Entity("MEYPAK.Entity.Models.PERSONEL.MPPERSONELDEPARTMAN", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
-
-                    b.Property<string>("ADI")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ESKIID")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("GUNCELLEMETARIHI")
-                        .HasColumnType("datetime2");
-
-                    b.Property<byte>("KAYITTIPI")
-                        .HasColumnType("tinyint");
-
-                    b.Property<DateTime>("OLUSTURMATARIHI")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("MPPERSONELDEPARTMAN");
-                });
-
-            modelBuilder.Entity("MEYPAK.Entity.Models.PERSONEL.MPPERSONELGOREV", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
-
-                    b.Property<string>("ADI")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("DEPARTMANID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ESKIID")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("GUNCELLEMETARIHI")
-                        .HasColumnType("datetime2");
-
-                    b.Property<byte>("KAYITTIPI")
-                        .HasColumnType("tinyint");
-
-                    b.Property<DateTime>("OLUSTURMATARIHI")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("MPPERSONELGOREV");
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.SIPARIS.MPSATINALMAMALKABULEMRIHAR", b =>
