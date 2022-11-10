@@ -118,9 +118,10 @@
             this.panel1.Controls.Add(this.BTSil);
             this.panel1.Controls.Add(this.BTKaydet);
             this.panel1.Controls.Add(this.groupControl1);
-            this.panel1.Location = new System.Drawing.Point(1, 2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(882, 111);
+            this.panel1.Size = new System.Drawing.Size(1303, 111);
             this.panel1.TabIndex = 1;
             // 
             // BTSil
@@ -156,15 +157,16 @@
             this.panel2.Controls.Add(this.DGAltHesap);
             this.panel2.Location = new System.Drawing.Point(1, 116);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(882, 362);
+            this.panel2.Size = new System.Drawing.Size(1301, 568);
             this.panel2.TabIndex = 2;
             // 
             // DGAltHesap
             // 
-            this.DGAltHesap.Location = new System.Drawing.Point(3, 3);
+            this.DGAltHesap.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DGAltHesap.Location = new System.Drawing.Point(0, 0);
             this.DGAltHesap.MainView = this.gridView1;
             this.DGAltHesap.Name = "DGAltHesap";
-            this.DGAltHesap.Size = new System.Drawing.Size(876, 359);
+            this.DGAltHesap.Size = new System.Drawing.Size(1301, 568);
             this.DGAltHesap.TabIndex = 0;
             this.DGAltHesap.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -178,9 +180,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 477);
+            this.ClientSize = new System.Drawing.Size(1303, 687);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FCariAltHesap";
             this.Text = "FCariAltHesap";
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
