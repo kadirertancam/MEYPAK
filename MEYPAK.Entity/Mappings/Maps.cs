@@ -61,6 +61,9 @@ namespace MEYPAK.Entity.Mappings
 
             //PERSONEL
             CreateMap<MPPERSONEL, PocoPERSONEL>().ReverseMap();
+            CreateMap<MPPERSONELBANKA, PocoPERSONELBANKA>().ReverseMap();
+            CreateMap<MPPERSONELDEPARTMAN, PocoPERSONELDEPARTMAN>().ReverseMap();
+            CreateMap<MPPERSONELGOREV, PocoPERSONELGOREV>().ReverseMap();
 
             //IRSALIYE
             CreateMap<MPIRSALIYE, PocoIRSALIYE>().ReverseMap();

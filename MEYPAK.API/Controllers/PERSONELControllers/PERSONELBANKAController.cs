@@ -15,11 +15,10 @@ namespace MEYPAK.API.Controllers.PERSONELControllers
         private readonly IMapper _mapper;
         private MPAdoContext<MPPERSONELBANKA> _adopersonelBankaServis = new MPAdoContext<MPPERSONELBANKA>();
 
-        public PERSONELBANKAController(IPersonelBankaServis personelBankaServis, IMapper mapper, MPAdoContext<MPPERSONELBANKA> adopersonelBankaServis)
+        public PERSONELBANKAController(IPersonelBankaServis personelBankaServis, IMapper mapper)
         {
             _personelBankaServis = personelBankaServis;
             _mapper = mapper;
-            _adopersonelBankaServis = adopersonelBankaServis;
         }
 
         [HttpGet]
