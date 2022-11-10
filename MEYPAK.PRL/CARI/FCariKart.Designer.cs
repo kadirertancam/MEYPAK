@@ -29,14 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FCariKart));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -169,14 +161,15 @@
             this.TBDokumanAdi = new System.Windows.Forms.TextBox();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.DGAltHesap = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.panel18 = new System.Windows.Forms.Panel();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.LBAltHesKodu = new DevExpress.XtraEditors.LabelControl();
+            this.BTKoduSec = new DevExpress.XtraEditors.ButtonEdit();
             this.LBAdi = new DevExpress.XtraEditors.LabelControl();
             this.TBAdi = new DevExpress.XtraEditors.TextEdit();
-            this.BTKoduSec = new DevExpress.XtraEditors.ButtonEdit();
-            this.LBAltHesKodu = new DevExpress.XtraEditors.LabelControl();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -303,11 +296,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             this.panel16.SuspendLayout();
             this.tabPage9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
+            this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGAltHesap)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            this.panel18.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TBAdi.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BTKoduSec.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBAdi.Properties)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel10.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -438,23 +434,7 @@
             // DGSevkAdres
             // 
             this.DGSevkAdres.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGSevkAdres.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DGSevkAdres.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGSevkAdres.DefaultCellStyle = dataGridViewCellStyle2;
             this.DGSevkAdres.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DGSevkAdres.Location = new System.Drawing.Point(0, 0);
             this.DGSevkAdres.Name = "DGSevkAdres";
@@ -475,7 +455,7 @@
             this.PNAlt.Location = new System.Drawing.Point(0, 0);
             this.PNAlt.Name = "PNAlt";
             this.PNAlt.Size = new System.Drawing.Size(964, 109);
-            this.PNAlt.TabIndex = 0; 
+            this.PNAlt.TabIndex = 0;
             // 
             // LBSevkAdres
             // 
@@ -550,7 +530,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(970, 401);
+            this.tabPage2.Size = new System.Drawing.Size(970, 402);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Açıklamalar";
             // 
@@ -579,7 +559,7 @@
             this.GCSayisalAciklama.Name = "GCSayisalAciklama";
             this.GCSayisalAciklama.Size = new System.Drawing.Size(962, 176);
             this.GCSayisalAciklama.TabIndex = 21;
-            this.GCSayisalAciklama.Text = "Sayısal Açıklama"; 
+            this.GCSayisalAciklama.Text = "Sayısal Açıklama";
             // 
             // NUDSAciklama9
             // 
@@ -958,7 +938,7 @@
             this.tabPage3.Controls.Add(this.panel11);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(970, 401);
+            this.tabPage3.Size = new System.Drawing.Size(970, 402);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Rapor Kodları";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -970,7 +950,7 @@
             this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel11.Location = new System.Drawing.Point(0, 0);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(970, 401);
+            this.panel11.Size = new System.Drawing.Size(970, 402);
             this.panel11.TabIndex = 1;
             // 
             // GCRaporKodlari
@@ -1007,7 +987,7 @@
             this.GCRaporKodlari.Name = "GCRaporKodlari";
             this.GCRaporKodlari.Size = new System.Drawing.Size(963, 159);
             this.GCRaporKodlari.TabIndex = 2;
-            this.GCRaporKodlari.Text = "Açıklama"; 
+            this.GCRaporKodlari.Text = "Açıklama";
             // 
             // simpleButton9
             // 
@@ -1357,7 +1337,7 @@
             this.tabPage4.Controls.Add(this.panel13);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(970, 401);
+            this.tabPage4.Size = new System.Drawing.Size(970, 402);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Yetkili Bilgileri";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -1368,33 +1348,17 @@
             this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel14.Location = new System.Drawing.Point(0, 92);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(970, 309);
+            this.panel14.Size = new System.Drawing.Size(970, 310);
             this.panel14.TabIndex = 1;
             // 
             // DGWYetkili
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGWYetkili.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.DGWYetkili.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGWYetkili.DefaultCellStyle = dataGridViewCellStyle4;
             this.DGWYetkili.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DGWYetkili.Location = new System.Drawing.Point(0, 0);
             this.DGWYetkili.Name = "DGWYetkili";
             this.DGWYetkili.RowTemplate.Height = 25;
-            this.DGWYetkili.Size = new System.Drawing.Size(970, 309);
+            this.DGWYetkili.Size = new System.Drawing.Size(970, 310);
             this.DGWYetkili.TabIndex = 0;
             // 
             // panel13
@@ -1473,7 +1437,7 @@
             this.tabPage5.Controls.Add(this.panel8);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(970, 401);
+            this.tabPage5.Size = new System.Drawing.Size(970, 402);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Alt Cari";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -1484,33 +1448,17 @@
             this.panel15.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel15.Location = new System.Drawing.Point(0, 92);
             this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(970, 309);
+            this.panel15.Size = new System.Drawing.Size(970, 310);
             this.panel15.TabIndex = 2;
             // 
             // dataGridView3
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView3.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView3.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView3.Location = new System.Drawing.Point(0, 0);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.RowTemplate.Height = 25;
-            this.dataGridView3.Size = new System.Drawing.Size(970, 309);
+            this.dataGridView3.Size = new System.Drawing.Size(970, 310);
             this.dataGridView3.TabIndex = 0;
             // 
             // panel8
@@ -1610,7 +1558,7 @@
             this.tabPage7.Controls.Add(this.panel16);
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(970, 401);
+            this.tabPage7.Size = new System.Drawing.Size(970, 402);
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "Dökümanlar";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -1621,33 +1569,17 @@
             this.panel17.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel17.Location = new System.Drawing.Point(0, 92);
             this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(970, 309);
+            this.panel17.Size = new System.Drawing.Size(970, 310);
             this.panel17.TabIndex = 3;
             // 
             // dataGridView4
             // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView4.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView4.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView4.Location = new System.Drawing.Point(0, 0);
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.RowTemplate.Height = 25;
-            this.dataGridView4.Size = new System.Drawing.Size(970, 309);
+            this.dataGridView4.Size = new System.Drawing.Size(970, 310);
             this.dataGridView4.TabIndex = 0;
             // 
             // panel16
@@ -1754,15 +1686,15 @@
             // 
             this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Size = new System.Drawing.Size(970, 401);
+            this.tabPage8.Size = new System.Drawing.Size(970, 402);
             this.tabPage8.TabIndex = 7;
             this.tabPage8.Text = "Taşıyıcı Bilgileri";
             this.tabPage8.UseVisualStyleBackColor = true;
             // 
             // tabPage9
             // 
-            this.tabPage9.Controls.Add(this.DGAltHesap);
-            this.tabPage9.Controls.Add(this.panel18);
+            this.tabPage9.Controls.Add(this.panelControl2);
+            this.tabPage9.Controls.Add(this.panelControl1);
             this.tabPage9.Location = new System.Drawing.Point(4, 22);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Size = new System.Drawing.Size(970, 402);
@@ -1770,12 +1702,22 @@
             this.tabPage9.Text = "AltHesap";
             this.tabPage9.UseVisualStyleBackColor = true;
             // 
+            // panelControl2
+            // 
+            this.panelControl2.Controls.Add(this.DGAltHesap);
+            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl2.Location = new System.Drawing.Point(0, 94);
+            this.panelControl2.Name = "panelControl2";
+            this.panelControl2.Size = new System.Drawing.Size(970, 308);
+            this.panelControl2.TabIndex = 1;
+            // 
             // DGAltHesap
             // 
-            this.DGAltHesap.Location = new System.Drawing.Point(3, 88);
+            this.DGAltHesap.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DGAltHesap.Location = new System.Drawing.Point(2, 2);
             this.DGAltHesap.MainView = this.gridView1;
             this.DGAltHesap.Name = "DGAltHesap";
-            this.DGAltHesap.Size = new System.Drawing.Size(966, 263);
+            this.DGAltHesap.Size = new System.Drawing.Size(966, 304);
             this.DGAltHesap.TabIndex = 1;
             this.DGAltHesap.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -1786,65 +1728,67 @@
             this.gridView1.GridControl = this.DGAltHesap;
             this.gridView1.Name = "gridView1";
             // 
-            // panel18
+            // panelControl1
             // 
-            this.panel18.Controls.Add(this.simpleButton1);
-            this.panel18.Controls.Add(this.LBAdi);
-            this.panel18.Controls.Add(this.TBAdi);
-            this.panel18.Controls.Add(this.BTKoduSec);
-            this.panel18.Controls.Add(this.LBAltHesKodu);
-            this.panel18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel18.Location = new System.Drawing.Point(0, 0);
-            this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(970, 402);
-            this.panel18.TabIndex = 0;
+            this.panelControl1.Controls.Add(this.simpleButton1);
+            this.panelControl1.Controls.Add(this.LBAltHesKodu);
+            this.panelControl1.Controls.Add(this.BTKoduSec);
+            this.panelControl1.Controls.Add(this.LBAdi);
+            this.panelControl1.Controls.Add(this.TBAdi);
+            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl1.Location = new System.Drawing.Point(0, 0);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(970, 94);
+            this.panelControl1.TabIndex = 0;
             // 
             // simpleButton1
             // 
-            this.simpleButton1.Location = new System.Drawing.Point(296, 15);
+            this.simpleButton1.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.simpleButton1.Appearance.Options.UseBackColor = true;
+            this.simpleButton1.Appearance.Options.UseFont = true;
+            this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.simpleButton1.Location = new System.Drawing.Point(298, 23);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(108, 49);
+            this.simpleButton1.Size = new System.Drawing.Size(98, 43);
             this.simpleButton1.TabIndex = 8;
-            this.simpleButton1.Text = "Kaydet";
+            this.simpleButton1.Text = "&Kaydet";
+            // 
+            // LBAltHesKodu
+            // 
+            this.LBAltHesKodu.Location = new System.Drawing.Point(19, 27);
+            this.LBAltHesKodu.Name = "LBAltHesKodu";
+            this.LBAltHesKodu.Size = new System.Drawing.Size(73, 13);
+            this.LBAltHesKodu.TabIndex = 0;
+            this.LBAltHesKodu.Text = "Alt Hesap Kodu";
+            // 
+            // BTKoduSec
+            // 
+            this.BTKoduSec.Location = new System.Drawing.Point(102, 24);
+            this.BTKoduSec.Name = "BTKoduSec";
+            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
+            this.BTKoduSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "+", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.BTKoduSec.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTKoduSec_Properties_ButtonClick);
+            this.BTKoduSec.Size = new System.Drawing.Size(173, 24);
+            this.BTKoduSec.TabIndex = 2;
+            this.BTKoduSec.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTKoduSec_Properties_ButtonClick);
             // 
             // LBAdi
             // 
-            this.LBAdi.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBAdi.Appearance.Options.UseFont = true;
-            this.LBAdi.Location = new System.Drawing.Point(37, 49);
+            this.LBAdi.Location = new System.Drawing.Point(29, 53);
             this.LBAdi.Name = "LBAdi";
-            this.LBAdi.Size = new System.Drawing.Size(69, 13);
+            this.LBAdi.Size = new System.Drawing.Size(64, 13);
             this.LBAdi.TabIndex = 7;
             this.LBAdi.Text = "Alt Hesap Adı";
             // 
             // TBAdi
             // 
-            this.TBAdi.Location = new System.Drawing.Point(110, 46);
+            this.TBAdi.Location = new System.Drawing.Point(102, 50);
             this.TBAdi.Name = "TBAdi";
             this.TBAdi.Size = new System.Drawing.Size(173, 20);
             this.TBAdi.TabIndex = 3;
-            // 
-            // BTKoduSec
-            // 
-            this.BTKoduSec.Location = new System.Drawing.Point(110, 20);
-            this.BTKoduSec.Name = "BTKoduSec";
-            this.BTKoduSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Yeni", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.BTKoduSec.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTKoduSec_Properties_ButtonClick);
-            this.BTKoduSec.Size = new System.Drawing.Size(173, 22);
-            this.BTKoduSec.TabIndex = 2;
-            this.BTKoduSec.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTKoduSec_Properties_ButtonClick);
-            // 
-            // LBAltHesKodu
-            // 
-            this.LBAltHesKodu.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBAltHesKodu.Appearance.Options.UseFont = true;
-            this.LBAltHesKodu.Location = new System.Drawing.Point(27, 23);
-            this.LBAltHesKodu.Name = "LBAltHesKodu";
-            this.LBAltHesKodu.Size = new System.Drawing.Size(79, 13);
-            this.LBAltHesKodu.TabIndex = 0;
-            this.LBAltHesKodu.Text = "Alt Hesap Kodu";
             // 
             // panel2
             // 
@@ -2788,12 +2732,15 @@
             this.panel16.ResumeLayout(false);
             this.panel16.PerformLayout();
             this.tabPage9.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
+            this.panelControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DGAltHesap)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            this.panel18.ResumeLayout(false);
-            this.panel18.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TBAdi.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            this.panelControl1.ResumeLayout(false);
+            this.panelControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BTKoduSec.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBAdi.Properties)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
@@ -2821,13 +2768,6 @@
         private Panel panel1;
         private Panel panel3;
         private Panel panel6;
-        private TabControl TBSevkAdres;
-        private TabPage tabPage1;
-        private Panel panel7;
-        private Panel panel9;
-        private Panel PNAlt;
-        private TextBox TBSevkAdresKodu;
-        private TabPage tabPage2;
         private Panel panel2;
         private Panel panel5;
         private GroupBox groupBox2;
@@ -2860,37 +2800,16 @@
         private ComboBox CBUlke;
         private TextBox TBUnvan;
         private TextBox TBCariKodu;
-        private DataGridView DGSevkAdres;
-        private TextBox textBox21;
         private Panel panel10;
         private GroupBox groupBox4;
         private TextBox TBCariSoyadi;
         private TextBox TBCariAdi;
         private TextBox TBSMuhKodu;
         private TextBox TBAMuhKodu;
-        private TabPage tabPage3;
-        private Panel panel11;
-        private TabPage tabPage4;
-        private TabPage tabPage5;
-        private TabPage tabPage7;
-        private TabPage tabPage8;
-        private TabPage tabPage9;
         private Panel panel12;
-        private Panel panel14;
-        private DataGridView DGWYetkili;
-        private Panel panel13;
-        private TextBox TBSirketPozisyonu;
-        private TextBox TBYetkiliAdi;
         private ComboBox CBTipi;
         private TextBox TBKategori;
         private TextBox TBMahalle;
-        private Panel panel15;
-        private DataGridView dataGridView3;
-        private Panel panel8;
-        private TextBox textBox29;
-        private TextBox textBox30;
-        private Panel panel17;
-        private DataGridView dataGridView4;
         private TextBox TBAciklama;
         private DevExpress.XtraEditors.LabelControl LBCariKodu;
         private DevExpress.XtraEditors.LabelControl LBUnvan;
@@ -2933,15 +2852,42 @@
         private DevExpress.XtraEditors.LabelControl LBAciklama;
         private DevExpress.XtraEditors.SimpleButton BTAMuhKodSec;
         private DevExpress.XtraEditors.SimpleButton BTSMuhKodSec;
-        private DevExpress.XtraEditors.LabelControl LBSevkAdresKodu;
-        private DevExpress.XtraEditors.CheckedListBoxControl CBSevkAdresKodu;
-        private DevExpress.XtraEditors.LabelControl LBSevkAdres;
-        private DevExpress.XtraEditors.SimpleButton BTSevkAdresEkle;
         private DevExpress.XtraEditors.SimpleButton BTSevkAdresKaydet;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
-        private DevExpress.XtraEditors.GroupControl GCAciklama;
-        private DevExpress.XtraEditors.LabelControl LBAciklama1;
         private Microsoft.Data.SqlClient.SqlCommand sqlCommand1;
+        private TabControl TBSevkAdres;
+        private TabPage tabPage1;
+        private Panel panel7;
+        private Panel panel9;
+        private DataGridView DGSevkAdres;
+        private Panel PNAlt;
+        private DevExpress.XtraEditors.LabelControl LBSevkAdres;
+        private DevExpress.XtraEditors.SimpleButton BTSevkAdresEkle;
+        private DevExpress.XtraEditors.CheckedListBoxControl CBSevkAdresKodu;
+        private DevExpress.XtraEditors.LabelControl LBSevkAdresKodu;
+        private TextBox textBox21;
+        private TextBox TBSevkAdresKodu;
+        private TabPage tabPage2;
+        private DevExpress.XtraEditors.GroupControl GCSayisalAciklama;
+        private NumericUpDown NUDSAciklama9;
+        private NumericUpDown NUDSAciklama8;
+        private NumericUpDown NUDSAciklama7;
+        private NumericUpDown NUDSAciklama6;
+        private NumericUpDown NUDSAciklama5;
+        private NumericUpDown NUDSAciklama4;
+        private NumericUpDown NUDSAciklama3;
+        private NumericUpDown NUDSAciklama2;
+        private NumericUpDown NUDSAciklama1;
+        private DevExpress.XtraEditors.LabelControl LBSayisalAciklama9;
+        private DevExpress.XtraEditors.LabelControl LBSayisalAciklama8;
+        private DevExpress.XtraEditors.LabelControl LBSayisalAciklama7;
+        private DevExpress.XtraEditors.LabelControl LBSayisalAciklama6;
+        private DevExpress.XtraEditors.LabelControl LBSayisalAciklama5;
+        private DevExpress.XtraEditors.LabelControl LBSayisalAciklama4;
+        private DevExpress.XtraEditors.LabelControl LBSayisalAciklama3;
+        private DevExpress.XtraEditors.LabelControl LBSayisalAciklama2;
+        private DevExpress.XtraEditors.LabelControl LBSayisalAciklama1;
+        private DevExpress.XtraEditors.GroupControl GCAciklama;
         private TextBox TBAciklama9;
         private DevExpress.XtraEditors.LabelControl LBAciklama9;
         private TextBox TBAciklama8;
@@ -2959,78 +2905,80 @@
         private TextBox TBAciklama2;
         private DevExpress.XtraEditors.LabelControl LBAciklama2;
         private TextBox TBAciklama1;
-        private DevExpress.XtraEditors.GroupControl GCSayisalAciklama;
-        private NumericUpDown NUDSAciklama1;
-        private DevExpress.XtraEditors.LabelControl LBSayisalAciklama9;
-        private DevExpress.XtraEditors.LabelControl LBSayisalAciklama8;
-        private DevExpress.XtraEditors.LabelControl LBSayisalAciklama7;
-        private DevExpress.XtraEditors.LabelControl LBSayisalAciklama6;
-        private DevExpress.XtraEditors.LabelControl LBSayisalAciklama5;
-        private DevExpress.XtraEditors.LabelControl LBSayisalAciklama4;
-        private DevExpress.XtraEditors.LabelControl LBSayisalAciklama3;
-        private DevExpress.XtraEditors.LabelControl LBSayisalAciklama2;
-        private DevExpress.XtraEditors.LabelControl LBSayisalAciklama1;
-        private NumericUpDown NUDSAciklama3;
-        private NumericUpDown NUDSAciklama2;
-        private NumericUpDown NUDSAciklama9;
-        private NumericUpDown NUDSAciklama8;
-        private NumericUpDown NUDSAciklama7;
-        private NumericUpDown NUDSAciklama6;
-        private NumericUpDown NUDSAciklama5;
-        private NumericUpDown NUDSAciklama4;
+        private DevExpress.XtraEditors.LabelControl LBAciklama1;
+        private TabPage tabPage3;
+        private Panel panel11;
         private DevExpress.XtraEditors.GroupControl GCRaporKodlari;
-        private DevExpress.XtraEditors.LabelControl LBRaporKodu1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton4;
-        private TextBox TBRaporKodu2;
-        private DevExpress.XtraEditors.LabelControl LBRaporKodu2;
-        private DevExpress.XtraEditors.SimpleButton simpleButton3;
-        private TextBox TBRaporKodu1;
         private DevExpress.XtraEditors.SimpleButton simpleButton9;
-        private TextBox TBRaporKodu9;
-        private DevExpress.XtraEditors.LabelControl LBRaporKodu9;
+        private DevExpress.XtraEditors.SimpleButton simpleButton7;
+        private DevExpress.XtraEditors.SimpleButton simpleButton4;
         private DevExpress.XtraEditors.SimpleButton simpleButton10;
+        private DevExpress.XtraEditors.SimpleButton simpleButton8;
+        private DevExpress.XtraEditors.SimpleButton simpleButton11;
+        private DevExpress.XtraEditors.SimpleButton simpleButton6;
+        private TextBox TBRaporKodu9;
+        private DevExpress.XtraEditors.SimpleButton simpleButton3;
+        private DevExpress.XtraEditors.SimpleButton simpleButton5;
+        private DevExpress.XtraEditors.LabelControl LBRaporKodu9;
         private TextBox TBRaporKodu8;
         private DevExpress.XtraEditors.LabelControl LBRaporKodu8;
-        private DevExpress.XtraEditors.SimpleButton simpleButton11;
         private TextBox TBRaporKodu7;
         private DevExpress.XtraEditors.LabelControl LBRaporKodu7;
-        private DevExpress.XtraEditors.SimpleButton simpleButton6;
         private TextBox TBRaporKodu6;
         private DevExpress.XtraEditors.LabelControl LBRaporKodu6;
-        private DevExpress.XtraEditors.SimpleButton simpleButton7;
         private TextBox TBRaporKodu5;
         private DevExpress.XtraEditors.LabelControl LBRaporKodu5;
-        private DevExpress.XtraEditors.SimpleButton simpleButton8;
         private TextBox TBRaporKodu4;
         private DevExpress.XtraEditors.LabelControl LBRaporKodu4;
-        private DevExpress.XtraEditors.SimpleButton simpleButton5;
         private TextBox TBRaporKodu3;
         private DevExpress.XtraEditors.LabelControl LBRaporKodu3;
-        private DevExpress.XtraEditors.LabelControl LBYetkiliAdi;
-        private DevExpress.XtraEditors.LabelControl LBSirketPozisyonu;
+        private TextBox TBRaporKodu2;
+        private DevExpress.XtraEditors.LabelControl LBRaporKodu2;
+        private TextBox TBRaporKodu1;
+        private DevExpress.XtraEditors.LabelControl LBRaporKodu1;
+        private TabPage tabPage4;
+        private Panel panel14;
+        private DataGridView DGWYetkili;
+        private Panel panel13;
         private DevExpress.XtraEditors.SimpleButton BTYetkiliSil;
         private DevExpress.XtraEditors.SimpleButton BTYetkiliKaydet;
-        private DevExpress.XtraEditors.LabelControl LBAltCariKod;
-        private DevExpress.XtraEditors.LabelControl LBAltCariAdi;
-        private DevExpress.XtraEditors.SimpleButton simpleButton12;
+        private DevExpress.XtraEditors.LabelControl LBSirketPozisyonu;
+        private DevExpress.XtraEditors.LabelControl LBYetkiliAdi;
+        private TextBox TBSirketPozisyonu;
+        private TextBox TBYetkiliAdi;
+        private TabPage tabPage5;
+        private Panel panel15;
+        private DataGridView dataGridView3;
+        private Panel panel8;
         private DevExpress.XtraEditors.SimpleButton BTAltCariSil;
         private DevExpress.XtraEditors.SimpleButton BTAltCariKaydet;
+        private DevExpress.XtraEditors.SimpleButton simpleButton12;
+        private DevExpress.XtraEditors.LabelControl LBAltCariAdi;
+        private DevExpress.XtraEditors.LabelControl LBAltCariKod;
+        private TextBox textBox29;
+        private TextBox textBox30;
+        private TabPage tabPage7;
+        private Panel panel17;
+        private DataGridView dataGridView4;
         private Panel panel16;
+        private DevExpress.XtraEditors.SimpleButton BTDokumanlarSil;
+        private DevExpress.XtraEditors.SimpleButton BTDokumanlarKaydet;
+        private DevExpress.XtraEditors.SimpleButton BTDosyaYoluSec;
         private DevExpress.XtraEditors.LabelControl LBDosyaYolu;
         private DevExpress.XtraEditors.LabelControl LBDokumanAdi;
         private Label label65;
         private TextBox TBDokumanDosyaYolu;
         private TextBox TBDokumanAdi;
-        private DevExpress.XtraEditors.SimpleButton BTDosyaYoluSec;
-        private DevExpress.XtraEditors.SimpleButton BTDokumanlarSil;
-        private DevExpress.XtraEditors.SimpleButton BTDokumanlarKaydet;
-        private Panel panel18;
-        private DevExpress.XtraEditors.LabelControl LBAltHesKodu;
-        private DevExpress.XtraEditors.TextEdit TBAdi;
-        private DevExpress.XtraEditors.ButtonEdit BTKoduSec;
-        private DevExpress.XtraEditors.LabelControl LBAdi;
+        private TabPage tabPage8;
+        private TabPage tabPage9;
+        private DevExpress.XtraEditors.PanelControl panelControl2;
         private DevExpress.XtraGrid.GridControl DGAltHesap;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.LabelControl LBAltHesKodu;
+        private DevExpress.XtraEditors.ButtonEdit BTKoduSec;
+        private DevExpress.XtraEditors.LabelControl LBAdi;
+        private DevExpress.XtraEditors.TextEdit TBAdi;
     }
 }

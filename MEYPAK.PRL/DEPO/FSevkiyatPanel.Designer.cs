@@ -36,6 +36,11 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.gridControl4 = new DevExpress.XtraGrid.GridControl();
             this.tileView4 = new DevExpress.XtraGrid.Views.Tile.TileView();
+            this.KOD = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.ADI = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.CKMIKTAR = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.CBIRIM = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.CDEPO = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.panel6 = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.gridControl3 = new DevExpress.XtraGrid.GridControl();
@@ -56,8 +61,8 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.gridControl2 = new DevExpress.XtraGrid.GridControl();
             this.tileView2 = new DevExpress.XtraGrid.Views.Tile.TileView();
-            this.ID = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.BELGENO = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.ID = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.MIKTAR = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.CARIADI = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.DEPO = new DevExpress.XtraGrid.Columns.TileViewColumn();
@@ -163,8 +168,74 @@
             // 
             this.tileView4.Appearance.EmptySpace.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
             this.tileView4.Appearance.EmptySpace.Options.UseBackColor = true;
+            this.tileView4.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.KOD,
+            this.ADI,
+            this.CKMIKTAR,
+            this.CBIRIM,
+            this.CDEPO});
             this.tileView4.GridControl = this.gridControl4;
             this.tileView4.Name = "tileView4";
+            this.tileView4.OptionsTiles.ColumnCount = 1;
+            this.tileView4.OptionsTiles.GroupTextPadding = new System.Windows.Forms.Padding(12, 8, 12, 8);
+            this.tileView4.OptionsTiles.IndentBetweenGroups = 0;
+            this.tileView4.OptionsTiles.IndentBetweenItems = 0;
+            this.tileView4.OptionsTiles.ItemPadding = new System.Windows.Forms.Padding(5);
+            this.tileView4.OptionsTiles.ItemSize = new System.Drawing.Size(1000, 120);
+            this.tileView4.OptionsTiles.LayoutMode = DevExpress.XtraGrid.Views.Tile.TileViewLayoutMode.List;
+            this.tileView4.OptionsTiles.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.tileView4.OptionsTiles.Padding = new System.Windows.Forms.Padding(9);
+            this.tileView4.OptionsTiles.RowCount = 0;
+            // 
+            // 
+            // 
+            this.tileView4.TileHtmlTemplate.Styles = resources.GetString("tileView4.TileHtmlTemplate.Styles");
+            this.tileView4.TileHtmlTemplate.Template = resources.GetString("tileView4.TileHtmlTemplate.Template");
+            // 
+            // KOD
+            // 
+            this.KOD.AccessibleName = "KOD";
+            this.KOD.Caption = "KOD";
+            this.KOD.FieldName = "KOD";
+            this.KOD.Name = "KOD";
+            this.KOD.Visible = true;
+            this.KOD.VisibleIndex = 0;
+            // 
+            // ADI
+            // 
+            this.ADI.AccessibleName = "ADI";
+            this.ADI.Caption = "ADI";
+            this.ADI.FieldName = "ADI";
+            this.ADI.Name = "ADI";
+            this.ADI.Visible = true;
+            this.ADI.VisibleIndex = 1;
+            // 
+            // CKMIKTAR
+            // 
+            this.CKMIKTAR.AccessibleName = "CKMIKTAR";
+            this.CKMIKTAR.Caption = "CKMIKTAR";
+            this.CKMIKTAR.FieldName = "CKMIKTAR";
+            this.CKMIKTAR.Name = "CKMIKTAR";
+            this.CKMIKTAR.Visible = true;
+            this.CKMIKTAR.VisibleIndex = 2;
+            // 
+            // CBIRIM
+            // 
+            this.CBIRIM.AccessibleName = "CBIRIM";
+            this.CBIRIM.Caption = "CBIRIM";
+            this.CBIRIM.FieldName = "CBIRIM";
+            this.CBIRIM.Name = "CBIRIM";
+            this.CBIRIM.Visible = true;
+            this.CBIRIM.VisibleIndex = 3;
+            // 
+            // CDEPO
+            // 
+            this.CDEPO.AccessibleName = "CDEPO";
+            this.CDEPO.Caption = "CDEPO";
+            this.CDEPO.FieldName = "CDEPO";
+            this.CDEPO.Name = "CDEPO";
+            this.CDEPO.Visible = true;
+            this.CDEPO.VisibleIndex = 4;
             // 
             // panel6
             // 
@@ -378,24 +449,33 @@
             // 
             this.tileView2.Appearance.EmptySpace.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
             this.tileView2.Appearance.EmptySpace.Options.UseBackColor = true;
+            this.tileView2.Appearance.Group.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
+            this.tileView2.Appearance.Group.ForeColor = System.Drawing.Color.White;
+            this.tileView2.Appearance.Group.Options.UseBackColor = true;
+            this.tileView2.Appearance.Group.Options.UseForeColor = true;
             this.tileView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.ID,
             this.BELGENO,
+            this.ID,
             this.MIKTAR,
             this.CARIADI,
             this.DEPO,
             this.TIP,
             this.DURUM});
+            this.tileView2.ColumnSet.GroupColumn = this.BELGENO;
             this.tileView2.GridControl = this.gridControl2;
             this.tileView2.Name = "tileView2";
+            this.tileView2.OptionsKanban.GroupFooterButton.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
+            this.tileView2.OptionsKanban.GroupFooterButton.Appearance.Options.UseBackColor = true;
             this.tileView2.OptionsTiles.GroupTextPadding = new System.Windows.Forms.Padding(12, 8, 12, 8);
             this.tileView2.OptionsTiles.IndentBetweenGroups = 0;
             this.tileView2.OptionsTiles.IndentBetweenItems = 0;
-            this.tileView2.OptionsTiles.ItemSize = new System.Drawing.Size(300, 150);
+            this.tileView2.OptionsTiles.ItemSize = new System.Drawing.Size(300, 120);
             this.tileView2.OptionsTiles.LayoutMode = DevExpress.XtraGrid.Views.Tile.TileViewLayoutMode.List;
             this.tileView2.OptionsTiles.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.tileView2.OptionsTiles.Padding = new System.Windows.Forms.Padding(0);
             this.tileView2.OptionsTiles.RowCount = 0;
+            this.tileView2.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.BELGENO, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
             // 
             // 
@@ -403,6 +483,17 @@
             this.tileView2.TileHtmlTemplate.Template = resources.GetString("tileView2.TileHtmlTemplate.Template");
             this.tileView2.Click += new System.EventHandler(this.tileView2_Click);
             this.tileView2.DoubleClick += new System.EventHandler(this.tileView2_DoubleClick);
+            // 
+            // BELGENO
+            // 
+            this.BELGENO.AccessibleName = "BELGENO";
+            this.BELGENO.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
+            this.BELGENO.AppearanceHeader.Options.UseBackColor = true;
+            this.BELGENO.Caption = "BELGENO";
+            this.BELGENO.FieldName = "BELGENO";
+            this.BELGENO.Name = "BELGENO";
+            this.BELGENO.Visible = true;
+            this.BELGENO.VisibleIndex = 0;
             // 
             // ID
             // 
@@ -412,15 +503,6 @@
             this.ID.Name = "ID";
             this.ID.Visible = true;
             this.ID.VisibleIndex = 6;
-            // 
-            // BELGENO
-            // 
-            this.BELGENO.AccessibleName = "BELGENO";
-            this.BELGENO.Caption = "BELGENO";
-            this.BELGENO.FieldName = "BELGENO";
-            this.BELGENO.Name = "BELGENO";
-            this.BELGENO.Visible = true;
-            this.BELGENO.VisibleIndex = 0;
             // 
             // MIKTAR
             // 
@@ -474,7 +556,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1113, 588);
+            this.tabPage2.Size = new System.Drawing.Size(933, 588);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Paketleme Emirleri";
             // 
@@ -485,7 +567,7 @@
             this.dataGridView5.Location = new System.Drawing.Point(3, 3);
             this.dataGridView5.Name = "dataGridView5";
             this.dataGridView5.RowTemplate.Height = 25;
-            this.dataGridView5.Size = new System.Drawing.Size(1107, 582);
+            this.dataGridView5.Size = new System.Drawing.Size(927, 582);
             this.dataGridView5.TabIndex = 0;
             // 
             // panel4
@@ -550,6 +632,7 @@
             // 
             this.tileView1.TileHtmlTemplate.Styles = resources.GetString("tileView1.TileHtmlTemplate.Styles");
             this.tileView1.TileHtmlTemplate.Template = resources.GetString("tileView1.TileHtmlTemplate.Template");
+            this.tileView1.Click += new System.EventHandler(this.tileView1_Click);
             // 
             // CSevkiyatTarihi
             // 
@@ -563,7 +646,7 @@
             // CBelgeNo
             // 
             this.CBelgeNo.AccessibleName = "CBelgeNo";
-            this.CBelgeNo.Caption = "Belge No";
+            this.CBelgeNo.Caption = "CBelgeNo";
             this.CBelgeNo.FieldName = "CBelgeNo";
             this.CBelgeNo.Name = "CBelgeNo";
             this.CBelgeNo.Visible = true;
@@ -700,5 +783,10 @@
         private DevExpress.XtraGrid.GridControl gridControl4;
         private DevExpress.XtraGrid.Views.Tile.TileView tileView4;
         private DevExpress.XtraGrid.Columns.TileViewColumn DepoButon;
+        private DevExpress.XtraGrid.Columns.TileViewColumn KOD;
+        private DevExpress.XtraGrid.Columns.TileViewColumn ADI;
+        private DevExpress.XtraGrid.Columns.TileViewColumn CKMIKTAR;
+        private DevExpress.XtraGrid.Columns.TileViewColumn CBIRIM;
+        private DevExpress.XtraGrid.Columns.TileViewColumn CDEPO;
     }
 }

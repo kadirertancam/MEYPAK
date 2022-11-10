@@ -10,7 +10,8 @@ namespace MEYPAK.Entity.PocoModels.DEPO
     {
         public int isemriid { get; set; }
         public int stokid { get; set; }
+        public int depoid { get; set; }
         public int birimid { get; set; }
-        public int miktar { get; set; }
+        public decimal miktar { get; set; }
     }
 }

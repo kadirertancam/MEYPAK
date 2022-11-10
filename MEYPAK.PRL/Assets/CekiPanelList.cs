@@ -8,6 +8,7 @@ namespace MEYPAK.PRL.Assets
 {
     public class CekiPanelList
     {
+        public int ID { get; set; }=0;
         public string StokKodu { get; set; }
         public string StokAdı { get; set; }
         public string Birim { get; set; }
