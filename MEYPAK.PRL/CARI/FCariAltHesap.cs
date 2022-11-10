@@ -75,16 +75,15 @@ namespace MEYPAK.PRL.CARI
         }
          void DataGridDoldur()
         {
+           
             _cariAltHesapServis.Data(ServisList.CariAltHesListeServis);
             DGAltHesap.DataSource = _cariAltHesapServis.obje.Select(x => new { 
                 x.id, 
                 x.adi, 
                 x.kod,
                 x.dovizid,
-                x.aktif,
                 x.olusturmatarihi });
             DGAltHesap.Refresh();
-            gridView1.RefreshData();
             DGAltHesap.RefreshDataSource();
 
         }
@@ -103,7 +102,7 @@ namespace MEYPAK.PRL.CARI
                     adi = TBAdi.Text,
                     kod = TBKodu.Text,
                     dovizid = _parabirIMServis.obje.Where(x => x.adi.ToString() == CBDoviz.EditValue.ToString()).FirstOrDefault().id,
-                    aktif = 1,
+                aktif = 1,
 
                 }));
 
@@ -126,12 +125,14 @@ namespace MEYPAK.PRL.CARI
        
         private void BTSil_Click(object sender, EventArgs e)
         {
-            ////_cariAltHesapServis.Data(ServisList.CariAltHesSilServis, null, null, (_cariAltHesapServis.obje.Where(x => x.id == Convert.ToInt32(DGAltHesap.GetFocusedDataRow(id).ToString();
+            //_cariAltHesapServis.Data(ServisList.CariAltHesSilServis,null, null,(_cariAltHesapServis.obje.Where(x => x.id == Convert.ToInt32(DGAltHesap.GetFocusedRowCellValue("id"))));
+
+            ////_cariAltHesapServis.Data(ServisList.CariAltHesSilServis, null, null, (_cariAltHesapServis.obje.Where(x => x.id == Convert.ToInt32(DGAltHesap.GetFocusedDataRow(id)))));
             //_cariAltHesapServis.Data(ServisList.CariAltHesListeServis);
             //DGAltHesap.DataSource = _cariAltHesapServis.obje;
             // _cariAltHesapServis.Data(ServisList.DepoSilServis, _cariAltHesapServis.obje.Where(x => x.id == Convert.ToInt32(DGAltHesap.GetFocusedRowCellValue("id"))).FirstOrDefault());
         }
 
-#endregion
+        #endregion
     }
 }

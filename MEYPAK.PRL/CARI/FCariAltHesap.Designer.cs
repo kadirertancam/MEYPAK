@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FCariAltHesap));
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.CBAktif1 = new DevExpress.XtraEditors.CheckEdit();
             this.BTSil = new DevExpress.XtraEditors.SimpleButton();
             this.TBKodu = new DevExpress.XtraEditors.TextEdit();
             this.LBKodu = new DevExpress.XtraEditors.LabelControl();
@@ -42,9 +43,9 @@
             this.DGAltHesap = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            this.CBAktif1 = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CBAktif1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBKodu.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBDoviz.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBAdi.Properties)).BeginInit();
@@ -54,7 +55,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CBAktif1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControl1
@@ -75,6 +75,15 @@
             this.groupControl1.Size = new System.Drawing.Size(1299, 130);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Alt Hesap";
+            // 
+            // CBAktif1
+            // 
+            this.CBAktif1.Location = new System.Drawing.Point(239, 90);
+            this.CBAktif1.Name = "CBAktif1";
+            this.CBAktif1.Properties.Caption = "Aktif";
+            this.CBAktif1.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
+            this.CBAktif1.Size = new System.Drawing.Size(75, 20);
+            this.CBAktif1.TabIndex = 6;
             // 
             // BTSil
             // 
@@ -172,6 +181,7 @@
             this.DGAltHesap.TabIndex = 0;
             this.DGAltHesap.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            this.DGAltHesap.Load += new System.EventHandler(this.FCariAltHesap_Load);
             // 
             // gridView1
             // 
@@ -187,15 +197,6 @@
             this.panelControl2.Size = new System.Drawing.Size(1303, 549);
             this.panelControl2.TabIndex = 4;
             // 
-            // CBAktif1
-            // 
-            this.CBAktif1.Location = new System.Drawing.Point(239, 90);
-            this.CBAktif1.Name = "CBAktif1";
-            this.CBAktif1.Properties.Caption = "Aktif";
-            this.CBAktif1.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
-            this.CBAktif1.Size = new System.Drawing.Size(75, 20);
-            this.CBAktif1.TabIndex = 6;
-            // 
             // FCariAltHesap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -209,6 +210,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CBAktif1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBKodu.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBDoviz.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBAdi.Properties)).EndInit();
@@ -218,7 +220,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.CBAktif1.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

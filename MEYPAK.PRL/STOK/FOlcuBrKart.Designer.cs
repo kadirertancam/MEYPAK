@@ -154,6 +154,7 @@
             this.gridControl1.TabIndex = 80;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            this.gridControl1.Load += new System.EventHandler(this.FStokOlcuBrKart_Load);
             // 
             // gridView1
             // 
