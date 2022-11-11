@@ -207,7 +207,7 @@ namespace MEYPAK.DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("MPARACLAR");
+                    b.ToTable("MPARACLAR", (string)null);
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.CARI.MPCARIALTHES", b =>
@@ -247,7 +247,7 @@ namespace MEYPAK.DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("MPCARIALTHES");
+                    b.ToTable("MPCARIALTHES", (string)null);
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.CARI.MPCARIHAR", b =>
@@ -304,7 +304,7 @@ namespace MEYPAK.DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("MPCARIHAR");
+                    b.ToTable("MPCARIHAR", (string)null);
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.CARI.MPCARIKART", b =>
@@ -545,7 +545,7 @@ namespace MEYPAK.DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("MPCARIKART");
+                    b.ToTable("MPCARIKART", (string)null);
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.DEPO.MPDEPO", b =>
@@ -588,7 +588,7 @@ namespace MEYPAK.DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("MPDEPO");
+                    b.ToTable("MPDEPO", (string)null);
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.DEPO.MPDEPOCEKILIST", b =>
@@ -628,7 +628,7 @@ namespace MEYPAK.DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("MPDEPOCEKILIST");
+                    b.ToTable("MPDEPOCEKILIST", (string)null);
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.DEPO.MPDEPOEMIR", b =>
@@ -678,7 +678,7 @@ namespace MEYPAK.DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("MPDEPOEMIR");
+                    b.ToTable("MPDEPOEMIR", (string)null);
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.DEPO.MPDEPOTRANSFER", b =>
@@ -716,7 +716,7 @@ namespace MEYPAK.DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("MPDEPOTRANSFER");
+                    b.ToTable("MPDEPOTRANSFER", (string)null);
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.DEPO.MPDEPOTRANSFERHAR", b =>
@@ -762,7 +762,7 @@ namespace MEYPAK.DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("MPDEPOTRANSFERHAR");
+                    b.ToTable("MPDEPOTRANSFERHAR", (string)null);
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.DEPO.MPSTOKMALKABULLIST", b =>
@@ -817,7 +817,7 @@ namespace MEYPAK.DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("MPSTOKMALKABULLIST");
+                    b.ToTable("MPSTOKMALKABULLIST", (string)null);
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.DEPO.MPSTOKSEVKİYATLİST", b =>
@@ -878,7 +878,7 @@ namespace MEYPAK.DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("MPSTOKSEVKİYATLİST");
+                    b.ToTable("MPSTOKSEVKİYATLİST", (string)null);
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.IRSALIYE.MPIRSALIYE", b =>
@@ -1000,7 +1000,7 @@ namespace MEYPAK.DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("MPIRSALIYE");
+                    b.ToTable("MPIRSALIYE", (string)null);
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.IRSALIYE.MPIRSALIYEDETAY", b =>
@@ -1092,7 +1092,7 @@ namespace MEYPAK.DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("MPIRSALIYEDETAY");
+                    b.ToTable("MPIRSALIYEDETAY", (string)null);
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.MPIRSALIYESIPARISDETAYILISKI", b =>
@@ -1111,7 +1111,7 @@ namespace MEYPAK.DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("MPIRSALIYESIPARISDETAYILISKI");
+                    b.ToTable("MPIRSALIYESIPARISDETAYILISKI", (string)null);
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.PARAMETRE.MPPARABIRIM", b =>
@@ -1147,7 +1147,7 @@ namespace MEYPAK.DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("MPPARABIRIM");
+                    b.ToTable("MPPARABIRIM", (string)null);
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.PERSONEL.MPPERSONEL", b =>
@@ -1397,7 +1397,7 @@ namespace MEYPAK.DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("MPPERSONEL");
+                    b.ToTable("MPPERSONEL", (string)null);
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.PERSONEL.MPPERSONELBANKA", b =>
@@ -1441,7 +1441,7 @@ namespace MEYPAK.DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("MPPERSONELBANKA");
+                    b.ToTable("MPPERSONELBANKA", (string)null);
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.PERSONEL.MPPERSONELDEPARTMAN", b =>
@@ -1470,7 +1470,7 @@ namespace MEYPAK.DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("MPPERSONELDEPARTMAN");
+                    b.ToTable("MPPERSONELDEPARTMAN", (string)null);
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.PERSONEL.MPPERSONELGOREV", b =>
@@ -1502,7 +1502,7 @@ namespace MEYPAK.DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("MPPERSONELGOREV");
+                    b.ToTable("MPPERSONELGOREV", (string)null);
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.SIPARIS.MPSATINALMAMALKABULEMRIHAR", b =>
@@ -1551,7 +1551,7 @@ namespace MEYPAK.DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("MPSATINALMAMALKABULEMRIHAR");
+                    b.ToTable("MPSATINALMAMALKABULEMRIHAR", (string)null);
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.SIPARIS.MPSIPARIS", b =>
@@ -1667,7 +1667,7 @@ namespace MEYPAK.DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("MPSIPARIS");
+                    b.ToTable("MPSIPARIS", (string)null);
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.SIPARIS.MPSIPARISDETAY", b =>
@@ -1765,7 +1765,7 @@ namespace MEYPAK.DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("MPSIPARISDETAY");
+                    b.ToTable("MPSIPARISDETAY", (string)null);
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.SIPARIS.MPSIPARISSEVKEMRIHAR", b =>
@@ -1814,7 +1814,7 @@ namespace MEYPAK.DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("MPSIPARISSEVKEMRIHAR");
+                    b.ToTable("MPSIPARISSEVKEMRIHAR", (string)null);
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.STOK.MPHIZMET", b =>
@@ -1962,7 +1962,7 @@ namespace MEYPAK.DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("MPHIZMET");
+                    b.ToTable("MPHIZMET", (string)null);
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.STOK.MPOLCUBR", b =>
@@ -2000,7 +2000,7 @@ namespace MEYPAK.DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("MPOLCUBR");
+                    b.ToTable("MPOLCUBR", (string)null);
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.STOK.MPSTOK", b =>
@@ -2213,7 +2213,7 @@ namespace MEYPAK.DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("MPSTOK");
+                    b.ToTable("MPSTOK", (string)null);
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.STOK.MPSTOKFIYATLIST", b =>
@@ -2261,7 +2261,7 @@ namespace MEYPAK.DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("MPSTOKFIYATLIST");
+                    b.ToTable("MPSTOKFIYATLIST", (string)null);
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.STOK.MPSTOKFIYATLISTHAR", b =>
@@ -2316,7 +2316,7 @@ namespace MEYPAK.DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("MPSTOKFIYATLISTHAR");
+                    b.ToTable("MPSTOKFIYATLISTHAR", (string)null);
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.STOK.MPSTOKHAR", b =>
@@ -2396,7 +2396,7 @@ namespace MEYPAK.DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("MPSTOKHAR");
+                    b.ToTable("MPSTOKHAR", (string)null);
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.STOK.MPSTOKKASA", b =>
@@ -2445,7 +2445,7 @@ namespace MEYPAK.DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("MPSTOKKASA");
+                    b.ToTable("MPSTOKKASA", (string)null);
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.STOK.MPSTOKKATEGORI", b =>
@@ -2485,7 +2485,7 @@ namespace MEYPAK.DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("MPSTOKKATEGORI");
+                    b.ToTable("MPSTOKKATEGORI", (string)null);
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.STOK.MPSTOKMARKA", b =>
@@ -2520,7 +2520,7 @@ namespace MEYPAK.DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("MPSTOKMARKA");
+                    b.ToTable("MPSTOKMARKA", (string)null);
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.STOK.MPSTOKOLCUBR", b =>
@@ -2560,7 +2560,7 @@ namespace MEYPAK.DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("MPSTOKOLCUBR");
+                    b.ToTable("MPSTOKOLCUBR", (string)null);
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.STOK.MPSTOKRESIM", b =>
@@ -2595,7 +2595,7 @@ namespace MEYPAK.DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("MPSTOKRESIM");
+                    b.ToTable("MPSTOKRESIM", (string)null);
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.STOK.MPSTOKSAYIM", b =>
@@ -2639,7 +2639,7 @@ namespace MEYPAK.DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("MPSTOKSAYIM");
+                    b.ToTable("MPSTOKSAYIM", (string)null);
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.STOK.MPSTOKSAYIMHAR", b =>
@@ -2694,7 +2694,7 @@ namespace MEYPAK.DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("MPSTOKSAYIMHAR");
+                    b.ToTable("MPSTOKSAYIMHAR", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

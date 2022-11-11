@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
 {
-    internal class EFStokResimRepo : EFBaseRepo<MPSTOKRESIM>, IStokResimDal
+    public class EFStokResimRepo : EFBaseRepo<MPSTOKRESIM>, IStokResimDal
     {
         MEYPAKContext context;
         public EFStokResimRepo(MEYPAKContext _context) : base(_context)

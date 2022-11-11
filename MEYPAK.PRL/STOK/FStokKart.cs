@@ -93,7 +93,7 @@ namespace MEYPAK.PRL
             TBSFiyat3.Text = Convert.ToString(_tempStok.sfiyaT3);
             TBSFiyat4.Text = Convert.ToString(_tempStok.sfiyaT4);
             TBSFiyat5.Text = Convert.ToString(_tempStok.sfiyaT5);
-            CBBirim.Text = _tempStokOlcuBr.ToString();
+           // CBBirim.Text = _tempStokOlcuBr.ToString();
             //dataGridView1.DataSource = _tempStok.MPSTOKOLCUBR.ToList();
             gridControl1.Refresh();
             //var a = _PocoStokServis.obje.Select(x=>x.mpst.Select(z=>z));
@@ -103,19 +103,7 @@ namespace MEYPAK.PRL
 
         private void BTStokKodu_Leave(object sender, EventArgs e)               // BTStokKodu doluyken stok kodu kontrolü yapıp tempstok doldurulur.
         {
-            _PocoStokServis.Data(ServisList.StokListeServis);
-            if (BTStokKodu.Text != "")
-            {
-                _tempStok = _PocoStokServis.obje.Where(x => x.kod == BTStokKodu.Text).FirstOrDefault();
-                if (_tempStok != null)
-                    tbDoldur();
-                else
-                {
-                    Temizle(this.Controls);
-                    gridControl1.DataSource = "";
-                    stokid = 0;
-                }
-            }
+           
         }
         #endregion
         #region Events
@@ -461,10 +449,10 @@ namespace MEYPAK.PRL
         private void simpleButton1_Click(object sender, EventArgs e)
         {
             _stokResimServis.Data(ServisList.StokResimListeServis);
-            if (_stokResimServis.obje.Where(x => x.STOKID == _tempStok.id).Count() == 0) {
+            if (_stokResimServis.obje.Where(x => x.STOKID == _PocoStokServis.obje.Where(z=>z.kod==BTStokKodu.Text).FirstOrDefault().id).Count() == 0) {
                 _stokResimServis.Data(ServisList.StokResimEkleServis, new PocoSTOKRESIM()
-                {
-                    STOKID = _tempStok.id,
+                {   
+                    STOKID = _PocoStokServis.obje.Where(z => z.kod == BTStokKodu.Text).FirstOrDefault().id,
                     NUM = 0,
                     IMG = base64,
 
@@ -474,13 +462,35 @@ namespace MEYPAK.PRL
             {
                 _stokResimServis.Data(ServisList.StokResimEkleServis, new PocoSTOKRESIM()
                 {
-                    STOKID = _tempStok.id,
-                    NUM = _stokResimServis.obje.Where(x => x.STOKID == _tempStok.id).Last().NUM,
+                    STOKID = _PocoStokServis.obje.Where(z => z.kod == BTStokKodu.Text).FirstOrDefault().id,
+                    NUM = _stokResimServis.obje.Where(x => x.STOKID == _PocoStokServis.obje.Where(z => z.kod == BTStokKodu.Text).FirstOrDefault().id).Last().NUM+1,
                     IMG = base64, 
                 });
             }
            pictureEdit2.Image= Base64ToImage(memoEdit1.Text);
 
+        }
+
+        private void BTStokKodu_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BTStokKodu_Leave_1(object sender, EventArgs e)
+        {
+            _PocoStokServis.Data(ServisList.StokListeServis);
+            if (BTStokKodu.Text != "")
+            {
+                _tempStok = _PocoStokServis.obje.Where(x => x.kod == BTStokKodu.Text).FirstOrDefault();
+                if (_tempStok != null)
+                    tbDoldur();
+                else
+                {
+                    Temizle(this.Controls);
+                    gridControl1.DataSource = "";
+                    stokid = 0;
+                }
+            }
         }
 
         private void TBSatisOtv_KeyPress(object sender, KeyPressEventArgs e)

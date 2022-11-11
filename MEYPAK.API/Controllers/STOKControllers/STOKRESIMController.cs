@@ -51,7 +51,7 @@ namespace MEYPAK.API.Controllers.STOKControllers
 
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult STOKRESIMEkleyadaGuncelle(PocoSTOKRESIM pModel)
+        public IActionResult STOKRESIMEkleyadaGuncelle([FromBody]PocoSTOKRESIM pModel)
         {
             try
             {

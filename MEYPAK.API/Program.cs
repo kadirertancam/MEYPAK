@@ -98,9 +98,12 @@ builder.Services.AddScoped<IAdresListServis, AdresListManager>();
 
 builder.Services.AddScoped<ICariAltHesDal, EFCariAltHesRepo>();
 builder.Services.AddScoped<ICariAltHesServis,CariAltHesManager>();
- 
+
 #endregion
 #region STOK_Scoped_Islemleri
+
+builder.Services.AddScoped<IStokResimDal, EFStokResimRepo>();
+builder.Services.AddScoped<IStokResimServis, StokResimManager>();
 
 builder.Services.AddScoped<IStokDal, EFStokRepo>();
 builder.Services.AddScoped<IStokServis, StokManager>();

@@ -155,11 +155,11 @@ namespace MEYPAK.BLL.Assets
         #endregion
 
         #region Stok
-        public const string StokResimListeServis =      "http://213.238.167.117:8080/STOK/STOKRESIMListe";
-        public const string StokResimEkleServis =       "http://213.238.167.117:8080/STOK/STOKRESIMEkleyadaGuncelle";
-        public const string StokResimSilServis =        "http://213.238.167.117:8080/STOK/STOKRESIMSil";
-        public const string StokResimGuncelleServis =   "http://213.238.167.117:8080/STOK/STOKRESIMGuncelle";
-        public const string StokResimDeleteByIdServis = "http://213.238.167.117:8080/STOK/DeleteById";
+        public const string StokResimListeServis =      "http://213.238.167.117:8080/STOKRESIM/STOKRESIMListe";
+        public const string StokResimEkleServis =       "http://213.238.167.117:8080/STOKRESIM/STOKRESIMEkleyadaGuncelle";
+        public const string StokResimSilServis =        "http://213.238.167.117:8080/STOKRESIM/STOKRESIMSil";
+        public const string StokResimGuncelleServis =   "http://213.238.167.117:8080/STOKRESIM/STOKRESIMGuncelle";
+        public const string StokResimDeleteByIdServis = "http://213.238.167.117:8080/STOKRESIM/DeleteById";
 
         #endregion
         
