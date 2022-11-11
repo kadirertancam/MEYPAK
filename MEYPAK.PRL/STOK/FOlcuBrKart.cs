@@ -1,7 +1,6 @@
 ﻿using MEYPAK.BLL.STOK;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
-using MEYPAK.DAL.Concrete.EntityFramework.Repository;
 using MEYPAK.Interfaces.Stok;
 using MEYPAK.PRL.Assets;
 using System;
@@ -34,45 +33,31 @@ namespace MEYPAK.PRL.STOK
             DataGridDoldur();
         }
         int id;
-       
-
-        private void BTSil_Click(object sender, EventArgs e)
-        {
-            _OlcuBrServis.Data(ServisList.OlcuBrListeServis);
-            _OlcuBrServis.Data(ServisList.OlcuBrSilServis,_OlcuBrServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()).FirstOrDefault()) ;
-            MessageBox.Show("Silme Başarılı");
-           
-            gridControl1.DataSource = _OlcuBrServis.obje;
-        }
-
-        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-         
-        }
+      
         void DataGridDoldur()
         {
             _OlcuBrServis.Data(ServisList.OlcuBrListeServis); 
-            gridControl1.DataSource = _OlcuBrServis.obje.Select(x=> new {x.id,x.adi,x.birim,x.olusturmatarihi});
-            gridControl1.Refresh();
-            gridControl1.RefreshDataSource();
+            DGOlcuBirim.DataSource = _OlcuBrServis.obje.Where(x=>x.kayittipi==0).Select(x=> new {x.id,x.adi,x.birim,x.olusturmatarihi});
+            DGOlcuBirim.Refresh();
+            DGOlcuBirim.RefreshDataSource();
         }
 
         private void gridView1_DoubleClick(object sender, EventArgs e)
         {
-            TBOlcuBrAdi.Text = gridView1.GetFocusedRowCellValue("adi").ToString();
-            TBOlcuBr.Text = gridView1.GetFocusedRowCellValue("birim").ToString();
+            TBAdi.Text = gridView1.GetFocusedRowCellValue("adi").ToString();
+            TBOlcuBirim.Text = gridView1.GetFocusedRowCellValue("birim").ToString();
             id = int.Parse(gridView1.GetFocusedRowCellValue("id").ToString());
             islemtipi = "Güncelleme";
         }
 
-        private void BTOlcuBrKartKaydet_Click(object sender, EventArgs e)
+        private void BTKaydet_Click(object sender, EventArgs e)
         {
             if (islemtipi == "Kayıt")
             {
                 _OlcuBrServis.Data(ServisList.OlcuBrEkleServis, (new PocoOLCUBR()
                 {
-                    adi = TBOlcuBrAdi.Text,
-                    birim = TBOlcuBr.Text,
+                    adi = TBAdi.Text,
+                    birim = TBOlcuBirim.Text,
                 }));
 
             }
@@ -80,12 +65,21 @@ namespace MEYPAK.PRL.STOK
                 _OlcuBrServis.Data(ServisList.OlcuBrEkleServis, (new PocoOLCUBR()
                 {
                     id = id,
-                    adi = TBOlcuBrAdi.Text,
-                    birim = TBOlcuBr.Text,
+                    adi = TBAdi.Text,
+                    birim = TBOlcuBirim.Text,
                 }));
             MessageBox.Show("Kayıt Başarılı.");
             id = 0;
             DataGridDoldur();
+        }
+
+        private void BTSil_Click(object sender, EventArgs e)
+        {
+            _OlcuBrServis.Data(ServisList.OlcuBrListeServis);
+            _OlcuBrServis.Data(ServisList.OlcuBrSilServis,null,null, _OlcuBrServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()).ToList());
+            MessageBox.Show("Silme Başarılı");
+
+            DGOlcuBirim.DataSource = _OlcuBrServis.obje;
         }
     }
 }

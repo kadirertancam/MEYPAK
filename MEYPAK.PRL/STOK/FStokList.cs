@@ -21,6 +21,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MEYPAK.Entity.PocoModels.CARI;
 
 namespace MEYPAK.PRL.STOK
 {
@@ -47,6 +48,7 @@ namespace MEYPAK.PRL.STOK
             _stokOlcuBrServis = new GenericWebServis<PocoSTOKOLCUBR>();
             _stokServis = new GenericWebServis<PocoSTOK>();
             _stokMarka = new GenericWebServis<PocoSTOKMARKA>();
+           
         }
         GenericWebServis<PocoSTOK> _stokServis;
         GenericWebServis<PocoSTOKOLCUBR> _stokOlcuBrServis;

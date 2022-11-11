@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FCariKart));
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
@@ -1766,12 +1766,11 @@
             // 
             this.BTKoduSec.Location = new System.Drawing.Point(102, 24);
             this.BTKoduSec.Name = "BTKoduSec";
-            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
             this.BTKoduSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "+", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Yeni", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTKoduSec.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTKoduSec_Properties_ButtonClick);
-            this.BTKoduSec.Size = new System.Drawing.Size(173, 24);
+            this.BTKoduSec.Size = new System.Drawing.Size(173, 22);
             this.BTKoduSec.TabIndex = 2;
             this.BTKoduSec.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTKoduSec_Properties_ButtonClick);
             // 
@@ -1918,7 +1917,7 @@
             // 
             // TBAciklama
             // 
-            this.TBAciklama.Location = new System.Drawing.Point(82, 159);
+            this.TBAciklama.Location = new System.Drawing.Point(98, 159);
             this.TBAciklama.Multiline = true;
             this.TBAciklama.Name = "TBAciklama";
             this.TBAciklama.Size = new System.Drawing.Size(199, 71);
@@ -1942,35 +1941,35 @@
             "Alıcı",
             "Satıcı",
             "Alıcı ve Satıcı"});
-            this.CBTipi.Location = new System.Drawing.Point(82, 134);
+            this.CBTipi.Location = new System.Drawing.Point(98, 134);
             this.CBTipi.Name = "CBTipi";
             this.CBTipi.Size = new System.Drawing.Size(107, 21);
             this.CBTipi.TabIndex = 51;
             // 
             // TBCariSoyadi
             // 
-            this.TBCariSoyadi.Location = new System.Drawing.Point(82, 109);
+            this.TBCariSoyadi.Location = new System.Drawing.Point(98, 109);
             this.TBCariSoyadi.Name = "TBCariSoyadi";
             this.TBCariSoyadi.Size = new System.Drawing.Size(199, 21);
             this.TBCariSoyadi.TabIndex = 3;
             // 
             // TBCariAdi
             // 
-            this.TBCariAdi.Location = new System.Drawing.Point(82, 84);
+            this.TBCariAdi.Location = new System.Drawing.Point(98, 84);
             this.TBCariAdi.Name = "TBCariAdi";
             this.TBCariAdi.Size = new System.Drawing.Size(199, 21);
             this.TBCariAdi.TabIndex = 2;
             // 
             // TBSMuhKodu
             // 
-            this.TBSMuhKodu.Location = new System.Drawing.Point(82, 56);
+            this.TBSMuhKodu.Location = new System.Drawing.Point(98, 56);
             this.TBSMuhKodu.Name = "TBSMuhKodu";
             this.TBSMuhKodu.Size = new System.Drawing.Size(199, 21);
             this.TBSMuhKodu.TabIndex = 1;
             // 
             // TBAMuhKodu
             // 
-            this.TBAMuhKodu.Location = new System.Drawing.Point(82, 31);
+            this.TBAMuhKodu.Location = new System.Drawing.Point(98, 31);
             this.TBAMuhKodu.Name = "TBAMuhKodu";
             this.TBAMuhKodu.Size = new System.Drawing.Size(199, 21);
             this.TBAMuhKodu.TabIndex = 0;

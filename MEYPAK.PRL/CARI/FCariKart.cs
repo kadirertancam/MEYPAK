@@ -7,8 +7,10 @@ using MEYPAK.Entity.Models.CARI;
 using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.PARAMETRE;
+using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Cari;
 using MEYPAK.Interfaces.Parametre;
+using MEYPAK.Interfaces.Stok;
 using MEYPAK.PRL.STOK;
 using Newtonsoft.Json;
 using System;
@@ -34,15 +36,18 @@ namespace MEYPAK.PRL.CARI
             _adresListServis = new GenericWebServis<ADRESLIST>();
             _cariServis = new GenericWebServis<PocoCARIKART>();
             _cariAltHesapServis = new GenericWebServis<PocoCARIALTHES>();
-            
+            _cariAltHesapServis.Data(ServisList.CariAltHesListeServis);
 
         }
         GenericWebServis<ADRESLIST> _adresListServis;
         GenericWebServis<PocoCARIKART> _cariServis;
         GenericWebServis<PocoCARIALTHES> _cariAltHesapServis;
         FCariList _fCariList;
-        
+        FCariAltHesap fCariAltHesap;
+      
+
         public PocoCARIKART _tempCariKart;
+        public PocoCARIALTHES _tempCariAltHes;
 
         void doldur()
         {
@@ -102,6 +107,7 @@ namespace MEYPAK.PRL.CARI
             CBVDaire.Text = _tempCariKart.vergidairesi;
             TBVNo.Text = _tempCariKart.vergino;
             TBWebSite.Text = _tempCariKart.web;
+            
         }
         
         ADRESOBJECT.Root _adresObje;
@@ -266,7 +272,7 @@ namespace MEYPAK.PRL.CARI
 
                 XtraTabPage page = new XtraTabPage(); 
                 FCariAltHesap fCariAltHesap = new FCariAltHesap();
-                Main main = (Main)Application.OpenForms["Main"];
+                Main main = (Main)Application.OpenForms["Main"]; //main e erişmek
                 page.Name = "TPAltHesap";
                 page.Text = "Alt Hesap";
                 page.Tag = "TPAltHesapPanel"; 
@@ -288,7 +294,11 @@ namespace MEYPAK.PRL.CARI
             }
             else if (e.Button.Caption == "Seç")
             {
-               
+                //_tempCariAltHes = null;
+                //fCariAltHesap = this.Tag.ToString()
+                //fStokList.ShowDialog();
+
+                //Doldur();
             }
           }
 
