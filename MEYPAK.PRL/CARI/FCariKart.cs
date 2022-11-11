@@ -62,22 +62,22 @@ namespace MEYPAK.PRL.CARI
             TBAciklama8.Text = _tempCariKart.aciklamA8;
             TBAciklama9.Text = _tempCariKart.aciklamA9;
             TBCariAdi.Text = _tempCariKart.adi;
-            TBCariSoyadi.Text = _tempCariKart.soyadi;
+            TBCariSoyad.Text = _tempCariKart.soyadi;
             TBAdres.Text = _tempCariKart.adres;
-            TBAMuhKodu.Text = _tempCariKart.amuhkod;
+            BTAMuhSec.Text = _tempCariKart.amuhkod;
             TBApt.Text = _tempCariKart.apt;
             TBCepTel.Text = _tempCariKart.ceptel;
             TBDaire.Text = _tempCariKart.daire;
             TBEposta.Text = _tempCariKart.eposta;
             TBFax.Text = _tempCariKart.fax;
             TBGrupKodu.Text = _tempCariKart.grupkodu;
-            CBil.Text = _tempCariKart.il;
-            CBilce.Text = _tempCariKart.ilce;
+            CBIl.Text = _tempCariKart.il;
+            CBIlce.Text = _tempCariKart.ilce;
             TBKategori.Text = _tempCariKart.kategori;
-            TBCariKodu.Text = _tempCariKart.kod;
+            BTCariSec.Text = _tempCariKart.kod;
             TBMahalle.Text = _tempCariKart.mahalle;
             TBMuhKod.Text = _tempCariKart.muH_KOD;
-            TBPostaKodu.Text = _tempCariKart.postakod;
+            TBPostaKod.Text = _tempCariKart.postakod;
             TBRaporKodu1.Text = _tempCariKart.raporkoD1;
             TBRaporKodu2.Text = _tempCariKart.raporkoD2;
             TBRaporKodu3.Text = _tempCariKart.raporkoD3;
@@ -98,14 +98,14 @@ namespace MEYPAK.PRL.CARI
             NUDSAciklama9.Value  = _tempCariKart.saciklamA9;
             TBSMuhKodu.Text = _tempCariKart.smuhkod;
             TBSokak.Text = _tempCariKart.sokak;
-            TBTc.Text = _tempCariKart.tcno;
+            TBTcNo.Text = _tempCariKart.tcno;
             TBTelefon1.Text = _tempCariKart.telefon;
             TBTelefon2.Text = _tempCariKart.telefoN2;
             CBTipi.SelectedIndex = _tempCariKart.tipi;
             TBUnvan.Text = _tempCariKart.unvan;
-            TBVadeGunu.Text = _tempCariKart.vadegunu.ToString();
+            TBVadeGun.Text = _tempCariKart.vadegunu.ToString();
             CBVDaire.Text = _tempCariKart.vergidairesi;
-            TBVNo.Text = _tempCariKart.vergino;
+            TBVergiNo.Text = _tempCariKart.vergino;
             TBWebSite.Text = _tempCariKart.web;
             
         }
@@ -122,45 +122,25 @@ namespace MEYPAK.PRL.CARI
                     _adresObje = JsonConvert.DeserializeObject<ADRESOBJECT.Root>(sr.ReadToEnd());
 
 
-                    CBil.DataSource = _adresObje.data.Select(x => x.il_adi).ToList();
+                    CBIl.EditValue = _adresObje.data.Select(x => x.il_adi).ToList();
                 }
 
            
         }
 
-       
-
-        private void CBil_SelectedValueChanged(object sender, EventArgs e)
+        private void CBIl_TextChanged(object sender, EventArgs e)
         {
-
+            CBIlce.Properties.DataSource = _adresObje.data.Where(x => x.il_adi == CBIl.EditValue).Select(x => x.ilceler.Select(z => z.ilce_adi).ToList()).FirstOrDefault();
         }
 
-        private void CBil_TextChanged(object sender, EventArgs e)
-        {
-            CBilce.DataSource = _adresObje.data.Where(x => x.il_adi == CBil.SelectedValue).Select(x => x.ilceler.Select(z => z.ilce_adi).ToList()).FirstOrDefault();
-        }
-
-        private void CBilce_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+      
         private void button7_Click(object sender, EventArgs e)
         {
 
             _cariServis.Data(ServisList.CariSilServis, null, null);
         }
 
-        private void BTCariSec_Click(object sender, EventArgs e)
-        {
-        
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
@@ -170,34 +150,7 @@ namespace MEYPAK.PRL.CARI
                 doldur();
         }
 
-        private void checkButton1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void labelControl3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelControl8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-       
-
-        private void TBSevkAdres_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-                
-        }
-
+        
         private void BTSevkAdresKaydet_Click(object sender, EventArgs e)
         {
             _cariServis.Data(ServisList.CariEkleServis, new PocoCARIKART()
@@ -222,13 +175,13 @@ namespace MEYPAK.PRL.CARI
                 eposta = TBEposta.Text,
                 fax = TBFax.Text,
                 grupkodu = TBGrupKodu.Text,
-                il = CBil.Text,
-                ilce = CBilce.Text,
+                il = CBIl.Text,
+                ilce = CBIl.Text,
                 kategori = TBKategori.Text,
-                kod = TBCariKodu.Text,
+                kod = BTCariSec.Text,
                 mahalle = TBMahalle.Text,
                 muH_KOD = TBMuhKod.Text,
-                postakod = TBPostaKodu.Text,
+                postakod = TBPostaKod.Text,
                 raporkoD1 = TBRaporKodu1.Text,
                 raporkoD2 = TBRaporKodu2.Text,
                 raporkoD3 = TBRaporKodu3.Text,
@@ -249,14 +202,14 @@ namespace MEYPAK.PRL.CARI
                 saciklamA9 = int.Parse(NUDSAciklama9.Value.ToString()),
                 smuhkod = TBSMuhKodu.Text,
                 sokak = TBSokak.Text,
-                tcno = TBTc.Text,
+                tcno = TBTcNo.Text,
                 telefon = TBTelefon1.Text,
                 telefoN2 = TBTelefon2.Text,
                 tipi = CBTipi.SelectedIndex,
                 unvan = TBUnvan.Text,
-                vadegunu = int.Parse(TBVadeGunu.Text),
+                vadegunu = int.Parse(TBVadeGun.Text),
                 vergidairesi = CBVDaire.Text,
-                vergino = TBVNo.Text,
+                vergino = TBVergiNo.Text,
                 web = TBWebSite.Text,
 
             });
