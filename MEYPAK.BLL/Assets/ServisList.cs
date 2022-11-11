@@ -227,11 +227,11 @@ namespace MEYPAK.BLL.Assets
         #endregion
 
         #region PersonelZimmet
-        public const string PersoneZimmetlListeServis =      "http://213.238.167.117:8080/PERSONELZIMMET/PERSONELZIMMETListe";
-        public const string PersoneZimmetlEkleServis =       "http://213.238.167.117:8080/PERSONELZIMMET/PERSONELZIMMETEkleyadaGuncelle";
-        public const string PersoneZimmetlSilServis =        "http://213.238.167.117:8080/PERSONELZIMMET/PERSONELZIMMETSil";
-        public const string PersoneZimmetlGuncelleServis =   "http://213.238.167.117:8080/PERSONELZIMMET/PERSONELZIMMETGuncelle";
-        public const string PersoneZimmetlDeleteByIdServis = "http://213.238.167.117:8080/PERSONELZIMMET/DeleteById";
+        public const string PersonelZimmetlListeServis =      "http://213.238.167.117:8080/PERSONELZIMMET/PERSONELZIMMETListe";
+        public const string PersonelZimmetlEkleServis =       "http://213.238.167.117:8080/PERSONELZIMMET/PERSONELZIMMETEkleyadaGuncelle";
+        public const string PersonelZimmetlSilServis =        "http://213.238.167.117:8080/PERSONELZIMMET/PERSONELZIMMETSil";
+        public const string PersonelZimmetlGuncelleServis =   "http://213.238.167.117:8080/PERSONELZIMMET/PERSONELZIMMETGuncelle";
+        public const string PersonelZimmetlDeleteByIdServis = "http://213.238.167.117:8080/PERSONELZIMMET/DeleteById";
 
         #endregion
 

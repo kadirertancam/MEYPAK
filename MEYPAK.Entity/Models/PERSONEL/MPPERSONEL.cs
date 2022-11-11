@@ -24,12 +24,12 @@ namespace MEYPAK.Entity.Models.PERSONEL
         public string ADISOYADI => $"{ADI} {SOYADI}";
         [StringLength(50)]
         public DateTime DOGUMTAR { get; set; }
-        public bool CINSIYET { get; set; }
-        public int PERSONELDEPARTMANID { get; set; }
-        public int PERSONELGOREVID { get; set; }
-        public string SGKSICILNO { get; set; }
-        public DateTime ISBASTAR { get; set; }
-        public DateTime ISBITTAR { get; set; }
+        public byte CINSIYET { get; set; }=0;
+        public int PERSONELDEPARTMANID { get; set; } = 0;
+        public int PERSONELGOREVID { get; set; } = 0;
+        public string SGKSICILNO { get; set; } = "";
+        public DateTime ISBASTAR { get; set; }=Convert.ToDateTime("01/01/1900");
+        public DateTime ISBITTAR { get; set; } = Convert.ToDateTime("01/01/1900");
         public string RESIM { get; set; }
 
         public string SGK { get; set; }
