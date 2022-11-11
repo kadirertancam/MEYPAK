@@ -3,6 +3,7 @@ using MEYPAK.DAL.Abstract;
 using MEYPAK.DAL.Abstract.PersonelDal;
 using MEYPAK.Entity.Models.PERSONEL;
 using MEYPAK.Entity.PocoModels.PERSONEL;
+using MEYPAK.Interfaces.Personel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.BLL.PERSONEL
 {
-    public class PersonelBankaManager : BaseManager<PocoPERSONELBANKA, MPPERSONELBANKA>
+    public class PersonelBankaManager : BaseManager<PocoPERSONELBANKA, MPPERSONELBANKA>,IPersonelBankaServis
     {
         IPersonelBankaDal _personelbankaDal;
         IMapper _mapper;

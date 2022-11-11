@@ -48,7 +48,21 @@ namespace MEYPAK.PRL.CARI
         #endregion
 
         #region Metotlar
+        private void FCariAltHesap_Load(object sender, EventArgs e)
+        {
+            DataGridDoldur();
+            //CBDoviz.EditValue = 0;
+        }
+        int id;
 
+        private void BTSil_Click(object sender, EventArgs e)
+        {
+            _cariAltHesapServis.Data(ServisList.CariAltHesListeServis);
+            _cariAltHesapServis.Data(ServisList.CariAltHesSilServis, null, null, _cariAltHesapServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()).ToList());
+            MessageBox.Show("Silme işlemi Başarılı");
+
+            DGAltHesap.DataSource = _cariAltHesapServis.obje;
+        }
         public void Temizle(Control.ControlCollection ctrlCollection) //Formdaki textboxları temizler
         {
 
@@ -57,14 +71,21 @@ namespace MEYPAK.PRL.CARI
                 if (ctrl is TextBoxBase)
                 {
                     if (ctrl.Name != "TBAdi")
-                        ctrl.Text = String.Empty;
-                    else if (ctrl.Name != "TBKodu")
-                        ctrl.Text = String.Empty;
-                    else if (ctrl.Name != "CBDoviz")
-                        ctrl.Text= String.Empty;    
                     {
-
+                        ctrl.Text = String.Empty;
                     }
+
+                    else if (ctrl.Name != "TBKodu")
+                    {
+                        ctrl.Text = String.Empty;
+                    }
+
+                    else if (ctrl.Name != "CBDoviz")
+                    {
+                        ctrl.Text = String.Empty;
+                    }
+
+
                 }
                 else
                 {
@@ -73,27 +94,21 @@ namespace MEYPAK.PRL.CARI
             }
 
         }
-         void DataGridDoldur()
+        void DataGridDoldur()
         {
+            
             _cariAltHesapServis.Data(ServisList.CariAltHesListeServis);
-            DGAltHesap.DataSource = _cariAltHesapServis.obje.Select(x => new { 
+            DGAltHesap.DataSource = _cariAltHesapServis.obje.Where(x=> x.kayittipi == 0).Select(x => new { 
                 x.id, 
                 x.adi, 
                 x.kod,
                 x.dovizid,
-                x.aktif,
                 x.olusturmatarihi });
             DGAltHesap.Refresh();
-            gridView1.RefreshData();
             DGAltHesap.RefreshDataSource();
 
         }
-        private void FCariAltHesap_Load(object sender, EventArgs e)
-        {
-            DataGridDoldur();
-            //CBDoviz.EditValue = 0;
-        }
-        int id;
+       
         private void BTKaydet_Click(object sender, EventArgs e)
         {
             if (islemtipi == "Kayıt")
@@ -102,7 +117,7 @@ namespace MEYPAK.PRL.CARI
                 {
                     adi = TBAdi.Text,
                     kod = TBKodu.Text,
-                    dovizid = _parabirIMServis.obje.Where(x => x.adi.ToString() == CBDoviz.EditValue.ToString()).FirstOrDefault().id,
+                    dovizid =_parabirIMServis.obje.Where(x => x.adi.ToString() == CBDoviz.EditValue.ToString()).FirstOrDefault().id,
                     aktif = 1,
 
                 }));
@@ -118,20 +133,23 @@ namespace MEYPAK.PRL.CARI
                     aktif = 1,
 
                 })); 
-            MessageBox.Show("Alt Hesap başarıyla eklendi!");
+            MessageBox.Show("Kayıt işlemi Başarılı!");
+            id = 0;
             DataGridDoldur();
 
         }
-
-       
-        private void BTSil_Click(object sender, EventArgs e)
+        private void gridView1_DoubleClick(object sender, EventArgs e)
         {
-            ////_cariAltHesapServis.Data(ServisList.CariAltHesSilServis, null, null, (_cariAltHesapServis.obje.Where(x => x.id == Convert.ToInt32(DGAltHesap.GetFocusedDataRow(id).ToString();
-            //_cariAltHesapServis.Data(ServisList.CariAltHesListeServis);
-            //DGAltHesap.DataSource = _cariAltHesapServis.obje;
-            // _cariAltHesapServis.Data(ServisList.DepoSilServis, _cariAltHesapServis.obje.Where(x => x.id == Convert.ToInt32(DGAltHesap.GetFocusedRowCellValue("id"))).FirstOrDefault());
+            id = int.Parse(gridView1.GetFocusedRowCellValue("id").ToString());
+            TBAdi.Text = gridView1.GetFocusedRowCellValue("adi").ToString();
+            TBKodu.Text = gridView1.GetFocusedRowCellValue("kod").ToString();
+            CBDoviz.Text = gridView1.GetFocusedRowCellValue("dovizid").ToString();
+            CBAktif.Text = gridView1.GetFocusedRowCellValue("aktif").ToString();
+            islemtipi = "Güncelleme";
         }
 
-#endregion
+        #endregion
+
+       
     }
 }

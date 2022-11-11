@@ -191,6 +191,9 @@ builder.Services.AddScoped<IPersonelDepartmanServis, PersonelDepartmanManager>()
 
 builder.Services.AddScoped<IPersonelGorevDal, EFPersonelGorevRepo>();
 builder.Services.AddScoped<IPersonelGorevServis, PersonelGorevManager>();
+
+builder.Services.AddScoped<IPersonelZimmetDal, EFPersonelZimmetRepo>();
+builder.Services.AddScoped<IPersonelZimmetServis, PersonelZimmetManager>();
 #endregion
 #region SIPARIS_Scoped_Islemleri
 builder.Services.AddScoped<ISiparisDal, EFSiparisRepo>();
