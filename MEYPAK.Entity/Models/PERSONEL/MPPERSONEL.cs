@@ -31,6 +31,8 @@ namespace MEYPAK.Entity.Models.PERSONEL
         public DateTime ISBASTAR { get; set; }
         public DateTime ISBITTAR { get; set; }
         public string RESIM { get; set; }
+
+        public string SGK { get; set; }
         public string BAGKUR { get; set; }
         public string EMEKLISANDIGI { get; set; }
 
@@ -40,8 +42,8 @@ namespace MEYPAK.Entity.Models.PERSONEL
         public string MEZUNIYETYILI { get; set; }
         public string MEZUNBOLUM { get; set; }
         public string ASKERLIKDURUM { get; set; }
-        public string ASKERLIKBASLANGICTAR { get; set; }
-        public string ASKERLIKBITISTAR { get; set; }
+        public DateTime ASKERLIKBASLANGICTAR { get; set; }
+        public DateTime ASKERLIKBITISTAR { get; set; }
         public string SIGORTATURKOD { get; set; }
         public string YASLILIKAYLIGI { get; set; }
         public string ISTIHDAMDURUMU { get; set; }
