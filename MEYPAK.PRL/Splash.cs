@@ -16,15 +16,16 @@ namespace MEYPAK.PRL
     {
         public Splash()
         {
+            _stokResimServis = new GenericWebServis<PocoSTOKRESIM>();
             InitializeComponent();
             this.labelCopyright.Text = "Copyright © 1998-" + DateTime.Now.Year.ToString();
         }
-        GenericWebServis<PocoSTOKRESIM>
+        GenericWebServis<PocoSTOKRESIM> _stokResimServis;
         #region Overrides
 
         public override void ProcessCommand(Enum cmd, object arg)
         {
-            _stokResimServis.obje.Where(x => x.STOKID == stokid).Select(x => new { Resim = Base64ToImage(x.IMG) });
+          //  _stokResimServis.obje.Where(x => x.STOKID == stokid).Select(x => new { Resim = Base64ToImage(x.IMG) });
 
 
 
