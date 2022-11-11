@@ -226,6 +226,15 @@ namespace MEYPAK.BLL.Assets
 
         #endregion
 
+        #region PersonelZimmet
+        public const string PersoneZimmetlListeServis =      "http://213.238.167.117:8080/PERSONELZIMMET/PERSONELZIMMETListe";
+        public const string PersoneZimmetlEkleServis =       "http://213.238.167.117:8080/PERSONELZIMMET/PERSONELZIMMETEkleyadaGuncelle";
+        public const string PersoneZimmetlSilServis =        "http://213.238.167.117:8080/PERSONELZIMMET/PERSONELZIMMETSil";
+        public const string PersoneZimmetlGuncelleServis =   "http://213.238.167.117:8080/PERSONELZIMMET/PERSONELZIMMETGuncelle";
+        public const string PersoneZimmetlDeleteByIdServis = "http://213.238.167.117:8080/PERSONELZIMMET/DeleteById";
+
+        #endregion
+
         #region OlcuBr
         public const string OlcuBrListeServis =      "http://213.238.167.117:8080/OLCUBR/OLCUBRListe";
         public const string OlcuBrEkleServis = "http://213.238.167.117:8080/OLCUBR/OLCUBREkleyadaGuncelle";
