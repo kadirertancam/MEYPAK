@@ -15,13 +15,13 @@ namespace MEYPAK.Entity.PocoModels.PERSONEL
         public string adi { get; set; } = "";
         public string soyadi { get; set; } = "";
         public string adisoyadi { get; set; } = "";
-        public DateTime dogumtar { get; set; } = Convert.ToDateTime("01/01/1970");
+        public DateTime dogumtar { get; set; } = Convert.ToDateTime("01/01/1990");
         public byte cinsiyet { get; set; } = 0;
         public string departman { get; set; } = "";
         public string gorev { get; set; } = "";
         public string sgksicilno { get; set; } = "";
-        public DateTime isbastar { get; set; } = Convert.ToDateTime("01/01/1970");
-        public DateTime isbittar { get; set; } = Convert.ToDateTime("01/01/1970");
+        public DateTime isbastar { get; set; } = Convert.ToDateTime("01/01/1990");
+        public DateTime isbittar { get; set; } = Convert.ToDateTime("01/01/1990");
         public string resim { get; set; } = "";
         public string bagkur { get; set; } = "";
         public string emeklisandigi { get; set; } = "";
@@ -30,8 +30,8 @@ namespace MEYPAK.Entity.PocoModels.PERSONEL
         public string mezuniyetyili { get; set; } = "";
         public string mezunbolum { get; set; } = "";
         public string askerlikdurum { get; set; } = "";
-        public string askerlikbaslangictar { get; set; } = "";
-        public string askerlikbitistar { get; set; } = "";
+        public DateTime askerlikbaslangictar { get; set; } = "";
+        public DateTime askerlikbitistar { get; set; } = "";
         public string sigortaturkod { get; set; } = "";
         public string yaslilikayligi { get; set; } = "";
         public string istihdamdurumu { get; set; } = "";
