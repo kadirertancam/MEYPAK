@@ -22,6 +22,7 @@ namespace MEYPAK.PRL.PERSONEL
         GenericWebServis<PocoPERSONELDEPARTMAN> _personelDepartmanServis;
         GenericWebServis<PocoPERSONELGOREV> _personelGorevServis;
         GenericWebServis<PocoPERSONELBANKA> _personelBankaServis;
+        GenericWebServis<PocoPERSONELZIMMET> _personelZimmetServis;
         
 
         public FPersonelKart()
@@ -30,6 +31,7 @@ namespace MEYPAK.PRL.PERSONEL
             _personelGorevServis = new GenericWebServis<PocoPERSONELGOREV>();
             _personelDepartmanServis = new GenericWebServis<PocoPERSONELDEPARTMAN>();
             _personelBankaServis = new GenericWebServis<PocoPERSONELBANKA>();
+            _personelZimmetServis = new GenericWebServis<PocoPERSONELZIMMET>();
             InitializeComponent();
             CombolarıDoldur();
 
@@ -109,7 +111,6 @@ namespace MEYPAK.PRL.PERSONEL
         
         private void BTSPersonelBanka_Click(object sender, EventArgs e)
         {
-            var a = TBBankaAdi.EditValue;
             if (TBBankaAdi.EditValue!=null && TBBankaSubeAdi.EditValue!=null && TBBankaSubeKod.EditValue!=null && TBBankaIban.EditValue!=null)
             {
                 _personelBankaServis.Data(ServisList.PersonelBankaEkleServis, new PocoPERSONELBANKA()
@@ -136,6 +137,14 @@ namespace MEYPAK.PRL.PERSONEL
         private void lookUpEdit2_Properties_EditValueChanged(object sender, EventArgs e)
         {
             CBIlce.Properties.DataSource = _adresObje.data.Where(x => x.il_adi == CBAdresIL.EditValue).Select(x => x.ilceler.Select(z => z.ilce_adi).ToList()).FirstOrDefault();
+        }
+
+        private void BTNZimKaydet_Click(object sender, EventArgs e)
+        {
+            if (TBZimMarka.EditValue!=null && TBZimMiktar.EditValue!=null && DTPZimBasTar.EditValue!=null && TBZimSeriNo.EditValue!=null&& TBZimAciklama.EditValue!=null)
+            {
+             //   _personelZimmetServis.Data(ServisList.personelzi);
+            }
         }
     }
 }
