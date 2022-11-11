@@ -143,7 +143,42 @@ namespace MEYPAK.PRL.PERSONEL
         {
             if (TBZimMarka.EditValue!=null && TBZimMiktar.EditValue!=null && DTPZimBasTar.EditValue!=null && TBZimSeriNo.EditValue!=null&& TBZimAciklama.EditValue!=null)
             {
-             //   _personelZimmetServis.Data(ServisList.personelzi);
+                _personelZimmetServis.Data(ServisList.PersonelZimmetlEkleServis, new PocoPERSONELZIMMET()
+                {
+                    serino = TBZimSeriNo.EditValue.ToString(),
+                    zimmettarihi =(DateTime) DTPZimBasTar.EditValue,
+                    markamodel = TBZimMarka.EditValue.ToString(),
+                    miktar =Convert.ToInt32( TBZimMiktar.EditValue),
+                    personelid=1
+                });
+            }
+            else
+            {
+                MessageBox.Show("Tüm Alanları Doldurmadan Personele Zimmet Tanımlayamazsınız!");
+            }
+        }
+
+        private void BTNPersonelKaydet_Click(object sender, EventArgs e)
+        {
+            var a = CBCinsiyet.EditValue;
+            if (TBTCNO.EditValue!=null && TBAdi.EditValue!=null && TBSoyadi.EditValue!=null  && DTPIseGirisTar.EditValue!=null&& CBCinsiyet.EditValue!=null && DTPDogumTar.EditValue!=null)
+            {
+                _personelServis.Data(ServisList.PersonelEkleServis, new PocoPERSONEL()
+                {
+                    tc = TBTCNO.EditValue.ToString(),
+                    adi = TBAdi.EditValue.ToString(),
+                    soyadi = TBSoyadi.EditValue.ToString(),
+                    // cinsiyet = CBCinsiyet.EditValue.ToString(),
+                  
+
+
+                });
+                var ab = _personelServis.obje2;
+                MessageBox.Show($"{_personelServis.obje2.id}");
+            }
+            else
+            {
+                MessageBox.Show("Gerekli Alanları Doldurmadan Personel Ekleyemezsiniz!");
             }
         }
     }
