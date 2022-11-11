@@ -18,5 +18,6 @@ namespace MEYPAK.Entity.PocoModels.CARI
         public string aciklama { get; set; }
         public int parabirimid { get; set; }
         public decimal kur { get; set; }
+        //TODO: Cari Hareket Şube eklenecek
     }
 }

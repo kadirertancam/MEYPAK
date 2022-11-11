@@ -60,7 +60,7 @@ namespace MEYPAK.PRL
         FMalKabulPanel fMalKabulPanel; 
         FStokFiyatList fStokFiyatList;
         FCariHareket fCariHareket;
-        FCariDurum fCariDurum;
+        form fCariDurum;
         FCariKart fCariKart;
         FCariAltHesap fCariAltHesap;
         #endregion
@@ -224,20 +224,13 @@ namespace MEYPAK.PRL
         private void accordionControlElement36_Click(object sender, EventArgs e)
         {
             XtraTabPage page = new XtraTabPage();
-            fCariDurum = new FCariDurum();
+            fCariDurum = new form();
             page.Name = "TPCariDurum" + i;
             page.Text = "Cari Durum";
             page.Tag = "TPCariDurum" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
             xtraTabControl1.TabPages.Add(page);
             xtraTabControl1.SelectedTabPage = page;
-
-            fCariDurum.TopLevel = false;
-            fCariDurum.AutoScroll = true;
-            fCariDurum.Dock = DockStyle.Fill;
-            fCariDurum.Tag = "TPCariDurum" + i;
-            page.Controls.Add(fCariDurum);
-            fCariDurum.Show();
             i++;
         }
 

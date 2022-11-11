@@ -28,210 +28,236 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.PLCariDurum1 = new System.Windows.Forms.Panel();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.DGCariDurum = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.PLCariDurum = new System.Windows.Forms.Panel();
-            this.LBAlacakDeger = new DevExpress.XtraEditors.LabelControl();
-            this.LBBakiyeDeger = new DevExpress.XtraEditors.LabelControl();
-            this.LBBorcDeger = new DevExpress.XtraEditors.LabelControl();
-            this.LBBakiye = new DevExpress.XtraEditors.LabelControl();
-            this.Alacak = new DevExpress.XtraEditors.LabelControl();
+            this.LBKodu = new DevExpress.XtraEditors.LabelControl();
+            this.LBAdi = new DevExpress.XtraEditors.LabelControl();
+            this.BTKoduSec = new DevExpress.XtraEditors.ButtonEdit();
+            this.TBAdi = new DevExpress.XtraEditors.TextEdit();
+            this.LBAlacak = new DevExpress.XtraEditors.LabelControl();
             this.LBBorc = new DevExpress.XtraEditors.LabelControl();
-            this.LBCariKodu = new DevExpress.XtraEditors.LabelControl();
-            this.TECariKodu = new DevExpress.XtraEditors.TextEdit();
-            this.BECariKoduSec = new DevExpress.XtraEditors.ButtonEdit();
-            this.panel1.SuspendLayout();
-            this.PLCariDurum1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            this.LBToplam = new DevExpress.XtraEditors.LabelControl();
+            this.LBAlacakDeger = new DevExpress.XtraEditors.LabelControl();
+            this.LBBorcDeger = new DevExpress.XtraEditors.LabelControl();
+            this.LBToplamDeger = new DevExpress.XtraEditors.LabelControl();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
+            this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
+            this.panelControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
+            this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGCariDurum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            this.PLCariDurum.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TECariKodu.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BECariKoduSec.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BTKoduSec.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBAdi.Properties)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // panelControl1
             // 
-            this.panel1.Controls.Add(this.PLCariDurum1);
-            this.panel1.Controls.Add(this.PLCariDurum);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1184, 584);
-            this.panel1.TabIndex = 0;
+            this.panelControl1.Controls.Add(this.panelControl3);
+            this.panelControl1.Controls.Add(this.panelControl2);
+            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl1.Location = new System.Drawing.Point(0, 0);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(941, 538);
+            this.panelControl1.TabIndex = 0;
             // 
-            // PLCariDurum1
+            // panelControl2
             // 
-            this.PLCariDurum1.Controls.Add(this.gridControl1);
-            this.PLCariDurum1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PLCariDurum1.Location = new System.Drawing.Point(0, 100);
-            this.PLCariDurum1.Name = "PLCariDurum1";
-            this.PLCariDurum1.Size = new System.Drawing.Size(1184, 484);
-            this.PLCariDurum1.TabIndex = 2;
+            this.panelControl2.Controls.Add(this.groupControl1);
+            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl2.Location = new System.Drawing.Point(2, 2);
+            this.panelControl2.Name = "panelControl2";
+            this.panelControl2.Size = new System.Drawing.Size(937, 103);
+            this.panelControl2.TabIndex = 0;
             // 
-            // gridControl1
+            // panelControl3
             // 
-            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(0, 0);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1184, 484);
-            this.gridControl1.TabIndex = 0;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.panelControl3.Controls.Add(this.DGCariDurum);
+            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl3.Location = new System.Drawing.Point(2, 105);
+            this.panelControl3.Name = "panelControl3";
+            this.panelControl3.Size = new System.Drawing.Size(937, 431);
+            this.panelControl3.TabIndex = 1;
+            // 
+            // groupControl1
+            // 
+            this.groupControl1.Controls.Add(this.LBToplamDeger);
+            this.groupControl1.Controls.Add(this.LBBorcDeger);
+            this.groupControl1.Controls.Add(this.LBAlacakDeger);
+            this.groupControl1.Controls.Add(this.LBToplam);
+            this.groupControl1.Controls.Add(this.LBBorc);
+            this.groupControl1.Controls.Add(this.LBAlacak);
+            this.groupControl1.Controls.Add(this.TBAdi);
+            this.groupControl1.Controls.Add(this.BTKoduSec);
+            this.groupControl1.Controls.Add(this.LBAdi);
+            this.groupControl1.Controls.Add(this.LBKodu);
+            this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupControl1.GroupStyle = DevExpress.Utils.GroupStyle.Light;
+            this.groupControl1.Location = new System.Drawing.Point(2, 2);
+            this.groupControl1.Name = "groupControl1";
+            this.groupControl1.Size = new System.Drawing.Size(933, 95);
+            this.groupControl1.TabIndex = 0;
+            this.groupControl1.Text = "Cari Durum";
+            // 
+            // DGCariDurum
+            // 
+            this.DGCariDurum.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DGCariDurum.Location = new System.Drawing.Point(2, 2);
+            this.DGCariDurum.MainView = this.gridView1;
+            this.DGCariDurum.Name = "DGCariDurum";
+            this.DGCariDurum.Size = new System.Drawing.Size(933, 427);
+            this.DGCariDurum.TabIndex = 0;
+            this.DGCariDurum.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
             // gridView1
             // 
-            this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.GridControl = this.DGCariDurum;
             this.gridView1.Name = "gridView1";
             // 
-            // PLCariDurum
+            // LBKodu
             // 
-            this.PLCariDurum.Controls.Add(this.BECariKoduSec);
-            this.PLCariDurum.Controls.Add(this.TECariKodu);
-            this.PLCariDurum.Controls.Add(this.LBAlacakDeger);
-            this.PLCariDurum.Controls.Add(this.LBBakiyeDeger);
-            this.PLCariDurum.Controls.Add(this.LBBorcDeger);
-            this.PLCariDurum.Controls.Add(this.LBBakiye);
-            this.PLCariDurum.Controls.Add(this.Alacak);
-            this.PLCariDurum.Controls.Add(this.LBBorc);
-            this.PLCariDurum.Controls.Add(this.LBCariKodu);
-            this.PLCariDurum.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PLCariDurum.Location = new System.Drawing.Point(0, 0);
-            this.PLCariDurum.Name = "PLCariDurum";
-            this.PLCariDurum.Size = new System.Drawing.Size(1184, 100);
-            this.PLCariDurum.TabIndex = 0;
+            this.LBKodu.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBKodu.Appearance.Options.UseFont = true;
+            this.LBKodu.Location = new System.Drawing.Point(47, 33);
+            this.LBKodu.Name = "LBKodu";
+            this.LBKodu.Size = new System.Drawing.Size(46, 13);
+            this.LBKodu.TabIndex = 0;
+            this.LBKodu.Text = "Cari Kodu";
             // 
-            // LBAlacakDeger
+            // LBAdi
             // 
-            this.LBAlacakDeger.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBAlacakDeger.Appearance.Options.UseFont = true;
-            this.LBAlacakDeger.Location = new System.Drawing.Point(536, 49);
-            this.LBAlacakDeger.Name = "LBAlacakDeger";
-            this.LBAlacakDeger.Size = new System.Drawing.Size(9, 19);
-            this.LBAlacakDeger.TabIndex = 12;
-            this.LBAlacakDeger.Text = "0";
+            this.LBAdi.Location = new System.Drawing.Point(56, 58);
+            this.LBAdi.Name = "LBAdi";
+            this.LBAdi.Size = new System.Drawing.Size(37, 13);
+            this.LBAdi.TabIndex = 1;
+            this.LBAdi.Text = "Cari Adı";
             // 
-            // LBBakiyeDeger
+            // BTKoduSec
             // 
-            this.LBBakiyeDeger.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBBakiyeDeger.Appearance.Options.UseFont = true;
-            this.LBBakiyeDeger.Location = new System.Drawing.Point(648, 49);
-            this.LBBakiyeDeger.Name = "LBBakiyeDeger";
-            this.LBBakiyeDeger.Size = new System.Drawing.Size(9, 19);
-            this.LBBakiyeDeger.TabIndex = 11;
-            this.LBBakiyeDeger.Text = "0";
+            this.BTKoduSec.Location = new System.Drawing.Point(116, 30);
+            this.BTKoduSec.Name = "BTKoduSec";
+            this.BTKoduSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.BTKoduSec.Size = new System.Drawing.Size(158, 20);
+            this.BTKoduSec.TabIndex = 2;
             // 
-            // LBBorcDeger
+            // TBAdi
             // 
-            this.LBBorcDeger.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBBorcDeger.Appearance.Options.UseFont = true;
-            this.LBBorcDeger.Location = new System.Drawing.Point(425, 49);
-            this.LBBorcDeger.Name = "LBBorcDeger";
-            this.LBBorcDeger.Size = new System.Drawing.Size(9, 19);
-            this.LBBorcDeger.TabIndex = 10;
-            this.LBBorcDeger.Text = "0";
+            this.TBAdi.Location = new System.Drawing.Point(116, 56);
+            this.TBAdi.Name = "TBAdi";
+            this.TBAdi.Size = new System.Drawing.Size(158, 20);
+            this.TBAdi.TabIndex = 3;
             // 
-            // LBBakiye
+            // LBAlacak
             // 
-            this.LBBakiye.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBBakiye.Appearance.Options.UseFont = true;
-            this.LBBakiye.Location = new System.Drawing.Point(629, 19);
-            this.LBBakiye.Name = "LBBakiye";
-            this.LBBakiye.Size = new System.Drawing.Size(45, 19);
-            this.LBBakiye.TabIndex = 9;
-            this.LBBakiye.Text = "Bakiye";
-            // 
-            // Alacak
-            // 
-            this.Alacak.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Alacak.Appearance.Options.UseFont = true;
-            this.Alacak.Location = new System.Drawing.Point(519, 19);
-            this.Alacak.Name = "Alacak";
-            this.Alacak.Size = new System.Drawing.Size(47, 19);
-            this.Alacak.TabIndex = 8;
-            this.Alacak.Text = "Alacak";
+            this.LBAlacak.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBAlacak.Appearance.Options.UseFont = true;
+            this.LBAlacak.Location = new System.Drawing.Point(397, 28);
+            this.LBAlacak.Name = "LBAlacak";
+            this.LBAlacak.Size = new System.Drawing.Size(42, 18);
+            this.LBAlacak.TabIndex = 4;
+            this.LBAlacak.Text = "Alacak";
             // 
             // LBBorc
             // 
-            this.LBBorc.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBBorc.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBBorc.Appearance.Options.UseFont = true;
-            this.LBBorc.Location = new System.Drawing.Point(414, 19);
+            this.LBBorc.Location = new System.Drawing.Point(479, 28);
             this.LBBorc.Name = "LBBorc";
-            this.LBBorc.Size = new System.Drawing.Size(31, 19);
-            this.LBBorc.TabIndex = 7;
+            this.LBBorc.Size = new System.Drawing.Size(29, 18);
+            this.LBBorc.TabIndex = 5;
             this.LBBorc.Text = "Borç";
             // 
-            // LBCariKodu
+            // LBToplam
             // 
-            this.LBCariKodu.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBCariKodu.Appearance.Options.UseFont = true;
-            this.LBCariKodu.Location = new System.Drawing.Point(92, 34);
-            this.LBCariKodu.Name = "LBCariKodu";
-            this.LBCariKodu.Size = new System.Drawing.Size(51, 14);
-            this.LBCariKodu.TabIndex = 6;
-            this.LBCariKodu.Text = "Cari Kodu";
-            this.LBCariKodu.Click += new System.EventHandler(this.LBCariKodu_Click);
+            this.LBToplam.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBToplam.Appearance.Options.UseFont = true;
+            this.LBToplam.Location = new System.Drawing.Point(541, 28);
+            this.LBToplam.Name = "LBToplam";
+            this.LBToplam.Size = new System.Drawing.Size(49, 18);
+            this.LBToplam.TabIndex = 6;
+            this.LBToplam.Text = "Toplam";
             // 
-            // TECariKodu
+            // LBAlacakDeger
             // 
-            this.TECariKodu.EditValue = "";
-            this.TECariKodu.Location = new System.Drawing.Point(149, 58);
-            this.TECariKodu.Name = "TECariKodu";
-            this.TECariKodu.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TECariKodu.Properties.Appearance.Options.UseFont = true;
-            this.TECariKodu.Size = new System.Drawing.Size(180, 24);
-            this.TECariKodu.TabIndex = 62;
+            this.LBAlacakDeger.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBAlacakDeger.Appearance.Options.UseFont = true;
+            this.LBAlacakDeger.Location = new System.Drawing.Point(413, 58);
+            this.LBAlacakDeger.Name = "LBAlacakDeger";
+            this.LBAlacakDeger.Size = new System.Drawing.Size(8, 18);
+            this.LBAlacakDeger.TabIndex = 7;
+            this.LBAlacakDeger.Text = "0";
             // 
-            // BECariKoduSec
+            // LBBorcDeger
             // 
-            this.BECariKoduSec.Location = new System.Drawing.Point(149, 26);
-            this.BECariKoduSec.Name = "BECariKoduSec";
-            this.BECariKoduSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.BECariKoduSec.Properties.Padding = new System.Windows.Forms.Padding(3);
-            
-            this.BECariKoduSec.Size = new System.Drawing.Size(180, 26);
-            this.BECariKoduSec.TabIndex = 63;
+            this.LBBorcDeger.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBBorcDeger.Appearance.Options.UseFont = true;
+            this.LBBorcDeger.Location = new System.Drawing.Point(488, 57);
+            this.LBBorcDeger.Name = "LBBorcDeger";
+            this.LBBorcDeger.Size = new System.Drawing.Size(8, 18);
+            this.LBBorcDeger.TabIndex = 8;
+            this.LBBorcDeger.Text = "0";
+            // 
+            // LBToplamDeger
+            // 
+            this.LBToplamDeger.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBToplamDeger.Appearance.Options.UseFont = true;
+            this.LBToplamDeger.Location = new System.Drawing.Point(560, 57);
+            this.LBToplamDeger.Name = "LBToplamDeger";
+            this.LBToplamDeger.Size = new System.Drawing.Size(8, 18);
+            this.LBToplamDeger.TabIndex = 9;
+            this.LBToplamDeger.Text = "0";
             // 
             // FCariDurum
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1184, 584);
-            this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.ClientSize = new System.Drawing.Size(941, 538);
+            this.Controls.Add(this.panelControl1);
             this.Name = "FCariDurum";
             this.Text = "FCariDurum";
-            this.Load += new System.EventHandler(this.FCariDurum_Load);
-            this.panel1.ResumeLayout(false);
-            this.PLCariDurum1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            this.panelControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
+            this.panelControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
+            this.panelControl3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
+            this.groupControl1.ResumeLayout(false);
+            this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGCariDurum)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            this.PLCariDurum.ResumeLayout(false);
-            this.PLCariDurum.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TECariKodu.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BECariKoduSec.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BTKoduSec.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBAdi.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private Panel panel1;
-        private Panel PLCariDurum;
-        private Panel PLCariDurum1;
-        private DevExpress.XtraEditors.LabelControl LBCariKodu;
-        private DevExpress.XtraEditors.LabelControl LBBorc;
-        private DevExpress.XtraEditors.LabelControl LBAlacakDeger;
-        private DevExpress.XtraEditors.LabelControl LBBakiyeDeger;
-        private DevExpress.XtraEditors.LabelControl LBBorcDeger;
-        private DevExpress.XtraEditors.LabelControl LBBakiye;
-        private DevExpress.XtraEditors.LabelControl Alacak;
-        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraEditors.PanelControl panelControl1;
+        private DevExpress.XtraEditors.PanelControl panelControl3;
+        private DevExpress.XtraGrid.GridControl DGCariDurum;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraEditors.TextEdit TECariKodu;
-        private DevExpress.XtraEditors.ButtonEdit BECariKoduSec;
+        private DevExpress.XtraEditors.PanelControl panelControl2;
+        private DevExpress.XtraEditors.GroupControl groupControl1;
+        private DevExpress.XtraEditors.TextEdit TBAdi;
+        private DevExpress.XtraEditors.ButtonEdit BTKoduSec;
+        private DevExpress.XtraEditors.LabelControl LBAdi;
+        private DevExpress.XtraEditors.LabelControl LBKodu;
+        private DevExpress.XtraEditors.LabelControl LBToplam;
+        private DevExpress.XtraEditors.LabelControl LBBorc;
+        private DevExpress.XtraEditors.LabelControl LBAlacak;
+        private DevExpress.XtraEditors.LabelControl LBToplamDeger;
+        private DevExpress.XtraEditors.LabelControl LBBorcDeger;
+        private DevExpress.XtraEditors.LabelControl LBAlacakDeger;
     }
 }
