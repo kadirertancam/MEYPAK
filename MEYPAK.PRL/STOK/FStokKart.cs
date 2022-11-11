@@ -3,6 +3,7 @@ using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.BLL.Assets;
 using System.IO;
 using MEYPAK.Interfaces.Stok;
+using DevExpress.XtraEditors;
 
 namespace MEYPAK.PRL
 {
@@ -64,6 +65,7 @@ namespace MEYPAK.PRL
 
         private void tbDoldur()                                                 // _tempStok nesnesi dolduğu zaman bu method ile formdaki nesneleri doldur
         {
+            _stokResimServis.Data(ServisList.StokResimListeServis);
             _PocoStokServis.Data(ServisList.StokListeServis);
             _markaServis.Data(ServisList.StokMarkaListeServis);
             if (_tempStok != null)
@@ -93,8 +95,16 @@ namespace MEYPAK.PRL
             TBSFiyat3.Text = Convert.ToString(_tempStok.sfiyaT3);
             TBSFiyat4.Text = Convert.ToString(_tempStok.sfiyaT4);
             TBSFiyat5.Text = Convert.ToString(_tempStok.sfiyaT5);
-           // CBBirim.Text = _tempStokOlcuBr.ToString();
-            //dataGridView1.DataSource = _tempStok.MPSTOKOLCUBR.ToList();
+
+            if(_tempStok.id!=null)
+            gridControl2.DataSource= _stokResimServis.obje.Where(x=>x.STOKID== stokid).Select(x=> new { Resim=Base64ToImage(x.IMG) });
+
+
+
+
+
+
+            gridControl1.DataSource = _StokOlcuBrServis.obje.Where(x=>x.stokid== stokid).Select(x=>_PocoOlcuBrServis.obje.Where(z=>z.id==x.olcubrid).FirstOrDefault().adi);
             gridControl1.Refresh();
             //var a = _PocoStokServis.obje.Select(x=>x.mpst.Select(z=>z));
             //stokOlculist = _tempStok.MPSTOKOLCUBR.ToList();
@@ -399,8 +409,7 @@ namespace MEYPAK.PRL
                     string DosyaAdi = ofd.SafeFileName;
                     buttonEdit1.Text = DosyaYolu;
                     pictureEdit1.Image = new Bitmap(DosyaYolu);
-                    base64 =  ImageToBase64(DosyaYolu);
-                    memoEdit1.Text = base64;
+                    base64 =  ImageToBase64(DosyaYolu); 
                 }
             }
         }
@@ -467,10 +476,10 @@ namespace MEYPAK.PRL
                     IMG = base64, 
                 });
             }
-           pictureEdit2.Image= Base64ToImage(memoEdit1.Text);
-
+          
         }
 
+      
         private void BTStokKodu_EditValueChanged(object sender, EventArgs e)
         {
 

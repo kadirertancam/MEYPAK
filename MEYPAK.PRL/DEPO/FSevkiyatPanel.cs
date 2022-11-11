@@ -27,6 +27,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Security.Policy;
 using System.Text;
@@ -55,6 +56,7 @@ namespace MEYPAK.PRL.DEPO
             _olcuBrServis = new GenericWebServis<PocoOLCUBR>();
             _depoServis = new GenericWebServis<PocoDEPO>();
             _depoCekiListServis = new GenericWebServis<PocoDEPOCEKILIST>();
+            _stokResimServis = new GenericWebServis<PocoSTOKRESIM>();
         }
         DataGridViewButtonColumn DGVTopla;
         List<PocoSIPARIS> _tempSiparis;
@@ -72,6 +74,7 @@ namespace MEYPAK.PRL.DEPO
         public GenericWebServis<PocoOLCUBR> _olcuBrServis;
         public GenericWebServis<PocoDEPO> _depoServis;
         public GenericWebServis<PocoDEPOCEKILIST> _depoCekiListServis;
+        public GenericWebServis<PocoSTOKRESIM> _stokResimServis;
         FDepoIsEmriPanel fDepoIsEmriPanel;
 
         #region TabControl Tasarım
@@ -314,7 +317,7 @@ namespace MEYPAK.PRL.DEPO
                 //dataGridView4.DataSource = tempp;
             }
             Bitmap bt = new Bitmap("C:\\Users\\User\\source\\repos\\Proje\\MEYPAK\\MEYPAK.PRL\\img\\icon-02.png");
-
+            _stokResimServis.Data(ServisList.StokResimListeServis);
             gridControl3.DataSource = _siparisSevkEmriHarServis.obje.Where(x => x.emirid.ToString() == tileView2.GetFocusedRowCellValue("ID").ToString() && x.kayittipi==0 ).Select(x =>
              new
              {
@@ -325,6 +328,7 @@ namespace MEYPAK.PRL.DEPO
                  SiparisMiktari = x.siparismiktari,
                  EmirMiktari = x.emirmiktari,
                  KalanMiktar = _stokSevkiyatList.obje.Where(z => z.emirid == x.emirid && z.siparisdetayid == x.sipariskalemid).FirstOrDefault().kalanmiktar
+                 ,Resim=Base64ToImage(_stokResimServis.obje.Where(z=>z.STOKID== _siparisDetayServis.obje.Where(c => c.id == x.sipariskalemid && c.siparisid == x.siparisid).FirstOrDefault().stokid && z.NUM==0 ).FirstOrDefault().IMG)
                  //x.siparismiktari-x.emirmiktari
              ,
                  DepoButon = bt
@@ -336,7 +340,25 @@ namespace MEYPAK.PRL.DEPO
             gridControl4.DataSource = tempp2;
 
         }
+        public object base64resim;
+        public System.Drawing.Image Base64ToImage(string base64String)
+        {
+            try
+            {
+                byte[] imageBytes = Convert.FromBase64String(base64String);
+                MemoryStream ms = new MemoryStream(imageBytes, 0, imageBytes.Length);
+                ms.Write(imageBytes, 0, imageBytes.Length);
+                System.Drawing.Image image = System.Drawing.Image.FromStream(ms, true);
+                return image;
+            }
+            catch (Exception)
+            {
 
+                return null;
+            }
+
+        }
+        string b64string = "";
         private void tileView1_Click(object sender, EventArgs e)
         {
             _depoServis.Data(ServisList.DepoListeServis);

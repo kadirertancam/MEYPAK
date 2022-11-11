@@ -29,6 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FStokKart));
+            DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition2 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
+            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition2 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement2 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions7 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject25 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject26 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject27 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject28 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -54,11 +62,7 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject18 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject19 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject20 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions6 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject21 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject22 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject23 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject24 = new DevExpress.Utils.SerializableAppearanceObject();
+            this.Resim = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.BTStokKartiKaydet = new DevExpress.XtraEditors.SimpleButton();
@@ -175,15 +179,16 @@
             this.LBStokKartiRaporKodu2 = new DevExpress.XtraEditors.LabelControl();
             this.LBStokKartiRaporKodu1 = new DevExpress.XtraEditors.LabelControl();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
-            this.pictureEdit2 = new DevExpress.XtraEditors.PictureEdit();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.gridControl2 = new DevExpress.XtraGrid.GridControl();
+            this.tileView1 = new DevExpress.XtraGrid.Views.Tile.TileView();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
-            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            this.memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.buttonEdit1 = new DevExpress.XtraEditors.ButtonEdit();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.panel2 = new System.Windows.Forms.Panel();
             this.GBStokKarti = new System.Windows.Forms.GroupBox();
             this.GBSatisKartiOzellik = new System.Windows.Forms.GroupBox();
@@ -275,15 +280,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.TEStokKartRaporKodu2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TEStokKartRaporKodu1.Properties)).BeginInit();
             this.tabPage5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
-            this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
-            this.panelControl3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit2.Properties)).BeginInit();
+            this.panel13.SuspendLayout();
+            this.panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tileView1)).BeginInit();
+            this.panel12.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
-            this.panelControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonEdit1.Properties)).BeginInit();
             this.panel2.SuspendLayout();
             this.GBStokKarti.SuspendLayout();
@@ -304,6 +307,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.BTStokKodu.Properties)).BeginInit();
             this.SuspendLayout();
             // 
+            // Resim
+            // 
+            this.Resim.AccessibleName = "Resim";
+            this.Resim.Caption = "Resim";
+            this.Resim.FieldName = "Resim";
+            this.Resim.Name = "Resim";
+            this.Resim.Visible = true;
+            this.Resim.VisibleIndex = 0;
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.panel4);
@@ -313,17 +325,17 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1128, 795);
+            this.panel1.Size = new System.Drawing.Size(1128, 931);
             this.panel1.TabIndex = 0;
             // 
             // panel4
             // 
             this.panel4.Controls.Add(this.BTStokKartiKaydet);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(0, 693);
+            this.panel4.Location = new System.Drawing.Point(0, 889);
             this.panel4.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1128, 102);
+            this.panel4.Size = new System.Drawing.Size(1128, 42);
             this.panel4.TabIndex = 4;
             // 
             // BTStokKartiKaydet
@@ -341,11 +353,11 @@
             // panel3
             // 
             this.panel3.Controls.Add(this.tabControl1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 356);
             this.panel3.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1128, 420);
+            this.panel3.Size = new System.Drawing.Size(1128, 575);
             this.panel3.TabIndex = 3;
             // 
             // tabControl1
@@ -360,7 +372,7 @@
             this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1128, 420);
+            this.tabControl1.Size = new System.Drawing.Size(1128, 575);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -372,7 +384,7 @@
             this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.tabPage1.Size = new System.Drawing.Size(1120, 392);
+            this.tabPage1.Size = new System.Drawing.Size(1120, 547);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Fiyat Girişi";
             // 
@@ -693,7 +705,7 @@
             this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.tabPage2.Size = new System.Drawing.Size(1120, 392);
+            this.tabPage2.Size = new System.Drawing.Size(1120, 547);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Ölçü Birimleri";
             // 
@@ -704,7 +716,7 @@
             this.panel8.Location = new System.Drawing.Point(4, 102);
             this.panel8.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(1112, 288);
+            this.panel8.Size = new System.Drawing.Size(1112, 443);
             this.panel8.TabIndex = 4;
             // 
             // gridControl1
@@ -713,7 +725,7 @@
             this.gridControl1.Location = new System.Drawing.Point(0, 0);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1112, 288);
+            this.gridControl1.Size = new System.Drawing.Size(1112, 443);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -831,7 +843,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 24);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1120, 392);
+            this.tabPage3.Size = new System.Drawing.Size(1120, 547);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Açıklamalar";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -845,7 +857,7 @@
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1120, 392);
+            this.panel5.Size = new System.Drawing.Size(1120, 547);
             this.panel5.TabIndex = 0;
             // 
             // GBStokKartiSayisalAciklama
@@ -1407,7 +1419,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 24);
             this.tabPage4.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(1120, 392);
+            this.tabPage4.Size = new System.Drawing.Size(1120, 547);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Rapor Kodları";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -1420,7 +1432,7 @@
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1120, 392);
+            this.panel6.Size = new System.Drawing.Size(1120, 547);
             this.panel6.TabIndex = 0;
             // 
             // GBStokKartiRaporKodu
@@ -1841,95 +1853,127 @@
             // 
             // tabPage5
             // 
-            this.tabPage5.Controls.Add(this.panelControl1);
+            this.tabPage5.Controls.Add(this.panel13);
+            this.tabPage5.Controls.Add(this.panel12);
             this.tabPage5.Location = new System.Drawing.Point(4, 24);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(1120, 392);
+            this.tabPage5.Size = new System.Drawing.Size(1120, 547);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Resim";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
-            // panelControl1
+            // panel13
             // 
-            this.panelControl1.Controls.Add(this.panelControl3);
-            this.panelControl1.Controls.Add(this.panelControl2);
-            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl1.Location = new System.Drawing.Point(0, 0);
-            this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1120, 392);
-            this.panelControl1.TabIndex = 0;
+            this.panel13.Controls.Add(this.panel10);
+            this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel13.Location = new System.Drawing.Point(0, 130);
+            this.panel13.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(1120, 417);
+            this.panel13.TabIndex = 5;
             // 
-            // panelControl3
+            // panel10
             // 
-            this.panelControl3.Controls.Add(this.pictureEdit2);
-            this.panelControl3.Controls.Add(this.pictureEdit1);
-            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl3.Location = new System.Drawing.Point(2, 115);
-            this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(1116, 275);
-            this.panelControl3.TabIndex = 1;
+            this.panel10.Controls.Add(this.gridControl2);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel10.Location = new System.Drawing.Point(0, 0);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(1120, 417);
+            this.panel10.TabIndex = 4;
             // 
-            // pictureEdit2
+            // gridControl2
             // 
-            this.pictureEdit2.Location = new System.Drawing.Point(350, 5);
-            this.pictureEdit2.Name = "pictureEdit2";
-            this.pictureEdit2.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.pictureEdit2.Size = new System.Drawing.Size(178, 197);
-            this.pictureEdit2.TabIndex = 3;
+            this.gridControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl2.Location = new System.Drawing.Point(0, 0);
+            this.gridControl2.MainView = this.tileView1;
+            this.gridControl2.Name = "gridControl2";
+            this.gridControl2.Size = new System.Drawing.Size(1120, 417);
+            this.gridControl2.TabIndex = 0;
+            this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.tileView1});
+            // 
+            // tileView1
+            // 
+            this.tileView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.Resim});
+            this.tileView1.GridControl = this.gridControl2;
+            this.tileView1.Name = "tileView1";
+            this.tileView1.OptionsTiles.GroupTextPadding = new System.Windows.Forms.Padding(12, 8, 12, 8);
+            this.tileView1.OptionsTiles.IndentBetweenGroups = 0;
+            this.tileView1.OptionsTiles.IndentBetweenItems = 0;
+            this.tileView1.OptionsTiles.LayoutMode = DevExpress.XtraGrid.Views.Tile.TileViewLayoutMode.List;
+            this.tileView1.OptionsTiles.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.tileView1.OptionsTiles.Padding = new System.Windows.Forms.Padding(0);
+            this.tileView1.OptionsTiles.RowCount = 0;
+            this.tileView1.TileColumns.Add(tableColumnDefinition2);
+            this.tileView1.TileRows.Add(tableRowDefinition2);
+            tileViewItemElement2.Column = this.Resim;
+            tileViewItemElement2.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileViewItemElement2.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Squeeze;
+            tileViewItemElement2.Text = "Resim";
+            tileViewItemElement2.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileView1.TileTemplate.Add(tileViewItemElement2);
+            // 
+            // panel12
+            // 
+            this.panel12.Controls.Add(this.groupBox1);
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel12.Location = new System.Drawing.Point(0, 0);
+            this.panel12.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(1120, 130);
+            this.panel12.TabIndex = 4;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.pictureEdit1);
+            this.groupBox1.Controls.Add(this.simpleButton1);
+            this.groupBox1.Controls.Add(this.buttonEdit1);
+            this.groupBox1.Controls.Add(this.labelControl4);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.groupBox1.Size = new System.Drawing.Size(1120, 130);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Birim Bilgileri";
             // 
             // pictureEdit1
             // 
-            this.pictureEdit1.Location = new System.Drawing.Point(79, 5);
+            this.pictureEdit1.Location = new System.Drawing.Point(348, 15);
             this.pictureEdit1.Name = "pictureEdit1";
             this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.pictureEdit1.Size = new System.Drawing.Size(178, 197);
-            this.pictureEdit1.TabIndex = 2;
-            // 
-            // panelControl2
-            // 
-            this.panelControl2.Controls.Add(this.memoEdit1);
-            this.panelControl2.Controls.Add(this.simpleButton1);
-            this.panelControl2.Controls.Add(this.labelControl4);
-            this.panelControl2.Controls.Add(this.buttonEdit1);
-            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl2.Location = new System.Drawing.Point(2, 2);
-            this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(1116, 113);
-            this.panelControl2.TabIndex = 0;
-            // 
-            // memoEdit1
-            // 
-            this.memoEdit1.Location = new System.Drawing.Point(477, -3);
-            this.memoEdit1.Name = "memoEdit1";
-            this.memoEdit1.Size = new System.Drawing.Size(293, 116);
-            this.memoEdit1.TabIndex = 4;
+            this.pictureEdit1.Size = new System.Drawing.Size(103, 103);
+            this.pictureEdit1.TabIndex = 5;
             // 
             // simpleButton1
             // 
-            this.simpleButton1.Location = new System.Drawing.Point(216, 53);
+            this.simpleButton1.Location = new System.Drawing.Point(242, 63);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(78, 54);
-            this.simpleButton1.TabIndex = 3;
+            this.simpleButton1.TabIndex = 7;
             this.simpleButton1.Text = "Kaydet";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
-            // labelControl4
-            // 
-            this.labelControl4.Location = new System.Drawing.Point(16, 31);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(57, 13);
-            this.labelControl4.TabIndex = 1;
-            this.labelControl4.Text = "Dosya Yolu:";
-            // 
             // buttonEdit1
             // 
-            this.buttonEdit1.Location = new System.Drawing.Point(79, 28);
+            this.buttonEdit1.Location = new System.Drawing.Point(105, 38);
             this.buttonEdit1.Name = "buttonEdit1";
             this.buttonEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions7, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject25, serializableAppearanceObject26, serializableAppearanceObject27, serializableAppearanceObject28, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.buttonEdit1.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.buttonEdit1_Properties_ButtonClick_1);
             this.buttonEdit1.Size = new System.Drawing.Size(215, 22);
-            this.buttonEdit1.TabIndex = 0;
+            this.buttonEdit1.TabIndex = 4;
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Location = new System.Drawing.Point(42, 41);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(57, 13);
+            this.labelControl4.TabIndex = 6;
+            this.labelControl4.Text = "Dosya Yolu:";
             // 
             // panel2
             // 
@@ -2197,7 +2241,7 @@
             this.BTKasa.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.BTKasa.Properties.Appearance.Options.UseFont = true;
             this.BTKasa.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTKasa.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.BTKasa.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.buttonEdit5_Properties_ButtonClick);
             this.BTKasa.Size = new System.Drawing.Size(194, 26);
@@ -2211,7 +2255,7 @@
             this.BTGrupKodu.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.BTGrupKodu.Properties.Appearance.Options.UseFont = true;
             this.BTGrupKodu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTGrupKodu.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.BTGrupKodu.Size = new System.Drawing.Size(194, 26);
             this.BTGrupKodu.TabIndex = 22;
@@ -2224,7 +2268,7 @@
             this.BTKategori.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.BTKategori.Properties.Appearance.Options.UseFont = true;
             this.BTKategori.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTKategori.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.BTKategori.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.buttonEdit3_Properties_ButtonClick);
             this.BTKategori.Size = new System.Drawing.Size(194, 26);
@@ -2238,7 +2282,7 @@
             this.BTMarka.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.BTMarka.Properties.Appearance.Options.UseFont = true;
             this.BTMarka.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTMarka.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.BTMarka.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.buttonEdit2_Properties_ButtonClick);
             this.BTMarka.Size = new System.Drawing.Size(194, 26);
@@ -2262,7 +2306,7 @@
             this.BTStokKodu.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.BTStokKodu.Properties.Appearance.Options.UseFont = true;
             this.BTStokKodu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions6, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject21, serializableAppearanceObject22, serializableAppearanceObject23, serializableAppearanceObject24, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTStokKodu.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.BTStokKodu.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.buttonEdit1_Properties_ButtonClick);
             this.BTStokKodu.Size = new System.Drawing.Size(194, 26);
@@ -2274,7 +2318,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1128, 795);
+            this.ClientSize = new System.Drawing.Size(1128, 931);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -2351,16 +2395,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.TEStokKartRaporKodu2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TEStokKartRaporKodu1.Properties)).EndInit();
             this.tabPage5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
-            this.panelControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
-            this.panelControl3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit2.Properties)).EndInit();
+            this.panel13.ResumeLayout(false);
+            this.panel10.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tileView1)).EndInit();
+            this.panel12.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
-            this.panelControl2.ResumeLayout(false);
-            this.panelControl2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonEdit1.Properties)).EndInit();
             this.panel2.ResumeLayout(false);
             this.GBStokKarti.ResumeLayout(false);
@@ -2531,14 +2573,16 @@
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private TabPage tabPage5;
-        private DevExpress.XtraEditors.PanelControl panelControl1;
-        private DevExpress.XtraEditors.PanelControl panelControl3;
-        private DevExpress.XtraEditors.PanelControl panelControl2;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private Panel panel13;
+        private Panel panel10;
+        private DevExpress.XtraGrid.GridControl gridControl2;
+        private DevExpress.XtraGrid.Views.Tile.TileView tileView1;
+        private DevExpress.XtraGrid.Columns.TileViewColumn Resim;
+        private Panel panel12;
+        private GroupBox groupBox1;
         private DevExpress.XtraEditors.PictureEdit pictureEdit1;
-        private DevExpress.XtraEditors.LabelControl labelControl4;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.ButtonEdit buttonEdit1;
-        private DevExpress.XtraEditors.MemoEdit memoEdit1;
-        private DevExpress.XtraEditors.PictureEdit pictureEdit2;
+        private DevExpress.XtraEditors.LabelControl labelControl4;
     }
 }

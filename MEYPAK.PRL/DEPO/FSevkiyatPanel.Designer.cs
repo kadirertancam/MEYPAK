@@ -84,6 +84,7 @@
             this.repositoryItemImageEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemImageEdit();
             this.CCerceve = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.repositoryItemImageEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemImageEdit();
+            this.Resim = new DevExpress.XtraGrid.Columns.TileViewColumn();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -304,7 +305,8 @@
             this.KalanMiktar,
             this.Birim,
             this.IEDepo,
-            this.DepoButon});
+            this.DepoButon,
+            this.Resim});
             this.tileView3.GridControl = this.gridControl3;
             this.tileView3.Name = "tileView3";
             this.tileView3.OptionsTiles.GroupTextPadding = new System.Windows.Forms.Padding(12, 8, 12, 8);
@@ -714,6 +716,15 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.repositoryItemImageEdit1.Name = "repositoryItemImageEdit1";
             // 
+            // Resim
+            // 
+            this.Resim.AccessibleName = "Resim";
+            this.Resim.Caption = "Resim";
+            this.Resim.FieldName = "Resim";
+            this.Resim.Name = "Resim";
+            this.Resim.Visible = true;
+            this.Resim.VisibleIndex = 10;
+            // 
             // FSevkiyatPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -809,5 +820,6 @@
         private DevExpress.XtraGrid.Columns.TileViewColumn CBIRIM;
         private DevExpress.XtraGrid.Columns.TileViewColumn CDEPO;
         private DevExpress.XtraGrid.Columns.TileViewColumn Renk;
+        private DevExpress.XtraGrid.Columns.TileViewColumn Resim;
     }
 }

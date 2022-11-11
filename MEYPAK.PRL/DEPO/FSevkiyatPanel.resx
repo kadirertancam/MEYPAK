@@ -352,7 +352,7 @@
     <value>&lt;div class="root" id="root"&gt;
 	&lt;div class="content"&gt;
 		&lt;div class="initials" id="initials"&gt;
-		&lt;div id="photo"&gt;&lt;img class="photo" src="${Photo}"/&gt;&lt;/div&gt;&lt;/div&gt;
+		&lt;div id="photo"&gt;&lt;img class="photo" src="${Resim}"/&gt;&lt;/div&gt;&lt;/div&gt;
 		&lt;div class="flex-container"&gt;
 			
 		 	&lt;div class="plaintext2"&gt; &lt;div&gt;${StokKodu}&lt;/div&gt; &lt;div style="padding-top:5px;"&gt;${StokAdi}&lt;/div&gt;
