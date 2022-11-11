@@ -1,6 +1,8 @@
 ﻿using MEYPAK.PRL.STOK;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.BLL.Assets;
+using System.IO;
+using MEYPAK.Interfaces.Stok;
 
 namespace MEYPAK.PRL
 {
@@ -17,9 +19,10 @@ namespace MEYPAK.PRL
             _StokOlcuBrServis = new GenericWebServis<PocoSTOKOLCUBR>();
             _PocoStokServis = new GenericWebServis<PocoSTOK>();
             _markaServis = new GenericWebServis<PocoSTOKMARKA>();
-            _StokOlcuBrServis.Data(ServisList.StokOlcuBrListeServis);
             stokOlculist = new List<PocoSTOKOLCUBR>();
-            
+            _stokResimServis = new GenericWebServis<PocoSTOKRESIM>();
+
+
         }
         #region Tanımlar
         PocoSTOKOLCUBR _tempStokOlcuBr;
@@ -27,8 +30,8 @@ namespace MEYPAK.PRL
         public PocoSTOKKASA _tempKasa;
         public PocoSTOKKATEGORI _tempKategori;
         public PocoSTOKMARKA _tempMarka;
-        
-      
+
+        GenericWebServis<PocoSTOKRESIM> _stokResimServis;
         GenericWebServis<PocoSTOKMARKA> _markaServis ;
         GenericWebServis<PocoSTOK> _PocoStokServis;
         GenericWebServis<PocoOLCUBR> _PocoOlcuBrServis;
@@ -118,6 +121,7 @@ namespace MEYPAK.PRL
         #region Events
         private void Form1_Load(object sender, EventArgs e)
         {
+             
             _StokOlcuBrServis.Data(ServisList.StokOlcuBrListeServis);
             _PocoOlcuBrServis.Data(ServisList.OlcuBrListeServis);
             _tempPocoOLCUBR = _PocoOlcuBrServis.obje;
@@ -393,6 +397,90 @@ namespace MEYPAK.PRL
             stokOlculist.Add(_tempStokOlcuBr);
             gridControl1.DataSource = stokOlculist;
             gridControl1.Refresh();
+        }
+        string base64 = "";
+        private void buttonEdit1_Properties_ButtonClick_1(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            if (e.Button.Caption == "Seç")
+            {
+                OpenFileDialog ofd = new OpenFileDialog();
+                ofd.Filter = "TümDosyalar |*.*|Jpeg Dosyası |*.jpeg| Jpg Dosyası|*.jpg| PNG Dosyası|*.png| ICO Dosyası|*.ico;";
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    string DosyaYolu = ofd.FileName;
+                    string DosyaAdi = ofd.SafeFileName;
+                    buttonEdit1.Text = DosyaYolu;
+                    pictureEdit1.Image = new Bitmap(DosyaYolu);
+                    base64 =  ImageToBase64(DosyaYolu);
+                    memoEdit1.Text = base64;
+                }
+            }
+        }
+        public object base64resim; 
+        public System.Drawing.Image Base64ToImage(string base64String)
+        {
+            try
+            {
+                byte[] imageBytes = Convert.FromBase64String(base64String);
+                MemoryStream ms = new MemoryStream(imageBytes, 0, imageBytes.Length);
+                ms.Write(imageBytes, 0, imageBytes.Length);
+                System.Drawing.Image image = System.Drawing.Image.FromStream(ms, true);
+                return image;
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
+
+        }
+        string b64string="";
+        public string ImageToBase64(string path)
+        {
+            try
+            {
+
+
+                using (System.Drawing.Image image = System.Drawing.Image.FromFile(path))
+                {
+                    using (MemoryStream m = new MemoryStream())
+                    {
+                        image.Save(m, image.RawFormat);
+                        byte[] imageBytes = m.ToArray();
+                        b64string = Convert.ToBase64String(imageBytes);
+                        return b64string;
+                    }
+                }
+            }
+            catch
+            {
+                return "";
+            }
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            _stokResimServis.Data(ServisList.StokResimListeServis);
+            if (_stokResimServis.obje.Where(x => x.STOKID == _tempStok.id).Count() == 0) {
+                _stokResimServis.Data(ServisList.StokResimEkleServis, new PocoSTOKRESIM()
+                {
+                    STOKID = _tempStok.id,
+                    NUM = 0,
+                    IMG = base64,
+
+                });
+            }
+            else
+            {
+                _stokResimServis.Data(ServisList.StokResimEkleServis, new PocoSTOKRESIM()
+                {
+                    STOKID = _tempStok.id,
+                    NUM = _stokResimServis.obje.Where(x => x.STOKID == _tempStok.id).Last().NUM,
+                    IMG = base64, 
+                });
+            }
+           pictureEdit2.Image= Base64ToImage(memoEdit1.Text);
+
         }
 
         private void TBSatisOtv_KeyPress(object sender, KeyPressEventArgs e)

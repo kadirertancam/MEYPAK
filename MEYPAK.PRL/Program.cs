@@ -28,7 +28,7 @@ namespace MEYPAK.PRL
             NinjectFactory.CompositionRoot.Initialize(a);
             ApplicationConfiguration.Initialize();
             Application.EnableVisualStyles();
-            Application.Run(new FPersonelKart());
+            Application.Run(new Main());
         }
         //
 

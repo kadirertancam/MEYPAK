@@ -37,7 +37,7 @@ namespace MEYPAK.PRL.DEPO
             _stokHarServis.Data(ServisList.StokHarListeServis);
             _depoServis.Data(ServisList.DepoListeServis);
             var _tempStok = _stokServis.obje.Where(x => x.kod == _stokKodu && x.kayittipi == 0).FirstOrDefault();
-            gridControl1.DataSource = _depoServis.obje.Where(x=>x.kayittipi==0).Select(x => new { DepoAdı=x.depoadi,StokKodu=_tempStok.kod,StokAdı=_tempStok.adi,Miktar=_stokHarServis.obje.Where(z => z.depoid == x.id && z.io==1 && z.kayittipi==0).Sum(z => z.miktar)- _stokHarServis.obje.Where(z => z.depoid == x.id && z.io==0 && z.kayittipi==0).Sum(z => z.miktar) });
+            gridControl1.DataSource = _depoServis.obje.Where(x=>x.kayittipi==0).Select(x => new { DepoAdı=x.depoadi,StokKodu=_tempStok.kod,StokAdı=_tempStok.adi,Miktar=_stokHarServis.obje.Where(z => z.depoid == x.id && z.io==1 && z.stokid==_tempStok.id&& z.kayittipi==0).Sum(z => z.miktar)- _stokHarServis.obje.Where(z => z.depoid == x.id && z.io==0 && z.stokid==_tempStok.id&& z.kayittipi==0).Sum(z => z.miktar) });
            
         }
     }

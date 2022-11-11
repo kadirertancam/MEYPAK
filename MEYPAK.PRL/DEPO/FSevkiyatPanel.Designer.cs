@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FSevkiyatPanel));
+            DevExpress.XtraGrid.GridFormatRule gridFormatRule1 = new DevExpress.XtraGrid.GridFormatRule();
+            DevExpress.XtraEditors.FormatConditionRule2ColorScale formatConditionRule2ColorScale1 = new DevExpress.XtraEditors.FormatConditionRule2ColorScale();
+            this.Renk = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.DURUM = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.repositoryItemPictureEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -67,7 +71,6 @@
             this.CARIADI = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.DEPO = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.TIP = new DevExpress.XtraGrid.Columns.TileViewColumn();
-            this.DURUM = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dataGridView5 = new System.Windows.Forms.DataGridView();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -107,6 +110,24 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageEdit1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // Renk
+            // 
+            this.Renk.AccessibleName = "Renk";
+            this.Renk.Caption = "Renk";
+            this.Renk.FieldName = "Renk";
+            this.Renk.Name = "Renk";
+            this.Renk.Visible = true;
+            this.Renk.VisibleIndex = 7;
+            // 
+            // DURUM
+            // 
+            this.DURUM.AccessibleName = "DURUM";
+            this.DURUM.Caption = "DURUM";
+            this.DURUM.FieldName = "DURUM";
+            this.DURUM.Name = "DURUM";
+            this.DURUM.Visible = true;
+            this.DURUM.VisibleIndex = 5;
             // 
             // repositoryItemPictureEdit1
             // 
@@ -299,6 +320,7 @@
             // 
             this.tileView3.TileHtmlTemplate.Styles = resources.GetString("tileView3.TileHtmlTemplate.Styles");
             this.tileView3.TileHtmlTemplate.Template = resources.GetString("tileView3.TileHtmlTemplate.Template");
+            this.tileView3.DoubleClick += new System.EventHandler(this.tileView3_DoubleClick);
             // 
             // StokAdi
             // 
@@ -460,8 +482,14 @@
             this.CARIADI,
             this.DEPO,
             this.TIP,
-            this.DURUM});
+            this.DURUM,
+            this.Renk});
             this.tileView2.ColumnSet.GroupColumn = this.BELGENO;
+            gridFormatRule1.Column = this.Renk;
+            gridFormatRule1.ColumnApplyTo = this.DURUM;
+            gridFormatRule1.Name = "Green";
+            gridFormatRule1.Rule = formatConditionRule2ColorScale1;
+            this.tileView2.FormatRules.Add(gridFormatRule1);
             this.tileView2.GridControl = this.gridControl2;
             this.tileView2.Name = "tileView2";
             this.tileView2.OptionsKanban.GroupFooterButton.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
@@ -469,7 +497,7 @@
             this.tileView2.OptionsTiles.GroupTextPadding = new System.Windows.Forms.Padding(12, 8, 12, 8);
             this.tileView2.OptionsTiles.IndentBetweenGroups = 0;
             this.tileView2.OptionsTiles.IndentBetweenItems = 0;
-            this.tileView2.OptionsTiles.ItemSize = new System.Drawing.Size(300, 120);
+            this.tileView2.OptionsTiles.ItemSize = new System.Drawing.Size(300, 150);
             this.tileView2.OptionsTiles.LayoutMode = DevExpress.XtraGrid.Views.Tile.TileViewLayoutMode.List;
             this.tileView2.OptionsTiles.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.tileView2.OptionsTiles.Padding = new System.Windows.Forms.Padding(0);
@@ -481,6 +509,7 @@
             // 
             this.tileView2.TileHtmlTemplate.Styles = resources.GetString("tileView2.TileHtmlTemplate.Styles");
             this.tileView2.TileHtmlTemplate.Template = resources.GetString("tileView2.TileHtmlTemplate.Template");
+            this.tileView2.ItemCustomize += new DevExpress.XtraGrid.Views.Tile.TileViewItemCustomizeEventHandler(this.tileView2_ItemCustomize);
             this.tileView2.Click += new System.EventHandler(this.tileView2_Click);
             this.tileView2.DoubleClick += new System.EventHandler(this.tileView2_DoubleClick);
             // 
@@ -539,15 +568,6 @@
             this.TIP.Name = "TIP";
             this.TIP.Visible = true;
             this.TIP.VisibleIndex = 4;
-            // 
-            // DURUM
-            // 
-            this.DURUM.AccessibleName = "DURUM";
-            this.DURUM.Caption = "DURUM";
-            this.DURUM.FieldName = "DURUM";
-            this.DURUM.Name = "DURUM";
-            this.DURUM.Visible = true;
-            this.DURUM.VisibleIndex = 5;
             // 
             // tabPage2
             // 
@@ -788,5 +808,6 @@
         private DevExpress.XtraGrid.Columns.TileViewColumn CKMIKTAR;
         private DevExpress.XtraGrid.Columns.TileViewColumn CBIRIM;
         private DevExpress.XtraGrid.Columns.TileViewColumn CDEPO;
+        private DevExpress.XtraGrid.Columns.TileViewColumn Renk;
     }
 }

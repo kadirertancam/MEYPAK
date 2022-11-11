@@ -379,6 +379,9 @@
 :root:select .card{
 	background-color:@HighlightAlternate/0.1; 
 }
+.button{
+	flex-grow:1;
+}
 .card {
 	font: 13px 'Segoe UI';
 	border-radius:3px;
@@ -388,7 +391,7 @@
 	display:flex;
 }
 .stripe {
-	width:4px;
+	width:4px; 
 	background-color:@Green;
 	border-radius:3px 0px 0px 3px;
 }
@@ -446,6 +449,12 @@
 }
 
 :root:select .description {
+	margin-bottom:8px;
+	margin-top:6px;
+	white-space:pre-line;
+	color:Black;
+}
+:root:select .description2 {
 	margin-bottom:8px;
 	margin-top:6px;
 	white-space:pre-line;
@@ -514,21 +523,63 @@ body {
 	text-align:right;
 }
 
-</value>
+		.button {
+    width: 150px;
+    height: 10px;
+    padding: 12px 0 12px 0;
+    margin: 24px 0 20 0;
+    border-radius: 6px;
+    color: White;
+    background-color: #434343;
+            
+    text-align: center;
+    
+    font-family: 'Segoe UI';
+    font-weight: bold;
+    font-size: 12px;
+    
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+	.button:hover {
+		background-color: @HighlightAlternate;
+		box-shadow: 0px 8px 16px @HighlightAlternate/0.5;
+		color: White;
+	}
+	.button:active {
+		color: rgba(255, 255, 255, 0.35);
+		box-shadow: initial;
+	}.image_container {
+    display: flex;
+	flex-direction: column;
+	width: 20px;
+    height: 172px;
+	padding: 16px 24px 24px;    
+	
+	align-items: flex-start;
+	border-radius: 8px 8px 0px 0px;
+	background-color:#252526
+}</value>
   </data>
   <data name="tileView2.TileHtmlTemplate.Template" xml:space="preserve">
     <value>&lt;div class="container"&gt;
 	&lt;div class="card"&gt;
-		&lt;div class="stripe" id="stripe"&gt;&lt;h1&gt;${ID}&lt;/h1&gt;&lt;/div&gt; 
+		&lt;div class="stripe"  id="stripe"&gt;&lt;h1&gt;${ID}&lt;/h1&gt;&lt;/div&gt; 
 		&lt;div class="content"&gt;
 			&lt;div class="top-block"&gt;
+				
 				&lt;div class="caption"&gt;&lt;b style="color:white"&gt;${BELGENO}&lt;/b&gt;&lt;/div&gt;
-			&lt;/div&gt;
+				&lt;div&gt;
+				&lt;div id="detailButton" class="button" onclick="emriKapatButtonClick"&gt;
+					Emri Kapat
+				&lt;/div&gt;&lt;/div&gt;
+			&lt;/div&gt; 
 			&lt;div class="description"&gt;&lt;b style="color:white"&gt;${CARIADI}&lt;/b&gt;&lt;/div&gt;
 			&lt;div class="bottom-block"&gt;
 				&lt;div class="bottom-block-near"&gt;
 					 	&lt;div class="description"&gt;&lt;span style="color:white"&gt;DEPO: &lt;/span&gt;${DEPO}&lt;/div&gt;
 				&lt;/div&gt;
+				
 			 &lt;div class="description2"&gt;${DURUM}&lt;span&gt;%&lt;/span&gt;&lt;/div&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
@@ -3400,7 +3451,7 @@ body {
 			&lt;div class="description"&gt; &lt;b style="color:white"&gt;${CCariAdi}&lt;/b&gt;&lt;/div&gt;
 			&lt;div class="bottom-block"&gt;
 				&lt;div class="bottom-block-near"&gt;
-					&lt;div class="description"&gt;&lt;span style="color:white"&gt;Sevk Tarihi: &lt;/span&gt;${CSevkiyatTarihi}&lt;/div&gt; 
+					&lt;div class="description"&gt;&lt;span style="color:white"&gt;Sevk Tarihi: &lt;/span&gt;&lt;span style="color:white"&gt;${CSevkiyatTarihi}&lt;/span&gt;&lt;/div&gt; 
 				&lt;/div&gt; 
 			 	&lt;div id="detailButton" class="button" onclick="onDetailButtonClick"&gt;
 					Toplama
