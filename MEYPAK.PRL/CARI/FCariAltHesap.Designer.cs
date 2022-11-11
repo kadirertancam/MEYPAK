@@ -72,7 +72,7 @@
             this.groupControl1.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             this.groupControl1.Location = new System.Drawing.Point(2, 2);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(1299, 130);
+            this.groupControl1.Size = new System.Drawing.Size(1299, 132);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Alt Hesap";
             // 
@@ -88,13 +88,13 @@
             // BTSil
             // 
             this.BTSil.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.BTSil.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.BTSil.Appearance.Options.UseBackColor = true;
             this.BTSil.Appearance.Options.UseFont = true;
+            this.BTSil.AppearanceDisabled.Options.UseImage = true;
             this.BTSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTSil.ImageOptions.Image")));
-            this.BTSil.Location = new System.Drawing.Point(471, 43);
+            this.BTSil.Location = new System.Drawing.Point(445, 36);
             this.BTSil.Name = "BTSil";
-            this.BTSil.Size = new System.Drawing.Size(112, 56);
+            this.BTSil.Size = new System.Drawing.Size(82, 39);
             this.BTSil.TabIndex = 2;
             this.BTSil.Text = "&Sil";
             this.BTSil.Click += new System.EventHandler(this.BTSil_Click);
@@ -118,13 +118,12 @@
             // BTKaydet
             // 
             this.BTKaydet.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.BTKaydet.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.BTKaydet.Appearance.Options.UseBackColor = true;
             this.BTKaydet.Appearance.Options.UseFont = true;
             this.BTKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTKaydet.ImageOptions.Image")));
-            this.BTKaydet.Location = new System.Drawing.Point(353, 43);
+            this.BTKaydet.Location = new System.Drawing.Point(357, 36);
             this.BTKaydet.Name = "BTKaydet";
-            this.BTKaydet.Size = new System.Drawing.Size(112, 56);
+            this.BTKaydet.Size = new System.Drawing.Size(82, 39);
             this.BTKaydet.TabIndex = 1;
             this.BTKaydet.Text = "&Kaydet";
             this.BTKaydet.Click += new System.EventHandler(this.BTKaydet_Click);
@@ -187,6 +186,9 @@
             // 
             this.gridView1.GridControl = this.DGAltHesap;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsPrint.PrintFilterInfo = true;
+            this.gridView1.DoubleClick += new System.EventHandler(this.gridView1_DoubleClick);
+            this.gridView1.OptionsBehavior.Editable = false;
             // 
             // panelControl2
             // 
