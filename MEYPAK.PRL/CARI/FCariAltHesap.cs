@@ -57,11 +57,12 @@ namespace MEYPAK.PRL.CARI
 
         private void BTSil_Click(object sender, EventArgs e)
         {
+           
             _cariAltHesapServis.Data(ServisList.CariAltHesListeServis);
             _cariAltHesapServis.Data(ServisList.CariAltHesSilServis, null, null, _cariAltHesapServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()).ToList());
             MessageBox.Show("Silme işlemi Başarılı");
 
-            DGAltHesap.DataSource = _cariAltHesapServis.obje;
+            DGAltHesap.DataSource = _cariAltHesapServis.obje.Where(x=> x.kayittipi == 0);
         }
         public void Temizle(Control.ControlCollection ctrlCollection) //Formdaki textboxları temizler
         {
