@@ -45,8 +45,8 @@ namespace MEYPAK.Entity.Models.PERSONEL
         public string SIGORTATURKOD { get; set; }
         public string YASLILIKAYLIGI { get; set; }
         public string ISTIHDAMDURUMU { get; set; }
-        public string GOREVKODU { get; set; }
-        public string GOREVI { get; set; }
+        public string MESLEKKODU { get; set; }
+      //  public string GOREVI { get; set; }
         public string SOSYALGUVENLIKKODU { get; set; }
         public string BABAADI { get; set; }
         public string ANNEADI { get; set; }
@@ -62,7 +62,7 @@ namespace MEYPAK.Entity.Models.PERSONEL
         public string CILTNO { get; set; }
         public string AILESIRANO { get; set; }
         public string SIRANO { get; set; }
-        public string NUFUSCUZDANVERILISTARIH { get; set; }
+        public DateTime NUFUSCUZDANVERILISTARIH { get; set; }
         public string NUFUSCUZDANSERINO { get; set; }
         public string NUFUSCUZDANKAYITNO { get; set; }
         public string ADRES { get; set; }

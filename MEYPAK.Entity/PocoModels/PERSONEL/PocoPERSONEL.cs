@@ -23,6 +23,7 @@ namespace MEYPAK.Entity.PocoModels.PERSONEL
         public DateTime isbastar { get; set; } = Convert.ToDateTime("01/01/1990");
         public DateTime isbittar { get; set; } = Convert.ToDateTime("01/01/1990");
         public string resim { get; set; } = "";
+        public string sgk { get; set; } = "";
         public string bagkur { get; set; } = "";
         public string emeklisandigi { get; set; } = "";
         public string g506MADSAN { get; set; } = "";
@@ -35,8 +36,8 @@ namespace MEYPAK.Entity.PocoModels.PERSONEL
         public string sigortaturkod { get; set; } = "";
         public string yaslilikayligi { get; set; } = "";
         public string istihdamdurumu { get; set; } = "";
-        public string gorevkodu { get; set; } = "";
-        public string gorevi { get; set; } = "";
+        public string meslekkodu { get; set; } = "";
+       // public string gorevi { get; set; } = "";
         public string sosyalguvenlikkodu { get; set; } = "";
         public string babaadi { get; set; } = "";
         public string anneadi { get; set; } = "";
@@ -52,7 +53,7 @@ namespace MEYPAK.Entity.PocoModels.PERSONEL
         public string ciltno { get; set; } = "";
         public string ailesirano { get; set; } = "";
         public string sirano { get; set; } = "";
-        public string nufuscuzdanverilistarih { get; set; } = "";
+        public DateTime nufuscuzdanverilistarih { get; set; } = Convert.ToDateTime("01/01/1990");
         public string nufuscuzdanserino { get; set; } = "";
         public string nufuscuzdankayitno { get; set; } = "";
         public string adres { get; set; } = "";
