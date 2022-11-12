@@ -379,6 +379,7 @@
             // 
             // CBUyrugu
             // 
+            this.CBUyrugu.EditValue = "T.C. Vatandaşı";
             this.CBUyrugu.Location = new System.Drawing.Point(116, 151);
             this.CBUyrugu.Name = "CBUyrugu";
             this.CBUyrugu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -391,6 +392,7 @@
             // 
             // CBKanGrubu
             // 
+            this.CBKanGrubu.EditValue = "O Rh-pozitif";
             this.CBKanGrubu.Location = new System.Drawing.Point(116, 246);
             this.CBKanGrubu.Name = "CBKanGrubu";
             this.CBKanGrubu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {

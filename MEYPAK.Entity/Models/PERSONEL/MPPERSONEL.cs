@@ -2,10 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace MEYPAK.Entity.Models.PERSONEL
 {
@@ -61,7 +59,7 @@ namespace MEYPAK.Entity.Models.PERSONEL
         public string NUFUSAKAYITLIMAH { get; set; }
         public string ULKE { get; set; }
         public string KANGRUBU { get; set; }
-        public string CİLTNO { get; set; }
+        public string CILTNO { get; set; }
         public string AILESIRANO { get; set; }
         public string SIRANO { get; set; }
         public string NUFUSCUZDANVERILISTARIH { get; set; }

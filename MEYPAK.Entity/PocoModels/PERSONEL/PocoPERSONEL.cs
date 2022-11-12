@@ -17,8 +17,8 @@ namespace MEYPAK.Entity.PocoModels.PERSONEL
         public string adisoyadi { get; set; } = "";
         public DateTime dogumtar { get; set; } = Convert.ToDateTime("01/01/1990");
         public byte cinsiyet { get; set; } = 0;
-        public string departman { get; set; } = "";
-        public string gorev { get; set; } = "";
+        public int personeldepartmanid { get; set; } =0;
+        public int personelgorevid { get; set; } = 0;
         public string sgksicilno { get; set; } = "";
         public DateTime isbastar { get; set; } = Convert.ToDateTime("01/01/1990");
         public DateTime isbittar { get; set; } = Convert.ToDateTime("01/01/1990");
@@ -49,7 +49,7 @@ namespace MEYPAK.Entity.PocoModels.PERSONEL
         public string nufusakayitlimah { get; set; } = "";
         public string ulke { get; set; } = "";
         public string kangrubu { get; set; } = "";
-        public string cİltno { get; set; } = "";
+        public string ciltno { get; set; } = "";
         public string ailesirano { get; set; } = "";
         public string sirano { get; set; } = "";
         public string nufuscuzdanverilistarih { get; set; } = "";

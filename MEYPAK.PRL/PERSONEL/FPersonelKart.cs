@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraEditors;
+﻿using DevExpress.CodeParser;
+using DevExpress.XtraEditors;
 using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.PocoModels.PERSONEL;
 using MEYPAK.Interfaces.Personel;
@@ -163,16 +164,20 @@ namespace MEYPAK.PRL.PERSONEL
             var a = CBCinsiyet.EditValue;
             if (TBTCNO.EditValue!=null && TBAdi.EditValue!=null && TBSoyadi.EditValue!=null  && DTPIseGirisTar.EditValue!=null&& CBCinsiyet.EditValue!=null && DTPDogumTar.EditValue!=null)
             {
+                string az = " ";
                 _personelServis.Data(ServisList.PersonelEkleServis, new PocoPERSONEL()
                 {
-                    tc = TBTCNO.EditValue.ToString(),
-                    adi = TBAdi.EditValue.ToString(),
-                    soyadi = TBSoyadi.EditValue.ToString(),
-                    // cinsiyet = CBCinsiyet.EditValue.ToString(),
-                  
+                    subeid = 0,
+                    sirketid = 0,
+                    tc = TBTCNO.Text,
+                    adi = TBAdi.Text,
+                    soyadi = TBSoyadi.Text,
+                    cinsiyet =Convert.ToByte(CBCinsiyet.SelectedIndex),
+                    adres = TBBabaAdi.Text
+                  //  adresilce = TBBabaAdi.EditValue != null ? TBBabaAdi.EditValue.ToString() : " "
 
 
-                });
+                }) ;
                 var ab = _personelServis.obje2;
                 MessageBox.Show($"{_personelServis.obje2.id}");
             }
