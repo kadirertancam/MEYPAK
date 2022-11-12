@@ -41,6 +41,7 @@ namespace MEYPAK.PRL.PERSONEL
         }
 
         ADRESOBJECT.Root _adresObje;
+        PocoPERSONEL _tempPocoPERSONEL;
 
 
 
