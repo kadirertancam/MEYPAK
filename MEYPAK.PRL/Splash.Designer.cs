@@ -41,7 +41,7 @@
             // 
             // progressBarControl
             // 
-            this.progressBarControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.progressBarControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.progressBarControl.EditValue = 0;
             this.progressBarControl.Location = new System.Drawing.Point(24, 232);
@@ -85,7 +85,7 @@
             // 
             // peLogo
             // 
-            this.peLogo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.peLogo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.peLogo.EditValue = ((object)(resources.GetObject("peLogo.EditValue")));
             this.peLogo.Location = new System.Drawing.Point(279, 267);
@@ -112,6 +112,7 @@
             this.Name = "Splash";
             this.Padding = new System.Windows.Forms.Padding(1);
             this.Text = "Splash";
+            this.Load += new System.EventHandler(this.Splash_Load);
             ((System.ComponentModel.ISupportInitialize)(this.progressBarControl.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.peImage.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.peLogo.Properties)).EndInit();

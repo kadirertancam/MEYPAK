@@ -7,11 +7,15 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+    <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
   <PropertyGroup Condition="$(TargetFramework.EndsWith('windows'))">
     <UseWindowsForms>true</UseWindowsForms>
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
     <DefineConstants>TARGET_WINDOWS</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PublishReadyToRun>true</PublishReadyToRun>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="DevExpress.Win.Design" Version="22.1.3" />

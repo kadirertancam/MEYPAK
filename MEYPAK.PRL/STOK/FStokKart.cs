@@ -22,6 +22,7 @@ namespace MEYPAK.PRL
             _markaServis = new GenericWebServis<PocoSTOKMARKA>();
             stokOlculist = new List<PocoSTOKOLCUBR>();
             _stokResimServis = new GenericWebServis<PocoSTOKRESIM>();
+            resimList = new List<PocoSTOKRESIM>();
 
 
         }
@@ -65,6 +66,7 @@ namespace MEYPAK.PRL
 
         private void tbDoldur()                                                 // _tempStok nesnesi dolduğu zaman bu method ile formdaki nesneleri doldur
         {
+           
             _stokResimServis.Data(ServisList.StokResimListeServis);
             _PocoStokServis.Data(ServisList.StokListeServis);
             _markaServis.Data(ServisList.StokMarkaListeServis);
@@ -72,7 +74,7 @@ namespace MEYPAK.PRL
             {
                 stokid = _tempStok.id;
                 BTStokKodu.Text = _tempStok.kod;
-                
+                resimList.Clear();
             }
             TBStokAdi.Text = _tempStok.adi;
             TBSatisOtv.Text = _tempStok.satisotv.ToString();
@@ -96,8 +98,13 @@ namespace MEYPAK.PRL
             TBSFiyat4.Text = Convert.ToString(_tempStok.sfiyaT4);
             TBSFiyat5.Text = Convert.ToString(_tempStok.sfiyaT5);
 
-            if(_tempStok.id!=null)
-            gridControl2.DataSource= _stokResimServis.obje.Where(x=>x.STOKID== stokid).Select(x=> new { Resim=Base64ToImage(x.IMG) });
+            if (_tempStok.id != null)
+                foreach (var item in _stokResimServis.obje.Where(x => x.STOKID == stokid))
+                {
+                    resimList.Add(item);
+                }
+                
+            gridControl2.DataSource= resimList.Select(x=> new { Resim = Base64ToImage(x.IMG) });
 
 
 
@@ -368,7 +375,11 @@ namespace MEYPAK.PRL
                 item.stokid = _PocoStokServis.obje.Where(x => x.kod == BTStokKodu.Text).FirstOrDefault().id;
                 _StokOlcuBrServis.Data(ServisList.StokOlcuBrEkleServis, item);
             }
-
+            foreach (var item in resimList)
+            {
+                item.STOKID= _PocoStokServis.obje.Where(x => x.kod == BTStokKodu.Text).FirstOrDefault().id;
+                _stokResimServis.Data(ServisList.StokResimEkleServis, item);
+            }
             stokid = 0;
             if (snc != null)
                 MessageBox.Show("Kayıt Başarılı.");
@@ -454,12 +465,12 @@ namespace MEYPAK.PRL
                 return "";
             }
         }
-
+        List<PocoSTOKRESIM> resimList;
         private void simpleButton1_Click(object sender, EventArgs e)
         {
             _stokResimServis.Data(ServisList.StokResimListeServis);
             if (_stokResimServis.obje.Where(x => x.STOKID == _PocoStokServis.obje.Where(z=>z.kod==BTStokKodu.Text).FirstOrDefault().id).Count() == 0) {
-                _stokResimServis.Data(ServisList.StokResimEkleServis, new PocoSTOKRESIM()
+                resimList.Add( new PocoSTOKRESIM()
                 {   
                     STOKID = _PocoStokServis.obje.Where(z => z.kod == BTStokKodu.Text).FirstOrDefault().id,
                     NUM = 0,
@@ -469,14 +480,15 @@ namespace MEYPAK.PRL
             }
             else
             {
-                _stokResimServis.Data(ServisList.StokResimEkleServis, new PocoSTOKRESIM()
+                resimList.Add(new PocoSTOKRESIM()
                 {
                     STOKID = _PocoStokServis.obje.Where(z => z.kod == BTStokKodu.Text).FirstOrDefault().id,
                     NUM = _stokResimServis.obje.Where(x => x.STOKID == _PocoStokServis.obje.Where(z => z.kod == BTStokKodu.Text).FirstOrDefault().id).Last().NUM+1,
                     IMG = base64, 
                 });
             }
-          
+
+            gridControl2.DataSource = resimList.Select(x => new { Resim= Base64ToImage(x.IMG) });
         }
 
       
