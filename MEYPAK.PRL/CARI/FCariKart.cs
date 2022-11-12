@@ -37,11 +37,12 @@ namespace MEYPAK.PRL.CARI
             _cariServis = new GenericWebServis<PocoCARIKART>();
             _cariAltHesapServis = new GenericWebServis<PocoCARIALTHES>();
             _cariAltHesapServis.Data(ServisList.CariAltHesListeServis);
-
+            _cariResimServis = new GenericWebServis<PocoCARIRESIM>();
         }
         GenericWebServis<ADRESLIST> _adresListServis;
         GenericWebServis<PocoCARIKART> _cariServis;
         GenericWebServis<PocoCARIALTHES> _cariAltHesapServis;
+        GenericWebServis<PocoCARIRESIM> _cariResimServis;
         FCariList _fCariList;
         FCariAltHesap fCariAltHesap;
       
@@ -256,6 +257,89 @@ namespace MEYPAK.PRL.CARI
             }
           }
 
-      
+        private void simpleButton13_Click(object sender, EventArgs e)
+        {
+            _cariResimServis.Data(ServisList.StokResimListeServis);
+            if (_cariResimServis.obje.Where(x => x.CARIID == _cariServis.obje.Where(z => z.kod == BTCariSec.Text).FirstOrDefault().id).Count() == 0)
+            {
+                resimList.Add(new PocoSTOKRESIM()
+                {
+                    STOKID = _cariServis.obje.Where(z => z.kod == BTCariSec.Text).FirstOrDefault().id,
+                    NUM = 0,
+                    IMG = base64,
+
+                });
+            }
+            else
+            {
+                resimList.Add(new PocoSTOKRESIM()
+                {
+                    STOKID = _cariServis.obje.Where(z => z.kod == BTCariSec.Text).FirstOrDefault().id,
+                    NUM = _cariResimServis.obje.Where(x => x.CARIID == _cariServis.obje.Where(z => z.kod == BTCariSec.Text).FirstOrDefault().id).Last().NUM + 1,
+                    IMG = base64,
+                });
+            }
+
+            gridControl2.DataSource = resimList.Select(x => new { Resim = Base64ToImage(x.IMG) });
+        }
+        string base64 = "";
+        private void buttonEdit1_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            if (e.Button.Caption == "Seç")
+            {
+                OpenFileDialog ofd = new OpenFileDialog();
+                ofd.Filter = "TümDosyalar |*.*|Jpeg Dosyası |*.jpeg| Jpg Dosyası|*.jpg| PNG Dosyası|*.png| ICO Dosyası|*.ico;";
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    string DosyaYolu = ofd.FileName;
+                    string DosyaAdi = ofd.SafeFileName;
+                    buttonEdit1.Text = DosyaYolu;
+                    pictureEdit1.Image = new Bitmap(DosyaYolu);
+                    base64 = ImageToBase64(DosyaYolu);
+                }
+            }
+        }
+        public object base64resim;
+        public System.Drawing.Image Base64ToImage(string base64String)
+        {
+            try
+            {
+                byte[] imageBytes = Convert.FromBase64String(base64String);
+                MemoryStream ms = new MemoryStream(imageBytes, 0, imageBytes.Length);
+                ms.Write(imageBytes, 0, imageBytes.Length);
+                System.Drawing.Image image = System.Drawing.Image.FromStream(ms, true);
+                return image;
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
+
+        }
+        string b64string = "";
+        public string ImageToBase64(string path)
+        {
+            try
+            {
+
+
+                using (System.Drawing.Image image = System.Drawing.Image.FromFile(path))
+                {
+                    using (MemoryStream m = new MemoryStream())
+                    {
+                        image.Save(m, image.RawFormat);
+                        byte[] imageBytes = m.ToArray();
+                        b64string = Convert.ToBase64String(imageBytes);
+                        return b64string;
+                    }
+                }
+            }
+            catch
+            {
+                return "";
+            }
+        }
+        List<PocoSTOKRESIM> resimList;
     }
 }

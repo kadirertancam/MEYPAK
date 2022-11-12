@@ -1,0 +1,15 @@
+﻿using MEYPAK.Entity.Models.CARI;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace MEYPAK.DAL.Abstract.CariDal
+{
+    public interface ICariResimDal:IGeneric<MPCARIRESIM>
+    {
+        public MPCARIRESIM EkleyadaGuncelle(MPCARIRESIM entity);
+
+    }
+}

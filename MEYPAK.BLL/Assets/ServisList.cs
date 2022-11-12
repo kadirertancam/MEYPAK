@@ -41,6 +41,16 @@ namespace MEYPAK.BLL.Assets
 
         #endregion
 
+        #region CariResim
+
+        public const string CariResimListeServis =      "http://213.238.167.117:8080/CARIRESIM/CARIRESIMListe";
+        public const string CariResimEkleServis =       "http://213.238.167.117:8080/CARIRESIM/CARIRESIMEkleyadaGuncelle";
+        public const string CariResimSilServis =        "http://213.238.167.117:8080/CARIRESIM/CARIRESIMSil";
+        public const string CariResimGuncelleServis =   "http://213.238.167.117:8080/CARIRESIM/CARIRESIMGuncelle";
+
+
+        #endregion
+
         #region CariHar
 
         public const string CariHarListeServis =        "http://213.238.167.117:8080/CARIHAR/CARIHARListe";
