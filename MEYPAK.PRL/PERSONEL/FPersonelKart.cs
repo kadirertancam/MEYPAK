@@ -70,8 +70,6 @@ namespace MEYPAK.PRL.PERSONEL
                     CBNufIl.Properties.DataSource = _adresObje.data.Select(x => x.il_adi);
                     
                 }
-
-
         }
 
         private void BTNPersonelKaydet_Click(object sender, EventArgs e)
