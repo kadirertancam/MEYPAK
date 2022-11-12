@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MEYPAK.DAL.Migrations
 {
     [DbContext(typeof(MEYPAKContext))]
-    [Migration("20221111143351_PERSONELDuzenleme2")]
-    partial class PERSONELDuzenleme2
+    [Migration("20221112102808_12112022PersonelKartGuncel")]
+    partial class _12112022PersonelKartGuncel
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -1221,12 +1221,12 @@ namespace MEYPAK.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte>("CINSIYET")
-                        .HasColumnType("tinyint");
-
-                    b.Property<string>("CİLTNO")
+                    b.Property<string>("CILTNO")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte>("CINSIYET")
+                        .HasColumnType("tinyint");
 
                     b.Property<DateTime>("DOGUMTAR")
                         .HasMaxLength(50)
@@ -1248,14 +1248,6 @@ namespace MEYPAK.DAL.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("G506MADSAN")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("GOREVI")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("GOREVKODU")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -1287,6 +1279,10 @@ namespace MEYPAK.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("MESLEKKODU")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("MEZUNBOLUM")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -1315,9 +1311,8 @@ namespace MEYPAK.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("NUFUSCUZDANVERILISTARIH")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("NUFUSCUZDANVERILISTARIH")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("OGRENIMDURUMU")
                         .IsRequired()

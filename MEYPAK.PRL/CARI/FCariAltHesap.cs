@@ -43,7 +43,7 @@ namespace MEYPAK.PRL.CARI
         #region Tanımlar
 
         GenericWebServis<PocoCARIALTHES> _cariAltHesapServis;
-        GenericWebServis<PocoPARABIRIM> _parabirIMServis;
+        GenericWebServis<PocoPARABIRIM> _parabirIMServis; 
 
         #endregion
 
@@ -61,8 +61,7 @@ namespace MEYPAK.PRL.CARI
             _cariAltHesapServis.Data(ServisList.CariAltHesListeServis);
             _cariAltHesapServis.Data(ServisList.CariAltHesSilServis, null, null, _cariAltHesapServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()).ToList());
             MessageBox.Show("Silme işlemi Başarılı");
-
-            DGAltHesap.DataSource = _cariAltHesapServis.obje.Where(x=> x.kayittipi == 0);
+            DataGridDoldur();
         }
         public void Temizle(Control.ControlCollection ctrlCollection) //Formdaki textboxları temizler
         {
@@ -103,7 +102,7 @@ namespace MEYPAK.PRL.CARI
                 x.id, 
                 x.adi, 
                 x.kod,
-                x.dovizid,
+              Doviz=_parabirIMServis.obje.Where(z=>z.id==x.dovizid).FirstOrDefault().adi,
                 x.olusturmatarihi });
             DGAltHesap.Refresh();
             DGAltHesap.RefreshDataSource();
@@ -118,7 +117,7 @@ namespace MEYPAK.PRL.CARI
                 {
                     adi = TBAdi.Text,
                     kod = TBKodu.Text,
-                    dovizid =_parabirIMServis.obje.Where(x => x.adi.ToString() == CBDoviz.EditValue.ToString()).FirstOrDefault().id,
+                    dovizid =_parabirIMServis.obje.Where(x => x.adi.ToString() == CBDoviz.Text.ToString()).FirstOrDefault().id,
                     aktif = 1,
 
                 }));
@@ -130,7 +129,7 @@ namespace MEYPAK.PRL.CARI
                     id = id,
                     adi = TBAdi.Text,
                     kod= TBKodu.Text,
-                    dovizid = _parabirIMServis.obje.Where(x => x.adi.ToString()  == CBDoviz.EditValue.ToString()).FirstOrDefault().id,
+                    dovizid = _parabirIMServis.obje.Where(x => x.adi.ToString()  == CBDoviz.Text.ToString()).FirstOrDefault().id,
                     aktif = 1,
 
                 })); 
