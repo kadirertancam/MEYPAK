@@ -145,7 +145,7 @@ namespace MEYPAK.PRL.CARI
             TBKodu.Text = gridView1.GetFocusedRowCellValue("kod").ToString();
             CBDoviz.Text = gridView1.GetFocusedRowCellValue("dovizid").ToString();
             CBAktif.Text = gridView1.GetFocusedRowCellValue("aktif").ToString();
-            islemtipi = "Güncelleme";
+         
         }
 
         #endregion
