@@ -13,6 +13,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Forms;
 
 namespace MEYPAK.PRL.PERSONEL
@@ -34,43 +35,15 @@ namespace MEYPAK.PRL.PERSONEL
             _personelBankaServis = new GenericWebServis<PocoPERSONELBANKA>();
             _personelZimmetServis = new GenericWebServis<PocoPERSONELZIMMET>();
             InitializeComponent();
+            PersonelleriDoldur();
             CombolarıDoldur();
-
-
-
+            
         }
 
         ADRESOBJECT.Root _adresObje;
         PocoPERSONEL _tempPocoPERSONEL;
 
-        void CombolarıDoldur()
-        {
-            _personelDepartmanServis.Data(ServisList.PersonelDepartmanListeServis);
-            CBDepartman.Properties.DataSource = _personelDepartmanServis.obje.Select(x=> new {x.id , x.adi});
-            //CBDepartman.Properties.Columns["id"].Visible = false;
-
-            _personelGorevServis.Data(ServisList.PersonelGorevListeServis);
-            CBGorev.Properties.DataSource = _personelGorevServis.obje.Select(x=> new { x.id, x.adi });
-
-            //foreach (var item in _personelDepartmanServis.obje)
-            //{
-            //    CBKanGrubu.Properties.Items.Add(item.adi);
-            //}
-
-            string path = Application.StartupPath + "/il-ilce.json";
-            using (FileStream s = File.Open(path, FileMode.Open))
-            using (StreamReader sr = new StreamReader(s))
-                while (!sr.EndOfStream)
-                {
-
-                    _adresObje = JsonConvert.DeserializeObject<ADRESOBJECT.Root>(sr.ReadToEnd());
-
-
-                    CBAdresIL.Properties.DataSource = _adresObje.data.Select(x => x.il_adi);
-                    CBNufIl.Properties.DataSource = _adresObje.data.Select(x => x.il_adi);
-                    
-                }
-        }
+       
 
         private void BTNPersonelKaydet_Click(object sender, EventArgs e)
         {
@@ -79,6 +52,8 @@ namespace MEYPAK.PRL.PERSONEL
                 // DTPZimBasTar.EditValue!=null ? (DateTime)DTPZimBasTar.EditValue:Convert.ToDateTime("01.01.1990");
                 _personelServis.Data(ServisList.PersonelEkleServis, new PocoPERSONEL()
                 {
+
+                    //TODO
                     subeid = 0,
                     sirketid = 0,
                     tc = TBTCNO.Text,
@@ -139,8 +114,6 @@ namespace MEYPAK.PRL.PERSONEL
                     pantolonolcusu = CBAltBeden.EditValue != null ? Convert.ToByte(CBAltBeden.EditValue) : (byte)0,
                     ayakkabino = CBAyakkabıNo.EditValue != null ? Convert.ToByte(CBAyakkabıNo.EditValue) : (byte)0,
 
-
-
                 }) ;
                 _tempPocoPERSONEL = _personelServis.obje2;
                 MessageBox.Show($"{_personelServis.obje2.id}");
@@ -150,8 +123,6 @@ namespace MEYPAK.PRL.PERSONEL
                 MessageBox.Show("Gerekli Alanları Doldurmadan Personel Ekleyemezsiniz!");
             }
         }
-
-
         private void lookUpEdit2_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {//GOREV
             if (e.Button.Caption == "Ekle")
@@ -166,7 +137,6 @@ namespace MEYPAK.PRL.PERSONEL
                 MessageBox.Show(sender.GetType().GetProperty("AutoSearchText").GetValue(sender).ToString() + " Başarıyla Eklendi");
             }
         }
-
         private void lookUpEdit1_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {//DEPARTMAN
             if (e.Button.Caption == "Ekle")
@@ -185,8 +155,6 @@ namespace MEYPAK.PRL.PERSONEL
             {
                 if (_tempPocoPERSONEL.id >0)
                 {
-
-               
                 _personelBankaServis.Data(ServisList.PersonelBankaEkleServis, new PocoPERSONELBANKA()
                 {
                     bankaadi = TBBankaAdi.Text,
@@ -194,10 +162,7 @@ namespace MEYPAK.PRL.PERSONEL
                     bankasubekodu = TBBankaSubeKod.Text,
                     ibanno = TBBankaIban.Text,
                     personelid = _tempPocoPERSONEL.id
-             
-
                 });
-
                 _personelBankaServis.Data(ServisList.PersonelBankaListeServis);
                 //Todo personel id
                 gridControl2.DataSource = _personelBankaServis.obje.Where(x => x.personelid == _tempPocoPERSONEL.id);
@@ -212,7 +177,6 @@ namespace MEYPAK.PRL.PERSONEL
                 MessageBox.Show("Tüm Alanları Doldurmadan Banka Bilgisi Ekleyemezsiniz!");
             }
         }
-
         private void lookUpEdit2_Properties_EditValueChanged(object sender, EventArgs e)
         {
             CBAdresIlce.Properties.DataSource = _adresObje.data.Where(x => x.il_adi == CBAdresIL.EditValue).Select(x => x.ilceler.Select(z => z.ilce_adi).ToList()).FirstOrDefault();
@@ -225,6 +189,8 @@ namespace MEYPAK.PRL.PERSONEL
         {
             if (TBZimMarka.EditValue != null && TBZimMiktar.EditValue != null && DTPZimBasTar.EditValue != null && TBZimSeriNo.EditValue != null && TBZimAciklama.EditValue != null)
             {
+                if (_tempPocoPERSONEL.id>0)
+                {
                 _personelZimmetServis.Data(ServisList.PersonelZimmetlEkleServis, new PocoPERSONELZIMMET()
                 {
                     serino = TBZimSeriNo.Text,
@@ -234,6 +200,11 @@ namespace MEYPAK.PRL.PERSONEL
                     personelid = _tempPocoPERSONEL.id
                 });
                 gridControl3.DataSource = _personelZimmetServis.obje.Where(x=> x.personelid == _tempPocoPERSONEL.id);
+                }
+                else
+                {
+                    MessageBox.Show("Zimmet Bilgisi Eklenecek Personel Bulunamadı!");
+                }
             }
             else
             {
@@ -241,6 +212,82 @@ namespace MEYPAK.PRL.PERSONEL
             }
         }
 
+        #region Methods
+        void FormuTemizle()
+        {
+            foreach (var ctrl in panelControl3.Controls)
+            {
+                BaseEdit editor = ctrl as BaseEdit;
+                if (editor != null)
+                    editor.EditValue = null;
+            }
+            foreach (var ctrl in panelControl5.Controls)
+            {
+                BaseEdit editor = ctrl as BaseEdit;
+                if (editor != null)
+                    editor.EditValue = null;
+            }
+            foreach (var ctrl in panelControl7.Controls)
+            {
+                BaseEdit editor = ctrl as BaseEdit;
+                if (editor != null)
+                    editor.EditValue = null;
+            }
+            foreach (var ctrl in panelControl9.Controls)
+            {
+                BaseEdit editor = ctrl as BaseEdit;
+                if (editor != null)
+                    editor.EditValue = null;
+            }
+            foreach (var ctrl in panelControl10.Controls)
+            {
+                BaseEdit editor = ctrl as BaseEdit;
+                if (editor != null)
+                    editor.EditValue = null;
+            }
+            foreach (var ctrl in panelControl11.Controls)
+            {
+                BaseEdit editor = ctrl as BaseEdit;
+                if (editor != null)
+                    editor.EditValue = null;
+            }
+        }
+        void CombolarıDoldur()
+        {
+            _personelDepartmanServis.Data(ServisList.PersonelDepartmanListeServis);
+            CBDepartman.Properties.DataSource = _personelDepartmanServis.obje.Select(x => new { x.id, x.adi });
+            //CBDepartman.Properties.Columns["id"].Visible = false;
 
+            _personelGorevServis.Data(ServisList.PersonelGorevListeServis);
+            CBGorev.Properties.DataSource = _personelGorevServis.obje.Select(x => new { x.id, x.adi });
+
+            //foreach (var item in _personelDepartmanServis.obje)
+            //{
+            //    CBKanGrubu.Properties.Items.Add(item.adi);
+            //}
+
+            string path = Application.StartupPath + "/il-ilce.json";
+            using (FileStream s = File.Open(path, FileMode.Open))
+            using (StreamReader sr = new StreamReader(s))
+                while (!sr.EndOfStream)
+                {
+
+                    _adresObje = JsonConvert.DeserializeObject<ADRESOBJECT.Root>(sr.ReadToEnd());
+
+
+                    CBAdresIL.Properties.DataSource = _adresObje.data.Select(x => x.il_adi);
+                    CBNufIl.Properties.DataSource = _adresObje.data.Select(x => x.il_adi);
+
+                }
+        }
+
+        void PersonelleriDoldur()
+        {
+            _personelServis.Data(ServisList.PersonelListeServis);
+            gridControl1.DataSource = _personelServis.obje.Where(x => x.kayittipi == 0).Select(x => new { x.id, x.adisoyadi });
+            gridControl2.DataSource = _personelServis.obje.Where(x => x.kayittipi == 0).Select(x => new { x.id, x.adisoyadi });
+        }
+
+        #endregion
     }
 }
