@@ -6172,7 +6172,7 @@ button.bg-light:focus {
 .w3-btn, .w3-button {
     border: none;
     display: inline-block;
-    padding: 30px 40px;
+    padding: 20px 30px;
     vertical-align: middle;
     overflow: hidden;
     text-decoration: none;

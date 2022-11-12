@@ -34,13 +34,17 @@ namespace MEYPAK.PRL.CARI
 
         public void Doldur()
         {
+          
             BTCariSec.Text = _tempCARIKART.kod;
             TBAdi.Text = _tempCARIKART.unvan==""? _tempCARIKART.adi + " " + _tempCARIKART.soyadi : _tempCARIKART.unvan;
             DGCariHareket.DataSource = _cariHarServis.obje.Where(x => x.cariid == _tempCARIKART.id);
             LBAlacakDeger.Text = _cariHarServis.obje.Where(x => x.cariid == _tempCARIKART.id).Sum(x => x.alacak).ToString();
             LBBorcDeger.Text = _cariHarServis.obje.Where(x => x.cariid == _tempCARIKART.id).Sum(x => x.borc).ToString();
             LBBakiye.Text = _cariHarServis.obje.Where(x => x.cariid == _tempCARIKART.id).Sum(x => x.borc - x.alacak).ToString();
-        } 
+            DGCariHareket.Refresh();
+            DGCariHareket.RefreshDataSource();
+
+        }
 
         private void TBCariKodu_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {

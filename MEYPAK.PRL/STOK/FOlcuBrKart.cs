@@ -79,7 +79,7 @@ namespace MEYPAK.PRL.STOK
             _OlcuBrServis.Data(ServisList.OlcuBrSilServis,null,null, _OlcuBrServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()).ToList());
             MessageBox.Show("Silme Başarılı");
 
-            DGOlcuBirim.DataSource = _OlcuBrServis.obje;
+            DGOlcuBirim.DataSource = _OlcuBrServis.obje.Where(x=> x.kayittipi == 0);
         }
     }
 }

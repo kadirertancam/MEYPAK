@@ -62,22 +62,22 @@ namespace MEYPAK.PRL.CARI
             TBAciklama8.Text = _tempCariKart.aciklamA8;
             TBAciklama9.Text = _tempCariKart.aciklamA9;
             TBCariAdi.Text = _tempCariKart.adi;
-            TBCariSoyadi.Text = _tempCariKart.soyadi;
+            TBCariSoyad.Text = _tempCariKart.soyadi;
             TBAdres.Text = _tempCariKart.adres;
-            TBAMuhKodu.Text = _tempCariKart.amuhkod;
+            BTAMuhSec.Text = _tempCariKart.amuhkod;
             TBApt.Text = _tempCariKart.apt;
             TBCepTel.Text = _tempCariKart.ceptel;
             TBDaire.Text = _tempCariKart.daire;
             TBEposta.Text = _tempCariKart.eposta;
             TBFax.Text = _tempCariKart.fax;
-            TBGrupKodu.Text = _tempCariKart.grupkodu;
-            CBil.Text = _tempCariKart.il;
-            CBilce.Text = _tempCariKart.ilce;
-            TBKategori.Text = _tempCariKart.kategori;
-            TBCariKodu.Text = _tempCariKart.kod;
+            BTGrupSec.Text = _tempCariKart.grupkodu;
+            CBIl.Text = _tempCariKart.il;
+            CBIlce.Text = _tempCariKart.ilce;
+            BTKategoriSec.Text = _tempCariKart.kategori;
+            BTCariSec.Text = _tempCariKart.kod;
             TBMahalle.Text = _tempCariKart.mahalle;
-            TBMuhKod.Text = _tempCariKart.muH_KOD;
-            TBPostaKodu.Text = _tempCariKart.postakod;
+            BTMuhSec.Text = _tempCariKart.muH_KOD;
+            TBPostaKod.Text = _tempCariKart.postakod;
             TBRaporKodu1.Text = _tempCariKart.raporkoD1;
             TBRaporKodu2.Text = _tempCariKart.raporkoD2;
             TBRaporKodu3.Text = _tempCariKart.raporkoD3;
@@ -96,16 +96,17 @@ namespace MEYPAK.PRL.CARI
             NUDSAciklama7.Value  = _tempCariKart.saciklamA7;
             NUDSAciklama8.Value  = _tempCariKart.saciklamA8;
             NUDSAciklama9.Value  = _tempCariKart.saciklamA9;
-            TBSMuhKodu.Text = _tempCariKart.smuhkod;
+            BTSMuhSec.Text = _tempCariKart.smuhkod;
+            BTAMuhSec.Text = _tempCariKart.amuhkod; 
             TBSokak.Text = _tempCariKart.sokak;
-            TBTc.Text = _tempCariKart.tcno;
+            TBTcNo.Text = _tempCariKart.tcno;
             TBTelefon1.Text = _tempCariKart.telefon;
             TBTelefon2.Text = _tempCariKart.telefoN2;
-            CBTipi.SelectedIndex = _tempCariKart.tipi;
+            CBTip.EditValue = _tempCariKart.tipi;
             TBUnvan.Text = _tempCariKart.unvan;
-            TBVadeGunu.Text = _tempCariKart.vadegunu.ToString();
+            TBVadeGun.Text = _tempCariKart.vadegunu.ToString();
             CBVDaire.Text = _tempCariKart.vergidairesi;
-            TBVNo.Text = _tempCariKart.vergino;
+            TBVergiNo.Text = _tempCariKart.vergino;
             TBWebSite.Text = _tempCariKart.web;
             
         }
@@ -122,45 +123,25 @@ namespace MEYPAK.PRL.CARI
                     _adresObje = JsonConvert.DeserializeObject<ADRESOBJECT.Root>(sr.ReadToEnd());
 
 
-                    CBil.DataSource = _adresObje.data.Select(x => x.il_adi).ToList();
+                    CBIl.EditValue = _adresObje.data.Select(x => x.il_adi).ToList();
                 }
 
            
         }
 
-       
-
-        private void CBil_SelectedValueChanged(object sender, EventArgs e)
+        private void CBIl_TextChanged(object sender, EventArgs e)
         {
-
+            CBIlce.Properties.DataSource = _adresObje.data.Where(x => x.il_adi == CBIl.EditValue).Select(x => x.ilceler.Select(z => z.ilce_adi).ToList()).FirstOrDefault();
         }
 
-        private void CBil_TextChanged(object sender, EventArgs e)
-        {
-            CBilce.DataSource = _adresObje.data.Where(x => x.il_adi == CBil.SelectedValue).Select(x => x.ilceler.Select(z => z.ilce_adi).ToList()).FirstOrDefault();
-        }
-
-        private void CBilce_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+      
         private void button7_Click(object sender, EventArgs e)
         {
 
             _cariServis.Data(ServisList.CariSilServis, null, null);
         }
 
-        private void BTCariSec_Click(object sender, EventArgs e)
-        {
-        
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
@@ -170,34 +151,7 @@ namespace MEYPAK.PRL.CARI
                 doldur();
         }
 
-        private void checkButton1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void labelControl3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelControl8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-       
-
-        private void TBSevkAdres_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-                
-        }
-
+        
         private void BTSevkAdresKaydet_Click(object sender, EventArgs e)
         {
             _cariServis.Data(ServisList.CariEkleServis, new PocoCARIKART()
@@ -213,22 +167,22 @@ namespace MEYPAK.PRL.CARI
                 aciklamA8 = TBAciklama8.Text,
                 aciklamA9 = TBAciklama9.Text,
                 adi = TBCariAdi.Text,
-                soyadi = TBCariSoyadi.Text,
+                soyadi = TBCariSoyad.Text,
                 adres = TBAdres.Text,
-                amuhkod = TBAMuhKodu.Text,
+                amuhkod = BTAMuhSec.Text,
                 apt = TBApt.Text,
                 ceptel = TBCepTel.Text,
                 daire = TBDaire.Text,
                 eposta = TBEposta.Text,
                 fax = TBFax.Text,
-                grupkodu = TBGrupKodu.Text,
-                il = CBil.Text,
-                ilce = CBilce.Text,
-                kategori = TBKategori.Text,
-                kod = TBCariKodu.Text,
+                grupkodu = BTGrupSec.Text,
+                il = CBIl.Text,
+                ilce = CBIl.Text,
+                kategori = BTKategoriSec.Text,
+                kod = BTCariSec.Text,
                 mahalle = TBMahalle.Text,
-                muH_KOD = TBMuhKod.Text,
-                postakod = TBPostaKodu.Text,
+                muH_KOD = BTMuhSec.Text,
+                postakod = TBPostaKod.Text,
                 raporkoD1 = TBRaporKodu1.Text,
                 raporkoD2 = TBRaporKodu2.Text,
                 raporkoD3 = TBRaporKodu3.Text,
@@ -247,16 +201,16 @@ namespace MEYPAK.PRL.CARI
                 saciklamA7 = int.Parse(NUDSAciklama7.Value.ToString()),
                 saciklamA8 = int.Parse(NUDSAciklama8.Value.ToString()),
                 saciklamA9 = int.Parse(NUDSAciklama9.Value.ToString()),
-                smuhkod = TBSMuhKodu.Text,
+                smuhkod = BTSMuhSec.Text,
                 sokak = TBSokak.Text,
-                tcno = TBTc.Text,
+                tcno = TBTcNo.Text,
                 telefon = TBTelefon1.Text,
                 telefoN2 = TBTelefon2.Text,
-                tipi = CBTipi.SelectedIndex,
+                tipi = int.Parse((CBTip.Text).ToString()),
                 unvan = TBUnvan.Text,
-                vadegunu = int.Parse(TBVadeGunu.Text),
+                vadegunu = int.Parse(TBVadeGun.Text),
                 vergidairesi = CBVDaire.Text,
-                vergino = TBVNo.Text,
+                vergino = TBVergiNo.Text,
                 web = TBWebSite.Text,
 
             });
