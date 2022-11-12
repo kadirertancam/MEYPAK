@@ -30,12 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FOlcuBrKart));
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.BTKaydet = new DevExpress.XtraEditors.SimpleButton();
+            this.BTSil = new DevExpress.XtraEditors.SimpleButton();
             this.TBOlcuBirim = new DevExpress.XtraEditors.TextEdit();
             this.TBAdi = new DevExpress.XtraEditors.TextEdit();
             this.LBOlcuBirimAdi = new DevExpress.XtraEditors.LabelControl();
             this.LBOlcuBirim = new DevExpress.XtraEditors.LabelControl();
-            this.BTSil = new DevExpress.XtraEditors.SimpleButton();
-            this.BTKaydet = new DevExpress.XtraEditors.SimpleButton();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.DGOlcuBirim = new DevExpress.XtraGrid.GridControl();
@@ -54,6 +54,8 @@
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.BTKaydet);
+            this.groupControl1.Controls.Add(this.BTSil);
             this.groupControl1.Controls.Add(this.TBOlcuBirim);
             this.groupControl1.Controls.Add(this.TBAdi);
             this.groupControl1.Controls.Add(this.LBOlcuBirimAdi);
@@ -61,27 +63,51 @@
             this.groupControl1.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             this.groupControl1.Location = new System.Drawing.Point(5, 0);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(308, 97);
+            this.groupControl1.Size = new System.Drawing.Size(793, 97);
             this.groupControl1.TabIndex = 81;
             this.groupControl1.Text = "Ölçü Birim";
             // 
+            // BTKaydet
+            // 
+            this.BTKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTKaydet.Appearance.Options.UseBackColor = true;
+            this.BTKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTKaydet.ImageOptions.Image")));
+            this.BTKaydet.Location = new System.Drawing.Point(274, 34);
+            this.BTKaydet.Name = "BTKaydet";
+            this.BTKaydet.Size = new System.Drawing.Size(82, 39);
+            this.BTKaydet.TabIndex = 77;
+            this.BTKaydet.Text = "&Kaydet";
+            this.BTKaydet.Click += new System.EventHandler(this.BTKaydet_Click);
+            // 
+            // BTSil
+            // 
+            this.BTSil.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTSil.Appearance.Options.UseBackColor = true;
+            this.BTSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTSil.ImageOptions.Image")));
+            this.BTSil.Location = new System.Drawing.Point(362, 35);
+            this.BTSil.Name = "BTSil";
+            this.BTSil.Size = new System.Drawing.Size(82, 39);
+            this.BTSil.TabIndex = 78;
+            this.BTSil.Text = "&Sil";
+            this.BTSil.Click += new System.EventHandler(this.BTSil_Click);
+            // 
             // TBOlcuBirim
             // 
-            this.TBOlcuBirim.Location = new System.Drawing.Point(105, 61);
+            this.TBOlcuBirim.Location = new System.Drawing.Point(118, 58);
             this.TBOlcuBirim.Name = "TBOlcuBirim";
             this.TBOlcuBirim.Size = new System.Drawing.Size(132, 20);
             this.TBOlcuBirim.TabIndex = 83;
             // 
             // TBAdi
             // 
-            this.TBAdi.Location = new System.Drawing.Point(105, 30);
+            this.TBAdi.Location = new System.Drawing.Point(118, 32);
             this.TBAdi.Name = "TBAdi";
             this.TBAdi.Size = new System.Drawing.Size(132, 20);
             this.TBAdi.TabIndex = 82;
             // 
             // LBOlcuBirimAdi
             // 
-            this.LBOlcuBirimAdi.Location = new System.Drawing.Point(29, 33);
+            this.LBOlcuBirimAdi.Location = new System.Drawing.Point(42, 35);
             this.LBOlcuBirimAdi.Name = "LBOlcuBirimAdi";
             this.LBOlcuBirimAdi.Size = new System.Drawing.Size(64, 13);
             this.LBOlcuBirimAdi.TabIndex = 10;
@@ -89,40 +115,14 @@
             // 
             // LBOlcuBirim
             // 
-            this.LBOlcuBirim.Location = new System.Drawing.Point(71, 64);
+            this.LBOlcuBirim.Location = new System.Drawing.Point(84, 61);
             this.LBOlcuBirim.Name = "LBOlcuBirim";
             this.LBOlcuBirim.Size = new System.Drawing.Size(22, 13);
             this.LBOlcuBirim.TabIndex = 11;
             this.LBOlcuBirim.Text = "Birim";
             // 
-            // BTSil
-            // 
-            this.BTSil.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.BTSil.Appearance.Options.UseBackColor = true;
-            this.BTSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTOlcuBrKartSil.ImageOptions.Image")));
-            this.BTSil.Location = new System.Drawing.Point(420, 34);
-            this.BTSil.Name = "BTSil";
-            this.BTSil.Size = new System.Drawing.Size(82, 39);
-            this.BTSil.TabIndex = 78;
-            this.BTSil.Text = "&Sil";
-            this.BTSil.Click += new System.EventHandler(this.BTSil_Click);
-            // 
-            // BTKaydet
-            // 
-            this.BTKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.BTKaydet.Appearance.Options.UseBackColor = true;
-            this.BTKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTOlcuBrKartKaydet.ImageOptions.Image")));
-            this.BTKaydet.Location = new System.Drawing.Point(332, 33);
-            this.BTKaydet.Name = "BTKaydet";
-            this.BTKaydet.Size = new System.Drawing.Size(82, 39);
-            this.BTKaydet.TabIndex = 77;
-            this.BTKaydet.Text = "&Kaydet";
-            this.BTKaydet.Click += new System.EventHandler(this.BTKaydet_Click);
-            // 
             // panelControl1
             // 
-            this.panelControl1.Controls.Add(this.BTKaydet);
-            this.panelControl1.Controls.Add(this.BTSil);
             this.panelControl1.Controls.Add(this.groupControl1);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
