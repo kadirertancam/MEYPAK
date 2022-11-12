@@ -70,7 +70,7 @@
             this.TBAciklama = new DevExpress.XtraEditors.MemoEdit();
             this.TBBelgeNo = new DevExpress.XtraEditors.TextEdit();
             this.TBStokAdi = new DevExpress.XtraEditors.TextEdit();
-            this.TBStokKodu = new DevExpress.XtraEditors.ButtonEdit();
+            this.BTStokKoduSec = new DevExpress.XtraEditors.ButtonEdit();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.RGStokHarGirisCikis = new DevExpress.XtraEditors.RadioGroup();
             this.CHBKdvDahil = new System.Windows.Forms.CheckBox();
@@ -95,7 +95,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.TBAciklama.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBBelgeNo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBStokAdi.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TBStokKodu.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BTStokKoduSec.Properties)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RGStokHarGirisCikis.Properties)).BeginInit();
             this.SuspendLayout();
@@ -286,7 +286,7 @@
             this.GBStokHareket.Controls.Add(this.TBAciklama);
             this.GBStokHareket.Controls.Add(this.TBBelgeNo);
             this.GBStokHareket.Controls.Add(this.TBStokAdi);
-            this.GBStokHareket.Controls.Add(this.TBStokKodu);
+            this.GBStokHareket.Controls.Add(this.BTStokKoduSec);
             this.GBStokHareket.Controls.Add(this.groupBox3);
             this.GBStokHareket.Controls.Add(this.CHBKdvDahil);
             this.GBStokHareket.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -559,16 +559,16 @@
             this.TBStokAdi.Size = new System.Drawing.Size(180, 26);
             this.TBStokAdi.TabIndex = 30;
             // 
-            // TBStokKodu
+            // BTStokKoduSec
             // 
-            this.TBStokKodu.Location = new System.Drawing.Point(80, 23);
-            this.TBStokKodu.Name = "TBStokKodu";
-            this.TBStokKodu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.BTStokKoduSec.Location = new System.Drawing.Point(80, 23);
+            this.BTStokKoduSec.Name = "BTStokKoduSec";
+            this.BTStokKoduSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.TBStokKodu.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.TBStokKodu.Properties.Click += new System.EventHandler(this.buttonEdit1_Properties_Click);
-            this.TBStokKodu.Size = new System.Drawing.Size(180, 26);
-            this.TBStokKodu.TabIndex = 7;
+            this.BTStokKoduSec.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.BTStokKoduSec.Properties.Click += new System.EventHandler(this.buttonEdit1_Properties_Click);
+            this.BTStokKoduSec.Size = new System.Drawing.Size(180, 26);
+            this.BTStokKoduSec.TabIndex = 7;
             // 
             // groupBox3
             // 
@@ -640,7 +640,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.TBAciklama.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBBelgeNo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBStokAdi.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TBStokKodu.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BTStokKoduSec.Properties)).EndInit();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.RGStokHarGirisCikis.Properties)).EndInit();
             this.ResumeLayout(false);
@@ -694,5 +694,7 @@
         private DevExpress.XtraEditors.SimpleButton BTStokHarSil;
         private DevExpress.XtraEditors.SimpleButton BTStokHarKaydet;
         private DateTimePicker DTStokTarih;
+        private DevExpress.XtraEditors.ButtonEdit BTStokKodu;
+        private DevExpress.XtraEditors.ButtonEdit BTStokKoduSec;
     }
 }

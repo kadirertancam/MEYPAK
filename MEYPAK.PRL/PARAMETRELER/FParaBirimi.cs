@@ -18,68 +18,97 @@ namespace MEYPAK.PRL.PARAMETRELER
 {
     public partial class FParaBirimi : Form
     {
-      
-            string islemtipi = "Kayıt";
-            public FParaBirimi()
-            {
-                InitializeComponent();
-                _paraBirimServis = new GenericWebServis<PocoPARABIRIM>();
-            }
-            GenericWebServis<PocoPARABIRIM> _paraBirimServis;
-            private void FParaBirimi_Load(object sender, EventArgs e)
-            {
-                DataGridDoldur();
-            }
-            int id;
 
-            void DataGridDoldur()
-            {
-                _paraBirimServis.Data(ServisList.ParaBirimiListeServis);
-                DGParaBrm.DataSource = _paraBirimServis.obje.Where(x => x.kayittipi == 0).Select(x => new { x.id, x.adi, x.kisaadi, x.olusturmatarihi });
+        string islemtipi = "Kayıt";
+        public FParaBirimi()
+        {
+            InitializeComponent();
+            _paraBirimServis = new GenericWebServis<PocoPARABIRIM>();
+        }
+        GenericWebServis<PocoPARABIRIM> _paraBirimServis;
+        private void FParaBirimi_Load(object sender, EventArgs e)
+        {
+            DataGridDoldur();
+        }
+        int id;
+
+        void DataGridDoldur()
+        {
+            _paraBirimServis.Data(ServisList.ParaBirimiListeServis);
+            DGParaBrm.DataSource = _paraBirimServis.obje.Where(x => x.kayittipi == 0).Select(x => new { x.id, x.adi, x.kisaadi, x.olusturmatarihi });
             DGParaBrm.Refresh();
             DGParaBrm.RefreshDataSource();
-            }
+        }
 
-            private void gridView1_DoubleClick(object sender, EventArgs e)
-            {
-                TBParaBrm.Text = gridView1.GetFocusedRowCellValue("adi").ToString();
-                TBKisaltma.Text = gridView1.GetFocusedRowCellValue("birim").ToString();
-                id = int.Parse(gridView1.GetFocusedRowCellValue("id").ToString());
-                islemtipi = "Güncelleme";
-            }
+        private void gridView1_DoubleClick(object sender, EventArgs e)
+        {
+            TBParaBrm.Text = gridView1.GetFocusedRowCellValue("adi").ToString();
+            TBKisaltma.Text = gridView1.GetFocusedRowCellValue("kisaadi").ToString();
+            id = int.Parse(gridView1.GetFocusedRowCellValue("id").ToString());
+            islemtipi = "Güncelleme";
+        }
 
-            private void BTKaydet_Click(object sender, EventArgs e)
+        private void BTKaydet_Click(object sender, EventArgs e)
+        {
+            if (islemtipi == "Kayıt")
             {
-                if (islemtipi == "Kayıt")
+                _paraBirimServis.Data(ServisList.ParaBirimiEkleServis, (new PocoPARABIRIM()
                 {
-                    _paraBirimServis.Data(ServisList.ParaBirimiEkleServis, (new PocoPARABIRIM()
+                    adi = TBParaBrm.Text,
+                    kisaadi = TBKisaltma.Text,
+                    aktif=1
+                }));
+
+            }
+            else
+                _paraBirimServis.Data(ServisList.ParaBirimiEkleServis, (new PocoPARABIRIM()
+                {
+                    id = id,
+                    adi = TBParaBrm.Text,
+                    kisaadi = TBKisaltma.Text,
+                    aktif=1
+                }));
+            MessageBox.Show("Kayıt Başarılı.");
+            id = 0;
+            DataGridDoldur();
+        }
+
+        private void BTSil_Click(object sender, EventArgs e)
+        {
+            _paraBirimServis.Data(ServisList.ParaBirimiListeServis);
+            _paraBirimServis.Data(ServisList.ParaBirimiSilServis, null, null, _paraBirimServis.obje.Where(x => x.adi.ToString() == gridView1.GetFocusedRowCellValue("adi").ToString()).ToList());
+            MessageBox.Show("Silme Başarılı");
+            DGParaBrm.DataSource = _paraBirimServis.obje.Where(x => x.kayittipi == 0);
+            DataGridDoldur();
+        }
+
+        public void Temizle(Control.ControlCollection ctrlCollection) //Formdaki textboxları temizler
+        {
+
+            foreach (Control ctrl in ctrlCollection)
+            {
+                if (ctrl is TextBoxBase)
+                {
+                    if (ctrl.Name != "TBParaBrm")
                     {
-                        adi = TBParaBrm.Text,
-                        kisaadi = TBKisaltma.Text,
-                    }));
+                        ctrl.Text = String.Empty;
+                    }
+
+                    else if (ctrl.Name != "TBKisaltma")
+                    {
+                        ctrl.Text = String.Empty;
+                    }
 
                 }
                 else
-                    _paraBirimServis.Data(ServisList.ParaBirimiEkleServis, (new PocoPARABIRIM()
-                    {
-                        id = id,
-                        adi = TBParaBrm.Text,
-                        kisaadi = TBKisaltma.Text,
-                    }));
-                MessageBox.Show("Kayıt Başarılı.");
-                id = 0;
-                DataGridDoldur();
+                {
+                    Temizle(ctrl.Controls);
+                }
             }
 
-            private void BTSil_Click(object sender, EventArgs e)
-            {
-                _paraBirimServis.Data(ServisList.ParaBirimiListeServis);
-            _paraBirimServis.Data(ServisList.ParaBirimiSilServis, null, null, _paraBirimServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()).ToList());
-                MessageBox.Show("Silme Başarılı");
-                DGParaBrm.DataSource = _paraBirimServis.obje.Where(x => x.kayittipi == 0);
-                DataGridDoldur();
-            }
         }
 
     }
+
+}
 

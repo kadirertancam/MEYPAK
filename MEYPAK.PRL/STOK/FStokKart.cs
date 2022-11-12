@@ -492,11 +492,7 @@ namespace MEYPAK.PRL
         }
 
       
-        private void BTStokKodu_EditValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
+       
         private void BTStokKodu_Leave_1(object sender, EventArgs e)
         {
             _PocoStokServis.Data(ServisList.StokListeServis);

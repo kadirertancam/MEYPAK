@@ -38,17 +38,21 @@ namespace MEYPAK.PRL.CARI
             _cariAltHesapServis = new GenericWebServis<PocoCARIALTHES>();
             _cariAltHesapServis.Data(ServisList.CariAltHesListeServis);
             _cariResimServis = new GenericWebServis<PocoCARIRESIM>();
+            //_cariParABIRIM = new GenericWebServis<PocoPARABIRIM>();
+            //_cariParABIRIM.Data(ServisList.ParaBirimiListeServis);
+
         }
         GenericWebServis<ADRESLIST> _adresListServis;
         GenericWebServis<PocoCARIKART> _cariServis;
         GenericWebServis<PocoCARIALTHES> _cariAltHesapServis;
+        //GenericWebServis<PocoPARABIRIM> _cariParABIRIM; 
         GenericWebServis<PocoCARIRESIM> _cariResimServis;
         FCariList _fCariList;
-        FCariAltHesap fCariAltHesap;
-      
+        
 
         public PocoCARIKART _tempCariKart;
         public PocoCARIALTHES _tempCariAltHes;
+        //public PocoPARABIRIM _tempCariParABIRIM;
 
         void doldur()
         {
@@ -109,6 +113,8 @@ namespace MEYPAK.PRL.CARI
             CBVDaire.Text = _tempCariKart.vergidairesi;
             TBVergiNo.Text = _tempCariKart.vergino;
             TBWebSite.Text = _tempCariKart.web;
+
+            
             
         }
         
@@ -219,7 +225,7 @@ namespace MEYPAK.PRL.CARI
 
         }
 
-        private void BTKoduSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        public void BTKoduSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
 
             if (e.Button.Caption == "Yeni")
@@ -249,97 +255,27 @@ namespace MEYPAK.PRL.CARI
             }
             else if (e.Button.Caption == "Seç")
             {
-                //_tempCariAltHes = null;
-                //fCariAltHesap = this.Tag.ToString()
-                //fStokList.ShowDialog();
+               
+               _tempCariAltHes = null;
+               FCariAltHesap fCariAltHesap = new FCariAltHesap(this.Tag.ToString(), "stokhar");
+               
+               doldur();
+                   
+               _cariAltHesapServis.Data(ServisList.CariAltHesListeServis);
+               DGAltHesap.DataSource = _cariAltHesapServis.obje.Where(x => x.kayittipi == 0).Select(x => new {
+                    x.id,
+                    x.adi,
+                    x.kod,
+                    //Doviz = _parabirIMServis.obje.Where(z => z.id == x.dovizid).FirstOrDefault().adi.ToString(),//Labellama
+                    x.olusturmatarihi
+               });
+               DGAltHesap.Refresh();
+               DGAltHesap.RefreshDataSource();
 
-                //Doldur();
+
             }
           }
 
-        private void simpleButton13_Click(object sender, EventArgs e)
-        {
-            _cariResimServis.Data(ServisList.StokResimListeServis);
-            if (_cariResimServis.obje.Where(x => x.CARIID == _cariServis.obje.Where(z => z.kod == BTCariSec.Text).FirstOrDefault().id).Count() == 0)
-            {
-                resimList.Add(new PocoSTOKRESIM()
-                {
-                    STOKID = _cariServis.obje.Where(z => z.kod == BTCariSec.Text).FirstOrDefault().id,
-                    NUM = 0,
-                    IMG = base64,
-
-                });
-            }
-            else
-            {
-                resimList.Add(new PocoSTOKRESIM()
-                {
-                    STOKID = _cariServis.obje.Where(z => z.kod == BTCariSec.Text).FirstOrDefault().id,
-                    NUM = _cariResimServis.obje.Where(x => x.CARIID == _cariServis.obje.Where(z => z.kod == BTCariSec.Text).FirstOrDefault().id).Last().NUM + 1,
-                    IMG = base64,
-                });
-            }
-
-            gridControl2.DataSource = resimList.Select(x => new { Resim = Base64ToImage(x.IMG) });
-        }
-        string base64 = "";
-        private void buttonEdit1_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
-        {
-            if (e.Button.Caption == "Seç")
-            {
-                OpenFileDialog ofd = new OpenFileDialog();
-                ofd.Filter = "TümDosyalar |*.*|Jpeg Dosyası |*.jpeg| Jpg Dosyası|*.jpg| PNG Dosyası|*.png| ICO Dosyası|*.ico;";
-                if (ofd.ShowDialog() == DialogResult.OK)
-                {
-                    string DosyaYolu = ofd.FileName;
-                    string DosyaAdi = ofd.SafeFileName;
-                    buttonEdit1.Text = DosyaYolu;
-                    pictureEdit1.Image = new Bitmap(DosyaYolu);
-                    base64 = ImageToBase64(DosyaYolu);
-                }
-            }
-        }
-        public object base64resim;
-        public System.Drawing.Image Base64ToImage(string base64String)
-        {
-            try
-            {
-                byte[] imageBytes = Convert.FromBase64String(base64String);
-                MemoryStream ms = new MemoryStream(imageBytes, 0, imageBytes.Length);
-                ms.Write(imageBytes, 0, imageBytes.Length);
-                System.Drawing.Image image = System.Drawing.Image.FromStream(ms, true);
-                return image;
-            }
-            catch (Exception)
-            {
-
-                return null;
-            }
-
-        }
-        string b64string = "";
-        public string ImageToBase64(string path)
-        {
-            try
-            {
-
-
-                using (System.Drawing.Image image = System.Drawing.Image.FromFile(path))
-                {
-                    using (MemoryStream m = new MemoryStream())
-                    {
-                        image.Save(m, image.RawFormat);
-                        byte[] imageBytes = m.ToArray();
-                        b64string = Convert.ToBase64String(imageBytes);
-                        return b64string;
-                    }
-                }
-            }
-            catch
-            {
-                return "";
-            }
-        }
-        List<PocoSTOKRESIM> resimList;
+      
     }
 }

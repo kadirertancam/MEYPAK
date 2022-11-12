@@ -143,21 +143,17 @@
             // 
             // LBMarkaAciklama
             // 
-            this.LBMarkaAciklama.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBMarkaAciklama.Appearance.Options.UseFont = true;
             this.LBMarkaAciklama.Location = new System.Drawing.Point(41, 52);
             this.LBMarkaAciklama.Name = "LBMarkaAciklama";
-            this.LBMarkaAciklama.Size = new System.Drawing.Size(46, 14);
+            this.LBMarkaAciklama.Size = new System.Drawing.Size(41, 13);
             this.LBMarkaAciklama.TabIndex = 13;
             this.LBMarkaAciklama.Text = "Açıklama";
             // 
             // LBMarkaAdi
             // 
-            this.LBMarkaAdi.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBMarkaAdi.Appearance.Options.UseFont = true;
             this.LBMarkaAdi.Location = new System.Drawing.Point(35, 26);
             this.LBMarkaAdi.Name = "LBMarkaAdi";
-            this.LBMarkaAdi.Size = new System.Drawing.Size(52, 14);
+            this.LBMarkaAdi.Size = new System.Drawing.Size(47, 13);
             this.LBMarkaAdi.TabIndex = 12;
             this.LBMarkaAdi.Text = "Marka Adı";
             // 

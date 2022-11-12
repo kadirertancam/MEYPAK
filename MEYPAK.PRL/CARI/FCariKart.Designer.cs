@@ -1315,6 +1315,7 @@
             // 
             this.gridView3.GridControl = this.gridControl2;
             this.gridView3.Name = "gridView3";
+            //this.gridView3.DoubleClick += new System.EventHandler(this.gridView3_DoubleClick);
             // 
             // panel13
             // 

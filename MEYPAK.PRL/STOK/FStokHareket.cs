@@ -36,7 +36,7 @@ namespace MEYPAK.PRL.STOK
         int IO = 0;
         int _id;
         GenericWebServis<PocoDEPO> _depoServis ;
-
+        
         decimal KdvEkle(decimal val)
         {
             decimal kdvy = (100 + Decimal.Parse(TBKdv.Text)) / 100;
@@ -59,7 +59,7 @@ namespace MEYPAK.PRL.STOK
             if (_tempStok != null)
             {
                 _id = _tempStok.id;
-                TBStokKodu.Text = _tempStok.kod;
+                BTStokKoduSec.EditValue = _tempStok.kod;
                 TBStokAdi.Text = _tempStok.adi;
                 var adi= _stokOlcuBrServis.obje.Where(x => x.stokid == _tempStok.id).Select(x => _olcuBrServis.obje.Where(z => z.id.ToString() == x.olcubrid.ToString()).FirstOrDefault().adi).ToList();
                 CBBirim.Properties.DataSource = adi; //_stokOlcuBrServis.Getir(x => x.stokid == _id).Select(x => _olcuBrServis.Getir(z => z.ID == x.OLCUBRID).FirstOrDefault().ADI).ToList();
@@ -126,7 +126,7 @@ namespace MEYPAK.PRL.STOK
 
         }
 
-        private void BTStokSec_Click(object sender, EventArgs e)
+        private void BTStokKoduSec_Click(object sender, EventArgs e)
         {
             _tempStok = null;
             FStokList fStokList = new FStokList(this.Tag.ToString(), "stokhar");
@@ -137,11 +137,11 @@ namespace MEYPAK.PRL.STOK
 
         
 
-        private void TBStokKodu_Leave(object sender, EventArgs e)
+        private void BTStokKoduSec_Leave(object sender, EventArgs e)
         {
-            if (TBStokKodu.Text != "" && _stokServis.obje.Where(x => x.kod == TBStokKodu.Text).FirstOrDefault() != null)
+            if (BTStokKoduSec.EditValue != "" && _stokServis.obje.Where(x => x.kod == BTStokKoduSec.EditValue).FirstOrDefault() != null)
             {
-                _tempStok = _stokServis.obje.Where(x => x.kod == TBStokKodu.Text).FirstOrDefault();
+                _tempStok = _stokServis.obje.Where(x => x.kod == BTStokKoduSec.EditValue).FirstOrDefault();
                 Doldur();
             }
         }

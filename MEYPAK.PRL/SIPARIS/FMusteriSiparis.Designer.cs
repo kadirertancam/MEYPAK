@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -541,9 +541,9 @@
             this.TBCariKodu.Name = "TBCariKodu";
             this.TBCariKodu.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TBCariKodu.Properties.Appearance.Options.UseFont = true;
-            editorButtonImageOptions1.SvgImageSize = new System.Drawing.Size(16, 16);
+            editorButtonImageOptions2.SvgImageSize = new System.Drawing.Size(16, 16);
             this.TBCariKodu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.TBCariKodu.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.TBCariKodu_Properties_ButtonClick);
             this.TBCariKodu.Size = new System.Drawing.Size(222, 28);
             this.TBCariKodu.TabIndex = 149;
@@ -555,7 +555,7 @@
             this.TBSiparisNo.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TBSiparisNo.Properties.Appearance.Options.UseFont = true;
             this.TBSiparisNo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.TBSiparisNo.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.TBSiparisNo_Properties_ButtonClick);
             this.TBSiparisNo.Properties.Click += new System.EventHandler(this.TBSiparisNo_Properties_Click);
             this.TBSiparisNo.Size = new System.Drawing.Size(222, 28);
@@ -594,7 +594,7 @@
             // 
             this.DTPVadeTarihi.CalendarFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.DTPVadeTarihi.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DTPVadeTarihi.Location = new System.Drawing.Point(85, 169);
+            this.DTPVadeTarihi.Location = new System.Drawing.Point(86, 174);
             this.DTPVadeTarihi.Name = "DTPVadeTarihi";
             this.DTPVadeTarihi.Size = new System.Drawing.Size(119, 21);
             this.DTPVadeTarihi.TabIndex = 144;
@@ -707,111 +707,89 @@
             // 
             // LBKur
             // 
-            this.LBKur.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBKur.Appearance.Options.UseFont = true;
-            this.LBKur.Location = new System.Drawing.Point(443, 170);
+            this.LBKur.Location = new System.Drawing.Point(450, 170);
             this.LBKur.Name = "LBKur";
-            this.LBKur.Size = new System.Drawing.Size(18, 14);
+            this.LBKur.Size = new System.Drawing.Size(16, 13);
             this.LBKur.TabIndex = 129;
             this.LBKur.Text = "Kur";
             // 
             // LBAciklama
             // 
-            this.LBAciklama.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBAciklama.Appearance.Options.UseFont = true;
-            this.LBAciklama.Location = new System.Drawing.Point(753, 39);
+            this.LBAciklama.Location = new System.Drawing.Point(760, 40);
             this.LBAciklama.Name = "LBAciklama";
-            this.LBAciklama.Size = new System.Drawing.Size(46, 14);
+            this.LBAciklama.Size = new System.Drawing.Size(41, 13);
             this.LBAciklama.TabIndex = 128;
             this.LBAciklama.Text = "Açıklama";
             // 
             // LBVadeTar
             // 
-            this.LBVadeTar.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBVadeTar.Appearance.Options.UseFont = true;
-            this.LBVadeTar.Location = new System.Drawing.Point(10, 169);
+            this.LBVadeTar.Location = new System.Drawing.Point(22, 174);
             this.LBVadeTar.Name = "LBVadeTar";
-            this.LBVadeTar.Size = new System.Drawing.Size(61, 14);
+            this.LBVadeTar.Size = new System.Drawing.Size(53, 13);
             this.LBVadeTar.TabIndex = 127;
             this.LBVadeTar.Text = "Vade Tarihi";
             // 
             // LBSevkiyatTar
             // 
-            this.LBSevkiyatTar.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBSevkiyatTar.Appearance.Options.UseFont = true;
-            this.LBSevkiyatTar.Location = new System.Drawing.Point(721, 121);
+            this.LBSevkiyatTar.Location = new System.Drawing.Point(728, 122);
             this.LBSevkiyatTar.Name = "LBSevkiyatTar";
-            this.LBSevkiyatTar.Size = new System.Drawing.Size(78, 14);
+            this.LBSevkiyatTar.Size = new System.Drawing.Size(70, 13);
             this.LBSevkiyatTar.TabIndex = 126;
             this.LBSevkiyatTar.Text = "Sevkiyat Tarihi";
             // 
             // LBParaBirimi
             // 
-            this.LBParaBirimi.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBParaBirimi.Appearance.Options.UseFont = true;
-            this.LBParaBirimi.Location = new System.Drawing.Point(407, 134);
+            this.LBParaBirimi.Location = new System.Drawing.Point(414, 134);
             this.LBParaBirimi.Name = "LBParaBirimi";
-            this.LBParaBirimi.Size = new System.Drawing.Size(54, 14);
+            this.LBParaBirimi.Size = new System.Drawing.Size(49, 13);
             this.LBParaBirimi.TabIndex = 125;
             this.LBParaBirimi.Text = "Para Birimi";
             // 
             // LBSiparisTar
             // 
-            this.LBSiparisTar.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBSiparisTar.Appearance.Options.UseFont = true;
-            this.LBSiparisTar.Location = new System.Drawing.Point(395, 39);
+            this.LBSiparisTar.Location = new System.Drawing.Point(402, 39);
             this.LBSiparisTar.Name = "LBSiparisTar";
-            this.LBSiparisTar.Size = new System.Drawing.Size(66, 14);
+            this.LBSiparisTar.Size = new System.Drawing.Size(60, 13);
             this.LBSiparisTar.TabIndex = 124;
             this.LBSiparisTar.Text = "Sipariş Tarihi";
             // 
             // LBDepo
             // 
-            this.LBDepo.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBDepo.Appearance.Options.UseFont = true;
-            this.LBDepo.Location = new System.Drawing.Point(432, 98);
+            this.LBDepo.Location = new System.Drawing.Point(439, 98);
             this.LBDepo.Name = "LBDepo";
-            this.LBDepo.Size = new System.Drawing.Size(29, 14);
+            this.LBDepo.Size = new System.Drawing.Size(25, 13);
             this.LBDepo.TabIndex = 122;
             this.LBDepo.Text = "Depo";
             // 
             // LBAltHesap
             // 
-            this.LBAltHesap.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBAltHesap.Appearance.Options.UseFont = true;
-            this.LBAltHesap.Location = new System.Drawing.Point(19, 138);
+            this.LBAltHesap.Location = new System.Drawing.Point(33, 142);
             this.LBAltHesap.Name = "LBAltHesap";
-            this.LBAltHesap.Size = new System.Drawing.Size(52, 14);
+            this.LBAltHesap.Size = new System.Drawing.Size(46, 13);
             this.LBAltHesap.TabIndex = 121;
             this.LBAltHesap.Text = "Alt Hesap";
             // 
             // LBCariAdi
             // 
-            this.LBCariAdi.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBCariAdi.Appearance.Options.UseFont = true;
-            this.LBCariAdi.Location = new System.Drawing.Point(30, 106);
+            this.LBCariAdi.Location = new System.Drawing.Point(40, 105);
             this.LBCariAdi.Name = "LBCariAdi";
-            this.LBCariAdi.Size = new System.Drawing.Size(40, 14);
+            this.LBCariAdi.Size = new System.Drawing.Size(37, 13);
             this.LBCariAdi.TabIndex = 120;
             this.LBCariAdi.Text = "Cari Adı";
             // 
             // LBCariKodu
             // 
-            this.LBCariKodu.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBCariKodu.Appearance.Options.UseFont = true;
-            this.LBCariKodu.Location = new System.Drawing.Point(20, 71);
+            this.LBCariKodu.Location = new System.Drawing.Point(32, 75);
             this.LBCariKodu.Name = "LBCariKodu";
-            this.LBCariKodu.Size = new System.Drawing.Size(51, 14);
+            this.LBCariKodu.Size = new System.Drawing.Size(46, 13);
             this.LBCariKodu.TabIndex = 119;
             this.LBCariKodu.Text = "Cari Kodu";
             // 
             // LBSsiparisNo
             // 
-            this.LBSsiparisNo.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBSsiparisNo.Appearance.Options.UseFont = true;
-            this.LBSsiparisNo.Location = new System.Drawing.Point(19, 39);
+            this.LBSsiparisNo.Location = new System.Drawing.Point(31, 33);
             this.LBSsiparisNo.Name = "LBSsiparisNo";
-            this.LBSsiparisNo.Size = new System.Drawing.Size(52, 14);
+            this.LBSsiparisNo.Size = new System.Drawing.Size(47, 13);
             this.LBSsiparisNo.TabIndex = 118;
             this.LBSsiparisNo.Text = "Sipariş No";
             // 

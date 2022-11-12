@@ -72,7 +72,7 @@
             this.BTKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
             this.BTKaydet.Appearance.Options.UseBackColor = true;
             this.BTKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTKaydet.ImageOptions.Image")));
-            this.BTKaydet.Location = new System.Drawing.Point(274, 34);
+            this.BTKaydet.Location = new System.Drawing.Point(288, 34);
             this.BTKaydet.Name = "BTKaydet";
             this.BTKaydet.Size = new System.Drawing.Size(82, 39);
             this.BTKaydet.TabIndex = 77;
@@ -84,7 +84,7 @@
             this.BTSil.Appearance.BackColor = System.Drawing.Color.Gainsboro;
             this.BTSil.Appearance.Options.UseBackColor = true;
             this.BTSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTSil.ImageOptions.Image")));
-            this.BTSil.Location = new System.Drawing.Point(362, 35);
+            this.BTSil.Location = new System.Drawing.Point(376, 34);
             this.BTSil.Name = "BTSil";
             this.BTSil.Size = new System.Drawing.Size(82, 39);
             this.BTSil.TabIndex = 78;
@@ -93,14 +93,14 @@
             // 
             // TBOlcuBirim
             // 
-            this.TBOlcuBirim.Location = new System.Drawing.Point(118, 58);
+            this.TBOlcuBirim.Location = new System.Drawing.Point(124, 58);
             this.TBOlcuBirim.Name = "TBOlcuBirim";
             this.TBOlcuBirim.Size = new System.Drawing.Size(132, 20);
             this.TBOlcuBirim.TabIndex = 83;
             // 
             // TBAdi
             // 
-            this.TBAdi.Location = new System.Drawing.Point(118, 32);
+            this.TBAdi.Location = new System.Drawing.Point(124, 32);
             this.TBAdi.Name = "TBAdi";
             this.TBAdi.Size = new System.Drawing.Size(132, 20);
             this.TBAdi.TabIndex = 82;
