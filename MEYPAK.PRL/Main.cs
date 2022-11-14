@@ -9,6 +9,7 @@ using MEYPAK.Interfaces.Depo;
 using MEYPAK.Interfaces.Siparis;
 using MEYPAK.PRL.CARI;
 using MEYPAK.PRL.DEPO;
+using MEYPAK.PRL.PERSONEL;
 using MEYPAK.PRL.SIPARIS;
 using MEYPAK.PRL.STOK;
 using System;
@@ -63,6 +64,7 @@ namespace MEYPAK.PRL
         form fCariDurum;
         FCariKart fCariKart;
         FCariAltHesap fCariAltHesap;
+        FPersonelKart fPersonelKart;
         #endregion
         void StokPanelAc()
         {
@@ -336,6 +338,26 @@ namespace MEYPAK.PRL
             fDepoKart.Tag = "TPDepoKartPanel" + i;
             page.Controls.Add(fDepoKart);
             fDepoKart.Show();
+            i++;
+        }
+
+        private void accordionControlElement41_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fPersonelKart = new FPersonelKart();
+            page.Name = "TPPersonelKartPanel" + i;
+            page.Text = "Personel Kart Panel";
+            page.Tag = "TPPersonelKartPanel" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fPersonelKart.TopLevel = false;
+            fPersonelKart.AutoScroll = true;
+            fPersonelKart.Dock = DockStyle.Fill;
+            fPersonelKart.Tag = "TPPersonelKartPanel" + i;
+            page.Controls.Add(fPersonelKart);
+            fPersonelKart.Show();
             i++;
         }
     }

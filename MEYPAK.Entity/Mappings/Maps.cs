@@ -37,6 +37,7 @@ namespace MEYPAK.Entity.Mappings
             CreateMap<MPCARIKART, PocoCARIKART>().ReverseMap();
             CreateMap<MPCARIHAR, PocoCARIHAR>().ReverseMap();
             CreateMap<MPCARIALTHES, PocoCARIALTHES>().ReverseMap();
+            CreateMap<MPCARIRESIM,PocoCARIRESIM>().ReverseMap();    
 
             //STOK
             CreateMap<MPSTOKRESIM, PocoSTOKRESIM>().ReverseMap();

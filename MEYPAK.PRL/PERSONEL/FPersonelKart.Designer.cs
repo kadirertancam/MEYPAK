@@ -2150,6 +2150,7 @@
             this.ClientSize = new System.Drawing.Size(1119, 656);
             this.Controls.Add(this.panelControl1);
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FPersonelKart";
             this.Text = "FPersonelKart";
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();

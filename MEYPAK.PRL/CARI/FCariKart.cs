@@ -37,17 +37,22 @@ namespace MEYPAK.PRL.CARI
             _cariServis = new GenericWebServis<PocoCARIKART>();
             _cariAltHesapServis = new GenericWebServis<PocoCARIALTHES>();
             _cariAltHesapServis.Data(ServisList.CariAltHesListeServis);
+            _cariResimServis = new GenericWebServis<PocoCARIRESIM>();
+            //_cariParABIRIM = new GenericWebServis<PocoPARABIRIM>();
+            //_cariParABIRIM.Data(ServisList.ParaBirimiListeServis);
 
         }
         GenericWebServis<ADRESLIST> _adresListServis;
         GenericWebServis<PocoCARIKART> _cariServis;
         GenericWebServis<PocoCARIALTHES> _cariAltHesapServis;
+        //GenericWebServis<PocoPARABIRIM> _cariParABIRIM; 
+        GenericWebServis<PocoCARIRESIM> _cariResimServis;
         FCariList _fCariList;
-        FCariAltHesap fCariAltHesap;
-      
+        
 
         public PocoCARIKART _tempCariKart;
         public PocoCARIALTHES _tempCariAltHes;
+        //public PocoPARABIRIM _tempCariParABIRIM;
 
         void doldur()
         {
@@ -108,6 +113,8 @@ namespace MEYPAK.PRL.CARI
             CBVDaire.Text = _tempCariKart.vergidairesi;
             TBVergiNo.Text = _tempCariKart.vergino;
             TBWebSite.Text = _tempCariKart.web;
+
+            
             
         }
         
@@ -218,7 +225,7 @@ namespace MEYPAK.PRL.CARI
 
         }
 
-        private void BTKoduSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        public void BTKoduSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
 
             if (e.Button.Caption == "Yeni")
@@ -248,11 +255,24 @@ namespace MEYPAK.PRL.CARI
             }
             else if (e.Button.Caption == "Seç")
             {
-                //_tempCariAltHes = null;
-                //fCariAltHesap = this.Tag.ToString()
-                //fStokList.ShowDialog();
+               
+               _tempCariAltHes = null;
+               FCariAltHesap fCariAltHesap = new FCariAltHesap(this.Tag.ToString(), "stokhar");
+               
+               doldur();
+                   
+               _cariAltHesapServis.Data(ServisList.CariAltHesListeServis);
+               DGAltHesap.DataSource = _cariAltHesapServis.obje.Where(x => x.kayittipi == 0).Select(x => new {
+                    x.id,
+                    x.adi,
+                    x.kod,
+                    //Doviz = _parabirIMServis.obje.Where(z => z.id == x.dovizid).FirstOrDefault().adi.ToString(),//Labellama
+                    x.olusturmatarihi
+               });
+               DGAltHesap.Refresh();
+               DGAltHesap.RefreshDataSource();
 
-                //Doldur();
+
             }
           }
 

@@ -86,6 +86,8 @@ builder.Services.AddScoped<IParaBirimDal, EFParaBirimRepo>();
 builder.Services.AddScoped<IParaBirimServis, ParaBirimManager>();
 #endregion
 #region Cari
+builder.Services.AddScoped<ICariResimDal, EFCariResimRepo>();
+builder.Services.AddScoped<ICariResimServis, CariResimManager>();
 
 builder.Services.AddScoped<ICariHarDal, EFCariHarRepo>();
 builder.Services.AddScoped<ICariHarServis, CariHarManager>();
@@ -216,6 +218,7 @@ builder.Services.AddScoped<IAracDal, EFAracRepo>();
 builder.Services.AddScoped<IAracServis, AracManager>();
 
 #endregion
+
 
 
 
