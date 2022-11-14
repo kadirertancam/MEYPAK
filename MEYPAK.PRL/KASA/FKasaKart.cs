@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MEYPAK.PRL.KASA
 {
-    public partial class FKasa : Form
+    public partial class FKasaKart : Form
     {
-        public FKasa()
+        public FKasaKart()
         {
             InitializeComponent();
         }
