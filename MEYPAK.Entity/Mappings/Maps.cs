@@ -60,6 +60,7 @@ namespace MEYPAK.Entity.Mappings
             CreateMap<MPSIPARISSEVKEMRIHAR, PocoSIPARISSEVKEMIRHAR>().ReverseMap();
             CreateMap<MPSIPARISDETAY, PocoSIPARISDETAY>().ReverseMap();
             CreateMap<MPSATINALMAMALKABULEMRIHAR,PocoSATINALMAMALKABULEMRIHAR>().ReverseMap();
+            CreateMap<MPSIPARISKASAHAR, PocoSIPARISKASAHAR>().ReverseMap();
 
             //PERSONEL
             CreateMap<MPPERSONEL, PocoPERSONEL>().ReverseMap();

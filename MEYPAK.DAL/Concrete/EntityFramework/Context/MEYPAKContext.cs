@@ -24,7 +24,8 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
             
 
         }
-       
+
+        public DbSet<MPSIPARISKASAHAR> MPSIPARISKASAHAR { get; set; }
         public DbSet<MPSTOKRESIM> MPSTOKRESIM { get; set; }
         public DbSet<MPCARIRESIM> MPCARIRESIM { get; set; }
         public DbSet<MPCARIHAR> MPCARIHAR { get; set; }

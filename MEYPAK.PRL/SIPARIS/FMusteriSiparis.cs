@@ -9,6 +9,7 @@ using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.DEPO;
 using MEYPAK.Entity.PocoModels.SIPARIS;
 using MEYPAK.Entity.PocoModels.STOK;
+using MEYPAK.Interfaces.Siparis;
 using MEYPAK.PRL.CARI;
 using MEYPAK.PRL.STOK;
 using System.Data;
@@ -42,6 +43,7 @@ namespace MEYPAK.PRL.SIPARIS
             _cariKart = new GenericWebServis<PocoCARIKART>();
             _cariKart.Data(ServisList.CariListeServis);
             _stokServis = new GenericWebServis<PocoSTOK>();
+            _siparisKasaHarServis = new GenericWebServis<PocoSIPARISKASAHAR>();
 
 
             gridView1.OptionsNavigation.AutoMoveRowFocus = true;
@@ -50,6 +52,7 @@ namespace MEYPAK.PRL.SIPARIS
         FKasaList fKasaList;
         List<PocoSiparisKalem> _tempSiparisDetay = new List<PocoSiparisKalem>();
         DataGridViewComboBoxColumn DGVOlcuBr = new DataGridViewComboBoxColumn();
+        GenericWebServis<PocoSIPARISKASAHAR> _siparisKasaHarServis;
 
         PocoSiparisKalem _tempPocokalem;
         FStokList _fStokList;
@@ -270,6 +273,17 @@ namespace MEYPAK.PRL.SIPARIS
                     kdvtutari = item.KdvTutarı
                 });
                 i++;
+
+                _siparisKasaHarServis.Data(ServisList.SiparisKasaHarEkleServis, new PocoSIPARISKASAHAR()
+                {
+                    KASAID = item.KasaId,
+                    SIPARISID = _siparisServis.obje2.id,
+                    SIPARISDETAYID = _siparisDetayServis.obje2.id
+                });
+
+
+
+
             }
             temizle();
             //DataGrideSiparisleriGetir();

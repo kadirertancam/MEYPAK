@@ -210,7 +210,8 @@ builder.Services.AddScoped<ISiparisDetayServis, SiparisDetayManager>();
 builder.Services.AddScoped<ISiparisSevkEmriHarDal, EFSiparisSevkEmriHarRepo>();
 builder.Services.AddScoped<ISiparisSevkEmriHarServis, SiparisSevkEmriHarManager>();
 
-
+builder.Services.AddScoped<ISiparisKasaHarDal, EFSiparisKasaHarRepo>();
+builder.Services.AddScoped<ISiparisKasaHarServis, SiparisKasaHarManager>();
 
 #endregion
 #region ARAC_Scoped_Islemleri

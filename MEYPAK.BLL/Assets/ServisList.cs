@@ -200,6 +200,15 @@ namespace MEYPAK.BLL.Assets
 
         #endregion
 
+        #region Siparis
+        public const string SiparisKasaHarListeServis =         "http://213.238.167.117:8080/SIPARISKASAHAR/SIPARISKASAHARListe";
+        public const string SiparisKasaHarEkleServis =          "http://213.238.167.117:8080/SIPARISKASAHAR/SIPARISKASAHAREkleyadaGuncelle";
+        public const string SiparisKasaHarSilServis =           "http://213.238.167.117:8080/SIPARISKASAHAR/SIPARISKASAHARSil";
+        public const string SiparisKasaHarGuncelleServis =      "http://213.238.167.117:8080/SIPARISKASAHAR/SIPARISKASAHARGuncelle";
+        public const string SiparisKasaHarDeleteByIdServis =    "http://213.238.167.117:8080/SIPARISKASAHAR/DeleteById";
+
+        #endregion
+
         #region Personel
         public const string PersonelListeServis =         "http://213.238.167.117:8080/PERSONEL/PERSONELListe"; 
         public const string PersonelEkleServis = "http://213.238.167.117:8080/PERSONEL/PERSONELEkleyadaGuncelle"; 
