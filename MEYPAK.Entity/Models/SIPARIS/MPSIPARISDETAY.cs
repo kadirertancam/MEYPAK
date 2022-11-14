@@ -32,6 +32,7 @@ namespace MEYPAK.Entity.Models.SIPARIS
         public int KULLANICIID { get; set; } = 0;
         [DefaultValue(0)]
         public int KASAID { get; set; } = 0;
+        public decimal KASAMIKTAR { get; set; }
         public DateTime OLUSTURMATARIHI { get; set; } = DateTime.Now;
         public DateTime GUNCELLEMETARIHI { get; set; } = DateTime.Now;
         public byte TIP { get; set; } = 0;

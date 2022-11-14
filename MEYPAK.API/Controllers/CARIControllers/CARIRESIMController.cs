@@ -49,7 +49,7 @@ namespace MEYPAK.API.Controllers.CARIControllers
         }
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult CARIRESIMEkleyadaGuncelle(PocoCARIRESIM pModel)
+        public IActionResult CARIRESIMEkleyadaGuncelle([FromBody]PocoCARIRESIM pModel)
         {
             try
             {
