@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MEYPAK.BLL.Assets;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,15 @@ namespace MEYPAK.PRL.KASA
 {
     public partial class FKasaKart : Form
     {
+       
         public FKasaKart()
         {
             InitializeComponent();
+        }
+
+        private void BTNKaydet_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
