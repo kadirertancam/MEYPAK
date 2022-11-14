@@ -4,6 +4,7 @@ using DevExpress.Text.Interop;
 using DevExpress.XtraEditors;
 using DevExpress.XtraScheduler.iCalendar.Native;
 using MEYPAK.BLL.Assets;
+using MEYPAK.Entity.Models.PARAMETRE;
 using MEYPAK.Entity.PocoModels.PERSONEL;
 using MEYPAK.Interfaces.Personel;
 using MEYPAK.Interfaces.Siparis;
@@ -266,7 +267,6 @@ namespace MEYPAK.PRL.PERSONEL
         {
             _personelDepartmanServis.Data(ServisList.PersonelDepartmanListeServis);
             CBDepartman.Properties.DataSource = _personelDepartmanServis.obje.Select(x=> new {x.id,x.adi});
-           
             CBGorev.Properties.ValueMember = "id";
             CBGorev.Properties.DisplayMember = "adi";
 
@@ -297,8 +297,8 @@ namespace MEYPAK.PRL.PERSONEL
         void PersonelleriGetir()
         {
             _personelServis.Data(ServisList.PersonelListeServis);
-            gridControl1.DataSource = _personelServis.obje.Where(x => x.kayittipi == 0).Select(x => new { x.id, x.adisoyadi });
-            gridControl2.DataSource = _personelServis.obje.Where(x => x.kayittipi == 0).Select(x => new { x.id, x.adisoyadi });
+            gridControl1.DataSource = _personelServis.obje.Where(x => x.kayittipi == 0).Select(x => new {   ID=x.id, ADI=x.adisoyadi });
+            gridControl2.DataSource = _personelServis.obje.Where(x => x.kayittipi == 0).Select(x => new { ID=x.id, ADI=x.adisoyadi });
         }
 
         void PersonelBilgileriniDoldur()
