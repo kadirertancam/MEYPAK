@@ -43,11 +43,7 @@ namespace MEYPAK.PRL.CARI
         private void gridView1_CellDoubleClick(object sender, EventArgs e)
         {
             _cariAltHesServis.Data(ServisList.CariAltHesListeServis);
-            if (_islem == "carialthesap")
-            {
-                if (fCariAltHesap != null)
-                    fCariAltHesap._tempAltHesap = _cariAltHesServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()).FirstOrDefault();
-            }
+         
             this.Close();
         }
 
@@ -65,11 +61,11 @@ namespace MEYPAK.PRL.CARI
             _parabirIMServis.Data(ServisList.ParaBirimiListeServis);
             DGAltHesap.DataSource = _cariAltHesServis.obje.Where(x => x.kayittipi == 0).Select(x => new
             {
-                x.id,
-                x.adi,
-                x.kod,
-                Doviz = _parabirIMServis.obje.Where(z => z.id == x.dovizid).FirstOrDefault().adi.ToString(),//Labellama
-                x.olusturmatarihi
+                //ID=x.id,
+                Kod=x.kod,
+                AltHesapAdı=x.adi,
+                Döviz = _parabirIMServis.obje.Where(z => z.id == x.dovizid).FirstOrDefault().adi.ToString(),//Labellama
+                OluşturmaTarihi=x.olusturmatarihi
             });
 
        

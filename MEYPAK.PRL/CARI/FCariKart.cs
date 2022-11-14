@@ -40,21 +40,23 @@ namespace MEYPAK.PRL.CARI
             _cariAltHesapServis.Data(ServisList.CariAltHesListeServis);
             _cariResimServis = new GenericWebServis<PocoCARIRESIM>();
             resimList = new List<PocoCARIRESIM>();
-            //_cariParABIRIM = new GenericWebServis<PocoPARABIRIM>();
-            //_cariParABIRIM.Data(ServisList.ParaBirimiListeServis);
+            _tempCariAltHes = new PocoCARIALTHES();
+            _cariParABIRIM = new GenericWebServis<PocoPARABIRIM>();
+            _cariParABIRIM.Data(ServisList.ParaBirimiListeServis);
 
         }
         GenericWebServis<ADRESLIST> _adresListServis;
         GenericWebServis<PocoCARIKART> _cariServis;
         GenericWebServis<PocoCARIALTHES> _cariAltHesapServis;
-        //GenericWebServis<PocoPARABIRIM> _cariParABIRIM; 
+        GenericWebServis<PocoPARABIRIM> _cariParABIRIM; 
         GenericWebServis<PocoCARIRESIM> _cariResimServis;
         FCariList _fCariList;
+        FAltHesapList _fAltHesapList;
         
 
         public PocoCARIKART _tempCariKart;
         public PocoCARIALTHES _tempCariAltHes;
-        //public PocoPARABIRIM _tempCariParABIRIM;
+        public PocoPARABIRIM _tempCariParABIRIM;
 
         void doldur()
         {
@@ -243,13 +245,13 @@ namespace MEYPAK.PRL.CARI
             if (e.Button.Caption == "Yeni")
             {
 
-                XtraTabPage page = new XtraTabPage(); 
+                XtraTabPage page = new XtraTabPage();
                 FCariAltHesap fCariAltHesap = new FCariAltHesap();
                 Main main = (Main)Application.OpenForms["Main"]; //main e erişmek
                 page.Name = "TPAltHesap";
                 page.Text = "Alt Hesap";
-                page.Tag = "TPAltHesapPanel"; 
-               
+                page.Tag = "TPAltHesapPanel";
+
                 page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
                 main.xtraTabControl1.TabPages.Add(page);
                 main.xtraTabControl1.SelectedTabPage = page;
@@ -267,10 +269,11 @@ namespace MEYPAK.PRL.CARI
             }
             else if (e.Button.Caption == "Seç")
             {
-               
+              
             }
           }
 
+        
         private void simpleButton13_Click(object sender, EventArgs e)
         {
             _cariServis.Data(ServisList.CariListeServis);
@@ -362,15 +365,6 @@ namespace MEYPAK.PRL.CARI
             CBIlce.Properties.DataSource = _adresObje.data.Where(x => x.il_adi == CBIl.Text).Select(x => x.ilceler.Select(z => z.ilce_adi)).FirstOrDefault();
         }
 
-        private void BTCariSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
-        {
-            if (e.Button.Caption == "Seç")
-            {
-                _fCariList = new FCariList(this.Tag.ToString(), "carikart");
-                _fCariList.ShowDialog();
-                if (_tempCariKart != null)
-                    doldur();
-            }
-        }
+       
     }
 }

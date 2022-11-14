@@ -472,7 +472,7 @@ namespace MEYPAK.PRL.SIPARIS
         private void TBCariKodu_Properties_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
 
-          //  _fCariList = new FCariList(this.Tag.ToString(), "musterisiparis");
+            _fCariList = new FCariList(this.Tag.ToString(), "musterisiparis");
             _fCariList.ShowDialog();
             if (_tempCariKart != null)
             {

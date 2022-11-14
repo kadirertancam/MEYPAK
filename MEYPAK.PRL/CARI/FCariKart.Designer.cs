@@ -39,6 +39,9 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition1 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
+            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition1 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement1 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -49,9 +52,7 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition1 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
-            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition1 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
-            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement1 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            this.CResim = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
             this.TBSevkAdres = new System.Windows.Forms.TabControl();
@@ -184,6 +185,7 @@
             this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl7 = new DevExpress.XtraEditors.PanelControl();
             this.gridControl3 = new DevExpress.XtraGrid.GridControl();
+            this.tileView1 = new DevExpress.XtraGrid.Views.Tile.TileView();
             this.panelControl6 = new DevExpress.XtraEditors.PanelControl();
             this.simpleButton13 = new DevExpress.XtraEditors.SimpleButton();
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
@@ -262,8 +264,6 @@
             this.BTSevkAdresKaydet = new DevExpress.XtraEditors.SimpleButton();
             this.sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
             this.entityInstantFeedbackSource1 = new DevExpress.Data.Linq.EntityInstantFeedbackSource();
-            this.tileView1 = new DevExpress.XtraGrid.Views.Tile.TileView();
-            this.CResim = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
             this.panelControl4.SuspendLayout();
@@ -324,6 +324,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl7)).BeginInit();
             this.panelControl7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tileView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).BeginInit();
             this.panelControl6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
@@ -360,8 +361,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.TBUnvan.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTCariSec.Properties)).BeginInit();
             this.panel12.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tileView1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // CResim
+            // 
+            this.CResim.AccessibleName = "CResim";
+            this.CResim.Caption = "CResim";
+            this.CResim.FieldName = "CResim";
+            this.CResim.Name = "CResim";
+            this.CResim.Visible = true;
+            this.CResim.VisibleIndex = 0;
             // 
             // panel1
             // 
@@ -1324,7 +1333,6 @@
             // 
             this.gridView3.GridControl = this.gridControl2;
             this.gridView3.Name = "gridView3";
-            //this.gridView3.DoubleClick += new System.EventHandler(this.gridView3_DoubleClick);
             // 
             // panel13
             // 
@@ -1443,7 +1451,7 @@
             this.BTAltCariSil.Appearance.BackColor = System.Drawing.Color.Gainsboro;
             this.BTAltCariSil.Appearance.Options.UseBackColor = true;
             this.BTAltCariSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTAltCariSil.ImageOptions.Image")));
-            this.BTAltCariSil.Location = new System.Drawing.Point(462, 24);
+            this.BTAltCariSil.Location = new System.Drawing.Point(485, 24);
             this.BTAltCariSil.Name = "BTAltCariSil";
             this.BTAltCariSil.Size = new System.Drawing.Size(97, 45);
             this.BTAltCariSil.TabIndex = 59;
@@ -1454,7 +1462,7 @@
             this.BTAltCariKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
             this.BTAltCariKaydet.Appearance.Options.UseBackColor = true;
             this.BTAltCariKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTAltCariKaydet.ImageOptions.Image")));
-            this.BTAltCariKaydet.Location = new System.Drawing.Point(357, 24);
+            this.BTAltCariKaydet.Location = new System.Drawing.Point(380, 24);
             this.BTAltCariKaydet.Name = "BTAltCariKaydet";
             this.BTAltCariKaydet.Size = new System.Drawing.Size(97, 45);
             this.BTAltCariKaydet.TabIndex = 58;
@@ -1474,7 +1482,7 @@
             this.simpleButton12.AppearanceHovered.BorderColor = System.Drawing.Color.Black;
             this.simpleButton12.AppearanceHovered.Options.UseBorderColor = true;
             this.simpleButton12.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton12.ImageOptions.Image")));
-            this.simpleButton12.Location = new System.Drawing.Point(288, 24);
+            this.simpleButton12.Location = new System.Drawing.Point(302, 23);
             this.simpleButton12.Name = "simpleButton12";
             this.simpleButton12.Size = new System.Drawing.Size(51, 20);
             this.simpleButton12.TabIndex = 57;
@@ -1502,14 +1510,14 @@
             // 
             // textBox29
             // 
-            this.textBox29.Location = new System.Drawing.Point(77, 50);
+            this.textBox29.Location = new System.Drawing.Point(91, 49);
             this.textBox29.Name = "textBox29";
             this.textBox29.Size = new System.Drawing.Size(263, 21);
             this.textBox29.TabIndex = 3;
             // 
             // textBox30
             // 
-            this.textBox30.Location = new System.Drawing.Point(78, 24);
+            this.textBox30.Location = new System.Drawing.Point(92, 23);
             this.textBox30.Name = "textBox30";
             this.textBox30.Size = new System.Drawing.Size(261, 21);
             this.textBox30.TabIndex = 2;
@@ -1791,6 +1799,29 @@
             this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.tileView1});
             // 
+            // tileView1
+            // 
+            this.tileView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.CResim});
+            this.tileView1.GridControl = this.gridControl3;
+            this.tileView1.Name = "tileView1";
+            this.tileView1.OptionsTiles.ColumnCount = 4;
+            this.tileView1.OptionsTiles.GroupTextPadding = new System.Windows.Forms.Padding(12, 8, 12, 8);
+            this.tileView1.OptionsTiles.IndentBetweenGroups = 0;
+            this.tileView1.OptionsTiles.IndentBetweenItems = 0;
+            this.tileView1.OptionsTiles.LayoutMode = DevExpress.XtraGrid.Views.Tile.TileViewLayoutMode.List;
+            this.tileView1.OptionsTiles.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.tileView1.OptionsTiles.Padding = new System.Windows.Forms.Padding(0);
+            this.tileView1.OptionsTiles.RowCount = 0;
+            this.tileView1.TileColumns.Add(tableColumnDefinition1);
+            this.tileView1.TileRows.Add(tableRowDefinition1);
+            tileViewItemElement1.Column = this.CResim;
+            tileViewItemElement1.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileViewItemElement1.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Squeeze;
+            tileViewItemElement1.Text = "CResim";
+            tileViewItemElement1.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileView1.TileTemplate.Add(tileViewItemElement1);
+            // 
             // panelControl6
             // 
             this.panelControl6.Controls.Add(this.simpleButton13);
@@ -1833,7 +1864,6 @@
             this.buttonEdit1.Name = "buttonEdit1";
             this.buttonEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-
             this.buttonEdit1.Size = new System.Drawing.Size(199, 22);
             this.buttonEdit1.TabIndex = 0;
             // 
@@ -2334,7 +2364,6 @@
             this.BTCariSec.Name = "BTCariSec";
             this.BTCariSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.BTCariSec.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTCariSec_Properties_ButtonClick);
             this.BTCariSec.Size = new System.Drawing.Size(226, 22);
             this.BTCariSec.TabIndex = 57;
             // 
@@ -2509,38 +2538,6 @@
             this.sqlCommand1.Notification = null;
             this.sqlCommand1.Transaction = null;
             // 
-            // tileView1
-            // 
-            this.tileView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.CResim});
-            this.tileView1.GridControl = this.gridControl3;
-            this.tileView1.Name = "tileView1";
-            this.tileView1.OptionsTiles.ColumnCount = 4;
-            this.tileView1.OptionsTiles.GroupTextPadding = new System.Windows.Forms.Padding(12, 8, 12, 8);
-            this.tileView1.OptionsTiles.IndentBetweenGroups = 0;
-            this.tileView1.OptionsTiles.IndentBetweenItems = 0;
-            this.tileView1.OptionsTiles.LayoutMode = DevExpress.XtraGrid.Views.Tile.TileViewLayoutMode.List;
-            this.tileView1.OptionsTiles.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.tileView1.OptionsTiles.Padding = new System.Windows.Forms.Padding(0);
-            this.tileView1.OptionsTiles.RowCount = 0;
-            this.tileView1.TileColumns.Add(tableColumnDefinition1);
-            this.tileView1.TileRows.Add(tableRowDefinition1);
-            tileViewItemElement1.Column = this.CResim;
-            tileViewItemElement1.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            tileViewItemElement1.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Squeeze;
-            tileViewItemElement1.Text = "CResim";
-            tileViewItemElement1.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileView1.TileTemplate.Add(tileViewItemElement1);
-            // 
-            // CResim
-            // 
-            this.CResim.AccessibleName = "CResim";
-            this.CResim.Caption = "CResim";
-            this.CResim.FieldName = "CResim";
-            this.CResim.Name = "CResim";
-            this.CResim.Visible = true;
-            this.CResim.VisibleIndex = 0;
-            // 
             // FCariKart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2620,6 +2617,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl7)).EndInit();
             this.panelControl7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tileView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).EndInit();
             this.panelControl6.ResumeLayout(false);
             this.panelControl6.PerformLayout();
@@ -2660,7 +2658,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.TBUnvan.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTCariSec.Properties)).EndInit();
             this.panel12.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.tileView1)).EndInit();
             this.ResumeLayout(false);
 
         }

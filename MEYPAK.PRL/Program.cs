@@ -30,8 +30,9 @@ namespace MEYPAK.PRL
             ApplicationConfiguration.Initialize();
             Application.EnableVisualStyles();
             Application.Run(new FKasaKart());
+            Application.Run(new FCariKart());
         }
-        //
+        
 
         public class ApplicationDbContext : DbContext
         {
