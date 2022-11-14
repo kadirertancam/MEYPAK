@@ -2311,7 +2311,7 @@
             this.BTStokKodu.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.buttonEdit1_Properties_ButtonClick);
             this.BTStokKodu.Size = new System.Drawing.Size(194, 26);
             this.BTStokKodu.TabIndex = 3;
-            this.BTStokKodu.EditValueChanged += new System.EventHandler(this.BTStokKodu_EditValueChanged);
+            //this.BTStokKodu.EditValueChanged += new System.EventHandler(this.BTStokKodu_EditValueChanged);
             this.BTStokKodu.Leave += new System.EventHandler(this.BTStokKodu_Leave_1);
             // 
             // FStokKart

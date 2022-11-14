@@ -124,7 +124,7 @@
             this.BTSil.Appearance.BackColor = System.Drawing.Color.Gainsboro;
             this.BTSil.Appearance.Options.UseBackColor = true;
             this.BTSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTSil.ImageOptions.Image")));
-            this.BTSil.Location = new System.Drawing.Point(335, 32);
+            this.BTSil.Location = new System.Drawing.Point(356, 32);
             this.BTSil.Name = "BTSil";
             this.BTSil.Size = new System.Drawing.Size(82, 39);
             this.BTSil.TabIndex = 80;
@@ -137,7 +137,7 @@
             this.BTKaydet.Appearance.Options.UseBackColor = true;
             this.BTKaydet.Appearance.Options.UseFont = true;
             this.BTKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTKaydet.ImageOptions.Image")));
-            this.BTKaydet.Location = new System.Drawing.Point(247, 32);
+            this.BTKaydet.Location = new System.Drawing.Point(268, 32);
             this.BTKaydet.Name = "BTKaydet";
             this.BTKaydet.Size = new System.Drawing.Size(82, 39);
             this.BTKaydet.TabIndex = 79;
@@ -146,21 +146,21 @@
             // 
             // TBParaBrm
             // 
-            this.TBParaBrm.Location = new System.Drawing.Point(91, 29);
+            this.TBParaBrm.Location = new System.Drawing.Point(99, 29);
             this.TBParaBrm.Name = "TBParaBrm";
-            this.TBParaBrm.Size = new System.Drawing.Size(117, 20);
+            this.TBParaBrm.Size = new System.Drawing.Size(129, 20);
             this.TBParaBrm.TabIndex = 76;
             // 
             // TBKisaltma
             // 
-            this.TBKisaltma.Location = new System.Drawing.Point(91, 57);
+            this.TBKisaltma.Location = new System.Drawing.Point(99, 54);
             this.TBKisaltma.Name = "TBKisaltma";
-            this.TBKisaltma.Size = new System.Drawing.Size(117, 20);
+            this.TBKisaltma.Size = new System.Drawing.Size(129, 20);
             this.TBKisaltma.TabIndex = 77;
             // 
             // LBParaBirimi
             // 
-            this.LBParaBirimi.Location = new System.Drawing.Point(33, 32);
+            this.LBParaBirimi.Location = new System.Drawing.Point(36, 32);
             this.LBParaBirimi.Name = "LBParaBirimi";
             this.LBParaBirimi.Size = new System.Drawing.Size(49, 13);
             this.LBParaBirimi.TabIndex = 6;
@@ -168,7 +168,7 @@
             // 
             // LBKisa
             // 
-            this.LBKisa.Location = new System.Drawing.Point(43, 60);
+            this.LBKisa.Location = new System.Drawing.Point(46, 56);
             this.LBKisa.Name = "LBKisa";
             this.LBKisa.Size = new System.Drawing.Size(39, 13);
             this.LBKisa.TabIndex = 7;
@@ -176,7 +176,7 @@
             // 
             // CBAktif
             // 
-            this.CBAktif.Location = new System.Drawing.Point(101, 83);
+            this.CBAktif.Location = new System.Drawing.Point(109, 80);
             this.CBAktif.Name = "CBAktif";
             this.CBAktif.Properties.Appearance.Options.UseFont = true;
             this.CBAktif.Properties.Caption = "Aktif";

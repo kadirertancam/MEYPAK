@@ -40,17 +40,21 @@ namespace MEYPAK.PRL.CARI
             _cariAltHesapServis.Data(ServisList.CariAltHesListeServis);
             _cariResimServis = new GenericWebServis<PocoCARIRESIM>();
             resimList = new List<PocoCARIRESIM>();
+            //_cariParABIRIM = new GenericWebServis<PocoPARABIRIM>();
+            //_cariParABIRIM.Data(ServisList.ParaBirimiListeServis);
+
         }
         GenericWebServis<ADRESLIST> _adresListServis;
         GenericWebServis<PocoCARIKART> _cariServis;
         GenericWebServis<PocoCARIALTHES> _cariAltHesapServis;
+        //GenericWebServis<PocoPARABIRIM> _cariParABIRIM; 
         GenericWebServis<PocoCARIRESIM> _cariResimServis;
         FCariList _fCariList;
-        FCariAltHesap fCariAltHesap;
-      
+        
 
         public PocoCARIKART _tempCariKart;
         public PocoCARIALTHES _tempCariAltHes;
+        //public PocoPARABIRIM _tempCariParABIRIM;
 
         void doldur()
         {
@@ -229,7 +233,7 @@ namespace MEYPAK.PRL.CARI
 
         }
 
-        private void BTKoduSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        public void BTKoduSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
 
             if (e.Button.Caption == "Yeni")
@@ -259,11 +263,7 @@ namespace MEYPAK.PRL.CARI
             }
             else if (e.Button.Caption == "Seç")
             {
-                //_tempCariAltHes = null;
-                //fCariAltHesap = this.Tag.ToString()
-                //fStokList.ShowDialog();
-
-                //Doldur();
+               
             }
           }
 

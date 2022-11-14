@@ -67,23 +67,23 @@
   <data name="TSDuzenle.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEXSURBVDhPzZIxS8NQFIVFJ0EdXPwVHYQOTk6Cg5AsiSR5
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEXSURBVDhPzZIxS8NQFIVFJ0EdXPwVHYQOTk6Cg4EsiSR5
         ZAm4S2cl4OTiX1DcSqfuitiCo7+npdjqd+oNzxb6aDcPHO59955zXkiy9X9QFMVzFEUT59x3iKZ5MpsH
         i2me512CbkLE3IVfZvNQepZlfUT3IaLrS2s2Dw03odk8NOSG1I4rge4yGABP6V9sdqu+oe3CAdQT2LNZ
         R/0fahcOsONKlGXZRje2o0cTYE8xv4E6v7nZw0GapnvUC80WIIHMfMoj6plm1Jaonn9kKI1qVVX7mi1A
         PxLiB4Usk9DjJEl2Mb9ayCfnQ7P+AuEjy5kEy4zjeITpXDej+9CMelfX9bbZ1wfmA5nhFf27jTcDL3IH
-        85tz7voHWWjhLdwsgWkAAAAASUVORK5CYII=
+        85tz7voHFtLhFYQHCpoAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="TSEkle.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEZSURBVDhPtZJNSgNBEIX7AIqeQoSInsTeDfPPwHgEN4Ir
-        RXOLOETcCZ7CnWL0GsY5gqPf0zKZjAYSNQ8eXdNV73V1TbuVIMuyvSRJTtM0vRKJT6Io2rX0fBRFsRnH
-        8Q2iNziGD2IYhi+sDbnrIAg2rHwWZVmuU/TEaWM6OCf2CPZFi/syYn3EZM1kU5C4tJPKL2GXmB/AGl6Y
-        7BMkt733ryTOOqKBsb3XV22e51smd45TjxE/M6hJ2yL7t2Jnz1unRyb/MKgwuGsVDkysQYoymXRC7f3M
-        NZY14Pubga5QL3oFWMPpFUj8bYgCid//RmHRh0Q8+vEhCUpgMKSogRreSDRhw4yqueI26GAHo0NElagY
-        cc/S/wnn3gHnrgE08Cv9DAAAAABJRU5ErkJggg==
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEaSURBVDhPtZJdSsNQEIXvAiy6ChEqupHYt5B/AnEJvgg+
+        VbS7aIPim+AqfFOsbsOaJRj9jo5tGi20ag8c7uTOnHPnTq5bC9I03Y/j+DRJkiuRuB+G4Z6lFyPP860o
+        im4QvcEJfBCDIHhhrcld+76/aeXzKIqiQ9ETp03o4Jy4h+BAtHggI9ZHTDZMNgOJSzup+BK2ifkhrODI
+        ZJ8gueN53iuJs5ZoaGzuDVSbZdm2yZ3j1BPEzwxq2rbI/q3Y2utZp8cm/zAoMbhrFA5NrEGKMpl2Qu39
+        3DVWNeD7m4GuUC17BVjB2RVI/G2IAonf/0Zh2YdEPP7xIQlKYHBBUQ01vLFowpoZlQvFTdDBLkZHiEpR
+        MeKupf8Tzr0DtuIBHOJYcpIAAAAASUVORK5CYII=
 </value>
   </data>
 </root>

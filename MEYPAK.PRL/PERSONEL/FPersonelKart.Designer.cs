@@ -142,8 +142,8 @@
             this.LBSosyalGuvKodu = new DevExpress.XtraEditors.LabelControl();
             this.XTPBanka = new DevExpress.XtraTab.XtraTabPage();
             this.panelControl6 = new DevExpress.XtraEditors.PanelControl();
-            this.gridControl2 = new DevExpress.XtraGrid.GridControl();
-            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridControl4 = new DevExpress.XtraGrid.GridControl();
+            this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
             this.BTSPersonelBanka = new DevExpress.XtraEditors.SimpleButton();
             this.TBBankaSubeAdi = new DevExpress.XtraEditors.TextEdit();
@@ -170,6 +170,14 @@
             this.LBZimSeriNo = new DevExpress.XtraEditors.LabelControl();
             this.LBZimTar = new DevExpress.XtraEditors.LabelControl();
             this.LBZimMarkaModel = new DevExpress.XtraEditors.LabelControl();
+            this.XTPIzin = new DevExpress.XtraTab.XtraTabPage();
+            this.panelControl13 = new DevExpress.XtraEditors.PanelControl();
+            this.gridControl5 = new DevExpress.XtraGrid.GridControl();
+            this.gridView5 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.panelControl12 = new DevExpress.XtraEditors.PanelControl();
+            this.LBIzinNedeni = new DevExpress.XtraEditors.LabelControl();
+            this.LBIzinBitTar = new DevExpress.XtraEditors.LabelControl();
+            this.LBIzinBasTar = new DevExpress.XtraEditors.LabelControl();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
@@ -205,6 +213,16 @@
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
+            this.gridControl2 = new DevExpress.XtraGrid.GridControl();
+            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.LBIzinDurum = new DevExpress.XtraEditors.LabelControl();
+            this.LBIzinGorevPersonel = new DevExpress.XtraEditors.LabelControl();
+            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
+            this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
+            this.dateEdit2 = new DevExpress.XtraEditors.DateEdit();
+            this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
@@ -269,8 +287,8 @@
             this.XTPBanka.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).BeginInit();
             this.panelControl6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
             this.panelControl5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TBBankaSubeAdi.Properties)).BeginInit();
@@ -290,6 +308,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.TBZimMarka.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBZimSeriNo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBZimMiktar.Properties)).BeginInit();
+            this.XTPIzin.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl13)).BeginInit();
+            this.panelControl13.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl12)).BeginInit();
+            this.panelControl12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DTPDogumTar.Properties.CalendarTimeProperties)).BeginInit();
@@ -311,6 +336,16 @@
             this.xtraTabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            this.xtraTabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -346,7 +381,8 @@
             this.XTPKimlik,
             this.xtraTabPage3,
             this.XTPBanka,
-            this.XTPZimmet});
+            this.XTPZimmet,
+            this.XTPIzin});
             // 
             // XTPKimlik
             // 
@@ -1351,28 +1387,28 @@
             // 
             // panelControl6
             // 
-            this.panelControl6.Controls.Add(this.gridControl2);
+            this.panelControl6.Controls.Add(this.gridControl4);
             this.panelControl6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl6.Location = new System.Drawing.Point(0, 119);
             this.panelControl6.Name = "panelControl6";
             this.panelControl6.Size = new System.Drawing.Size(792, 273);
             this.panelControl6.TabIndex = 1;
             // 
-            // gridControl2
+            // gridControl4
             // 
-            this.gridControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl2.Location = new System.Drawing.Point(2, 2);
-            this.gridControl2.MainView = this.gridView2;
-            this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(788, 269);
-            this.gridControl2.TabIndex = 0;
-            this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView2});
+            this.gridControl4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl4.Location = new System.Drawing.Point(2, 2);
+            this.gridControl4.MainView = this.gridView4;
+            this.gridControl4.Name = "gridControl4";
+            this.gridControl4.Size = new System.Drawing.Size(788, 269);
+            this.gridControl4.TabIndex = 0;
+            this.gridControl4.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView4});
             // 
-            // gridView2
+            // gridView4
             // 
-            this.gridView2.GridControl = this.gridControl2;
-            this.gridView2.Name = "gridView2";
+            this.gridView4.GridControl = this.gridControl4;
+            this.gridView4.Name = "gridView4";
             // 
             // panelControl5
             // 
@@ -1469,7 +1505,7 @@
             this.XTPZimmet.Controls.Add(this.panelControl7);
             this.XTPZimmet.Name = "XTPZimmet";
             this.XTPZimmet.Size = new System.Drawing.Size(792, 392);
-            this.XTPZimmet.Text = "Zimmet";
+            this.XTPZimmet.Text = "Zimmet İşlemleri";
             // 
             // panelControl8
             // 
@@ -1606,6 +1642,82 @@
             this.LBZimMarkaModel.Size = new System.Drawing.Size(73, 13);
             this.LBZimMarkaModel.TabIndex = 0;
             this.LBZimMarkaModel.Text = "MARKA/MODEL";
+            // 
+            // XTPIzin
+            // 
+            this.XTPIzin.Controls.Add(this.panelControl13);
+            this.XTPIzin.Controls.Add(this.panelControl12);
+            this.XTPIzin.Name = "XTPIzin";
+            this.XTPIzin.Size = new System.Drawing.Size(792, 392);
+            this.XTPIzin.Text = "İzin İşlemleri";
+            // 
+            // panelControl13
+            // 
+            this.panelControl13.Controls.Add(this.gridControl5);
+            this.panelControl13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl13.Location = new System.Drawing.Point(0, 177);
+            this.panelControl13.Name = "panelControl13";
+            this.panelControl13.Size = new System.Drawing.Size(792, 215);
+            this.panelControl13.TabIndex = 1;
+            // 
+            // gridControl5
+            // 
+            this.gridControl5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl5.Location = new System.Drawing.Point(2, 2);
+            this.gridControl5.MainView = this.gridView5;
+            this.gridControl5.Name = "gridControl5";
+            this.gridControl5.Size = new System.Drawing.Size(788, 211);
+            this.gridControl5.TabIndex = 0;
+            this.gridControl5.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView5});
+            // 
+            // gridView5
+            // 
+            this.gridView5.GridControl = this.gridControl5;
+            this.gridView5.Name = "gridView5";
+            // 
+            // panelControl12
+            // 
+            this.panelControl12.Controls.Add(this.simpleButton1);
+            this.panelControl12.Controls.Add(this.textEdit3);
+            this.panelControl12.Controls.Add(this.dateEdit2);
+            this.panelControl12.Controls.Add(this.dateEdit1);
+            this.panelControl12.Controls.Add(this.textEdit2);
+            this.panelControl12.Controls.Add(this.textEdit1);
+            this.panelControl12.Controls.Add(this.LBIzinGorevPersonel);
+            this.panelControl12.Controls.Add(this.LBIzinDurum);
+            this.panelControl12.Controls.Add(this.LBIzinNedeni);
+            this.panelControl12.Controls.Add(this.LBIzinBitTar);
+            this.panelControl12.Controls.Add(this.LBIzinBasTar);
+            this.panelControl12.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl12.Location = new System.Drawing.Point(0, 0);
+            this.panelControl12.Name = "panelControl12";
+            this.panelControl12.Size = new System.Drawing.Size(792, 177);
+            this.panelControl12.TabIndex = 0;
+            // 
+            // LBIzinNedeni
+            // 
+            this.LBIzinNedeni.Location = new System.Drawing.Point(19, 33);
+            this.LBIzinNedeni.Name = "LBIzinNedeni";
+            this.LBIzinNedeni.Size = new System.Drawing.Size(61, 13);
+            this.LBIzinNedeni.TabIndex = 2;
+            this.LBIzinNedeni.Text = "İZİN NEDENİ";
+            // 
+            // LBIzinBitTar
+            // 
+            this.LBIzinBitTar.Location = new System.Drawing.Point(293, 75);
+            this.LBIzinBitTar.Name = "LBIzinBitTar";
+            this.LBIzinBitTar.Size = new System.Drawing.Size(50, 13);
+            this.LBIzinBitTar.TabIndex = 1;
+            this.LBIzinBitTar.Text = "İZİN BİTİŞ";
+            // 
+            // LBIzinBasTar
+            // 
+            this.LBIzinBasTar.Location = new System.Drawing.Point(263, 32);
+            this.LBIzinBasTar.Name = "LBIzinBasTar";
+            this.LBIzinBasTar.Size = new System.Drawing.Size(80, 13);
+            this.LBIzinBasTar.TabIndex = 0;
+            this.LBIzinBasTar.Text = "İZİN BAŞLANGIÇ";
             // 
             // panelControl3
             // 
@@ -1928,6 +2040,7 @@
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            this.gridControl1.DoubleClick += new System.EventHandler(this.gridControl1_DoubleClick);
             // 
             // gridView1
             // 
@@ -1937,9 +2050,98 @@
             // 
             // xtraTabPage2
             // 
+            this.xtraTabPage2.Controls.Add(this.gridControl2);
             this.xtraTabPage2.Name = "xtraTabPage2";
             this.xtraTabPage2.Size = new System.Drawing.Size(311, 623);
             this.xtraTabPage2.Text = "PASIF PERSONEL";
+            // 
+            // gridControl2
+            // 
+            this.gridControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl2.Location = new System.Drawing.Point(0, 0);
+            this.gridControl2.MainView = this.gridView2;
+            this.gridControl2.Name = "gridControl2";
+            this.gridControl2.Size = new System.Drawing.Size(311, 623);
+            this.gridControl2.TabIndex = 0;
+            this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView2});
+            // 
+            // gridView2
+            // 
+            this.gridView2.GridControl = this.gridControl2;
+            this.gridView2.Name = "gridView2";
+            // 
+            // LBIzinDurum
+            // 
+            this.LBIzinDurum.Location = new System.Drawing.Point(13, 76);
+            this.LBIzinDurum.Name = "LBIzinDurum";
+            this.LBIzinDurum.Size = new System.Drawing.Size(67, 13);
+            this.LBIzinDurum.TabIndex = 3;
+            this.LBIzinDurum.Text = "İZİN DURUMU";
+            // 
+            // LBIzinGorevPersonel
+            // 
+            this.LBIzinGorevPersonel.Location = new System.Drawing.Point(179, 116);
+            this.LBIzinGorevPersonel.Name = "LBIzinGorevPersonel";
+            this.LBIzinGorevPersonel.Size = new System.Drawing.Size(164, 13);
+            this.LBIzinGorevPersonel.TabIndex = 4;
+            this.LBIzinGorevPersonel.Text = "GÖREV DEVREDİLECEK PERSONEL";
+            // 
+            // textEdit1
+            // 
+            this.textEdit1.Location = new System.Drawing.Point(86, 30);
+            this.textEdit1.Name = "textEdit1";
+            this.textEdit1.Size = new System.Drawing.Size(146, 20);
+            this.textEdit1.TabIndex = 5;
+            // 
+            // textEdit2
+            // 
+            this.textEdit2.Location = new System.Drawing.Point(86, 69);
+            this.textEdit2.Name = "textEdit2";
+            this.textEdit2.Size = new System.Drawing.Size(146, 20);
+            this.textEdit2.TabIndex = 6;
+            // 
+            // dateEdit1
+            // 
+            this.dateEdit1.EditValue = null;
+            this.dateEdit1.Location = new System.Drawing.Point(349, 29);
+            this.dateEdit1.Name = "dateEdit1";
+            this.dateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit1.Size = new System.Drawing.Size(146, 20);
+            this.dateEdit1.TabIndex = 7;
+            // 
+            // dateEdit2
+            // 
+            this.dateEdit2.EditValue = null;
+            this.dateEdit2.Location = new System.Drawing.Point(349, 72);
+            this.dateEdit2.Name = "dateEdit2";
+            this.dateEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit2.Size = new System.Drawing.Size(146, 20);
+            this.dateEdit2.TabIndex = 8;
+            // 
+            // textEdit3
+            // 
+            this.textEdit3.Location = new System.Drawing.Point(349, 113);
+            this.textEdit3.Name = "textEdit3";
+            this.textEdit3.Size = new System.Drawing.Size(148, 20);
+            this.textEdit3.TabIndex = 9;
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.simpleButton1.Appearance.Options.UseBackColor = true;
+            this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.simpleButton1.Location = new System.Drawing.Point(568, 60);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(146, 46);
+            this.simpleButton1.TabIndex = 62;
+            this.simpleButton1.Text = "&Kaydet";
             // 
             // FPersonelKart
             // 
@@ -2018,8 +2220,8 @@
             this.XTPBanka.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).EndInit();
             this.panelControl6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).EndInit();
             this.panelControl5.ResumeLayout(false);
             this.panelControl5.PerformLayout();
@@ -2041,6 +2243,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.TBZimMarka.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBZimSeriNo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBZimMiktar.Properties)).EndInit();
+            this.XTPIzin.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl13)).EndInit();
+            this.panelControl13.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl12)).EndInit();
+            this.panelControl12.ResumeLayout(false);
+            this.panelControl12.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
             this.panelControl3.PerformLayout();
@@ -2063,6 +2273,16 @@
             this.xtraTabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            this.xtraTabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2235,5 +2455,23 @@
         private DevExpress.XtraEditors.PanelControl panelControl9;
         private DevExpress.XtraEditors.PanelControl panelControl10;
         private DevExpress.XtraEditors.PanelControl panelControl11;
+        private DevExpress.XtraGrid.GridControl gridControl4;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView4;
+        private DevExpress.XtraTab.XtraTabPage XTPIzin;
+        private DevExpress.XtraEditors.PanelControl panelControl13;
+        private DevExpress.XtraGrid.GridControl gridControl5;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView5;
+        private DevExpress.XtraEditors.PanelControl panelControl12;
+        private DevExpress.XtraEditors.LabelControl LBIzinNedeni;
+        private DevExpress.XtraEditors.LabelControl LBIzinBitTar;
+        private DevExpress.XtraEditors.LabelControl LBIzinBasTar;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.TextEdit textEdit3;
+        private DevExpress.XtraEditors.DateEdit dateEdit2;
+        private DevExpress.XtraEditors.DateEdit dateEdit1;
+        private DevExpress.XtraEditors.TextEdit textEdit2;
+        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.LabelControl LBIzinGorevPersonel;
+        private DevExpress.XtraEditors.LabelControl LBIzinDurum;
     }
 }

@@ -1324,6 +1324,7 @@
             // 
             this.gridView3.GridControl = this.gridControl2;
             this.gridView3.Name = "gridView3";
+            //this.gridView3.DoubleClick += new System.EventHandler(this.gridView3_DoubleClick);
             // 
             // panel13
             // 
@@ -1809,7 +1810,6 @@
             this.simpleButton13.Size = new System.Drawing.Size(97, 47);
             this.simpleButton13.TabIndex = 3;
             this.simpleButton13.Text = "Kaydet";
-            this.simpleButton13.Click += new System.EventHandler(this.simpleButton13_Click);
             // 
             // pictureEdit1
             // 
@@ -1833,7 +1833,7 @@
             this.buttonEdit1.Name = "buttonEdit1";
             this.buttonEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.buttonEdit1.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.buttonEdit1_Properties_ButtonClick);
+
             this.buttonEdit1.Size = new System.Drawing.Size(199, 22);
             this.buttonEdit1.TabIndex = 0;
             // 
