@@ -33,7 +33,7 @@
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.CBAktif1 = new DevExpress.XtraEditors.CheckEdit();
             this.BTSil = new DevExpress.XtraEditors.SimpleButton();
-            this.BTHesapKoduSec = new DevExpress.XtraEditors.TextEdit();
+            this.TBKodu = new DevExpress.XtraEditors.TextEdit();
             this.LBKodu = new DevExpress.XtraEditors.LabelControl();
             this.BTKaydet = new DevExpress.XtraEditors.SimpleButton();
             this.CBDoviz = new DevExpress.XtraEditors.LookUpEdit();
@@ -48,7 +48,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CBAktif1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BTHesapKoduSec.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBKodu.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBDoviz.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBAdi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGAltHesap)).BeginInit();
@@ -70,7 +70,7 @@
             // 
             this.groupControl1.Controls.Add(this.CBAktif1);
             this.groupControl1.Controls.Add(this.BTSil);
-            this.groupControl1.Controls.Add(this.BTHesapKoduSec);
+            this.groupControl1.Controls.Add(this.TBKodu);
             this.groupControl1.Controls.Add(this.LBKodu);
             this.groupControl1.Controls.Add(this.BTKaydet);
             this.groupControl1.Controls.Add(this.CBDoviz);
@@ -108,12 +108,12 @@
             this.BTSil.Text = "&Sil";
             this.BTSil.Click += new System.EventHandler(this.BTSil_Click);
             // 
-            // BTHesapKoduSec
+            // TBKodu
             // 
-            this.BTHesapKoduSec.Location = new System.Drawing.Point(144, 33);
-            this.BTHesapKoduSec.Name = "BTHesapKoduSec";
-            this.BTHesapKoduSec.Size = new System.Drawing.Size(161, 20);
-            this.BTHesapKoduSec.TabIndex = 5;
+            this.TBKodu.Location = new System.Drawing.Point(144, 33);
+            this.TBKodu.Name = "TBKodu";
+            this.TBKodu.Size = new System.Drawing.Size(161, 20);
+            this.TBKodu.TabIndex = 5;
             // 
             // LBKodu
             // 
@@ -215,7 +215,7 @@
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CBAktif1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BTHesapKoduSec.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBKodu.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBDoviz.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBAdi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGAltHesap)).EndInit();
@@ -235,7 +235,7 @@
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.CheckEdit CBAktif1;
         private DevExpress.XtraEditors.SimpleButton BTSil;
-        private DevExpress.XtraEditors.TextEdit BTHesapKoduSec;
+        private DevExpress.XtraEditors.TextEdit TBKodu;
         private DevExpress.XtraEditors.LabelControl LBKodu;
         private DevExpress.XtraEditors.SimpleButton BTKaydet;
         private DevExpress.XtraEditors.LookUpEdit CBDoviz;

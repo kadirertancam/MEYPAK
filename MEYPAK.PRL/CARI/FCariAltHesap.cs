@@ -42,12 +42,7 @@ namespace MEYPAK.PRL.CARI
             CBDoviz.Properties.DataSource = _parabirIMServis.obje.Select(x => x.adi).ToList(); //comboxun içini parabirim formundan doldurur
         }
 
-        public FCariAltHesap(string? v1, string v2)
-        {
-            this.v1 = v1;
-            this.v2 = v2;
-        }
-
+        
         #region Tanımlar
 
         GenericWebServis<PocoCARIALTHES> _cariAltHesapServis;
@@ -63,9 +58,7 @@ namespace MEYPAK.PRL.CARI
             //CBDoviz.EditValue = 0;
         }
         int id;
-        private string? v1;
-        private string v2;
-
+        
         private void BTSil_Click(object sender, EventArgs e)
         {
            
@@ -110,11 +103,11 @@ namespace MEYPAK.PRL.CARI
             
             _cariAltHesapServis.Data(ServisList.CariAltHesListeServis);
             DGAltHesap.DataSource = _cariAltHesapServis.obje.Where(x=> x.kayittipi == 0).Select(x => new { 
-                x.id, 
-                x.adi, 
-                x.kod,
-                Doviz=_parabirIMServis.obje.Where(z=>z.id==x.dovizid).FirstOrDefault().adi.ToString(),//Labellama
-                x.olusturmatarihi });
+                //ID=x.id, 
+                AltHesapKodu=x.kod,
+                Adı=x.adi, 
+                DovizTürü=_parabirIMServis.obje.Where(z=>z.id==x.dovizid).FirstOrDefault().adi.ToString(),//Labellama
+                OluşturmaTarihi=x.olusturmatarihi });
             DGAltHesap.Refresh();
             DGAltHesap.RefreshDataSource();
 
@@ -127,7 +120,7 @@ namespace MEYPAK.PRL.CARI
                 _cariAltHesapServis.Data(ServisList.CariAltHesEkleServis, (new PocoCARIALTHES()
                 {
                     adi = TBAdi.Text,
-                    kod = BTHesapKoduSec.Text,
+                    kod = TBKodu.Text,
                     dovizid =_parabirIMServis.obje.Where(x => x.adi.ToString() == CBDoviz.Text.ToString()).FirstOrDefault().id,
                     
 
@@ -139,7 +132,7 @@ namespace MEYPAK.PRL.CARI
                 {
                     id = id,
                     adi = TBAdi.Text,
-                    kod= BTHesapKoduSec.Text,
+                    kod= TBKodu.Text,
                     dovizid = _parabirIMServis.obje.Where(x => x.adi.ToString()  == CBDoviz.Text.ToString()).FirstOrDefault().id,
                     
 
@@ -153,10 +146,10 @@ namespace MEYPAK.PRL.CARI
         {
             id = int.Parse(gridView1.GetFocusedRowCellValue("id").ToString());
             TBAdi.Text = gridView1.GetFocusedRowCellValue("adi").ToString();
-            BTHesapKoduSec.Text = gridView1.GetFocusedRowCellValue("kod").ToString();
+            TBKodu.Text = gridView1.GetFocusedRowCellValue("kod").ToString();
             CBDoviz.Text = gridView1.GetFocusedRowCellValue("dovizid").ToString();
             CBAktif.Text = gridView1.GetFocusedRowCellValue("aktif").ToString();
-         
+
         }
 
         #endregion

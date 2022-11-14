@@ -256,23 +256,6 @@ namespace MEYPAK.PRL.CARI
             else if (e.Button.Caption == "Seç")
             {
                
-               _tempCariAltHes = null;
-               FCariAltHesap fCariAltHesap = new FCariAltHesap(this.Tag.ToString(), "stokhar");
-               
-               doldur();
-                   
-               _cariAltHesapServis.Data(ServisList.CariAltHesListeServis);
-               DGAltHesap.DataSource = _cariAltHesapServis.obje.Where(x => x.kayittipi == 0).Select(x => new {
-                    x.id,
-                    x.adi,
-                    x.kod,
-                    //Doviz = _parabirIMServis.obje.Where(z => z.id == x.dovizid).FirstOrDefault().adi.ToString(),//Labellama
-                    x.olusturmatarihi
-               });
-               DGAltHesap.Refresh();
-               DGAltHesap.RefreshDataSource();
-
-
             }
           }
 

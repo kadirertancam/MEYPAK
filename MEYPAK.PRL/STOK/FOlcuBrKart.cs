@@ -37,7 +37,12 @@ namespace MEYPAK.PRL.STOK
         void DataGridDoldur()
         {
             _OlcuBrServis.Data(ServisList.OlcuBrListeServis); 
-            DGOlcuBirim.DataSource = _OlcuBrServis.obje.Where(x=>x.kayittipi==0).Select(x=> new {x.id,x.adi,x.birim,x.olusturmatarihi});
+            DGOlcuBirim.DataSource = _OlcuBrServis.obje.Where(x=>x.kayittipi==0).Select(x=> new 
+            {
+                ID=x.id,
+                BirimAdı=x.adi,
+                Birim=x.birim,
+                OluşturmaTarihi=x.olusturmatarihi});
             DGOlcuBirim.Refresh();
             DGOlcuBirim.RefreshDataSource();
         }
