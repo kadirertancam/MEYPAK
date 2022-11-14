@@ -40,9 +40,9 @@ namespace MEYPAK.PRL.CARI
             _cariAltHesapServis.Data(ServisList.CariAltHesListeServis);
             _cariResimServis = new GenericWebServis<PocoCARIRESIM>();
             resimList = new List<PocoCARIRESIM>();
-            _tempCariAltHes = new PocoCARIALTHES();
             _cariParABIRIM = new GenericWebServis<PocoPARABIRIM>();
             _cariParABIRIM.Data(ServisList.ParaBirimiListeServis);
+           
 
         }
         GenericWebServis<ADRESLIST> _adresListServis;
@@ -50,16 +50,14 @@ namespace MEYPAK.PRL.CARI
         GenericWebServis<PocoCARIALTHES> _cariAltHesapServis;
         GenericWebServis<PocoPARABIRIM> _cariParABIRIM; 
         GenericWebServis<PocoCARIRESIM> _cariResimServis;
-        FCariList _fCariList;
-        FAltHesapList _fAltHesapList;
-        
+       
 
         public PocoCARIKART _tempCariKart;
-        public PocoCARIALTHES _tempCariAltHes;
         public PocoPARABIRIM _tempCariParABIRIM;
-
+        
         void doldur()
         {
+          
             resimList.Clear(); 
             _cariResimServis.Data(ServisList.CariResimListeServis);
             TBAciklama.Text = _tempCariKart.aciklama;
@@ -145,10 +143,6 @@ namespace MEYPAK.PRL.CARI
            
         }
 
-        private void CBIl_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
 
       
         private void button7_Click(object sender, EventArgs e)
@@ -157,15 +151,13 @@ namespace MEYPAK.PRL.CARI
             _cariServis.Data(ServisList.CariSilServis, null, null);
         }
 
-       
-
         private void simpleButton1_Click(object sender, EventArgs e)
         {
            
          //   _fCariList = new FCariList(this.Tag.ToString(), "carikart");
-            _fCariList.ShowDialog();
-            if (_tempCariKart != null)
-                doldur();
+            //_fCariList.ShowDialog();
+            //if (_tempCariKart != null)
+            //    doldur();
         }
 
         
@@ -239,7 +231,7 @@ namespace MEYPAK.PRL.CARI
 
         }
 
-        public void BTKoduSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        public void BTAltHesSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
 
             if (e.Button.Caption == "Yeni")
@@ -271,9 +263,10 @@ namespace MEYPAK.PRL.CARI
             {
               
             }
-          }
-
+          } //Cari Alt Hesap
         
+
+
         private void simpleButton13_Click(object sender, EventArgs e)
         {
             _cariServis.Data(ServisList.CariListeServis);

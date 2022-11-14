@@ -43,7 +43,7 @@ namespace MEYPAK.PRL.SIPARIS
             } 
             _mSiparisServis.Data(ServisList.SiparisListeServis);
             if(_islem=="satinalmasiparis")
-                GCMusteriSiparis.DataSource = _mSiparisServis.obje.Where(x=>x.tip==1).Select(x => new
+                GCMusteriSiparisList.DataSource = _mSiparisServis.obje.Where(x=>x.tip==1).Select(x => new
                 {
                     ID = x.id,
                     x.siparistarihi,
@@ -53,8 +53,8 @@ namespace MEYPAK.PRL.SIPARIS
                     x.depoid,
                     x.geneltoplam
                 });
-            if (_islem == "Siparis") 
-                GCMusteriSiparis.DataSource = _mSiparisServis.obje.Where(x => x.tip == 0).Select(x => new
+            if (_islem == "Siparis")
+                GCMusteriSiparisList.DataSource = _mSiparisServis.obje.Where(x => x.tip == 0).Select(x => new
                 {
                     ID = x.id,
                     x.siparistarihi,
