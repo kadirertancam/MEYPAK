@@ -1,6 +1,6 @@
 ﻿namespace MEYPAK.PRL.CARI
 {
-    partial class AltHesapList
+    partial class FAltHesapList
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AltHesapList));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FAltHesapList));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.DGAltHesap = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -106,14 +106,14 @@
             this.TSEkle.Size = new System.Drawing.Size(23, 22);
             this.TSEkle.Text = "toolStripButton2";
             // 
-            // AltHesapList
+            // FAltHesapList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panelControl1);
-            this.Name = "AltHesapList";
-            this.Text = "AltHesapList";
+            this.Name = "FAltHesapList";
+            this.Text = "FAltHesapList";
             this.Load += new System.EventHandler(this.AltHesapList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);

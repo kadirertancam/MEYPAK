@@ -20,13 +20,13 @@ using MEYPAK.Interfaces.Stok;
 
 namespace MEYPAK.PRL.CARI
 {
-    public partial class AltHesapList : Form
+    public partial class FAltHesapList : Form
     {
         FCariAltHesap fCariAltHesap;
         int id;
         string _form, _islem;
 
-        public AltHesapList(string form="", string islem = "")
+        public FAltHesapList(string form="", string islem = "")
         {
             InitializeComponent();
             this._islem = islem;

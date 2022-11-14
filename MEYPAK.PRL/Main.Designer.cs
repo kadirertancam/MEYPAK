@@ -923,6 +923,7 @@
             this.accordionControlElement6,
             this.accordionControlElement7,
             this.accordionControlElement8});
+            this.accordionControlElement5.Expanded = true;
             this.accordionControlElement5.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement5.ImageOptions.Image")));
             this.accordionControlElement5.Name = "accordionControlElement5";
             this.accordionControlElement5.Text = "Cari";
@@ -932,6 +933,7 @@
             this.accordionControlElement6.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.accordionControlElement18,
             this.accordionControlElement35});
+            this.accordionControlElement6.Expanded = true;
             this.accordionControlElement6.Name = "accordionControlElement6";
             this.accordionControlElement6.Text = "Tanımlar";
             // 
@@ -946,7 +948,7 @@
             // 
             this.accordionControlElement35.Name = "accordionControlElement35";
             this.accordionControlElement35.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement35.Text = "Element35";
+            this.accordionControlElement35.Text = "Cari Plasiyer Tanım";
             // 
             // accordionControlElement7
             // 
