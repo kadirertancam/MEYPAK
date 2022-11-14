@@ -46,7 +46,7 @@ namespace MEYPAK.PRL.CARI
             }
            
             _cariServis.Data(ServisList.CariListeServis);
-            GCCariList.DataSource = _cariServis.obje.Where(x=>x.kayittipi==0).Select(x=> new
+            DGCariList.DataSource = _cariServis.obje.Select(x=> new
             {
                 ID=x.id,
                 CARIKODU=x.kod,

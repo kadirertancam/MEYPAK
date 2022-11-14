@@ -28,36 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.GCCariList = new DevExpress.XtraGrid.GridControl();
+            this.DGCariList = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panel1 = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.GCCariList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGCariList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // GCCariList
+            // DGCariList
             // 
-            this.GCCariList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GCCariList.Location = new System.Drawing.Point(0, 0);
-            this.GCCariList.MainView = this.gridView1;
-            this.GCCariList.Name = "GCCariList";
-            this.GCCariList.Size = new System.Drawing.Size(800, 450);
-            this.GCCariList.TabIndex = 0;
-            this.GCCariList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.DGCariList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DGCariList.Location = new System.Drawing.Point(0, 0);
+            this.DGCariList.MainView = this.gridView1;
+            this.DGCariList.Name = "DGCariList";
+            this.DGCariList.Size = new System.Drawing.Size(800, 450);
+            this.DGCariList.TabIndex = 0;
+            this.DGCariList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
             // gridView1
             // 
             this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
-            this.gridView1.GridControl = this.GCCariList;
+            this.gridView1.GridControl = this.DGCariList;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
-            this.gridView1.DoubleClick += new System.EventHandler(this.gridView1_DoubleClick);
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.GCCariList);
+            this.panel1.Controls.Add(this.DGCariList);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -72,8 +71,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "FCariList";
             this.Text = "FCariList";
-            this.Load += new System.EventHandler(this.FCariList_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.GCCariList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGCariList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -82,7 +80,7 @@
 
         #endregion
 
-        private DevExpress.XtraGrid.GridControl GCCariList;
+        private DevExpress.XtraGrid.GridControl DGCariList;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private Panel panel1;
     }

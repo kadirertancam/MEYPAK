@@ -160,6 +160,10 @@ namespace MEYPAK.PRL.CARI
         private void simpleButton1_Click(object sender, EventArgs e)
         {
            
+         //   _fCariList = new FCariList(this.Tag.ToString(), "carikart");
+            _fCariList.ShowDialog();
+            if (_tempCariKart != null)
+                doldur();
         }
 
         

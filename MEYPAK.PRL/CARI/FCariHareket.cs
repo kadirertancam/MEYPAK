@@ -49,7 +49,7 @@ namespace MEYPAK.PRL.CARI
         private void TBCariKodu_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             _cariHarServis.Data(ServisList.CariHarListeServis);
-            _fCariList = new FCariList(this.Tag.ToString(),"carihar");
+          //  _fCariList = new FCariList(this.Tag.ToString(),"carihar");
             _fCariList.ShowDialog();
             temizle();
             Doldur();
