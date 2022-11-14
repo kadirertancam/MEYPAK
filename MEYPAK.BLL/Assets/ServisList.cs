@@ -164,7 +164,7 @@ namespace MEYPAK.BLL.Assets
 
         #endregion
 
-        #region Stok
+        #region StokResim
         public const string StokResimListeServis =      "http://213.238.167.117:8080/STOKRESIM/STOKRESIMListe";
         public const string StokResimEkleServis =       "http://213.238.167.117:8080/STOKRESIM/STOKRESIMEkleyadaGuncelle";
         public const string StokResimSilServis =        "http://213.238.167.117:8080/STOKRESIM/STOKRESIMSil";
@@ -348,6 +348,22 @@ namespace MEYPAK.BLL.Assets
         public const string ParaBirimiGuncelleServis = "http://213.238.167.117:8080/PARABIRIM/PARABIRIMGuncelle";
         public const string ParaBirimiDeleteByIdServis = "http://213.238.167.117:8080/PARABIRIM/DeleteById";
 
+        #endregion
+
+        #region Kasa
+        public const string KasaListeServis =       "http://213.238.167.117:8080/KASA/KASAListe";
+        public const string KasaEkleServis =        "http://213.238.167.117:8080/KASA/KASAEkleyadaGuncelle";
+        public const string KasaSilServis =         "http://213.238.167.117:8080/KASA/KASASil";
+        public const string KasaGuncelleServis =    "http://213.238.167.117:8080/KASA/KASAGuncelle";
+        public const string KasaDeleteByIdServis =  "http://213.238.167.117:8080/KASA/DeleteById";
+        #endregion
+
+        #region KasaHar
+        public const string KasaHarListeServis = "http://213.238.167.117:8080/KASAHAR/KASAHARListe";
+        public const string KasaHarEkleServis = "http://213.238.167.117:8080/KASAHAR/KASAHAREkleyadaGuncelle";
+        public const string KasaHarSilServis = "http://213.238.167.117:8080/KASAHAR/KASAHARSil";
+        public const string KasaHarGuncelleServis = "http://213.238.167.117:8080/KASAHAR/KASAHARGuncelle";
+        public const string KasaHarDeleteByIdServis = "http://213.238.167.117:8080/KASAHAR/DeleteById";
         #endregion
 
     }

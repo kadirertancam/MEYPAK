@@ -36,9 +36,11 @@ using MEYPAK.DAL.Abstract.ParametreDal;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository.ParametreRepo;
 using MEYPAK.Interfaces.Parametre;
 using MEYPAK.BLL.PARAMETRE;
-using System.Data.Entity;
-using MEYPAK.Entity.Models.PERSONEL;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository.PersonelRepo;
+using MEYPAK.DAL.Abstract.KasaDal;
+using MEYPAK.DAL.Concrete.EntityFramework.Repository.KasaRepo;
+using MEYPAK.Interfaces.Kasa;
+using MEYPAK.BLL.KASA;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -81,11 +83,11 @@ builder.Services.AddAutoMapper(x =>
 
 
 
-#region Parametre
+#region Parametre_Scoped_Islemleri
 builder.Services.AddScoped<IParaBirimDal, EFParaBirimRepo>();
 builder.Services.AddScoped<IParaBirimServis, ParaBirimManager>();
 #endregion
-#region Cari
+#region Cari_Scoped_Islemleri
 builder.Services.AddScoped<ICariResimDal, EFCariResimRepo>();
 builder.Services.AddScoped<ICariResimServis, CariResimManager>();
 
@@ -218,6 +220,13 @@ builder.Services.AddScoped<ISiparisKasaHarServis, SiparisKasaHarManager>();
 builder.Services.AddScoped<IAracDal, EFAracRepo>();
 builder.Services.AddScoped<IAracServis, AracManager>();
 
+#endregion
+#region KASA_Scoped_Islemleri
+builder.Services.AddScoped<IKasaDal, EFKasaRepo>();
+builder.Services.AddScoped<IKasaServis, KasaManager>();
+
+builder.Services.AddScoped<IKasaHarDal, EFKasaHarRepo>();
+builder.Services.AddScoped<IKasaHarServis, KasaHarManager>();
 #endregion
 
 
