@@ -10,6 +10,7 @@ namespace MEYPAK.Entity.Models.KASA
     {
         public int PARABIRIMID { get; set; }
         public string ADI { get; set; }
+        public string KOD { get; set; }
         public string ACIKLAMA { get; set; }
         public DateTime TARIH { get; set; }
         public decimal TUTAR { get; set; }

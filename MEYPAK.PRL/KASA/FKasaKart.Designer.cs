@@ -34,6 +34,7 @@
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.BTNKaydet = new DevExpress.XtraEditors.SimpleButton();
             this.DTPTarih = new DevExpress.XtraEditors.DateEdit();
             this.CBParaBirim = new DevExpress.XtraEditors.LookUpEdit();
             this.TBTutar = new DevExpress.XtraEditors.TextEdit();
@@ -47,7 +48,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.BTNKaydet = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
@@ -123,6 +123,18 @@
             this.panelControl2.Size = new System.Drawing.Size(796, 195);
             this.panelControl2.TabIndex = 0;
             // 
+            // BTNKaydet
+            // 
+            this.BTNKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTNKaydet.Appearance.Options.UseBackColor = true;
+            this.BTNKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTNKaydet.ImageOptions.Image")));
+            this.BTNKaydet.Location = new System.Drawing.Point(592, 116);
+            this.BTNKaydet.Name = "BTNKaydet";
+            this.BTNKaydet.Size = new System.Drawing.Size(146, 46);
+            this.BTNKaydet.TabIndex = 63;
+            this.BTNKaydet.Text = "&Kaydet";
+            this.BTNKaydet.Click += new System.EventHandler(this.BTNKaydet_Click);
+            // 
             // DTPTarih
             // 
             this.DTPTarih.EditValue = null;
@@ -137,10 +149,12 @@
             // 
             // CBParaBirim
             // 
+            this.CBParaBirim.EditValue = "";
             this.CBParaBirim.Location = new System.Drawing.Point(91, 83);
             this.CBParaBirim.Name = "CBParaBirim";
             this.CBParaBirim.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CBParaBirim.Properties.NullText = "";
             this.CBParaBirim.Size = new System.Drawing.Size(135, 20);
             this.CBParaBirim.TabIndex = 11;
             // 
@@ -230,18 +244,6 @@
             this.label1.Size = new System.Drawing.Size(22, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Adı";
-            // 
-            // BTNKaydet
-            // 
-            this.BTNKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.BTNKaydet.Appearance.Options.UseBackColor = true;
-            this.BTNKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.BTNKaydet.Location = new System.Drawing.Point(592, 116);
-            this.BTNKaydet.Name = "BTNKaydet";
-            this.BTNKaydet.Size = new System.Drawing.Size(146, 46);
-            this.BTNKaydet.TabIndex = 63;
-            this.BTNKaydet.Text = "&Kaydet";
-            this.BTNKaydet.Click += new System.EventHandler(this.BTNKaydet_Click);
             // 
             // FKasaKart
             // 

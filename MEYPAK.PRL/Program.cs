@@ -2,6 +2,7 @@ using DevExpress.XtraEditors;
 using MEYPAK.PRL.Assets;
 using MEYPAK.PRL.CARI;
 using MEYPAK.PRL.DEPO;
+using MEYPAK.PRL.KASA;
 using MEYPAK.PRL.MOBILIZ;
 using MEYPAK.PRL.PARAMETRELER;
 using MEYPAK.PRL.PERSONEL;
