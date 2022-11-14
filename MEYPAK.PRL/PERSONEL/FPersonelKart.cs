@@ -1,8 +1,12 @@
 ﻿using DevExpress.CodeParser;
+using DevExpress.Pdf.Native.BouncyCastle.Ocsp;
+using DevExpress.Text.Interop;
 using DevExpress.XtraEditors;
+using DevExpress.XtraScheduler.iCalendar.Native;
 using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.PocoModels.PERSONEL;
 using MEYPAK.Interfaces.Personel;
+using MEYPAK.Interfaces.Siparis;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -35,10 +39,11 @@ namespace MEYPAK.PRL.PERSONEL
             _personelBankaServis = new GenericWebServis<PocoPERSONELBANKA>();
             _personelZimmetServis = new GenericWebServis<PocoPERSONELZIMMET>();
             InitializeComponent();
-            PersonelleriDoldur();
+            PersonelleriGetir();
             CombolarıDoldur();
             
         }
+        //TODO RESİM EKLENECEK - (STOKTAN-CARİDEN RESİM ALINACAK)
 
         ADRESOBJECT.Root _adresObje;
         PocoPERSONEL _tempPocoPERSONEL;
@@ -52,8 +57,7 @@ namespace MEYPAK.PRL.PERSONEL
                 // DTPZimBasTar.EditValue!=null ? (DateTime)DTPZimBasTar.EditValue:Convert.ToDateTime("01.01.1990");
                 _personelServis.Data(ServisList.PersonelEkleServis, new PocoPERSONEL()
                 {
-
-                    //TODO
+                    //TODO Şube Şirket seçme ekranı yapılacak
                     subeid = 0,
                     sirketid = 0,
                     tc = TBTCNO.Text,
@@ -212,6 +216,12 @@ namespace MEYPAK.PRL.PERSONEL
             }
         }
 
+        private void gridControl1_DoubleClick(object sender, EventArgs e)
+        {
+            _tempPocoPERSONEL = _personelServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()).FirstOrDefault();
+            PersonelBilgileriniDoldur();
+        }
+
         #region Methods
         void FormuTemizle()
         {
@@ -255,11 +265,15 @@ namespace MEYPAK.PRL.PERSONEL
         void CombolarıDoldur()
         {
             _personelDepartmanServis.Data(ServisList.PersonelDepartmanListeServis);
-            CBDepartman.Properties.DataSource = _personelDepartmanServis.obje.Select(x => new { x.id, x.adi });
-            //CBDepartman.Properties.Columns["id"].Visible = false;
+            CBDepartman.Properties.DataSource = _personelDepartmanServis.obje.Select(x=> new {x.id,x.adi});
+           
+            CBGorev.Properties.ValueMember = "id";
+            CBGorev.Properties.DisplayMember = "adi";
 
             _personelGorevServis.Data(ServisList.PersonelGorevListeServis);
             CBGorev.Properties.DataSource = _personelGorevServis.obje.Select(x => new { x.id, x.adi });
+            CBGorev.Properties.ValueMember = "id";
+            CBGorev.Properties.DisplayMember = "adi";
 
             //foreach (var item in _personelDepartmanServis.obje)
             //{
@@ -280,14 +294,80 @@ namespace MEYPAK.PRL.PERSONEL
 
                 }
         }
-
-        void PersonelleriDoldur()
+        void PersonelleriGetir()
         {
             _personelServis.Data(ServisList.PersonelListeServis);
             gridControl1.DataSource = _personelServis.obje.Where(x => x.kayittipi == 0).Select(x => new { x.id, x.adisoyadi });
             gridControl2.DataSource = _personelServis.obje.Where(x => x.kayittipi == 0).Select(x => new { x.id, x.adisoyadi });
         }
 
+        void PersonelBilgileriniDoldur()
+        {
+            if (_tempPocoPERSONEL!=null)
+            {
+                TBTCNO.Text = _tempPocoPERSONEL.tc;
+                TBAdi.Text = _tempPocoPERSONEL.adi;
+                TBSoyadi.Text = _tempPocoPERSONEL.soyadi;
+                DTPDogumTar.EditValue = _tempPocoPERSONEL.dogumtar;
+                CBCinsiyet.SelectedIndex = _tempPocoPERSONEL.cinsiyet;
+                //  CBDepartman.EditValue = _personelDepartmanServis.obje.Where(x => x.id == _tempPocoPERSONEL.personeldepartmanid).FirstOrDefault().adi;
+                //  CBGorev.EditValue
+                DTPIseGirisTar.EditValue = _tempPocoPERSONEL.isbastar;
+                //PBPersonelResim
+                TBSGK.Text = _tempPocoPERSONEL.sgk;
+                TBBagkur.Text = _tempPocoPERSONEL.bagkur;
+                TBEmekliSan.Text = _tempPocoPERSONEL.emeklisandigi;
+                TB506G.Text = _tempPocoPERSONEL.g506MADSAN;
+                CBOgrenimDurum.EditValue = _tempPocoPERSONEL.ogrenimdurumu;
+                DTPMezuniyetYil.EditValue = _tempPocoPERSONEL.mezuniyetyili;
+                TBMezunBolum.Text = _tempPocoPERSONEL.mezunbolum;
+                CBAskerlikDurum.EditValue = _tempPocoPERSONEL.askerlikdurum;
+                DTPAskerBasTar.EditValue = _tempPocoPERSONEL.askerlikbaslangictar;
+                DTPAskerBitTar.EditValue = _tempPocoPERSONEL.askerlikbitistar;
+                CBSigortalilikTur.EditValue = _tempPocoPERSONEL.sigortaturkod;
+                CBYaslilikAylik.EditValue = _tempPocoPERSONEL.yaslilikayligi;
+                CBIstihtamTuru.EditValue = _tempPocoPERSONEL.istihdamdurumu;
+                CBMeslekKodu.EditValue = _tempPocoPERSONEL.meslekkodu;
+                CBSGKKodu.EditValue = _tempPocoPERSONEL.sosyalguvenlikkodu;
+                TBBabaAdi.Text=_tempPocoPERSONEL.babaadi;
+                TBAnneAdi.Text = _tempPocoPERSONEL.anneadi;
+                TBDogumYer.Text = _tempPocoPERSONEL.dogumyeri;
+                TBMedeniDurum.Text = _tempPocoPERSONEL.medenidurum;
+                CBUyrugu.EditValue = _tempPocoPERSONEL.uyruk;
+                TBIlkSoyad.Text = _tempPocoPERSONEL.ilksoyad;
+                /*EditValue yerine CanFocus denenecek.*/
+                CBNufIl.EditValue = _tempPocoPERSONEL.nufusakayitliil;
+                CBNufIlce.EditValue = _tempPocoPERSONEL.nufusakayitliilce;
+                TBNufKayitMah.Text = _tempPocoPERSONEL.nufusakayitlimah;
+                TBUlke.Text = _tempPocoPERSONEL.ulke;
+                CBKanGrubu.EditValue = _tempPocoPERSONEL.kangrubu;
+                TBAileSıraNo.Text = _tempPocoPERSONEL.ailesirano;
+                TBSiraNo.Text = _tempPocoPERSONEL.sirano;
+                DTPNufVerTar.EditValue = _tempPocoPERSONEL.nufuscuzdanverilistarih;
+                TBNufSeriNo.Text = _tempPocoPERSONEL.nufuscuzdanserino;
+                TBNufKayıtNo.Text = _tempPocoPERSONEL.nufuscuzdankayitno;
+                TBAdres.Text = _tempPocoPERSONEL.adres;
+                TBAdresMahalle.Text = _tempPocoPERSONEL.adresmah;
+                CBAdresIL.EditValue = _tempPocoPERSONEL.adresil;
+                CBAdresIlce.EditValue = _tempPocoPERSONEL.adresilce;
+                TBAdresPostaKodu.Text = _tempPocoPERSONEL.adrespostakodu;
+                TBVergiDaire.Text = _tempPocoPERSONEL.vergidairesi;
+                TBVergiNo.Text = _tempPocoPERSONEL.vergino;
+                TBTelefon.Text = _tempPocoPERSONEL.telefon;
+                TBCepNo.Text = _tempPocoPERSONEL.cepno;
+                TBEposta.Text = _tempPocoPERSONEL.eposta;
+                CBUstBeden.SelectedIndex = _tempPocoPERSONEL.bedenolcusu;
+                CBAltBeden.EditValue = _tempPocoPERSONEL.pantolonolcusu;
+                CBAyakkabıNo.EditValue = _tempPocoPERSONEL.ayakkabino;
+            }
+        }
+
+
         #endregion
+
+        private void checkedComboBoxEdit1_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
