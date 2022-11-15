@@ -105,12 +105,6 @@ namespace MEYPAK.PRL
                 }
                 
             gridControl2.DataSource= resimList.Select(x=> new { Resim = Base64ToImage(x.IMG) });
-
-
-
-
-
-
             gridControl1.DataSource = _StokOlcuBrServis.obje.Where(x=>x.stokid== stokid).Select(x=>_PocoOlcuBrServis.obje.Where(z=>z.id==x.olcubrid).FirstOrDefault().adi);
             gridControl1.Refresh();
             //var a = _PocoStokServis.obje.Select(x=>x.mpst.Select(z=>z));
@@ -186,13 +180,7 @@ namespace MEYPAK.PRL
         }
        
 
-        private void BTOlcuBirimiEkle_Click(object sender, EventArgs e)
-        {
-
-         
-        }
-
-       
+        
         #endregion
 
         #region KeyPress

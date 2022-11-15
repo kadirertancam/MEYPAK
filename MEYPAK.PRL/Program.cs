@@ -31,7 +31,7 @@ namespace MEYPAK.PRL
             Application.EnableVisualStyles();
             Application.Run(new Main());
         }
-        //
+        
 
         public class ApplicationDbContext : DbContext
         {
