@@ -91,10 +91,10 @@ namespace MEYPAK.PRL.SIPARIS
         GenericWebServis<PocoPARABIRIM> _paraBirimServis;
         void temizle()
         {
-            DGMusteriSiparis.DataSource = "";
+            GCMusteriSiparis.DataSource = "";
             _tempSiparisDetay.Clear();
             _tempSiparisDetay.Add(new PocoSiparisKalem());
-            DGMusteriSiparis.DataSource = _tempSiparisDetay;
+            GCMusteriSiparis.DataSource = _tempSiparisDetay;
             //DGVOlcuBr.DataSource = _tempStok.MPSTOKOLCUBR.Select(x => x.MPOLCUBR.ADI).ToList();
             gridView1.Columns["StokId"].Visible = false; 
             gridView1.Columns["KasaId"].Visible = false;
@@ -106,7 +106,7 @@ namespace MEYPAK.PRL.SIPARIS
         {
             _tempStok = new PocoSTOK();
             _tempSiparisDetay.Add(new PocoSiparisKalem());
-            DGMusteriSiparis.DataSource = _tempSiparisDetay;
+            GCMusteriSiparis.DataSource = _tempSiparisDetay;
             DGVStokSec.FlatStyle = FlatStyle.Flat;
             DGVOlcuBr.Name = "DGVOlcuBr";
             DGVOlcuBr.HeaderText = "Birim";
@@ -275,7 +275,7 @@ namespace MEYPAK.PRL.SIPARIS
 
             /* DGVFiyatList.DataSource = _tempStok.MPSTOKFIYATLISTHAR.Select(x => x.MPSTOKFIYATLIST.FIYATLISTADI).ToList();*/ //////////////////////////// BAKILCAK
             _tempSiparisDetay[gridView1.FocusedRowHandle] = _tempPocokalem;
-            DGMusteriSiparis.DataSource = _tempSiparisDetay;
+            GCMusteriSiparis.DataSource = _tempSiparisDetay;
             gridView1.RefreshData();
 
         }
@@ -381,9 +381,9 @@ namespace MEYPAK.PRL.SIPARIS
             if (e.KeyChar == (char)Keys.Enter || e.KeyChar == (char)Keys.Down)
             {
 
-                DGMusteriSiparis.DataSource = "";
+                GCMusteriSiparis.DataSource = "";
                 _tempSiparisDetay.Add(new PocoSiparisKalem());
-                DGMusteriSiparis.DataSource = _tempSiparisDetay;
+                GCMusteriSiparis.DataSource = _tempSiparisDetay;
 
 
                 //dataGridView1.Columns["DGVOlcuBr"].DisplayIndex = 6;
@@ -521,7 +521,7 @@ namespace MEYPAK.PRL.SIPARIS
                 DTSevkiyatTarih.Value = _tempSiparis.sevkiyattarihi;
                 TBGun.Text = _tempSiparis.vadegunu.ToString();
                 _siparisDetayServis.Data(ServisList.SiparisDetayListeServis + 2, null, "query=SIPARISID=" + _tempSiparis.id.ToString());
-                DGMusteriSiparis.DataSource = _siparisDetayServis.obje.Select(x => new PocoSiparisKalem()
+                GCMusteriSiparis.DataSource = _siparisDetayServis.obje.Select(x => new PocoSiparisKalem()
                 {
                     StokId = x.stokid,
                     StokKodu = _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().kod,//,  TODOO:BAKILACAAAK

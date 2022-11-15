@@ -44,6 +44,7 @@
             this.GCStokOlcuBrList.TabIndex = 0;
             this.GCStokOlcuBrList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            this.GCStokOlcuBrList.Load += new System.EventHandler(this.FStokOlcuBrList_Load_1);
             // 
             // gridView1
             // 

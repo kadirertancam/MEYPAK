@@ -28,16 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -68,7 +67,7 @@
             this.BTNDegistir = new System.Windows.Forms.Button();
             this.BTNSil = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.DGMusteriSiparis = new DevExpress.XtraGrid.GridControl();
+            this.GCMusteriSiparis = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -114,7 +113,7 @@
             this.groupBox2.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DGMusteriSiparis)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GCMusteriSiparis)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -452,14 +451,14 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.DGMusteriSiparis);
+            this.panel3.Controls.Add(this.GCMusteriSiparis);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 213);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1900, 521);
             this.panel3.TabIndex = 1;
             // 
-            // DGMusteriSiparis
+            // GCMusteriSiparis
             // 
             this.GCMusteriSiparis.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GCMusteriSiparis.Location = new System.Drawing.Point(0, 0);
@@ -474,7 +473,7 @@
             // 
             // gridView1
             // 
-            this.gridView1.GridControl = this.DGMusteriSiparis;
+            this.gridView1.GridControl = this.GCMusteriSiparis;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowFooter = true;
             this.gridView1.CustomRowCellEditForEditing += new DevExpress.XtraGrid.Views.Grid.CustomRowCellEditEventHandler(this.gridView1_CustomRowCellEditForEditing);
@@ -598,9 +597,8 @@
             this.TBCariKodu.Location = new System.Drawing.Point(106, 67);
             this.TBCariKodu.Name = "TBCariKodu";
             this.TBCariKodu.Properties.Appearance.Options.UseFont = true;
-            editorButtonImageOptions1.SvgImageSize = new System.Drawing.Size(16, 16);
             this.TBCariKodu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.TBCariKodu.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.TBCariKodu_Properties_ButtonClick);
             this.TBCariKodu.Size = new System.Drawing.Size(205, 22);
             this.TBCariKodu.TabIndex = 149;
@@ -611,7 +609,7 @@
             this.TBSiparisNo.Name = "TBSiparisNo";
             this.TBSiparisNo.Properties.Appearance.Options.UseFont = true;
             this.TBSiparisNo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.TBSiparisNo.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.TBSiparisNo_Properties_ButtonClick);
             this.TBSiparisNo.Properties.Click += new System.EventHandler(this.TBSiparisNo_Properties_Click);
             this.TBSiparisNo.Size = new System.Drawing.Size(205, 22);
@@ -807,7 +805,7 @@
             this.groupBox2.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.DGMusteriSiparis)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GCMusteriSiparis)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).EndInit();
             this.panel2.ResumeLayout(false);
@@ -857,7 +855,7 @@
         private Panel panel6;
         private Panel panel7;
         private Panel panel8;
-        private DevExpress.XtraGrid.GridControl DGMusteriSiparis;
+        private DevExpress.XtraGrid.GridControl GCMusteriSiparis;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit1;
         public DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DateTimePicker DTSevkiyatTarih;
