@@ -45,8 +45,8 @@ namespace MEYPAK.PRL.STOK
         private void FStokSayim_Load(object sender, EventArgs e)
         {
             _stokSayimServis.Data(ServisList.StokSayimListeServis);
-            DTSayimTar.Value = DateTime.Now;
-            GCStokSayim.DataSource = _stokSayimServis.obje;
+            DTSayimTar.EditValue = DateTime.Now;
+            DGStokSayim.DataSource = _stokSayimServis.obje;
             gridView1.Columns["firmaid"].Visible = false;
             gridView1.Columns["subeid"].Visible = false;
             gridView1.Columns["depoid"].Visible = false;
@@ -76,14 +76,14 @@ namespace MEYPAK.PRL.STOK
             _stokSayimServis.Data(ServisList.StokSayimEkleServis, (new Entity.PocoModels.STOK.PocoSTOKSAYIM()
             {
                 sayimtarihi = Convert.ToDateTime(DTStokSayimTarih.EditValue.ToString()),
-                aciklama = TBAcikla.Text,
+                aciklama = TBAciklama.Text,
 
             }));
             _stokSayimServis.Data(ServisList.StokSayimListeServis);
-            GCStokSayim.DataSource = _stokSayimServis.obje;
+            DGStokSayim.DataSource = _stokSayimServis.obje;
 
-            stokSayimPanel.sayimId = _stokSayimServis.obje.Where(x => x.aciklama == TBAcikla.Text).FirstOrDefault().id;
-            TBAcikla.Text = "";
+            stokSayimPanel.sayimId = _stokSayimServis.obje.Where(x => x.aciklama == TBAciklama.Text).FirstOrDefault().id;
+            TBAciklama.Text = "";
             DTStokSayimTarih.EditValue = DateTime.Now;
             stokSayimPanel.ShowDialog();
         }
@@ -92,7 +92,7 @@ namespace MEYPAK.PRL.STOK
         {
             _stokSayimServis.Data(ServisList.StokSayimSilServis, null, null, (_stokSayimServis.obje.Where(x => x.id == Convert.ToInt32(gridView1.GetFocusedRowCellValue("id").ToString()))).ToList());
             _stokSayimServis.Data(ServisList.StokSayimListeServis);
-            GCStokSayim.DataSource = _stokSayimServis.obje;
+            DGStokSayim.DataSource = _stokSayimServis.obje;
         }
 
         private void BTDuzenle_Click(object sender, EventArgs e)
