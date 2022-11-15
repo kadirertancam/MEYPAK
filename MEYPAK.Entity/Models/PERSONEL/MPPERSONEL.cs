@@ -1,7 +1,9 @@
 ﻿
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 
 
@@ -75,8 +77,8 @@ namespace MEYPAK.Entity.Models.PERSONEL
         public string TELEFON { get; set; }
         public string CEPNO { get; set; }
         public string EPOSTA { get; set; }
-
-
+        [MaxLength, Column(TypeName = "ntext")]
+        public string IMG { get; set; }
 
         public byte BEDENOLCUSU { get; set; }
         public byte PANTOLONOLCUSU { get; set; }
