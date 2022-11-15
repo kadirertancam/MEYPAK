@@ -62,7 +62,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(837, 629);
+            this.panel1.Size = new System.Drawing.Size(1080, 673);
             this.panel1.TabIndex = 0;
             // 
             // panel3
@@ -71,7 +71,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 91);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(837, 538);
+            this.panel3.Size = new System.Drawing.Size(1080, 582);
             this.panel3.TabIndex = 3;
             // 
             // DGStokSayim
@@ -80,7 +80,7 @@
             this.DGStokSayim.Location = new System.Drawing.Point(0, 0);
             this.DGStokSayim.MainView = this.gridView1;
             this.DGStokSayim.Name = "DGStokSayim";
-            this.DGStokSayim.Size = new System.Drawing.Size(837, 538);
+            this.DGStokSayim.Size = new System.Drawing.Size(1080, 582);
             this.DGStokSayim.TabIndex = 2;
             this.DGStokSayim.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -96,7 +96,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(837, 91);
+            this.panel2.Size = new System.Drawing.Size(1080, 91);
             this.panel2.TabIndex = 2;
             // 
             // groupBox
@@ -109,9 +109,10 @@
             this.groupBox.Controls.Add(this.LBAciklama);
             this.groupBox.Controls.Add(this.LBSayimTar);
             this.groupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBox.Location = new System.Drawing.Point(0, 0);
             this.groupBox.Name = "groupBox";
-            this.groupBox.Size = new System.Drawing.Size(837, 91);
+            this.groupBox.Size = new System.Drawing.Size(1080, 91);
             this.groupBox.TabIndex = 99;
             this.groupBox.TabStop = false;
             this.groupBox.Text = "Stok Sayım";
@@ -214,7 +215,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(837, 629);
+            this.ClientSize = new System.Drawing.Size(1080, 673);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FStokSayim";

@@ -26,6 +26,8 @@ using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.PocoModels.DEPO;
 using DevExpress.XtraEditors;
 using System.Windows.Media.Animation;
+using MEYPAK.Interfaces.Parametre;
+using MEYPAK.Entity.PocoModels.PARAMETRE;
 
 namespace MEYPAK.PRL.STOK
 {
@@ -42,6 +44,7 @@ namespace MEYPAK.PRL.STOK
             stokOlcuBrServis = new GenericWebServis<PocoSTOKOLCUBR>();
             olcuBrServis = new GenericWebServis<PocoOLCUBR>();
             stokHarServis = new GenericWebServis<PocoSTOKHAR>();
+            
         }
         string _islemtipi;
         public List<PocoStokSayimPanelList> _tempStokSayimHarList;
@@ -51,6 +54,7 @@ namespace MEYPAK.PRL.STOK
         GenericWebServis<PocoSTOKOLCUBR> stokOlcuBrServis ;
         GenericWebServis<PocoOLCUBR> olcuBrServis ;
         GenericWebServis<PocoSTOKHAR> stokHarServis ;
+       
         public int sayimId;
         public PocoSTOK _tempStok;
         FStokList fStokList;
@@ -61,11 +65,12 @@ namespace MEYPAK.PRL.STOK
             olcuBrServis.Data(ServisList.OlcuBrListeServis);
             stokOlcuBrServis.Data(ServisList.StokOlcuBrListeServis);
             stokServis.Data(ServisList.StokListeServis);
+            depoServis.Data(ServisList.DepoListeServis);
             BTStokKoduSec.Text = _tempStok.kod;
             TBAdi.Text = _tempStok.adi;
-            CBDepo.Properties.DataSource = stokOlcuBrServis.obje.Where(x => x.stokid == _tempStok.id).Select(x => olcuBrServis.obje.Where(z => z.id == x.olcubrid).FirstOrDefault().adi).ToList();
+            CBDepo.Text = depoServis.ToString();
             TBBakiye.Text = (from ep in stokServis.obje join e in stokHarServis.obje on ep.id equals e.stokid where ep.kod == _tempStok.kod select Convert.ToDecimal(e.io.ToString() == "1" ? e.miktar : 0) - Convert.ToDecimal(e.io.ToString() == "0" ? e.miktar : 0)).FirstOrDefault().ToString();
-
+            CBBirim.Properties.DataSource = olcuBrServis.obje.Select(x => new { ID = x.id, ADI = x.adi }).ToList();
             _tempStok = null;
         }
 
@@ -82,6 +87,7 @@ namespace MEYPAK.PRL.STOK
             {
                 DGStokSayim.DataSource = _tempStokSayimHarList;
                 CBDepo.Properties.DataSource = depoServis.obje.Select(x => x.depoadi).ToList();
+                CBBirim.Properties.DataSource = olcuBrServis.obje.Select(x => x.adi).ToList();
 
             }
             else if (_islemtipi == "kaydet")

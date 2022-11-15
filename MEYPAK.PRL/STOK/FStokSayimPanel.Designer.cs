@@ -35,7 +35,7 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-            this.BTDuzenle = new DevExpress.XtraEditors.SimpleButton();
+            this.BTTemizle = new DevExpress.XtraEditors.SimpleButton();
             this.LBBakiye = new DevExpress.XtraEditors.LabelControl();
             this.LBFiyat = new DevExpress.XtraEditors.LabelControl();
             this.LBMiktar = new DevExpress.XtraEditors.LabelControl();
@@ -96,16 +96,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.DTTarih.Properties)).BeginInit();
             this.SuspendLayout();
             // 
-            // BTDuzenle
+            // BTTemizle
             // 
-            this.BTDuzenle.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.BTDuzenle.Appearance.Options.UseBackColor = true;
-            this.BTDuzenle.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTTemizle.ImageOptions.Image")));
-            this.BTDuzenle.Location = new System.Drawing.Point(869, 5);
-            this.BTDuzenle.Name = "BTDuzenle";
-            this.BTDuzenle.Size = new System.Drawing.Size(82, 39);
-            this.BTDuzenle.TabIndex = 79;
-            this.BTDuzenle.Text = "&Düzenle";
+            this.BTTemizle.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTTemizle.Appearance.Options.UseBackColor = true;
+            this.BTTemizle.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTTemizle.ImageOptions.Image")));
+            this.BTTemizle.Location = new System.Drawing.Point(585, 39);
+            this.BTTemizle.Name = "BTTemizle";
+            this.BTTemizle.Size = new System.Drawing.Size(82, 39);
+            this.BTTemizle.TabIndex = 79;
+            this.BTTemizle.Text = "&Temizle";
             // 
             // LBBakiye
             // 
@@ -168,7 +168,7 @@
             this.BTKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
             this.BTKaydet.Appearance.Options.UseBackColor = true;
             this.BTKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTKaydet.ImageOptions.Image")));
-            this.BTKaydet.Location = new System.Drawing.Point(781, 6);
+            this.BTKaydet.Location = new System.Drawing.Point(869, 5);
             this.BTKaydet.Name = "BTKaydet";
             this.BTKaydet.Size = new System.Drawing.Size(82, 39);
             this.BTKaydet.TabIndex = 79;
@@ -188,7 +188,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1051, 635);
+            this.panel2.Size = new System.Drawing.Size(1064, 635);
             this.panel2.TabIndex = 1;
             // 
             // panel4
@@ -199,16 +199,16 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1051, 635);
+            this.panel4.Size = new System.Drawing.Size(1064, 635);
             this.panel4.TabIndex = 2;
             // 
             // DGStokSayim
             // 
-            this.DGStokSayim.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.DGStokSayim.Location = new System.Drawing.Point(0, 238);
+            this.DGStokSayim.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DGStokSayim.Location = new System.Drawing.Point(0, 230);
             this.DGStokSayim.MainView = this.gridView1;
             this.DGStokSayim.Name = "DGStokSayim";
-            this.DGStokSayim.Size = new System.Drawing.Size(1051, 347);
+            this.DGStokSayim.Size = new System.Drawing.Size(1064, 355);
             this.DGStokSayim.TabIndex = 11;
             this.DGStokSayim.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -222,11 +222,10 @@
             // 
             this.panelControl6.Controls.Add(this.BTCik);
             this.panelControl6.Controls.Add(this.BTKaydet);
-            this.panelControl6.Controls.Add(this.BTDuzenle);
             this.panelControl6.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelControl6.Location = new System.Drawing.Point(0, 585);
             this.panelControl6.Name = "panelControl6";
-            this.panelControl6.Size = new System.Drawing.Size(1051, 50);
+            this.panelControl6.Size = new System.Drawing.Size(1064, 50);
             this.panelControl6.TabIndex = 13;
             // 
             // BTCik
@@ -248,9 +247,10 @@
             this.panelControl1.Controls.Add(this.panelControl2);
             this.panelControl1.Controls.Add(this.groupControl2);
             this.panelControl1.Controls.Add(this.groupControl1);
-            this.panelControl1.Location = new System.Drawing.Point(3, 3);
+            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1045, 230);
+            this.panelControl1.Size = new System.Drawing.Size(1064, 230);
             this.panelControl1.TabIndex = 12;
             // 
             // panelControl5
@@ -285,6 +285,7 @@
             // 
             this.groupControl2.Controls.Add(this.TBFiyat);
             this.groupControl2.Controls.Add(this.TBMiktar);
+            this.groupControl2.Controls.Add(this.BTTemizle);
             this.groupControl2.Controls.Add(this.CBBirim);
             this.groupControl2.Controls.Add(this.TBBakiye);
             this.groupControl2.Controls.Add(this.TBAdi);
@@ -299,7 +300,7 @@
             this.groupControl2.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             this.groupControl2.Location = new System.Drawing.Point(2, 84);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(1041, 144);
+            this.groupControl2.Size = new System.Drawing.Size(1060, 144);
             this.groupControl2.TabIndex = 1;
             this.groupControl2.Text = "Stok Bilgi";
             // 
@@ -329,19 +330,19 @@
             // 
             // TBBakiye
             // 
+            this.TBBakiye.Enabled = false;
             this.TBBakiye.Location = new System.Drawing.Point(93, 93);
             this.TBBakiye.Name = "TBBakiye";
             this.TBBakiye.Size = new System.Drawing.Size(180, 20);
             this.TBBakiye.TabIndex = 84;
-            this.TBBakiye.Enabled = false;  
             // 
             // TBAdi
             // 
+            this.TBAdi.Enabled = false;
             this.TBAdi.Location = new System.Drawing.Point(93, 67);
             this.TBAdi.Name = "TBAdi";
             this.TBAdi.Size = new System.Drawing.Size(180, 20);
             this.TBAdi.TabIndex = 83;
-            this.TBAdi.Enabled = false; 
             // 
             // BTStokKoduSec
             // 
@@ -370,7 +371,7 @@
             this.groupControl1.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             this.groupControl1.Location = new System.Drawing.Point(2, 2);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(1041, 82);
+            this.groupControl1.Size = new System.Drawing.Size(1060, 82);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Genel";
             // 
@@ -391,6 +392,7 @@
             this.DTTarih.Name = "DTTarih";
             this.DTTarih.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.DTTarih.Properties.MaskSettings.Set("mask", "f");
             this.DTTarih.Size = new System.Drawing.Size(180, 20);
             this.DTTarih.TabIndex = 80;
             // 
@@ -398,8 +400,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1051, 635);
+            this.ClientSize = new System.Drawing.Size(1064, 635);
             this.Controls.Add(this.panel2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FStokSayimPanel";
             this.Text = "FStokSayimPanel";
             this.Load += new System.EventHandler(this.FStokSayimPanel_Load);
@@ -451,7 +454,7 @@
         private BindingSource stokSayimManagerBindingSource1;
         private DevExpress.XtraEditors.LabelControl LBBakiye;
         private DevExpress.XtraEditors.SimpleButton BTCik;
-        private DevExpress.XtraEditors.SimpleButton BTDuzenle;
+        private DevExpress.XtraEditors.SimpleButton BTTemizle;
         private DevExpress.XtraEditors.LookUpEdit CBDepo;
         private DevExpress.XtraEditors.LookUpEdit CBStokBilgiBirim;
         private DevExpress.XtraEditors.PanelControl panelControl1;

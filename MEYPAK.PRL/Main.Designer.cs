@@ -967,6 +967,7 @@
             this.accordionControlElement7.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.accordionControlElement30,
             this.accordionControlElement36});
+            this.accordionControlElement7.Expanded = true;
             this.accordionControlElement7.Name = "accordionControlElement7";
             this.accordionControlElement7.Text = "Hareketler";
             // 
@@ -986,6 +987,7 @@
             // 
             // accordionControlElement8
             // 
+            this.accordionControlElement8.Expanded = true;
             this.accordionControlElement8.Name = "accordionControlElement8";
             this.accordionControlElement8.Text = "Raporlar";
             // 

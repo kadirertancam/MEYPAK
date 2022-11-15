@@ -44,8 +44,6 @@ namespace MEYPAK.PRL.CARI
             CBDoviz.Properties.DataSource = _parabirIMServis.obje.Select(x => new { ID=x.id,ADI=x.adi }).ToList(); //comboxun içini parabirim formundan doldurur
             CBDoviz.Properties.ValueMember= "ID";
             CBDoviz.Properties.DisplayMember = "ADI";
-
-
         }
 
         
