@@ -50,8 +50,8 @@ namespace MEYPAK.PRL.CARI
         GenericWebServis<PocoCARIALTHES> _cariAltHesapServis;
         GenericWebServis<PocoPARABIRIM> _cariParABIRIM; 
         GenericWebServis<PocoCARIRESIM> _cariResimServis;
-       
 
+        public PocoCARIALTHES _tempCARIALTHES;
         public PocoCARIKART _tempCariKart;
         public PocoPARABIRIM _tempCariParABIRIM;
         
@@ -261,7 +261,11 @@ namespace MEYPAK.PRL.CARI
             }
             else if (e.Button.Caption == "Seç")
             {
-              
+                FAltHesapList fAltHesapList = new FAltHesapList(this.Tag.ToString(), "carikart");
+                fAltHesapList.ShowDialog();
+                //if (_tempStok != null)
+                //    if (_tempStok.id > 0)
+                //        tbDoldur();
             }
           } //Cari Alt Hesap
         

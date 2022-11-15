@@ -70,7 +70,7 @@ namespace MEYPAK.PRL.CARI
         {
            
             _cariAltHesapServis.Data(ServisList.CariAltHesListeServis);
-            _cariAltHesapServis.Data(ServisList.CariAltHesSilServis, null, null, _cariAltHesapServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()).ToList());
+            _cariAltHesapServis.Data(ServisList.CariAltHesSilServis, null, null, _cariAltHesapServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).ToList());
             MessageBox.Show("Silme işlemi Başarılı");
             DataGridDoldur();
         }
@@ -113,7 +113,7 @@ namespace MEYPAK.PRL.CARI
                 ID=x.id, 
                 AltHesapKodu=x.kod,
                 Adı=x.adi, 
-                DovizTürü=_parabirIMServis.obje.Where(z=>z.id==x.dovizid).FirstOrDefault().adi.ToString(),//Labellama
+                DövizTürü=_parabirIMServis.obje.Where(z=>z.id==x.dovizid).FirstOrDefault().adi.ToString(),//Labellama
                 OluşturmaTarihi=x.olusturmatarihi });
             DGAltHesap.Refresh();
             DGAltHesap.RefreshDataSource();

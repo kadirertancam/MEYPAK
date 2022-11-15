@@ -50,6 +50,8 @@
             this.LBAlacakDeger = new DevExpress.XtraEditors.LabelControl();
             this.BTKaydet = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.CBAltHesap = new DevExpress.XtraEditors.LookUpEdit();
+            this.LBAltHesap = new DevExpress.XtraEditors.LabelControl();
             this.CBSube = new DevExpress.XtraEditors.CheckedListBoxControl();
             this.TBFiyat = new DevExpress.XtraEditors.TextEdit();
             this.TBKur = new DevExpress.XtraEditors.TextEdit();
@@ -65,8 +67,6 @@
             this.LBBakiye = new DevExpress.XtraEditors.LabelControl();
             this.LBTopAlacak = new DevExpress.XtraEditors.LabelControl();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.LBAltHesap = new DevExpress.XtraEditors.LabelControl();
-            this.CBAltHesap = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.TBAciklama.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RGCariHareket.Properties)).BeginInit();
             this.panel1.SuspendLayout();
@@ -79,6 +79,7 @@
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CBAltHesap.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBSube)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBFiyat.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBKur.Properties)).BeginInit();
@@ -89,7 +90,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.DTTar.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBAdi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTCariSec.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CBAltHesap.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // TBAciklama
@@ -322,6 +322,24 @@
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Cari Hareket";
             // 
+            // CBAltHesap
+            // 
+            this.CBAltHesap.Location = new System.Drawing.Point(91, 90);
+            this.CBAltHesap.Name = "CBAltHesap";
+            this.CBAltHesap.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CBAltHesap.Properties.NullText = "";
+            this.CBAltHesap.Size = new System.Drawing.Size(156, 20);
+            this.CBAltHesap.TabIndex = 49;
+            // 
+            // LBAltHesap
+            // 
+            this.LBAltHesap.Location = new System.Drawing.Point(30, 94);
+            this.LBAltHesap.Name = "LBAltHesap";
+            this.LBAltHesap.Size = new System.Drawing.Size(46, 13);
+            this.LBAltHesap.TabIndex = 48;
+            this.LBAltHesap.Text = "Alt Hesap";
+            // 
             // CBSube
             // 
             this.CBSube.Location = new System.Drawing.Point(539, 33);
@@ -350,6 +368,7 @@
             this.CBParaBrm.Name = "CBParaBrm";
             this.CBParaBrm.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CBParaBrm.Properties.NullText = "";
             this.CBParaBrm.Properties.PopupView = this.gridLookUpEdit1View;
             this.CBParaBrm.Size = new System.Drawing.Size(156, 20);
             this.CBParaBrm.TabIndex = 44;
@@ -465,23 +484,6 @@
             this.panel2.Size = new System.Drawing.Size(922, 665);
             this.panel2.TabIndex = 0;
             // 
-            // LBAltHesap
-            // 
-            this.LBAltHesap.Location = new System.Drawing.Point(30, 94);
-            this.LBAltHesap.Name = "LBAltHesap";
-            this.LBAltHesap.Size = new System.Drawing.Size(46, 13);
-            this.LBAltHesap.TabIndex = 48;
-            this.LBAltHesap.Text = "Alt Hesap";
-            // 
-            // CBAltHesap
-            // 
-            this.CBAltHesap.Location = new System.Drawing.Point(91, 90);
-            this.CBAltHesap.Name = "CBAltHesap";
-            this.CBAltHesap.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.CBAltHesap.Size = new System.Drawing.Size(156, 20);
-            this.CBAltHesap.TabIndex = 49;
-            // 
             // FCariHareket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -506,6 +508,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CBAltHesap.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBSube)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBFiyat.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBKur.Properties)).EndInit();
@@ -516,7 +519,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.DTTar.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBAdi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTCariSec.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CBAltHesap.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
