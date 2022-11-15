@@ -220,6 +220,9 @@ builder.Services.AddScoped<ISiparisKasaHarServis, SiparisKasaHarManager>();
 builder.Services.AddScoped<IAracDal, EFAracRepo>();
 builder.Services.AddScoped<IAracServis, AracManager>();
 
+builder.Services.AddScoped<IAracModelDal, EFAracModelRepo>();
+builder.Services.AddScoped<IAracModelServis, AracModelManager>();
+
 builder.Services.AddScoped<IAraclarDal, EFAraclarRepo>();
 builder.Services.AddScoped<IAraclarServis, AraclarManager>();
 

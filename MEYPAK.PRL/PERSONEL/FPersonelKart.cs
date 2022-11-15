@@ -132,8 +132,6 @@ namespace MEYPAK.PRL.PERSONEL
         {//GOREV
             if (e.Button.Caption == "Ekle")
             {
-
-                var a = CBGorev.GetColumnValue("adi").ToString();
                 _personelGorevServis.Data(ServisList.PersonelGorevEkleServis, new PocoPERSONELGOREV()
                 {
                     //Todo departmanid
@@ -219,7 +217,7 @@ namespace MEYPAK.PRL.PERSONEL
 
         private void gridControl1_DoubleClick(object sender, EventArgs e)
         {
-            _tempPocoPERSONEL = _personelServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()).FirstOrDefault();
+            _tempPocoPERSONEL = _personelServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
             PersonelBilgileriniDoldur();
         }
 
@@ -266,14 +264,17 @@ namespace MEYPAK.PRL.PERSONEL
         void CombolarıDoldur()
         {
             _personelDepartmanServis.Data(ServisList.PersonelDepartmanListeServis);
-            CBDepartman.Properties.DataSource = _personelDepartmanServis.obje.Select(x=> new {x.id,x.adi});
-            CBGorev.Properties.ValueMember = "id";
-            CBGorev.Properties.DisplayMember = "adi";
+            CBDepartman.Properties.DataSource = _personelDepartmanServis.obje.Select(x=> new {ID=x.id,ADI=x.adi});
+            CBDepartman.Properties.ValueMember = "ID";
+            CBDepartman.Properties.DisplayMember = "ADI";
+            //CBDepartman.Properties.Columns["ID"].Visible = false;
+            
 
             _personelGorevServis.Data(ServisList.PersonelGorevListeServis);
-            CBGorev.Properties.DataSource = _personelGorevServis.obje.Select(x => new { x.id, x.adi });
-            CBGorev.Properties.ValueMember = "id";
-            CBGorev.Properties.DisplayMember = "adi";
+            CBGorev.Properties.DataSource = _personelGorevServis.obje.Select(x => new { ID=x.id, ADI=x.adi });
+            CBGorev.Properties.ValueMember = "ID";
+            CBGorev.Properties.DisplayMember = "ADI";
+            CBGorev.Properties.Columns["ID"].Visible = false;
 
             //foreach (var item in _personelDepartmanServis.obje)
             //{

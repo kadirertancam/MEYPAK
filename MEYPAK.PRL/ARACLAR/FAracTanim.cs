@@ -55,7 +55,8 @@ namespace MEYPAK.PRL.ARAÇLAR
         void AraclarıGetir()
         { 
             _aracServis.Data(ServisList.AracListeServis);
-            gridControl1.DataSource = _aracServis.obje;
+            gridControl1.DataSource = _aracServis.obje.Select(x=> new {PLAKA = x.plaka, MARKA = x.marka, MODEL=x.model , ID = x.id});
+            gridView1.Columns["ID"].Visible = false;
         }
         void ResimleriGetir()
         {
@@ -96,6 +97,7 @@ namespace MEYPAK.PRL.ARAÇLAR
                     sofor2id = CBSofor2.EditValue != null ? (int)CBSofor2.EditValue : 0,
                 });
                 _tempArac = _aracServis.obje2;
+                AraclarıGetir();
             }
             else
             {
@@ -168,7 +170,6 @@ namespace MEYPAK.PRL.ARAÇLAR
                     aracid = _tempArac.id,
                     num = 0,
                     img = base64,
-
                 });
             }
             else

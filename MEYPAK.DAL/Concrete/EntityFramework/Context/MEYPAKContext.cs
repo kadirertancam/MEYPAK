@@ -46,6 +46,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
         public DbSet<MPSTOKFIYATLISTHAR> MPSTOKFIYATLISTHAR { get; set; }
         public DbSet<MPARACLAR> MPARACLAR { get; set; }
         public DbSet<MPARAC> MPARAC { get; set; }
+        public DbSet<MPARACMODEL> MPARACMODEL { get; set; }
         public DbSet<MPARACRESIM> MPARACRESIM { get; set; }
         public DbSet<MPARACSIGORTARESIM> MPARACSIGORTARESIM { get; set; }
         public DbSet<MPARACKASKORESIM> MPARACKASKORESIM { get; set; }
