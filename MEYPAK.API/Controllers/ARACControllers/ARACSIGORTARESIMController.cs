@@ -2,33 +2,31 @@
 using MEYPAK.DAL.Concrete.ADONET;
 using MEYPAK.Entity.Models.ARAC;
 using MEYPAK.Entity.PocoModels.ARAC;
-using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Arac;
-using MEYPAK.Interfaces.Stok;
 using Microsoft.AspNetCore.Mvc;
 
-namespace MEYPAK.API.Controllers.ARAC
+namespace MEYPAK.API.Controllers.ARACControllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class ARACController : Controller
+    public class ARACSIGORTARESIMController : Controller
     {
         private readonly IMapper _mapper;
-        private readonly IAracServis _aracServis;
-        private MPAdoContext<MPARAC> _adoaracServis = new MPAdoContext<MPARAC>();
-        public ARACController(IMapper mapper, IAracServis aracServis)
+        private readonly IAracSigortaResimServis _aracSigortaResimServis;
+        private MPAdoContext<MPARACSIGORTARESIM> _adoaracSigortaResimServis = new MPAdoContext<MPARACSIGORTARESIM>();
+        public ARACSIGORTARESIMController(IMapper mapper, IAracSigortaResimServis aracSigortaResimServis)
         {
             _mapper = mapper;
-            _aracServis = aracServis;
+            _aracSigortaResimServis = aracSigortaResimServis;
         }
 
         [HttpGet]
         [Route("/[controller]/[action]")]
-        public IActionResult ARACListe()
+        public IActionResult ARACSIGORTARESIMListe()
         {
             try
             {
-                var data = _aracServis.Listele();
+                var data = _aracSigortaResimServis.Listele();
                 return Ok(data);
             }
             catch (Exception ex)
@@ -38,12 +36,12 @@ namespace MEYPAK.API.Controllers.ARAC
         }
         [HttpGet]
         [Route("/[controller]/[action]")]
-        public IActionResult ARACListe2([FromQuery] string query)
+        public IActionResult ARACSIGORTARESIMListe2([FromQuery] string query)
         {
             try
             {
-                _adoaracServis.HepsiniGetir(query);
-                return Ok(_adoaracServis.GenericList);
+                _adoaracSigortaResimServis.HepsiniGetir(query);
+                return Ok(_adoaracSigortaResimServis.GenericList);
             }
             catch (Exception ex)
             {
@@ -52,11 +50,11 @@ namespace MEYPAK.API.Controllers.ARAC
         }
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult ARACEkleyadaGuncelle(PocoARAC pModel)
+        public IActionResult ARACSIGORTARESIMEkleyadaGuncelle(PocoARACSIGORTARESIM pModel)
         {
             try
             {
-                var data = _aracServis.EkleyadaGuncelle(pModel);
+                var data = _aracSigortaResimServis.EkleyadaGuncelle(pModel);
                 return Ok(data);
             }
             catch (Exception ex)
@@ -66,11 +64,11 @@ namespace MEYPAK.API.Controllers.ARAC
         }
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult ARACSil(List<PocoARAC> pModel)
+        public IActionResult ARACSIGORTARESIMSil(List<PocoARACSIGORTARESIM> pModel)
         {
             try
             {
-                var data = _aracServis.Sil(pModel);
+                var data = _aracSigortaResimServis.Sil(pModel);
                 return Ok(data);
             }
             catch (Exception ex)
@@ -80,11 +78,11 @@ namespace MEYPAK.API.Controllers.ARAC
         }
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult ARACGuncelle(PocoARAC pModel)
+        public IActionResult ARACRSIGORTAESIMGuncelle(PocoARACSIGORTARESIM pModel)
         {
             try
             {
-                var data = _aracServis.Guncelle(pModel);
+                var data = _aracSigortaResimServis.Guncelle(pModel);
                 return Ok(data);
             }
             catch (Exception ex)
@@ -98,7 +96,7 @@ namespace MEYPAK.API.Controllers.ARAC
         {
             try
             {
-                bool succes = _aracServis.DeleteById(id);
+                bool succes = _aracSigortaResimServis.DeleteById(id);
                 if (succes)
                     return Ok(id + " Başarıyla Silindi");
                 else

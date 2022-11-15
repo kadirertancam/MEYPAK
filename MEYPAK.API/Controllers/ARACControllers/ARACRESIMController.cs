@@ -2,33 +2,31 @@
 using MEYPAK.DAL.Concrete.ADONET;
 using MEYPAK.Entity.Models.ARAC;
 using MEYPAK.Entity.PocoModels.ARAC;
-using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Arac;
-using MEYPAK.Interfaces.Stok;
 using Microsoft.AspNetCore.Mvc;
 
-namespace MEYPAK.API.Controllers.ARAC
+namespace MEYPAK.API.Controllers.ARACControllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class ARACController : Controller
+    public class ARACRESIMController : Controller
     {
         private readonly IMapper _mapper;
-        private readonly IAracServis _aracServis;
-        private MPAdoContext<MPARAC> _adoaracServis = new MPAdoContext<MPARAC>();
-        public ARACController(IMapper mapper, IAracServis aracServis)
+        private readonly IAracResimServis _aracResimServis;
+        private MPAdoContext<MPARACRESIM> _adoaracResimServis = new MPAdoContext<MPARACRESIM>();
+        public ARACRESIMController(IMapper mapper, IAracResimServis aracResimServis)
         {
             _mapper = mapper;
-            _aracServis = aracServis;
+            _aracResimServis = aracResimServis;
         }
 
         [HttpGet]
         [Route("/[controller]/[action]")]
-        public IActionResult ARACListe()
+        public IActionResult ARACRESIMListe()
         {
             try
             {
-                var data = _aracServis.Listele();
+                var data = _aracResimServis.Listele();
                 return Ok(data);
             }
             catch (Exception ex)
@@ -38,12 +36,12 @@ namespace MEYPAK.API.Controllers.ARAC
         }
         [HttpGet]
         [Route("/[controller]/[action]")]
-        public IActionResult ARACListe2([FromQuery] string query)
+        public IActionResult ARACRESIMListe2([FromQuery] string query)
         {
             try
             {
-                _adoaracServis.HepsiniGetir(query);
-                return Ok(_adoaracServis.GenericList);
+                _adoaracResimServis.HepsiniGetir(query);
+                return Ok(_adoaracResimServis.GenericList);
             }
             catch (Exception ex)
             {
@@ -52,11 +50,11 @@ namespace MEYPAK.API.Controllers.ARAC
         }
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult ARACEkleyadaGuncelle(PocoARAC pModel)
+        public IActionResult ARACRESIMEkleyadaGuncelle(PocoARACRESIM pModel)
         {
             try
             {
-                var data = _aracServis.EkleyadaGuncelle(pModel);
+                var data = _aracResimServis.EkleyadaGuncelle(pModel);
                 return Ok(data);
             }
             catch (Exception ex)
@@ -66,11 +64,11 @@ namespace MEYPAK.API.Controllers.ARAC
         }
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult ARACSil(List<PocoARAC> pModel)
+        public IActionResult ARACRESIMSil(List<PocoARACRESIM> pModel)
         {
             try
             {
-                var data = _aracServis.Sil(pModel);
+                var data = _aracResimServis.Sil(pModel);
                 return Ok(data);
             }
             catch (Exception ex)
@@ -80,11 +78,11 @@ namespace MEYPAK.API.Controllers.ARAC
         }
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult ARACGuncelle(PocoARAC pModel)
+        public IActionResult ARACRESIMGuncelle(PocoARACRESIM pModel)
         {
             try
             {
-                var data = _aracServis.Guncelle(pModel);
+                var data = _aracResimServis.Guncelle(pModel);
                 return Ok(data);
             }
             catch (Exception ex)
@@ -98,7 +96,7 @@ namespace MEYPAK.API.Controllers.ARAC
         {
             try
             {
-                bool succes = _aracServis.DeleteById(id);
+                bool succes = _aracResimServis.DeleteById(id);
                 if (succes)
                     return Ok(id + " Başarıyla Silindi");
                 else

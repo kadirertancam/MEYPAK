@@ -85,6 +85,11 @@ namespace MEYPAK.Entity.Mappings
 
             //ARAC
             CreateMap<MPARACLAR, PocoARACLAR>().ReverseMap();
+            CreateMap<MPARAC, PocoARAC>().ReverseMap();
+            CreateMap<MPARACRESIM, PocoARACRESIM>().ReverseMap();
+            CreateMap<MPARACRUHSATRESIM, PocoARACRUHSATRESIM>().ReverseMap();
+            CreateMap<MPARACSIGORTARESIM, PocoARACSIGORTARESIM>().ReverseMap();
+            CreateMap<MPARACKASKORESIM, PocoARACKASKORESIM>().ReverseMap();
 
             //KASA
             CreateMap<MPKASA, PocoKASA>().ReverseMap();

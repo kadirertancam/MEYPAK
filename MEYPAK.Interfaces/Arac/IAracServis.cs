@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.Interfaces.Arac
 {
-    public interface IAracServis:IGenericServis<PocoARACLAR>
+    public interface IAracServis:IGenericServis<PocoARAC>
     {
-        public PocoARACLAR EkleyadaGuncelle(PocoARACLAR entity);
+        public PocoARAC EkleyadaGuncelle(PocoARAC entity);
     }
 }

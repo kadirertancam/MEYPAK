@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.DAL.Abstract.AracDal
 {
-    public interface IAracDal:IGeneric<MPARAC>
+    public interface IAracRuhsatResimDal : IGeneric<MPARACRUHSATRESIM>
     {
-        public MPARAC EkleyadaGuncelle(MPARAC entity);
+        public MPARACRUHSATRESIM EkleyadaGuncelle(MPARACRUHSATRESIM entity);
     }
 }

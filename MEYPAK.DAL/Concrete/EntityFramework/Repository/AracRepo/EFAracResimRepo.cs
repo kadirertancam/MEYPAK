@@ -1,10 +1,8 @@
 ﻿using MEYPAK.DAL.Abstract.AracDal;
-using MEYPAK.DAL.Abstract.StokDal;
+using MEYPAK.DAL.Abstract.KasaDal;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.Entity.Models.ARAC;
-using MEYPAK.Entity.Models.ARAC.Mobiliz;
-using MEYPAK.Entity.Models.DEPO;
-using MEYPAK.Entity.Models.IRSALIYE;
+using MEYPAK.Entity.Models.KASA;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,22 +12,20 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.DAL.Concrete.EntityFramework.Repository.AracRepo
 {
-    public class EFAracRepo : EFBaseRepo<MPARAC>, IAracDal
+    public class EFAracResimRepo : EFBaseRepo<MPARACRESIM>, IAracResimDal
     {
         MEYPAKContext _context;
-        public EFAracRepo(MEYPAKContext context) : base(context)
+        public EFAracResimRepo(MEYPAKContext context) : base(context)
         {
             _context = context;
         }
 
-
-
-        public MPARAC EkleyadaGuncelle(MPARAC entity)
+        public MPARACRESIM EkleyadaGuncelle(MPARACRESIM entity)
         {
-            bool exists = _context.MPARAC.Any(x => x.ID == entity.ID);
+            bool exists = _context.MPARACRESIM.Any(x => x.ID == entity.ID);
             if (!exists)
             {
-                _context.MPARAC.Add(entity);
+                _context.MPARACRESIM.Add(entity);
                 _context.SaveChanges();
                 return entity;
             }
@@ -48,12 +44,12 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository.AracRepo
                 propertyInfo.SetValue(item, Convert.ChangeType(1, propertyInfo.PropertyType), null);
                 propertyInfo = (item.GetType().GetProperty("ID"));
                 propertyInfo.SetValue(item, Convert.ChangeType(0, propertyInfo.PropertyType), null);
-                _context.MPARAC.Add(item);
+                _context.MPARACRESIM.Add(item);   
                 _context.SaveChanges();
                 _context.ChangeTracker.Clear();
                 propertyInfo = (entity.GetType().GetProperty("GUNCELLEMETARIHI"));
                 propertyInfo.SetValue(entity, Convert.ChangeType(DateTime.Now, propertyInfo.PropertyType), null);
-                _context.MPARAC.Update(entity);
+                _context.MPARACRESIM.Update(entity);
                 _context.SaveChanges();
                 return entity;
             }

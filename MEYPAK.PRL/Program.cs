@@ -1,4 +1,5 @@
 using DevExpress.XtraEditors;
+using MEYPAK.PRL.ARAÇLAR;
 using MEYPAK.PRL.Assets;
 using MEYPAK.PRL.CARI;
 using MEYPAK.PRL.DEPO;
@@ -29,7 +30,7 @@ namespace MEYPAK.PRL
             NinjectFactory.CompositionRoot.Initialize(a);
             ApplicationConfiguration.Initialize();
             Application.EnableVisualStyles();
-            Application.Run(new FKasaKart());
+            Application.Run(new FAracTanim());
         }
         //
 

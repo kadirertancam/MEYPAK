@@ -220,6 +220,21 @@ builder.Services.AddScoped<ISiparisKasaHarServis, SiparisKasaHarManager>();
 builder.Services.AddScoped<IAracDal, EFAracRepo>();
 builder.Services.AddScoped<IAracServis, AracManager>();
 
+builder.Services.AddScoped<IAraclarDal, EFAraclarRepo>();
+builder.Services.AddScoped<IAraclarServis, AraclarManager>();
+
+builder.Services.AddScoped<IAracResimDal, EFAracResimRepo>();
+builder.Services.AddScoped<IAracResimServis, AracResimManager>();
+
+builder.Services.AddScoped<IAracRuhsatResimDal, EFAracRuhsatResimRepo>();
+builder.Services.AddScoped<IAracRuhsatResimServis, AracRuhsatResimManager>();
+
+builder.Services.AddScoped<IAracSigortaResimDal, EFAracSigortaResimRepo>();
+builder.Services.AddScoped<IAracSigortaResimServis, AracSigortaResimManager>();
+
+builder.Services.AddScoped<IAracKaskoResimDal, EFAracKaskoResimRepo>();
+builder.Services.AddScoped<IAracKaskoResimServis, AracKaskoResimManager>();
+
 #endregion
 #region KASA_Scoped_Islemleri
 builder.Services.AddScoped<IKasaDal, EFKasaRepo>();

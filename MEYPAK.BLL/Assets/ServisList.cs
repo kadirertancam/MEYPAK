@@ -13,14 +13,62 @@ namespace MEYPAK.BLL.Assets
         #endregion
         
 
-        #region Araç
-        public const string AracListeServis = "http://213.238.167.117:8080/ARAC/ARACListe";
+        #region Araclar
+        public const string AracListeServis =    "http://213.238.167.117:8080/ARAC/ARACListe";
         public const string AracEkleServis = "http://213.238.167.117:8080/ARAC/ARACEkleyadaGuncelle";
         public const string AracSilServis = "http://213.238.167.117:8080/ARAC/ARACSil";
         public const string AracGuncelleServis = "http://213.238.167.117:8080/ARAC/ARACGuncelle";
         public const string AracDeleteByIdServis = "http://213.238.167.117:8080/ARAC/DeleteById";
         public const string AracListeFiltreServis = "http://213.238.167.117:8080/ARAC/ARACListe2?query=";
 
+
+        #endregion
+
+        #region Arac
+        public const string AraclarListeServis =        "http://213.238.167.117:8080/ARACLAR/ARACLARListe";
+        public const string AraclarEkleServis =         "http://213.238.167.117:8080/ARACLAR/ARACLAREkleyadaGuncelle";
+        public const string AraclarSilServis =          "http://213.238.167.117:8080/ARACLAR/ARACLARSil";
+        public const string AraclarGuncelleServis =     "http://213.238.167.117:8080/ARACLAR/ARACLARGuncelle";
+        public const string AraclarDeleteByIdServis =   "http://213.238.167.117:8080/ARACLAR/DeleteById";
+        public const string AraclarListeFiltreServis =  "http://213.238.167.117:8080/ARACLAR/ARACLARListe2?query=";
+
+
+        #endregion
+        #region AracSigortaResim
+        public const string AracSigortaResimListeServis =        "http://213.238.167.117:8080/ARACSIGORTARESIM/ARACSIGORTARESIMListe";
+        public const string AracSigortaResimEkleServis =         "http://213.238.167.117:8080/ARACSIGORTARESIM/ARACSIGORTARESIMEkleyadaGuncelle";
+        public const string AracSigortaResimSilServis =          "http://213.238.167.117:8080/ARACSIGORTARESIM/ARACSIGORTARESIMSil";
+        public const string AracSigortaResimGuncelleServis =     "http://213.238.167.117:8080/ARACSIGORTARESIM/ARACSIGORTARESIMGuncelle";
+        public const string AracSigortaResimListeFiltreServis =  "http://213.238.167.117:8080/ARACSIGORTARESIM/ARACSIGORTARESIMListe2?query=";
+        public const string AracSigortaResimDeleteByIdServis =   "http://213.238.167.117:8080/ARACSIGORTARESIM/DeleteById";
+
+        #endregion
+        #region AracRuhsatResim
+        public const string AracRuhsatResimListeServis = "http://213.238.167.117:8080/ARACRUHSATRESIM/ARACRUHSATRESIMListe";
+        public const string AracRuhsatResimEkleServis = "http://213.238.167.117:8080/ARACRUHSATRESIM/ARACRUHSATRESIMEkleyadaGuncelle";
+        public const string AracRuhsatResimSilServis = "http://213.238.167.117:8080/ARACRUHSATRESIM/ARACRUHSATRESIMSil";
+        public const string AracRuhsatResimGuncelleServis = "http://213.238.167.117:8080/ARACRUHSATRESIM/ARACRUHSATRESIMGuncelle";
+        public const string AracRuhsatResimListeFiltreServis = "http://213.238.167.117:8080/ARACRUHSATRESIM/ARACRUHSATRESIMListe2?query=";
+        public const string AracRuhsatResimDeleteByIdServis = "http://213.238.167.117:8080/ARACRUHSATRESIM/DeleteById";
+
+        #endregion
+        #region AracKaskoResim
+        public const string AracKaskoResimListeServis = "http://213.238.167.117:8080/ARACKASKORESIM/ARACKASKORESIMListe";
+        public const string AracKaskoResimEkleServis = "http://213.238.167.117:8080/ARACKASKORESIM/ARACKASKORESIMEkleyadaGuncelle";
+        public const string AracKaskoResimSilServis = "http://213.238.167.117:8080/ARACKASKORESIM/ARACKASKORESIMSil";
+        public const string AracKaskoResimGuncelleServis = "http://213.238.167.117:8080/ARACKASKORESIM/ARACKASKORESIMGuncelle";
+        public const string AracKaskoResimListeFiltreServis = "http://213.238.167.117:8080/ARACKASKORESIM/ARACKASKORESIMListe2?query=";
+        public const string AracKaskoResimDeleteByIdServis = "http://213.238.167.117:8080/ARACKASKORESIM/DeleteById";
+
+        #endregion
+
+        #region AracResim
+        public const string AracResimListeServis = "http://213.238.167.117:8080/ARACRESIM/ARACRESIMListe";
+        public const string AracResimEkleServis = "http://213.238.167.117:8080/ARACRESIM/ARACRESIMEkleyadaGuncelle";
+        public const string AracResimSilServis = "http://213.238.167.117:8080/ARACRESIM/ARACRESIMSil";
+        public const string AracResimGuncelleServis = "http://213.238.167.117:8080/ARACRESIM/ARACRESIMGuncelle";
+        public const string AracResimListeFiltreServis = "http://213.238.167.117:8080/ARACRESIM/ARACRESIMListe2?query=";
+        public const string AracResimDeleteByIdServis = "http://213.238.167.117:8080/ARACRESIM/DeleteById";
 
         #endregion
 
