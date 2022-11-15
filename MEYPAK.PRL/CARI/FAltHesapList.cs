@@ -63,7 +63,7 @@ namespace MEYPAK.PRL.CARI
             });
             DGAltHesap.Refresh();
             DGAltHesap.RefreshDataSource();
-
+            
         }
 
         private void DGAltHesap_DoubleClick(object sender, EventArgs e)

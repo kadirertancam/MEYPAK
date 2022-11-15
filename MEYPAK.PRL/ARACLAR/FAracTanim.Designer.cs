@@ -115,6 +115,7 @@
             this.dateEdit3 = new DevExpress.XtraEditors.DateEdit();
             this.XTPBelgeler = new DevExpress.XtraTab.XtraTabPage();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.BTNAracFoto = new DevExpress.XtraEditors.ButtonEdit();
             this.labelControl29 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl28 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl27 = new DevExpress.XtraEditors.LabelControl();
@@ -204,6 +205,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BTNAracFoto.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBModel.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBMarka.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBTip.Properties)).BeginInit();
@@ -931,6 +933,7 @@
             // 
             // panelControl3
             // 
+            this.panelControl3.Controls.Add(this.BTNAracFoto);
             this.panelControl3.Controls.Add(this.labelControl29);
             this.panelControl3.Controls.Add(this.labelControl28);
             this.panelControl3.Controls.Add(this.labelControl27);
@@ -959,6 +962,16 @@
             this.panelControl3.Name = "panelControl3";
             this.panelControl3.Size = new System.Drawing.Size(780, 205);
             this.panelControl3.TabIndex = 1;
+            // 
+            // BTNAracFoto
+            // 
+            this.BTNAracFoto.EditValue = "Fotoğrafı Değistir";
+            this.BTNAracFoto.Location = new System.Drawing.Point(45, 178);
+            this.BTNAracFoto.Name = "BTNAracFoto";
+            this.BTNAracFoto.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.BTNAracFoto.Size = new System.Drawing.Size(126, 20);
+            this.BTNAracFoto.TabIndex = 75;
             // 
             // labelControl29
             // 
@@ -1034,6 +1047,7 @@
             this.CBModel.Name = "CBModel";
             this.CBModel.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CBModel.Properties.NullText = "";
             this.CBModel.Size = new System.Drawing.Size(135, 20);
             this.CBModel.TabIndex = 23;
             // 
@@ -1043,6 +1057,7 @@
             this.CBMarka.Name = "CBMarka";
             this.CBMarka.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CBMarka.Properties.NullText = "";
             this.CBMarka.Size = new System.Drawing.Size(135, 20);
             this.CBMarka.TabIndex = 22;
             // 
@@ -1268,6 +1283,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
             this.panelControl3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BTNAracFoto.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBModel.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBMarka.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBTip.Properties)).EndInit();
@@ -1384,5 +1400,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl25;
         private DevExpress.XtraEditors.LabelControl labelControl24;
         private DevExpress.XtraEditors.LabelControl labelControl17;
+        private DevExpress.XtraEditors.ButtonEdit BTNAracFoto;
     }
 }

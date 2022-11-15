@@ -264,17 +264,19 @@ namespace MEYPAK.PRL.PERSONEL
         void CombolarıDoldur()
         {
             _personelDepartmanServis.Data(ServisList.PersonelDepartmanListeServis);
-            CBDepartman.Properties.DataSource = _personelDepartmanServis.obje.Select(x=> new {ID=x.id,ADI=x.adi});
             CBDepartman.Properties.ValueMember = "ID";
             CBDepartman.Properties.DisplayMember = "ADI";
-            //CBDepartman.Properties.Columns["ID"].Visible = false;
-            
+            CBDepartman.Properties.DataSource = _personelDepartmanServis.obje.Select(x=> new {ADI = x.adi ,ID=x.id});
+           
+         
+
+
 
             _personelGorevServis.Data(ServisList.PersonelGorevListeServis);
             CBGorev.Properties.DataSource = _personelGorevServis.obje.Select(x => new { ID=x.id, ADI=x.adi });
             CBGorev.Properties.ValueMember = "ID";
             CBGorev.Properties.DisplayMember = "ADI";
-            CBGorev.Properties.Columns["ID"].Visible = false;
+            
 
             //foreach (var item in _personelDepartmanServis.obje)
             //{
@@ -309,22 +311,22 @@ namespace MEYPAK.PRL.PERSONEL
                 TBTCNO.Text = _tempPocoPERSONEL.tc;
                 TBAdi.Text = _tempPocoPERSONEL.adi;
                 TBSoyadi.Text = _tempPocoPERSONEL.soyadi;
-                DTPDogumTar.EditValue = _tempPocoPERSONEL.dogumtar;
+                DTPDogumTar.EditValue = (DateTime)_tempPocoPERSONEL.dogumtar;
                 CBCinsiyet.SelectedIndex = _tempPocoPERSONEL.cinsiyet;
                 //  CBDepartman.EditValue = _personelDepartmanServis.obje.Where(x => x.id == _tempPocoPERSONEL.personeldepartmanid).FirstOrDefault().adi;
                 //  CBGorev.EditValue
-                DTPIseGirisTar.EditValue = _tempPocoPERSONEL.isbastar;
+                DTPIseGirisTar.EditValue =(DateTime) _tempPocoPERSONEL.isbastar;
                 //PBPersonelResim
                 TBSGK.Text = _tempPocoPERSONEL.sgk;
                 TBBagkur.Text = _tempPocoPERSONEL.bagkur;
                 TBEmekliSan.Text = _tempPocoPERSONEL.emeklisandigi;
                 TB506G.Text = _tempPocoPERSONEL.g506MADSAN;
                 CBOgrenimDurum.EditValue = _tempPocoPERSONEL.ogrenimdurumu;
-                DTPMezuniyetYil.EditValue = _tempPocoPERSONEL.mezuniyetyili;
+                DTPMezuniyetYil.EditValue = Convert.ToDateTime(_tempPocoPERSONEL.mezuniyetyili);
                 TBMezunBolum.Text = _tempPocoPERSONEL.mezunbolum;
                 CBAskerlikDurum.EditValue = _tempPocoPERSONEL.askerlikdurum;
-                DTPAskerBasTar.EditValue = _tempPocoPERSONEL.askerlikbaslangictar;
-                DTPAskerBitTar.EditValue = _tempPocoPERSONEL.askerlikbitistar;
+                DTPAskerBasTar.EditValue = (DateTime)_tempPocoPERSONEL.askerlikbaslangictar;
+                DTPAskerBitTar.EditValue = (DateTime)_tempPocoPERSONEL.askerlikbitistar;
                 CBSigortalilikTur.EditValue = _tempPocoPERSONEL.sigortaturkod;
                 CBYaslilikAylik.EditValue = _tempPocoPERSONEL.yaslilikayligi;
                 CBIstihtamTuru.EditValue = _tempPocoPERSONEL.istihdamdurumu;
@@ -344,7 +346,7 @@ namespace MEYPAK.PRL.PERSONEL
                 CBKanGrubu.EditValue = _tempPocoPERSONEL.kangrubu;
                 TBAileSıraNo.Text = _tempPocoPERSONEL.ailesirano;
                 TBSiraNo.Text = _tempPocoPERSONEL.sirano;
-                DTPNufVerTar.EditValue = _tempPocoPERSONEL.nufuscuzdanverilistarih;
+                DTPNufVerTar.EditValue = (DateTime)_tempPocoPERSONEL.nufuscuzdanverilistarih;
                 TBNufSeriNo.Text = _tempPocoPERSONEL.nufuscuzdanserino;
                 TBNufKayıtNo.Text = _tempPocoPERSONEL.nufuscuzdankayitno;
                 TBAdres.Text = _tempPocoPERSONEL.adres;

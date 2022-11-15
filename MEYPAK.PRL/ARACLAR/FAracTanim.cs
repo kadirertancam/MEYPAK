@@ -1,6 +1,7 @@
 ﻿using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.PocoModels.ARAC;
 using MEYPAK.Entity.PocoModels.STOK;
+using MEYPAK.Interfaces.Arac;
 using MEYPAK.Interfaces.Stok;
 using System;
 using System.Collections.Generic;
@@ -19,11 +20,15 @@ namespace MEYPAK.PRL.ARAÇLAR
     {
         GenericWebServis<PocoARAC> _aracServis;
         GenericWebServis<PocoARACRUHSATRESIM> _aracServisRUHSATRESIMServis;
+        GenericWebServis<PocoARACMODEL> _aracModelServis;
         public FAracTanim()
         {
+            _aracServisRUHSATRESIMServis = new GenericWebServis<PocoARACRUHSATRESIM>();
+            _aracModelServis = new GenericWebServis<PocoARACMODEL>();
             _aracServis = new GenericWebServis<PocoARAC>();
             InitializeComponent();
             AraclarıGetir();
+            CombolarıDoldur();
         }
         PocoARAC _tempArac;
         string base64 = ""; 
@@ -70,6 +75,13 @@ namespace MEYPAK.PRL.ARAÇLAR
                 _aracServisRUHSATRESIMServis.Data(ServisList.AracRuhsatResimListeServis);
                 GridRuhsat.DataSource = _aracServisRUHSATRESIMServis.obje;
             }
+        }
+
+        void CombolarıDoldur()
+        {
+            _aracModelServis.Data(ServisList.AracModelListeServis);
+            CBMarka.Properties.DataSource = _aracModelServis.obje.GroupBy(x => x.MARKAADI);
+            
         }
         #endregion
 
