@@ -3,6 +3,7 @@ using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraPivotGrid;
 using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.PocoModels;
 using MEYPAK.Entity.PocoModels.CARI;
@@ -49,7 +50,7 @@ namespace MEYPAK.PRL.SIPARIS
             gridView1.OptionsNavigation.AutoMoveRowFocus = true;
             gridView1.OptionsNavigation.AutoFocusNewRow = true;
         }
-        FKasaList fKasaList;
+        FStokKasaList fKasaList;
         List<PocoSiparisKalem> _tempSiparisDetay = new List<PocoSiparisKalem>();
         DataGridViewComboBoxColumn DGVOlcuBr = new DataGridViewComboBoxColumn();
         GenericWebServis<PocoSIPARISKASAHAR> _siparisKasaHarServis;
@@ -126,23 +127,63 @@ namespace MEYPAK.PRL.SIPARIS
             repositoryItemButtonEdit3.NullValuePrompt = "Seç";
 
 
+           
+            List<string> testt = new List<string>()
+            {
+                "Stok",
+                "Hizmet",
+                "Kasa",
+                "Demirbaş",
+                "Muhasebe"
+            };
+
+
+            RepositoryItemComboBox reCBfirst = GCMusteriSiparis.RepositoryItems.Add("ComboBoxEdit") as RepositoryItemComboBox;
+           
+            reCBfirst.EditValueChanged += new EventHandler(reCBfirst_EditValueChanged);
+
+            foreach (var item in testt)
+            {
+                reCBfirst.Items.Add(item);
+            }
+            
+
+            gridView1.Columns["FirstName"].ColumnEdit = reCBfirst; 
+
+            GridColumn unbColumn = gridView1.Columns.AddField("UnboundField");
+            unbColumn.VisibleIndex = gridView1.VisibleColumns.Count;
+            unbColumn.UnboundType = DevExpress.Data.UnboundColumnType.String;
+
+            gridView1.CustomUnboundColumnData += new DevExpress.XtraGrid.Views.Base.CustomColumnDataEventHandler(gridView1_CustomUnboundColumnData);
+            GCMusteriSiparis.ForceInitialize();
+
+
+
+           
+
+             
+
+
 
             repositoryItemButtonEdit.ButtonClick += RepositoryItemButtonEdit_ButtonClick;
             repositoryItemButtonEdit3.ButtonClick += RepositoryItemButtonEdit3_ButtonClick;
-            repositoryItemButton2.ButtonClick += RepositoryItemButtonEdit2_ButtonClick;
-
+            repositoryItemButton2.ButtonClick += RepositoryItemButtonEdit2_ButtonClick; 
+             
             GCMusteriSiparis.RepositoryItems.Add(repositoryItemButtonEdit);
             GCMusteriSiparis.RepositoryItems.Add(repositoryItemButton2);
-            GCMusteriSiparis.RepositoryItems.Add(repositoryItemButtonEdit3);
+            GCMusteriSiparis.RepositoryItems.Add(repositoryItemButtonEdit3); 
             gridColumn.ColumnEdit = repositoryItemButtonEdit;
             gridColumn2.ColumnEdit = repositoryItemButton2;
             gridColumn3.ColumnEdit = repositoryItemButtonEdit3;
             gridColumn.ShowButtonMode = DevExpress.XtraGrid.Views.Base.ShowButtonModeEnum.ShowAlways;
+
             gridView1.Columns["Seç"].VisibleIndex = 2;
             gridView1.Columns["KasaSec"].VisibleIndex = 6;
             gridView1.Columns["BirimSec"].VisibleIndex = 9;
             gridView1.Columns["StokId"].Visible = false; 
             gridView1.Columns["KasaId"].Visible = false;
+            gridView1.Columns["Tip"].VisibleIndex = 0;
+            GCMusteriSiparis.ForceInitialize();
             //     gridView1.Columns["Birim"].Visible = false;
 
             //gridView1.Columns.Add(DGVOlcuBr);
@@ -175,15 +216,31 @@ namespace MEYPAK.PRL.SIPARIS
 
         }
 
+        private void reCBfirst_EditValueChanged(object? sender, EventArgs e)
+        {
+            gridView1.PostEditor();
+        }
+
+        void gridView1_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
+        {
+            GridView currentView = sender as GridView;
+            if (e.Column == currentView.Columns["Tip"] && e.IsGetData)
+            {
+                e.Value = String.Format("{0}", (e.Row as DataRowView)["FirstName"]);
+
+            }
+        }
+
+
         private void RepositoryItemButtonEdit3_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
-            FKasaList fKasaList = new FKasaList(this.Tag.ToString(), "musterisiparis");
+            FStokKasaList fKasaList = new FStokKasaList(this.Tag.ToString(), "musterisiparis");
             fKasaList.ShowDialog();
         }
 
         private void RepositoryItemButtonEdit2_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
-            _fStokOlcuBrList = new FStokOlcuBrList("musterisiparis");
+            _fStokOlcuBrList = new FStokOlcuBrList(this.Tag.ToString(),"musterisiparis");
             _fStokOlcuBrList.stokid = _tempStok.id;
             _fStokOlcuBrList.ShowDialog();
         }

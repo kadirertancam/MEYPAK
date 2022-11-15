@@ -1,6 +1,6 @@
 ﻿namespace MEYPAK.PRL.STOK
 {
-    partial class FKasaList
+    partial class FStokKasaList
     {
         /// <summary>
         /// Required designer variable.
@@ -99,6 +99,7 @@
             this.simpleButton1.Size = new System.Drawing.Size(153, 59);
             this.simpleButton1.TabIndex = 0;
             this.simpleButton1.Text = "Kaydet";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // FKasaList
             // 

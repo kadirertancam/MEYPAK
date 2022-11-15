@@ -19,7 +19,7 @@ using System.Windows.Forms;
 
 namespace MEYPAK.PRL.STOK
 {
-    public partial class FKasaList : Form
+    public partial class FStokKasaList : Form
     {
         FStokKart fStokKart;
         FMusteriSiparis fSiparis;
@@ -27,7 +27,7 @@ namespace MEYPAK.PRL.STOK
         GenericWebServis<PocoSTOKKASA> _kasaServis;
         string _islem;
         string _form;
-        public FKasaList(string form,string islem = "")
+        public FStokKasaList(string form,string islem = "")
         {
             InitializeComponent();
             this._islem = islem;
@@ -45,13 +45,13 @@ namespace MEYPAK.PRL.STOK
                         fStokKart = (FStokKart)frm;
                     if (frm.Name.Contains("FMusteriSiparis"))
                         fSiparis = (FMusteriSiparis)frm;
-                    if (frm.Name.Contains("FSatınAlmaSiparis"))
+                    if (frm.Name.Contains("FSatinAlmaSiparis"))
                         fSatınAlmaSiparis = (FSatinAlmaSiparis)frm; 
                 }
             }
 
             _kasaServis.Data(ServisList.StokKasaListeServis);
-            GCKasaList.DataSource = _kasaServis.obje.Where(x=>x.kayittipi==0).Select(x=> new { x.id,x.kasaadi,Miktar=0f});
+            GCKasaList.DataSource = _kasaServis.obje.Where(x=>x.kayittipi==0).Select(x=> new KasaList { ID=x.id,KASAADI=x.kasaadi,MIKTAR= 0});
  
 
         }
@@ -62,6 +62,7 @@ namespace MEYPAK.PRL.STOK
 
         private void gridView1_DoubleClick(object sender, EventArgs e)
         {
+            string temp = "";
             _kasaServis.Data(ServisList.StokKasaListeServis);
             if (_islem == "Stok")
             {
@@ -71,7 +72,13 @@ namespace MEYPAK.PRL.STOK
             else if (_islem == "musterisiparis")
             {
                 if (fSiparis != null)
-                    fSiparis.gridView1.SetFocusedRowCellValue("KasaAdı", _kasaServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()).FirstOrDefault().kasaadi);
+                {
+                    foreach (var item in _kasaServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()))
+                    {
+                        temp += item.kasaadi+"=>";
+                    }
+                    fSiparis.gridView1.SetFocusedRowCellValue("KasaAdı", temp);
+                }
             }
             else if (_islem == "SatinAlmaSiparis")
             {
@@ -80,6 +87,36 @@ namespace MEYPAK.PRL.STOK
             }
 
             this.Close();
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            string temp = "";
+            _kasaServis.Data(ServisList.StokKasaListeServis);
+            if (_islem == "musterisiparis")
+            {
+                if (fSiparis != null)
+                {
+                    foreach (var item in gridView1.GetSelectedRows())
+                    {
+                        
+                        temp += gridView1.GetRowCellValue(item, "KASAADI").ToString() + "=>" + gridView1.GetRowCellValue(item, "MIKTAR").ToString() + ";" ;
+                    }
+                    fSiparis.gridView1.SetFocusedRowCellValue("KasaAdı", temp);
+                }
+            }
+            else if (_islem == "SatinAlmaSiparis")
+            {
+                if (fSatınAlmaSiparis != null)
+                {
+                    foreach (var item in gridView1.GetSelectedRows())
+                    {
+
+                        temp += gridView1.GetRowCellValue(item, "KASAADI").ToString() + "=>" + gridView1.GetRowCellValue(item, "MIKTAR").ToString() + ";";
+                    }
+                    fSatınAlmaSiparis.gridView1.SetFocusedRowCellValue("KasaAdı", temp);
+                }
+            }
         }
     }
 }

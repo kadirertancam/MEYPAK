@@ -74,7 +74,7 @@ namespace MEYPAK.PRL.STOK
                         fDepolarArasıHar=(FDepolarArasıTransferHar)frm;
                     if (frm.Name.Contains("FMusteriSiparis"))
                         fSiparis=(FMusteriSiparis)frm;
-                    if (frm.Name.Contains("FSatınAlmaSiparis"))
+                    if (frm.Name.Contains("FSatinAlmaSiparis"))
                         _fSatınAlmaSiparis=(FSatinAlmaSiparis)frm;
                 }
             }

@@ -10,7 +10,7 @@ namespace MEYPAK.PRL.Assets
     public class KasaList
     {
         public int ID { get; set; }
-        public int KASAADI { get; set; }
+        public string KASAADI { get; set; }
         public decimal MIKTAR { get; set; }
     }
 }

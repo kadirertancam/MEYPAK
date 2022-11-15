@@ -326,7 +326,7 @@ namespace MEYPAK.PRL
 
         private void buttonEdit5_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            FKasaList fKasaList = new FKasaList(this.Tag.ToString(),"Stok");
+            FStokKasaList fKasaList = new FStokKasaList(this.Tag.ToString(),"Stok");
             fKasaList.ShowDialog();
             if (_tempKasa != null)
                 BTKasa.Text = _tempKasa.kasaadi;

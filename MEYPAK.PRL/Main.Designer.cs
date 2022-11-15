@@ -145,6 +145,7 @@
             this.accordionControlElement27 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
             this.applicationMenu1 = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
+            this.accordionControlElement42 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -809,6 +810,7 @@
             this.accordionControlElement2,
             this.accordionControlElement3,
             this.accordionControlElement4});
+            this.accordionControlElement1.Expanded = true;
             this.accordionControlElement1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement1.ImageOptions.Image")));
             this.accordionControlElement1.ImageOptions.SvgImageSize = new System.Drawing.Size(32, 32);
             this.accordionControlElement1.Name = "accordionControlElement1";
@@ -822,7 +824,9 @@
             this.accordionControlElement10,
             this.accordionControlElement11,
             this.accordionControlElement13,
-            this.accordionControlElement28});
+            this.accordionControlElement28,
+            this.accordionControlElement42});
+            this.accordionControlElement2.Expanded = true;
             this.accordionControlElement2.Name = "accordionControlElement2";
             this.accordionControlElement2.Text = "Tanımlar";
             // 
@@ -1120,6 +1124,13 @@
             // 
             this.applicationMenu1.Name = "applicationMenu1";
             // 
+            // accordionControlElement42
+            // 
+            this.accordionControlElement42.Name = "accordionControlElement42";
+            this.accordionControlElement42.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement42.Text = "Stok Kasa Tanım";
+            this.accordionControlElement42.Click += new System.EventHandler(this.accordionControlElement42_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1263,5 +1274,6 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement41;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement39;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement40;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement42;
     }
 }

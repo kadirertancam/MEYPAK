@@ -18,10 +18,10 @@ using System.Windows.Forms;
 
 namespace MEYPAK.PRL.STOK
 {
-    public partial class FKasaPanel : Form
+    public partial class FStokKasaPanel : Form
     {
         
-        public FKasaPanel()
+        public FStokKasaPanel()
         {
             InitializeComponent();
             _kasaServis = new GenericWebServis<PocoSTOKKASA>();

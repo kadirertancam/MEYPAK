@@ -50,7 +50,7 @@ namespace MEYPAK.API.Controllers.SIPARISControllers
 
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult SIPARISKASAHAREkleyadaGuncelle(PocoSIPARISKASAHAR pModel)
+        public IActionResult SIPARISKASAHAREkleyadaGuncelle([FromBody] PocoSIPARISKASAHAR pModel)
         {
             try
             {
