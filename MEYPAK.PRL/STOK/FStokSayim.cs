@@ -69,22 +69,21 @@ namespace MEYPAK.PRL.STOK
         private void BTKaydet_Click(object sender, EventArgs e)
         {
             _stokSayimServis.Data(ServisList.StokSayimListeServis);
-
-
-            stokSayimPanel = new FStokSayimPanel("kaydet");
+            stokSayimPanel = new FStokSayimPanel(this.Tag.ToString(), "kaydet");
             stokSayimPanel.Name = "FStokSayimPanel";
-            stokSayimPanel.Tag = "TPStokSayimPanel" + 1;
+            stokSayimPanel.Tag = "TPStokSayimPanel" + 1; 
+           
             _stokSayimServis.Data(ServisList.StokSayimEkleServis, (new Entity.PocoModels.STOK.PocoSTOKSAYIM()
             {
                 sayimtarihi = Convert.ToDateTime(DTStokSayimTarih.EditValue.ToString()),
-                aciklama = TBStokSayimAciklama.Text,
+                aciklama = TBAcikla.Text,
 
             }));
             _stokSayimServis.Data(ServisList.StokSayimListeServis);
             GCStokSayim.DataSource = _stokSayimServis.obje;
 
-            stokSayimPanel.sayimId = _stokSayimServis.obje.Where(x => x.aciklama == TBStokSayimAciklama.Text).FirstOrDefault().id;
-            TBStokSayimAciklama.Text = "";
+            stokSayimPanel.sayimId = _stokSayimServis.obje.Where(x => x.aciklama == TBAcikla.Text).FirstOrDefault().id;
+            TBAcikla.Text = "";
             DTStokSayimTarih.EditValue = DateTime.Now;
             stokSayimPanel.ShowDialog();
         }
