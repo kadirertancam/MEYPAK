@@ -322,7 +322,7 @@ namespace MEYPAK.PRL.PERSONEL
                 TBEmekliSan.Text = _tempPocoPERSONEL.emeklisandigi;
                 TB506G.Text = _tempPocoPERSONEL.g506MADSAN;
                 CBOgrenimDurum.EditValue = _tempPocoPERSONEL.ogrenimdurumu;
-                DTPMezuniyetYil.EditValue = (DateTime)_tempPocoPERSONEL.mezuniyetyili;
+                DTPMezuniyetYil.EditValue = Convert.ToDateTime(_tempPocoPERSONEL.mezuniyetyili);
                 TBMezunBolum.Text = _tempPocoPERSONEL.mezunbolum;
                 CBAskerlikDurum.EditValue = _tempPocoPERSONEL.askerlikdurum;
                 DTPAskerBasTar.EditValue = (DateTime)_tempPocoPERSONEL.askerlikbaslangictar;
