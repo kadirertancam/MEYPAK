@@ -28,7 +28,7 @@ namespace MEYPAK.Entity.PocoModels.PERSONEL
         public string emeklisandigi { get; set; } = "";
         public string g506MADSAN { get; set; } = "";
         public string ogrenimdurumu { get; set; } = "";
-        public string mezuniyetyili { get; set; } = "";
+        public DateTime mezuniyetyili { get; set; } = Convert.ToDateTime("01/01/1990");
         public string mezunbolum { get; set; } = "";
         public string askerlikdurum { get; set; } = "";
         public DateTime askerlikbaslangictar { get; set; } = Convert.ToDateTime("01/01/1990");

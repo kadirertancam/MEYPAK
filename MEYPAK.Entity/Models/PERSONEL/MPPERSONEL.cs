@@ -37,7 +37,7 @@ namespace MEYPAK.Entity.Models.PERSONEL
         //506.G.20.mad.san
         public string G506MADSAN { get; set; }
         public string OGRENIMDURUMU { get; set; }
-        public string MEZUNIYETYILI { get; set; }
+        public DateTime MEZUNIYETYILI { get; set; }
         public string MEZUNBOLUM { get; set; }
         public string ASKERLIKDURUM { get; set; }
         public DateTime ASKERLIKBASLANGICTAR { get; set; }
