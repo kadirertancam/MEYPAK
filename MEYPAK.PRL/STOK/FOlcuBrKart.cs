@@ -49,9 +49,9 @@ namespace MEYPAK.PRL.STOK
 
         private void gridView1_DoubleClick(object sender, EventArgs e)
         {
-            TBAdi.Text = gridView1.GetFocusedRowCellValue("adi").ToString();
-            TBOlcuBirim.Text = gridView1.GetFocusedRowCellValue("birim").ToString();
-            id = int.Parse(gridView1.GetFocusedRowCellValue("id").ToString());
+            id = int.Parse(gridView1.GetFocusedRowCellValue("ID").ToString());
+            TBAdi.Text = gridView1.GetFocusedRowCellValue("BirimAdı").ToString();
+            TBOlcuBirim.Text = gridView1.GetFocusedRowCellValue("Birim").ToString();
             islemtipi = "Güncelleme";
         }
 

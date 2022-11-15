@@ -105,12 +105,6 @@ namespace MEYPAK.PRL
                 }
                 
             gridControl2.DataSource= resimList.Select(x=> new { Resim = Base64ToImage(x.IMG) });
-
-
-
-
-
-
             gridControl1.DataSource = _StokOlcuBrServis.obje.Where(x=>x.stokid== stokid).Select(x=>_PocoOlcuBrServis.obje.Where(z=>z.id==x.olcubrid).FirstOrDefault().adi);
             gridControl1.Refresh();
             //var a = _PocoStokServis.obje.Select(x=>x.mpst.Select(z=>z));
@@ -186,13 +180,7 @@ namespace MEYPAK.PRL
         }
        
 
-        private void BTOlcuBirimiEkle_Click(object sender, EventArgs e)
-        {
-
-         
-        }
-
-       
+        
         #endregion
 
         #region KeyPress
@@ -326,7 +314,7 @@ namespace MEYPAK.PRL
 
         private void buttonEdit5_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            FKasaList fKasaList = new FKasaList(this.Tag.ToString(),"Stok");
+            FStokKasaList fKasaList = new FStokKasaList(this.Tag.ToString(),"Stok");
             fKasaList.ShowDialog();
             if (_tempKasa != null)
                 BTKasa.Text = _tempKasa.kasaadi;

@@ -1,4 +1,5 @@
-﻿using MEYPAK.BLL.Assets;
+﻿using DevExpress.XtraLayout.Resizing;
+using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.PARAMETRE;
 using MEYPAK.Interfaces.Cari;
@@ -24,13 +25,21 @@ namespace MEYPAK.PRL.CARI
             _tempCARIKART = new PocoCARIKART();
             _parabirIMServis = new GenericWebServis<PocoPARABIRIM>();
             _parabirIMServis.Data(ServisList.ParaBirimiListeServis);
+            _cariAltHesapServis = new GenericWebServis<PocoCARIALTHES>();
+            _cariAltHesapServis.Data(ServisList.CariAltHesListeServis);
             CBParaBrm.Properties.DataSource = _parabirIMServis.obje.Select(x => x.adi).ToList(); //comboxun içini parabirim formundan doldurur
             RGCariHareket.SelectedIndex = 0;
+          
+            CBAltHesap.Properties.DataSource = _cariAltHesapServis.obje.Select(x => x.adi).ToList(); //combobox ın içini althesap formundan doldurur
+
+
         }
         GenericWebServis<PocoCARIHAR> _cariHarServis;
         FCariList _fCariList;
         public PocoCARIKART _tempCARIKART;
+        public PocoCARIALTHES _tempAltHesap;
         GenericWebServis<PocoPARABIRIM> _parabirIMServis;
+        GenericWebServis<PocoCARIALTHES> _cariAltHesapServis;
 
         public void Doldur()
         {
@@ -41,6 +50,8 @@ namespace MEYPAK.PRL.CARI
             LBAlacakDeger.Text = _cariHarServis.obje.Where(x => x.cariid == _tempCARIKART.id).Sum(x => x.alacak).ToString();
             LBBorcDeger.Text = _cariHarServis.obje.Where(x => x.cariid == _tempCARIKART.id).Sum(x => x.borc).ToString();
             LBBakiye.Text = _cariHarServis.obje.Where(x => x.cariid == _tempCARIKART.id).Sum(x => x.borc - x.alacak).ToString();
+            CBAltHesap.Text = _tempAltHesap.adi;
+            CBParaBrm.Text = _cariAltHesapServis.ToString();
             DGCariHareket.Refresh();
             DGCariHareket.RefreshDataSource();
 
@@ -66,10 +77,13 @@ namespace MEYPAK.PRL.CARI
                 borc = RGCariHareket.SelectedIndex == 1 ? Convert.ToDecimal(TBFiyat.Text) : 0,
                 belgE_NO = TBBelgeNo.Text,
                 harekettipi = 5,
+          //TO DO:      // = Convert.ToDecimal(CBSube.Text),   //CBSUbe eklenecek
                 kur = Convert.ToDecimal(TBKur.Text),
                 tutar = Convert.ToDecimal(TBFiyat.Text),
                 parabirimid = _parabirIMServis.obje.Where(x => x.adi.ToString() == CBParaBrm.EditValue.ToString()).FirstOrDefault().id,
-                harekettarihi = DateTime.Now
+                id = _tempAltHesap.id,
+                harekettarihi = DateTime.Now,
+
                 
 
             });
@@ -81,7 +95,10 @@ namespace MEYPAK.PRL.CARI
             TBAciklama.Text = "";
             TBFiyat.Text = "";
             TBKur.Text = "0";
-            TBBelgeNo.Text = ""; 
+            TBBelgeNo.Text = "";
+            CBParaBrm.Text = "";
+            CBAltHesap.Text = "";
+          
         }
 
         private void FCariHareket_Load(object sender, EventArgs e)

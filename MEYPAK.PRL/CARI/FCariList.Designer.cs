@@ -53,6 +53,7 @@
             this.gridView1.GridControl = this.DGCariList;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
+            this.gridView1.DoubleClick += new System.EventHandler(this.gridView1_DoubleClick_1);
             // 
             // panel1
             // 
@@ -71,6 +72,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "FCariList";
             this.Text = "FCariList";
+            this.Load += new System.EventHandler(this.FCariList_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.DGCariList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.panel1.ResumeLayout(false);

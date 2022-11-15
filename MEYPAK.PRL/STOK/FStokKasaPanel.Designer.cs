@@ -1,6 +1,6 @@
 ﻿namespace MEYPAK.PRL.STOK
 {
-    partial class FKasaPanel
+    partial class FStokKasaPanel
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FKasaPanel));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FStokKasaPanel));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.BTSil = new DevExpress.XtraEditors.SimpleButton();

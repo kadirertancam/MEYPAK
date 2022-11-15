@@ -65,6 +65,7 @@ namespace MEYPAK.PRL
         FCariKart fCariKart;
         FCariAltHesap fCariAltHesap;
         FPersonelKart fPersonelKart;
+        FStokKasaPanel fKasaPanel;
         #endregion
         void StokPanelAc()
         {
@@ -358,6 +359,26 @@ namespace MEYPAK.PRL
             fPersonelKart.Tag = "TPPersonelKartPanel" + i;
             page.Controls.Add(fPersonelKart);
             fPersonelKart.Show();
+            i++;
+        }
+
+        private void accordionControlElement42_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fKasaPanel = new FStokKasaPanel();
+            page.Name = "TPKasaPanel" + i;
+            page.Text = "Kasa Kart Panel";
+            page.Tag = "TPKasaPanel" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fKasaPanel.TopLevel = false;
+            fKasaPanel.AutoScroll = true;
+            fKasaPanel.Dock = DockStyle.Fill;
+            fKasaPanel.Tag = "TPKasaPanel" + i;
+            page.Controls.Add(fKasaPanel);
+            fKasaPanel.Show();
             i++;
         }
     }

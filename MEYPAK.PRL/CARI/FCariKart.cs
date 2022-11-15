@@ -40,24 +40,24 @@ namespace MEYPAK.PRL.CARI
             _cariAltHesapServis.Data(ServisList.CariAltHesListeServis);
             _cariResimServis = new GenericWebServis<PocoCARIRESIM>();
             resimList = new List<PocoCARIRESIM>();
-            //_cariParABIRIM = new GenericWebServis<PocoPARABIRIM>();
-            //_cariParABIRIM.Data(ServisList.ParaBirimiListeServis);
+            _cariParABIRIM = new GenericWebServis<PocoPARABIRIM>();
+            _cariParABIRIM.Data(ServisList.ParaBirimiListeServis);
+           
 
         }
         GenericWebServis<ADRESLIST> _adresListServis;
         GenericWebServis<PocoCARIKART> _cariServis;
         GenericWebServis<PocoCARIALTHES> _cariAltHesapServis;
-        //GenericWebServis<PocoPARABIRIM> _cariParABIRIM; 
+        GenericWebServis<PocoPARABIRIM> _cariParABIRIM; 
         GenericWebServis<PocoCARIRESIM> _cariResimServis;
-        FCariList _fCariList;
-        
 
+        public PocoCARIALTHES _tempCARIALTHES;
         public PocoCARIKART _tempCariKart;
-        public PocoCARIALTHES _tempCariAltHes;
-        //public PocoPARABIRIM _tempCariParABIRIM;
-
+        public PocoPARABIRIM _tempCariParABIRIM;
+        
         void doldur()
         {
+          
             resimList.Clear(); 
             _cariResimServis.Data(ServisList.CariResimListeServis);
             TBAciklama.Text = _tempCariKart.aciklama;
@@ -143,10 +143,6 @@ namespace MEYPAK.PRL.CARI
            
         }
 
-        private void CBIl_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
 
       
         private void button7_Click(object sender, EventArgs e)
@@ -155,15 +151,13 @@ namespace MEYPAK.PRL.CARI
             _cariServis.Data(ServisList.CariSilServis, null, null);
         }
 
-       
-
         private void simpleButton1_Click(object sender, EventArgs e)
         {
            
          //   _fCariList = new FCariList(this.Tag.ToString(), "carikart");
-            _fCariList.ShowDialog();
-            if (_tempCariKart != null)
-                doldur();
+            //_fCariList.ShowDialog();
+            //if (_tempCariKart != null)
+            //    doldur();
         }
 
         
@@ -237,19 +231,19 @@ namespace MEYPAK.PRL.CARI
 
         }
 
-        public void BTKoduSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        public void BTAltHesSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
 
             if (e.Button.Caption == "Yeni")
             {
 
-                XtraTabPage page = new XtraTabPage(); 
+                XtraTabPage page = new XtraTabPage();
                 FCariAltHesap fCariAltHesap = new FCariAltHesap();
                 Main main = (Main)Application.OpenForms["Main"]; //main e erişmek
                 page.Name = "TPAltHesap";
                 page.Text = "Alt Hesap";
-                page.Tag = "TPAltHesapPanel"; 
-               
+                page.Tag = "TPAltHesapPanel";
+
                 page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
                 main.xtraTabControl1.TabPages.Add(page);
                 main.xtraTabControl1.SelectedTabPage = page;
@@ -267,9 +261,15 @@ namespace MEYPAK.PRL.CARI
             }
             else if (e.Button.Caption == "Seç")
             {
-               
+                FAltHesapList fAltHesapList = new FAltHesapList(this.Tag.ToString(), "carikart");
+                fAltHesapList.ShowDialog();
+                //if (_tempStok != null)
+                //    if (_tempStok.id > 0)
+                //        tbDoldur();
             }
-          }
+          } //Cari Alt Hesap
+        
+
 
         private void simpleButton13_Click(object sender, EventArgs e)
         {
@@ -362,15 +362,6 @@ namespace MEYPAK.PRL.CARI
             CBIlce.Properties.DataSource = _adresObje.data.Where(x => x.il_adi == CBIl.Text).Select(x => x.ilceler.Select(z => z.ilce_adi)).FirstOrDefault();
         }
 
-        private void BTCariSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
-        {
-            if (e.Button.Caption == "Seç")
-            {
-                _fCariList = new FCariList(this.Tag.ToString(), "carikart");
-                _fCariList.ShowDialog();
-                if (_tempCariKart != null)
-                    doldur();
-            }
-        }
+       
     }
 }

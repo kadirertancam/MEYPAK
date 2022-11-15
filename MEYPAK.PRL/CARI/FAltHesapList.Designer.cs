@@ -63,12 +63,12 @@
             this.DGAltHesap.TabIndex = 3;
             this.DGAltHesap.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            this.DGAltHesap.DoubleClick += new System.EventHandler(this.DGAltHesap_DoubleClick);
             // 
             // gridView1
             // 
             this.gridView1.GridControl = this.DGAltHesap;
             this.gridView1.Name = "gridView1";
-            this.gridView1.DoubleClick += new System.EventHandler(this.gridView1_CellDoubleClick);
             // 
             // TSStokList
             // 
@@ -114,7 +114,7 @@
             this.Controls.Add(this.panelControl1);
             this.Name = "FAltHesapList";
             this.Text = "FAltHesapList";
-            this.Load += new System.EventHandler(this.AltHesapList_Load);
+            this.Load += new System.EventHandler(this.FAltHesapList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();

@@ -806,7 +806,6 @@
             this.BTOlcuBirimiEkle.Size = new System.Drawing.Size(74, 26);
             this.BTOlcuBirimiEkle.TabIndex = 7;
             this.BTOlcuBirimiEkle.Text = "&Ekle";
-            this.BTOlcuBirimiEkle.Click += new System.EventHandler(this.BTOlcuBirimiEkle_Click_1);
             // 
             // LBKatsayi
             // 

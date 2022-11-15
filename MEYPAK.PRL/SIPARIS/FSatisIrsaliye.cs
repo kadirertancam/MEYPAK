@@ -30,12 +30,12 @@ namespace MEYPAK.PRL.SIPARIS
             DGVKasaSec = new DataGridViewButtonColumn();
             DGVKasaList = new DataGridViewComboBoxColumn();
             _fStokList = new FStokList(this.Tag.ToString(),"siparis");
-            fKasaList = new FKasaList(this.Tag.ToString(),"Siparis");
+            fKasaList = new FStokKasaList(this.Tag.ToString(),"Siparis");
             _olcuBrServis = new GenericWebServis<PocoOLCUBR>();
             GCIrsaliye.MultiSelect = false;
             CBDepo.Properties.DataSource = StaticContext._depoServis.Listele().Select(x => x.depoadi).ToList();
         }
-        FKasaList fKasaList;
+        FStokKasaList fKasaList;
         List<PocoIRSALIYEDETAY> _tempIrsaliyeDetay = new List<PocoIRSALIYEDETAY>();
         DataGridViewComboBoxColumn DGVOlcuBr = new DataGridViewComboBoxColumn();
         PocoIRSALIYEDETAY _tempPocokalem;

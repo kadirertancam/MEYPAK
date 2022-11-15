@@ -87,7 +87,7 @@
             // 
             // CBAktif1
             // 
-            this.CBAktif1.Location = new System.Drawing.Point(230, 80);
+            this.CBAktif1.Location = new System.Drawing.Point(266, 90);
             this.CBAktif1.Name = "CBAktif1";
             this.CBAktif1.Properties.Caption = "Aktif";
             this.CBAktif1.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
@@ -101,7 +101,7 @@
             this.BTSil.Appearance.Options.UseFont = true;
             this.BTSil.AppearanceDisabled.Options.UseImage = true;
             this.BTSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTSil.ImageOptions.Image")));
-            this.BTSil.Location = new System.Drawing.Point(435, 36);
+            this.BTSil.Location = new System.Drawing.Point(437, 41);
             this.BTSil.Name = "BTSil";
             this.BTSil.Size = new System.Drawing.Size(82, 39);
             this.BTSil.TabIndex = 2;
@@ -110,15 +110,15 @@
             // 
             // TBKodu
             // 
-            this.TBKodu.Location = new System.Drawing.Point(144, 33);
+            this.TBKodu.Location = new System.Drawing.Point(144, 38);
             this.TBKodu.Name = "TBKodu";
-            this.TBKodu.Size = new System.Drawing.Size(161, 20);
+            this.TBKodu.Size = new System.Drawing.Size(180, 20);
             this.TBKodu.TabIndex = 5;
             // 
             // LBKodu
             // 
             this.LBKodu.Appearance.Options.UseFont = true;
-            this.LBKodu.Location = new System.Drawing.Point(52, 36);
+            this.LBKodu.Location = new System.Drawing.Point(52, 41);
             this.LBKodu.Name = "LBKodu";
             this.LBKodu.Size = new System.Drawing.Size(73, 13);
             this.LBKodu.TabIndex = 4;
@@ -130,7 +130,7 @@
             this.BTKaydet.Appearance.Options.UseBackColor = true;
             this.BTKaydet.Appearance.Options.UseFont = true;
             this.BTKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTKaydet.ImageOptions.Image")));
-            this.BTKaydet.Location = new System.Drawing.Point(347, 36);
+            this.BTKaydet.Location = new System.Drawing.Point(349, 41);
             this.BTKaydet.Name = "BTKaydet";
             this.BTKaydet.Size = new System.Drawing.Size(82, 39);
             this.BTKaydet.TabIndex = 1;
@@ -139,17 +139,17 @@
             // 
             // CBDoviz
             // 
-            this.CBDoviz.Location = new System.Drawing.Point(144, 81);
+            this.CBDoviz.Location = new System.Drawing.Point(144, 90);
             this.CBDoviz.Name = "CBDoviz";
             this.CBDoviz.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.CBDoviz.Properties.NullText = "";
-            this.CBDoviz.Size = new System.Drawing.Size(67, 20);
+            this.CBDoviz.Size = new System.Drawing.Size(102, 20);
             this.CBDoviz.TabIndex = 3;
             // 
             // LBAdi
             // 
-            this.LBAdi.Location = new System.Drawing.Point(61, 62);
+            this.LBAdi.Location = new System.Drawing.Point(61, 67);
             this.LBAdi.Name = "LBAdi";
             this.LBAdi.Size = new System.Drawing.Size(64, 13);
             this.LBAdi.TabIndex = 0;
@@ -157,7 +157,7 @@
             // 
             // LBDoviz
             // 
-            this.LBDoviz.Location = new System.Drawing.Point(99, 84);
+            this.LBDoviz.Location = new System.Drawing.Point(99, 93);
             this.LBDoviz.Name = "LBDoviz";
             this.LBDoviz.Size = new System.Drawing.Size(26, 13);
             this.LBDoviz.TabIndex = 1;
@@ -165,9 +165,9 @@
             // 
             // TBAdi
             // 
-            this.TBAdi.Location = new System.Drawing.Point(144, 57);
+            this.TBAdi.Location = new System.Drawing.Point(144, 64);
             this.TBAdi.Name = "TBAdi";
-            this.TBAdi.Size = new System.Drawing.Size(161, 20);
+            this.TBAdi.Size = new System.Drawing.Size(180, 20);
             this.TBAdi.TabIndex = 2;
             // 
             // DGAltHesap
@@ -181,6 +181,7 @@
             this.DGAltHesap.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             this.DGAltHesap.Load += new System.EventHandler(this.FCariAltHesap_Load);
+            this.DGAltHesap.DoubleClick += new System.EventHandler(this.DGAltHesap_DoubleClick);
             // 
             // gridView1
             // 
@@ -188,7 +189,6 @@
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsPrint.PrintFilterInfo = true;
-            this.gridView1.DoubleClick += new System.EventHandler(this.gridView1_DoubleClick);
             // 
             // panelControl2
             // 

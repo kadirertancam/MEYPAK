@@ -17,65 +17,65 @@ using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.PARAMETRE;
 using MEYPAK.Interfaces.Parametre;
 using MEYPAK.Interfaces.Stok;
+using MEYPAK.Entity.Models.SIPARIS;
+using MEYPAK.Entity.Models.STOK;
 
 namespace MEYPAK.PRL.CARI
 {
     public partial class FAltHesapList : Form
     {
-        FCariAltHesap fCariAltHesap;
+        FCariKart fCariKart;
         int id;
-        string _form, _islem;
+        string _islem;
+        string _form;
 
         public FAltHesapList(string form="", string islem = "")
         {
             InitializeComponent();
             this._islem = islem;
             this._form = form;
-            _cariAltHesServis = new GenericWebServis<PocoCARIALTHES>();
-            _cariAltHesServis.Data(ServisList.CariAltHesListeServis);
+
+            _cariAltHesapServis = new GenericWebServis<PocoCARIALTHES>();
             _parabirIMServis = new GenericWebServis<PocoPARABIRIM>();
-            _parabirIMServis.Data(ServisList.ParaBirimiListeServis);
         }
-        GenericWebServis<PocoCARIALTHES> _cariAltHesServis;
+        GenericWebServis<PocoCARIALTHES> _cariAltHesapServis;
         GenericWebServis<PocoPARABIRIM> _parabirIMServis;
         Form tempForm;
-
-        private void gridView1_CellDoubleClick(object sender, EventArgs e)
+        private void FAltHesapList_Load(object sender, EventArgs e)
         {
-            _cariAltHesServis.Data(ServisList.CariAltHesListeServis);
-            if (_islem == "carialthesap")
-            {
-                if (fCariAltHesap != null)
-                    fCariAltHesap._tempAltHesap = _cariAltHesServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()).FirstOrDefault();
-            }
-            this.Close();
-        }
 
-        private void AltHesapList_Load(object sender, EventArgs e)
-        {
             foreach (Form frm in Application.OpenForms)
             {
                 if (_form == frm.Tag)
                 {
-                    if (frm.Name.Contains("FCariAltHesap"))
-                        fCariAltHesap = (FCariAltHesap)frm;
+                    if (frm.Name.Contains("FCariKart"))
+                        fCariKart = (FCariKart)frm;
+                    
                 }
             }
-            _cariAltHesServis.Data(ServisList.CariAltHesListeServis);
-            _parabirIMServis.Data(ServisList.ParaBirimiListeServis);
-            DGAltHesap.DataSource = _cariAltHesServis.obje.Where(x => x.kayittipi == 0).Select(x => new
-            {
-                x.id,
-                x.adi,
-                x.kod,
-                Doviz = _parabirIMServis.obje.Where(z => z.id == x.dovizid).FirstOrDefault().adi.ToString(),//Labellama
-                x.olusturmatarihi
+            _cariAltHesapServis.Data(ServisList.CariListeServis);
+            DGAltHesap.DataSource = _cariAltHesapServis.obje.Where(x => x.kayittipi == 0).Select(x => new {
+                ID = x.id,
+                AltHesapKodu = x.kod,
+                Adı = x.adi,
+                DövizTürü = _parabirIMServis.obje.Where(z => z.id == x.dovizid).FirstOrDefault().adi.ToString(),//Labellama
+                OluşturmaTarihi = x.olusturmatarihi
             });
+            DGAltHesap.Refresh();
+            DGAltHesap.RefreshDataSource();
 
-       
         }
 
-        
+        private void DGAltHesap_DoubleClick(object sender, EventArgs e)
+        {
+            _cariAltHesapServis.Data(ServisList.CariAltHesListeServis);
+            if (_islem == "carikart")
+            {
+                if (fCariKart != null)
+                    fCariKart._tempCARIALTHES = _cariAltHesapServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+            }
+            this.Close();
+        }
     }
 }
 
