@@ -31,7 +31,7 @@ namespace MEYPAK.PRL.STOK
 {
     public partial class FStokSayimPanel : Form
     {
-        public FStokSayimPanel(string islemtipi = "")
+        public FStokSayimPanel(string form = "", string islemtipi = "")
         {
             InitializeComponent();
             this._islemtipi = islemtipi;
@@ -61,10 +61,10 @@ namespace MEYPAK.PRL.STOK
             olcuBrServis.Data(ServisList.OlcuBrListeServis);
             stokOlcuBrServis.Data(ServisList.StokOlcuBrListeServis);
             stokServis.Data(ServisList.StokListeServis);
-            TBStokBilgiStokKodu.Text = _tempStok.kod;
-            TBStokBilgiStokAdi.Text = _tempStok.adi;
-            CBStokSayimDepo.Properties.DataSource = stokOlcuBrServis.obje.Where(x => x.stokid == _tempStok.id).Select(x => olcuBrServis.obje.Where(z => z.id == x.olcubrid).FirstOrDefault().adi).ToList();
-            TBStokBilgiBakiye.Text = (from ep in stokServis.obje join e in stokHarServis.obje on ep.id equals e.stokid where ep.kod == _tempStok.kod select Convert.ToDecimal(e.io.ToString() == "1" ? e.miktar : 0) - Convert.ToDecimal(e.io.ToString() == "0" ? e.miktar : 0)).FirstOrDefault().ToString();
+            BTStokKoduSec.Text = _tempStok.kod;
+            TBAdi.Text = _tempStok.adi;
+            CBDepo.Properties.DataSource = stokOlcuBrServis.obje.Where(x => x.stokid == _tempStok.id).Select(x => olcuBrServis.obje.Where(z => z.id == x.olcubrid).FirstOrDefault().adi).ToList();
+            TBBakiye.Text = (from ep in stokServis.obje join e in stokHarServis.obje on ep.id equals e.stokid where ep.kod == _tempStok.kod select Convert.ToDecimal(e.io.ToString() == "1" ? e.miktar : 0) - Convert.ToDecimal(e.io.ToString() == "0" ? e.miktar : 0)).FirstOrDefault().ToString();
 
             _tempStok = null;
         }
@@ -81,7 +81,7 @@ namespace MEYPAK.PRL.STOK
             if (_islemtipi == "düzenle")
             {
                 DGStokSayim.DataSource = _tempStokSayimHarList;
-                CBStokSayimDepo.Properties.DataSource = depoServis.obje.Select(x => x.depoadi).ToList();
+                CBDepo.Properties.DataSource = depoServis.obje.Select(x => x.depoadi).ToList();
 
             }
             else if (_islemtipi == "kaydet")
@@ -165,17 +165,14 @@ namespace MEYPAK.PRL.STOK
             stokServis.Data(ServisList.StokListeServis);
             _tempStokSayimHarList.Add(new PocoStokSayimPanelList()
             {
-                StokKodu = TBStokBilgiStokKodu.Text,
-                StokAdı = TBStokBilgiStokAdi.Text,
-                ID = stokServis.obje.Where(x => x.kod == TBStokBilgiStokKodu.Text).FirstOrDefault().id,
+                StokKodu = BTStokKoduSec.Text,
+                StokAdı = TBAdi.Text,
+                ID = stokServis.obje.Where(x => x.kod == BTStokKoduSec.Text).FirstOrDefault().id,
                 
             });
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-          
-        }
+       
 
         private void BTNSil_Click(object sender, EventArgs e)
         {
