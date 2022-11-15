@@ -143,34 +143,26 @@ namespace MEYPAK.PRL.SIPARIS
                 "Demirbaş",
                 "Muhasebe"
             };
+            GridColumn gridColumn4 = gridView1.Columns.AddVisible("Tip", "Tip");
+            RepositoryItemLookUpEdit repositoryItemLookUpEdit = new RepositoryItemLookUpEdit();
+          
+
+            repositoryItemLookUpEdit.DataSource = testt;
+            repositoryItemLookUpEdit.BestFitWidth = 70;
+  
+            repositoryItemLookUpEdit.DropDownRows = testt.Count;
+
+            repositoryItemLookUpEdit.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete;
+             repositoryItemLookUpEdit.AutoSearchColumnIndex = 0;
+            repositoryItemLookUpEdit.NullText = "Stok";
+            repositoryItemLookUpEdit.NullValuePrompt = "Seç";
+
+            GCMusteriSiparis.RepositoryItems.Add(repositoryItemLookUpEdit);
+            gridColumn4.ColumnEdit = repositoryItemLookUpEdit;
+            gridView1.BestFitColumns();
 
 
-            RepositoryItemComboBox reCBfirst = GCMusteriSiparis.RepositoryItems.Add("ComboBoxEdit") as RepositoryItemComboBox;
-           
-            reCBfirst.EditValueChanged += new EventHandler(reCBfirst_EditValueChanged);
-
-            foreach (var item in testt)
-            {
-                reCBfirst.Items.Add(item);
-            }
             
-
-            gridView1.Columns["FirstName"].ColumnEdit = reCBfirst; 
-
-            GridColumn unbColumn = gridView1.Columns.AddField("UnboundField");
-            unbColumn.VisibleIndex = gridView1.VisibleColumns.Count;
-            unbColumn.UnboundType = DevExpress.Data.UnboundColumnType.String;
-
-            gridView1.CustomUnboundColumnData += new DevExpress.XtraGrid.Views.Base.CustomColumnDataEventHandler(gridView1_CustomUnboundColumnData);
-            GCMusteriSiparis.ForceInitialize();
-
-
-
-           
-
-             
-
-
 
             repositoryItemButtonEdit.ButtonClick += RepositoryItemButtonEdit_ButtonClick;
             repositoryItemButtonEdit3.ButtonClick += RepositoryItemButtonEdit3_ButtonClick;
@@ -188,8 +180,8 @@ namespace MEYPAK.PRL.SIPARIS
             gridView1.Columns["KasaSec"].VisibleIndex = 6;
             gridView1.Columns["BirimSec"].VisibleIndex = 9;
             gridView1.Columns["StokId"].Visible = false; 
-            gridView1.Columns["KasaId"].Visible = false;
-            gridView1.Columns["Tip"].VisibleIndex = 0;
+            gridView1.Columns["KasaId"].Visible = false; 
+            gridView1.Columns["Tip"].VisibleIndex = 0; 
             GCMusteriSiparis.ForceInitialize();
             //     gridView1.Columns["Birim"].Visible = false;
 

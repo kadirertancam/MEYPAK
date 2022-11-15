@@ -35,6 +35,7 @@ namespace MEYPAK.Entity.PocoModels.SIPARIS
         public int kullaniciid { get; set; } = 0;
         [DefaultValue(0)]
         public int kasaid { get; set; } = 0;
+        public int T_FLAG { get; set; } = 0;
         public byte tip { get; set; } = 0;
         [StringLength(50)]
         public string stokadi { get; set; } = "";
