@@ -39,9 +39,9 @@ namespace MEYPAK.PRL.STOK
            
             _kasaServis.Data(ServisList.StokKasaEkleServis, new PocoSTOKKASA
             {
-                kasaadi = TBKod.Text,
+                kasakodu = TBKod.Text,
+                kasaadi = TBAdi.Text,
                 aciklama = TBAciklama.Text,
-                kasakodu = TBAdi.Text,
                 aktif =1,
                 olusturmatarihi = DateTime.Now,
             });
@@ -54,7 +54,7 @@ namespace MEYPAK.PRL.STOK
             DataGridDoldur();
             CombolariDoldur();
         }
-
+        int id;
         void DataGridDoldur()
         {
             _kasaServis.Data(ServisList.StokKasaListeServis);
@@ -64,7 +64,7 @@ namespace MEYPAK.PRL.STOK
                 Kodu = x.kasakodu,
                 Adı = x.kasaadi,
                 Açıklama = x.aciklama,
-                Aktif =x.aktif,
+                //Aktif =x.aktif,
                 OluşturmaTarihi = x.olusturmatarihi
 
             });
@@ -82,9 +82,9 @@ namespace MEYPAK.PRL.STOK
         {
             if (_tempStokKasaPanel != null)
             {
-                 
-                TBKod.Text = gridView1.GetFocusedRowCellValue("KasaKodu").ToString();
-                TBAdi.Text = gridView1.GetFocusedRowCellValue("KasaAdı").ToString();
+                id = int.Parse(gridView1.GetFocusedRowCellValue("ID").ToString());
+                TBKod.Text = gridView1.GetFocusedRowCellValue("Kodu").ToString();
+                TBAdi.Text = gridView1.GetFocusedRowCellValue("Adı").ToString();
                 TBAciklama.Text = gridView1.GetFocusedRowCellValue("Açıklama").ToString();
                 CHBAktif.EditValue = _tempStokKasaPanel.aktif;
             }
