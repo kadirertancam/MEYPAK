@@ -39,11 +39,11 @@
             this.BTSil = new DevExpress.XtraEditors.SimpleButton();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.CHBAktif = new DevExpress.XtraEditors.CheckEdit();
             this.DGKasaPanel = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
-            this.CHBAktif = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.TBKod.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBAdi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBAciklama.Properties)).BeginInit();
@@ -51,13 +51,13 @@
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CHBAktif.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGKasaPanel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CHBAktif.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // LBAdi
@@ -158,6 +158,14 @@
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Kasa Ekle";
             // 
+            // CHBAktif
+            // 
+            this.CHBAktif.Location = new System.Drawing.Point(126, 81);
+            this.CHBAktif.Name = "CHBAktif";
+            this.CHBAktif.Properties.Caption = "Aktif";
+            this.CHBAktif.Size = new System.Drawing.Size(87, 20);
+            this.CHBAktif.TabIndex = 85;
+            // 
             // DGKasaPanel
             // 
             this.DGKasaPanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -173,6 +181,7 @@
             // 
             this.gridView1.GridControl = this.DGKasaPanel;
             this.gridView1.Name = "gridView1";
+            this.gridView1.DoubleClick += new System.EventHandler(this.gridView1_DoubleClick);
             // 
             // panelControl1
             // 
@@ -193,14 +202,6 @@
             this.panelControl3.Size = new System.Drawing.Size(1076, 369);
             this.panelControl3.TabIndex = 14;
             // 
-            // CHBAktif
-            // 
-            this.CHBAktif.Location = new System.Drawing.Point(126, 81);
-            this.CHBAktif.Name = "CHBAktif";
-            this.CHBAktif.Properties.Caption = "Aktif";
-            this.CHBAktif.Size = new System.Drawing.Size(87, 20);
-            this.CHBAktif.TabIndex = 85;
-            // 
             // FStokKasaPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -219,13 +220,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CHBAktif.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGKasaPanel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.CHBAktif.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

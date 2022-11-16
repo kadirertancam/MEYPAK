@@ -223,7 +223,7 @@ namespace MEYPAK.PRL.SIPARIS
                 StokKodu = _tempStok.kod,
                 StokAdı = _tempStok.adi,
                 Birim = "0",// _olcuBr.obje.Where(x => x.ADI == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "DGVOlcuBr").ToString()).FirstOrDefault().ADI,
-                KasaAdı = "",
+                //KasaAdı = "",
                 Kdv = _tempStok.satiskdv,
                 Doviz = "TL", //_tempStok.SDOVIZID 
             };
@@ -276,7 +276,7 @@ namespace MEYPAK.PRL.SIPARIS
                     stokadi = item.StokAdı,
                     aciklama = item.Acıklama,
                     kdv = item.Kdv,
-                    kasaid = item.KasaId,
+                    //kasaid = item.KasaId,
                     nettoplam = item.NetToplam,
                     netfiyat = item.NetFiyat,
                     birimid = _olcuBr.obje.Where(x => x.adi.ToString() == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Birim").ToString()).FirstOrDefault().id,
@@ -299,7 +299,7 @@ namespace MEYPAK.PRL.SIPARIS
 
                 _siparisKasaHarServis.Data(ServisList.SiparisKasaHarEkleServis, new PocoSIPARISKASAHAR()
                 {
-                    KASAID = item.KasaId,
+                    //KASAID = item.KasaId,
                     SIPARISID = _siparisServis.obje2.id,
                     SIPARISDETAYID = _siparisDetayServis.obje2.id
                 });
@@ -485,7 +485,7 @@ namespace MEYPAK.PRL.SIPARIS
                     StokKodu = _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().kod,//,  TODOO:BAKILACAAAK
                     StokAdı = _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().adi,
                     Birim = "0",// _olcuBr.obje.Where(x => x.ADI == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "DGVOlcuBr").ToString()).FirstOrDefault().ADI,
-                    KasaAdı = "",
+                    //KasaAdı = "",
                     Kdv = _tempStok.satiskdv,
                     Doviz = "TL", //_tempStok.SDOVIZID 
                 });

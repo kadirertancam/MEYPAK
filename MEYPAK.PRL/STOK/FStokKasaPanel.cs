@@ -21,8 +21,7 @@ namespace MEYPAK.PRL.STOK
 {
     public partial class FStokKasaPanel : Form
     {
-        string islemtipi = "Kayıt";
-        
+      
         public FStokKasaPanel()
         {
             InitializeComponent();
@@ -31,6 +30,7 @@ namespace MEYPAK.PRL.STOK
 
         #region Tanımlar
         GenericWebServis<PocoSTOKKASA>_kasaServis;
+        PocoSTOKKASA _tempStokKasaPanel;
         #endregion
 
         #region Metotlar
@@ -78,6 +78,19 @@ namespace MEYPAK.PRL.STOK
             _kasaServis.Data(ServisList.KasaListeServis);
         }
 
+        void KasaPanelBilgileriniGetir()
+        {
+            if (_tempStokKasaPanel != null)
+            {
+                 
+                TBKod.Text = gridView1.GetFocusedRowCellValue("KasaKodu").ToString();
+                TBAdi.Text = gridView1.GetFocusedRowCellValue("KasaAdı").ToString();
+                TBAciklama.Text = gridView1.GetFocusedRowCellValue("Açıklama").ToString();
+                CHBAktif.EditValue = _tempStokKasaPanel.aktif;
+            }
+        }
+
+
         private void BTSil_Click(object sender, EventArgs e)
         {
             _kasaServis.Data(ServisList.KasaListeServis);
@@ -87,5 +100,11 @@ namespace MEYPAK.PRL.STOK
         }
 
         #endregion
+
+        private void gridView1_DoubleClick(object sender, EventArgs e)
+        {
+            _tempStokKasaPanel = _kasaServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+            KasaPanelBilgileriniGetir();
+        }
     }
 }
