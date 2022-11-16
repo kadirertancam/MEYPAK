@@ -38,24 +38,26 @@
             this.BTKaydet = new DevExpress.XtraEditors.SimpleButton();
             this.BTSil = new DevExpress.XtraEditors.SimpleButton();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.DGKasaPanel = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.CHBAktif = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.TBKod.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBAdi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBAciklama.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DGKasaPanel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGKasaPanel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CHBAktif.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // LBAdi
@@ -137,24 +139,9 @@
             this.panelControl2.Size = new System.Drawing.Size(1076, 117);
             this.panelControl2.TabIndex = 13;
             // 
-            // DGKasaPanel
-            // 
-            this.DGKasaPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DGKasaPanel.Location = new System.Drawing.Point(2, 2);
-            this.DGKasaPanel.MainView = this.gridView1;
-            this.DGKasaPanel.Name = "DGKasaPanel";
-            this.DGKasaPanel.Size = new System.Drawing.Size(1072, 365);
-            this.DGKasaPanel.TabIndex = 0;
-            this.DGKasaPanel.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
-            // 
-            // gridView1
-            // 
-            this.gridView1.GridControl = this.DGKasaPanel;
-            this.gridView1.Name = "gridView1";
-            // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.CHBAktif);
             this.groupControl1.Controls.Add(this.BTSil);
             this.groupControl1.Controls.Add(this.TBAciklama);
             this.groupControl1.Controls.Add(this.BTKaydet);
@@ -170,6 +157,22 @@
             this.groupControl1.Size = new System.Drawing.Size(1072, 113);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Kasa Ekle";
+            // 
+            // DGKasaPanel
+            // 
+            this.DGKasaPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DGKasaPanel.Location = new System.Drawing.Point(2, 2);
+            this.DGKasaPanel.MainView = this.gridView1;
+            this.DGKasaPanel.Name = "DGKasaPanel";
+            this.DGKasaPanel.Size = new System.Drawing.Size(1072, 365);
+            this.DGKasaPanel.TabIndex = 0;
+            this.DGKasaPanel.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
+            // gridView1
+            // 
+            this.gridView1.GridControl = this.DGKasaPanel;
+            this.gridView1.Name = "gridView1";
             // 
             // panelControl1
             // 
@@ -190,6 +193,14 @@
             this.panelControl3.Size = new System.Drawing.Size(1076, 369);
             this.panelControl3.TabIndex = 14;
             // 
+            // CHBAktif
+            // 
+            this.CHBAktif.Location = new System.Drawing.Point(126, 81);
+            this.CHBAktif.Name = "CHBAktif";
+            this.CHBAktif.Properties.Caption = "Aktif";
+            this.CHBAktif.Size = new System.Drawing.Size(87, 20);
+            this.CHBAktif.TabIndex = 85;
+            // 
             // FStokKasaPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -205,15 +216,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.TBAciklama.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.DGKasaPanel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGKasaPanel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.CHBAktif.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -234,5 +246,6 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.PanelControl panelControl3;
+        private DevExpress.XtraEditors.CheckEdit CHBAktif;
     }
 }
