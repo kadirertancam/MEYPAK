@@ -106,7 +106,7 @@
             this.BTDuzenle.Size = new System.Drawing.Size(82, 39);
             this.BTDuzenle.TabIndex = 63;
             this.BTDuzenle.Text = "&Düzenle";
-            this.BTDuzenle.Click += new System.EventHandler(this.BTDuzenle_Click);
+            //this.BTDuzenle.Click += new System.EventHandler(this.BTDuzenle_Click);
             // 
             // BTKaydet
             // 
