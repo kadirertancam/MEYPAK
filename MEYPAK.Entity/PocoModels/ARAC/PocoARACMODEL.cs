@@ -8,7 +8,7 @@ namespace MEYPAK.Entity.PocoModels.ARAC
 {
     public class PocoARACMODEL:SUPERPOCOMODEL
     {
-        public string MARKAADI { get; set; }
-        public string MODELADI { get; set; }
+        public string markaadi { get; set; }
+        public string modeladi { get; set; }
     }
 }

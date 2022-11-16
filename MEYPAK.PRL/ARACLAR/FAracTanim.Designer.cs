@@ -1060,6 +1060,7 @@
             this.CBMarka.Properties.NullText = "";
             this.CBMarka.Size = new System.Drawing.Size(135, 20);
             this.CBMarka.TabIndex = 22;
+            this.CBMarka.EditValueChanged += new System.EventHandler(this.CBMarka_EditValueChanged);
             // 
             // CBTip
             // 

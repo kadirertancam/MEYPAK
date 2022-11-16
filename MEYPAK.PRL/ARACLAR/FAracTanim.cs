@@ -80,8 +80,10 @@ namespace MEYPAK.PRL.ARAÇLAR
         void CombolarıDoldur()
         {
             _aracModelServis.Data(ServisList.AracModelListeServis);
-            CBMarka.Properties.DataSource = _aracModelServis.obje.GroupBy(x => x.MARKAADI);
-            
+            CBMarka.Properties.DataSource = from temp in _aracModelServis.obje group temp by temp.markaadi into temp select new { ADI = temp.FirstOrDefault().markaadi, ID=temp.FirstOrDefault().id }; 
+            CBMarka.Properties.ValueMember = "ID";
+            CBMarka.Properties.DisplayMember = "ADI";
+
         }
         #endregion
 
@@ -216,8 +218,14 @@ namespace MEYPAK.PRL.ARAÇLAR
 
 
 
+
+
         #endregion
 
-      
+        private void CBMarka_EditValueChanged(object sender, EventArgs e)
+        {
+            CBModel.Properties.DataSource = _aracModelServis.obje.Where(x => x.markaadi  == CBMarka.Text).Select(x=>x.modeladi);   
+
+        }
     }
 }

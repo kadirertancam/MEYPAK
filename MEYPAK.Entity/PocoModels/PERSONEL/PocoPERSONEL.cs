@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -66,6 +68,8 @@ namespace MEYPAK.Entity.PocoModels.PERSONEL
         public string telefon { get; set; } = "";
         public string cepno { get; set; } = "";
         public string eposta { get; set; } = "";
+        [MaxLength, Column(TypeName = "ntext")]
+        public string img { get; set; } = "";
         public byte bedenolcusu { get; set; } = 0;
         public byte pantolonolcusu { get; set; } = 0;
         public byte ayakkabino { get; set; } = 0;
