@@ -14,11 +14,10 @@ namespace MEYPAK.Entity.PocoModels
     public class PocoSiparisKalem
     {
         [Key]
-        public int StokId { get; set; }
+        public int StokId { get; set; } 
         public string StokKodu { get; set; }
-        public string StokAdı { get; set; } = "";
-        public int KasaId { get; set; }
-        public string KasaAdı { get; set; } = ""; 
+        public string StokAdı { get; set; } = ""; 
+        public int Tipi { get; set; } 
         public string Acıklama { get; set; } = "";
         public string Birim { get; set; } = "";
         public decimal Miktar { get; set; } = 0;

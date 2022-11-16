@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraEditors.Controls;
+﻿using DevExpress.DataAccess.Native.Data;
+using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Base;
@@ -12,10 +13,13 @@ using MEYPAK.Entity.PocoModels.PARAMETRE;
 using MEYPAK.Entity.PocoModels.SIPARIS;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Siparis;
+using MEYPAK.PRL.Assets;
 using MEYPAK.PRL.CARI;
 using MEYPAK.PRL.STOK;
 using System.Data;
 using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
+using DataTable = System.Data.DataTable;
+using DataView = DevExpress.DataAccess.Native.Data.DataView;
 
 namespace MEYPAK.PRL.SIPARIS
 {
@@ -126,62 +130,58 @@ namespace MEYPAK.PRL.SIPARIS
             repositoryItemButton2.NullText = "Sec";
             repositoryItemButton2.NullValuePrompt = "Seç";
 
+             
 
-            GridColumn gridColumn3 = gridView1.Columns.AddVisible("KasaSec", "Sec");
-            RepositoryItemButtonEdit repositoryItemButtonEdit3 = new RepositoryItemButtonEdit();
-            repositoryItemButtonEdit3.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            repositoryItemButtonEdit3.NullText = "Sec";
-            repositoryItemButtonEdit3.NullValuePrompt = "Seç";
 
+            var datatb = new  DataTable();
+            datatb.Columns.Add("ID", typeof(int));
+            datatb.Columns.Add("TIP", typeof(string));
+
+            datatb.Rows.Add(0, "STOK");
+            datatb.Rows.Add(1, "HIZMET");
+            datatb.Rows.Add(2, "KASA");
+            datatb.Rows.Add(3, "DEMIRBAS");
+            datatb.Rows.Add(4, "MUHASEBE");
 
            
-            List<string> testt = new List<string>()
-            {
-                "Stok",
-                "Hizmet",
-                "Kasa",
-                "Demirbaş",
-                "Muhasebe"
-            };
-            GridColumn gridColumn4 = gridView1.Columns.AddVisible("Tip", "Tip");
-            RepositoryItemLookUpEdit repositoryItemLookUpEdit = new RepositoryItemLookUpEdit();
-          
+            RepositoryItemLookUpEdit riLookup = new RepositoryItemLookUpEdit();
+            riLookup.DataSource = datatb;
+            riLookup.ValueMember = "ID";
+            riLookup.DisplayMember = "TIP";
+            riLookup.NullText = "Sec";
+            riLookup.NullValuePrompt = "Seç";
 
-            repositoryItemLookUpEdit.DataSource = testt;
-            repositoryItemLookUpEdit.BestFitWidth = 70;
-  
-            repositoryItemLookUpEdit.DropDownRows = testt.Count;
+            riLookup.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
+            riLookup.DropDownRows = datatb.Rows.Count;
 
-            repositoryItemLookUpEdit.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete;
-             repositoryItemLookUpEdit.AutoSearchColumnIndex = 0;
-            repositoryItemLookUpEdit.NullText = "Stok";
-            repositoryItemLookUpEdit.NullValuePrompt = "Seç";
-
-            GCMusteriSiparis.RepositoryItems.Add(repositoryItemLookUpEdit);
-            gridColumn4.ColumnEdit = repositoryItemLookUpEdit;
+            riLookup.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete;
+            riLookup.AutoSearchColumnIndex = 1;
+            riLookup.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
+            gridView1.Columns["Tipi"].OptionsColumn.AllowEdit = true;
+            //repoGV.Columns.Add(colun2);
+            gridView1.Columns["Tipi"].ColumnEdit = riLookup;
+             
+             
             gridView1.BestFitColumns();
 
 
-            
 
-            repositoryItemButtonEdit.ButtonClick += RepositoryItemButtonEdit_ButtonClick;
-            repositoryItemButtonEdit3.ButtonClick += RepositoryItemButtonEdit3_ButtonClick;
+
+            repositoryItemButtonEdit.ButtonClick += RepositoryItemButtonEdit_ButtonClick; 
             repositoryItemButton2.ButtonClick += RepositoryItemButtonEdit2_ButtonClick; 
              
             GCMusteriSiparis.RepositoryItems.Add(repositoryItemButtonEdit);
-            GCMusteriSiparis.RepositoryItems.Add(repositoryItemButton2);
-            GCMusteriSiparis.RepositoryItems.Add(repositoryItemButtonEdit3); 
+            GCMusteriSiparis.RepositoryItems.Add(repositoryItemButton2); 
             gridColumn.ColumnEdit = repositoryItemButtonEdit;
-            gridColumn2.ColumnEdit = repositoryItemButton2;
-            gridColumn3.ColumnEdit = repositoryItemButtonEdit3;
+            gridColumn2.ColumnEdit = repositoryItemButton2; 
             gridColumn.ShowButtonMode = DevExpress.XtraGrid.Views.Base.ShowButtonModeEnum.ShowAlways;
 
             gridView1.Columns["Seç"].VisibleIndex = 2;
             gridView1.Columns["KasaSec"].VisibleIndex = 6;
             gridView1.Columns["BirimSec"].VisibleIndex = 9;
             gridView1.Columns["StokId"].Visible = false; 
-            gridView1.Columns["KasaId"].Visible = false; 
-            gridView1.Columns["Tip"].VisibleIndex = 0; 
+            gridView1.Columns["KasaId"].Visible = false;  
+            gridView1.Columns["Tipi"].VisibleIndex = 0;  
             GCMusteriSiparis.ForceInitialize();
             //     gridView1.Columns["Birim"].Visible = false;
 
@@ -222,12 +222,13 @@ namespace MEYPAK.PRL.SIPARIS
 
         void gridView1_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
         {
-            GridView currentView = sender as GridView;
-            if (e.Column == currentView.Columns["Tip"] && e.IsGetData)
-            {
-                e.Value = String.Format("{0}", (e.Row as DataRowView)["FirstName"]);
+            var test = sender as RepositoryItemLookUpEdit; 
+            //GridView currentView = sender as GridView;
+            //if (e.Column == currentView.Columns["Tip"] && e.IsGetData)
+            //{
+            //  //  e.Value = String.Format("{0}", (e.Row as DataRowView)["FirstName"]);
 
-            }
+            //}
         }
 
 
