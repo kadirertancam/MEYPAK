@@ -222,7 +222,7 @@ namespace MEYPAK.PRL.SIPARIS
                 StokId = _tempStok.id,
                 StokKodu = _tempStok.kod,
                 StokAdı = _tempStok.adi,
-                Birim = "0",// _olcuBr.obje.Where(x => x.ADI == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "DGVOlcuBr").ToString()).FirstOrDefault().ADI,
+                Birim = _olcuBr.obje.Where(x => x.adi == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "DGVOlcuBr").ToString()).FirstOrDefault().adi,
                 //KasaAdı = "",
                 Kdv = _tempStok.satiskdv,
                 Doviz = "TL", //_tempStok.SDOVIZID 
