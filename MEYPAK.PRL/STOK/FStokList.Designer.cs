@@ -51,7 +51,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 450);
+            this.panel1.Size = new System.Drawing.Size(1064, 564);
             this.panel1.TabIndex = 1;
             // 
             // panel2
@@ -60,7 +60,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 25);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(800, 425);
+            this.panel2.Size = new System.Drawing.Size(1064, 539);
             this.panel2.TabIndex = 2;
             // 
             // DGStok
@@ -69,7 +69,7 @@
             this.DGStok.Location = new System.Drawing.Point(0, 0);
             this.DGStok.MainView = this.gridView1;
             this.DGStok.Name = "DGStok";
-            this.DGStok.Size = new System.Drawing.Size(800, 425);
+            this.DGStok.Size = new System.Drawing.Size(1064, 539);
             this.DGStok.TabIndex = 0;
             this.DGStok.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -93,7 +93,7 @@
             this.TSStokList.Location = new System.Drawing.Point(0, 0);
             this.TSStokList.Name = "TSStokList";
             this.TSStokList.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.TSStokList.Size = new System.Drawing.Size(800, 25);
+            this.TSStokList.Size = new System.Drawing.Size(1064, 25);
             this.TSStokList.TabIndex = 1;
             this.TSStokList.Text = "toolStrip1";
             // 
@@ -124,7 +124,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1064, 564);
             this.Controls.Add(this.panel1);
             this.Name = "FStokList";
             this.Text = "FStokList";
