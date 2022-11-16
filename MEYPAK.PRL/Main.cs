@@ -61,7 +61,7 @@ namespace MEYPAK.PRL
         FMalKabulPanel fMalKabulPanel; 
         FStokFiyatList fStokFiyatList;
         FCariHareket fCariHareket;
-        form fCariDurum;
+        FCariDurum fCariDurum;
         FCariKart fCariKart;
         FCariAltHesap fCariAltHesap;
         FPersonelKart fPersonelKart;
@@ -227,7 +227,7 @@ namespace MEYPAK.PRL
         private void accordionControlElement36_Click(object sender, EventArgs e)
         {
             XtraTabPage page = new XtraTabPage();
-            fCariDurum = new form();
+            fCariDurum = new FCariDurum();
             page.Name = "TPCariDurum" + i;
             page.Text = "Cari Durum";
             page.Tag = "TPCariDurum" + i;

@@ -40,7 +40,7 @@
             this.GCStokOlcuBrList.Location = new System.Drawing.Point(0, 0);
             this.GCStokOlcuBrList.MainView = this.gridView1;
             this.GCStokOlcuBrList.Name = "GCStokOlcuBrList";
-            this.GCStokOlcuBrList.Size = new System.Drawing.Size(376, 340);
+            this.GCStokOlcuBrList.Size = new System.Drawing.Size(945, 581);
             this.GCStokOlcuBrList.TabIndex = 0;
             this.GCStokOlcuBrList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -59,8 +59,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(376, 340);
+            this.ClientSize = new System.Drawing.Size(945, 581);
             this.Controls.Add(this.GCStokOlcuBrList);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FStokOlcuBrList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FStokOlcuBrList";
