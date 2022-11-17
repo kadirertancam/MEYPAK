@@ -18,6 +18,7 @@ using MEYPAK.Entity.PocoModels.STOK;
 using DevExpress.XtraEditors;
 using DevExpress.Utils;
 using MEYPAK.Interfaces.Parametre;
+using DevExpress.Text.Interop;
 
 namespace MEYPAK.PRL.STOK
 {
@@ -32,23 +33,20 @@ namespace MEYPAK.PRL.STOK
             _stokSayimHarServis.Data(ServisList.StokSayimHarListeServis);
             _stokServis = new GenericWebServis<PocoSTOK>();
             _stokServis.Data(ServisList.StokListeServis);
-
         }
-      
         GenericWebServis<PocoSTOKSAYIM> _stokSayimServis ;
         GenericWebServis<PocoSTOKSAYIMHAR> _stokSayimHarServis ;
         GenericWebServis<PocoSTOK> _stokServis ;
         GenericWebServis<PocoOLCUBR> _olcuBrServis ;
         FStokSayimPanel stokSayimPanel;
-        int _tempId=0;
+        
 
-      
         private void FStokSayim_Load(object sender, EventArgs e)
         {
             DataGridDoldur();
-            
+            CombolariDoldur();
         }
-
+        int _tempId = 0;
         private void BTKaydet_Click(object sender, EventArgs e)
         {
             _stokSayimServis.Data(ServisList.StokSayimListeServis);
@@ -62,13 +60,12 @@ namespace MEYPAK.PRL.STOK
                 aciklama = TBAciklama.Text,
 
             }));
-            //_stokSayimServis.Data(ServisList.StokSayimListeServis);
-            //DGStokSayim.DataSource = _stokSayimServis.obje;
-
-            stokSayimPanel.sayimId = _stokSayimServis.obje.Where(x => x.aciklama == TBAciklama.Text).FirstOrDefault().id;
-            TBAciklama.Text = "";
-            DTSayimTar.EditValue = DateTime.Now;
             stokSayimPanel.ShowDialog();
+           
+            //stokSayimPanel.sayimId = _stokSayimServis.obje.Where(x => x.aciklama == TBAciklama.Text).FirstOrDefault().id;
+            //TBAciklama.Text = "";
+            //DTSayimTar.EditValue = DateTime.Now;
+           
         }
         
         private void BTSil_Click(object sender, EventArgs e)
@@ -111,17 +108,31 @@ namespace MEYPAK.PRL.STOK
             //gridView1.Columns["olusturmatarihi"].Visible = false;
             //gridView1.Columns["guncellemetarihi"].Visible = false;
            
-
         }
-
         private void DGStokSayim_DoubleClick(object sender, EventArgs e)
         {
-            _tempId = Convert.ToInt32(gridView1.GetFocusedRowCellValue("id"));
-            TBAciklama.Text = gridView1.GetFocusedRowCellValue("aciklama").ToString();
-            DTPSayimTarihi.EditValue = Convert.ToDateTime(gridView1.GetFocusedRowCellValue("sayimtarihi"));
+            _tempId = Convert.ToInt32(gridView1.GetFocusedRowCellValue("ID"));
+            TBAciklama.Text = gridView1.GetFocusedRowCellValue("Açıklama").ToString();
+            DTPSayimTarihi.EditValue = Convert.ToDateTime(gridView1.GetFocusedRowCellValue("SayimTarihi"));
+            BilgileriGetir();
             //olusturmatarihi = DateTime.Now;
+        }
+        void BilgileriGetir()
+        {
+            if (_stokSayimServis != null)
+            {
+                _tempId= int.Parse(gridView1.GetFocusedRowCellValue("ID").ToString());
+                DTSayimTar.Text = gridView1.GetFocusedRowCellValue("SayimTarihi").ToString();
+                TBAciklama.EditValue = Convert.ToDateTime(gridView1.GetFocusedRowCellValue("Adı").ToString());
+                
+            }
+        }
 
+        void CombolariDoldur()
+        {
+            _stokSayimServis.Data(ServisList.StokSayimListeServis);
+            // CBDoviz.Properties.DataSource = _parabirIMServis.obje.Select(x => new { x.id, x.adi });
 
         }
     }
-    }
+}

@@ -68,11 +68,12 @@ namespace MEYPAK.PRL.STOK
             stokOlcuBrServis.Data(ServisList.StokOlcuBrListeServis);
             stokServis.Data(ServisList.StokListeServis);
             depoServis.Data(ServisList.DepoListeServis);
+            DTTarih.EditValue = DateTime.Now;
+            CBDepo.Properties.DataSource = depoServis.obje.Select(x => new { ID = x.id, Adi = x.depoadi }).ToList();
             BTStokKoduSec.Text = _tempStok.kod;
             TBAdi.Text = _tempStok.adi;
-            CBDepo.Properties.DataSource = depoServis.obje.Select(x => new { ID = x.id, Adi = x.depoadi }).ToList();
             TBBakiye.Text = (from ep in stokServis.obje join e in stokHarServis.obje on ep.id equals e.stokid where ep.kod == _tempStok.kod select Convert.ToDecimal(e.io.ToString() == "1" ? e.miktar : 0) - Convert.ToDecimal(e.io.ToString() == "0" ? e.miktar : 0)).FirstOrDefault().ToString();
-            CBBirim.Properties.DataSource = olcuBrServis.obje.Select(x => new { ID = x.id, ADI = x.adi }).ToList();
+            CBBirim.Properties.DataSource = olcuBrServis.obje.Select(x => new { ID = x.id, Adi = x.adi }).ToList();
             _tempStok = null;
 
         }
@@ -101,8 +102,10 @@ namespace MEYPAK.PRL.STOK
                 {
                     _tempStokSayimHarList.Add(new PocoStokSayimPanelList()
                     {
+                        
                         StokAdı = item.adi,
                         Birim = olcuBrServis.obje.Where(x=>x.id== (stokOlcuBrServis.obje.Where(z=>z.num==1 && z.stokid==item.id).Select(z=>z.olcubrid).FirstOrDefault())).FirstOrDefault().adi, //TODO: İlgili stoğun ölçü birimi gelecek fakat bütün stoklarda ölçü birim tanımlı değil. isterseniz veritabanını yapılandırabilirsiiz.
+                        //Depo = depoServis.obje.Where(x => x.depokodu == (depoServis.obje.Where(z => z.sirketid == 1 && z.depokodu == item.kod).Select(z => z.depoid).FirstOrDefault())).FirstOrDefault().id,
                         //Depo  = depoServis.obje.Where(x => x.id.ToString() == CBDepo.EditValue.ToString()).FirstOrDefault().id,
                         Fiyat = 1,
                         Miktar = 0,

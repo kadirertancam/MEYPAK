@@ -1,5 +1,6 @@
 ﻿using DevExpress.Mvvm.POCO;
 using DevExpress.Text.Interop;
+using DevExpress.XtraEditors;
 using MEYPAK.BLL.Assets;
 using MEYPAK.DAL.Abstract.CariDal;
 using MEYPAK.Entity.Models.DEPO;
@@ -30,7 +31,7 @@ using System.Windows.Forms;
 
 namespace MEYPAK.PRL.CARI
 {
-    public partial class FCariAltHesap : Form
+    public partial class FCariAltHesap : XtraForm
     {
 
         string islemtipi = "Kayıt";
@@ -145,7 +146,7 @@ namespace MEYPAK.PRL.CARI
             MessageBox.Show("Kayıt işlemi Başarılı!");
             id = 0;
             DataGridDoldur();
-
+            
         }
         
    

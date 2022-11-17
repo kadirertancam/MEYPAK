@@ -50,7 +50,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(800, 450);
+            this.panelControl1.Size = new System.Drawing.Size(686, 390);
             this.panelControl1.TabIndex = 0;
             // 
             // DGAltHesap
@@ -59,14 +59,15 @@
             this.DGAltHesap.Location = new System.Drawing.Point(2, 27);
             this.DGAltHesap.MainView = this.gridView1;
             this.DGAltHesap.Name = "DGAltHesap";
-            this.DGAltHesap.Size = new System.Drawing.Size(796, 421);
+            this.DGAltHesap.Size = new System.Drawing.Size(682, 361);
             this.DGAltHesap.TabIndex = 3;
             this.DGAltHesap.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
-            this.DGAltHesap.DoubleClick += new System.EventHandler(this.DGAltHesap_DoubleClick);
+            this.DGAltHesap.DoubleClick += new System.EventHandler(this.DGAltHesap_CellDoubleClick);
             // 
             // gridView1
             // 
+            this.gridView1.DetailHeight = 303;
             this.gridView1.GridControl = this.DGAltHesap;
             this.gridView1.Name = "gridView1";
             // 
@@ -79,7 +80,7 @@
             this.TSStokList.Location = new System.Drawing.Point(2, 2);
             this.TSStokList.Name = "TSStokList";
             this.TSStokList.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.TSStokList.Size = new System.Drawing.Size(796, 25);
+            this.TSStokList.Size = new System.Drawing.Size(682, 25);
             this.TSStokList.TabIndex = 2;
             this.TSStokList.Text = "toolStrip1";
             // 
@@ -108,10 +109,11 @@
             // 
             // FAltHesapList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(686, 390);
             this.Controls.Add(this.panelControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FAltHesapList";
             this.Text = "FAltHesapList";
             this.Load += new System.EventHandler(this.FAltHesapList_Load);
