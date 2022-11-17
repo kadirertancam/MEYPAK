@@ -128,9 +128,7 @@ namespace MEYPAK.PRL.CARI
                     adi = TBAdi.Text,
                     kod = TBKodu.Text,
                     dovizid = _parabirIMServis.obje.Where(x => x.adi.ToString() == CBDoviz.Text.ToString()).FirstOrDefault().id,
-                    il = CBIl.EditValue.ToString(),
-                    ilce = CBIlce.EditValue.ToString(),
-                    adres = TBAdres.Text,
+             
                 }));
 
             }
