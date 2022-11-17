@@ -1,30 +1,12 @@
 ﻿using DevExpress.XtraEditors;
-using DevExpress.XtraReports.Design;
-using DevExpress.XtraSpellChecker;
 using DevExpress.XtraTab;
 using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.Models.CARI;
-using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.PARAMETRE;
-using MEYPAK.Entity.PocoModels.STOK;
-using MEYPAK.Interfaces.Cari;
-using MEYPAK.Interfaces.Parametre;
-using MEYPAK.Interfaces.Stok;
-using MEYPAK.PRL.STOK;
 using Newtonsoft.Json;
-using Ninject.Infrastructure.Language;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.IdentityModel.Tokens.Jwt;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace MEYPAK.PRL.CARI
 {

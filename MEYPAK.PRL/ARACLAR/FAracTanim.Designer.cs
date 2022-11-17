@@ -43,6 +43,11 @@
             DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition3 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
             DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition3 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement3 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.Resim = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.tileViewColumn2 = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.tileViewColumn1 = new DevExpress.XtraGrid.Columns.TileViewColumn();
@@ -124,7 +129,6 @@
             this.labelControl24 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
             this.BTNAracKaydet = new DevExpress.XtraEditors.SimpleButton();
-            this.CBModel = new DevExpress.XtraEditors.LookUpEdit();
             this.CBMarka = new DevExpress.XtraEditors.LookUpEdit();
             this.CBTip = new DevExpress.XtraEditors.ComboBoxEdit();
             this.CBSofor2 = new DevExpress.XtraEditors.LookUpEdit();
@@ -137,11 +141,12 @@
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
+            this.PBAracResim = new DevExpress.XtraEditors.PictureEdit();
             this.LBPlaka = new DevExpress.XtraEditors.LabelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.CBModel = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
@@ -206,18 +211,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BTNAracFoto.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CBModel.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBMarka.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBTip.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBSofor2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBSofor1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBYakitTuru.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBPlaka.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PBAracResim.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CBModel.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // Resim
@@ -933,6 +938,7 @@
             // 
             // panelControl3
             // 
+            this.panelControl3.Controls.Add(this.CBModel);
             this.panelControl3.Controls.Add(this.BTNAracFoto);
             this.panelControl3.Controls.Add(this.labelControl29);
             this.panelControl3.Controls.Add(this.labelControl28);
@@ -942,7 +948,6 @@
             this.panelControl3.Controls.Add(this.labelControl24);
             this.panelControl3.Controls.Add(this.labelControl17);
             this.panelControl3.Controls.Add(this.BTNAracKaydet);
-            this.panelControl3.Controls.Add(this.CBModel);
             this.panelControl3.Controls.Add(this.CBMarka);
             this.panelControl3.Controls.Add(this.CBTip);
             this.panelControl3.Controls.Add(this.CBSofor2);
@@ -955,7 +960,7 @@
             this.panelControl3.Controls.Add(this.labelControl3);
             this.panelControl3.Controls.Add(this.labelControl2);
             this.panelControl3.Controls.Add(this.labelControl1);
-            this.panelControl3.Controls.Add(this.pictureEdit1);
+            this.panelControl3.Controls.Add(this.PBAracResim);
             this.panelControl3.Controls.Add(this.LBPlaka);
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl3.Location = new System.Drawing.Point(264, 2);
@@ -966,11 +971,13 @@
             // BTNAracFoto
             // 
             this.BTNAracFoto.EditValue = "Fotoğrafı Değistir";
-            this.BTNAracFoto.Location = new System.Drawing.Point(45, 178);
+            this.BTNAracFoto.Location = new System.Drawing.Point(26, 178);
             this.BTNAracFoto.Name = "BTNAracFoto";
             this.BTNAracFoto.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.BTNAracFoto.Size = new System.Drawing.Size(126, 20);
+            new DevExpress.XtraEditors.Controls.EditorButton(),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "Resmi Kaydet", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", "Resmi Kaydet", null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.BTNAracFoto.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTNAracFoto_Properties_ButtonClick);
+            this.BTNAracFoto.Size = new System.Drawing.Size(159, 20);
             this.BTNAracFoto.TabIndex = 75;
             // 
             // labelControl29
@@ -1040,16 +1047,6 @@
             this.BTNAracKaydet.TabIndex = 67;
             this.BTNAracKaydet.Text = "Kaydet";
             this.BTNAracKaydet.Click += new System.EventHandler(this.BTNAracKaydet_Click);
-            // 
-            // CBModel
-            // 
-            this.CBModel.Location = new System.Drawing.Point(291, 126);
-            this.CBModel.Name = "CBModel";
-            this.CBModel.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.CBModel.Properties.NullText = "";
-            this.CBModel.Size = new System.Drawing.Size(135, 20);
-            this.CBModel.TabIndex = 23;
             // 
             // CBMarka
             // 
@@ -1167,13 +1164,13 @@
             this.labelControl1.TabIndex = 2;
             this.labelControl1.Text = "TİP";
             // 
-            // pictureEdit1
+            // PBAracResim
             // 
-            this.pictureEdit1.Location = new System.Drawing.Point(26, 26);
-            this.pictureEdit1.Name = "pictureEdit1";
-            this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.pictureEdit1.Size = new System.Drawing.Size(159, 146);
-            this.pictureEdit1.TabIndex = 1;
+            this.PBAracResim.Location = new System.Drawing.Point(26, 26);
+            this.PBAracResim.Name = "PBAracResim";
+            this.PBAracResim.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.PBAracResim.Size = new System.Drawing.Size(159, 146);
+            this.PBAracResim.TabIndex = 1;
             // 
             // LBPlaka
             // 
@@ -1202,11 +1199,23 @@
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            this.gridControl1.DoubleClick += new System.EventHandler(this.gridControl1_DoubleClick);
             // 
             // gridView1
             // 
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.Editable = false;
+            // 
+            // CBModel
+            // 
+            this.CBModel.Location = new System.Drawing.Point(291, 126);
+            this.CBModel.Name = "CBModel";
+            this.CBModel.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CBModel.Properties.NullText = "";
+            this.CBModel.Size = new System.Drawing.Size(135, 20);
+            this.CBModel.TabIndex = 76;
             // 
             // FAracTanim
             // 
@@ -1285,18 +1294,18 @@
             this.panelControl3.ResumeLayout(false);
             this.panelControl3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BTNAracFoto.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CBModel.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBMarka.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBTip.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBSofor2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBSofor1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBYakitTuru.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBPlaka.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PBAracResim.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CBModel.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1322,9 +1331,8 @@
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.PictureEdit pictureEdit1;
+        private DevExpress.XtraEditors.PictureEdit PBAracResim;
         private DevExpress.XtraEditors.LabelControl LBPlaka;
-        private DevExpress.XtraEditors.LookUpEdit CBModel;
         private DevExpress.XtraEditors.LookUpEdit CBMarka;
         private DevExpress.XtraEditors.ComboBoxEdit CBTip;
         private DevExpress.XtraEditors.LookUpEdit CBSofor2;
@@ -1402,5 +1410,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl24;
         private DevExpress.XtraEditors.LabelControl labelControl17;
         private DevExpress.XtraEditors.ButtonEdit BTNAracFoto;
+        private DevExpress.XtraEditors.LookUpEdit CBModel;
     }
 }

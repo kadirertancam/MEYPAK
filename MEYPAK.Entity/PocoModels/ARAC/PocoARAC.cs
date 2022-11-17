@@ -15,12 +15,12 @@ namespace MEYPAK.Entity.PocoModels.ARAC
         public string yakitturu { get; set; }
         public int soforid { get; set; }
         public int sofor2id { get; set; }
-        public string sigacenteadi { get; set; }
-        public string sigpoliceno { get; set; }
+        public string sigacenteadi { get; set; } = "";
+        public string sigpoliceno { get; set; } = "";
         public DateTime sigbastar { get; set; }
         public DateTime sigbittar { get; set; }
-        public string kasacenteadi { get; set; }
-        public string kaspoliceno { get; set; }
+        public string kasacenteadi { get; set; } = "";
+        public string kaspoliceno { get; set; } = "";
         public DateTime kasbastar { get; set; }
         public DateTime kasbittar { get; set; }
         public DateTime muayenebastar { get; set; }
