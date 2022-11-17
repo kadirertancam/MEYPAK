@@ -18,9 +18,7 @@ namespace MEYPAK.Entity.Models.CARI
         public int DOVIZID { get; set; } = 0;
         public int AKTIF { get; set; }
 
-        public string IL { get; set; } = "";
-        public string ILCE { get; set; } = "";
-        public string ADRES { get; set; } = "";
+
 
     }
 }
