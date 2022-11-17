@@ -4,6 +4,7 @@ using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MEYPAK.DAL.Migrations
 {
     [DbContext(typeof(MEYPAKContext))]
-    partial class MEYPAKContextModelSnapshot : ModelSnapshot
+    [Migration("20221116070747_SiparisDtyKasaKaldirildi")]
+    partial class SiparisDtyKasaKaldirildi
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -2120,12 +2122,6 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<decimal>("BRUTTOPLAM")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<decimal>("DARA")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("DARALI")
-                        .HasColumnType("decimal(18,2)");
-
                     b.Property<int>("DOVIZID")
                         .HasColumnType("int");
 
@@ -2148,12 +2144,6 @@ namespace MEYPAK.DAL.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<decimal>("ISTKONTO3")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("KASAID")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("KASAMIKTAR")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<byte>("KAYITTIPI")
@@ -2182,9 +2172,6 @@ namespace MEYPAK.DAL.Migrations
 
                     b.Property<DateTime>("OLUSTURMATARIHI")
                         .HasColumnType("datetime2");
-
-                    b.Property<decimal>("SAFI")
-                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("SIPARISID")
                         .HasColumnType("int");

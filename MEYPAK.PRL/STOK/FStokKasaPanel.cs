@@ -21,8 +21,7 @@ namespace MEYPAK.PRL.STOK
 {
     public partial class FStokKasaPanel : Form
     {
-        string islemtipi = "Kayıt";
-        
+      
         public FStokKasaPanel()
         {
             InitializeComponent();
@@ -31,28 +30,32 @@ namespace MEYPAK.PRL.STOK
 
         #region Tanımlar
         GenericWebServis<PocoSTOKKASA>_kasaServis;
+        PocoSTOKKASA _tempStokKasaPanel;
         #endregion
 
         #region Metotlar
         private void BTKaydet_Click(object sender, EventArgs e)
         {
+           
             _kasaServis.Data(ServisList.StokKasaEkleServis, new PocoSTOKKASA
             {
-                kasaadi = TBKod.Text,
+                kasakodu = TBKod.Text,
+                kasaadi = TBAdi.Text,
                 aciklama = TBAciklama.Text,
-                kasakodu = TBAdi.Text,
+                aktif =1,
                 olusturmatarihi = DateTime.Now,
             });
             MessageBox.Show("Kasa Başarıyla Eklendi.");
-            Doldur();
+            DataGridDoldur();
         }
 
         private void FKasaPanel_Load(object sender, EventArgs e)
         {
-            Doldur();
+            DataGridDoldur();
+            CombolariDoldur();
         }
-
-        void Doldur()
+        int id;
+        void DataGridDoldur()
         {
             _kasaServis.Data(ServisList.StokKasaListeServis);
             DGKasaPanel.DataSource = _kasaServis.obje.Where(x => x.kayittipi == 0).Select(x => new
@@ -61,6 +64,7 @@ namespace MEYPAK.PRL.STOK
                 Kodu = x.kasakodu,
                 Adı = x.kasaadi,
                 Açıklama = x.aciklama,
+                //Aktif =x.aktif,
                 OluşturmaTarihi = x.olusturmatarihi
 
             });
@@ -69,14 +73,39 @@ namespace MEYPAK.PRL.STOK
 
         }
 
-        private void BTSil_Click(object sender, EventArgs e)
+        void CombolariDoldur()
         {
             _kasaServis.Data(ServisList.KasaListeServis);
-            _kasaServis.Data(ServisList.KasaSilServis, null, null, _kasaServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).ToList());
-            MessageBox.Show("Silme işlemi Başarılı");
-            Doldur();
+        }
+
+        void KasaPanelBilgileriniGetir()
+        {
+            if (_tempStokKasaPanel != null)
+            {
+                id = int.Parse(gridView1.GetFocusedRowCellValue("ID").ToString());
+                TBKod.Text = gridView1.GetFocusedRowCellValue("Kodu").ToString();
+                TBAdi.Text = gridView1.GetFocusedRowCellValue("Adı").ToString();
+                TBAciklama.Text = gridView1.GetFocusedRowCellValue("Açıklama").ToString();
+                CHBAktif.EditValue = _tempStokKasaPanel.aktif;
+            }
+        }
+
+
+        private void BTSil_Click(object sender, EventArgs e)
+        {
+            _kasaServis.Data(ServisList.StokKasaListeServis);
+            _kasaServis.Data(ServisList.StokKasaSilServis, null, null, _kasaServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).ToList());
+            MessageBox.Show("Silme işlemi Başarılı!");
+            DGKasaPanel.DataSource = _kasaServis.obje.Where(x => x.kayittipi == 0);
+            DataGridDoldur();
         }
 
         #endregion
+
+        private void gridView1_DoubleClick(object sender, EventArgs e)
+        {
+            _tempStokKasaPanel = _kasaServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+            KasaPanelBilgileriniGetir();
+        }
     }
 }

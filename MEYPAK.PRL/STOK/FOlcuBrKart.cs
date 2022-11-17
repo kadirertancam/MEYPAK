@@ -81,7 +81,7 @@ namespace MEYPAK.PRL.STOK
         private void BTSil_Click(object sender, EventArgs e)
         {
             _OlcuBrServis.Data(ServisList.OlcuBrListeServis);
-            _OlcuBrServis.Data(ServisList.OlcuBrSilServis,null,null, _OlcuBrServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()).ToList());
+            _OlcuBrServis.Data(ServisList.OlcuBrSilServis,null,null, _OlcuBrServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).ToList());
             MessageBox.Show("Silme Başarılı");
             DGOlcuBirim.DataSource = _OlcuBrServis.obje.Where(x=> x.kayittipi == 0);
             DataGridDoldur();

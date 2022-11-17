@@ -17,10 +17,15 @@ namespace MEYPAK.Entity.PocoModels
         public int StokId { get; set; } 
         public string StokKodu { get; set; }
         public string StokAdı { get; set; } = ""; 
-        public int Tipi { get; set; } 
+        public string Tipi { get; set; }
+        public int KasaId { get; set; }
+        public string KasaAdı { get; set; } = "";
         public string Acıklama { get; set; } = "";
         public string Birim { get; set; } = "";
         public decimal Miktar { get; set; } = 0;
+        public decimal Daralı { get; set; }
+        public decimal Dara { get; set; }
+        public decimal Safi { get; set; }
         public string Doviz { get; set; } = "";
         public decimal BirimFiyat { get; set; }=0;
         public decimal NetFiyat{ get; set; } = 0; 
