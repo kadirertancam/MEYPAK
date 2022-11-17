@@ -1,4 +1,5 @@
-﻿using MEYPAK.BLL.Assets;
+﻿using DevExpress.XtraEditors;
+using MEYPAK.BLL.Assets;
 using MEYPAK.BLL.STOK;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository;
@@ -19,7 +20,7 @@ using System.Windows.Forms;
 
 namespace MEYPAK.PRL.STOK
 {
-    public partial class FStokKasaList : Form
+    public partial class FStokKasaList : XtraForm
     {
         FStokKart fStokKart;
         FMusteriSiparis fSiparis;
@@ -55,10 +56,7 @@ namespace MEYPAK.PRL.STOK
  
 
         }
-        private void dataGridView1_DoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-           
-        }
+        
 
         private void gridView1_DoubleClick(object sender, EventArgs e)
         {

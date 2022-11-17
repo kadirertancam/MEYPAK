@@ -18,7 +18,7 @@ using DevExpress.XtraEditors;
 
 namespace MEYPAK.PRL.STOK
 {
-    public partial class FSayimList : Form
+    public partial class FSayimList : XtraForm
     {
         public FSayimList()
         {
@@ -37,13 +37,16 @@ namespace MEYPAK.PRL.STOK
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            DateTime dt = Convert.ToDateTime(DGSayimList.Rows[e.RowIndex].Cells["SAYIMTARIHI"].Value.ToString());
-            string aciklama = DGSayimList.Rows[e.RowIndex].Cells["ACIKLAMA"].Value.ToString();
+            DateTime dt = Convert.ToDateTime(gridView1.GetFocusedRowCellValue("SAYIMTARIHI").ToString());
+            string aciklama = gridView1.GetFocusedRowCellValue("ACIKLAMA").ToString();
             fSayimIsle._tempSayim = _stokSayimServis.obje.Where(x => x.aciklama== aciklama.ToString() ).FirstOrDefault();
-            fSayimIsle._id = int.Parse(DGSayimList.Rows[e.RowIndex].Cells["id"].Value.ToString());
+            fSayimIsle._id = int.Parse(gridView1.GetFocusedRowCellValue("SAYIMTARIHI").ToString());
             this.Close();
         }
 
-        
+        private void DGSayimList_DoubleClick(object sender, EventArgs e)
+        {
+
+        }
     }
 }

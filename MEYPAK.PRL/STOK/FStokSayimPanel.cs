@@ -29,6 +29,7 @@ using System.Windows.Media.Animation;
 using MEYPAK.Interfaces.Parametre;
 using MEYPAK.Entity.PocoModels.PARAMETRE;
 using MEYPAK.PRL.PARAMETRELER;
+using MEYPAK.PRL.CARI;
 
 namespace MEYPAK.PRL.STOK
 {
@@ -70,11 +71,12 @@ namespace MEYPAK.PRL.STOK
             depoServis.Data(ServisList.DepoListeServis);
             DTTarih.EditValue = DateTime.Now;
             CBDepo.Properties.DataSource = depoServis.obje.Select(x => new { ID = x.id, Adi = x.depoadi }).ToList();
-            BTStokKoduSec.Text = _tempStok.kod;
-            TBAdi.Text = _tempStok.adi;
+            //BTStokKoduSec.Text = _tempStok.kod;
+            //TBAdi.Text = _tempStok.adi;
             TBBakiye.Text = (from ep in stokServis.obje join e in stokHarServis.obje on ep.id equals e.stokid where ep.kod == _tempStok.kod select Convert.ToDecimal(e.io.ToString() == "1" ? e.miktar : 0) - Convert.ToDecimal(e.io.ToString() == "0" ? e.miktar : 0)).FirstOrDefault().ToString();
             CBBirim.Properties.DataSource = olcuBrServis.obje.Select(x => new { ID = x.id, Adi = x.adi }).ToList();
             _tempStok = null;
+            StokKoduDoldur();
 
         }
 
@@ -250,8 +252,27 @@ namespace MEYPAK.PRL.STOK
 
 
 
+
         #endregion
 
-       
+        private void BTStokKoduSec_EditValueChanged(object sender, EventArgs e)
+        {
+            FStokList fStokList = new FStokList(this.Tag.ToString(), "stoklist");
+            fStokList.ShowDialog();
+            StokKoduDoldur();
+        }
+
+        void StokKoduDoldur()
+        {
+            if (_tempStok != null)
+            {
+                if (_tempStok.id > 0)
+                {
+                    BTStokKoduSec.Text = _tempStok.kod.ToString();
+                    TBAdi.Text = _tempStok.adi.ToString();
+                   
+                }
+            }
+        }
     }
 }

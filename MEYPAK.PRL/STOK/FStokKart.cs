@@ -307,7 +307,7 @@ namespace MEYPAK.PRL
             FKategoriList fKategoriKart = new FKategoriList("Stok");
             fKategoriKart.ShowDialog();
             if (_tempKategori != null)
-                BTKategori.Text = _tempKategori.adi;
+                BTKategori.Text = _tempKategori.acıklama;
         }
 
         

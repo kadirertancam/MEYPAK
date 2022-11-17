@@ -84,7 +84,7 @@ namespace MEYPAK.PRL.STOK
         //    stokSayimPanel.ShowDialog();
         //}
 
-        void DataGridDoldur()
+        void DataGridDoldur() 
         {
 
             _stokSayimServis.Data(ServisList.StokSayimListeServis);

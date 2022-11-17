@@ -60,17 +60,17 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="BTHesapla.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAB0AAAAdCAYAAABWk2cPAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAALiIAAC4iAari3ZIAAAH9SURBVEhL5dYxSBtRHMdx4SKIgkKxCC5SpOBQyCzoUIpk
-        UEuXgl3SwaktFALuAQeFLm03J6FrN5GuVaSIiJCp0kUQOodAwcWGpN9feBf+vLzTZ4yodPjAu/f/5355
-        7y6X60uSXD9K+IbdSN+NUN23g228RU6hCvyJAvKRFvEXT83cZeZxgk8K1QoLzWazLxb9j9HEWKiehf6X
-        qGmgpedDTVno7zZ0Fg0NtOcdoczpWo/78652ndDWICv0FQ79eVe7sdAiKv68q/U2lPEH7OMX/rjxHiZM
-        T0co4yn8gPqtsunJDH2G9/iCUzfW72vQ9IRCh/EO6rdmTc8d2l7TMIMNf97Vbib0IvTfz1A9tPUs1Yli
-        zUHP3mkzF2MJ9TRUJ9A3j5X2d/O5dqj+LcauQCvUCZ6YuRjP0Qr9f26k2w9l/BCbeOCOl/E6rbu5jlDG
-        k9iCXkuskunJDB3EAY6wgnMspHXXEwodRRmrnnnTk729HOvhfQzdoUVbc/XeX1OO3+AMFWjFra029WAo
-        x7o0/s9kwNQzt/cRtKUvoBVrqz+nddcT2l79djXn+2p6LlzpqBkPYMirZ61UN5Nq1oipt0Nv5W1Qt3X7
-        DotBf7ehetmraqBXEb1560VY3ySG/i10Z+tZGqqHKPA31hSaw0fUkF78y9SNUN3XQBXrSZJL/gFA6W/Q
-        YjTJpAAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAAB0AAAAdCAYAAABWk2cPAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAu
+        IgAALiIBquLdkgAAAf1JREFUSEvl1jFIG1Ecx3HhIoiCQrEILlKk4FDILOhQimRQS5eCXdLBqS0UAu4B
+        B4UubTcnoWs3ka5VpIiIkKnSRRA6h0DBxYak3194F/68vNNnjKh0+MC79//nfnnvLpfrS5JcP0r4ht1I
+        341Q3beDbbxFTqEK/IkC8pEW8RdPzdxl5nGCTwrVCgvNZrMvFv2P0cRYqJ6F/peoaaCl50NNWejvNnQW
+        DQ205x2hzOlaj/vzrnad0NYgK/QVDv15V7ux0CIq/ryr9TaU8Qfs4xf+uPEeJkxPRyjjKfyA+q2y6ckM
+        fYb3+IJTN9bva9D0hEKH8Q7qt2ZNzx3aXtMwgw1/3tVuJvQi9N/PUD209SzViWLNQc/eaTMXYwn1NFQn
+        0DePlfZ387l2qP4txq5AK9QJnpi5GM/RCv1/bqTbD2X8EJt44I6X8Tqtu7mOUMaT2IJeS6yS6ckMHcQB
+        jrCCcyykddcTCh1FGaueedOTvb0c6+F9DN2hRVtz9d5fU47f4AwVaMWtrTb1YCjHujT+z2TA1DO39xG0
+        pS+gFWurP6d11xPaXv12Nef7anouXOmoGQ9gyKtnrVQ3k2rWiKm3Q2/lbVC3dfsOi0F/t6F62atqoFcR
+        vXnrRVjfJIb+LXRn61kaqoco8DfWFJrDR9SQXvzL1I1Q3ddAFetJkkv+AUDpb9BiNMmkAAAAAElFTkSu
+        QmCC
 </value>
   </data>
   <data name="BTTcKimlikSec.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

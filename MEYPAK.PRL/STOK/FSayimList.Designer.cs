@@ -28,36 +28,63 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.DGSayimList = new System.Windows.Forms.DataGridView();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.DGSayimList = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGSayimList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // panelControl1
+            // 
+            this.panelControl1.Controls.Add(this.DGSayimList);
+            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl1.Location = new System.Drawing.Point(0, 0);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(1160, 651);
+            this.panelControl1.TabIndex = 1;
             // 
             // DGSayimList
             // 
-            this.DGSayimList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGSayimList.Location = new System.Drawing.Point(3, 2);
+            this.DGSayimList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DGSayimList.Location = new System.Drawing.Point(2, 2);
+            this.DGSayimList.MainView = this.gridView1;
             this.DGSayimList.Name = "DGSayimList";
-            this.DGSayimList.RowTemplate.Height = 25;
-            this.DGSayimList.Size = new System.Drawing.Size(1019, 448);
-            this.DGSayimList.TabIndex = 0;
+            this.DGSayimList.Size = new System.Drawing.Size(1156, 647);
+            this.DGSayimList.TabIndex = 1;
+            this.DGSayimList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+           // this.DGSayimList.DoubleClick += new System.EventHandler(this.DGSayimList_CellDoubleClick);
+            // 
+            // gridView1
+            // 
+            this.gridView1.GridControl = this.DGSayimList;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.Editable = false;
             // 
             // FSayimList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1023, 452);
-            this.Controls.Add(this.DGSayimList);
+            this.ClientSize = new System.Drawing.Size(1160, 651);
+            this.Controls.Add(this.panelControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FSayimList";
             this.Text = "FSayimList";
             this.Load += new System.EventHandler(this.FSayimList_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DGSayimList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private DataGridView DGSayimList;
+        private DevExpress.XtraEditors.PanelControl panelControl1;
+        private DevExpress.XtraGrid.GridControl DGSayimList;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
     }
 }
