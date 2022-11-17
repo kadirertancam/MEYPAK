@@ -35,21 +35,21 @@
             this.LBHizmetAdi = new DevExpress.XtraEditors.LabelControl();
             this.LBHizmetKodu = new DevExpress.XtraEditors.LabelControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.DGHizmetKart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBHizmetAdi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTHizmetSec.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
+            this.panelControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
-            this.panelControl3.SuspendLayout();
             this.SuspendLayout();
             // 
             // DGHizmetKart
@@ -70,7 +70,7 @@
             // 
             // TBHizmetAdi
             // 
-            this.TBHizmetAdi.Location = new System.Drawing.Point(130, 69);
+            this.TBHizmetAdi.Location = new System.Drawing.Point(130, 65);
             this.TBHizmetAdi.Name = "TBHizmetAdi";
             this.TBHizmetAdi.Size = new System.Drawing.Size(180, 20);
             this.TBHizmetAdi.TabIndex = 35;
@@ -81,13 +81,12 @@
             this.BTHizmetSec.Name = "BTHizmetSec";
             this.BTHizmetSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Search)});
-            this.BTHizmetSec.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.BTHizmetSec.Size = new System.Drawing.Size(180, 20);
             this.BTHizmetSec.TabIndex = 33;
             // 
             // LBHizmetAdi
             // 
-            this.LBHizmetAdi.Location = new System.Drawing.Point(64, 70);
+            this.LBHizmetAdi.Location = new System.Drawing.Point(64, 67);
             this.LBHizmetAdi.Name = "LBHizmetAdi";
             this.LBHizmetAdi.Size = new System.Drawing.Size(50, 13);
             this.LBHizmetAdi.TabIndex = 9;
@@ -110,6 +109,16 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(1156, 632);
             this.panelControl1.TabIndex = 1;
+            // 
+            // panelControl3
+            // 
+            this.panelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl3.Controls.Add(this.DGHizmetKart);
+            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl3.Location = new System.Drawing.Point(2, 119);
+            this.panelControl3.Name = "panelControl3";
+            this.panelControl3.Size = new System.Drawing.Size(1152, 511);
+            this.panelControl3.TabIndex = 2;
             // 
             // panelControl2
             // 
@@ -135,16 +144,6 @@
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Genel Bilgi";
             // 
-            // panelControl3
-            // 
-            this.panelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl3.Controls.Add(this.DGHizmetKart);
-            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl3.Location = new System.Drawing.Point(2, 119);
-            this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(1152, 511);
-            this.panelControl3.TabIndex = 2;
-            // 
             // FHizmetKart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -160,13 +159,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.BTHizmetSec.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
+            this.panelControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
-            this.panelControl3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

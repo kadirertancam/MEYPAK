@@ -21,7 +21,7 @@ namespace MEYPAK.Entity.Models.STOK
         public int AltID { get; set; }
 
         [StringLength(100), Required]
-        public string Acıklama { get; set; }
+        public string ADI { get; set; }
 
         [Required]
         public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
