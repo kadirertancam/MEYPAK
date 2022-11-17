@@ -299,8 +299,8 @@ namespace MEYPAK.PRL.PERSONEL
         }
         private void lookUpEdit2_Properties_EditValueChanged(object sender, EventArgs e)
         { //ADRESIL EDIT VALUE CHANGED
-            var tttt= _adresObje.data.Where(x => x.il_adi == CBAdresIL.EditValue.ToString()).Select(x => x.ilceler.Select(z => z.ilce_adi).ToList()).FirstOrDefault();
-            CBAdresIlce.Properties.DataSource = tttt;
+            
+            CBAdresIlce.Properties.DataSource = _adresObje.data.Where(x => x.il_adi == CBAdresIL.EditValue.ToString()).Select(x => x.ilceler.Select(z => z.ilce_adi).ToList()).FirstOrDefault();
         }
         private void CBNufIl_EditValueChanged(object sender, EventArgs e)
         {
