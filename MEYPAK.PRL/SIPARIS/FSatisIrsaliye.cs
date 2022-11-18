@@ -174,7 +174,7 @@ namespace MEYPAK.PRL.IRSALIYE
             riLookup.AutoSearchColumnIndex = 1;
             riLookup.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
             riLookup.EditValueChanged += RiLookup_EditValueChanged;
-
+            riLookup.GetDataSourceRowByKeyValue(0); 
 
             gridView1.Columns["Tipi"].OptionsColumn.AllowEdit = true;
             //repoGV.Columns.Add(colun2);
@@ -552,7 +552,7 @@ namespace MEYPAK.PRL.IRSALIYE
         private void TBCariKodu_Properties_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
 
-            _fCariList = new FCariList(this.Tag.ToString(), "musterisiparis");
+            _fCariList = new FCariList(this.Tag.ToString(), "SatisIrsaliye");
             _fCariList.ShowDialog();
             if (_tempCariKart != null)
             {

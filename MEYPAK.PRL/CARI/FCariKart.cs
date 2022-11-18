@@ -33,6 +33,7 @@ namespace MEYPAK.PRL.CARI
         GenericWebServis<PocoCARIALTHES> _cariAltHesapServis;
         GenericWebServis<PocoPARABIRIM> _cariParABIRIM;
         GenericWebServis<PocoCARIRESIM> _cariResimServis;
+        FCariList fCariList;
 
         public PocoCARIALTHES _tempCARIALTHES;
         public PocoCARIKART _tempCariKart;
@@ -353,10 +354,22 @@ namespace MEYPAK.PRL.CARI
 
         private void CBIl_TextChanged_1(object sender, EventArgs e)
         {
-            CBIlce.Properties.DataSource = _adresObje.data.Where(x => x.il_adi == CBIl.Text).Select(x => x.ilceler.Select(z => z.ilce_adi)).FirstOrDefault();
-        }
+             }
 
         #endregion
+
+        private void CBIl_TextChanged(object sender, EventArgs e)
+        {
+            CBIlce.Properties.DataSource = _adresObje.data.Where(x => x.il_adi == CBIl.Text).Select(x => x.ilceler.Select(z => z.ilce_adi)).FirstOrDefault();
+
+        }
+
+        private void BTCariSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            fCariList = new FCariList(this.Tag.ToString(), "carikart");
+            fCariList.ShowDialog();
+            doldur();
+        }
     }
 
 }

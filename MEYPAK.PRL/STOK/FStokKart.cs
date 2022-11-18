@@ -52,7 +52,7 @@ namespace MEYPAK.PRL
             
             foreach (Control ctrl in ctrlCollection)
             {
-                if (ctrl is TextBoxBase)
+                if (ctrl is TextEdit)
                 {
                     if (ctrl.Name != "BTStokKodu")
                         ctrl.Text = String.Empty;
@@ -62,6 +62,24 @@ namespace MEYPAK.PRL
                     Temizle(ctrl.Controls);
                 }
             }
+            TBAlisKdv.Text = "0";
+            TBSatisKdv.Text = "0";
+            TBSatisOtv.Text="0";
+            TBAlisOtv.Text = "0";
+            TBSFiyat1.Text = "0";
+            TBSFiyat2.Text = "0";
+            TBSFiyat3.Text = "0";
+            TBSFiyat4.Text = "0";
+            TBSFiyat5.Text = "0";
+            TBAFiyat1.Text = "0";
+            TBAFiyat2.Text = "0";
+            TBAFiyat3.Text = "0";
+            TBAFiyat4.Text = "0";
+            TBAFiyat5.Text = "0";
+            CBSDoviz.SelectedIndex = 0;
+            CBADoviz.SelectedIndex = 0;
+
+            
         }
 
         private void tbDoldur()                                                 // _tempStok nesnesi dolduğu zaman bu method ile formdaki nesneleri doldur
@@ -496,6 +514,21 @@ namespace MEYPAK.PRL
                     stokid = 0;
                 }
             }
+        }
+
+        private void NUDSayisalAciklama7_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TEStokKartRaporKodu8_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BTSil_Click_1(object sender, EventArgs e)
+        {
+            _PocoStokServis.Data(ServisList.StokSilServis);
         }
 
         private void TBSatisOtv_KeyPress(object sender, KeyPressEventArgs e)

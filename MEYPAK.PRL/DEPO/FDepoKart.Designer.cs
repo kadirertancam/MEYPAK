@@ -47,6 +47,7 @@
             this.LBDepoKartKod = new DevExpress.XtraEditors.LabelControl();
             this.BTDepoKartSil = new DevExpress.XtraEditors.SimpleButton();
             this.BTDepoKartEkle = new DevExpress.XtraEditors.SimpleButton();
+            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GCDepoKart)).BeginInit();
@@ -57,6 +58,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.TBAdi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBKod.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBAktif)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
+            this.groupControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -66,24 +69,25 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(561, 450);
+            this.panel1.Size = new System.Drawing.Size(783, 450);
             this.panel1.TabIndex = 0;
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.GCDepoKart);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 229);
+            this.panel3.Location = new System.Drawing.Point(0, 251);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(561, 221);
+            this.panel3.Size = new System.Drawing.Size(783, 199);
             this.panel3.TabIndex = 1;
             // 
             // GCDepoKart
             // 
-            this.GCDepoKart.Location = new System.Drawing.Point(0, 3);
+            this.GCDepoKart.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GCDepoKart.Location = new System.Drawing.Point(0, 0);
             this.GCDepoKart.MainView = this.gridView1;
             this.GCDepoKart.Name = "GCDepoKart";
-            this.GCDepoKart.Size = new System.Drawing.Size(561, 218);
+            this.GCDepoKart.Size = new System.Drawing.Size(783, 199);
             this.GCDepoKart.TabIndex = 1;
             this.GCDepoKart.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -95,13 +99,12 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.groupControl1);
             this.panel2.Controls.Add(this.GCGenelBilgi);
-            this.panel2.Controls.Add(this.BTDepoKartSil);
-            this.panel2.Controls.Add(this.BTDepoKartEkle);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(561, 229);
+            this.panel2.Size = new System.Drawing.Size(783, 251);
             this.panel2.TabIndex = 0;
             // 
             // GCGenelBilgi
@@ -116,10 +119,11 @@
             this.GCGenelBilgi.Controls.Add(this.LBDepoKartAdi);
             this.GCGenelBilgi.Controls.Add(this.LBDepoKartAciklama);
             this.GCGenelBilgi.Controls.Add(this.LBDepoKartKod);
+            this.GCGenelBilgi.Dock = System.Windows.Forms.DockStyle.Top;
             this.GCGenelBilgi.GroupStyle = DevExpress.Utils.GroupStyle.Light;
-            this.GCGenelBilgi.Location = new System.Drawing.Point(2, 3);
+            this.GCGenelBilgi.Location = new System.Drawing.Point(0, 0);
             this.GCGenelBilgi.Name = "GCGenelBilgi";
-            this.GCGenelBilgi.Size = new System.Drawing.Size(556, 173);
+            this.GCGenelBilgi.Size = new System.Drawing.Size(783, 174);
             this.GCGenelBilgi.TabIndex = 1;
             this.GCGenelBilgi.Text = "Genel Bilgi";
             // 
@@ -242,7 +246,7 @@
             this.BTDepoKartSil.Appearance.Options.UseBackColor = true;
             this.BTDepoKartSil.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BTDepoKartSil.BackgroundImage")));
             this.BTDepoKartSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTDepoKartSil.ImageOptions.Image")));
-            this.BTDepoKartSil.Location = new System.Drawing.Point(100, 182);
+            this.BTDepoKartSil.Location = new System.Drawing.Point(681, 25);
             this.BTDepoKartSil.Name = "BTDepoKartSil";
             this.BTDepoKartSil.Size = new System.Drawing.Size(82, 43);
             this.BTDepoKartSil.TabIndex = 47;
@@ -254,18 +258,29 @@
             this.BTDepoKartEkle.Appearance.Options.UseBackColor = true;
             this.BTDepoKartEkle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BTDepoKartEkle.BackgroundImage")));
             this.BTDepoKartEkle.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTDepoKartEkle.ImageOptions.Image")));
-            this.BTDepoKartEkle.Location = new System.Drawing.Point(12, 182);
+            this.BTDepoKartEkle.Location = new System.Drawing.Point(593, 25);
             this.BTDepoKartEkle.Name = "BTDepoKartEkle";
             this.BTDepoKartEkle.Size = new System.Drawing.Size(82, 43);
             this.BTDepoKartEkle.TabIndex = 46;
             this.BTDepoKartEkle.Text = "Ekle";
             this.BTDepoKartEkle.Click += new System.EventHandler(this.BTDepoKartEkle_Click);
             // 
+            // groupControl1
+            // 
+            this.groupControl1.Controls.Add(this.BTDepoKartEkle);
+            this.groupControl1.Controls.Add(this.BTDepoKartSil);
+            this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupControl1.GroupStyle = DevExpress.Utils.GroupStyle.Light;
+            this.groupControl1.Location = new System.Drawing.Point(0, 174);
+            this.groupControl1.Name = "groupControl1";
+            this.groupControl1.Size = new System.Drawing.Size(783, 77);
+            this.groupControl1.TabIndex = 2;
+            // 
             // FDepoKart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(561, 450);
+            this.ClientSize = new System.Drawing.Size(783, 450);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FDepoKart";
@@ -282,6 +297,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.TBAdi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBKod.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBAktif)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
+            this.groupControl1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -306,5 +323,6 @@
         private DevExpress.XtraEditors.TextEdit TBKod;
         private DevExpress.XtraEditors.TextEdit TBAdi;
         private DevExpress.XtraEditors.SimpleButton BTDepoKartSec;
+        private DevExpress.XtraEditors.GroupControl groupControl1;
     }
 }

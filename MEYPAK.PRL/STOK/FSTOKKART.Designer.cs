@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FStokKart));
             DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition1 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
             DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition1 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement1 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
@@ -62,6 +61,7 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject22 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject23 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject24 = new DevExpress.Utils.SerializableAppearanceObject();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FStokKart));
             this.Resim = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -217,6 +217,7 @@
             this.BTMarka = new DevExpress.XtraEditors.ButtonEdit();
             this.TBStokAdi = new DevExpress.XtraEditors.TextEdit();
             this.BTStokKodu = new DevExpress.XtraEditors.ButtonEdit();
+            this.BTSil = new DevExpress.XtraEditors.SimpleButton();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -330,6 +331,7 @@
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.BTSil);
             this.panel4.Controls.Add(this.BTStokKartiKaydet);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel4.Location = new System.Drawing.Point(0, 889);
@@ -343,10 +345,10 @@
             this.BTStokKartiKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
             this.BTStokKartiKaydet.Appearance.Options.UseBackColor = true;
             this.BTStokKartiKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTStokKartiKaydet.ImageOptions.Image")));
-            this.BTStokKartiKaydet.Location = new System.Drawing.Point(966, 4);
+            this.BTStokKartiKaydet.Location = new System.Drawing.Point(860, 3);
             this.BTStokKartiKaydet.Name = "BTStokKartiKaydet";
             this.BTStokKartiKaydet.Size = new System.Drawing.Size(128, 65);
-            this.BTStokKartiKaydet.TabIndex = 60;
+            this.BTStokKartiKaydet.TabIndex = 63;
             this.BTStokKartiKaydet.Text = "&Kaydet";
             this.BTStokKartiKaydet.Click += new System.EventHandler(this.BTStokKartiKaydet_Click);
             // 
@@ -431,7 +433,7 @@
             this.TBAFiyat5.Properties.Appearance.Options.UseFont = true;
             this.TBAFiyat5.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.TBAFiyat5.Size = new System.Drawing.Size(149, 26);
-            this.TBAFiyat5.TabIndex = 21;
+            this.TBAFiyat5.TabIndex = 32;
             // 
             // LBAFiyat4
             // 
@@ -452,7 +454,7 @@
             this.TBAFiyat4.Properties.Appearance.Options.UseFont = true;
             this.TBAFiyat4.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.TBAFiyat4.Size = new System.Drawing.Size(149, 26);
-            this.TBAFiyat4.TabIndex = 21;
+            this.TBAFiyat4.TabIndex = 31;
             // 
             // LBAFiyat3
             // 
@@ -473,7 +475,7 @@
             this.TBAFiyat3.Properties.Appearance.Options.UseFont = true;
             this.TBAFiyat3.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.TBAFiyat3.Size = new System.Drawing.Size(149, 26);
-            this.TBAFiyat3.TabIndex = 21;
+            this.TBAFiyat3.TabIndex = 30;
             // 
             // LBAFiyat2
             // 
@@ -494,7 +496,7 @@
             this.TBAFiyat2.Properties.Appearance.Options.UseFont = true;
             this.TBAFiyat2.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.TBAFiyat2.Size = new System.Drawing.Size(149, 26);
-            this.TBAFiyat2.TabIndex = 21;
+            this.TBAFiyat2.TabIndex = 29;
             // 
             // LBAFiyat1
             // 
@@ -515,7 +517,7 @@
             this.TBAFiyat1.Properties.Appearance.Options.UseFont = true;
             this.TBAFiyat1.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.TBAFiyat1.Size = new System.Drawing.Size(149, 26);
-            this.TBAFiyat1.TabIndex = 21;
+            this.TBAFiyat1.TabIndex = 28;
             // 
             // LBADoviz
             // 
@@ -540,7 +542,7 @@
             "TL"});
             this.CBADoviz.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.CBADoviz.Size = new System.Drawing.Size(149, 26);
-            this.CBADoviz.TabIndex = 21;
+            this.CBADoviz.TabIndex = 27;
             // 
             // GBSatisFiyati
             // 
@@ -635,7 +637,7 @@
             this.TBSFiyat5.Properties.Appearance.Options.UseFont = true;
             this.TBSFiyat5.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.TBSFiyat5.Size = new System.Drawing.Size(149, 26);
-            this.TBSFiyat5.TabIndex = 21;
+            this.TBSFiyat5.TabIndex = 26;
             // 
             // TBSFiyat4
             // 
@@ -646,7 +648,7 @@
             this.TBSFiyat4.Properties.Appearance.Options.UseFont = true;
             this.TBSFiyat4.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.TBSFiyat4.Size = new System.Drawing.Size(149, 26);
-            this.TBSFiyat4.TabIndex = 21;
+            this.TBSFiyat4.TabIndex = 25;
             // 
             // TBSFiyat3
             // 
@@ -657,7 +659,7 @@
             this.TBSFiyat3.Properties.Appearance.Options.UseFont = true;
             this.TBSFiyat3.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.TBSFiyat3.Size = new System.Drawing.Size(149, 26);
-            this.TBSFiyat3.TabIndex = 21;
+            this.TBSFiyat3.TabIndex = 24;
             // 
             // TBSFiyat2
             // 
@@ -668,7 +670,7 @@
             this.TBSFiyat2.Properties.Appearance.Options.UseFont = true;
             this.TBSFiyat2.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.TBSFiyat2.Size = new System.Drawing.Size(149, 26);
-            this.TBSFiyat2.TabIndex = 21;
+            this.TBSFiyat2.TabIndex = 23;
             // 
             // TBSFiyat1
             // 
@@ -679,7 +681,7 @@
             this.TBSFiyat1.Properties.Appearance.Options.UseFont = true;
             this.TBSFiyat1.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.TBSFiyat1.Size = new System.Drawing.Size(149, 26);
-            this.TBSFiyat1.TabIndex = 21;
+            this.TBSFiyat1.TabIndex = 22;
             // 
             // CBSDoviz
             // 
@@ -785,7 +787,7 @@
             this.CBBirim.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.CBBirim.Properties.PopupView = this.CBBirimView;
             this.CBBirim.Size = new System.Drawing.Size(161, 26);
-            this.CBBirim.TabIndex = 37;
+            this.CBBirim.TabIndex = 33;
             // 
             // CBBirimView
             // 
@@ -834,7 +836,7 @@
             this.TBKatsayi.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.TBKatsayi.Name = "TBKatsayi";
             this.TBKatsayi.Size = new System.Drawing.Size(161, 26);
-            this.TBKatsayi.TabIndex = 3;
+            this.TBKatsayi.TabIndex = 34;
             // 
             // tabPage3
             // 
@@ -911,7 +913,7 @@
             this.NUDSayisalAciklama5.Properties.MaskSettings.Set("mask", "d");
             this.NUDSayisalAciklama5.Properties.Name = "SESayisalAciklama1";
             this.NUDSayisalAciklama5.Size = new System.Drawing.Size(310, 26);
-            this.NUDSayisalAciklama5.TabIndex = 35;
+            this.NUDSayisalAciklama5.TabIndex = 48;
             // 
             // NUDSayisalAciklama2
             // 
@@ -936,7 +938,7 @@
             this.NUDSayisalAciklama2.Properties.MaskSettings.Set("mask", "d");
             this.NUDSayisalAciklama2.Properties.Name = "SESayisalAciklama1";
             this.NUDSayisalAciklama2.Size = new System.Drawing.Size(310, 26);
-            this.NUDSayisalAciklama2.TabIndex = 34;
+            this.NUDSayisalAciklama2.TabIndex = 45;
             // 
             // NUDSayisalAciklama3
             // 
@@ -961,7 +963,7 @@
             this.NUDSayisalAciklama3.Properties.MaskSettings.Set("mask", "d");
             this.NUDSayisalAciklama3.Properties.Name = "SESayisalAciklama1";
             this.NUDSayisalAciklama3.Size = new System.Drawing.Size(310, 26);
-            this.NUDSayisalAciklama3.TabIndex = 33;
+            this.NUDSayisalAciklama3.TabIndex = 46;
             // 
             // NUDSayisalAciklama4
             // 
@@ -986,7 +988,7 @@
             this.NUDSayisalAciklama4.Properties.MaskSettings.Set("mask", "d");
             this.NUDSayisalAciklama4.Properties.Name = "SESayisalAciklama1";
             this.NUDSayisalAciklama4.Size = new System.Drawing.Size(310, 26);
-            this.NUDSayisalAciklama4.TabIndex = 32;
+            this.NUDSayisalAciklama4.TabIndex = 47;
             // 
             // NUDSayisalAciklama6
             // 
@@ -1011,7 +1013,7 @@
             this.NUDSayisalAciklama6.Properties.MaskSettings.Set("mask", "d");
             this.NUDSayisalAciklama6.Properties.Name = "SESayisalAciklama1";
             this.NUDSayisalAciklama6.Size = new System.Drawing.Size(310, 26);
-            this.NUDSayisalAciklama6.TabIndex = 31;
+            this.NUDSayisalAciklama6.TabIndex = 49;
             // 
             // NUDSayisalAciklama7
             // 
@@ -1036,7 +1038,8 @@
             this.NUDSayisalAciklama7.Properties.MaskSettings.Set("mask", "d");
             this.NUDSayisalAciklama7.Properties.Name = "SESayisalAciklama1";
             this.NUDSayisalAciklama7.Size = new System.Drawing.Size(310, 26);
-            this.NUDSayisalAciklama7.TabIndex = 30;
+            this.NUDSayisalAciklama7.TabIndex = 50;
+            this.NUDSayisalAciklama7.EditValueChanged += new System.EventHandler(this.NUDSayisalAciklama7_EditValueChanged);
             // 
             // NUDSayisalAciklama8
             // 
@@ -1061,7 +1064,7 @@
             this.NUDSayisalAciklama8.Properties.MaskSettings.Set("mask", "d");
             this.NUDSayisalAciklama8.Properties.Name = "SESayisalAciklama1";
             this.NUDSayisalAciklama8.Size = new System.Drawing.Size(310, 26);
-            this.NUDSayisalAciklama8.TabIndex = 29;
+            this.NUDSayisalAciklama8.TabIndex = 51;
             // 
             // NUDSayisalAciklama9
             // 
@@ -1086,7 +1089,7 @@
             this.NUDSayisalAciklama9.Properties.MaskSettings.Set("mask", "d");
             this.NUDSayisalAciklama9.Properties.Name = "SESayisalAciklama1";
             this.NUDSayisalAciklama9.Size = new System.Drawing.Size(310, 26);
-            this.NUDSayisalAciklama9.TabIndex = 28;
+            this.NUDSayisalAciklama9.TabIndex = 52;
             // 
             // NUDSayisalAciklama1
             // 
@@ -1111,7 +1114,7 @@
             this.NUDSayisalAciklama1.Properties.MaskSettings.Set("mask", "d");
             this.NUDSayisalAciklama1.Properties.Name = "SESayisalAciklama1";
             this.NUDSayisalAciklama1.Size = new System.Drawing.Size(312, 26);
-            this.NUDSayisalAciklama1.TabIndex = 27;
+            this.NUDSayisalAciklama1.TabIndex = 44;
             // 
             // labelControl9
             // 
@@ -1240,7 +1243,7 @@
             this.TBAciklama7.Properties.Appearance.Options.UseFont = true;
             this.TBAciklama7.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.TBAciklama7.Size = new System.Drawing.Size(312, 26);
-            this.TBAciklama7.TabIndex = 24;
+            this.TBAciklama7.TabIndex = 41;
             // 
             // TBAciklama9
             // 
@@ -1250,7 +1253,7 @@
             this.TBAciklama9.Properties.Appearance.Options.UseFont = true;
             this.TBAciklama9.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.TBAciklama9.Size = new System.Drawing.Size(312, 26);
-            this.TBAciklama9.TabIndex = 26;
+            this.TBAciklama9.TabIndex = 43;
             // 
             // TBAciklama4
             // 
@@ -1260,7 +1263,7 @@
             this.TBAciklama4.Properties.Appearance.Options.UseFont = true;
             this.TBAciklama4.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.TBAciklama4.Size = new System.Drawing.Size(312, 26);
-            this.TBAciklama4.TabIndex = 24;
+            this.TBAciklama4.TabIndex = 38;
             // 
             // TBAciklama8
             // 
@@ -1270,7 +1273,7 @@
             this.TBAciklama8.Properties.Appearance.Options.UseFont = true;
             this.TBAciklama8.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.TBAciklama8.Size = new System.Drawing.Size(312, 26);
-            this.TBAciklama8.TabIndex = 25;
+            this.TBAciklama8.TabIndex = 42;
             // 
             // TBAciklama1
             // 
@@ -1280,7 +1283,7 @@
             this.TBAciklama1.Properties.Appearance.Options.UseFont = true;
             this.TBAciklama1.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.TBAciklama1.Size = new System.Drawing.Size(312, 26);
-            this.TBAciklama1.TabIndex = 21;
+            this.TBAciklama1.TabIndex = 35;
             // 
             // TBAciklama6
             // 
@@ -1290,7 +1293,7 @@
             this.TBAciklama6.Properties.Appearance.Options.UseFont = true;
             this.TBAciklama6.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.TBAciklama6.Size = new System.Drawing.Size(312, 26);
-            this.TBAciklama6.TabIndex = 26;
+            this.TBAciklama6.TabIndex = 40;
             // 
             // TBAciklama3
             // 
@@ -1300,7 +1303,7 @@
             this.TBAciklama3.Properties.Appearance.Options.UseFont = true;
             this.TBAciklama3.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.TBAciklama3.Size = new System.Drawing.Size(312, 26);
-            this.TBAciklama3.TabIndex = 23;
+            this.TBAciklama3.TabIndex = 37;
             // 
             // TBAciklama5
             // 
@@ -1310,7 +1313,7 @@
             this.TBAciklama5.Properties.Appearance.Options.UseFont = true;
             this.TBAciklama5.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.TBAciklama5.Size = new System.Drawing.Size(312, 26);
-            this.TBAciklama5.TabIndex = 25;
+            this.TBAciklama5.TabIndex = 39;
             // 
             // LBStokKartiAciklama9
             // 
@@ -1330,7 +1333,7 @@
             this.TBAciklama2.Properties.Appearance.Options.UseFont = true;
             this.TBAciklama2.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.TBAciklama2.Size = new System.Drawing.Size(312, 26);
-            this.TBAciklama2.TabIndex = 22;
+            this.TBAciklama2.TabIndex = 36;
             // 
             // LBStokKartiAciklama8
             // 
@@ -1522,7 +1525,7 @@
             this.TEStokKartRaporKodu9.Properties.Appearance.Options.UseFont = true;
             this.TEStokKartRaporKodu9.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.TEStokKartRaporKodu9.Size = new System.Drawing.Size(312, 26);
-            this.TEStokKartRaporKodu9.TabIndex = 100;
+            this.TEStokKartRaporKodu9.TabIndex = 61;
             // 
             // BTStokKartiRaporKodu6
             // 
@@ -1637,7 +1640,7 @@
             this.TEStokKartRaporKodu6.Properties.Appearance.Options.UseFont = true;
             this.TEStokKartRaporKodu6.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.TEStokKartRaporKodu6.Size = new System.Drawing.Size(312, 26);
-            this.TEStokKartRaporKodu6.TabIndex = 86;
+            this.TEStokKartRaporKodu6.TabIndex = 58;
             // 
             // TEStokKartRaporKodu5
             // 
@@ -1647,7 +1650,7 @@
             this.TEStokKartRaporKodu5.Properties.Appearance.Options.UseFont = true;
             this.TEStokKartRaporKodu5.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.TEStokKartRaporKodu5.Size = new System.Drawing.Size(312, 26);
-            this.TEStokKartRaporKodu5.TabIndex = 85;
+            this.TEStokKartRaporKodu5.TabIndex = 57;
             // 
             // TEStokKartRaporKodu8
             // 
@@ -1657,7 +1660,8 @@
             this.TEStokKartRaporKodu8.Properties.Appearance.Options.UseFont = true;
             this.TEStokKartRaporKodu8.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.TEStokKartRaporKodu8.Size = new System.Drawing.Size(312, 26);
-            this.TEStokKartRaporKodu8.TabIndex = 96;
+            this.TEStokKartRaporKodu8.TabIndex = 60;
+            this.TEStokKartRaporKodu8.EditValueChanged += new System.EventHandler(this.TEStokKartRaporKodu8_EditValueChanged);
             // 
             // TEStokKartRaporKodu7
             // 
@@ -1667,7 +1671,7 @@
             this.TEStokKartRaporKodu7.Properties.Appearance.Options.UseFont = true;
             this.TEStokKartRaporKodu7.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.TEStokKartRaporKodu7.Size = new System.Drawing.Size(312, 26);
-            this.TEStokKartRaporKodu7.TabIndex = 98;
+            this.TEStokKartRaporKodu7.TabIndex = 59;
             // 
             // BTStokKartiRaporKodu3
             // 
@@ -1719,7 +1723,7 @@
             this.TEStokKartRaporKodu4.Properties.Appearance.Options.UseFont = true;
             this.TEStokKartRaporKodu4.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.TEStokKartRaporKodu4.Size = new System.Drawing.Size(312, 26);
-            this.TEStokKartRaporKodu4.TabIndex = 84;
+            this.TEStokKartRaporKodu4.TabIndex = 56;
             // 
             // TEStokKartRaporKodu3
             // 
@@ -1729,7 +1733,7 @@
             this.TEStokKartRaporKodu3.Properties.Appearance.Options.UseFont = true;
             this.TEStokKartRaporKodu3.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.TEStokKartRaporKodu3.Size = new System.Drawing.Size(312, 26);
-            this.TEStokKartRaporKodu3.TabIndex = 83;
+            this.TEStokKartRaporKodu3.TabIndex = 55;
             // 
             // TEStokKartRaporKodu2
             // 
@@ -1739,7 +1743,7 @@
             this.TEStokKartRaporKodu2.Properties.Appearance.Options.UseFont = true;
             this.TEStokKartRaporKodu2.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.TEStokKartRaporKodu2.Size = new System.Drawing.Size(312, 26);
-            this.TEStokKartRaporKodu2.TabIndex = 82;
+            this.TEStokKartRaporKodu2.TabIndex = 54;
             // 
             // TEStokKartRaporKodu1
             // 
@@ -1749,7 +1753,7 @@
             this.TEStokKartRaporKodu1.Properties.Appearance.Options.UseFont = true;
             this.TEStokKartRaporKodu1.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.TEStokKartRaporKodu1.Size = new System.Drawing.Size(312, 26);
-            this.TEStokKartRaporKodu1.TabIndex = 20;
+            this.TEStokKartRaporKodu1.TabIndex = 53;
             // 
             // LBStokKartiRaporKodu9
             // 
@@ -1960,7 +1964,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.buttonEdit1.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.buttonEdit1_Properties_ButtonClick_1);
             this.buttonEdit1.Size = new System.Drawing.Size(215, 22);
-            this.buttonEdit1.TabIndex = 4;
+            this.buttonEdit1.TabIndex = 62;
             // 
             // labelControl4
             // 
@@ -2308,6 +2312,18 @@
             this.BTStokKodu.TabIndex = 3;
             this.BTStokKodu.Leave += new System.EventHandler(this.BTStokKodu_Leave_1);
             // 
+            // BTSil
+            // 
+            this.BTSil.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTSil.Appearance.Options.UseBackColor = true;
+            this.BTSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
+            this.BTSil.Location = new System.Drawing.Point(994, 0);
+            this.BTSil.Name = "BTSil";
+            this.BTSil.Size = new System.Drawing.Size(128, 65);
+            this.BTSil.TabIndex = 63;
+            this.BTSil.Text = "&Sil";
+            this.BTSil.Click += new System.EventHandler(this.BTSil_Click_1);
+            // 
             // FStokKart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -2578,5 +2594,6 @@
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.ButtonEdit buttonEdit1;
         private DevExpress.XtraEditors.LabelControl labelControl4;
+        private DevExpress.XtraEditors.SimpleButton BTSil;
     }
 }

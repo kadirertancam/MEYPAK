@@ -34,10 +34,10 @@
             this.TBKategoriAdi = new DevExpress.XtraEditors.TextEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.treeView1 = new System.Windows.Forms.TreeView();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.LBAdi = new DevExpress.XtraEditors.LabelControl();
-            this.treeView1 = new System.Windows.Forms.TreeView();
             ((System.ComponentModel.ISupportInitialize)(this.TBKategoriAdi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
@@ -104,6 +104,14 @@
             this.panelControl3.Size = new System.Drawing.Size(1263, 505);
             this.panelControl3.TabIndex = 4;
             // 
+            // treeView1
+            // 
+            this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeView1.Location = new System.Drawing.Point(2, 2);
+            this.treeView1.Name = "treeView1";
+            this.treeView1.Size = new System.Drawing.Size(1259, 501);
+            this.treeView1.TabIndex = 0;
+            // 
             // panelControl2
             // 
             this.panelControl2.Controls.Add(this.groupControl1);
@@ -141,21 +149,12 @@
             this.LBAdi.TabIndex = 82;
             this.LBAdi.Text = "Kategori Adı";
             // 
-            // treeView1
-            // 
-            this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeView1.Location = new System.Drawing.Point(2, 2);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(1259, 501);
-            this.treeView1.TabIndex = 0;
-            // 
             // FKategoriList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1267, 618);
             this.Controls.Add(this.panelControl1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "FKategoriList";
             this.Text = "FKategoriList";
