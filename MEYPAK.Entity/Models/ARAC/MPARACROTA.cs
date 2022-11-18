@@ -8,7 +8,7 @@ namespace MEYPAK.Entity.Models.ARAC
 {
     public class MPARACROTA:SUPERMODEL
     {
-        public int ARACID { get; set; }
+        public int ARACID { get; set; } //look
         public DateTime TARIH { get; set; }
         public string HAREKETSAATI { get; set; }
         public int CIKISID { get; set; }
