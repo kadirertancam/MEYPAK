@@ -18,5 +18,7 @@ namespace MEYPAK.Entity.Models.CARI
         public int DOVIZID { get; set; } = 0;
         public int AKTIF { get; set; }
 
+
+
     }
 }

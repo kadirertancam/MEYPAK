@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FStokKasaList));
             this.GCKasaList = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
@@ -94,20 +95,24 @@
             // 
             // simpleButton1
             // 
-            this.simpleButton1.Location = new System.Drawing.Point(617, 12);
+            this.simpleButton1.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.simpleButton1.Appearance.Options.UseBackColor = true;
+            this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.simpleButton1.Location = new System.Drawing.Point(704, 21);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(153, 59);
+            this.simpleButton1.Size = new System.Drawing.Size(82, 39);
             this.simpleButton1.TabIndex = 0;
-            this.simpleButton1.Text = "Kaydet";
+            this.simpleButton1.Text = "&Kaydet";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
-            // FKasaList
+            // FStokKasaList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panelControl1);
-            this.Name = "FKasaList";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "FStokKasaList";
             this.Text = "FKasaList";
             this.Load += new System.EventHandler(this.FKasaList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.GCKasaList)).EndInit();

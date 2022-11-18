@@ -89,19 +89,19 @@ namespace MEYPAK.PRL.STOK
 
         private void BTYeniEkle_Click(object sender, EventArgs e)
         {
-            if (TBKategoriList.Text != null && TBKategoriList.Text != "")
+            if (TBKategoriAdi.Text != null && TBKategoriAdi.Text != "")
             {
                 PocoSTOKKATEGORI mPKATEGORI = new PocoSTOKKATEGORI()
                 {
-                    acıklama = TBKategoriList.Text,
+                    acıklama = TBKategoriAdi.Text,
                     ustId = 0
                 };
                 _kategoriServis.Data(ServisList.StokKategoriEkleServis, mPKATEGORI);
-                MessageBox.Show("Başarıyla Eklendi");
+                MessageBox.Show("Yeni Kategori Başarıyla Eklendi");
             }
             else
             {
-                MessageBox.Show("Lütfen Yeni Kategori için bir isim giriniz.");
+                MessageBox.Show("Yeni Kategori bilgisi giriniz..");
             }
         }
 
@@ -111,20 +111,20 @@ namespace MEYPAK.PRL.STOK
             {
                 PocoSTOKKATEGORI mPKATEGORI = new PocoSTOKKATEGORI()
                 {
-                    acıklama = TBKategoriList.Text,
+                    acıklama = TBKategoriAdi.Text,
                     ustId = Convert.ToInt32(treeView1.SelectedNode.Name.ToString())
 
                 };
                 _kategoriServis.Data(ServisList.StokKategoriEkleServis, mPKATEGORI);
 
-                MessageBox.Show("Başarıyla Eklendi");
+                MessageBox.Show("Alt Kategori Başarıyla Eklendi");
                 TreeViewiDoldur();
 
 
             }
             else
             {
-                MessageBox.Show("Lütfen alt kategori eklemek istediğiniz kategoriyi seçiniz.");
+                MessageBox.Show("Alt Kategori eklemek istediğiniz kategoriyi seçiniz.");
             }
         }
     }

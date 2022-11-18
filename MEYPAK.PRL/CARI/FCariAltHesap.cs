@@ -1,5 +1,6 @@
 ﻿using DevExpress.Mvvm.POCO;
 using DevExpress.Text.Interop;
+using DevExpress.XtraEditors;
 using MEYPAK.BLL.Assets;
 using MEYPAK.DAL.Abstract.CariDal;
 using MEYPAK.Entity.Models.DEPO;
@@ -30,7 +31,7 @@ using System.Windows.Forms;
 
 namespace MEYPAK.PRL.CARI
 {
-    public partial class FCariAltHesap : Form
+    public partial class FCariAltHesap : XtraForm
     {
 
         string islemtipi = "Kayıt";
@@ -46,9 +47,9 @@ namespace MEYPAK.PRL.CARI
             CBDoviz.Properties.DisplayMember = "ADI";
         }
 
-        
-        #region Tanımlar
 
+        #region Tanımlar
+        ADRESOBJECT.Root _adresObje;
         GenericWebServis<PocoCARIALTHES> _cariAltHesapServis;
         GenericWebServis<PocoPARABIRIM> _parabirIMServis;
         PocoCARIALTHES _tempAltHesap;
@@ -126,9 +127,8 @@ namespace MEYPAK.PRL.CARI
                 {
                     adi = TBAdi.Text,
                     kod = TBKodu.Text,
-                    dovizid =_parabirIMServis.obje.Where(x => x.adi.ToString() == CBDoviz.Text.ToString()).FirstOrDefault().id,
-                    
-
+                    dovizid = _parabirIMServis.obje.Where(x => x.adi.ToString() == CBDoviz.Text.ToString()).FirstOrDefault().id,
+             
                 }));
 
             }
@@ -145,14 +145,27 @@ namespace MEYPAK.PRL.CARI
             MessageBox.Show("Kayıt işlemi Başarılı!");
             id = 0;
             DataGridDoldur();
-
+            
         }
         
    
         void CombolariDoldur()
         {
             _cariAltHesapServis.Data(ServisList.CariAltHesListeServis);
-           // CBDoviz.Properties.DataSource = _parabirIMServis.obje.Select(x => new { x.id, x.adi });
+            // CBDoviz.Properties.DataSource = _parabirIMServis.obje.Select(x => new { x.id, x.adi });
+            string path = Application.StartupPath + "/il-ilce.json";
+            using (FileStream s = File.Open(path, FileMode.Open))
+            using (StreamReader sr = new StreamReader(s))
+                while (!sr.EndOfStream)
+                {
+
+                    _adresObje = JsonConvert.DeserializeObject<ADRESOBJECT.Root>(sr.ReadToEnd());
+
+
+                    CBIl.Properties.DataSource = _adresObje.data.Select(x => x.il_adi);
+                   
+
+                }
 
         }
         void AltHesapBilgileriniGetir()
@@ -176,6 +189,9 @@ namespace MEYPAK.PRL.CARI
             AltHesapBilgileriniGetir();
         }
 
-   
+        private void CBIl_EditValueChanged(object sender, EventArgs e)
+        {
+            CBIlce.Properties.DataSource = _adresObje.data.Where(x => x.il_adi == CBIl.EditValue.ToString()).Select(x => x.ilceler.Select(z => z.ilce_adi).ToList()).FirstOrDefault();
+        }
     }
 }

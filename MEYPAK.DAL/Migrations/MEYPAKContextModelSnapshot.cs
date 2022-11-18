@@ -489,6 +489,10 @@ namespace MEYPAK.DAL.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
+                    b.Property<string>("ADRES")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("AKTIF")
                         .HasColumnType("int");
 
@@ -500,6 +504,14 @@ namespace MEYPAK.DAL.Migrations
 
                     b.Property<DateTime>("GUNCELLEMETARIHI")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("IL")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ILCE")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<byte>("KAYITTIPI")
                         .HasColumnType("tinyint");
@@ -2120,6 +2132,12 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<decimal>("BRUTTOPLAM")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<decimal>("DARA")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("DARALI")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<int>("DOVIZID")
                         .HasColumnType("int");
 
@@ -2142,6 +2160,12 @@ namespace MEYPAK.DAL.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<decimal>("ISTKONTO3")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("KASAID")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("KASAMIKTAR")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<byte>("KAYITTIPI")
@@ -2170,6 +2194,9 @@ namespace MEYPAK.DAL.Migrations
 
                     b.Property<DateTime>("OLUSTURMATARIHI")
                         .HasColumnType("datetime2");
+
+                    b.Property<decimal>("SAFI")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("SIPARISID")
                         .HasColumnType("int");

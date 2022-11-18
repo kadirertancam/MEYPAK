@@ -26,7 +26,7 @@ namespace MEYPAK.PRL.PERSONEL
         {
             InitializeComponent();
             FPersonelKart = (FPersonelKart)Application.OpenForms["FPersonelKart"];
-            _personelServis.Data(ServisList.PersonelListeServis);
+            _personelServis = new GenericWebServis<PocoPERSONEL>();
         }
 
         GenericWebServis<PocoPERSONEL> _personelServis ;

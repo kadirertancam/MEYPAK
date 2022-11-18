@@ -93,9 +93,10 @@ namespace MEYPAK.PRL.STOK
 
         private void BTSil_Click(object sender, EventArgs e)
         {
-            _kasaServis.Data(ServisList.KasaListeServis);
-            _kasaServis.Data(ServisList.KasaSilServis, null, null, _kasaServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).ToList());
-            MessageBox.Show("Silme işlemi Başarılı");
+            _kasaServis.Data(ServisList.StokKasaListeServis);
+            _kasaServis.Data(ServisList.StokKasaSilServis, null, null, _kasaServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).ToList());
+            MessageBox.Show("Silme işlemi Başarılı!");
+            DGKasaPanel.DataSource = _kasaServis.obje.Where(x => x.kayittipi == 0);
             DataGridDoldur();
         }
 

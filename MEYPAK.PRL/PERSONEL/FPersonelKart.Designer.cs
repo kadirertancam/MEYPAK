@@ -187,6 +187,7 @@
             this.LBIzinBitTar = new DevExpress.XtraEditors.LabelControl();
             this.LBIzinBasTar = new DevExpress.XtraEditors.LabelControl();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.CBGorev = new DevExpress.XtraEditors.LookUpEdit();
             this.BTNPersonelFoto = new DevExpress.XtraEditors.ButtonEdit();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
@@ -199,7 +200,6 @@
             this.DTPDogumTar = new DevExpress.XtraEditors.DateEdit();
             this.DTPIseGirisTar = new DevExpress.XtraEditors.DateEdit();
             this.BTNPersonelKaydet = new DevExpress.XtraEditors.SimpleButton();
-            this.CBGorev = new DevExpress.XtraEditors.LookUpEdit();
             this.CBDepartman = new DevExpress.XtraEditors.LookUpEdit();
             this.CBCinsiyet = new DevExpress.XtraEditors.ComboBoxEdit();
             this.TBSGKSICILNO = new DevExpress.XtraEditors.TextEdit();
@@ -324,12 +324,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CBGorev.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTNPersonelFoto.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPDogumTar.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPDogumTar.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPIseGirisTar.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPIseGirisTar.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CBGorev.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBDepartman.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBCinsiyet.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBSGKSICILNO.Properties)).BeginInit();
@@ -790,7 +790,7 @@
             // 
             // TBAdres
             // 
-            this.TBAdres.Location = new System.Drawing.Point(112, 164);
+            this.TBAdres.Location = new System.Drawing.Point(120, 160);
             this.TBAdres.Name = "TBAdres";
             this.TBAdres.Size = new System.Drawing.Size(146, 117);
             this.TBAdres.TabIndex = 15;
@@ -821,14 +821,14 @@
             // 
             // TBAdresPostaKodu
             // 
-            this.TBAdresPostaKodu.Location = new System.Drawing.Point(112, 129);
+            this.TBAdresPostaKodu.Location = new System.Drawing.Point(120, 125);
             this.TBAdresPostaKodu.Name = "TBAdresPostaKodu";
             this.TBAdresPostaKodu.Size = new System.Drawing.Size(146, 20);
             this.TBAdresPostaKodu.TabIndex = 13;
             // 
             // LBIL
             // 
-            this.LBIL.Location = new System.Drawing.Point(97, 40);
+            this.LBIL.Location = new System.Drawing.Point(105, 36);
             this.LBIL.Name = "LBIL";
             this.LBIL.Size = new System.Drawing.Size(9, 13);
             this.LBIL.TabIndex = 0;
@@ -857,7 +857,7 @@
             // 
             // LBIlce
             // 
-            this.LBIlce.Location = new System.Drawing.Point(84, 69);
+            this.LBIlce.Location = new System.Drawing.Point(92, 65);
             this.LBIlce.Name = "LBIlce";
             this.LBIlce.Size = new System.Drawing.Size(22, 13);
             this.LBIlce.TabIndex = 1;
@@ -865,7 +865,7 @@
             // 
             // TBAdresMahalle
             // 
-            this.TBAdresMahalle.Location = new System.Drawing.Point(112, 96);
+            this.TBAdresMahalle.Location = new System.Drawing.Point(120, 92);
             this.TBAdresMahalle.Name = "TBAdresMahalle";
             this.TBAdresMahalle.Size = new System.Drawing.Size(146, 20);
             this.TBAdresMahalle.TabIndex = 12;
@@ -880,7 +880,7 @@
             // 
             // LBMah
             // 
-            this.LBMah.Location = new System.Drawing.Point(61, 99);
+            this.LBMah.Location = new System.Drawing.Point(69, 95);
             this.LBMah.Name = "LBMah";
             this.LBMah.Size = new System.Drawing.Size(45, 13);
             this.LBMah.TabIndex = 2;
@@ -896,7 +896,7 @@
             // 
             // LBPostaKod
             // 
-            this.LBPostaKod.Location = new System.Drawing.Point(49, 132);
+            this.LBPostaKod.Location = new System.Drawing.Point(57, 128);
             this.LBPostaKod.Name = "LBPostaKod";
             this.LBPostaKod.Size = new System.Drawing.Size(57, 13);
             this.LBPostaKod.TabIndex = 3;
@@ -904,7 +904,7 @@
             // 
             // CBAdresIlce
             // 
-            this.CBAdresIlce.Location = new System.Drawing.Point(112, 66);
+            this.CBAdresIlce.Location = new System.Drawing.Point(120, 62);
             this.CBAdresIlce.Name = "CBAdresIlce";
             this.CBAdresIlce.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -922,7 +922,7 @@
             // 
             // LBAdres
             // 
-            this.LBAdres.Location = new System.Drawing.Point(73, 168);
+            this.LBAdres.Location = new System.Drawing.Point(81, 164);
             this.LBAdres.Name = "LBAdres";
             this.LBAdres.Size = new System.Drawing.Size(33, 13);
             this.LBAdres.TabIndex = 4;
@@ -930,7 +930,7 @@
             // 
             // CBAdresIL
             // 
-            this.CBAdresIL.Location = new System.Drawing.Point(112, 37);
+            this.CBAdresIL.Location = new System.Drawing.Point(120, 33);
             this.CBAdresIL.Name = "CBAdresIL";
             this.CBAdresIL.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -1783,6 +1783,7 @@
             // 
             // panelControl3
             // 
+            this.panelControl3.Controls.Add(this.CBGorev);
             this.panelControl3.Controls.Add(this.BTNPersonelFoto);
             this.panelControl3.Controls.Add(this.labelControl10);
             this.panelControl3.Controls.Add(this.labelControl9);
@@ -1795,7 +1796,6 @@
             this.panelControl3.Controls.Add(this.DTPDogumTar);
             this.panelControl3.Controls.Add(this.DTPIseGirisTar);
             this.panelControl3.Controls.Add(this.BTNPersonelKaydet);
-            this.panelControl3.Controls.Add(this.CBGorev);
             this.panelControl3.Controls.Add(this.CBDepartman);
             this.panelControl3.Controls.Add(this.CBCinsiyet);
             this.panelControl3.Controls.Add(this.TBSGKSICILNO);
@@ -1817,6 +1817,19 @@
             this.panelControl3.Name = "panelControl3";
             this.panelControl3.Size = new System.Drawing.Size(798, 225);
             this.panelControl3.TabIndex = 1;
+            // 
+            // CBGorev
+            // 
+            this.CBGorev.Location = new System.Drawing.Point(571, 93);
+            this.CBGorev.Name = "CBGorev";
+            this.CBGorev.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Ekle", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.CBGorev.Properties.NullText = "Seçiniz..";
+            this.CBGorev.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.CBGorev.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.lookUpEdit2_Properties_ButtonClick);
+            this.CBGorev.Size = new System.Drawing.Size(146, 22);
+            this.CBGorev.TabIndex = 74;
             // 
             // BTNPersonelFoto
             // 
@@ -1929,19 +1942,6 @@
             this.BTNPersonelKaydet.Text = "&Kaydet/Güncelle";
             this.BTNPersonelKaydet.Click += new System.EventHandler(this.BTNPersonelKaydet_Click);
             // 
-            // CBGorev
-            // 
-            this.CBGorev.Location = new System.Drawing.Point(571, 94);
-            this.CBGorev.Name = "CBGorev";
-            this.CBGorev.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Ekle", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.CBGorev.Properties.NullText = "Seçiniz..";
-            this.CBGorev.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.lookUpEdit2_Properties_ButtonClick);
-            this.CBGorev.Size = new System.Drawing.Size(146, 22);
-            this.CBGorev.TabIndex = 26;
-            this.CBGorev.Enabled = true;
-            // 
             // CBDepartman
             // 
             this.CBDepartman.Location = new System.Drawing.Point(571, 58);
@@ -1954,8 +1954,7 @@
             this.CBDepartman.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.lookUpEdit1_Properties_ButtonClick);
             this.CBDepartman.Size = new System.Drawing.Size(146, 22);
             this.CBDepartman.TabIndex = 25;
-            this.CBDepartman.Enabled = true;
-          
+            this.CBDepartman.EditValueChanged += new System.EventHandler(this.CBDepartman_EditValueChanged);
             // 
             // CBCinsiyet
             // 
@@ -2124,6 +2123,7 @@
             this.gridView1.DetailHeight = 303;
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.Editable = false;
             // 
             // xtraTabPage2
             // 
@@ -2265,12 +2265,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
             this.panelControl3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CBGorev.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTNPersonelFoto.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPDogumTar.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPDogumTar.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPIseGirisTar.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPIseGirisTar.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CBGorev.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBDepartman.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBCinsiyet.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBSGKSICILNO.Properties)).EndInit();
@@ -2354,7 +2354,6 @@
         private DevExpress.XtraEditors.ComboBoxEdit CBUyrugu;
         private DevExpress.XtraEditors.ComboBoxEdit CBKanGrubu;
         private DevExpress.XtraEditors.ComboBoxEdit CBCinsiyet;
-        private DevExpress.XtraEditors.LookUpEdit CBGorev;
         private DevExpress.XtraEditors.LookUpEdit CBDepartman;
         private DevExpress.XtraEditors.ComboBoxEdit CBIstihtamTuru;
         private DevExpress.XtraEditors.ComboBoxEdit CBSigortalilikTur;
@@ -2479,5 +2478,6 @@
         private DevExpress.XtraEditors.LabelControl LBIzinDurum;
         private DevExpress.XtraEditors.ButtonEdit BTNPersonelFoto;
         private DevExpress.XtraEditors.TextEdit TBMezuniyetYil;
+        private DevExpress.XtraEditors.LookUpEdit CBGorev;
     }
 }

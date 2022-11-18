@@ -32,6 +32,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
         public DbSet<MPCARIHAR> MPCARIHAR { get; set; }
         public DbSet<MPCARIALTHES> MPCARIALTHES { get; set; }
         public DbSet<MPCARIKART> MPCARIKART { get; set; }
+        public DbSet<MPSEVKADRES> MPSEVKADRES { get; set; }
         public DbSet<MPSTOKSEVKİYATLİST> MPSTOKSEVKİYATLİST { get; set; }
         public DbSet<MPSIPARISSEVKEMRIHAR> MPSIPARISSEVKEMRIHAR { get; set; }
         public DbSet<MPDEPOEMIR> MPDEPOEMIR { get; set; }
@@ -46,6 +47,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
         public DbSet<MPSTOKFIYATLISTHAR> MPSTOKFIYATLISTHAR { get; set; }
         public DbSet<MPARACLAR> MPARACLAR { get; set; }
         public DbSet<MPARAC> MPARAC { get; set; }
+        public DbSet<MPARACROTA> MPARACROTA { get; set; }
         public DbSet<MPARACMODEL> MPARACMODEL { get; set; }
         public DbSet<MPARACRESIM> MPARACRESIM { get; set; }
         public DbSet<MPARACSIGORTARESIM> MPARACSIGORTARESIM { get; set; }

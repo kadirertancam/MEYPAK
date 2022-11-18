@@ -16,10 +16,11 @@ using static System.Net.Mime.MediaTypeNames;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.Models.STOK;
+using DevExpress.XtraEditors;
 
 namespace MEYPAK.PRL.STOK
 {
-    public partial class FOlcuBrKart : Form
+    public partial class FOlcuBrKart : XtraForm
     {
         string islemtipi = "Kayıt";
         public FOlcuBrKart()
@@ -81,7 +82,7 @@ namespace MEYPAK.PRL.STOK
         private void BTSil_Click(object sender, EventArgs e)
         {
             _OlcuBrServis.Data(ServisList.OlcuBrListeServis);
-            _OlcuBrServis.Data(ServisList.OlcuBrSilServis,null,null, _OlcuBrServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()).ToList());
+            _OlcuBrServis.Data(ServisList.OlcuBrSilServis,null,null, _OlcuBrServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).ToList());
             MessageBox.Show("Silme Başarılı");
             DGOlcuBirim.DataSource = _OlcuBrServis.obje.Where(x=> x.kayittipi == 0);
             DataGridDoldur();

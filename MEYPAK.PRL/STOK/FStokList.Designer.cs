@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FStokList));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.DGStok = new DevExpress.XtraGrid.GridControl();
+            this.DGStokList = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.TSStokList = new System.Windows.Forms.ToolStrip();
             this.TSDuzenle = new System.Windows.Forms.ToolStripButton();
@@ -39,7 +39,7 @@
             this.TSEkle = new System.Windows.Forms.ToolStripButton();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DGStok)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGStokList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.TSStokList.SuspendLayout();
             this.SuspendLayout();
@@ -56,33 +56,33 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.DGStok);
+            this.panel2.Controls.Add(this.DGStokList);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 25);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1064, 539);
             this.panel2.TabIndex = 2;
             // 
-            // DGStok
+            // DGStokList
             // 
-            this.DGStok.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DGStok.Location = new System.Drawing.Point(0, 0);
-            this.DGStok.MainView = this.gridView1;
-            this.DGStok.Name = "DGStok";
-            this.DGStok.Size = new System.Drawing.Size(1064, 539);
-            this.DGStok.TabIndex = 0;
-            this.DGStok.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.DGStokList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DGStokList.Location = new System.Drawing.Point(0, 0);
+            this.DGStokList.MainView = this.gridView1;
+            this.DGStokList.Name = "DGStokList";
+            this.DGStokList.Size = new System.Drawing.Size(1064, 539);
+            this.DGStokList.TabIndex = 0;
+            this.DGStokList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            this.DGStokList.DoubleClick += new System.EventHandler(this.DGStok_CellDoubleClick);
             // 
             // gridView1
             // 
             this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
-            this.gridView1.GridControl = this.DGStok;
+            this.gridView1.GridControl = this.DGStokList;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsView.ShowFooter = true;
             this.gridView1.OptionsView.ShowGroupPanel = false;
-            this.gridView1.DoubleClick += new System.EventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // TSStokList
             // 
@@ -126,13 +126,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1064, 564);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FStokList";
             this.Text = "FStokList";
             this.Load += new System.EventHandler(this.FStokList_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.DGStok)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGStokList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.TSStokList.ResumeLayout(false);
             this.TSStokList.PerformLayout();
@@ -147,7 +148,7 @@
         private ToolStripButton TSDuzenle;
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripButton TSEkle;
-        private DevExpress.XtraGrid.GridControl DGStok;
+        private DevExpress.XtraGrid.GridControl DGStokList;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
     }
 }

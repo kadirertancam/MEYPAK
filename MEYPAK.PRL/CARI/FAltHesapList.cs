@@ -19,11 +19,13 @@ using MEYPAK.Interfaces.Parametre;
 using MEYPAK.Interfaces.Stok;
 using MEYPAK.Entity.Models.SIPARIS;
 using MEYPAK.Entity.Models.STOK;
+using DevExpress.XtraEditors;
 
 namespace MEYPAK.PRL.CARI
 {
-    public partial class FAltHesapList : Form
+    public partial class FAltHesapList : XtraForm
     {
+        FCariAltHesap fCariAltHesap;
         FCariKart fCariKart;
         int id;
         string _islem;
@@ -53,20 +55,22 @@ namespace MEYPAK.PRL.CARI
                     
                 }
             }
-            _cariAltHesapServis.Data(ServisList.CariListeServis);
-            DGAltHesap.DataSource = _cariAltHesapServis.obje.Where(x => x.kayittipi == 0).Select(x => new {
+            _parabirIMServis.Data(ServisList.ParaBirimiListeServis);
+            _cariAltHesapServis.Data(ServisList.CariAltHesListeServis);
+            DGAltHesap.DataSource = _cariAltHesapServis.obje.Where(x => x.kayittipi == 0).Select(x => new
+            {
                 ID = x.id,
-                AltHesapKodu = x.kod,
-                Adı = x.adi,
-                DövizTürü = _parabirIMServis.obje.Where(z => z.id == x.dovizid).FirstOrDefault().adi.ToString(),//Labellama
-                OluşturmaTarihi = x.olusturmatarihi
-            });
+                KOD = x.kod,
+                ADI = x.adi,
+                AKTIF = 1,
+                DOVIZ = _parabirIMServis.obje.Where(z => z.id == x.dovizid).Select(z => z.kisaadi).FirstOrDefault() }).ToList();
+               
             DGAltHesap.Refresh();
             DGAltHesap.RefreshDataSource();
             
         }
 
-        private void DGAltHesap_DoubleClick(object sender, EventArgs e)
+        private void DGAltHesap_CellDoubleClick(object sender, EventArgs e)
         {
             _cariAltHesapServis.Data(ServisList.CariAltHesListeServis);
             if (_islem == "carikart")

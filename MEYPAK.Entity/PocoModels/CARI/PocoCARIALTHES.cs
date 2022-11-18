@@ -8,12 +8,11 @@ namespace MEYPAK.Entity.PocoModels.CARI
 { 
     public class PocoCARIALTHES:SUPERPOCOMODEL
     {
-
-      
         public string adi { get; set; }
         public string kod { get; set; } 
         public int dovizid { get; set; }
         public int aktif { get; set; }
+
 
     }
 }
