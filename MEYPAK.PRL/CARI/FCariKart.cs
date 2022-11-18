@@ -73,11 +73,14 @@ namespace MEYPAK.PRL.CARI
             TBCariSoyad.Text = _tempCariKart.soyadi;
             CBTip.SelectedIndex = _tempCariKart.tipi;
             TBAciklama.Text = _tempCariKart.aciklama;
-
-
-            resimList.Clear();
-            _cariResimServis.Data(ServisList.CariResimListeServis);
-            
+            CBAltHesap.EditValue = _tempCARIALTHES.adi;
+            //TBSevkKodu
+            CBSevkIl.EditValue = _tempCariKart.il;
+            CBSevkIlce.EditValue = _tempCariKart.ilce;
+            TBSevkMahalle.Text = _tempCariKart.mahalle;
+            TBSevkSokak.Text = _tempCariKart.sokak;
+            TBSevkApt.Text = _tempCariKart.apt; 
+            TBSevkDaire.Text = _tempCariKart.daire; 
             TBAciklama1.Text = _tempCariKart.aciklamA1;
             TBAciklama2.Text = _tempCariKart.aciklamA2;
             TBAciklama3.Text = _tempCariKart.aciklamA3;
@@ -87,26 +90,6 @@ namespace MEYPAK.PRL.CARI
             TBAciklama7.Text = _tempCariKart.aciklamA7;
             TBAciklama8.Text = _tempCariKart.aciklamA8;
             TBAciklama9.Text = _tempCariKart.aciklamA9;
-            
-           
-           
-           
-           
-           
-          
-          
-           
-            
-           
-            TBRaporKodu1.Text = _tempCariKart.raporkoD1;
-            TBRaporKodu2.Text = _tempCariKart.raporkoD2;
-            TBRaporKodu3.Text = _tempCariKart.raporkoD3;
-            TBRaporKodu4.Text = _tempCariKart.raporkoD4;
-            TBRaporKodu5.Text = _tempCariKart.raporkoD5;
-            TBRaporKodu6.Text = _tempCariKart.raporkoD6;
-            TBRaporKodu7.Text = _tempCariKart.raporkoD7;
-            TBRaporKodu8.Text = _tempCariKart.raporkoD8;
-            TBRaporKodu9.Text = _tempCariKart.raporkoD9;
             NUDSAciklama1.Value = _tempCariKart.saciklamA1;
             NUDSAciklama2.Value = _tempCariKart.saciklamA2;
             NUDSAciklama3.Value = _tempCariKart.saciklamA3;
@@ -116,13 +99,21 @@ namespace MEYPAK.PRL.CARI
             NUDSAciklama7.Value = _tempCariKart.saciklamA7;
             NUDSAciklama8.Value = _tempCariKart.saciklamA8;
             NUDSAciklama9.Value = _tempCariKart.saciklamA9;
-           
-           
-            
-         
-            
-           
-           
+            BTRprSec1.EditValue = _tempCariKart.raporkoD1;
+            BTRprSec2.EditValue = _tempCariKart.raporkoD2;
+            BTRprSec3.EditValue = _tempCariKart.raporkoD3;
+            BTRprSec4.EditValue = _tempCariKart.raporkoD4;
+            BTRprSec5.EditValue = _tempCariKart.raporkoD5;
+            BTRprSec6.EditValue = _tempCariKart.raporkoD6;
+            BTRprSec7.EditValue = _tempCariKart.raporkoD7;
+            BTRprSec8.EditValue = _tempCariKart.raporkoD8;
+            BTRprSec9.EditValue = _tempCariKart.raporkoD9;
+            //TBYetkiliAdi = 
+            //TBPozisyon = 
+            //TBDokumanAdi.Text = 
+            //BTDosyaYoluSec
+            resimList.Clear();
+            _cariResimServis.Data(ServisList.CariResimListeServis);
             AltCariDoldur();
             if (_tempCariKart.id != null)
                 foreach (var item in _cariResimServis.obje.Where(x => x.CARIID == _tempCariKart.id))
@@ -147,7 +138,9 @@ namespace MEYPAK.PRL.CARI
         ADRESOBJECT.Root _adresObje;
         public void FCariKart_Load(object sender, EventArgs e)
         {
+
             string path = Application.StartupPath + "/il-ilce.json";
+           
             using (FileStream s = File.Open(path, FileMode.Open))
             using (StreamReader sr = new StreamReader(s))
                 while (!sr.EndOfStream)
@@ -155,8 +148,9 @@ namespace MEYPAK.PRL.CARI
 
                     _adresObje = JsonConvert.DeserializeObject<ADRESOBJECT.Root>(sr.ReadToEnd());
 
-
+                    
                     CBIl.Properties.DataSource = _adresObje.data.Select(x => x.il_adi);
+
                 }
 
 
@@ -211,15 +205,15 @@ namespace MEYPAK.PRL.CARI
                 mahalle = TBMahalle.Text,
                 muH_KOD = BTMuhSec.Text,
                 postakod = TBPostaKod.Text,
-                raporkoD1 = TBRaporKodu1.Text,
-                raporkoD2 = TBRaporKodu2.Text,
-                raporkoD3 = TBRaporKodu3.Text,
-                raporkoD4 = TBRaporKodu4.Text,
-                raporkoD5 = TBRaporKodu5.Text,
-                raporkoD6 = TBRaporKodu6.Text,
-                raporkoD7 = TBRaporKodu7.Text,
-                raporkoD8 = TBRaporKodu8.Text,
-                raporkoD9 = TBRaporKodu9.Text,
+                raporkoD1 = BTRprSec1.Text,
+                raporkoD2 = BTRprSec2.Text,
+                raporkoD3 = BTRprSec3.Text,
+                raporkoD4 = BTRprSec4.Text,
+                raporkoD5 = BTRprSec5.Text,
+                raporkoD6 = BTRprSec6.Text,
+                raporkoD7 = BTRprSec7.Text,
+                raporkoD8 = BTRprSec8.Text,
+                raporkoD9 = BTRprSec9.Text,
                 saciklamA1 = int.Parse(NUDSAciklama1.Value.ToString()),
                 saciklamA2 = int.Parse(NUDSAciklama2.Value.ToString()),
                 saciklamA3 = int.Parse(NUDSAciklama3.Value.ToString()),
@@ -371,14 +365,18 @@ namespace MEYPAK.PRL.CARI
         }
         List<PocoCARIRESIM> resimList;
 
-        private void CBIl_TextChanged_1(object sender, EventArgs e)
-        {
-             }
+        //private void CBIl_TextChanged_1(object sender, EventArgs e)
+        //{
+        //    CBIlce.Properties.DataSource = _adresObje.data.Where(x => x.il_adi == CBIl.Text).Select(x => x.ilceler.Select(z => z.ilce_adi)).FirstOrDefault();
+        //}
 
         #endregion
 
+      
+        private void CBUlke_Properties_EditValueChanged(object sender, EventArgs e)
         private void CBIl_TextChanged(object sender, EventArgs e)
         {
+            CBUlke.Properties.DataSource = _adresObje.data.Where(x => x.ulke_adi == CBUlke.EditValue.ToString()).Select(x => x.il_adi.ToList()).FirstOrDefault();
             CBIlce.Properties.DataSource = _adresObje.data.Where(x => x.il_adi == CBIl.Text).Select(x => x.ilceler.Select(z => z.ilce_adi)).FirstOrDefault();
 
         }
