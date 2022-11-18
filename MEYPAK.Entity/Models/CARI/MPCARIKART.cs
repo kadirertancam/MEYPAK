@@ -17,6 +17,7 @@ namespace MEYPAK.Entity.Models.CARI
         public string TCNO { get; set; } = "";
         public int TIPI { get; set; } = 0;
         public string ADRES { get; set; } = "";
+        public string ULKE { get; set; } = "";
         public string IL { get; set; } = "";
         public string ILCE { get; set; } = "";
         public string MAHALLE { get; set; } = "";
