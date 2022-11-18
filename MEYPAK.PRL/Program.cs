@@ -31,7 +31,7 @@ namespace MEYPAK.PRL
             NinjectFactory.CompositionRoot.Initialize(a);
             ApplicationConfiguration.Initialize();
             Application.EnableVisualStyles();
-            Application.Run(new FCariDurum());
+            Application.Run(new FCariKart());
         }
         
 
