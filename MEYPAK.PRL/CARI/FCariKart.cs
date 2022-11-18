@@ -388,9 +388,12 @@ namespace MEYPAK.PRL.CARI
 
       
         private void CBUlke_Properties_EditValueChanged(object sender, EventArgs e)
+        {
+           // CBUlke.Properties.DataSource = _adresObje.data.Where(x => x.ulke_adi == CBUlke.EditValue.ToString()).Select(x => x.il_adi.ToList()).FirstOrDefault();
+
+        }
         private void CBIl_TextChanged(object sender, EventArgs e)
         {
-            CBUlke.Properties.DataSource = _adresObje.data.Where(x => x.ulke_adi == CBUlke.EditValue.ToString()).Select(x => x.il_adi.ToList()).FirstOrDefault();
             CBIlce.Properties.DataSource = _adresObje.data.Where(x => x.il_adi == CBIl.Text).Select(x => x.ilceler.Select(z => z.ilce_adi)).FirstOrDefault();
 
         }
@@ -399,7 +402,7 @@ namespace MEYPAK.PRL.CARI
         {
             fCariList = new FCariList(this.Tag.ToString(), "carikart");
             fCariList.ShowDialog();
-            doldur();
+            Doldur();
         }
     }
 
