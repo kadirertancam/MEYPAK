@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.Entity.PocoModels.CARI
 {
-    public class PocoSEVKADRESI:SUPERPOCOMODEL
+    public class PocoSEVKADRES:SUPERPOCOMODEL
     {
         public int althesapid { get; set; }
         public string kodu { get; set; }

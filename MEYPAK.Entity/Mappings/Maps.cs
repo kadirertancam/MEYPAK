@@ -40,6 +40,7 @@ namespace MEYPAK.Entity.Mappings
             CreateMap<MPCARIHAR, PocoCARIHAR>().ReverseMap();
             CreateMap<MPCARIALTHES, PocoCARIALTHES>().ReverseMap();
             CreateMap<MPCARIRESIM,PocoCARIRESIM>().ReverseMap();    
+            CreateMap<MPSEVKADRES, MPSEVKADRES>().ReverseMap();    
 
             //STOK
             CreateMap<MPSTOKRESIM, PocoSTOKRESIM>().ReverseMap();
@@ -91,6 +92,7 @@ namespace MEYPAK.Entity.Mappings
             CreateMap<MPARACRUHSATRESIM, PocoARACRUHSATRESIM>().ReverseMap();
             CreateMap<MPARACSIGORTARESIM, PocoARACSIGORTARESIM>().ReverseMap();
             CreateMap<MPARACKASKORESIM, PocoARACKASKORESIM>().ReverseMap();
+            CreateMap<MPARACROTA, MPARACROTA>().ReverseMap();
 
             //KASA
             CreateMap<MPKASA, PocoKASA>().ReverseMap();

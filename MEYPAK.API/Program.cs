@@ -41,6 +41,7 @@ using MEYPAK.DAL.Abstract.KasaDal;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository.KasaRepo;
 using MEYPAK.Interfaces.Kasa;
 using MEYPAK.BLL.KASA;
+using MEYPAK.DAL.Concrete.EntityFramework.Repository.CariRepo;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -102,6 +103,9 @@ builder.Services.AddScoped<IAdresListServis, AdresListManager>();
 
 builder.Services.AddScoped<ICariAltHesDal, EFCariAltHesRepo>();
 builder.Services.AddScoped<ICariAltHesServis,CariAltHesManager>();
+
+builder.Services.AddScoped<ISevkAdresDal, EFSevkAdresRepo>();
+builder.Services.AddScoped<ISevkAdresServis, SevkAdresManager>();
 
 #endregion
 #region STOK_Scoped_Islemleri
@@ -237,6 +241,9 @@ builder.Services.AddScoped<IAracSigortaResimServis, AracSigortaResimManager>();
 
 builder.Services.AddScoped<IAracKaskoResimDal, EFAracKaskoResimRepo>();
 builder.Services.AddScoped<IAracKaskoResimServis, AracKaskoResimManager>();
+
+builder.Services.AddScoped<IAracRotaDal, EFAracRotaRepo>();
+builder.Services.AddScoped<IAracRotaServis, AracRotaManager>();
 
 #endregion
 #region KASA_Scoped_Islemleri

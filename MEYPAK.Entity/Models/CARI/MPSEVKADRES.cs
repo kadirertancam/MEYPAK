@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.Entity.Models.CARI
 {
-    public class MPSEVKADRESI:SUPERMODEL
+    public class MPSEVKADRES:SUPERMODEL
     {
         public int ALTHESAPID { get; set; }
         public string KODU { get; set; }

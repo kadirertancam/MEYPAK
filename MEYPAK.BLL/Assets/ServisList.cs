@@ -13,26 +13,31 @@ namespace MEYPAK.BLL.Assets
         #endregion
         
 
-        #region Araclar
+        #region Arac
         public const string AracListeServis =    "http://213.238.167.117:8080/ARAC/ARACListe";
         public const string AracEkleServis = "http://213.238.167.117:8080/ARAC/ARACEkleyadaGuncelle";
         public const string AracSilServis = "http://213.238.167.117:8080/ARAC/ARACSil";
         public const string AracGuncelleServis = "http://213.238.167.117:8080/ARAC/ARACGuncelle";
         public const string AracDeleteByIdServis = "http://213.238.167.117:8080/ARAC/DeleteById";
         public const string AracListeFiltreServis = "http://213.238.167.117:8080/ARAC/ARACListe2?query=";
-
-
         #endregion
 
-        #region Arac
-        public const string AraclarListeServis =        "http://213.238.167.117:8080/ARACLAR/ARACLARListe";
-        public const string AraclarEkleServis =         "http://213.238.167.117:8080/ARACLAR/ARACLAREkleyadaGuncelle";
-        public const string AraclarSilServis =          "http://213.238.167.117:8080/ARACLAR/ARACLARSil";
-        public const string AraclarGuncelleServis =     "http://213.238.167.117:8080/ARACLAR/ARACLARGuncelle";
-        public const string AraclarDeleteByIdServis =   "http://213.238.167.117:8080/ARACLAR/DeleteById";
-        public const string AraclarListeFiltreServis =  "http://213.238.167.117:8080/ARACLAR/ARACLARListe2?query=";
+        #region AracRota
+        public const string AracRotaListeServis =        "http://213.238.167.117:8080/ARACROTA/ARACROTAListe";
+        public const string AracRotaEkleServis =         "http://213.238.167.117:8080/ARACROTA/ARACROTAEkleyadaGuncelle";
+        public const string AracRotaSilServis =          "http://213.238.167.117:8080/ARACROTA/ARACROTASil";
+        public const string AracRotaGuncelleServis =     "http://213.238.167.117:8080/ARACROTA/ARACROTAGuncelle";
+        public const string AracRotaDeleteByIdServis =   "http://213.238.167.117:8080/ARACROTA/DeleteById";
+        public const string AracRotaListeFiltreServis =  "http://213.238.167.117:8080/ARACROTA/ARACROTAListe2?query=";
+        #endregion
 
-
+        #region Araclar
+        public const string AraclarListeServis = "http://213.238.167.117:8080/ARACLAR/ARACLARListe";
+        public const string AraclarEkleServis = "http://213.238.167.117:8080/ARACLAR/ARACLAREkleyadaGuncelle";
+        public const string AraclarSilServis = "http://213.238.167.117:8080/ARACLAR/ARACLARSil";
+        public const string AraclarGuncelleServis = "http://213.238.167.117:8080/ARACLAR/ARACLARGuncelle";
+        public const string AraclarDeleteByIdServis = "http://213.238.167.117:8080/ARACLAR/DeleteById";
+        public const string AraclarListeFiltreServis = "http://213.238.167.117:8080/ARACLAR/ARACLARListe2?query=";
         #endregion
 
         #region AracModel
@@ -93,10 +98,22 @@ namespace MEYPAK.BLL.Assets
 
         #region Cari
 
-        public const string CariListeServis =       "http://213.238.167.117:8080/CARI/CARIListe";
-        public const string CariEkleServis =    "http://213.238.167.117:8080/CARI/CARIEkleyadaGuncelle";
-        public const string CariSilServis =         "http://213.238.167.117:8080/CARI/CARISil";
-        public const string CariGuncelleServis =    "http://213.238.167.117:8080/CARI/CARIGuncelle";
+        public const string CariListeServis = "http://213.238.167.117:8080/CARI/CARIListe";
+        public const string CariEkleServis = "http://213.238.167.117:8080/CARI/CARIEkleyadaGuncelle";
+        public const string CariSilServis = "http://213.238.167.117:8080/CARI/CARISil";
+        public const string CariGuncelleServis = "http://213.238.167.117:8080/CARI/CARIGuncelle";
+        public const string CariDeleteByIdServis = "http://213.238.167.117:8080/CARI/DeleteById";
+
+
+        #endregion
+
+        #region SevkAdres
+
+        public const string SevkAdresListeServis =       "http://213.238.167.117:8080/SEVKADRES/SEVKADRESListe";
+        public const string SevkAdresEkleServis =        "http://213.238.167.117:8080/SEVKADRES/SEVKADRESEkleyadaGuncelle";
+        public const string SevkAdresSilServis =         "http://213.238.167.117:8080/SEVKADRES/SEVKADRESSil";
+        public const string SevkAdresGuncelleServis =    "http://213.238.167.117:8080/SEVKADRES/SEVKADRESGuncelle";
+        public const string SevkAdresDeleteByIdServis = "http://213.238.167.117:8080/SEVKADRES/DeleteById";
 
 
         #endregion
@@ -107,6 +124,7 @@ namespace MEYPAK.BLL.Assets
         public const string CariResimEkleServis =       "http://213.238.167.117:8080/CARIRESIM/CARIRESIMEkleyadaGuncelle";
         public const string CariResimSilServis =        "http://213.238.167.117:8080/CARIRESIM/CARIRESIMSil";
         public const string CariResimGuncelleServis =   "http://213.238.167.117:8080/CARIRESIM/CARIRESIMGuncelle";
+        public const string CariResimDeleteByIdServis = "http://213.238.167.117:8080/CARIRESIM/DeleteById";
 
 
         #endregion
