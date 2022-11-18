@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FSatisIrsaliye));
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
             this.DTSevkiyatTar = new System.Windows.Forms.DateTimePicker();
             this.TBVadeGun = new DevExpress.XtraEditors.TextEdit();
             this.DTVadeTar = new System.Windows.Forms.DateTimePicker();
@@ -86,9 +87,9 @@
             this.BTKaydet = new DevExpress.XtraEditors.SimpleButton();
             this.BTNSil = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBVadeGun.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBKur.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBParaBirimi.Properties)).BeginInit();
@@ -116,7 +117,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.TBKDVTutar.Properties)).BeginInit();
             this.panel6.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -163,6 +163,13 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Satış İrsaliye";
+            // 
+            // memoEdit1
+            // 
+            this.memoEdit1.Location = new System.Drawing.Point(732, 40);
+            this.memoEdit1.Name = "memoEdit1";
+            this.memoEdit1.Size = new System.Drawing.Size(167, 86);
+            this.memoEdit1.TabIndex = 109;
             // 
             // DTSevkiyatTar
             // 
@@ -727,25 +734,20 @@
             this.panel3.Size = new System.Drawing.Size(1884, 521);
             this.panel3.TabIndex = 1;
             // 
-            // memoEdit1
-            // 
-            this.memoEdit1.Location = new System.Drawing.Point(732, 40);
-            this.memoEdit1.Name = "memoEdit1";
-            this.memoEdit1.Size = new System.Drawing.Size(167, 86);
-            this.memoEdit1.TabIndex = 109;
-            // 
             // FSatisIrsaliye
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1884, 961);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FSatisIrsaliye";
             this.Text = "FIrsaliyeOlustur";
             this.Load += new System.EventHandler(this.FIrsaliyeOlustur_Load);
             this.panel2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBVadeGun.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBKur.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBParaBirimi.Properties)).EndInit();
@@ -777,7 +779,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.TBKDVTutar.Properties)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -114,12 +114,13 @@ namespace MEYPAK.PRL.CARI
         void AltCariDoldur()
         {
             if (_tempCARIALTHES != null)
+            {
                 if (_tempCARIALTHES.id > 0)
-                { { 
+                {
                     TBAltHesapAdi.Text = _tempCARIALTHES.adi.ToString();
-            BTAltHesSec.Text = _tempCARIALTHES.kod.ToString();
-                    }
+                    BTAltHesSec.Text = _tempCARIALTHES.kod.ToString();
                 }
+            }
         }
 
 
@@ -255,8 +256,6 @@ namespace MEYPAK.PRL.CARI
                 fCariAltHesap.Show();
                 i++;
 
-
-
             }
             else if (e.Button.Caption == "Seç")
             {
@@ -268,8 +267,6 @@ namespace MEYPAK.PRL.CARI
             }
         }
        
-
-
         private void simpleButton13_Click(object sender, EventArgs e)
         {
             _cariServis.Data(ServisList.CariListeServis);
@@ -336,8 +333,6 @@ namespace MEYPAK.PRL.CARI
         {
             try
             {
-
-
                 using (System.Drawing.Image image = System.Drawing.Image.FromFile(path))
                 {
                     using (MemoryStream m = new MemoryStream())

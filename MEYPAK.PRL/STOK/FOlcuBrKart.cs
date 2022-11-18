@@ -16,10 +16,11 @@ using static System.Net.Mime.MediaTypeNames;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.Models.STOK;
+using DevExpress.XtraEditors;
 
 namespace MEYPAK.PRL.STOK
 {
-    public partial class FOlcuBrKart : Form
+    public partial class FOlcuBrKart : XtraForm
     {
         string islemtipi = "Kayıt";
         public FOlcuBrKart()

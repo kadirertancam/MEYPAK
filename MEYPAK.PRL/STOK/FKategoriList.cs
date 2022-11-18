@@ -56,7 +56,7 @@ namespace MEYPAK.PRL.STOK
         {
             foreach (var item in data.Where(x => x.ustId == ustid))
             {
-                var A = ustNode.Nodes.Add(item.id.ToString(), item.adi);
+                var A = ustNode.Nodes.Add(item.id.ToString(), item.acıklama);
 
                 if (_kategoriServis.obje.Where(x => x.ustId == item.id).Count() > 0)
                 {
@@ -93,7 +93,7 @@ namespace MEYPAK.PRL.STOK
             {
                 PocoSTOKKATEGORI mPKATEGORI = new PocoSTOKKATEGORI()
                 {
-                    adi = TBKategoriAdi.Text,
+                    acıklama = TBKategoriAdi.Text,
                     ustId = 0
                 };
                 _kategoriServis.Data(ServisList.StokKategoriEkleServis, mPKATEGORI);
@@ -111,7 +111,7 @@ namespace MEYPAK.PRL.STOK
             {
                 PocoSTOKKATEGORI mPKATEGORI = new PocoSTOKKATEGORI()
                 {
-                    adi = TBKategoriAdi.Text,
+                    acıklama = TBKategoriAdi.Text,
                     ustId = Convert.ToInt32(treeView1.SelectedNode.Name.ToString())
 
                 };

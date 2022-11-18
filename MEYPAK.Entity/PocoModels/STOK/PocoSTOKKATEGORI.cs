@@ -12,7 +12,7 @@ namespace MEYPAK.Entity.PocoModels.STOK
     {
         public int ustId { get; set; }=0;
         public int altID { get; set; }=0;
-        public string adi { get; set; } = "";
+        public string acıklama { get; set; } = "";
         public string donem { get; set; } = DateTime.Now.ToString("yyyy");
     }
 }

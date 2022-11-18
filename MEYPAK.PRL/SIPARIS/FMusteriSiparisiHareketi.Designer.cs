@@ -310,6 +310,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FMusteriSiparisiHareketi";
             this.Text = "FSiparisIrsaliyelestir";
             this.Load += new System.EventHandler(this.FSiparisIrsaliyelestir_Load);

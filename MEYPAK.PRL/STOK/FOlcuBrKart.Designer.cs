@@ -61,9 +61,9 @@
             this.groupControl1.Controls.Add(this.LBOlcuBirimAdi);
             this.groupControl1.Controls.Add(this.LBOlcuBirim);
             this.groupControl1.GroupStyle = DevExpress.Utils.GroupStyle.Light;
-            this.groupControl1.Location = new System.Drawing.Point(5, 0);
+            this.groupControl1.Location = new System.Drawing.Point(2, 2);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(793, 97);
+            this.groupControl1.Size = new System.Drawing.Size(867, 82);
             this.groupControl1.TabIndex = 81;
             this.groupControl1.Text = "Ölçü Birim";
             // 
@@ -72,7 +72,7 @@
             this.BTKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
             this.BTKaydet.Appearance.Options.UseBackColor = true;
             this.BTKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTKaydet.ImageOptions.Image")));
-            this.BTKaydet.Location = new System.Drawing.Point(288, 34);
+            this.BTKaydet.Location = new System.Drawing.Point(335, 29);
             this.BTKaydet.Name = "BTKaydet";
             this.BTKaydet.Size = new System.Drawing.Size(82, 39);
             this.BTKaydet.TabIndex = 77;
@@ -84,7 +84,7 @@
             this.BTSil.Appearance.BackColor = System.Drawing.Color.Gainsboro;
             this.BTSil.Appearance.Options.UseBackColor = true;
             this.BTSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTSil.ImageOptions.Image")));
-            this.BTSil.Location = new System.Drawing.Point(376, 34);
+            this.BTSil.Location = new System.Drawing.Point(423, 29);
             this.BTSil.Name = "BTSil";
             this.BTSil.Size = new System.Drawing.Size(82, 39);
             this.BTSil.TabIndex = 78;
@@ -93,21 +93,21 @@
             // 
             // TBOlcuBirim
             // 
-            this.TBOlcuBirim.Location = new System.Drawing.Point(124, 58);
+            this.TBOlcuBirim.Location = new System.Drawing.Point(116, 50);
             this.TBOlcuBirim.Name = "TBOlcuBirim";
-            this.TBOlcuBirim.Size = new System.Drawing.Size(132, 20);
+            this.TBOlcuBirim.Size = new System.Drawing.Size(180, 20);
             this.TBOlcuBirim.TabIndex = 83;
             // 
             // TBAdi
             // 
-            this.TBAdi.Location = new System.Drawing.Point(124, 32);
+            this.TBAdi.Location = new System.Drawing.Point(116, 26);
             this.TBAdi.Name = "TBAdi";
-            this.TBAdi.Size = new System.Drawing.Size(132, 20);
+            this.TBAdi.Size = new System.Drawing.Size(180, 20);
             this.TBAdi.TabIndex = 82;
             // 
             // LBOlcuBirimAdi
             // 
-            this.LBOlcuBirimAdi.Location = new System.Drawing.Point(42, 35);
+            this.LBOlcuBirimAdi.Location = new System.Drawing.Point(31, 30);
             this.LBOlcuBirimAdi.Name = "LBOlcuBirimAdi";
             this.LBOlcuBirimAdi.Size = new System.Drawing.Size(64, 13);
             this.LBOlcuBirimAdi.TabIndex = 10;
@@ -115,7 +115,7 @@
             // 
             // LBOlcuBirim
             // 
-            this.LBOlcuBirim.Location = new System.Drawing.Point(84, 61);
+            this.LBOlcuBirim.Location = new System.Drawing.Point(73, 53);
             this.LBOlcuBirim.Name = "LBOlcuBirim";
             this.LBOlcuBirim.Size = new System.Drawing.Size(22, 13);
             this.LBOlcuBirim.TabIndex = 11;
@@ -127,25 +127,25 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(800, 101);
+            this.panelControl1.Size = new System.Drawing.Size(871, 88);
             this.panelControl1.TabIndex = 83;
             // 
             // panelControl2
             // 
             this.panelControl2.Controls.Add(this.DGOlcuBirim);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl2.Location = new System.Drawing.Point(0, 101);
+            this.panelControl2.Location = new System.Drawing.Point(0, 88);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(800, 349);
+            this.panelControl2.Size = new System.Drawing.Size(871, 467);
             this.panelControl2.TabIndex = 84;
             // 
             // DGOlcuBirim
             // 
-            this.DGOlcuBirim.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DGOlcuBirim.Dock = System.Windows.Forms.DockStyle.Top;
             this.DGOlcuBirim.Location = new System.Drawing.Point(2, 2);
             this.DGOlcuBirim.MainView = this.gridView1;
             this.DGOlcuBirim.Name = "DGOlcuBirim";
-            this.DGOlcuBirim.Size = new System.Drawing.Size(796, 345);
+            this.DGOlcuBirim.Size = new System.Drawing.Size(867, 461);
             this.DGOlcuBirim.TabIndex = 80;
             this.DGOlcuBirim.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -153,6 +153,7 @@
             // 
             // gridView1
             // 
+            this.gridView1.DetailHeight = 303;
             this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
             this.gridView1.GridControl = this.DGOlcuBirim;
             this.gridView1.Name = "gridView1";
@@ -161,9 +162,9 @@
             // 
             // FOlcuBrKart
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(871, 555);
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
