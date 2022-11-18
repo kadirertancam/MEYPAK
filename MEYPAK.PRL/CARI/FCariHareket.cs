@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraLayout.Resizing;
+﻿using DevExpress.XtraEditors;
+using DevExpress.XtraLayout.Resizing;
 using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.PARAMETRE;
@@ -16,7 +17,7 @@ using System.Windows.Forms;
 
 namespace MEYPAK.PRL.CARI
 {
-    public partial class FCariHareket : Form
+    public partial class FCariHareket : XtraForm
     {
         public FCariHareket()
         {
