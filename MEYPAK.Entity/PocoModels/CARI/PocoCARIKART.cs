@@ -17,6 +17,7 @@ namespace MEYPAK.Entity.PocoModels.CARI
         public string tcno { get; set; } = "";
         public int tipi { get; set; } = 0;
         public string adres { get; set; } = "";
+        public string ulke { get; set; } = "";
         public string il { get; set; } = "";
         public string ilce { get; set; } = "";
         public string mahalle { get; set; } = "";

@@ -31,12 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FCariAltHesap));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.TBAdres = new DevExpress.XtraEditors.MemoEdit();
-            this.LBAdres = new DevExpress.XtraEditors.LabelControl();
-            this.CBIlce = new DevExpress.XtraEditors.LookUpEdit();
-            this.CBIl = new DevExpress.XtraEditors.LookUpEdit();
-            this.LBIlce = new DevExpress.XtraEditors.LabelControl();
-            this.LBIl = new DevExpress.XtraEditors.LabelControl();
             this.CBAktif1 = new DevExpress.XtraEditors.CheckEdit();
             this.BTSil = new DevExpress.XtraEditors.SimpleButton();
             this.TBKodu = new DevExpress.XtraEditors.TextEdit();
@@ -53,9 +47,6 @@
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TBAdres.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CBIlce.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CBIl.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBAktif1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBKodu.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBDoviz.Properties)).BeginInit();
@@ -77,12 +68,6 @@
             // 
             // groupControl1
             // 
-            this.groupControl1.Controls.Add(this.TBAdres);
-            this.groupControl1.Controls.Add(this.LBAdres);
-            this.groupControl1.Controls.Add(this.CBIlce);
-            this.groupControl1.Controls.Add(this.CBIl);
-            this.groupControl1.Controls.Add(this.LBIlce);
-            this.groupControl1.Controls.Add(this.LBIl);
             this.groupControl1.Controls.Add(this.CBAktif1);
             this.groupControl1.Controls.Add(this.BTSil);
             this.groupControl1.Controls.Add(this.TBKodu);
@@ -100,61 +85,9 @@
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Alt Hesap";
             // 
-            // TBAdres
-            // 
-            this.TBAdres.Location = new System.Drawing.Point(579, 34);
-            this.TBAdres.Name = "TBAdres";
-            this.TBAdres.Size = new System.Drawing.Size(207, 64);
-            this.TBAdres.TabIndex = 12;
-            // 
-            // LBAdres
-            // 
-            this.LBAdres.Location = new System.Drawing.Point(545, 36);
-            this.LBAdres.Name = "LBAdres";
-            this.LBAdres.Size = new System.Drawing.Size(28, 13);
-            this.LBAdres.TabIndex = 11;
-            this.LBAdres.Text = "Adres";
-            // 
-            // CBIlce
-            // 
-            this.CBIlce.Location = new System.Drawing.Point(362, 59);
-            this.CBIlce.Name = "CBIlce";
-            this.CBIlce.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.CBIlce.Properties.NullText = "";
-            this.CBIlce.Size = new System.Drawing.Size(154, 20);
-            this.CBIlce.TabIndex = 10;
-            // 
-            // CBIl
-            // 
-            this.CBIl.Location = new System.Drawing.Point(362, 33);
-            this.CBIl.Name = "CBIl";
-            this.CBIl.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.CBIl.Properties.NullText = "";
-            this.CBIl.Size = new System.Drawing.Size(154, 20);
-            this.CBIl.TabIndex = 9;
-            this.CBIl.EditValueChanged += new System.EventHandler(this.CBIl_EditValueChanged);
-            // 
-            // LBIlce
-            // 
-            this.LBIlce.Location = new System.Drawing.Point(339, 61);
-            this.LBIlce.Name = "LBIlce";
-            this.LBIlce.Size = new System.Drawing.Size(17, 13);
-            this.LBIlce.TabIndex = 8;
-            this.LBIlce.Text = "İlçe";
-            // 
-            // LBIl
-            // 
-            this.LBIl.Location = new System.Drawing.Point(350, 36);
-            this.LBIl.Name = "LBIl";
-            this.LBIl.Size = new System.Drawing.Size(6, 13);
-            this.LBIl.TabIndex = 7;
-            this.LBIl.Text = "İl";
-            // 
             // CBAktif1
             // 
-            this.CBAktif1.Location = new System.Drawing.Point(233, 78);
+            this.CBAktif1.Location = new System.Drawing.Point(257, 81);
             this.CBAktif1.Name = "CBAktif1";
             this.CBAktif1.Properties.Caption = "Aktif";
             this.CBAktif1.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
@@ -168,24 +101,24 @@
             this.BTSil.Appearance.Options.UseFont = true;
             this.BTSil.AppearanceDisabled.Options.UseImage = true;
             this.BTSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTSil.ImageOptions.Image")));
-            this.BTSil.Location = new System.Drawing.Point(946, 40);
+            this.BTSil.Location = new System.Drawing.Point(439, 36);
             this.BTSil.Name = "BTSil";
-            this.BTSil.Size = new System.Drawing.Size(75, 49);
+            this.BTSil.Size = new System.Drawing.Size(82, 39);
             this.BTSil.TabIndex = 2;
             this.BTSil.Text = "&Sil";
             this.BTSil.Click += new System.EventHandler(this.BTSil_Click);
             // 
             // TBKodu
             // 
-            this.TBKodu.Location = new System.Drawing.Point(128, 33);
+            this.TBKodu.Location = new System.Drawing.Point(141, 29);
             this.TBKodu.Name = "TBKodu";
-            this.TBKodu.Size = new System.Drawing.Size(154, 20);
+            this.TBKodu.Size = new System.Drawing.Size(180, 20);
             this.TBKodu.TabIndex = 5;
             // 
             // LBKodu
             // 
             this.LBKodu.Appearance.Options.UseFont = true;
-            this.LBKodu.Location = new System.Drawing.Point(45, 36);
+            this.LBKodu.Location = new System.Drawing.Point(43, 32);
             this.LBKodu.Name = "LBKodu";
             this.LBKodu.Size = new System.Drawing.Size(73, 13);
             this.LBKodu.TabIndex = 4;
@@ -197,16 +130,16 @@
             this.BTKaydet.Appearance.Options.UseBackColor = true;
             this.BTKaydet.Appearance.Options.UseFont = true;
             this.BTKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTKaydet.ImageOptions.Image")));
-            this.BTKaydet.Location = new System.Drawing.Point(847, 40);
+            this.BTKaydet.Location = new System.Drawing.Point(351, 36);
             this.BTKaydet.Name = "BTKaydet";
-            this.BTKaydet.Size = new System.Drawing.Size(80, 49);
+            this.BTKaydet.Size = new System.Drawing.Size(82, 39);
             this.BTKaydet.TabIndex = 1;
             this.BTKaydet.Text = "&Kaydet";
             this.BTKaydet.Click += new System.EventHandler(this.BTKaydet_Click);
             // 
             // CBDoviz
             // 
-            this.CBDoviz.Location = new System.Drawing.Point(128, 78);
+            this.CBDoviz.Location = new System.Drawing.Point(141, 81);
             this.CBDoviz.Name = "CBDoviz";
             this.CBDoviz.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -224,7 +157,7 @@
             // 
             // LBDoviz
             // 
-            this.LBDoviz.Location = new System.Drawing.Point(85, 81);
+            this.LBDoviz.Location = new System.Drawing.Point(90, 84);
             this.LBDoviz.Name = "LBDoviz";
             this.LBDoviz.Size = new System.Drawing.Size(26, 13);
             this.LBDoviz.TabIndex = 1;
@@ -232,9 +165,9 @@
             // 
             // TBAdi
             // 
-            this.TBAdi.Location = new System.Drawing.Point(128, 55);
+            this.TBAdi.Location = new System.Drawing.Point(141, 55);
             this.TBAdi.Name = "TBAdi";
-            this.TBAdi.Size = new System.Drawing.Size(154, 20);
+            this.TBAdi.Size = new System.Drawing.Size(180, 20);
             this.TBAdi.TabIndex = 2;
             // 
             // DGAltHesap
@@ -282,9 +215,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TBAdres.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CBIlce.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CBIl.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBAktif1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBKodu.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBDoviz.Properties)).EndInit();
@@ -313,11 +243,5 @@
         private DevExpress.XtraEditors.LabelControl LBAdi;
         private DevExpress.XtraEditors.LabelControl LBDoviz;
         private DevExpress.XtraEditors.TextEdit TBAdi;
-        private DevExpress.XtraEditors.MemoEdit TBAdres;
-        private DevExpress.XtraEditors.LabelControl LBAdres;
-        private DevExpress.XtraEditors.LookUpEdit CBIlce;
-        private DevExpress.XtraEditors.LookUpEdit CBIl;
-        private DevExpress.XtraEditors.LabelControl LBIlce;
-        private DevExpress.XtraEditors.LabelControl LBIl;
     }
 }

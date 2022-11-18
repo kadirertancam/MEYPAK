@@ -24,8 +24,6 @@ namespace MEYPAK.PRL.CARI
             resimList = new List<PocoCARIRESIM>();
             _cariParABIRIM = new GenericWebServis<PocoPARABIRIM>();
             _cariParABIRIM.Data(ServisList.ParaBirimiListeServis);
-
-
         }
         #region Tanımlar
         GenericWebServis<ADRESLIST> _adresListServis;
@@ -41,12 +39,44 @@ namespace MEYPAK.PRL.CARI
         #endregion
 
         #region Metotlar
-        void doldur()
+        void Doldur()
         {
+            BTCariSec.Text = _tempCariKart.kod;
+            TBUnvan.Text = _tempCariKart.unvan;
+            CBUlke.Text = _tempCariKart.ulke;
+            CBIl.Text = _tempCariKart.il;
+            CBIlce.Text = _tempCariKart.ilce;
+            TBMahalle.Text = _tempCariKart.mahalle;
+            TBSokak.Text = _tempCariKart.sokak;
+            TBApt.Text = _tempCariKart.apt;
+            TBDaire.Text = _tempCariKart.daire;
+            TBPostaKod.Text = _tempCariKart.postakod;
+            CBVDaire.EditValue = _tempCariKart.vergidairesi;
+            TBVergiNo.Text = _tempCariKart.vergino;
+            TBTcNo.Text = _tempCariKart.tcno;
+            TBVadeGun.Text = _tempCariKart.vadegunu.ToString();
+            BTMuhSec.Text = _tempCariKart.muH_KOD;
+            TBTelefon1.Text = _tempCariKart.telefon;
+            TBTelefon2.Text = _tempCariKart.telefoN2;
+            TBCepTel.Text = _tempCariKart.ceptel;
+            TBFax.Text = _tempCariKart.fax;
+            TBWebSite.Text = _tempCariKart.web;
+            TBEposta.Text = _tempCariKart.eposta;
+            TBAdres.Text = _tempCariKart.adres;
+            BTGrupSec.Text = _tempCariKart.grupkodu;
+            BTKategoriSec.Text = _tempCariKart.kategori;
+            //CBAktif.Text =
+            BTAMuhSec.Text = _tempCariKart.amuhkod;
+            BTSMuhSec.Text = _tempCariKart.smuhkod;
+            TBCariAdi.Text = _tempCariKart.adi;
+            TBCariSoyad.Text = _tempCariKart.soyadi;
+            CBTip.SelectedIndex = _tempCariKart.tipi;
+            TBAciklama.Text = _tempCariKart.aciklama;
+
 
             resimList.Clear();
             _cariResimServis.Data(ServisList.CariResimListeServis);
-            TBAciklama.Text = _tempCariKart.aciklama;
+            
             TBAciklama1.Text = _tempCariKart.aciklamA1;
             TBAciklama2.Text = _tempCariKart.aciklamA2;
             TBAciklama3.Text = _tempCariKart.aciklamA3;
@@ -56,23 +86,17 @@ namespace MEYPAK.PRL.CARI
             TBAciklama7.Text = _tempCariKart.aciklamA7;
             TBAciklama8.Text = _tempCariKart.aciklamA8;
             TBAciklama9.Text = _tempCariKart.aciklamA9;
-            TBCariAdi.Text = _tempCariKart.adi;
-            TBCariSoyad.Text = _tempCariKart.soyadi;
-            TBAdres.Text = _tempCariKart.adres;
-            BTAMuhSec.Text = _tempCariKart.amuhkod;
-            TBApt.Text = _tempCariKart.apt;
-            TBCepTel.Text = _tempCariKart.ceptel;
-            TBDaire.Text = _tempCariKart.daire;
-            TBEposta.Text = _tempCariKart.eposta;
-            TBFax.Text = _tempCariKart.fax;
-            BTGrupSec.Text = _tempCariKart.grupkodu;
-            CBIl.Text = _tempCariKart.il;
-            CBIlce.Text = _tempCariKart.ilce;
-            BTKategoriSec.Text = _tempCariKart.kategori;
-            BTCariSec.Text = _tempCariKart.kod;
-            TBMahalle.Text = _tempCariKart.mahalle;
-            BTMuhSec.Text = _tempCariKart.muH_KOD;
-            TBPostaKod.Text = _tempCariKart.postakod;
+            
+           
+           
+           
+           
+           
+          
+          
+           
+            
+           
             TBRaporKodu1.Text = _tempCariKart.raporkoD1;
             TBRaporKodu2.Text = _tempCariKart.raporkoD2;
             TBRaporKodu3.Text = _tempCariKart.raporkoD3;
@@ -91,18 +115,13 @@ namespace MEYPAK.PRL.CARI
             NUDSAciklama7.Value = _tempCariKart.saciklamA7;
             NUDSAciklama8.Value = _tempCariKart.saciklamA8;
             NUDSAciklama9.Value = _tempCariKart.saciklamA9;
-            BTSMuhSec.Text = _tempCariKart.smuhkod;
-            BTAMuhSec.Text = _tempCariKart.amuhkod;
-            TBSokak.Text = _tempCariKart.sokak;
-            TBTcNo.Text = _tempCariKart.tcno;
-            TBTelefon1.Text = _tempCariKart.telefon;
-            TBTelefon2.Text = _tempCariKart.telefoN2;
-            CBTip.SelectedIndex = _tempCariKart.tipi;
-            TBUnvan.Text = _tempCariKart.unvan;
-            TBVadeGun.Text = _tempCariKart.vadegunu.ToString();
-            CBVDaire.Text = _tempCariKart.vergidairesi;
-            TBVergiNo.Text = _tempCariKart.vergino;
-            TBWebSite.Text = _tempCariKart.web;
+           
+           
+            
+         
+            
+           
+           
             AltCariDoldur();
             if (_tempCariKart.id != null)
                 foreach (var item in _cariResimServis.obje.Where(x => x.CARIID == _tempCariKart.id))
@@ -156,7 +175,7 @@ namespace MEYPAK.PRL.CARI
             //   _fCariList = new FCariList(this.Tag.ToString(), "carikart");
             //_fCariList.ShowDialog();
             //if (_tempCariKart != null)
-            //    doldur();
+            //    Doldur();
         }
 
 
@@ -356,7 +375,13 @@ namespace MEYPAK.PRL.CARI
             CBIlce.Properties.DataSource = _adresObje.data.Where(x => x.il_adi == CBIl.Text).Select(x => x.ilceler.Select(z => z.ilce_adi)).FirstOrDefault();
         }
 
+
         #endregion
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }
