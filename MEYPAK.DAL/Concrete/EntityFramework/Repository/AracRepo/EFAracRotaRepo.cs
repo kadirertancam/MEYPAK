@@ -55,3 +55,4 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository.AracRepo
             }
     }
 }
+}
