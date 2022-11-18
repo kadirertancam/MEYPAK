@@ -1,213 +1,848 @@
 {
-    "BD": "Bangladeş",
-    "BE": "Belçika",
-    "BF": "Burkina Faso",
-    "BG": "Bulgaristan",
-    "BA": "Bosna Hersek",
-    "BB": "Barbados",
-    "WF": "Wallis ve Futuna",
-    "BL": "Saint Barthelemy",
-    "BM": "Bermuda",
-    "BN": "Brunei",
-    "BO": "Bolivya",
-    "BH": "Bahreyn",
-    "BI": "Burundi",
-    "BJ": "Benin",
-    "BT": "Butan",
-    "JM": "Jamaika",
-    "BV": "Bouvet Adası",
-    "BW": "Botsvana",
-    "WS": "Samoa",
-    "BQ": "Bonaire, Saint Eustatius ve Saba",
-    "BR": "Brezilya",
-    "BS": "Bahamalar",
-    "JE": "Jersey",
-    "BY": "Beyaz Rusya",
-    "BZ": "Belize",
-    "RU": "Rusya",
-    "RW": "Ruanda",
-    "RS": "Sırbistan",
-    "TL": "Doğu Timor",
-    "RE": "Réunion",
-    "TM": "Türkmenistan",
-    "TJ": "Tacikistan",
-    "RO": "Romanya",
-    "TK": "Tokelau",
-    "GW": "Gine-Bissau",
-    "GU": "Guam",
-    "GT": "Guatemala",
-    "GS": "Güney Georgia ve Güney Sandviç Adaları",
-    "GR": "Yunanistan",
-    "GQ": "Ekvator Ginesi",
-    "GP": "Guadeloupe",
-    "JP": "Japonya",
-    "GY": "Guyana",
-    "GG": "Guernsey",
-    "GF": "Fransız Guyanası",
-    "GE": "Gürcistan",
-    "GD": "Grenada",
-    "GB": "Birleşik Krallık",
-    "GA": "Gabon",
-    "SV": "El Salvador",
-    "GN": "Gine",
-    "GM": "Gambiya",
-    "GL": "Grönland",
-    "GI": "Cebelitarık",
-    "GH": "Gana",
-    "OM": "Umman",
-    "TN": "Tunus",
-    "JO": "Ürdün",
-    "IK": "Hırvatistan",
-    "HT": "Haiti",
-    "HU": "Macaristan",
-    "HK": "Hong Kong",
-    "HN": "Honduras",
-    "HM": "Heard Adası ve McDonald Adaları",
-    "VE": "Venezüella",
-    "PR": "Porto Riko",
-    "PW": "Palau",
-    "PT": "Portekiz",
-    "SJ": "Svalbard",
-    "PY": "Paraguay",
-    "IQ": "Irak",
-    "PA": "Panama",
-    "PF": "Fransız Polinezyası",
-    "PG": "Papua Yeni Gine",
-    "PE": "Peru",
-    "PK": "Pakistan",
-    "PH": "Filipinler",
-    "PN": "Pitcairn Adaları",
-    "PL": "Polonya",
-    "PM": "Saint Pierre ve Miquelon",
-    "ZM": "Zambiya",
-    "EH": "Batı Sahra",
-    "EE": "Estonya",
-    "EG": "Mısır",
-    "ZA": "Güney Afrika",
-    "EC": "Ekvador",
-    "IT": "İtalya",
-    "VN": "Vietnam",
-    "SB": "Solomon Adaları",
-    "ET": "Etiyopya",
-    "SO": "Somali",
-    "ZW": "Zimbabwe",
-    "SA": "Suudi Arabistan",
-    "ES": "İspanya",
-    "ER": "Eritrea",
-    "ME": "Karadağ",
-    "MD": "Moldova",
-    "MG": "Madagaskar",
-    "MF": "Saint Martin",
-    "MA": "Fas",
-    "MC": "Monaco",
-    "UZ": "Özbekistan",
-    "MM": "Myanmar",
-    "ML": "Mali",
-    "MO": "Macao",
-    "MN": "Moğolistan",
-    "MH": "Marshall Adaları",
-    "MK": "Makedonya",
-    "MU": "Mauritius",
-    "MT": "Malta",
-    "MW": "Malavi",
-    "MV": "Maldivler",
-    "MQ": "Martinik",
-    "MP": "Kuzey Mariana Adaları",
-    "MS": "Montserrat",
-    "MR": "Moritanya",
-    "IM": "Isle of Man",
-    "UG": "Uganda",
-    "TZ": "Tanzanya",
-    "MY": "Malezya",
-    "MX": "Meksika",
-    "IL": "İsrail",
-    "FR": "Fransa",
-    "IO": "İngiliz Hint Okyanusu Bölgesi",
-    "SH": "Saint Helena",
-    "FI": "Finlandiya",
-    "FJ": "Fiji",
-    "FK": "Falkland Adaları",
-    "FM": "Mikronezya",
-    "FO": "Faroe Adaları",
-    "NI": "Nikaragua",
-    "NL": "Hollanda",
-    "NO": "Norveç",
-    "NA": "Namibya",
-    "VU": "Vanuatu",
-    "NC": "Yeni Kaledonya",
-    "NE": "Nijer",
-    "NF": "Norfolk Adası",
-    "NG": "Nijerya",
-    "NZ": "Yeni Zelanda",
-    "NP": "Nepal",
-    "NR": "Nauru",
-    "NU": "Niue",
-    "CK": "Cook Adaları",
-    "XK": "Kosova",
-    "CI": "Fildişi Sahilleri",
-    "CH": "İsviçre",
-    "CO": "Kolombiya",
-    "CN": "Çin",
-    "CM": "Kamerun",
-    "CL": "Şili",
-    "CC": "Cocos Adaları",
-    "CA": "Kanada",
-    "CG": "Kongo Cumhuriyeti",
-    "CF": "Orta Afrika Cumhuriyeti",
-    "CD": "Demokratik Kongo Cumhuriyeti",
-    "CZ": "Çek Cumhuriyeti",
-    "CY": "Kıbrıs",
-    "CX": "Noel Adası",
-    "CR": "Kosta Rika",
-    "CW": "Curacao",
-    "CV": "Cape Verde",
-    "CU": "Küba",
-    "SZ": "Svaziland",
-    "SY": "Suriye",
-    "SX": "Sint Maarten",
-    "KG": "Kırgızistan",
-    "KE": "Kenya",
-    "SS": "Güney Sudan",
-    "SR": "Surinam",
-    "KI": "Kiribati",
-    "KH": "Kamboçya",
-    "KN": "Saint Kitts ve Nevis",
-    "KM": "Komor",
-    "ST": "Sao Tome ve Principe",
-    "SK": "Slovakya",
-    "KR": "Güney Kore",
-    "SI": "Slovenya",
-    "KP": "Kuzey Kore",
-    "KW": "Kuveyt",
-    "SN": "Senegal",
-    "SM": "San Marino",
-    "SL": "Sierra Leone",
-    "SC": "Seyşel Adaları",
-    "KZ": "Kazakistan",
-    "KY": "Kayman Adaları",
-    "SG": "Singapur",
-    "SE": "İsveç",
-    "SD": "Sudan",
-    "DO": "Dominik Cumhuriyeti",
-    "DM": "Dominika",
-    "DJ": "Cibuti",
-    "DK": "Danimarka",
-    "VG": "İngiliz Virgin Adaları",
-    "DE": "Almanya",
-    "YE": "Yemen",
-    "DZ": "Cezayir",
-    "ABD": "Amerika Birleşik Devletleri",
-    "UY": "Uruguay",
-    "YT": "Mayotte",
-    "UM": "Birleşik Devletlerin Küçük Dış Adaları",
-    "LB": "Lübnan",
-    "LC": "Saint Lucia",
-    "LA": "Laos",
-    "TV": "Tuvalu",
-    "TW": "Tayvan",
-    "TT": "Trinidad ve Tobago",
-    "TR": "Türkiye",
-    "LK": "Sri Lanka",
-    "LI": "Lihtenştayn",
-    "AG": "Letonya"
-}
+  "Ulke": [
+    {
+      "kisa": "BD",
+      "ulkeadi": "Bangladeş"
+    },
+    {
+      "kisa": "BE",
+      "ulkeadi": "Belçika"
+    },
+    {
+      "kisa": "BF",
+      "ulkeadi": "Burkina Faso"
+    },
+    {
+      "kisa": "BG",
+      "ulkeadi": "Bulgaristan"
+    },
+    {
+      "kisa": "BA",
+      "ulkeadi": "Bosna Hersek"
+    },
+    {
+      "kisa": "BB",
+      "ulkeadi": "Barbados"
+    },
+    {
+      "kisa": "WF",
+      "ulkeadi": "Wallis ve Futuna"
+    },
+    {
+      "kisa": "BL",
+      "ulkeadi": "Saint Barthelemy"
+    },
+    {
+      "kisa": "BM",
+      "ulkeadi": "Bermuda"
+    },
+    {
+      "kisa": "BN",
+      "ulkeadi": "Brunei"
+    },
+    {
+      "kisa": "BO",
+      "ulkeadi": "Bolivya"
+    },
+    {
+      "kisa": "BH",
+      "ulkeadi": "Bahreyn"
+    },
+    {
+      "kisa": "BI",
+      "ulkeadi": "Burundi"
+    },
+    {
+      "kisa": "BJ",
+      "ulkeadi": "Benin"
+    },
+    {
+      "kisa": "BT",
+      "ulkeadi": "Butan"
+    },
+    {
+      "kisa": "JM",
+      "ulkeadi": "Jamaika"
+    },
+    {
+      "kisa": "BV",
+      "ulkeadi": "Bouvet Adası"
+    },
+    {
+      "kisa": "BW",
+      "ulkeadi": "Botsvana"
+    },
+    {
+      "kisa": "WS",
+      "ulkeadi": "Samoa"
+    },
+    {
+      "kisa": "BQ",
+      "ulkeadi": "Bonaire, Saint Eustatius ve Saba"
+    },
+    {
+      "kisa": "BR",
+      "ulkeadi": "Brezilya"
+    },
+    {
+      "kisa": "BS",
+      "ulkeadi": "Bahamalar"
+    },
+    {
+      "kisa": "JE",
+      "ulkeadi": "Jersey"
+    },
+    {
+      "kisa": "BY",
+      "ulkeadi": "Beyaz Rusya"
+    },
+    {
+      "kisa": "BZ",
+      "ulkeadi": "Belize"
+    },
+    {
+      "kisa": "RU",
+      "ulkeadi": "Rusya"
+    },
+    {
+      "kisa": "RW",
+      "ulkeadi": "Ruanda"
+    },
+    {
+      "kisa": "RS",
+      "ulkeadi": "Sırbistan"
+    },
+    {
+      "kisa": "TL",
+      "ulkeadi": "Doğu Timor"
+    },
+    {
+      "kisa": "RE",
+      "ulkeadi": "Réunion"
+    },
+    {
+      "kisa": "TM",
+      "ulkeadi": "Türkmenistan"
+    },
+    {
+      "kisa": "TJ",
+      "ulkeadi": "Tacikistan"
+    },
+    {
+      "kisa": "RO",
+      "ulkeadi": "Romanya"
+    },
+    {
+      "kisa": "TK",
+      "ulkeadi": "Tokelau"
+    },
+    {
+      "kisa": "GW",
+      "ulkeadi": "Gine-Bissau"
+    },
+    {
+      "kisa": "GU",
+      "ulkeadi": "Guam"
+    },
+    {
+      "kisa": "GT",
+      "ulkeadi": "Guatemala"
+    },
+    {
+      "kisa": "GS",
+      "ulkeadi": "Güney Georgia ve Güney Sandviç Adaları"
+    },
+    {
+      "kisa": "GR",
+      "ulkeadi": "Yunanistan"
+    },
+    {
+      "kisa": "GQ",
+      "ulkeadi": "Ekvator Ginesi"
+    },
+    {
+      "kisa": "GP",
+      "ulkeadi": "Guadeloupe"
+    },
+    {
+      "kisa": "JP",
+      "ulkeadi": "Japonya"
+    },
+    {
+      "kisa": "GY",
+      "ulkeadi": "Guyana"
+    },
+    {
+      "kisa": "GG",
+      "ulkeadi": "Guernsey"
+    },
+    {
+      "kisa": "GF",
+      "ulkeadi": "Fransız Guyanası"
+    },
+    {
+      "kisa": "GE",
+      "ulkeadi": "Gürcistan"
+    },
+    {
+      "kisa": "GD",
+      "ulkeadi": "Grenada"
+    },
+    {
+      "kisa": "GB",
+      "ulkeadi": "Birleşik Krallık"
+    },
+    {
+      "kisa": "GA",
+      "ulkeadi": "Gabon"
+    },
+    {
+      "kisa": "SV",
+      "ulkeadi": "El Salvador"
+    },
+    {
+      "kisa": "GN",
+      "ulkeadi": "Gine"
+    },
+    {
+      "kisa": "GM",
+      "ulkeadi": "Gambiya"
+    },
+    {
+      "kisa": "GL",
+      "ulkeadi": "Grönland"
+    },
+    {
+      "kisa": "GI",
+      "ulkeadi": "Cebelitarık"
+    },
+    {
+      "kisa": "GH",
+      "ulkeadi": "Gana"
+    },
+    {
+      "kisa": "OM",
+      "ulkeadi": "Umman"
+    },
+    {
+      "kisa": "TN",
+      "ulkeadi": "Tunus"
+    },
+    {
+      "kisa": "JO",
+      "ulkeadi": "Ürdün"
+    },
+    {
+      "kisa": "IK",
+      "ulkeadi": "Hırvatistan"
+    },
+    {
+      "kisa": "HT",
+      "ulkeadi": "Haiti"
+    },
+    {
+      "kisa": "HU",
+      "ulkeadi": "Macaristan"
+    },
+    {
+      "kisa": "HK",
+      "ulkeadi": "Hong Kong"
+    },
+    {
+      "kisa": "HN",
+      "ulkeadi": "Honduras"
+    },
+    {
+      "kisa": "HM",
+      "ulkeadi": "Heard Adası ve McDonald Adaları"
+    },
+    {
+      "kisa": "VE",
+      "ulkeadi": "Venezüella"
+    },
+    {
+      "kisa": "PR",
+      "ulkeadi": "Porto Riko"
+    },
+    {
+      "kisa": "PW",
+      "ulkeadi": "Palau"
+    },
+    {
+      "kisa": "PT",
+      "ulkeadi": "Portekiz"
+    },
+    {
+      "kisa": "SJ",
+      "ulkeadi": "Svalbard"
+    },
+    {
+      "kisa": "PY",
+      "ulkeadi": "Paraguay"
+    },
+    {
+      "kisa": "IQ",
+      "ulkeadi": "Irak"
+    },
+    {
+      "kisa": "PA",
+      "ulkeadi": "Panama"
+    },
+    {
+      "kisa": "PF",
+      "ulkeadi": "Fransız Polinezyası"
+    },
+    {
+      "kisa": "PG",
+      "ulkeadi": "Papua Yeni Gine"
+    },
+    {
+      "kisa": "PE",
+      "ulkeadi": "Peru"
+    },
+    {
+      "kisa": "PK",
+      "ulkeadi": "Pakistan"
+    },
+    {
+      "kisa": "PH",
+      "ulkeadi": "Filipinler"
+    },
+    {
+      "kisa": "PN",
+      "ulkeadi": "Pitcairn Adaları"
+    },
+    {
+      "kisa": "PL",
+      "ulkeadi": "Polonya"
+    },
+    {
+      "kisa": "PM",
+      "ulkeadi": "Saint Pierre ve Miquelon"
+    },
+    {
+      "kisa": "ZM",
+      "ulkeadi": "Zambiya"
+    },
+    {
+      "kisa": "EH",
+      "ulkeadi": "Batı Sahra"
+    },
+    {
+      "kisa": "EE",
+      "ulkeadi": "Estonya"
+    },
+    {
+      "kisa": "EG",
+      "ulkeadi": "Mısır"
+    },
+    {
+      "kisa": "ZA",
+      "ulkeadi": "Güney Afrika"
+    },
+    {
+      "kisa": "EC",
+      "ulkeadi": "Ekvador"
+    },
+    {
+      "kisa": "IT",
+      "ulkeadi": "İtalya"
+    },
+    {
+      "kisa": "VN",
+      "ulkeadi": "Vietnam"
+    },
+    {
+      "kisa": "SB",
+      "ulkeadi": "Solomon Adaları"
+    },
+    {
+      "kisa": "ET",
+      "ulkeadi": "Etiyopya"
+    },
+    {
+      "kisa": "SO",
+      "ulkeadi": "Somali"
+    },
+    {
+      "kisa": "ZW",
+      "ulkeadi": "Zimbabwe"
+    },
+    {
+      "kisa": "SA",
+      "ulkeadi": "Suudi Arabistan"
+    },
+    {
+      "kisa": "ES",
+      "ulkeadi": "İspanya"
+    },
+    {
+      "kisa": "ER",
+      "ulkeadi": "Eritrea"
+    },
+    {
+      "kisa": "ME",
+      "ulkeadi": "Karadağ"
+    },
+    {
+      "kisa": "MD",
+      "ulkeadi": "Moldova"
+    },
+    {
+      "kisa": "MG",
+      "ulkeadi": "Madagaskar"
+    },
+    {
+      "kisa": "MF",
+      "ulkeadi": "Saint Martin"
+    },
+    {
+      "kisa": "MA",
+      "ulkeadi": "Fas"
+    },
+    {
+      "kisa": "MC",
+      "ulkeadi": "Monaco"
+    },
+    {
+      "kisa": "UZ",
+      "ulkeadi": "Özbekistan"
+    },
+    {
+      "kisa": "MM",
+      "ulkeadi": "Myanmar"
+    },
+    {
+      "kisa": "ML",
+      "ulkeadi": "Mali"
+    },
+    {
+      "kisa": "MO",
+      "ulkeadi": "Macao"
+    },
+    {
+      "kisa": "MN",
+      "ulkeadi": "Moğolistan"
+    },
+    {
+      "kisa": "MH",
+      "ulkeadi": "Marshall Adaları"
+    },
+    {
+      "kisa": "MK",
+      "ulkeadi": "Makedonya"
+    },
+    {
+      "kisa": "MU",
+      "ulkeadi": "Mauritius"
+    },
+    {
+      "kisa": "MT",
+      "ulkeadi": "Malta"
+    },
+    {
+      "kisa": "MW",
+      "ulkeadi": "Malavi"
+    },
+    {
+      "kisa": "MV",
+      "ulkeadi": "Maldivler"
+    },
+    {
+      "kisa": "MQ",
+      "ulkeadi": "Martinik"
+    },
+    {
+      "kisa": "MP",
+      "ulkeadi": "Kuzey Mariana Adaları"
+    },
+    {
+      "kisa": "MS",
+      "ulkeadi": "Montserrat"
+    },
+    {
+      "kisa": "MR",
+      "ulkeadi": "Moritanya"
+    },
+    {
+      "kisa": "IM",
+      "ulkeadi": "Isle of Man"
+    },
+    {
+      "kisa": "UG",
+      "ulkeadi": "Uganda"
+    },
+    {
+      "kisa": "TZ",
+      "ulkeadi": "Tanzanya"
+    },
+    {
+      "kisa": "MY",
+      "ulkeadi": "Malezya"
+    },
+    {
+      "kisa": "MX",
+      "ulkeadi": "Meksika"
+    },
+    {
+      "kisa": "IL",
+      "ulkeadi": "İsrail"
+    },
+    {
+      "kisa": "FR",
+      "ulkeadi": "Fransa"
+    },
+    {
+      "kisa": "IO",
+      "ulkeadi": "İngiliz Hint Okyanusu Bölgesi"
+    },
+    {
+      "kisa": "SH",
+      "ulkeadi": "Saint Helena"
+    },
+    {
+      "kisa": "FI",
+      "ulkeadi": "Finlandiya"
+    },
+    {
+      "kisa": "FJ",
+      "ulkeadi": "Fiji"
+    },
+    {
+      "kisa": "FK",
+      "ulkeadi": "Falkland Adaları"
+    },
+    {
+      "kisa": "FM",
+      "ulkeadi": "Mikronezya"
+    },
+    {
+      "kisa": "FO",
+      "ulkeadi": "Faroe Adaları"
+    },
+    {
+      "kisa": "NI",
+      "ulkeadi": "Nikaragua"
+    },
+    {
+      "kisa": "NL",
+      "ulkeadi": "Hollanda"
+    },
+    {
+      "kisa": "NO",
+      "ulkeadi": "Norveç"
+    },
+    {
+      "kisa": "NA",
+      "ulkeadi": "Namibya"
+    },
+    {
+      "kisa": "VU",
+      "ulkeadi": "Vanuatu"
+    },
+    {
+      "kisa": "NC",
+      "ulkeadi": "Yeni Kaledonya"
+    },
+    {
+      "kisa": "NE",
+      "ulkeadi": "Nijer"
+    },
+    {
+      "kisa": "NF",
+      "ulkeadi": "Norfolk Adası"
+    },
+    {
+      "kisa": "NG",
+      "ulkeadi": "Nijerya"
+    },
+    {
+      "kisa": "NZ",
+      "ulkeadi": "Yeni Zelanda"
+    },
+    {
+      "kisa": "NP",
+      "ulkeadi": "Nepal"
+    },
+    {
+      "kisa": "NR",
+      "ulkeadi": "Nauru"
+    },
+    {
+      "kisa": "NU",
+      "ulkeadi": "Niue"
+    },
+    {
+      "kisa": "CK",
+      "ulkeadi": "Cook Adaları"
+    },
+    {
+      "kisa": "XK",
+      "ulkeadi": "Kosova"
+    },
+    {
+      "kisa": "CI",
+      "ulkeadi": "Fildişi Sahilleri"
+    },
+    {
+      "kisa": "CH",
+      "ulkeadi": "İsviçre"
+    },
+    {
+      "kisa": "CO",
+      "ulkeadi": "Kolombiya"
+    },
+    {
+      "kisa": "CN",
+      "ulkeadi": "Çin"
+    },
+    {
+      "kisa": "CM",
+      "ulkeadi": "Kamerun"
+    },
+    {
+      "kisa": "CL",
+      "ulkeadi": "Şili"
+    },
+    {
+      "kisa": "CC",
+      "ulkeadi": "Cocos Adaları"
+    },
+    {
+      "kisa": "CA",
+      "ulkeadi": "Kanada"
+    },
+    {
+      "kisa": "CG",
+      "ulkeadi": "Kongo Cumhuriyeti"
+    },
+    {
+      "kisa": "CF",
+      "ulkeadi": "Orta Afrika Cumhuriyeti"
+    },
+    {
+      "kisa": "CD",
+      "ulkeadi": "Demokratik Kongo Cumhuriyeti"
+    },
+    {
+      "kisa": "CZ",
+      "ulkeadi": "Çek Cumhuriyeti"
+    },
+    {
+      "kisa": "CY",
+      "ulkeadi": "Kıbrıs"
+    },
+    {
+      "kisa": "CX",
+      "ulkeadi": "Noel Adası"
+    },
+    {
+      "kisa": "CR",
+      "ulkeadi": "Kosta Rika"
+    },
+    {
+      "kisa": "CW",
+      "ulkeadi": "Curacao"
+    },
+    {
+      "kisa": "CV",
+      "ulkeadi": "Cape Verde"
+    },
+    {
+      "kisa": "CU",
+      "ulkeadi": "Küba"
+    },
+    {
+      "kisa": "SZ",
+      "ulkeadi": "Svaziland"
+    },
+    {
+      "kisa": "SY",
+      "ulkeadi": "Suriye"
+    },
+    {
+      "kisa": "SX",
+      "ulkeadi": "Sint Maarten"
+    },
+    {
+      "kisa": "KG",
+      "ulkeadi": "Kırgızistan"
+    },
+    {
+      "kisa": "KE",
+      "ulkeadi": "Kenya"
+    },
+    {
+      "kisa": "SS",
+      "ulkeadi": "Güney Sudan"
+    },
+    {
+      "kisa": "SR",
+      "ulkeadi": "Surinam"
+    },
+    {
+      "kisa": "KI",
+      "ulkeadi": "Kiribati"
+    },
+    {
+      "kisa": "KH",
+      "ulkeadi": "Kamboçya"
+    },
+    {
+      "kisa": "KN",
+      "ulkeadi": "Saint Kitts ve Nevis"
+    },
+    {
+      "kisa": "KM",
+      "ulkeadi": "Komor"
+    },
+    {
+      "kisa": "ST",
+      "ulkeadi": "Sao Tome ve Principe"
+    },
+    {
+      "kisa": "SK",
+      "ulkeadi": "Slovakya"
+    },
+    {
+      "kisa": "KR",
+      "ulkeadi": "Güney Kore"
+    },
+    {
+      "kisa": "SI",
+      "ulkeadi": "Slovenya"
+    },
+    {
+      "kisa": "KP",
+      "ulkeadi": "Kuzey Kore"
+    },
+    {
+      "kisa": "KW",
+      "ulkeadi": "Kuveyt"
+    },
+    {
+      "kisa": "SN",
+      "ulkeadi": "Senegal"
+    },
+    {
+      "kisa": "SM",
+      "ulkeadi": "San Marino"
+    },
+    {
+      "kisa": "SL",
+      "ulkeadi": "Sierra Leone"
+    },
+    {
+      "kisa": "SC",
+      "ulkeadi": "Seyşel Adaları"
+    },
+    {
+      "kisa": "KZ",
+      "ulkeadi": "Kazakistan"
+    },
+    {
+      "kisa": "KY",
+      "ulkeadi": "Kayman Adaları"
+    },
+    {
+      "kisa": "SG",
+      "ulkeadi": "Singapur"
+    },
+    {
+      "kisa": "SE",
+      "ulkeadi": "İsveç"
+    },
+    {
+      "kisa": "SD",
+      "ulkeadi": "Sudan"
+    },
+    {
+      "kisa": "DO",
+      "ulkeadi": "Dominik Cumhuriyeti"
+    },
+    {
+      "kisa": "DM",
+      "ulkeadi": "Dominika"
+    },
+    {
+      "kisa": "DJ",
+      "ulkeadi": "Cibuti"
+    },
+    {
+      "kisa": "DK",
+      "ulkeadi": "Danimarka"
+    },
+    {
+      "kisa": "VG",
+      "ulkeadi": "İngiliz Virgin Adaları"
+    },
+    {
+      "kisa": "DE",
+      "ulkeadi": "Almanya"
+    },
+    {
+      "kisa": "YE",
+      "ulkeadi": "Yemen"
+    },
+    {
+      "kisa": "DZ",
+      "ulkeadi": "Cezayir"
+    },
+    {
+      "kisa": "ABD",
+      "ulkeadi": "Amerika Birleşik Devletleri"
+    },
+    {
+      "kisa": "UY",
+      "ulkeadi": "Uruguay"
+    },
+    {
+      "kisa": "YT",
+      "ulkeadi": "Mayotte"
+    },
+    {
+      "kisa": "UM",
+      "ulkeadi": "Birleşik Devletlerin Küçük Dış Adaları"
+    },
+    {
+      "kisa": "LB",
+      "ulkeadi": "Lübnan"
+    },
+    {
+      "kisa": "LC",
+      "ulkeadi": "Saint Lucia"
+    },
+    {
+      "kisa": "LA",
+      "ulkeadi": "Laos"
+    },
+    {
+      "kisa": "TV",
+      "ulkeadi": "Tuvalu"
+    },
+    {
+      "kisa": "TW",
+      "ulkeadi": "Tayvan"
+    },
+    {
+      "kisa": "TT",
+      "ulkeadi": "Trinidad ve Tobago"
+    },
+    {
+      "kisa": "TR",
+      "ulkeadi": "Türkiye"
+    },
+    {
+      "kisa": "LK",
+      "ulkeadi": "Sri Lanka"
+    },
+    {
+      "kisa": "LI",
+      "ulkeadi": "Lihtenştayn"
+    },
+    {
+      "kisa": "AG",
+      "ulkeadi": "Letonya"
+    }
+  ]
+} 

@@ -136,6 +136,7 @@ namespace MEYPAK.PRL.CARI
 
 
         ADRESOBJECT.Root _adresObje;
+        UlkeList.Root _ulkeList;
         public void FCariKart_Load(object sender, EventArgs e)
         {
 
@@ -149,10 +150,23 @@ namespace MEYPAK.PRL.CARI
                     _adresObje = JsonConvert.DeserializeObject<ADRESOBJECT.Root>(sr.ReadToEnd());
 
                     
-                    CBIl.Properties.DataSource = _adresObje.data.Select(x => x.il_adi);
+                   
 
                 }
+            CBIl.Properties.DataSource = _adresObje.data.Select(x => x.il_adi);
+            path = Application.StartupPath + "/ulkeler.json";
 
+            using (FileStream s = File.Open(path, FileMode.Open))
+            using (StreamReader sr = new StreamReader(s))
+                while (!sr.EndOfStream)
+                {
+
+                    _ulkeList = JsonConvert.DeserializeObject<UlkeList.Root>(sr.ReadToEnd());
+
+                     
+
+                }
+            CBUlke.Properties.DataSource = _ulkeList.Ulke.Select(x => x.ulkeadi);
 
         }
 
