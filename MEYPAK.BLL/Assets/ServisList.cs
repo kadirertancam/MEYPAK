@@ -341,6 +341,15 @@ namespace MEYPAK.BLL.Assets
 
         #endregion
 
+        #region IrsaliyeKasaHar
+        public const string IrsaliyeKasaHarListeServis =        "http://213.238.167.117:8080/IRSALIYEKASAHAR/IRSALIYEKASAHARListe";
+        public const string IrsaliyeKasaHarEkleServis =         "http://213.238.167.117:8080/IRSALIYEKASAHAR/IRSALIYEKASAHAREkleyadaGuncelle";
+        public const string IrsaliyeKasaHarSilServis =          "http://213.238.167.117:8080/IRSALIYEKASAHAR/IRSALIYEKASAHARSil";
+        public const string IrsaliyeKasaHarGuncelleServis =     "http://213.238.167.117:8080/IRSALIYEKASAHAR/IRSALIYEKASAHARGuncelle";
+        public const string IrsaliyeKasaHarDeleteByIdServis =   "http://213.238.167.117:8080/IRSALIYEKASAHAR/DeleteById";
+
+        #endregion
+
         #region Hizmet
         public const string HizmetListeServis =      "http://213.238.167.117:8080/HIZMET/HIZMETListe";
         public const string HizmetEkleServis = "http://213.238.167.117:8080/HIZMET/HIZMETEkleyadaGuncelle";     

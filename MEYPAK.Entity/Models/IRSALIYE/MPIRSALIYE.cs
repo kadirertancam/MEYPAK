@@ -55,6 +55,7 @@ namespace MEYPAK.Entity.Models.IRSALIYE
         public decimal GENELTOPLAM { get; set; } = 0;
         public int ARACID { get; set; }
         public int PERSONELID { get; set; }
+        public int TIP { get; set; }
         public bool DURUM { get; set; }
         [Required]
         public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");

@@ -44,6 +44,7 @@ namespace MEYPAK.Entity.PocoModels.IRSALIYE
         public decimal geneltoplam { get; set; } = 0;
         public int aracid { get; set; }
         public int personelid { get; set; }
+        public int tip { get; set; }
         public bool durum { get; set; }
         [Required]
         public string donem { get; set; } = DateTime.Now.ToString("yyyy");

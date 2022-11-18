@@ -62,31 +62,31 @@ namespace MEYPAK.PRL.STOK
 
         private void gridView1_DoubleClick(object sender, EventArgs e)
         {
-            string temp = "";
-            _kasaServis.Data(ServisList.StokKasaListeServis);
-            if (_islem == "Stok")
-            {
-                if (fStokKart != null)
-                    fStokKart._tempKasa = _kasaServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()).FirstOrDefault();
-            }
-            else if (_islem == "musterisiparis")
-            {
-                if (fSiparis != null)
-                {
-                    foreach (var item in _kasaServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()))
-                    {
-                        temp += item.kasaadi+"=>";
-                    }
-                    fSiparis.gridView1.SetFocusedRowCellValue("KasaAdı", temp);
-                }
-            }
-            else if (_islem == "SatinAlmaSiparis")
-            {
-                if (fSatınAlmaSiparis != null)
-                    fSatınAlmaSiparis._tempKasa = _kasaServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()).FirstOrDefault();
-            }
+            //string temp = "";
+            //_kasaServis.Data(ServisList.StokKasaListeServis);
+            //if (_islem == "Stok")
+            //{
+            //    if (fStokKart != null)
+            //        fStokKart._tempKasa = _kasaServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()).FirstOrDefault();
+            //}
+            //else if (_islem == "musterisiparis")
+            //{
+            //    if (fSiparis != null)
+            //    {
+            //        foreach (var item in _kasaServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()))
+            //        {
+            //            temp += item.kasaadi+"=>";
+            //        }
+            //        fSiparis.gridView1.SetFocusedRowCellValue("KasaAdı", temp);
+            //    }
+            //}
+            //else if (_islem == "SatinAlmaSiparis")
+            //{
+            //    if (fSatınAlmaSiparis != null)
+            //        fSatınAlmaSiparis._tempKasa = _kasaServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()).FirstOrDefault();
+            //}
 
-            this.Close();
+            //this.Close();
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
@@ -106,6 +106,18 @@ namespace MEYPAK.PRL.STOK
                 }
             }
             else if (_islem == "SatinAlmaSiparis")
+            {
+                if (fSatınAlmaSiparis != null)
+                {
+                    foreach (var item in gridView1.GetSelectedRows())
+                    {
+
+                        temp += gridView1.GetRowCellValue(item, "KASAADI").ToString() + "=>" + gridView1.GetRowCellValue(item, "MIKTAR").ToString() + ";";
+                    }
+                    fSatınAlmaSiparis.gridView1.SetFocusedRowCellValue("KasaAdı", temp);
+                }
+            }
+            else if (_islem == "SatisIrsaliye")
             {
                 if (fSatınAlmaSiparis != null)
                 {

@@ -6,6 +6,7 @@ using MEYPAK.Entity.PocoModels.SIPARIS;
 using MEYPAK.Interfaces;
 using MEYPAK.Interfaces.Siparis;
 using MEYPAK.PRL.Assets;
+using MEYPAK.PRL.IRSALIYE;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

@@ -9,6 +9,7 @@ using MEYPAK.Interfaces.Depo;
 using MEYPAK.Interfaces.Siparis;
 using MEYPAK.PRL.CARI;
 using MEYPAK.PRL.DEPO;
+using MEYPAK.PRL.IRSALIYE;
 using MEYPAK.PRL.PERSONEL;
 using MEYPAK.PRL.SIPARIS;
 using MEYPAK.PRL.STOK;
@@ -50,6 +51,7 @@ namespace MEYPAK.PRL
         }
         #region TANIMLAR
         FSevkiyatPanel fSevkiyatPanel;
+        FSatisIrsaliye fSatisIrsaliye;
         FOlcuBrKart fOlcuBrKart;
         FStokKart fSTOKKART;
         FStokHareket fStokHareket;
@@ -379,6 +381,26 @@ namespace MEYPAK.PRL
             fKasaPanel.Tag = "TPKasaPanel" + i;
             page.Controls.Add(fKasaPanel);
             fKasaPanel.Show();
+            i++;
+        }
+
+        private void accordionControlElement43_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fSatisIrsaliye = new FSatisIrsaliye();
+            page.Name = "TPSatisIrsaliye" + i;
+            page.Text = "Satis Irsaliye";
+            page.Tag = "TPSatisIrsaliye" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fSatisIrsaliye.TopLevel = false;
+            fSatisIrsaliye.AutoScroll = true;
+            fSatisIrsaliye.Dock = DockStyle.Fill;
+            fSatisIrsaliye.Tag = "TPSatisIrsaliye" + i;
+            page.Controls.Add(fSatisIrsaliye);
+            fSatisIrsaliye.Show();
             i++;
         }
     }
