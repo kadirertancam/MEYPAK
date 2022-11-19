@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FMarkaKart));
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.TBAciklama = new System.Windows.Forms.TextBox();
@@ -35,20 +36,21 @@
             this.LBMarkaAciklama = new DevExpress.XtraEditors.LabelControl();
             this.TBMarkaAdi = new DevExpress.XtraEditors.TextEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.BTMarkaKartKaydet = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBMarkaAdi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
+            this.panelControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
-            this.panelControl3.SuspendLayout();
             this.SuspendLayout();
             // 
             // gridControl1
@@ -110,6 +112,15 @@
             this.panelControl1.Size = new System.Drawing.Size(930, 620);
             this.panelControl1.TabIndex = 2;
             // 
+            // panelControl3
+            // 
+            this.panelControl3.Controls.Add(this.gridControl1);
+            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl3.Location = new System.Drawing.Point(2, 119);
+            this.panelControl3.Name = "panelControl3";
+            this.panelControl3.Size = new System.Drawing.Size(926, 499);
+            this.panelControl3.TabIndex = 82;
+            // 
             // panelControl2
             // 
             this.panelControl2.Controls.Add(this.groupControl1);
@@ -121,6 +132,7 @@
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.BTMarkaKartKaydet);
             this.groupControl1.Controls.Add(this.TBMarkaAdi);
             this.groupControl1.Controls.Add(this.LBMarkaAciklama);
             this.groupControl1.Controls.Add(this.TBAciklama);
@@ -132,14 +144,17 @@
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Genel";
             // 
-            // panelControl3
+            // BTMarkaKartKaydet
             // 
-            this.panelControl3.Controls.Add(this.gridControl1);
-            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl3.Location = new System.Drawing.Point(2, 119);
-            this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(926, 499);
-            this.panelControl3.TabIndex = 82;
+            this.BTMarkaKartKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTMarkaKartKaydet.Appearance.Options.UseBackColor = true;
+            this.BTMarkaKartKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTStokKartiKaydet.ImageOptions.Image")));
+            this.BTMarkaKartKaydet.Location = new System.Drawing.Point(392, 32);
+            this.BTMarkaKartKaydet.Name = "BTMarkaKartKaydet";
+            this.BTMarkaKartKaydet.Size = new System.Drawing.Size(122, 46);
+            this.BTMarkaKartKaydet.TabIndex = 82;
+            this.BTMarkaKartKaydet.Text = "&Kaydet";
+            this.BTMarkaKartKaydet.Click += new System.EventHandler(this.BTMarkaKartKaydet_Click);
             // 
             // FMarkaKart
             // 
@@ -156,13 +171,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.TBMarkaAdi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
+            this.panelControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
-            this.panelControl3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -179,5 +194,6 @@
         private DevExpress.XtraEditors.PanelControl panelControl3;
         private DevExpress.XtraEditors.PanelControl panelControl2;
         private DevExpress.XtraEditors.GroupControl groupControl1;
+        private DevExpress.XtraEditors.SimpleButton BTMarkaKartKaydet;
     }
 }

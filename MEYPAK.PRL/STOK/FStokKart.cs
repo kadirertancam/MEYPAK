@@ -32,6 +32,7 @@ namespace MEYPAK.PRL
         public PocoSTOKKASA _tempKasa;
         public PocoSTOKKATEGORI _tempKategori;
         public PocoSTOKMARKA _tempMarka;
+        List<PocoSTOKRESIM> resimList;
 
         GenericWebServis<PocoSTOKRESIM> _stokResimServis;
         GenericWebServis<PocoSTOKMARKA> _markaServis ;
@@ -148,8 +149,6 @@ namespace MEYPAK.PRL
         }
         private void BTKaydet_Click(object sender, EventArgs e)                 // Stok Kayıt
         {
-
-          
             //Parallel.For(0, 50000, x =>
 
             //    {
@@ -186,10 +185,6 @@ namespace MEYPAK.PRL
             //     });
             //    });
 
-
-
-
-        
         }
         private void BTSil_Click(object sender, EventArgs e)                  // Stok Sil
         {
@@ -309,7 +304,7 @@ namespace MEYPAK.PRL
 
         private void buttonEdit2_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            FMarkaList fMarkaKart = new FMarkaList();
+            FMarkaList fMarkaKart = new FMarkaList(this.Tag.ToString(), "stokkart");
             fMarkaKart.ShowDialog();
             if (_tempMarka != null)
             {
@@ -332,7 +327,7 @@ namespace MEYPAK.PRL
 
         private void buttonEdit5_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            FStokKasaList fKasaList = new FStokKasaList(this.Tag.ToString(),"Stok");
+            FStokKasaList fKasaList = new FStokKasaList(this.Tag.ToString(), "stokkart");
             fKasaList.ShowDialog();
             if (_tempKasa != null)
                 BTKasa.Text = _tempKasa.kasaadi;
@@ -367,7 +362,7 @@ namespace MEYPAK.PRL
                 sfiyaT5 = Convert.ToDecimal(TBSFiyat5.Text),
                 sdovizid = CBSDoviz.SelectedIndex,
                 adovizid = CBADoviz.SelectedIndex,
-                donem="2022"
+                donem = DateTime.Now.ToString("yyyy"),
 
 
             };
@@ -453,8 +448,6 @@ namespace MEYPAK.PRL
         {
             try
             {
-
-
                 using (System.Drawing.Image image = System.Drawing.Image.FromFile(path))
                 {
                     using (MemoryStream m = new MemoryStream())
@@ -471,7 +464,7 @@ namespace MEYPAK.PRL
                 return "";
             }
         }
-        List<PocoSTOKRESIM> resimList;
+       
         private void simpleButton1_Click(object sender, EventArgs e)
         {
             _stokResimServis.Data(ServisList.StokResimListeServis);
@@ -514,16 +507,6 @@ namespace MEYPAK.PRL
                     stokid = 0;
                 }
             }
-        }
-
-        private void NUDSayisalAciklama7_EditValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TEStokKartRaporKodu8_EditValueChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void BTSil_Click_1(object sender, EventArgs e)

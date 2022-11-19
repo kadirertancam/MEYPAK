@@ -1,4 +1,5 @@
-﻿using MEYPAK.BLL.Assets;
+﻿using DevExpress.DataProcessing.InMemoryDataProcessor.GraphGenerator;
+using MEYPAK.BLL.Assets;
 using MEYPAK.BLL.STOK;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository;
@@ -20,18 +21,30 @@ namespace MEYPAK.PRL.STOK
     public partial class FMarkaList : Form
     {
         FMarkaKart FMarkaKart;
-        FStokKart FSTOKKART;
+        FStokKart fStokKart;
         GenericWebServis<PocoSTOKMARKA> _markaServis;
-        public FMarkaList()
+        string _islem;
+        string _form;
+        public FMarkaList(string form = "", string islem = "")
         {
             InitializeComponent();
+            this._islem = islem;
+            this._form = form;
             _markaServis = new GenericWebServis<PocoSTOKMARKA>();
-            FSTOKKART = (FStokKart)Application.OpenForms["FSTOKKART"];
+            fStokKart = (FStokKart)Application.OpenForms["FStokKart"];
         } 
         private void FMarkaKart_Load(object sender, EventArgs e)
         {
             _markaServis.Data(ServisList.StokMarkaListeServis);
             gridControl1.DataSource= _markaServis.obje;
+            foreach (Form frm in Application.OpenForms)
+            {
+                if (_form == frm.Tag)
+                {
+                    if (frm.Name.Contains("FStokKart"))
+                        fStokKart = (FStokKart)frm;
+                }
+            }
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
@@ -50,7 +63,10 @@ namespace MEYPAK.PRL.STOK
 
         private void gridView1_DoubleClick(object sender, EventArgs e)
         {
-            FSTOKKART._tempMarka = _markaServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()).FirstOrDefault();
+            if (_islem =="stokkart")
+            {
+                fStokKart._tempMarka = _markaServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()).FirstOrDefault();
+            }
             this.Close();
         }
     }
