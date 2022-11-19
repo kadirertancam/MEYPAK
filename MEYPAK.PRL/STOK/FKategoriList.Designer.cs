@@ -111,6 +111,7 @@
             this.treeView1.Name = "treeView1";
             this.treeView1.Size = new System.Drawing.Size(1259, 501);
             this.treeView1.TabIndex = 0;
+            this.treeView1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.treeView1_KeyPress);
             // 
             // panelControl2
             // 

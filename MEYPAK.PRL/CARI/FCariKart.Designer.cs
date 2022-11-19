@@ -519,6 +519,7 @@
             // 
             // CBTip
             // 
+            this.CBTip.EditValue = "Alıcı";
             this.CBTip.Location = new System.Drawing.Point(118, 129);
             this.CBTip.Name = "CBTip";
             this.CBTip.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -892,6 +893,7 @@
             this.CBIlce.Properties.NullText = "";
             this.CBIlce.Size = new System.Drawing.Size(75, 20);
             this.CBIlce.TabIndex = 71;
+            this.CBIlce.TextChanged += new System.EventHandler(this.CBIlce_TextChanged);
             // 
             // CBIl
             // 
