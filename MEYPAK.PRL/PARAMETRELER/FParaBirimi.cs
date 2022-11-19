@@ -1,4 +1,5 @@
 ﻿using DevExpress.Text.Interop;
+using DevExpress.XtraEditors;
 using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.PocoModels.PARAMETRE;
 using MEYPAK.Entity.PocoModels.STOK;
@@ -9,10 +10,15 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Forms;
+using System.Xml;
+using Control = System.Windows.Forms.Control;
 
 namespace MEYPAK.PRL.PARAMETRELER
 {
@@ -26,10 +32,15 @@ namespace MEYPAK.PRL.PARAMETRELER
             _paraBirimServis = new GenericWebServis<PocoPARABIRIM>();
         }
         GenericWebServis<PocoPARABIRIM> _paraBirimServis;
+        Url parabirim;
+        Main main;
         private void FParaBirimi_Load(object sender, EventArgs e)
         {
-            DataGridDoldur();
+            //  DataGridDoldur();
+            main =(Main) Application.OpenForms["Main"];
+            DGParaBrm.DataSource = main._tarih_Date.Currency;
         }
+       
         int id;
 
         void DataGridDoldur()
@@ -87,7 +98,7 @@ namespace MEYPAK.PRL.PARAMETRELER
 
             foreach (Control ctrl in ctrlCollection)
             {
-                if (ctrl is TextBoxBase)
+                if (ctrl is TextEdit)
                 {
                     if (ctrl.Name != "TBParaBrm")
                     {

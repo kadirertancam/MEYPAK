@@ -4,41 +4,34 @@
 
 namespace MEYPAK.DAL.Migrations
 {
-    public partial class FaturalaraDaraSafiEklendi : Migration
+    public partial class MEYPAKKur : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<decimal>(
-                name: "DARA",
-                table: "MPSIPARISDETAY",
+                name: "DOVIZALIS",
+                table: "MPPARABIRIM",
                 type: "decimal(18,2)",
                 nullable: false,
                 defaultValue: 0m);
 
             migrationBuilder.AddColumn<decimal>(
-                name: "DARALI",
-                table: "MPSIPARISDETAY",
-                type: "decimal(18,2)",
-                nullable: false,
-                defaultValue: 0m);
-
-            migrationBuilder.AddColumn<int>(
-                name: "KASAID",
-                table: "MPSIPARISDETAY",
-                type: "int",
-                nullable: false,
-                defaultValue: 0);
-
-            migrationBuilder.AddColumn<decimal>(
-                name: "KASAMIKTAR",
-                table: "MPSIPARISDETAY",
+                name: "DOVIZEFEKTIFALIS",
+                table: "MPPARABIRIM",
                 type: "decimal(18,2)",
                 nullable: false,
                 defaultValue: 0m);
 
             migrationBuilder.AddColumn<decimal>(
-                name: "SAFI",
-                table: "MPSIPARISDETAY",
+                name: "DOVIZEFEKTIFSATIS",
+                table: "MPPARABIRIM",
+                type: "decimal(18,2)",
+                nullable: false,
+                defaultValue: 0m);
+
+            migrationBuilder.AddColumn<decimal>(
+                name: "DOVIZSATIS",
+                table: "MPPARABIRIM",
                 type: "decimal(18,2)",
                 nullable: false,
                 defaultValue: 0m);
@@ -47,24 +40,20 @@ namespace MEYPAK.DAL.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "DARA",
-                table: "MPSIPARISDETAY");
+                name: "DOVIZALIS",
+                table: "MPPARABIRIM");
 
             migrationBuilder.DropColumn(
-                name: "DARALI",
-                table: "MPSIPARISDETAY");
+                name: "DOVIZEFEKTIFALIS",
+                table: "MPPARABIRIM");
 
             migrationBuilder.DropColumn(
-                name: "KASAID",
-                table: "MPSIPARISDETAY");
+                name: "DOVIZEFEKTIFSATIS",
+                table: "MPPARABIRIM");
 
             migrationBuilder.DropColumn(
-                name: "KASAMIKTAR",
-                table: "MPSIPARISDETAY");
-
-            migrationBuilder.DropColumn(
-                name: "SAFI",
-                table: "MPSIPARISDETAY");
+                name: "DOVIZSATIS",
+                table: "MPPARABIRIM");
         }
     }
 }

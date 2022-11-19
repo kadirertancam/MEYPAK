@@ -4,12 +4,15 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraTab;
 using DevExpress.XtraTab.ViewInfo;
 using MEYPAK.BLL.Assets;
+using MEYPAK.Entity.PocoModels.PARAMETRE;
 using MEYPAK.Interfaces;
 using MEYPAK.Interfaces.Depo;
 using MEYPAK.Interfaces.Siparis;
+using MEYPAK.PRL.Assets.Kur;
 using MEYPAK.PRL.CARI;
 using MEYPAK.PRL.DEPO;
 using MEYPAK.PRL.IRSALIYE;
+using MEYPAK.PRL.PARAMETRELER;
 using MEYPAK.PRL.PERSONEL;
 using MEYPAK.PRL.SIPARIS;
 using MEYPAK.PRL.STOK;
@@ -21,10 +24,13 @@ using System.Drawing;
 using System.Drawing.Text;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace MEYPAK.PRL
 {
@@ -48,6 +54,7 @@ namespace MEYPAK.PRL
 
                 }
             }
+            _parabirimServis = new GenericWebServis<PocoPARABIRIM>();
         }
         #region TANIMLAR
         FSevkiyatPanel fSevkiyatPanel;
@@ -68,6 +75,10 @@ namespace MEYPAK.PRL
         FCariAltHesap fCariAltHesap;
         FPersonelKart fPersonelKart;
         FStokKasaPanel fKasaPanel;
+        FParaBirimi fParaBirimi;
+        public Tarih_Date _tarih_Date;
+        public DataTable guncelkur;
+        GenericWebServis<PocoPARABIRIM> _parabirimServis;
         #endregion
         void StokPanelAc()
         {
@@ -77,9 +88,40 @@ namespace MEYPAK.PRL
         {
             StokPanelAc();
         }
+        public void GuncelKur() {
+
+            HttpRequestMessage client;
+            HttpClient httpClient = new HttpClient();
+            client = new HttpRequestMessage(HttpMethod.Post, "https://www.tcmb.gov.tr/kurlar/today.xml");
+            client.Headers.Add("Connection", "keep-alive");
+            client.Headers.Add("Host", "www.tcmb.gov.tr");
+            client.Headers.Add("User-Agent", "CodeGear SOAP 1.3");
+            client.Method = HttpMethod.Get; 
+            httpClient.DefaultRequestHeaders.ExpectContinue = false;
+            HttpResponseMessage resp = httpClient.SendAsync(client).Result;
+            var aaaa = resp.Content.ReadAsStringAsync().Result.ToString();
+            XmlSerializerHelper xmlSerializerHelper = new XmlSerializerHelper();
+            _tarih_Date = (Tarih_Date)xmlSerializerHelper.DeserializeFromXml(typeof(Tarih_Date),aaaa);
+            foreach (var item in _tarih_Date.Currency)
+            {
+                _parabirimServis.Data(ServisList.ParaBirimiEkleServis, new PocoPARABIRIM()
+                {
+                    adi = item.Isim,
+                    kisaadi = item.Kod,
+                    dovizsatis = Convert.ToDecimal(item.ForexSelling==""?"0":item.ForexSelling),
+                    dovizalis = item.ForexBuying,
+                    dovizefektifalis = Convert.ToDecimal(item.BanknoteBuying==""?"0":item.BanknoteBuying),
+                    dovizefektifsatis = Convert.ToDecimal(item.BanknoteSelling==""?"0":item.BanknoteSelling),
+
+
+                });
+            }
+            
+        }
         private void Main_Load(object sender, EventArgs e)
         {
-            
+            guncelkur = CurrenciesExchange.GetDataTableAllCurrenciesTodaysExchangeRates();
+            GuncelKur();
         }
 
         int i = 0;
@@ -401,6 +443,26 @@ namespace MEYPAK.PRL
             fSatisIrsaliye.Tag = "TPSatisIrsaliye" + i;
             page.Controls.Add(fSatisIrsaliye);
             fSatisIrsaliye.Show();
+            i++;
+        }
+
+        private void accordionControlElement44_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fParaBirimi = new FParaBirimi();
+            page.Name = "TPParaBirimi" + i;
+            page.Text = "Para Birim Tanım";
+            page.Tag = "TPParaBirimi" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fParaBirimi.TopLevel = false;
+            fParaBirimi.AutoScroll = true;
+            fParaBirimi.Dock = DockStyle.Fill;
+            fParaBirimi.Tag = "TPParaBirimi" + i;
+            page.Controls.Add(fParaBirimi);
+            fParaBirimi.Show();
             i++;
         }
     }

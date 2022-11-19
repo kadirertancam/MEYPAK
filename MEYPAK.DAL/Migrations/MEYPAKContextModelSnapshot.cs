@@ -1611,6 +1611,18 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<byte>("AKTIF")
                         .HasColumnType("tinyint");
 
+                    b.Property<decimal>("DOVIZALIS")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("DOVIZEFEKTIFALIS")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("DOVIZEFEKTIFSATIS")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("DOVIZSATIS")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<int>("ESKIID")
                         .HasColumnType("int");
 

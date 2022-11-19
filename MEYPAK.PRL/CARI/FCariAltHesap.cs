@@ -121,6 +121,7 @@ namespace MEYPAK.PRL.CARI
        
         private void BTKaydet_Click(object sender, EventArgs e)
         {
+            _parabirIMServis.Data(ServisList.ParaBirimiListeServis);
             if (islemtipi == "Kayıt")
             {
                 _cariAltHesapServis.Data(ServisList.CariAltHesEkleServis, (new PocoCARIALTHES()
