@@ -14,12 +14,7 @@ namespace MEYPAK.Entity.Models.STOK
 {
     public class MPSTOK:SUPERMODEL
     {
-        public MPSTOK()
-        { 
 
-
-
-        }
 
         [DefaultValue(0)]
         public int SIRKETID { get; set; }

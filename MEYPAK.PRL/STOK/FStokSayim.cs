@@ -123,7 +123,7 @@ namespace MEYPAK.PRL.STOK
                 _tempId= int.Parse(gridView1.GetFocusedRowCellValue("ID").ToString());
                 DTSayimTar.EditValue = Convert.ToDateTime(gridView1.GetFocusedRowCellValue("SayimTarihi").ToString());
                 TBAciklama.Text = gridView1.GetFocusedRowCellValue("Açıklama").ToString();
-             //   CBDepo.EditValue = _depoServis.obje.Where(x=> x.depoadi == gridView1.GetFocusedRowCellValue("Depo").ToString()).Count() >0 .FirstOrDefault().id ;
+                CBDepo.EditValue = _depoServis.obje.Where(x=> x.depoadi == gridView1.GetFocusedRowCellValue("Depo").ToString()).Count() >0 ? _depoServis.obje.Where(x => x.depoadi == gridView1.GetFocusedRowCellValue("Depo").ToString()).FirstOrDefault().id : 0;
             }
         }
 
