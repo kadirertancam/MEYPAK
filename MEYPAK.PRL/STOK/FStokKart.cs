@@ -29,7 +29,6 @@ namespace MEYPAK.PRL
         #region Tanımlar
         PocoSTOKOLCUBR _tempStokOlcuBr;
         public PocoSTOK _tempStok;
-        public PocoSTOKKASA _tempKasa;
         public PocoSTOKKATEGORI _tempKategori;
         public PocoSTOKMARKA _tempMarka;
         List<PocoSTOKRESIM> resimList;
@@ -325,13 +324,7 @@ namespace MEYPAK.PRL
 
         
 
-        private void buttonEdit5_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
-        {
-            FStokKasaList fKasaList = new FStokKasaList(this.Tag.ToString(), "stokkart");
-            fKasaList.ShowDialog();
-            if (_tempKasa != null)
-                BTKasa.Text = _tempKasa.kasaadi;
-        }
+  
 
         private void BTStokKartiKaydet_Click(object sender, EventArgs e)
         {
@@ -343,7 +336,7 @@ namespace MEYPAK.PRL
                 adi = TBStokAdi.Text,
                 markaid = _markaServis.obje.Where(x => x.adi == BTMarka.Text).FirstOrDefault().id,
                 kategoriid = _tempKategori.id,
-                kasaid = 1,//_tempKasa.ID,
+         
                 grupkodu = BTGrupKodu.Text,
                 aciklama = TBAciklama.Text,
                 satiskdv = Convert.ToDecimal(TBSatisKdv.Text),

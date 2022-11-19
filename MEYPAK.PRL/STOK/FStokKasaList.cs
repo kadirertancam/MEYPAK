@@ -125,7 +125,7 @@ namespace MEYPAK.PRL.STOK
 
                         temp += gridView1.GetRowCellValue(item, "KASAADI").ToString() + "=>" + gridView1.GetRowCellValue(item, "MIKTAR").ToString() + ";";
                     }
-                    fSatınAlmaSiparis.gridView1.SetFocusedRowCellValue("KasaAdı", temp);
+                    fSatisIrsaliye.gridView1.SetFocusedRowCellValue("KasaAdı", temp);
                 }
             }
     
