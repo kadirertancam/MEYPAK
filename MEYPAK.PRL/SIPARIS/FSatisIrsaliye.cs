@@ -53,7 +53,7 @@ namespace MEYPAK.PRL.IRSALIYE
 
             CBParaBirimi.Properties.DataSource = _paraBirimServis.obje.Select(x => x.adi).ToList();
             CBDepo.Properties.DataSource = _depoServis.obje.Select(x => x.depoadi).ToList();
-            CBAltHesap.Properties.DataSource = _cariAltHesapServis.obje.Select(x => x.adi).ToList();
+           
             _irsaliyeServis = new GenericWebServis<PocoIRSALIYE>();
             _irsaliyeServis.Data(ServisList.IrsaliyeListeServis);
             _irsaliyeDetayServis = new GenericWebServis<PocoIRSALIYEDETAY>();
@@ -558,6 +558,7 @@ namespace MEYPAK.PRL.IRSALIYE
             {
                 TBCariKodu.Text = _tempCariKart.kod;
                 TBCariAdi.Text = _tempCariKart.unvan == "" ? _tempCariKart.adi + " " + _tempCariKart.soyadi : _tempCariKart.unvan;
+                CBAltHesap.Properties.DataSource = _cariAltHesapServis.obje.Where(x=>x.cariid==_tempCariKart.id).Select(x => x.adi).ToList();
             }
         }
 
