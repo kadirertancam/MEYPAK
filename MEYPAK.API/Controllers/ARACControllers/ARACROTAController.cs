@@ -48,7 +48,7 @@ namespace MEYPAK.API.Controllers.ARACControllers
         }
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult ARACROTAEkleyadaGuncelle(PocoARACROTA pModel)
+        public IActionResult ARACROTAEkleyadaGuncelle([FromBody]PocoARACROTA pModel)
         {
             try
             {

@@ -1,4 +1,5 @@
 ﻿using DevExpress.DataProcessing.InMemoryDataProcessor;
+using DevExpress.Office.Utils;
 using DevExpress.Utils;
 using DevExpress.XtraEditors.Repository;
 using MEYPAK.BLL.Assets;
@@ -32,7 +33,7 @@ namespace MEYPAK.PRL.ARACLAR
             _tempAracRota = new List<PocoARACROTA>();
             _personelServis = new GenericWebServis<PocoPERSONEL>();
             _depoServis = new GenericWebServis<PocoDEPO>();
-            GridYapılandır();
+
         }
         RepositoryItemLookUpEdit riLookuparac;
         RepositoryItemLookUpEdit riLookupdepo;
@@ -42,21 +43,23 @@ namespace MEYPAK.PRL.ARACLAR
         GenericWebServis<PocoPERSONEL> _personelServis;
         DataTable datatb;
         List<PocoARACROTA> _tempAracRota;
+        DateTime routezamani;
 
-        public void GridYapılandır()
+        public void GridYapılandır(DateTime routetime)
         {
             _tempAracRota.Clear();
             _tempAracRota = new List<PocoARACROTA>();
+            _aracRotaServis.Data(ServisList.AracRotaListeServis);
             _personelServis.Data(ServisList.PersonelListeServis);
             if (_aracRotaServis.obje != null)
             {
-                foreach (var item in _aracRotaServis.obje)
+                foreach (var item in _aracRotaServis.obje.Where(x => x.kayittipi == 0 && x.olusturmatarihi.ToString("dd-MM-yyyy") == routetime.ToString("dd-MM-yyyy")))
                 {
                     _tempAracRota.Add(item);
                 }
             }
             _tempAracRota.Add(new PocoARACROTA());
-            _aracRotaServis.Data(ServisList.AracRotaListeServis);
+
             gridControl1.DataSource = _tempAracRota;
             var datatb = new DataTable();
             datatb.Columns.Add("aracid", typeof(int));
@@ -65,7 +68,7 @@ namespace MEYPAK.PRL.ARACLAR
             _aracServis.Data(ServisList.AracListeServis);
             foreach (var item in _aracServis.obje)
             {
-                datatb.Rows.Add(item.id, item.plaka + " - " + _personelServis.obje.Where(x => x.id == item.soforid).FirstOrDefault().adisoyadi);
+                datatb.Rows.Add(item.id, _personelServis.obje.Where(x => x.id == item.soforid).FirstOrDefault().adisoyadi + " - "+item.tip+ " - " + item.plaka);
             }
 
             riLookuparac = new RepositoryItemLookUpEdit();
@@ -74,7 +77,7 @@ namespace MEYPAK.PRL.ARACLAR
             riLookuparac.DisplayMember = "aracplaka";
             riLookuparac.NullText = "Sec";
             riLookuparac.HotTrackItems = true;
-            riLookuparac.BestFitWidth = 120;
+            riLookuparac.BestFitWidth = 170;
             //riLookup.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
             riLookuparac.DropDownRows = datatb.Rows.Count;
             riLookuparac.AcceptEditorTextAsNewValue = DefaultBoolean.True;
@@ -84,7 +87,7 @@ namespace MEYPAK.PRL.ARACLAR
 
             gridView1.Columns["aracid"].OptionsColumn.AllowEdit = true;
             gridView1.Columns["aracid"].ColumnEdit = riLookuparac;
-            gridView1.Columns["aracid"].Width = 120;
+            gridView1.Columns["aracid"].Width = 170;
 
 
             datatb = new DataTable();
@@ -121,30 +124,27 @@ namespace MEYPAK.PRL.ARACLAR
 
         private void BTNAracKaydet_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(gridView1.GetFocusedRowCellValue("aracid").ToString());
+
+
 
             foreach (var item in _tempAracRota)
             {
-                if (item != null)
-                {
-                        _aracRotaServis.Data(ServisList.AracRotaEkleServis, new PocoARACROTA()
-                        {
-                            id = item.id,
-                            aracid = item.aracid,
-                            hedefid = item.hedefid,
-                            cikisid = item.cikisid,
-                            tarih = item.tarih,
-                            hareketsaati = item.hareketsaati,
-                        });
-                }
-            }
-            GridYapılandır();
 
+                _aracRotaServis.Data(ServisList.AracRotaEkleServis,item);
+
+            }
+            GridYapılandır(routezamani);
 
         }
 
         private void dateEdit1_DateTimeChanged(object sender, EventArgs e)
         {
+            if (routezamani != Convert.ToDateTime(dateEdit1.EditValue))
+            {
+                routezamani = Convert.ToDateTime(dateEdit1.EditValue);
+                GridYapılandır(routezamani);
+            }
+
 
         }
 
@@ -153,9 +153,58 @@ namespace MEYPAK.PRL.ARACLAR
             if (e.KeyChar == (char)Keys.Enter || e.KeyChar == (char)Keys.Down)
             {
                 gridControl1.DataSource = "";
+
                 _tempAracRota.Add(new PocoARACROTA());
                 gridControl1.DataSource = _tempAracRota;
             }
+        }
+
+        private void contextMenuStrip1_MouseClick(object sender, MouseEventArgs e)
+        {
+             
+        }
+
+        private void popupMenu1_Popup(object sender, EventArgs e)
+        {
+
+        }
+        public void Excelaktar(DevExpress.XtraGrid.Views.Grid.GridView GridView, string DosyaAdi)
+        {
+            SaveFileDialog dialog = new SaveFileDialog()
+            {
+                Filter = "Excel Çalışma Kitabı |*.xlsx",
+                InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop),
+                FileName = DosyaAdi
+            };
+            dialog.ShowDialog();
+            gridView1.ExportToXlsx(dialog.FileName);
+        }
+        public void Pdfaktar(DevExpress.XtraGrid.Views.Grid.GridView GridView, string DosyaAdi)
+        {
+            SaveFileDialog dialog = new SaveFileDialog()
+            {
+                Filter = "Pdf Belgesi |*.pdf",
+                InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop),
+                FileName = DosyaAdi
+            };
+            dialog.ShowDialog();
+            gridView1.ExportToPdf(dialog.FileName);
+        }
+
+       
+        private void exceleAktarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Excelaktar(gridView1, "test");
+        }
+
+        private void pdfeAktarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Pdfaktar(gridView1, "pdf");
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            gridView1.ShowPrintPreview();
         }
     }
 }
