@@ -53,7 +53,7 @@ namespace MEYPAK.PRL.IRSALIYE
 
             CBParaBirimi.Properties.DataSource = _paraBirimServis.obje.Select(x => x.adi).ToList();
             CBDepo.Properties.DataSource = _depoServis.obje.Select(x => x.depoadi).ToList();
-            CBAltHesap.Properties.DataSource = _cariAltHesapServis.obje.Select(x => x.adi).ToList();
+           
             _irsaliyeServis = new GenericWebServis<PocoIRSALIYE>();
             _irsaliyeServis.Data(ServisList.IrsaliyeListeServis);
             _irsaliyeDetayServis = new GenericWebServis<PocoIRSALIYEDETAY>();
@@ -174,7 +174,7 @@ namespace MEYPAK.PRL.IRSALIYE
             riLookup.AutoSearchColumnIndex = 1;
             riLookup.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
             riLookup.EditValueChanged += RiLookup_EditValueChanged;
-
+            riLookup.GetDataSourceRowByKeyValue(0); 
 
             gridView1.Columns["Tipi"].OptionsColumn.AllowEdit = true;
             //repoGV.Columns.Add(colun2);
@@ -533,7 +533,7 @@ namespace MEYPAK.PRL.IRSALIYE
                 DTSiparisTarih.EditValue = _tempIrsaliye.irsaliyetarihi;
                 TBAciklama.Text = _tempIrsaliye.aciklama;
                 DTPVadeTarihi.EditValue = _tempIrsaliye.vadetarihi;
-                DTSevkiyatTarih.Value = _tempIrsaliye.sevkiyattarihi;
+                DTSevkiyatTarih.EditValue = _tempIrsaliye.sevkiyattarihi;
                 TBGun.Text = _tempIrsaliye.vadegunu.ToString();
                 _irsaliyeDetayServis.Data(ServisList.SiparisDetayListeServis + 2, null, "query=SIPARISID=" + _tempIrsaliye.id.ToString());
                 GCIrsaliye.DataSource = _irsaliyeDetayServis.obje.Select(x => new PocoSiparisKalem()
@@ -552,12 +552,13 @@ namespace MEYPAK.PRL.IRSALIYE
         private void TBCariKodu_Properties_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
 
-            _fCariList = new FCariList(this.Tag.ToString(), "musterisiparis");
+            _fCariList = new FCariList(this.Tag.ToString(), "SatisIrsaliye");
             _fCariList.ShowDialog();
             if (_tempCariKart != null)
             {
                 TBCariKodu.Text = _tempCariKart.kod;
                 TBCariAdi.Text = _tempCariKart.unvan == "" ? _tempCariKart.adi + " " + _tempCariKart.soyadi : _tempCariKart.unvan;
+                CBAltHesap.Properties.DataSource = _cariAltHesapServis.obje.Where(x=>x.cariid==_tempCariKart.id).Select(x => x.adi).ToList();
             }
         }
 

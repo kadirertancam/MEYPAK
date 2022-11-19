@@ -23,6 +23,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.PRL.CARI;
+using MEYPAK.PRL.IRSALIYE;
 
 namespace MEYPAK.PRL.STOK
 {
@@ -35,6 +36,7 @@ namespace MEYPAK.PRL.STOK
         FMusteriSiparis fSiparis;
         FSatinAlmaSiparis _fSatınAlmaSiparis;
         FDepolarArasıTransferHar fDepolarArasıHar;
+        FSatisIrsaliye fSatisIrsaliye;
         int id;
         string _islem;
         string _form;
@@ -77,6 +79,8 @@ namespace MEYPAK.PRL.STOK
                         fSiparis=(FMusteriSiparis)frm;
                     if (frm.Name.Contains("FSatinAlmaSiparis"))
                         _fSatınAlmaSiparis=(FSatinAlmaSiparis)frm;
+                    if (frm.Name.Contains("SatisIrsaliye"))
+                        fSatisIrsaliye = (FSatisIrsaliye)frm;
                 }
             }
             _stokMarka.Data(ServisList.StokMarkaListeServis);
@@ -139,6 +143,11 @@ namespace MEYPAK.PRL.STOK
             {
                 if (_fSatınAlmaSiparis != null)
                     _fSatınAlmaSiparis._tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+
+            } else if (_islem == "SatisIrsaliye")
+            {
+                if (fSatisIrsaliye != null)
+                    fSatisIrsaliye._tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
 
             }
 

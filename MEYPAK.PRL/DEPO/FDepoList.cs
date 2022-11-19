@@ -1,6 +1,8 @@
-﻿using MEYPAK.BLL.DEPO;
+﻿using MEYPAK.BLL.Assets;
+using MEYPAK.BLL.DEPO;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository;
+using MEYPAK.Entity.PocoModels.DEPO;
 using MEYPAK.Interfaces.Depo;
 using MEYPAK.PRL.Assets;
 using System;
@@ -21,17 +23,18 @@ namespace MEYPAK.PRL.DEPO
         public FDepoList(string islem="")
         {
             InitializeComponent();
-
+            _depoServis = new GenericWebServis<PocoDEPO>();
             _islem = islem;
         }
         FDepoKart depoKart;
         FDepolarArasıTransfer depoTransferKart;
         FDepolarArasıTransferHar depoTransferBilgiKart;
-        IDepoServis _depoServis ;
+        GenericWebServis<PocoDEPO> _depoServis ;
 
         private void FDepoList_Load(object sender, EventArgs e)
         {
-            GCDepoList.DataSource = _depoServis.Listele();
+            _depoServis.Data(ServisList.DepoListeServis);
+            GCDepoList.DataSource = _depoServis.obje;
             depoKart = (FDepoKart)Application.OpenForms["FDepoKart"];
             depoTransferKart = (FDepolarArasıTransfer)Application.OpenForms["FDepolarArasıTransfer"];
             depoTransferBilgiKart = (FDepolarArasıTransferHar)Application.OpenForms["FDepolarArasıTransferBilgi"];
@@ -41,15 +44,15 @@ namespace MEYPAK.PRL.DEPO
         {
             if (_islem == "FDepoKart")
             {
-                depoKart._tempDepo = _depoServis.Getir(x => x.depokodu == gridView1.GetFocusedRowCellValue("depokodu")).FirstOrDefault();
+                depoKart._tempDepo = _depoServis.obje.Where(x => x.depokodu == gridView1.GetFocusedRowCellValue("depokodu")).FirstOrDefault();
             }
             else if (_islem == "FDepoTransferCıktı")
             {
-                depoTransferKart._CıktıDepo = _depoServis.Getir(x => x.depokodu == gridView1.GetFocusedRowCellValue("depokodu")).FirstOrDefault();
+                depoTransferKart._CıktıDepo = _depoServis.obje.Where(x => x.depokodu == gridView1.GetFocusedRowCellValue("depokodu")).FirstOrDefault();
             }
             else if (_islem == "FDepoTransferHedef")
             {
-                depoTransferKart._HedefDepo = _depoServis.Getir(x => x.depokodu == gridView1.GetFocusedRowCellValue("depokodu")).FirstOrDefault();
+                depoTransferKart._HedefDepo = _depoServis.obje.Where(x => x.depokodu == gridView1.GetFocusedRowCellValue("depokodu")).FirstOrDefault();
             }
             this.Close();
         }

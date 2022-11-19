@@ -1,6 +1,7 @@
 ﻿using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.Models.SIPARIS;
 using MEYPAK.Entity.PocoModels.CARI;
+using MEYPAK.PRL.IRSALIYE;
 using MEYPAK.PRL.SIPARIS;
 using System;
 using System.Collections.Generic;
@@ -31,7 +32,8 @@ namespace MEYPAK.PRL.CARI
         FCariHareket _cariHareket;
         FMusteriSiparis _fmusteriSiparis;
         FSatinAlmaSiparis fSatinAlmaSiparis;
-    
+        FSatisIrsaliye fSatisIrsaliye;
+
         private void FCariList_Load_1(object sender, EventArgs e)
         {
             foreach (Form frm in Application.OpenForms)
@@ -46,6 +48,8 @@ namespace MEYPAK.PRL.CARI
                         _fmusteriSiparis = (FMusteriSiparis)frm;
                     if (frm.Name.Contains("SatinAlmaSiparis"))
                         fSatinAlmaSiparis = (FSatinAlmaSiparis)frm;
+                    if (frm.Name.Contains("SatisIrsaliye"))
+                        fSatisIrsaliye = (FSatisIrsaliye)frm;
                 }
             }
 
@@ -80,6 +84,10 @@ namespace MEYPAK.PRL.CARI
             if (_islem == "SatinAlmaSiparis")
             {
                 fSatinAlmaSiparis._tempCariKart = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+            }
+            if (_islem == "SatisIrsaliye")
+            {
+                fSatisIrsaliye._tempCariKart = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
             }
             this.Close();
         }

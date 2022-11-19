@@ -10,6 +10,7 @@ namespace MEYPAK.BLL.Assets
     {
         public class Datum
         {
+            public string ulke_adi { get; set; }
             public string il_adi { get; set; }
             public string plaka_kodu { get; set; }
             public string alan_kodu { get; set; }

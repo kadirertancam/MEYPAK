@@ -56,7 +56,6 @@
             this.DGSayimList.TabIndex = 1;
             this.DGSayimList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
-           // this.DGSayimList.DoubleClick += new System.EventHandler(this.DGSayimList_CellDoubleClick);
             // 
             // gridView1
             // 
@@ -70,7 +69,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1160, 651);
             this.Controls.Add(this.panelControl1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FSayimList";
             this.Text = "FSayimList";
             this.Load += new System.EventHandler(this.FSayimList_Load);

@@ -938,6 +938,7 @@
             this.CBAdresIL.Properties.EditValueChanged += new System.EventHandler(this.lookUpEdit2_Properties_EditValueChanged);
             this.CBAdresIL.Size = new System.Drawing.Size(146, 20);
             this.CBAdresIL.TabIndex = 10;
+           
             // 
             // TBVergiNo
             // 

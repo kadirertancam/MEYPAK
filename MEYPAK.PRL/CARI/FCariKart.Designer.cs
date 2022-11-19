@@ -28,11 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions5 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject17 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject18 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject19 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject20 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions6 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject21 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject22 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject23 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject24 = new DevExpress.Utils.SerializableAppearanceObject();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FCariKart));
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions7 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject25 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject26 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -48,35 +74,59 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject34 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject35 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject36 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FCariKart));
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions10 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject37 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject38 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject39 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject40 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions11 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject41 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject42 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject43 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject44 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions12 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject45 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject46 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject47 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject48 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions13 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject49 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject50 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject51 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject52 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions14 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject53 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject54 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject55 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject56 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions15 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject57 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject58 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject59 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject60 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions16 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject61 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject62 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject63 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject64 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions17 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject65 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject66 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject67 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject68 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions18 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject69 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject70 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject71 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject72 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition1 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
             DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition1 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement1 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions19 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject73 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject74 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject75 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject76 = new DevExpress.Utils.SerializableAppearanceObject();
             this.CResim = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelControl9 = new DevExpress.XtraEditors.PanelControl();
@@ -115,6 +165,7 @@
             this.LBTelefon2 = new DevExpress.XtraEditors.LabelControl();
             this.LBTelefon1 = new DevExpress.XtraEditors.LabelControl();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.CBUlke = new DevExpress.XtraEditors.LookUpEdit();
             this.CBIlce = new DevExpress.XtraEditors.LookUpEdit();
             this.CBIl = new DevExpress.XtraEditors.LookUpEdit();
             this.BTMuhSec = new DevExpress.XtraEditors.ButtonEdit();
@@ -128,7 +179,6 @@
             this.TBApt = new DevExpress.XtraEditors.TextEdit();
             this.TBSokak = new DevExpress.XtraEditors.TextEdit();
             this.TBMahalle = new DevExpress.XtraEditors.TextEdit();
-            this.CBUlke = new DevExpress.XtraEditors.ComboBoxEdit();
             this.TBUnvan = new DevExpress.XtraEditors.TextEdit();
             this.BTCariSec = new DevExpress.XtraEditors.ButtonEdit();
             this.LBMuhKodu = new DevExpress.XtraEditors.LabelControl();
@@ -148,9 +198,16 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
+            this.panelControl10 = new DevExpress.XtraEditors.PanelControl();
+            this.BTSil = new DevExpress.XtraEditors.SimpleButton();
+            this.BTKaydet = new DevExpress.XtraEditors.SimpleButton();
             this.TBSevkAdres = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.DGSevkAdres = new DevExpress.XtraGrid.GridControl();
+            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panelControl8 = new DevExpress.XtraEditors.PanelControl();
+            this.LBSevkIlce = new DevExpress.XtraEditors.LabelControl();
             this.LBSevkAptDaire = new DevExpress.XtraEditors.LabelControl();
             this.LBSevkSokak = new DevExpress.XtraEditors.LabelControl();
             this.LBSevkMahalle = new DevExpress.XtraEditors.LabelControl();
@@ -169,26 +226,8 @@
             this.TBSevkMahalle = new DevExpress.XtraEditors.TextEdit();
             this.label3 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.GCSayisalAciklama = new DevExpress.XtraEditors.GroupControl();
-            this.NUDSAciklama9 = new System.Windows.Forms.NumericUpDown();
-            this.NUDSAciklama8 = new System.Windows.Forms.NumericUpDown();
-            this.NUDSAciklama7 = new System.Windows.Forms.NumericUpDown();
-            this.NUDSAciklama6 = new System.Windows.Forms.NumericUpDown();
-            this.NUDSAciklama5 = new System.Windows.Forms.NumericUpDown();
-            this.NUDSAciklama4 = new System.Windows.Forms.NumericUpDown();
-            this.NUDSAciklama3 = new System.Windows.Forms.NumericUpDown();
-            this.NUDSAciklama2 = new System.Windows.Forms.NumericUpDown();
-            this.NUDSAciklama1 = new System.Windows.Forms.NumericUpDown();
-            this.LBSayisalAciklama9 = new DevExpress.XtraEditors.LabelControl();
-            this.LBSayisalAciklama8 = new DevExpress.XtraEditors.LabelControl();
-            this.LBSayisalAciklama7 = new DevExpress.XtraEditors.LabelControl();
-            this.LBSayisalAciklama6 = new DevExpress.XtraEditors.LabelControl();
-            this.LBSayisalAciklama5 = new DevExpress.XtraEditors.LabelControl();
-            this.LBSayisalAciklama4 = new DevExpress.XtraEditors.LabelControl();
-            this.LBSayisalAciklama3 = new DevExpress.XtraEditors.LabelControl();
-            this.LBSayisalAciklama2 = new DevExpress.XtraEditors.LabelControl();
-            this.LBSayisalAciklama1 = new DevExpress.XtraEditors.LabelControl();
-            this.GCAciklama = new DevExpress.XtraEditors.GroupControl();
+            this.panelControl11 = new DevExpress.XtraEditors.PanelControl();
+            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.TBAciklama9 = new System.Windows.Forms.TextBox();
             this.LBAciklama9 = new DevExpress.XtraEditors.LabelControl();
             this.TBAciklama8 = new System.Windows.Forms.TextBox();
@@ -207,80 +246,81 @@
             this.LBAciklama2 = new DevExpress.XtraEditors.LabelControl();
             this.TBAciklama1 = new System.Windows.Forms.TextBox();
             this.LBAciklama1 = new DevExpress.XtraEditors.LabelControl();
+            this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.NUDSAciklama9 = new System.Windows.Forms.NumericUpDown();
+            this.NUDSAciklama8 = new System.Windows.Forms.NumericUpDown();
+            this.NUDSAciklama7 = new System.Windows.Forms.NumericUpDown();
+            this.NUDSAciklama6 = new System.Windows.Forms.NumericUpDown();
+            this.NUDSAciklama5 = new System.Windows.Forms.NumericUpDown();
+            this.NUDSAciklama4 = new System.Windows.Forms.NumericUpDown();
+            this.NUDSAciklama3 = new System.Windows.Forms.NumericUpDown();
+            this.NUDSAciklama2 = new System.Windows.Forms.NumericUpDown();
+            this.NUDSAciklama1 = new System.Windows.Forms.NumericUpDown();
+            this.LBSayisalAciklama9 = new DevExpress.XtraEditors.LabelControl();
+            this.LBSayisalAciklama8 = new DevExpress.XtraEditors.LabelControl();
+            this.LBSayisalAciklama7 = new DevExpress.XtraEditors.LabelControl();
+            this.LBSayisalAciklama6 = new DevExpress.XtraEditors.LabelControl();
+            this.LBSayisalAciklama5 = new DevExpress.XtraEditors.LabelControl();
+            this.LBSayisalAciklama4 = new DevExpress.XtraEditors.LabelControl();
+            this.LBSayisalAciklama3 = new DevExpress.XtraEditors.LabelControl();
+            this.LBSayisalAciklama2 = new DevExpress.XtraEditors.LabelControl();
+            this.LBSayisalAciklama1 = new DevExpress.XtraEditors.LabelControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panel11 = new System.Windows.Forms.Panel();
-            this.GCRaporKodlari = new DevExpress.XtraEditors.GroupControl();
-            this.simpleButton9 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton7 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton10 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton8 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton11 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton6 = new DevExpress.XtraEditors.SimpleButton();
-            this.TBRaporKodu9 = new System.Windows.Forms.TextBox();
-            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
+            this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
+            this.BTRprSec9 = new DevExpress.XtraEditors.ButtonEdit();
+            this.BTRprSec8 = new DevExpress.XtraEditors.ButtonEdit();
+            this.BTRprSec7 = new DevExpress.XtraEditors.ButtonEdit();
+            this.BTRprSec6 = new DevExpress.XtraEditors.ButtonEdit();
+            this.BTRprSec5 = new DevExpress.XtraEditors.ButtonEdit();
+            this.BTRprSec4 = new DevExpress.XtraEditors.ButtonEdit();
+            this.BTRprSec3 = new DevExpress.XtraEditors.ButtonEdit();
+            this.BTRprSec2 = new DevExpress.XtraEditors.ButtonEdit();
+            this.BTRprSec1 = new DevExpress.XtraEditors.ButtonEdit();
             this.LBRaporKodu9 = new DevExpress.XtraEditors.LabelControl();
-            this.TBRaporKodu8 = new System.Windows.Forms.TextBox();
             this.LBRaporKodu8 = new DevExpress.XtraEditors.LabelControl();
-            this.TBRaporKodu7 = new System.Windows.Forms.TextBox();
             this.LBRaporKodu7 = new DevExpress.XtraEditors.LabelControl();
-            this.TBRaporKodu6 = new System.Windows.Forms.TextBox();
             this.LBRaporKodu6 = new DevExpress.XtraEditors.LabelControl();
-            this.TBRaporKodu5 = new System.Windows.Forms.TextBox();
             this.LBRaporKodu5 = new DevExpress.XtraEditors.LabelControl();
-            this.TBRaporKodu4 = new System.Windows.Forms.TextBox();
             this.LBRaporKodu4 = new DevExpress.XtraEditors.LabelControl();
-            this.TBRaporKodu3 = new System.Windows.Forms.TextBox();
             this.LBRaporKodu3 = new DevExpress.XtraEditors.LabelControl();
-            this.TBRaporKodu2 = new System.Windows.Forms.TextBox();
             this.LBRaporKodu2 = new DevExpress.XtraEditors.LabelControl();
-            this.TBRaporKodu1 = new System.Windows.Forms.TextBox();
             this.LBRaporKodu1 = new DevExpress.XtraEditors.LabelControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.panel14 = new System.Windows.Forms.Panel();
+            this.panelControl12 = new DevExpress.XtraEditors.PanelControl();
+            this.panelControl14 = new DevExpress.XtraEditors.PanelControl();
             this.gridControl2 = new DevExpress.XtraGrid.GridControl();
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.panel13 = new System.Windows.Forms.Panel();
+            this.panelControl13 = new DevExpress.XtraEditors.PanelControl();
             this.BTYetkiliKaydet = new DevExpress.XtraEditors.SimpleButton();
-            this.BTYetkiliSil = new DevExpress.XtraEditors.SimpleButton();
-            this.TBPozisyon = new DevExpress.XtraEditors.TextEdit();
-            this.TBYetkiliAdi = new DevExpress.XtraEditors.TextEdit();
-            this.LBSirketPozisyonu = new DevExpress.XtraEditors.LabelControl();
             this.LBYetkiliAdi = new DevExpress.XtraEditors.LabelControl();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.panel15 = new System.Windows.Forms.Panel();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.BTAltCariSil = new DevExpress.XtraEditors.SimpleButton();
-            this.BTAltCariKaydet = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton12 = new DevExpress.XtraEditors.SimpleButton();
-            this.LBAltCariAdi = new DevExpress.XtraEditors.LabelControl();
-            this.LBAltCariKod = new DevExpress.XtraEditors.LabelControl();
-            this.textBox29 = new System.Windows.Forms.TextBox();
-            this.textBox30 = new System.Windows.Forms.TextBox();
+            this.BTYetkiliSil = new DevExpress.XtraEditors.SimpleButton();
+            this.LBPozisyon = new DevExpress.XtraEditors.LabelControl();
+            this.TBYetkiliAdi = new DevExpress.XtraEditors.TextEdit();
+            this.TBPozisyon = new DevExpress.XtraEditors.TextEdit();
             this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.panel17 = new System.Windows.Forms.Panel();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
-            this.panel16 = new System.Windows.Forms.Panel();
-            this.BTDokumanlarSil = new DevExpress.XtraEditors.SimpleButton();
-            this.BTDokumanlarKaydet = new DevExpress.XtraEditors.SimpleButton();
-            this.BTDosyaYoluSec = new DevExpress.XtraEditors.SimpleButton();
+            this.panelControl16 = new DevExpress.XtraEditors.PanelControl();
+            this.panelControl17 = new DevExpress.XtraEditors.PanelControl();
+            this.BTDosyaYoluSec = new DevExpress.XtraEditors.ButtonEdit();
+            this.TBDokumanAdi = new DevExpress.XtraEditors.TextEdit();
+            this.BTDokumanSil = new DevExpress.XtraEditors.SimpleButton();
+            this.BTDokumanKaydet = new DevExpress.XtraEditors.SimpleButton();
             this.LBDosyaYolu = new DevExpress.XtraEditors.LabelControl();
             this.LBDokumanAdi = new DevExpress.XtraEditors.LabelControl();
-            this.label65 = new System.Windows.Forms.Label();
-            this.TBDokumanDosyaYolu = new System.Windows.Forms.TextBox();
-            this.TBDokumanAdi = new System.Windows.Forms.TextBox();
+            this.panelControl15 = new DevExpress.XtraEditors.PanelControl();
+            this.panelControl18 = new DevExpress.XtraEditors.PanelControl();
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.DGAltHesap = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.BTAltHesapKaydet = new DevExpress.XtraEditors.SimpleButton();
             this.LBAltHesKodu = new DevExpress.XtraEditors.LabelControl();
             this.BTAltHesSec = new DevExpress.XtraEditors.ButtonEdit();
-            this.LBAdi = new DevExpress.XtraEditors.LabelControl();
+            this.LBAltHesAdi = new DevExpress.XtraEditors.LabelControl();
             this.TBAltHesapAdi = new DevExpress.XtraEditors.TextEdit();
             this.Resim = new System.Windows.Forms.TabPage();
             this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
@@ -288,20 +328,12 @@
             this.gridControl3 = new DevExpress.XtraGrid.GridControl();
             this.tileView1 = new DevExpress.XtraGrid.Views.Tile.TileView();
             this.panelControl6 = new DevExpress.XtraEditors.PanelControl();
-            this.simpleButton13 = new DevExpress.XtraEditors.SimpleButton();
+            this.BTResimKaydet = new DevExpress.XtraEditors.SimpleButton();
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.BTResimSec = new DevExpress.XtraEditors.ButtonEdit();
-            this.BTSil = new DevExpress.XtraEditors.SimpleButton();
-            this.BTKaydet = new DevExpress.XtraEditors.SimpleButton();
             this.sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
             this.entityInstantFeedbackSource1 = new DevExpress.Data.Linq.EntityInstantFeedbackSource();
-            this.LBSevkIlce = new DevExpress.XtraEditors.LabelControl();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.panelControl10 = new DevExpress.XtraEditors.PanelControl();
-            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
-            this.panelControl11 = new DevExpress.XtraEditors.PanelControl();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl9)).BeginInit();
             this.panelControl9.SuspendLayout();
@@ -324,6 +356,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.BTGrupSec.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBAdres.Properties)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CBUlke.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBIlce.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBIl.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTMuhSec.Properties)).BeginInit();
@@ -337,13 +370,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.TBApt.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBSokak.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBMahalle.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CBUlke.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBUnvan.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTCariSec.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
             this.panelControl4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl10)).BeginInit();
+            this.panelControl10.SuspendLayout();
             this.TBSevkAdres.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
+            this.panelControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGSevkAdres)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl8)).BeginInit();
             this.panelControl8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CBSevkIlce.Properties)).BeginInit();
@@ -355,8 +393,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.TBSevkKodu.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBSevkMahalle.Properties)).BeginInit();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.GCSayisalAciklama)).BeginInit();
-            this.GCSayisalAciklama.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl11)).BeginInit();
+            this.panelControl11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
+            this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
+            this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUDSAciklama9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUDSAciklama8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUDSAciklama7)).BeginInit();
@@ -366,27 +408,42 @@
             ((System.ComponentModel.ISupportInitialize)(this.NUDSAciklama3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUDSAciklama2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUDSAciklama1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GCAciklama)).BeginInit();
-            this.GCAciklama.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.panel11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.GCRaporKodlari)).BeginInit();
-            this.GCRaporKodlari.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
+            this.groupControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BTRprSec9.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BTRprSec8.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BTRprSec7.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BTRprSec6.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BTRprSec5.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BTRprSec4.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BTRprSec3.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BTRprSec2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BTRprSec1.Properties)).BeginInit();
             this.tabPage4.SuspendLayout();
-            this.panel14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl12)).BeginInit();
+            this.panelControl12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl14)).BeginInit();
+            this.panelControl14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
-            this.panel13.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TBPozisyon.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl13)).BeginInit();
+            this.panelControl13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TBYetkiliAdi.Properties)).BeginInit();
-            this.tabPage5.SuspendLayout();
-            this.panel15.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
-            this.panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TBPozisyon.Properties)).BeginInit();
             this.tabPage7.SuspendLayout();
-            this.panel17.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
-            this.panel16.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl16)).BeginInit();
+            this.panelControl16.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl17)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BTDosyaYoluSec.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBDokumanAdi.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl15)).BeginInit();
+            this.panelControl15.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl18)).BeginInit();
+            this.panelControl18.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView4)).BeginInit();
             this.tabPage9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
@@ -407,14 +464,6 @@
             this.panelControl6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTResimSec.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl10)).BeginInit();
-            this.panelControl10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
-            this.panelControl3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl11)).BeginInit();
-            this.panelControl11.SuspendLayout();
             this.SuspendLayout();
             // 
             // CResim
@@ -470,6 +519,7 @@
             // 
             // CBTip
             // 
+            this.CBTip.EditValue = "Alıcı";
             this.CBTip.Location = new System.Drawing.Point(118, 129);
             this.CBTip.Name = "CBTip";
             this.CBTip.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -507,7 +557,7 @@
             this.BTSMuhSec.Location = new System.Drawing.Point(118, 49);
             this.BTSMuhSec.Name = "BTSMuhSec";
             this.BTSMuhSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions6, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject21, serializableAppearanceObject22, serializableAppearanceObject23, serializableAppearanceObject24, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTSMuhSec.Size = new System.Drawing.Size(180, 22);
             this.BTSMuhSec.TabIndex = 64;
             // 
@@ -516,7 +566,7 @@
             this.BTAMuhSec.Location = new System.Drawing.Point(118, 23);
             this.BTAMuhSec.Name = "BTAMuhSec";
             this.BTAMuhSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions7, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject25, serializableAppearanceObject26, serializableAppearanceObject27, serializableAppearanceObject28, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTAMuhSec.Size = new System.Drawing.Size(180, 22);
             this.BTAMuhSec.TabIndex = 63;
             // 
@@ -668,7 +718,7 @@
             this.BTKategoriSec.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.BTKategoriSec.Properties.Appearance.Options.UseForeColor = true;
             this.BTKategoriSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions8, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject29, serializableAppearanceObject30, serializableAppearanceObject31, serializableAppearanceObject32, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTKategoriSec.Size = new System.Drawing.Size(180, 22);
             this.BTKategoriSec.TabIndex = 63;
             // 
@@ -679,7 +729,7 @@
             this.BTGrupSec.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.BTGrupSec.Properties.Appearance.Options.UseForeColor = true;
             this.BTGrupSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions9, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject33, serializableAppearanceObject34, serializableAppearanceObject35, serializableAppearanceObject36, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTGrupSec.Size = new System.Drawing.Size(180, 22);
             this.BTGrupSec.TabIndex = 63;
             // 
@@ -784,6 +834,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.CBUlke);
             this.groupBox1.Controls.Add(this.CBIlce);
             this.groupBox1.Controls.Add(this.CBIl);
             this.groupBox1.Controls.Add(this.BTMuhSec);
@@ -797,7 +848,6 @@
             this.groupBox1.Controls.Add(this.TBApt);
             this.groupBox1.Controls.Add(this.TBSokak);
             this.groupBox1.Controls.Add(this.TBMahalle);
-            this.groupBox1.Controls.Add(this.CBUlke);
             this.groupBox1.Controls.Add(this.TBUnvan);
             this.groupBox1.Controls.Add(this.BTCariSec);
             this.groupBox1.Controls.Add(this.LBMuhKodu);
@@ -823,6 +873,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Genel Bilgi";
             // 
+            // CBUlke
+            // 
+            this.CBUlke.Location = new System.Drawing.Point(122, 78);
+            this.CBUlke.Name = "CBUlke";
+            this.CBUlke.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CBUlke.Properties.NullText = "";
+            this.CBUlke.Properties.EditValueChanged += new System.EventHandler(this.CBUlke_Properties_EditValueChanged);
+            this.CBUlke.Size = new System.Drawing.Size(180, 20);
+            this.CBUlke.TabIndex = 72;
+            // 
             // CBIlce
             // 
             this.CBIlce.Location = new System.Drawing.Point(227, 105);
@@ -832,6 +893,7 @@
             this.CBIlce.Properties.NullText = "";
             this.CBIlce.Size = new System.Drawing.Size(75, 20);
             this.CBIlce.TabIndex = 71;
+            this.CBIlce.TextChanged += new System.EventHandler(this.CBIlce_TextChanged);
             // 
             // CBIl
             // 
@@ -848,7 +910,7 @@
             this.BTMuhSec.Location = new System.Drawing.Point(103, 397);
             this.BTMuhSec.Name = "BTMuhSec";
             this.BTMuhSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTMuhSec.Size = new System.Drawing.Size(180, 22);
             this.BTMuhSec.TabIndex = 57;
             // 
@@ -937,15 +999,6 @@
             this.TBMahalle.Size = new System.Drawing.Size(180, 20);
             this.TBMahalle.TabIndex = 62;
             // 
-            // CBUlke
-            // 
-            this.CBUlke.Location = new System.Drawing.Point(122, 80);
-            this.CBUlke.Name = "CBUlke";
-            this.CBUlke.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.CBUlke.Size = new System.Drawing.Size(180, 20);
-            this.CBUlke.TabIndex = 59;
-            // 
             // TBUnvan
             // 
             this.TBUnvan.Location = new System.Drawing.Point(122, 53);
@@ -958,7 +1011,7 @@
             this.BTCariSec.Location = new System.Drawing.Point(122, 27);
             this.BTCariSec.Name = "BTCariSec";
             this.BTCariSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions6, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject21, serializableAppearanceObject22, serializableAppearanceObject23, serializableAppearanceObject24, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTCariSec.Size = new System.Drawing.Size(180, 22);
             this.BTCariSec.TabIndex = 57;
             // 
@@ -1103,13 +1156,45 @@
             this.panelControl4.Size = new System.Drawing.Size(1093, 519);
             this.panelControl4.TabIndex = 5;
             // 
+            // panelControl10
+            // 
+            this.panelControl10.Controls.Add(this.BTSil);
+            this.panelControl10.Controls.Add(this.BTKaydet);
+            this.panelControl10.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelControl10.Location = new System.Drawing.Point(0, 464);
+            this.panelControl10.Name = "panelControl10";
+            this.panelControl10.Size = new System.Drawing.Size(1093, 55);
+            this.panelControl10.TabIndex = 1;
+            // 
+            // BTSil
+            // 
+            this.BTSil.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTSil.Appearance.Options.UseBackColor = true;
+            this.BTSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTSil.ImageOptions.Image")));
+            this.BTSil.Location = new System.Drawing.Point(988, 5);
+            this.BTSil.Name = "BTSil";
+            this.BTSil.Size = new System.Drawing.Size(93, 48);
+            this.BTSil.TabIndex = 2;
+            this.BTSil.Text = "Sil";
+            // 
+            // BTKaydet
+            // 
+            this.BTKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTKaydet.Appearance.Options.UseBackColor = true;
+            this.BTKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTKaydet.ImageOptions.Image")));
+            this.BTKaydet.Location = new System.Drawing.Point(894, 5);
+            this.BTKaydet.Name = "BTKaydet";
+            this.BTKaydet.Size = new System.Drawing.Size(93, 48);
+            this.BTKaydet.TabIndex = 1;
+            this.BTKaydet.Text = "Kaydet";
+            this.BTKaydet.Click += new System.EventHandler(this.BTSevkAdresKaydet_Click);
+            // 
             // TBSevkAdres
             // 
             this.TBSevkAdres.Controls.Add(this.tabPage1);
             this.TBSevkAdres.Controls.Add(this.tabPage2);
             this.TBSevkAdres.Controls.Add(this.tabPage3);
             this.TBSevkAdres.Controls.Add(this.tabPage4);
-            this.TBSevkAdres.Controls.Add(this.tabPage5);
             this.TBSevkAdres.Controls.Add(this.tabPage7);
             this.TBSevkAdres.Controls.Add(this.tabPage8);
             this.TBSevkAdres.Controls.Add(this.tabPage9);
@@ -1117,7 +1202,7 @@
             this.TBSevkAdres.Location = new System.Drawing.Point(0, 3);
             this.TBSevkAdres.Name = "TBSevkAdres";
             this.TBSevkAdres.SelectedIndex = 0;
-            this.TBSevkAdres.Size = new System.Drawing.Size(1093, 455);
+            this.TBSevkAdres.Size = new System.Drawing.Size(1090, 459);
             this.TBSevkAdres.TabIndex = 0;
             // 
             // tabPage1
@@ -1128,9 +1213,35 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1085, 429);
+            this.tabPage1.Size = new System.Drawing.Size(1082, 433);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Sevk Adresleri";
+            // 
+            // panelControl3
+            // 
+            this.panelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl3.Controls.Add(this.DGSevkAdres);
+            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl3.Location = new System.Drawing.Point(3, 113);
+            this.panelControl3.Name = "panelControl3";
+            this.panelControl3.Size = new System.Drawing.Size(1076, 317);
+            this.panelControl3.TabIndex = 2;
+            // 
+            // DGSevkAdres
+            // 
+            this.DGSevkAdres.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DGSevkAdres.Location = new System.Drawing.Point(0, 0);
+            this.DGSevkAdres.MainView = this.gridView2;
+            this.DGSevkAdres.Name = "DGSevkAdres";
+            this.DGSevkAdres.Size = new System.Drawing.Size(1076, 317);
+            this.DGSevkAdres.TabIndex = 0;
+            this.DGSevkAdres.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView2});
+            // 
+            // gridView2
+            // 
+            this.gridView2.GridControl = this.DGSevkAdres;
+            this.gridView2.Name = "gridView2";
             // 
             // panelControl8
             // 
@@ -1156,8 +1267,16 @@
             this.panelControl8.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl8.Location = new System.Drawing.Point(3, 3);
             this.panelControl8.Name = "panelControl8";
-            this.panelControl8.Size = new System.Drawing.Size(1079, 110);
+            this.panelControl8.Size = new System.Drawing.Size(1076, 110);
             this.panelControl8.TabIndex = 1;
+            // 
+            // LBSevkIlce
+            // 
+            this.LBSevkIlce.Location = new System.Drawing.Point(387, 49);
+            this.LBSevkIlce.Name = "LBSevkIlce";
+            this.LBSevkIlce.Size = new System.Drawing.Size(17, 13);
+            this.LBSevkIlce.TabIndex = 86;
+            this.LBSevkIlce.Text = "İlçe";
             // 
             // LBSevkAptDaire
             // 
@@ -1306,44 +1425,244 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1085, 429);
+            this.tabPage2.Size = new System.Drawing.Size(1082, 433);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Açıklamalar";
-            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
-            // GCSayisalAciklama
+            // panelControl11
             // 
-            this.GCSayisalAciklama.Controls.Add(this.NUDSAciklama9);
-            this.GCSayisalAciklama.Controls.Add(this.NUDSAciklama8);
-            this.GCSayisalAciklama.Controls.Add(this.NUDSAciklama7);
-            this.GCSayisalAciklama.Controls.Add(this.NUDSAciklama6);
-            this.GCSayisalAciklama.Controls.Add(this.NUDSAciklama5);
-            this.GCSayisalAciklama.Controls.Add(this.NUDSAciklama4);
-            this.GCSayisalAciklama.Controls.Add(this.NUDSAciklama3);
-            this.GCSayisalAciklama.Controls.Add(this.NUDSAciklama2);
-            this.GCSayisalAciklama.Controls.Add(this.NUDSAciklama1);
-            this.GCSayisalAciklama.Controls.Add(this.LBSayisalAciklama9);
-            this.GCSayisalAciklama.Controls.Add(this.LBSayisalAciklama8);
-            this.GCSayisalAciklama.Controls.Add(this.LBSayisalAciklama7);
-            this.GCSayisalAciklama.Controls.Add(this.LBSayisalAciklama6);
-            this.GCSayisalAciklama.Controls.Add(this.LBSayisalAciklama5);
-            this.GCSayisalAciklama.Controls.Add(this.LBSayisalAciklama4);
-            this.GCSayisalAciklama.Controls.Add(this.LBSayisalAciklama3);
-            this.GCSayisalAciklama.Controls.Add(this.LBSayisalAciklama2);
-            this.GCSayisalAciklama.Controls.Add(this.LBSayisalAciklama1);
-            this.GCSayisalAciklama.GroupStyle = DevExpress.Utils.GroupStyle.Light;
-            this.GCSayisalAciklama.Location = new System.Drawing.Point(5, 202);
-            this.GCSayisalAciklama.Name = "GCSayisalAciklama";
-            this.GCSayisalAciklama.Size = new System.Drawing.Size(1071, 181);
-            this.GCSayisalAciklama.TabIndex = 21;
-            this.GCSayisalAciklama.Text = "Sayısal Açıklama";
+            this.panelControl11.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl11.Controls.Add(this.groupControl1);
+            this.panelControl11.Controls.Add(this.groupControl2);
+            this.panelControl11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl11.Location = new System.Drawing.Point(3, 3);
+            this.panelControl11.Name = "panelControl11";
+            this.panelControl11.Size = new System.Drawing.Size(1076, 427);
+            this.panelControl11.TabIndex = 22;
+            // 
+            // groupControl1
+            // 
+            this.groupControl1.AutoSize = true;
+            this.groupControl1.Controls.Add(this.TBAciklama9);
+            this.groupControl1.Controls.Add(this.LBAciklama9);
+            this.groupControl1.Controls.Add(this.TBAciklama8);
+            this.groupControl1.Controls.Add(this.LBAciklama8);
+            this.groupControl1.Controls.Add(this.TBAciklama7);
+            this.groupControl1.Controls.Add(this.LBAciklama7);
+            this.groupControl1.Controls.Add(this.TBAciklama6);
+            this.groupControl1.Controls.Add(this.LBAciklama6);
+            this.groupControl1.Controls.Add(this.TBAciklama5);
+            this.groupControl1.Controls.Add(this.LBAciklama5);
+            this.groupControl1.Controls.Add(this.TBAciklama4);
+            this.groupControl1.Controls.Add(this.LBAciklama4);
+            this.groupControl1.Controls.Add(this.TBAciklama3);
+            this.groupControl1.Controls.Add(this.LBAciklama3);
+            this.groupControl1.Controls.Add(this.TBAciklama2);
+            this.groupControl1.Controls.Add(this.LBAciklama2);
+            this.groupControl1.Controls.Add(this.TBAciklama1);
+            this.groupControl1.Controls.Add(this.LBAciklama1);
+            this.groupControl1.GroupStyle = DevExpress.Utils.GroupStyle.Light;
+            this.groupControl1.Location = new System.Drawing.Point(5, 23);
+            this.groupControl1.Name = "groupControl1";
+            this.groupControl1.Size = new System.Drawing.Size(1071, 173);
+            this.groupControl1.TabIndex = 18;
+            this.groupControl1.Text = "Açıklama";
+            // 
+            // TBAciklama9
+            // 
+            this.TBAciklama9.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TBAciklama9.Location = new System.Drawing.Point(667, 134);
+            this.TBAciklama9.Name = "TBAciklama9";
+            this.TBAciklama9.Size = new System.Drawing.Size(180, 21);
+            this.TBAciklama9.TabIndex = 32;
+            // 
+            // LBAciklama9
+            // 
+            this.LBAciklama9.Appearance.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.LBAciklama9.Appearance.Options.UseForeColor = true;
+            this.LBAciklama9.Location = new System.Drawing.Point(667, 116);
+            this.LBAciklama9.Name = "LBAciklama9";
+            this.LBAciklama9.Size = new System.Drawing.Size(50, 13);
+            this.LBAciklama9.TabIndex = 31;
+            this.LBAciklama9.Text = "Açıklama 9";
+            // 
+            // TBAciklama8
+            // 
+            this.TBAciklama8.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TBAciklama8.Location = new System.Drawing.Point(667, 90);
+            this.TBAciklama8.Name = "TBAciklama8";
+            this.TBAciklama8.Size = new System.Drawing.Size(180, 21);
+            this.TBAciklama8.TabIndex = 30;
+            // 
+            // LBAciklama8
+            // 
+            this.LBAciklama8.Appearance.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.LBAciklama8.Appearance.Options.UseForeColor = true;
+            this.LBAciklama8.Location = new System.Drawing.Point(667, 72);
+            this.LBAciklama8.Name = "LBAciklama8";
+            this.LBAciklama8.Size = new System.Drawing.Size(50, 13);
+            this.LBAciklama8.TabIndex = 29;
+            this.LBAciklama8.Text = "Açıklama 8";
+            // 
+            // TBAciklama7
+            // 
+            this.TBAciklama7.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TBAciklama7.Location = new System.Drawing.Point(667, 44);
+            this.TBAciklama7.Name = "TBAciklama7";
+            this.TBAciklama7.Size = new System.Drawing.Size(180, 21);
+            this.TBAciklama7.TabIndex = 28;
+            // 
+            // LBAciklama7
+            // 
+            this.LBAciklama7.Appearance.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.LBAciklama7.Appearance.Options.UseForeColor = true;
+            this.LBAciklama7.Location = new System.Drawing.Point(667, 26);
+            this.LBAciklama7.Name = "LBAciklama7";
+            this.LBAciklama7.Size = new System.Drawing.Size(50, 13);
+            this.LBAciklama7.TabIndex = 27;
+            this.LBAciklama7.Text = "Açıklama 7";
+            // 
+            // TBAciklama6
+            // 
+            this.TBAciklama6.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TBAciklama6.Location = new System.Drawing.Point(357, 134);
+            this.TBAciklama6.Name = "TBAciklama6";
+            this.TBAciklama6.Size = new System.Drawing.Size(180, 21);
+            this.TBAciklama6.TabIndex = 26;
+            // 
+            // LBAciklama6
+            // 
+            this.LBAciklama6.Appearance.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.LBAciklama6.Appearance.Options.UseForeColor = true;
+            this.LBAciklama6.Location = new System.Drawing.Point(357, 116);
+            this.LBAciklama6.Name = "LBAciklama6";
+            this.LBAciklama6.Size = new System.Drawing.Size(50, 13);
+            this.LBAciklama6.TabIndex = 25;
+            this.LBAciklama6.Text = "Açıklama 6";
+            // 
+            // TBAciklama5
+            // 
+            this.TBAciklama5.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TBAciklama5.Location = new System.Drawing.Point(357, 90);
+            this.TBAciklama5.Name = "TBAciklama5";
+            this.TBAciklama5.Size = new System.Drawing.Size(180, 21);
+            this.TBAciklama5.TabIndex = 24;
+            // 
+            // LBAciklama5
+            // 
+            this.LBAciklama5.Appearance.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.LBAciklama5.Appearance.Options.UseForeColor = true;
+            this.LBAciklama5.Location = new System.Drawing.Point(357, 72);
+            this.LBAciklama5.Name = "LBAciklama5";
+            this.LBAciklama5.Size = new System.Drawing.Size(50, 13);
+            this.LBAciklama5.TabIndex = 23;
+            this.LBAciklama5.Text = "Açıklama 5";
+            // 
+            // TBAciklama4
+            // 
+            this.TBAciklama4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TBAciklama4.Location = new System.Drawing.Point(357, 44);
+            this.TBAciklama4.Name = "TBAciklama4";
+            this.TBAciklama4.Size = new System.Drawing.Size(180, 21);
+            this.TBAciklama4.TabIndex = 22;
+            // 
+            // LBAciklama4
+            // 
+            this.LBAciklama4.Appearance.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.LBAciklama4.Appearance.Options.UseForeColor = true;
+            this.LBAciklama4.Location = new System.Drawing.Point(357, 26);
+            this.LBAciklama4.Name = "LBAciklama4";
+            this.LBAciklama4.Size = new System.Drawing.Size(50, 13);
+            this.LBAciklama4.TabIndex = 21;
+            this.LBAciklama4.Text = "Açıklama 4";
+            // 
+            // TBAciklama3
+            // 
+            this.TBAciklama3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TBAciklama3.Location = new System.Drawing.Point(54, 134);
+            this.TBAciklama3.Name = "TBAciklama3";
+            this.TBAciklama3.Size = new System.Drawing.Size(180, 21);
+            this.TBAciklama3.TabIndex = 20;
+            // 
+            // LBAciklama3
+            // 
+            this.LBAciklama3.Appearance.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.LBAciklama3.Appearance.Options.UseForeColor = true;
+            this.LBAciklama3.Location = new System.Drawing.Point(54, 116);
+            this.LBAciklama3.Name = "LBAciklama3";
+            this.LBAciklama3.Size = new System.Drawing.Size(50, 13);
+            this.LBAciklama3.TabIndex = 19;
+            this.LBAciklama3.Text = "Açıklama 3";
+            // 
+            // TBAciklama2
+            // 
+            this.TBAciklama2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TBAciklama2.Location = new System.Drawing.Point(54, 90);
+            this.TBAciklama2.Name = "TBAciklama2";
+            this.TBAciklama2.Size = new System.Drawing.Size(180, 21);
+            this.TBAciklama2.TabIndex = 18;
+            // 
+            // LBAciklama2
+            // 
+            this.LBAciklama2.Appearance.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.LBAciklama2.Appearance.Options.UseForeColor = true;
+            this.LBAciklama2.Location = new System.Drawing.Point(54, 72);
+            this.LBAciklama2.Name = "LBAciklama2";
+            this.LBAciklama2.Size = new System.Drawing.Size(50, 13);
+            this.LBAciklama2.TabIndex = 17;
+            this.LBAciklama2.Text = "Açıklama 2";
+            // 
+            // TBAciklama1
+            // 
+            this.TBAciklama1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TBAciklama1.Location = new System.Drawing.Point(54, 44);
+            this.TBAciklama1.Name = "TBAciklama1";
+            this.TBAciklama1.Size = new System.Drawing.Size(180, 21);
+            this.TBAciklama1.TabIndex = 16;
+            // 
+            // LBAciklama1
+            // 
+            this.LBAciklama1.Appearance.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.LBAciklama1.Appearance.Options.UseForeColor = true;
+            this.LBAciklama1.Location = new System.Drawing.Point(54, 26);
+            this.LBAciklama1.Name = "LBAciklama1";
+            this.LBAciklama1.Size = new System.Drawing.Size(50, 13);
+            this.LBAciklama1.TabIndex = 0;
+            this.LBAciklama1.Text = "Açıklama 1";
+            // 
+            // groupControl2
+            // 
+            this.groupControl2.Controls.Add(this.NUDSAciklama9);
+            this.groupControl2.Controls.Add(this.NUDSAciklama8);
+            this.groupControl2.Controls.Add(this.NUDSAciklama7);
+            this.groupControl2.Controls.Add(this.NUDSAciklama6);
+            this.groupControl2.Controls.Add(this.NUDSAciklama5);
+            this.groupControl2.Controls.Add(this.NUDSAciklama4);
+            this.groupControl2.Controls.Add(this.NUDSAciklama3);
+            this.groupControl2.Controls.Add(this.NUDSAciklama2);
+            this.groupControl2.Controls.Add(this.NUDSAciklama1);
+            this.groupControl2.Controls.Add(this.LBSayisalAciklama9);
+            this.groupControl2.Controls.Add(this.LBSayisalAciklama8);
+            this.groupControl2.Controls.Add(this.LBSayisalAciklama7);
+            this.groupControl2.Controls.Add(this.LBSayisalAciklama6);
+            this.groupControl2.Controls.Add(this.LBSayisalAciklama5);
+            this.groupControl2.Controls.Add(this.LBSayisalAciklama4);
+            this.groupControl2.Controls.Add(this.LBSayisalAciklama3);
+            this.groupControl2.Controls.Add(this.LBSayisalAciklama2);
+            this.groupControl2.Controls.Add(this.LBSayisalAciklama1);
+            this.groupControl2.GroupStyle = DevExpress.Utils.GroupStyle.Light;
+            this.groupControl2.Location = new System.Drawing.Point(5, 202);
+            this.groupControl2.Name = "groupControl2";
+            this.groupControl2.Size = new System.Drawing.Size(1071, 181);
+            this.groupControl2.TabIndex = 21;
+            this.groupControl2.Text = "Sayısal Açıklama";
             // 
             // NUDSAciklama9
             // 
             this.NUDSAciklama9.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.NUDSAciklama9.Location = new System.Drawing.Point(667, 136);
             this.NUDSAciklama9.Name = "NUDSAciklama9";
-            this.NUDSAciklama9.Size = new System.Drawing.Size(267, 21);
+            this.NUDSAciklama9.Size = new System.Drawing.Size(180, 21);
             this.NUDSAciklama9.TabIndex = 59;
             // 
             // NUDSAciklama8
@@ -1351,15 +1670,15 @@
             this.NUDSAciklama8.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.NUDSAciklama8.Location = new System.Drawing.Point(667, 91);
             this.NUDSAciklama8.Name = "NUDSAciklama8";
-            this.NUDSAciklama8.Size = new System.Drawing.Size(267, 21);
+            this.NUDSAciklama8.Size = new System.Drawing.Size(180, 21);
             this.NUDSAciklama8.TabIndex = 58;
             // 
             // NUDSAciklama7
             // 
             this.NUDSAciklama7.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.NUDSAciklama7.Location = new System.Drawing.Point(667, 50);
+            this.NUDSAciklama7.Location = new System.Drawing.Point(667, 46);
             this.NUDSAciklama7.Name = "NUDSAciklama7";
-            this.NUDSAciklama7.Size = new System.Drawing.Size(267, 21);
+            this.NUDSAciklama7.Size = new System.Drawing.Size(180, 21);
             this.NUDSAciklama7.TabIndex = 57;
             // 
             // NUDSAciklama6
@@ -1367,7 +1686,7 @@
             this.NUDSAciklama6.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.NUDSAciklama6.Location = new System.Drawing.Point(357, 136);
             this.NUDSAciklama6.Name = "NUDSAciklama6";
-            this.NUDSAciklama6.Size = new System.Drawing.Size(267, 21);
+            this.NUDSAciklama6.Size = new System.Drawing.Size(180, 21);
             this.NUDSAciklama6.TabIndex = 56;
             // 
             // NUDSAciklama5
@@ -1375,7 +1694,7 @@
             this.NUDSAciklama5.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.NUDSAciklama5.Location = new System.Drawing.Point(357, 91);
             this.NUDSAciklama5.Name = "NUDSAciklama5";
-            this.NUDSAciklama5.Size = new System.Drawing.Size(267, 21);
+            this.NUDSAciklama5.Size = new System.Drawing.Size(180, 21);
             this.NUDSAciklama5.TabIndex = 55;
             // 
             // NUDSAciklama4
@@ -1383,7 +1702,7 @@
             this.NUDSAciklama4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.NUDSAciklama4.Location = new System.Drawing.Point(357, 50);
             this.NUDSAciklama4.Name = "NUDSAciklama4";
-            this.NUDSAciklama4.Size = new System.Drawing.Size(267, 21);
+            this.NUDSAciklama4.Size = new System.Drawing.Size(180, 21);
             this.NUDSAciklama4.TabIndex = 54;
             // 
             // NUDSAciklama3
@@ -1391,7 +1710,7 @@
             this.NUDSAciklama3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.NUDSAciklama3.Location = new System.Drawing.Point(54, 136);
             this.NUDSAciklama3.Name = "NUDSAciklama3";
-            this.NUDSAciklama3.Size = new System.Drawing.Size(267, 21);
+            this.NUDSAciklama3.Size = new System.Drawing.Size(180, 21);
             this.NUDSAciklama3.TabIndex = 53;
             // 
             // NUDSAciklama2
@@ -1399,7 +1718,7 @@
             this.NUDSAciklama2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.NUDSAciklama2.Location = new System.Drawing.Point(54, 94);
             this.NUDSAciklama2.Name = "NUDSAciklama2";
-            this.NUDSAciklama2.Size = new System.Drawing.Size(267, 21);
+            this.NUDSAciklama2.Size = new System.Drawing.Size(180, 21);
             this.NUDSAciklama2.TabIndex = 52;
             // 
             // NUDSAciklama1
@@ -1407,7 +1726,7 @@
             this.NUDSAciklama1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.NUDSAciklama1.Location = new System.Drawing.Point(54, 50);
             this.NUDSAciklama1.Name = "NUDSAciklama1";
-            this.NUDSAciklama1.Size = new System.Drawing.Size(267, 21);
+            this.NUDSAciklama1.Size = new System.Drawing.Size(180, 21);
             this.NUDSAciklama1.TabIndex = 51;
             // 
             // LBSayisalAciklama9
@@ -1500,202 +1819,12 @@
             this.LBSayisalAciklama1.TabIndex = 33;
             this.LBSayisalAciklama1.Text = "Sayısal Açıklama 1";
             // 
-            // GCAciklama
-            // 
-            this.GCAciklama.AutoSize = true;
-            this.GCAciklama.Controls.Add(this.TBAciklama9);
-            this.GCAciklama.Controls.Add(this.LBAciklama9);
-            this.GCAciklama.Controls.Add(this.TBAciklama8);
-            this.GCAciklama.Controls.Add(this.LBAciklama8);
-            this.GCAciklama.Controls.Add(this.TBAciklama7);
-            this.GCAciklama.Controls.Add(this.LBAciklama7);
-            this.GCAciklama.Controls.Add(this.TBAciklama6);
-            this.GCAciklama.Controls.Add(this.LBAciklama6);
-            this.GCAciklama.Controls.Add(this.TBAciklama5);
-            this.GCAciklama.Controls.Add(this.LBAciklama5);
-            this.GCAciklama.Controls.Add(this.TBAciklama4);
-            this.GCAciklama.Controls.Add(this.LBAciklama4);
-            this.GCAciklama.Controls.Add(this.TBAciklama3);
-            this.GCAciklama.Controls.Add(this.LBAciklama3);
-            this.GCAciklama.Controls.Add(this.TBAciklama2);
-            this.GCAciklama.Controls.Add(this.LBAciklama2);
-            this.GCAciklama.Controls.Add(this.TBAciklama1);
-            this.GCAciklama.Controls.Add(this.LBAciklama1);
-            this.GCAciklama.GroupStyle = DevExpress.Utils.GroupStyle.Light;
-            this.GCAciklama.Location = new System.Drawing.Point(5, 23);
-            this.GCAciklama.Name = "GCAciklama";
-            this.GCAciklama.Size = new System.Drawing.Size(1071, 173);
-            this.GCAciklama.TabIndex = 18;
-            this.GCAciklama.Text = "Açıklama";
-            // 
-            // TBAciklama9
-            // 
-            this.TBAciklama9.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TBAciklama9.Location = new System.Drawing.Point(667, 134);
-            this.TBAciklama9.Name = "TBAciklama9";
-            this.TBAciklama9.Size = new System.Drawing.Size(267, 21);
-            this.TBAciklama9.TabIndex = 32;
-            // 
-            // LBAciklama9
-            // 
-            this.LBAciklama9.Appearance.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.LBAciklama9.Appearance.Options.UseForeColor = true;
-            this.LBAciklama9.Location = new System.Drawing.Point(667, 116);
-            this.LBAciklama9.Name = "LBAciklama9";
-            this.LBAciklama9.Size = new System.Drawing.Size(50, 13);
-            this.LBAciklama9.TabIndex = 31;
-            this.LBAciklama9.Text = "Açıklama 9";
-            // 
-            // TBAciklama8
-            // 
-            this.TBAciklama8.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TBAciklama8.Location = new System.Drawing.Point(667, 90);
-            this.TBAciklama8.Name = "TBAciklama8";
-            this.TBAciklama8.Size = new System.Drawing.Size(267, 21);
-            this.TBAciklama8.TabIndex = 30;
-            // 
-            // LBAciklama8
-            // 
-            this.LBAciklama8.Appearance.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.LBAciklama8.Appearance.Options.UseForeColor = true;
-            this.LBAciklama8.Location = new System.Drawing.Point(667, 72);
-            this.LBAciklama8.Name = "LBAciklama8";
-            this.LBAciklama8.Size = new System.Drawing.Size(50, 13);
-            this.LBAciklama8.TabIndex = 29;
-            this.LBAciklama8.Text = "Açıklama 8";
-            // 
-            // TBAciklama7
-            // 
-            this.TBAciklama7.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TBAciklama7.Location = new System.Drawing.Point(667, 44);
-            this.TBAciklama7.Name = "TBAciklama7";
-            this.TBAciklama7.Size = new System.Drawing.Size(267, 21);
-            this.TBAciklama7.TabIndex = 28;
-            // 
-            // LBAciklama7
-            // 
-            this.LBAciklama7.Appearance.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.LBAciklama7.Appearance.Options.UseForeColor = true;
-            this.LBAciklama7.Location = new System.Drawing.Point(667, 26);
-            this.LBAciklama7.Name = "LBAciklama7";
-            this.LBAciklama7.Size = new System.Drawing.Size(50, 13);
-            this.LBAciklama7.TabIndex = 27;
-            this.LBAciklama7.Text = "Açıklama 7";
-            // 
-            // TBAciklama6
-            // 
-            this.TBAciklama6.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TBAciklama6.Location = new System.Drawing.Point(357, 134);
-            this.TBAciklama6.Name = "TBAciklama6";
-            this.TBAciklama6.Size = new System.Drawing.Size(267, 21);
-            this.TBAciklama6.TabIndex = 26;
-            // 
-            // LBAciklama6
-            // 
-            this.LBAciklama6.Appearance.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.LBAciklama6.Appearance.Options.UseForeColor = true;
-            this.LBAciklama6.Location = new System.Drawing.Point(357, 116);
-            this.LBAciklama6.Name = "LBAciklama6";
-            this.LBAciklama6.Size = new System.Drawing.Size(50, 13);
-            this.LBAciklama6.TabIndex = 25;
-            this.LBAciklama6.Text = "Açıklama 6";
-            // 
-            // TBAciklama5
-            // 
-            this.TBAciklama5.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TBAciklama5.Location = new System.Drawing.Point(357, 90);
-            this.TBAciklama5.Name = "TBAciklama5";
-            this.TBAciklama5.Size = new System.Drawing.Size(267, 21);
-            this.TBAciklama5.TabIndex = 24;
-            // 
-            // LBAciklama5
-            // 
-            this.LBAciklama5.Appearance.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.LBAciklama5.Appearance.Options.UseForeColor = true;
-            this.LBAciklama5.Location = new System.Drawing.Point(357, 72);
-            this.LBAciklama5.Name = "LBAciklama5";
-            this.LBAciklama5.Size = new System.Drawing.Size(50, 13);
-            this.LBAciklama5.TabIndex = 23;
-            this.LBAciklama5.Text = "Açıklama 5";
-            // 
-            // TBAciklama4
-            // 
-            this.TBAciklama4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TBAciklama4.Location = new System.Drawing.Point(357, 44);
-            this.TBAciklama4.Name = "TBAciklama4";
-            this.TBAciklama4.Size = new System.Drawing.Size(267, 21);
-            this.TBAciklama4.TabIndex = 22;
-            // 
-            // LBAciklama4
-            // 
-            this.LBAciklama4.Appearance.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.LBAciklama4.Appearance.Options.UseForeColor = true;
-            this.LBAciklama4.Location = new System.Drawing.Point(357, 26);
-            this.LBAciklama4.Name = "LBAciklama4";
-            this.LBAciklama4.Size = new System.Drawing.Size(50, 13);
-            this.LBAciklama4.TabIndex = 21;
-            this.LBAciklama4.Text = "Açıklama 4";
-            // 
-            // TBAciklama3
-            // 
-            this.TBAciklama3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TBAciklama3.Location = new System.Drawing.Point(54, 134);
-            this.TBAciklama3.Name = "TBAciklama3";
-            this.TBAciklama3.Size = new System.Drawing.Size(267, 21);
-            this.TBAciklama3.TabIndex = 20;
-            // 
-            // LBAciklama3
-            // 
-            this.LBAciklama3.Appearance.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.LBAciklama3.Appearance.Options.UseForeColor = true;
-            this.LBAciklama3.Location = new System.Drawing.Point(54, 116);
-            this.LBAciklama3.Name = "LBAciklama3";
-            this.LBAciklama3.Size = new System.Drawing.Size(50, 13);
-            this.LBAciklama3.TabIndex = 19;
-            this.LBAciklama3.Text = "Açıklama 3";
-            // 
-            // TBAciklama2
-            // 
-            this.TBAciklama2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TBAciklama2.Location = new System.Drawing.Point(54, 90);
-            this.TBAciklama2.Name = "TBAciklama2";
-            this.TBAciklama2.Size = new System.Drawing.Size(267, 21);
-            this.TBAciklama2.TabIndex = 18;
-            // 
-            // LBAciklama2
-            // 
-            this.LBAciklama2.Appearance.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.LBAciklama2.Appearance.Options.UseForeColor = true;
-            this.LBAciklama2.Location = new System.Drawing.Point(54, 72);
-            this.LBAciklama2.Name = "LBAciklama2";
-            this.LBAciklama2.Size = new System.Drawing.Size(50, 13);
-            this.LBAciklama2.TabIndex = 17;
-            this.LBAciklama2.Text = "Açıklama 2";
-            // 
-            // TBAciklama1
-            // 
-            this.TBAciklama1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TBAciklama1.Location = new System.Drawing.Point(54, 44);
-            this.TBAciklama1.Name = "TBAciklama1";
-            this.TBAciklama1.Size = new System.Drawing.Size(267, 21);
-            this.TBAciklama1.TabIndex = 16;
-            // 
-            // LBAciklama1
-            // 
-            this.LBAciklama1.Appearance.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.LBAciklama1.Appearance.Options.UseForeColor = true;
-            this.LBAciklama1.Location = new System.Drawing.Point(54, 26);
-            this.LBAciklama1.Name = "LBAciklama1";
-            this.LBAciklama1.Size = new System.Drawing.Size(50, 13);
-            this.LBAciklama1.TabIndex = 0;
-            this.LBAciklama1.Text = "Açıklama 1";
-            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.panel11);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1085, 429);
+            this.tabPage3.Size = new System.Drawing.Size(1082, 433);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Rapor Kodları";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -1703,417 +1832,228 @@
             // panel11
             // 
             this.panel11.BackColor = System.Drawing.SystemColors.Control;
-            this.panel11.Controls.Add(this.GCRaporKodlari);
+            this.panel11.Controls.Add(this.groupControl3);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel11.Location = new System.Drawing.Point(0, 0);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(1085, 429);
+            this.panel11.Size = new System.Drawing.Size(1082, 433);
             this.panel11.TabIndex = 1;
             // 
-            // GCRaporKodlari
+            // groupControl3
             // 
-            this.GCRaporKodlari.Controls.Add(this.simpleButton9);
-            this.GCRaporKodlari.Controls.Add(this.simpleButton7);
-            this.GCRaporKodlari.Controls.Add(this.simpleButton4);
-            this.GCRaporKodlari.Controls.Add(this.simpleButton10);
-            this.GCRaporKodlari.Controls.Add(this.simpleButton8);
-            this.GCRaporKodlari.Controls.Add(this.simpleButton11);
-            this.GCRaporKodlari.Controls.Add(this.simpleButton6);
-            this.GCRaporKodlari.Controls.Add(this.TBRaporKodu9);
-            this.GCRaporKodlari.Controls.Add(this.simpleButton3);
-            this.GCRaporKodlari.Controls.Add(this.simpleButton5);
-            this.GCRaporKodlari.Controls.Add(this.LBRaporKodu9);
-            this.GCRaporKodlari.Controls.Add(this.TBRaporKodu8);
-            this.GCRaporKodlari.Controls.Add(this.LBRaporKodu8);
-            this.GCRaporKodlari.Controls.Add(this.TBRaporKodu7);
-            this.GCRaporKodlari.Controls.Add(this.LBRaporKodu7);
-            this.GCRaporKodlari.Controls.Add(this.TBRaporKodu6);
-            this.GCRaporKodlari.Controls.Add(this.LBRaporKodu6);
-            this.GCRaporKodlari.Controls.Add(this.TBRaporKodu5);
-            this.GCRaporKodlari.Controls.Add(this.LBRaporKodu5);
-            this.GCRaporKodlari.Controls.Add(this.TBRaporKodu4);
-            this.GCRaporKodlari.Controls.Add(this.LBRaporKodu4);
-            this.GCRaporKodlari.Controls.Add(this.TBRaporKodu3);
-            this.GCRaporKodlari.Controls.Add(this.LBRaporKodu3);
-            this.GCRaporKodlari.Controls.Add(this.TBRaporKodu2);
-            this.GCRaporKodlari.Controls.Add(this.LBRaporKodu2);
-            this.GCRaporKodlari.Controls.Add(this.TBRaporKodu1);
-            this.GCRaporKodlari.Controls.Add(this.LBRaporKodu1);
-            this.GCRaporKodlari.GroupStyle = DevExpress.Utils.GroupStyle.Light;
-            this.GCRaporKodlari.Location = new System.Drawing.Point(5, 7);
-            this.GCRaporKodlari.Name = "GCRaporKodlari";
-            this.GCRaporKodlari.Size = new System.Drawing.Size(963, 159);
-            this.GCRaporKodlari.TabIndex = 2;
-            this.GCRaporKodlari.Text = "Açıklama";
+            this.groupControl3.Controls.Add(this.BTRprSec9);
+            this.groupControl3.Controls.Add(this.BTRprSec8);
+            this.groupControl3.Controls.Add(this.BTRprSec7);
+            this.groupControl3.Controls.Add(this.BTRprSec6);
+            this.groupControl3.Controls.Add(this.BTRprSec5);
+            this.groupControl3.Controls.Add(this.BTRprSec4);
+            this.groupControl3.Controls.Add(this.BTRprSec3);
+            this.groupControl3.Controls.Add(this.BTRprSec2);
+            this.groupControl3.Controls.Add(this.BTRprSec1);
+            this.groupControl3.Controls.Add(this.LBRaporKodu9);
+            this.groupControl3.Controls.Add(this.LBRaporKodu8);
+            this.groupControl3.Controls.Add(this.LBRaporKodu7);
+            this.groupControl3.Controls.Add(this.LBRaporKodu6);
+            this.groupControl3.Controls.Add(this.LBRaporKodu5);
+            this.groupControl3.Controls.Add(this.LBRaporKodu4);
+            this.groupControl3.Controls.Add(this.LBRaporKodu3);
+            this.groupControl3.Controls.Add(this.LBRaporKodu2);
+            this.groupControl3.Controls.Add(this.LBRaporKodu1);
+            this.groupControl3.GroupStyle = DevExpress.Utils.GroupStyle.Light;
+            this.groupControl3.Location = new System.Drawing.Point(5, 13);
+            this.groupControl3.Name = "groupControl3";
+            this.groupControl3.Size = new System.Drawing.Size(1072, 177);
+            this.groupControl3.TabIndex = 2;
+            this.groupControl3.Text = "Rapor Kodları";
             // 
-            // simpleButton9
+            // BTRprSec9
             // 
-            this.simpleButton9.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.simpleButton9.Appearance.BackColor2 = System.Drawing.Color.Black;
-            this.simpleButton9.Appearance.BorderColor = System.Drawing.Color.Black;
-            this.simpleButton9.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.simpleButton9.Appearance.Options.UseBackColor = true;
-            this.simpleButton9.Appearance.Options.UseBorderColor = true;
-            this.simpleButton9.Appearance.Options.UseFont = true;
-            this.simpleButton9.Appearance.Options.UseForeColor = true;
-            this.simpleButton9.AppearanceDisabled.BorderColor = System.Drawing.Color.Black;
-            this.simpleButton9.AppearanceDisabled.Options.UseBorderColor = true;
-            this.simpleButton9.AppearanceHovered.BorderColor = System.Drawing.Color.Black;
-            this.simpleButton9.AppearanceHovered.Options.UseBorderColor = true;
-            this.simpleButton9.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton9.ImageOptions.Image")));
-            this.simpleButton9.Location = new System.Drawing.Point(852, 131);
-            this.simpleButton9.Name = "simpleButton9";
-            this.simpleButton9.Size = new System.Drawing.Size(51, 18);
-            this.simpleButton9.TabIndex = 81;
-            this.simpleButton9.Text = "Seç";
+            this.BTRprSec9.Location = new System.Drawing.Point(598, 138);
+            this.BTRprSec9.Name = "BTRprSec9";
+            this.BTRprSec9.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions7, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject25, serializableAppearanceObject26, serializableAppearanceObject27, serializableAppearanceObject28, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.BTRprSec9.Size = new System.Drawing.Size(180, 22);
+            this.BTRprSec9.TabIndex = 88;
             // 
-            // simpleButton7
+            // BTRprSec8
             // 
-            this.simpleButton7.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.simpleButton7.Appearance.BackColor2 = System.Drawing.Color.Black;
-            this.simpleButton7.Appearance.BorderColor = System.Drawing.Color.Black;
-            this.simpleButton7.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.simpleButton7.Appearance.Options.UseBackColor = true;
-            this.simpleButton7.Appearance.Options.UseBorderColor = true;
-            this.simpleButton7.Appearance.Options.UseFont = true;
-            this.simpleButton7.Appearance.Options.UseForeColor = true;
-            this.simpleButton7.AppearanceDisabled.BorderColor = System.Drawing.Color.Black;
-            this.simpleButton7.AppearanceDisabled.Options.UseBorderColor = true;
-            this.simpleButton7.AppearanceHovered.BorderColor = System.Drawing.Color.Black;
-            this.simpleButton7.AppearanceHovered.Options.UseBorderColor = true;
-            this.simpleButton7.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton7.ImageOptions.Image")));
-            this.simpleButton7.Location = new System.Drawing.Point(538, 87);
-            this.simpleButton7.Name = "simpleButton7";
-            this.simpleButton7.Size = new System.Drawing.Size(51, 18);
-            this.simpleButton7.TabIndex = 69;
-            this.simpleButton7.Text = "Seç";
+            this.BTRprSec8.Location = new System.Drawing.Point(598, 93);
+            this.BTRprSec8.Name = "BTRprSec8";
+            this.BTRprSec8.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions8, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject29, serializableAppearanceObject30, serializableAppearanceObject31, serializableAppearanceObject32, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.BTRprSec8.Size = new System.Drawing.Size(180, 22);
+            this.BTRprSec8.TabIndex = 87;
             // 
-            // simpleButton4
+            // BTRprSec7
             // 
-            this.simpleButton4.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.simpleButton4.Appearance.BackColor2 = System.Drawing.Color.Black;
-            this.simpleButton4.Appearance.BorderColor = System.Drawing.Color.Black;
-            this.simpleButton4.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.simpleButton4.Appearance.Options.UseBackColor = true;
-            this.simpleButton4.Appearance.Options.UseBorderColor = true;
-            this.simpleButton4.Appearance.Options.UseFont = true;
-            this.simpleButton4.Appearance.Options.UseForeColor = true;
-            this.simpleButton4.AppearanceDisabled.BorderColor = System.Drawing.Color.Black;
-            this.simpleButton4.AppearanceDisabled.Options.UseBorderColor = true;
-            this.simpleButton4.AppearanceHovered.BorderColor = System.Drawing.Color.Black;
-            this.simpleButton4.AppearanceHovered.Options.UseBorderColor = true;
-            this.simpleButton4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton4.ImageOptions.Image")));
-            this.simpleButton4.Location = new System.Drawing.Point(227, 87);
-            this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.Size = new System.Drawing.Size(51, 18);
-            this.simpleButton4.TabIndex = 60;
-            this.simpleButton4.Text = "Seç";
+            this.BTRprSec7.Location = new System.Drawing.Point(598, 46);
+            this.BTRprSec7.Name = "BTRprSec7";
+            this.BTRprSec7.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions9, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject33, serializableAppearanceObject34, serializableAppearanceObject35, serializableAppearanceObject36, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.BTRprSec7.Size = new System.Drawing.Size(180, 22);
+            this.BTRprSec7.TabIndex = 86;
             // 
-            // simpleButton10
+            // BTRprSec6
             // 
-            this.simpleButton10.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.simpleButton10.Appearance.BackColor2 = System.Drawing.Color.Black;
-            this.simpleButton10.Appearance.BorderColor = System.Drawing.Color.Black;
-            this.simpleButton10.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.simpleButton10.Appearance.Options.UseBackColor = true;
-            this.simpleButton10.Appearance.Options.UseBorderColor = true;
-            this.simpleButton10.Appearance.Options.UseFont = true;
-            this.simpleButton10.Appearance.Options.UseForeColor = true;
-            this.simpleButton10.AppearanceDisabled.BorderColor = System.Drawing.Color.Black;
-            this.simpleButton10.AppearanceDisabled.Options.UseBorderColor = true;
-            this.simpleButton10.AppearanceHovered.BorderColor = System.Drawing.Color.Black;
-            this.simpleButton10.AppearanceHovered.Options.UseBorderColor = true;
-            this.simpleButton10.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton10.ImageOptions.Image")));
-            this.simpleButton10.Location = new System.Drawing.Point(852, 87);
-            this.simpleButton10.Name = "simpleButton10";
-            this.simpleButton10.Size = new System.Drawing.Size(51, 18);
-            this.simpleButton10.TabIndex = 78;
-            this.simpleButton10.Text = "Seç";
+            this.BTRprSec6.Location = new System.Drawing.Point(324, 137);
+            this.BTRprSec6.Name = "BTRprSec6";
+            this.BTRprSec6.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions10, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject37, serializableAppearanceObject38, serializableAppearanceObject39, serializableAppearanceObject40, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.BTRprSec6.Size = new System.Drawing.Size(180, 22);
+            this.BTRprSec6.TabIndex = 85;
             // 
-            // simpleButton8
+            // BTRprSec5
             // 
-            this.simpleButton8.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.simpleButton8.Appearance.BackColor2 = System.Drawing.Color.Black;
-            this.simpleButton8.Appearance.BorderColor = System.Drawing.Color.Black;
-            this.simpleButton8.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.simpleButton8.Appearance.Options.UseBackColor = true;
-            this.simpleButton8.Appearance.Options.UseBorderColor = true;
-            this.simpleButton8.Appearance.Options.UseFont = true;
-            this.simpleButton8.Appearance.Options.UseForeColor = true;
-            this.simpleButton8.AppearanceDisabled.BorderColor = System.Drawing.Color.Black;
-            this.simpleButton8.AppearanceDisabled.Options.UseBorderColor = true;
-            this.simpleButton8.AppearanceHovered.BorderColor = System.Drawing.Color.Black;
-            this.simpleButton8.AppearanceHovered.Options.UseBorderColor = true;
-            this.simpleButton8.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton8.ImageOptions.Image")));
-            this.simpleButton8.Location = new System.Drawing.Point(538, 42);
-            this.simpleButton8.Name = "simpleButton8";
-            this.simpleButton8.Size = new System.Drawing.Size(51, 18);
-            this.simpleButton8.TabIndex = 66;
-            this.simpleButton8.Text = "Seç";
+            this.BTRprSec5.Location = new System.Drawing.Point(324, 93);
+            this.BTRprSec5.Name = "BTRprSec5";
+            this.BTRprSec5.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions11, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject41, serializableAppearanceObject42, serializableAppearanceObject43, serializableAppearanceObject44, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.BTRprSec5.Size = new System.Drawing.Size(180, 22);
+            this.BTRprSec5.TabIndex = 84;
             // 
-            // simpleButton11
+            // BTRprSec4
             // 
-            this.simpleButton11.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.simpleButton11.Appearance.BackColor2 = System.Drawing.Color.Black;
-            this.simpleButton11.Appearance.BorderColor = System.Drawing.Color.Black;
-            this.simpleButton11.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.simpleButton11.Appearance.Options.UseBackColor = true;
-            this.simpleButton11.Appearance.Options.UseBorderColor = true;
-            this.simpleButton11.Appearance.Options.UseFont = true;
-            this.simpleButton11.Appearance.Options.UseForeColor = true;
-            this.simpleButton11.AppearanceDisabled.BorderColor = System.Drawing.Color.Black;
-            this.simpleButton11.AppearanceDisabled.Options.UseBorderColor = true;
-            this.simpleButton11.AppearanceHovered.BorderColor = System.Drawing.Color.Black;
-            this.simpleButton11.AppearanceHovered.Options.UseBorderColor = true;
-            this.simpleButton11.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton11.ImageOptions.Image")));
-            this.simpleButton11.Location = new System.Drawing.Point(852, 42);
-            this.simpleButton11.Name = "simpleButton11";
-            this.simpleButton11.Size = new System.Drawing.Size(51, 18);
-            this.simpleButton11.TabIndex = 75;
-            this.simpleButton11.Text = "Seç";
+            this.BTRprSec4.Location = new System.Drawing.Point(324, 46);
+            this.BTRprSec4.Name = "BTRprSec4";
+            this.BTRprSec4.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions12, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject45, serializableAppearanceObject46, serializableAppearanceObject47, serializableAppearanceObject48, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.BTRprSec4.Size = new System.Drawing.Size(180, 22);
+            this.BTRprSec4.TabIndex = 83;
             // 
-            // simpleButton6
+            // BTRprSec3
             // 
-            this.simpleButton6.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.simpleButton6.Appearance.BackColor2 = System.Drawing.Color.Black;
-            this.simpleButton6.Appearance.BorderColor = System.Drawing.Color.Black;
-            this.simpleButton6.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.simpleButton6.Appearance.Options.UseBackColor = true;
-            this.simpleButton6.Appearance.Options.UseBorderColor = true;
-            this.simpleButton6.Appearance.Options.UseFont = true;
-            this.simpleButton6.Appearance.Options.UseForeColor = true;
-            this.simpleButton6.AppearanceDisabled.BorderColor = System.Drawing.Color.Black;
-            this.simpleButton6.AppearanceDisabled.Options.UseBorderColor = true;
-            this.simpleButton6.AppearanceHovered.BorderColor = System.Drawing.Color.Black;
-            this.simpleButton6.AppearanceHovered.Options.UseBorderColor = true;
-            this.simpleButton6.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton6.ImageOptions.Image")));
-            this.simpleButton6.Location = new System.Drawing.Point(538, 131);
-            this.simpleButton6.Name = "simpleButton6";
-            this.simpleButton6.Size = new System.Drawing.Size(51, 18);
-            this.simpleButton6.TabIndex = 72;
-            this.simpleButton6.Text = "Seç";
+            this.BTRprSec3.Location = new System.Drawing.Point(56, 138);
+            this.BTRprSec3.Name = "BTRprSec3";
+            this.BTRprSec3.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions13, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject49, serializableAppearanceObject50, serializableAppearanceObject51, serializableAppearanceObject52, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.BTRprSec3.Size = new System.Drawing.Size(181, 22);
+            this.BTRprSec3.TabIndex = 82;
             // 
-            // TBRaporKodu9
+            // BTRprSec2
             // 
-            this.TBRaporKodu9.Location = new System.Drawing.Point(635, 131);
-            this.TBRaporKodu9.Name = "TBRaporKodu9";
-            this.TBRaporKodu9.Size = new System.Drawing.Size(268, 21);
-            this.TBRaporKodu9.TabIndex = 80;
+            this.BTRprSec2.Location = new System.Drawing.Point(57, 93);
+            this.BTRprSec2.Name = "BTRprSec2";
+            this.BTRprSec2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions14, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject53, serializableAppearanceObject54, serializableAppearanceObject55, serializableAppearanceObject56, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.BTRprSec2.Size = new System.Drawing.Size(180, 22);
+            this.BTRprSec2.TabIndex = 81;
             // 
-            // simpleButton3
+            // BTRprSec1
             // 
-            this.simpleButton3.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.simpleButton3.Appearance.BackColor2 = System.Drawing.Color.Black;
-            this.simpleButton3.Appearance.BorderColor = System.Drawing.Color.Black;
-            this.simpleButton3.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.simpleButton3.Appearance.Options.UseBackColor = true;
-            this.simpleButton3.Appearance.Options.UseBorderColor = true;
-            this.simpleButton3.Appearance.Options.UseFont = true;
-            this.simpleButton3.Appearance.Options.UseForeColor = true;
-            this.simpleButton3.AppearanceDisabled.BorderColor = System.Drawing.Color.Black;
-            this.simpleButton3.AppearanceDisabled.Options.UseBorderColor = true;
-            this.simpleButton3.AppearanceHovered.BorderColor = System.Drawing.Color.Black;
-            this.simpleButton3.AppearanceHovered.Options.UseBorderColor = true;
-            this.simpleButton3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton3.ImageOptions.Image")));
-            this.simpleButton3.Location = new System.Drawing.Point(227, 42);
-            this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.Size = new System.Drawing.Size(51, 18);
-            this.simpleButton3.TabIndex = 57;
-            this.simpleButton3.Text = "Seç";
-            // 
-            // simpleButton5
-            // 
-            this.simpleButton5.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.simpleButton5.Appearance.BackColor2 = System.Drawing.Color.Black;
-            this.simpleButton5.Appearance.BorderColor = System.Drawing.Color.Black;
-            this.simpleButton5.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.simpleButton5.Appearance.Options.UseBackColor = true;
-            this.simpleButton5.Appearance.Options.UseBorderColor = true;
-            this.simpleButton5.Appearance.Options.UseFont = true;
-            this.simpleButton5.Appearance.Options.UseForeColor = true;
-            this.simpleButton5.AppearanceDisabled.BorderColor = System.Drawing.Color.Black;
-            this.simpleButton5.AppearanceDisabled.Options.UseBorderColor = true;
-            this.simpleButton5.AppearanceHovered.BorderColor = System.Drawing.Color.Black;
-            this.simpleButton5.AppearanceHovered.Options.UseBorderColor = true;
-            this.simpleButton5.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton5.ImageOptions.Image")));
-            this.simpleButton5.Location = new System.Drawing.Point(227, 131);
-            this.simpleButton5.Name = "simpleButton5";
-            this.simpleButton5.Size = new System.Drawing.Size(51, 18);
-            this.simpleButton5.TabIndex = 63;
-            this.simpleButton5.Text = "Seç";
+            this.BTRprSec1.Location = new System.Drawing.Point(57, 48);
+            this.BTRprSec1.Name = "BTRprSec1";
+            this.BTRprSec1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions15, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject57, serializableAppearanceObject58, serializableAppearanceObject59, serializableAppearanceObject60, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.BTRprSec1.Size = new System.Drawing.Size(180, 22);
+            this.BTRprSec1.TabIndex = 80;
             // 
             // LBRaporKodu9
             // 
-            this.LBRaporKodu9.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBRaporKodu9.Appearance.Options.UseFont = true;
-            this.LBRaporKodu9.Location = new System.Drawing.Point(637, 113);
+            this.LBRaporKodu9.Location = new System.Drawing.Point(598, 119);
             this.LBRaporKodu9.Name = "LBRaporKodu9";
-            this.LBRaporKodu9.Size = new System.Drawing.Size(74, 14);
+            this.LBRaporKodu9.Size = new System.Drawing.Size(65, 13);
             this.LBRaporKodu9.TabIndex = 79;
             this.LBRaporKodu9.Text = "Rapor Kodu 9";
             // 
-            // TBRaporKodu8
-            // 
-            this.TBRaporKodu8.Location = new System.Drawing.Point(635, 87);
-            this.TBRaporKodu8.Name = "TBRaporKodu8";
-            this.TBRaporKodu8.Size = new System.Drawing.Size(268, 21);
-            this.TBRaporKodu8.TabIndex = 77;
-            // 
             // LBRaporKodu8
             // 
-            this.LBRaporKodu8.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBRaporKodu8.Appearance.Options.UseFont = true;
-            this.LBRaporKodu8.Location = new System.Drawing.Point(637, 68);
+            this.LBRaporKodu8.Location = new System.Drawing.Point(598, 74);
             this.LBRaporKodu8.Name = "LBRaporKodu8";
-            this.LBRaporKodu8.Size = new System.Drawing.Size(74, 14);
+            this.LBRaporKodu8.Size = new System.Drawing.Size(65, 13);
             this.LBRaporKodu8.TabIndex = 76;
             this.LBRaporKodu8.Text = "Rapor Kodu 8";
             // 
-            // TBRaporKodu7
-            // 
-            this.TBRaporKodu7.Location = new System.Drawing.Point(635, 42);
-            this.TBRaporKodu7.Name = "TBRaporKodu7";
-            this.TBRaporKodu7.Size = new System.Drawing.Size(268, 21);
-            this.TBRaporKodu7.TabIndex = 74;
-            // 
             // LBRaporKodu7
             // 
-            this.LBRaporKodu7.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBRaporKodu7.Appearance.Options.UseFont = true;
-            this.LBRaporKodu7.Location = new System.Drawing.Point(637, 24);
+            this.LBRaporKodu7.Location = new System.Drawing.Point(598, 29);
             this.LBRaporKodu7.Name = "LBRaporKodu7";
-            this.LBRaporKodu7.Size = new System.Drawing.Size(74, 14);
+            this.LBRaporKodu7.Size = new System.Drawing.Size(65, 13);
             this.LBRaporKodu7.TabIndex = 73;
             this.LBRaporKodu7.Text = "Rapor Kodu 7";
             // 
-            // TBRaporKodu6
-            // 
-            this.TBRaporKodu6.Location = new System.Drawing.Point(321, 131);
-            this.TBRaporKodu6.Name = "TBRaporKodu6";
-            this.TBRaporKodu6.Size = new System.Drawing.Size(268, 21);
-            this.TBRaporKodu6.TabIndex = 71;
-            // 
             // LBRaporKodu6
             // 
-            this.LBRaporKodu6.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBRaporKodu6.Appearance.Options.UseFont = true;
-            this.LBRaporKodu6.Location = new System.Drawing.Point(321, 113);
+            this.LBRaporKodu6.Location = new System.Drawing.Point(324, 119);
             this.LBRaporKodu6.Name = "LBRaporKodu6";
-            this.LBRaporKodu6.Size = new System.Drawing.Size(74, 14);
+            this.LBRaporKodu6.Size = new System.Drawing.Size(65, 13);
             this.LBRaporKodu6.TabIndex = 70;
             this.LBRaporKodu6.Text = "Rapor Kodu 6";
             // 
-            // TBRaporKodu5
-            // 
-            this.TBRaporKodu5.Location = new System.Drawing.Point(321, 87);
-            this.TBRaporKodu5.Name = "TBRaporKodu5";
-            this.TBRaporKodu5.Size = new System.Drawing.Size(268, 21);
-            this.TBRaporKodu5.TabIndex = 68;
-            // 
             // LBRaporKodu5
             // 
-            this.LBRaporKodu5.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBRaporKodu5.Appearance.Options.UseFont = true;
-            this.LBRaporKodu5.Location = new System.Drawing.Point(321, 68);
+            this.LBRaporKodu5.Location = new System.Drawing.Point(324, 74);
             this.LBRaporKodu5.Name = "LBRaporKodu5";
-            this.LBRaporKodu5.Size = new System.Drawing.Size(74, 14);
+            this.LBRaporKodu5.Size = new System.Drawing.Size(65, 13);
             this.LBRaporKodu5.TabIndex = 67;
             this.LBRaporKodu5.Text = "Rapor Kodu 5";
             // 
-            // TBRaporKodu4
-            // 
-            this.TBRaporKodu4.Location = new System.Drawing.Point(321, 42);
-            this.TBRaporKodu4.Name = "TBRaporKodu4";
-            this.TBRaporKodu4.Size = new System.Drawing.Size(268, 21);
-            this.TBRaporKodu4.TabIndex = 65;
-            // 
             // LBRaporKodu4
             // 
-            this.LBRaporKodu4.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBRaporKodu4.Appearance.Options.UseFont = true;
-            this.LBRaporKodu4.Location = new System.Drawing.Point(321, 24);
+            this.LBRaporKodu4.Location = new System.Drawing.Point(324, 29);
             this.LBRaporKodu4.Name = "LBRaporKodu4";
-            this.LBRaporKodu4.Size = new System.Drawing.Size(74, 14);
+            this.LBRaporKodu4.Size = new System.Drawing.Size(65, 13);
             this.LBRaporKodu4.TabIndex = 64;
             this.LBRaporKodu4.Text = "Rapor Kodu 4";
             // 
-            // TBRaporKodu3
-            // 
-            this.TBRaporKodu3.Location = new System.Drawing.Point(10, 131);
-            this.TBRaporKodu3.Name = "TBRaporKodu3";
-            this.TBRaporKodu3.Size = new System.Drawing.Size(268, 21);
-            this.TBRaporKodu3.TabIndex = 62;
-            // 
             // LBRaporKodu3
             // 
-            this.LBRaporKodu3.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBRaporKodu3.Appearance.Options.UseFont = true;
-            this.LBRaporKodu3.Location = new System.Drawing.Point(10, 113);
+            this.LBRaporKodu3.Location = new System.Drawing.Point(57, 119);
             this.LBRaporKodu3.Name = "LBRaporKodu3";
-            this.LBRaporKodu3.Size = new System.Drawing.Size(74, 14);
+            this.LBRaporKodu3.Size = new System.Drawing.Size(65, 13);
             this.LBRaporKodu3.TabIndex = 61;
             this.LBRaporKodu3.Text = "Rapor Kodu 3";
             // 
-            // TBRaporKodu2
-            // 
-            this.TBRaporKodu2.Location = new System.Drawing.Point(10, 87);
-            this.TBRaporKodu2.Name = "TBRaporKodu2";
-            this.TBRaporKodu2.Size = new System.Drawing.Size(268, 21);
-            this.TBRaporKodu2.TabIndex = 59;
-            // 
             // LBRaporKodu2
             // 
-            this.LBRaporKodu2.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBRaporKodu2.Appearance.Options.UseFont = true;
-            this.LBRaporKodu2.Location = new System.Drawing.Point(10, 68);
+            this.LBRaporKodu2.Location = new System.Drawing.Point(57, 74);
             this.LBRaporKodu2.Name = "LBRaporKodu2";
-            this.LBRaporKodu2.Size = new System.Drawing.Size(74, 14);
+            this.LBRaporKodu2.Size = new System.Drawing.Size(65, 13);
             this.LBRaporKodu2.TabIndex = 58;
             this.LBRaporKodu2.Text = "Rapor Kodu 2";
             // 
-            // TBRaporKodu1
-            // 
-            this.TBRaporKodu1.Location = new System.Drawing.Point(10, 42);
-            this.TBRaporKodu1.Name = "TBRaporKodu1";
-            this.TBRaporKodu1.Size = new System.Drawing.Size(268, 21);
-            this.TBRaporKodu1.TabIndex = 56;
-            // 
             // LBRaporKodu1
             // 
-            this.LBRaporKodu1.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBRaporKodu1.Appearance.Options.UseFont = true;
-            this.LBRaporKodu1.Location = new System.Drawing.Point(10, 24);
+            this.LBRaporKodu1.Location = new System.Drawing.Point(57, 29);
             this.LBRaporKodu1.Name = "LBRaporKodu1";
-            this.LBRaporKodu1.Size = new System.Drawing.Size(74, 14);
+            this.LBRaporKodu1.Size = new System.Drawing.Size(65, 13);
             this.LBRaporKodu1.TabIndex = 0;
             this.LBRaporKodu1.Text = "Rapor Kodu 1";
             // 
             // tabPage4
             // 
-            this.tabPage4.Controls.Add(this.panel14);
-            this.tabPage4.Controls.Add(this.panel13);
+            this.tabPage4.Controls.Add(this.panelControl12);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(1085, 429);
+            this.tabPage4.Size = new System.Drawing.Size(1082, 433);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Yetkili Bilgileri";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // panel14
+            // panelControl12
             // 
-            this.panel14.Controls.Add(this.gridControl2);
-            this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel14.Location = new System.Drawing.Point(0, 92);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(1085, 337);
-            this.panel14.TabIndex = 1;
+            this.panelControl12.Controls.Add(this.panelControl14);
+            this.panelControl12.Controls.Add(this.panelControl13);
+            this.panelControl12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl12.Location = new System.Drawing.Point(0, 0);
+            this.panelControl12.Name = "panelControl12";
+            this.panelControl12.Size = new System.Drawing.Size(1082, 433);
+            this.panelControl12.TabIndex = 68;
+            // 
+            // panelControl14
+            // 
+            this.panelControl14.Controls.Add(this.gridControl2);
+            this.panelControl14.Location = new System.Drawing.Point(-1, 90);
+            this.panelControl14.Name = "panelControl14";
+            this.panelControl14.Size = new System.Drawing.Size(1088, 347);
+            this.panelControl14.TabIndex = 3;
             // 
             // gridControl2
             // 
-            this.gridControl2.Location = new System.Drawing.Point(0, 0);
+            this.gridControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl2.Location = new System.Drawing.Point(2, 2);
             this.gridControl2.MainView = this.gridView3;
             this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(1081, 283);
+            this.gridControl2.Size = new System.Drawing.Size(1084, 343);
             this.gridControl2.TabIndex = 0;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView3});
@@ -2123,19 +2063,18 @@
             this.gridView3.GridControl = this.gridControl2;
             this.gridView3.Name = "gridView3";
             // 
-            // panel13
+            // panelControl13
             // 
-            this.panel13.Controls.Add(this.BTYetkiliKaydet);
-            this.panel13.Controls.Add(this.BTYetkiliSil);
-            this.panel13.Controls.Add(this.TBPozisyon);
-            this.panel13.Controls.Add(this.TBYetkiliAdi);
-            this.panel13.Controls.Add(this.LBSirketPozisyonu);
-            this.panel13.Controls.Add(this.LBYetkiliAdi);
-            this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel13.Location = new System.Drawing.Point(0, 0);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(1085, 92);
-            this.panel13.TabIndex = 0;
+            this.panelControl13.Controls.Add(this.BTYetkiliKaydet);
+            this.panelControl13.Controls.Add(this.LBYetkiliAdi);
+            this.panelControl13.Controls.Add(this.BTYetkiliSil);
+            this.panelControl13.Controls.Add(this.LBPozisyon);
+            this.panelControl13.Controls.Add(this.TBYetkiliAdi);
+            this.panelControl13.Controls.Add(this.TBPozisyon);
+            this.panelControl13.Location = new System.Drawing.Point(-1, 0);
+            this.panelControl13.Name = "panelControl13";
+            this.panelControl13.Size = new System.Drawing.Size(1087, 87);
+            this.panelControl13.TabIndex = 2;
             // 
             // BTYetkiliKaydet
             // 
@@ -2143,309 +2082,176 @@
             this.BTYetkiliKaydet.Appearance.Options.UseBackColor = true;
             this.BTYetkiliKaydet.Appearance.Options.UseFont = true;
             this.BTYetkiliKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTYetkiliKaydet.ImageOptions.Image")));
-            this.BTYetkiliKaydet.Location = new System.Drawing.Point(337, 24);
+            this.BTYetkiliKaydet.Location = new System.Drawing.Point(344, 27);
             this.BTYetkiliKaydet.Name = "BTYetkiliKaydet";
             this.BTYetkiliKaydet.Size = new System.Drawing.Size(82, 39);
             this.BTYetkiliKaydet.TabIndex = 67;
             this.BTYetkiliKaydet.Text = "&Kaydet";
             // 
-            // BTYetkiliSil
-            // 
-            this.BTYetkiliSil.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.BTYetkiliSil.Appearance.Options.UseBackColor = true;
-            this.BTYetkiliSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTYetkiliSil.ImageOptions.Image")));
-            this.BTYetkiliSil.Location = new System.Drawing.Point(425, 24);
-            this.BTYetkiliSil.Name = "BTYetkiliSil";
-            this.BTYetkiliSil.Size = new System.Drawing.Size(82, 39);
-            this.BTYetkiliSil.TabIndex = 66;
-            this.BTYetkiliSil.Text = "&Değiştir";
-            // 
-            // TBPozisyon
-            // 
-            this.TBPozisyon.Location = new System.Drawing.Point(139, 47);
-            this.TBPozisyon.Name = "TBPozisyon";
-            this.TBPozisyon.Size = new System.Drawing.Size(170, 20);
-            this.TBPozisyon.TabIndex = 13;
-            // 
-            // TBYetkiliAdi
-            // 
-            this.TBYetkiliAdi.Location = new System.Drawing.Point(139, 22);
-            this.TBYetkiliAdi.Name = "TBYetkiliAdi";
-            this.TBYetkiliAdi.Size = new System.Drawing.Size(170, 20);
-            this.TBYetkiliAdi.TabIndex = 12;
-            // 
-            // LBSirketPozisyonu
-            // 
-            this.LBSirketPozisyonu.Location = new System.Drawing.Point(26, 49);
-            this.LBSirketPozisyonu.Name = "LBSirketPozisyonu";
-            this.LBSirketPozisyonu.Size = new System.Drawing.Size(95, 13);
-            this.LBSirketPozisyonu.TabIndex = 9;
-            this.LBSirketPozisyonu.Text = "Şirketteki Pozisyonu";
-            // 
             // LBYetkiliAdi
             // 
-            this.LBYetkiliAdi.Location = new System.Drawing.Point(76, 25);
+            this.LBYetkiliAdi.Location = new System.Drawing.Point(82, 29);
             this.LBYetkiliAdi.Name = "LBYetkiliAdi";
             this.LBYetkiliAdi.Size = new System.Drawing.Size(45, 13);
             this.LBYetkiliAdi.TabIndex = 8;
             this.LBYetkiliAdi.Text = "Yetkili Adı";
             // 
-            // tabPage5
+            // BTYetkiliSil
             // 
-            this.tabPage5.Controls.Add(this.panel15);
-            this.tabPage5.Controls.Add(this.panel8);
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(1085, 429);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "Alt Cari";
-            this.tabPage5.UseVisualStyleBackColor = true;
+            this.BTYetkiliSil.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.BTYetkiliSil.Appearance.Options.UseBackColor = true;
+            this.BTYetkiliSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTYetkiliSil.ImageOptions.Image")));
+            this.BTYetkiliSil.Location = new System.Drawing.Point(432, 27);
+            this.BTYetkiliSil.Name = "BTYetkiliSil";
+            this.BTYetkiliSil.Size = new System.Drawing.Size(82, 39);
+            this.BTYetkiliSil.TabIndex = 66;
+            this.BTYetkiliSil.Text = "&Sil";
             // 
-            // panel15
+            // LBPozisyon
             // 
-            this.panel15.Controls.Add(this.dataGridView3);
-            this.panel15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel15.Location = new System.Drawing.Point(0, 92);
-            this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(1085, 337);
-            this.panel15.TabIndex = 2;
+            this.LBPozisyon.Location = new System.Drawing.Point(32, 53);
+            this.LBPozisyon.Name = "LBPozisyon";
+            this.LBPozisyon.Size = new System.Drawing.Size(95, 13);
+            this.LBPozisyon.TabIndex = 9;
+            this.LBPozisyon.Text = "Şirketteki Pozisyonu";
             // 
-            // dataGridView3
+            // TBYetkiliAdi
             // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView3.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.RowTemplate.Height = 25;
-            this.dataGridView3.Size = new System.Drawing.Size(1085, 337);
-            this.dataGridView3.TabIndex = 0;
+            this.TBYetkiliAdi.Location = new System.Drawing.Point(145, 26);
+            this.TBYetkiliAdi.Name = "TBYetkiliAdi";
+            this.TBYetkiliAdi.Size = new System.Drawing.Size(170, 20);
+            this.TBYetkiliAdi.TabIndex = 12;
             // 
-            // panel8
+            // TBPozisyon
             // 
-            this.panel8.Controls.Add(this.BTAltCariSil);
-            this.panel8.Controls.Add(this.BTAltCariKaydet);
-            this.panel8.Controls.Add(this.simpleButton12);
-            this.panel8.Controls.Add(this.LBAltCariAdi);
-            this.panel8.Controls.Add(this.LBAltCariKod);
-            this.panel8.Controls.Add(this.textBox29);
-            this.panel8.Controls.Add(this.textBox30);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel8.Location = new System.Drawing.Point(0, 0);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(1085, 92);
-            this.panel8.TabIndex = 1;
-            // 
-            // BTAltCariSil
-            // 
-            this.BTAltCariSil.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.BTAltCariSil.Appearance.Options.UseBackColor = true;
-            this.BTAltCariSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTAltCariSil.ImageOptions.Image")));
-            this.BTAltCariSil.Location = new System.Drawing.Point(485, 24);
-            this.BTAltCariSil.Name = "BTAltCariSil";
-            this.BTAltCariSil.Size = new System.Drawing.Size(97, 45);
-            this.BTAltCariSil.TabIndex = 59;
-            this.BTAltCariSil.Text = "Sil";
-            // 
-            // BTAltCariKaydet
-            // 
-            this.BTAltCariKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.BTAltCariKaydet.Appearance.Options.UseBackColor = true;
-            this.BTAltCariKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTAltCariKaydet.ImageOptions.Image")));
-            this.BTAltCariKaydet.Location = new System.Drawing.Point(380, 24);
-            this.BTAltCariKaydet.Name = "BTAltCariKaydet";
-            this.BTAltCariKaydet.Size = new System.Drawing.Size(97, 45);
-            this.BTAltCariKaydet.TabIndex = 58;
-            this.BTAltCariKaydet.Text = "Kaydet";
-            // 
-            // simpleButton12
-            // 
-            this.simpleButton12.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.simpleButton12.Appearance.BackColor2 = System.Drawing.Color.Black;
-            this.simpleButton12.Appearance.BorderColor = System.Drawing.Color.Black;
-            this.simpleButton12.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.simpleButton12.Appearance.Options.UseBackColor = true;
-            this.simpleButton12.Appearance.Options.UseBorderColor = true;
-            this.simpleButton12.Appearance.Options.UseForeColor = true;
-            this.simpleButton12.AppearanceDisabled.BorderColor = System.Drawing.Color.Black;
-            this.simpleButton12.AppearanceDisabled.Options.UseBorderColor = true;
-            this.simpleButton12.AppearanceHovered.BorderColor = System.Drawing.Color.Black;
-            this.simpleButton12.AppearanceHovered.Options.UseBorderColor = true;
-            this.simpleButton12.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton12.ImageOptions.Image")));
-            this.simpleButton12.Location = new System.Drawing.Point(302, 23);
-            this.simpleButton12.Name = "simpleButton12";
-            this.simpleButton12.Size = new System.Drawing.Size(51, 20);
-            this.simpleButton12.TabIndex = 57;
-            this.simpleButton12.Text = "Seç";
-            // 
-            // LBAltCariAdi
-            // 
-            this.LBAltCariAdi.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBAltCariAdi.Appearance.Options.UseFont = true;
-            this.LBAltCariAdi.Location = new System.Drawing.Point(11, 51);
-            this.LBAltCariAdi.Name = "LBAltCariAdi";
-            this.LBAltCariAdi.Size = new System.Drawing.Size(59, 14);
-            this.LBAltCariAdi.TabIndex = 42;
-            this.LBAltCariAdi.Text = "Alt Cari Adi";
-            // 
-            // LBAltCariKod
-            // 
-            this.LBAltCariKod.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBAltCariKod.Appearance.Options.UseFont = true;
-            this.LBAltCariKod.Location = new System.Drawing.Point(11, 25);
-            this.LBAltCariKod.Name = "LBAltCariKod";
-            this.LBAltCariKod.Size = new System.Drawing.Size(70, 14);
-            this.LBAltCariKod.TabIndex = 41;
-            this.LBAltCariKod.Text = "Alt Cari Kodu";
-            // 
-            // textBox29
-            // 
-            this.textBox29.Location = new System.Drawing.Point(91, 49);
-            this.textBox29.Name = "textBox29";
-            this.textBox29.Size = new System.Drawing.Size(263, 21);
-            this.textBox29.TabIndex = 3;
-            // 
-            // textBox30
-            // 
-            this.textBox30.Location = new System.Drawing.Point(92, 23);
-            this.textBox30.Name = "textBox30";
-            this.textBox30.Size = new System.Drawing.Size(261, 21);
-            this.textBox30.TabIndex = 2;
+            this.TBPozisyon.Location = new System.Drawing.Point(145, 51);
+            this.TBPozisyon.Name = "TBPozisyon";
+            this.TBPozisyon.Size = new System.Drawing.Size(170, 20);
+            this.TBPozisyon.TabIndex = 13;
             // 
             // tabPage7
             // 
-            this.tabPage7.Controls.Add(this.panel17);
-            this.tabPage7.Controls.Add(this.panel16);
+            this.tabPage7.Controls.Add(this.panelControl16);
+            this.tabPage7.Controls.Add(this.panelControl15);
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(1085, 429);
+            this.tabPage7.Size = new System.Drawing.Size(1082, 433);
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "Dökümanlar";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
-            // panel17
+            // panelControl16
             // 
-            this.panel17.Controls.Add(this.dataGridView4);
-            this.panel17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel17.Location = new System.Drawing.Point(0, 92);
-            this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(1085, 337);
-            this.panel17.TabIndex = 3;
+            this.panelControl16.Controls.Add(this.panelControl17);
+            this.panelControl16.Controls.Add(this.BTDosyaYoluSec);
+            this.panelControl16.Controls.Add(this.TBDokumanAdi);
+            this.panelControl16.Controls.Add(this.BTDokumanSil);
+            this.panelControl16.Controls.Add(this.BTDokumanKaydet);
+            this.panelControl16.Controls.Add(this.LBDosyaYolu);
+            this.panelControl16.Controls.Add(this.LBDokumanAdi);
+            this.panelControl16.Location = new System.Drawing.Point(3, 0);
+            this.panelControl16.Name = "panelControl16";
+            this.panelControl16.Size = new System.Drawing.Size(1079, 95);
+            this.panelControl16.TabIndex = 3;
             // 
-            // dataGridView4
+            // panelControl17
             // 
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView4.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.RowTemplate.Height = 25;
-            this.dataGridView4.Size = new System.Drawing.Size(1085, 337);
-            this.dataGridView4.TabIndex = 0;
-            // 
-            // panel16
-            // 
-            this.panel16.Controls.Add(this.BTDokumanlarSil);
-            this.panel16.Controls.Add(this.BTDokumanlarKaydet);
-            this.panel16.Controls.Add(this.BTDosyaYoluSec);
-            this.panel16.Controls.Add(this.LBDosyaYolu);
-            this.panel16.Controls.Add(this.LBDokumanAdi);
-            this.panel16.Controls.Add(this.label65);
-            this.panel16.Controls.Add(this.TBDokumanDosyaYolu);
-            this.panel16.Controls.Add(this.TBDokumanAdi);
-            this.panel16.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel16.Location = new System.Drawing.Point(0, 0);
-            this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(1085, 92);
-            this.panel16.TabIndex = 2;
-            // 
-            // BTDokumanlarSil
-            // 
-            this.BTDokumanlarSil.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.BTDokumanlarSil.Appearance.Options.UseBackColor = true;
-            this.BTDokumanlarSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTDokumanlarSil.ImageOptions.Image")));
-            this.BTDokumanlarSil.Location = new System.Drawing.Point(464, 25);
-            this.BTDokumanlarSil.Name = "BTDokumanlarSil";
-            this.BTDokumanlarSil.Size = new System.Drawing.Size(97, 45);
-            this.BTDokumanlarSil.TabIndex = 61;
-            this.BTDokumanlarSil.Text = "Sil";
-            // 
-            // BTDokumanlarKaydet
-            // 
-            this.BTDokumanlarKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.BTDokumanlarKaydet.Appearance.Options.UseBackColor = true;
-            this.BTDokumanlarKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTDokumanlarKaydet.ImageOptions.Image")));
-            this.BTDokumanlarKaydet.Location = new System.Drawing.Point(358, 25);
-            this.BTDokumanlarKaydet.Name = "BTDokumanlarKaydet";
-            this.BTDokumanlarKaydet.Size = new System.Drawing.Size(97, 45);
-            this.BTDokumanlarKaydet.TabIndex = 60;
-            this.BTDokumanlarKaydet.Text = "Kaydet";
+            this.panelControl17.Location = new System.Drawing.Point(0, 340);
+            this.panelControl17.Name = "panelControl17";
+            this.panelControl17.Size = new System.Drawing.Size(1080, 91);
+            this.panelControl17.TabIndex = 4;
             // 
             // BTDosyaYoluSec
             // 
-            this.BTDosyaYoluSec.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.BTDosyaYoluSec.Appearance.BackColor2 = System.Drawing.Color.Black;
-            this.BTDosyaYoluSec.Appearance.BorderColor = System.Drawing.Color.Black;
-            this.BTDosyaYoluSec.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.BTDosyaYoluSec.Appearance.Options.UseBackColor = true;
-            this.BTDosyaYoluSec.Appearance.Options.UseBorderColor = true;
-            this.BTDosyaYoluSec.Appearance.Options.UseForeColor = true;
-            this.BTDosyaYoluSec.AppearanceDisabled.BorderColor = System.Drawing.Color.Black;
-            this.BTDosyaYoluSec.AppearanceDisabled.Options.UseBorderColor = true;
-            this.BTDosyaYoluSec.AppearanceHovered.BorderColor = System.Drawing.Color.Black;
-            this.BTDosyaYoluSec.AppearanceHovered.Options.UseBorderColor = true;
-            this.BTDosyaYoluSec.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTDosyaYoluSec.ImageOptions.Image")));
-            this.BTDosyaYoluSec.Location = new System.Drawing.Point(288, 50);
+            this.BTDosyaYoluSec.Location = new System.Drawing.Point(132, 54);
             this.BTDosyaYoluSec.Name = "BTDosyaYoluSec";
-            this.BTDosyaYoluSec.Size = new System.Drawing.Size(51, 20);
-            this.BTDosyaYoluSec.TabIndex = 57;
-            this.BTDosyaYoluSec.Text = "Seç";
+            this.BTDosyaYoluSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions16, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject61, serializableAppearanceObject62, serializableAppearanceObject63, serializableAppearanceObject64, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.BTDosyaYoluSec.Size = new System.Drawing.Size(180, 22);
+            this.BTDosyaYoluSec.TabIndex = 63;
+            // 
+            // TBDokumanAdi
+            // 
+            this.TBDokumanAdi.Location = new System.Drawing.Point(132, 28);
+            this.TBDokumanAdi.Name = "TBDokumanAdi";
+            this.TBDokumanAdi.Size = new System.Drawing.Size(180, 20);
+            this.TBDokumanAdi.TabIndex = 62;
+            // 
+            // BTDokumanSil
+            // 
+            this.BTDokumanSil.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTDokumanSil.Appearance.Options.UseBackColor = true;
+            this.BTDokumanSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTDokumanSil.ImageOptions.Image")));
+            this.BTDokumanSil.Location = new System.Drawing.Point(445, 31);
+            this.BTDokumanSil.Name = "BTDokumanSil";
+            this.BTDokumanSil.Size = new System.Drawing.Size(82, 39);
+            this.BTDokumanSil.TabIndex = 61;
+            this.BTDokumanSil.Text = "&Sil";
+            // 
+            // BTDokumanKaydet
+            // 
+            this.BTDokumanKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTDokumanKaydet.Appearance.Options.UseBackColor = true;
+            this.BTDokumanKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTDokumanKaydet.ImageOptions.Image")));
+            this.BTDokumanKaydet.Location = new System.Drawing.Point(357, 31);
+            this.BTDokumanKaydet.Name = "BTDokumanKaydet";
+            this.BTDokumanKaydet.Size = new System.Drawing.Size(82, 39);
+            this.BTDokumanKaydet.TabIndex = 60;
+            this.BTDokumanKaydet.Text = "&Kaydet";
             // 
             // LBDosyaYolu
             // 
-            this.LBDosyaYolu.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBDosyaYolu.Appearance.Options.UseFont = true;
-            this.LBDosyaYolu.Location = new System.Drawing.Point(21, 54);
+            this.LBDosyaYolu.Location = new System.Drawing.Point(56, 55);
             this.LBDosyaYolu.Name = "LBDosyaYolu";
-            this.LBDosyaYolu.Size = new System.Drawing.Size(56, 13);
+            this.LBDosyaYolu.Size = new System.Drawing.Size(53, 13);
             this.LBDosyaYolu.TabIndex = 42;
             this.LBDosyaYolu.Text = "Dosya Yolu";
             // 
             // LBDokumanAdi
             // 
-            this.LBDokumanAdi.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBDokumanAdi.Appearance.Options.UseFont = true;
-            this.LBDokumanAdi.Location = new System.Drawing.Point(9, 28);
+            this.LBDokumanAdi.Location = new System.Drawing.Point(47, 31);
             this.LBDokumanAdi.Name = "LBDokumanAdi";
-            this.LBDokumanAdi.Size = new System.Drawing.Size(70, 13);
+            this.LBDokumanAdi.Size = new System.Drawing.Size(62, 13);
             this.LBDokumanAdi.TabIndex = 41;
             this.LBDokumanAdi.Text = "Döküman Adı";
             // 
-            // label65
+            // panelControl15
             // 
-            this.label65.AutoSize = true;
-            this.label65.Location = new System.Drawing.Point(12, 53);
-            this.label65.Name = "label65";
-            this.label65.Size = new System.Drawing.Size(0, 13);
-            this.label65.TabIndex = 5;
+            this.panelControl15.Controls.Add(this.panelControl18);
+            this.panelControl15.Location = new System.Drawing.Point(3, 3);
+            this.panelControl15.Name = "panelControl15";
+            this.panelControl15.Size = new System.Drawing.Size(1079, 430);
+            this.panelControl15.TabIndex = 3;
             // 
-            // TBDokumanDosyaYolu
+            // panelControl18
             // 
-            this.TBDokumanDosyaYolu.Location = new System.Drawing.Point(78, 50);
-            this.TBDokumanDosyaYolu.Name = "TBDokumanDosyaYolu";
-            this.TBDokumanDosyaYolu.Size = new System.Drawing.Size(261, 21);
-            this.TBDokumanDosyaYolu.TabIndex = 3;
+            this.panelControl18.Controls.Add(this.gridControl1);
+            this.panelControl18.Location = new System.Drawing.Point(0, 98);
+            this.panelControl18.Name = "panelControl18";
+            this.panelControl18.Size = new System.Drawing.Size(1079, 332);
+            this.panelControl18.TabIndex = 0;
             // 
-            // TBDokumanAdi
+            // gridControl1
             // 
-            this.TBDokumanAdi.Location = new System.Drawing.Point(78, 24);
-            this.TBDokumanAdi.Name = "TBDokumanAdi";
-            this.TBDokumanAdi.Size = new System.Drawing.Size(261, 21);
-            this.TBDokumanAdi.TabIndex = 2;
+            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl1.Location = new System.Drawing.Point(2, 2);
+            this.gridControl1.MainView = this.gridView4;
+            this.gridControl1.Name = "gridControl1";
+            this.gridControl1.Size = new System.Drawing.Size(1075, 328);
+            this.gridControl1.TabIndex = 0;
+            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView4});
+            // 
+            // gridView4
+            // 
+            this.gridView4.GridControl = this.gridControl1;
+            this.gridView4.Name = "gridView4";
             // 
             // tabPage8
             // 
             this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Size = new System.Drawing.Size(1085, 429);
+            this.tabPage8.Size = new System.Drawing.Size(1082, 433);
             this.tabPage8.TabIndex = 7;
             this.tabPage8.Text = "Taşıyıcı Bilgileri";
             this.tabPage8.UseVisualStyleBackColor = true;
@@ -2456,7 +2262,7 @@
             this.tabPage9.Controls.Add(this.panelControl1);
             this.tabPage9.Location = new System.Drawing.Point(4, 22);
             this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Size = new System.Drawing.Size(1085, 429);
+            this.tabPage9.Size = new System.Drawing.Size(1082, 433);
             this.tabPage9.TabIndex = 8;
             this.tabPage9.Text = "AltHesap";
             this.tabPage9.UseVisualStyleBackColor = true;
@@ -2467,7 +2273,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl2.Location = new System.Drawing.Point(0, 94);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(1085, 335);
+            this.panelControl2.Size = new System.Drawing.Size(1082, 339);
             this.panelControl2.TabIndex = 1;
             // 
             // DGAltHesap
@@ -2476,7 +2282,7 @@
             this.DGAltHesap.Location = new System.Drawing.Point(2, 2);
             this.DGAltHesap.MainView = this.gridView1;
             this.DGAltHesap.Name = "DGAltHesap";
-            this.DGAltHesap.Size = new System.Drawing.Size(1081, 331);
+            this.DGAltHesap.Size = new System.Drawing.Size(1078, 335);
             this.DGAltHesap.TabIndex = 1;
             this.DGAltHesap.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -2489,28 +2295,28 @@
             // 
             // panelControl1
             // 
-            this.panelControl1.Controls.Add(this.simpleButton1);
+            this.panelControl1.Controls.Add(this.BTAltHesapKaydet);
             this.panelControl1.Controls.Add(this.LBAltHesKodu);
             this.panelControl1.Controls.Add(this.BTAltHesSec);
-            this.panelControl1.Controls.Add(this.LBAdi);
+            this.panelControl1.Controls.Add(this.LBAltHesAdi);
             this.panelControl1.Controls.Add(this.TBAltHesapAdi);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1085, 94);
+            this.panelControl1.Size = new System.Drawing.Size(1082, 94);
             this.panelControl1.TabIndex = 0;
             // 
-            // simpleButton1
+            // BTAltHesapKaydet
             // 
-            this.simpleButton1.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.simpleButton1.Appearance.Options.UseBackColor = true;
-            this.simpleButton1.Appearance.Options.UseFont = true;
-            this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(316, 27);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(82, 39);
-            this.simpleButton1.TabIndex = 8;
-            this.simpleButton1.Text = "&Kaydet";
+            this.BTAltHesapKaydet.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.BTAltHesapKaydet.Appearance.Options.UseBackColor = true;
+            this.BTAltHesapKaydet.Appearance.Options.UseFont = true;
+            this.BTAltHesapKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTAltHesapKaydet.ImageOptions.Image")));
+            this.BTAltHesapKaydet.Location = new System.Drawing.Point(316, 27);
+            this.BTAltHesapKaydet.Name = "BTAltHesapKaydet";
+            this.BTAltHesapKaydet.Size = new System.Drawing.Size(82, 39);
+            this.BTAltHesapKaydet.TabIndex = 8;
+            this.BTAltHesapKaydet.Text = "&Kaydet";
             // 
             // LBAltHesKodu
             // 
@@ -2525,19 +2331,19 @@
             this.BTAltHesSec.Location = new System.Drawing.Point(102, 24);
             this.BTAltHesSec.Name = "BTAltHesSec";
             this.BTAltHesSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Yeni", -1, true, true, false, editorButtonImageOptions10, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject37, serializableAppearanceObject38, serializableAppearanceObject39, serializableAppearanceObject40, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions17, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject65, serializableAppearanceObject66, serializableAppearanceObject67, serializableAppearanceObject68, "", null, null, DevExpress.Utils.ToolTipAnchor.Default),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Yeni", -1, true, true, false, editorButtonImageOptions18, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject69, serializableAppearanceObject70, serializableAppearanceObject71, serializableAppearanceObject72, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTAltHesSec.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTAltHesSec_Properties_ButtonClick);
             this.BTAltHesSec.Size = new System.Drawing.Size(173, 22);
             this.BTAltHesSec.TabIndex = 2;
             // 
-            // LBAdi
+            // LBAltHesAdi
             // 
-            this.LBAdi.Location = new System.Drawing.Point(29, 53);
-            this.LBAdi.Name = "LBAdi";
-            this.LBAdi.Size = new System.Drawing.Size(64, 13);
-            this.LBAdi.TabIndex = 7;
-            this.LBAdi.Text = "Alt Hesap Adı";
+            this.LBAltHesAdi.Location = new System.Drawing.Point(29, 53);
+            this.LBAltHesAdi.Name = "LBAltHesAdi";
+            this.LBAltHesAdi.Size = new System.Drawing.Size(64, 13);
+            this.LBAltHesAdi.TabIndex = 7;
+            this.LBAltHesAdi.Text = "Alt Hesap Adı";
             // 
             // TBAltHesapAdi
             // 
@@ -2551,7 +2357,7 @@
             this.Resim.Controls.Add(this.panelControl5);
             this.Resim.Location = new System.Drawing.Point(4, 22);
             this.Resim.Name = "Resim";
-            this.Resim.Size = new System.Drawing.Size(1085, 429);
+            this.Resim.Size = new System.Drawing.Size(1082, 433);
             this.Resim.TabIndex = 9;
             this.Resim.Text = "Resim";
             this.Resim.UseVisualStyleBackColor = true;
@@ -2563,7 +2369,7 @@
             this.panelControl5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl5.Location = new System.Drawing.Point(0, 0);
             this.panelControl5.Name = "panelControl5";
-            this.panelControl5.Size = new System.Drawing.Size(1085, 429);
+            this.panelControl5.Size = new System.Drawing.Size(1082, 433);
             this.panelControl5.TabIndex = 0;
             // 
             // panelControl7
@@ -2572,7 +2378,7 @@
             this.panelControl7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl7.Location = new System.Drawing.Point(2, 114);
             this.panelControl7.Name = "panelControl7";
-            this.panelControl7.Size = new System.Drawing.Size(1081, 313);
+            this.panelControl7.Size = new System.Drawing.Size(1078, 317);
             this.panelControl7.TabIndex = 1;
             // 
             // gridControl3
@@ -2581,7 +2387,7 @@
             this.gridControl3.Location = new System.Drawing.Point(2, 2);
             this.gridControl3.MainView = this.tileView1;
             this.gridControl3.Name = "gridControl3";
-            this.gridControl3.Size = new System.Drawing.Size(1077, 309);
+            this.gridControl3.Size = new System.Drawing.Size(1074, 313);
             this.gridControl3.TabIndex = 0;
             this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.tileView1});
@@ -2611,26 +2417,26 @@
             // 
             // panelControl6
             // 
-            this.panelControl6.Controls.Add(this.simpleButton13);
+            this.panelControl6.Controls.Add(this.BTResimKaydet);
             this.panelControl6.Controls.Add(this.pictureEdit1);
             this.panelControl6.Controls.Add(this.labelControl1);
             this.panelControl6.Controls.Add(this.BTResimSec);
             this.panelControl6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl6.Location = new System.Drawing.Point(2, 2);
             this.panelControl6.Name = "panelControl6";
-            this.panelControl6.Size = new System.Drawing.Size(1081, 112);
+            this.panelControl6.Size = new System.Drawing.Size(1078, 112);
             this.panelControl6.TabIndex = 0;
             // 
-            // simpleButton13
+            // BTResimKaydet
             // 
-            this.simpleButton13.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.simpleButton13.Appearance.Options.UseBackColor = true;
-            this.simpleButton13.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton13.ImageOptions.Image")));
-            this.simpleButton13.Location = new System.Drawing.Point(202, 51);
-            this.simpleButton13.Name = "simpleButton13";
-            this.simpleButton13.Size = new System.Drawing.Size(82, 39);
-            this.simpleButton13.TabIndex = 3;
-            this.simpleButton13.Text = "&Kaydet";
+            this.BTResimKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTResimKaydet.Appearance.Options.UseBackColor = true;
+            this.BTResimKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTResimKaydet.ImageOptions.Image")));
+            this.BTResimKaydet.Location = new System.Drawing.Point(202, 51);
+            this.BTResimKaydet.Name = "BTResimKaydet";
+            this.BTResimKaydet.Size = new System.Drawing.Size(82, 39);
+            this.BTResimKaydet.TabIndex = 3;
+            this.BTResimKaydet.Text = "&Kaydet";
             // 
             // pictureEdit1
             // 
@@ -2653,34 +2459,11 @@
             this.BTResimSec.Location = new System.Drawing.Point(85, 23);
             this.BTResimSec.Name = "BTResimSec";
             this.BTResimSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions19, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject73, serializableAppearanceObject74, serializableAppearanceObject75, serializableAppearanceObject76, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTResimSec.Properties.Name = "BTResimSec";
             this.BTResimSec.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTResimSec_Properties_ButtonClick);
             this.BTResimSec.Size = new System.Drawing.Size(199, 22);
             this.BTResimSec.TabIndex = 0;
-            // 
-            // BTSil
-            // 
-            this.BTSil.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.BTSil.Appearance.Options.UseBackColor = true;
-            this.BTSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTSil.ImageOptions.Image")));
-            this.BTSil.Location = new System.Drawing.Point(988, 5);
-            this.BTSil.Name = "BTSil";
-            this.BTSil.Size = new System.Drawing.Size(93, 48);
-            this.BTSil.TabIndex = 2;
-            this.BTSil.Text = "Sil";
-            // 
-            // BTKaydet
-            // 
-            this.BTKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.BTKaydet.Appearance.Options.UseBackColor = true;
-            this.BTKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTSevkAdresKaydet.ImageOptions.Image")));
-            this.BTKaydet.Location = new System.Drawing.Point(894, 5);
-            this.BTKaydet.Name = "BTKaydet";
-            this.BTKaydet.Size = new System.Drawing.Size(93, 48);
-            this.BTKaydet.TabIndex = 1;
-            this.BTKaydet.Text = "Kaydet";
-            this.BTKaydet.Click += new System.EventHandler(this.BTSevkAdresKaydet_Click);
             // 
             // sqlCommand1
             // 
@@ -2688,61 +2471,6 @@
             this.sqlCommand1.Connection = null;
             this.sqlCommand1.Notification = null;
             this.sqlCommand1.Transaction = null;
-            // 
-            // LBSevkIlce
-            // 
-            this.LBSevkIlce.Location = new System.Drawing.Point(387, 49);
-            this.LBSevkIlce.Name = "LBSevkIlce";
-            this.LBSevkIlce.Size = new System.Drawing.Size(17, 13);
-            this.LBSevkIlce.TabIndex = 86;
-            this.LBSevkIlce.Text = "İlçe";
-            // 
-            // gridControl1
-            // 
-            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(0, 0);
-            this.gridControl1.MainView = this.gridView2;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1079, 313);
-            this.gridControl1.TabIndex = 0;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView2});
-            // 
-            // gridView2
-            // 
-            this.gridView2.GridControl = this.gridControl1;
-            this.gridView2.Name = "gridView2";
-            // 
-            // panelControl10
-            // 
-            this.panelControl10.Controls.Add(this.BTSil);
-            this.panelControl10.Controls.Add(this.BTKaydet);
-            this.panelControl10.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl10.Location = new System.Drawing.Point(0, 459);
-            this.panelControl10.Name = "panelControl10";
-            this.panelControl10.Size = new System.Drawing.Size(1093, 60);
-            this.panelControl10.TabIndex = 1;
-            // 
-            // panelControl3
-            // 
-            this.panelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl3.Controls.Add(this.gridControl1);
-            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl3.Location = new System.Drawing.Point(3, 113);
-            this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(1079, 313);
-            this.panelControl3.TabIndex = 2;
-            // 
-            // panelControl11
-            // 
-            this.panelControl11.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl11.Controls.Add(this.GCAciklama);
-            this.panelControl11.Controls.Add(this.GCSayisalAciklama);
-            this.panelControl11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl11.Location = new System.Drawing.Point(3, 3);
-            this.panelControl11.Name = "panelControl11";
-            this.panelControl11.Size = new System.Drawing.Size(1079, 423);
-            this.panelControl11.TabIndex = 22;
             // 
             // FCariKart
             // 
@@ -2779,6 +2507,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.TBAdres.Properties)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CBUlke.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBIlce.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBIl.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTMuhSec.Properties)).EndInit();
@@ -2792,13 +2521,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.TBApt.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBSokak.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBMahalle.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CBUlke.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBUnvan.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTCariSec.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
             this.panelControl4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl10)).EndInit();
+            this.panelControl10.ResumeLayout(false);
             this.TBSevkAdres.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
+            this.panelControl3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DGSevkAdres)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl8)).EndInit();
             this.panelControl8.ResumeLayout(false);
             this.panelControl8.PerformLayout();
@@ -2811,9 +2545,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.TBSevkKodu.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBSevkMahalle.Properties)).EndInit();
             this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.GCSayisalAciklama)).EndInit();
-            this.GCSayisalAciklama.ResumeLayout(false);
-            this.GCSayisalAciklama.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl11)).EndInit();
+            this.panelControl11.ResumeLayout(false);
+            this.panelControl11.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
+            this.groupControl1.ResumeLayout(false);
+            this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
+            this.groupControl2.ResumeLayout(false);
+            this.groupControl2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUDSAciklama9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUDSAciklama8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUDSAciklama7)).EndInit();
@@ -2823,32 +2563,45 @@
             ((System.ComponentModel.ISupportInitialize)(this.NUDSAciklama3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUDSAciklama2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUDSAciklama1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GCAciklama)).EndInit();
-            this.GCAciklama.ResumeLayout(false);
-            this.GCAciklama.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.GCRaporKodlari)).EndInit();
-            this.GCRaporKodlari.ResumeLayout(false);
-            this.GCRaporKodlari.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
+            this.groupControl3.ResumeLayout(false);
+            this.groupControl3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BTRprSec9.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BTRprSec8.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BTRprSec7.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BTRprSec6.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BTRprSec5.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BTRprSec4.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BTRprSec3.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BTRprSec2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BTRprSec1.Properties)).EndInit();
             this.tabPage4.ResumeLayout(false);
-            this.panel14.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl12)).EndInit();
+            this.panelControl12.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl14)).EndInit();
+            this.panelControl14.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
-            this.panel13.ResumeLayout(false);
-            this.panel13.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TBPozisyon.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl13)).EndInit();
+            this.panelControl13.ResumeLayout(false);
+            this.panelControl13.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TBYetkiliAdi.Properties)).EndInit();
-            this.tabPage5.ResumeLayout(false);
-            this.panel15.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TBPozisyon.Properties)).EndInit();
             this.tabPage7.ResumeLayout(false);
-            this.panel17.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
-            this.panel16.ResumeLayout(false);
-            this.panel16.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl16)).EndInit();
+            this.panelControl16.ResumeLayout(false);
+            this.panelControl16.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl17)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BTDosyaYoluSec.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBDokumanAdi.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl15)).EndInit();
+            this.panelControl15.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl18)).EndInit();
+            this.panelControl18.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView4)).EndInit();
             this.tabPage9.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
@@ -2871,15 +2624,6 @@
             this.panelControl6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTResimSec.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl10)).EndInit();
-            this.panelControl10.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
-            this.panelControl3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl11)).EndInit();
-            this.panelControl11.ResumeLayout(false);
-            this.panelControl11.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2901,7 +2645,7 @@
         private TabControl TBSevkAdres;
         private TabPage tabPage1;
         private TabPage tabPage2;
-        private DevExpress.XtraEditors.GroupControl GCSayisalAciklama;
+        private DevExpress.XtraEditors.GroupControl groupControl2;
         private NumericUpDown NUDSAciklama9;
         private NumericUpDown NUDSAciklama8;
         private NumericUpDown NUDSAciklama7;
@@ -2920,7 +2664,7 @@
         private DevExpress.XtraEditors.LabelControl LBSayisalAciklama3;
         private DevExpress.XtraEditors.LabelControl LBSayisalAciklama2;
         private DevExpress.XtraEditors.LabelControl LBSayisalAciklama1;
-        private DevExpress.XtraEditors.GroupControl GCAciklama;
+        private DevExpress.XtraEditors.GroupControl groupControl1;
         private TextBox TBAciklama9;
         private DevExpress.XtraEditors.LabelControl LBAciklama9;
         private TextBox TBAciklama8;
@@ -2941,72 +2685,34 @@
         private DevExpress.XtraEditors.LabelControl LBAciklama1;
         private TabPage tabPage3;
         private Panel panel11;
-        private DevExpress.XtraEditors.GroupControl GCRaporKodlari;
-        private DevExpress.XtraEditors.SimpleButton simpleButton9;
-        private DevExpress.XtraEditors.SimpleButton simpleButton7;
-        private DevExpress.XtraEditors.SimpleButton simpleButton4;
-        private DevExpress.XtraEditors.SimpleButton simpleButton10;
-        private DevExpress.XtraEditors.SimpleButton simpleButton8;
-        private DevExpress.XtraEditors.SimpleButton simpleButton11;
-        private DevExpress.XtraEditors.SimpleButton simpleButton6;
-        private TextBox TBRaporKodu9;
-        private DevExpress.XtraEditors.SimpleButton simpleButton3;
-        private DevExpress.XtraEditors.SimpleButton simpleButton5;
+        private DevExpress.XtraEditors.GroupControl groupControl3;
         private DevExpress.XtraEditors.LabelControl LBRaporKodu9;
-        private TextBox TBRaporKodu8;
         private DevExpress.XtraEditors.LabelControl LBRaporKodu8;
-        private TextBox TBRaporKodu7;
         private DevExpress.XtraEditors.LabelControl LBRaporKodu7;
-        private TextBox TBRaporKodu6;
         private DevExpress.XtraEditors.LabelControl LBRaporKodu6;
-        private TextBox TBRaporKodu5;
         private DevExpress.XtraEditors.LabelControl LBRaporKodu5;
-        private TextBox TBRaporKodu4;
         private DevExpress.XtraEditors.LabelControl LBRaporKodu4;
-        private TextBox TBRaporKodu3;
         private DevExpress.XtraEditors.LabelControl LBRaporKodu3;
-        private TextBox TBRaporKodu2;
         private DevExpress.XtraEditors.LabelControl LBRaporKodu2;
-        private TextBox TBRaporKodu1;
         private DevExpress.XtraEditors.LabelControl LBRaporKodu1;
         private TabPage tabPage4;
-        private Panel panel14;
-        private Panel panel13;
-        private DevExpress.XtraEditors.LabelControl LBSirketPozisyonu;
+        private DevExpress.XtraEditors.LabelControl LBPozisyon;
         private DevExpress.XtraEditors.LabelControl LBYetkiliAdi;
-        private TabPage tabPage5;
-        private Panel panel15;
-        private DataGridView dataGridView3;
-        private Panel panel8;
-        private DevExpress.XtraEditors.SimpleButton BTAltCariSil;
-        private DevExpress.XtraEditors.SimpleButton BTAltCariKaydet;
-        private DevExpress.XtraEditors.SimpleButton simpleButton12;
-        private DevExpress.XtraEditors.LabelControl LBAltCariAdi;
-        private DevExpress.XtraEditors.LabelControl LBAltCariKod;
-        private TextBox textBox29;
-        private TextBox textBox30;
         private TabPage tabPage7;
-        private Panel panel17;
-        private DataGridView dataGridView4;
-        private Panel panel16;
-        private DevExpress.XtraEditors.SimpleButton BTDokumanlarSil;
-        private DevExpress.XtraEditors.SimpleButton BTDokumanlarKaydet;
-        private DevExpress.XtraEditors.SimpleButton BTDosyaYoluSec;
+        private DevExpress.XtraEditors.SimpleButton BTDokumanSil;
+        private DevExpress.XtraEditors.SimpleButton BTDokumanKaydet;
         private DevExpress.XtraEditors.LabelControl LBDosyaYolu;
         private DevExpress.XtraEditors.LabelControl LBDokumanAdi;
-        private Label label65;
-        private TextBox TBDokumanDosyaYolu;
-        private TextBox TBDokumanAdi;
         private TabPage tabPage8;
         private TabPage tabPage9;
         private DevExpress.XtraEditors.PanelControl panelControl2;
         private DevExpress.XtraGrid.GridControl DGAltHesap;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraEditors.PanelControl panelControl1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton BTAltHesapKaydet;
         private DevExpress.XtraEditors.LabelControl LBAltHesKodu;
         private DevExpress.XtraEditors.ButtonEdit BTAltHesSec;
-        private DevExpress.XtraEditors.LabelControl LBAdi;
+        private DevExpress.XtraEditors.LabelControl LBAltHesAdi;
         private DevExpress.XtraEditors.TextEdit TBAltHesapAdi;
         private GroupBox groupBox2;
         private DevExpress.XtraEditors.LabelControl LBGrupKodu;
@@ -3030,7 +2736,6 @@
         private DevExpress.XtraEditors.TextEdit TBApt;
         private DevExpress.XtraEditors.TextEdit TBSokak;
         private DevExpress.XtraEditors.TextEdit TBMahalle;
-        private DevExpress.XtraEditors.ComboBoxEdit CBUlke;
         private DevExpress.XtraEditors.TextEdit TBUnvan;
         private DevExpress.XtraEditors.ButtonEdit BTCariSec;
         private DevExpress.XtraEditors.LabelControl LBMuhKodu;
@@ -3074,7 +2779,7 @@
         private DevExpress.XtraEditors.PanelControl panelControl7;
         private DevExpress.XtraGrid.GridControl gridControl3;
         private DevExpress.XtraEditors.PanelControl panelControl6;
-        private DevExpress.XtraEditors.SimpleButton simpleButton13;
+        private DevExpress.XtraEditors.SimpleButton BTResimKaydet;
         private DevExpress.XtraEditors.PictureEdit pictureEdit1;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.ButtonEdit BTResimSec;
@@ -3105,11 +2810,32 @@
         private DevExpress.XtraEditors.LabelControl LBSevkSokak;
         private DevExpress.XtraEditors.LabelControl LBSevkMahalle;
         private DevExpress.XtraEditors.PanelControl panelControl9;
-        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.GridControl DGSevkAdres;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
         private DevExpress.XtraEditors.LabelControl LBSevkIlce;
         private DevExpress.XtraEditors.PanelControl panelControl10;
         private DevExpress.XtraEditors.PanelControl panelControl3;
         private DevExpress.XtraEditors.PanelControl panelControl11;
+        private DevExpress.XtraEditors.ButtonEdit BTRprSec1;
+        private DevExpress.XtraEditors.ButtonEdit BTRprSec9;
+        private DevExpress.XtraEditors.ButtonEdit BTRprSec8;
+        private DevExpress.XtraEditors.ButtonEdit BTRprSec7;
+        private DevExpress.XtraEditors.ButtonEdit BTRprSec6;
+        private DevExpress.XtraEditors.ButtonEdit BTRprSec5;
+        private DevExpress.XtraEditors.ButtonEdit BTRprSec4;
+        private DevExpress.XtraEditors.ButtonEdit BTRprSec3;
+        private DevExpress.XtraEditors.ButtonEdit BTRprSec2;
+        private DevExpress.XtraEditors.PanelControl panelControl12;
+        private DevExpress.XtraEditors.PanelControl panelControl13;
+        private DevExpress.XtraEditors.PanelControl panelControl14;
+        private DevExpress.XtraEditors.PanelControl panelControl15;
+        private DevExpress.XtraEditors.PanelControl panelControl16;
+        private DevExpress.XtraEditors.ButtonEdit BTDosyaYoluSec;
+        private DevExpress.XtraEditors.TextEdit TBDokumanAdi;
+        private DevExpress.XtraEditors.PanelControl panelControl17;
+        private DevExpress.XtraEditors.PanelControl panelControl18;
+        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView4;
+        private DevExpress.XtraEditors.LookUpEdit CBUlke;
     }
 }
