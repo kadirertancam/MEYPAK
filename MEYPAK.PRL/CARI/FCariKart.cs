@@ -75,7 +75,7 @@ namespace MEYPAK.PRL.CARI
             TBAciklama.Text = _tempCariKart.aciklama;
             CBAltHesap.EditValue = _tempCARIALTHES.adi;
             //TBSevkKodu
-            CBSevkIl.EditValue = _tempCariKart.il;
+            CBSevkIl.Text = _tempCariKart.il;
             CBSevkIlce.EditValue = _tempCariKart.ilce;
             TBSevkMahalle.Text = _tempCariKart.mahalle;
             TBSevkSokak.Text = _tempCariKart.sokak;
@@ -136,41 +136,31 @@ namespace MEYPAK.PRL.CARI
 
 
         ADRESOBJECT.Root _adresObje;
+        ADRESOBJECT.Root ilceler;
         UlkeList.Root _ulkeList;
+
         public void FCariKart_Load(object sender, EventArgs e)
         {
-
+            //Il combosu
             string path = Application.StartupPath + "/il-ilce.json";
            
             using (FileStream s = File.Open(path, FileMode.Open))
             using (StreamReader sr = new StreamReader(s))
                 while (!sr.EndOfStream)
                 {
-
                     _adresObje = JsonConvert.DeserializeObject<ADRESOBJECT.Root>(sr.ReadToEnd());
-
-                    
-                   
-
                 }
             CBIl.Properties.DataSource = _adresObje.data.Select(x => x.il_adi);
-            path = Application.StartupPath + "/ulkeler.json";
-
+            //CBIlce.Properties.DataSource = _adresObje.data.Where(x=> x == CBIl.EditValue).Select(x => x.ilceler.Select(x => x.ilce_adi)).ToList().FirstOrDefault();
+            path = Application.StartupPath + "Ulke";
             using (FileStream s = File.Open(path, FileMode.Open))
             using (StreamReader sr = new StreamReader(s))
                 while (!sr.EndOfStream)
                 {
-
                     _ulkeList = JsonConvert.DeserializeObject<UlkeList.Root>(sr.ReadToEnd());
-
-                     
-
                 }
-            CBUlke.Properties.DataSource = _ulkeList.Ulke.Select(x => x.ulkeadi);
-
+             CBUlke.Properties.DataSource = _ulkeList.Ulke.Select(x => x.ulkeadi);
         }
-
-
 
         private void button7_Click(object sender, EventArgs e)
         {
@@ -212,6 +202,7 @@ namespace MEYPAK.PRL.CARI
                 eposta = TBEposta.Text,
                 fax = TBFax.Text,
                 grupkodu = BTGrupSec.Text,
+                ulke = CBUlke.Text,
                 il = CBIl.Text,
                 ilce = CBIl.Text,
                 kategori = BTKategoriSec.Text,
@@ -379,19 +370,35 @@ namespace MEYPAK.PRL.CARI
         }
         List<PocoCARIRESIM> resimList;
 
-   
+
         #endregion
 
 
-        private void CBUlke_Properties_EditValueChanged(object sender, EventArgs e) {
-        //    CBUlke.Properties.DataSource = _adresObje.data.Where(x => x.ulke == CBUlke.EditValue.ToString()).Select(x => x.il_adi.ToList()).FirstOrDefault();
+        private void CBUlke_Properties_EditValueChanged(object sender, EventArgs e)
+        {
+         //   CBUlke.Properties.DataSource = _adresObje.data.Where(x => x.ulke_adi == CBUlke.EditValue.ToString()).Select(x => x.il_adi.ToList()).FirstOrDefault();
 
         }
         private void CBIl_TextChanged(object sender, EventArgs e)
         {
-            CBIlce.Properties.DataSource = _adresObje.data.Where(x => x.il_adi == CBIl.Text).Select(x => x.ilceler.Select(z => z.ilce_adi)).FirstOrDefault();
-
+            CBIl.Properties.DataSource = _adresObje.data.Where(x=> x.il_adi == CBIl.EditValue.ToString()).Select(x=> x.ilceler.Select(z => z.ilce_adi).ToList()).FirstOrDefault();
         }
+
+        private void CBIlce_TextChanged(object sender, EventArgs e)
+        {
+            CBIlce.Properties.DataSource = _adresObje.data.Select(x => x.ilceler.Select(x => x.ilce_adi).ToList()).FirstOrDefault();
+           // CBIlce.Properties.DataSource = _adresObje.data.Select(x => x.ilceler == CBIlce.EditValue).FirstOrDefault();
+        }
+
+      
+        //private void CBNufIl_EditValueChanged(object sender, EventArgs e)
+        //{
+        //    CBNufIlce.Properties.DataSource = _adresObje.data.Where(x => x.il_adi == CBNufIl.EditValue).Select(x => x.ilceler.Select(z => z.ilce_adi).ToList()).FirstOrDefault();
+        //}
+
+
+
+
 
         private void BTCariSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
@@ -399,6 +406,8 @@ namespace MEYPAK.PRL.CARI
             fCariList.ShowDialog();
              Doldur();
         }
+
+      
     }
 
 }

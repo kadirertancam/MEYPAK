@@ -322,7 +322,7 @@ namespace MEYPAK.PRL
         private void buttonEdit3_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
 
-            FKategoriList fKategoriKart = new FKategoriList("Stok");
+            FKategoriList fKategoriKart = new FKategoriList(this.Tag.ToString(), "stokkart");
             fKategoriKart.ShowDialog();
             if (_tempKategori != null)
                 BTKategori.Text = _tempKategori.acıklama;

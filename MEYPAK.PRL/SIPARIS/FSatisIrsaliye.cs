@@ -533,7 +533,7 @@ namespace MEYPAK.PRL.IRSALIYE
                 DTSiparisTarih.EditValue = _tempIrsaliye.irsaliyetarihi;
                 TBAciklama.Text = _tempIrsaliye.aciklama;
                 DTPVadeTarihi.EditValue = _tempIrsaliye.vadetarihi;
-                DTSevkiyatTarih.Value = _tempIrsaliye.sevkiyattarihi;
+                DTSevkiyatTarih.EditValue = _tempIrsaliye.sevkiyattarihi;
                 TBGun.Text = _tempIrsaliye.vadegunu.ToString();
                 _irsaliyeDetayServis.Data(ServisList.SiparisDetayListeServis + 2, null, "query=SIPARISID=" + _tempIrsaliye.id.ToString());
                 GCIrsaliye.DataSource = _irsaliyeDetayServis.obje.Select(x => new PocoSiparisKalem()

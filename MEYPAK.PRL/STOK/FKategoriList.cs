@@ -20,18 +20,22 @@ using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.BLL.Assets;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.Windows.Input;
+using MEYPAK.Entity.Models.SIPARIS;
+using MEYPAK.PRL.DEPO;
+using MEYPAK.PRL.SIPARIS;
 
 namespace MEYPAK.PRL.STOK
 {
     public partial class FKategoriList : Form
     {
         FStokKart fStokKart;
-        int id;
+        string _form;
         string _islem;
         GenericWebServis<PocoSTOKKATEGORI> _kategoriServis;
-        public FKategoriList(string islem = "")
+        public FKategoriList(string form = "", string islem = "")
         {
             InitializeComponent();
+            this._form = form;
             this._islem = islem;
             _kategoriServis = new GenericWebServis<PocoSTOKKATEGORI>();
         }
@@ -39,7 +43,14 @@ namespace MEYPAK.PRL.STOK
         private void FKategoriList_Load(object sender, EventArgs e)
         {
             TreeViewiDoldur();
-            fStokKart = (FStokKart)Application.OpenForms["FStokKart"];
+            foreach (Form frm in Application.OpenForms)
+            {
+                if (_form == frm.Tag)
+                {
+                    if (frm.Name.Contains("FStokHareket"))
+                        fStokKart = (FStokKart)frm;
+                }
+            }
         }
 
 
@@ -48,7 +59,7 @@ namespace MEYPAK.PRL.STOK
             treeView1.Nodes.Clear();
             _kategoriServis.Data(ServisList.StokKategoriListeServis);
             TreeNode ustNode = new TreeNode("Kategoriler");
-            treeView1.Nodes.Add(TreeViewDon(ref ustNode, _kategoriServis.obje, 0));
+            treeView1.Nodes.Add(TreeViewDon(ref ustNode, _kategoriServis.obje.Where(x=> x.kayittipi ==0).ToList(), 0));
         }
 
 
@@ -58,7 +69,7 @@ namespace MEYPAK.PRL.STOK
             {
                 var A = ustNode.Nodes.Add(item.id.ToString(), item.acıklama);
 
-                if (_kategoriServis.obje.Where(x => x.ustId == item.id).Count() > 0)
+                if (_kategoriServis.obje.Where(x => x.ustId == item.id && x.kayittipi==0).Count() > 0)
                 {
                     A = TreeViewDon(ref A, data, item.id);
                 }
@@ -72,7 +83,7 @@ namespace MEYPAK.PRL.STOK
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
-                if (_islem == "Stok")
+                if (_islem == "stokkart")
                 {
                     if (treeView1.SelectedNode.Name != "" && treeView1.SelectedNode != null)
                     {
