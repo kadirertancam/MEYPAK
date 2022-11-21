@@ -56,12 +56,14 @@
             this.DGSayimList.TabIndex = 1;
             this.DGSayimList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            this.DGSayimList.DoubleClick += new System.EventHandler(this.DGSayimList_DoubleClick);
             // 
             // gridView1
             // 
             this.gridView1.GridControl = this.DGSayimList;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
+            this.gridView1.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.gridView1_RowStyle);
             // 
             // FSayimList
             // 

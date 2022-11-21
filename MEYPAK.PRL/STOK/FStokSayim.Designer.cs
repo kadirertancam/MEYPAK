@@ -73,7 +73,6 @@
             // 
             this.gridView1.GridControl = this.DGStokSayim;
             this.gridView1.Name = "gridView1";
-            this.gridView1.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.gridView1_RowStyle);
             // 
             // TBAciklama
             // 

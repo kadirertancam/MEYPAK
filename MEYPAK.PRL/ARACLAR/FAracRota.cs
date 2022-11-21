@@ -177,7 +177,7 @@ namespace MEYPAK.PRL.ARACLAR
                 FileName = DosyaAdi
             };
             dialog.ShowDialog();
-            gridView1.ExportToXlsx(dialog.FileName);
+            GridView.ExportToXlsx(dialog.FileName);
         }
         public void Pdfaktar(DevExpress.XtraGrid.Views.Grid.GridView GridView, string DosyaAdi)
         {
@@ -188,7 +188,7 @@ namespace MEYPAK.PRL.ARACLAR
                 FileName = DosyaAdi
             };
             dialog.ShowDialog();
-            gridView1.ExportToPdf(dialog.FileName);
+            GridView.ExportToPdf(dialog.FileName);
         }
 
        

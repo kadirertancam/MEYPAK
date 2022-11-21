@@ -49,7 +49,7 @@ namespace MEYPAK.API.Controllers.CARIControllers
         }
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult SEVKADRESEkleyadaGuncelle(PocoSEVKADRES pModel)
+        public IActionResult SEVKADRESEkleyadaGuncelle([FromBody]PocoSEVKADRES pModel)
         {
             try
             {
