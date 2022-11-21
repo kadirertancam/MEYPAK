@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FStokSayimPanel));
             this.LBDepo = new DevExpress.XtraEditors.LabelControl();
             this.LBTarih = new DevExpress.XtraEditors.LabelControl();
@@ -45,6 +46,9 @@
             this.TBAciklama = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.LBSayim = new DevExpress.XtraEditors.LabelControl();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.exceleAktarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pdfeAktarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.DGStokSayim)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -61,6 +65,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.DTPSayimTar.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPSayimTar.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBAciklama.Properties)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // LBDepo
@@ -89,6 +94,7 @@
             this.BTKaydet.Size = new System.Drawing.Size(82, 39);
             this.BTKaydet.TabIndex = 79;
             this.BTKaydet.Text = "&Kaydet";
+            this.BTKaydet.Click += new System.EventHandler(this.BTKaydet_Click);
             // 
             // DGStokSayim
             // 
@@ -223,13 +229,34 @@
             this.LBSayim.Size = new System.Drawing.Size(0, 18);
             this.LBSayim.TabIndex = 84;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exceleAktarToolStripMenuItem,
+            this.pdfeAktarToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 70);
+            // 
+            // exceleAktarToolStripMenuItem
+            // 
+            this.exceleAktarToolStripMenuItem.Name = "exceleAktarToolStripMenuItem";
+            this.exceleAktarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exceleAktarToolStripMenuItem.Text = "Excel\'e Aktar";
+            this.exceleAktarToolStripMenuItem.Click += new System.EventHandler(this.exceleAktarToolStripMenuItem_Click);
+            // 
+            // pdfeAktarToolStripMenuItem
+            // 
+            this.pdfeAktarToolStripMenuItem.Name = "pdfeAktarToolStripMenuItem";
+            this.pdfeAktarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pdfeAktarToolStripMenuItem.Text = "Pdf\'e Aktar";
+            this.pdfeAktarToolStripMenuItem.Click += new System.EventHandler(this.pdfeAktarToolStripMenuItem_Click);
+            // 
             // FStokSayimPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1064, 635);
             this.Controls.Add(this.panelControl1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FStokSayimPanel";
             this.Text = "FStokSayimPanel";
             this.Load += new System.EventHandler(this.FStokSayimPanel_Load);
@@ -250,6 +277,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.DTPSayimTar.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPSayimTar.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBAciklama.Properties)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -271,5 +299,8 @@
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.DateEdit DTPSayimTar;
         private DevExpress.XtraEditors.TextEdit TBDepo;
+        private ContextMenuStrip contextMenuStrip1;
+        private ToolStripMenuItem exceleAktarToolStripMenuItem;
+        private ToolStripMenuItem pdfeAktarToolStripMenuItem;
     }
 }
