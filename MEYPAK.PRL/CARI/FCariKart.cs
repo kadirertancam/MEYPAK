@@ -321,7 +321,7 @@ namespace MEYPAK.PRL.CARI
      
         private void BTCariSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            fCariList = new FCariList(this.Tag.ToString(), "carikart");
+            fCariList = new FCariList(this.Tag.ToString(), "CariList");
             fCariList.ShowDialog();
              Doldur();
         }
@@ -424,6 +424,8 @@ namespace MEYPAK.PRL.CARI
         {
 
         }
+
+       
     }
     }
     #endregion
