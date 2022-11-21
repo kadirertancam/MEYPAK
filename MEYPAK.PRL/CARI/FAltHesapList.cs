@@ -20,16 +20,18 @@ using MEYPAK.Interfaces.Stok;
 using MEYPAK.Entity.Models.SIPARIS;
 using MEYPAK.Entity.Models.STOK;
 using DevExpress.XtraEditors;
+using MEYPAK.Interfaces.Cari;
 
 namespace MEYPAK.PRL.CARI
 {
     public partial class FAltHesapList : XtraForm
     {
+        string _islem;
+        string _form;
         FCariAltHesap fCariAltHesap;
         FCariKart fCariKart;
         int id;
-        string _islem;
-        string _form;
+       
 
         public FAltHesapList(string form="", string islem = "")
         {
@@ -39,10 +41,16 @@ namespace MEYPAK.PRL.CARI
 
             _cariAltHesapServis = new GenericWebServis<PocoCARIALTHES>();
             _parabirIMServis = new GenericWebServis<PocoPARABIRIM>();
+           
         }
+
+        #region Tanımlar
         GenericWebServis<PocoCARIALTHES> _cariAltHesapServis;
         GenericWebServis<PocoPARABIRIM> _parabirIMServis;
+       
         Form tempForm;
+
+        #endregion
         private void FAltHesapList_Load(object sender, EventArgs e)
         {
 

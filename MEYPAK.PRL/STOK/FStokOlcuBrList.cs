@@ -1,4 +1,5 @@
-﻿using MEYPAK.BLL.Assets;
+﻿using DevExpress.XtraEditors;
+using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.Models.SIPARIS;
 using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Entity.PocoModels.STOK;
@@ -16,7 +17,7 @@ using System.Windows.Forms;
 
 namespace MEYPAK.PRL.STOK
 {
-    public partial class FStokOlcuBrList : Form
+    public partial class FStokOlcuBrList : XtraForm
     {
         string _form; 
         string _islem;

@@ -1,4 +1,5 @@
 ﻿using DevExpress.Text.Interop;
+using DevExpress.XtraEditors;
 using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.PocoModels.PARAMETRE;
 using MEYPAK.Entity.PocoModels.STOK;
@@ -16,7 +17,7 @@ using System.Windows.Forms;
 
 namespace MEYPAK.PRL.PARAMETRELER
 {
-    public partial class FParaBirimi : Form
+    public partial class FParaBirimi : XtraForm
     {
 
         string islemtipi = "Kayıt";

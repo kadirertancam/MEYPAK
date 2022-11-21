@@ -23,12 +23,18 @@ using System.Windows.Input;
 using MEYPAK.Entity.Models.SIPARIS;
 using MEYPAK.PRL.DEPO;
 using MEYPAK.PRL.SIPARIS;
+using MEYPAK.PRL.CARI;
+using MEYPAK.Entity.Models.CARI;
+using MEYPAK.Entity.PocoModels.CARI;
+using MEYPAK.Interfaces.Parametre;
+using DevExpress.XtraEditors;
 
 namespace MEYPAK.PRL.STOK
 {
-    public partial class FKategoriList : Form
+    public partial class FKategoriList : XtraForm
     {
         FStokKart fStokKart;
+        FCariKart fCariKart;
         string _form;
         string _islem;
         GenericWebServis<PocoSTOKKATEGORI> _kategoriServis;
@@ -38,8 +44,10 @@ namespace MEYPAK.PRL.STOK
             this._form = form;
             this._islem = islem;
             _kategoriServis = new GenericWebServis<PocoSTOKKATEGORI>();
+            _cariServis = new GenericWebServis<PocoCARIKART>();
         }
 
+        GenericWebServis<PocoCARIKART> _cariServis;
         private void FKategoriList_Load(object sender, EventArgs e)
         {
             TreeViewiDoldur();
@@ -49,17 +57,22 @@ namespace MEYPAK.PRL.STOK
                 {
                     if (frm.Name.Contains("FStokHareket"))
                         fStokKart = (FStokKart)frm;
+                    if (frm.Name.Contains("FCariKart"))
+                        fCariKart = (FCariKart)frm;
+                    
                 }
+              
             }
+            _kategoriServis.Data(ServisList.StokKategoriListeServis);
+           
+
         }
-
-
         public void TreeViewiDoldur()
         {
-            treeView1.Nodes.Clear();
+            treeView.Nodes.Clear();
             _kategoriServis.Data(ServisList.StokKategoriListeServis);
             TreeNode ustNode = new TreeNode("Kategoriler");
-            treeView1.Nodes.Add(TreeViewDon(ref ustNode, _kategoriServis.obje.Where(x=> x.kayittipi ==0).ToList(), 0));
+            treeView.Nodes.Add(TreeViewDon(ref ustNode, _kategoriServis.obje.Where(x=> x.kayittipi ==0).ToList(), 0));
         }
 
 
@@ -79,17 +92,28 @@ namespace MEYPAK.PRL.STOK
 
       
        
-        private void treeView1_KeyPress(object sender, KeyPressEventArgs e)
+        private void treeView_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
                 if (_islem == "stokkart")
                 {
-                    if (treeView1.SelectedNode.Name != "" && treeView1.SelectedNode != null)
+                    if (treeView.SelectedNode.Name != "" && treeView.SelectedNode != null)
                     {
                         if (fStokKart != null)
                         {
-                            fStokKart._tempKategori = _kategoriServis.obje.Where(x => x.id == Convert.ToInt32(treeView1.SelectedNode.Name)).FirstOrDefault();
+                            fStokKart._tempKategori = _kategoriServis.obje.Where(x => x.id == Convert.ToInt32(treeView.SelectedNode.Name)).FirstOrDefault();
+                            this.Close();
+                        }
+                    }
+                }
+                else if (_islem == "carikart")
+                {
+                    if (treeView.SelectedNode.Name != "" && treeView.SelectedNode != null)
+                    {
+                        if (fCariKart != null)
+                        {
+                            fCariKart._tempCariStOKKATEGORI = _kategoriServis.obje.Where(x => x.id == Convert.ToInt32(treeView.SelectedNode.Name)).FirstOrDefault();
                             this.Close();
                         }
                     }
@@ -118,12 +142,12 @@ namespace MEYPAK.PRL.STOK
 
         private void BTAltKateEkle_Click(object sender, EventArgs e)
         {
-            if (treeView1.SelectedNode.Name != "" && treeView1.SelectedNode != null)
+            if (treeView.SelectedNode.Name != "" && treeView.SelectedNode != null)
             {
                 PocoSTOKKATEGORI mPKATEGORI = new PocoSTOKKATEGORI()
                 {
                     acıklama = TBKategoriAdi.Text,
-                    ustId = Convert.ToInt32(treeView1.SelectedNode.Name.ToString())
+                    ustId = Convert.ToInt32(treeView.SelectedNode.Name.ToString())
 
                 };
                 _kategoriServis.Data(ServisList.StokKategoriEkleServis, mPKATEGORI);
@@ -138,5 +162,7 @@ namespace MEYPAK.PRL.STOK
                 MessageBox.Show("Alt Kategori eklemek istediğiniz kategoriyi seçiniz.");
             }
         }
+
+       
     }
 }
