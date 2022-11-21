@@ -69,8 +69,6 @@ namespace MEYPAK.PRL.STOK
                         fStokHareket = (FStokHareket)frm;
                     if (frm.Name.Contains("FStokKart"))
                         fSTOKKART = (FStokKart)frm;
-                    if (frm.Name.Contains("FStokSayimPanel"))
-                        fStokSayimPanel = (FStokSayimPanel)frm;
                     if(frm.Name.Contains("FStokFiyatListPanel"))
                         fstokFiyatListPanel=(FStokFiyatListPanel)frm;
                     if (frm.Name.Contains("FDepolarArasıTransferHar"))
@@ -113,11 +111,6 @@ namespace MEYPAK.PRL.STOK
             {
                 if (fSTOKKART != null)
                     fSTOKKART._tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
-            }
-            else if (_islem == "StokSayimPanel")
-            {
-                if (fStokSayimPanel != null)
-                    fStokSayimPanel._tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
             }
             else if (_islem == "stokhar")
             {

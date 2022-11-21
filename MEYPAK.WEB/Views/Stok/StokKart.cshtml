@@ -32,7 +32,7 @@
                     groupItems.AddSimpleFor(m => m.kategoriid);
                     groupItems.AddSimpleFor(m => m.kod);
 
-                    groupItems.AddSimpleFor(m => m.kasaid);
+                
 
                     groupItems.AddSimpleFor(m => m.sfiyaT1);
                     groupItems.AddSimpleFor(m => m.sfiyaT2);
@@ -63,15 +63,7 @@
                 .ValueExpr("id")
                 .DisplayExpr("acıklama"));
 
-                columns.AddFor(m => m.kasaid)
-                .Width(150)
-                .Visible(true)
-                .Lookup(lookup => lookup
-                .DataSource(ds => ds.Mvc().Controller("STOK").LoadAction("StokKasaGet").Key("id"))
-                .DataSourceOptions(dso => dso.Sort(sort => sort.AddSorting("kasakodu")))
-                .ValueExpr("id")
-                .DisplayExpr("kasakodu")
-                );
+                
 
                 columns.AddFor(m => m.sfiyaT1);
 

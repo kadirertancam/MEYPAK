@@ -14,19 +14,12 @@ namespace MEYPAK.Entity.Models.STOK
 {
     public class MPSTOK:SUPERMODEL
     {
-        public MPSTOK()
-        { 
 
-
-
-        }
 
         [DefaultValue(0)]
         public int SIRKETID { get; set; }
         [DefaultValue(0)]
         public int SUBEID { get; set; }
-        [DefaultValue(0)]
-        public int KASAID { get; set; } = 0;
 
         [StringLength(50), Required]
         public string KOD { get; set; }

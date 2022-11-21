@@ -55,7 +55,7 @@ namespace MEYPAK.PRL.STOK
             {
                 if (_form == frm.Tag)
                 {
-                    if (frm.Name.Contains("FStokHareket"))
+                    if (frm.Name.Contains("FStokKart"))
                         fStokKart = (FStokKart)frm;
                     if (frm.Name.Contains("FCariKart"))
                         fCariKart = (FCariKart)frm;
@@ -133,6 +133,7 @@ namespace MEYPAK.PRL.STOK
                 };
                 _kategoriServis.Data(ServisList.StokKategoriEkleServis, mPKATEGORI);
                 MessageBox.Show("Yeni Kategori Başarıyla Eklendi");
+                TreeViewiDoldur();
             }
             else
             {

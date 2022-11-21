@@ -7,6 +7,7 @@ using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Stok;
 using MEYPAK.PRL.Assets;
 using MEYPAK.PRL.DEPO;
+using MEYPAK.PRL.IRSALIYE;
 using MEYPAK.PRL.SIPARIS;
 using System;
 using System.Collections.Generic;
@@ -22,9 +23,9 @@ namespace MEYPAK.PRL.STOK
 {
     public partial class FStokKasaList : XtraForm
     {
-        FStokKart fStokKart;
         FMusteriSiparis fSiparis;
         FSatinAlmaSiparis fSatınAlmaSiparis;
+        FSatisIrsaliye fSatisIrsaliye;
         GenericWebServis<PocoSTOKKASA> _kasaServis;
         string _islem;
         string _form;
@@ -42,12 +43,12 @@ namespace MEYPAK.PRL.STOK
             {
                 if (_form == frm.Tag)
                 {
-                    if (frm.Name.Contains("FStokKart"))
-                        fStokKart = (FStokKart)frm;
+                    if (frm.Name.Contains("FSatisIrsaliye"))
+                        fSatisIrsaliye = (FSatisIrsaliye)frm;
                     if (frm.Name.Contains("FMusteriSiparis"))
                         fSiparis = (FMusteriSiparis)frm;
                     if (frm.Name.Contains("FSatinAlmaSiparis"))
-                        fSatınAlmaSiparis = (FSatinAlmaSiparis)frm; 
+                        fSatınAlmaSiparis = (FSatinAlmaSiparis)frm;
                 }
             }
 
@@ -73,7 +74,7 @@ namespace MEYPAK.PRL.STOK
             //    {
             //        foreach (var item in _kasaServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()))
             //        {
-            //            temp += item.kasaadi+"=>";
+            //            temp += item.kasaadi + "=>";
             //        }
             //        fSiparis.gridView1.SetFocusedRowCellValue("KasaAdı", temp);
             //    }
@@ -124,9 +125,10 @@ namespace MEYPAK.PRL.STOK
 
                         temp += gridView1.GetRowCellValue(item, "KASAADI").ToString() + "=>" + gridView1.GetRowCellValue(item, "MIKTAR").ToString() + ";";
                     }
-                    fSatınAlmaSiparis.gridView1.SetFocusedRowCellValue("KasaAdı", temp);
+                    fSatisIrsaliye.gridView1.SetFocusedRowCellValue("KasaAdı", temp);
                 }
             }
+    
         }
     }
 }

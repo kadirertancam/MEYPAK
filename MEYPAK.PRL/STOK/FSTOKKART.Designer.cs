@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FStokKart));
             DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition1 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
             DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition1 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement1 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
@@ -56,15 +57,10 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject18 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject19 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject20 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions6 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject21 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject22 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject23 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject24 = new DevExpress.Utils.SerializableAppearanceObject();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FStokKart));
             this.Resim = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.BTSil = new DevExpress.XtraEditors.SimpleButton();
             this.BTStokKartiKaydet = new DevExpress.XtraEditors.SimpleButton();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -204,20 +200,17 @@
             this.TBSatisKdv = new DevExpress.XtraEditors.TextEdit();
             this.GBStokKartiGenel = new System.Windows.Forms.GroupBox();
             this.LBAciklama = new DevExpress.XtraEditors.LabelControl();
-            this.LBKasa = new DevExpress.XtraEditors.LabelControl();
             this.LBGrupKodu = new DevExpress.XtraEditors.LabelControl();
             this.LBKategori = new DevExpress.XtraEditors.LabelControl();
             this.LBMarka = new DevExpress.XtraEditors.LabelControl();
             this.LBStokAdi = new DevExpress.XtraEditors.LabelControl();
             this.LBStokKodu = new DevExpress.XtraEditors.LabelControl();
             this.TBAciklama = new DevExpress.XtraEditors.MemoEdit();
-            this.BTKasa = new DevExpress.XtraEditors.ButtonEdit();
             this.BTGrupKodu = new DevExpress.XtraEditors.ButtonEdit();
             this.BTKategori = new DevExpress.XtraEditors.ButtonEdit();
             this.BTMarka = new DevExpress.XtraEditors.ButtonEdit();
             this.TBStokAdi = new DevExpress.XtraEditors.TextEdit();
             this.BTStokKodu = new DevExpress.XtraEditors.ButtonEdit();
-            this.BTSil = new DevExpress.XtraEditors.SimpleButton();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -300,7 +293,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.TBSatisKdv.Properties)).BeginInit();
             this.GBStokKartiGenel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TBAciklama.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BTKasa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTGrupKodu.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTKategori.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTMarka.Properties)).BeginInit();
@@ -339,6 +331,18 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1128, 42);
             this.panel4.TabIndex = 4;
+            // 
+            // BTSil
+            // 
+            this.BTSil.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTSil.Appearance.Options.UseBackColor = true;
+            this.BTSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTSil.ImageOptions.Image")));
+            this.BTSil.Location = new System.Drawing.Point(994, 0);
+            this.BTSil.Name = "BTSil";
+            this.BTSil.Size = new System.Drawing.Size(128, 65);
+            this.BTSil.TabIndex = 63;
+            this.BTSil.Text = "&Sil";
+            this.BTSil.Click += new System.EventHandler(this.BTSil_Click_1);
             // 
             // BTStokKartiKaydet
             // 
@@ -1039,7 +1043,6 @@
             this.NUDSayisalAciklama7.Properties.Name = "SESayisalAciklama1";
             this.NUDSayisalAciklama7.Size = new System.Drawing.Size(310, 26);
             this.NUDSayisalAciklama7.TabIndex = 50;
-            this.NUDSayisalAciklama7.EditValueChanged += new System.EventHandler(this.NUDSayisalAciklama7_EditValueChanged);
             // 
             // NUDSayisalAciklama8
             // 
@@ -1661,7 +1664,6 @@
             this.TEStokKartRaporKodu8.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.TEStokKartRaporKodu8.Size = new System.Drawing.Size(312, 26);
             this.TEStokKartRaporKodu8.TabIndex = 60;
-            this.TEStokKartRaporKodu8.EditValueChanged += new System.EventHandler(this.TEStokKartRaporKodu8_EditValueChanged);
             // 
             // TEStokKartRaporKodu7
             // 
@@ -2130,14 +2132,12 @@
             // GBStokKartiGenel
             // 
             this.GBStokKartiGenel.Controls.Add(this.LBAciklama);
-            this.GBStokKartiGenel.Controls.Add(this.LBKasa);
             this.GBStokKartiGenel.Controls.Add(this.LBGrupKodu);
             this.GBStokKartiGenel.Controls.Add(this.LBKategori);
             this.GBStokKartiGenel.Controls.Add(this.LBMarka);
             this.GBStokKartiGenel.Controls.Add(this.LBStokAdi);
             this.GBStokKartiGenel.Controls.Add(this.LBStokKodu);
             this.GBStokKartiGenel.Controls.Add(this.TBAciklama);
-            this.GBStokKartiGenel.Controls.Add(this.BTKasa);
             this.GBStokKartiGenel.Controls.Add(this.BTGrupKodu);
             this.GBStokKartiGenel.Controls.Add(this.BTKategori);
             this.GBStokKartiGenel.Controls.Add(this.BTMarka);
@@ -2157,27 +2157,17 @@
             // 
             this.LBAciklama.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBAciklama.Appearance.Options.UseFont = true;
-            this.LBAciklama.Location = new System.Drawing.Point(7, 229);
+            this.LBAciklama.Location = new System.Drawing.Point(7, 204);
             this.LBAciklama.Name = "LBAciklama";
             this.LBAciklama.Size = new System.Drawing.Size(51, 16);
             this.LBAciklama.TabIndex = 29;
             this.LBAciklama.Text = "Açıklama";
             // 
-            // LBKasa
-            // 
-            this.LBKasa.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBKasa.Appearance.Options.UseFont = true;
-            this.LBKasa.Location = new System.Drawing.Point(7, 199);
-            this.LBKasa.Name = "LBKasa";
-            this.LBKasa.Size = new System.Drawing.Size(27, 16);
-            this.LBKasa.TabIndex = 27;
-            this.LBKasa.Text = "Kasa";
-            // 
             // LBGrupKodu
             // 
             this.LBGrupKodu.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBGrupKodu.Appearance.Options.UseFont = true;
-            this.LBGrupKodu.Location = new System.Drawing.Point(7, 169);
+            this.LBGrupKodu.Location = new System.Drawing.Point(7, 172);
             this.LBGrupKodu.Name = "LBGrupKodu";
             this.LBGrupKodu.Size = new System.Drawing.Size(59, 16);
             this.LBGrupKodu.TabIndex = 28;
@@ -2225,36 +2215,22 @@
             // 
             // TBAciklama
             // 
-            this.TBAciklama.Location = new System.Drawing.Point(90, 227);
+            this.TBAciklama.Location = new System.Drawing.Point(90, 202);
             this.TBAciklama.Name = "TBAciklama";
             this.TBAciklama.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TBAciklama.Properties.Appearance.Options.UseFont = true;
             this.TBAciklama.Size = new System.Drawing.Size(194, 85);
             this.TBAciklama.TabIndex = 24;
             // 
-            // BTKasa
-            // 
-            this.BTKasa.Location = new System.Drawing.Point(90, 195);
-            this.BTKasa.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.BTKasa.Name = "BTKasa";
-            this.BTKasa.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.BTKasa.Properties.Appearance.Options.UseFont = true;
-            this.BTKasa.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.BTKasa.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.BTKasa.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.buttonEdit5_Properties_ButtonClick);
-            this.BTKasa.Size = new System.Drawing.Size(194, 26);
-            this.BTKasa.TabIndex = 23;
-            // 
             // BTGrupKodu
             // 
-            this.BTGrupKodu.Location = new System.Drawing.Point(90, 165);
+            this.BTGrupKodu.Location = new System.Drawing.Point(90, 168);
             this.BTGrupKodu.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.BTGrupKodu.Name = "BTGrupKodu";
             this.BTGrupKodu.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.BTGrupKodu.Properties.Appearance.Options.UseFont = true;
             this.BTGrupKodu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTGrupKodu.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.BTGrupKodu.Size = new System.Drawing.Size(194, 26);
             this.BTGrupKodu.TabIndex = 22;
@@ -2267,7 +2243,7 @@
             this.BTKategori.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.BTKategori.Properties.Appearance.Options.UseFont = true;
             this.BTKategori.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTKategori.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.BTKategori.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.buttonEdit3_Properties_ButtonClick);
             this.BTKategori.Size = new System.Drawing.Size(194, 26);
@@ -2281,7 +2257,7 @@
             this.BTMarka.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.BTMarka.Properties.Appearance.Options.UseFont = true;
             this.BTMarka.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTMarka.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.BTMarka.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.buttonEdit2_Properties_ButtonClick);
             this.BTMarka.Size = new System.Drawing.Size(194, 26);
@@ -2305,24 +2281,12 @@
             this.BTStokKodu.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.BTStokKodu.Properties.Appearance.Options.UseFont = true;
             this.BTStokKodu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions6, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject21, serializableAppearanceObject22, serializableAppearanceObject23, serializableAppearanceObject24, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTStokKodu.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.BTStokKodu.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.buttonEdit1_Properties_ButtonClick);
             this.BTStokKodu.Size = new System.Drawing.Size(194, 26);
             this.BTStokKodu.TabIndex = 3;
             this.BTStokKodu.Leave += new System.EventHandler(this.BTStokKodu_Leave_1);
-            // 
-            // BTSil
-            // 
-            this.BTSil.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.BTSil.Appearance.Options.UseBackColor = true;
-            this.BTSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
-            this.BTSil.Location = new System.Drawing.Point(994, 0);
-            this.BTSil.Name = "BTSil";
-            this.BTSil.Size = new System.Drawing.Size(128, 65);
-            this.BTSil.TabIndex = 63;
-            this.BTSil.Text = "&Sil";
-            this.BTSil.Click += new System.EventHandler(this.BTSil_Click_1);
             // 
             // FStokKart
             // 
@@ -2427,7 +2391,6 @@
             this.GBStokKartiGenel.ResumeLayout(false);
             this.GBStokKartiGenel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TBAciklama.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BTKasa.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTGrupKodu.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTKategori.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTMarka.Properties)).EndInit();
@@ -2469,7 +2432,6 @@
         private DevExpress.XtraEditors.TextEdit TBStokAdi;
         private DevExpress.XtraEditors.ButtonEdit BTKategori;
         private DevExpress.XtraEditors.ButtonEdit BTGrupKodu;
-        private DevExpress.XtraEditors.ButtonEdit BTKasa;
         private DevExpress.XtraEditors.TextEdit TBSatisKdv;
         private DevExpress.XtraEditors.TextEdit TBAlisKdv;
         private DevExpress.XtraEditors.TextEdit TBSatisOtv;
@@ -2491,7 +2453,6 @@
         private DevExpress.XtraEditors.LabelControl LBStokAdi;
         private DevExpress.XtraEditors.LabelControl LBStokKodu;
         private DevExpress.XtraEditors.LabelControl LBAciklama;
-        private DevExpress.XtraEditors.LabelControl LBKasa;
         private DevExpress.XtraEditors.LabelControl LBGrupKodu;
         private DevExpress.XtraEditors.LabelControl LBKategori;
         private DevExpress.XtraEditors.LabelControl LBMarka;

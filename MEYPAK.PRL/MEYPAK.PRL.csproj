@@ -30,6 +30,7 @@
     <PackageReference Include="LiveCharts.Wpf.FixTooltip" Version="0.9.8" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Ninject" Version="3.3.6" />
+    <PackageReference Include="XmlSerializerHelper" Version="4.0.19096.1" />
   </ItemGroup>
 
   <ItemGroup>
