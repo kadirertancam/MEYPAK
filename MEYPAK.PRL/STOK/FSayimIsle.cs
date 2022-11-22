@@ -28,7 +28,7 @@ namespace MEYPAK.PRL.STOK
         public FSayimIsle()
         {
             InitializeComponent();
-           
+
             _stokSayimServis = new GenericWebServis<PocoSTOKSAYIM>();
             _stokHarServis = new GenericWebServis<PocoSTOKHAR>();
             _stokSayimHarServis = new GenericWebServis<PocoSTOKSAYIMHAR>();
@@ -36,10 +36,10 @@ namespace MEYPAK.PRL.STOK
         }
 
         #region Tanımlar
-        GenericWebServis<PocoSTOKSAYIM> _stokSayimServis ; 
-        GenericWebServis<PocoSTOKSAYIMHAR> _stokSayimHarServis ; 
-        GenericWebServis<PocoSTOKHAR> _stokHarServis ; 
-        GenericWebServis<PocoSTOK> _stokServis ; 
+        GenericWebServis<PocoSTOKSAYIM> _stokSayimServis;
+        GenericWebServis<PocoSTOKSAYIMHAR> _stokSayimHarServis;
+        GenericWebServis<PocoSTOKHAR> _stokHarServis;
+        GenericWebServis<PocoSTOK> _stokServis;
         public PocoSTOKSAYIM _tempSayim;
         public int _id;
 
@@ -57,63 +57,88 @@ namespace MEYPAK.PRL.STOK
                 BTSayimSec.Text = _tempSayim.aciklama;
                 DTSayimTar.EditValue = _tempSayim.sayimtarihi;
                 TBDurum.Text = _tempSayim.durum == 0 ? "Onaylanmadı" : "Onaylandı";
-             
+
             }
         }
 
         private void BTSayimIsle_Click(object sender, EventArgs e)
         {
-            _stokServis.Data(ServisList.StokListeServis);
-            _stokSayimServis.Data(ServisList.StokSayimListeServis);
-            foreach (var item in _stokSayimServis.obje.Where(x => x.sayimtarihi == (DateTime)DTSayimTar.EditValue && x.aciklama == BTSayimSec.Text))
+            if (_tempSayim != null)
             {
-                foreach (var item2 in _stokSayimHarServis.obje.Where(x => item.id == x.stoksayimid))
+                _stokSayimHarServis.Data(ServisList.StokSayimHarListeServis);
+                foreach (var item in _stokSayimHarServis.obje.Where(x => x.stoksayimid == _tempSayim.id))
                 {
-                    _stokHarServis.Data(ServisList.StokHarEkleServis, new PocoSTOKHAR()
-                    {
-                        stokid = item2.stokid,
-                        aciklama = "Sayım",
-                        miktar = item2.miktar,
-                        birim = item2.birimid,
+                    _stokHarServis.Data(ServisList.StokHarListeServis);
+                    List < PocoSTOKHAR > stokharlist = _stokHarServis.obje.Where(x => x.stokid == item.stokid).ToList();
+                    decimal a = (stokharlist.Where(x => x.io == 1 && x.depoid == item.depoid && x.kayittipi==0).Sum(x => x.miktar) - stokharlist.Where(x => x.io == 0 && x.depoid == item.depoid && x.kayittipi == 0).Sum(x => x.miktar)) - item.miktar;
+                    _stokHarServis.Data(ServisList.StokHarEkleServis,new PocoSTOKHAR()
+                    {   
                         hareketturu = 7,
+                        stokid = item.stokid,
                         depoid = item.depoid,
-                        netfiyat = item2.fiyat,
-                        kdv = _stokServis.obje.Where(z => z.id == item2.stokid).FirstOrDefault().aliskdv,
-                        kayittipi = 0,
-                        io = 1,
-                        sayimid = item.id
+                        sayimid = item.stoksayimid,
+                        miktar = a,
+                        io = a >0 ? 1 : 0,
                     });
                 }
-                item.durum = 1;
-                _stokSayimServis.Data(ServisList.StokSayimEkleServis, item);
+
+                MessageBox.Show("Sayım başarıyla işlendi.");
             }
+            else
+            {
+                MessageBox.Show("İşlenecek Sayım bulunamadı. Lütfen bir cari seçiniz!");
+            }
+
+
+
+            //_stokServis.Data(ServisList.StokListeServis);
+            //_stokSayimServis.Data(ServisList.StokSayimListeServis);
+            //foreach (var item in _stokSayimServis.obje.Where(x => x.sayimtarihi == (DateTime)DTSayimTar.EditValue && x.aciklama == BTSayimSec.Text))
+            //{
+            //    foreach (var item2 in _stokSayimHarServis.obje.Where(x => item.id == x.stoksayimid))
+            //    {
+            //        _stokHarServis.Data(ServisList.StokHarEkleServis, new PocoSTOKHAR()
+            //        {
+            //            stokid = item2.stokid,
+            //            aciklama = "Sayım",
+            //            miktar = item2.miktar,
+            //            birim = item2.birimid,
+            //            hareketturu = 7,
+            //            depoid = item.depoid,
+            //            netfiyat = item2.fiyat,
+            //            kdv = _stokServis.obje.Where(z => z.id == item2.stokid).FirstOrDefault().aliskdv,
+            //            kayittipi = 0,
+            //            io = 1,
+            //            sayimid = item.id
+            //        });
+            //    }
+            //    item.durum = 1;
+            //    _stokSayimServis.Data(ServisList.StokSayimEkleServis, item);
+
 
         }
 
         private void BTKaldir_Click(object sender, EventArgs e)
         {
-            if (_tempSayim!=null)
+            if (_tempSayim != null)
             {
-            _stokSayimServis.Data(ServisList.StokSayimListeServis);
-            _stokHarServis.Data(ServisList.StokHarListeServis);
+                _stokSayimServis.Data(ServisList.StokSayimListeServis);
+                _stokHarServis.Data(ServisList.StokHarListeServis);
 
-            foreach (var item2 in _stokSayimHarServis.obje.Where(z => z.stoksayimid == _tempSayim.id))
-            {
-                var _temp = _stokHarServis.obje.Where(x => x.stokid == item2.stokid && x.sayimid == item2.id).ToList();
-                if (_temp.Count() > 0)
+                foreach (var item in _stokHarServis.obje.Where(z => z.kayittipi==0 && z.sayimid == _tempSayim.id))
                 {
-                    _stokHarServis.Data(ServisList.StokHarSilServis, null, null, _temp);
+                    _stokHarServis.Data(ServisList.StokHarDeleteByIdServis, null, null, null, item.id.ToString()); 
                 }
-            }
-              _stokSayimServis.Data(ServisList.StokSayimDeleteByIdServis,null,null,null, _tempSayim.id.ToString());
+                _tempSayim.durum = 0;
+                _stokSayimServis.Data(ServisList.StokSayimEkleServis,_tempSayim);
                 MessageBox.Show("Sayım İşlemi Başarıyla Kaldırıldı!");
             }
         }
 
-   
-       
 
-        
+
+
+
         #endregion
 
 
