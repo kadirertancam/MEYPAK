@@ -82,7 +82,7 @@ namespace MEYPAK.PRL.CARI
             TBCariSoyad.Text = _tempCariKart.soyadi;
             CBTip.SelectedIndex = _tempCariKart.tipi;
             TBAciklama.Text = _tempCariKart.aciklama;
-            CBAltHesap.EditValue = _tempCARIALTHES.adi;
+          //  CBAltHesap.EditValue = _tempCARIALTHES.adi;
             //TBSevkKodu
             CBSevkIl.Text = _tempCariKart.il;
             CBSevkIlce.EditValue = _tempCariKart.ilce;
@@ -339,14 +339,30 @@ namespace MEYPAK.PRL.CARI
             Doldur();
         }
 
-        private void CBIl_Properties_EditValueChanged(object sender, EventArgs e)
-        {
-            CBIlce.Properties.DataSource = _adresObje.data.Where(x => x.il_adi == CBIl.EditValue.ToString()).Select(x => x.ilceler.Select(z => z.ilce_adi).ToList()).FirstOrDefault();
-        }
+      
+        //private void CBNufIl_EditValueChanged(object sender, EventArgs e)
+        //{
+        //    CBNufIlce.Properties.DataSource = _adresObje.data.Where(x => x.il_adi == CBNufIl.EditValue).Select(x => x.ilceler.Select(z => z.ilce_adi).ToList()).FirstOrDefault();
+        //}
 
         private void CBSevkIl_Properties_EditValueChanged(object sender, EventArgs e)
         {
             CBSevkIlce.Properties.DataSource = _adresObje.data.Where(x => x.il_adi == CBSevkIl.EditValue).Select(x => x.ilceler.Select(z => z.ilce_adi).ToList()).FirstOrDefault();
+        }
+
+
+
+
+        private void BTCariSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            fCariList = new FCariList(this.Tag.ToString(), "carikart");
+            fCariList.ShowDialog();
+             Doldur();
+        }
+
+        private void CBIl_Leave(object sender, EventArgs e)
+        {
+            CBIlce.Properties.DataSource = _adresObje.data.Where(x => x.il_adi == CBIl.EditValue.ToString()).Select(x => x.ilceler.Select(z => z.ilce_adi).ToList()).FirstOrDefault();
         }
 
         private void BTKaydet_Click(object sender, EventArgs e)
@@ -374,8 +390,8 @@ namespace MEYPAK.PRL.CARI
                 fax = TBFax.Text,
                 grupkodu = BTGrupSec.Text,
                 ulke = CBUlke.Text,
-                il = CBIl.EditValue != null ? CBIl.EditValue.ToString() : "BILINMIYOR",
-                ilce = CBIlce.EditValue != null ? CBIlce.EditValue.ToString() : "BILINMIYOR",
+                il = CBIl.Text,
+                ilce = CBIl.Text,
                 kategori = BTKategoriSec.Text,
                 kod = BTCariSec.Text,
                 mahalle = TBMahalle.Text,
@@ -385,7 +401,7 @@ namespace MEYPAK.PRL.CARI
                 raporkoD2 = BTRprSec2.Text,
                 raporkoD3 = BTRprSec3.Text,
                 raporkoD4 = BTRprSec4.Text,
-                raporkoD5 = BTRprSec5.Text,
+                raporkoD5 = BTRprSec5.Text,  
                 raporkoD6 = BTRprSec6.Text,
                 raporkoD7 = BTRprSec7.Text,
                 raporkoD8 = BTRprSec8.Text,
@@ -417,15 +433,20 @@ namespace MEYPAK.PRL.CARI
                 item.CARIID = _cariServis.obje.Where(x => x.kod == BTCariSec.Text).FirstOrDefault().id;
                 _cariResimServis.Data(ServisList.CariResimEkleServis, item);
             }
-
         }
 
-        private void BTYetkiliKaydet_Click(object sender, EventArgs e)
+        private void BTAltHesapKaydet_Click(object sender, EventArgs e)
         {
 
         }
 
-       
+        private void BTCariSec_Properties_ButtonClick_1(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            fCariList = new FCariList(this.Tag.ToString(), "carikart");
+            fCariList.ShowDialog();
+            if(_tempCariKart!=null)
+            Doldur();
+        }
     }
     }
     #endregion

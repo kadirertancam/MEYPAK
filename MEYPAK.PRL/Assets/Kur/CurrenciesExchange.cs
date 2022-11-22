@@ -428,9 +428,9 @@ namespace MEYPAK.PRL.Assets.Kur
                 }
                 dataTable = dataTable1;
             }
-            catch (Exception exception)
-            {
-                throw new Exception("The date specified may be a weekend or a public holiday!");
+            catch 
+            { 
+                dataTable = new DataTable();
             }
             return dataTable;
         }

@@ -102,10 +102,13 @@ namespace MEYPAK.PRL
             var aaaa = resp.Content.ReadAsStringAsync().Result.ToString();
             XmlSerializerHelper xmlSerializerHelper = new XmlSerializerHelper();
             _tarih_Date = (Tarih_Date)xmlSerializerHelper.DeserializeFromXml(typeof(Tarih_Date),aaaa);
+            _parabirimServis.Data(ServisList.ParaBirimiListeServis);
             foreach (var item in _tarih_Date.Currency)
             {
+                if(_parabirimServis.obje.Where(x => x.adi == item.Isim).Count()>0)
                 _parabirimServis.Data(ServisList.ParaBirimiEkleServis, new PocoPARABIRIM()
                 {
+                    id= _parabirimServis.obje.Where(x => x.adi == item.Isim).FirstOrDefault().id,
                     adi = item.Isim,
                     kisaadi = item.Kod,
                     dovizsatis = Convert.ToDecimal(item.ForexSelling==""?"0":item.ForexSelling),
@@ -115,6 +118,19 @@ namespace MEYPAK.PRL
 
 
                 });
+                else
+                    _parabirimServis.Data(ServisList.ParaBirimiEkleServis, new PocoPARABIRIM()
+                    {
+                        
+                        adi = item.Isim,
+                        kisaadi = item.Kod,
+                        dovizsatis = Convert.ToDecimal(item.ForexSelling == "" ? "0" : item.ForexSelling),
+                        dovizalis = item.ForexBuying,
+                        dovizefektifalis = Convert.ToDecimal(item.BanknoteBuying == "" ? "0" : item.BanknoteBuying),
+                        dovizefektifsatis = Convert.ToDecimal(item.BanknoteSelling == "" ? "0" : item.BanknoteSelling),
+
+
+                    });
             }
             
         }

@@ -740,6 +740,7 @@
             // 
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
+            this.gridView1.DoubleClick += new System.EventHandler(this.gridView1_DoubleClick);
             // 
             // panel7
             // 
@@ -811,7 +812,8 @@
             this.BTOlcuBirimiEkle.Name = "BTOlcuBirimiEkle";
             this.BTOlcuBirimiEkle.Size = new System.Drawing.Size(74, 26);
             this.BTOlcuBirimiEkle.TabIndex = 7;
-            this.BTOlcuBirimiEkle.Text = "&Ekle";
+            this.BTOlcuBirimiEkle.Text = "&Kaydet";
+            this.BTOlcuBirimiEkle.Click += new System.EventHandler(this.BTOlcuBirimiEkle_Click);
             // 
             // LBKatsayi
             // 

@@ -148,7 +148,7 @@
             // 
             this.BTMarkaKartKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
             this.BTMarkaKartKaydet.Appearance.Options.UseBackColor = true;
-            this.BTMarkaKartKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTStokKartiKaydet.ImageOptions.Image")));
+            this.BTMarkaKartKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTMarkaKartKaydet.ImageOptions.Image")));
             this.BTMarkaKartKaydet.Location = new System.Drawing.Point(392, 32);
             this.BTMarkaKartKaydet.Name = "BTMarkaKartKaydet";
             this.BTMarkaKartKaydet.Size = new System.Drawing.Size(122, 46);
@@ -162,7 +162,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(930, 620);
             this.Controls.Add(this.panelControl1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FMarkaKart";
             this.Text = "FMarkaKart";
             this.Load += new System.EventHandler(this.FMarkaKart_Load);

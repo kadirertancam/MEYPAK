@@ -10,9 +10,7 @@ namespace MEYPAK.Entity.Models.CARI
 {
     public class MPCARIALTHES:SUPERMODEL
     {
-
-        public int CARIID { get; set; }
-        [StringLength(200)]
+        
         public string ADI { get; set; }
         [DefaultValue(0)]
         public string KOD { get; set; }

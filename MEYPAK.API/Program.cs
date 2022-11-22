@@ -110,6 +110,9 @@ builder.Services.AddScoped<ISevkAdresServis, SevkAdresManager>();
 builder.Services.AddScoped<ICariYetkiliDal, EFCariYetkiliRepo>();
 builder.Services.AddScoped<ICariYetkiliServis, CariYetkiliManager>();
 
+builder.Services.AddScoped<ICariAltHesCariDal,EFCariAltHesCariRepo>();
+builder.Services.AddScoped<ICariAltHesCariServis,CariAltHesCariManager>();
+
 #endregion
 #region STOK_Scoped_Islemleri
 

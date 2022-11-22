@@ -525,6 +525,7 @@
             this.BTKaydet.Size = new System.Drawing.Size(93, 48);
             this.BTKaydet.TabIndex = 1;
             this.BTKaydet.Text = "Kaydet";
+            this.BTKaydet.Click += new System.EventHandler(this.BTKaydet_Click);
             // 
             // TBSevkAdres
             // 
@@ -1656,6 +1657,7 @@
             this.BTAltHesapKaydet.Size = new System.Drawing.Size(82, 39);
             this.BTAltHesapKaydet.TabIndex = 8;
             this.BTAltHesapKaydet.Text = "&Kaydet";
+            this.BTAltHesapKaydet.Click += new System.EventHandler(this.BTAltHesapKaydet_Click);
             // 
             // LBAltHesKodu
             // 
@@ -2212,6 +2214,8 @@
             this.CBIl.Properties.EditValueChanged += new System.EventHandler(this.CBIl_Properties_EditValueChanged);
             this.CBIl.Size = new System.Drawing.Size(86, 20);
             this.CBIl.TabIndex = 65;
+            this.CBIl.TextChanged += new System.EventHandler(this.CBIl_TextChanged);
+            this.CBIl.Leave += new System.EventHandler(this.CBIl_Leave);
             // 
             // BTMuhSec
             // 
@@ -2244,6 +2248,7 @@
             // 
             // TBVadeGun
             // 
+            this.TBVadeGun.EditValue = "0";
             this.TBVadeGun.Location = new System.Drawing.Point(122, 288);
             this.TBVadeGun.Name = "TBVadeGun";
             this.TBVadeGun.Size = new System.Drawing.Size(86, 20);

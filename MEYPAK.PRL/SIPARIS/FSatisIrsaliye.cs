@@ -96,7 +96,7 @@ namespace MEYPAK.PRL.IRSALIYE
         FStokOlcuBrList _fStokOlcuBrList;
         FStokKasaList _fStokKasaList;
         GenericWebServis<PocoCARIALTHES> _cariAltHesapServis;
-        GenericWebServis<PocoPARABIRIM> _paraBirimServis;
+        GenericWebServis<PocoPARABIRIM> _paraBirimServis; 
         void temizle()
         {
             GCIrsaliye.DataSource = "";
@@ -519,8 +519,8 @@ namespace MEYPAK.PRL.IRSALIYE
 
         private void TBSiparisNo_Properties_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
-            FMusteriSiparisList fMusteriSiparisList = new FMusteriSiparisList(this.Tag.ToString(), "Siparis");
-            fMusteriSiparisList.ShowDialog();
+            FIrsaliyeList fSatisIrsaliyeList = new FIrsaliyeList(this.Tag.ToString(), "FSatisIrsaliye");
+            fSatisIrsaliyeList.ShowDialog();
             if (_tempIrsaliye != null)
             {
                 TBSiparisNo.Text = _tempIrsaliye.belgeno;
