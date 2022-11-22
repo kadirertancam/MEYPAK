@@ -113,6 +113,9 @@ builder.Services.AddScoped<ICariYetkiliServis, CariYetkiliManager>();
 builder.Services.AddScoped<ICariAltHesCariDal,EFCariAltHesCariRepo>();
 builder.Services.AddScoped<ICariAltHesCariServis,CariAltHesCariManager>();
 
+builder.Services.AddScoped<ICariDokumanDal,EFCariDokumanRepo>();
+builder.Services.AddScoped<ICariDokumanServis, CariDokumanManager>();
+
 #endregion
 #region STOK_Scoped_Islemleri
 

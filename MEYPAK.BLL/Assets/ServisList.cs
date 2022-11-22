@@ -107,8 +107,15 @@ namespace MEYPAK.BLL.Assets
 
         #endregion
 
-        #region SevkAdres
+        #region CariDokuman
+        public const string CariDokumanListeServis = "http://213.238.167.117:8080/CARIDOKUMAN/CARIDOKUMANListe";
+        public const string CariDokumanEkleServis = "http://213.238.167.117:8080/CARIDOKUMAN/CARIDOKUMANEkleyadaGuncelle";
+        public const string CariDokumanSilServis = "http://213.238.167.117:8080/CARIDOKUMAN/CARIDOKUMANSil";
+        public const string CariDokumanGuncelleServis = "http://213.238.167.117:8080/CARIDOKUMAN/CARIDOKUMANGuncelle";
+        public const string CariDokumanDeleteByIdServis = "http://213.238.167.117:8080/CARIDOKUMAN/DeleteById";
+        #endregion
 
+        #region SevkAdres
         public const string SevkAdresListeServis =       "http://213.238.167.117:8080/SEVKADRES/SEVKADRESListe";
         public const string SevkAdresEkleServis =        "http://213.238.167.117:8080/SEVKADRES/SEVKADRESEkleyadaGuncelle";
         public const string SevkAdresSilServis =         "http://213.238.167.117:8080/SEVKADRES/SEVKADRESSil";
@@ -259,7 +266,7 @@ namespace MEYPAK.BLL.Assets
         public const string StokResimDeleteByIdServis = "http://213.238.167.117:8080/STOKRESIM/DeleteById";
 
         #endregion
-        
+
         #region SiparisSevkEmriHar
         public const string SiparisSevkEmriHarListeServis =     "http://213.238.167.117:8080/SIPARISSEVKEMRIHAR/SIPARISSEVKEMRIHARListe";
         public const string SiparisSevkEmriHarEkleServis = "http://213.238.167.117:8080/SIPARISSEVKEMRIHAR/SIPARISSEVKEMRIHAREkleyadaGuncelle";

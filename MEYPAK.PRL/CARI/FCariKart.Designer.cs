@@ -1504,7 +1504,7 @@
             // 
             // BTDosyaYoluSec
             // 
-            this.BTDosyaYoluSec.Location = new System.Drawing.Point(132, 54);
+            this.BTDosyaYoluSec.Location = new System.Drawing.Point(132, 48);
             this.BTDosyaYoluSec.Name = "BTDosyaYoluSec";
             this.BTDosyaYoluSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions10, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject37, serializableAppearanceObject38, serializableAppearanceObject39, serializableAppearanceObject40, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
@@ -1514,7 +1514,7 @@
             // 
             // TBDokumanAdi
             // 
-            this.TBDokumanAdi.Location = new System.Drawing.Point(132, 28);
+            this.TBDokumanAdi.Location = new System.Drawing.Point(132, 22);
             this.TBDokumanAdi.Name = "TBDokumanAdi";
             this.TBDokumanAdi.Size = new System.Drawing.Size(180, 20);
             this.TBDokumanAdi.TabIndex = 62;
@@ -1524,7 +1524,7 @@
             this.BTDokumanSil.Appearance.BackColor = System.Drawing.Color.Gainsboro;
             this.BTDokumanSil.Appearance.Options.UseBackColor = true;
             this.BTDokumanSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTDokumanSil.ImageOptions.Image")));
-            this.BTDokumanSil.Location = new System.Drawing.Point(445, 31);
+            this.BTDokumanSil.Location = new System.Drawing.Point(445, 25);
             this.BTDokumanSil.Name = "BTDokumanSil";
             this.BTDokumanSil.Size = new System.Drawing.Size(82, 39);
             this.BTDokumanSil.TabIndex = 61;
@@ -1535,7 +1535,7 @@
             this.BTDokumanKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
             this.BTDokumanKaydet.Appearance.Options.UseBackColor = true;
             this.BTDokumanKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTDokumanKaydet.ImageOptions.Image")));
-            this.BTDokumanKaydet.Location = new System.Drawing.Point(357, 31);
+            this.BTDokumanKaydet.Location = new System.Drawing.Point(357, 25);
             this.BTDokumanKaydet.Name = "BTDokumanKaydet";
             this.BTDokumanKaydet.Size = new System.Drawing.Size(82, 39);
             this.BTDokumanKaydet.TabIndex = 60;
@@ -1543,7 +1543,7 @@
             // 
             // LBDosyaYolu
             // 
-            this.LBDosyaYolu.Location = new System.Drawing.Point(56, 55);
+            this.LBDosyaYolu.Location = new System.Drawing.Point(56, 49);
             this.LBDosyaYolu.Name = "LBDosyaYolu";
             this.LBDosyaYolu.Size = new System.Drawing.Size(53, 13);
             this.LBDosyaYolu.TabIndex = 42;
@@ -1551,7 +1551,7 @@
             // 
             // LBDokumanAdi
             // 
-            this.LBDokumanAdi.Location = new System.Drawing.Point(47, 31);
+            this.LBDokumanAdi.Location = new System.Drawing.Point(47, 25);
             this.LBDokumanAdi.Name = "LBDokumanAdi";
             this.LBDokumanAdi.Size = new System.Drawing.Size(62, 13);
             this.LBDokumanAdi.TabIndex = 41;
@@ -2322,7 +2322,6 @@
             this.BTCariSec.Location = new System.Drawing.Point(122, 27);
             this.BTCariSec.Name = "BTCariSec";
             this.BTCariSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions19, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject73, serializableAppearanceObject74, serializableAppearanceObject75, serializableAppearanceObject76, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)}); 
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions19, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject73, serializableAppearanceObject74, serializableAppearanceObject75, serializableAppearanceObject76, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTCariSec.Properties.Click += new System.EventHandler(this.BTCariSec_Properties_Click);
             this.BTCariSec.Size = new System.Drawing.Size(180, 22);
