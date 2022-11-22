@@ -21,10 +21,12 @@ namespace MEYPAK.PRL.CARI
             _cariDurumServis = new GenericWebServis<PocoCARIKART>();
         }
        GenericWebServis<PocoCARIKART> _cariDurumServis;
+        FCariList fCariList;
 
+        public PocoCARIKART _tempCariKart;
         private void BTKoduSec_Properties_ButtonClick(object sender, EventArgs e)
         {
-
+            
         }
     }
 }

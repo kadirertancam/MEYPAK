@@ -207,7 +207,7 @@
             this.ClientSize = new System.Drawing.Size(1117, 595);
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FCariAltHesap";
             this.Text = "FCariAltHesap";
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();

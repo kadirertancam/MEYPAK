@@ -319,7 +319,22 @@ namespace MEYPAK.PRL
 
         private void accordionControlElement29_Click(object sender, EventArgs e)
         {
+            XtraTabPage page = new XtraTabPage();
+            fSayimIsle = new FSayimIsle();
+            page.Name = "TPSayimIsle" + i;
+            page.Text = "Sayım İşle";
+            page.Tag = "TPSayimIsle" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
 
+            fSayimIsle.TopLevel = false;
+            fSayimIsle.AutoScroll = true;
+            fSayimIsle.Dock = DockStyle.Fill;
+            fSayimIsle.Tag = "TPSevkiyatPanel" + i;
+            page.Controls.Add(fSayimIsle);
+            fSayimIsle.Show();
+            i++;
         }
 
         private void accordionControlElement16_Click(object sender, EventArgs e)

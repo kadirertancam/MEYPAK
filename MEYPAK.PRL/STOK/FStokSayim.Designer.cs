@@ -241,12 +241,10 @@
        // private DevExpress.XtraEditors.DateEdit DTStokSayimTarih;
         
         private DevExpress.XtraEditors.LabelControl LBAciklama;
-        private DevExpress.XtraEditors.SimpleButton BTDegistir;
         private DevExpress.XtraEditors.SimpleButton BTSil;
         private DevExpress.XtraEditors.SimpleButton BTKaydet;
         private DevExpress.XtraEditors.TextEdit TBAciklama;
         private DevExpress.XtraEditors.SimpleButton BTDuzenle;
-        private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.PanelControl panelControl3;
         private DevExpress.XtraEditors.PanelControl panelControl2;

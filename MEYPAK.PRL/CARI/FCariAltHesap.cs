@@ -13,6 +13,7 @@ using MEYPAK.Entity.PocoModels.SIPARIS;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Cari;
 using MEYPAK.Interfaces.Depo;
+using MEYPAK.Interfaces.Parametre;
 using MEYPAK.Interfaces.Personel;
 using MEYPAK.Interfaces.Stok;
 using MEYPAK.PRL.PARAMETRELER;
@@ -42,7 +43,7 @@ namespace MEYPAK.PRL.CARI
             _cariAltHesapServis = new GenericWebServis<PocoCARIALTHES>();
             _parabirIMServis = new GenericWebServis<PocoPARABIRIM>();
             _parabirIMServis.Data(ServisList.ParaBirimiListeServis);
-            CBDoviz.Properties.DataSource = _parabirIMServis.obje.Select(x => new { ID=x.id,ADI=x.adi }).ToList(); //comboxun içini parabirim formundan doldurur
+            CBDoviz.Properties.DataSource = _parabirIMServis.obje.Where(x=>x.kayittipi==0).Select(x => new { ID=x.id,ADI=x.adi }).ToList(); //comboxun içini parabirim formundan doldurur
             CBDoviz.Properties.ValueMember= "ID";
             CBDoviz.Properties.DisplayMember = "ADI";
         }
@@ -61,7 +62,7 @@ namespace MEYPAK.PRL.CARI
         {
             DataGridDoldur();
             CombolariDoldur();
-            CBDoviz.EditValue = 0; 
+            CBDoviz.EditValue = 0;
         }
         int id;
         
@@ -106,7 +107,7 @@ namespace MEYPAK.PRL.CARI
         }
         void DataGridDoldur()
         {
-            
+            _parabirIMServis.Data(ServisList.ParaBirimiListeServis);
             _cariAltHesapServis.Data(ServisList.CariAltHesListeServis);
             DGAltHesap.DataSource = _cariAltHesapServis.obje.Where(x=> x.kayittipi == 0).Select(x => new { 
                 ID=x.id, 
@@ -169,14 +170,14 @@ namespace MEYPAK.PRL.CARI
             }
         }
 
-
-        #endregion
-
         private void DGAltHesap_DoubleClick(object sender, EventArgs e)
         {
             _tempAltHesap = _cariAltHesapServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
             AltHesapBilgileriniGetir();
         }
+        #endregion
+
+      
 
        
     }

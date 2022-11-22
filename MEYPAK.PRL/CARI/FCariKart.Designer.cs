@@ -152,7 +152,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.CBAltHesap = new DevExpress.XtraEditors.LookUpEdit();
             this.TBSevkSokak = new DevExpress.XtraEditors.TextEdit();
-            this.BTSevkAdresEkle = new DevExpress.XtraEditors.SimpleButton();
+            this.BTSevkAdresKaydet = new DevExpress.XtraEditors.SimpleButton();
             this.TBSevkDaire = new DevExpress.XtraEditors.TextEdit();
             this.TBSevkKodu = new DevExpress.XtraEditors.TextEdit();
             this.TBSevkMahalle = new DevExpress.XtraEditors.TextEdit();
@@ -278,7 +278,6 @@
             this.LBTip = new DevExpress.XtraEditors.LabelControl();
             this.LBSMuhKodu = new DevExpress.XtraEditors.LabelControl();
             this.LBAMuhKodu = new DevExpress.XtraEditors.LabelControl();
-            this.RBFiyat4 = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.TBEposta = new DevExpress.XtraEditors.TextEdit();
             this.TBWebSite = new DevExpress.XtraEditors.TextEdit();
@@ -490,9 +489,9 @@
             this.panelControl4.Controls.Add(this.panelControl10);
             this.panelControl4.Controls.Add(this.TBSevkAdres);
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl4.Location = new System.Drawing.Point(2, 475);
+            this.panelControl4.Location = new System.Drawing.Point(2, 443);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(1089, 480);
+            this.panelControl4.Size = new System.Drawing.Size(1089, 512);
             this.panelControl4.TabIndex = 8;
             // 
             // panelControl10
@@ -500,9 +499,9 @@
             this.panelControl10.Controls.Add(this.BTSil);
             this.panelControl10.Controls.Add(this.BTKaydet);
             this.panelControl10.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl10.Location = new System.Drawing.Point(0, 425);
+            this.panelControl10.Location = new System.Drawing.Point(0, 452);
             this.panelControl10.Name = "panelControl10";
-            this.panelControl10.Size = new System.Drawing.Size(1089, 55);
+            this.panelControl10.Size = new System.Drawing.Size(1089, 60);
             this.panelControl10.TabIndex = 1;
             // 
             // BTSil
@@ -538,11 +537,10 @@
             this.TBSevkAdres.Controls.Add(this.tabPage8);
             this.TBSevkAdres.Controls.Add(this.tabPage9);
             this.TBSevkAdres.Controls.Add(this.Resim);
-            this.TBSevkAdres.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TBSevkAdres.Location = new System.Drawing.Point(0, 0);
+            this.TBSevkAdres.Location = new System.Drawing.Point(-2, 0);
             this.TBSevkAdres.Name = "TBSevkAdres";
             this.TBSevkAdres.SelectedIndex = 0;
-            this.TBSevkAdres.Size = new System.Drawing.Size(1089, 480);
+            this.TBSevkAdres.Size = new System.Drawing.Size(1091, 451);
             this.TBSevkAdres.TabIndex = 0;
             // 
             // tabPage1
@@ -553,7 +551,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1081, 454);
+            this.tabPage1.Size = new System.Drawing.Size(1083, 425);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Sevk Adresleri";
             // 
@@ -564,7 +562,7 @@
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl3.Location = new System.Drawing.Point(3, 113);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(1075, 338);
+            this.panelControl3.Size = new System.Drawing.Size(1077, 309);
             this.panelControl3.TabIndex = 2;
             // 
             // DGSevkAdres
@@ -573,7 +571,7 @@
             this.DGSevkAdres.Location = new System.Drawing.Point(0, 0);
             this.DGSevkAdres.MainView = this.gridView2;
             this.DGSevkAdres.Name = "DGSevkAdres";
-            this.DGSevkAdres.Size = new System.Drawing.Size(1075, 338);
+            this.DGSevkAdres.Size = new System.Drawing.Size(1077, 309);
             this.DGSevkAdres.TabIndex = 0;
             this.DGSevkAdres.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -599,7 +597,7 @@
             this.panelControl8.Controls.Add(this.label1);
             this.panelControl8.Controls.Add(this.CBAltHesap);
             this.panelControl8.Controls.Add(this.TBSevkSokak);
-            this.panelControl8.Controls.Add(this.BTSevkAdresEkle);
+            this.panelControl8.Controls.Add(this.BTSevkAdresKaydet);
             this.panelControl8.Controls.Add(this.TBSevkDaire);
             this.panelControl8.Controls.Add(this.TBSevkKodu);
             this.panelControl8.Controls.Add(this.TBSevkMahalle);
@@ -607,12 +605,12 @@
             this.panelControl8.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl8.Location = new System.Drawing.Point(3, 3);
             this.panelControl8.Name = "panelControl8";
-            this.panelControl8.Size = new System.Drawing.Size(1075, 110);
+            this.panelControl8.Size = new System.Drawing.Size(1077, 110);
             this.panelControl8.TabIndex = 1;
             // 
             // LBSevkIlce
             // 
-            this.LBSevkIlce.Location = new System.Drawing.Point(387, 49);
+            this.LBSevkIlce.Location = new System.Drawing.Point(387, 54);
             this.LBSevkIlce.Name = "LBSevkIlce";
             this.LBSevkIlce.Size = new System.Drawing.Size(17, 13);
             this.LBSevkIlce.TabIndex = 86;
@@ -644,7 +642,7 @@
             // 
             // LBSevkIl
             // 
-            this.LBSevkIl.Location = new System.Drawing.Point(371, 22);
+            this.LBSevkIl.Location = new System.Drawing.Point(371, 27);
             this.LBSevkIl.Name = "LBSevkIl";
             this.LBSevkIl.Size = new System.Drawing.Size(32, 13);
             this.LBSevkIl.TabIndex = 81;
@@ -652,7 +650,7 @@
             // 
             // CBSevkIlce
             // 
-            this.CBSevkIlce.Location = new System.Drawing.Point(421, 46);
+            this.CBSevkIlce.Location = new System.Drawing.Point(421, 51);
             this.CBSevkIlce.Name = "CBSevkIlce";
             this.CBSevkIlce.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -669,7 +667,7 @@
             // 
             // LBAltHesap
             // 
-            this.LBAltHesap.Location = new System.Drawing.Point(73, 22);
+            this.LBAltHesap.Location = new System.Drawing.Point(73, 27);
             this.LBAltHesap.Name = "LBAltHesap";
             this.LBAltHesap.Size = new System.Drawing.Size(46, 13);
             this.LBAltHesap.TabIndex = 82;
@@ -677,17 +675,18 @@
             // 
             // CBSevkIl
             // 
-            this.CBSevkIl.Location = new System.Drawing.Point(421, 19);
+            this.CBSevkIl.Location = new System.Drawing.Point(421, 24);
             this.CBSevkIl.Name = "CBSevkIl";
             this.CBSevkIl.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.CBSevkIl.Properties.NullText = "";
+            this.CBSevkIl.Properties.EditValueChanged += new System.EventHandler(this.CBSevkIl_Properties_EditValueChanged);
             this.CBSevkIl.Size = new System.Drawing.Size(180, 20);
             this.CBSevkIl.TabIndex = 78;
             // 
             // LBSevkKodu
             // 
-            this.LBSevkKodu.Location = new System.Drawing.Point(38, 48);
+            this.LBSevkKodu.Location = new System.Drawing.Point(38, 53);
             this.LBSevkKodu.Name = "LBSevkKodu";
             this.LBSevkKodu.Size = new System.Drawing.Size(81, 13);
             this.LBSevkKodu.TabIndex = 1;
@@ -704,10 +703,11 @@
             // 
             // CBAltHesap
             // 
-            this.CBAltHesap.Location = new System.Drawing.Point(137, 19);
+            this.CBAltHesap.Location = new System.Drawing.Point(137, 24);
             this.CBAltHesap.Name = "CBAltHesap";
             this.CBAltHesap.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CBAltHesap.Properties.NullText = "";
             this.CBAltHesap.Size = new System.Drawing.Size(180, 20);
             this.CBAltHesap.TabIndex = 81;
             // 
@@ -718,16 +718,17 @@
             this.TBSevkSokak.Size = new System.Drawing.Size(180, 20);
             this.TBSevkSokak.TabIndex = 76;
             // 
-            // BTSevkAdresEkle
+            // BTSevkAdresKaydet
             // 
-            this.BTSevkAdresEkle.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-            this.BTSevkAdresEkle.Appearance.Options.UseBackColor = true;
-            this.BTSevkAdresEkle.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTSevkAdresEkle.ImageOptions.Image")));
-            this.BTSevkAdresEkle.Location = new System.Drawing.Point(959, 20);
-            this.BTSevkAdresEkle.Name = "BTSevkAdresEkle";
-            this.BTSevkAdresEkle.Size = new System.Drawing.Size(82, 39);
-            this.BTSevkAdresEkle.TabIndex = 62;
-            this.BTSevkAdresEkle.Text = "&Ekle";
+            this.BTSevkAdresKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTSevkAdresKaydet.Appearance.Options.UseBackColor = true;
+            this.BTSevkAdresKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTSevkAdresKaydet.ImageOptions.Image")));
+            this.BTSevkAdresKaydet.Location = new System.Drawing.Point(959, 20);
+            this.BTSevkAdresKaydet.Name = "BTSevkAdresKaydet";
+            this.BTSevkAdresKaydet.Size = new System.Drawing.Size(82, 39);
+            this.BTSevkAdresKaydet.TabIndex = 62;
+            this.BTSevkAdresKaydet.Text = "&Kaydet";
+            this.BTSevkAdresKaydet.Click += new System.EventHandler(this.BTSevkAdresKaydet_Click);
             // 
             // TBSevkDaire
             // 
@@ -738,7 +739,7 @@
             // 
             // TBSevkKodu
             // 
-            this.TBSevkKodu.Location = new System.Drawing.Point(137, 46);
+            this.TBSevkKodu.Location = new System.Drawing.Point(137, 51);
             this.TBSevkKodu.Name = "TBSevkKodu";
             this.TBSevkKodu.Size = new System.Drawing.Size(180, 20);
             this.TBSevkKodu.TabIndex = 47;
@@ -765,7 +766,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1081, 454);
+            this.tabPage2.Size = new System.Drawing.Size(1083, 425);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Açıklamalar";
             // 
@@ -774,10 +775,9 @@
             this.panelControl11.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl11.Controls.Add(this.groupControl1);
             this.panelControl11.Controls.Add(this.groupControl2);
-            this.panelControl11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl11.Location = new System.Drawing.Point(3, 3);
+            this.panelControl11.Location = new System.Drawing.Point(1, 3);
             this.panelControl11.Name = "panelControl11";
-            this.panelControl11.Size = new System.Drawing.Size(1075, 448);
+            this.panelControl11.Size = new System.Drawing.Size(1082, 422);
             this.panelControl11.TabIndex = 22;
             // 
             // groupControl1
@@ -802,7 +802,7 @@
             this.groupControl1.Controls.Add(this.TBAciklama1);
             this.groupControl1.Controls.Add(this.LBAciklama1);
             this.groupControl1.GroupStyle = DevExpress.Utils.GroupStyle.Light;
-            this.groupControl1.Location = new System.Drawing.Point(5, 23);
+            this.groupControl1.Location = new System.Drawing.Point(7, 13);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(1071, 173);
             this.groupControl1.TabIndex = 18;
@@ -991,7 +991,7 @@
             this.groupControl2.Controls.Add(this.LBSayisalAciklama2);
             this.groupControl2.Controls.Add(this.LBSayisalAciklama1);
             this.groupControl2.GroupStyle = DevExpress.Utils.GroupStyle.Light;
-            this.groupControl2.Location = new System.Drawing.Point(5, 202);
+            this.groupControl2.Location = new System.Drawing.Point(4, 192);
             this.groupControl2.Name = "groupControl2";
             this.groupControl2.Size = new System.Drawing.Size(1071, 181);
             this.groupControl2.TabIndex = 21;
@@ -1164,7 +1164,7 @@
             this.tabPage3.Controls.Add(this.panel11);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1081, 454);
+            this.tabPage3.Size = new System.Drawing.Size(1083, 425);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Rapor Kodları";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -1176,7 +1176,7 @@
             this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel11.Location = new System.Drawing.Point(0, 0);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(1081, 454);
+            this.panel11.Size = new System.Drawing.Size(1083, 425);
             this.panel11.TabIndex = 1;
             // 
             // groupControl3
@@ -1364,7 +1364,7 @@
             this.tabPage4.Controls.Add(this.panelControl12);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(1081, 454);
+            this.tabPage4.Size = new System.Drawing.Size(1083, 425);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Yetkili Bilgileri";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -1376,7 +1376,7 @@
             this.panelControl12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl12.Location = new System.Drawing.Point(0, 0);
             this.panelControl12.Name = "panelControl12";
-            this.panelControl12.Size = new System.Drawing.Size(1081, 454);
+            this.panelControl12.Size = new System.Drawing.Size(1083, 425);
             this.panelControl12.TabIndex = 68;
             // 
             // panelControl14
@@ -1475,7 +1475,7 @@
             this.tabPage7.Controls.Add(this.panelControl15);
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(1081, 454);
+            this.tabPage7.Size = new System.Drawing.Size(1083, 425);
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "Dökümanlar";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -1591,7 +1591,7 @@
             // 
             this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Size = new System.Drawing.Size(1081, 454);
+            this.tabPage8.Size = new System.Drawing.Size(1083, 425);
             this.tabPage8.TabIndex = 7;
             this.tabPage8.Text = "Taşıyıcı Bilgileri";
             this.tabPage8.UseVisualStyleBackColor = true;
@@ -1602,7 +1602,7 @@
             this.tabPage9.Controls.Add(this.panelControl1);
             this.tabPage9.Location = new System.Drawing.Point(4, 22);
             this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Size = new System.Drawing.Size(1081, 454);
+            this.tabPage9.Size = new System.Drawing.Size(1083, 425);
             this.tabPage9.TabIndex = 8;
             this.tabPage9.Text = "AltHesap";
             this.tabPage9.UseVisualStyleBackColor = true;
@@ -1613,7 +1613,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl2.Location = new System.Drawing.Point(0, 94);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(1081, 360);
+            this.panelControl2.Size = new System.Drawing.Size(1083, 331);
             this.panelControl2.TabIndex = 1;
             // 
             // DGAltHesap
@@ -1622,7 +1622,7 @@
             this.DGAltHesap.Location = new System.Drawing.Point(2, 2);
             this.DGAltHesap.MainView = this.gridView1;
             this.DGAltHesap.Name = "DGAltHesap";
-            this.DGAltHesap.Size = new System.Drawing.Size(1077, 356);
+            this.DGAltHesap.Size = new System.Drawing.Size(1079, 327);
             this.DGAltHesap.TabIndex = 1;
             this.DGAltHesap.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -1643,7 +1643,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1081, 94);
+            this.panelControl1.Size = new System.Drawing.Size(1083, 94);
             this.panelControl1.TabIndex = 0;
             // 
             // BTAltHesapKaydet
@@ -1698,7 +1698,7 @@
             this.Resim.Controls.Add(this.panelControl5);
             this.Resim.Location = new System.Drawing.Point(4, 22);
             this.Resim.Name = "Resim";
-            this.Resim.Size = new System.Drawing.Size(1081, 454);
+            this.Resim.Size = new System.Drawing.Size(1083, 425);
             this.Resim.TabIndex = 9;
             this.Resim.Text = "Resim";
             this.Resim.UseVisualStyleBackColor = true;
@@ -1710,7 +1710,7 @@
             this.panelControl5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl5.Location = new System.Drawing.Point(0, 0);
             this.panelControl5.Name = "panelControl5";
-            this.panelControl5.Size = new System.Drawing.Size(1081, 454);
+            this.panelControl5.Size = new System.Drawing.Size(1083, 425);
             this.panelControl5.TabIndex = 0;
             // 
             // panelControl7
@@ -1719,7 +1719,7 @@
             this.panelControl7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl7.Location = new System.Drawing.Point(2, 114);
             this.panelControl7.Name = "panelControl7";
-            this.panelControl7.Size = new System.Drawing.Size(1077, 338);
+            this.panelControl7.Size = new System.Drawing.Size(1079, 309);
             this.panelControl7.TabIndex = 1;
             // 
             // gridControl3
@@ -1728,7 +1728,7 @@
             this.gridControl3.Location = new System.Drawing.Point(2, 2);
             this.gridControl3.MainView = this.tileView1;
             this.gridControl3.Name = "gridControl3";
-            this.gridControl3.Size = new System.Drawing.Size(1073, 334);
+            this.gridControl3.Size = new System.Drawing.Size(1075, 305);
             this.gridControl3.TabIndex = 0;
             this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.tileView1});
@@ -1765,7 +1765,7 @@
             this.panelControl6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl6.Location = new System.Drawing.Point(2, 2);
             this.panelControl6.Name = "panelControl6";
-            this.panelControl6.Size = new System.Drawing.Size(1077, 112);
+            this.panelControl6.Size = new System.Drawing.Size(1079, 112);
             this.panelControl6.TabIndex = 0;
             // 
             // BTResimKaydet
@@ -1815,7 +1815,7 @@
             this.panelControl9.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl9.Location = new System.Drawing.Point(2, 2);
             this.panelControl9.Name = "panelControl9";
-            this.panelControl9.Size = new System.Drawing.Size(1089, 473);
+            this.panelControl9.Size = new System.Drawing.Size(1089, 441);
             this.panelControl9.TabIndex = 7;
             // 
             // groupBox4
@@ -1832,7 +1832,6 @@
             this.groupBox4.Controls.Add(this.LBTip);
             this.groupBox4.Controls.Add(this.LBSMuhKodu);
             this.groupBox4.Controls.Add(this.LBAMuhKodu);
-            this.groupBox4.Controls.Add(this.RBFiyat4);
             this.groupBox4.Location = new System.Drawing.Point(730, 3);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(360, 430);
@@ -1939,17 +1938,6 @@
             this.LBAMuhKodu.TabIndex = 55;
             this.LBAMuhKodu.Text = "A.Muh. Kodu";
             // 
-            // RBFiyat4
-            // 
-            this.RBFiyat4.AutoSize = true;
-            this.RBFiyat4.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.RBFiyat4.Location = new System.Drawing.Point(-159, 317);
-            this.RBFiyat4.Name = "RBFiyat4";
-            this.RBFiyat4.Size = new System.Drawing.Size(58, 17);
-            this.RBFiyat4.TabIndex = 3;
-            this.RBFiyat4.Text = "Fiyat 4";
-            this.RBFiyat4.UseVisualStyleBackColor = false;
-            // 
             // groupBox2
             // 
             this.groupBox2.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
@@ -2040,6 +2028,7 @@
             this.BTKategoriSec.Properties.Appearance.Options.UseForeColor = true;
             this.BTKategoriSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions16, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject61, serializableAppearanceObject62, serializableAppearanceObject63, serializableAppearanceObject64, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.BTKategoriSec.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTKategoriSec_Properties_ButtonClick);
             this.BTKategoriSec.Size = new System.Drawing.Size(180, 22);
             this.BTKategoriSec.TabIndex = 63;
             // 
@@ -2222,6 +2211,7 @@
             this.CBIl.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.CBIl.Properties.NullText = "";
+            this.CBIl.Properties.EditValueChanged += new System.EventHandler(this.CBIl_Properties_EditValueChanged);
             this.CBIl.Size = new System.Drawing.Size(86, 20);
             this.CBIl.TabIndex = 65;
             this.CBIl.TextChanged += new System.EventHandler(this.CBIl_TextChanged);
@@ -2229,7 +2219,7 @@
             // 
             // BTMuhSec
             // 
-            this.BTMuhSec.Location = new System.Drawing.Point(103, 397);
+            this.BTMuhSec.Location = new System.Drawing.Point(122, 397);
             this.BTMuhSec.Name = "BTMuhSec";
             this.BTMuhSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions18, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject69, serializableAppearanceObject70, serializableAppearanceObject71, serializableAppearanceObject72, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
@@ -2335,13 +2325,13 @@
             this.BTCariSec.Name = "BTCariSec";
             this.BTCariSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions19, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject73, serializableAppearanceObject74, serializableAppearanceObject75, serializableAppearanceObject76, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.BTCariSec.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTCariSec_Properties_ButtonClick_1);
+            this.BTCariSec.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTCariSec_Properties_ButtonClick);
             this.BTCariSec.Size = new System.Drawing.Size(180, 22);
             this.BTCariSec.TabIndex = 57;
             // 
             // LBMuhKodu
             // 
-            this.LBMuhKodu.Location = new System.Drawing.Point(27, 400);
+            this.LBMuhKodu.Location = new System.Drawing.Point(46, 401);
             this.LBMuhKodu.Name = "LBMuhKodu";
             this.LBMuhKodu.Size = new System.Drawing.Size(51, 13);
             this.LBMuhKodu.TabIndex = 54;
@@ -2653,7 +2643,7 @@
         private Label label1;
         private DevExpress.XtraEditors.LookUpEdit CBAltHesap;
         private DevExpress.XtraEditors.TextEdit TBSevkSokak;
-        private DevExpress.XtraEditors.SimpleButton BTSevkAdresEkle;
+        private DevExpress.XtraEditors.SimpleButton BTSevkAdresKaydet;
         private DevExpress.XtraEditors.TextEdit TBSevkDaire;
         private DevExpress.XtraEditors.TextEdit TBSevkKodu;
         private DevExpress.XtraEditors.TextEdit TBSevkMahalle;
@@ -2780,7 +2770,6 @@
         private DevExpress.XtraEditors.LabelControl LBTip;
         private DevExpress.XtraEditors.LabelControl LBSMuhKodu;
         private DevExpress.XtraEditors.LabelControl LBAMuhKodu;
-        private RadioButton RBFiyat4;
         private GroupBox groupBox2;
         private DevExpress.XtraEditors.TextEdit TBEposta;
         private DevExpress.XtraEditors.TextEdit TBWebSite;

@@ -22,7 +22,7 @@ using Control = System.Windows.Forms.Control;
 
 namespace MEYPAK.PRL.PARAMETRELER
 {
-    public partial class FParaBirimi : Form
+    public partial class FParaBirimi : XtraForm
     {
 
         string islemtipi = "Kayıt";

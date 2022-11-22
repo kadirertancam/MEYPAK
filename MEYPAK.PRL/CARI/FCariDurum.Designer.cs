@@ -190,9 +190,9 @@
             // 
             // TBAdi
             // 
-            this.TBAdi.Location = new System.Drawing.Point(99, 49);
+            this.TBAdi.Location = new System.Drawing.Point(99, 54);
             this.TBAdi.Name = "TBAdi";
-            this.TBAdi.Size = new System.Drawing.Size(154, 20);
+            this.TBAdi.Size = new System.Drawing.Size(180, 20);
             this.TBAdi.TabIndex = 3;
             // 
             // BTKoduSec
@@ -201,13 +201,12 @@
             this.BTKoduSec.Name = "BTKoduSec";
             this.BTKoduSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.BTKoduSec.Size = new System.Drawing.Size(154, 22);
+            this.BTKoduSec.Size = new System.Drawing.Size(180, 22);
             this.BTKoduSec.TabIndex = 2;
-            //this.BTKoduSec.EditValueChanged += new System.EventHandler(this.BTKoduSec_EditValueChanged);
             // 
             // LBAdi
             // 
-            this.LBAdi.Location = new System.Drawing.Point(48, 50);
+            this.LBAdi.Location = new System.Drawing.Point(49, 55);
             this.LBAdi.Name = "LBAdi";
             this.LBAdi.Size = new System.Drawing.Size(37, 13);
             this.LBAdi.TabIndex = 1;
@@ -228,7 +227,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(807, 466);
             this.Controls.Add(this.panelControl1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FCariDurum";
             this.Text = "FCariDurum";
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();

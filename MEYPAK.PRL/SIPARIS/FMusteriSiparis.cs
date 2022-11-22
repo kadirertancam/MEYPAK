@@ -159,7 +159,7 @@ namespace MEYPAK.PRL.SIPARIS
             riLookup.AcceptEditorTextAsNewValue = DefaultBoolean.True;
             riLookup.AutoSearchColumnIndex = 1;
             riLookup.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
-            riLookup.EditValueChanged += RiLookup_EditValueChanged;
+          //  riLookup.EditValueChanged += RiLookup_EditValueChanged;
 
 
             gridView1.Columns["Tipi"].OptionsColumn.AllowEdit = true;
@@ -224,18 +224,6 @@ namespace MEYPAK.PRL.SIPARIS
             GCMusteriSiparis.ForceInitialize(); 
 
         }
-
-        private void RiLookup_EditValueChanged(object? sender, EventArgs e)
-        { 
-           
-        }
-
-        void gridView1_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
-        {
-          
-            
-        }
-
 
         private void RepositoryItemButtonEdit3_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
