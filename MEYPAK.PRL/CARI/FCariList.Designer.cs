@@ -47,7 +47,7 @@
             this.DGCariList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             this.DGCariList.Load += new System.EventHandler(this.DGCariList_Load);
-            this.DGCariList.DoubleClick += new System.EventHandler(this.DGCariList_CellDoubleClick);
+            this.DGCariList.DoubleClick += new System.EventHandler(this.DGCariList_DoubleClick);
             // 
             // gridView1
             // 
@@ -56,6 +56,7 @@
             this.gridView1.GridControl = this.DGCariList;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
+            this.gridView1.DoubleClick += new System.EventHandler(this.gridView1_CellDoubleClick);
             // 
             // panel1
             // 

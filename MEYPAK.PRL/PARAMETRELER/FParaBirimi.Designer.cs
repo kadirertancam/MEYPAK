@@ -64,16 +64,16 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(800, 450);
+            this.panelControl1.Size = new System.Drawing.Size(1223, 709);
             this.panelControl1.TabIndex = 0;
             // 
             // panelControl3
             // 
             this.panelControl3.Controls.Add(this.DGParaBrm);
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl3.Location = new System.Drawing.Point(2, 131);
+            this.panelControl3.Location = new System.Drawing.Point(2, 114);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(796, 317);
+            this.panelControl3.Size = new System.Drawing.Size(1219, 593);
             this.panelControl3.TabIndex = 1;
             // 
             // DGParaBrm
@@ -82,13 +82,14 @@
             this.DGParaBrm.Location = new System.Drawing.Point(2, 2);
             this.DGParaBrm.MainView = this.gridView1;
             this.DGParaBrm.Name = "DGParaBrm";
-            this.DGParaBrm.Size = new System.Drawing.Size(792, 313);
+            this.DGParaBrm.Size = new System.Drawing.Size(1215, 589);
             this.DGParaBrm.TabIndex = 0;
             this.DGParaBrm.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
             // gridView1
             // 
+            this.gridView1.DetailHeight = 303;
             this.gridView1.GridControl = this.DGParaBrm;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowGroupPanel = false;
@@ -100,7 +101,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl2.Location = new System.Drawing.Point(2, 2);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(796, 129);
+            this.panelControl2.Size = new System.Drawing.Size(1219, 112);
             this.panelControl2.TabIndex = 0;
             // 
             // groupControl1
@@ -112,10 +113,11 @@
             this.groupControl1.Controls.Add(this.LBParaBirimi);
             this.groupControl1.Controls.Add(this.LBKisa);
             this.groupControl1.Controls.Add(this.CBAktif);
+            this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupControl1.GroupStyle = DevExpress.Utils.GroupStyle.Light;
-            this.groupControl1.Location = new System.Drawing.Point(5, 3);
+            this.groupControl1.Location = new System.Drawing.Point(2, 2);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(786, 108);
+            this.groupControl1.Size = new System.Drawing.Size(1215, 110);
             this.groupControl1.TabIndex = 78;
             this.groupControl1.Text = "Para Birimi";
             // 
@@ -124,9 +126,9 @@
             this.BTSil.Appearance.BackColor = System.Drawing.Color.Gainsboro;
             this.BTSil.Appearance.Options.UseBackColor = true;
             this.BTSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTSil.ImageOptions.Image")));
-            this.BTSil.Location = new System.Drawing.Point(356, 32);
+            this.BTSil.Location = new System.Drawing.Point(408, 40);
             this.BTSil.Name = "BTSil";
-            this.BTSil.Size = new System.Drawing.Size(82, 39);
+            this.BTSil.Size = new System.Drawing.Size(70, 34);
             this.BTSil.TabIndex = 80;
             this.BTSil.Text = "&Sil";
             this.BTSil.Click += new System.EventHandler(this.BTSil_Click);
@@ -137,30 +139,30 @@
             this.BTKaydet.Appearance.Options.UseBackColor = true;
             this.BTKaydet.Appearance.Options.UseFont = true;
             this.BTKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTKaydet.ImageOptions.Image")));
-            this.BTKaydet.Location = new System.Drawing.Point(268, 32);
+            this.BTKaydet.Location = new System.Drawing.Point(333, 40);
             this.BTKaydet.Name = "BTKaydet";
-            this.BTKaydet.Size = new System.Drawing.Size(82, 39);
+            this.BTKaydet.Size = new System.Drawing.Size(70, 34);
             this.BTKaydet.TabIndex = 79;
             this.BTKaydet.Text = "&Kaydet";
             this.BTKaydet.Click += new System.EventHandler(this.BTKaydet_Click);
             // 
             // TBParaBrm
             // 
-            this.TBParaBrm.Location = new System.Drawing.Point(99, 29);
+            this.TBParaBrm.Location = new System.Drawing.Point(112, 32);
             this.TBParaBrm.Name = "TBParaBrm";
-            this.TBParaBrm.Size = new System.Drawing.Size(129, 20);
+            this.TBParaBrm.Size = new System.Drawing.Size(180, 20);
             this.TBParaBrm.TabIndex = 76;
             // 
             // TBKisaltma
             // 
-            this.TBKisaltma.Location = new System.Drawing.Point(99, 54);
+            this.TBKisaltma.Location = new System.Drawing.Point(112, 58);
             this.TBKisaltma.Name = "TBKisaltma";
-            this.TBKisaltma.Size = new System.Drawing.Size(129, 20);
+            this.TBKisaltma.Size = new System.Drawing.Size(180, 20);
             this.TBKisaltma.TabIndex = 77;
             // 
             // LBParaBirimi
             // 
-            this.LBParaBirimi.Location = new System.Drawing.Point(36, 32);
+            this.LBParaBirimi.Location = new System.Drawing.Point(38, 35);
             this.LBParaBirimi.Name = "LBParaBirimi";
             this.LBParaBirimi.Size = new System.Drawing.Size(49, 13);
             this.LBParaBirimi.TabIndex = 6;
@@ -168,7 +170,7 @@
             // 
             // LBKisa
             // 
-            this.LBKisa.Location = new System.Drawing.Point(46, 56);
+            this.LBKisa.Location = new System.Drawing.Point(48, 61);
             this.LBKisa.Name = "LBKisa";
             this.LBKisa.Size = new System.Drawing.Size(39, 13);
             this.LBKisa.TabIndex = 7;
@@ -176,18 +178,18 @@
             // 
             // CBAktif
             // 
-            this.CBAktif.Location = new System.Drawing.Point(109, 80);
+            this.CBAktif.Location = new System.Drawing.Point(127, 84);
             this.CBAktif.Name = "CBAktif";
             this.CBAktif.Properties.Appearance.Options.UseFont = true;
             this.CBAktif.Properties.Caption = "Aktif";
-            this.CBAktif.Size = new System.Drawing.Size(75, 20);
+            this.CBAktif.Size = new System.Drawing.Size(64, 20);
             this.CBAktif.TabIndex = 22;
             // 
             // FParaBirimi
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1223, 709);
             this.Controls.Add(this.panelControl1);
             this.Name = "FParaBirimi";
             this.Text = "FParaBirimi";

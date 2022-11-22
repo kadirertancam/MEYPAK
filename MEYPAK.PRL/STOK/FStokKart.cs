@@ -45,6 +45,7 @@ namespace MEYPAK.PRL
         int stokid = 0, markaid = 0, num = 0;
 
         #endregion 
+
         #region Methods
 
         public void Temizle(Control.ControlCollection ctrlCollection)           //Formdaki Textboxları temizle

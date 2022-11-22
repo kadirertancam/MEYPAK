@@ -118,6 +118,15 @@ namespace MEYPAK.BLL.Assets
 
         #endregion
 
+        #region CariYetkili
+        public const string CariYetkiliListeServis = "http://213.238.167.117:8080/CARIYETKILI/CARIYETKILIListe";
+        public const string CariYetkiliEkleServis = "http://213.238.167.117:8080/CARIYETKILI/CARIYETKILIEkleyadaGuncelle";
+        public const string CariYetkiliSilServis = "http://213.238.167.117:8080/CARIYETKILI/CARIYETKILISil";
+        public const string CariYetkiliGuncelleServis = "http://213.238.167.117:8080/CARIYETKILI/CARIYETKILIGuncelle";
+        public const string CariYetkiliDeleteByIdServis = "http://213.238.167.117:8080/CARIYETKILI/DeleteById";
+
+        #endregion
+
         #region CariResim
 
         public const string CariResimListeServis =      "http://213.238.167.117:8080/CARIRESIM/CARIRESIMListe";
