@@ -2210,11 +2210,9 @@
             this.CBIl.Name = "CBIl";
             this.CBIl.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.CBIl.Properties.NullText = "";
-            this.CBIl.Properties.EditValueChanged += new System.EventHandler(this.CBIl_Properties_EditValueChanged);
+            this.CBIl.Properties.NullText = ""; 
             this.CBIl.Size = new System.Drawing.Size(86, 20);
-            this.CBIl.TabIndex = 65;
-            this.CBIl.TextChanged += new System.EventHandler(this.CBIl_TextChanged);
+            this.CBIl.TabIndex = 65; 
             this.CBIl.Leave += new System.EventHandler(this.CBIl_Leave);
             // 
             // BTMuhSec

@@ -29,6 +29,7 @@ namespace MEYPAK.PRL.CARI
             _cariParABIRIM.Data(ServisList.ParaBirimiListeServis);
             _cariStOKKATEGORI = new GenericWebServis<PocoSTOKKATEGORI>();
             _sevkAdresServis = new GenericWebServis<PocoSEVKADRES>();
+            _cariAltHesList = new List<PocoCARIALTHES>();
             CBAltHesap.Properties.DataSource = _cariAltHesapServis.obje.Select(x => x.adi).ToList();
         }
         #region Tanımlar
@@ -41,7 +42,7 @@ namespace MEYPAK.PRL.CARI
         GenericWebServis<PocoSTOKKATEGORI> _cariStOKKATEGORI;
         FCariList fCariList;
         FKategoriList fKategoriList;
-
+        List<PocoCARIALTHES> _cariAltHesList;
         public PocoCARIALTHES _tempCARIALTHES;
         public PocoCARIKART _tempCariKart;
         public PocoPARABIRIM _tempCariParABIRIM;
@@ -51,6 +52,7 @@ namespace MEYPAK.PRL.CARI
         #region Metotlar
         void Doldur()
         {
+            _cariAltHesList.Clear();
             BTCariSec.Text = _tempCariKart.kod;
             TBUnvan.Text = _tempCariKart.unvan;
             CBUlke.Text = _tempCariKart.ulke;
@@ -317,14 +319,7 @@ namespace MEYPAK.PRL.CARI
          //   CBUlke.Properties.DataSource = _adresObje.data.Where(x => x.ulke_adi == CBUlke.EditValue.ToString()).Select(x => x.il_adi.ToList()).FirstOrDefault();
 
         }
-
-     
-        private void BTCariSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
-        {
-            fCariList = new FCariList(this.Tag.ToString(), "CariList");
-            fCariList.ShowDialog();
-             Doldur();
-        }
+ 
         //CariSeç
         private void BTSil_Click(object sender, EventArgs e)
         {
@@ -437,7 +432,9 @@ namespace MEYPAK.PRL.CARI
 
         private void BTAltHesapKaydet_Click(object sender, EventArgs e)
         {
-
+            _cariAltHesList.Add(_tempCARIALTHES);
+            DGAltHesap.DataSource = _cariAltHesList.Select(x=> new {ALTHESAPADI=x.adi,PARABIRIMI=_cariParABIRIM.obje.Where(z=>z.id==x.dovizid).FirstOrDefault().kisaadi,AKTIF=x.aktif});
+            DGAltHesap.RefreshDataSource();
         }
 
         private void BTCariSec_Properties_ButtonClick_1(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)

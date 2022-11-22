@@ -80,6 +80,11 @@ namespace MEYPAK.PRL.CARI
 
         private void DGAltHesap_CellDoubleClick(object sender, EventArgs e)
         {
+           
+        }
+
+        private void gridView1_DoubleClick(object sender, EventArgs e)
+        {
             _cariAltHesapServis.Data(ServisList.CariAltHesListeServis);
             if (_islem == "carikart")
             {
