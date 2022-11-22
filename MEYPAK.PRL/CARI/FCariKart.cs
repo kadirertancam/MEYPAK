@@ -351,16 +351,7 @@ namespace MEYPAK.PRL.CARI
         }
 
 
-
-
-        private void BTCariSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
-        {
-            fCariList = new FCariList(this.Tag.ToString(), "carikart");
-            fCariList.ShowDialog();
-             Doldur();
-        }
-
-        private void CBIl_Leave(object sender, EventArgs e)
+        private void CBIl_Properties_EditValueChanged(object sender, EventArgs e)
         {
             CBIlce.Properties.DataSource = _adresObje.data.Where(x => x.il_adi == CBIl.EditValue.ToString()).Select(x => x.ilceler.Select(z => z.ilce_adi).ToList()).FirstOrDefault();
         }
