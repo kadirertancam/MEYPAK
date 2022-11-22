@@ -107,6 +107,9 @@ builder.Services.AddScoped<ICariAltHesServis,CariAltHesManager>();
 builder.Services.AddScoped<ISevkAdresDal, EFSevkAdresRepo>();
 builder.Services.AddScoped<ISevkAdresServis, SevkAdresManager>();
 
+builder.Services.AddScoped<ICariYetkiliDal, EFCariYetkiliRepo>();
+builder.Services.AddScoped<ICariYetkiliServis, CariYetkiliManager>();
+
 builder.Services.AddScoped<ICariAltHesCariDal,EFCariAltHesCariRepo>();
 builder.Services.AddScoped<ICariAltHesCariServis,CariAltHesCariManager>();
 

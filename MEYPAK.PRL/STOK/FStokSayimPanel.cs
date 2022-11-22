@@ -191,7 +191,7 @@ namespace MEYPAK.PRL.STOK
                    });
                 }
             }
-           
+            MessageBox.Show("Sayım Hareketi Başarıyla Kaydedildi");
         }
 
 
