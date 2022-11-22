@@ -84,10 +84,11 @@ namespace MEYPAK.PRL
 
         private void tbDoldur()                                                 // _tempStok nesnesi dolduğu zaman bu method ile formdaki nesneleri doldur
         {
-           
+            stokOlculist.Clear();
             _stokResimServis.Data(ServisList.StokResimListeServis);
             _PocoStokServis.Data(ServisList.StokListeServis);
             _markaServis.Data(ServisList.StokMarkaListeServis);
+            _StokOlcuBrServis.Data(ServisList.StokOlcuBrListeServis);
             if (_tempStok != null)
             {
                 stokid = _tempStok.id;
@@ -123,8 +124,8 @@ namespace MEYPAK.PRL
                 }
                 
             gridControl2.DataSource= resimList.Select(x=> new { Resim = Base64ToImage(x.IMG) });
-            gridControl1.DataSource = _StokOlcuBrServis.obje.Where(x=>x.stokid== stokid).Select(x=>_PocoOlcuBrServis.obje.Where(z=>z.id==x.olcubrid).FirstOrDefault().adi);
-            gridControl1.Refresh();
+            gridControl1.DataSource = _StokOlcuBrServis.obje.Where(x=>x.stokid== stokid).Select(x=> new { ADI=_PocoOlcuBrServis.obje.Where(z => z.id == x.olcubrid).FirstOrDefault().adi,KATSAYI=x.katsayi,SIRA=x.num});
+            gridControl1.RefreshDataSource();
             //var a = _PocoStokServis.obje.Select(x=>x.mpst.Select(z=>z));
             //stokOlculist = _tempStok.MPSTOKOLCUBR.ToList();
             _tempStok = null;
@@ -385,21 +386,7 @@ namespace MEYPAK.PRL
 
         private void BTOlcuBirimiEkle_Click_1(object sender, EventArgs e)
         {
-            if (gridView1.RowCount == 0)
-            {
-                num = 0;
-            }
-            _tempStokOlcuBr = new PocoSTOKOLCUBR()
-            {
-                olcubrid = _tempPocoOLCUBR.Where(x => x.adi == CBBirim.EditValue.ToString()).FirstOrDefault().id,
-                num = gridView1.RowCount + 1,
-                katsayi = Convert.ToDecimal(TBKatsayi.Text),
-
-
-            };
-            stokOlculist.Add(_tempStokOlcuBr);
-            gridControl1.DataSource = stokOlculist;
-            gridControl1.Refresh();
+           
         }
         string base64 = "";
         private void buttonEdit1_Properties_ButtonClick_1(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -505,6 +492,31 @@ namespace MEYPAK.PRL
         private void BTSil_Click_1(object sender, EventArgs e)
         {
             _PocoStokServis.Data(ServisList.StokSilServis);
+        }
+
+        private void BTOlcuBirimiEkle_Click(object sender, EventArgs e)
+        {
+            if (gridView1.RowCount == 0)
+            {
+                num = 0;
+            }
+            _tempStokOlcuBr = new PocoSTOKOLCUBR()
+            {
+                olcubrid = _tempPocoOLCUBR.Where(x => x.adi == CBBirim.EditValue.ToString()).FirstOrDefault().id,
+                num = gridView1.RowCount + 1,
+                katsayi = Convert.ToDecimal(TBKatsayi.Text),
+
+
+            };
+            stokOlculist.Add(_tempStokOlcuBr);
+            gridControl1.DataSource = stokOlculist.Select(x => new { ADI = _PocoOlcuBrServis.obje.Where(z => z.id == x.olcubrid).FirstOrDefault().adi, KATSAYI = x.katsayi, SIRA = x.num });
+            gridControl1.RefreshDataSource();
+            
+        }
+
+        private void gridView1_DoubleClick(object sender, EventArgs e)
+        {
+            //TODOO:Yarın burası yapılacak
         }
 
         private void TBSatisOtv_KeyPress(object sender, KeyPressEventArgs e)

@@ -526,6 +526,7 @@
             this.BTKaydet.Size = new System.Drawing.Size(93, 48);
             this.BTKaydet.TabIndex = 1;
             this.BTKaydet.Text = "Kaydet";
+            this.BTKaydet.Click += new System.EventHandler(this.BTKaydet_Click);
             // 
             // TBSevkAdres
             // 
@@ -1656,6 +1657,7 @@
             this.BTAltHesapKaydet.Size = new System.Drawing.Size(82, 39);
             this.BTAltHesapKaydet.TabIndex = 8;
             this.BTAltHesapKaydet.Text = "&Kaydet";
+            this.BTAltHesapKaydet.Click += new System.EventHandler(this.BTAltHesapKaydet_Click);
             // 
             // LBAltHesKodu
             // 
@@ -2223,6 +2225,7 @@
             this.CBIl.Size = new System.Drawing.Size(86, 20);
             this.CBIl.TabIndex = 65;
             this.CBIl.TextChanged += new System.EventHandler(this.CBIl_TextChanged);
+            this.CBIl.Leave += new System.EventHandler(this.CBIl_Leave);
             // 
             // BTMuhSec
             // 
@@ -2255,6 +2258,7 @@
             // 
             // TBVadeGun
             // 
+            this.TBVadeGun.EditValue = "0";
             this.TBVadeGun.Location = new System.Drawing.Point(122, 288);
             this.TBVadeGun.Name = "TBVadeGun";
             this.TBVadeGun.Size = new System.Drawing.Size(86, 20);
@@ -2331,6 +2335,7 @@
             this.BTCariSec.Name = "BTCariSec";
             this.BTCariSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions19, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject73, serializableAppearanceObject74, serializableAppearanceObject75, serializableAppearanceObject76, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.BTCariSec.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTCariSec_Properties_ButtonClick_1);
             this.BTCariSec.Size = new System.Drawing.Size(180, 22);
             this.BTCariSec.TabIndex = 57;
             // 
