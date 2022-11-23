@@ -8,10 +8,11 @@ using System.Threading.Tasks;
 namespace MEYPAK.Entity.PocoModels.FATURA
 {
     public class PocoFATURADETAY:SUPERPOCOMODEL
-    {
+    { 
         public int faturaid { get; set; }
         public int stokid { get; set; }
         public int birimid { get; set; }
+        public int num { get; set; }
         public int dovizid { get; set; } = 0;
         public int listefiyatid { get; set; } = 0;
         public int kullaniciid { get; set; } = 0;
