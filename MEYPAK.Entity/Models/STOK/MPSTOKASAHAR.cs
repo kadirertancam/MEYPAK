@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.Entity.Models.STOK
 {
-    public class MPSTOKASAHAR:SUPERMODEL
+    public class MPSTOKKASAHAR:SUPERMODEL
     {
         public int MyProperty { get; set; }
     }

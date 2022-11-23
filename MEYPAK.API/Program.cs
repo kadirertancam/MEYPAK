@@ -256,8 +256,8 @@ builder.Services.AddScoped<IAracRotaServis, AracRotaManager>();
 builder.Services.AddScoped<IKasaDal, EFKasaRepo>();
 builder.Services.AddScoped<IKasaServis, KasaManager>();
 
-builder.Services.AddScoped<IKasaHarDal, EFKasaHarRepo>();
-builder.Services.AddScoped<IKasaHarServis, KasaHarManager>();
+builder.Services.AddScoped<IStokKasaHarDal, EFStokKasaHarRepo>();
+builder.Services.AddScoped<IStokKasaHarServis, StokKasaHarManager>();
 #endregion
 
 

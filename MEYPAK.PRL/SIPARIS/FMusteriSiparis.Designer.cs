@@ -72,9 +72,9 @@
             this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.DTSiparisTarih = new DevExpress.XtraEditors.DateEdit();
+            this.DTPVadeTarihi = new DevExpress.XtraEditors.DateEdit();
             this.CHBKdvDahil = new DevExpress.XtraEditors.CheckEdit();
-            this.DTSiparisTarih = new DevExpress.XtraEditors.DateTimeOffsetEdit();
-            this.DTPVadeTarihi = new DevExpress.XtraEditors.DateTimeOffsetEdit();
             this.TBGun = new DevExpress.XtraEditors.TextEdit();
             this.CBAltHesap = new DevExpress.XtraEditors.LookUpEdit();
             this.TBCariAdi = new DevExpress.XtraEditors.TextEdit();
@@ -118,9 +118,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).BeginInit();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CHBKdvDahil.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DTSiparisTarih.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTSiparisTarih.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DTPVadeTarihi.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPVadeTarihi.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CHBKdvDahil.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBGun.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBAltHesap.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBCariAdi.Properties)).BeginInit();
@@ -498,9 +500,9 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.CHBKdvDahil);
             this.groupBox1.Controls.Add(this.DTSiparisTarih);
             this.groupBox1.Controls.Add(this.DTPVadeTarihi);
+            this.groupBox1.Controls.Add(this.CHBKdvDahil);
             this.groupBox1.Controls.Add(this.TBGun);
             this.groupBox1.Controls.Add(this.CBAltHesap);
             this.groupBox1.Controls.Add(this.TBCariAdi);
@@ -532,23 +534,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Müşteri Sipariş";
             // 
-            // CHBKdvDahil
-            // 
-            this.CHBKdvDahil.Location = new System.Drawing.Point(461, 57);
-            this.CHBKdvDahil.Name = "CHBKdvDahil";
-            this.CHBKdvDahil.Properties.Caption = "KDV Dahil";
-            this.CHBKdvDahil.Size = new System.Drawing.Size(75, 20);
-            this.CHBKdvDahil.TabIndex = 158;
-            // 
             // DTSiparisTarih
             // 
             this.DTSiparisTarih.EditValue = null;
-            this.DTSiparisTarih.Location = new System.Drawing.Point(450, 31);
+            this.DTSiparisTarih.Location = new System.Drawing.Point(450, 35);
             this.DTSiparisTarih.Name = "DTSiparisTarih";
             this.DTSiparisTarih.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.DTSiparisTarih.Size = new System.Drawing.Size(177, 20);
-            this.DTSiparisTarih.TabIndex = 157;
+            this.DTSiparisTarih.Size = new System.Drawing.Size(147, 20);
+            this.DTSiparisTarih.TabIndex = 161;
             // 
             // DTPVadeTarihi
             // 
@@ -557,12 +551,22 @@
             this.DTPVadeTarihi.Name = "DTPVadeTarihi";
             this.DTPVadeTarihi.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.DTPVadeTarihi.Properties.MaskSettings.Set("mask", "f");
-            this.DTPVadeTarihi.Size = new System.Drawing.Size(121, 20);
-            this.DTPVadeTarihi.TabIndex = 156;
+            this.DTPVadeTarihi.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.DTPVadeTarihi.Size = new System.Drawing.Size(112, 20);
+            this.DTPVadeTarihi.TabIndex = 160;
+            // 
+            // CHBKdvDahil
+            // 
+            this.CHBKdvDahil.Location = new System.Drawing.Point(461, 57);
+            this.CHBKdvDahil.Name = "CHBKdvDahil";
+            this.CHBKdvDahil.Properties.Caption = "KDV Dahil";
+            this.CHBKdvDahil.Size = new System.Drawing.Size(75, 20);
+            this.CHBKdvDahil.TabIndex = 158;
             // 
             // TBGun
             // 
+            this.TBGun.EditValue = "0";
             this.TBGun.Location = new System.Drawing.Point(258, 151);
             this.TBGun.Name = "TBGun";
             this.TBGun.Size = new System.Drawing.Size(53, 20);
@@ -811,9 +815,11 @@
             this.panel2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CHBKdvDahil.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DTSiparisTarih.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTSiparisTarih.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DTPVadeTarihi.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPVadeTarihi.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CHBKdvDahil.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBGun.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBAltHesap.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBCariAdi.Properties)).EndInit();
@@ -891,8 +897,8 @@
         private DevExpress.XtraEditors.TextEdit TBCariAdi;
         private DevExpress.XtraEditors.LookUpEdit CBAltHesap;
         private DevExpress.XtraEditors.TextEdit TBGun;
-        private DevExpress.XtraEditors.DateTimeOffsetEdit DTPVadeTarihi;
-        private DevExpress.XtraEditors.DateTimeOffsetEdit DTSiparisTarih;
         private DevExpress.XtraEditors.CheckEdit CHBKdvDahil;
+        private DevExpress.XtraEditors.DateEdit DTSiparisTarih;
+        private DevExpress.XtraEditors.DateEdit DTPVadeTarihi;
     }
 }

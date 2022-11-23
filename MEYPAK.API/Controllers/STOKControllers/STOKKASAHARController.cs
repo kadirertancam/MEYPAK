@@ -5,7 +5,7 @@ using MEYPAK.Entity.PocoModels.KASA;
 using MEYPAK.Interfaces.Kasa;
 using Microsoft.AspNetCore.Mvc;
 
-namespace MEYPAK.API.Controllers.KASAControllers
+namespace MEYPAK.API.Controllers.STOKControllers
 {
     [ApiController]
     [Route("[controller]")]

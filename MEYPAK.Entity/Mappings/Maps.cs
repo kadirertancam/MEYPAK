@@ -99,7 +99,7 @@ namespace MEYPAK.Entity.Mappings
 
             //KASA
             CreateMap<MPKASA, PocoKASA>().ReverseMap();
-            CreateMap<MPKASAHAR, PocoKASAHAR>().ReverseMap();
+            CreateMap<MPSTOKKASAHAR, PocoSTOKKASAHAR>().ReverseMap();
             
 
 

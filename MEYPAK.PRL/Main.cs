@@ -89,7 +89,10 @@ namespace MEYPAK.PRL
             StokPanelAc();
         }
         public void GuncelKur() {
+            try
+            {
 
+            
             HttpRequestMessage client;
             HttpClient httpClient = new HttpClient();
             client = new HttpRequestMessage(HttpMethod.Post, "https://www.tcmb.gov.tr/kurlar/today.xml");
@@ -132,7 +135,11 @@ namespace MEYPAK.PRL
 
                     });
             }
-            
+            }
+            catch 
+            {
+                 
+            }
         }
         private void Main_Load(object sender, EventArgs e)
         {

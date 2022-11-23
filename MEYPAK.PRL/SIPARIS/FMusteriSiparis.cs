@@ -75,7 +75,8 @@ namespace MEYPAK.PRL.SIPARIS
 
         private void FSiparis_Load(object sender, EventArgs e)
         {
-
+            DTSiparisTarih.Text = DateTime.Now.ToString();
+            DTPVadeTarihi.Text = DateTime.Now.ToString(); 
             DataGridYapilandir();
             CBParaBirimi.EditValue = 0;
         }
@@ -289,25 +290,34 @@ namespace MEYPAK.PRL.SIPARIS
         private void BTKaydet_Click(object sender, EventArgs e)
         {
             _cariKart.Data(ServisList.CariListeServis);
+            int cariid = _cariKart.obje.Where(x => x.kod == TBCariKodu.Text).FirstOrDefault().id;
+            int depoid = _depoServis.obje.Where(x => x.depoadi == CBDepo.EditValue).FirstOrDefault().id;
+            int althesapid = _cariAltHesapServis.obje.Where(x => x.adi == CBAltHesap.EditValue).FirstOrDefault().id;
+            int dovizid = _paraBirimServis.obje.Where(x => x.adi == CBParaBirimi.EditValue.ToString() && x.kayittipi == 0).FirstOrDefault().id;
+            decimal isktoplam = _tempSiparisDetay.Sum(x => x.İskontoTutarı);
+            decimal kdvtoplam = _tempSiparisDetay.Sum(x => x.KdvTutarı);
+            decimal bruttoplam = _tempSiparisDetay.Sum(x => x.BrütToplam);
+            decimal nettoplam = _tempSiparisDetay.Sum(x => x.NetToplam);
+            decimal geneltoplam = _tempSiparisDetay.Sum(x => x.KdvTutarı) + _tempSiparisDetay.Sum(x => x.NetToplam);
 
             _siparisServis.Data(ServisList.SiparisEkleServis, new PocoSIPARIS()
             {
                 aciklama = TBAciklama.Text,
                 kur = Convert.ToDecimal(TBKur.Text),
                 belgeno = TBSiparisNo.Text,
-                vadetarihi = (DateTime)DTPVadeTarihi.EditValue,
+                vadetarihi = Convert.ToDateTime(DTPVadeTarihi.EditValue),
                 guncellemetarihi = DateTime.Now,
                 vadegunu = Convert.ToInt32(TBGun.Text),
                 cariadi = TBCariAdi.Text,
-                cariid = _cariKart.obje.Where(x => x.kod == TBCariKodu.Text).FirstOrDefault().id,
-                depoid = _depoServis.obje.Where(x => x.depoadi == CBDepo.EditValue).FirstOrDefault().id,
-                althesapid = _cariAltHesapServis.obje.Where(x=> x.adi == CBAltHesap.EditValue).FirstOrDefault().id,
-                dovizid = _paraBirimServis.obje.Where(x=> x.kisaadi==CBParaBirimi.EditValue).FirstOrDefault().id,
-                istkontotoplam = _tempSiparisDetay.Sum(x => x.İskontoTutarı),
-                kdvtoplam = _tempSiparisDetay.Sum(x => x.KdvTutarı),
-                bruttoplam = _tempSiparisDetay.Sum(x => x.BrütToplam),
-                nettoplam = _tempSiparisDetay.Sum(x => x.NetToplam),
-                geneltoplam = _tempSiparisDetay.Sum(x => x.KdvTutarı) + _tempSiparisDetay.Sum(x => x.NetToplam),
+                cariid = cariid,
+                depoid =depoid,
+                althesapid = althesapid,
+                dovizid = dovizid,
+                istkontotoplam = isktoplam,
+                kdvtoplam = kdvtoplam,
+                bruttoplam = bruttoplam,
+                nettoplam = nettoplam,
+                geneltoplam = geneltoplam,
                 tip = 0,
 
             });
@@ -444,10 +454,14 @@ namespace MEYPAK.PRL.SIPARIS
 
 
         int sy = 0;
+        decimal daralı, dara;
         private void gridView1_CellValueChanged(object sender, CellValueChangedEventArgs e)
         {
             if (sy == 0)
             {
+                //daralı = Convert.ToDecimal(gridView1.GetFocusedRowCellValue("Daralı"));
+                //dara= Convert.ToDecimal(gridView1.GetFocusedRowCellValue("Dara"));
+                //gridView1.SetFocusedRowCellValue("Safi", daralı - dara);
                 sy = 1;
                 if (CHBKdvDahil.Checked == false)
                 {
@@ -508,8 +522,10 @@ namespace MEYPAK.PRL.SIPARIS
 
         private void TBSiparisNo_Properties_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
+
             FMusteriSiparisList fMusteriSiparisList = new FMusteriSiparisList(this.Tag.ToString(), "Siparis");
             fMusteriSiparisList.ShowDialog();
+            
             if (_tempSiparis != null)
             {
                 TBSiparisNo.Text = _tempSiparis.belgeno;
