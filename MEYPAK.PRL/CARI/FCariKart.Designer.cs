@@ -221,9 +221,11 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.panelControl12 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl14 = new DevExpress.XtraEditors.PanelControl();
-            this.gridControl2 = new DevExpress.XtraGrid.GridControl();
+            this.DGYetkiliBilgi = new DevExpress.XtraGrid.GridControl();
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panelControl13 = new DevExpress.XtraEditors.PanelControl();
+            this.TBYetkiliTel = new DevExpress.XtraEditors.TextEdit();
+            this.LBTelefon = new DevExpress.XtraEditors.LabelControl();
             this.BTYetkiliKaydet = new DevExpress.XtraEditors.SimpleButton();
             this.LBYetkiliAdi = new DevExpress.XtraEditors.LabelControl();
             this.BTYetkiliSil = new DevExpress.XtraEditors.SimpleButton();
@@ -387,10 +389,11 @@
             this.panelControl12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl14)).BeginInit();
             this.panelControl14.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGYetkiliBilgi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl13)).BeginInit();
             this.panelControl13.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TBYetkiliTel.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBYetkiliAdi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBPozisyon.Properties)).BeginInit();
             this.tabPage7.SuspendLayout();
@@ -514,6 +517,7 @@
             this.BTSil.Size = new System.Drawing.Size(93, 48);
             this.BTSil.TabIndex = 2;
             this.BTSil.Text = "Sil";
+            this.BTSil.Click += new System.EventHandler(this.BTSil_Click);
             // 
             // BTKaydet
             // 
@@ -1381,39 +1385,62 @@
             // 
             // panelControl14
             // 
-            this.panelControl14.Controls.Add(this.gridControl2);
-            this.panelControl14.Location = new System.Drawing.Point(-1, 90);
+            this.panelControl14.Controls.Add(this.DGYetkiliBilgi);
+            this.panelControl14.Location = new System.Drawing.Point(-1, 108);
             this.panelControl14.Name = "panelControl14";
-            this.panelControl14.Size = new System.Drawing.Size(1088, 347);
+            this.panelControl14.Size = new System.Drawing.Size(1088, 329);
             this.panelControl14.TabIndex = 3;
             // 
-            // gridControl2
+            // DGYetkiliBilgi
             // 
-            this.gridControl2.Location = new System.Drawing.Point(2, 2);
-            this.gridControl2.MainView = this.gridView3;
-            this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(1084, 330);
-            this.gridControl2.TabIndex = 0;
-            this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.DGYetkiliBilgi.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DGYetkiliBilgi.Location = new System.Drawing.Point(2, 2);
+            this.DGYetkiliBilgi.MainView = this.gridView3;
+            this.DGYetkiliBilgi.Name = "DGYetkiliBilgi";
+            this.DGYetkiliBilgi.Size = new System.Drawing.Size(1084, 325);
+            this.DGYetkiliBilgi.TabIndex = 0;
+            this.DGYetkiliBilgi.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView3});
             // 
             // gridView3
             // 
-            this.gridView3.GridControl = this.gridControl2;
+            this.gridView3.GridControl = this.DGYetkiliBilgi;
             this.gridView3.Name = "gridView3";
             // 
             // panelControl13
             // 
+            this.panelControl13.Controls.Add(this.TBYetkiliTel);
+            this.panelControl13.Controls.Add(this.LBTelefon);
             this.panelControl13.Controls.Add(this.BTYetkiliKaydet);
             this.panelControl13.Controls.Add(this.LBYetkiliAdi);
             this.panelControl13.Controls.Add(this.BTYetkiliSil);
             this.panelControl13.Controls.Add(this.LBPozisyon);
             this.panelControl13.Controls.Add(this.TBYetkiliAdi);
             this.panelControl13.Controls.Add(this.TBPozisyon);
-            this.panelControl13.Location = new System.Drawing.Point(-1, 0);
+            this.panelControl13.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl13.Location = new System.Drawing.Point(2, 2);
             this.panelControl13.Name = "panelControl13";
-            this.panelControl13.Size = new System.Drawing.Size(1087, 87);
+            this.panelControl13.Size = new System.Drawing.Size(1079, 102);
             this.panelControl13.TabIndex = 2;
+            // 
+            // TBYetkiliTel
+            // 
+            this.TBYetkiliTel.EditValue = "";
+            this.TBYetkiliTel.Location = new System.Drawing.Point(145, 45);
+            this.TBYetkiliTel.Name = "TBYetkiliTel";
+            this.TBYetkiliTel.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.SimpleMaskManager));
+            this.TBYetkiliTel.Properties.MaskSettings.Set("mask", "000-00-0000");
+            this.TBYetkiliTel.Properties.MaskSettings.Set("MaskManagerSignature", "ignoreMaskBlank=True");
+            this.TBYetkiliTel.Size = new System.Drawing.Size(170, 20);
+            this.TBYetkiliTel.TabIndex = 69;
+            // 
+            // LBTelefon
+            // 
+            this.LBTelefon.Location = new System.Drawing.Point(39, 48);
+            this.LBTelefon.Name = "LBTelefon";
+            this.LBTelefon.Size = new System.Drawing.Size(83, 13);
+            this.LBTelefon.TabIndex = 68;
+            this.LBTelefon.Text = "Telefon Numarası";
             // 
             // BTYetkiliKaydet
             // 
@@ -1421,7 +1448,7 @@
             this.BTYetkiliKaydet.Appearance.Options.UseBackColor = true;
             this.BTYetkiliKaydet.Appearance.Options.UseFont = true;
             this.BTYetkiliKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTYetkiliKaydet.ImageOptions.Image")));
-            this.BTYetkiliKaydet.Location = new System.Drawing.Point(347, 23);
+            this.BTYetkiliKaydet.Location = new System.Drawing.Point(343, 26);
             this.BTYetkiliKaydet.Name = "BTYetkiliKaydet";
             this.BTYetkiliKaydet.Size = new System.Drawing.Size(82, 39);
             this.BTYetkiliKaydet.TabIndex = 67;
@@ -1441,7 +1468,7 @@
             this.BTYetkiliSil.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
             this.BTYetkiliSil.Appearance.Options.UseBackColor = true;
             this.BTYetkiliSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTYetkiliSil.ImageOptions.Image")));
-            this.BTYetkiliSil.Location = new System.Drawing.Point(435, 23);
+            this.BTYetkiliSil.Location = new System.Drawing.Point(431, 26);
             this.BTYetkiliSil.Name = "BTYetkiliSil";
             this.BTYetkiliSil.Size = new System.Drawing.Size(82, 39);
             this.BTYetkiliSil.TabIndex = 66;
@@ -1450,7 +1477,7 @@
             // 
             // LBPozisyon
             // 
-            this.LBPozisyon.Location = new System.Drawing.Point(28, 49);
+            this.LBPozisyon.Location = new System.Drawing.Point(27, 72);
             this.LBPozisyon.Name = "LBPozisyon";
             this.LBPozisyon.Size = new System.Drawing.Size(95, 13);
             this.LBPozisyon.TabIndex = 9;
@@ -1465,7 +1492,7 @@
             // 
             // TBPozisyon
             // 
-            this.TBPozisyon.Location = new System.Drawing.Point(145, 46);
+            this.TBPozisyon.Location = new System.Drawing.Point(145, 70);
             this.TBPozisyon.Name = "TBPozisyon";
             this.TBPozisyon.Size = new System.Drawing.Size(170, 20);
             this.TBPozisyon.TabIndex = 13;
@@ -2530,11 +2557,12 @@
             this.panelControl12.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl14)).EndInit();
             this.panelControl14.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGYetkiliBilgi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl13)).EndInit();
             this.panelControl13.ResumeLayout(false);
             this.panelControl13.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TBYetkiliTel.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBYetkiliAdi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBPozisyon.Properties)).EndInit();
             this.tabPage7.ResumeLayout(false);
@@ -2711,7 +2739,7 @@
         private TabPage tabPage4;
         private DevExpress.XtraEditors.PanelControl panelControl12;
         private DevExpress.XtraEditors.PanelControl panelControl14;
-        private DevExpress.XtraGrid.GridControl gridControl2;
+        private DevExpress.XtraGrid.GridControl DGYetkiliBilgi;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView3;
         private DevExpress.XtraEditors.PanelControl panelControl13;
         private DevExpress.XtraEditors.SimpleButton BTYetkiliKaydet;
@@ -2822,5 +2850,7 @@
         private Label label13;
         private Label label6;
         private Label label10;
+        private DevExpress.XtraEditors.TextEdit TBYetkiliTel;
+        private DevExpress.XtraEditors.LabelControl LBTelefon;
     }
 }

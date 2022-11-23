@@ -12,5 +12,6 @@ namespace MEYPAK.Entity.Models.CARI
         public int CARIID { get; set; }
         public string ADI { get; set; }
         public string POZISYON { get; set; }
+        public string YETKILITELEFON { get; set; } 
     }
 }
