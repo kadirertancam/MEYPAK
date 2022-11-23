@@ -499,9 +499,9 @@
             this.panelControl10.Controls.Add(this.BTSil);
             this.panelControl10.Controls.Add(this.BTKaydet);
             this.panelControl10.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl10.Location = new System.Drawing.Point(0, 452);
+            this.panelControl10.Location = new System.Drawing.Point(0, 453);
             this.panelControl10.Name = "panelControl10";
-            this.panelControl10.Size = new System.Drawing.Size(1089, 60);
+            this.panelControl10.Size = new System.Drawing.Size(1089, 59);
             this.panelControl10.TabIndex = 1;
             // 
             // BTSil
@@ -520,7 +520,7 @@
             this.BTKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
             this.BTKaydet.Appearance.Options.UseBackColor = true;
             this.BTKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTKaydet.ImageOptions.Image")));
-            this.BTKaydet.Location = new System.Drawing.Point(894, 5);
+            this.BTKaydet.Location = new System.Drawing.Point(889, 5);
             this.BTKaydet.Name = "BTKaydet";
             this.BTKaydet.Size = new System.Drawing.Size(93, 48);
             this.BTKaydet.TabIndex = 1;
@@ -1200,7 +1200,7 @@
             this.groupControl3.Controls.Add(this.LBRaporKodu2);
             this.groupControl3.Controls.Add(this.LBRaporKodu1);
             this.groupControl3.GroupStyle = DevExpress.Utils.GroupStyle.Light;
-            this.groupControl3.Location = new System.Drawing.Point(5, 13);
+            this.groupControl3.Location = new System.Drawing.Point(5, 18);
             this.groupControl3.Name = "groupControl3";
             this.groupControl3.Size = new System.Drawing.Size(1072, 177);
             this.groupControl3.TabIndex = 2;
@@ -1421,7 +1421,7 @@
             this.BTYetkiliKaydet.Appearance.Options.UseBackColor = true;
             this.BTYetkiliKaydet.Appearance.Options.UseFont = true;
             this.BTYetkiliKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTYetkiliKaydet.ImageOptions.Image")));
-            this.BTYetkiliKaydet.Location = new System.Drawing.Point(344, 27);
+            this.BTYetkiliKaydet.Location = new System.Drawing.Point(347, 23);
             this.BTYetkiliKaydet.Name = "BTYetkiliKaydet";
             this.BTYetkiliKaydet.Size = new System.Drawing.Size(82, 39);
             this.BTYetkiliKaydet.TabIndex = 67;
@@ -1430,7 +1430,7 @@
             // 
             // LBYetkiliAdi
             // 
-            this.LBYetkiliAdi.Location = new System.Drawing.Point(82, 29);
+            this.LBYetkiliAdi.Location = new System.Drawing.Point(78, 23);
             this.LBYetkiliAdi.Name = "LBYetkiliAdi";
             this.LBYetkiliAdi.Size = new System.Drawing.Size(45, 13);
             this.LBYetkiliAdi.TabIndex = 8;
@@ -1441,7 +1441,7 @@
             this.BTYetkiliSil.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
             this.BTYetkiliSil.Appearance.Options.UseBackColor = true;
             this.BTYetkiliSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTYetkiliSil.ImageOptions.Image")));
-            this.BTYetkiliSil.Location = new System.Drawing.Point(432, 27);
+            this.BTYetkiliSil.Location = new System.Drawing.Point(435, 23);
             this.BTYetkiliSil.Name = "BTYetkiliSil";
             this.BTYetkiliSil.Size = new System.Drawing.Size(82, 39);
             this.BTYetkiliSil.TabIndex = 66;
@@ -1450,7 +1450,7 @@
             // 
             // LBPozisyon
             // 
-            this.LBPozisyon.Location = new System.Drawing.Point(32, 53);
+            this.LBPozisyon.Location = new System.Drawing.Point(28, 49);
             this.LBPozisyon.Name = "LBPozisyon";
             this.LBPozisyon.Size = new System.Drawing.Size(95, 13);
             this.LBPozisyon.TabIndex = 9;
@@ -1458,14 +1458,14 @@
             // 
             // TBYetkiliAdi
             // 
-            this.TBYetkiliAdi.Location = new System.Drawing.Point(145, 26);
+            this.TBYetkiliAdi.Location = new System.Drawing.Point(145, 20);
             this.TBYetkiliAdi.Name = "TBYetkiliAdi";
             this.TBYetkiliAdi.Size = new System.Drawing.Size(170, 20);
             this.TBYetkiliAdi.TabIndex = 12;
             // 
             // TBPozisyon
             // 
-            this.TBPozisyon.Location = new System.Drawing.Point(145, 51);
+            this.TBPozisyon.Location = new System.Drawing.Point(145, 46);
             this.TBPozisyon.Name = "TBPozisyon";
             this.TBPozisyon.Size = new System.Drawing.Size(170, 20);
             this.TBPozisyon.TabIndex = 13;
@@ -1490,9 +1490,9 @@
             this.panelControl16.Controls.Add(this.BTDokumanKaydet);
             this.panelControl16.Controls.Add(this.LBDosyaYolu);
             this.panelControl16.Controls.Add(this.LBDokumanAdi);
-            this.panelControl16.Location = new System.Drawing.Point(2, 5);
+            this.panelControl16.Location = new System.Drawing.Point(2, 0);
             this.panelControl16.Name = "panelControl16";
-            this.panelControl16.Size = new System.Drawing.Size(1079, 95);
+            this.panelControl16.Size = new System.Drawing.Size(1079, 100);
             this.panelControl16.TabIndex = 3;
             // 
             // panelControl17
@@ -1540,6 +1540,7 @@
             this.BTDokumanKaydet.Size = new System.Drawing.Size(82, 39);
             this.BTDokumanKaydet.TabIndex = 60;
             this.BTDokumanKaydet.Text = "&Kaydet";
+            this.BTDokumanKaydet.Click += new System.EventHandler(this.BTDokumanKaydet_Click);
             // 
             // LBDosyaYolu
             // 
@@ -1575,10 +1576,10 @@
             // 
             // gridControl1
             // 
-            this.gridControl1.Location = new System.Drawing.Point(-1, 5);
+            this.gridControl1.Location = new System.Drawing.Point(-3, 0);
             this.gridControl1.MainView = this.gridView4;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1075, 322);
+            this.gridControl1.Size = new System.Drawing.Size(1081, 324);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView4});
@@ -2226,7 +2227,7 @@
             // 
             // RGFiyat
             // 
-            this.RGFiyat.Location = new System.Drawing.Point(7, 318);
+            this.RGFiyat.Location = new System.Drawing.Point(29, 318);
             this.RGFiyat.Name = "RGFiyat";
             this.RGFiyat.Properties.Appearance.BackColor = System.Drawing.SystemColors.Control;
             this.RGFiyat.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);

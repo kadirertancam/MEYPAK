@@ -34,6 +34,7 @@ namespace MEYPAK.PRL.CARI
             _sevkAdresServis = new GenericWebServis<PocoSEVKADRES>();
             _cariAltHesList = new List<PocoCARIALTHES>();
             _cariYetkiliServis = new GenericWebServis<PocoCARIYETKILI>();
+            _cariDokumanServis = new GenericWebServis<PocoCARIDOKUMAN>();
             CBAltHesap.Properties.DataSource = _cariAltHesapServis.obje.Select(x => x.adi).ToList();
 
         }
@@ -46,6 +47,7 @@ namespace MEYPAK.PRL.CARI
         GenericWebServis<PocoCARIRESIM> _cariResimServis;
         GenericWebServis<PocoSTOKKATEGORI> _cariStOKKATEGORI;
         GenericWebServis<PocoCARIYETKILI> _cariYetkiliServis;
+        GenericWebServis<PocoCARIDOKUMAN> _cariDokumanServis;
         FCariList fCariList;
         FKategoriList fKategoriList;
         List<PocoCARIALTHES> _cariAltHesList;
@@ -97,6 +99,13 @@ namespace MEYPAK.PRL.CARI
                 if (editor != null)
                     editor.EditValue = null;
             }
+            foreach (var ctrl in panelControl16.Controls)
+            {
+                BaseEdit editor = ctrl as BaseEdit;
+                if (editor != null)
+                    editor.EditValue = null;
+            }
+
 
         }
         void Doldur()
@@ -488,6 +497,7 @@ namespace MEYPAK.PRL.CARI
         {
             _cariYetkiliServis.Data(ServisList.CariYetkiliEkleServis, new PocoCARIYETKILI()
             {
+                cariid= _cariServis.obje.Where(z => z.kod == BTCariSec.Text).FirstOrDefault().id,
                 adi = TBYetkiliAdi.Text,
                 pozisyon = TBPozisyon.Text 
             });
@@ -556,6 +566,7 @@ namespace MEYPAK.PRL.CARI
             }
         }
 
+        //Döküman Seç
         private void BTDosyaYoluSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             if (e.Button.Caption == "SEÇ")
@@ -571,6 +582,18 @@ namespace MEYPAK.PRL.CARI
                     //base64 = ImageToBase64(DosyaYolu);
                 }
             }
+        }
+
+        private void BTDokumanKaydet_Click(object sender, EventArgs e)
+        {
+            _cariDokumanServis.Data(ServisList.CariDokumanEkleServis, new PocoCARIDOKUMAN()
+            {
+                  cariid = _cariServis.obje.Where(z => z.kod == BTCariSec.Text).FirstOrDefault().id,
+                  adi = TBDokumanAdi.Text,
+                  dokuman = BTDosyaYoluSec.Text,
+            });
+            MessageBox.Show("Kayıt Başarıyla Eklendi!");
+            FormuTemizle();
         }
     }
     }
