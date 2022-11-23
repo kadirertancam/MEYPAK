@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using MEYPAK.DAL.Concrete.ADONET;
 using MEYPAK.Entity.Models.KASA;
+using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Entity.PocoModels.KASA;
+using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Kasa;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,9 +14,9 @@ namespace MEYPAK.API.Controllers.STOKControllers
     public class KASAHARController : Controller
     {
         private readonly IMapper _mapper;
-        private readonly IKasaServis _kasaHarServis;
-        private MPAdoContext<MPKASA> _adokasaHarservis = new MPAdoContext<MPKASA>();
-        public KASAHARController(IMapper mapper, IKasaServis kasaHarServis)
+        private readonly IStokKasaHarServis _kasaHarServis;
+        private MPAdoContext<MPSTOKKASAHAR> _adokasaHarservis = new MPAdoContext<MPSTOKKASAHAR>();
+        public KASAHARController(IMapper mapper, IStokKasaHarServis kasaHarServis)
         {
             _mapper = mapper;
             _kasaHarServis = kasaHarServis;
@@ -23,7 +25,7 @@ namespace MEYPAK.API.Controllers.STOKControllers
 
         [HttpGet]
         [Route("/[controller]/[action]")]
-        public IActionResult KASAHARListe()
+        public IActionResult STOKKASAHARListe()
         {
             try
             {
@@ -38,7 +40,7 @@ namespace MEYPAK.API.Controllers.STOKControllers
 
         [HttpGet]
         [Route("/[controller]/[action]")]
-        public IActionResult KASAHARListe2([FromQuery] string query)
+        public IActionResult STOKKASAHARListe2([FromQuery] string query)
         {
             try
             {
@@ -55,7 +57,7 @@ namespace MEYPAK.API.Controllers.STOKControllers
 
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult KASAEHARkleyadaGuncelle(PocoKASA pModel)
+        public IActionResult STOKKASAHAREkleyadaGuncelle(PocoSTOKKASAHAR pModel)
         {
             try
             {
@@ -69,7 +71,7 @@ namespace MEYPAK.API.Controllers.STOKControllers
         }
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult KASAHARSil(List<PocoKASA> pModel)
+        public IActionResult STOKKASAHARSil(List<PocoSTOKKASAHAR> pModel)
         {
             try
             {
@@ -83,7 +85,7 @@ namespace MEYPAK.API.Controllers.STOKControllers
         }
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult KASAHARGuncelle(PocoKASA pModel)
+        public IActionResult STOKKASAHARGuncelle(PocoSTOKKASAHAR pModel)
         {
             try
             {
