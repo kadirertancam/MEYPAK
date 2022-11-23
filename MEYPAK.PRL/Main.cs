@@ -76,6 +76,7 @@ namespace MEYPAK.PRL
         FPersonelKart fPersonelKart;
         FStokKasaPanel fKasaPanel;
         FParaBirimi fParaBirimi;
+        FFatura ffatura;
         public Tarih_Date _tarih_Date;
         public DataTable guncelkur;
         GenericWebServis<PocoPARABIRIM> _parabirimServis;
@@ -501,6 +502,26 @@ namespace MEYPAK.PRL
             fParaBirimi.Tag = "TPParaBirimi" + i;
             page.Controls.Add(fParaBirimi);
             fParaBirimi.Show();
+            i++;
+        }
+
+        private void accordionControlElement45_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            ffatura = new FFatura();
+            page.Name = "TPFatura" + i;
+            page.Text = "Fatura Tanım";
+            page.Tag = "TPFatura" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            ffatura.TopLevel = false;
+            ffatura.AutoScroll = true;
+            ffatura.Dock = DockStyle.Fill;
+            ffatura.Tag = "TPFatura" + i;
+            page.Controls.Add(ffatura);
+            ffatura.Show();
             i++;
         }
     }

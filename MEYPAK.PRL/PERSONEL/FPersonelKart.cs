@@ -237,6 +237,7 @@ namespace MEYPAK.PRL.PERSONEL
                         departmanid = Convert.ToInt32(CBDepartman.EditValue),
                         adi = sender.GetType().GetProperty("AutoSearchText").GetValue(sender).ToString()
                     });
+                    CBGorevDoldur();
                     MessageBox.Show(sender.GetType().GetProperty("AutoSearchText").GetValue(sender).ToString() + " Başarıyla Eklendi");
                 }
                 else
@@ -250,10 +251,9 @@ namespace MEYPAK.PRL.PERSONEL
         {//DEPARTMAN
             if (e.Button.Caption == "Ekle")
             {
-                if (CBDepartman.EditValue!=null)
+                var A = _personelDepartmanServis.obje.Where(x => x.id.ToString() == CBDepartman.EditValue.ToString()).Count();
+                if (_personelDepartmanServis.obje.Where(x=> x.id.ToString() == CBDepartman.EditValue.ToString()).Count()<=0)
                 {
-
-              
                 _personelDepartmanServis.Data(ServisList.PersonelDepartmanEkleServis, new PocoPERSONELDEPARTMAN()
                 {
                     adi = sender.GetType().GetProperty("AutoSearchText").GetValue(sender).ToString()
@@ -342,10 +342,14 @@ namespace MEYPAK.PRL.PERSONEL
         private void CBDepartman_EditValueChanged(object sender, EventArgs e)
         {
 
+            CBGorevDoldur();
+        }
+        void CBGorevDoldur()
+        {
+            CBGorev.Properties.DataSource = "";
             CBGorev.Properties.DataSource = _personelGorevServis.obje.Where(x => x.departmanid == Convert.ToInt32(CBDepartman.EditValue)).Select(x => new { ID = x.id, ADI = x.adi });
             CBGorev.Properties.ValueMember = "ID";
             CBGorev.Properties.DisplayMember = "ADI";
-
         }
 
         #region Methods

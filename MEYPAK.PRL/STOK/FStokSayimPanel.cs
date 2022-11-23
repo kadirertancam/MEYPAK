@@ -29,6 +29,7 @@ namespace MEYPAK.PRL.STOK
             stokSayimServis = new GenericWebServis<PocoSTOKSAYIM>();
             kategoriServis = new GenericWebServis<PocoSTOKKATEGORI>();
             _olcubrServis = new GenericWebServis<PocoOLCUBR>();
+            _stokolcubrServis = new GenericWebServis<PocoSTOKOLCUBR>();
         }
         string _islemtipi;
         string _form;
@@ -41,6 +42,7 @@ namespace MEYPAK.PRL.STOK
         GenericWebServis<PocoSTOKHAR> stokHarServis;
         GenericWebServis<PocoSTOKKATEGORI> kategoriServis;
         GenericWebServis<PocoOLCUBR> _olcubrServis;
+        GenericWebServis<PocoSTOKOLCUBR> _stokolcubrServis;
 
         #region Method
         public void Excelaktar(DevExpress.XtraGrid.Views.Grid.GridView GridView, string DosyaAdi)
@@ -90,7 +92,7 @@ namespace MEYPAK.PRL.STOK
             datatb.Columns.Add(ADI);
             DataColumn KATEGORI = new DataColumn("KATEGORİ", typeof(string));
             datatb.Columns.Add(KATEGORI);
-            DataColumn DEPOMIKTAR = new DataColumn("DEPODAKİMIKTAR", typeof(int));
+            DataColumn DEPOMIKTAR = new DataColumn("DEPODAKİMIKTAR", typeof(decimal));
             datatb.Columns.Add(DEPOMIKTAR);
             DataColumn SAYIMMIKTAR = new DataColumn("SAYIMMİKTARI", typeof(decimal));
             datatb.Columns.Add(SAYIMMIKTAR);
@@ -117,7 +119,7 @@ namespace MEYPAK.PRL.STOK
             {
                 datatab.Rows.Add(item.id, item.adi);
             }
-
+            
 
             RepositoryItemLookUpEdit riLookuparac = new RepositoryItemLookUpEdit();
             riLookuparac.DataSource = datatab;
@@ -130,7 +132,7 @@ namespace MEYPAK.PRL.STOK
             riLookuparac.AcceptEditorTextAsNewValue = DefaultBoolean.True;
             riLookuparac.AutoSearchColumnIndex = 1;
             riLookuparac.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
-
+            
 
 
             datatab.Columns[0].ColumnMapping = MappingType.Hidden;
@@ -145,7 +147,8 @@ namespace MEYPAK.PRL.STOK
                     kategoriServis.obje.Where(y => y.id == item.kategoriid).FirstOrDefault().acıklama,
                     stokHarServis.obje.Where(z => z.depoid == _tempStokSayim.depoid).Sum(z => z.miktar),
                     stokSayimHarServis.obje.Where(d => d.kayittipi == 0 && d.stoksayimid == _tempStokSayim.id && d.stokid == item.id).Count() == 0
-                    ? 0 : stokSayimHarServis.obje.Where(d => d.kayittipi == 0 && d.stoksayimid == _tempStokSayim.id && d.stokid == item.id).FirstOrDefault().miktar
+                    ? 0 : stokSayimHarServis.obje.Where(d => d.kayittipi == 0 && d.stoksayimid == _tempStokSayim.id && d.stokid == item.id).FirstOrDefault().miktar,
+                    1
                     );
             }
 

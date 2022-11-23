@@ -2,6 +2,7 @@
 using MEYPAK.Entity.Models.ARAC;
 using MEYPAK.Entity.Models.CARI;
 using MEYPAK.Entity.Models.DEPO;
+using MEYPAK.Entity.Models.FATURA;
 using MEYPAK.Entity.Models.IRSALIYE;
 using MEYPAK.Entity.Models.KASA;
 using MEYPAK.Entity.Models.PARAMETRE;

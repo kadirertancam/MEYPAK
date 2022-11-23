@@ -68,15 +68,15 @@
             this.BTNDegistir = new System.Windows.Forms.Button();
             this.BTNSil = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.GCSatinAlmaSiparis = new DevExpress.XtraGrid.GridControl();
+            this.GCFatura = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.TBCariKodu = new DevExpress.XtraEditors.ButtonEdit();
-            this.TBSiparisNo = new DevExpress.XtraEditors.ButtonEdit();
+            this.TBFaturaNo = new DevExpress.XtraEditors.ButtonEdit();
             this.TBGun = new DevExpress.XtraEditors.TextEdit();
-            this.DTSevkiyatTarih = new System.Windows.Forms.DateTimePicker();
+            this.DTTarih = new System.Windows.Forms.DateTimePicker();
             this.LBGun = new DevExpress.XtraEditors.LabelControl();
             this.DTPVadeTarihi = new System.Windows.Forms.DateTimePicker();
             this.TBAciklama = new DevExpress.XtraEditors.MemoEdit();
@@ -86,7 +86,7 @@
             this.CBDepo = new DevExpress.XtraEditors.GridLookUpEdit();
             this.CBDepoView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.CHBKdvDahil = new System.Windows.Forms.CheckBox();
-            this.DTSiparisTarih = new System.Windows.Forms.DateTimePicker();
+            this.DTFaturaTarih = new System.Windows.Forms.DateTimePicker();
             this.CBAltHesap = new DevExpress.XtraEditors.GridLookUpEdit();
             this.CBAltHesapView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.TBCariAdi = new DevExpress.XtraEditors.TextEdit();
@@ -95,12 +95,12 @@
             this.LBVadeTar = new DevExpress.XtraEditors.LabelControl();
             this.LBSevkiyatTar = new DevExpress.XtraEditors.LabelControl();
             this.LBParaBirimi = new DevExpress.XtraEditors.LabelControl();
-            this.LBSiparisTar = new DevExpress.XtraEditors.LabelControl();
+            this.LBFaturaTar = new DevExpress.XtraEditors.LabelControl();
             this.LBDepo = new DevExpress.XtraEditors.LabelControl();
             this.LBAltHesap = new DevExpress.XtraEditors.LabelControl();
             this.LBCariAdi = new DevExpress.XtraEditors.LabelControl();
             this.LBCariKodu = new DevExpress.XtraEditors.LabelControl();
-            this.LBSsiparisNo = new DevExpress.XtraEditors.LabelControl();
+            this.LBSfaturaNo = new DevExpress.XtraEditors.LabelControl();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -114,13 +114,13 @@
             this.groupBox2.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.GCSatinAlmaSiparis)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GCFatura)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).BeginInit();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TBCariKodu.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TBSiparisNo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBFaturaNo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBGun.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBAciklama.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBKur.Properties)).BeginInit();
@@ -429,6 +429,7 @@
             this.BTKaydet.TabStop = false;
             this.BTKaydet.Text = "Kaydet";
             this.BTKaydet.UseVisualStyleBackColor = true;
+            this.BTKaydet.Click += new System.EventHandler(this.BTKaydet_Click);
             // 
             // BTNDegistir
             // 
@@ -454,32 +455,34 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.GCSatinAlmaSiparis);
+            this.panel3.Controls.Add(this.GCFatura);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 213);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1900, 521);
             this.panel3.TabIndex = 1;
             // 
-            // GCSatinAlmaSiparis
+            // GCFatura
             // 
-            this.GCSatinAlmaSiparis.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GCSatinAlmaSiparis.Location = new System.Drawing.Point(0, 0);
-            this.GCSatinAlmaSiparis.MainView = this.gridView1;
-            this.GCSatinAlmaSiparis.Name = "GCSatinAlmaSiparis";
-            this.GCSatinAlmaSiparis.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.GCFatura.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GCFatura.Location = new System.Drawing.Point(0, 0);
+            this.GCFatura.MainView = this.gridView1;
+            this.GCFatura.Name = "GCFatura";
+            this.GCFatura.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemButtonEdit1});
-            this.GCSatinAlmaSiparis.Size = new System.Drawing.Size(1900, 521);
-            this.GCSatinAlmaSiparis.TabIndex = 16;
-            this.GCSatinAlmaSiparis.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.GCFatura.Size = new System.Drawing.Size(1900, 521);
+            this.GCFatura.TabIndex = 16;
+            this.GCFatura.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
             // gridView1
             // 
-            this.gridView1.GridControl = this.GCSatinAlmaSiparis;
+            this.gridView1.GridControl = this.GCFatura;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowFooter = true;
-      
+            this.gridView1.CustomRowCellEditForEditing += new DevExpress.XtraGrid.Views.Grid.CustomRowCellEditEventHandler(this.gridView1_CustomRowCellEditForEditing);
+            this.gridView1.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridView1_CellValueChanged);
+            this.gridView1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.gridView1_KeyPress);
             // 
             // repositoryItemButtonEdit1
             // 
@@ -500,9 +503,9 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.TBCariKodu);
-            this.groupBox1.Controls.Add(this.TBSiparisNo);
+            this.groupBox1.Controls.Add(this.TBFaturaNo);
             this.groupBox1.Controls.Add(this.TBGun);
-            this.groupBox1.Controls.Add(this.DTSevkiyatTarih);
+            this.groupBox1.Controls.Add(this.DTTarih);
             this.groupBox1.Controls.Add(this.LBGun);
             this.groupBox1.Controls.Add(this.DTPVadeTarihi);
             this.groupBox1.Controls.Add(this.TBAciklama);
@@ -510,7 +513,7 @@
             this.groupBox1.Controls.Add(this.CBParaBirimi);
             this.groupBox1.Controls.Add(this.CBDepo);
             this.groupBox1.Controls.Add(this.CHBKdvDahil);
-            this.groupBox1.Controls.Add(this.DTSiparisTarih);
+            this.groupBox1.Controls.Add(this.DTFaturaTarih);
             this.groupBox1.Controls.Add(this.CBAltHesap);
             this.groupBox1.Controls.Add(this.TBCariAdi);
             this.groupBox1.Controls.Add(this.LBKur);
@@ -518,12 +521,12 @@
             this.groupBox1.Controls.Add(this.LBVadeTar);
             this.groupBox1.Controls.Add(this.LBSevkiyatTar);
             this.groupBox1.Controls.Add(this.LBParaBirimi);
-            this.groupBox1.Controls.Add(this.LBSiparisTar);
+            this.groupBox1.Controls.Add(this.LBFaturaTar);
             this.groupBox1.Controls.Add(this.LBDepo);
             this.groupBox1.Controls.Add(this.LBAltHesap);
             this.groupBox1.Controls.Add(this.LBCariAdi);
             this.groupBox1.Controls.Add(this.LBCariKodu);
-            this.groupBox1.Controls.Add(this.LBSsiparisNo);
+            this.groupBox1.Controls.Add(this.LBSfaturaNo);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
@@ -534,53 +537,53 @@
             // 
             // TBCariKodu
             // 
-            this.TBCariKodu.Location = new System.Drawing.Point(86, 66);
+            this.TBCariKodu.Location = new System.Drawing.Point(86, 64);
             this.TBCariKodu.Name = "TBCariKodu";
             this.TBCariKodu.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TBCariKodu.Properties.Appearance.Options.UseFont = true;
             editorButtonImageOptions3.SvgImageSize = new System.Drawing.Size(16, 16);
             this.TBCariKodu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-
+            this.TBCariKodu.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.TBCariKodu_Properties_ButtonClick);
             this.TBCariKodu.Size = new System.Drawing.Size(222, 28);
             this.TBCariKodu.TabIndex = 149;
             // 
-            // TBSiparisNo
+            // TBFaturaNo
             // 
-            this.TBSiparisNo.Location = new System.Drawing.Point(86, 24);
-            this.TBSiparisNo.Name = "TBSiparisNo";
-            this.TBSiparisNo.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TBSiparisNo.Properties.Appearance.Options.UseFont = true;
-            this.TBSiparisNo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.TBFaturaNo.Location = new System.Drawing.Point(86, 24);
+            this.TBFaturaNo.Name = "TBFaturaNo";
+            this.TBFaturaNo.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TBFaturaNo.Properties.Appearance.Options.UseFont = true;
+            this.TBFaturaNo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-
-            this.TBSiparisNo.Size = new System.Drawing.Size(222, 28);
-            this.TBSiparisNo.TabIndex = 148;
+            this.TBFaturaNo.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.TBFaturaNo_Properties_ButtonClick);
+            this.TBFaturaNo.Size = new System.Drawing.Size(222, 28);
+            this.TBFaturaNo.TabIndex = 148;
             // 
             // TBGun
             // 
             this.TBGun.EditValue = "0";
-            this.TBGun.Location = new System.Drawing.Point(264, 169);
+            this.TBGun.Location = new System.Drawing.Point(264, 167);
             this.TBGun.Name = "TBGun";
             this.TBGun.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.TBGun.Size = new System.Drawing.Size(44, 26);
             this.TBGun.TabIndex = 147;
             // 
-            // DTSevkiyatTarih
+            // DTTarih
             // 
-            this.DTSevkiyatTarih.CalendarFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DTSevkiyatTarih.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DTSevkiyatTarih.Location = new System.Drawing.Point(813, 116);
-            this.DTSevkiyatTarih.Name = "DTSevkiyatTarih";
-            this.DTSevkiyatTarih.Size = new System.Drawing.Size(181, 21);
-            this.DTSevkiyatTarih.TabIndex = 146;
-            this.DTSevkiyatTarih.Value = new System.DateTime(2022, 11, 3, 13, 26, 0, 0);
+            this.DTTarih.CalendarFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DTTarih.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DTTarih.Location = new System.Drawing.Point(813, 116);
+            this.DTTarih.Name = "DTTarih";
+            this.DTTarih.Size = new System.Drawing.Size(181, 21);
+            this.DTTarih.TabIndex = 146;
+            this.DTTarih.Value = new System.DateTime(2022, 11, 3, 13, 26, 0, 0);
             // 
             // LBGun
             // 
             this.LBGun.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LBGun.Appearance.Options.UseFont = true;
-            this.LBGun.Location = new System.Drawing.Point(227, 174);
+            this.LBGun.Location = new System.Drawing.Point(227, 172);
             this.LBGun.Name = "LBGun";
             this.LBGun.Size = new System.Drawing.Size(22, 14);
             this.LBGun.TabIndex = 145;
@@ -590,7 +593,7 @@
             // 
             this.DTPVadeTarihi.CalendarFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.DTPVadeTarihi.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DTPVadeTarihi.Location = new System.Drawing.Point(86, 174);
+            this.DTPVadeTarihi.Location = new System.Drawing.Point(86, 172);
             this.DTPVadeTarihi.Name = "DTPVadeTarihi";
             this.DTPVadeTarihi.Size = new System.Drawing.Size(119, 21);
             this.DTPVadeTarihi.TabIndex = 144;
@@ -663,20 +666,20 @@
             this.CHBKdvDahil.Text = "KDV Dahil";
             this.CHBKdvDahil.UseVisualStyleBackColor = true;
             // 
-            // DTSiparisTarih
+            // DTFaturaTarih
             // 
-            this.DTSiparisTarih.CalendarFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DTSiparisTarih.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DTSiparisTarih.Location = new System.Drawing.Point(478, 35);
-            this.DTSiparisTarih.Name = "DTSiparisTarih";
-            this.DTSiparisTarih.Size = new System.Drawing.Size(222, 21);
-            this.DTSiparisTarih.TabIndex = 138;
-            this.DTSiparisTarih.Value = new System.DateTime(2022, 11, 3, 13, 26, 0, 0);
+            this.DTFaturaTarih.CalendarFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DTFaturaTarih.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DTFaturaTarih.Location = new System.Drawing.Point(478, 35);
+            this.DTFaturaTarih.Name = "DTFaturaTarih";
+            this.DTFaturaTarih.Size = new System.Drawing.Size(222, 21);
+            this.DTFaturaTarih.TabIndex = 138;
+            this.DTFaturaTarih.Value = new System.DateTime(2022, 11, 3, 13, 26, 0, 0);
             // 
             // CBAltHesap
             // 
             this.CBAltHesap.EditValue = "";
-            this.CBAltHesap.Location = new System.Drawing.Point(85, 135);
+            this.CBAltHesap.Location = new System.Drawing.Point(85, 133);
             this.CBAltHesap.Name = "CBAltHesap";
             this.CBAltHesap.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -695,7 +698,7 @@
             // 
             // TBCariAdi
             // 
-            this.TBCariAdi.Location = new System.Drawing.Point(86, 101);
+            this.TBCariAdi.Location = new System.Drawing.Point(86, 99);
             this.TBCariAdi.Name = "TBCariAdi";
             this.TBCariAdi.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.TBCariAdi.Size = new System.Drawing.Size(222, 26);
@@ -719,7 +722,7 @@
             // 
             // LBVadeTar
             // 
-            this.LBVadeTar.Location = new System.Drawing.Point(22, 174);
+            this.LBVadeTar.Location = new System.Drawing.Point(22, 172);
             this.LBVadeTar.Name = "LBVadeTar";
             this.LBVadeTar.Size = new System.Drawing.Size(53, 13);
             this.LBVadeTar.TabIndex = 127;
@@ -741,13 +744,13 @@
             this.LBParaBirimi.TabIndex = 125;
             this.LBParaBirimi.Text = "Para Birimi";
             // 
-            // LBSiparisTar
+            // LBFaturaTar
             // 
-            this.LBSiparisTar.Location = new System.Drawing.Point(402, 39);
-            this.LBSiparisTar.Name = "LBSiparisTar";
-            this.LBSiparisTar.Size = new System.Drawing.Size(60, 13);
-            this.LBSiparisTar.TabIndex = 124;
-            this.LBSiparisTar.Text = "Sipariş Tarihi";
+            this.LBFaturaTar.Location = new System.Drawing.Point(402, 39);
+            this.LBFaturaTar.Name = "LBFaturaTar";
+            this.LBFaturaTar.Size = new System.Drawing.Size(61, 13);
+            this.LBFaturaTar.TabIndex = 124;
+            this.LBFaturaTar.Text = "Fatura Tarihi";
             // 
             // LBDepo
             // 
@@ -759,7 +762,7 @@
             // 
             // LBAltHesap
             // 
-            this.LBAltHesap.Location = new System.Drawing.Point(33, 142);
+            this.LBAltHesap.Location = new System.Drawing.Point(33, 140);
             this.LBAltHesap.Name = "LBAltHesap";
             this.LBAltHesap.Size = new System.Drawing.Size(46, 13);
             this.LBAltHesap.TabIndex = 121;
@@ -767,7 +770,7 @@
             // 
             // LBCariAdi
             // 
-            this.LBCariAdi.Location = new System.Drawing.Point(40, 105);
+            this.LBCariAdi.Location = new System.Drawing.Point(40, 103);
             this.LBCariAdi.Name = "LBCariAdi";
             this.LBCariAdi.Size = new System.Drawing.Size(37, 13);
             this.LBCariAdi.TabIndex = 120;
@@ -775,30 +778,30 @@
             // 
             // LBCariKodu
             // 
-            this.LBCariKodu.Location = new System.Drawing.Point(32, 75);
+            this.LBCariKodu.Location = new System.Drawing.Point(32, 73);
             this.LBCariKodu.Name = "LBCariKodu";
             this.LBCariKodu.Size = new System.Drawing.Size(46, 13);
             this.LBCariKodu.TabIndex = 119;
             this.LBCariKodu.Text = "Cari Kodu";
             // 
-            // LBSsiparisNo
+            // LBSfaturaNo
             // 
-            this.LBSsiparisNo.Location = new System.Drawing.Point(31, 33);
-            this.LBSsiparisNo.Name = "LBSsiparisNo";
-            this.LBSsiparisNo.Size = new System.Drawing.Size(47, 13);
-            this.LBSsiparisNo.TabIndex = 118;
-            this.LBSsiparisNo.Text = "Sipariş No";
+            this.LBSfaturaNo.Location = new System.Drawing.Point(31, 33);
+            this.LBSfaturaNo.Name = "LBSfaturaNo";
+            this.LBSfaturaNo.Size = new System.Drawing.Size(48, 13);
+            this.LBSfaturaNo.TabIndex = 118;
+            this.LBSfaturaNo.Text = "Fatura No";
             // 
-            // FSatinAlmaSiparis
+            // FFatura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1900, 970);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FSatinAlmaSiparis";
+            this.Name = "FFatura";
             this.Text = "FMusteriSiparis";
-         
+            this.Load += new System.EventHandler(this.FFatura_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel4.ResumeLayout(false);
@@ -816,14 +819,14 @@
             this.groupBox2.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.GCSatinAlmaSiparis)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GCFatura)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TBCariKodu.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TBSiparisNo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBFaturaNo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBGun.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBAciklama.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBKur.Properties)).EndInit();
@@ -864,11 +867,11 @@
         private Panel panel6;
         private Panel panel7;
         private Panel panel8;
-        private DevExpress.XtraGrid.GridControl GCSatinAlmaSiparis;
+        private DevExpress.XtraGrid.GridControl GCFatura;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit1;
         public DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraEditors.TextEdit TBGun;
-        private DateTimePicker DTSevkiyatTarih;
+        private DateTimePicker DTTarih;
         private DevExpress.XtraEditors.LabelControl LBGun;
         private DateTimePicker DTPVadeTarihi;
         private DevExpress.XtraEditors.MemoEdit TBAciklama;
@@ -878,7 +881,7 @@
         private DevExpress.XtraEditors.GridLookUpEdit CBDepo;
         private DevExpress.XtraGrid.Views.Grid.GridView CBDepoView;
         private CheckBox CHBKdvDahil;
-        private DateTimePicker DTSiparisTarih;
+        private DateTimePicker DTFaturaTarih;
         private DevExpress.XtraEditors.GridLookUpEdit CBAltHesap;
         private DevExpress.XtraGrid.Views.Grid.GridView CBAltHesapView;
         private DevExpress.XtraEditors.TextEdit TBCariAdi;
@@ -887,12 +890,12 @@
         private DevExpress.XtraEditors.LabelControl LBVadeTar;
         private DevExpress.XtraEditors.LabelControl LBSevkiyatTar;
         private DevExpress.XtraEditors.LabelControl LBParaBirimi;
-        private DevExpress.XtraEditors.LabelControl LBSiparisTar;
+        private DevExpress.XtraEditors.LabelControl LBFaturaTar;
         private DevExpress.XtraEditors.LabelControl LBDepo;
         private DevExpress.XtraEditors.LabelControl LBAltHesap;
         private DevExpress.XtraEditors.LabelControl LBCariAdi;
         private DevExpress.XtraEditors.LabelControl LBCariKodu;
-        private DevExpress.XtraEditors.LabelControl LBSsiparisNo;
+        private DevExpress.XtraEditors.LabelControl LBSfaturaNo;
         private DevExpress.XtraEditors.LabelControl LBIskonto;
         private DevExpress.XtraEditors.TextEdit TBAIskonto3;
         private DevExpress.XtraEditors.TextEdit TBAIskonto1;
@@ -901,7 +904,7 @@
         private DevExpress.XtraEditors.LabelControl LBAltIskonto2;
         private DevExpress.XtraEditors.LabelControl LBAltIskonto1;
         private DevExpress.XtraEditors.TextEdit TBIskonto;
-        private DevExpress.XtraEditors.ButtonEdit TBSiparisNo;
+        private DevExpress.XtraEditors.ButtonEdit TBFaturaNo;
         private DevExpress.XtraEditors.ButtonEdit TBCariKodu;
     }
 }

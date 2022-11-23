@@ -42,6 +42,10 @@ using MEYPAK.DAL.Concrete.EntityFramework.Repository.KasaRepo;
 using MEYPAK.Interfaces.Kasa;
 using MEYPAK.BLL.KASA;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository.CariRepo;
+using MEYPAK.DAL.Abstract.FaturaDal;
+using MEYPAK.DAL.Concrete.EntityFramework.Repository.FaturaRepo;
+using MEYPAK.Interfaces.Fatura;
+using MEYPAK.BLL.FATURA;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -261,6 +265,12 @@ builder.Services.AddScoped<IKasaServis, KasaManager>();
 
 builder.Services.AddScoped<IStokKasaHarDal, EFStokKasaHarRepo>();
 builder.Services.AddScoped<IStokKasaHarServis, StokKasaHarManager>();
+#endregion
+#region Fatura_Scoped_Islemleri
+
+builder.Services.AddScoped<IFaturaDal, EFFaturaRepo>();
+builder.Services.AddScoped<IFaturaServis, FaturaManager>();
+
 #endregion
 
 

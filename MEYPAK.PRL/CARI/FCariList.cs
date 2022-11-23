@@ -31,6 +31,7 @@ namespace MEYPAK.PRL.CARI
         FSatisIrsaliye fSatisIrsaliye;
         FCariKart fCariKart;
        
+        FFatura ffatura;
         public FCariList(string form="",string islem="")
         {
             InitializeComponent();
@@ -66,6 +67,10 @@ namespace MEYPAK.PRL.CARI
             {
                 fSatisIrsaliye._tempCariKart = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
             }
+            if (_islem == "FFatura")
+            {
+                ffatura._tempCariKart = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+            }
             this.Close();
         }
 
@@ -85,6 +90,8 @@ namespace MEYPAK.PRL.CARI
                         fSatinAlmaSiparis = (FSatinAlmaSiparis)frm;
                     if (frm.Name.Contains("SatisIrsaliye"))
                         fSatisIrsaliye = (FSatisIrsaliye)frm;
+                    if (frm.Name.Contains("FFatura"))
+                        ffatura = (FFatura)frm;
                 }
             }
 

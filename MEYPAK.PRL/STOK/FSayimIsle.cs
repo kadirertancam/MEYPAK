@@ -70,20 +70,21 @@ namespace MEYPAK.PRL.STOK
                 {
                     _stokHarServis.Data(ServisList.StokHarListeServis);
                     List < PocoSTOKHAR > stokharlist = _stokHarServis.obje.Where(x => x.stokid == item.stokid).ToList();
-                    decimal a =  item.miktar -(stokharlist.Where(x => x.io == 1 && x.depoid == item.depoid && x.kayittipi==0).Sum(x => x.miktar) - stokharlist.Where(x => x.io == 0 && x.depoid == item.depoid && x.kayittipi == 0).Sum(x => x.miktar)) ;
+                    decimal a =  item.miktar - (stokharlist.Where(x => x.io == 1 && x.depoid == item.depoid && x.kayittipi==0).Sum(x => x.miktar) - stokharlist.Where(x => x.io == 0 && x.depoid == item.depoid && x.kayittipi == 0).Sum(x => x.miktar)) ;
                     _stokHarServis.Data(ServisList.StokHarEkleServis,new PocoSTOKHAR()
-                    {   
+                    {    
                         hareketturu = 7,
+                        birim = item.birimid,
                         stokid = item.stokid,
                         depoid = item.depoid,
                         sayimid = item.stoksayimid,
-                        miktar = a,
+                        miktar = a <0 ? a*-1: a,
                         io = a >0 ? 1 : 0,
                     });
                 }
                 _tempSayim.durum = 1;
                 _stokSayimServis.Data(ServisList.StokSayimEkleServis,_tempSayim);
-                LBDurum.Text = "Onaylandı";
+                TBDurum.Text = "Onaylandı";
                 MessageBox.Show("Sayım başarıyla işlendi.");
             }
             else
@@ -133,7 +134,7 @@ namespace MEYPAK.PRL.STOK
                 }
                 _tempSayim.durum = 0;
                 _stokSayimServis.Data(ServisList.StokSayimEkleServis,_tempSayim);
-                LBDurum.Text = "Onaylanmadı";
+                TBDurum.Text = "Onaylanmadı";
                 MessageBox.Show("Sayım İşlemi Başarıyla Kaldırıldı!");
             }
         }
