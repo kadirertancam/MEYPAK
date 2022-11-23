@@ -3,10 +3,11 @@ using System.Data;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.PocoModels.DEPO;
+using DevExpress.XtraEditors;
 
 namespace MEYPAK.PRL.STOK
 {
-    public partial class FStokHareket : Form
+    public partial class FStokHareket : XtraForm
     {
         public FStokHareket()
         {

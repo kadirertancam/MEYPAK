@@ -58,26 +58,27 @@
             this.DGHizmetKart.Location = new System.Drawing.Point(0, 0);
             this.DGHizmetKart.MainView = this.gridView1;
             this.DGHizmetKart.Name = "DGHizmetKart";
-            this.DGHizmetKart.Size = new System.Drawing.Size(1152, 511);
+            this.DGHizmetKart.Size = new System.Drawing.Size(987, 443);
             this.DGHizmetKart.TabIndex = 0;
             this.DGHizmetKart.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
             // gridView1
             // 
+            this.gridView1.DetailHeight = 303;
             this.gridView1.GridControl = this.DGHizmetKart;
             this.gridView1.Name = "gridView1";
             // 
             // TBHizmetAdi
             // 
-            this.TBHizmetAdi.Location = new System.Drawing.Point(130, 65);
+            this.TBHizmetAdi.Location = new System.Drawing.Point(123, 59);
             this.TBHizmetAdi.Name = "TBHizmetAdi";
             this.TBHizmetAdi.Size = new System.Drawing.Size(180, 20);
             this.TBHizmetAdi.TabIndex = 35;
             // 
             // BTHizmetSec
             // 
-            this.BTHizmetSec.Location = new System.Drawing.Point(130, 38);
+            this.BTHizmetSec.Location = new System.Drawing.Point(123, 33);
             this.BTHizmetSec.Name = "BTHizmetSec";
             this.BTHizmetSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Search)});
@@ -86,7 +87,7 @@
             // 
             // LBHizmetAdi
             // 
-            this.LBHizmetAdi.Location = new System.Drawing.Point(64, 67);
+            this.LBHizmetAdi.Location = new System.Drawing.Point(56, 62);
             this.LBHizmetAdi.Name = "LBHizmetAdi";
             this.LBHizmetAdi.Size = new System.Drawing.Size(50, 13);
             this.LBHizmetAdi.TabIndex = 9;
@@ -94,7 +95,7 @@
             // 
             // LBHizmetKodu
             // 
-            this.LBHizmetKodu.Location = new System.Drawing.Point(55, 42);
+            this.LBHizmetKodu.Location = new System.Drawing.Point(47, 36);
             this.LBHizmetKodu.Name = "LBHizmetKodu";
             this.LBHizmetKodu.Size = new System.Drawing.Size(59, 13);
             this.LBHizmetKodu.TabIndex = 7;
@@ -107,7 +108,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1156, 632);
+            this.panelControl1.Size = new System.Drawing.Size(991, 548);
             this.panelControl1.TabIndex = 1;
             // 
             // panelControl3
@@ -115,9 +116,9 @@
             this.panelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl3.Controls.Add(this.DGHizmetKart);
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl3.Location = new System.Drawing.Point(2, 119);
+            this.panelControl3.Location = new System.Drawing.Point(2, 103);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(1152, 511);
+            this.panelControl3.Size = new System.Drawing.Size(987, 443);
             this.panelControl3.TabIndex = 2;
             // 
             // panelControl2
@@ -127,7 +128,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl2.Location = new System.Drawing.Point(2, 2);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(1152, 117);
+            this.panelControl2.Size = new System.Drawing.Size(987, 101);
             this.panelControl2.TabIndex = 1;
             // 
             // groupControl1
@@ -140,17 +141,17 @@
             this.groupControl1.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(1152, 113);
+            this.groupControl1.Size = new System.Drawing.Size(987, 98);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Genel Bilgi";
             // 
             // FHizmetKart
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1156, 632);
+            this.ClientSize = new System.Drawing.Size(991, 548);
             this.Controls.Add(this.panelControl1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FHizmetKart";
             this.Text = "FHizmetKart";
             ((System.ComponentModel.ISupportInitialize)(this.DGHizmetKart)).EndInit();

@@ -408,12 +408,12 @@
             this.GBAlisFiyati.Controls.Add(this.TBAFiyat1);
             this.GBAlisFiyati.Controls.Add(this.LBADoviz);
             this.GBAlisFiyati.Controls.Add(this.CBADoviz);
-            this.GBAlisFiyati.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.GBAlisFiyati.Location = new System.Drawing.Point(287, 23);
+            this.GBAlisFiyati.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.GBAlisFiyati.Location = new System.Drawing.Point(372, 14);
             this.GBAlisFiyati.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.GBAlisFiyati.Name = "GBAlisFiyati";
             this.GBAlisFiyati.Padding = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.GBAlisFiyati.Size = new System.Drawing.Size(234, 215);
+            this.GBAlisFiyati.Size = new System.Drawing.Size(321, 235);
             this.GBAlisFiyati.TabIndex = 20;
             this.GBAlisFiyati.TabStop = false;
             this.GBAlisFiyati.Text = "Alış Fiyatı";
@@ -456,8 +456,7 @@
             this.TBAFiyat4.Name = "TBAFiyat4";
             this.TBAFiyat4.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TBAFiyat4.Properties.Appearance.Options.UseFont = true;
-            this.TBAFiyat4.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.TBAFiyat4.Size = new System.Drawing.Size(149, 26);
+            this.TBAFiyat4.Size = new System.Drawing.Size(149, 20);
             this.TBAFiyat4.TabIndex = 31;
             // 
             // LBAFiyat3
@@ -477,8 +476,7 @@
             this.TBAFiyat3.Name = "TBAFiyat3";
             this.TBAFiyat3.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TBAFiyat3.Properties.Appearance.Options.UseFont = true;
-            this.TBAFiyat3.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.TBAFiyat3.Size = new System.Drawing.Size(149, 26);
+            this.TBAFiyat3.Size = new System.Drawing.Size(149, 20);
             this.TBAFiyat3.TabIndex = 30;
             // 
             // LBAFiyat2
@@ -498,8 +496,7 @@
             this.TBAFiyat2.Name = "TBAFiyat2";
             this.TBAFiyat2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TBAFiyat2.Properties.Appearance.Options.UseFont = true;
-            this.TBAFiyat2.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.TBAFiyat2.Size = new System.Drawing.Size(149, 26);
+            this.TBAFiyat2.Size = new System.Drawing.Size(149, 20);
             this.TBAFiyat2.TabIndex = 29;
             // 
             // LBAFiyat1
@@ -562,73 +559,61 @@
             this.GBSatisFiyati.Controls.Add(this.TBSFiyat2);
             this.GBSatisFiyati.Controls.Add(this.TBSFiyat1);
             this.GBSatisFiyati.Controls.Add(this.CBSDoviz);
-            this.GBSatisFiyati.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.GBSatisFiyati.Location = new System.Drawing.Point(20, 14);
+            this.GBSatisFiyati.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.GBSatisFiyati.Location = new System.Drawing.Point(31, 14);
             this.GBSatisFiyati.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.GBSatisFiyati.Name = "GBSatisFiyati";
             this.GBSatisFiyati.Padding = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.GBSatisFiyati.Size = new System.Drawing.Size(234, 224);
+            this.GBSatisFiyati.Size = new System.Drawing.Size(321, 235);
             this.GBSatisFiyati.TabIndex = 0;
             this.GBSatisFiyati.TabStop = false;
             this.GBSatisFiyati.Text = "Satış Fiyatı";
             // 
             // LBSFiyat5
             // 
-            this.LBSFiyat5.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBSFiyat5.Appearance.Options.UseFont = true;
-            this.LBSFiyat5.Location = new System.Drawing.Point(5, 192);
+            this.LBSFiyat5.Location = new System.Drawing.Point(14, 195);
             this.LBSFiyat5.Name = "LBSFiyat5";
-            this.LBSFiyat5.Size = new System.Drawing.Size(38, 16);
+            this.LBSFiyat5.Size = new System.Drawing.Size(33, 13);
             this.LBSFiyat5.TabIndex = 34;
             this.LBSFiyat5.Text = "Fiyat 5";
             // 
             // LBSFiyat4
             // 
-            this.LBSFiyat4.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBSFiyat4.Appearance.Options.UseFont = true;
-            this.LBSFiyat4.Location = new System.Drawing.Point(7, 163);
+            this.LBSFiyat4.Location = new System.Drawing.Point(16, 166);
             this.LBSFiyat4.Name = "LBSFiyat4";
-            this.LBSFiyat4.Size = new System.Drawing.Size(38, 16);
+            this.LBSFiyat4.Size = new System.Drawing.Size(33, 13);
             this.LBSFiyat4.TabIndex = 33;
             this.LBSFiyat4.Text = "Fiyat 4";
             // 
             // LBSFiyat3
             // 
-            this.LBSFiyat3.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBSFiyat3.Appearance.Options.UseFont = true;
-            this.LBSFiyat3.Location = new System.Drawing.Point(7, 134);
+            this.LBSFiyat3.Location = new System.Drawing.Point(16, 137);
             this.LBSFiyat3.Name = "LBSFiyat3";
-            this.LBSFiyat3.Size = new System.Drawing.Size(38, 16);
+            this.LBSFiyat3.Size = new System.Drawing.Size(33, 13);
             this.LBSFiyat3.TabIndex = 31;
             this.LBSFiyat3.Text = "Fiyat 3";
             // 
             // LBSFiyat2
             // 
-            this.LBSFiyat2.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBSFiyat2.Appearance.Options.UseFont = true;
-            this.LBSFiyat2.Location = new System.Drawing.Point(7, 105);
+            this.LBSFiyat2.Location = new System.Drawing.Point(16, 108);
             this.LBSFiyat2.Name = "LBSFiyat2";
-            this.LBSFiyat2.Size = new System.Drawing.Size(38, 16);
+            this.LBSFiyat2.Size = new System.Drawing.Size(33, 13);
             this.LBSFiyat2.TabIndex = 32;
             this.LBSFiyat2.Text = "Fiyat 2";
             // 
             // LBSFiyat1
             // 
-            this.LBSFiyat1.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBSFiyat1.Appearance.Options.UseFont = true;
-            this.LBSFiyat1.Location = new System.Drawing.Point(7, 74);
+            this.LBSFiyat1.Location = new System.Drawing.Point(16, 77);
             this.LBSFiyat1.Name = "LBSFiyat1";
-            this.LBSFiyat1.Size = new System.Drawing.Size(38, 16);
+            this.LBSFiyat1.Size = new System.Drawing.Size(33, 13);
             this.LBSFiyat1.TabIndex = 29;
             this.LBSFiyat1.Text = "Fiyat 1";
             // 
             // LBSDoviz
             // 
-            this.LBSDoviz.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBSDoviz.Appearance.Options.UseFont = true;
-            this.LBSDoviz.Location = new System.Drawing.Point(7, 45);
+            this.LBSDoviz.Location = new System.Drawing.Point(16, 48);
             this.LBSDoviz.Name = "LBSDoviz";
-            this.LBSDoviz.Size = new System.Drawing.Size(62, 16);
+            this.LBSDoviz.Size = new System.Drawing.Size(52, 13);
             this.LBSDoviz.TabIndex = 30;
             this.LBSDoviz.Text = "Satış Döviz";
             // 
@@ -2006,12 +1991,12 @@
             // GBSatisKartiOzellik
             // 
             this.GBSatisKartiOzellik.Controls.Add(this.CEStokKartiOzellik);
-            this.GBSatisKartiOzellik.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.GBSatisKartiOzellik.Location = new System.Drawing.Point(306, 186);
+            this.GBSatisKartiOzellik.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.GBSatisKartiOzellik.Location = new System.Drawing.Point(333, 202);
             this.GBSatisKartiOzellik.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.GBSatisKartiOzellik.Name = "GBSatisKartiOzellik";
             this.GBSatisKartiOzellik.Padding = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.GBSatisKartiOzellik.Size = new System.Drawing.Size(277, 159);
+            this.GBSatisKartiOzellik.Size = new System.Drawing.Size(326, 126);
             this.GBSatisKartiOzellik.TabIndex = 2;
             this.GBSatisKartiOzellik.TabStop = false;
             this.GBSatisKartiOzellik.Text = "Özellik";
@@ -2019,9 +2004,9 @@
             // CEStokKartiOzellik
             // 
             this.CEStokKartiOzellik.EditValue = true;
-            this.CEStokKartiOzellik.Location = new System.Drawing.Point(22, 34);
+            this.CEStokKartiOzellik.Location = new System.Drawing.Point(43, 30);
             this.CEStokKartiOzellik.Name = "CEStokKartiOzellik";
-            this.CEStokKartiOzellik.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CEStokKartiOzellik.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CEStokKartiOzellik.Properties.Appearance.Options.UseFont = true;
             this.CEStokKartiOzellik.Properties.Caption = "Aktif";
             this.CEStokKartiOzellik.Size = new System.Drawing.Size(75, 20);
@@ -2037,98 +2022,78 @@
             this.GBStokKartiKdvOtv.Controls.Add(this.LBSatisKdv);
             this.GBStokKartiKdvOtv.Controls.Add(this.TBAlisKdv);
             this.GBStokKartiKdvOtv.Controls.Add(this.TBSatisKdv);
-            this.GBStokKartiKdvOtv.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.GBStokKartiKdvOtv.Location = new System.Drawing.Point(304, 19);
+            this.GBStokKartiKdvOtv.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.GBStokKartiKdvOtv.Location = new System.Drawing.Point(331, 35);
             this.GBStokKartiKdvOtv.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.GBStokKartiKdvOtv.Name = "GBStokKartiKdvOtv";
             this.GBStokKartiKdvOtv.Padding = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.GBStokKartiKdvOtv.Size = new System.Drawing.Size(279, 160);
+            this.GBStokKartiKdvOtv.Size = new System.Drawing.Size(328, 160);
             this.GBStokKartiKdvOtv.TabIndex = 1;
             this.GBStokKartiKdvOtv.TabStop = false;
             this.GBStokKartiKdvOtv.Text = "Kdv - Ötv";
             // 
             // LBAlisOtv
             // 
-            this.LBAlisOtv.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBAlisOtv.Appearance.Options.UseFont = true;
-            this.LBAlisOtv.Location = new System.Drawing.Point(5, 122);
+            this.LBAlisOtv.Location = new System.Drawing.Point(31, 118);
             this.LBAlisOtv.Name = "LBAlisOtv";
-            this.LBAlisOtv.Size = new System.Drawing.Size(41, 14);
+            this.LBAlisOtv.Size = new System.Drawing.Size(37, 13);
             this.LBAlisOtv.TabIndex = 29;
             this.LBAlisOtv.Text = "Alış Ötv";
             // 
             // TBAlisOtv
             // 
             this.TBAlisOtv.EditValue = "0";
-            this.TBAlisOtv.Location = new System.Drawing.Point(72, 119);
+            this.TBAlisOtv.Location = new System.Drawing.Point(113, 111);
             this.TBAlisOtv.Name = "TBAlisOtv";
-            this.TBAlisOtv.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TBAlisOtv.Properties.Appearance.Options.UseFont = true;
-            this.TBAlisOtv.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.TBAlisOtv.Size = new System.Drawing.Size(194, 26);
+            this.TBAlisOtv.Size = new System.Drawing.Size(194, 20);
             this.TBAlisOtv.TabIndex = 23;
             // 
             // LBSatisOtv
             // 
-            this.LBSatisOtv.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBSatisOtv.Appearance.Options.UseFont = true;
-            this.LBSatisOtv.Location = new System.Drawing.Point(5, 92);
+            this.LBSatisOtv.Location = new System.Drawing.Point(24, 92);
             this.LBSatisOtv.Name = "LBSatisOtv";
-            this.LBSatisOtv.Size = new System.Drawing.Size(52, 16);
+            this.LBSatisOtv.Size = new System.Drawing.Size(44, 13);
             this.LBSatisOtv.TabIndex = 30;
             this.LBSatisOtv.Text = "Satış Ötv";
             // 
             // TBSatisOtv
             // 
             this.TBSatisOtv.EditValue = "0";
-            this.TBSatisOtv.Location = new System.Drawing.Point(72, 89);
+            this.TBSatisOtv.Location = new System.Drawing.Point(113, 86);
             this.TBSatisOtv.Name = "TBSatisOtv";
-            this.TBSatisOtv.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TBSatisOtv.Properties.Appearance.Options.UseFont = true;
-            this.TBSatisOtv.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.TBSatisOtv.Size = new System.Drawing.Size(194, 26);
+            this.TBSatisOtv.Size = new System.Drawing.Size(194, 20);
             this.TBSatisOtv.TabIndex = 22;
             // 
             // LBAlisKdv
             // 
-            this.LBAlisKdv.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBAlisKdv.Appearance.Options.UseFont = true;
-            this.LBAlisKdv.Location = new System.Drawing.Point(5, 63);
+            this.LBAlisKdv.Location = new System.Drawing.Point(31, 63);
             this.LBAlisKdv.Name = "LBAlisKdv";
-            this.LBAlisKdv.Size = new System.Drawing.Size(45, 16);
+            this.LBAlisKdv.Size = new System.Drawing.Size(37, 13);
             this.LBAlisKdv.TabIndex = 27;
             this.LBAlisKdv.Text = "Alış Kdv";
             // 
             // LBSatisKdv
             // 
-            this.LBSatisKdv.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBSatisKdv.Appearance.Options.UseFont = true;
-            this.LBSatisKdv.Location = new System.Drawing.Point(5, 34);
+            this.LBSatisKdv.Location = new System.Drawing.Point(24, 36);
             this.LBSatisKdv.Name = "LBSatisKdv";
-            this.LBSatisKdv.Size = new System.Drawing.Size(53, 16);
+            this.LBSatisKdv.Size = new System.Drawing.Size(44, 13);
             this.LBSatisKdv.TabIndex = 28;
             this.LBSatisKdv.Text = "Satıs Kdv";
             // 
             // TBAlisKdv
             // 
             this.TBAlisKdv.EditValue = "0";
-            this.TBAlisKdv.Location = new System.Drawing.Point(72, 60);
+            this.TBAlisKdv.Location = new System.Drawing.Point(113, 61);
             this.TBAlisKdv.Name = "TBAlisKdv";
-            this.TBAlisKdv.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TBAlisKdv.Properties.Appearance.Options.UseFont = true;
-            this.TBAlisKdv.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.TBAlisKdv.Size = new System.Drawing.Size(194, 26);
+            this.TBAlisKdv.Size = new System.Drawing.Size(194, 20);
             this.TBAlisKdv.TabIndex = 21;
             // 
             // TBSatisKdv
             // 
             this.TBSatisKdv.EditValue = "0";
-            this.TBSatisKdv.Location = new System.Drawing.Point(72, 31);
+            this.TBSatisKdv.Location = new System.Drawing.Point(113, 30);
             this.TBSatisKdv.Name = "TBSatisKdv";
-            this.TBSatisKdv.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TBSatisKdv.Properties.Appearance.Options.UseFont = true;
-            this.TBSatisKdv.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.TBSatisKdv.Size = new System.Drawing.Size(194, 26);
+            this.TBSatisKdv.Size = new System.Drawing.Size(194, 20);
             this.TBSatisKdv.TabIndex = 20;
             // 
             // GBStokKartiGenel
@@ -2145,134 +2110,108 @@
             this.GBStokKartiGenel.Controls.Add(this.BTMarka);
             this.GBStokKartiGenel.Controls.Add(this.TBStokAdi);
             this.GBStokKartiGenel.Controls.Add(this.BTStokKodu);
-            this.GBStokKartiGenel.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.GBStokKartiGenel.Location = new System.Drawing.Point(8, 19);
+            this.GBStokKartiGenel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.GBStokKartiGenel.Location = new System.Drawing.Point(35, 35);
             this.GBStokKartiGenel.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.GBStokKartiGenel.Name = "GBStokKartiGenel";
             this.GBStokKartiGenel.Padding = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.GBStokKartiGenel.Size = new System.Drawing.Size(292, 326);
+            this.GBStokKartiGenel.Size = new System.Drawing.Size(292, 293);
             this.GBStokKartiGenel.TabIndex = 0;
             this.GBStokKartiGenel.TabStop = false;
             this.GBStokKartiGenel.Text = "Genel";
             // 
             // LBAciklama
             // 
-            this.LBAciklama.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBAciklama.Appearance.Options.UseFont = true;
-            this.LBAciklama.Location = new System.Drawing.Point(7, 204);
+            this.LBAciklama.Location = new System.Drawing.Point(25, 179);
             this.LBAciklama.Name = "LBAciklama";
-            this.LBAciklama.Size = new System.Drawing.Size(51, 16);
+            this.LBAciklama.Size = new System.Drawing.Size(41, 13);
             this.LBAciklama.TabIndex = 29;
             this.LBAciklama.Text = "Açıklama";
             // 
             // LBGrupKodu
             // 
-            this.LBGrupKodu.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBGrupKodu.Appearance.Options.UseFont = true;
-            this.LBGrupKodu.Location = new System.Drawing.Point(7, 172);
+            this.LBGrupKodu.Location = new System.Drawing.Point(16, 145);
             this.LBGrupKodu.Name = "LBGrupKodu";
-            this.LBGrupKodu.Size = new System.Drawing.Size(59, 16);
+            this.LBGrupKodu.Size = new System.Drawing.Size(50, 13);
             this.LBGrupKodu.TabIndex = 28;
             this.LBGrupKodu.Text = "Grup Kodu";
             // 
             // LBKategori
             // 
-            this.LBKategori.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBKategori.Appearance.Options.UseFont = true;
-            this.LBKategori.Location = new System.Drawing.Point(7, 139);
+            this.LBKategori.Location = new System.Drawing.Point(27, 118);
             this.LBKategori.Name = "LBKategori";
-            this.LBKategori.Size = new System.Drawing.Size(47, 16);
+            this.LBKategori.Size = new System.Drawing.Size(40, 13);
             this.LBKategori.TabIndex = 25;
             this.LBKategori.Text = "Kategori";
             // 
             // LBMarka
             // 
-            this.LBMarka.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBMarka.Appearance.Options.UseFont = true;
-            this.LBMarka.Location = new System.Drawing.Point(7, 105);
+            this.LBMarka.Location = new System.Drawing.Point(37, 90);
             this.LBMarka.Name = "LBMarka";
-            this.LBMarka.Size = new System.Drawing.Size(35, 16);
+            this.LBMarka.Size = new System.Drawing.Size(29, 13);
             this.LBMarka.TabIndex = 26;
             this.LBMarka.Text = "Marka";
             // 
             // LBStokAdi
             // 
-            this.LBStokAdi.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBStokAdi.Appearance.Options.UseFont = true;
-            this.LBStokAdi.Location = new System.Drawing.Point(7, 72);
+            this.LBStokAdi.Location = new System.Drawing.Point(27, 64);
             this.LBStokAdi.Name = "LBStokAdi";
-            this.LBStokAdi.Size = new System.Drawing.Size(47, 16);
+            this.LBStokAdi.Size = new System.Drawing.Size(39, 13);
             this.LBStokAdi.TabIndex = 3;
             this.LBStokAdi.Text = "Stok Adı";
             // 
             // LBStokKodu
             // 
-            this.LBStokKodu.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBStokKodu.Appearance.Options.UseFont = true;
-            this.LBStokKodu.Location = new System.Drawing.Point(7, 38);
+            this.LBStokKodu.Location = new System.Drawing.Point(18, 36);
             this.LBStokKodu.Name = "LBStokKodu";
-            this.LBStokKodu.Size = new System.Drawing.Size(57, 16);
+            this.LBStokKodu.Size = new System.Drawing.Size(48, 13);
             this.LBStokKodu.TabIndex = 3;
             this.LBStokKodu.Text = "Stok Kodu";
             // 
             // TBAciklama
             // 
-            this.TBAciklama.Location = new System.Drawing.Point(90, 202);
+            this.TBAciklama.Location = new System.Drawing.Point(90, 178);
             this.TBAciklama.Name = "TBAciklama";
-            this.TBAciklama.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TBAciklama.Properties.Appearance.Options.UseFont = true;
-            this.TBAciklama.Size = new System.Drawing.Size(194, 85);
+            this.TBAciklama.Size = new System.Drawing.Size(180, 85);
             this.TBAciklama.TabIndex = 24;
             // 
             // BTGrupKodu
             // 
-            this.BTGrupKodu.Location = new System.Drawing.Point(90, 168);
+            this.BTGrupKodu.Location = new System.Drawing.Point(90, 141);
             this.BTGrupKodu.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.BTGrupKodu.Name = "BTGrupKodu";
-            this.BTGrupKodu.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.BTGrupKodu.Properties.Appearance.Options.UseFont = true;
             this.BTGrupKodu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.BTGrupKodu.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.BTGrupKodu.Size = new System.Drawing.Size(194, 26);
+            this.BTGrupKodu.Size = new System.Drawing.Size(180, 22);
             this.BTGrupKodu.TabIndex = 22;
             // 
             // BTKategori
             // 
-            this.BTKategori.Location = new System.Drawing.Point(90, 135);
+            this.BTKategori.Location = new System.Drawing.Point(90, 114);
             this.BTKategori.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.BTKategori.Name = "BTKategori";
-            this.BTKategori.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.BTKategori.Properties.Appearance.Options.UseFont = true;
             this.BTKategori.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.BTKategori.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.BTKategori.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.buttonEdit3_Properties_ButtonClick);
-            this.BTKategori.Size = new System.Drawing.Size(194, 26);
+            this.BTKategori.Size = new System.Drawing.Size(180, 22);
             this.BTKategori.TabIndex = 21;
             // 
             // BTMarka
             // 
-            this.BTMarka.Location = new System.Drawing.Point(90, 101);
+            this.BTMarka.Location = new System.Drawing.Point(90, 85);
             this.BTMarka.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.BTMarka.Name = "BTMarka";
-            this.BTMarka.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.BTMarka.Properties.Appearance.Options.UseFont = true;
             this.BTMarka.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.BTMarka.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.BTMarka.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.buttonEdit2_Properties_ButtonClick);
-            this.BTMarka.Size = new System.Drawing.Size(194, 26);
+            this.BTMarka.Size = new System.Drawing.Size(180, 22);
             this.BTMarka.TabIndex = 20;
             // 
             // TBStokAdi
             // 
-            this.TBStokAdi.Location = new System.Drawing.Point(90, 66);
+            this.TBStokAdi.Location = new System.Drawing.Point(90, 60);
             this.TBStokAdi.Name = "TBStokAdi";
-            this.TBStokAdi.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TBStokAdi.Properties.Appearance.Options.UseFont = true;
-            this.TBStokAdi.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.TBStokAdi.Size = new System.Drawing.Size(194, 26);
+            this.TBStokAdi.Size = new System.Drawing.Size(180, 20);
             this.TBStokAdi.TabIndex = 19;
             // 
             // BTStokKodu
@@ -2280,24 +2219,23 @@
             this.BTStokKodu.Location = new System.Drawing.Point(90, 32);
             this.BTStokKodu.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.BTStokKodu.Name = "BTStokKodu";
-            this.BTStokKodu.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.BTStokKodu.Properties.Appearance.Options.UseFont = true;
             this.BTStokKodu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.BTStokKodu.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.BTStokKodu.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.buttonEdit1_Properties_ButtonClick);
-            this.BTStokKodu.Size = new System.Drawing.Size(194, 26);
+            this.BTStokKodu.Size = new System.Drawing.Size(180, 22);
             this.BTStokKodu.TabIndex = 3;
             this.BTStokKodu.Leave += new System.EventHandler(this.BTStokKodu_Leave_1);
             // 
             // FStokKart
             // 
+            this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1128, 931);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.Name = "FStokKart";
             this.Text = "Stok Kartı";

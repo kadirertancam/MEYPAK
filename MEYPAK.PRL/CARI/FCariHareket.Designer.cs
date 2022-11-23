@@ -94,9 +94,9 @@
             // 
             // TBAciklama
             // 
-            this.TBAciklama.Location = new System.Drawing.Point(294, 28);
+            this.TBAciklama.Location = new System.Drawing.Point(359, 28);
             this.TBAciklama.Name = "TBAciklama";
-            this.TBAciklama.Size = new System.Drawing.Size(135, 50);
+            this.TBAciklama.Size = new System.Drawing.Size(180, 59);
             this.TBAciklama.TabIndex = 32;
             // 
             // LBAdi
@@ -109,7 +109,7 @@
             // 
             // LBFiyat
             // 
-            this.LBFiyat.Location = new System.Drawing.Point(258, 108);
+            this.LBFiyat.Location = new System.Drawing.Point(323, 118);
             this.LBFiyat.Name = "LBFiyat";
             this.LBFiyat.Size = new System.Drawing.Size(24, 13);
             this.LBFiyat.TabIndex = 38;
@@ -117,7 +117,7 @@
             // 
             // LBKur
             // 
-            this.LBKur.Location = new System.Drawing.Point(265, 88);
+            this.LBKur.Location = new System.Drawing.Point(330, 98);
             this.LBKur.Name = "LBKur";
             this.LBKur.Size = new System.Drawing.Size(16, 13);
             this.LBKur.TabIndex = 38;
@@ -125,7 +125,7 @@
             // 
             // LBAciklama
             // 
-            this.LBAciklama.Location = new System.Drawing.Point(243, 29);
+            this.LBAciklama.Location = new System.Drawing.Point(308, 29);
             this.LBAciklama.Name = "LBAciklama";
             this.LBAciklama.Size = new System.Drawing.Size(41, 13);
             this.LBAciklama.TabIndex = 38;
@@ -165,7 +165,7 @@
             // 
             // RGCariHareket
             // 
-            this.RGCariHareket.Location = new System.Drawing.Point(294, 132);
+            this.RGCariHareket.Location = new System.Drawing.Point(359, 142);
             this.RGCariHareket.Name = "RGCariHareket";
             this.RGCariHareket.Properties.AccessibleRole = System.Windows.Forms.AccessibleRole.RadioButton;
             this.RGCariHareket.Properties.Appearance.BackColor = System.Drawing.SystemColors.Control;
@@ -252,7 +252,7 @@
             this.LBBakiyeDeger.Appearance.ForeColor = System.Drawing.SystemColors.Highlight;
             this.LBBakiyeDeger.Appearance.Options.UseFont = true;
             this.LBBakiyeDeger.Appearance.Options.UseForeColor = true;
-            this.LBBakiyeDeger.Location = new System.Drawing.Point(549, 215);
+            this.LBBakiyeDeger.Location = new System.Drawing.Point(567, 217);
             this.LBBakiyeDeger.Name = "LBBakiyeDeger";
             this.LBBakiyeDeger.Size = new System.Drawing.Size(8, 18);
             this.LBBakiyeDeger.TabIndex = 68;
@@ -264,7 +264,7 @@
             this.LBBorcDeger.Appearance.ForeColor = System.Drawing.SystemColors.Highlight;
             this.LBBorcDeger.Appearance.Options.UseFont = true;
             this.LBBorcDeger.Appearance.Options.UseForeColor = true;
-            this.LBBorcDeger.Location = new System.Drawing.Point(466, 215);
+            this.LBBorcDeger.Location = new System.Drawing.Point(484, 217);
             this.LBBorcDeger.Name = "LBBorcDeger";
             this.LBBorcDeger.Size = new System.Drawing.Size(8, 18);
             this.LBBorcDeger.TabIndex = 67;
@@ -276,7 +276,7 @@
             this.LBAlacakDeger.Appearance.ForeColor = System.Drawing.SystemColors.Highlight;
             this.LBAlacakDeger.Appearance.Options.UseFont = true;
             this.LBAlacakDeger.Appearance.Options.UseForeColor = true;
-            this.LBAlacakDeger.Location = new System.Drawing.Point(363, 215);
+            this.LBAlacakDeger.Location = new System.Drawing.Point(381, 217);
             this.LBAlacakDeger.Name = "LBAlacakDeger";
             this.LBAlacakDeger.Size = new System.Drawing.Size(8, 18);
             this.LBAlacakDeger.TabIndex = 66;
@@ -288,7 +288,7 @@
             this.BTKaydet.Appearance.Options.UseBackColor = true;
             this.BTKaydet.Appearance.Options.UseFont = true;
             this.BTKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTKaydet.ImageOptions.Image")));
-            this.BTKaydet.Location = new System.Drawing.Point(26, 197);
+            this.BTKaydet.Location = new System.Drawing.Point(41, 199);
             this.BTKaydet.Name = "BTKaydet";
             this.BTKaydet.Size = new System.Drawing.Size(70, 34);
             this.BTKaydet.TabIndex = 65;
@@ -330,7 +330,7 @@
             this.CBAltHesap.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.CBAltHesap.Properties.NullText = "";
-            this.CBAltHesap.Size = new System.Drawing.Size(134, 20);
+            this.CBAltHesap.Size = new System.Drawing.Size(180, 20);
             this.CBAltHesap.TabIndex = 49;
             // 
             // LBAltHesap
@@ -343,23 +343,23 @@
             // 
             // CBSube
             // 
-            this.CBSube.Location = new System.Drawing.Point(462, 29);
+            this.CBSube.Location = new System.Drawing.Point(573, 28);
             this.CBSube.Name = "CBSube";
             this.CBSube.Size = new System.Drawing.Size(123, 94);
             this.CBSube.TabIndex = 47;
             // 
             // TBFiyat
             // 
-            this.TBFiyat.Location = new System.Drawing.Point(294, 106);
+            this.TBFiyat.Location = new System.Drawing.Point(359, 116);
             this.TBFiyat.Name = "TBFiyat";
-            this.TBFiyat.Size = new System.Drawing.Size(135, 20);
+            this.TBFiyat.Size = new System.Drawing.Size(180, 20);
             this.TBFiyat.TabIndex = 46;
             // 
             // TBKur
             // 
-            this.TBKur.Location = new System.Drawing.Point(294, 83);
+            this.TBKur.Location = new System.Drawing.Point(359, 93);
             this.TBKur.Name = "TBKur";
-            this.TBKur.Size = new System.Drawing.Size(135, 20);
+            this.TBKur.Size = new System.Drawing.Size(180, 20);
             this.TBKur.TabIndex = 45;
             // 
             // CBParaBrm
@@ -371,7 +371,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.CBParaBrm.Properties.NullText = "";
             this.CBParaBrm.Properties.PopupView = this.gridLookUpEdit1View;
-            this.CBParaBrm.Size = new System.Drawing.Size(134, 20);
+            this.CBParaBrm.Size = new System.Drawing.Size(180, 20);
             this.CBParaBrm.TabIndex = 44;
             // 
             // gridLookUpEdit1View
@@ -386,7 +386,7 @@
             // 
             this.TBBelgeNo.Location = new System.Drawing.Point(78, 126);
             this.TBBelgeNo.Name = "TBBelgeNo";
-            this.TBBelgeNo.Size = new System.Drawing.Size(134, 20);
+            this.TBBelgeNo.Size = new System.Drawing.Size(180, 20);
             this.TBBelgeNo.TabIndex = 43;
             // 
             // DTTar
@@ -401,14 +401,14 @@
             this.DTTar.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.ClassicNew;
             this.DTTar.Properties.MaskSettings.Set("mask", "f");
             this.DTTar.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
-            this.DTTar.Size = new System.Drawing.Size(135, 20);
+            this.DTTar.Size = new System.Drawing.Size(180, 20);
             this.DTTar.TabIndex = 42;
             // 
             // TBAdi
             // 
             this.TBAdi.Location = new System.Drawing.Point(78, 54);
             this.TBAdi.Name = "TBAdi";
-            this.TBAdi.Size = new System.Drawing.Size(134, 20);
+            this.TBAdi.Size = new System.Drawing.Size(180, 20);
             this.TBAdi.TabIndex = 41;
             // 
             // BTCariSec
@@ -417,7 +417,7 @@
             this.BTCariSec.Name = "BTCariSec";
             this.BTCariSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.BTCariSec.Size = new System.Drawing.Size(134, 20);
+            this.BTCariSec.Size = new System.Drawing.Size(180, 20);
             this.BTCariSec.TabIndex = 40;
             // 
             // LBTopBorc
@@ -426,7 +426,7 @@
             this.LBTopBorc.Appearance.ForeColor = System.Drawing.Color.Red;
             this.LBTopBorc.Appearance.Options.UseFont = true;
             this.LBTopBorc.Appearance.Options.UseForeColor = true;
-            this.LBTopBorc.Location = new System.Drawing.Point(435, 194);
+            this.LBTopBorc.Location = new System.Drawing.Point(453, 196);
             this.LBTopBorc.Name = "LBTopBorc";
             this.LBTopBorc.Size = new System.Drawing.Size(83, 18);
             this.LBTopBorc.TabIndex = 64;
@@ -437,7 +437,7 @@
             this.BTSil.Appearance.BackColor = System.Drawing.Color.Gainsboro;
             this.BTSil.Appearance.Options.UseBackColor = true;
             this.BTSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTSil.ImageOptions.Image")));
-            this.BTSil.Location = new System.Drawing.Point(177, 197);
+            this.BTSil.Location = new System.Drawing.Point(192, 199);
             this.BTSil.Name = "BTSil";
             this.BTSil.Size = new System.Drawing.Size(70, 34);
             this.BTSil.TabIndex = 61;
@@ -448,7 +448,7 @@
             this.BTDegistir.Appearance.BackColor = System.Drawing.Color.Gainsboro;
             this.BTDegistir.Appearance.Options.UseBackColor = true;
             this.BTDegistir.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTDegistir.ImageOptions.Image")));
-            this.BTDegistir.Location = new System.Drawing.Point(101, 197);
+            this.BTDegistir.Location = new System.Drawing.Point(116, 199);
             this.BTDegistir.Name = "BTDegistir";
             this.BTDegistir.Size = new System.Drawing.Size(70, 34);
             this.BTDegistir.TabIndex = 60;
@@ -460,7 +460,7 @@
             this.LBBakiye.Appearance.ForeColor = System.Drawing.Color.Red;
             this.LBBakiye.Appearance.Options.UseFont = true;
             this.LBBakiye.Appearance.Options.UseForeColor = true;
-            this.LBBakiye.Location = new System.Drawing.Point(532, 194);
+            this.LBBakiye.Location = new System.Drawing.Point(550, 196);
             this.LBBakiye.Name = "LBBakiye";
             this.LBBakiye.Size = new System.Drawing.Size(42, 18);
             this.LBBakiye.TabIndex = 63;
@@ -472,7 +472,7 @@
             this.LBTopAlacak.Appearance.ForeColor = System.Drawing.Color.Red;
             this.LBTopAlacak.Appearance.Options.UseFont = true;
             this.LBTopAlacak.Appearance.Options.UseForeColor = true;
-            this.LBTopAlacak.Location = new System.Drawing.Point(323, 194);
+            this.LBTopAlacak.Location = new System.Drawing.Point(341, 196);
             this.LBTopAlacak.Name = "LBTopAlacak";
             this.LBTopAlacak.Size = new System.Drawing.Size(96, 18);
             this.LBTopAlacak.TabIndex = 62;

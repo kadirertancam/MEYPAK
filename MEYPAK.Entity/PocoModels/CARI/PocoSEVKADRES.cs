@@ -8,6 +8,7 @@ namespace MEYPAK.Entity.PocoModels.CARI
 {
     public class PocoSEVKADRES:SUPERPOCOMODEL
     {
+       
         public int althesapid { get; set; }
         public string kodu { get; set; }
         public string il { get; set; }

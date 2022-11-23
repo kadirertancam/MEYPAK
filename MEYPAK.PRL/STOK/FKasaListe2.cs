@@ -1,4 +1,5 @@
-﻿using MEYPAK.BLL.Assets;
+﻿using DevExpress.XtraEditors;
+using MEYPAK.BLL.Assets;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +12,7 @@ using System.Windows.Forms;
 
 namespace MEYPAK.PRL.STOK
 {
-    public partial class FKasaListe2 : Form
+    public partial class FKasaListe2 : XtraForm
     {
         string _frm, _islem;
         public FKasaListe2(string frm="",string islem="")

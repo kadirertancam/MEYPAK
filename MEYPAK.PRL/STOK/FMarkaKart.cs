@@ -1,4 +1,5 @@
-﻿using MEYPAK.BLL.Assets;
+﻿using DevExpress.XtraEditors;
+using MEYPAK.BLL.Assets;
 using MEYPAK.BLL.STOK;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository;
@@ -18,7 +19,7 @@ using System.Windows.Forms;
 
 namespace MEYPAK.PRL.STOK
 {
-    public partial class FMarkaKart : Form
+    public partial class FMarkaKart : XtraForm
     {
         public FMarkaKart()
         {

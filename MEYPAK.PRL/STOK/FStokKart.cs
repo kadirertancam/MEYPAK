@@ -7,7 +7,7 @@ using DevExpress.XtraEditors;
 
 namespace MEYPAK.PRL
 {
-    public partial class FStokKart : Form
+    public partial class FStokKart : XtraForm
     {
         /// <summary>
         /// Kategori ve grup yapısı oluşturulacak.
@@ -446,6 +446,7 @@ namespace MEYPAK.PRL
             }
         }
        
+        //RESİM Kaydet
         private void simpleButton1_Click(object sender, EventArgs e)
         {
             _stokResimServis.Data(ServisList.StokResimListeServis);

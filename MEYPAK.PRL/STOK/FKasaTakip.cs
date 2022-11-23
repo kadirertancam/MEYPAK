@@ -1,5 +1,6 @@
 ﻿using DevExpress.ClipboardSource.SpreadsheetML;
 using DevExpress.Utils;
+using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid.Columns;
@@ -19,7 +20,7 @@ using System.Windows.Forms;
 
 namespace MEYPAK.PRL.STOK
 {
-    public partial class FKasaTakip : Form
+    public partial class FKasaTakip : XtraForm
     {
         public FKasaTakip()
         {

@@ -73,7 +73,7 @@
             // 
             // LBSayimTarihi
             // 
-            this.LBSayimTarihi.Location = new System.Drawing.Point(21, 66);
+            this.LBSayimTarihi.Location = new System.Drawing.Point(21, 67);
             this.LBSayimTarihi.Name = "LBSayimTarihi";
             this.LBSayimTarihi.Size = new System.Drawing.Size(57, 13);
             this.LBSayimTarihi.TabIndex = 35;
@@ -93,9 +93,9 @@
             this.BTSayimIsle.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
             this.BTSayimIsle.Appearance.Options.UseBackColor = true;
             this.BTSayimIsle.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTSayimIsle.ImageOptions.Image")));
-            this.BTSayimIsle.Location = new System.Drawing.Point(175, 145);
+            this.BTSayimIsle.Location = new System.Drawing.Point(191, 145);
             this.BTSayimIsle.Name = "BTSayimIsle";
-            this.BTSayimIsle.Size = new System.Drawing.Size(70, 34);
+            this.BTSayimIsle.Size = new System.Drawing.Size(82, 39);
             this.BTSayimIsle.TabIndex = 61;
             this.BTSayimIsle.Text = "İşle";
             this.BTSayimIsle.Click += new System.EventHandler(this.BTSayimIsle_Click);
@@ -105,9 +105,9 @@
             this.BTKaldir.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
             this.BTKaldir.Appearance.Options.UseBackColor = true;
             this.BTKaldir.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTKaldir.ImageOptions.Image")));
-            this.BTKaldir.Location = new System.Drawing.Point(251, 145);
+            this.BTKaldir.Location = new System.Drawing.Point(279, 145);
             this.BTKaldir.Name = "BTKaldir";
-            this.BTKaldir.Size = new System.Drawing.Size(70, 34);
+            this.BTKaldir.Size = new System.Drawing.Size(82, 39);
             this.BTKaldir.TabIndex = 62;
             this.BTKaldir.Text = "Kaldır";
             this.BTKaldir.Click += new System.EventHandler(this.BTKaldir_Click);
@@ -118,7 +118,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(349, 206);
+            this.panelControl1.Size = new System.Drawing.Size(456, 277);
             this.panelControl1.TabIndex = 63;
             // 
             // groupControl1
@@ -135,7 +135,7 @@
             this.groupControl1.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             this.groupControl1.Location = new System.Drawing.Point(2, 2);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(345, 202);
+            this.groupControl1.Size = new System.Drawing.Size(452, 273);
             this.groupControl1.TabIndex = 63;
             this.groupControl1.Text = "Sayım İşleme";
             // 
@@ -151,7 +151,7 @@
             // 
             this.DTSayimTar.EditValue = new System.DateTime(2022, 11, 17, 13, 35, 2, 150);
             this.DTSayimTar.Enabled = false;
-            this.DTSayimTar.Location = new System.Drawing.Point(102, 63);
+            this.DTSayimTar.Location = new System.Drawing.Point(102, 64);
             this.DTSayimTar.Name = "DTSayimTar";
             this.DTSayimTar.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -159,7 +159,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.DTSayimTar.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.ClassicNew;
             this.DTSayimTar.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
-            this.DTSayimTar.Size = new System.Drawing.Size(154, 20);
+            this.DTSayimTar.Size = new System.Drawing.Size(180, 20);
             this.DTSayimTar.TabIndex = 37;
             // 
             // BTSayimSec
@@ -170,14 +170,14 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTSayimSec.Properties.Name = "BTSayimSec";
             this.BTSayimSec.Properties.Click += new System.EventHandler(this.BTSayimSec_Properties_Click);
-            this.BTSayimSec.Size = new System.Drawing.Size(154, 22);
+            this.BTSayimSec.Size = new System.Drawing.Size(180, 22);
             this.BTSayimSec.TabIndex = 36;
             // 
             // FSayimIsle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(349, 206);
+            this.ClientSize = new System.Drawing.Size(456, 277);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.label4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

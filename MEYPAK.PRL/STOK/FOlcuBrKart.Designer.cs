@@ -167,9 +167,9 @@
             this.ClientSize = new System.Drawing.Size(871, 555);
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FOlcuBrKart";
-            this.Text = "b";
+            this.Text = "Ölçü Birim Ekle";
             this.Load += new System.EventHandler(this.FStokOlcuBrKart_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);

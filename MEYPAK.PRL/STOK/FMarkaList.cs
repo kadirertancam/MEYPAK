@@ -1,4 +1,5 @@
 ﻿using DevExpress.DataProcessing.InMemoryDataProcessor.GraphGenerator;
+using DevExpress.XtraEditors;
 using MEYPAK.BLL.Assets;
 using MEYPAK.BLL.STOK;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
@@ -18,7 +19,7 @@ using System.Windows.Forms;
 
 namespace MEYPAK.PRL.STOK
 {
-    public partial class FMarkaList : Form
+    public partial class FMarkaList : XtraForm
     {
         FMarkaKart FMarkaKart;
         FStokKart fStokKart;

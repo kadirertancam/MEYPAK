@@ -59,28 +59,29 @@
             this.gridControl1.Location = new System.Drawing.Point(2, 2);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(922, 495);
+            this.gridControl1.Size = new System.Drawing.Size(789, 394);
             this.gridControl1.TabIndex = 81;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
             // gridView1
             // 
+            this.gridView1.DetailHeight = 303;
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.DoubleClick += new System.EventHandler(this.gridView1_DoubleClick);
             // 
             // TBAciklama
             // 
-            this.TBAciklama.Location = new System.Drawing.Point(108, 57);
+            this.TBAciklama.Location = new System.Drawing.Point(119, 49);
             this.TBAciklama.Multiline = true;
             this.TBAciklama.Name = "TBAciklama";
-            this.TBAciklama.Size = new System.Drawing.Size(199, 37);
+            this.TBAciklama.Size = new System.Drawing.Size(180, 68);
             this.TBAciklama.TabIndex = 3;
             // 
             // LBMarkaAdi
             // 
-            this.LBMarkaAdi.Location = new System.Drawing.Point(50, 31);
+            this.LBMarkaAdi.Location = new System.Drawing.Point(43, 27);
             this.LBMarkaAdi.Name = "LBMarkaAdi";
             this.LBMarkaAdi.Size = new System.Drawing.Size(47, 13);
             this.LBMarkaAdi.TabIndex = 12;
@@ -88,7 +89,7 @@
             // 
             // LBMarkaAciklama
             // 
-            this.LBMarkaAciklama.Location = new System.Drawing.Point(56, 57);
+            this.LBMarkaAciklama.Location = new System.Drawing.Point(48, 49);
             this.LBMarkaAciklama.Name = "LBMarkaAciklama";
             this.LBMarkaAciklama.Size = new System.Drawing.Size(41, 13);
             this.LBMarkaAciklama.TabIndex = 13;
@@ -96,10 +97,9 @@
             // 
             // TBMarkaAdi
             // 
-            this.TBMarkaAdi.Location = new System.Drawing.Point(108, 26);
+            this.TBMarkaAdi.Location = new System.Drawing.Point(119, 23);
             this.TBMarkaAdi.Name = "TBMarkaAdi";
-            this.TBMarkaAdi.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.TBMarkaAdi.Size = new System.Drawing.Size(199, 26);
+            this.TBMarkaAdi.Size = new System.Drawing.Size(180, 20);
             this.TBMarkaAdi.TabIndex = 81;
             // 
             // panelControl1
@@ -109,16 +109,16 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(930, 620);
+            this.panelControl1.Size = new System.Drawing.Size(797, 537);
             this.panelControl1.TabIndex = 2;
             // 
             // panelControl3
             // 
             this.panelControl3.Controls.Add(this.gridControl1);
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl3.Location = new System.Drawing.Point(2, 119);
+            this.panelControl3.Location = new System.Drawing.Point(2, 137);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(926, 499);
+            this.panelControl3.Size = new System.Drawing.Size(793, 398);
             this.panelControl3.TabIndex = 82;
             // 
             // panelControl2
@@ -127,7 +127,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl2.Location = new System.Drawing.Point(2, 2);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(926, 117);
+            this.panelControl2.Size = new System.Drawing.Size(793, 135);
             this.panelControl2.TabIndex = 2;
             // 
             // groupControl1
@@ -137,10 +137,11 @@
             this.groupControl1.Controls.Add(this.LBMarkaAciklama);
             this.groupControl1.Controls.Add(this.TBAciklama);
             this.groupControl1.Controls.Add(this.LBMarkaAdi);
+            this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupControl1.GroupStyle = DevExpress.Utils.GroupStyle.Light;
-            this.groupControl1.Location = new System.Drawing.Point(3, 1);
+            this.groupControl1.Location = new System.Drawing.Point(2, 2);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(920, 112);
+            this.groupControl1.Size = new System.Drawing.Size(789, 130);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Genel";
             // 
@@ -149,18 +150,18 @@
             this.BTMarkaKartKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
             this.BTMarkaKartKaydet.Appearance.Options.UseBackColor = true;
             this.BTMarkaKartKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTMarkaKartKaydet.ImageOptions.Image")));
-            this.BTMarkaKartKaydet.Location = new System.Drawing.Point(392, 32);
+            this.BTMarkaKartKaydet.Location = new System.Drawing.Point(327, 36);
             this.BTMarkaKartKaydet.Name = "BTMarkaKartKaydet";
-            this.BTMarkaKartKaydet.Size = new System.Drawing.Size(122, 46);
+            this.BTMarkaKartKaydet.Size = new System.Drawing.Size(82, 39);
             this.BTMarkaKartKaydet.TabIndex = 82;
             this.BTMarkaKartKaydet.Text = "&Kaydet";
             this.BTMarkaKartKaydet.Click += new System.EventHandler(this.BTMarkaKartKaydet_Click);
             // 
             // FMarkaKart
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(930, 620);
+            this.ClientSize = new System.Drawing.Size(797, 537);
             this.Controls.Add(this.panelControl1);
             this.Name = "FMarkaKart";
             this.Text = "FMarkaKart";

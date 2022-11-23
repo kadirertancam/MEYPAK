@@ -8,6 +8,7 @@ namespace MEYPAK.Entity.Models.CARI
 {
     public class MPSEVKADRES:SUPERMODEL
     {
+        
         public int ALTHESAPID { get; set; }
         public string KODU { get; set; }
         public string IL { get; set; }
