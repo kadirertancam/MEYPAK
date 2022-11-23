@@ -132,6 +132,7 @@
             this.accordionControlElement43 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement34 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement37 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement45 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement32 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement33 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement21 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -148,7 +149,7 @@
             this.accordionControlElement27 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
             this.applicationMenu1 = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
-            this.accordionControlElement45 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement46 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -888,7 +889,8 @@
             this.accordionControlElement15,
             this.accordionControlElement16,
             this.accordionControlElement17,
-            this.accordionControlElement29});
+            this.accordionControlElement29,
+            this.accordionControlElement46});
             this.accordionControlElement3.Expanded = true;
             this.accordionControlElement3.Name = "accordionControlElement3";
             this.accordionControlElement3.Text = "Hareketler";
@@ -1040,6 +1042,13 @@
             this.accordionControlElement37.Text = "SatınAlma Sipariş";
             this.accordionControlElement37.Click += new System.EventHandler(this.accordionControlElement37_Click);
             // 
+            // accordionControlElement45
+            // 
+            this.accordionControlElement45.Name = "accordionControlElement45";
+            this.accordionControlElement45.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement45.Text = "Fatura Tanım";
+            this.accordionControlElement45.Click += new System.EventHandler(this.accordionControlElement45_Click);
+            // 
             // accordionControlElement32
             // 
             this.accordionControlElement32.Name = "accordionControlElement32";
@@ -1160,12 +1169,12 @@
             // 
             this.applicationMenu1.Name = "applicationMenu1";
             // 
-            // accordionControlElement45
+            // accordionControlElement46
             // 
-            this.accordionControlElement45.Name = "accordionControlElement45";
-            this.accordionControlElement45.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement45.Text = "Fatura Tanım";
-            this.accordionControlElement45.Click += new System.EventHandler(this.accordionControlElement45_Click);
+            this.accordionControlElement46.Name = "accordionControlElement46";
+            this.accordionControlElement46.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement46.Text = "Stok Kasa Hareket";
+            this.accordionControlElement46.Click += new System.EventHandler(this.accordionControlElement46_Click);
             // 
             // Main
             // 
@@ -1314,5 +1323,6 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement22;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement44;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement45;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement46;
     }
 }

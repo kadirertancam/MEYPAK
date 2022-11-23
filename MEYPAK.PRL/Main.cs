@@ -77,6 +77,7 @@ namespace MEYPAK.PRL
         FStokKasaPanel fKasaPanel;
         FParaBirimi fParaBirimi;
         FFatura ffatura;
+        FKasaTakip fStokKasaHareket;
         public Tarih_Date _tarih_Date;
         public DataTable guncelkur;
         GenericWebServis<PocoPARABIRIM> _parabirimServis;
@@ -522,6 +523,26 @@ namespace MEYPAK.PRL
             ffatura.Tag = "TPFatura" + i;
             page.Controls.Add(ffatura);
             ffatura.Show();
+            i++;
+        }
+
+        private void accordionControlElement46_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fStokKasaHareket = new FKasaTakip();
+            page.Name = "TPStokKasaHareket" + i;
+            page.Text = "Stok Kasa Hareket";
+            page.Tag = "TPStokKasaHareket" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fStokKasaHareket.TopLevel = false;
+            fStokKasaHareket.AutoScroll = true;
+            fStokKasaHareket.Dock = DockStyle.Fill;
+            fStokKasaHareket.Tag = "TPStokKasaHareket" + i;
+            page.Controls.Add(fStokKasaHareket);
+            fStokKasaHareket.Show();
             i++;
         }
     }
