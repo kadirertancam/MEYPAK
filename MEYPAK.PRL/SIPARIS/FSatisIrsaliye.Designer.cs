@@ -155,9 +155,9 @@
             this.panel4.Controls.Add(this.panel8);
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(0, 734);
+            this.panel4.Location = new System.Drawing.Point(0, 718);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1900, 236);
+            this.panel4.Size = new System.Drawing.Size(1900, 252);
             this.panel4.TabIndex = 2;
             // 
             // panel8
@@ -168,12 +168,12 @@
             this.panel8.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel8.Location = new System.Drawing.Point(0, 0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(336, 236);
+            this.panel8.Size = new System.Drawing.Size(336, 252);
             this.panel8.TabIndex = 27;
             // 
             // TBIskonto
             // 
-            this.TBIskonto.Location = new System.Drawing.Point(114, 22);
+            this.TBIskonto.Location = new System.Drawing.Point(137, 21);
             this.TBIskonto.Name = "TBIskonto";
             this.TBIskonto.Properties.Appearance.BackColor = System.Drawing.Color.Gray;
             this.TBIskonto.Properties.Appearance.ForeColor = System.Drawing.Color.Transparent;
@@ -187,7 +187,7 @@
             // LBIskonto
             // 
             this.LBIskonto.Appearance.Options.UseFont = true;
-            this.LBIskonto.Location = new System.Drawing.Point(22, 24);
+            this.LBIskonto.Location = new System.Drawing.Point(45, 23);
             this.LBIskonto.Name = "LBIskonto";
             this.LBIskonto.Size = new System.Drawing.Size(61, 13);
             this.LBIskonto.TabIndex = 126;
@@ -201,7 +201,7 @@
             this.groupBox3.Controls.Add(this.LBAltIskonto3);
             this.groupBox3.Controls.Add(this.LBAltIskonto2);
             this.groupBox3.Controls.Add(this.LBAltIskonto1);
-            this.groupBox3.Location = new System.Drawing.Point(14, 54);
+            this.groupBox3.Location = new System.Drawing.Point(37, 53);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(253, 119);
             this.groupBox3.TabIndex = 25;
@@ -237,31 +237,25 @@
             // 
             // LBAltIskonto3
             // 
-            this.LBAltIskonto3.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBAltIskonto3.Appearance.Options.UseFont = true;
             this.LBAltIskonto3.Location = new System.Drawing.Point(9, 86);
             this.LBAltIskonto3.Name = "LBAltIskonto3";
-            this.LBAltIskonto3.Size = new System.Drawing.Size(71, 14);
+            this.LBAltIskonto3.Size = new System.Drawing.Size(61, 13);
             this.LBAltIskonto3.TabIndex = 127;
             this.LBAltIskonto3.Text = "Alt İskonto 3";
             // 
             // LBAltIskonto2
             // 
-            this.LBAltIskonto2.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBAltIskonto2.Appearance.Options.UseFont = true;
             this.LBAltIskonto2.Location = new System.Drawing.Point(9, 57);
             this.LBAltIskonto2.Name = "LBAltIskonto2";
-            this.LBAltIskonto2.Size = new System.Drawing.Size(71, 14);
+            this.LBAltIskonto2.Size = new System.Drawing.Size(61, 13);
             this.LBAltIskonto2.TabIndex = 128;
             this.LBAltIskonto2.Text = "Alt İskonto 2";
             // 
             // LBAltIskonto1
             // 
-            this.LBAltIskonto1.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBAltIskonto1.Appearance.Options.UseFont = true;
             this.LBAltIskonto1.Location = new System.Drawing.Point(9, 28);
             this.LBAltIskonto1.Name = "LBAltIskonto1";
-            this.LBAltIskonto1.Size = new System.Drawing.Size(71, 14);
+            this.LBAltIskonto1.Size = new System.Drawing.Size(61, 13);
             this.LBAltIskonto1.TabIndex = 129;
             this.LBAltIskonto1.Text = "Alt İskonto 1";
             // 
@@ -272,14 +266,14 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel5.Location = new System.Drawing.Point(1563, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(337, 236);
+            this.panel5.Size = new System.Drawing.Size(337, 252);
             this.panel5.TabIndex = 26;
             // 
             // panel7
             // 
             this.panel7.Controls.Add(this.groupBox2);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel7.Location = new System.Drawing.Point(0, 6);
+            this.panel7.Location = new System.Drawing.Point(0, 22);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(337, 172);
             this.panel7.TabIndex = 28;
@@ -414,7 +408,7 @@
             this.panel6.Controls.Add(this.BTNDegistir);
             this.panel6.Controls.Add(this.BTNSil);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel6.Location = new System.Drawing.Point(0, 178);
+            this.panel6.Location = new System.Drawing.Point(0, 194);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(337, 58);
             this.panel6.TabIndex = 27;
@@ -457,7 +451,7 @@
             // 
             this.panel3.Controls.Add(this.GCIrsaliye);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 213);
+            this.panel3.Location = new System.Drawing.Point(0, 197);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1900, 521);
             this.panel3.TabIndex = 1;
@@ -497,7 +491,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1900, 213);
+            this.panel2.Size = new System.Drawing.Size(1900, 197);
             this.panel2.TabIndex = 0;
             // 
             // groupBox1
@@ -531,7 +525,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1900, 213);
+            this.groupBox1.Size = new System.Drawing.Size(1900, 193);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Satış İrsaliye";
@@ -539,42 +533,42 @@
             // DTSevkiyatTarih
             // 
             this.DTSevkiyatTarih.EditValue = new System.DateTime(2022, 11, 18, 17, 30, 31, 213);
-            this.DTSevkiyatTarih.Location = new System.Drawing.Point(813, 115);
+            this.DTSevkiyatTarih.Location = new System.Drawing.Point(825, 120);
             this.DTSevkiyatTarih.Name = "DTSevkiyatTarih";
             this.DTSevkiyatTarih.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.DTSevkiyatTarih.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.DTSevkiyatTarih.Size = new System.Drawing.Size(100, 20);
+            this.DTSevkiyatTarih.Size = new System.Drawing.Size(181, 20);
             this.DTSevkiyatTarih.TabIndex = 161;
             // 
             // DTSiparisTarih
             // 
             this.DTSiparisTarih.EditValue = new System.DateTime(2022, 11, 18, 17, 30, 38, 141);
-            this.DTSiparisTarih.Location = new System.Drawing.Point(461, 31);
+            this.DTSiparisTarih.Location = new System.Drawing.Point(473, 39);
             this.DTSiparisTarih.Name = "DTSiparisTarih";
             this.DTSiparisTarih.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.DTSiparisTarih.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.DTSiparisTarih.Size = new System.Drawing.Size(215, 20);
+            this.DTSiparisTarih.Size = new System.Drawing.Size(180, 20);
             this.DTSiparisTarih.TabIndex = 160;
             // 
             // DTPVadeTarihi
             // 
             this.DTPVadeTarihi.EditValue = new System.DateTime(2022, 11, 18, 17, 30, 23, 918);
-            this.DTPVadeTarihi.Location = new System.Drawing.Point(106, 138);
+            this.DTPVadeTarihi.Location = new System.Drawing.Point(118, 146);
             this.DTPVadeTarihi.Name = "DTPVadeTarihi";
             this.DTPVadeTarihi.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.DTPVadeTarihi.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.DTPVadeTarihi.Size = new System.Drawing.Size(125, 20);
+            this.DTPVadeTarihi.Size = new System.Drawing.Size(107, 20);
             this.DTPVadeTarihi.TabIndex = 159;
             // 
             // CHBKdvDahil
             // 
-            this.CHBKdvDahil.Location = new System.Drawing.Point(475, 57);
+            this.CHBKdvDahil.Location = new System.Drawing.Point(486, 65);
             this.CHBKdvDahil.Name = "CHBKdvDahil";
             this.CHBKdvDahil.Properties.Caption = "KDV Dahil";
             this.CHBKdvDahil.Size = new System.Drawing.Size(75, 20);
@@ -583,24 +577,24 @@
             // TBGun
             // 
             this.TBGun.EditValue = "0";
-            this.TBGun.Location = new System.Drawing.Point(262, 138);
+            this.TBGun.Location = new System.Drawing.Point(256, 146);
             this.TBGun.Name = "TBGun";
-            this.TBGun.Size = new System.Drawing.Size(53, 20);
+            this.TBGun.Size = new System.Drawing.Size(42, 20);
             this.TBGun.TabIndex = 155;
             // 
             // CBAltHesap
             // 
-            this.CBAltHesap.Location = new System.Drawing.Point(106, 112);
+            this.CBAltHesap.Location = new System.Drawing.Point(118, 120);
             this.CBAltHesap.Name = "CBAltHesap";
             this.CBAltHesap.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.CBAltHesap.Properties.NullText = "";
-            this.CBAltHesap.Size = new System.Drawing.Size(205, 20);
+            this.CBAltHesap.Size = new System.Drawing.Size(180, 20);
             this.CBAltHesap.TabIndex = 154;
             // 
             // TBCariAdi
             // 
-            this.TBCariAdi.Location = new System.Drawing.Point(106, 86);
+            this.TBCariAdi.Location = new System.Drawing.Point(118, 94);
             this.TBCariAdi.Name = "TBCariAdi";
             this.TBCariAdi.Size = new System.Drawing.Size(180, 20);
             this.TBCariAdi.TabIndex = 152;
@@ -614,7 +608,7 @@
             // 
             // TBCariKodu
             // 
-            this.TBCariKodu.Location = new System.Drawing.Point(106, 59);
+            this.TBCariKodu.Location = new System.Drawing.Point(118, 67);
             this.TBCariKodu.Name = "TBCariKodu";
             this.TBCariKodu.Properties.Appearance.Options.UseFont = true;
             this.TBCariKodu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -625,7 +619,7 @@
             // 
             // TBIrsaliyeNo
             // 
-            this.TBIrsaliyeNo.Location = new System.Drawing.Point(106, 31);
+            this.TBIrsaliyeNo.Location = new System.Drawing.Point(118, 39);
             this.TBIrsaliyeNo.Name = "TBIrsaliyeNo";
             this.TBIrsaliyeNo.Properties.Appearance.Options.UseFont = true;
             this.TBIrsaliyeNo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -638,7 +632,7 @@
             // LBGun
             // 
             this.LBGun.Appearance.Options.UseFont = true;
-            this.LBGun.Location = new System.Drawing.Point(237, 141);
+            this.LBGun.Location = new System.Drawing.Point(231, 149);
             this.LBGun.Name = "LBGun";
             this.LBGun.Size = new System.Drawing.Size(19, 13);
             this.LBGun.TabIndex = 145;
@@ -646,7 +640,7 @@
             // 
             // TBAciklama
             // 
-            this.TBAciklama.Location = new System.Drawing.Point(813, 33);
+            this.TBAciklama.Location = new System.Drawing.Point(825, 40);
             this.TBAciklama.Name = "TBAciklama";
             this.TBAciklama.Size = new System.Drawing.Size(181, 67);
             this.TBAciklama.TabIndex = 143;
@@ -654,23 +648,21 @@
             // TBKur
             // 
             this.TBKur.EditValue = "1,00";
-            this.TBKur.Location = new System.Drawing.Point(461, 153);
+            this.TBKur.Location = new System.Drawing.Point(473, 147);
             this.TBKur.Name = "TBKur";
-            this.TBKur.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.TBKur.Size = new System.Drawing.Size(222, 26);
+            this.TBKur.Size = new System.Drawing.Size(180, 20);
             this.TBKur.TabIndex = 142;
             // 
             // CBParaBirimi
             // 
             this.CBParaBirimi.EditValue = "";
-            this.CBParaBirimi.Location = new System.Drawing.Point(461, 121);
+            this.CBParaBirimi.Location = new System.Drawing.Point(473, 120);
             this.CBParaBirimi.Name = "CBParaBirimi";
             this.CBParaBirimi.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.CBParaBirimi.Properties.NullText = "";
-            this.CBParaBirimi.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.CBParaBirimi.Properties.PopupView = this.CBParaBirimiView;
-            this.CBParaBirimi.Size = new System.Drawing.Size(153, 26);
+            this.CBParaBirimi.Size = new System.Drawing.Size(180, 20);
             this.CBParaBirimi.TabIndex = 141;
             // 
             // CBParaBirimiView
@@ -683,15 +675,14 @@
             // CBDepo
             // 
             this.CBDepo.EditValue = "";
-            this.CBDepo.Location = new System.Drawing.Point(461, 83);
+            this.CBDepo.Location = new System.Drawing.Point(473, 91);
             this.CBDepo.Name = "CBDepo";
             this.CBDepo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.CBDepo.Properties.NullText = "";
-            this.CBDepo.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.CBDepo.Properties.PopupView = this.CBDepoView;
-            this.CBDepo.Size = new System.Drawing.Size(215, 26);
-            this.CBDepo.TabIndex = 140;
+            this.CBDepo.Size = new System.Drawing.Size(180, 20);
+            this.CBDepo.TabIndex = 154;
             // 
             // CBDepoView
             // 
@@ -702,7 +693,7 @@
             // 
             // LBKur
             // 
-            this.LBKur.Location = new System.Drawing.Point(415, 154);
+            this.LBKur.Location = new System.Drawing.Point(440, 149);
             this.LBKur.Name = "LBKur";
             this.LBKur.Size = new System.Drawing.Size(16, 13);
             this.LBKur.TabIndex = 129;
@@ -710,7 +701,7 @@
             // 
             // LBAciklama
             // 
-            this.LBAciklama.Location = new System.Drawing.Point(760, 40);
+            this.LBAciklama.Location = new System.Drawing.Point(769, 42);
             this.LBAciklama.Name = "LBAciklama";
             this.LBAciklama.Size = new System.Drawing.Size(41, 13);
             this.LBAciklama.TabIndex = 128;
@@ -718,7 +709,7 @@
             // 
             // LBVadeTar
             // 
-            this.LBVadeTar.Location = new System.Drawing.Point(41, 141);
+            this.LBVadeTar.Location = new System.Drawing.Point(53, 149);
             this.LBVadeTar.Name = "LBVadeTar";
             this.LBVadeTar.Size = new System.Drawing.Size(53, 13);
             this.LBVadeTar.TabIndex = 127;
@@ -726,7 +717,7 @@
             // 
             // LBSevkiyatTar
             // 
-            this.LBSevkiyatTar.Location = new System.Drawing.Point(728, 122);
+            this.LBSevkiyatTar.Location = new System.Drawing.Point(740, 123);
             this.LBSevkiyatTar.Name = "LBSevkiyatTar";
             this.LBSevkiyatTar.Size = new System.Drawing.Size(70, 13);
             this.LBSevkiyatTar.TabIndex = 126;
@@ -734,7 +725,7 @@
             // 
             // LBParaBirimi
             // 
-            this.LBParaBirimi.Location = new System.Drawing.Point(382, 122);
+            this.LBParaBirimi.Location = new System.Drawing.Point(407, 123);
             this.LBParaBirimi.Name = "LBParaBirimi";
             this.LBParaBirimi.Size = new System.Drawing.Size(49, 13);
             this.LBParaBirimi.TabIndex = 125;
@@ -742,7 +733,7 @@
             // 
             // LBSiparisTar
             // 
-            this.LBSiparisTar.Location = new System.Drawing.Point(384, 35);
+            this.LBSiparisTar.Location = new System.Drawing.Point(396, 43);
             this.LBSiparisTar.Name = "LBSiparisTar";
             this.LBSiparisTar.Size = new System.Drawing.Size(60, 13);
             this.LBSiparisTar.TabIndex = 124;
@@ -750,7 +741,7 @@
             // 
             // LBDepo
             // 
-            this.LBDepo.Location = new System.Drawing.Point(406, 87);
+            this.LBDepo.Location = new System.Drawing.Point(431, 94);
             this.LBDepo.Name = "LBDepo";
             this.LBDepo.Size = new System.Drawing.Size(25, 13);
             this.LBDepo.TabIndex = 122;
@@ -758,7 +749,7 @@
             // 
             // LBAltHesap
             // 
-            this.LBAltHesap.Location = new System.Drawing.Point(48, 115);
+            this.LBAltHesap.Location = new System.Drawing.Point(60, 123);
             this.LBAltHesap.Name = "LBAltHesap";
             this.LBAltHesap.Size = new System.Drawing.Size(46, 13);
             this.LBAltHesap.TabIndex = 153;
@@ -766,7 +757,7 @@
             // 
             // LBCariAdi
             // 
-            this.LBCariAdi.Location = new System.Drawing.Point(57, 89);
+            this.LBCariAdi.Location = new System.Drawing.Point(69, 97);
             this.LBCariAdi.Name = "LBCariAdi";
             this.LBCariAdi.Size = new System.Drawing.Size(37, 13);
             this.LBCariAdi.TabIndex = 120;
@@ -774,7 +765,7 @@
             // 
             // LBCariKodu
             // 
-            this.LBCariKodu.Location = new System.Drawing.Point(48, 60);
+            this.LBCariKodu.Location = new System.Drawing.Point(60, 68);
             this.LBCariKodu.Name = "LBCariKodu";
             this.LBCariKodu.Size = new System.Drawing.Size(46, 13);
             this.LBCariKodu.TabIndex = 151;
@@ -782,7 +773,7 @@
             // 
             // LBSsiparisNo
             // 
-            this.LBSsiparisNo.Location = new System.Drawing.Point(44, 34);
+            this.LBSsiparisNo.Location = new System.Drawing.Point(56, 42);
             this.LBSsiparisNo.Name = "LBSsiparisNo";
             this.LBSsiparisNo.Size = new System.Drawing.Size(51, 13);
             this.LBSsiparisNo.TabIndex = 118;

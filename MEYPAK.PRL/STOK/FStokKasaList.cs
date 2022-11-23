@@ -26,6 +26,7 @@ namespace MEYPAK.PRL.STOK
         FMusteriSiparis fSiparis;
         FSatinAlmaSiparis fSatınAlmaSiparis;
         FSatisIrsaliye fSatisIrsaliye;
+        FFatura ffatura;
         GenericWebServis<PocoSTOKKASA> _kasaServis;
         string _islem;
         string _form;
@@ -49,6 +50,8 @@ namespace MEYPAK.PRL.STOK
                         fSiparis = (FMusteriSiparis)frm;
                     if (frm.Name.Contains("FSatinAlmaSiparis"))
                         fSatınAlmaSiparis = (FSatinAlmaSiparis)frm;
+                    if (frm.Name.Contains("FFatura"))
+                        ffatura = (FFatura)frm;
                 }
             }
 
@@ -136,7 +139,28 @@ namespace MEYPAK.PRL.STOK
                     
                 }
             }
-    
+            else if (_islem == "FFatura")
+            {
+
+                if (ffatura != null)
+                {
+                    ffatura._tempKasaList.Clear();
+                    foreach (var item in gridView1.GetSelectedRows())
+                    {
+                        ffatura._tempKasaList.Add(new KasaList()
+                        {
+                            KASAADI = gridView1.GetRowCellValue(item, "KASAADI").ToString(),
+                            MIKTAR = int.Parse(gridView1.GetRowCellValue(item, "MIKTAR").ToString()),
+                            ID = int.Parse(gridView1.GetRowCellValue(item, "ID").ToString()),
+
+
+                        });
+                        //temp += gridView1.GetRowCellValue(item, "KASAADI").ToString() + "=>" + gridView1.GetRowCellValue(item, "MIKTAR").ToString() + ";";
+                    }
+
+                }
+            }
+
         }
     }
 }

@@ -13,7 +13,7 @@ namespace MEYPAK.Entity.Models.CARI
     { 
         public int CARIID { get; set; }
         public string ADI { get; set; }
-
+         
         [MaxLength, Column(TypeName = "ntext")]
         public string DOKUMAN { get; set; }
 

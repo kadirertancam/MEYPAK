@@ -11,5 +11,6 @@ namespace MEYPAK.Entity.PocoModels.CARI
         public int cariid { get; set; }
         public string adi { get; set; }
         public string pozisyon { get; set; }
+        public string yetkilitelefon { get; set; }
     }
 }

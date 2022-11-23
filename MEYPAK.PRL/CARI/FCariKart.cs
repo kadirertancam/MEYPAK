@@ -1,5 +1,6 @@
 ﻿using DevExpress.Utils;
 using DevExpress.XtraEditors;
+using DevExpress.XtraSpreadsheet.Import.OpenXml;
 using DevExpress.XtraTab;
 using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.Models.CARI;
@@ -8,6 +9,7 @@ using MEYPAK.Entity.PocoModels.PARAMETRE;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces;
 using MEYPAK.Interfaces.Cari;
+using MEYPAK.Interfaces.Parametre;
 using MEYPAK.PRL.STOK;
 using Newtonsoft.Json;
 using System;
@@ -36,6 +38,7 @@ namespace MEYPAK.PRL.CARI
             _cariYetkiliServis = new GenericWebServis<PocoCARIYETKILI>();
             _cariDokumanServis = new GenericWebServis<PocoCARIDOKUMAN>();
             CBAltHesap.Properties.DataSource = _cariAltHesapServis.obje.Select(x => x.adi).ToList();
+            
 
         }
         #region Tanımlar
@@ -56,6 +59,7 @@ namespace MEYPAK.PRL.CARI
         public PocoPARABIRIM _tempCariParABIRIM;
         public PocoSTOKKATEGORI _tempCariStOKKATEGORI;
        
+        int cariid = 0;
         public int _id;
         #endregion
 
@@ -140,7 +144,7 @@ namespace MEYPAK.PRL.CARI
             BTSMuhSec.Text = _tempCariKart.smuhkod;
             TBCariAdi.Text = _tempCariKart.adi;
             TBCariSoyad.Text = _tempCariKart.soyadi;
-            CBTip.EditValue = _tempCariKart.tipi;
+            CBTip.Text = _tempCariKart.tipi.ToString();
             TBAciklama.Text = _tempCariKart.aciklama;
           //  CBAltHesap.EditValue = _tempCARIALTHES.adi;
             //TBSevkKodu
@@ -177,9 +181,6 @@ namespace MEYPAK.PRL.CARI
             BTRprSec7.EditValue = _tempCariKart.raporkoD7;
             BTRprSec8.EditValue = _tempCariKart.raporkoD8;
             BTRprSec9.EditValue = _tempCariKart.raporkoD9;
-            //TBYetkiliAdi = 
-            //TBDokumanAdi.Text = 
-            //BTDosyaYoluSec
             resimList.Clear();
             _cariResimServis.Data(ServisList.CariResimListeServis);
             AltCariDoldur();
@@ -201,7 +202,7 @@ namespace MEYPAK.PRL.CARI
                 }
             }
         }
-
+       
 
         ADRESOBJECT.Root _adresObje;
         UlkeList.Root _ulkeList;
@@ -277,6 +278,7 @@ namespace MEYPAK.PRL.CARI
             else if (e.Button.Caption == "Seç")
             {
                 FAltHesapList fAltHesapList = new FAltHesapList(this.Tag.ToString(), "carikart");
+                
                 fAltHesapList.ShowDialog();
 
                 AltCariDoldur();
@@ -374,7 +376,7 @@ namespace MEYPAK.PRL.CARI
         }
         List<PocoCARIRESIM> resimList;
 
-        //Ülkes
+        //Ülke Seç
         private void CBUlke_Properties_EditValueChanged(object sender, EventArgs e)
         {
          //   CBUlke.Properties.DataSource = _adresObje.data.Where(x => x.ulke_adi == CBUlke.EditValue.ToString()).Select(x => x.il_adi.ToList()).FirstOrDefault();
@@ -383,7 +385,10 @@ namespace MEYPAK.PRL.CARI
  
         private void BTSil_Click(object sender, EventArgs e)
         {
-            _cariServis.Data(ServisList.CariSilServis, null, null);
+            _cariServis.Data(ServisList.CariListeServis);
+          //  _cariServis.Data(ServisList.CariSilServis, null, null, _cariServis.obje.Where(x => x.id.ToString()
+            MessageBox.Show("Silme Başarılı");
+           
         }
 
         //Kategori Seç
@@ -394,13 +399,11 @@ namespace MEYPAK.PRL.CARI
             Doldur();
         }
 
-      
         //private void CBNufIl_EditValueChanged(object sender, EventArgs e)
         //{
         //    CBNufIlce.Properties.DataSource = _adresObje.data.Where(x => x.il_adi == CBNufIl.EditValue).Select(x => x.ilceler.Select(z => z.ilce_adi).ToList()).FirstOrDefault();
         //}
 
-        
         private void CBSevkIl_Properties_EditValueChanged(object sender, EventArgs e)
         {
             CBSevkIlce.Properties.DataSource = _adresObje.data.Where(x => x.il_adi == CBSevkIl.EditValue).Select(x => x.ilceler.Select(z => z.ilce_adi).ToList()).FirstOrDefault();
@@ -415,6 +418,8 @@ namespace MEYPAK.PRL.CARI
         {
             _cariServis.Data(ServisList.CariEkleServis, new PocoCARIKART()
             {
+                id = cariid,
+                kod = BTCariSec.Text,
                 aciklama = TBAciklama.Text,
                 aciklamA1 = TBAciklama1.Text,
                 aciklamA2 = TBAciklama2.Text,
@@ -439,7 +444,6 @@ namespace MEYPAK.PRL.CARI
                 il = CBIl.Text,
                 ilce = CBIl.Text,
                 kategori = BTKategoriSec.Text,
-                kod = BTCariSec.Text,
                 mahalle = TBMahalle.Text,
                 muH_KOD = BTMuhSec.Text,
                 postakod = TBPostaKod.Text,
@@ -447,7 +451,7 @@ namespace MEYPAK.PRL.CARI
                 raporkoD2 = BTRprSec2.Text,
                 raporkoD3 = BTRprSec3.Text,
                 raporkoD4 = BTRprSec4.Text,
-                raporkoD5 = BTRprSec5.Text,  
+                raporkoD5 = BTRprSec5.Text,
                 raporkoD6 = BTRprSec6.Text,
                 raporkoD7 = BTRprSec7.Text,
                 raporkoD8 = BTRprSec8.Text,
@@ -466,14 +470,14 @@ namespace MEYPAK.PRL.CARI
                 tcno = TBTcNo.Text,
                 telefon = TBTelefon1.Text,
                 telefoN2 = TBTelefon2.Text,
-                tipi = CBTip.SelectedIndex,
+                //tipi = CBTip.Text,
                 unvan = TBUnvan.Text,
                 vadegunu = int.Parse(TBVadeGun.Text),
                 vergidairesi = CBVDaire.Text,
                 vergino = TBVergiNo.Text,
                 web = TBWebSite.Text,
 
-            });
+            }) ;
            
             MessageBox.Show("Kayıt işlemi Başarılı!");
             FormuTemizle();
@@ -495,15 +499,24 @@ namespace MEYPAK.PRL.CARI
         //Yetkili Alanı
         private void BTYetkiliKaydet_Click(object sender, EventArgs e)
         {
-            _cariYetkiliServis.Data(ServisList.CariYetkiliEkleServis, new PocoCARIYETKILI()
+            if(_tempCariKart != null)
             {
-                cariid= _cariServis.obje.Where(z => z.kod == BTCariSec.Text).FirstOrDefault().id,
-                adi = TBYetkiliAdi.Text,
-                pozisyon = TBPozisyon.Text 
-            });
-            FormuTemizle();
+                _cariYetkiliServis.Data(ServisList.CariYetkiliEkleServis, new PocoCARIYETKILI()
+                {
+                    cariid = _tempCariKart.id,
+                    adi = TBYetkiliAdi.Text,
+                    yetkilitelefon = TBYetkiliTel.Text,
+                    pozisyon = TBPozisyon.Text,
+                   
+                });
+                MessageBox.Show("Yetkili Başarıyla Eklendi!");
+                FormuTemizle();
+            }
+            else
+            {
+                MessageBox.Show("Öncelikle Cari Seçimi yapmanız gerekmektedir!");
+            }
         }
-
         private void BTYetkiliSil_Click(object sender, EventArgs e) //TO DO 
         {
          
@@ -517,7 +530,8 @@ namespace MEYPAK.PRL.CARI
             fCariList.ShowDialog();
             if (_tempCariKart != null)
             {
-                BTCariSec.Text = _tempCariKart.adi;
+                
+                BTCariSec.Text = _tempCariKart.kod;
                 TBUnvan.Text = _tempCariKart.unvan;
                 CBUlke.EditValue = _tempCariKart.ulke;
                 CBIl.EditValue = _tempCariKart.il;
@@ -557,11 +571,14 @@ namespace MEYPAK.PRL.CARI
                 TBAciklama6.Text = _tempCariKart.aciklamA6;
                 TBAciklama7.Text = _tempCariKart.aciklamA7;
                 TBAciklama8.Text = _tempCariKart.aciklamA9;
-
-
-
-                //DTSayimTar.EditValue = _tempSayim.sayimtarihi;
-                //TBDurum.Text = _tempSayim.durum == 0 ? "Onaylanmadı" : "Onaylandı";
+                //Yetkili Grid Doldurur
+                _cariYetkiliServis.Data(ServisList.CariYetkiliListeServis);
+                DGYetkiliBilgi.DataSource = _cariYetkiliServis.obje.Where(x=> x.cariid == _tempCariKart.id).Select(x => new 
+                {
+                    ID=x.id,
+                    ADI=x.adi,
+                    TELEFON =x.yetkilitelefon,
+                    POZISYON=x.pozisyon});
 
             }
         }
@@ -584,17 +601,25 @@ namespace MEYPAK.PRL.CARI
             }
         }
 
-        private void BTDokumanKaydet_Click(object sender, EventArgs e)
+        private void BTDokumanKaydet_Click(object sender, EventArgs e) //TO DO
         {
+            if (_tempCariKart!=null)
+            {
             _cariDokumanServis.Data(ServisList.CariDokumanEkleServis, new PocoCARIDOKUMAN()
             {
-                  cariid = _cariServis.obje.Where(z => z.kod == BTCariSec.Text).FirstOrDefault().id,
+                  cariid = _tempCariKart.id,
                   adi = TBDokumanAdi.Text,
                   dokuman = BTDosyaYoluSec.Text,
             });
             MessageBox.Show("Kayıt Başarıyla Eklendi!");
             FormuTemizle();
+            }
+            else
+            {
+                MessageBox.Show("Öncelikle Cari Seçimi yapmanız gerekmektedir!");
+            }
         }
+
     }
     }
     #endregion
