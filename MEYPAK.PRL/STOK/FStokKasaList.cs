@@ -29,12 +29,13 @@ namespace MEYPAK.PRL.STOK
         FFatura ffatura;
         GenericWebServis<PocoSTOKKASA> _kasaServis;
         string _islem;
-        string _form;
-        public FStokKasaList(string form,string islem = "")
+        string _form,_stokid;
+        public FStokKasaList(string form,string islem = "",string stokid="")
         {
             InitializeComponent();
             this._islem = islem;
             this._form = form;
+            _stokid = stokid;
             _kasaServis = new GenericWebServis<PocoSTOKKASA>();
         }
         
@@ -56,7 +57,7 @@ namespace MEYPAK.PRL.STOK
             }
 
             _kasaServis.Data(ServisList.StokKasaListeServis);
-            GCKasaList.DataSource = _kasaServis.obje.Where(x=>x.kayittipi==0).Select(x=> new KasaList { ID=x.id,KASAADI=x.kasaadi,MIKTAR= 0});
+            GCKasaList.DataSource = _kasaServis.obje.Where(x=>x.kayittipi==0).Select(x=> new KasaList { KASAID=x.id,KASAADI=x.kasaadi,MIKTAR= 0});
  
 
         }
@@ -130,7 +131,7 @@ namespace MEYPAK.PRL.STOK
                         fSatisIrsaliye._tempKasaList.Add(new KasaList() { 
                             KASAADI=gridView1.GetRowCellValue(item,"KASAADI").ToString(),
                             MIKTAR=int.Parse(gridView1.GetRowCellValue(item,"MIKTAR").ToString()),
-                            ID=int.Parse(gridView1.GetRowCellValue(item, "ID").ToString()),
+                            KASAID=int.Parse(gridView1.GetRowCellValue(item, "ID").ToString()),
 
 
                         });
@@ -149,9 +150,10 @@ namespace MEYPAK.PRL.STOK
                     {
                         ffatura._tempKasaList.Add(new KasaList()
                         {
+                            STOKID=int.Parse(_stokid),
                             KASAADI = gridView1.GetRowCellValue(item, "KASAADI").ToString(),
                             MIKTAR = int.Parse(gridView1.GetRowCellValue(item, "MIKTAR").ToString()),
-                            ID = int.Parse(gridView1.GetRowCellValue(item, "ID").ToString()),
+                            KASAID = int.Parse(gridView1.GetRowCellValue(item, "ID").ToString()),
 
 
                         });

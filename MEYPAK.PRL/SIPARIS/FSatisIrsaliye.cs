@@ -404,7 +404,7 @@ namespace MEYPAK.PRL.IRSALIYE
                             irsaliyeid = _irsaliyeServis.obje2.id,
                             io = 0,
                             kayittipi = 0,
-                            kasaid = test.ID,
+                            kasaid = test.KASAID,
                             miktar = test.MIKTAR,
                             stokid=item.StokId,
                             faturaid=0,
@@ -484,10 +484,7 @@ namespace MEYPAK.PRL.IRSALIYE
 
                 }
             }
-            if (e.KeyChar == 45 && e.KeyChar == (char)Keys.LControlKey)
-            {
-                MessageBox.Show("BURDAAAA");
-            }
+           
         }
 
 

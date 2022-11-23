@@ -25,6 +25,7 @@ using System.Windows.Forms;
 using MEYPAK.Entity.Models.CARI;
 using MEYPAK.Interfaces.IRSALIYE;
 using MEYPAK.Entity.PocoModels.FATURA;
+using MEYPAK.Entity.PocoModels.IRSALIYE;
 
 namespace MEYPAK.PRL.SIPARIS
 {
@@ -184,11 +185,12 @@ namespace MEYPAK.PRL.SIPARIS
             gridView1.Columns["Tipi"].OptionsColumn.AllowEdit = true;
             //repoGV.Columns.Add(colun2);
             gridView1.Columns["Tipi"].ColumnEdit = riLookup;
-
+            _tempKasaList = new List<KasaList>();
             riLookup3 = new RepositoryItemLookUpEdit();
             riLookup3.DataSource = _tempKasaList;
             riLookup3.ValueMember = "ID";
             riLookup3.DisplayMember = "KASAADI";
+            
 
             riLookup3.NullText = "";
 
@@ -197,8 +199,7 @@ namespace MEYPAK.PRL.SIPARIS
             // riLookup.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
             riLookup3.DropDownRows = _tempKasaList.Count();
             riLookup3.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.False;
-            riLookup3.EditValueChanged += RiLookup_EditValueChanged;
-            riLookup3.GetDataSourceRowByKeyValue(0);
+            riLookup3.EditValueChanged += RiLookup_EditValueChanged; 
 
             gridView1.Columns["KasaAdı"].OptionsColumn.AllowEdit = true;
             //repoGV.Columns.Add(colun2);
@@ -262,14 +263,15 @@ namespace MEYPAK.PRL.SIPARIS
 
         private void RiLookup_EditValueChanged(object? sender, EventArgs e)
         {
-
+             
         }
 
 
         private void RepositoryItemButtonEdit3_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
-            FStokKasaList fKasaList = new FStokKasaList(this.Tag.ToString(), "FFatura");
+            FStokKasaList fKasaList = new FStokKasaList(this.Tag.ToString(), "FFatura",_tempStok.id.ToString());
             fKasaList.ShowDialog();
+
         }
 
         private void RepositoryItemButtonEdit2_ButtonClick(object sender, ButtonPressedEventArgs e)
@@ -354,10 +356,125 @@ namespace MEYPAK.PRL.SIPARIS
                 geneltoplam = _tempFaturaDetay.Sum(x => x.KdvTutarı) + _tempFaturaDetay.Sum(x => x.NetToplam),
                 tip = 0,
             });
-                temizle();
+
+            _stokOlcuBr.Data(ServisList.StokOlcuBrListeServis);
+            _olcuBr.Data(ServisList.OlcuBrListeServis);
+            int i = 0;
+            foreach (var item in _tempFaturaDetay.Where(x => x.StokKodu != "").ToList())
+            {
+                var stokolcubr = _stokOlcuBr.obje.Where(x => x.stokid == item.StokId).FirstOrDefault();
+
+                _faturadetayServis.Data(ServisList.FaturaDetayEkleServis, new PocoFATURADETAY()
+                {
+                    stokid = item.StokId,
+                    stokadi = item.StokAdı,
+                    aciklama = item.Acıklama,
+                    kdv = item.Kdv,
+                    //kasaid = item.KasaId,
+                    nettoplam = item.NetToplam,
+                    netfiyat = item.NetFiyat,
+                    birimid = _olcuBr.obje.Where(x => x.adi.ToString() == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Birim").ToString()).FirstOrDefault().id,
+                    dovizid = 0,
+                    miktar = item.Miktar,
+                    istkontO1 = item.İskonto1,
+                    istkontO2 = item.İskonto2,
+                    istkontO3 = item.İskonto3,
+                    faturaid = _faturaServis.obje2.id, ///ID gelecek
+
+                    brutfiyat = item.BrütFiyat,
+                    bruttoplam = item.BrütFiyat * item.Miktar,
+                    bekleyenmiktar = 0,
+                    hareketdurumu = 0,
+                    listefiyatid = 0,
+                    tip = 0,
+                    kdvtutari = item.KdvTutarı
+                });
+                i++;
+
+
+                _kasaServis.Data(ServisList.StokKasaListeServis);
+
+                foreach (var test in _tempKasaList.Where(x=>x.STOKID==item.StokId))
+                {
+                    _stokKasaHarServis.Data(ServisList.StokKasaHarEkleServis, new PocoSTOKKASAHAR()
+                    {
+                        belge_no = TBIrsaliyeNo.Text,
+                        faturaid = _faturaServis.obje2.id,
+                        io = 0,
+                        kayittipi = 0,
+                        kasaid = test.KASAID,
+                        miktar = test.MIKTAR,
+                        stokid = item.StokId,
+                        
+
+                    });
+                }
+
+
+            }
+            temizle();
 
         }
 
+        private void gridView1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter || e.KeyChar == (char)Keys.Down)
+            {
+
+                GCIrsaliye.DataSource = "";
+                _tempFaturaDetay.Add(new PocoFaturaKalem());
+                GCIrsaliye.DataSource = _tempFaturaDetay;
+
+
+                //dataGridView1.Columns["DGVOlcuBr"].DisplayIndex = 6;
+                //dataGridView1.Columns["DGVFiyatList"].DisplayIndex = dataGridView1.ColumnCount - 1; 
+                //dataGridView1.Columns["StokKodu"].DisplayIndex = 0;
+                //dataGridView1.Columns["DGVStoKSec"].DisplayIndex = 1; 
+                //dataGridView1.Columns["StokAdı"].DisplayIndex = 2; 
+
+                //dataGridView1.Columns["DGVKasaSec"].DisplayIndex = 8;
+                //dataGridView1.Columns["DVGKasaList"].DisplayIndex = dataGridView1.ColumnCount-1;
+
+
+                for (int i = 0; i < gridView1.RowCount; i++)
+                {
+                    gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "DGVOlcuBr", _tempFaturaDetay[i].Birim.ToString());
+                }
+                gridView1.FocusedRowHandle = gridView1.RowCount - 1;
+                gridView1.FocusedColumn = gridView1.Columns["StokKodu"];
+                gridView1.Columns["Seç"].VisibleIndex = 2;
+                gridView1.Columns["BirimSec"].VisibleIndex = 7;
+                gridView1.Columns["StokId"].Visible = false;
+                ////dataGridView1.Invalidate();
+                //dataGridView1.Refresh();
+
+                i = 0;
+
+
+            }
+            if (i == 0)
+            {
+                if (e.KeyChar == (char)Keys.Tab)
+                {
+                    if (gridView1.RowCount! > gridView1.GetFocusedDataSourceRowIndex())
+                    {
+                        if (gridView1.GetFocusedDataSourceRowIndex() >= 0 && gridView1.Columns[gridView1.FocusedColumn.VisibleIndex].VisibleIndex - 1 == gridView1.Columns["StokKodu"].VisibleIndex)
+                        {
+                            gridView1.FocusedColumn = gridView1.Columns["Miktar"];
+                        }
+                        else if (gridView1.FocusedRowHandle >= 0 && gridView1.Columns[gridView1.FocusedColumn.VisibleIndex].VisibleIndex - 1 == gridView1.Columns["Miktar"].VisibleIndex)
+                        {
+                            gridView1.FocusedColumn = gridView1.Columns["BirimFiyat"];
+                        }
+                    }
+
+                }
+            }
+            if (e.KeyChar == 45 && e.KeyChar == (char)Keys.LControlKey)
+            {
+                MessageBox.Show("BURDAAAA");
+            }
+        }
         private void FFatura_Load(object sender, EventArgs e)
         {
             DataGridYapilandir();
@@ -423,66 +540,7 @@ namespace MEYPAK.PRL.SIPARIS
                 sy = 0;
             }
         }
-
-        private void gridView1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Enter || e.KeyChar == (char)Keys.Down)
-            {
-
-                GCIrsaliye.DataSource = "";
-                _tempFaturaDetay.Add(new PocoFaturaKalem());
-                GCIrsaliye.DataSource = _tempFaturaDetay;
-
-
-                //dataGridView1.Columns["DGVOlcuBr"].DisplayIndex = 6;
-                //dataGridView1.Columns["DGVFiyatList"].DisplayIndex = dataGridView1.ColumnCount - 1; 
-                //dataGridView1.Columns["StokKodu"].DisplayIndex = 0;
-                //dataGridView1.Columns["DGVStoKSec"].DisplayIndex = 1; 
-                //dataGridView1.Columns["StokAdı"].DisplayIndex = 2; 
-
-                //dataGridView1.Columns["DGVKasaSec"].DisplayIndex = 8;
-                //dataGridView1.Columns["DVGKasaList"].DisplayIndex = dataGridView1.ColumnCount-1;
-
-
-                for (int i = 0; i < gridView1.RowCount; i++)
-                {
-                    gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "DGVOlcuBr", _tempFaturaDetay[i].Birim.ToString());
-                }
-                gridView1.FocusedRowHandle = gridView1.RowCount - 1;
-                gridView1.FocusedColumn = gridView1.Columns["StokKodu"];
-                gridView1.Columns["Seç"].VisibleIndex = 2;
-                gridView1.Columns["BirimSec"].VisibleIndex = 7;
-                gridView1.Columns["StokId"].Visible = false;
-                ////dataGridView1.Invalidate();
-                //dataGridView1.Refresh();
-
-                i = 0;
-
-
-            }
-            if (i == 0)
-            {
-                if (e.KeyChar == (char)Keys.Tab)
-                {
-                    if (gridView1.RowCount! > gridView1.GetFocusedDataSourceRowIndex())
-                    {
-                        if (gridView1.GetFocusedDataSourceRowIndex() >= 0 && gridView1.Columns[gridView1.FocusedColumn.VisibleIndex].VisibleIndex - 1 == gridView1.Columns["StokKodu"].VisibleIndex)
-                        {
-                            gridView1.FocusedColumn = gridView1.Columns["Miktar"];
-                        }
-                        else if (gridView1.FocusedRowHandle >= 0 && gridView1.Columns[gridView1.FocusedColumn.VisibleIndex].VisibleIndex - 1 == gridView1.Columns["Miktar"].VisibleIndex)
-                        {
-                            gridView1.FocusedColumn = gridView1.Columns["BirimFiyat"];
-                        }
-                    }
-
-                }
-            }
-            if (e.KeyChar == 45 && e.KeyChar == (char)Keys.LControlKey)
-            {
-                MessageBox.Show("BURDAAAA");
-            }
-        }
+ 
 
 
         int sy = 0;

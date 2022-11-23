@@ -22,7 +22,7 @@ namespace MEYPAK.API.Controllers.FATURAController
 
         [HttpGet]
         [Route("/[controller]/[action]")]
-        public IActionResult FATURAListe()
+        public IActionResult FATURADETAYListe()
         {
             try
             {
@@ -36,7 +36,7 @@ namespace MEYPAK.API.Controllers.FATURAController
         }
         [HttpGet]
         [Route("/[controller]/[action]")]
-        public IActionResult FATURAListe2([FromQuery] string query)
+        public IActionResult FATURADETAYListe2([FromQuery] string query)
         {
             try
             {
@@ -51,7 +51,7 @@ namespace MEYPAK.API.Controllers.FATURAController
 
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult FATURAkleyadaGuncelle(PocoFATURADETAY pModel)
+        public IActionResult FATURADETAYEkleyadaGuncelle(PocoFATURADETAY pModel)
         {
             try
             {
@@ -65,7 +65,7 @@ namespace MEYPAK.API.Controllers.FATURAController
         }
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult FATURASil(List<PocoFATURADETAY> pModel)
+        public IActionResult FATURADETAYSil(List<PocoFATURADETAY> pModel)
         {
             try
             {
@@ -79,7 +79,7 @@ namespace MEYPAK.API.Controllers.FATURAController
         }
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult FATURAGuncelle(PocoFATURADETAY pModel)
+        public IActionResult FATURADETAYGuncelle(PocoFATURADETAY pModel)
         {
             try
             {

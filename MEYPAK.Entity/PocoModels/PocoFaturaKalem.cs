@@ -8,6 +8,7 @@ namespace MEYPAK.Entity.PocoModels
 {
     public class PocoFaturaKalem
     {
+        public int sıra { get; set; }
         public int StokId { get; set; }
         public string StokKodu { get; set; }
         public string StokAdı { get; set; } = "";

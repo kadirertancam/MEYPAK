@@ -53,7 +53,7 @@ namespace MEYPAK.API.Controllers.FATURAController
 
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult FATURAkleyadaGuncelle(PocoFATURA pModel)
+        public IActionResult FATURAEKleyadaGuncelle(PocoFATURA pModel)
         {
             try
             {
