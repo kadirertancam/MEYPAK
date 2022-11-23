@@ -19,20 +19,10 @@ namespace MEYPAK.PRL.STOK
             InitializeComponent();
             _frm = frm;
             _islem = islem;
-        }
-        GenericWebServis<Poco>
+        } 
         private void FKasaListe2_Load(object sender, EventArgs e)
         {
-            _markaServis.Data(ServisList.StokMarkaListeServis);
-            gridControl1.DataSource = _markaServis.obje;
-            foreach (Form frm in Application.OpenForms)
-            {
-                if (_form == frm.Tag)
-                {
-                    if (frm.Name.Contains("FStokKart"))
-                        fStokKart = (FStokKart)frm;
-                }
-            }
+            
         }
 
         private void gridView1_DoubleClick(object sender, EventArgs e)
