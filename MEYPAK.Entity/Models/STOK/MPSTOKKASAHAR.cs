@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.Entity.Models.STOK
 {
-    public class MPKASAHAR : SUPERMODEL
+    public class MPSTOKKASAHAR : SUPERMODEL
     {
         public int STOKID { get; set; }
         public int KASAID { get; set; }

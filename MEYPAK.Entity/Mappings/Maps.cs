@@ -102,8 +102,9 @@ namespace MEYPAK.Entity.Mappings
             //KASA
             CreateMap<MPKASA, PocoKASA>().ReverseMap();
             CreateMap<MPSTOKKASAHAR, PocoSTOKKASAHAR>().ReverseMap();
-            
 
+            //FATURA            
+            CreateMap<MPFATURA, PocoFATURA>().ReverseMap();
 
 
 
