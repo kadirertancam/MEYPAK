@@ -92,13 +92,13 @@ namespace MEYPAK.PRL.STOK
             _depoServis.Data(ServisList.DepoListeServis);
             _stokSayimServis.Data(ServisList.StokSayimListeServis);
             DTSayimTar.EditValue = DateTime.Now;
-            DGStokSayim.DataSource = _stokSayimServis.obje.Where(x => x.kayittipi == 0).Select(x => new
+            DGStokSayim.DataSource = _stokSayimServis.obje.Where(x => x.kayittipi == 0 && x.durum ==0).Select(x => new
             {
                 ID = x.id,
                 SayimTarihi = x.sayimtarihi,
                 Depo = _depoServis.obje.Where(y=> y.id == x.depoid).Count() >0 ? _depoServis.obje.Where(y => y.id == x.depoid).FirstOrDefault().depoadi : "",
                 Açıklama = x.aciklama,
-                Durum = x.durum ==0 ? "Onaylanmadı" : "Onaylandı"
+                
             });
             DGStokSayim.Refresh();
             DGStokSayim.RefreshDataSource();
@@ -116,9 +116,12 @@ namespace MEYPAK.PRL.STOK
         private void DGStokSayim_DoubleClick(object sender, EventArgs e)
         {
             _tempStokSayim = _stokSayimServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
-            stokSayimPanel = new FStokSayimPanel(_tempStokSayim,this.Tag.ToString());
+           
+                stokSayimPanel = new FStokSayimPanel(_tempStokSayim, this.Tag.ToString());
 
-            stokSayimPanel.ShowDialog();
+                stokSayimPanel.ShowDialog();
+            
+           
         }
         //void BilgileriGetir()
         //{

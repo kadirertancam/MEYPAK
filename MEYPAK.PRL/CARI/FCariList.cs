@@ -3,8 +3,11 @@ using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.Models.CARI;
 using MEYPAK.Entity.Models.SIPARIS;
 using MEYPAK.Entity.PocoModels.CARI;
+using MEYPAK.Entity.PocoModels.STOK;
+using MEYPAK.Interfaces.Stok;
 using MEYPAK.PRL.IRSALIYE;
 using MEYPAK.PRL.SIPARIS;
+using MEYPAK.PRL.STOK;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,6 +30,7 @@ namespace MEYPAK.PRL.CARI
         FSatinAlmaSiparis fSatinAlmaSiparis;
         FSatisIrsaliye fSatisIrsaliye;
         FCariKart fCariKart;
+       
         public FCariList(string form="",string islem="")
         {
             InitializeComponent();
@@ -44,7 +48,7 @@ namespace MEYPAK.PRL.CARI
 
         #region Metotlar
        
-        private void DGCariList_CellDoubleClick(object sender, EventArgs e)
+        private void DGCariList_DoubleClick(object sender, EventArgs e)
         {
             if (_islem == "carikart")
                 fCariKart._tempCariKart = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
@@ -105,5 +109,15 @@ namespace MEYPAK.PRL.CARI
 
         }
         #endregion
+
+        private void gridView1_CellDoubleClick(object sender, EventArgs e)
+        {
+            
+            //DateTime dt = Convert.ToDateTime(gridView1.GetFocusedRowCellValue("SAYIMTARIHI").ToString());
+            //string aciklama = gridView1.GetFocusedRowCellValue("ACIKLAMA").ToString();
+            //fSayimIsle._tempSayim = _stokSayimServis.obje.Where(x => x.aciklama == aciklama.ToString()).FirstOrDefault();
+            //fSayimIsle._id = int.Parse(gridView1.GetFocusedRowCellValue("SAYIMTARIHI").ToString());
+            //this.Close();
+        }
     }
 }

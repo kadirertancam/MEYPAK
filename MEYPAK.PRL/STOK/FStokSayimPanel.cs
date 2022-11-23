@@ -16,7 +16,7 @@ namespace MEYPAK.PRL.STOK
 {
     public partial class FStokSayimPanel : Form
     {
-        public FStokSayimPanel(PocoSTOKSAYIM tempstoksayim,string form = "", string islemtipi = "")
+        public FStokSayimPanel(PocoSTOKSAYIM tempstoksayim, string form = "", string islemtipi = "")
         {
             InitializeComponent();
             this._islemtipi = islemtipi;
@@ -33,13 +33,13 @@ namespace MEYPAK.PRL.STOK
         string _islemtipi;
         string _form;
         PocoSTOKSAYIM _tempStokSayim;
-        
-        GenericWebServis<PocoSTOKSAYIMHAR> stokSayimHarServis ;
-        GenericWebServis<PocoSTOKSAYIM> stokSayimServis ;
-        GenericWebServis<PocoSTOK> stokServis ;
-        GenericWebServis<PocoDEPO> depoServis ;
-        GenericWebServis<PocoSTOKHAR> stokHarServis ;
-        GenericWebServis<PocoSTOKKATEGORI> kategoriServis ;
+
+        GenericWebServis<PocoSTOKSAYIMHAR> stokSayimHarServis;
+        GenericWebServis<PocoSTOKSAYIM> stokSayimServis;
+        GenericWebServis<PocoSTOK> stokServis;
+        GenericWebServis<PocoDEPO> depoServis;
+        GenericWebServis<PocoSTOKHAR> stokHarServis;
+        GenericWebServis<PocoSTOKKATEGORI> kategoriServis;
         GenericWebServis<PocoOLCUBR> _olcubrServis;
 
         #region Method
@@ -78,11 +78,11 @@ namespace MEYPAK.PRL.STOK
             stokServis.Data(ServisList.StokListeServis);
 
             DTPSayimTar.EditValue = _tempStokSayim.sayimtarihi;
-            TBDepo.EditValue = depoServis.obje.Where(x=> x.id == _tempStokSayim.depoid).FirstOrDefault().depoadi;
+            TBDepo.EditValue = depoServis.obje.Where(x => x.id == _tempStokSayim.depoid).FirstOrDefault().depoadi;
             TBAciklama.Text = _tempStokSayim.aciklama;
-           
 
-            
+
+
             var datatb = new DataTable();
             DataColumn ID = new DataColumn("ID", typeof(int));
             datatb.Columns.Add(ID);
@@ -92,22 +92,14 @@ namespace MEYPAK.PRL.STOK
             datatb.Columns.Add(KATEGORI);
             DataColumn DEPOMIKTAR = new DataColumn("DEPODAKİMIKTAR", typeof(int));
             datatb.Columns.Add(DEPOMIKTAR);
-            DataColumn SAYIMMIKTAR = new DataColumn("SAYIMMİKTARI", typeof(int));
+            DataColumn SAYIMMIKTAR = new DataColumn("SAYIMMİKTARI", typeof(decimal));
             datatb.Columns.Add(SAYIMMIKTAR);
             DataColumn BİRİM = new DataColumn("BİRİM", typeof(int));
             datatb.Columns.Add(BİRİM);
 
 
 
-            foreach (var item in stokServis.obje.Where(x=>x.kayittipi==0))
-            {
-                datatb.Rows.Add(item.id, item.adi,
-                    kategoriServis.obje.Where(y => y.id == item.kategoriid).FirstOrDefault().acıklama,
-                    stokHarServis.obje.Where(z => z.depoid == _tempStokSayim.depoid).Sum(z => z.miktar),
-                    stokSayimHarServis.obje.Where(d => d.kayittipi == 0 && d.id == _tempStokSayim.id && d.stokid == item.id).Count() == 0
-                    ? 0 : stokSayimHarServis.obje.Where(d => d.kayittipi == 0 && d.id == _tempStokSayim.id && d.stokid == item.id).FirstOrDefault().miktar
-                    );
-            }
+
 
             DGStokSayim.DataSource = datatb;
             ID.ReadOnly = true;
@@ -125,7 +117,7 @@ namespace MEYPAK.PRL.STOK
             {
                 datatab.Rows.Add(item.id, item.adi);
             }
-           
+
 
             RepositoryItemLookUpEdit riLookuparac = new RepositoryItemLookUpEdit();
             riLookuparac.DataSource = datatab;
@@ -138,14 +130,24 @@ namespace MEYPAK.PRL.STOK
             riLookuparac.AcceptEditorTextAsNewValue = DefaultBoolean.True;
             riLookuparac.AutoSearchColumnIndex = 1;
             riLookuparac.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
-        
 
-            
+
+
             datatab.Columns[0].ColumnMapping = MappingType.Hidden;
             gridView1.Columns["BİRİM"].OptionsColumn.AllowEdit = true;
             gridView1.Columns["BİRİM"].ColumnEdit = riLookuparac;
             gridView1.Columns["BİRİM"].Width = 60;
 
+
+            foreach (var item in stokServis.obje.Where(x => x.kayittipi == 0))
+            {
+                datatb.Rows.Add(item.id, item.adi,
+                    kategoriServis.obje.Where(y => y.id == item.kategoriid).FirstOrDefault().acıklama,
+                    stokHarServis.obje.Where(z => z.depoid == _tempStokSayim.depoid).Sum(z => z.miktar),
+                    stokSayimHarServis.obje.Where(d => d.kayittipi == 0 && d.stoksayimid == _tempStokSayim.id && d.stokid == item.id).Count() == 0
+                    ? 0 : stokSayimHarServis.obje.Where(d => d.kayittipi == 0 && d.stoksayimid == _tempStokSayim.id && d.stokid == item.id).FirstOrDefault().miktar
+                    );
+            }
 
             //DataGridViewButtonColumn dgvBtColumn = new DataGridViewButtonColumn();
             //dgvBtColumn.Name = "DGVBTStokSec";
@@ -174,25 +176,29 @@ namespace MEYPAK.PRL.STOK
 
         private void BTKaydet_Click(object sender, EventArgs e)
         {
-
-            for (int i = 0; i < gridView1.RowCount; i++)
-            {
-                DataRowView row = gridView1.GetRow(i) as DataRowView;
-                if (row != null )
+          
+                for (int i = 0; i < gridView1.RowCount; i++)
                 {
-                   stokSayimHarServis.Data(ServisList.StokSayimHarEkleServis, new PocoSTOKSAYIMHAR()
-                   {
-                       stoksayimid = _tempStokSayim.id,
-                       depoid = _tempStokSayim.depoid,
-                       miktar = Convert.ToInt32(row.Row.ItemArray[4]),
-                       stokid = Convert.ToInt32(row.Row.ItemArray[0]),
-                       birimid = Convert.ToInt32(row.Row.ItemArray[5]),
-                       
-                   });
+                    DataRowView row = gridView1.GetRow(i) as DataRowView;
+                    if (row != null)
+                    {
+                        stokSayimHarServis.Data(ServisList.StokSayimHarEkleServis, new PocoSTOKSAYIMHAR()
+                        {
+                            id = stokSayimHarServis.obje.Where(x => x.stokid == Convert.ToInt32(row.Row.ItemArray[0]) && x.stoksayimid == _tempStokSayim.id).Count() > 0 ? stokSayimHarServis.obje.Where(x => x.stokid == Convert.ToInt32(row.Row.ItemArray[0]) && x.stoksayimid == _tempStokSayim.id).FirstOrDefault().id : 0,
+                            stoksayimid = _tempStokSayim.id,
+                            depoid = _tempStokSayim.depoid,
+                            miktar = Convert.ToInt32(row.Row.ItemArray[4]),
+                            stokid = Convert.ToInt32(row.Row.ItemArray[0]),
+                            birimid = Convert.ToInt32(row.Row.ItemArray[5]),
+
+                        });
+                    }
                 }
-            }
             MessageBox.Show("Sayım Hareketi Başarıyla Kaydedildi");
         }
+          
+            
+        
 
 
 

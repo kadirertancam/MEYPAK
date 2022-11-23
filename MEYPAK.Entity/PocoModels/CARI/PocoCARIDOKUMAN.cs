@@ -5,15 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace MEYPAK.Entity.PocoModels.CARI
-{ 
-    public class PocoCARIALTHES:SUPERPOCOMODEL
+{
+    public  class PocoCARIDOKUMAN:SUPERPOCOMODEL
     {
-    
+        public int cariid { get; set; }
         public string adi { get; set; }
-        public string kod { get; set; } 
-        public int dovizid { get; set; }
-        public int aktif { get; set; }
-
-
+        public string dokuman { get; set; }
     }
 }

@@ -67,12 +67,14 @@
             this.DGStokSayim.TabIndex = 2;
             this.DGStokSayim.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
-            this.DGStokSayim.DoubleClick += new System.EventHandler(this.DGStokSayim_DoubleClick);
             // 
             // gridView1
             // 
+            this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
             this.gridView1.GridControl = this.DGStokSayim;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.Editable = false;
+            this.gridView1.DoubleClick += new System.EventHandler(this.DGStokSayim_DoubleClick);
             // 
             // TBAciklama
             // 
