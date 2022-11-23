@@ -2,6 +2,7 @@
 using MEYPAK.Entity.PocoModels;
 using MEYPAK.Entity.PocoModels.FATURA;
 using MEYPAK.Entity.PocoModels.IRSALIYE;
+using MEYPAK.Interfaces.IRSALIYE;
 using MEYPAK.PRL.IRSALIYE;
 using System;
 using System.Collections.Generic;
@@ -41,6 +42,29 @@ namespace MEYPAK.PRL.SIPARIS
                         ffatura = (FFatura)frm;
                 }
             }
+            _faturaServis.Data(ServisList.FaturaListeServis);
+            if (_islem == "FSatisIrsaliye")
+                gridControl1.DataSource = _faturaServis.obje.Where(x => x.tip == 1).Select(x => new
+                {
+                    ID = x.id,
+                    x.faturatarihi,
+                    x.belgeno,
+                    x.cariadi,
+                    x.althesapid,
+                    x.depoid,
+                    x.geneltoplam
+                });
+            if (_islem == "FAlisIrsaliye")
+                gridControl1.DataSource = _faturaServis.obje.Where(x => x.tip == 0).Select(x => new
+                {
+                    ID = x.id,
+                    x.faturatarihi,
+                    x.belgeno,
+                    x.cariadi,
+                    x.althesapid,
+                    x.depoid,
+                    x.geneltoplam
+                });
         }
 
         private void gridView1_DoubleClick(object sender, EventArgs e)

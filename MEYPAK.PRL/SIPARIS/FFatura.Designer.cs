@@ -417,9 +417,9 @@
             // 
             this.LBSsiparisNo.Location = new System.Drawing.Point(38, 29);
             this.LBSsiparisNo.Name = "LBSsiparisNo";
-            this.LBSsiparisNo.Size = new System.Drawing.Size(51, 13);
+            this.LBSsiparisNo.Size = new System.Drawing.Size(48, 13);
             this.LBSsiparisNo.TabIndex = 118;
-            this.LBSsiparisNo.Text = "İrsaliye No";
+            this.LBSsiparisNo.Text = "Fatura No";
             // 
             // panel2
             // 
@@ -788,6 +788,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1615, 807);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FFatura";
             this.Text = "FFatura";
             this.Load += new System.EventHandler(this.FFatura_Load);

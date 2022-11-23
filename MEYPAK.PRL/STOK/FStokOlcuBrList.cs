@@ -23,6 +23,7 @@ namespace MEYPAK.PRL.STOK
         string _form; 
         string _islem;
         FStokKart fSTOKKART;
+        FFatura ffatura;
         FStokHareket fStokHareket;
         FStokSayimPanel fstokSayimPanel;
         FStokFiyatListPanel fstokFiyatListPanel;
@@ -64,6 +65,8 @@ namespace MEYPAK.PRL.STOK
                         _fSatınAlmaSiparis = (FSatinAlmaSiparis)frm; 
                     if (frm.Name.Contains("FSatisIrsaliye"))
                         fSatisIrsaliye = (FSatisIrsaliye)frm;
+                    if (frm.Name.Contains("FFatura"))
+                        ffatura = (FFatura)frm;
                 }
             } 
              
@@ -80,6 +83,8 @@ namespace MEYPAK.PRL.STOK
                 _fSatınAlmaSiparis.gridView1.SetFocusedRowCellValue("Birim", gridView1.GetFocusedRowCellValue("Column"));
             if (_islem == "SatisIrsaliye")
                 fSatisIrsaliye.gridView1.SetFocusedRowCellValue("Birim", gridView1.GetFocusedRowCellValue("Column"));
+            if (_islem == "FFatura")
+                ffatura.gridView1.SetFocusedRowCellValue("Birim", gridView1.GetFocusedRowCellValue("Column"));
 
             this.Close();
         }
