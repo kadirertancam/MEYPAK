@@ -1504,7 +1504,7 @@
             // 
             // BTDosyaYoluSec
             // 
-            this.BTDosyaYoluSec.Location = new System.Drawing.Point(132, 48);
+            this.BTDosyaYoluSec.Location = new System.Drawing.Point(137, 48);
             this.BTDosyaYoluSec.Name = "BTDosyaYoluSec";
             this.BTDosyaYoluSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions10, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject37, serializableAppearanceObject38, serializableAppearanceObject39, serializableAppearanceObject40, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
@@ -1514,7 +1514,7 @@
             // 
             // TBDokumanAdi
             // 
-            this.TBDokumanAdi.Location = new System.Drawing.Point(132, 22);
+            this.TBDokumanAdi.Location = new System.Drawing.Point(137, 22);
             this.TBDokumanAdi.Name = "TBDokumanAdi";
             this.TBDokumanAdi.Size = new System.Drawing.Size(180, 20);
             this.TBDokumanAdi.TabIndex = 62;

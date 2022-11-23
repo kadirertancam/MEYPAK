@@ -584,7 +584,7 @@ namespace MEYPAK.PRL.CARI
             }
         }
 
-        private void BTDokumanKaydet_Click(object sender, EventArgs e)
+        private void BTDokumanKaydet_Click(object sender, EventArgs e) //TO DO
         {
             _cariDokumanServis.Data(ServisList.CariDokumanEkleServis, new PocoCARIDOKUMAN()
             {
