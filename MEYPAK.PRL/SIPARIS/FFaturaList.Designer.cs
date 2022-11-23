@@ -71,6 +71,7 @@
             this.Controls.Add(this.panelControl1);
             this.Name = "FFaturaList";
             this.Text = "FFaturaList";
+            this.Load += new System.EventHandler(this.FFaturaList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
