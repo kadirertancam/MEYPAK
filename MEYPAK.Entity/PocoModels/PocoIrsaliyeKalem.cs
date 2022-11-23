@@ -13,7 +13,7 @@ namespace MEYPAK.Entity.PocoModels
         public int StokId { get; set; }
         public string StokKodu { get; set; }
         public string StokAdı { get; set; } = "";
-        public string Tipi { get; set; }
+        public string Tipi { get; set; } = "STOK";
         public int KasaId { get; set; }
         public string KasaAdı { get; set; } = "";
         public string Acıklama { get; set; } = "";

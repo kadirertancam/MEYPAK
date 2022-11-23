@@ -1,6 +1,8 @@
-﻿using MEYPAK.DAL.Abstract.KasaDal;
+﻿using MEYPAK.DAL.Abstract.FaturaDal;
+using MEYPAK.DAL.Abstract.IrsaliyeDal;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
-using MEYPAK.Entity.Models.KASA;
+using MEYPAK.Entity.Models.FATURA;
+using MEYPAK.Entity.Models.IRSALIYE;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,22 +10,25 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MEYPAK.DAL.Concrete.EntityFramework.Repository.KasaRepo
+namespace MEYPAK.DAL.Concrete.EntityFramework.Repository.FaturaRepo
 {
-    public class EFKasaHarRepo:EFBaseRepo<MPKASAHAR>,IKasaHarDal
+    public class EFFaturaRepo : EFBaseRepo<MPFATURA>, IFaturaDal
     {
         MEYPAKContext _context;
-        public EFKasaHarRepo(MEYPAKContext context) : base(context)
+
+        public EFFaturaRepo(MEYPAKContext context) : base(context)
         {
-            _context = context;
+            _context = context; 
         }
 
-        public MPKASAHAR EkleyadaGuncelle(MPKASAHAR entity)
+
+        public MPFATURA EkleyadaGuncelle(MPFATURA entity)
         {
-            bool exists = _context.MPKASAHAR.Any(x => x.ID == entity.ID);
+            bool exists = _context.MPFATURA.Any(x => x.ID == entity.ID);
+
             if (!exists)
             {
-                _context.MPKASAHAR.Add(entity);
+                _context.MPFATURA.Add(entity);
                 _context.SaveChanges();
                 return entity;
             }
@@ -42,12 +47,12 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository.KasaRepo
                 propertyInfo.SetValue(item, Convert.ChangeType(1, propertyInfo.PropertyType), null);
                 propertyInfo = (item.GetType().GetProperty("ID"));
                 propertyInfo.SetValue(item, Convert.ChangeType(0, propertyInfo.PropertyType), null);
-                _context.MPKASAHAR.Add(item);
+                _context.MPFATURA.Add(item);
                 _context.SaveChanges();
                 _context.ChangeTracker.Clear();
                 propertyInfo = (entity.GetType().GetProperty("GUNCELLEMETARIHI"));
                 propertyInfo.SetValue(entity, Convert.ChangeType(DateTime.Now, propertyInfo.PropertyType), null);
-                _context.MPKASAHAR.Update(entity);
+                _context.MPFATURA.Update(entity);
                 _context.SaveChanges();
                 return entity;
             }

@@ -118,14 +118,22 @@ namespace MEYPAK.PRL.STOK
             }
             else if (_islem == "SatisIrsaliye")
             {
-                if (fSatınAlmaSiparis != null)
+                
+                if (fSatisIrsaliye != null)
                 {
+                    fSatisIrsaliye._tempKasaList.Clear();
                     foreach (var item in gridView1.GetSelectedRows())
                     {
+                        fSatisIrsaliye._tempKasaList.Add(new KasaList() { 
+                            KASAADI=gridView1.GetRowCellValue(item,"KASAADI").ToString(),
+                            MIKTAR=int.Parse(gridView1.GetRowCellValue(item,"MIKTAR").ToString()),
+                            ID=int.Parse(gridView1.GetRowCellValue(item, "ID").ToString()),
 
-                        temp += gridView1.GetRowCellValue(item, "KASAADI").ToString() + "=>" + gridView1.GetRowCellValue(item, "MIKTAR").ToString() + ";";
+
+                        });
+                        //temp += gridView1.GetRowCellValue(item, "KASAADI").ToString() + "=>" + gridView1.GetRowCellValue(item, "MIKTAR").ToString() + ";";
                     }
-                    fSatisIrsaliye.gridView1.SetFocusedRowCellValue("KasaAdı", temp);
+                    
                 }
             }
     

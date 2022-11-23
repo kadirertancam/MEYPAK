@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.Interfaces.Kasa
 {
-    public interface IKasaHarServis:IGenericServis<PocoKASAHAR>
+    public interface IStokKasaHarServis:IGenericServis<PocoSTOKKASAHAR>
     {
-        public PocoKASAHAR EkleyadaGuncelle(PocoKASAHAR entity);
+        public PocoSTOKKASAHAR EkleyadaGuncelle(PocoSTOKKASAHAR entity);
     }
 }

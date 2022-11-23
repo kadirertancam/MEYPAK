@@ -3,6 +3,7 @@ using MEYPAK.Entity.Models;
 using MEYPAK.Entity.Models.ARAC;
 using MEYPAK.Entity.Models.CARI;
 using MEYPAK.Entity.Models.DEPO;
+using MEYPAK.Entity.Models.FATURA;
 using MEYPAK.Entity.Models.IRSALIYE;
 using MEYPAK.Entity.Models.KASA;
 using MEYPAK.Entity.Models.PARAMETRE;
@@ -25,7 +26,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
             
 
         }
-
+        public DbSet<MPCARIALTHESCARI> MPCARIALTHESCARI { get; set; }
         public DbSet<MPSIPARISKASAHAR> MPSIPARISKASAHAR { get; set; }
         public DbSet<MPSTOKRESIM> MPSTOKRESIM { get; set; }
         public DbSet<MPCARIRESIM> MPCARIRESIM { get; set; }
@@ -76,8 +77,9 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
         public DbSet<MPSATINALMAMALKABULEMRIHAR> MPSATINALMAMALKABULEMRIHAR { get; set; }
         public DbSet<MPPARABIRIM> MPPARABIRIM { get; set; }
         public DbSet<MPKASA> MPKASA { get; set; }
-        public DbSet<MPKASAHAR> MPKASAHAR { get; set; }
-        
+        public DbSet<MPSTOKKASAHAR> MPSTOKKASAHAR { get; set; }
+        public DbSet<MPFATURA> MPFATURA { get; set; }
+       
 
 
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

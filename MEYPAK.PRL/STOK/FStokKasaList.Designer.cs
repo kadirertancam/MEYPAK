@@ -51,13 +51,14 @@
             this.GCKasaList.Location = new System.Drawing.Point(2, 2);
             this.GCKasaList.MainView = this.gridView1;
             this.GCKasaList.Name = "GCKasaList";
-            this.GCKasaList.Size = new System.Drawing.Size(792, 364);
+            this.GCKasaList.Size = new System.Drawing.Size(678, 314);
             this.GCKasaList.TabIndex = 0;
             this.GCKasaList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
             // gridView1
             // 
+            this.gridView1.DetailHeight = 303;
             this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
             this.gridView1.GridControl = this.GCKasaList;
             this.gridView1.Name = "gridView1";
@@ -72,16 +73,16 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(800, 450);
+            this.panelControl1.Size = new System.Drawing.Size(686, 390);
             this.panelControl1.TabIndex = 1;
             // 
             // panelControl3
             // 
             this.panelControl3.Controls.Add(this.GCKasaList);
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl3.Location = new System.Drawing.Point(2, 80);
+            this.panelControl3.Location = new System.Drawing.Point(2, 70);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(796, 368);
+            this.panelControl3.Size = new System.Drawing.Size(682, 318);
             this.panelControl3.TabIndex = 2;
             // 
             // panelControl2
@@ -90,7 +91,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl2.Location = new System.Drawing.Point(2, 2);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(796, 78);
+            this.panelControl2.Size = new System.Drawing.Size(682, 68);
             this.panelControl2.TabIndex = 1;
             // 
             // simpleButton1
@@ -98,20 +99,19 @@
             this.simpleButton1.Appearance.BackColor = System.Drawing.Color.Gainsboro;
             this.simpleButton1.Appearance.Options.UseBackColor = true;
             this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(704, 21);
+            this.simpleButton1.Location = new System.Drawing.Point(603, 18);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(82, 39);
+            this.simpleButton1.Size = new System.Drawing.Size(70, 34);
             this.simpleButton1.TabIndex = 0;
             this.simpleButton1.Text = "&Kaydet";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // FStokKasaList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(686, 390);
             this.Controls.Add(this.panelControl1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FStokKasaList";
             this.Text = "FKasaList";
             this.Load += new System.EventHandler(this.FKasaList_Load);

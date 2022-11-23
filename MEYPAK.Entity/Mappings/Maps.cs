@@ -2,6 +2,7 @@
 using MEYPAK.Entity.Models.ARAC;
 using MEYPAK.Entity.Models.CARI;
 using MEYPAK.Entity.Models.DEPO;
+using MEYPAK.Entity.Models.FATURA;
 using MEYPAK.Entity.Models.IRSALIYE;
 using MEYPAK.Entity.Models.KASA;
 using MEYPAK.Entity.Models.PARAMETRE;
@@ -100,9 +101,10 @@ namespace MEYPAK.Entity.Mappings
 
             //KASA
             CreateMap<MPKASA, PocoKASA>().ReverseMap();
-            CreateMap<MPKASAHAR, PocoKASAHAR>().ReverseMap();
-            
+            CreateMap<MPSTOKKASAHAR, PocoSTOKKASAHAR>().ReverseMap();
 
+            //FATURA            
+            CreateMap<MPFATURA, PocoFATURA>().ReverseMap();
 
 
 

@@ -462,11 +462,11 @@ namespace MEYPAK.BLL.Assets
         #endregion
 
         #region KasaHar
-        public const string KasaHarListeServis = "http://213.238.167.117:8080/KASAHAR/KASAHARListe";
-        public const string KasaHarEkleServis = "http://213.238.167.117:8080/KASAHAR/KASAHAREkleyadaGuncelle";
-        public const string KasaHarSilServis = "http://213.238.167.117:8080/KASAHAR/KASAHARSil";
-        public const string KasaHarGuncelleServis = "http://213.238.167.117:8080/KASAHAR/KASAHARGuncelle";
-        public const string KasaHarDeleteByIdServis = "http://213.238.167.117:8080/KASAHAR/DeleteById";
+        public const string StokKasaHarListeServis =            "http://213.238.167.117:8080/STOKKASAHAR/STOKKASAHARListe";
+        public const string StokKasaHarEkleServis =             "http://213.238.167.117:8080/STOKKASAHAR/STOKKASAHAREkleyadaGuncelle";
+        public const string StokKasaHarSilServis =              "http://213.238.167.117:8080/STOKKASAHAR/STOKKASAHARSil";
+        public const string StokKasaHarGuncelleServis =         "http://213.238.167.117:8080/STOKKASAHAR/STOKKASAHARGuncelle";
+        public const string StokKasaHarDeleteByIdServis =       "http://213.238.167.117:8080/STOKKASAHAR/DeleteById";
         #endregion
 
     }

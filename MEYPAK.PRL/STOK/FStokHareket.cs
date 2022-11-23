@@ -79,7 +79,7 @@ namespace MEYPAK.PRL.STOK
                     Cikis=x.io==0?x.miktar:0,
                     Giris=x.io==1?x.miktar:0,
                     Depo=_depoServis.obje.Where(z=>z.id==x.depoid).FirstOrDefault().depoadi,
-                    HareketTuru=x.hareketturu==5?"Muhtelif":x.hareketturu==1?"Satış Faturası":x.hareketturu==2?"Alış Faturası":x.hareketturu==3?"Satış İade":x.hareketturu==4?"Alış İade":x.hareketturu==6?"DAT" : x.hareketturu == 0 ? "Muhtelif" : "",
+                    HareketTuru=x.hareketturu==5?"Muhtelif":x.hareketturu==1?"Satış Faturası":x.hareketturu==2?"Alış Faturası":x.hareketturu==3?"Satış İade":x.hareketturu==4?"Alış İade":x.hareketturu==6?"DAT" : x.hareketturu == 0 ? "Muhtelif":x.hareketturu==7?"Sayım" : "",
                     NetFiyat=x.netfiyat,
                     NetToplam=x.nettoplam,
                     Tarih=x.olusturmatarihi
