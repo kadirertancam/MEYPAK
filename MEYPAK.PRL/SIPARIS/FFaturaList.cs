@@ -12,7 +12,7 @@ namespace MEYPAK.PRL.SIPARIS
 {
     public partial class FFaturaList : Form
     {
-        public FFaturaList()
+        public FFaturaList(string tag = "",string islem="")
         {
             InitializeComponent();
         }

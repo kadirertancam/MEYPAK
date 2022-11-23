@@ -37,6 +37,7 @@ namespace MEYPAK.PRL.STOK
         FSatinAlmaSiparis _fSatınAlmaSiparis;
         FDepolarArasıTransferHar fDepolarArasıHar;
         FSatisIrsaliye fSatisIrsaliye;
+        FFatura ffatura;
         int id;
         string _islem;
         string _form;
@@ -79,6 +80,8 @@ namespace MEYPAK.PRL.STOK
                         _fSatınAlmaSiparis=(FSatinAlmaSiparis)frm;
                     if (frm.Name.Contains("SatisIrsaliye"))
                         fSatisIrsaliye = (FSatisIrsaliye)frm;
+                    if (frm.Name.Contains("FFatura"))
+                        ffatura = (FFatura)frm;
                 }
             }
             _stokMarka.Data(ServisList.StokMarkaListeServis);
@@ -142,6 +145,11 @@ namespace MEYPAK.PRL.STOK
                 if (fSatisIrsaliye != null)
                     fSatisIrsaliye._tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
 
+            }
+            else if (_islem == "FFatura")
+            {
+                if (ffatura != null)
+                    ffatura._tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
             }
 
             this.Close();

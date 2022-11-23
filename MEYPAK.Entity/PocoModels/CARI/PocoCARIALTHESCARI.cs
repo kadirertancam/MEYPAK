@@ -8,8 +8,8 @@ namespace MEYPAK.Entity.PocoModels.CARI
 {
     public class PocoCARIALTHESCARI:SUPERPOCOMODEL
     {
-        public int CARIID { get; set; }
-        public int CARIALTHESID { get; set; }
-        public byte AKTIF { get; set; }
+        public int cariid { get; set; }
+        public int carialthesid { get; set; }
+        public byte aktif { get; set; }
     }
 }

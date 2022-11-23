@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MEYPAK.Entity.PocoModels.IRSALIYE
+namespace MEYPAK.Entity.PocoModels.FATURA
 {
-    public class PocoFATURA:SUPERPOCOMODEL
+    public class PocoFATURA : SUPERPOCOMODEL
     {
         public int siparisid { get; set; }
         public int sirketid { get; set; } = 0;

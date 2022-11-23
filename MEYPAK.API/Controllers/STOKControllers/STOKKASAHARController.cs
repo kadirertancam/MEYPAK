@@ -11,12 +11,12 @@ namespace MEYPAK.API.Controllers.STOKControllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class KASAHARController : Controller
+    public class STOKKASAHARController : Controller
     {
         private readonly IMapper _mapper;
         private readonly IStokKasaHarServis _kasaHarServis;
         private MPAdoContext<MPSTOKKASAHAR> _adokasaHarservis = new MPAdoContext<MPSTOKKASAHAR>();
-        public KASAHARController(IMapper mapper, IStokKasaHarServis kasaHarServis)
+        public STOKKASAHARController(IMapper mapper, IStokKasaHarServis kasaHarServis)
         {
             _mapper = mapper;
             _kasaHarServis = kasaHarServis;

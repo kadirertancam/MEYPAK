@@ -1,25 +1,23 @@
 ﻿using AutoMapper;
 using MEYPAK.DAL.Concrete.ADONET;
 using MEYPAK.Entity.Models.FATURA;
-using MEYPAK.Entity.Models.IRSALIYE;
 using MEYPAK.Entity.PocoModels.FATURA;
 using MEYPAK.Interfaces.Fatura;
-using MEYPAK.Interfaces.IRSALIYE;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MEYPAK.API.Controllers.FATURAController
 {
     [ApiController]
     [Route("[controller]")]
-    public class FATURAController : Controller
+    public class FATURADETAYController : Controller
     {
         private readonly IMapper _mapper;
-        private readonly IFaturaServis _faturaServis;
-        private MPAdoContext<MPFATURA> _adoFaturaServis = new MPAdoContext<MPFATURA>();
-        public FATURAController(IMapper mapper, IFaturaServis faturaServis)
+        private readonly IFaturaDetayServis _faturaDetayServis;
+        private MPAdoContext<MPFATURADETAY> _adoFaturaServis = new MPAdoContext<MPFATURADETAY>();
+        public FATURADETAYController(IMapper mapper, IFaturaDetayServis faturaDetayServis)
         {
             _mapper = mapper;
-            _faturaServis = faturaServis;
+            _faturaDetayServis = faturaDetayServis;
         }
 
         [HttpGet]
@@ -28,7 +26,7 @@ namespace MEYPAK.API.Controllers.FATURAController
         {
             try
             {
-                var data = _faturaServis.Listele();
+                var data = _faturaDetayServis.Listele();
                 return Ok(data);
             }
             catch (Exception ex)
@@ -53,11 +51,11 @@ namespace MEYPAK.API.Controllers.FATURAController
 
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult FATURAkleyadaGuncelle(PocoFATURA pModel)
+        public IActionResult FATURAkleyadaGuncelle(PocoFATURADETAY pModel)
         {
             try
             {
-                var data = _faturaServis.EkleyadaGuncelle(pModel);
+                var data = _faturaDetayServis.EkleyadaGuncelle(pModel);
                 return Ok(data);
             }
             catch (Exception ex)
@@ -67,11 +65,11 @@ namespace MEYPAK.API.Controllers.FATURAController
         }
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult FATURASil(List<PocoFATURA> pModel)
+        public IActionResult FATURASil(List<PocoFATURADETAY> pModel)
         {
             try
             {
-                var data = _faturaServis.Sil(pModel);
+                var data = _faturaDetayServis.Sil(pModel);
                 return Ok(data);
             }
             catch (Exception ex)
@@ -81,11 +79,11 @@ namespace MEYPAK.API.Controllers.FATURAController
         }
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult FATURAGuncelle(PocoFATURA pModel)
+        public IActionResult FATURAGuncelle(PocoFATURADETAY pModel)
         {
             try
             {
-                var data = _faturaServis.Guncelle(pModel);
+                var data = _faturaDetayServis.Guncelle(pModel);
                 return Ok(data);
             }
             catch (Exception ex)
@@ -99,7 +97,7 @@ namespace MEYPAK.API.Controllers.FATURAController
         {
             try
             {
-                bool succes = _faturaServis.DeleteById(id);
+                bool succes = _faturaDetayServis.DeleteById(id);
                 if (succes)
                     return Ok(id + " Başarıyla Silindi");
                 else
@@ -112,3 +110,5 @@ namespace MEYPAK.API.Controllers.FATURAController
         }
     }
 }
+
+
