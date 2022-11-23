@@ -3,7 +3,7 @@ using MEYPAK.DAL.Abstract.FaturaDal;
 using MEYPAK.DAL.Abstract.HizmetDal;
 using MEYPAK.Entity.Models.FATURA;
 using MEYPAK.Entity.Models.STOK;
-using MEYPAK.Entity.PocoModels.IRSALIYE;
+using MEYPAK.Entity.PocoModels.FATURA;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Fatura;
 using MEYPAK.Interfaces.Hizmet;

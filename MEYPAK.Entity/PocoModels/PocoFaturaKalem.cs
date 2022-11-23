@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace MEYPAK.Entity.PocoModels
 {
-    public class PocoIrsaliyeKalem
+    public class PocoFaturaKalem
     {
-        
         public int StokId { get; set; }
         public string StokKodu { get; set; }
         public string StokAdı { get; set; } = "";

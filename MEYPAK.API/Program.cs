@@ -267,10 +267,11 @@ builder.Services.AddScoped<IStokKasaHarDal, EFStokKasaHarRepo>();
 builder.Services.AddScoped<IStokKasaHarServis, StokKasaHarManager>();
 #endregion
 #region Fatura_Scoped_Islemleri
-
 builder.Services.AddScoped<IFaturaDal, EFFaturaRepo>();
 builder.Services.AddScoped<IFaturaServis, FaturaManager>();
 
+builder.Services.AddScoped<IFaturaDetayDal, EFFaturaDetayRepo>();
+builder.Services.AddScoped<IFaturaDetayServis, FaturaDetayManager>();
 #endregion
 
 

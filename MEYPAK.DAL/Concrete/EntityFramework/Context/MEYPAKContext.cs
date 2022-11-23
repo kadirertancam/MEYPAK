@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 
+
 namespace MEYPAK.DAL.Concrete.EntityFramework.Context
 {
     public class MEYPAKContext :IdentityDbContext<MPUSER,MPROLE,string>
@@ -79,16 +80,17 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
         public DbSet<MPKASA> MPKASA { get; set; }
         public DbSet<MPSTOKKASAHAR> MPSTOKKASAHAR { get; set; }
         public DbSet<MPFATURA> MPFATURA { get; set; }
+        public DbSet<MPFATURADETAY> MPFATURADETAY { get; set; }
 
 
 
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    if (!optionsBuilder.IsConfigured)
-        //    {
-        //        optionsBuilder.UseSqlServer("Server=213.238.167.117;Database=MEYPAK;User Id=sa;Password=sapass_1;");
-        //    }
-        //}
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseSqlServer("Server=213.238.167.117;Database=MEYPAK;User Id=sa;Password=sapass_1;");
+            }
+        }
 
         //       protected override void OnModelCreating(ModelBuilder modelBuilder)
         //       {

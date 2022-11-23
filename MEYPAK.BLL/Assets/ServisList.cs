@@ -461,19 +461,37 @@ namespace MEYPAK.BLL.Assets
         public const string KasaDeleteByIdServis =  "http://213.238.167.117:8080/KASA/DeleteById";
         #endregion
 
-        #region KasaHar
-        public const string FaturaListeServis =            "http://213.238.167.117:8080/FATURA/FATURAListe";
-        public const string FaturaEkleServis =             "http://213.238.167.117:8080/FATURA/FATURAEkleyadaGuncelle";
-        public const string FaturaSilServis =              "http://213.238.167.117:8080/FATURA/FATURASil";
-        public const string FaturaGuncelleServis =         "http://213.238.167.117:8080/FATURA/FATURAGuncelle";
-        public const string FaturaDeleteByIdServis =       "http://213.238.167.117:8080/FATURA/DeleteById";
+
+        #region CARIALTHESCARI
+        public const string CariAltHesCariListeServis =            "http://213.238.167.117:8080/CARIALTHESCARI/CARIALTHESCARIListe";
+        public const string CariAltHesCariEkleServis =             "http://213.238.167.117:8080/CARIALTHESCARI/CARIALTHESCARIEkleyadaGuncelle";
+        public const string CariAltHesCariSilServis =              "http://213.238.167.117:8080/CARIALTHESCARI/CARIALTHESCARISil";
+        public const string CariAltHesCariGuncelleServis =         "http://213.238.167.117:8080/CARIALTHESCARI/CARIALTHESCARIGuncelle";
+        public const string CariAltHesCariDeleteByIdServis =       "http://213.238.167.117:8080/CARIALTHESCARI/DeleteById";
         #endregion
-        #region KasaHar
+
+        #region StokKasaHar
         public const string StokKasaHarListeServis = "http://213.238.167.117:8080/STOKKASAHAR/STOKKASAHARListe";
         public const string StokKasaHarEkleServis = "http://213.238.167.117:8080/STOKKASAHAR/STOKKASAHAREkleyadaGuncelle";
         public const string StokKasaHarSilServis = "http://213.238.167.117:8080/STOKKASAHAR/STOKKASAHARSil";
         public const string StokKasaHarGuncelleServis = "http://213.238.167.117:8080/STOKKASAHAR/STOKKASAHARGuncelle";
         public const string StokKasaHarDeleteByIdServis = "http://213.238.167.117:8080/STOKKASAHAR/DeleteById";
+        #endregion
+
+        #region FATURA
+        public const string FaturaDetayListeServis =      "http://213.238.167.117:8080/FATURADETAY/FATURADETAYListe";
+        public const string FaturaDetayEkleServis =       "http://213.238.167.117:8080/FATURADETAY/FATURADETAYEkleyadaGuncelle";
+        public const string FaturaDetaySilServis =        "http://213.238.167.117:8080/FATURADETAY/FATURADETAYSil";
+        public const string FaturaDetayGuncelleServis =   "http://213.238.167.117:8080/FATURADETAY/FATURADETAYGuncelle";
+        public const string FaturaDetayDeleteByIdServis = "http://213.238.167.117:8080/FATURADETAY/DeleteById";
+        #endregion
+
+        #region FATURA
+        public const string FaturaListeServis = "http://213.238.167.117:8080/FATURA/FATURAListe";
+        public const string FaturaEkleServis = "http://213.238.167.117:8080/FATURA/FATURAEkleyadaGuncelle";
+        public const string FaturaSilServis = "http://213.238.167.117:8080/FATURA/FATURASil";
+        public const string FaturaGuncelleServis = "http://213.238.167.117:8080/FATURA/FATURAGuncelle";
+        public const string FaturaDeleteByIdServis = "http://213.238.167.117:8080/FATURA/DeleteById";
         #endregion
     }
 }
