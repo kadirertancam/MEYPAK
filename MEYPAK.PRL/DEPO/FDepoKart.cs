@@ -26,7 +26,7 @@ namespace MEYPAK.PRL.DEPO
             _depoServis = new GenericWebServis<PocoDEPO>();
         }
         FDepoList fDepoList;
-        int id=0;
+
         public PocoDEPO _tempDepo;
         GenericWebServis<PocoDEPO> _depoServis ;
 
@@ -34,12 +34,10 @@ namespace MEYPAK.PRL.DEPO
         {
             if (_tempDepo != null)
             {
-                _depoServis = new GenericWebServis<PocoDEPO>();
+                
                 TBKod.Text = _tempDepo.depokodu;
                 TBAdi.Text = _tempDepo.depoadi;
                 TBAciklama.Text = _tempDepo.aciklama;
-                id = _tempDepo.id;
-                _tempDepo = null;
             }
         }
         public void Temizle(Control.ControlCollection ctrlCollection)           //Formdaki Textboxları temizle
@@ -55,49 +53,57 @@ namespace MEYPAK.PRL.DEPO
                     Temizle(ctrl.Controls);
                 }
             }
-        }
-
-
-        private void BTEkle_Click(object sender, EventArgs e)
-        {
-           
-        }
-        
-        private void BTSec_Click(object sender, EventArgs e)
-        {
             
         }
 
+
+
+
         private void FDepoKart_Load(object sender, EventArgs e)
         {
+            gridiDoldur();
+        }
+
+        void gridiDoldur()
+        {
             _depoServis.Data(ServisList.DepoListeServis);
-            GCDepoKart.DataSource = _depoServis.obje;
-        }
-
-        private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            _tempDepo = _depoServis.obje.Where(x => x.depokodu == gridView1.GetFocusedRowCellValue("depokodu").ToString()).FirstOrDefault();
-            Doldur();
-        }
-
-        private void BTSil_Click(object sender, EventArgs e)
-        {
-            _depoServis.Data(ServisList.DepoSilServis,(_depoServis.obje.Where(x => x.id == Convert.ToInt32(gridView1.GetFocusedRowCellValue("id"))).FirstOrDefault()));
+            GCDepoKart.DataSource = _depoServis.obje.Where(x => x.kayittipi == 0);
         }
 
         private void BTDepoKartEkle_Click(object sender, EventArgs e)
         {
+            if (_tempDepo!=null && _tempDepo.id>0)
+            {
             _depoServis.Data(ServisList.DepoEkleServis, (new PocoDEPO()
             {
-                id = id,
+                id = _tempDepo.id,
                 depokodu = TBKod.Text,
                 depoadi = TBAdi.Text,
                 aciklama = TBAciklama.Text,
 
             }));
-            _depoServis.Data(ServisList.DepoListeServis);
-            GCDepoKart.DataSource = _depoServis.obje;
-            Temizle(this.Controls);
+                gridiDoldur();
+                Temizle(this.Controls);
+                MessageBox.Show($"{_tempDepo.depoadi} adlı depo başarıyla güncellendi!");
+                _tempDepo = null;
+             
+            }
+            else
+            {
+                _depoServis.Data(ServisList.DepoEkleServis, (new PocoDEPO()
+                {
+                    depokodu = TBKod.Text,
+                    depoadi = TBAdi.Text,
+                    aciklama = TBAciklama.Text,
+
+                }));
+                gridiDoldur();
+                MessageBox.Show($"{TBAdi.Text} adlı depo başarıyla eklendi!");
+                Temizle(this.Controls);
+                _tempDepo = _depoServis.obje2;
+                
+            }
+
         }
 
         private void BTDepoKartSec_Click(object sender, EventArgs e)
@@ -106,6 +112,36 @@ namespace MEYPAK.PRL.DEPO
             fDepoList.ShowDialog();
             Doldur();
 
+        }
+
+        private void BTDepoKartSil_Click(object sender, EventArgs e)
+        {
+ 
+            if (_tempDepo != null && _tempDepo.id > 0)
+            {
+                _depoServis.Data(ServisList.DepoDeleteByIdServis,null,null,null, _tempDepo.id.ToString());
+                Temizle(this.Controls);
+                MessageBox.Show($"{_tempDepo.depoadi} adlı depo başarıyla silindi!");
+                _tempDepo = null;
+                gridiDoldur();
+            }
+            else
+            {
+                MessageBox.Show("Silinecek depo bulunamadı!");
+                Temizle(this.Controls);
+            }
+        }
+
+        private void GCDepoKart_DoubleClick(object sender, EventArgs e)
+        {
+            _tempDepo = _depoServis.obje.Where(x => x.depokodu == gridView1.GetFocusedRowCellValue("depokodu").ToString()).FirstOrDefault();
+            Doldur();
+        }
+
+        private void BTDepoTemizle_Click(object sender, EventArgs e)
+        {
+            Temizle(this.Controls);
+            _tempDepo = null;
         }
     }
 }

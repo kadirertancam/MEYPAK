@@ -4,6 +4,7 @@ using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MEYPAK.DAL.Migrations
 {
     [DbContext(typeof(MEYPAKContext))]
-    partial class MEYPAKContextModelSnapshot : ModelSnapshot
+    [Migration("20221124093120_MEYPAKStokKasaMarka")]
+    partial class MEYPAKStokKasaMarka
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -2955,11 +2957,11 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<decimal>("AFIYAT5")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("ALISKDV")
-                        .HasColumnType("int");
+                    b.Property<decimal>("ALISKDV")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("ALISOTV")
-                        .HasColumnType("int");
+                    b.Property<decimal>("ALISOTV")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("DONEM")
                         .IsRequired()
@@ -3069,11 +3071,11 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<int>("SACIKLAMA5")
                         .HasColumnType("int");
 
-                    b.Property<int>("SATISKDV")
-                        .HasColumnType("int");
+                    b.Property<decimal>("SATISKDV")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("SATISOTV")
-                        .HasColumnType("int");
+                    b.Property<decimal>("SATISOTV")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("SDOVIZID")
                         .HasColumnType("int");
@@ -3321,9 +3323,6 @@ namespace MEYPAK.DAL.Migrations
 
                     b.Property<byte>("KAYITTIPI")
                         .HasColumnType("tinyint");
-
-                    b.Property<int>("MARKAID")
-                        .HasColumnType("int");
 
                     b.Property<DateTime>("OLUSTURMATARIHI")
                         .HasColumnType("datetime2");

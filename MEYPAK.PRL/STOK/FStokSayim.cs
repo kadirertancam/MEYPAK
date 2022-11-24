@@ -64,7 +64,7 @@ namespace MEYPAK.PRL.STOK
 
 
             stokSayimPanel.ShowDialog();
-           
+           DataGridDoldur();
             //stokSayimPanel.sayimId = _stokSayimServis.obje.Where(x => x.aciklama == TBAciklama.Text).FirstOrDefault().id;
             //TBAciklama.Text = "";
             //DTSayimTar.EditValue = DateTime.Now;

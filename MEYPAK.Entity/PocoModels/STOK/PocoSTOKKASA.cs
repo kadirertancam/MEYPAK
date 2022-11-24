@@ -11,6 +11,7 @@ namespace MEYPAK.Entity.PocoModels.STOK
     {
         public int sirketid { get; set; } = 0;
         public int subeid { get; set; } = 0;
+        public int markaid { get; set; } = 0;
         public string kasakodu { get; set; } = "";
         public string kasaadi { get; set; } = "";
         public string aciklama { get; set; } = "";

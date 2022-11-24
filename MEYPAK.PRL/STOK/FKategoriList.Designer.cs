@@ -38,6 +38,7 @@
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.LBAdi = new DevExpress.XtraEditors.LabelControl();
+            this.BtnKategoriSil = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.TBKategoriAdi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
@@ -121,6 +122,7 @@
             // 
             this.groupControl1.Appearance.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.groupControl1.Appearance.Options.UseBackColor = true;
+            this.groupControl1.Controls.Add(this.BtnKategoriSil);
             this.groupControl1.Controls.Add(this.LBAdi);
             this.groupControl1.Controls.Add(this.BTAltEkle);
             this.groupControl1.Controls.Add(this.TBKategoriAdi);
@@ -141,6 +143,18 @@
             this.LBAdi.Size = new System.Drawing.Size(58, 13);
             this.LBAdi.TabIndex = 82;
             this.LBAdi.Text = "Kategori Adı";
+            // 
+            // BtnKategoriSil
+            // 
+            this.BtnKategoriSil.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BtnKategoriSil.Appearance.Options.UseBackColor = true;
+            this.BtnKategoriSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.BtnKategoriSil.Location = new System.Drawing.Point(953, 30);
+            this.BtnKategoriSil.Name = "BtnKategoriSil";
+            this.BtnKategoriSil.Size = new System.Drawing.Size(100, 34);
+            this.BtnKategoriSil.TabIndex = 83;
+            this.BtnKategoriSil.Text = "Kategoriyi Sil";
+            this.BtnKategoriSil.Click += new System.EventHandler(this.BtnKategoriSil_Click);
             // 
             // FKategoriList
             // 
@@ -175,5 +189,6 @@
         private DevExpress.XtraEditors.LabelControl LBAdi;
         private DevExpress.XtraEditors.PanelControl panelControl3;
         private TreeView treeView;
+        private DevExpress.XtraEditors.SimpleButton BtnKategoriSil;
     }
 }

@@ -41,7 +41,8 @@ namespace MEYPAK.PRL.DEPO
             depoTransferBilgiKart = (FDepolarArasıTransferHar)Application.OpenForms["FDepolarArasıTransferBilgi"];
         }
 
-        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+
+        private void GCDepoList_DoubleClick(object sender, EventArgs e)
         {
             if (_islem == "FDepoKart")
             {

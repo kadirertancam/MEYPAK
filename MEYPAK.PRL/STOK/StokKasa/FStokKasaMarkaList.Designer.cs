@@ -1,6 +1,6 @@
-﻿namespace MEYPAK.PRL.DEPO
+﻿namespace MEYPAK.PRL.STOK.StokKasa
 {
-    partial class FDepoList
+    partial class FStokKasaMarkaList
     {
         /// <summary>
         /// Required designer variable.
@@ -28,38 +28,41 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.GCDepoList = new DevExpress.XtraGrid.GridControl();
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            ((System.ComponentModel.ISupportInitialize)(this.GCDepoList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // GCDepoList
+            // gridControl1
             // 
-            this.GCDepoList.Location = new System.Drawing.Point(1, 2);
-            this.GCDepoList.MainView = this.gridView1;
-            this.GCDepoList.Name = "GCDepoList";
-            this.GCDepoList.Size = new System.Drawing.Size(796, 445);
-            this.GCDepoList.TabIndex = 0;
-            this.GCDepoList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl1.Location = new System.Drawing.Point(0, 0);
+            this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Name = "gridControl1";
+            this.gridControl1.Size = new System.Drawing.Size(800, 450);
+            this.gridControl1.TabIndex = 0;
+            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
-            this.GCDepoList.DoubleClick += new System.EventHandler(this.GCDepoList_DoubleClick);
             // 
             // gridView1
             // 
-            this.gridView1.GridControl = this.GCDepoList;
+            this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
+            this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.Editable = false;
+            this.gridView1.DoubleClick += new System.EventHandler(this.gridView1_DoubleClick);
             // 
-            // FDepoList
+            // FStokKasaMarkaList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.GCDepoList);
-            this.Name = "FDepoList";
-            this.Text = "FDepoList";
-            this.Load += new System.EventHandler(this.FDepoList_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.GCDepoList)).EndInit();
+            this.Controls.Add(this.gridControl1);
+            this.Name = "FStokKasaMarkaList";
+            this.Text = "FStokKasaMarkaList";
+            this.Load += new System.EventHandler(this.FStokKasaMarkaList_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -67,7 +70,7 @@
 
         #endregion
 
-        private DevExpress.XtraGrid.GridControl GCDepoList;
+        private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
     }
 }
