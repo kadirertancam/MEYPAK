@@ -333,6 +333,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl19)).BeginInit();
             this.panelControl19.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
@@ -1849,6 +1850,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.simpleButton1);
             this.groupBox4.Controls.Add(this.CBTip);
             this.groupBox4.Controls.Add(this.TBAciklama);
             this.groupBox4.Controls.Add(this.TBCariSoyad);
@@ -2242,6 +2244,7 @@
             this.CBIl.Properties.NullText = "";
             this.CBIl.Size = new System.Drawing.Size(86, 20);
             this.CBIl.TabIndex = 65;
+            this.CBIl.EditValueChanged += new System.EventHandler(this.CBIl_Properties_EditValueChanged);
             // 
             // BTMuhSec
             // 
@@ -2486,6 +2489,15 @@
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(0, 13);
             this.label10.TabIndex = 22;
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Location = new System.Drawing.Point(204, 377);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(94, 36);
+            this.simpleButton1.TabIndex = 70;
+            this.simpleButton1.Text = "TEMİZLE";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // FCariKart
             // 
@@ -2853,5 +2865,6 @@
         private Label label10;
         private DevExpress.XtraEditors.TextEdit TBYetkiliTel;
         private DevExpress.XtraEditors.LabelControl LBTelefon;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
     }
 }
