@@ -42,12 +42,12 @@
             this.GCStokHareket = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.LBAdi = new DevExpress.XtraEditors.LabelControl();
-            this.LBDepo = new DevExpress.XtraEditors.LabelControl();
-            this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.LBDepo = new DevExpress.XtraEditors.LabelControl();
+            this.LBAdi = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.CLBDepo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBStokAdi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTStokKoduSec.Properties)).BeginInit();
@@ -55,14 +55,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
-            this.panelControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
-            this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
-            this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
+            this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
+            this.groupControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
+            this.groupControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // LBStokHarBakiyeDeger
@@ -183,7 +183,7 @@
             this.GCStokHareket.Location = new System.Drawing.Point(2, 2);
             this.GCStokHareket.MainView = this.gridView1;
             this.GCStokHareket.Name = "GCStokHareket";
-            this.GCStokHareket.Size = new System.Drawing.Size(1387, 521);
+            this.GCStokHareket.Size = new System.Drawing.Size(1392, 597);
             this.GCStokHareket.TabIndex = 1;
             this.GCStokHareket.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -204,8 +204,17 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1395, 774);
+            this.panelControl1.Size = new System.Drawing.Size(1400, 850);
             this.panelControl1.TabIndex = 3;
+            // 
+            // panelControl3
+            // 
+            this.panelControl3.Controls.Add(this.GCStokHareket);
+            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl3.Location = new System.Drawing.Point(2, 247);
+            this.panelControl3.Name = "panelControl3";
+            this.panelControl3.Size = new System.Drawing.Size(1396, 601);
+            this.panelControl3.TabIndex = 4;
             // 
             // panelControl2
             // 
@@ -214,8 +223,23 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl2.Location = new System.Drawing.Point(2, 2);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(1391, 245);
+            this.panelControl2.Size = new System.Drawing.Size(1396, 245);
             this.panelControl2.TabIndex = 3;
+            // 
+            // groupControl2
+            // 
+            this.groupControl2.Controls.Add(this.LBStokHarBakiyeDeger);
+            this.groupControl2.Controls.Add(this.LBStokHarBakiye);
+            this.groupControl2.Controls.Add(this.LBStokHarToplamCikisDeger);
+            this.groupControl2.Controls.Add(this.LBStokHarToplamGiris);
+            this.groupControl2.Controls.Add(this.LBStokHarToplamGirisDeger);
+            this.groupControl2.Controls.Add(this.LBStokHarToplamCikis);
+            this.groupControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.groupControl2.GroupStyle = DevExpress.Utils.GroupStyle.Light;
+            this.groupControl2.Location = new System.Drawing.Point(2, 143);
+            this.groupControl2.Name = "groupControl2";
+            this.groupControl2.Size = new System.Drawing.Size(1392, 100);
+            this.groupControl2.TabIndex = 5;
             // 
             // groupControl1
             // 
@@ -232,17 +256,9 @@
             this.groupControl1.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             this.groupControl1.Location = new System.Drawing.Point(2, 2);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(1387, 124);
+            this.groupControl1.Size = new System.Drawing.Size(1392, 124);
             this.groupControl1.TabIndex = 4;
             this.groupControl1.Text = "Stok Hareket";
-            // 
-            // LBAdi
-            // 
-            this.LBAdi.Location = new System.Drawing.Point(63, 73);
-            this.LBAdi.Name = "LBAdi";
-            this.LBAdi.Size = new System.Drawing.Size(39, 13);
-            this.LBAdi.TabIndex = 8;
-            this.LBAdi.Text = "Stok Adı";
             // 
             // LBDepo
             // 
@@ -252,35 +268,19 @@
             this.LBDepo.TabIndex = 31;
             this.LBDepo.Text = "Depo";
             // 
-            // groupControl2
+            // LBAdi
             // 
-            this.groupControl2.Controls.Add(this.LBStokHarBakiyeDeger);
-            this.groupControl2.Controls.Add(this.LBStokHarBakiye);
-            this.groupControl2.Controls.Add(this.LBStokHarToplamCikisDeger);
-            this.groupControl2.Controls.Add(this.LBStokHarToplamGiris);
-            this.groupControl2.Controls.Add(this.LBStokHarToplamGirisDeger);
-            this.groupControl2.Controls.Add(this.LBStokHarToplamCikis);
-            this.groupControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupControl2.GroupStyle = DevExpress.Utils.GroupStyle.Light;
-            this.groupControl2.Location = new System.Drawing.Point(2, 143);
-            this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(1387, 100);
-            this.groupControl2.TabIndex = 5;
-            // 
-            // panelControl3
-            // 
-            this.panelControl3.Controls.Add(this.GCStokHareket);
-            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl3.Location = new System.Drawing.Point(2, 247);
-            this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(1391, 525);
-            this.panelControl3.TabIndex = 4;
+            this.LBAdi.Location = new System.Drawing.Point(63, 73);
+            this.LBAdi.Name = "LBAdi";
+            this.LBAdi.Size = new System.Drawing.Size(39, 13);
+            this.LBAdi.TabIndex = 8;
+            this.LBAdi.Text = "Stok Adı";
             // 
             // FStokHareket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1395, 774);
+            this.ClientSize = new System.Drawing.Size(1400, 850);
             this.Controls.Add(this.panelControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FStokHareket";
@@ -293,16 +293,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
+            this.panelControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
-            this.groupControl1.ResumeLayout(false);
-            this.groupControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
             this.groupControl2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
-            this.panelControl3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
+            this.groupControl1.ResumeLayout(false);
+            this.groupControl1.PerformLayout();
             this.ResumeLayout(false);
 
         }
