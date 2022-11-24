@@ -37,10 +37,10 @@ namespace MEYPAK.Entity.PocoModels.STOK
         public decimal afiyaT3 { get; set; }
         public decimal afiyaT4 { get; set; }
         public decimal afiyaT5 { get; set; }
-        public decimal satiskdv { get; set; }
-        public decimal aliskdv { get; set; }
-        public decimal satisotv { get; set; }
-        public decimal alisotv { get; set; }
+        public int satiskdv { get; set; }
+        public int aliskdv { get; set; }
+        public int satisotv { get; set; }
+        public int alisotv { get; set; }
         public string grupkodu { get; set; }
         public string aciklama { get; set; } = "";
         public string aciklamA1 { get; set; } = "";

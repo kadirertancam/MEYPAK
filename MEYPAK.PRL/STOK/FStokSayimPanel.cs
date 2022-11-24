@@ -145,7 +145,7 @@ namespace MEYPAK.PRL.STOK
             {
                 datatb.Rows.Add(item.id, item.adi,
                     kategoriServis.obje.Where(y => y.id == item.kategoriid).FirstOrDefault().acıklama,
-                    stokHarServis.obje.Where(z => z.depoid == _tempStokSayim.depoid).Sum(z => z.miktar),
+                    stokHarServis.obje.Where(z => z.depoid == _tempStokSayim.depoid && z.stokid== item.id).Sum(z => z.miktar),
                     stokSayimHarServis.obje.Where(d => d.kayittipi == 0 && d.stoksayimid == _tempStokSayim.id && d.stokid == item.id).Count() == 0
                     ? 0 : stokSayimHarServis.obje.Where(d => d.kayittipi == 0 && d.stoksayimid == _tempStokSayim.id && d.stokid == item.id).FirstOrDefault().miktar,
                     1
