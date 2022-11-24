@@ -122,6 +122,8 @@ builder.Services.AddScoped<ICariDokumanServis, CariDokumanManager>();
 
 #endregion
 #region STOK_Scoped_Islemleri
+builder.Services.AddScoped<IStokKasaMarkaDal, EFStokKasaMarkaRepo>();
+builder.Services.AddScoped<IStokKasaMarkaServis, StokKasaMarkaManager>();
 
 builder.Services.AddScoped<IStokResimDal, EFStokResimRepo>();
 builder.Services.AddScoped<IStokResimServis, StokResimManager>();

@@ -216,6 +216,14 @@ namespace MEYPAK.BLL.Assets
         #endregion
 
         #region StokKasa
+        public const string StokKasaMarkaListeServis =          "http://213.238.167.117:8080/STOKMARKAKASA/STOKKASAMARKAListe"; 
+        public const string StokKasaMarkaEkleServis =           "http://213.238.167.117:8080/STOKMARKAKASA/STOKKASAMARKAEkleyadaGuncelle"; 
+        public const string StokKasaMarkaSilServis =            "http://213.238.167.117:8080/STOKMARKAKASA/STOKKASAMARKASil"; 
+        public const string StokKasaMarkaGuncelleServis =       "http://213.238.167.117:8080/STOKMARKAKASA/STOKKASAMARKAGuncelle";
+        public const string StokKasaMarkaDeleteByIdServis =     "http://213.238.167.117:8080/STOKMARKAKASA/DeleteById";
+        #endregion
+
+        #region StokKasa
         public const string StokKasaListeServis =    "http://213.238.167.117:8080/STOKKASA/STOKKASAListe"; 
         public const string StokKasaEkleServis = "http://213.238.167.117:8080/STOKKASA/STOKKASAEkleyadaGuncelle"; 
         public const string StokKasaSilServis =              "http://213.238.167.117:8080/STOKKASA/STOKKASASil"; 
