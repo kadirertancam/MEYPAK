@@ -693,11 +693,11 @@
             this.tabPage2.BackColor = System.Drawing.SystemColors.Control;
             this.tabPage2.Controls.Add(this.panel8);
             this.tabPage2.Controls.Add(this.panel7);
-            this.tabPage2.Location = new System.Drawing.Point(4, 24);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.tabPage2.Size = new System.Drawing.Size(1120, 547);
+            this.tabPage2.Size = new System.Drawing.Size(1120, 549);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Ölçü Birimleri";
             // 
@@ -708,7 +708,7 @@
             this.panel8.Location = new System.Drawing.Point(4, 102);
             this.panel8.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(1112, 443);
+            this.panel8.Size = new System.Drawing.Size(1112, 445);
             this.panel8.TabIndex = 4;
             // 
             // gridControl1
@@ -717,7 +717,7 @@
             this.gridControl1.Location = new System.Drawing.Point(0, 0);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1112, 443);
+            this.gridControl1.Size = new System.Drawing.Size(1112, 445);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -1848,9 +1848,9 @@
             // 
             this.tabPage5.Controls.Add(this.panel13);
             this.tabPage5.Controls.Add(this.panel12);
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Location = new System.Drawing.Point(4, 24);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(1120, 549);
+            this.tabPage5.Size = new System.Drawing.Size(1120, 547);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Resim";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -1862,7 +1862,7 @@
             this.panel13.Location = new System.Drawing.Point(0, 130);
             this.panel13.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(1120, 419);
+            this.panel13.Size = new System.Drawing.Size(1120, 417);
             this.panel13.TabIndex = 5;
             // 
             // panel10
@@ -1871,7 +1871,7 @@
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel10.Location = new System.Drawing.Point(0, 0);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(1120, 419);
+            this.panel10.Size = new System.Drawing.Size(1120, 417);
             this.panel10.TabIndex = 4;
             // 
             // gridControl2
@@ -1880,7 +1880,7 @@
             this.gridControl2.Location = new System.Drawing.Point(0, 0);
             this.gridControl2.MainView = this.tileView1;
             this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(1120, 419);
+            this.gridControl2.Size = new System.Drawing.Size(1120, 417);
             this.gridControl2.TabIndex = 0;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.tileView1});
