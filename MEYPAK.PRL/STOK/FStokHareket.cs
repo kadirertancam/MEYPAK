@@ -4,8 +4,6 @@ using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.PocoModels.DEPO;
 using DevExpress.XtraEditors;
-using MEYPAK.Entity.PocoModels.PARAMETRE;
-using MEYPAK.Interfaces.Parametre;
 
 namespace MEYPAK.PRL.STOK
 {
@@ -24,32 +22,26 @@ namespace MEYPAK.PRL.STOK
             _stokOlcuBrServis.Data(ServisList.StokOlcuBrListeServis);
             _olcuBrServis.Data(ServisList.OlcuBrListeServis);
             _depoServis.Data(ServisList.DepoListeServis);
-            _parabirIMServis = new GenericWebServis<PocoPARABIRIM>();
-            _parabirIMServis.Data(ServisList.ParaBirimiListeServis);
-            CBParaBirimi.Properties.DataSource = _parabirIMServis.obje.Where(x => x.kayittipi == 0).Select(x => new { ID = x.id, ADI = x.adi }).ToList(); //comboxun içini parabirim formundan doldurur
-            CBParaBirimi.Properties.ValueMember = "ID";
-            CBParaBirimi.Properties.DisplayMember = "ADI";
-           
-            
+            //CBBirim.EditValue = "";
+
+
+
         }
-        #region Tanımlar
-        GenericWebServis<PocoSTOKHAR> _stokHarServis ;
-        GenericWebServis<PocoSTOKOLCUBR> _stokOlcuBrServis ;
-        GenericWebServis<PocoOLCUBR> _olcuBrServis  ;
+        GenericWebServis<PocoSTOKHAR> _stokHarServis;
+        GenericWebServis<PocoSTOKOLCUBR> _stokOlcuBrServis;
+        GenericWebServis<PocoOLCUBR> _olcuBrServis;
         GenericWebServis<PocoSTOK> _stokServis;
-        GenericWebServis<PocoPARABIRIM> _parabirIMServis;
-        GenericWebServis<PocoDEPO> _depoServis;
         // IStokServis _stokServis = new StokManager(new EFStokRepo());
         List<PocoStokHareketListesi> _tempdgvStok = new List<PocoStokHareketListesi>();
         public PocoSTOK _tempStok;
         int IO = 0;
         int _id;
-        
-        #endregion
+        GenericWebServis<PocoDEPO> _depoServis;
+
         decimal KdvEkle(decimal val)
         {
             //decimal kdvy = (100 + Decimal.Parse(TBKdv.Text)) / 100;
-            val = val ;
+            val = val;
             return val;
         }
         void BakiyeGuncelle()
@@ -64,14 +56,13 @@ namespace MEYPAK.PRL.STOK
             _stokHarServis.Data(ServisList.StokHarListeServis);
             _stokOlcuBrServis.Data(ServisList.StokOlcuBrListeServis);
             _depoServis.Data(ServisList.DepoListeServis);
-            _parabirIMServis.Data(ServisList.ParaBirimiListeServis);  
-            IO = RGStokHarGirisCikis.SelectedIndex == 0 ? 1 : 0;
+            //IO = RGStokHarGirisCikis.SelectedIndex == 0 ? 1 : 0;
             if (_tempStok != null)
             {
                 _id = _tempStok.id;
                 BTStokKoduSec.EditValue = _tempStok.kod;
                 TBStokAdi.Text = _tempStok.adi;
-                var adi= _stokOlcuBrServis.obje.Where(x => x.stokid == _tempStok.id).Select(x => _olcuBrServis.obje.Where(z => z.id.ToString() == x.olcubrid.ToString()).FirstOrDefault().adi).ToList();
+                var adi = _stokOlcuBrServis.obje.Where(x => x.stokid == _tempStok.id).Select(x => _olcuBrServis.obje.Where(z => z.id.ToString() == x.olcubrid.ToString()).FirstOrDefault().adi).ToList();
                 //CBBirim.Properties.DataSource = adi; //_stokOlcuBrServis.Getir(x => x.stokid == _id).Select(x => _olcuBrServis.Getir(z => z.ID == x.OLCUBRID).FirstOrDefault().ADI).ToList();
                 //CBBirim.Properties.ValueMember = "id";
                 //CBBirim.Properties.DisplayMember = "ADI";
@@ -89,7 +80,6 @@ namespace MEYPAK.PRL.STOK
                     Cikis = x.io == 0 ? x.miktar : 0,
                     Giris = x.io == 1 ? x.miktar : 0,
                     Depo = _depoServis.obje.Where(z => z.id == x.depoid).FirstOrDefault().depoadi,
-                    ParaBirimi = _parabirIMServis.obje.Where(z => z.id == x.id).FirstOrDefault().adi.ToString(),//Labellama
                     HareketTuru = x.hareketturu == 5 ? "Muhtelif" : x.hareketturu == 1 ? "Satış Faturası" : x.hareketturu == 2 ? "Alış Faturası" : x.hareketturu == 3 ? "Satış İade" : x.hareketturu == 4 ? "Alış İade" : x.hareketturu == 6 ? "DAT" : x.hareketturu == 0 ? "Muhtelif" : x.hareketturu == 7 ? "Sayım" : "",
                     NetFiyat = x.netfiyat,
                     NetToplam = x.nettoplam,
@@ -117,18 +107,18 @@ namespace MEYPAK.PRL.STOK
                 }
             }
         }
-        
+
         private void FStokHareket_Load(object sender, EventArgs e)
         {
-            DTStokTarih.Value = DateTime.Now;
+
             _depoServis.Data(ServisList.DepoListeServis);
             _tempdgvStok.Add(new PocoStokHareketListesi());
             GCStokHareket.DataSource = _tempdgvStok;
-            CLBDepo.DataSource = _depoServis.obje.Where(x=>x.kayittipi==0).Select(x => x.depoadi).ToList();
+            CLBDepo.DataSource = _depoServis.obje.Where(x => x.kayittipi == 0).Select(x => x.depoadi).ToList();
 
         }
 
-   
+
 
         private void BTStokKoduSec_Click(object sender, EventArgs e)
         {
@@ -139,7 +129,7 @@ namespace MEYPAK.PRL.STOK
             Doldur();
         }
 
-        
+
 
         private void BTStokKoduSec_Leave(object sender, EventArgs e)
         {
@@ -150,7 +140,7 @@ namespace MEYPAK.PRL.STOK
             }
         }
 
- 
+
 
         #region KeyPress
 
@@ -203,16 +193,13 @@ namespace MEYPAK.PRL.STOK
             Doldur();
         }
 
-        private void CLBSube_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-        }
 
-        private void BTStokHarKaydet_Click(object sender, EventArgs e)
-        {
-            IO = RGStokHarGirisCikis.SelectedIndex == 0 ? 1 : 0;
+        //private void BTStokHarKaydet_Click(object sender, EventArgs e)
+        //{
+        //    IO = RGStokHarGirisCikis.SelectedIndex == 0 ? 1 : 0;
 
-            _depoServis.Data(ServisList.DepoListeServis);
+        //    _depoServis.Data(ServisList.DepoListeServis);
 
         //    _stokHarServis.Data(ServisList.StokHarEkleServis, (new PocoSTOKHAR()
         //    {
@@ -266,7 +253,7 @@ namespace MEYPAK.PRL.STOK
         private void CLBDepo_SelectedIndexChanged(object sender, EventArgs e)
         {
             var a = CLBDepo.SelectedItems;
-            
+
         }
 
         //private void gridView1_DoubleClick(object sender, EventArgs e)

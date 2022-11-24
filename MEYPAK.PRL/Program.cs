@@ -32,7 +32,7 @@ namespace MEYPAK.PRL
             NinjectFactory.CompositionRoot.Initialize(a);
             ApplicationConfiguration.Initialize();
             Application.EnableVisualStyles();
-            Application.Run(new FStokHareket());
+            Application.Run(new Main());
         }
         
 

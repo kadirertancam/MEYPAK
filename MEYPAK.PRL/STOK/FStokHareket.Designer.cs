@@ -28,60 +28,162 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.GCStokHareket = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FStokHareket));
             this.LBStokHarBakiyeDeger = new DevExpress.XtraEditors.LabelControl();
             this.LBStokHarToplamCikisDeger = new DevExpress.XtraEditors.LabelControl();
             this.LBStokHarToplamGirisDeger = new DevExpress.XtraEditors.LabelControl();
             this.LBStokHarToplamCikis = new DevExpress.XtraEditors.LabelControl();
             this.LBStokHarBakiye = new DevExpress.XtraEditors.LabelControl();
             this.LBStokHarToplamGiris = new DevExpress.XtraEditors.LabelControl();
-            this.GBStokHareket = new System.Windows.Forms.GroupBox();
             this.CLBDepo = new DevExpress.XtraEditors.CheckedListBoxControl();
             this.LBStokKodu = new DevExpress.XtraEditors.LabelControl();
             this.TBStokAdi = new DevExpress.XtraEditors.TextEdit();
             this.BTStokKoduSec = new DevExpress.XtraEditors.ButtonEdit();
-            this.panel1.SuspendLayout();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.GCStokHareket)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            this.panel2.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.GBStokHareket.SuspendLayout();
+            this.GCStokHareket = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.LBAdi = new DevExpress.XtraEditors.LabelControl();
+            this.LBDepo = new DevExpress.XtraEditors.LabelControl();
+            this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.CLBDepo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBStokAdi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTStokKoduSec.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GCStokHareket)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
+            this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
+            this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
+            this.groupControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
+            this.panelControl3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // LBStokHarBakiyeDeger
             // 
-            this.panel1.Controls.Add(this.panel3);
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1065, 639);
-            this.panel1.TabIndex = 0;
+            this.LBStokHarBakiyeDeger.Appearance.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBStokHarBakiyeDeger.Appearance.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.LBStokHarBakiyeDeger.Appearance.Options.UseFont = true;
+            this.LBStokHarBakiyeDeger.Appearance.Options.UseForeColor = true;
+            this.LBStokHarBakiyeDeger.Location = new System.Drawing.Point(472, 56);
+            this.LBStokHarBakiyeDeger.Name = "LBStokHarBakiyeDeger";
+            this.LBStokHarBakiyeDeger.Size = new System.Drawing.Size(37, 28);
+            this.LBStokHarBakiyeDeger.TabIndex = 73;
+            this.LBStokHarBakiyeDeger.Text = "0,00";
             // 
-            // panel3
+            // LBStokHarToplamCikisDeger
             // 
-            this.panel3.Controls.Add(this.GCStokHareket);
-            this.panel3.Location = new System.Drawing.Point(0, 293);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1065, 346);
-            this.panel3.TabIndex = 1;
+            this.LBStokHarToplamCikisDeger.Appearance.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBStokHarToplamCikisDeger.Appearance.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.LBStokHarToplamCikisDeger.Appearance.Options.UseFont = true;
+            this.LBStokHarToplamCikisDeger.Appearance.Options.UseForeColor = true;
+            this.LBStokHarToplamCikisDeger.Location = new System.Drawing.Point(333, 56);
+            this.LBStokHarToplamCikisDeger.Name = "LBStokHarToplamCikisDeger";
+            this.LBStokHarToplamCikisDeger.Size = new System.Drawing.Size(37, 28);
+            this.LBStokHarToplamCikisDeger.TabIndex = 72;
+            this.LBStokHarToplamCikisDeger.Text = "0,00";
+            // 
+            // LBStokHarToplamGirisDeger
+            // 
+            this.LBStokHarToplamGirisDeger.Appearance.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LBStokHarToplamGirisDeger.Appearance.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.LBStokHarToplamGirisDeger.Appearance.Options.UseFont = true;
+            this.LBStokHarToplamGirisDeger.Appearance.Options.UseForeColor = true;
+            this.LBStokHarToplamGirisDeger.Location = new System.Drawing.Point(167, 56);
+            this.LBStokHarToplamGirisDeger.Name = "LBStokHarToplamGirisDeger";
+            this.LBStokHarToplamGirisDeger.Size = new System.Drawing.Size(37, 28);
+            this.LBStokHarToplamGirisDeger.TabIndex = 71;
+            this.LBStokHarToplamGirisDeger.Text = "0,00";
+            // 
+            // LBStokHarToplamCikis
+            // 
+            this.LBStokHarToplamCikis.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.LBStokHarToplamCikis.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.LBStokHarToplamCikis.Appearance.Options.UseFont = true;
+            this.LBStokHarToplamCikis.Appearance.Options.UseForeColor = true;
+            this.LBStokHarToplamCikis.Location = new System.Drawing.Point(309, 28);
+            this.LBStokHarToplamCikis.Name = "LBStokHarToplamCikis";
+            this.LBStokHarToplamCikis.Size = new System.Drawing.Size(75, 14);
+            this.LBStokHarToplamCikis.TabIndex = 70;
+            this.LBStokHarToplamCikis.Text = "Toplam Çıkış";
+            // 
+            // LBStokHarBakiye
+            // 
+            this.LBStokHarBakiye.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.LBStokHarBakiye.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.LBStokHarBakiye.Appearance.Options.UseFont = true;
+            this.LBStokHarBakiye.Appearance.Options.UseForeColor = true;
+            this.LBStokHarBakiye.Location = new System.Drawing.Point(472, 28);
+            this.LBStokHarBakiye.Name = "LBStokHarBakiye";
+            this.LBStokHarBakiye.Size = new System.Drawing.Size(39, 14);
+            this.LBStokHarBakiye.TabIndex = 69;
+            this.LBStokHarBakiye.Text = "Bakiye";
+            // 
+            // LBStokHarToplamGiris
+            // 
+            this.LBStokHarToplamGiris.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.LBStokHarToplamGiris.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.LBStokHarToplamGiris.Appearance.Options.UseFont = true;
+            this.LBStokHarToplamGiris.Appearance.Options.UseForeColor = true;
+            this.LBStokHarToplamGiris.LineLocation = DevExpress.XtraEditors.LineLocation.Top;
+            this.LBStokHarToplamGiris.Location = new System.Drawing.Point(150, 26);
+            this.LBStokHarToplamGiris.Name = "LBStokHarToplamGiris";
+            this.LBStokHarToplamGiris.Size = new System.Drawing.Size(76, 16);
+            this.LBStokHarToplamGiris.TabIndex = 68;
+            this.LBStokHarToplamGiris.Text = "Toplam Giriş";
+            // 
+            // CLBDepo
+            // 
+            this.CLBDepo.Items.AddRange(new DevExpress.XtraEditors.Controls.CheckedListBoxItem[] {
+            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(true, "CLBDepo")});
+            this.CLBDepo.Location = new System.Drawing.Point(373, 41);
+            this.CLBDepo.MultiColumn = true;
+            this.CLBDepo.Name = "CLBDepo";
+            this.CLBDepo.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.CLBDepo.Size = new System.Drawing.Size(170, 65);
+            this.CLBDepo.TabIndex = 7;
+            this.CLBDepo.SelectedIndexChanged += new System.EventHandler(this.CLBDepo_SelectedIndexChanged);
+            // 
+            // LBStokKodu
+            // 
+            this.LBStokKodu.Location = new System.Drawing.Point(54, 45);
+            this.LBStokKodu.Name = "LBStokKodu";
+            this.LBStokKodu.Size = new System.Drawing.Size(48, 13);
+            this.LBStokKodu.TabIndex = 7;
+            this.LBStokKodu.Text = "Stok Kodu";
+            this.LBStokKodu.ToolTipIconType = DevExpress.Utils.ToolTipIconType.Application;
+            // 
+            // TBStokAdi
+            // 
+            this.TBStokAdi.Enabled = false;
+            this.TBStokAdi.Location = new System.Drawing.Point(124, 70);
+            this.TBStokAdi.Name = "TBStokAdi";
+            this.TBStokAdi.Size = new System.Drawing.Size(160, 20);
+            this.TBStokAdi.TabIndex = 30;
+            // 
+            // BTStokKoduSec
+            // 
+            this.BTStokKoduSec.Location = new System.Drawing.Point(124, 42);
+            this.BTStokKoduSec.Name = "BTStokKoduSec";
+            this.BTStokKoduSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.BTStokKoduSec.Properties.Click += new System.EventHandler(this.buttonEdit1_Properties_Click);
+            this.BTStokKoduSec.Size = new System.Drawing.Size(160, 20);
+            this.BTStokKoduSec.TabIndex = 7;
             // 
             // GCStokHareket
             // 
             this.GCStokHareket.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GCStokHareket.Location = new System.Drawing.Point(0, 0);
+            this.GCStokHareket.Location = new System.Drawing.Point(2, 2);
             this.GCStokHareket.MainView = this.gridView1;
             this.GCStokHareket.Name = "GCStokHareket";
-            this.GCStokHareket.Size = new System.Drawing.Size(1065, 346);
+            this.GCStokHareket.Size = new System.Drawing.Size(1387, 521);
             this.GCStokHareket.TabIndex = 1;
             this.GCStokHareket.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -95,199 +197,117 @@
             this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsView.ShowFooter = true;
             // 
-            // panel2
+            // panelControl1
             // 
-            this.panel2.Controls.Add(this.groupBox2);
-            this.panel2.Controls.Add(this.GBStokHareket);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1065, 287);
-            this.panel2.TabIndex = 0;
+            this.panelControl1.Controls.Add(this.panelControl3);
+            this.panelControl1.Controls.Add(this.panelControl2);
+            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl1.Location = new System.Drawing.Point(0, 0);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(1395, 774);
+            this.panelControl1.TabIndex = 3;
             // 
-            // groupBox2
+            // panelControl2
             // 
-            this.groupBox2.Controls.Add(this.LBStokHarBakiyeDeger);
-            this.groupBox2.Controls.Add(this.LBStokHarToplamCikisDeger);
-            this.groupBox2.Controls.Add(this.LBStokHarToplamGirisDeger);
-            this.groupBox2.Controls.Add(this.LBStokHarToplamCikis);
-            this.groupBox2.Controls.Add(this.LBStokHarBakiye);
-            this.groupBox2.Controls.Add(this.LBStokHarToplamGiris);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox2.Location = new System.Drawing.Point(0, 228);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1065, 59);
-            this.groupBox2.TabIndex = 3;
-            this.groupBox2.TabStop = false;
+            this.panelControl2.Controls.Add(this.groupControl2);
+            this.panelControl2.Controls.Add(this.groupControl1);
+            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl2.Location = new System.Drawing.Point(2, 2);
+            this.panelControl2.Name = "panelControl2";
+            this.panelControl2.Size = new System.Drawing.Size(1391, 245);
+            this.panelControl2.TabIndex = 3;
             // 
-            // LBStokHarBakiyeDeger
+            // groupControl1
             // 
-            this.LBStokHarBakiyeDeger.Appearance.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBStokHarBakiyeDeger.Appearance.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.LBStokHarBakiyeDeger.Appearance.Options.UseFont = true;
-            this.LBStokHarBakiyeDeger.Appearance.Options.UseForeColor = true;
-            this.LBStokHarBakiyeDeger.Location = new System.Drawing.Point(692, 28);
-            this.LBStokHarBakiyeDeger.Name = "LBStokHarBakiyeDeger";
-            this.LBStokHarBakiyeDeger.Size = new System.Drawing.Size(37, 28);
-            this.LBStokHarBakiyeDeger.TabIndex = 73;
-            this.LBStokHarBakiyeDeger.Text = "0,00";
+            this.groupControl1.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.groupControl1.AppearanceCaption.Options.UseFont = true;
+            this.groupControl1.CaptionImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("groupControl1.CaptionImageOptions.Image")));
+            this.groupControl1.Controls.Add(this.LBDepo);
+            this.groupControl1.Controls.Add(this.LBAdi);
+            this.groupControl1.Controls.Add(this.CLBDepo);
+            this.groupControl1.Controls.Add(this.LBStokKodu);
+            this.groupControl1.Controls.Add(this.TBStokAdi);
+            this.groupControl1.Controls.Add(this.BTStokKoduSec);
+            this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupControl1.GroupStyle = DevExpress.Utils.GroupStyle.Light;
+            this.groupControl1.Location = new System.Drawing.Point(2, 2);
+            this.groupControl1.Name = "groupControl1";
+            this.groupControl1.Size = new System.Drawing.Size(1387, 124);
+            this.groupControl1.TabIndex = 4;
+            this.groupControl1.Text = "Stok Hareket";
             // 
-            // LBStokHarToplamCikisDeger
+            // LBAdi
             // 
-            this.LBStokHarToplamCikisDeger.Appearance.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBStokHarToplamCikisDeger.Appearance.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.LBStokHarToplamCikisDeger.Appearance.Options.UseFont = true;
-            this.LBStokHarToplamCikisDeger.Appearance.Options.UseForeColor = true;
-            this.LBStokHarToplamCikisDeger.Location = new System.Drawing.Point(606, 30);
-            this.LBStokHarToplamCikisDeger.Name = "LBStokHarToplamCikisDeger";
-            this.LBStokHarToplamCikisDeger.Size = new System.Drawing.Size(37, 28);
-            this.LBStokHarToplamCikisDeger.TabIndex = 72;
-            this.LBStokHarToplamCikisDeger.Text = "0,00";
+            this.LBAdi.Location = new System.Drawing.Point(63, 73);
+            this.LBAdi.Name = "LBAdi";
+            this.LBAdi.Size = new System.Drawing.Size(39, 13);
+            this.LBAdi.TabIndex = 8;
+            this.LBAdi.Text = "Stok Adı";
             // 
-            // LBStokHarToplamGirisDeger
+            // LBDepo
             // 
-            this.LBStokHarToplamGirisDeger.Appearance.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LBStokHarToplamGirisDeger.Appearance.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.LBStokHarToplamGirisDeger.Appearance.Options.UseFont = true;
-            this.LBStokHarToplamGirisDeger.Appearance.Options.UseForeColor = true;
-            this.LBStokHarToplamGirisDeger.Location = new System.Drawing.Point(522, 30);
-            this.LBStokHarToplamGirisDeger.Name = "LBStokHarToplamGirisDeger";
-            this.LBStokHarToplamGirisDeger.Size = new System.Drawing.Size(37, 28);
-            this.LBStokHarToplamGirisDeger.TabIndex = 71;
-            this.LBStokHarToplamGirisDeger.Text = "0,00";
+            this.LBDepo.Location = new System.Drawing.Point(333, 45);
+            this.LBDepo.Name = "LBDepo";
+            this.LBDepo.Size = new System.Drawing.Size(25, 13);
+            this.LBDepo.TabIndex = 31;
+            this.LBDepo.Text = "Depo";
             // 
-            // LBStokHarToplamCikis
+            // groupControl2
             // 
-            this.LBStokHarToplamCikis.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.LBStokHarToplamCikis.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.LBStokHarToplamCikis.Appearance.Options.UseFont = true;
-            this.LBStokHarToplamCikis.Appearance.Options.UseForeColor = true;
-            this.LBStokHarToplamCikis.Location = new System.Drawing.Point(591, 13);
-            this.LBStokHarToplamCikis.Name = "LBStokHarToplamCikis";
-            this.LBStokHarToplamCikis.Size = new System.Drawing.Size(75, 14);
-            this.LBStokHarToplamCikis.TabIndex = 70;
-            this.LBStokHarToplamCikis.Text = "Toplam Çıkış";
+            this.groupControl2.Controls.Add(this.LBStokHarBakiyeDeger);
+            this.groupControl2.Controls.Add(this.LBStokHarBakiye);
+            this.groupControl2.Controls.Add(this.LBStokHarToplamCikisDeger);
+            this.groupControl2.Controls.Add(this.LBStokHarToplamGiris);
+            this.groupControl2.Controls.Add(this.LBStokHarToplamGirisDeger);
+            this.groupControl2.Controls.Add(this.LBStokHarToplamCikis);
+            this.groupControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.groupControl2.GroupStyle = DevExpress.Utils.GroupStyle.Light;
+            this.groupControl2.Location = new System.Drawing.Point(2, 143);
+            this.groupControl2.Name = "groupControl2";
+            this.groupControl2.Size = new System.Drawing.Size(1387, 100);
+            this.groupControl2.TabIndex = 5;
             // 
-            // LBStokHarBakiye
+            // panelControl3
             // 
-            this.LBStokHarBakiye.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.LBStokHarBakiye.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.LBStokHarBakiye.Appearance.Options.UseFont = true;
-            this.LBStokHarBakiye.Appearance.Options.UseForeColor = true;
-            this.LBStokHarBakiye.Location = new System.Drawing.Point(692, 13);
-            this.LBStokHarBakiye.Name = "LBStokHarBakiye";
-            this.LBStokHarBakiye.Size = new System.Drawing.Size(39, 14);
-            this.LBStokHarBakiye.TabIndex = 69;
-            this.LBStokHarBakiye.Text = "Bakiye";
-            // 
-            // LBStokHarToplamGiris
-            // 
-            this.LBStokHarToplamGiris.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.LBStokHarToplamGiris.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.LBStokHarToplamGiris.Appearance.Options.UseFont = true;
-            this.LBStokHarToplamGiris.Appearance.Options.UseForeColor = true;
-            this.LBStokHarToplamGiris.Location = new System.Drawing.Point(505, 13);
-            this.LBStokHarToplamGiris.Name = "LBStokHarToplamGiris";
-            this.LBStokHarToplamGiris.Size = new System.Drawing.Size(73, 14);
-            this.LBStokHarToplamGiris.TabIndex = 68;
-            this.LBStokHarToplamGiris.Text = "Toplam Giriş";
-            // 
-            // GBStokHareket
-            // 
-            this.GBStokHareket.Controls.Add(this.CLBDepo);
-            this.GBStokHareket.Controls.Add(this.LBStokKodu);
-            this.GBStokHareket.Controls.Add(this.TBStokAdi);
-            this.GBStokHareket.Controls.Add(this.BTStokKoduSec);
-            this.GBStokHareket.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.GBStokHareket.Location = new System.Drawing.Point(12, 3);
-            this.GBStokHareket.Name = "GBStokHareket";
-            this.GBStokHareket.Size = new System.Drawing.Size(1041, 222);
-            this.GBStokHareket.TabIndex = 2;
-            this.GBStokHareket.TabStop = false;
-            this.GBStokHareket.Text = "Stok Hareket";
-            // 
-            // DTStokTarih
-            // 
-            this.DTStokTarih.CalendarFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DTStokTarih.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DTStokTarih.Location = new System.Drawing.Point(69, 106);
-            this.DTStokTarih.Name = "DTStokTarih";
-            this.DTStokTarih.Size = new System.Drawing.Size(155, 21);
-            this.DTStokTarih.TabIndex = 77;
-            this.DTStokTarih.Value = new System.DateTime(2022, 11, 3, 13, 26, 0, 0);
-            // 
-            // CLBDepo
-            // 
-            this.CLBDepo.Items.AddRange(new DevExpress.XtraEditors.Controls.CheckedListBoxItem[] {
-            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(true, "CLBDepo")});
-            this.CLBDepo.Location = new System.Drawing.Point(311, 9);
-            this.CLBDepo.MultiColumn = true;
-            this.CLBDepo.Name = "CLBDepo";
-            this.CLBDepo.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.CLBDepo.Size = new System.Drawing.Size(156, 140);
-            this.CLBDepo.TabIndex = 7;
-            this.CLBDepo.SelectedIndexChanged += new System.EventHandler(this.CLBDepo_SelectedIndexChanged);
-            // 
-            // LBStokKodu
-            // 
-            this.LBStokKodu.Location = new System.Drawing.Point(25, 41);
-            this.LBStokKodu.Name = "LBStokKodu";
-            this.LBStokKodu.Size = new System.Drawing.Size(48, 13);
-            this.LBStokKodu.TabIndex = 7;
-            this.LBStokKodu.Text = "Stok Kodu";
-            this.LBStokKodu.ToolTipIconType = DevExpress.Utils.ToolTipIconType.Application;
-            // 
-            // TBStokAdi
-            // 
-            this.TBStokAdi.Enabled = false;
-            this.TBStokAdi.Location = new System.Drawing.Point(91, 64);
-            this.TBStokAdi.Name = "TBStokAdi";
-            this.TBStokAdi.Size = new System.Drawing.Size(180, 20);
-            this.TBStokAdi.TabIndex = 30;
-            // 
-            // BTStokKoduSec
-            // 
-            this.BTStokKoduSec.Location = new System.Drawing.Point(91, 38);
-            this.BTStokKoduSec.Name = "BTStokKoduSec";
-            this.BTStokKoduSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.BTStokKoduSec.Properties.Click += new System.EventHandler(this.buttonEdit1_Properties_Click);
-            this.BTStokKoduSec.Size = new System.Drawing.Size(180, 20);
-            this.BTStokKoduSec.TabIndex = 7;
+            this.panelControl3.Controls.Add(this.GCStokHareket);
+            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl3.Location = new System.Drawing.Point(2, 247);
+            this.panelControl3.Name = "panelControl3";
+            this.panelControl3.Size = new System.Drawing.Size(1391, 525);
+            this.panelControl3.TabIndex = 4;
             // 
             // FStokHareket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1065, 639);
-            this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.ClientSize = new System.Drawing.Size(1395, 774);
+            this.Controls.Add(this.panelControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FStokHareket";
             this.Text = "FStokHareket";
             this.Load += new System.EventHandler(this.FStokHareket_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.GCStokHareket)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.GBStokHareket.ResumeLayout(false);
-            this.GBStokHareket.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CLBDepo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBStokAdi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTStokKoduSec.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GCStokHareket)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            this.panelControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
+            this.panelControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
+            this.groupControl1.ResumeLayout(false);
+            this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
+            this.groupControl2.ResumeLayout(false);
+            this.groupControl2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
+            this.panelControl3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private Panel panel1;
-        private Panel panel3;
-        private Panel panel2;
-        private GroupBox groupBox2;
-        private GroupBox GBStokHareket;
         private DevExpress.XtraGrid.GridControl GCStokHareket;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraEditors.ButtonEdit TBStokKodu;
@@ -302,6 +322,12 @@
         private DevExpress.XtraEditors.LabelControl LBStokHarToplamCikisDeger;
         private DevExpress.XtraEditors.ButtonEdit BTStokKodu;
         private DevExpress.XtraEditors.ButtonEdit BTStokKoduSec;
-        private DevExpress.XtraEditors.LabelControl LBStokAdi;
+        private DevExpress.XtraEditors.PanelControl panelControl1;
+        private DevExpress.XtraEditors.PanelControl panelControl2;
+        private DevExpress.XtraEditors.GroupControl groupControl1;
+        private DevExpress.XtraEditors.LabelControl LBAdi;
+        private DevExpress.XtraEditors.PanelControl panelControl3;
+        private DevExpress.XtraEditors.GroupControl groupControl2;
+        private DevExpress.XtraEditors.LabelControl LBDepo;
     }
 }
