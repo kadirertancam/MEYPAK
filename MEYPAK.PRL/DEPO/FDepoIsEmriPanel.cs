@@ -25,7 +25,7 @@ using System.Windows.Forms;
 
 namespace MEYPAK.PRL.DEPO
 {
-    public partial class FDepoIsEmriPanel : Form
+    public partial class FDepoIsEmriPanel : XtraForm
     {
         public FDepoIsEmriPanel(string sipid="",string emirid="")
         {

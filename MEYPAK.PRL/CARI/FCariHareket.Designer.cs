@@ -352,6 +352,9 @@
             // 
             this.TBFiyat.Location = new System.Drawing.Point(359, 116);
             this.TBFiyat.Name = "TBFiyat";
+            this.TBFiyat.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.TBFiyat.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.TBFiyat.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             this.TBFiyat.Size = new System.Drawing.Size(180, 20);
             this.TBFiyat.TabIndex = 46;
             // 
@@ -359,6 +362,9 @@
             // 
             this.TBKur.Location = new System.Drawing.Point(359, 93);
             this.TBKur.Name = "TBKur";
+            this.TBKur.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.TBKur.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.TBKur.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             this.TBKur.Size = new System.Drawing.Size(180, 20);
             this.TBKur.TabIndex = 45;
             // 

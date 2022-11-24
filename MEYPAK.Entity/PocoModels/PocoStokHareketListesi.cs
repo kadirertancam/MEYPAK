@@ -15,6 +15,7 @@ namespace MEYPAK.Entity.PocoModels
         public string HareketTuru { get; set; }
         public decimal Giris { get; set; }
         public decimal Cikis { get; set; }
+        public string ParaBirimi { get; set; }
         public string Birim { get; set; } 
         public decimal NetFiyat { get; set; }
         public decimal NetToplam { get; set; }

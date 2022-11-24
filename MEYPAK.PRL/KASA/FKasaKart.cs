@@ -1,4 +1,5 @@
 ﻿using DevExpress.CodeParser;
+using DevExpress.XtraEditors;
 using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.PocoModels.KASA;
 using MEYPAK.Entity.PocoModels.PARAMETRE;
@@ -14,7 +15,7 @@ using System.Windows.Forms;
 
 namespace MEYPAK.PRL.KASA
 {
-    public partial class FKasaKart : Form
+    public partial class FKasaKart : XtraForm
     {
         GenericWebServis<PocoKASA> _kasaServis;
         GenericWebServis<PocoPARABIRIM> _parabirimServis;

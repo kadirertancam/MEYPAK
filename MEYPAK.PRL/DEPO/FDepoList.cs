@@ -1,4 +1,5 @@
-﻿using MEYPAK.BLL.Assets;
+﻿using DevExpress.XtraEditors;
+using MEYPAK.BLL.Assets;
 using MEYPAK.BLL.DEPO;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository;
@@ -17,7 +18,7 @@ using System.Windows.Forms;
 
 namespace MEYPAK.PRL.DEPO
 {
-    public partial class FDepoList : Form
+    public partial class FDepoList : XtraForm
     {
         string _islem;
         public FDepoList(string islem="")

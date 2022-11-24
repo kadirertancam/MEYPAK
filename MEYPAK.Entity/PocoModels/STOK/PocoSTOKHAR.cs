@@ -24,6 +24,7 @@ namespace MEYPAK.Entity.PocoModels.STOK
         public decimal netfiyat { get; set; } = 0;
         public decimal miktar { get; set; } = 0;
         public int birim { get; set; } = 0;
+        
         public decimal nettoplam { get; set; } = 0;
         public decimal bruttoplam { get; set; } = 0;
         public int sayimid { get; set; } = 0;

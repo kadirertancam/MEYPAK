@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevExpress.XtraEditors;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,7 +11,7 @@ using System.Windows.Forms;
 
 namespace MEYPAK.PRL.ARAÇLAR
 {
-    public partial class FAracBakim : Form
+    public partial class FAracBakim : XtraForm
     {
         public FAracBakim()
         {

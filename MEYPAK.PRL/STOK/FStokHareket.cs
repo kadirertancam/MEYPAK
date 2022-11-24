@@ -4,6 +4,8 @@ using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.PocoModels.DEPO;
 using DevExpress.XtraEditors;
+using MEYPAK.Entity.PocoModels.PARAMETRE;
+using MEYPAK.Interfaces.Parametre;
 
 namespace MEYPAK.PRL.STOK
 {
@@ -22,22 +24,28 @@ namespace MEYPAK.PRL.STOK
             _stokOlcuBrServis.Data(ServisList.StokOlcuBrListeServis);
             _olcuBrServis.Data(ServisList.OlcuBrListeServis);
             _depoServis.Data(ServisList.DepoListeServis);
-            CBBirim.EditValue = "";
-
+            _parabirIMServis = new GenericWebServis<PocoPARABIRIM>();
+            _parabirIMServis.Data(ServisList.ParaBirimiListeServis);
+            CBParaBirimi.Properties.DataSource = _parabirIMServis.obje.Where(x => x.kayittipi == 0).Select(x => new { ID = x.id, ADI = x.adi }).ToList(); //comboxun içini parabirim formundan doldurur
+            CBParaBirimi.Properties.ValueMember = "ID";
+            CBParaBirimi.Properties.DisplayMember = "ADI";
            
-
+            
         }
+        #region Tanımlar
         GenericWebServis<PocoSTOKHAR> _stokHarServis ;
         GenericWebServis<PocoSTOKOLCUBR> _stokOlcuBrServis ;
         GenericWebServis<PocoOLCUBR> _olcuBrServis  ;
         GenericWebServis<PocoSTOK> _stokServis;
+        GenericWebServis<PocoPARABIRIM> _parabirIMServis;
+        GenericWebServis<PocoDEPO> _depoServis;
         // IStokServis _stokServis = new StokManager(new EFStokRepo());
         List<PocoStokHareketListesi> _tempdgvStok = new List<PocoStokHareketListesi>();
         public PocoSTOK _tempStok;
         int IO = 0;
         int _id;
-        GenericWebServis<PocoDEPO> _depoServis ;
         
+        #endregion
         decimal KdvEkle(decimal val)
         {
             decimal kdvy = (100 + Decimal.Parse(TBKdv.Text)) / 100;
@@ -56,6 +64,7 @@ namespace MEYPAK.PRL.STOK
             _stokHarServis.Data(ServisList.StokHarListeServis);
             _stokOlcuBrServis.Data(ServisList.StokOlcuBrListeServis);
             _depoServis.Data(ServisList.DepoListeServis);
+            _parabirIMServis.Data(ServisList.ParaBirimiListeServis);  
             IO = RGStokHarGirisCikis.SelectedIndex == 0 ? 1 : 0;
             if (_tempStok != null)
             {
@@ -70,20 +79,21 @@ namespace MEYPAK.PRL.STOK
                 CBBirim.EditValue = adi.FirstOrDefault();
                 //TBFiyat.Text = IO == 1 ? _tempStok.AFIYAT1.ToString() : _tempStok.SATISKDV.ToString();
                 BakiyeGuncelle();
-                GCStokHareket.DataSource = _stokHarServis.obje.Where(x=>x.stokid==_tempStok.id).Select( x=> new PocoStokHareketListesi()
+                GCStokHareket.DataSource = _stokHarServis.obje.Where(x => x.stokid == _tempStok.id).Select(x => new PocoStokHareketListesi()
                 {
-                    STOKID=x.stokid,
-                    Acıklama=x.aciklama,
-                    BelgeNo=x.belgE_NO,
-                    Birim=_olcuBrServis.obje.Where(z=>z.id==x.birim).FirstOrDefault().adi,
-                    BrutToplam=x.bruttoplam,
-                    Cikis=x.io==0?x.miktar:0,
-                    Giris=x.io==1?x.miktar:0,
-                    Depo=_depoServis.obje.Where(z=>z.id==x.depoid).FirstOrDefault().depoadi,
-                    HareketTuru=x.hareketturu==5?"Muhtelif":x.hareketturu==1?"Satış Faturası":x.hareketturu==2?"Alış Faturası":x.hareketturu==3?"Satış İade":x.hareketturu==4?"Alış İade":x.hareketturu==6?"DAT" : x.hareketturu == 0 ? "Muhtelif":x.hareketturu==7?"Sayım" : "",
-                    NetFiyat=x.netfiyat,
-                    NetToplam=x.nettoplam,
-                    Tarih=x.olusturmatarihi
+                    STOKID = x.stokid,
+                    Acıklama = x.aciklama,
+                    BelgeNo = x.belgE_NO,
+                    Birim = _olcuBrServis.obje.Where(z => z.id == x.birim).FirstOrDefault().adi,
+                    BrutToplam = x.bruttoplam,
+                    Cikis = x.io == 0 ? x.miktar : 0,
+                    Giris = x.io == 1 ? x.miktar : 0,
+                    Depo = _depoServis.obje.Where(z => z.id == x.depoid).FirstOrDefault().depoadi,
+                    ParaBirimi = _parabirIMServis.obje.Where(z => z.id == x.id).FirstOrDefault().adi.ToString(),//Labellama
+                    HareketTuru = x.hareketturu == 5 ? "Muhtelif" : x.hareketturu == 1 ? "Satış Faturası" : x.hareketturu == 2 ? "Alış Faturası" : x.hareketturu == 3 ? "Satış İade" : x.hareketturu == 4 ? "Alış İade" : x.hareketturu == 6 ? "DAT" : x.hareketturu == 0 ? "Muhtelif" : x.hareketturu == 7 ? "Sayım" : "",
+                    NetFiyat = x.netfiyat,
+                    NetToplam = x.nettoplam,
+                    Tarih = x.olusturmatarihi
                 });
                 gridView1.Columns["STOKID"].Visible = false;
                 gridView1.RefreshData();
@@ -110,11 +120,16 @@ namespace MEYPAK.PRL.STOK
         
         private void FStokHareket_Load(object sender, EventArgs e)
         {
+            
             DTStokTarih.Value = DateTime.Now;
             _depoServis.Data(ServisList.DepoListeServis);
             var depo= _depoServis.obje.Select(x => x.depoadi).ToList();
             CBDepo.Properties.DataSource = depo;
             CBDepo.EditValue = depo.FirstOrDefault();
+            _parabirIMServis.Data(ServisList.ParaBirimiListeServis);
+            var parabirim = _parabirIMServis.obje.Select(x => x.adi).ToList();
+            CBParaBirimi.Properties.DataSource = parabirim;
+            CBParaBirimi.EditValue = parabirim.FirstOrDefault(); //combobox ta seçili değer girmek
             _tempdgvStok.Add(new PocoStokHareketListesi());
             GCStokHareket.DataSource = _tempdgvStok;
             CLBDepo.DataSource = _depoServis.obje.Select(x => x.depoadi).ToList();

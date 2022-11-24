@@ -1,4 +1,5 @@
-﻿using MEYPAK.BLL.Assets;
+﻿using DevExpress.XtraEditors;
+using MEYPAK.BLL.Assets;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +12,7 @@ using System.Windows.Forms;
 
 namespace MEYPAK.PRL.PARAMETRELER
 {
-    public partial class FSeriTanim : Form
+    public partial class FSeriTanim : XtraForm
     {
         public FSeriTanim()
         {

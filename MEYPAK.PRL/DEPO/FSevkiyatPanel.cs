@@ -36,7 +36,7 @@ using System.Windows.Forms;
 
 namespace MEYPAK.PRL.DEPO
 {
-    public partial class FSevkiyatPanel : Form
+    public partial class FSevkiyatPanel : XtraForm
     {
         public FSevkiyatPanel()
         {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevExpress.XtraEditors;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,7 +11,7 @@ using System.Windows.Forms;
 
 namespace MEYPAK.PRL.PARAMETRELER
 {
-    public partial class FParametre : Form
+    public partial class FParametre : XtraForm
     {
         public FParametre()
         {

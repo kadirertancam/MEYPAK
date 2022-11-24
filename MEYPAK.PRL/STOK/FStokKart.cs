@@ -338,7 +338,6 @@ namespace MEYPAK.PRL
                 adi = TBStokAdi.Text,
                 markaid = _markaServis.obje.Where(x => x.adi == BTMarka.Text).FirstOrDefault().id,
                 kategoriid = _tempKategori.id,
-         
                 grupkodu = BTGrupKodu.Text,
                 aciklama = TBAciklama.Text,
                 satiskdv = Convert.ToDecimal(TBSatisKdv.Text),
@@ -519,6 +518,11 @@ namespace MEYPAK.PRL
         private void gridView1_DoubleClick(object sender, EventArgs e)
         {
             //TODOO:Yarın burası yapılacak
+        }
+
+        private void GBStokKartiKdvOtv_Enter(object sender, EventArgs e)
+        {
+
         }
 
         private void TBSatisOtv_KeyPress(object sender, KeyPressEventArgs e)

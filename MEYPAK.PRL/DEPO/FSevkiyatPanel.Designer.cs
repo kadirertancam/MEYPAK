@@ -59,6 +59,7 @@
             this.Birim = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.IEDepo = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.DepoButon = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.Resim = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -84,7 +85,6 @@
             this.repositoryItemImageEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemImageEdit();
             this.CCerceve = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.repositoryItemImageEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemImageEdit();
-            this.Resim = new DevExpress.XtraGrid.Columns.TileViewColumn();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -414,6 +414,15 @@
             this.DepoButon.Visible = true;
             this.DepoButon.VisibleIndex = 9;
             // 
+            // Resim
+            // 
+            this.Resim.AccessibleName = "Resim";
+            this.Resim.Caption = "Resim";
+            this.Resim.FieldName = "Resim";
+            this.Resim.Name = "Resim";
+            this.Resim.Visible = true;
+            this.Resim.VisibleIndex = 10;
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.panel5);
@@ -716,15 +725,6 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.repositoryItemImageEdit1.Name = "repositoryItemImageEdit1";
             // 
-            // Resim
-            // 
-            this.Resim.AccessibleName = "Resim";
-            this.Resim.Caption = "Resim";
-            this.Resim.FieldName = "Resim";
-            this.Resim.Name = "Resim";
-            this.Resim.Visible = true;
-            this.Resim.VisibleIndex = 10;
-            // 
             // FSevkiyatPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -732,7 +732,7 @@
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(1905, 859);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FSevkiyatPanel";
             this.Text = " ";
             this.Load += new System.EventHandler(this.FSevkiyatPanel_Load);

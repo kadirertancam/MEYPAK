@@ -1,4 +1,5 @@
-﻿using MEYPAK.BLL.Assets;
+﻿using DevExpress.XtraEditors;
+using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.Models.DEPO;
 using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Entity.PocoModels;
@@ -14,7 +15,7 @@ using System.Windows.Forms;
 
 namespace MEYPAK.PRL.DEPO
 {
-    public partial class FMalKabulCekiPanel : Form
+    public partial class FMalKabulCekiPanel : XtraForm
     {
         GenericWebServis<PocoSTOK> _tempPocoStok;
         IStokMalKabulListServis _stokMalKabulListServis;

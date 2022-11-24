@@ -1,4 +1,5 @@
-﻿using MEYPAK.BLL.Assets;
+﻿using DevExpress.XtraEditors;
+using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.PocoModels.IRSALIYE;
 using MEYPAK.Interfaces.Siparis;
 using MEYPAK.PRL.IRSALIYE;
@@ -14,7 +15,7 @@ using System.Windows.Forms;
 
 namespace MEYPAK.PRL.SIPARIS
 {
-    public partial class FIrsaliyeList : Form
+    public partial class FIrsaliyeList : XtraForm
     {
         string _form,_islem; 
         public FIrsaliyeList(string frm="",string islem="")

@@ -16,10 +16,11 @@ using System.Windows.Forms;
 using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.Models.PERSONEL;
 using MEYPAK.Entity.PocoModels.PERSONEL;
+using DevExpress.XtraEditors;
 
 namespace MEYPAK.PRL.PERSONEL
 {
-    public partial class FPersonelList : Form
+    public partial class FPersonelList : XtraForm
     {
         FPersonelKart FPersonelKart;
         public FPersonelList()
