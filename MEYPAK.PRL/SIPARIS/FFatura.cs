@@ -107,6 +107,7 @@ namespace MEYPAK.PRL.SIPARIS
             num = 0;
             GCIrsaliye.DataSource = "";
             _tempFaturaDetay.Clear();
+            _kasaaa.Clear();
             _tempFaturaDetay.Add(new PocoFaturaKalem());
             GCIrsaliye.DataSource = _tempFaturaDetay;
             //DGVOlcuBr.DataSource = _tempStok.MPSTOKOLCUBR.Select(x => x.MPOLCUBR.ADI).ToList();
@@ -136,6 +137,8 @@ namespace MEYPAK.PRL.SIPARIS
             _tempStok = new PocoSTOK();
             _tempFaturaDetay.Add(new PocoFaturaKalem() { Tipi = "STOK" });
             GCIrsaliye.DataSource = _tempFaturaDetay;
+
+            gridView1.Columns["sıra"].Visible = false;
 
             GridColumn gridColumn = gridView1.Columns.AddVisible("Seç", "Seç");
             RepositoryItemButtonEdit repositoryItemButtonEdit = new RepositoryItemButtonEdit();
@@ -273,6 +276,7 @@ namespace MEYPAK.PRL.SIPARIS
         {
             FStokKasaList fKasaList = new FStokKasaList(this.Tag.ToString(), "FFatura", gridView1.FocusedRowHandle.ToString());
             fKasaList.ShowDialog(); 
+            if(_kasaaa.Where(x => x.num == gridView1.FocusedRowHandle).Count()>0)
             riLookup3.DataSource = _kasaaa.Where(x => x.num == gridView1.FocusedRowHandle).FirstOrDefault().KasaList;
             GCIrsaliye.RefreshDataSource();
         }
@@ -298,6 +302,7 @@ namespace MEYPAK.PRL.SIPARIS
                     StokId = _tempStok.id,
                     StokKodu = _tempStok.kod,
                     StokAdı = _tempStok.adi,
+                    sıra = gridView1.GetFocusedDataSourceRowIndex(),
                     Birim = "",//_olcuBr.obje.Where(x => x.adi == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "DGVOlcuBr").ToString()).FirstOrDefault().adi,
                                //KasaAdı = "",
                     Kdv = _tempStok.satiskdv,
@@ -316,6 +321,7 @@ namespace MEYPAK.PRL.SIPARIS
                         StokId = _tempKasa.id,
                         StokKodu = _tempKasa.kasakodu,
                         StokAdı = _tempKasa.kasaadi,
+                        sıra = gridView1.GetFocusedDataSourceRowIndex(),
                         Birim = "",//_olcuBr.obje.Where(x => x.adi == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "DGVOlcuBr").ToString()).FirstOrDefault().adi,
                                    //KasaAdı = "",
                         Kdv = 0  //_tempKasa.satiskdv,
@@ -336,6 +342,23 @@ namespace MEYPAK.PRL.SIPARIS
         int i;
 
         decimal birimfiyat = 0, kdv = 0, bsnc = 0, brutfiyat = 0, netfiyat = 0, nettoplam = 0, brüttoplam = 0, geneltoplam = 0, isktoplam = 0, kdvtoplam = 0, miktar = 0;
+
+        private void gridView1_RowClick(object sender, RowClickEventArgs e)
+        {
+           
+        }
+
+        private void gridView1_RowCellClick(object sender, RowCellClickEventArgs e)
+        {
+           
+        }
+        int tempnum;
+        private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            tempnum = gridView1.GetFocusedDataSourceRowIndex();
+            if (_kasaaa.Where(x => x.num == tempnum).Count()>0)
+            riLookup3.DataSource = _kasaaa.Where(x => x.num == tempnum).FirstOrDefault().KasaList;
+        }
 
         private void BTKaydet_Click_1(object sender, EventArgs e)
         {
@@ -428,11 +451,9 @@ namespace MEYPAK.PRL.SIPARIS
         {
             if (e.KeyChar == (char)Keys.Enter || e.KeyChar == (char)Keys.Down)
             {
-                num++;
-                GCIrsaliye.DataSource = "";
+                num++; 
                 _tempFaturaDetay.Add(new PocoFaturaKalem() { sıra=num});
-                GCIrsaliye.DataSource = _tempFaturaDetay;
-
+                GCIrsaliye.DataSource = _tempFaturaDetay; 
 
                 //dataGridView1.Columns["DGVOlcuBr"].DisplayIndex = 6;
                 //dataGridView1.Columns["DGVFiyatList"].DisplayIndex = dataGridView1.ColumnCount - 1; 
@@ -451,7 +472,7 @@ namespace MEYPAK.PRL.SIPARIS
                 gridView1.FocusedRowHandle = gridView1.RowCount - 1;
                 gridView1.FocusedColumn = gridView1.Columns["StokKodu"];
                 gridView1.Columns["Seç"].VisibleIndex = 2;
-                gridView1.Columns["BirimSec"].VisibleIndex = 7;
+                gridView1.Columns["BirimSec"].VisibleIndex = 8;
                 gridView1.Columns["StokId"].Visible = false;
                 GCIrsaliye.RefreshDataSource();
                 ////dataGridView1.Invalidate();

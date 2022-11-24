@@ -129,14 +129,17 @@ namespace MEYPAK.PRL.STOK
                     fSatisIrsaliye._tempKasaList.Clear();
                     foreach (var item in gridView1.GetSelectedRows())
                     {
+                        if(fSatisIrsaliye._tempKasaList.Where(x=>x.KASAID == int.Parse(gridView1.GetRowCellValue(item, "ID").ToString())).Count()==0)
                         fSatisIrsaliye._tempKasaList.Add(new KasaList()
                         {
                             KASAADI = gridView1.GetRowCellValue(item, "KASAADI").ToString(),
                             MIKTAR = int.Parse(gridView1.GetRowCellValue(item, "MIKTAR").ToString()),
-                            KASAID = int.Parse(gridView1.GetRowCellValue(item, "ID").ToString()),
-
-
+                            KASAID = int.Parse(gridView1.GetRowCellValue(item, "ID").ToString()), 
                         });
+                        else
+                        {
+                            fSatisIrsaliye._tempKasaList.Where(x => x.KASAID == int.Parse(gridView1.GetRowCellValue(item, "ID").ToString())).FirstOrDefault().MIKTAR = int.Parse(gridView1.GetRowCellValue(item, "MIKTAR").ToString());
+                        }
                         //temp += gridView1.GetRowCellValue(item, "KASAADI").ToString() + "=>" + gridView1.GetRowCellValue(item, "MIKTAR").ToString() + ";";
                     }
 
@@ -144,9 +147,10 @@ namespace MEYPAK.PRL.STOK
             }
             else if (_islem == "FFatura")
             {
-
+            
                 if (ffatura != null)
                 {
+                    ttt.Clear();
                     ffatura._tempKasaList.Clear();
                     foreach (var item in gridView1.GetSelectedRows())
                     {
@@ -161,11 +165,16 @@ namespace MEYPAK.PRL.STOK
                         });
                         //temp += gridView1.GetRowCellValue(item, "KASAADI").ToString() + "=>" + gridView1.GetRowCellValue(item, "MIKTAR").ToString() + ";";
                     }
+                    if(ffatura._kasaaa.Where(x=>x.num.ToString()==this.num).Count()==0)
                     ffatura._kasaaa.Add(new ListKasaList()
                     {
                         num = int.Parse(num),
                         KasaList = ttt
                     });
+                    else
+                    {
+                        ffatura._kasaaa.Where(x => x.num.ToString() == this.num).FirstOrDefault().KasaList = ttt;
+                    }
 
                 }
             }
