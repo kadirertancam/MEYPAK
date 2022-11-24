@@ -59,12 +59,12 @@ namespace MEYPAK.PRL.STOK
                         fStokKart = (FStokKart)frm;
                     if (frm.Name.Contains("FCariKart"))
                         fCariKart = (FCariKart)frm;
-                    
+
                 }
-              
+
             }
             _kategoriServis.Data(ServisList.StokKategoriListeServis);
-           
+
 
         }
         public void TreeViewiDoldur()
@@ -72,7 +72,7 @@ namespace MEYPAK.PRL.STOK
             treeView.Nodes.Clear();
             _kategoriServis.Data(ServisList.StokKategoriListeServis);
             TreeNode ustNode = new TreeNode("Kategoriler");
-            treeView.Nodes.Add(TreeViewDon(ref ustNode, _kategoriServis.obje.Where(x=> x.kayittipi ==0).ToList(), 0));
+            treeView.Nodes.Add(TreeViewDon(ref ustNode, _kategoriServis.obje.Where(x => x.kayittipi == 0).ToList(), 0));
         }
 
 
@@ -82,7 +82,7 @@ namespace MEYPAK.PRL.STOK
             {
                 var A = ustNode.Nodes.Add(item.id.ToString(), item.acıklama);
 
-                if (_kategoriServis.obje.Where(x => x.ustId == item.id && x.kayittipi==0).Count() > 0)
+                if (_kategoriServis.obje.Where(x => x.ustId == item.id && x.kayittipi == 0).Count() > 0)
                 {
                     A = TreeViewDon(ref A, data, item.id);
                 }
@@ -90,8 +90,8 @@ namespace MEYPAK.PRL.STOK
             return ustNode;
         }
 
-      
-       
+
+
         private void treeView_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)
@@ -119,7 +119,7 @@ namespace MEYPAK.PRL.STOK
                     }
                 }
             }
-            
+
         }
 
         private void BTYeniEkle_Click(object sender, EventArgs e)
@@ -164,6 +164,31 @@ namespace MEYPAK.PRL.STOK
             }
         }
 
-       
+        private void BtnKategoriSil_Click(object sender, EventArgs e)
+        {
+            if (treeView.SelectedNode.Name != "" && treeView.SelectedNode != null)
+            {
+                if (_kategoriServis.obje.Where(x => x.ustId == Convert.ToInt32(treeView.SelectedNode.Name.ToString())).Count() > 0)
+                {
+                    foreach (var item in _kategoriServis.obje.Where(x => x.ustId == Convert.ToInt32(treeView.SelectedNode.Name.ToString())))
+                    {
+                        _kategoriServis.Data(ServisList.StokKategoriDeleteByIdServis,null,null,null,item.id.ToString());
+                    }
+                    _kategoriServis.Data(ServisList.StokKategoriDeleteByIdServis, null, null, null, treeView.SelectedNode.Name.ToString());
+                    MessageBox.Show($"{treeView.SelectedNode.Name} ve tüm alt kategorileri Başarıyla silindi!");
+                }
+                else
+                {
+                    _kategoriServis.Data(ServisList.StokKategoriDeleteByIdServis,null,null,null,treeView.SelectedNode.Name.ToString());
+                    MessageBox.Show($"{treeView.SelectedNode.Name} Başarıyla silindi!");
+                }
+                
+            }
+            else
+            {
+                MessageBox.Show("Silmek İstediğiniz Kategoriyi Seçiniz!");
+            }
+
+        }
     }
 }

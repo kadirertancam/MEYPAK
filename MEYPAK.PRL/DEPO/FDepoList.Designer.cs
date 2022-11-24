@@ -43,6 +43,7 @@
             this.GCDepoList.TabIndex = 0;
             this.GCDepoList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            this.GCDepoList.DoubleClick += new System.EventHandler(this.GCDepoList_DoubleClick);
             // 
             // gridView1
             // 

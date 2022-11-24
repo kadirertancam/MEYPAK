@@ -181,8 +181,9 @@
             this.tileView1 = new DevExpress.XtraGrid.Views.Tile.TileView();
             this.panel12 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.BTResimKaydet = new DevExpress.XtraEditors.SimpleButton();
+            this.BTResimSil = new DevExpress.XtraEditors.SimpleButton();
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.buttonEdit1 = new DevExpress.XtraEditors.ButtonEdit();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -793,7 +794,7 @@
             this.BTOlcuBirimiEkle.Appearance.Options.UseBackColor = true;
             this.BTOlcuBirimiEkle.Appearance.Options.UseFont = true;
             this.BTOlcuBirimiEkle.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTOlcuBirimiEkle.ImageOptions.Image")));
-            this.BTOlcuBirimiEkle.Location = new System.Drawing.Point(384, 35);
+            this.BTOlcuBirimiEkle.Location = new System.Drawing.Point(453, 35);
             this.BTOlcuBirimiEkle.Name = "BTOlcuBirimiEkle";
             this.BTOlcuBirimiEkle.Size = new System.Drawing.Size(74, 26);
             this.BTOlcuBirimiEkle.TabIndex = 7;
@@ -832,10 +833,10 @@
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.panel5);
-            this.tabPage3.Location = new System.Drawing.Point(4, 24);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1120, 547);
+            this.tabPage3.Size = new System.Drawing.Size(1120, 549);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Açıklamalar";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -849,7 +850,7 @@
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1120, 547);
+            this.panel5.Size = new System.Drawing.Size(1120, 549);
             this.panel5.TabIndex = 0;
             // 
             // GBStokKartiSayisalAciklama
@@ -1408,10 +1409,10 @@
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.panel6);
-            this.tabPage4.Location = new System.Drawing.Point(4, 24);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(1120, 547);
+            this.tabPage4.Size = new System.Drawing.Size(1120, 549);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Rapor Kodları";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -1424,7 +1425,7 @@
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1120, 547);
+            this.panel6.Size = new System.Drawing.Size(1120, 549);
             this.panel6.TabIndex = 0;
             // 
             // GBStokKartiRaporKodu
@@ -1847,9 +1848,9 @@
             // 
             this.tabPage5.Controls.Add(this.panel13);
             this.tabPage5.Controls.Add(this.panel12);
-            this.tabPage5.Location = new System.Drawing.Point(4, 24);
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(1120, 547);
+            this.tabPage5.Size = new System.Drawing.Size(1120, 549);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Resim";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -1861,7 +1862,7 @@
             this.panel13.Location = new System.Drawing.Point(0, 130);
             this.panel13.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(1120, 417);
+            this.panel13.Size = new System.Drawing.Size(1120, 419);
             this.panel13.TabIndex = 5;
             // 
             // panel10
@@ -1870,7 +1871,7 @@
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel10.Location = new System.Drawing.Point(0, 0);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(1120, 417);
+            this.panel10.Size = new System.Drawing.Size(1120, 419);
             this.panel10.TabIndex = 4;
             // 
             // gridControl2
@@ -1879,7 +1880,7 @@
             this.gridControl2.Location = new System.Drawing.Point(0, 0);
             this.gridControl2.MainView = this.tileView1;
             this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(1120, 417);
+            this.gridControl2.Size = new System.Drawing.Size(1120, 419);
             this.gridControl2.TabIndex = 0;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.tileView1});
@@ -1914,8 +1915,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.BTResimKaydet);
+            this.groupBox1.Controls.Add(this.BTResimSil);
             this.groupBox1.Controls.Add(this.pictureEdit1);
-            this.groupBox1.Controls.Add(this.simpleButton1);
             this.groupBox1.Controls.Add(this.buttonEdit1);
             this.groupBox1.Controls.Add(this.labelControl4);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -1928,22 +1930,37 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Birim Bilgileri";
             // 
+            // BTResimKaydet
+            // 
+            this.BTResimKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTResimKaydet.Appearance.Options.UseBackColor = true;
+            this.BTResimKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTResimKaydet.ImageOptions.Image")));
+            this.BTResimKaydet.Location = new System.Drawing.Point(407, 29);
+            this.BTResimKaydet.Name = "BTResimKaydet";
+            this.BTResimKaydet.Size = new System.Drawing.Size(82, 39);
+            this.BTResimKaydet.TabIndex = 86;
+            this.BTResimKaydet.Text = "&Kaydet";
+            this.BTResimKaydet.Click += new System.EventHandler(this.simpleButton1_Click);
+            // 
+            // BTResimSil
+            // 
+            this.BTResimSil.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTResimSil.Appearance.Options.UseBackColor = true;
+            this.BTResimSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTResimSil.ImageOptions.Image")));
+            this.BTResimSil.Location = new System.Drawing.Point(538, 29);
+            this.BTResimSil.Name = "BTResimSil";
+            this.BTResimSil.Size = new System.Drawing.Size(82, 39);
+            this.BTResimSil.TabIndex = 85;
+            this.BTResimSil.Text = "&Sil";
+            this.BTResimSil.Click += new System.EventHandler(this.BTResimSil_Click);
+            // 
             // pictureEdit1
             // 
-            this.pictureEdit1.Location = new System.Drawing.Point(348, 15);
+            this.pictureEdit1.Location = new System.Drawing.Point(663, 14);
             this.pictureEdit1.Name = "pictureEdit1";
             this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.pictureEdit1.Size = new System.Drawing.Size(103, 103);
             this.pictureEdit1.TabIndex = 5;
-            // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Location = new System.Drawing.Point(242, 63);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(78, 54);
-            this.simpleButton1.TabIndex = 7;
-            this.simpleButton1.Text = "Kaydet";
-            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // buttonEdit1
             // 
@@ -2006,7 +2023,6 @@
             this.CEStokKartiOzellik.EditValue = true;
             this.CEStokKartiOzellik.Location = new System.Drawing.Point(43, 30);
             this.CEStokKartiOzellik.Name = "CEStokKartiOzellik";
-            this.CEStokKartiOzellik.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CEStokKartiOzellik.Properties.Appearance.Options.UseFont = true;
             this.CEStokKartiOzellik.Properties.Caption = "Aktif";
             this.CEStokKartiOzellik.Size = new System.Drawing.Size(75, 20);
@@ -2027,39 +2043,39 @@
             this.GBStokKartiKdvOtv.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.GBStokKartiKdvOtv.Name = "GBStokKartiKdvOtv";
             this.GBStokKartiKdvOtv.Padding = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.GBStokKartiKdvOtv.Size = new System.Drawing.Size(328, 160);
+            this.GBStokKartiKdvOtv.Size = new System.Drawing.Size(391, 160);
             this.GBStokKartiKdvOtv.TabIndex = 1;
             this.GBStokKartiKdvOtv.TabStop = false;
             this.GBStokKartiKdvOtv.Text = "Kdv - Ötv";
             // 
             // LBAlisOtv
             // 
-            this.LBAlisOtv.Location = new System.Drawing.Point(31, 118);
+            this.LBAlisOtv.Location = new System.Drawing.Point(30, 118);
             this.LBAlisOtv.Name = "LBAlisOtv";
-            this.LBAlisOtv.Size = new System.Drawing.Size(37, 13);
+            this.LBAlisOtv.Size = new System.Drawing.Size(53, 13);
             this.LBAlisOtv.TabIndex = 29;
-            this.LBAlisOtv.Text = "Alış Ötv";
+            this.LBAlisOtv.Text = "Alış ÖTV %";
             // 
             // TBAlisOtv
             // 
             this.TBAlisOtv.EditValue = "0";
-            this.TBAlisOtv.Location = new System.Drawing.Point(113, 111);
+            this.TBAlisOtv.Location = new System.Drawing.Point(134, 111);
             this.TBAlisOtv.Name = "TBAlisOtv";
             this.TBAlisOtv.Size = new System.Drawing.Size(194, 20);
             this.TBAlisOtv.TabIndex = 23;
             // 
             // LBSatisOtv
             // 
-            this.LBSatisOtv.Location = new System.Drawing.Point(24, 92);
+            this.LBSatisOtv.Location = new System.Drawing.Point(23, 93);
             this.LBSatisOtv.Name = "LBSatisOtv";
-            this.LBSatisOtv.Size = new System.Drawing.Size(44, 13);
+            this.LBSatisOtv.Size = new System.Drawing.Size(60, 13);
             this.LBSatisOtv.TabIndex = 30;
-            this.LBSatisOtv.Text = "Satış Ötv";
+            this.LBSatisOtv.Text = "Satış ÖTV %";
             // 
             // TBSatisOtv
             // 
             this.TBSatisOtv.EditValue = "0";
-            this.TBSatisOtv.Location = new System.Drawing.Point(113, 86);
+            this.TBSatisOtv.Location = new System.Drawing.Point(134, 86);
             this.TBSatisOtv.Name = "TBSatisOtv";
             this.TBSatisOtv.Size = new System.Drawing.Size(194, 20);
             this.TBSatisOtv.TabIndex = 22;
@@ -2068,22 +2084,22 @@
             // 
             this.LBAlisKdv.Location = new System.Drawing.Point(31, 63);
             this.LBAlisKdv.Name = "LBAlisKdv";
-            this.LBAlisKdv.Size = new System.Drawing.Size(37, 13);
+            this.LBAlisKdv.Size = new System.Drawing.Size(52, 13);
             this.LBAlisKdv.TabIndex = 27;
-            this.LBAlisKdv.Text = "Alış Kdv";
+            this.LBAlisKdv.Text = "Alış KDV %";
             // 
             // LBSatisKdv
             // 
             this.LBSatisKdv.Location = new System.Drawing.Point(24, 36);
             this.LBSatisKdv.Name = "LBSatisKdv";
-            this.LBSatisKdv.Size = new System.Drawing.Size(44, 13);
+            this.LBSatisKdv.Size = new System.Drawing.Size(59, 13);
             this.LBSatisKdv.TabIndex = 28;
-            this.LBSatisKdv.Text = "Satıs Kdv";
+            this.LBSatisKdv.Text = "Satıs KDV %";
             // 
             // TBAlisKdv
             // 
             this.TBAlisKdv.EditValue = "0";
-            this.TBAlisKdv.Location = new System.Drawing.Point(113, 61);
+            this.TBAlisKdv.Location = new System.Drawing.Point(134, 61);
             this.TBAlisKdv.Name = "TBAlisKdv";
             this.TBAlisKdv.Size = new System.Drawing.Size(194, 20);
             this.TBAlisKdv.TabIndex = 21;
@@ -2091,7 +2107,7 @@
             // TBSatisKdv
             // 
             this.TBSatisKdv.EditValue = "0";
-            this.TBSatisKdv.Location = new System.Drawing.Point(113, 30);
+            this.TBSatisKdv.Location = new System.Drawing.Point(134, 30);
             this.TBSatisKdv.Name = "TBSatisKdv";
             this.TBSatisKdv.Size = new System.Drawing.Size(194, 20);
             this.TBSatisKdv.TabIndex = 20;
@@ -2492,9 +2508,10 @@
         private Panel panel12;
         private GroupBox groupBox1;
         private DevExpress.XtraEditors.PictureEdit pictureEdit1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.ButtonEdit buttonEdit1;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.SimpleButton BTSil;
+        private DevExpress.XtraEditors.SimpleButton BTResimSil;
+        private DevExpress.XtraEditors.SimpleButton BTResimKaydet;
     }
 }

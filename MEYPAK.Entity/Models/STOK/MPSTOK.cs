@@ -1,4 +1,5 @@
 ﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -54,13 +55,13 @@ namespace MEYPAK.Entity.Models.STOK
         [DefaultValue(0)]
         public decimal AFIYAT5 { get; set; }
         [DefaultValue(0)]
-        public decimal SATISKDV { get; set; }
+        public int SATISKDV { get; set; }
         [DefaultValue(0)]
-        public decimal ALISKDV { get; set; }
+        public int ALISKDV { get; set; }
         [DefaultValue(0)]
-        public decimal SATISOTV { get; set; }
+        public int SATISOTV { get; set; }
         [DefaultValue(0)]
-        public decimal ALISOTV { get; set; }
+        public int ALISOTV { get; set; }
         public string GRUPKODU { get; set; }
         [StringLength(500)]
         public string ACIKLAMA { get; set; } = "";

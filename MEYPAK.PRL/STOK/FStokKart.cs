@@ -144,7 +144,7 @@ namespace MEYPAK.PRL
             _StokOlcuBrServis.Data(ServisList.StokOlcuBrListeServis);
             _PocoOlcuBrServis.Data(ServisList.OlcuBrListeServis);
             _tempPocoOLCUBR = _PocoOlcuBrServis.obje;
-            _PocoSTOKOLCUBR = _StokOlcuBrServis.obje;
+            _PocoSTOKOLCUBR = _StokOlcuBrServis.obje.Where(x=>x.kayittipi==0).ToList();
             CBBirim.Properties.DataSource = _tempPocoOLCUBR.Select(x => x.adi).ToList();
             
         }
@@ -395,7 +395,7 @@ namespace MEYPAK.PRL
             if (e.Button.Caption == "Seç")
             {
                 OpenFileDialog ofd = new OpenFileDialog();
-                ofd.Filter = "TümDosyalar |*.*|Jpeg Dosyası |*.jpeg| Jpg Dosyası|*.jpg| PNG Dosyası|*.png| ICO Dosyası|*.ico;";
+                ofd.Filter = "Resim Dosyaları|*.jpg;*.jpeg;*.png;*.gif;";
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
                     string DosyaYolu = ofd.FileName;
@@ -449,6 +449,8 @@ namespace MEYPAK.PRL
         //RESİM Kaydet
         private void simpleButton1_Click(object sender, EventArgs e)
         {
+            if (_PocoStokServis.obje.Where(z => z.kod == BTStokKodu.Text).Count()!=0)
+            {
             _stokResimServis.Data(ServisList.StokResimListeServis);
             if (_stokResimServis.obje.Where(x => x.STOKID == _PocoStokServis.obje.Where(z=>z.kod==BTStokKodu.Text).FirstOrDefault().id).Count() == 0) {
                 resimList.Add( new PocoSTOKRESIM()
@@ -470,6 +472,11 @@ namespace MEYPAK.PRL
             }
 
             gridControl2.DataSource = resimList.Select(x => new { Resim= Base64ToImage(x.IMG) });
+            }
+            else
+            {
+                MessageBox.Show("Stok Seçmeden Stok Resmi Ekleyemezsiniz!");
+            }
         }
 
       
@@ -493,11 +500,24 @@ namespace MEYPAK.PRL
 
         private void BTSil_Click_1(object sender, EventArgs e)
         {
-            _PocoStokServis.Data(ServisList.StokSilServis);
+            if (_PocoStokServis.obje.Where(x => x.kod == BTStokKodu.Text).Count()!=0)
+            {
+                _PocoStokServis.Data(ServisList.StokSilServis, _PocoStokServis.obje.Where(x => x.kod == BTStokKodu.Text).FirstOrDefault());
+                Temizle(this.Controls);
+                MessageBox.Show("Stok Başarıyla Silindi");
+            }
+            else
+            {
+                MessageBox.Show("Stok Seçmeden Stok Silme İşlemi Yapamazsınız!");
+            }
+            
         }
 
         private void BTOlcuBirimiEkle_Click(object sender, EventArgs e)
         {
+            decimal b;
+            if (CBBirim.EditValue !=null && TBKatsayi.Text != "" && decimal.TryParse(TBKatsayi.Text,out b))
+            {
             if (gridView1.RowCount == 0)
             {
                 num = 0;
@@ -513,12 +533,23 @@ namespace MEYPAK.PRL
             stokOlculist.Add(_tempStokOlcuBr);
             gridControl1.DataSource = stokOlculist.Select(x => new { ADI = _PocoOlcuBrServis.obje.Where(z => z.id == x.olcubrid).FirstOrDefault().adi, KATSAYI = x.katsayi, SIRA = x.num });
             gridControl1.RefreshDataSource();
-            
+            }
+            else 
+            {
+                MessageBox.Show("Tüm Alanları Doğru Girdiğinize emin olun!");
+            }
         }
 
         private void gridView1_DoubleClick(object sender, EventArgs e)
         {
-            //TODOO:Yarın burası yapılacak
+            //TODO :Yarın burası yapılacak
+        }
+
+        private void BTResimSil_Click(object sender, EventArgs e)
+        {
+            resimList.Remove(resimList.Where(x => x.NUM.ToString() == tileView1.GetFocusedRowCellValue("NUM")).FirstOrDefault());
+            gridControl2.DataSource = resimList;
+            gridControl2.RefreshDataSource();
         }
 
         private void TBSatisOtv_KeyPress(object sender, KeyPressEventArgs e)
