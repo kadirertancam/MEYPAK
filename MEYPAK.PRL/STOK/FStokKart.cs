@@ -23,7 +23,7 @@ namespace MEYPAK.PRL
             stokOlculist = new List<PocoSTOKOLCUBR>();
             _stokResimServis = new GenericWebServis<PocoSTOKRESIM>();
             resimList = new List<PocoSTOKRESIM>();
-
+            _StokKategoriervis = new GenericWebServis<PocoSTOKKATEGORI>();
 
         }
         #region Tanımlar
@@ -38,6 +38,7 @@ namespace MEYPAK.PRL
         GenericWebServis<PocoSTOK> _PocoStokServis;
         GenericWebServis<PocoOLCUBR> _PocoOlcuBrServis;
         GenericWebServis<PocoSTOKOLCUBR> _StokOlcuBrServis;
+        GenericWebServis<PocoSTOKKATEGORI> _StokKategoriervis;
         List<PocoSTOKOLCUBR> _PocoSTOKOLCUBR;
         List<PocoOLCUBR> _tempPocoOLCUBR;
         List<PocoSTOKOLCUBR> stokOlculist ;
@@ -123,7 +124,13 @@ namespace MEYPAK.PRL
                 {
                     resimList.Add(item);
                 }
-                
+            _StokKategoriervis.Data(ServisList.StokKategoriListeServis);
+            _tempKategori = _StokKategoriervis.obje.Where(x => x.id == _tempStok.kategoriid).FirstOrDefault();
+            if (_tempKategori!=null)
+            {
+                BTKategori.Text = _tempKategori.acıklama;
+            }
+            
             gridControl2.DataSource= resimList.Select(x=> new { Resim = Base64ToImage(x.IMG) });
             gridControl1.DataSource = _StokOlcuBrServis.obje.Where(x=>x.stokid== stokid).Select(x=> new { ADI=_PocoOlcuBrServis.obje.Where(z => z.id == x.olcubrid).FirstOrDefault().adi,KATSAYI=x.katsayi,SIRA=x.num});
             gridControl1.RefreshDataSource();
@@ -330,6 +337,9 @@ namespace MEYPAK.PRL
 
         private void BTStokKartiKaydet_Click(object sender, EventArgs e)
         {
+   
+
+          
             _markaServis.Data(ServisList.StokMarkaListeServis);
             _tempStok = new PocoSTOK()
             {
@@ -337,7 +347,7 @@ namespace MEYPAK.PRL
                 kod = BTStokKodu.Text,
                 adi = TBStokAdi.Text,
                 markaid = _markaServis.obje.Where(x => x.adi == BTMarka.Text).FirstOrDefault().id,
-                kategoriid = _tempKategori.id,
+                kategoriid = _tempKategori!=null ? _tempKategori.id:0,
          
                 grupkodu = BTGrupKodu.Text,
                 aciklama = TBAciklama.Text,
@@ -475,7 +485,7 @@ namespace MEYPAK.PRL
             }
             else
             {
-                MessageBox.Show("Stok Seçmeden Stok Resmi Ekleyemezsiniz!");
+                MessageBox.Show("Stok Seçmeden veya Stok Eklemeden Stok Resmi Ekleyemezsiniz!");
             }
         }
 
@@ -502,7 +512,7 @@ namespace MEYPAK.PRL
         {
             if (_PocoStokServis.obje.Where(x => x.kod == BTStokKodu.Text).Count()!=0)
             {
-                _PocoStokServis.Data(ServisList.StokSilServis, _PocoStokServis.obje.Where(x => x.kod == BTStokKodu.Text).FirstOrDefault());
+                _PocoStokServis.Data(ServisList.StokDeleteByIdServis,null,null,null, _PocoStokServis.obje.Where(x => x.kod == BTStokKodu.Text).FirstOrDefault().id.ToString());
                 Temizle(this.Controls);
                 MessageBox.Show("Stok Başarıyla Silindi");
             }

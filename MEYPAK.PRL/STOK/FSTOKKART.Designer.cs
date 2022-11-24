@@ -2101,6 +2101,9 @@
             this.TBAlisKdv.EditValue = "0";
             this.TBAlisKdv.Location = new System.Drawing.Point(134, 61);
             this.TBAlisKdv.Name = "TBAlisKdv";
+            this.TBAlisKdv.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.TBAlisKdv.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.TBAlisKdv.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             this.TBAlisKdv.Size = new System.Drawing.Size(194, 20);
             this.TBAlisKdv.TabIndex = 21;
             // 
@@ -2109,6 +2112,9 @@
             this.TBSatisKdv.EditValue = "0";
             this.TBSatisKdv.Location = new System.Drawing.Point(134, 30);
             this.TBSatisKdv.Name = "TBSatisKdv";
+            this.TBSatisKdv.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.TBSatisKdv.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.TBSatisKdv.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             this.TBSatisKdv.Size = new System.Drawing.Size(194, 20);
             this.TBSatisKdv.TabIndex = 20;
             // 
