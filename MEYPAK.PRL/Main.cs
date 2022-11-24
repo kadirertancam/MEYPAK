@@ -16,6 +16,7 @@ using MEYPAK.PRL.PARAMETRELER;
 using MEYPAK.PRL.PERSONEL;
 using MEYPAK.PRL.SIPARIS;
 using MEYPAK.PRL.STOK;
+using MEYPAK.PRL.STOK.StokKasa;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -78,6 +79,7 @@ namespace MEYPAK.PRL
         FParaBirimi fParaBirimi;
         FFatura ffatura;
         FKasaTakip fStokKasaHareket;
+        FKasaMarka fKasaMarka;
         public Tarih_Date _tarih_Date;
         public DataTable guncelkur;
         GenericWebServis<PocoPARABIRIM> _parabirimServis;
@@ -543,6 +545,26 @@ namespace MEYPAK.PRL
             fStokKasaHareket.Tag = "TPStokKasaHareket" + i;
             page.Controls.Add(fStokKasaHareket);
             fStokKasaHareket.Show();
+            i++;
+        }
+
+        private void accordionControlElement47_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fKasaMarka = new FKasaMarka();
+            page.Name = "TPStokKasaMarka" + i;
+            page.Text = "Stok Kasa Marka";
+            page.Tag = "TPStokKasaMarka" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fKasaMarka.TopLevel = false;
+            fKasaMarka.AutoScroll = true;
+            fKasaMarka.Dock = DockStyle.Fill;
+            fKasaMarka.Tag = "TPStokKasaMarka" + i;
+            page.Controls.Add(fKasaMarka);
+            fKasaMarka.Show();
             i++;
         }
     }

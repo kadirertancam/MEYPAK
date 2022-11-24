@@ -25,11 +25,22 @@ namespace MEYPAK.PRL.STOK.StokKasa
         {
             _stokKasaMarakServis.Data(ServisList.StokKasaMarkaEkleServis,new PocoSTOKKASAMARKA()
             {
-                adi=textEdit1.Text,
-                kod=textEdit2.Text
+                adi=textEdit2.Text,
+                kod=textEdit1.Text,
+                aktif=1
             });
+            _stokKasaMarakServis.Data(ServisList.StokKasaMarkaListeServis);
 
+            gridControl1.DataSource = _stokKasaMarakServis.obje;
+            gridControl1.RefreshDataSource();
 
+        }
+
+        private void FKasaMarka_Load(object sender, EventArgs e)
+        {
+            _stokKasaMarakServis.Data(ServisList.StokKasaMarkaListeServis);
+
+            gridControl1.DataSource = _stokKasaMarakServis.obje;
         }
     }
 }

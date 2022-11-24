@@ -50,7 +50,7 @@ namespace MEYPAK.API.Controllers.STOKControllers
 
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult STOKKASAMARKAEkleyadaGuncelle(PocoSTOKKASAMARKA pModel)
+        public IActionResult STOKKASAMARKAEkleyadaGuncelle([FromBody]PocoSTOKKASAMARKA pModel)
         {
             try
             {
