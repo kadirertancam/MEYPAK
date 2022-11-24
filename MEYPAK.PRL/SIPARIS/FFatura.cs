@@ -80,8 +80,8 @@ namespace MEYPAK.PRL.SIPARIS
             CBParaBirimi.Properties.DataSource = _paraBirimServis.obje.Where(x => x.kayittipi == 0).Select(x => x.adi).ToList();
             CBDepo.Properties.DataSource = _depoServis.obje.Select(x => x.depoadi).ToList();
             CBDepo.Text = _depoServis.obje.Select(x => x.depoadi).FirstOrDefault();
-        
-          
+
+
 
             CBParaBirimi.Text = _paraBirimServis.obje.Where(x => x.kayittipi == 0).Select(x => x.adi).FirstOrDefault();
             _faturaServis = new GenericWebServis<PocoFATURA>();
@@ -99,10 +99,12 @@ namespace MEYPAK.PRL.SIPARIS
             _kasaServis = new GenericWebServis<PocoSTOKKASA>();
             _tempKasaList = new List<KasaList>();
             _carialthescaricari = new GenericWebServis<PocoCARIALTHESCARI>();
+            _kasaaa = new List<ListKasaList>();
         }
-     
+
         void temizle()
         {
+            num = 0;
             GCIrsaliye.DataSource = "";
             _tempFaturaDetay.Clear();
             _tempFaturaDetay.Add(new PocoFaturaKalem());
@@ -127,6 +129,7 @@ namespace MEYPAK.PRL.SIPARIS
         }
         RepositoryItemLookUpEdit riLookup, riLookup3;
         GridColumn gridColumn2;
+        public List<ListKasaList> _kasaaa;
         public List<KasaList> _tempKasaList;
         void DataGridYapilandir()
         {
@@ -186,11 +189,10 @@ namespace MEYPAK.PRL.SIPARIS
             //repoGV.Columns.Add(colun2);
             gridView1.Columns["Tipi"].ColumnEdit = riLookup;
             _tempKasaList = new List<KasaList>();
-            riLookup3 = new RepositoryItemLookUpEdit();
-            riLookup3.DataSource = _tempKasaList;
+            riLookup3 = new RepositoryItemLookUpEdit(); 
             riLookup3.ValueMember = "ID";
             riLookup3.DisplayMember = "KASAADI";
-            
+
 
             riLookup3.NullText = "";
 
@@ -199,7 +201,7 @@ namespace MEYPAK.PRL.SIPARIS
             // riLookup.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
             riLookup3.DropDownRows = _tempKasaList.Count();
             riLookup3.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.False;
-            riLookup3.EditValueChanged += RiLookup_EditValueChanged; 
+            riLookup3.EditValueChanged += RiLookup_EditValueChanged;
 
             gridView1.Columns["KasaAdı"].OptionsColumn.AllowEdit = true;
             //repoGV.Columns.Add(colun2);
@@ -263,15 +265,16 @@ namespace MEYPAK.PRL.SIPARIS
 
         private void RiLookup_EditValueChanged(object? sender, EventArgs e)
         {
-             
+
         }
 
 
         private void RepositoryItemButtonEdit3_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
-            FStokKasaList fKasaList = new FStokKasaList(this.Tag.ToString(), "FFatura",_tempStok.id.ToString());
-            fKasaList.ShowDialog();
-
+            FStokKasaList fKasaList = new FStokKasaList(this.Tag.ToString(), "FFatura", gridView1.FocusedRowHandle.ToString());
+            fKasaList.ShowDialog(); 
+            riLookup3.DataSource = _kasaaa.Where(x => x.num == gridView1.FocusedRowHandle).FirstOrDefault().KasaList;
+            GCIrsaliye.RefreshDataSource();
         }
 
         private void RepositoryItemButtonEdit2_ButtonClick(object sender, ButtonPressedEventArgs e)
@@ -335,7 +338,8 @@ namespace MEYPAK.PRL.SIPARIS
         decimal birimfiyat = 0, kdv = 0, bsnc = 0, brutfiyat = 0, netfiyat = 0, nettoplam = 0, brüttoplam = 0, geneltoplam = 0, isktoplam = 0, kdvtoplam = 0, miktar = 0;
 
         private void BTKaydet_Click_1(object sender, EventArgs e)
-        {   _cariKart.Data(ServisList.CariListeServis);
+        {
+            _cariKart.Data(ServisList.CariListeServis);
             _faturaServis.Data(ServisList.FaturaEkleServis, new PocoFATURA()
             {
                 aciklama = TBAciklama.Text,
@@ -394,20 +398,24 @@ namespace MEYPAK.PRL.SIPARIS
 
                 _kasaServis.Data(ServisList.StokKasaListeServis);
 
-                foreach (var test in _tempKasaList.Where(x=>x.STOKID==item.StokId))
+                foreach (var test in _kasaaa.Where(x => x.num == item.sıra))
                 {
-                    _stokKasaHarServis.Data(ServisList.StokKasaHarEkleServis, new PocoSTOKKASAHAR()
+                    foreach (var item2 in test.KasaList)
                     {
-                        belge_no = TBIrsaliyeNo.Text,
-                        faturaid = _faturaServis.obje2.id,
-                        io = 0,
-                        kayittipi = 0,
-                        kasaid = test.KASAID,
-                        miktar = test.MIKTAR,
-                        stokid = item.StokId,
-                        
 
-                    });
+
+                        _stokKasaHarServis.Data(ServisList.StokKasaHarEkleServis, new PocoSTOKKASAHAR()
+                        {
+                            belge_no = TBIrsaliyeNo.Text,
+                            faturaid = _faturaServis.obje2.id,
+                            io = 0,
+                            kayittipi = 0,
+                            kasaid = item2.KASAID,
+                            miktar = item2.MIKTAR, 
+
+
+                        });
+                    }
                 }
 
 
@@ -415,14 +423,14 @@ namespace MEYPAK.PRL.SIPARIS
             temizle();
 
         }
-
+        int num = 0;
         private void gridView1_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter || e.KeyChar == (char)Keys.Down)
             {
-
+                num++;
                 GCIrsaliye.DataSource = "";
-                _tempFaturaDetay.Add(new PocoFaturaKalem());
+                _tempFaturaDetay.Add(new PocoFaturaKalem() { sıra=num});
                 GCIrsaliye.DataSource = _tempFaturaDetay;
 
 
@@ -439,12 +447,13 @@ namespace MEYPAK.PRL.SIPARIS
                 for (int i = 0; i < gridView1.RowCount; i++)
                 {
                     gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "DGVOlcuBr", _tempFaturaDetay[i].Birim.ToString());
-                }
+                } 
                 gridView1.FocusedRowHandle = gridView1.RowCount - 1;
                 gridView1.FocusedColumn = gridView1.Columns["StokKodu"];
                 gridView1.Columns["Seç"].VisibleIndex = 2;
                 gridView1.Columns["BirimSec"].VisibleIndex = 7;
                 gridView1.Columns["StokId"].Visible = false;
+                GCIrsaliye.RefreshDataSource();
                 ////dataGridView1.Invalidate();
                 //dataGridView1.Refresh();
 
@@ -540,20 +549,20 @@ namespace MEYPAK.PRL.SIPARIS
                 sy = 0;
             }
         }
- 
+
 
 
         int sy = 0;
         decimal daralı, dara;
-     
 
-     
+
+
 
         private void TBSiparisNo_Properties_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
             FFaturaList ffaturalist = new FFaturaList(this.Tag.ToString(), "FFatura");
             ffaturalist.ShowDialog();
-            if (_tempFatura!=null)
+            if (_tempFatura != null)
             {
                 TBIrsaliyeNo.Text = _tempFatura.belgeno;
                 //todo : TBCariKodu.Text = 
@@ -580,7 +589,7 @@ namespace MEYPAK.PRL.SIPARIS
                     Doviz = "TL", //_tempStok.SDOVIZID 
                 });
             }
-            
+
         }
         private void TBCariKodu_Properties_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
@@ -594,11 +603,11 @@ namespace MEYPAK.PRL.SIPARIS
                 TBCariAdi.Text = _tempCariKart.unvan == "" ? _tempCariKart.adi + " " + _tempCariKart.soyadi : _tempCariKart.unvan;
                 // CBAltHesap.Properties.DataSource = _cariAltHesapServis.obje.Where(x=>x.cariid==_tempCariKart.id).Select(x => x.adi).ToList();
                 _carialthescaricari.Data(ServisList.CariAltHesCariListeServis);
-                foreach (var item in _carialthescaricari.obje.Where(x=>x.cariid == _tempCariKart.id))
+                foreach (var item in _carialthescaricari.obje.Where(x => x.cariid == _tempCariKart.id))
                 {
-                   altcarilist.Add(_cariAltHesapServis.obje.Where(x => x.kayittipi == 0 && x.id == item.carialthesid).FirstOrDefault());
+                    altcarilist.Add(_cariAltHesapServis.obje.Where(x => x.kayittipi == 0 && x.id == item.carialthesid).FirstOrDefault());
                 }
-                CBAltHesap.Properties.DataSource = altcarilist.Select(x=> new {ID= x.id , ADI=x.adi});
+                CBAltHesap.Properties.DataSource = altcarilist.Select(x => new { ID = x.id, ADI = x.adi });
                 CBAltHesap.Properties.ValueMember = "ID";
                 CBAltHesap.Properties.DisplayMember = "ADI";
             }
@@ -662,7 +671,7 @@ namespace MEYPAK.PRL.SIPARIS
 
 
 
-   
+
 
 
         private void Column1_KeyPress(object sender, KeyPressEventArgs e)

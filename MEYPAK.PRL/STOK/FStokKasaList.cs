@@ -3,6 +3,7 @@ using MEYPAK.BLL.Assets;
 using MEYPAK.BLL.STOK;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository;
+using MEYPAK.Entity.PocoModels;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Stok;
 using MEYPAK.PRL.Assets;
@@ -29,16 +30,16 @@ namespace MEYPAK.PRL.STOK
         FFatura ffatura;
         GenericWebServis<PocoSTOKKASA> _kasaServis;
         string _islem;
-        string _form,_stokid;
-        public FStokKasaList(string form,string islem = "",string stokid="")
+        string _form, num;
+        public FStokKasaList(string form, string islem = "", string num = "")
         {
             InitializeComponent();
             this._islem = islem;
             this._form = form;
-            _stokid = stokid;
+            this.num = num;
             _kasaServis = new GenericWebServis<PocoSTOKKASA>();
         }
-        
+
         private void FKasaList_Load(object sender, EventArgs e)
         {
             foreach (Form frm in Application.OpenForms)
@@ -57,11 +58,11 @@ namespace MEYPAK.PRL.STOK
             }
 
             _kasaServis.Data(ServisList.StokKasaListeServis);
-            GCKasaList.DataSource = _kasaServis.obje.Where(x=>x.kayittipi==0).Select(x=> new KasaList { KASAID=x.id,KASAADI=x.kasaadi,MIKTAR= 0});
- 
+            GCKasaList.DataSource = _kasaServis.obje.Where(x => x.kayittipi == 0).Select(x => new KasaList { KASAID = x.id, KASAADI = x.kasaadi, MIKTAR = 0 });
+
 
         }
-        
+
 
         private void gridView1_DoubleClick(object sender, EventArgs e)
         {
@@ -91,7 +92,7 @@ namespace MEYPAK.PRL.STOK
 
             //this.Close();
         }
-
+        List<KasaList> ttt = new List<KasaList>();
         private void simpleButton1_Click(object sender, EventArgs e)
         {
             string temp = "";
@@ -102,8 +103,8 @@ namespace MEYPAK.PRL.STOK
                 {
                     foreach (var item in gridView1.GetSelectedRows())
                     {
-                        
-                        temp += gridView1.GetRowCellValue(item, "KASAADI").ToString() + "=>" + gridView1.GetRowCellValue(item, "MIKTAR").ToString() + ";" ;
+
+                        temp += gridView1.GetRowCellValue(item, "KASAADI").ToString() + "=>" + gridView1.GetRowCellValue(item, "MIKTAR").ToString() + ";";
                     }
                     fSiparis.gridView1.SetFocusedRowCellValue("KasaAdı", temp);
                 }
@@ -122,22 +123,23 @@ namespace MEYPAK.PRL.STOK
             }
             else if (_islem == "SatisIrsaliye")
             {
-                
+
                 if (fSatisIrsaliye != null)
                 {
                     fSatisIrsaliye._tempKasaList.Clear();
                     foreach (var item in gridView1.GetSelectedRows())
                     {
-                        fSatisIrsaliye._tempKasaList.Add(new KasaList() { 
-                            KASAADI=gridView1.GetRowCellValue(item,"KASAADI").ToString(),
-                            MIKTAR=int.Parse(gridView1.GetRowCellValue(item,"MIKTAR").ToString()),
-                            KASAID=int.Parse(gridView1.GetRowCellValue(item, "ID").ToString()),
+                        fSatisIrsaliye._tempKasaList.Add(new KasaList()
+                        {
+                            KASAADI = gridView1.GetRowCellValue(item, "KASAADI").ToString(),
+                            MIKTAR = int.Parse(gridView1.GetRowCellValue(item, "MIKTAR").ToString()),
+                            KASAID = int.Parse(gridView1.GetRowCellValue(item, "ID").ToString()),
 
 
                         });
                         //temp += gridView1.GetRowCellValue(item, "KASAADI").ToString() + "=>" + gridView1.GetRowCellValue(item, "MIKTAR").ToString() + ";";
                     }
-                    
+
                 }
             }
             else if (_islem == "FFatura")
@@ -148,17 +150,22 @@ namespace MEYPAK.PRL.STOK
                     ffatura._tempKasaList.Clear();
                     foreach (var item in gridView1.GetSelectedRows())
                     {
-                        ffatura._tempKasaList.Add(new KasaList()
+
+                        ttt.Add(new KasaList()
                         {
-                            STOKID=int.Parse(_stokid),
                             KASAADI = gridView1.GetRowCellValue(item, "KASAADI").ToString(),
                             MIKTAR = int.Parse(gridView1.GetRowCellValue(item, "MIKTAR").ToString()),
-                            KASAID = int.Parse(gridView1.GetRowCellValue(item, "ID").ToString()),
+                            KASAID = int.Parse(gridView1.GetRowCellValue(item, "KASAID").ToString()),
 
 
                         });
                         //temp += gridView1.GetRowCellValue(item, "KASAADI").ToString() + "=>" + gridView1.GetRowCellValue(item, "MIKTAR").ToString() + ";";
                     }
+                    ffatura._kasaaa.Add(new ListKasaList()
+                    {
+                        num = int.Parse(num),
+                        KasaList = ttt
+                    });
 
                 }
             }

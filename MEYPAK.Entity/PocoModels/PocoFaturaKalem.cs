@@ -11,6 +11,7 @@ namespace MEYPAK.Entity.PocoModels
         public int sıra { get; set; }
         public int StokId { get; set; }
         public string StokKodu { get; set; }
+        public List<KasaList> KASA { get; set; }
         public string StokAdı { get; set; } = "";
         public string Tipi { get; set; } = "STOK";
         public int KasaId { get; set; }
