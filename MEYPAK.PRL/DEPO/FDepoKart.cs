@@ -26,7 +26,7 @@ namespace MEYPAK.PRL.DEPO
             _depoServis = new GenericWebServis<PocoDEPO>();
         }
         FDepoList fDepoList;
-        int id=0;
+
         public PocoDEPO _tempDepo;
         GenericWebServis<PocoDEPO> _depoServis ;
 
@@ -34,11 +34,10 @@ namespace MEYPAK.PRL.DEPO
         {
             if (_tempDepo != null)
             {
-                _depoServis = new GenericWebServis<PocoDEPO>();
+                
                 TBKod.Text = _tempDepo.depokodu;
                 TBAdi.Text = _tempDepo.depoadi;
                 TBAciklama.Text = _tempDepo.aciklama;
-                id = _tempDepo.id;
             }
         }
         public void Temizle(Control.ControlCollection ctrlCollection)           //Formdaki Textboxları temizle
@@ -54,7 +53,7 @@ namespace MEYPAK.PRL.DEPO
                     Temizle(ctrl.Controls);
                 }
             }
-            _tempDepo = null;
+            
         }
 
 
@@ -62,11 +61,14 @@ namespace MEYPAK.PRL.DEPO
 
         private void FDepoKart_Load(object sender, EventArgs e)
         {
-            _depoServis.Data(ServisList.DepoListeServis);
-            GCDepoKart.DataSource = _depoServis.obje.Where(x=>x.kayittipi==0);
+            gridiDoldur();
         }
 
-
+        void gridiDoldur()
+        {
+            _depoServis.Data(ServisList.DepoListeServis);
+            GCDepoKart.DataSource = _depoServis.obje.Where(x => x.kayittipi == 0);
+        }
 
         private void BTDepoKartEkle_Click(object sender, EventArgs e)
         {
@@ -80,11 +82,11 @@ namespace MEYPAK.PRL.DEPO
                 aciklama = TBAciklama.Text,
 
             }));
-            _depoServis.Data(ServisList.DepoListeServis);
-            GCDepoKart.DataSource = _depoServis.obje;
-            Temizle(this.Controls);
-                _tempDepo = null;
+                gridiDoldur();
+                Temizle(this.Controls);
                 MessageBox.Show($"{_tempDepo.depoadi} adlı depo başarıyla güncellendi!");
+                _tempDepo = null;
+             
             }
             else
             {
@@ -95,8 +97,10 @@ namespace MEYPAK.PRL.DEPO
                     aciklama = TBAciklama.Text,
 
                 }));
+                gridiDoldur();
                 MessageBox.Show($"{TBAdi.Text} adlı depo başarıyla eklendi!");
                 Temizle(this.Controls);
+                _tempDepo = _depoServis.obje2;
                 
             }
 
@@ -115,10 +119,11 @@ namespace MEYPAK.PRL.DEPO
  
             if (_tempDepo != null && _tempDepo.id > 0)
             {
-                _depoServis.Data(ServisList.DepoSilServis, _tempDepo);
+                _depoServis.Data(ServisList.DepoDeleteByIdServis,null,null,null, _tempDepo.id.ToString());
                 Temizle(this.Controls);
                 MessageBox.Show($"{_tempDepo.depoadi} adlı depo başarıyla silindi!");
                 _tempDepo = null;
+                gridiDoldur();
             }
             else
             {
