@@ -13,7 +13,7 @@ namespace MEYPAK.Entity.Models.STOK
         
         public int SIRKETID { get; set; } = 0;
         public int SUBEID { get; set; }=0;
-
+        public int MARKAID { get; set; }
         [StringLength(100)]
         public string KASAKODU { get; set; } = "";
         [StringLength(100)]

@@ -67,9 +67,9 @@
             // 
             this.panelControl3.Controls.Add(this.gridControl1);
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl3.Location = new System.Drawing.Point(2, 111);
+            this.panelControl3.Location = new System.Drawing.Point(2, 129);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(796, 337);
+            this.panelControl3.Size = new System.Drawing.Size(796, 319);
             this.panelControl3.TabIndex = 1;
             // 
             // gridControl1
@@ -78,7 +78,7 @@
             this.gridControl1.Location = new System.Drawing.Point(2, 2);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(792, 333);
+            this.gridControl1.Size = new System.Drawing.Size(792, 315);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -94,7 +94,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl2.Location = new System.Drawing.Point(2, 2);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(796, 109);
+            this.panelControl2.Size = new System.Drawing.Size(796, 127);
             this.panelControl2.TabIndex = 0;
             // 
             // groupControl1
@@ -108,13 +108,13 @@
             this.groupControl1.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             this.groupControl1.Location = new System.Drawing.Point(2, 2);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(792, 105);
+            this.groupControl1.Size = new System.Drawing.Size(792, 123);
             this.groupControl1.TabIndex = 0;
-            this.groupControl1.Text = "groupControl1";
+            this.groupControl1.Text = "Marka Tanım";
             // 
             // simpleButton1
             // 
-            this.simpleButton1.Location = new System.Drawing.Point(216, 45);
+            this.simpleButton1.Location = new System.Drawing.Point(276, 45);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(88, 43);
             this.simpleButton1.TabIndex = 9;
@@ -124,7 +124,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 71);
+            this.label2.Location = new System.Drawing.Point(27, 71);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 13);
             this.label2.TabIndex = 8;
@@ -133,7 +133,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 45);
+            this.label1.Location = new System.Drawing.Point(18, 45);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(63, 13);
             this.label1.TabIndex = 7;
@@ -141,16 +141,17 @@
             // 
             // textEdit2
             // 
-            this.textEdit2.Location = new System.Drawing.Point(94, 68);
+            this.textEdit2.Location = new System.Drawing.Point(110, 68);
             this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Size = new System.Drawing.Size(100, 20);
+            this.textEdit2.Size = new System.Drawing.Size(141, 20);
             this.textEdit2.TabIndex = 6;
             // 
             // textEdit1
             // 
-            this.textEdit1.Location = new System.Drawing.Point(94, 42);
+            this.textEdit1.Location = new System.Drawing.Point(110, 42);
+            this.textEdit1.Margin = new System.Windows.Forms.Padding(8, 3, 3, 3);
             this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(100, 20);
+            this.textEdit1.Size = new System.Drawing.Size(141, 20);
             this.textEdit1.TabIndex = 5;
             // 
             // FKasaMarka

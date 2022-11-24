@@ -7,6 +7,7 @@ using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Parametre;
 using MEYPAK.Interfaces.Stok;
 using MEYPAK.PRL.Assets;
+using MEYPAK.PRL.STOK.StokKasa;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,11 +27,14 @@ namespace MEYPAK.PRL.STOK
         {
             InitializeComponent();
             _kasaServis = new GenericWebServis<PocoSTOKKASA>();
+            _tempStokMarka = new PocoSTOKKASAMARKA();
         }
 
         #region Tanımlar
         GenericWebServis<PocoSTOKKASA>_kasaServis;
         PocoSTOKKASA _tempStokKasaPanel;
+        FStokKasaMarkaList fStokKasaMarkaList;
+        public PocoSTOKKASAMARKA _tempStokMarka;
         #endregion
 
         #region Metotlar
@@ -42,6 +46,7 @@ namespace MEYPAK.PRL.STOK
                 kasakodu = TBKod.Text,
                 kasaadi = TBAdi.Text,
                 aciklama = TBAciklama.Text,
+                markaid=_tempStokMarka.id,
                 aktif =1,
                 olusturmatarihi = DateTime.Now,
             });
@@ -106,6 +111,14 @@ namespace MEYPAK.PRL.STOK
         {
             _tempStokKasaPanel = _kasaServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
             KasaPanelBilgileriniGetir();
+        }
+
+        private void buttonEdit1_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            fStokKasaMarkaList = new FStokKasaMarkaList(this.Tag.ToString(),"FStokKasa");
+            fStokKasaMarkaList.ShowDialog();
+            if(_tempStokMarka!=null)
+            buttonEdit1.Text = _tempStokMarka.adi;
         }
     }
 }
