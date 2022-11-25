@@ -15,6 +15,7 @@ using System.Windows.Forms;
 using MEYPAK.Entity.Models.DEPO;
 using MEYPAK.Entity.PocoModels.DEPO;
 using MEYPAK.BLL.Assets;
+using System.Net.Http;
 
 namespace MEYPAK.PRL.DEPO
 {
@@ -119,7 +120,7 @@ namespace MEYPAK.PRL.DEPO
  
             if (_tempDepo != null && _tempDepo.id > 0)
             {
-                _depoServis.Data(ServisList.DepoDeleteByIdServis,null,null,null, _tempDepo.id.ToString());
+                _depoServis.Data(ServisList.DepoDeleteByIdServis,id: _tempDepo.id.ToString(), method: HttpMethod.Post);
                 Temizle(this.Controls);
                 MessageBox.Show($"{_tempDepo.depoadi} adlı depo başarıyla silindi!");
                 _tempDepo = null;

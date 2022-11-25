@@ -20,6 +20,7 @@ using Newtonsoft.Json;
 using System;
 using System.Data;
 using System.IO;
+using System.Net.Http;
 
 namespace MEYPAK.PRL.CARI
 {
@@ -446,7 +447,7 @@ namespace MEYPAK.PRL.CARI
         {
             if (_tempCariKart.id > 0 && _tempCariKart != null)
             {
-                _cariServis.Data(ServisList.CariDeleteByIdServis, null, null, null, _tempCariKart.id.ToString());
+                _cariServis.Data(ServisList.CariDeleteByIdServis, id: _tempCariKart.id.ToString(),method: HttpMethod.Post);
                 MessageBox.Show("Silme Başarılı");
                 FormuTemizle();
                 _tempCariKart = null;

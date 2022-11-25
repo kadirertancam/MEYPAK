@@ -40,6 +40,7 @@ namespace MEYPAK.BLL.Assets
             //string empty = "\" \"";
             //serialize = Regex.Replace(serialize, @"\bnull\b", $"{empty}");
             servis= parameters != null ? servis + "?" + parameters : servis;
+            servis = id != null ? servis + "?id=" + id : servis;
             HttpRequestMessage client;
             HttpClient httpClient = new HttpClient();
             if (method != null)

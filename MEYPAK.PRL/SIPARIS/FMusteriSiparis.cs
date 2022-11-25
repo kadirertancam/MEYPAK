@@ -41,7 +41,7 @@ namespace MEYPAK.PRL.SIPARIS
             _depoServis = new GenericWebServis<PocoDEPO>();
             _depoServis.Data(ServisList.DepoListeServis);
 
-            CBParaBirimi.Properties.DataSource = _paraBirimServis.obje.Select(x => x.adi).ToList();
+            CBParaBirimi.Properties.DataSource = _paraBirimServis.obje.Where(x=>x.kayittipi==0).Select(x => x.adi).ToList();
             CBDepo.Properties.DataSource = _depoServis.obje.Select(x => x.depoadi).ToList();
             CBAltHesap.Properties.DataSource = _cariAltHesapServis.obje.Select(x => x.adi).ToList();
             _siparisServis = new GenericWebServis<PocoSIPARIS>();
@@ -75,7 +75,7 @@ namespace MEYPAK.PRL.SIPARIS
 
         private void FSiparis_Load(object sender, EventArgs e)
         {
-            DTSiparisTarih.Text = DateTime.Now.ToString();
+            DTSiparisTarih.Text = DateTime.Now.AddDays(1).ToString();
             DTPVadeTarihi.Text = DateTime.Now.ToString(); 
             DataGridYapilandir();
             CBParaBirimi.EditValue = 0;
@@ -538,7 +538,7 @@ namespace MEYPAK.PRL.SIPARIS
                 DTSiparisTarih.EditValue = _tempSiparis.siparistarihi;
                 TBAciklama.Text = _tempSiparis.aciklama;
                 DTPVadeTarihi.EditValue = _tempSiparis.vadetarihi;
-                DTSevkiyatTarih.Value = _tempSiparis.sevkiyattarihi;
+                DTSevkiyatTarih.EditValue = _tempSiparis.sevkiyattarihi;
                 TBGun.Text = _tempSiparis.vadegunu.ToString();
                 _siparisDetayServis.Data(ServisList.SiparisDetayListeServis + 2, null, "query=SIPARISID=" + _tempSiparis.id.ToString());
                 GCMusteriSiparis.DataSource = _siparisDetayServis.obje.Select(x => new PocoSiparisKalem()
@@ -563,6 +563,9 @@ namespace MEYPAK.PRL.SIPARIS
             {
                 TBCariKodu.Text = _tempCariKart.kod;
                 TBCariAdi.Text = _tempCariKart.unvan == "" ? _tempCariKart.adi + " " + _tempCariKart.soyadi : _tempCariKart.unvan;
+                TBGun.Text = _tempCariKart.vadegunu.ToString();
+                DTPVadeTarihi.Text = DateTime.Now.AddDays(_tempCariKart.vadegunu).ToString();
+               
             }
         }
 

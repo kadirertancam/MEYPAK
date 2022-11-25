@@ -328,10 +328,10 @@
             this.panel4.Controls.Add(this.BTSil);
             this.panel4.Controls.Add(this.BTStokKartiKaydet);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(0, 889);
+            this.panel4.Location = new System.Drawing.Point(0, 863);
             this.panel4.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1128, 42);
+            this.panel4.Size = new System.Drawing.Size(1128, 68);
             this.panel4.TabIndex = 4;
             // 
             // BTSil
@@ -339,7 +339,7 @@
             this.BTSil.Appearance.BackColor = System.Drawing.Color.Gainsboro;
             this.BTSil.Appearance.Options.UseBackColor = true;
             this.BTSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTSil.ImageOptions.Image")));
-            this.BTSil.Location = new System.Drawing.Point(994, 0);
+            this.BTSil.Location = new System.Drawing.Point(994, 3);
             this.BTSil.Name = "BTSil";
             this.BTSil.Size = new System.Drawing.Size(128, 65);
             this.BTSil.TabIndex = 63;
@@ -2291,7 +2291,7 @@
             this.ClientSize = new System.Drawing.Size(1128, 931);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.Name = "FStokKart";
             this.Text = "Stok Kartı";

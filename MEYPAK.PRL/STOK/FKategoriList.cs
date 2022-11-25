@@ -28,6 +28,7 @@ using MEYPAK.Entity.Models.CARI;
 using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Interfaces.Parametre;
 using DevExpress.XtraEditors;
+using System.Net.Http;
 
 namespace MEYPAK.PRL.STOK
 {
@@ -172,14 +173,14 @@ namespace MEYPAK.PRL.STOK
                 {
                     foreach (var item in _kategoriServis.obje.Where(x => x.ustId == Convert.ToInt32(treeView.SelectedNode.Name.ToString())))
                     {
-                        _kategoriServis.Data(ServisList.StokKategoriDeleteByIdServis,null,null,null,item.id.ToString());
+                        _kategoriServis.Data(ServisList.StokKategoriDeleteByIdServis,id:item.id.ToString(), method: HttpMethod.Post);
                     }
-                    _kategoriServis.Data(ServisList.StokKategoriDeleteByIdServis, null, null, null, treeView.SelectedNode.Name.ToString());
+                    _kategoriServis.Data(ServisList.StokKategoriDeleteByIdServis, id: treeView.SelectedNode.Name.ToString(), method: HttpMethod.Post);
                     MessageBox.Show($"{treeView.SelectedNode.Name} ve tüm alt kategorileri Başarıyla silindi!");
                 }
                 else
                 {
-                    _kategoriServis.Data(ServisList.StokKategoriDeleteByIdServis,null,null,null,treeView.SelectedNode.Name.ToString());
+                    _kategoriServis.Data(ServisList.StokKategoriDeleteByIdServis,id:treeView.SelectedNode.Name.ToString(), method: HttpMethod.Post);
                     MessageBox.Show($"{treeView.SelectedNode.Name} Başarıyla silindi!");
                 }
                 
