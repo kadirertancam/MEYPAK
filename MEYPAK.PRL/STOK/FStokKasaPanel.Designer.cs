@@ -51,6 +51,7 @@
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.TBKod.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBAdi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBAciklama.Properties)).BeginInit();
@@ -66,11 +67,12 @@
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // LBAdi
             // 
-            this.LBAdi.Location = new System.Drawing.Point(50, 57);
+            this.LBAdi.Location = new System.Drawing.Point(44, 108);
             this.LBAdi.Name = "LBAdi";
             this.LBAdi.Size = new System.Drawing.Size(41, 13);
             this.LBAdi.TabIndex = 20;
@@ -78,7 +80,7 @@
             // 
             // LBKod
             // 
-            this.LBKod.Location = new System.Drawing.Point(41, 32);
+            this.LBKod.Location = new System.Drawing.Point(35, 83);
             this.LBKod.Name = "LBKod";
             this.LBKod.Size = new System.Drawing.Size(50, 13);
             this.LBKod.TabIndex = 21;
@@ -95,14 +97,14 @@
             // 
             // TBKod
             // 
-            this.TBKod.Location = new System.Drawing.Point(113, 29);
+            this.TBKod.Location = new System.Drawing.Point(107, 80);
             this.TBKod.Name = "TBKod";
             this.TBKod.Size = new System.Drawing.Size(180, 20);
             this.TBKod.TabIndex = 80;
             // 
             // TBAdi
             // 
-            this.TBAdi.Location = new System.Drawing.Point(113, 55);
+            this.TBAdi.Location = new System.Drawing.Point(107, 106);
             this.TBAdi.Name = "TBAdi";
             this.TBAdi.Size = new System.Drawing.Size(180, 20);
             this.TBAdi.TabIndex = 81;
@@ -150,6 +152,7 @@
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.textEdit1);
             this.groupControl1.Controls.Add(this.buttonEdit1);
             this.groupControl1.Controls.Add(this.labelControl1);
             this.groupControl1.Controls.Add(this.CHBAktif);
@@ -171,7 +174,7 @@
             // 
             // buttonEdit1
             // 
-            this.buttonEdit1.Location = new System.Drawing.Point(113, 81);
+            this.buttonEdit1.Location = new System.Drawing.Point(107, 26);
             this.buttonEdit1.Name = "buttonEdit1";
             this.buttonEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
@@ -181,7 +184,7 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(36, 84);
+            this.labelControl1.Location = new System.Drawing.Point(30, 29);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(55, 13);
             this.labelControl1.TabIndex = 86;
@@ -189,7 +192,7 @@
             // 
             // CHBAktif
             // 
-            this.CHBAktif.Location = new System.Drawing.Point(127, 110);
+            this.CHBAktif.Location = new System.Drawing.Point(200, 132);
             this.CHBAktif.Name = "CHBAktif";
             this.CHBAktif.Properties.Caption = "Aktif";
             this.CHBAktif.Size = new System.Drawing.Size(87, 20);
@@ -208,8 +211,10 @@
             // 
             // gridView1
             // 
+            this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
             this.gridView1.GridControl = this.DGKasaPanel;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.DoubleClick += new System.EventHandler(this.gridView1_DoubleClick);
             // 
             // panelControl1
@@ -232,6 +237,14 @@
             this.panelControl3.Name = "panelControl3";
             this.panelControl3.Size = new System.Drawing.Size(1080, 311);
             this.panelControl3.TabIndex = 14;
+            // 
+            // textEdit1
+            // 
+            this.textEdit1.Enabled = false;
+            this.textEdit1.Location = new System.Drawing.Point(107, 54);
+            this.textEdit1.Name = "textEdit1";
+            this.textEdit1.Size = new System.Drawing.Size(180, 20);
+            this.textEdit1.TabIndex = 89;
             // 
             // FStokKasaPanel
             // 
@@ -259,6 +272,7 @@
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -282,5 +296,6 @@
         private DevExpress.XtraEditors.CheckEdit CHBAktif;
         private DevExpress.XtraEditors.ButtonEdit buttonEdit1;
         private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.TextEdit textEdit1;
     }
 }

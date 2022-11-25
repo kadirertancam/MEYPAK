@@ -274,7 +274,15 @@ namespace MEYPAK.PRL.SIPARIS
 
         private void RepositoryItemButtonEdit3_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
-            FStokKasaList fKasaList = new FStokKasaList(this.Tag.ToString(), "FFatura", gridView1.FocusedRowHandle.ToString());
+           
+            if (_kasaaa.Where(x=>x.num.ToString()== gridView1.FocusedRowHandle.ToString()).Count() > 0)
+            {
+                fKasaList = new FStokKasaList(this.Tag.ToString(), "FFatura", gridView1.FocusedRowHandle.ToString(), _kasaaa);
+            }
+            else
+            {
+                  fKasaList = new FStokKasaList(this.Tag.ToString(), "FFatura", gridView1.FocusedRowHandle.ToString());
+            }
             fKasaList.ShowDialog(); 
             if(_kasaaa.Where(x => x.num == gridView1.FocusedRowHandle).Count()>0)
             riLookup3.DataSource = _kasaaa.Where(x => x.num == gridView1.FocusedRowHandle).FirstOrDefault().KasaList;
@@ -432,6 +440,7 @@ namespace MEYPAK.PRL.SIPARIS
                             belge_no = TBIrsaliyeNo.Text,
                             faturaid = _faturaServis.obje2.id,
                             io = 0,
+                            cariid=_faturaServis.obje2.cariid,
                             kayittipi = 0,
                             kasaid = item2.KASAID,
                             miktar = item2.MIKTAR, 

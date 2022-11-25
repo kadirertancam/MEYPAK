@@ -78,7 +78,7 @@ namespace MEYPAK.PRL
         FStokKasaPanel fKasaPanel;
         FParaBirimi fParaBirimi;
         FFatura ffatura;
-        FKasaTakip fStokKasaHareket;
+        FStokKasaHareket fStokKasaHareket;
         FKasaMarka fKasaMarka;
         public Tarih_Date _tarih_Date;
         public DataTable guncelkur;
@@ -531,7 +531,7 @@ namespace MEYPAK.PRL
         private void accordionControlElement46_Click(object sender, EventArgs e)
         {
             XtraTabPage page = new XtraTabPage();
-            fStokKasaHareket = new FKasaTakip();
+            fStokKasaHareket = new FStokKasaHareket();
             page.Name = "TPStokKasaHareket" + i;
             page.Text = "Stok Kasa Hareket";
             page.Tag = "TPStokKasaHareket" + i;
