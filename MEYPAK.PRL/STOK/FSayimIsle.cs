@@ -20,6 +20,7 @@ using DevExpress.XtraEditors;
 using MEYPAK.Interfaces;
 using Newtonsoft.Json;
 using System.IO;
+using System.Net.Http;
 
 namespace MEYPAK.PRL.STOK
 {
@@ -130,7 +131,7 @@ namespace MEYPAK.PRL.STOK
 
                 foreach (var item in _stokHarServis.obje.Where(z => z.kayittipi==0 && z.sayimid == _tempSayim.id))
                 {
-                    _stokHarServis.Data(ServisList.StokHarDeleteByIdServis, null, null, null, item.id.ToString()); 
+                    _stokHarServis.Data(ServisList.StokHarDeleteByIdServis, id: item.id.ToString(),method: HttpMethod.Post); 
                 }
                 _tempSayim.durum = 0;
                 _stokSayimServis.Data(ServisList.StokSayimEkleServis,_tempSayim);

@@ -4,6 +4,7 @@ using MEYPAK.DAL.Abstract.StokDal;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository;
 using MEYPAK.Entity.PocoModels.STOK;
+using MEYPAK.Interfaces.Kasa;
 using MEYPAK.Interfaces.Parametre;
 using MEYPAK.Interfaces.Stok;
 using MEYPAK.PRL.Assets;
@@ -28,12 +29,14 @@ namespace MEYPAK.PRL.STOK
             InitializeComponent();
             _kasaServis = new GenericWebServis<PocoSTOKKASA>();
             _tempStokMarka = new PocoSTOKKASAMARKA();
+            _stokKasaMarkaServis = new GenericWebServis<PocoSTOKKASAMARKA>();
         }
 
         #region Tanımlar
         GenericWebServis<PocoSTOKKASA>_kasaServis;
         PocoSTOKKASA _tempStokKasaPanel;
         FStokKasaMarkaList fStokKasaMarkaList;
+        GenericWebServis<PocoSTOKKASAMARKA> _stokKasaMarkaServis;
         public PocoSTOKKASAMARKA _tempStokMarka;
         #endregion
 
@@ -63,33 +66,41 @@ namespace MEYPAK.PRL.STOK
         void DataGridDoldur()
         {
             _kasaServis.Data(ServisList.StokKasaListeServis);
+            _stokKasaMarkaServis.Data(ServisList.StokKasaMarkaListeServis);     
             DGKasaPanel.DataSource = _kasaServis.obje.Where(x => x.kayittipi == 0).Select(x => new
             {
                 ID = x.id,
                 Kodu = x.kasakodu,
                 Adı = x.kasaadi,
                 Açıklama = x.aciklama,
+                markaid=x.markaid,id=x.id,  
+                MarkaAdı= x.markaid==0?"":_stokKasaMarkaServis.obje.Where(z=>z.id==x.markaid).FirstOrDefault().adi.ToString(),
                 //Aktif =x.aktif,
                 OluşturmaTarihi = x.olusturmatarihi
 
             });
-            DGKasaPanel.Refresh();
+            gridView1.Columns["markaid"].Visible = false;
+            gridView1.Columns["id"].Visible = false;
+            //DGKasaPanel.Refresh();
             DGKasaPanel.RefreshDataSource();
 
         }
 
         void CombolariDoldur()
         {
-            _kasaServis.Data(ServisList.KasaListeServis);
+            _kasaServis.Data(ServisList.StokKasaListeServis);
         }
 
         void KasaPanelBilgileriniGetir()
         {
             if (_tempStokKasaPanel != null)
             {
+                _stokKasaMarkaServis.Data(ServisList.StokKasaMarkaListeServis);
+                _tempStokMarka = _stokKasaMarkaServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("markaid").ToString()).FirstOrDefault();
                 id = int.Parse(gridView1.GetFocusedRowCellValue("ID").ToString());
                 TBKod.Text = gridView1.GetFocusedRowCellValue("Kodu").ToString();
                 TBAdi.Text = gridView1.GetFocusedRowCellValue("Adı").ToString();
+                buttonEdit1.Text = _stokKasaMarkaServis.obje.Where(z => z.id.ToString() == gridView1.GetFocusedRowCellValue("markaid").ToString()).Count() > 0 ? _stokKasaMarkaServis.obje.Where(z => z.id.ToString() == gridView1.GetFocusedRowCellValue("markaid").ToString()).FirstOrDefault().adi : "";
                 TBAciklama.Text = gridView1.GetFocusedRowCellValue("Açıklama").ToString();
                 CHBAktif.EditValue = _tempStokKasaPanel.aktif;
             }
@@ -109,7 +120,9 @@ namespace MEYPAK.PRL.STOK
 
         private void gridView1_DoubleClick(object sender, EventArgs e)
         {
-            _tempStokKasaPanel = _kasaServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+            _kasaServis.Data(ServisList.StokKasaListeServis);
+            var asda = gridView1.GetFocusedRowCellValue("id").ToString();
+            _tempStokKasaPanel = _kasaServis.obje.Where(x => x.id.ToString() == asda).FirstOrDefault();
             KasaPanelBilgileriniGetir();
         }
 
@@ -117,8 +130,11 @@ namespace MEYPAK.PRL.STOK
         {
             fStokKasaMarkaList = new FStokKasaMarkaList(this.Tag.ToString(),"FStokKasa");
             fStokKasaMarkaList.ShowDialog();
-            if(_tempStokMarka!=null)
-            buttonEdit1.Text = _tempStokMarka.adi;
+            if (_tempStokMarka != null)
+            {
+                buttonEdit1.Text = _tempStokMarka.kod;
+                textEdit1.Text=_tempStokMarka.adi;
+            }
         }
     }
 }

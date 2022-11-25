@@ -15,6 +15,7 @@ using System.Windows.Forms;
 using MEYPAK.Entity.Models.DEPO;
 using MEYPAK.Entity.PocoModels.DEPO;
 using MEYPAK.BLL.Assets;
+using System.Net.Http;
 
 namespace MEYPAK.PRL.DEPO
 {
@@ -68,6 +69,7 @@ namespace MEYPAK.PRL.DEPO
         {
             _depoServis.Data(ServisList.DepoListeServis);
             GCDepoKart.DataSource = _depoServis.obje.Where(x => x.kayittipi == 0);
+            gridView1.Columns["id"].Visible = false;
         }
 
         private void BTDepoKartEkle_Click(object sender, EventArgs e)
@@ -85,8 +87,8 @@ namespace MEYPAK.PRL.DEPO
                 gridiDoldur();
                 Temizle(this.Controls);
                 MessageBox.Show($"{_tempDepo.depoadi} adlı depo başarıyla güncellendi!");
+
                 _tempDepo = null;
-             
             }
             else
             {
@@ -100,7 +102,7 @@ namespace MEYPAK.PRL.DEPO
                 gridiDoldur();
                 MessageBox.Show($"{TBAdi.Text} adlı depo başarıyla eklendi!");
                 Temizle(this.Controls);
-                _tempDepo = _depoServis.obje2;
+                _tempDepo = null;
                 
             }
 
@@ -116,10 +118,9 @@ namespace MEYPAK.PRL.DEPO
 
         private void BTDepoKartSil_Click(object sender, EventArgs e)
         {
- 
             if (_tempDepo != null && _tempDepo.id > 0)
             {
-                _depoServis.Data(ServisList.DepoDeleteByIdServis,null,null,null, _tempDepo.id.ToString());
+                _depoServis.Data(ServisList.DepoDeleteByIdServis,id: _tempDepo.id.ToString(), method: HttpMethod.Post);
                 Temizle(this.Controls);
                 MessageBox.Show($"{_tempDepo.depoadi} adlı depo başarıyla silindi!");
                 _tempDepo = null;
@@ -134,7 +135,7 @@ namespace MEYPAK.PRL.DEPO
 
         private void GCDepoKart_DoubleClick(object sender, EventArgs e)
         {
-            _tempDepo = _depoServis.obje.Where(x => x.depokodu == gridView1.GetFocusedRowCellValue("depokodu").ToString()).FirstOrDefault();
+            _tempDepo = _depoServis.obje.Where(x =>  x.id == Convert.ToInt32(gridView1.GetFocusedRowCellValue("id"))).FirstOrDefault();
             Doldur();
         }
 

@@ -31,30 +31,26 @@ namespace MEYPAK.PRL.STOK
         PocoSTOKMARKA _tempMarka;
         int id = 0;
         #endregion
-        private void FMarkaKart_Load(object sender, EventArgs e)
+
+        #region Methodlar
+  void MarkalarıGetir()
         {
             _markaServis.Data(ServisList.StokMarkaListeServis);
-           gridControl1.DataSource= _markaServis.obje;
+            gridControl1.DataSource = _markaServis.obje.Where(x=>x.kayittipi==0);
         }
-
-        private void BTKaydet_Click(object sender, EventArgs e)
+        #endregion
+        private void FMarkaKart_Load(object sender, EventArgs e)
         {
-
-           
-
+            MarkalarıGetir();
         }
 
-        private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-          
-        }
+   
 
         private void BTSil_Click(object sender, EventArgs e)
         {
             if(_tempMarka!=null)
             _markaServis.Data(ServisList.StokMarkaSilServis,null,"filter=ID eq"+ _tempMarka.id);
-            _markaServis.Data(ServisList.StokMarkaListeServis);
-            gridControl1.DataSource= _markaServis.obje;
+           MarkalarıGetir();
             
         }
 
@@ -90,8 +86,7 @@ namespace MEYPAK.PRL.STOK
             _tempMarka = null;
             Temizle(this.Controls);
 
-            _markaServis.Data(ServisList.StokMarkaListeServis);
-            gridControl1.DataSource = _markaServis.obje;
+            MarkalarıGetir();
         }
 
         private void gridView1_DoubleClick(object sender, EventArgs e)
