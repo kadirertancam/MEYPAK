@@ -83,7 +83,7 @@ namespace MEYPAK.PRL.SIPARIS
 
 
 
-            CBParaBirimi.Text = _paraBirimServis.obje.Where(x => x.kayittipi == 0).Select(x => x.adi).FirstOrDefault();
+            CBParaBirimi.Text = _paraBirimServis.obje.Where(x => x.kayittipi == 0 && x.adi=="TÜRK LİRASI").Select(x => x.adi).FirstOrDefault();
             _faturaServis = new GenericWebServis<PocoFATURA>();
             _faturadetayServis = new GenericWebServis<PocoFATURADETAY>();
             _stokOlcuBr = new GenericWebServis<PocoSTOKOLCUBR>();
