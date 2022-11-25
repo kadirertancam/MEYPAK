@@ -489,9 +489,9 @@
             // 
             this.panelControl4.Controls.Add(this.TBSevkAdres);
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl4.Location = new System.Drawing.Point(2, 442);
+            this.panelControl4.Location = new System.Drawing.Point(2, 436);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(1394, 315);
+            this.panelControl4.Size = new System.Drawing.Size(1394, 321);
             this.panelControl4.TabIndex = 11;
             // 
             // TBSevkAdres
@@ -508,7 +508,7 @@
             this.TBSevkAdres.Location = new System.Drawing.Point(2, 2);
             this.TBSevkAdres.Name = "TBSevkAdres";
             this.TBSevkAdres.SelectedIndex = 0;
-            this.TBSevkAdres.Size = new System.Drawing.Size(1390, 311);
+            this.TBSevkAdres.Size = new System.Drawing.Size(1390, 317);
             this.TBSevkAdres.TabIndex = 0;
             // 
             // tabPage1
@@ -519,7 +519,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1382, 285);
+            this.tabPage1.Size = new System.Drawing.Size(1382, 291);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Sevk Adresleri";
             // 
@@ -529,7 +529,7 @@
             this.DGSevkAdres.Location = new System.Drawing.Point(3, 114);
             this.DGSevkAdres.MainView = this.gridView2;
             this.DGSevkAdres.Name = "DGSevkAdres";
-            this.DGSevkAdres.Size = new System.Drawing.Size(1376, 168);
+            this.DGSevkAdres.Size = new System.Drawing.Size(1376, 174);
             this.DGSevkAdres.TabIndex = 0;
             this.DGSevkAdres.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -724,7 +724,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1382, 285);
+            this.tabPage2.Size = new System.Drawing.Size(1382, 291);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Açıklamalar";
             // 
@@ -1122,7 +1122,7 @@
             this.tabPage3.Controls.Add(this.panel11);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1382, 285);
+            this.tabPage3.Size = new System.Drawing.Size(1382, 291);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Rapor Kodları";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -1134,7 +1134,7 @@
             this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel11.Location = new System.Drawing.Point(0, 0);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(1382, 285);
+            this.panel11.Size = new System.Drawing.Size(1382, 291);
             this.panel11.TabIndex = 1;
             // 
             // groupControl3
@@ -1323,7 +1323,7 @@
             this.tabPage4.Controls.Add(this.panelControl12);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(1382, 285);
+            this.tabPage4.Size = new System.Drawing.Size(1382, 291);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Yetkili Bilgileri";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -1335,7 +1335,7 @@
             this.panelControl12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl12.Location = new System.Drawing.Point(0, 0);
             this.panelControl12.Name = "panelControl12";
-            this.panelControl12.Size = new System.Drawing.Size(1382, 285);
+            this.panelControl12.Size = new System.Drawing.Size(1382, 291);
             this.panelControl12.TabIndex = 68;
             // 
             // panelControl14
@@ -1458,7 +1458,7 @@
             this.tabPage7.Controls.Add(this.panelControl15);
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(1382, 285);
+            this.tabPage7.Size = new System.Drawing.Size(1382, 291);
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "Dökümanlar";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -1575,7 +1575,7 @@
             // 
             this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Size = new System.Drawing.Size(1382, 285);
+            this.tabPage8.Size = new System.Drawing.Size(1382, 291);
             this.tabPage8.TabIndex = 7;
             this.tabPage8.Text = "Taşıyıcı Bilgileri";
             this.tabPage8.UseVisualStyleBackColor = true;
@@ -1586,7 +1586,7 @@
             this.tabPage9.Controls.Add(this.panelControl1);
             this.tabPage9.Location = new System.Drawing.Point(4, 22);
             this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Size = new System.Drawing.Size(1382, 285);
+            this.tabPage9.Size = new System.Drawing.Size(1382, 291);
             this.tabPage9.TabIndex = 8;
             this.tabPage9.Text = "AltHesap";
             this.tabPage9.UseVisualStyleBackColor = true;
@@ -1597,7 +1597,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl2.Location = new System.Drawing.Point(0, 94);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(1382, 191);
+            this.panelControl2.Size = new System.Drawing.Size(1382, 197);
             this.panelControl2.TabIndex = 1;
             // 
             // DGAltHesap
@@ -1606,7 +1606,7 @@
             this.DGAltHesap.Location = new System.Drawing.Point(2, 2);
             this.DGAltHesap.MainView = this.gridView1;
             this.DGAltHesap.Name = "DGAltHesap";
-            this.DGAltHesap.Size = new System.Drawing.Size(1378, 187);
+            this.DGAltHesap.Size = new System.Drawing.Size(1378, 193);
             this.DGAltHesap.TabIndex = 1;
             this.DGAltHesap.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -1682,7 +1682,7 @@
             this.Resim.Controls.Add(this.panelControl5);
             this.Resim.Location = new System.Drawing.Point(4, 22);
             this.Resim.Name = "Resim";
-            this.Resim.Size = new System.Drawing.Size(1382, 285);
+            this.Resim.Size = new System.Drawing.Size(1382, 291);
             this.Resim.TabIndex = 9;
             this.Resim.Text = "Resim";
             this.Resim.UseVisualStyleBackColor = true;
@@ -1694,7 +1694,7 @@
             this.panelControl5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl5.Location = new System.Drawing.Point(0, 0);
             this.panelControl5.Name = "panelControl5";
-            this.panelControl5.Size = new System.Drawing.Size(1382, 285);
+            this.panelControl5.Size = new System.Drawing.Size(1382, 291);
             this.panelControl5.TabIndex = 0;
             // 
             // panelControl7
@@ -1703,7 +1703,7 @@
             this.panelControl7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl7.Location = new System.Drawing.Point(2, 114);
             this.panelControl7.Name = "panelControl7";
-            this.panelControl7.Size = new System.Drawing.Size(1378, 169);
+            this.panelControl7.Size = new System.Drawing.Size(1378, 175);
             this.panelControl7.TabIndex = 1;
             // 
             // gridControl3
@@ -1712,7 +1712,7 @@
             this.gridControl3.Location = new System.Drawing.Point(2, 2);
             this.gridControl3.MainView = this.tileView1;
             this.gridControl3.Name = "gridControl3";
-            this.gridControl3.Size = new System.Drawing.Size(1374, 165);
+            this.gridControl3.Size = new System.Drawing.Size(1374, 171);
             this.gridControl3.TabIndex = 0;
             this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.tileView1});
@@ -1798,7 +1798,7 @@
             this.panelControl9.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl9.Location = new System.Drawing.Point(2, 2);
             this.panelControl9.Name = "panelControl9";
-            this.panelControl9.Size = new System.Drawing.Size(1394, 440);
+            this.panelControl9.Size = new System.Drawing.Size(1394, 434);
             this.panelControl9.TabIndex = 10;
             // 
             // groupBox4
@@ -1968,7 +1968,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupBox1.Location = new System.Drawing.Point(2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(424, 436);
+            this.groupBox1.Size = new System.Drawing.Size(424, 430);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Genel Bilgi";
@@ -2493,7 +2493,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1398, 818);
             this.Controls.Add(this.panelControl19);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FCariKart";
             this.Text = "FCariKart";
             this.Load += new System.EventHandler(this.FCariKart_Load);
