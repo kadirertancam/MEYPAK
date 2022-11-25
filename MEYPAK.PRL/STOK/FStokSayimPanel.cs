@@ -11,10 +11,11 @@ using MEYPAK.Interfaces.Personel;
 using DevExpress.Utils;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.ClipboardSource.SpreadsheetML;
+using DevExpress.XtraEditors;
 
 namespace MEYPAK.PRL.STOK
 {
-    public partial class FStokSayimPanel : Form
+    public partial class FStokSayimPanel : XtraForm
     {
         public FStokSayimPanel(PocoSTOKSAYIM tempstoksayim, string form = "", string islemtipi = "")
         {

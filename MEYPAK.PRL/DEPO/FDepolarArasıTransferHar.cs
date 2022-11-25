@@ -1,4 +1,5 @@
-﻿using MEYPAK.BLL.DEPO;
+﻿using DevExpress.XtraEditors;
+using MEYPAK.BLL.DEPO;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository;
 using MEYPAK.Entity.Models;
@@ -22,7 +23,7 @@ using System.Windows.Forms;
 
 namespace MEYPAK.PRL.DEPO
 {
-    public partial class FDepolarArasıTransferHar : Form
+    public partial class FDepolarArasıTransferHar : XtraForm
     {
         PocoDEPOTRANSFER _arasıtransfer;
         public PocoSTOK _tempStok;

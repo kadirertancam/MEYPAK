@@ -55,7 +55,7 @@
             this.BTAltEkle.Appearance.BackColor = System.Drawing.Color.Gainsboro;
             this.BTAltEkle.Appearance.Options.UseBackColor = true;
             this.BTAltEkle.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTAltEkle.ImageOptions.Image")));
-            this.BTAltEkle.Location = new System.Drawing.Point(420, 30);
+            this.BTAltEkle.Location = new System.Drawing.Point(315, 60);
             this.BTAltEkle.Name = "BTAltEkle";
             this.BTAltEkle.Size = new System.Drawing.Size(100, 34);
             this.BTAltEkle.TabIndex = 81;
@@ -67,7 +67,7 @@
             this.BTYeniEkle.Appearance.BackColor = System.Drawing.Color.Gainsboro;
             this.BTYeniEkle.Appearance.Options.UseBackColor = true;
             this.BTYeniEkle.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTYeniEkle.ImageOptions.Image")));
-            this.BTYeniEkle.Location = new System.Drawing.Point(314, 30);
+            this.BTYeniEkle.Location = new System.Drawing.Point(315, 23);
             this.BTYeniEkle.Name = "BTYeniEkle";
             this.BTYeniEkle.Size = new System.Drawing.Size(100, 34);
             this.BTYeniEkle.TabIndex = 80;
@@ -76,7 +76,7 @@
             // 
             // TBKategoriAdi
             // 
-            this.TBKategoriAdi.Location = new System.Drawing.Point(98, 37);
+            this.TBKategoriAdi.Location = new System.Drawing.Point(97, 47);
             this.TBKategoriAdi.Name = "TBKategoriAdi";
             this.TBKategoriAdi.Size = new System.Drawing.Size(180, 20);
             this.TBKategoriAdi.TabIndex = 79;
@@ -95,9 +95,9 @@
             // 
             this.panelControl3.Controls.Add(this.treeView);
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl3.Location = new System.Drawing.Point(2, 98);
+            this.panelControl3.Location = new System.Drawing.Point(2, 121);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(1082, 437);
+            this.panelControl3.Size = new System.Drawing.Size(1082, 414);
             this.panelControl3.TabIndex = 4;
             // 
             // treeView
@@ -105,7 +105,7 @@
             this.treeView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeView.Location = new System.Drawing.Point(2, 2);
             this.treeView.Name = "treeView";
-            this.treeView.Size = new System.Drawing.Size(1078, 433);
+            this.treeView.Size = new System.Drawing.Size(1078, 410);
             this.treeView.TabIndex = 0;
             this.treeView.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.treeView_KeyPress);
             // 
@@ -115,7 +115,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl2.Location = new System.Drawing.Point(2, 2);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(1082, 96);
+            this.panelControl2.Size = new System.Drawing.Size(1082, 119);
             this.panelControl2.TabIndex = 3;
             // 
             // groupControl1
@@ -131,14 +131,14 @@
             this.groupControl1.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             this.groupControl1.Location = new System.Drawing.Point(2, 2);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(1078, 91);
+            this.groupControl1.Size = new System.Drawing.Size(1078, 111);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Kategori";
             // 
             // LBAdi
             // 
             this.LBAdi.Appearance.Options.UseFont = true;
-            this.LBAdi.Location = new System.Drawing.Point(24, 40);
+            this.LBAdi.Location = new System.Drawing.Point(23, 50);
             this.LBAdi.Name = "LBAdi";
             this.LBAdi.Size = new System.Drawing.Size(58, 13);
             this.LBAdi.TabIndex = 82;

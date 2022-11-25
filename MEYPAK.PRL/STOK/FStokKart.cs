@@ -562,6 +562,11 @@ namespace MEYPAK.PRL
             gridControl2.RefreshDataSource();
         }
 
+        private void GBStokKartiKdvOtv_Enter(object sender, EventArgs e)
+        {
+
+        }
+
         private void TBSatisOtv_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar != '.' && e.KeyChar != ',')

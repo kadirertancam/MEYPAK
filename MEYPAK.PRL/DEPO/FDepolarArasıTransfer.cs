@@ -1,4 +1,5 @@
-﻿using MEYPAK.BLL.DEPO;
+﻿using DevExpress.XtraEditors;
+using MEYPAK.BLL.DEPO;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository;
 using MEYPAK.Entity.Models.DEPO;
@@ -20,7 +21,7 @@ using System.Windows.Forms;
 
 namespace MEYPAK.PRL.DEPO
 {
-    public partial class FDepolarArasıTransfer : Form
+    public partial class FDepolarArasıTransfer : XtraForm
     {
 
         public FDepolarArasıTransfer()

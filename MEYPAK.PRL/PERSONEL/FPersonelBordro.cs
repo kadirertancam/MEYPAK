@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevExpress.XtraEditors;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,7 +11,7 @@ using System.Windows.Forms;
 
 namespace MEYPAK.PRL.PERSONEL
 {
-    public partial class FPersonelBordro : Form
+    public partial class FPersonelBordro : XtraForm
     {
         public FPersonelBordro()
         {

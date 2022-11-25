@@ -23,7 +23,7 @@ using MEYPAK.Entity.PocoModels.DEPO;
 
 namespace MEYPAK.PRL.STOK
 {
-    public partial class FStokSayim : Form
+    public partial class FStokSayim : XtraForm
     {
         public FStokSayim()
         {

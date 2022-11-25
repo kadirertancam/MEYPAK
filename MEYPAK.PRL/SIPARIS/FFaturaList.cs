@@ -1,4 +1,5 @@
-﻿using MEYPAK.BLL.Assets;
+﻿using DevExpress.XtraEditors;
+using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.PocoModels;
 using MEYPAK.Entity.PocoModels.FATURA;
 using MEYPAK.Entity.PocoModels.IRSALIYE;
@@ -16,7 +17,7 @@ using System.Windows.Forms;
 
 namespace MEYPAK.PRL.SIPARIS
 {
-    public partial class FFaturaList : Form
+    public partial class FFaturaList : XtraForm
     {
         public FFaturaList(string tag = "",string islem="")
         {

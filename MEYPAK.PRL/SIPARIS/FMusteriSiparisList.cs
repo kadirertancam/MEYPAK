@@ -1,4 +1,5 @@
-﻿using MEYPAK.BLL.Assets;
+﻿using DevExpress.XtraEditors;
+using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.Models.SIPARIS;
 using MEYPAK.Entity.PocoModels.SIPARIS;
 using MEYPAK.Interfaces.Stok;
@@ -14,7 +15,7 @@ using System.Windows.Forms;
 
 namespace MEYPAK.PRL.SIPARIS
 {
-    public partial class FMusteriSiparisList : Form
+    public partial class FMusteriSiparisList : XtraForm
     {
         string _islem;
         string _form;

@@ -1,4 +1,5 @@
-﻿using DevExpress.Mvvm.POCO;
+﻿using DevExpress.CodeParser;
+using DevExpress.Mvvm.POCO;
 using DevExpress.Utils;
 using DevExpress.XtraEditors;
 using DevExpress.XtraSpreadsheet.Import.OpenXml;
@@ -7,10 +8,13 @@ using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.Models.CARI;
 using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.PARAMETRE;
+using MEYPAK.Entity.PocoModels.PERSONEL;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces;
 using MEYPAK.Interfaces.Cari;
 using MEYPAK.Interfaces.Parametre;
+using MEYPAK.Interfaces.Personel;
+using MEYPAK.Interfaces.Stok;
 using MEYPAK.PRL.STOK;
 using Newtonsoft.Json;
 using System;
@@ -38,9 +42,9 @@ namespace MEYPAK.PRL.CARI
             _cariAltHesList = new List<PocoCARIALTHES>();
             _cariYetkiliServis = new GenericWebServis<PocoCARIYETKILI>();
             _cariDokumanServis = new GenericWebServis<PocoCARIDOKUMAN>();
-            _cariAltHesCariServis = new GenericWebServis<PocoCARIALTHESCARI>(); 
+            _cariAltHesCariServis = new GenericWebServis<PocoCARIALTHESCARI>();
             CBAltHesap.Properties.DataSource = _cariAltHesapServis.obje.Select(x => x.adi).ToList();
-            
+
 
         }
         #region Tanımlar
@@ -62,7 +66,7 @@ namespace MEYPAK.PRL.CARI
         public PocoPARABIRIM _tempCariParABIRIM;
         public PocoSTOKKATEGORI _tempCariStOKKATEGORI;
         public PocoCARIALTHESCARI _tempCariAltHesCari;
-       
+
         int cariid = 0;
         public int _id;
         #endregion
@@ -150,14 +154,14 @@ namespace MEYPAK.PRL.CARI
             TBCariSoyad.Text = _tempCariKart.soyadi;
             CBTip.SelectedIndex = _tempCariKart.tipi;
             TBAciklama.Text = _tempCariKart.aciklama;
-          //  CBAltHesap.EditValue = _tempCARIALTHES.adi;
+            //  CBAltHesap.EditValue = _tempCARIALTHES.adi;
             //TBSevkKodu
             CBSevkIl.Text = _tempCariKart.il;
             CBSevkIlce.EditValue = _tempCariKart.ilce;
             TBSevkMahalle.Text = _tempCariKart.mahalle;
             TBSevkSokak.Text = _tempCariKart.sokak;
-            TBSevkApt.Text = _tempCariKart.apt; 
-            TBSevkDaire.Text = _tempCariKart.daire; 
+            TBSevkApt.Text = _tempCariKart.apt;
+            TBSevkDaire.Text = _tempCariKart.daire;
             TBAciklama1.Text = _tempCariKart.aciklamA1;
             TBAciklama2.Text = _tempCariKart.aciklamA2;
             TBAciklama3.Text = _tempCariKart.aciklamA3;
@@ -203,20 +207,31 @@ namespace MEYPAK.PRL.CARI
                 {
                     TBAltHesapAdi.Text = _tempCARIALTHES.adi.ToString();
                     BTAltHesSec.Text = _tempCARIALTHES.kod.ToString();
+                    CBAktif.EditValue = 1;
                 }
             }
         }
-       
+
 
         ADRESOBJECT.Root _adresObje;
         UlkeList.Root _ulkeList;
+        private static Stream GetStreamFromUrl(string url)
+        {
+            byte[] imageData = null;
 
+            using (var wc = new System.Net.WebClient())
+                imageData = wc.DownloadData(url);
+
+            return new MemoryStream(imageData);
+        }
         public void FCariKart_Load(object sender, EventArgs e)
         {
             //Il combosu
-            string path = Application.StartupPath + "/il-ilce.json";
-           
-            using (FileStream s = File.Open(path, FileMode.Open))
+
+            string url = @"http://213.238.167.117:8081/il-ilce.json";
+            string url2 = @"http://213.238.167.117:8081/ulkeler.json";
+
+            using (Stream s = GetStreamFromUrl(url))
             using (StreamReader sr = new StreamReader(s))
                 while (!sr.EndOfStream)
                 {
@@ -225,8 +240,8 @@ namespace MEYPAK.PRL.CARI
             CBIl.Properties.DataSource = _adresObje.data.Select(x => x.il_adi);
             CBSevkIl.Properties.DataSource = _adresObje.data.Select(x => x.il_adi);
             //Ulke Combosu
-            path = Application.StartupPath + "ulkeler.json";
-            using (FileStream s = File.Open(path, FileMode.Open))
+
+            using (Stream s = GetStreamFromUrl(url2))
             using (StreamReader sr = new StreamReader(s))
                 while (!sr.EndOfStream)
                 {
@@ -239,12 +254,12 @@ namespace MEYPAK.PRL.CARI
         private void BTSevkAdresKaydet_Click(object sender, EventArgs e)
         {
             _cariServis.Data(ServisList.CariListeServis);
-            if (_tempCariKart !=null)
+            if (_tempCariKart != null)
             {
                 _sevkAdresServis.Data(ServisList.SevkAdresEkleServis, new PocoSEVKADRES()
                 {
-                    
-                    althesapid =_tempCARIALTHES.id,
+
+                    althesapid = _tempCARIALTHES.id,
                     kodu = TBSevkKodu.Text,
                     il = CBSevkIl.EditValue.ToString(),
                     ilce = CBSevkIlce.EditValue.ToString(),
@@ -254,14 +269,14 @@ namespace MEYPAK.PRL.CARI
                     daire = TBSevkDaire.Text
                 });
                 MessageBox.Show("Sevk Adres Başarıyla Eklendi!");
-               // SevkAdresDoldur();
+                // SevkAdresDoldur();
                 FormuTemizle();
             }
             else
             {
                 MessageBox.Show("Öncelikle Cari Seçimi yapmanız gerekmektedir!");
             }
-           
+
         }
         //Yetkili Alanı
         private void BTYetkiliKaydet_Click(object sender, EventArgs e)
@@ -287,9 +302,11 @@ namespace MEYPAK.PRL.CARI
         }
         private void BTYetkiliSil_Click(object sender, EventArgs e) //TO DO 
         {
-
-
+            
         }
+
+
+
         //Cari Alt Hesap
         public void BTAltHesSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
@@ -320,7 +337,7 @@ namespace MEYPAK.PRL.CARI
             else if (e.Button.Caption == "Seç")
             {
                 FAltHesapList fAltHesapList = new FAltHesapList(this.Tag.ToString(), "carikart");
-                
+
                 fAltHesapList.ShowDialog();
 
                 AltCariDoldur();
@@ -356,15 +373,15 @@ namespace MEYPAK.PRL.CARI
             resimList = _cariResimServis.obje.Where(x => x.CARIID == _cariServis.obje.Where(z => z.kod == BTCariSec.Text).FirstOrDefault().id).ToList();
             gridControl3.DataSource = resimList.Select(x => new { Resim = Base64ToImage(x.IMG) });
         }
-        
+
         string base64 = "";
         private void BTResimSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             if (e.Button.Caption == "SEÇ")
-          
+
             {
                 OpenFileDialog ofd = new OpenFileDialog();
-                ofd.Filter = "TümDosyalar |*.*|Jpeg Dosyası |*.jpeg| Jpg Dosyası|*.jpg| PNG Dosyası|*.png| ICO Dosyası|*.ico;";
+                ofd.Filter = "Resim Dosyaları|*.jpg;*.jpeg;*.png;*.gif;";
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
                     string DosyaYolu = ofd.FileName;
@@ -375,7 +392,7 @@ namespace MEYPAK.PRL.CARI
                 }
             }
         }
-        
+
         public object base64resim;
         public System.Drawing.Image Base64ToImage(string base64String)
         {
@@ -394,7 +411,7 @@ namespace MEYPAK.PRL.CARI
             }
 
         }
-        
+
         string b64string = "";
         public string ImageToBase64(string path)
         {
@@ -421,16 +438,25 @@ namespace MEYPAK.PRL.CARI
         //Ülke Seç
         private void CBUlke_Properties_EditValueChanged(object sender, EventArgs e)
         {
-         //   CBUlke.Properties.DataSource = _adresObje.data.Where(x => x.ulke_adi == CBUlke.EditValue.ToString()).Select(x => x.il_adi.ToList()).FirstOrDefault();
+            //   CBUlke.Properties.DataSource = _adresObje.data.Where(x => x.ulke_adi == CBUlke.EditValue.ToString()).Select(x => x.il_adi.ToList()).FirstOrDefault();
 
         }
- 
+
         private void BTSil_Click(object sender, EventArgs e)
         {
-            _cariServis.Data(ServisList.CariListeServis);
-          //  _cariServis.Data(ServisList.CariSilServis, null, null, _cariServis.obje.Where(x => x.id.ToString()
-            MessageBox.Show("Silme Başarılı");
-           
+            if (_tempCariKart.id > 0 && _tempCariKart != null)
+            {
+                _cariServis.Data(ServisList.CariDeleteByIdServis, null, null, null, _tempCariKart.id.ToString());
+                MessageBox.Show("Silme Başarılı");
+                FormuTemizle();
+                _tempCariKart = null;
+            }
+            else
+            {
+                MessageBox.Show("Cari Seçmeden Cari Silemezsiniz!");
+            }
+
+
         }
 
         //Kategori Seç
@@ -441,11 +467,6 @@ namespace MEYPAK.PRL.CARI
             Doldur();
         }
 
-        //private void CBNufIl_EditValueChanged(object sender, EventArgs e)
-        //{
-        //    CBNufIlce.Properties.DataSource = _adresObje.data.Where(x => x.il_adi == CBNufIl.EditValue).Select(x => x.ilceler.Select(z => z.ilce_adi).ToList()).FirstOrDefault();
-        //}
-
         private void CBSevkIl_Properties_EditValueChanged(object sender, EventArgs e)
         {
             CBSevkIlce.Properties.DataSource = _adresObje.data.Where(x => x.il_adi == CBSevkIl.EditValue).Select(x => x.ilceler.Select(z => z.ilce_adi).ToList()).FirstOrDefault();
@@ -453,89 +474,194 @@ namespace MEYPAK.PRL.CARI
         //Sevk İl
         private void CBIl_Properties_EditValueChanged(object sender, EventArgs e)
         {
-            CBIlce.Properties.DataSource = _adresObje.data.Where(x => x.il_adi == CBIl.EditValue.ToString()).Select(x => x.ilceler.Select(z => z.ilce_adi).ToList()).FirstOrDefault();
+            string a = CBIl.EditValue == null ? "" : CBIl.EditValue.ToString();
+            CBIlce.Properties.DataSource = _adresObje.data.Where(x => x.il_adi == a).Select(x => x.ilceler.Select(z => z.ilce_adi).ToList()).FirstOrDefault();
         }
 
         private void BTKaydet_Click(object sender, EventArgs e)
         {
-            _cariServis.Data(ServisList.CariEkleServis, new PocoCARIKART()
-            {
-                id = cariid,
-                kod = BTCariSec.Text,
-                aciklama = TBAciklama.Text,
-                aciklamA1 = TBAciklama1.Text,
-                aciklamA2 = TBAciklama2.Text,
-                aciklamA3 = TBAciklama3.Text,
-                aciklamA4 = TBAciklama4.Text,
-                aciklamA5 = TBAciklama5.Text,
-                aciklamA6 = TBAciklama6.Text,
-                aciklamA7 = TBAciklama7.Text,
-                aciklamA8 = TBAciklama8.Text,
-                aciklamA9 = TBAciklama9.Text,
-                adi = TBCariAdi.Text,
-                soyadi = TBCariSoyad.Text,
-                adres = TBAdres.Text,
-                amuhkod = BTAMuhSec.Text,
-                apt = TBApt.Text,
-                ceptel = TBCepTel.Text,
-                daire = TBDaire.Text,
-                eposta = TBEposta.Text,
-                fax = TBFax.Text,
-                grupkodu = BTGrupSec.Text,
-                ulke = CBUlke.Text,
-                il = CBIl.Text,
-                ilce = CBIl.Text,
-                kategori = BTKategoriSec.Text,
-                mahalle = TBMahalle.Text,
-                muH_KOD = BTMuhSec.Text,
-                postakod = TBPostaKod.Text,
-                raporkoD1 = BTRprSec1.Text,
-                raporkoD2 = BTRprSec2.Text,
-                raporkoD3 = BTRprSec3.Text,
-                raporkoD4 = BTRprSec4.Text,
-                raporkoD5 = BTRprSec5.Text,
-                raporkoD6 = BTRprSec6.Text,
-                raporkoD7 = BTRprSec7.Text,
-                raporkoD8 = BTRprSec8.Text,
-                raporkoD9 = BTRprSec9.Text,
-                saciklamA1 = int.Parse(NUDSAciklama1.Value.ToString()),
-                saciklamA2 = int.Parse(NUDSAciklama2.Value.ToString()),
-                saciklamA3 = int.Parse(NUDSAciklama3.Value.ToString()),
-                saciklamA4 = int.Parse(NUDSAciklama4.Value.ToString()),
-                saciklamA5 = int.Parse(NUDSAciklama5.Value.ToString()),
-                saciklamA6 = int.Parse(NUDSAciklama6.Value.ToString()),
-                saciklamA7 = int.Parse(NUDSAciklama7.Value.ToString()),
-                saciklamA8 = int.Parse(NUDSAciklama8.Value.ToString()),
-                saciklamA9 = int.Parse(NUDSAciklama9.Value.ToString()),
-                smuhkod = BTSMuhSec.Text,
-                sokak = TBSokak.Text,
-                tcno = TBTcNo.Text,
-                telefon = TBTelefon1.Text,
-                telefoN2 = TBTelefon2.Text,
-                tipi = CBTip.SelectedIndex,
-                unvan = TBUnvan.Text,
-                vadegunu = int.Parse(TBVadeGun.Text),
-                vergidairesi = CBVDaire.Text,
-                vergino = TBVergiNo.Text,
-                web = TBWebSite.Text,
+            _cariServis.Data(ServisList.CariListeServis);
 
-            }) ;
            
-            MessageBox.Show("Kayıt işlemi Başarılı!");
-            FormuTemizle();
-            foreach (var item in resimList)
+
+            if (_tempCariKart != null && _tempCariKart.id > 0)
             {
-                item.CARIID = _cariServis.obje.Where(x => x.kod == BTCariSec.Text).FirstOrDefault().id;
-                _cariResimServis.Data(ServisList.CariResimEkleServis, item);
+                _cariServis.Data(ServisList.CariEkleServis, new PocoCARIKART()
+                {
+                    id = _tempCariKart.id,
+                    kod = BTCariSec.Text,
+                    aciklama = TBAciklama.Text,
+                    aciklamA1 = TBAciklama1.Text,
+                    aciklamA2 = TBAciklama2.Text,
+                    aciklamA3 = TBAciklama3.Text,
+                    aciklamA4 = TBAciklama4.Text,
+                    aciklamA5 = TBAciklama5.Text,
+                    aciklamA6 = TBAciklama6.Text,
+                    aciklamA7 = TBAciklama7.Text,
+                    aciklamA8 = TBAciklama8.Text,
+                    aciklamA9 = TBAciklama9.Text,
+                    adi = TBCariAdi.Text,
+                    soyadi = TBCariSoyad.Text,
+                    adres = TBAdres.Text,
+                    amuhkod = BTAMuhSec.Text,
+                    apt = TBApt.Text,
+                    ceptel = TBCepTel.Text,
+                    daire = TBDaire.Text,
+                    eposta = TBEposta.Text,
+                    fax = TBFax.Text,
+                    grupkodu = BTGrupSec.Text,
+                    ulke = CBUlke.Text,
+                    il = CBIl.Text,
+                    ilce = CBIl.Text,
+                    kategori = BTKategoriSec.Text,
+                    mahalle = TBMahalle.Text,
+                    muH_KOD = BTMuhSec.Text,
+                    postakod = TBPostaKod.Text,
+                    raporkoD1 = BTRprSec1.Text,
+                    raporkoD2 = BTRprSec2.Text,
+                    raporkoD3 = BTRprSec3.Text,
+                    raporkoD4 = BTRprSec4.Text,
+                    raporkoD5 = BTRprSec5.Text,
+                    raporkoD6 = BTRprSec6.Text,
+                    raporkoD7 = BTRprSec7.Text,
+                    raporkoD8 = BTRprSec8.Text,
+                    raporkoD9 = BTRprSec9.Text,
+                    saciklamA1 = int.Parse(NUDSAciklama1.Value.ToString()),
+                    saciklamA2 = int.Parse(NUDSAciklama2.Value.ToString()),
+                    saciklamA3 = int.Parse(NUDSAciklama3.Value.ToString()),
+                    saciklamA4 = int.Parse(NUDSAciklama4.Value.ToString()),
+                    saciklamA5 = int.Parse(NUDSAciklama5.Value.ToString()),
+                    saciklamA6 = int.Parse(NUDSAciklama6.Value.ToString()),
+                    saciklamA7 = int.Parse(NUDSAciklama7.Value.ToString()),
+                    saciklamA8 = int.Parse(NUDSAciklama8.Value.ToString()),
+                    saciklamA9 = int.Parse(NUDSAciklama9.Value.ToString()),
+                    smuhkod = BTSMuhSec.Text,
+                    sokak = TBSokak.Text,
+                    tcno = TBTcNo.Text,
+                    telefon = TBTelefon1.Text,
+                    telefoN2 = TBTelefon2.Text,
+                    tipi = CBTip.SelectedIndex,
+                    unvan = TBUnvan.Text,
+                    vadegunu = int.Parse(TBVadeGun.Text),
+                    vergidairesi = CBVDaire.Text,
+                    vergino = TBVergiNo.Text,
+                    web = TBWebSite.Text,
+
+                });
+
+
+                MessageBox.Show("Kayıt işlemi Başarılı!");
+                FormuTemizle();
+                _tempCariKart = _cariServis.obje2;
+                foreach (var item in resimList)
+                {
+                    item.CARIID = _cariServis.obje.Where(x => x.kod == BTCariSec.Text).FirstOrDefault().id;
+                    _cariResimServis.Data(ServisList.CariResimEkleServis, item);
+                }
+
             }
-            
+            else
+            {
+                if (_cariServis.obje.Where(x => x.kayittipi == 0 && x.vergino == TBVergiNo.Text).Count()==0)
+                {
+                    if (_cariServis.obje.Where(x => x.kayittipi == 0 && x.kod == BTCariSec.Text).Count()==0)
+                    {
+                        if (_cariServis.obje.Where(x => x.kayittipi == 0 && x.tcno == TBTcNo.Text).Count()==0)
+                        {
+                            _cariServis.Data(ServisList.CariEkleServis, new PocoCARIKART()
+                            {
+                                id = _tempCariKart.id,
+                                kod = BTCariSec.Text,
+                                unvan = TBUnvan.Text,
+                                ulke = CBUlke.Text,
+                                il = CBIl.Text,
+                                ilce = CBIl.Text,
+                                mahalle = TBMahalle.Text,
+                                sokak = TBSokak.Text,
+                                apt = TBApt.Text,
+                                daire = TBDaire.Text,
+                                postakod = TBPostaKod.Text,
+                                vergidairesi = CBVDaire.Text,
+                                vergino = TBVergiNo.Text,
+                                tcno = TBTcNo.Text,
+                                vadegunu = int.Parse(TBVadeGun.Text),
+                                muH_KOD = BTMuhSec.Text,
+                                telefon = TBTelefon1.Text,
+                                telefoN2 = TBTelefon2.Text,
+                                ceptel = TBCepTel.Text,
+                                fax = TBFax.Text,
+                                web = TBWebSite.Text,
+                                eposta = TBEposta.Text,
+                                adres = TBAdres.Text,
+                                grupkodu = BTGrupSec.Text,
+                                kategori = BTKategoriSec.Text,
+                                amuhkod = BTAMuhSec.Text,
+                                smuhkod = BTSMuhSec.Text,
+                                adi = TBCariAdi.Text,
+                                soyadi = TBCariSoyad.Text,
+                                tipi = CBTip.SelectedIndex,
+                                aciklama = TBAciklama.Text,
+                                aciklamA1 = TBAciklama1.Text,
+                                aciklamA2 = TBAciklama2.Text,
+                                aciklamA3 = TBAciklama3.Text,
+                                aciklamA4 = TBAciklama4.Text,
+                                aciklamA5 = TBAciklama5.Text,
+                                aciklamA6 = TBAciklama6.Text,
+                                aciklamA7 = TBAciklama7.Text,
+                                aciklamA8 = TBAciklama8.Text,
+                                aciklamA9 = TBAciklama9.Text,
+                                saciklamA1 = int.Parse(NUDSAciklama1.Value.ToString()),
+                                saciklamA2 = int.Parse(NUDSAciklama2.Value.ToString()),
+                                saciklamA3 = int.Parse(NUDSAciklama3.Value.ToString()),
+                                saciklamA4 = int.Parse(NUDSAciklama4.Value.ToString()),
+                                saciklamA5 = int.Parse(NUDSAciklama5.Value.ToString()),
+                                saciklamA6 = int.Parse(NUDSAciklama6.Value.ToString()),
+                                saciklamA7 = int.Parse(NUDSAciklama7.Value.ToString()),
+                                saciklamA8 = int.Parse(NUDSAciklama8.Value.ToString()),
+                                saciklamA9 = int.Parse(NUDSAciklama9.Value.ToString()),
+                                raporkoD1 = BTRprSec1.Text,
+                                raporkoD2 = BTRprSec2.Text,
+                                raporkoD3 = BTRprSec3.Text,
+                                raporkoD4 = BTRprSec4.Text,
+                                raporkoD5 = BTRprSec5.Text,
+                                raporkoD6 = BTRprSec6.Text,
+                                raporkoD7 = BTRprSec7.Text,
+                                raporkoD8 = BTRprSec8.Text,
+                                raporkoD9 = BTRprSec9.Text,
+
+
+                            });
+
+
+                            MessageBox.Show("Kayıt işlemi Başarılı!");
+                            FormuTemizle();
+                            _tempCariKart = _cariServis.obje2;
+                            foreach (var item in resimList)
+                            {
+                                item.CARIID = _cariServis.obje.Where(x => x.kod == BTCariSec.Text).FirstOrDefault().id;
+                                _cariResimServis.Data(ServisList.CariResimEkleServis, item);
+                            }
+                        }
+                        else
+                            MessageBox.Show("Bir TC Kimlik numarasını yalnızca bir cari kullanabilir!");
+                    }
+                    else
+                        MessageBox.Show("Aynı Cari Kodundan yalnızca bir cari olabilir!");
+                }
+                else
+                    MessageBox.Show("Aynı Vergi Numarasından yalnızca bir cari olabilir!");
+                
+            }
+
         }
+
 
         private void BTAltHesapKaydet_Click(object sender, EventArgs e)
         {
             _cariAltHesList.Add(_tempCARIALTHES);
-            DGAltHesap.DataSource = _cariAltHesList.Select(x=> new {ALTHESAPADI=x.adi,PARABIRIMI=_cariParABIRIM.obje.Where(z=>z.id==x.dovizid).FirstOrDefault().kisaadi,AKTIF=x.aktif});
+            DGAltHesap.DataSource = _cariAltHesList.Select(x => new { ALTHESAPADI = x.adi, PARABIRIMI = _cariParABIRIM.obje.Where(z => z.id == x.dovizid).FirstOrDefault().kisaadi, AKTIF = x.aktif });
             DGAltHesap.RefreshDataSource();
+
         } //TO DO
 
         //Cari Seç Buttonu
@@ -545,7 +671,7 @@ namespace MEYPAK.PRL.CARI
             fCariList.ShowDialog();
             if (_tempCariKart != null)
             {
-
+                
                 BTCariSec.Text = _tempCariKart.kod;
                 TBUnvan.Text = _tempCariKart.unvan;
                 CBUlke.EditValue = _tempCariKart.ulke;
@@ -636,16 +762,16 @@ namespace MEYPAK.PRL.CARI
 
         private void BTDokumanKaydet_Click(object sender, EventArgs e) //TO DO
         {
-            if (_tempCariKart!=null)
+            if (_tempCariKart != null)
             {
-            _cariDokumanServis.Data(ServisList.CariDokumanEkleServis, new PocoCARIDOKUMAN()
-            {
-                  cariid = _tempCariKart.id,
-                  adi = TBDokumanAdi.Text,
-                  dokuman = BTDosyaYoluSec.Text,
-            });
-            MessageBox.Show("Kayıt Başarıyla Eklendi!");
-            FormuTemizle();
+                _cariDokumanServis.Data(ServisList.CariDokumanEkleServis, new PocoCARIDOKUMAN()
+                {
+                    cariid = _tempCariKart.id,
+                    adi = TBDokumanAdi.Text,
+                    dokuman = BTDosyaYoluSec.Text,
+                });
+                MessageBox.Show("Kayıt Başarıyla Eklendi!");
+                FormuTemizle();
             }
             else
             {
@@ -656,18 +782,24 @@ namespace MEYPAK.PRL.CARI
         void YetkiliBilgileriDoldur()
         {
             _cariYetkiliServis.Data(ServisList.CariYetkiliListeServis);
-            DGYetkiliBilgi.DataSource = _cariYetkiliServis.obje.Where(x => x.kayittipi == 0&&x.cariid==_tempCariKart.id).Select(x => new
+            DGYetkiliBilgi.DataSource = _cariYetkiliServis.obje.Where(x => x.kayittipi == 0 && x.cariid == _tempCariKart.id).Select(x => new
             {
                 ID = x.id,
                 CARIID = _tempCariKart.id,
                 ADI = x.adi,
                 YETKILITELEFON = x.yetkilitelefon,
-                POZISYON  =x.pozisyon
-               
+                POZISYON = x.pozisyon
+
             });
             DGYetkiliBilgi.Refresh();
             DGYetkiliBilgi.RefreshDataSource();
 
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            FormuTemizle();
+            _tempCariKart = null;
         }
 
         //void SevkAdresDoldur()
@@ -691,5 +823,5 @@ namespace MEYPAK.PRL.CARI
         //    DGSevkAdres.RefreshDataSource();
         //}
     }
-    }
-    #endregion
+}
+#endregion

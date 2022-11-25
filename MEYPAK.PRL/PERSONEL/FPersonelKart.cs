@@ -26,7 +26,7 @@ using System.Windows.Forms;
 
 namespace MEYPAK.PRL.PERSONEL
 {
-    public partial class FPersonelKart : Form
+    public partial class FPersonelKart : XtraForm
     {
         GenericWebServis<PocoPERSONEL> _personelServis;
         GenericWebServis<PocoPERSONELDEPARTMAN> _personelDepartmanServis;

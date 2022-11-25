@@ -29,6 +29,7 @@ namespace MEYPAK.Entity.Models.STOK
         public decimal NETFIYAT { get; set; } = 0;
         public decimal MIKTAR { get; set; } = 0;
         public int BIRIM { get; set; } = 0;
+       
         public decimal NETTOPLAM { get; set; } = 0;
         public decimal BRUTTOPLAM { get; set; } = 0;
         public int SAYIMID { get; set; } = 0;

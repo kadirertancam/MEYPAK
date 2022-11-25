@@ -938,7 +938,6 @@
             this.CBAdresIL.Properties.EditValueChanged += new System.EventHandler(this.lookUpEdit2_Properties_EditValueChanged);
             this.CBAdresIL.Size = new System.Drawing.Size(146, 20);
             this.CBAdresIL.TabIndex = 10;
-           
             // 
             // TBVergiNo
             // 
@@ -1591,6 +1590,9 @@
             // 
             this.TBZimMiktar.Location = new System.Drawing.Point(329, 75);
             this.TBZimMiktar.Name = "TBZimMiktar";
+            this.TBZimMiktar.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.TBZimMiktar.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.TBZimMiktar.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             this.TBZimMiktar.Size = new System.Drawing.Size(130, 20);
             this.TBZimMiktar.TabIndex = 5;
             // 
@@ -2156,7 +2158,7 @@
             this.ClientSize = new System.Drawing.Size(1119, 656);
             this.Controls.Add(this.panelControl1);
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FPersonelKart";
             this.Text = "FPersonelKart";
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();

@@ -24,10 +24,11 @@ using System.Windows.Forms;
 using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.PRL.CARI;
 using MEYPAK.PRL.IRSALIYE;
+using DevExpress.XtraEditors;
 
 namespace MEYPAK.PRL.STOK
 {
-    public partial class FStokList : Form
+    public partial class FStokList : XtraForm
     {
         FStokKart fSTOKKART;
         FStokHareket fStokHareket;
