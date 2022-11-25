@@ -16,7 +16,7 @@ namespace MEYPAK.PRL.Assets
         public YeniTextEdit()
         {
             InitializeComponent();
-            this.Enter += YeniTextEdit_Enter; 
+            this.Enter += YeniTextEdit_Enter;  
         }
         int sayac=0;
       
