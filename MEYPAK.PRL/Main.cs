@@ -80,6 +80,7 @@ namespace MEYPAK.PRL
         FFatura ffatura;
         FStokKasaHareket fStokKasaHareket;
         FKasaMarka fKasaMarka;
+        FMarkaKart fMarkaKart;
         public Tarih_Date _tarih_Date;
         public DataTable guncelkur;
         GenericWebServis<PocoPARABIRIM> _parabirimServis;
@@ -565,6 +566,27 @@ namespace MEYPAK.PRL
             fKasaMarka.Tag = "TPStokKasaMarka" + i;
             page.Controls.Add(fKasaMarka);
             fKasaMarka.Show();
+            i++;
+        }
+
+        private void accordionControlElement11_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fMarkaKart = new FMarkaKart();
+            page.Name = "TPMarkaKart" + i;
+            page.Text = "Marka Kart";
+            page.Tag = "TPMarkaKart" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fMarkaKart.FormBorderStyle = FormBorderStyle.None;
+            fMarkaKart.TopLevel = false;
+            fMarkaKart.AutoScroll = true;
+            fMarkaKart.Dock = DockStyle.Fill;
+            fMarkaKart.Tag = "TPMarkaKart" + i;
+            page.Controls.Add(fMarkaKart);
+            fMarkaKart.Show();
             i++;
         }
     }
