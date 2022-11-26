@@ -16,21 +16,25 @@ using MEYPAK.Entity.Models.DEPO;
 using MEYPAK.Entity.PocoModels.DEPO;
 using MEYPAK.BLL.Assets;
 using System.Net.Http;
+using DevExpress.XtraEditors;
 
 namespace MEYPAK.PRL.DEPO
 {
-    public partial class FDepoKart : Form
+    public partial class FDepoKart : XtraForm
     {
         public FDepoKart()
         {
             InitializeComponent();
             _depoServis = new GenericWebServis<PocoDEPO>();
         }
-        FDepoList fDepoList;
 
+        #region Tanımlar
+        FDepoList fDepoList;
         public PocoDEPO _tempDepo;
         GenericWebServis<PocoDEPO> _depoServis ;
+        #endregion
 
+        #region Metotlar
         void Doldur()
         {
             if (_tempDepo != null)
@@ -40,7 +44,7 @@ namespace MEYPAK.PRL.DEPO
                 TBAdi.Text = _tempDepo.depoadi;
                 TBAciklama.Text = _tempDepo.aciklama;
             }
-        }
+        }  
         public void Temizle(Control.ControlCollection ctrlCollection)           //Formdaki Textboxları temizle
         {
             foreach (Control ctrl in ctrlCollection)
@@ -56,9 +60,6 @@ namespace MEYPAK.PRL.DEPO
             }
             
         }
-
-
-
 
         private void FDepoKart_Load(object sender, EventArgs e)
         {
@@ -144,5 +145,7 @@ namespace MEYPAK.PRL.DEPO
             Temizle(this.Controls);
             _tempDepo = null;
         }
+
+        #endregion
     }
 }

@@ -64,7 +64,7 @@ namespace MEYPAK.PRL.STOK
             }));
             _tempStokSayim = _stokSayimServis.obje2;
 
-            stokSayimPanel = new FStokSayimPanel(_tempStokSayim,this.Tag.ToString());
+                stokSayimPanel = new FStokSayimPanel(_tempStokSayim, this.Tag.ToString());
 
 
             stokSayimPanel.ShowDialog();
@@ -79,7 +79,7 @@ namespace MEYPAK.PRL.STOK
             }
 
         }
-        
+
         private void BTSil_Click(object sender, EventArgs e)
         {
             _stokSayimServis.Data(ServisList.StokSayimListeServis);
@@ -101,13 +101,13 @@ namespace MEYPAK.PRL.STOK
             _depoServis.Data(ServisList.DepoListeServis);
             _stokSayimServis.Data(ServisList.StokSayimListeServis);
             DTSayimTar.EditValue = DateTime.Now;
-            DGStokSayim.DataSource = _stokSayimServis.obje.Where(x => x.kayittipi == 0 && x.durum ==0).Select(x => new
+            DGStokSayim.DataSource = _stokSayimServis.obje.Where(x => x.kayittipi == 0 && x.durum == 0).Select(x => new
             {
                 ID = x.id,
                 SayimTarihi = x.sayimtarihi,
-                Depo = _depoServis.obje.Where(y=> y.id == x.depoid).Count() >0 ? _depoServis.obje.Where(y => y.id == x.depoid).FirstOrDefault().depoadi : "",
+                Depo = _depoServis.obje.Where(y => y.id == x.depoid).Count() > 0 ? _depoServis.obje.Where(y => y.id == x.depoid).FirstOrDefault().depoadi : "",
                 Açıklama = x.aciklama,
-                
+
             });
             DGStokSayim.Refresh();
             DGStokSayim.RefreshDataSource();
@@ -120,33 +120,32 @@ namespace MEYPAK.PRL.STOK
             //gridView1.Columns["eskiid"].Visible = false;
             //gridView1.Columns["olusturmatarihi"].Visible = false;
             //gridView1.Columns["guncellemetarihi"].Visible = false;
-           
+
         }
         private void DGStokSayim_DoubleClick(object sender, EventArgs e)
         {
             _tempStokSayim = _stokSayimServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
-           
-                stokSayimPanel = new FStokSayimPanel(_tempStokSayim, this.Tag.ToString());
 
-                stokSayimPanel.ShowDialog();
-            
-           
+            stokSayimPanel = new FStokSayimPanel(_tempStokSayim, this.Tag.ToString());
+
+            stokSayimPanel.ShowDialog();
+
         }
-        //void BilgileriGetir()
-        //{
-        //    if (_stokSayimServis != null)
-        //    {
-        //        _tempId= int.Parse(gridView1.GetFocusedRowCellValue("ID").ToString());
-        //        DTSayimTar.EditValue = Convert.ToDateTime(gridView1.GetFocusedRowCellValue("SayimTarihi").ToString());
-        //        TBAciklama.Text = gridView1.GetFocusedRowCellValue("Açıklama").ToString();
-        //        CBDepo.EditValue = _depoServis.obje.Where(x=> x.depoadi == gridView1.GetFocusedRowCellValue("Depo").ToString()).Count() >0 ? _depoServis.obje.Where(x => x.depoadi == gridView1.GetFocusedRowCellValue("Depo").ToString()).FirstOrDefault().id : 0;
-        //    }
-        //}
+        void BilgileriGetir()
+        {
+            if (_stokSayimServis != null)
+            {
+                _tempId = int.Parse(gridView1.GetFocusedRowCellValue("ID").ToString());
+                DTSayimTar.EditValue = Convert.ToDateTime(gridView1.GetFocusedRowCellValue("SayimTarihi").ToString());
+                TBAciklama.Text = gridView1.GetFocusedRowCellValue("Açıklama").ToString();
+                CBDepo.EditValue = _depoServis.obje.Where(x => x.depoadi == gridView1.GetFocusedRowCellValue("Depo").ToString()).Count() > 0 ? _depoServis.obje.Where(x => x.depoadi == gridView1.GetFocusedRowCellValue("Depo").ToString()).FirstOrDefault().id : 0;
+            }
+        }
 
         void CombolariDoldur()
         {
             _depoServis.Data(ServisList.DepoListeServis);
-            CBDepo.Properties.DataSource = _depoServis.obje.Where(x => x.kayittipi == 0).Select(x=> new {ID = x.id , ADI=x.depoadi});
+            CBDepo.Properties.DataSource = _depoServis.obje.Where(x => x.kayittipi == 0).Select(x => new { ID = x.id, ADI = x.depoadi });
             CBDepo.Properties.ValueMember = "ID";
             CBDepo.Properties.DisplayMember = "ADI";
         }
@@ -165,5 +164,7 @@ namespace MEYPAK.PRL.STOK
             }
 
         }
+
+        
     }
 }
