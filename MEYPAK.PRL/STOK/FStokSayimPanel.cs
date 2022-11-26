@@ -224,5 +224,10 @@ namespace MEYPAK.PRL.STOK
         {
             Excelaktar(gridView1, $"Stok Sayım {DTPSayimTar.EditValue}");
         }
+
+        private void DGStokSayim_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
