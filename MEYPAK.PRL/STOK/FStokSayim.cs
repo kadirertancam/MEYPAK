@@ -51,7 +51,11 @@ namespace MEYPAK.PRL.STOK
         int _tempId = 0;
         private void BTKaydet_Click(object sender, EventArgs e)
         {
+            int a = 0;
+            int.TryParse(CBDepo.EditValue!=null?CBDepo.EditValue.ToString():"0", out a);
 
+            if (_depoServis.obje.Where(x=>x.id == a && x.kayittipi==0).Count()>0)
+            {
             _stokSayimServis.Data(ServisList.StokSayimEkleServis, (new Entity.PocoModels.STOK.PocoSTOKSAYIM()
             {
                 sayimtarihi = Convert.ToDateTime(DTSayimTar.EditValue.ToString()),
@@ -65,10 +69,15 @@ namespace MEYPAK.PRL.STOK
 
             stokSayimPanel.ShowDialog();
            DataGridDoldur();
-            //stokSayimPanel.sayimId = _stokSayimServis.obje.Where(x => x.aciklama == TBAciklama.Text).FirstOrDefault().id;
-            //TBAciklama.Text = "";
-            //DTSayimTar.EditValue = DateTime.Now;
-           
+                //stokSayimPanel.sayimId = _stokSayimServis.obje.Where(x => x.aciklama == TBAciklama.Text).FirstOrDefault().id;
+                //TBAciklama.Text = "";
+                //DTSayimTar.EditValue = DateTime.Now;
+            }
+            else
+            {
+                MessageBox.Show("Lütfen Geçerli bir depo seçiniz!");
+            }
+
         }
         
         private void BTSil_Click(object sender, EventArgs e)

@@ -70,7 +70,7 @@
             // 
             // LBDepo
             // 
-            this.LBDepo.Location = new System.Drawing.Point(400, 33);
+            this.LBDepo.Location = new System.Drawing.Point(310, 29);
             this.LBDepo.Name = "LBDepo";
             this.LBDepo.Size = new System.Drawing.Size(25, 13);
             this.LBDepo.TabIndex = 11;
@@ -78,7 +78,7 @@
             // 
             // LBTarih
             // 
-            this.LBTarih.Location = new System.Drawing.Point(133, 34);
+            this.LBTarih.Location = new System.Drawing.Point(61, 29);
             this.LBTarih.Name = "LBTarih";
             this.LBTarih.Size = new System.Drawing.Size(24, 13);
             this.LBTarih.TabIndex = 10;
@@ -89,9 +89,9 @@
             this.BTKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
             this.BTKaydet.Appearance.Options.UseBackColor = true;
             this.BTKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTKaydet.ImageOptions.Image")));
-            this.BTKaydet.Location = new System.Drawing.Point(839, 8);
+            this.BTKaydet.Location = new System.Drawing.Point(719, 7);
             this.BTKaydet.Name = "BTKaydet";
-            this.BTKaydet.Size = new System.Drawing.Size(82, 39);
+            this.BTKaydet.Size = new System.Drawing.Size(70, 34);
             this.BTKaydet.TabIndex = 79;
             this.BTKaydet.Text = "&Kaydet";
             this.BTKaydet.Click += new System.EventHandler(this.BTKaydet_Click);
@@ -102,13 +102,14 @@
             this.DGStokSayim.Location = new System.Drawing.Point(0, 0);
             this.DGStokSayim.MainView = this.gridView1;
             this.DGStokSayim.Name = "DGStokSayim";
-            this.DGStokSayim.Size = new System.Drawing.Size(1064, 565);
+            this.DGStokSayim.Size = new System.Drawing.Size(912, 489);
             this.DGStokSayim.TabIndex = 11;
             this.DGStokSayim.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
             // gridView1
             // 
+            this.gridView1.DetailHeight = 303;
             this.gridView1.GridControl = this.DGStokSayim;
             this.gridView1.Name = "gridView1";
             // 
@@ -117,9 +118,9 @@
             this.BTCik.Appearance.BackColor = System.Drawing.Color.Gainsboro;
             this.BTCik.Appearance.Options.UseBackColor = true;
             this.BTCik.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTCik.ImageOptions.Image")));
-            this.BTCik.Location = new System.Drawing.Point(927, 8);
+            this.BTCik.Location = new System.Drawing.Point(795, 7);
             this.BTCik.Name = "BTCik";
-            this.BTCik.Size = new System.Drawing.Size(82, 39);
+            this.BTCik.Size = new System.Drawing.Size(70, 34);
             this.BTCik.TabIndex = 80;
             this.BTCik.Text = "Çık";
             this.BTCik.Click += new System.EventHandler(this.BTCik_Click);
@@ -133,7 +134,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1064, 635);
+            this.panelControl1.Size = new System.Drawing.Size(912, 550);
             this.panelControl1.TabIndex = 81;
             // 
             // panelControl4
@@ -141,9 +142,9 @@
             this.panelControl4.Controls.Add(this.BTCik);
             this.panelControl4.Controls.Add(this.BTKaydet);
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl4.Location = new System.Drawing.Point(0, 581);
+            this.panelControl4.Location = new System.Drawing.Point(0, 503);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(1064, 54);
+            this.panelControl4.Size = new System.Drawing.Size(912, 47);
             this.panelControl4.TabIndex = 83;
             // 
             // panelControl3
@@ -151,9 +152,9 @@
             this.panelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl3.Controls.Add(this.DGStokSayim);
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl3.Location = new System.Drawing.Point(0, 70);
+            this.panelControl3.Location = new System.Drawing.Point(0, 61);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(1064, 565);
+            this.panelControl3.Size = new System.Drawing.Size(912, 489);
             this.panelControl3.TabIndex = 82;
             // 
             // panelControl2
@@ -163,7 +164,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl2.Location = new System.Drawing.Point(0, 0);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(1064, 70);
+            this.panelControl2.Size = new System.Drawing.Size(912, 61);
             this.panelControl2.TabIndex = 81;
             // 
             // groupControl1
@@ -179,42 +180,42 @@
             this.groupControl1.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(1064, 70);
+            this.groupControl1.Size = new System.Drawing.Size(912, 61);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Sayım Bilgi";
             // 
             // TBDepo
             // 
             this.TBDepo.Enabled = false;
-            this.TBDepo.Location = new System.Drawing.Point(431, 30);
+            this.TBDepo.Location = new System.Drawing.Point(351, 26);
             this.TBDepo.Name = "TBDepo";
-            this.TBDepo.Size = new System.Drawing.Size(180, 20);
+            this.TBDepo.Size = new System.Drawing.Size(154, 20);
             this.TBDepo.TabIndex = 88;
             // 
             // DTPSayimTar
             // 
             this.DTPSayimTar.EditValue = null;
             this.DTPSayimTar.Enabled = false;
-            this.DTPSayimTar.Location = new System.Drawing.Point(174, 30);
+            this.DTPSayimTar.Location = new System.Drawing.Point(103, 26);
             this.DTPSayimTar.Name = "DTPSayimTar";
             this.DTPSayimTar.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.DTPSayimTar.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.DTPSayimTar.Size = new System.Drawing.Size(180, 20);
+            this.DTPSayimTar.Size = new System.Drawing.Size(154, 20);
             this.DTPSayimTar.TabIndex = 87;
             // 
             // TBAciklama
             // 
             this.TBAciklama.Enabled = false;
-            this.TBAciklama.Location = new System.Drawing.Point(716, 31);
+            this.TBAciklama.Location = new System.Drawing.Point(612, 26);
             this.TBAciklama.Name = "TBAciklama";
-            this.TBAciklama.Size = new System.Drawing.Size(180, 20);
+            this.TBAciklama.Size = new System.Drawing.Size(154, 20);
             this.TBAciklama.TabIndex = 86;
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(669, 34);
+            this.labelControl1.Location = new System.Drawing.Point(552, 29);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(41, 13);
             this.labelControl1.TabIndex = 85;
@@ -224,7 +225,7 @@
             // 
             this.LBSayim.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.LBSayim.Appearance.Options.UseFont = true;
-            this.LBSayim.Location = new System.Drawing.Point(438, 30);
+            this.LBSayim.Location = new System.Drawing.Point(375, 26);
             this.LBSayim.Name = "LBSayim";
             this.LBSayim.Size = new System.Drawing.Size(0, 18);
             this.LBSayim.TabIndex = 84;
@@ -235,27 +236,27 @@
             this.exceleAktarToolStripMenuItem,
             this.pdfeAktarToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(142, 48);
             // 
             // exceleAktarToolStripMenuItem
             // 
             this.exceleAktarToolStripMenuItem.Name = "exceleAktarToolStripMenuItem";
-            this.exceleAktarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exceleAktarToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.exceleAktarToolStripMenuItem.Text = "Excel\'e Aktar";
             this.exceleAktarToolStripMenuItem.Click += new System.EventHandler(this.exceleAktarToolStripMenuItem_Click);
             // 
             // pdfeAktarToolStripMenuItem
             // 
             this.pdfeAktarToolStripMenuItem.Name = "pdfeAktarToolStripMenuItem";
-            this.pdfeAktarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pdfeAktarToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.pdfeAktarToolStripMenuItem.Text = "Pdf\'e Aktar";
             this.pdfeAktarToolStripMenuItem.Click += new System.EventHandler(this.pdfeAktarToolStripMenuItem_Click);
             // 
             // FStokSayimPanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1064, 635);
+            this.ClientSize = new System.Drawing.Size(912, 550);
             this.Controls.Add(this.panelControl1);
             this.Name = "FStokSayimPanel";
             this.Text = "FStokSayimPanel";

@@ -1422,9 +1422,9 @@
             this.BTSPersonelBanka.Appearance.BackColor = System.Drawing.Color.Gainsboro;
             this.BTSPersonelBanka.Appearance.Options.UseBackColor = true;
             this.BTSPersonelBanka.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTSPersonelBanka.ImageOptions.Image")));
-            this.BTSPersonelBanka.Location = new System.Drawing.Point(568, 35);
+            this.BTSPersonelBanka.Location = new System.Drawing.Point(568, 32);
             this.BTSPersonelBanka.Name = "BTSPersonelBanka";
-            this.BTSPersonelBanka.Size = new System.Drawing.Size(146, 46);
+            this.BTSPersonelBanka.Size = new System.Drawing.Size(134, 49);
             this.BTSPersonelBanka.TabIndex = 61;
             this.BTSPersonelBanka.Text = "&Kaydet";
             this.BTSPersonelBanka.Click += new System.EventHandler(this.BTSPersonelBanka_Click);
@@ -2157,7 +2157,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1119, 656);
             this.Controls.Add(this.panelControl1);
-            this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FPersonelKart";
             this.Text = "FPersonelKart";

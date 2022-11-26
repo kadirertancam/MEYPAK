@@ -64,7 +64,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1223, 709);
+            this.panelControl1.Size = new System.Drawing.Size(1407, 829);
             this.panelControl1.TabIndex = 0;
             // 
             // panelControl3
@@ -73,7 +73,7 @@
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl3.Location = new System.Drawing.Point(2, 114);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(1219, 593);
+            this.panelControl3.Size = new System.Drawing.Size(1403, 713);
             this.panelControl3.TabIndex = 1;
             // 
             // DGParaBrm
@@ -82,7 +82,7 @@
             this.DGParaBrm.Location = new System.Drawing.Point(2, 2);
             this.DGParaBrm.MainView = this.gridView1;
             this.DGParaBrm.Name = "DGParaBrm";
-            this.DGParaBrm.Size = new System.Drawing.Size(1215, 589);
+            this.DGParaBrm.Size = new System.Drawing.Size(1399, 709);
             this.DGParaBrm.TabIndex = 0;
             this.DGParaBrm.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -101,7 +101,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl2.Location = new System.Drawing.Point(2, 2);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(1219, 112);
+            this.panelControl2.Size = new System.Drawing.Size(1403, 112);
             this.panelControl2.TabIndex = 0;
             // 
             // groupControl1
@@ -117,7 +117,7 @@
             this.groupControl1.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             this.groupControl1.Location = new System.Drawing.Point(2, 2);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(1215, 110);
+            this.groupControl1.Size = new System.Drawing.Size(1399, 110);
             this.groupControl1.TabIndex = 78;
             this.groupControl1.Text = "Para Birimi";
             // 
@@ -189,7 +189,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1223, 709);
+            this.ClientSize = new System.Drawing.Size(1407, 829);
             this.Controls.Add(this.panelControl1);
             this.Name = "FParaBirimi";
             this.Text = "FParaBirimi";
