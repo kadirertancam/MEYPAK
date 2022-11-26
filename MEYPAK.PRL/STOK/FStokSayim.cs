@@ -51,25 +51,24 @@ namespace MEYPAK.PRL.STOK
         int _tempId = 0;
         private void BTKaydet_Click(object sender, EventArgs e)
         {
-
             int a = 0;
-            int.TryParse(CBDepo.EditValue != null ? CBDepo.EditValue.ToString() : "0", out a);
+            int.TryParse(CBDepo.EditValue!=null?CBDepo.EditValue.ToString():"0", out a);
 
-            if (_depoServis.obje.Where(x => x.id == a && x.kayittipi == 0).Count() > 0)
+            if (_depoServis.obje.Where(x=>x.id == a && x.kayittipi==0).Count()>0)
             {
-                _stokSayimServis.Data(ServisList.StokSayimEkleServis, (new Entity.PocoModels.STOK.PocoSTOKSAYIM()
-                {
-                    sayimtarihi = Convert.ToDateTime(DTSayimTar.EditValue.ToString()),
-                    aciklama = TBAciklama.Text,
-                    depoid = Convert.ToInt32(CBDepo.EditValue),
-                }));
-                _tempStokSayim = _stokSayimServis.obje2;
+            _stokSayimServis.Data(ServisList.StokSayimEkleServis, (new Entity.PocoModels.STOK.PocoSTOKSAYIM()
+            {
+                sayimtarihi = Convert.ToDateTime(DTSayimTar.EditValue.ToString()),
+                aciklama = TBAciklama.Text,
+                depoid = Convert.ToInt32(CBDepo.EditValue),
+            }));
+            _tempStokSayim = _stokSayimServis.obje2;
 
                 stokSayimPanel = new FStokSayimPanel(_tempStokSayim, this.Tag.ToString());
 
 
-                stokSayimPanel.ShowDialog();
-                DataGridDoldur();
+            stokSayimPanel.ShowDialog();
+           DataGridDoldur();
                 //stokSayimPanel.sayimId = _stokSayimServis.obje.Where(x => x.aciklama == TBAciklama.Text).FirstOrDefault().id;
                 //TBAciklama.Text = "";
                 //DTSayimTar.EditValue = DateTime.Now;

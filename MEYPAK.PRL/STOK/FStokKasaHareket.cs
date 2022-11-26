@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using DevExpress.XtraRichEdit.Unicode;
 using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.STOK;
@@ -23,12 +24,19 @@ namespace MEYPAK.PRL.STOK
             InitializeComponent();
             _stokKasaMarkaServis = new GenericWebServis<PocoSTOKKASAMARKA>();
             _stokKasaHarCariLists = new List<StokKasaHarCariList>();
+            _cariServis = new GenericWebServis<PocoCARIKART>(); 
+            _cariHarServis = new GenericWebServis<PocoCARIHAR>();
+            _stokKasaHarServis = new GenericWebServis<PocoSTOKKASAHAR>();
+            _stokKasaServis = new GenericWebServis<PocoSTOKKASA>();
+            _tempSTOKKASAHAR=new PocoSTOKKASAHAR();
         }
         GenericWebServis<PocoCARIHAR> _cariHarServis;
         GenericWebServis<PocoCARIKART> _cariServis;
         GenericWebServis<PocoSTOKKASAMARKA> _stokKasaMarkaServis;
         GenericWebServis<PocoSTOKKASAHAR> _stokKasaHarServis;
+        GenericWebServis<PocoSTOKKASA> _stokKasaServis;
         List<StokKasaHarCariList> _stokKasaHarCariLists;
+        PocoSTOKKASAHAR _tempSTOKKASAHAR;
         private void listBoxControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -36,23 +44,80 @@ namespace MEYPAK.PRL.STOK
         private void FStokKasaHareket_Load(object sender, EventArgs e)
         {
             _stokKasaMarkaServis.Data(ServisList.StokKasaMarkaListeServis);
-            gridControl2.DataSource = _stokKasaMarkaServis.obje.Select(x=>new { KASAID=x.id ,ADI = x.adi }); 
+            _stokKasaServis.Data(ServisList.StokKasaListeServis);
+            gridControl2.DataSource = _stokKasaMarkaServis.obje.Select(x=>new { ID=x.id ,ADI = x.adi});
+            DTPTarih.EditValue = DateTime.Now;
         }
 
         private void tileView1_Click(object sender, EventArgs e)
         {
+            _stokKasaMarkaServis.Data(ServisList.StokKasaMarkaListeServis);
+            _stokKasaServis.Data(ServisList.StokKasaListeServis);
+            gridControl3.DataSource = _stokKasaServis.obje.Where(x=>x.markaid.ToString()==tileView1.GetFocusedRowCellValue("ID").ToString()).Select(x => new { ID = x.id, KASATIP = x.kasaadi });
+        }
+        string test;
+        string cariid = "";
+            string kasaid = "";
+        private void tileView2_Click(object sender, EventArgs e)
+        {
+            _stokKasaHarCariLists.Clear();
             _cariServis.Data(ServisList.CariListeServis);
             _cariHarServis.Data(ServisList.CariHarListeServis);
             _stokKasaHarServis.Data(ServisList.StokKasaHarListeServis);
-            //foreach (var item in _stokKasaHarServis.obje.Where(x=>x.kasaid==grid))
-            //{
-            //    _stokKasaHarCariLists.Add(new StokKasaHarCariList()
-            //    {
-            //        CARIID = item.id,
-            //        ADI=_cariServis.obje.Where(x=>x.id==item.id).FirstOrDefault().adi 
-            //    });
-            //}
-            gridControl3.DataSource=_stokKasaHarCariLists;
+            test = tileView2.GetFocusedRowCellValue("ID").ToString();
+            foreach (var item in _stokKasaHarServis.obje.Where(x => x.kasaid.ToString() == test && x.io==0))
+            {
+                _stokKasaHarCariLists.Add(new StokKasaHarCariList()
+                {
+                    CARIID = item.cariid,
+                    ADI = _cariServis.obje.Where(x => x.id == item.cariid).FirstOrDefault().unvan
+                });
+            }
+            gridControl4.DataSource = _stokKasaHarCariLists.Select(x => new { ID=x.CARIID,FIRMA = x.ADI });
+        }
+
+        private void tileView3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+           
+            _stokKasaHarServis.Data(ServisList.StokKasaHarListeServis);
+            cariid = tileView3.GetFocusedRowCellValue("ID").ToString();
+            kasaid = tileView2.GetFocusedRowCellValue("ID").ToString();
+            gridControl1.DataSource = _stokKasaHarServis.obje.Where(x=>x.cariid.ToString()== cariid && x.io==0 && x.kasaid.ToString()==kasaid).Select(x => new { ID=x.id,TARIH=x.olusturmatarihi,BELGENO = x.belge_no, CIKISMIKTARI = _stokKasaHarServis.obje.Where(z => z.cariid.ToString() == tileView3.GetFocusedRowCellValue("ID").ToString() && z.belge_no==x.belge_no).Sum(z=>z.io==0?z.miktar:0), GIRISMIKTARI= _stokKasaHarServis.obje.Where(z => z.cariid.ToString() == tileView3.GetFocusedRowCellValue("ID").ToString() && z.belge_no == x.belge_no).Sum(z => z.io == 1 ? z.miktar : 0) });
+            gridControl1.RefreshDataSource();
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            _tempSTOKKASAHAR.io = 1;
+            _tempSTOKKASAHAR.miktar = Convert.ToDecimal(TBMiktar.Text); 
+            _tempSTOKKASAHAR.id = 0;
+            _stokKasaHarServis.Data(ServisList.StokKasaHarEkleServis, _tempSTOKKASAHAR);
+            _stokKasaHarServis.Data(ServisList.StokKasaHarListeServis);
+
+            gridControl1.DataSource = _stokKasaHarServis.obje.Where(x => x.cariid.ToString() == cariid && x.io == 0 && x.kasaid.ToString() == kasaid).Select(x => new { ID = x.id, TARIH = x.olusturmatarihi, BELGENO = x.belge_no, CIKISMIKTARI = _stokKasaHarServis.obje.Where(z => z.cariid.ToString() == tileView3.GetFocusedRowCellValue("ID").ToString() && z.belge_no == x.belge_no).Sum(z => z.io == 0 ? z.miktar : 0), GIRISMIKTARI = _stokKasaHarServis.obje.Where(z => z.cariid.ToString() == tileView3.GetFocusedRowCellValue("ID").ToString() && z.belge_no == x.belge_no).Sum(z => z.io == 1 ? z.miktar : 0) });
+            gridControl1.RefreshDataSource();
+            temizle();
+        }
+        void temizle()
+        {
+            TBMiktar.Text = String.Empty;
+            TBBelgeNo.Text = String.Empty;
+            TBAciklama.Text=String.Empty;
+            _tempSTOKKASAHAR = new PocoSTOKKASAHAR();
+        }
+        void Doldur(PocoSTOKKASAHAR stokkasahar)
+        {
+            TBBelgeNo.Text = stokkasahar.belge_no;
+            TBMiktar.Text = "0";
+
+        }
+        private void gridView1_DoubleClick(object sender, EventArgs e)
+        {
+            _tempSTOKKASAHAR = _stokKasaHarServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+            Doldur(_tempSTOKKASAHAR);
         }
     }
 }
