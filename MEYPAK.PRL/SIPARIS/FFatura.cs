@@ -440,7 +440,7 @@ namespace MEYPAK.PRL.SIPARIS
                             belge_no = TBIrsaliyeNo.Text,
                             faturaid = _faturaServis.obje2.id,
                             io = 0,
-                            cariid=_faturaServis.obje2.cariid,
+                            cariid= _cariKart.obje.Where(x => x.kod == TBCariKodu.Text).FirstOrDefault().id,
                             kayittipi = 0,
                             kasaid = item2.KASAID,
                             miktar = item2.MIKTAR, 
