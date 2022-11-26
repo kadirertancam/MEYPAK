@@ -2117,6 +2117,7 @@
             this.BTCariSec.Properties.Click += new System.EventHandler(this.BTCariSec_Properties_Click);
             this.BTCariSec.Size = new System.Drawing.Size(180, 22);
             this.BTCariSec.TabIndex = 0;
+            this.BTCariSec.Leave += new System.EventHandler(this.BTCariSec_Leave);
             // 
             // LBMuhKodu
             // 

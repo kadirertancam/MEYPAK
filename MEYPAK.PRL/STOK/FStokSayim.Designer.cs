@@ -97,7 +97,7 @@
             this.BTSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTSil.ImageOptions.Image")));
             this.BTSil.Location = new System.Drawing.Point(203, 4);
             this.BTSil.Name = "BTSil";
-            this.BTSil.Size = new System.Drawing.Size(95, 40);
+            this.BTSil.Size = new System.Drawing.Size(70, 34);
             this.BTSil.TabIndex = 64;
             this.BTSil.Text = "&Sil";
             this.BTSil.Click += new System.EventHandler(this.BTSil_Click);
@@ -107,27 +107,28 @@
             this.BTDuzenle.Appearance.BackColor = System.Drawing.Color.Gainsboro;
             this.BTDuzenle.Appearance.Options.UseBackColor = true;
             this.BTDuzenle.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTDuzenle.ImageOptions.Image")));
-            this.BTDuzenle.Location = new System.Drawing.Point(104, 4);
+            this.BTDuzenle.Location = new System.Drawing.Point(395, 33);
             this.BTDuzenle.Name = "BTDuzenle";
-            this.BTDuzenle.Size = new System.Drawing.Size(95, 40);
+            this.BTDuzenle.Size = new System.Drawing.Size(70, 34);
             this.BTDuzenle.TabIndex = 63;
             this.BTDuzenle.Text = "&Düzenle";
+            this.BTDuzenle.Click += new System.EventHandler(this.BTDuzenle_Click);
             // 
             // BTKaydet
             // 
             this.BTKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
             this.BTKaydet.Appearance.Options.UseBackColor = true;
             this.BTKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTKaydet.ImageOptions.Image")));
-            this.BTKaydet.Location = new System.Drawing.Point(3, 4);
+            this.BTKaydet.Location = new System.Drawing.Point(320, 33);
             this.BTKaydet.Name = "BTKaydet";
-            this.BTKaydet.Size = new System.Drawing.Size(95, 40);
+            this.BTKaydet.Size = new System.Drawing.Size(70, 34);
             this.BTKaydet.TabIndex = 62;
             this.BTKaydet.Text = "&Kaydet";
             this.BTKaydet.Click += new System.EventHandler(this.BTKaydet_Click);
             // 
             // LBAciklama
             // 
-            this.LBAciklama.Location = new System.Drawing.Point(89, 87);
+            this.LBAciklama.Location = new System.Drawing.Point(61, 78);
             this.LBAciklama.Name = "LBAciklama";
             this.LBAciklama.Size = new System.Drawing.Size(41, 13);
             this.LBAciklama.TabIndex = 11;
@@ -136,7 +137,7 @@
             // DTSayimTar
             // 
             this.DTSayimTar.EditValue = new System.DateTime(2022, 11, 16, 11, 39, 26, 554);
-            this.DTSayimTar.Location = new System.Drawing.Point(143, 36);
+            this.DTSayimTar.Location = new System.Drawing.Point(115, 27);
             this.DTSayimTar.Name = "DTSayimTar";
             this.DTSayimTar.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -154,16 +155,16 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1400, 850);
+            this.panelControl1.Size = new System.Drawing.Size(926, 583);
             this.panelControl1.TabIndex = 103;
             // 
             // panelControl3
             // 
             this.panelControl3.Controls.Add(this.DGStokSayim);
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl3.Location = new System.Drawing.Point(2, 133);
+            this.panelControl3.Location = new System.Drawing.Point(2, 119);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(1396, 715);
+            this.panelControl3.Size = new System.Drawing.Size(922, 462);
             this.panelControl3.TabIndex = 104;
             // 
             // panelControl2
@@ -173,7 +174,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl2.Location = new System.Drawing.Point(2, 2);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(1396, 131);
+            this.panelControl2.Size = new System.Drawing.Size(922, 117);
             this.panelControl2.TabIndex = 103;
             // 
             // groupControl1
@@ -210,7 +211,7 @@
             // 
             // CBDepo
             // 
-            this.CBDepo.Location = new System.Drawing.Point(143, 60);
+            this.CBDepo.Location = new System.Drawing.Point(115, 51);
             this.CBDepo.Name = "CBDepo";
             this.CBDepo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -220,7 +221,7 @@
             // 
             // LBDepo
             // 
-            this.LBDepo.Location = new System.Drawing.Point(103, 63);
+            this.LBDepo.Location = new System.Drawing.Point(75, 54);
             this.LBDepo.Name = "LBDepo";
             this.LBDepo.Size = new System.Drawing.Size(25, 13);
             this.LBDepo.TabIndex = 104;
@@ -228,7 +229,7 @@
             // 
             // LBTarih
             // 
-            this.LBTarih.Location = new System.Drawing.Point(103, 38);
+            this.LBTarih.Location = new System.Drawing.Point(75, 29);
             this.LBTarih.Name = "LBTarih";
             this.LBTarih.Size = new System.Drawing.Size(24, 13);
             this.LBTarih.TabIndex = 103;
@@ -238,7 +239,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1400, 850);
+            this.ClientSize = new System.Drawing.Size(926, 583);
             this.Controls.Add(this.panelControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FStokSayim";

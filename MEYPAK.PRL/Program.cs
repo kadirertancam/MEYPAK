@@ -26,7 +26,7 @@ namespace MEYPAK.PRL
         {
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration. 
-            WindowsFormsSettings.ForceDirectXPaint();
+           // WindowsFormsSettings.ForceDirectXPaint();
 
             DependencyModule a = new DependencyModule();
             NinjectFactory.CompositionRoot.Initialize(a);

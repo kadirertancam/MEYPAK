@@ -858,6 +858,21 @@ namespace MEYPAK.PRL.CARI
             FormuTemizle();
             _tempCariKart = null;
         }
+
+        private void BTCariSec_Leave(object sender, EventArgs e)
+        {
+            _cariServis.Data(ServisList.CariListeServis);
+            if (BTCariSec.Text != "")
+            {
+                _tempCariKart = _cariServis.obje.Where(x => x.kayittipi == 0 && x.kod == BTCariSec.Text).FirstOrDefault();
+                if (_tempCariKart != null)
+                    Doldur();
+                else
+                {
+                    FormuTemizle();
+                }
+            }
+        }
     }
 }
 #endregion

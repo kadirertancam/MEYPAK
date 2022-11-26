@@ -166,5 +166,10 @@ namespace MEYPAK.PRL.STOK
         }
 
         
+
+        private void BTDuzenle_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
