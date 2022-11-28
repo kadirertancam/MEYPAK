@@ -148,7 +148,7 @@
             this.CLBDepo.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.CLBDepo.Size = new System.Drawing.Size(170, 65);
             this.CLBDepo.TabIndex = 7;
-            this.CLBDepo.SelectedIndexChanged += new System.EventHandler(this.CLBDepo_SelectedIndexChanged);
+            this.CLBDepo.ItemCheck += new DevExpress.XtraEditors.Controls.ItemCheckEventHandler(this.CLBDepo_ItemCheck);
             // 
             // LBStokKodu
             // 

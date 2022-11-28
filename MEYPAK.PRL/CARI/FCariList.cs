@@ -29,6 +29,7 @@ namespace MEYPAK.PRL.CARI
         FMusteriSiparis _fmusteriSiparis;
         FSatinAlmaSiparis fSatinAlmaSiparis;
         FSatisIrsaliye fSatisIrsaliye;
+        FAlisIrsaliye fAlisIrsaliye;
         FCariKart fCariKart;
        
         FFatura ffatura;
@@ -66,6 +67,9 @@ namespace MEYPAK.PRL.CARI
             if (_islem == "SatisIrsaliye")
             {
                 fSatisIrsaliye._tempCariKart = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+            }    if (_islem == "AlisIrsaliye")
+            {
+                fAlisIrsaliye._tempCariKart = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
             }
             if (_islem == "FFatura")
             {
@@ -90,6 +94,8 @@ namespace MEYPAK.PRL.CARI
                         fSatinAlmaSiparis = (FSatinAlmaSiparis)frm;
                     if (frm.Name.Contains("SatisIrsaliye"))
                         fSatisIrsaliye = (FSatisIrsaliye)frm;
+                    if (frm.Name.Contains("AlisIrsaliye"))
+                        fAlisIrsaliye = (FAlisIrsaliye)frm;
                     if (frm.Name.Contains("FFatura"))
                         ffatura = (FFatura)frm;
                 }

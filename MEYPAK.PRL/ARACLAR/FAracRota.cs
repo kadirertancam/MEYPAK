@@ -125,8 +125,6 @@ namespace MEYPAK.PRL.ARACLAR
         private void BTNAracKaydet_Click(object sender, EventArgs e)
         {
 
-
-
             foreach (var item in _tempAracRota)
             {
 

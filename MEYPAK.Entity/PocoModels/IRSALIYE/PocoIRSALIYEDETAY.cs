@@ -14,7 +14,7 @@ namespace MEYPAK.Entity.PocoModels.IRSALIYE
 {
     public class PocoIRSALIYEDETAY:SUPERPOCOMODEL
     {
-        public int siparisid { get; set; }
+        public int irsaliyeid { get; set; }
         public int stokid { get; set; }
         public int birimid { get; set; }
         public int dovizid { get; set; } = 0;

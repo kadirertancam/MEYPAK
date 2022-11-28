@@ -81,7 +81,8 @@ namespace MEYPAK.PRL
         FStokKasaHareket fStokKasaHareket;
         FKasaMarka fKasaMarka;
         FMarkaKart fMarkaKart;
-        
+        FAlisIrsaliye fFAlisIrsaliye;
+        FAlisFatura fFAlisFatura;
         public Tarih_Date _tarih_Date;
         public DataTable guncelkur;
         GenericWebServis<PocoPARABIRIM> _parabirimServis;
@@ -149,8 +150,8 @@ namespace MEYPAK.PRL
         }
         private void Main_Load(object sender, EventArgs e)
         {
-            guncelkur = CurrenciesExchange.GetDataTableAllCurrenciesTodaysExchangeRates();
-            GuncelKur();
+            //guncelkur = CurrenciesExchange.GetDataTableAllCurrenciesTodaysExchangeRates();
+            //GuncelKur();
         }
 
         int i = 0;

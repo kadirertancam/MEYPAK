@@ -63,7 +63,7 @@ namespace MEYPAK.PRL.SIPARIS
             }
             _mIrsaliyeServis.Data(ServisList.IrsaliyeListeServis);
             if (_islem == "FSatisIrsaliye")
-                gridControl1.DataSource = _mIrsaliyeServis.obje.Where(x => x.tip == 1).Select(x => new
+                gridControl1.DataSource = _mIrsaliyeServis.obje.Where(x => x.tip == 0).Select(x => new
                 {
                     ID = x.id,
                     x.irsaliyetarihi,
@@ -74,7 +74,7 @@ namespace MEYPAK.PRL.SIPARIS
                     x.geneltoplam
                 });
             if (_islem == "FAlisIrsaliye")
-                gridControl1.DataSource = _mIrsaliyeServis.obje.Where(x => x.tip == 0).Select(x => new
+                gridControl1.DataSource = _mIrsaliyeServis.obje.Where(x => x.tip == 1).Select(x => new
                 {
                     ID = x.id,
                     x.irsaliyetarihi,

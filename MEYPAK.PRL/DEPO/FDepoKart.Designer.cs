@@ -84,6 +84,7 @@
             this.gridView1.GridControl = this.GCDepoKart;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
+            this.gridView1.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.gridView1_RowStyle);
             // 
             // BTDepoTemizle
             // 
@@ -102,7 +103,7 @@
             this.BTDepoKaydet.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
             this.BTDepoKaydet.Appearance.Options.UseBackColor = true;
             this.BTDepoKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTDepoKaydet.ImageOptions.Image")));
-            this.BTDepoKaydet.Location = new System.Drawing.Point(12, 9);
+            this.BTDepoKaydet.Location = new System.Drawing.Point(17, 9);
             this.BTDepoKaydet.Name = "BTDepoKaydet";
             this.BTDepoKaydet.Size = new System.Drawing.Size(95, 40);
             this.BTDepoKaydet.TabIndex = 64;

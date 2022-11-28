@@ -1,6 +1,6 @@
 ﻿namespace MEYPAK.PRL.IRSALIYE
 {
-    partial class FSatisIrsaliye
+    partial class FAlisIrsaliye
     {
         /// <summary>
         /// Required designer variable.
@@ -804,16 +804,16 @@
             this.TBGenelToplam.Size = new System.Drawing.Size(196, 18);
             this.TBGenelToplam.TabIndex = 14;
             // 
-            // FSatisIrsaliye
+            // FAlisIrsaliye
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1900, 970);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FSatisIrsaliye";
+            this.Name = "FAlisIrsaliye";
             this.Text = "FMusteriSiparis";
-            this.Load += new System.EventHandler(this.FSatisIrsaliye_Load);
+            this.Load += new System.EventHandler(this.FAlisIrsaliye_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel4.ResumeLayout(false);

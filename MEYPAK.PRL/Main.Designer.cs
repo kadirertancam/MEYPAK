@@ -132,10 +132,12 @@
             this.accordionControlElement8 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement20 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement31 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement45 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement49 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement43 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement48 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement34 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement37 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement45 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement32 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement33 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement21 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -816,7 +818,6 @@
             this.accordionControlElement2,
             this.accordionControlElement3,
             this.accordionControlElement4});
-            this.accordionControlElement1.Expanded = true;
             this.accordionControlElement1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement1.ImageOptions.Image")));
             this.accordionControlElement1.ImageOptions.SvgImageSize = new System.Drawing.Size(32, 32);
             this.accordionControlElement1.Name = "accordionControlElement1";
@@ -1039,13 +1040,29 @@
             // accordionControlElement31
             // 
             this.accordionControlElement31.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.accordionControlElement45,
+            this.accordionControlElement49,
             this.accordionControlElement43,
+            this.accordionControlElement48,
             this.accordionControlElement34,
-            this.accordionControlElement37,
-            this.accordionControlElement45});
+            this.accordionControlElement37});
             this.accordionControlElement31.Expanded = true;
             this.accordionControlElement31.Name = "accordionControlElement31";
             this.accordionControlElement31.Text = "Tanımlar";
+            // 
+            // accordionControlElement45
+            // 
+            this.accordionControlElement45.Name = "accordionControlElement45";
+            this.accordionControlElement45.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement45.Text = "Fatura Tanım";
+            this.accordionControlElement45.Click += new System.EventHandler(this.accordionControlElement45_Click);
+            // 
+            // accordionControlElement49
+            // 
+            this.accordionControlElement49.Name = "accordionControlElement49";
+            this.accordionControlElement49.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement49.Text = "Alış Fatura Tanım";
+            this.accordionControlElement49.Click += new System.EventHandler(this.accordionControlElement49_Click);
             // 
             // accordionControlElement43
             // 
@@ -1054,26 +1071,31 @@
             this.accordionControlElement43.Text = "Irsaliye Tanım";
             this.accordionControlElement43.Click += new System.EventHandler(this.accordionControlElement43_Click);
             // 
+            // accordionControlElement48
+            // 
+            this.accordionControlElement48.HeaderTemplate.AddRange(new DevExpress.XtraBars.Navigation.HeaderElementInfo[] {
+            new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.Image),
+            new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.Text),
+            new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.ContextButtons),
+            new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.HeaderControl)});
+            this.accordionControlElement48.Name = "accordionControlElement48";
+            this.accordionControlElement48.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement48.Text = "Alış Irsaliye Tanım";
+            this.accordionControlElement48.Click += new System.EventHandler(this.accordionControlElement48_Click);
+            // 
             // accordionControlElement34
             // 
             this.accordionControlElement34.Name = "accordionControlElement34";
             this.accordionControlElement34.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement34.Text = "Müşteri Sipariş";
+            this.accordionControlElement34.Text = "Müşteri Sipariş Tanım";
             this.accordionControlElement34.Click += new System.EventHandler(this.accordionControlElement34_Click);
             // 
             // accordionControlElement37
             // 
             this.accordionControlElement37.Name = "accordionControlElement37";
             this.accordionControlElement37.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement37.Text = "SatınAlma Sipariş";
+            this.accordionControlElement37.Text = "SatınAlma Sipariş Tanım";
             this.accordionControlElement37.Click += new System.EventHandler(this.accordionControlElement37_Click);
-            // 
-            // accordionControlElement45
-            // 
-            this.accordionControlElement45.Name = "accordionControlElement45";
-            this.accordionControlElement45.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement45.Text = "Fatura Tanım";
-            this.accordionControlElement45.Click += new System.EventHandler(this.accordionControlElement45_Click);
             // 
             // accordionControlElement32
             // 
@@ -1345,5 +1367,7 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement46;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement47;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement48;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement48;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement49;
     }
 }

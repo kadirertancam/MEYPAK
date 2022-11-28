@@ -60,11 +60,18 @@ namespace MEYPAK.PRL.STOK
         {
             if (islemtipi == "Kayıt")
             {
+                if (_OlcuBrServis.obje.Where(x=>x.kayittipi==0 && x.adi == TBAdi.Text).Count()==0)
+                {
                 _OlcuBrServis.Data(ServisList.OlcuBrEkleServis, (new PocoOLCUBR()
                 {
                     adi = TBAdi.Text,
                     birim = TBOlcuBirim.Text,
                 }));
+                }
+                else
+                {
+                    MessageBox.Show("Bu isimde zaten bir Olçü Birim Bulunmaktadır!");
+                }
 
             }
             else

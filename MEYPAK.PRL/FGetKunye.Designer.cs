@@ -1,6 +1,6 @@
 ﻿namespace MEYPAK.PRL
 {
-    partial class GetKunye
+    partial class FGetKunye
     {
         /// <summary>
         /// Required designer variable.
@@ -47,16 +47,19 @@
             // 
             // gridView1
             // 
+            this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.Editable = false;
+            this.gridView1.DoubleClick += new System.EventHandler(this.gridView1_DoubleClick);
             // 
-            // GetKunye
+            // FGetKunye
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(825, 577);
             this.Controls.Add(this.gridControl1);
-            this.Name = "GetKunye";
+            this.Name = "FGetKunye";
             this.Text = "GetKunye";
             this.Load += new System.EventHandler(this.GetKunye_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();

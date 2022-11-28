@@ -31,6 +31,7 @@ namespace MEYPAK.PRL.STOK
         FSatinAlmaSiparis _fSatınAlmaSiparis;
         FDepolarArasıTransferHar fDepolarArasıHar;
         FSatisIrsaliye fSatisIrsaliye;
+        FAlisIrsaliye fAlisIrsaliye;
         public FStokOlcuBrList(string form="", string islem = "")
         {
             InitializeComponent();
@@ -64,6 +65,8 @@ namespace MEYPAK.PRL.STOK
                         _fSatınAlmaSiparis = (FSatinAlmaSiparis)frm; 
                     if (frm.Name.Contains("FSatisIrsaliye"))
                         fSatisIrsaliye = (FSatisIrsaliye)frm;
+                    if (frm.Name.Contains("FAlisIrsaliye"))
+                        fAlisIrsaliye = (FAlisIrsaliye)frm;
                     if (frm.Name.Contains("FFatura"))
                         ffatura = (FFatura)frm;
                 }
@@ -82,6 +85,8 @@ namespace MEYPAK.PRL.STOK
                 _fSatınAlmaSiparis.gridView1.SetFocusedRowCellValue("Birim", gridView1.GetFocusedRowCellValue("Column"));
             if (_islem == "SatisIrsaliye")
                 fSatisIrsaliye.gridView1.SetFocusedRowCellValue("Birim", gridView1.GetFocusedRowCellValue("Column"));
+            if (_islem == "AlisIrsaliye")
+                fAlisIrsaliye.gridView1.SetFocusedRowCellValue("Birim", gridView1.GetFocusedRowCellValue("Column"));
             if (_islem == "FFatura")
                 ffatura.gridView1.SetFocusedRowCellValue("Birim", gridView1.GetFocusedRowCellValue("Column"));
 

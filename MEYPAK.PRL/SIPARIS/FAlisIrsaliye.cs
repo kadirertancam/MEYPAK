@@ -39,7 +39,7 @@ using System.Windows.Forms;
 
 namespace MEYPAK.PRL.IRSALIYE
 {
-    public partial class FSatisIrsaliye : Form
+    public partial class FAlisIrsaliye : Form
     {  
            #region TANIMLAR
         FStokKasaList fKasaList;
@@ -74,7 +74,7 @@ namespace MEYPAK.PRL.IRSALIYE
         GenericWebServis<PocoCARIALTHES> _cariAltHes;
         FGetKunye _fGetKunye;
         #endregion
-        public FSatisIrsaliye()
+        public FAlisIrsaliye()
         {
             InitializeComponent();
             DGVStokSec = new DataGridViewButtonColumn();
@@ -143,13 +143,13 @@ namespace MEYPAK.PRL.IRSALIYE
         GridColumn gridColumn2;
         public List<ListKasaList> _kasaaa;
         public List<KasaList> _tempKasaList;
-          void DataGridYapilandir()
+        void DataGridYapilandir()
         {
             _tempStok = new PocoSTOK();
             _tempIrsaliyeDetay.Add(new PocoIrsaliyeKalem() { Tipi = "STOK" });
             GCIrsaliye.DataSource = _tempIrsaliyeDetay;
 
-             gridView1.Columns["sıra"].Visible = false;
+            gridView1.Columns["sıra"].Visible = false;
 
             GridColumn gridColumn = gridView1.Columns.AddVisible("Seç", "Seç");
             RepositoryItemButtonEdit repositoryItemButtonEdit = new RepositoryItemButtonEdit();
@@ -279,7 +279,7 @@ namespace MEYPAK.PRL.IRSALIYE
             gridView1.Columns["Seç"].VisibleIndex = 2;
             gridView1.Columns["BirimSec"].VisibleIndex = 9;
             gridView1.Columns["KasaSec"].VisibleIndex = 7;
-            gridView1.Columns["Kunye"].VisibleIndex = 12;
+            gridView1.Columns["Kunye"].VisibleIndex = 11;
             gridView1.Columns["StokId"].Visible = false;
             gridView1.Columns["Tipi"].VisibleIndex = 0;
             gridView1.Columns["Doviz"].VisibleIndex = 20;
@@ -291,7 +291,7 @@ namespace MEYPAK.PRL.IRSALIYE
 
         private void RepositoryItemButtonEdit4_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
-            _fGetKunye = new FGetKunye();
+            _fGetKunye = new FGetKunye(this.Tag.ToString(),"FAlisIrsaliye");
             _fGetKunye.ShowDialog();
         }
 
@@ -306,11 +306,11 @@ namespace MEYPAK.PRL.IRSALIYE
 
             if (_kasaaa.Where(x => x.num.ToString() == gridView1.FocusedRowHandle.ToString()).Count() > 0)
             {
-                fKasaList = new FStokKasaList(this.Tag.ToString(), "SatisIrsaliye", gridView1.FocusedRowHandle.ToString(), _kasaaa);
+                fKasaList = new FStokKasaList(this.Tag.ToString(), "AlisIrsaliye", gridView1.FocusedRowHandle.ToString(), _kasaaa);
             }
             else
             {
-                fKasaList = new FStokKasaList(this.Tag.ToString(), "SatisIrsaliye", gridView1.FocusedRowHandle.ToString());
+                fKasaList = new FStokKasaList(this.Tag.ToString(), "AlisIrsaliye", gridView1.FocusedRowHandle.ToString());
             }
             fKasaList.ShowDialog();
             if (_kasaaa.Where(x => x.num == gridView1.FocusedRowHandle).Count() > 0)
@@ -320,7 +320,7 @@ namespace MEYPAK.PRL.IRSALIYE
 
         private void RepositoryItemButtonEdit2_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
-            _fStokOlcuBrList = new FStokOlcuBrList(this.Tag.ToString(), "SatisIrsaliye");
+            _fStokOlcuBrList = new FStokOlcuBrList(this.Tag.ToString(), "AlisIrsaliye");
             _fStokOlcuBrList.stokid = _tempStok.id;
             _fStokOlcuBrList.ShowDialog();
         }
@@ -330,7 +330,7 @@ namespace MEYPAK.PRL.IRSALIYE
         {
             if (gridView1.GetFocusedRowCellValue("Tipi") == "STOK")
             {
-                _fStokList = new FStokList(this.Tag.ToString(), "SatisIrsaliye");
+                _fStokList = new FStokList(this.Tag.ToString(), "AlisIrsaliye");
                 _fStokList.ShowDialog();
 
                 _tempPocokalem = new PocoIrsaliyeKalem()
@@ -348,7 +348,7 @@ namespace MEYPAK.PRL.IRSALIYE
             else if (gridView1.GetFocusedRowCellValue("Tipi") == "KASA")
             {
 
-                _fStokKasaList = new FStokKasaList(this.Tag.ToString(), "SatisIrsaliye");
+                _fStokKasaList = new FStokKasaList(this.Tag.ToString(), "AlisIrsaliye");
                 _fStokKasaList.ShowDialog();
                 if (_tempKasa != null)
                 {
@@ -543,9 +543,9 @@ namespace MEYPAK.PRL.IRSALIYE
                 MessageBox.Show("BURDAAAA");
             }
         }
-        private void FSatisIrsaliye_Load(object sender, EventArgs e)
+        private void FAlisIrsaliye_Load(object sender, EventArgs e)
         {
-           DataGridYapilandir() ; 
+            DataGridYapilandir();
         }
 
         private void gridView1_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
@@ -619,7 +619,7 @@ namespace MEYPAK.PRL.IRSALIYE
 
         private void TBSiparisNo_Properties_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
-            FIrsaliyeList firsaliyelist = new FIrsaliyeList(this.Tag.ToString(), "FSatisIrsaliye");
+            FIrsaliyeList firsaliyelist = new FIrsaliyeList(this.Tag.ToString(), "FAlisIrsaliye");
             firsaliyelist.ShowDialog();
             if (_tempIrsaliye != null)
             {
@@ -653,7 +653,7 @@ namespace MEYPAK.PRL.IRSALIYE
         private void TBCariKodu_Properties_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
 
-            _fCariList = new FCariList(this.Tag.ToString(), "FSatisIrsaliye");
+            _fCariList = new FCariList(this.Tag.ToString(), "AlisIrsaliye");
             _fCariList.ShowDialog();
             if (_tempCariKart != null)
             {

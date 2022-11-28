@@ -9,6 +9,9 @@
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
     <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
+  <PropertyGroup>
+    <PublishReadyToRun>true</PublishReadyToRun>
+  </PropertyGroup>
   <PropertyGroup Condition="$(TargetFramework.EndsWith('windows'))">
     <UseWindowsForms>true</UseWindowsForms>
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
@@ -50,7 +53,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Update="SIPARIS\FAlisFatura.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="SIPARIS\FSatinAlmaSiparis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="SIPARIS\FAlisIrsaliye.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
