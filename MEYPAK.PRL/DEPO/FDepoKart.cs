@@ -43,6 +43,7 @@ namespace MEYPAK.PRL.DEPO
                 TBKod.Text = _tempDepo.depokodu;
                 TBAdi.Text = _tempDepo.depoadi;
                 TBAciklama.Text = _tempDepo.aciklama;
+                CBAktif.SetItemChecked(0, _tempDepo.aktif == 0 ? false : true);
             }
         }  
         public void Temizle(Control.ControlCollection ctrlCollection)           //Formdaki Textboxları temizle
@@ -71,10 +72,13 @@ namespace MEYPAK.PRL.DEPO
             _depoServis.Data(ServisList.DepoListeServis);
             GCDepoKart.DataSource = _depoServis.obje.Where(x => x.kayittipi == 0);
             gridView1.Columns["id"].Visible = false;
+            
         }
 
         private void BTDepoKartEkle_Click(object sender, EventArgs e)
         {
+            var a = CBAktif.CheckedItems;
+
             if (_tempDepo!=null && _tempDepo.id>0)
             {
             _depoServis.Data(ServisList.DepoEkleServis, (new PocoDEPO()
@@ -83,6 +87,7 @@ namespace MEYPAK.PRL.DEPO
                 depokodu = TBKod.Text,
                 depoadi = TBAdi.Text,
                 aciklama = TBAciklama.Text,
+                aktif = CBAktif.CheckedItems.Count
 
             }));
                 gridiDoldur();
@@ -98,6 +103,7 @@ namespace MEYPAK.PRL.DEPO
                     depokodu = TBKod.Text,
                     depoadi = TBAdi.Text,
                     aciklama = TBAciklama.Text,
+                    aktif = CBAktif.CheckedItems.Count
 
                 }));
                 gridiDoldur();
@@ -147,5 +153,16 @@ namespace MEYPAK.PRL.DEPO
         }
 
         #endregion
+
+        private void gridView1_RowStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowStyleEventArgs e)
+        {
+            string quantity = Convert.ToString(gridView1.GetRowCellValue(e.RowHandle, "aktif"));
+
+            if (quantity == "0")
+            {
+                e.Appearance.BackColor = Color.Red;
+            }
+       
+        }
     }
 }

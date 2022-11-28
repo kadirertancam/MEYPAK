@@ -69,7 +69,7 @@
             this.DGStokSayim.Location = new System.Drawing.Point(2, 2);
             this.DGStokSayim.MainView = this.gridView1;
             this.DGStokSayim.Name = "DGStokSayim";
-            this.DGStokSayim.Size = new System.Drawing.Size(1392, 711);
+            this.DGStokSayim.Size = new System.Drawing.Size(918, 458);
             this.DGStokSayim.TabIndex = 2;
             this.DGStokSayim.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -85,7 +85,7 @@
             // 
             // TBAciklama
             // 
-            this.TBAciklama.Location = new System.Drawing.Point(143, 84);
+            this.TBAciklama.Location = new System.Drawing.Point(115, 75);
             this.TBAciklama.Name = "TBAciklama";
             this.TBAciklama.Size = new System.Drawing.Size(154, 20);
             this.TBAciklama.TabIndex = 101;
@@ -193,7 +193,7 @@
             this.groupControl1.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(1396, 125);
+            this.groupControl1.Size = new System.Drawing.Size(922, 125);
             this.groupControl1.TabIndex = 106;
             this.groupControl1.Text = "Stok Sayım";
             // 
@@ -204,7 +204,7 @@
             this.panelControl4.Controls.Add(this.BTDuzenle);
             this.panelControl4.Controls.Add(this.BTKaydet);
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelControl4.Location = new System.Drawing.Point(1091, 33);
+            this.panelControl4.Location = new System.Drawing.Point(617, 33);
             this.panelControl4.Name = "panelControl4";
             this.panelControl4.Size = new System.Drawing.Size(303, 90);
             this.panelControl4.TabIndex = 106;

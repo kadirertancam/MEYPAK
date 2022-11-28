@@ -37,7 +37,7 @@ namespace MEYPAK.PRL.STOK
         private void FMarkaKart_Load(object sender, EventArgs e)
         {
             _markaServis.Data(ServisList.StokMarkaListeServis);
-            gridControl1.DataSource= _markaServis.obje;
+            gridControl1.DataSource= _markaServis.obje.Where(x=>x.kayittipi==0);
             foreach (Form frm in Application.OpenForms)
             {
                 if (_form == frm.Tag)
@@ -54,7 +54,7 @@ namespace MEYPAK.PRL.STOK
             FMarkaKart = new FMarkaKart();
             FMarkaKart.ShowDialog();
             _markaServis.Data(ServisList.StokMarkaListeServis);
-            gridControl1.DataSource = _markaServis.obje;
+            gridControl1.DataSource = _markaServis.obje.Where(x=>x.kayittipi==0);
         }
 
         private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -66,7 +66,7 @@ namespace MEYPAK.PRL.STOK
         {
             if (_islem =="stokkart")
             {
-                fStokKart._tempMarka = _markaServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()).FirstOrDefault();
+                fStokKart._tempMarka = _markaServis.obje.Where(x =>x.kayittipi==0 &&x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()).FirstOrDefault();
             }
             this.Close();
         }

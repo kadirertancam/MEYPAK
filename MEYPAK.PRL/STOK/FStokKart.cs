@@ -462,7 +462,7 @@ namespace MEYPAK.PRL
                 _PocoStokServis.Data(ServisList.StokEkleServis, _tempStok);
                 _PocoStokServis.Data(ServisList.StokListeServis);
                 _tempStok = _PocoStokServis.obje.Where(x => x.kayittipi == 0 && x.kod == _tempStok.kod).FirstOrDefault();
-                byte stokolcubirimi =(byte)_StokOlcuBrServis.obje.Where(x => x.kayittipi == 0 && x.stokid == _tempStok.id).Count();
+                int stokolcubirimi =(int)_StokOlcuBrServis.obje.Where(x => x.kayittipi == 0 && x.stokid == _tempStok.id).Count();
 
                if (stokolcubirimi >0)
                {

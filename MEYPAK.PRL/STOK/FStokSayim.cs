@@ -145,7 +145,7 @@ namespace MEYPAK.PRL.STOK
         void CombolariDoldur()
         {
             _depoServis.Data(ServisList.DepoListeServis);
-            CBDepo.Properties.DataSource = _depoServis.obje.Where(x => x.kayittipi == 0).Select(x => new { ID = x.id, ADI = x.depoadi });
+            CBDepo.Properties.DataSource = _depoServis.obje.Where(x => x.kayittipi == 0 && x.aktif==1).Select(x => new { ID = x.id, ADI = x.depoadi });
             CBDepo.Properties.ValueMember = "ID";
             CBDepo.Properties.DisplayMember = "ADI";
         }
