@@ -15,7 +15,7 @@ namespace MEYPAK.Entity.Models.STOK
 
         [Required]
         public int STOKID { get; set; }
-        public int HAREKETTURU { get; set; }        // 1SATIS-2ALIS-3SATISIADE-4ALISIADE-5MUHTELIF-6DAT-7Sayim
+        public int HAREKETTURU { get; set; }        // 1SATISFATURA-2ALISFATURA-3SATISIRSALIYE-4ALISIRSALIYE-5SATIFATURAIADE-6ALISFATURAIADE-7SATISIRSALIYEIADE-8ALISIRSALIYEIADE-9MUHTELIF-10DAT-11Sayim
         public int SIRKETID { get; set; } = 0;
         public int SUBEID { get; set; } = 0;
         public int DEPOID { get; set; } = 0;
@@ -34,6 +34,7 @@ namespace MEYPAK.Entity.Models.STOK
         public decimal BRUTTOPLAM { get; set; } = 0;
         public int SAYIMID { get; set; } = 0;
         public int KULLANICIID { get; set; } = 0;
+        public string KUNYE { get; set; } = "";
 
 
 

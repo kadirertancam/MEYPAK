@@ -14,11 +14,14 @@ namespace MEYPAK.API.Controllers.IRSALIYEControllers
     {
         private readonly IMapper _mapper;
         private readonly IIrsaliyeDetayServis _ırsaliyeDetayServis;
+        private readonly IStokHarServis _stokHarServis;
+        private readonly IIrsaliyeServis _irsaliyeServis;
+
         private MPAdoContext<MPIRSALIYEDETAY> _adoırsaliyeDetayServis = new MPAdoContext<MPIRSALIYEDETAY>();
         public IRSALIYEDETAYController(IMapper mapper, IIrsaliyeDetayServis irsaliyeDetayServis)
         {
             _mapper = mapper;
-            _ırsaliyeDetayServis = irsaliyeDetayServis;
+            _ırsaliyeDetayServis = irsaliyeDetayServis; 
         }
 
         [HttpGet]
@@ -58,6 +61,7 @@ namespace MEYPAK.API.Controllers.IRSALIYEControllers
             try
             {
                 var data = _ırsaliyeDetayServis.EkleyadaGuncelle(pModel);
+               
                 return Ok(data);
             }
             catch (Exception ex)

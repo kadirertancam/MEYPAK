@@ -72,6 +72,7 @@ namespace MEYPAK.PRL.IRSALIYE
         GenericWebServis<PocoSTOKKASAHAR> _stokKasaHarServis;
         GenericWebServis<PocoSTOKKASA> _kasaServis;
         GenericWebServis<PocoCARIALTHES> _cariAltHes;
+        GenericWebServis<PocoSTOKHAR> _stokHarServis;
         FGetKunye _fGetKunye;
         #endregion
         public FAlisIrsaliye()
@@ -87,6 +88,7 @@ namespace MEYPAK.PRL.IRSALIYE
             _cariAltHesapServis.Data(ServisList.CariAltHesListeServis);
             _depoServis = new GenericWebServis<PocoDEPO>();
             _depoServis.Data(ServisList.DepoListeServis);
+            _stokHarServis = new GenericWebServis<PocoSTOKHAR>();
 
             CBParaBirimi.Properties.DataSource = _paraBirimServis.obje.Where(x => x.kayittipi == 0).Select(x => x.adi).ToList();
             CBDepo.Properties.DataSource = _depoServis.obje.Select(x => x.depoadi).ToList();
@@ -418,7 +420,7 @@ namespace MEYPAK.PRL.IRSALIYE
                 bruttoplam = _tempIrsaliyeDetay.Sum(x => x.BrütToplam),
                 nettoplam = _tempIrsaliyeDetay.Sum(x => x.NetToplam),
                 geneltoplam = _tempIrsaliyeDetay.Sum(x => x.KdvTutarı) + _tempIrsaliyeDetay.Sum(x => x.NetToplam),
-                tip = 0,
+                tip = 1,
             });
 
             _stokOlcuBr.Data(ServisList.StokOlcuBrListeServis);
@@ -450,9 +452,28 @@ namespace MEYPAK.PRL.IRSALIYE
                     bekleyenmiktar = 0,
                     hareketdurumu = 0,
                     listefiyatid = 0,
-                    tip = 0,
-                    kdvtutari = item.KdvTutarı
+                    tip =1,
+                    kdvtutari = item.KdvTutarı,
+                    kunye=item.Kunye
                 });
+
+                _stokHarServis.Data(ServisList.StokHarEkleServis, new Entity.PocoModels.STOK.PocoSTOKHAR()
+                {
+                    aciklama = item.Acıklama,
+                    belgE_NO = _irsaliyeServis.obje2.belgeno,
+                    hareketturu =   4,
+                    birim = _olcuBr.obje.Where(x => x.adi.ToString() == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Birim").ToString()).FirstOrDefault().id,
+                    bruttoplam = item.BrütToplam,
+                    depoid = _irsaliyeServis.obje2.depoid,
+                    io = 1,
+                    kdv = item.Kdv,
+                    miktar = item.Miktar,
+                    netfiyat = item.NetFiyat,
+                    nettoplam = item.NetToplam,
+                    stokid = item.StokId,
+                    sayimid = 0,kunye=item.Kunye
+                });
+
                 i++;
 
 

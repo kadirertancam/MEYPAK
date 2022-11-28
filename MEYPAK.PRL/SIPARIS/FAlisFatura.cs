@@ -26,6 +26,7 @@ using MEYPAK.Entity.Models.CARI;
 using MEYPAK.Interfaces.IRSALIYE;
 using MEYPAK.Entity.PocoModels.FATURA;
 using MEYPAK.Entity.PocoModels.IRSALIYE;
+using MEYPAK.Interfaces.Stok;
 
 namespace MEYPAK.PRL.SIPARIS
 {
@@ -62,6 +63,7 @@ namespace MEYPAK.PRL.SIPARIS
         GenericWebServis<PocoSTOKKASAHAR> _stokKasaHarServis;
         GenericWebServis<PocoSTOKKASA> _kasaServis;
         GenericWebServis<PocoCARIALTHES> _cariAltHes;
+        GenericWebServis<PocoSTOKHAR> _stokHarServis;
         #endregion
         public FAlisFatura()
         {
@@ -100,6 +102,7 @@ namespace MEYPAK.PRL.SIPARIS
             _tempKasaList = new List<KasaList>();
             _carialthescaricari = new GenericWebServis<PocoCARIALTHESCARI>();
             _kasaaa = new List<ListKasaList>();
+            _stokHarServis = new GenericWebServis<PocoSTOKHAR>();
         }
 
         void temizle()
@@ -424,6 +427,9 @@ namespace MEYPAK.PRL.SIPARIS
                     tip = 1,
                     kdvtutari = item.KdvTutarı
                 });
+
+               
+
                 i++;
 
 

@@ -74,7 +74,7 @@ namespace MEYPAK.PRL.STOK
                     decimal a =  item.miktar - (stokharlist.Where(x => x.io == 1 && x.depoid == item.depoid && x.kayittipi==0).Sum(x => x.miktar) - stokharlist.Where(x => x.io == 0 && x.depoid == item.depoid && x.kayittipi == 0).Sum(x => x.miktar)) ;
                     _stokHarServis.Data(ServisList.StokHarEkleServis,new PocoSTOKHAR()
                     {    
-                        hareketturu = 7,
+                        hareketturu = 11,
                         birim = item.birimid,
                         stokid = item.stokid,
                         depoid = item.depoid,

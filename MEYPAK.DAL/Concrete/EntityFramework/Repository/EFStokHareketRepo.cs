@@ -73,7 +73,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
             {
                 Acıklama = x.ACIKLAMA,
                 BelgeNo = x.BELGE_NO,
-                HareketTuru = x.HAREKETTURU == 1 ? "Satış" : x.HAREKETTURU == 2 ? "Alış" : x.HAREKETTURU == 5 ? "Muhtelif" : "Muhtelif",
+                HareketTuru = x.HAREKETTURU == 1 ? "Satış Fatura" : x.HAREKETTURU == 2 ? "Alış Fatura" : x.HAREKETTURU == 3 ? "Satış Irsaliye" : x.HAREKETTURU == 4 ? "Alış Irsaliye" : x.HAREKETTURU == 5 ? "Satış Fatura Iade" : x.HAREKETTURU == 6 ? "Alış Fatura Iade" : x.HAREKETTURU == 7 ? "Satış Irsalye Iade" : x.HAREKETTURU == 8 ? "Alış Irsaliye Iade" : x.HAREKETTURU == 9 ? "Muhtelif" : x.HAREKETTURU == 10 ? "DAT" : x.HAREKETTURU == 11 ? "Sayim" : "Muhtelif",
                 Birim = _context.MPOLCUBR.Where(z => z.ID == x.BIRIM).FirstOrDefault().ADI,
                 Giris = x.IO == 1 ? x.MIKTAR : 0,
                 Cikis = x.IO == 0 ? x.MIKTAR : 0,
