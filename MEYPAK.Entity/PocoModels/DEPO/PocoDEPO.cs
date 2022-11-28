@@ -13,5 +13,6 @@ namespace MEYPAK.Entity.PocoModels.DEPO
         public string depokodu { get; set; }
         public string depoadi { get; set; } = "";
         public string aciklama { get; set; } = "";
+        public int aktif { get; set; } = 0;
     }
 }

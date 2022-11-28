@@ -20,6 +20,7 @@ namespace MEYPAK.Entity.Models.DEPO
         public string DEPOADI { get; set; } = "";
         [StringLength(200)]
         public string ACIKLAMA { get; set; } = "";
+        public int AKTIF { get; set; } = 0;
 
 
 

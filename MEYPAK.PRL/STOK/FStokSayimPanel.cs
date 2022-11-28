@@ -84,8 +84,6 @@ namespace MEYPAK.PRL.STOK
             TBDepo.EditValue = depoServis.obje.Where(x => x.id == _tempStokSayim.depoid).FirstOrDefault().depoadi;
             TBAciklama.Text = _tempStokSayim.aciklama;
 
-
-
             var datatb = new DataTable();
             DataColumn ID = new DataColumn("ID", typeof(int));
             datatb.Columns.Add(ID);
@@ -99,10 +97,6 @@ namespace MEYPAK.PRL.STOK
             datatb.Columns.Add(SAYIMMIKTAR);
             DataColumn BİRİM = new DataColumn("BİRİM", typeof(int));
             datatb.Columns.Add(BİRİM);
-
-
-
-
 
             DGStokSayim.DataSource = datatb;
             ID.ReadOnly = true;
@@ -121,7 +115,6 @@ namespace MEYPAK.PRL.STOK
                 datatab.Rows.Add(item.id, item.adi);
             }
             
-
             RepositoryItemLookUpEdit riLookuparac = new RepositoryItemLookUpEdit();
             riLookuparac.DataSource = datatab;
             riLookuparac.ValueMember = "BİRİM";
@@ -134,8 +127,6 @@ namespace MEYPAK.PRL.STOK
             riLookuparac.AutoSearchColumnIndex = 1;
             riLookuparac.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
             
-
-
             datatab.Columns[0].ColumnMapping = MappingType.Hidden;
             gridView1.Columns["BİRİM"].OptionsColumn.AllowEdit = true;
             gridView1.Columns["BİRİM"].ColumnEdit = riLookuparac;
@@ -146,7 +137,7 @@ namespace MEYPAK.PRL.STOK
             {
                 datatb.Rows.Add(item.id, item.adi,
                     kategoriServis.obje.Where(y => y.id == item.kategoriid).FirstOrDefault().acıklama,
-                    stokHarServis.obje.Where(z => z.depoid == _tempStokSayim.depoid && z.stokid== item.id).Sum(z => z.miktar),
+                    stokHarServis.obje.Where(z => z.depoid == _tempStokSayim.depoid && z.stokid== item.id && z.io ==1).Sum(z => z.miktar) - stokHarServis.obje.Where(z => z.depoid == _tempStokSayim.depoid && z.stokid == item.id && z.io == 0).Sum(z => z.miktar),
                     stokSayimHarServis.obje.Where(d => d.kayittipi == 0 && d.stoksayimid == _tempStokSayim.id && d.stokid == item.id).Count() == 0
                     ? 0 : stokSayimHarServis.obje.Where(d => d.kayittipi == 0 && d.stoksayimid == _tempStokSayim.id && d.stokid == item.id).FirstOrDefault().miktar,
                     1
@@ -172,10 +163,7 @@ namespace MEYPAK.PRL.STOK
             //DataRow drToAdd = dataTable.NewRow();
             //dataGridView1.Rows.Add(drToAdd);
             //dataTable.AcceptChanges(); 
-
-
         }
-
 
 
         private void BTKaydet_Click(object sender, EventArgs e)
@@ -201,10 +189,6 @@ namespace MEYPAK.PRL.STOK
             MessageBox.Show("Sayım Hareketi Başarıyla Kaydedildi");
         }
           
-            
-        
-
-
 
         private void BTCik_Click(object sender, EventArgs e)
         {
@@ -213,16 +197,20 @@ namespace MEYPAK.PRL.STOK
         }
 
 
-
-
         private void pdfeAktarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Pdfaktar(gridView1, $"Stok Sayım {DTPSayimTar.EditValue}");
         }
 
+
         private void exceleAktarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Excelaktar(gridView1, $"Stok Sayım {DTPSayimTar.EditValue}");
+        }
+
+        private void DGStokSayim_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

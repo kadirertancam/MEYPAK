@@ -92,18 +92,9 @@
             this.TBSFiyat1 = new MEYPAK.PRL.Assets.YeniTextEdit();
             this.CBSDoviz = new DevExpress.XtraEditors.ComboBoxEdit();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.panel8 = new System.Windows.Forms.Panel();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.GBOlcuBirimleri = new System.Windows.Forms.GroupBox();
-            this.GBOlcuBirimleriUstPanel = new System.Windows.Forms.GroupBox();
-            this.TBKatsayi = new DevExpress.XtraEditors.TextEdit();
-            this.CBBirim = new DevExpress.XtraEditors.GridLookUpEdit();
-            this.CBBirimView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.BTOlcuBirimiEkle = new DevExpress.XtraEditors.SimpleButton();
-            this.LBKatsayi = new DevExpress.XtraEditors.LabelControl();
-            this.LBBirim = new DevExpress.XtraEditors.LabelControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
             this.GBStokKartiSayisalAciklama = new System.Windows.Forms.GroupBox();
@@ -200,6 +191,8 @@
             this.TBAlisKdv = new MEYPAK.PRL.Assets.YeniTextEdit();
             this.TBSatisKdv = new MEYPAK.PRL.Assets.YeniTextEdit();
             this.GBStokKartiGenel = new System.Windows.Forms.GroupBox();
+            this.CBOlcuBr = new DevExpress.XtraEditors.LookUpEdit();
+            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.LBAciklama = new DevExpress.XtraEditors.LabelControl();
             this.LBGrupKodu = new DevExpress.XtraEditors.LabelControl();
             this.LBKategori = new DevExpress.XtraEditors.LabelControl();
@@ -232,15 +225,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.TBSFiyat1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBSDoviz.Properties)).BeginInit();
             this.tabPage2.SuspendLayout();
-            this.panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            this.panel7.SuspendLayout();
-            this.GBOlcuBirimleri.SuspendLayout();
-            this.GBOlcuBirimleriUstPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TBKatsayi.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CBBirim.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CBBirimView)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.panel5.SuspendLayout();
             this.GBStokKartiSayisalAciklama.SuspendLayout();
@@ -294,6 +282,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.TBAlisKdv.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBSatisKdv.Properties)).BeginInit();
             this.GBStokKartiGenel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CBOlcuBr.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBAciklama.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTGrupKodu.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTKategori.Properties)).BeginInit();
@@ -701,8 +690,7 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPage2.Controls.Add(this.panel8);
-            this.tabPage2.Controls.Add(this.panel7);
+            this.tabPage2.Controls.Add(this.panelControl1);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.tabPage2.Name = "tabPage2";
@@ -710,23 +698,22 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Ölçü Birimleri";
             // 
-            // panel8
+            // panelControl1
             // 
-            this.panel8.Controls.Add(this.gridControl1);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(0, 100);
-            this.panel8.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(1120, 449);
-            this.panel8.TabIndex = 4;
+            this.panelControl1.Controls.Add(this.gridControl1);
+            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl1.Location = new System.Drawing.Point(0, 0);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(1120, 549);
+            this.panelControl1.TabIndex = 0;
             // 
             // gridControl1
             // 
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(0, 0);
+            this.gridControl1.Location = new System.Drawing.Point(2, 2);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1120, 449);
+            this.gridControl1.Size = new System.Drawing.Size(1116, 545);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -736,104 +723,6 @@
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.DoubleClick += new System.EventHandler(this.gridView1_DoubleClick);
-            // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.GBOlcuBirimleri);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel7.Location = new System.Drawing.Point(0, 0);
-            this.panel7.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(1120, 100);
-            this.panel7.TabIndex = 3;
-            // 
-            // GBOlcuBirimleri
-            // 
-            this.GBOlcuBirimleri.Controls.Add(this.GBOlcuBirimleriUstPanel);
-            this.GBOlcuBirimleri.Dock = System.Windows.Forms.DockStyle.Top;
-            this.GBOlcuBirimleri.Location = new System.Drawing.Point(0, 0);
-            this.GBOlcuBirimleri.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.GBOlcuBirimleri.Name = "GBOlcuBirimleri";
-            this.GBOlcuBirimleri.Padding = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.GBOlcuBirimleri.Size = new System.Drawing.Size(1120, 100);
-            this.GBOlcuBirimleri.TabIndex = 0;
-            this.GBOlcuBirimleri.TabStop = false;
-            this.GBOlcuBirimleri.Text = "Birim Bilgileri";
-            // 
-            // GBOlcuBirimleriUstPanel
-            // 
-            this.GBOlcuBirimleriUstPanel.Controls.Add(this.TBKatsayi);
-            this.GBOlcuBirimleriUstPanel.Controls.Add(this.CBBirim);
-            this.GBOlcuBirimleriUstPanel.Controls.Add(this.BTOlcuBirimiEkle);
-            this.GBOlcuBirimleriUstPanel.Controls.Add(this.LBKatsayi);
-            this.GBOlcuBirimleriUstPanel.Controls.Add(this.LBBirim);
-            this.GBOlcuBirimleriUstPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.GBOlcuBirimleriUstPanel.Location = new System.Drawing.Point(4, 18);
-            this.GBOlcuBirimleriUstPanel.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.GBOlcuBirimleriUstPanel.Name = "GBOlcuBirimleriUstPanel";
-            this.GBOlcuBirimleriUstPanel.Padding = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.GBOlcuBirimleriUstPanel.Size = new System.Drawing.Size(1112, 80);
-            this.GBOlcuBirimleriUstPanel.TabIndex = 2;
-            this.GBOlcuBirimleriUstPanel.TabStop = false;
-            // 
-            // TBKatsayi
-            // 
-            this.TBKatsayi.Location = new System.Drawing.Point(244, 35);
-            this.TBKatsayi.Name = "TBKatsayi";
-            this.TBKatsayi.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.TBKatsayi.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.TBKatsayi.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
-            this.TBKatsayi.Size = new System.Drawing.Size(180, 20);
-            this.TBKatsayi.TabIndex = 34;
-            // 
-            // CBBirim
-            // 
-            this.CBBirim.EditValue = "";
-            this.CBBirim.Location = new System.Drawing.Point(48, 35);
-            this.CBBirim.Name = "CBBirim";
-            this.CBBirim.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.CBBirim.Properties.NullText = "";
-            this.CBBirim.Properties.PopupView = this.CBBirimView;
-            this.CBBirim.Size = new System.Drawing.Size(180, 20);
-            this.CBBirim.TabIndex = 33;
-            // 
-            // CBBirimView
-            // 
-            this.CBBirimView.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.CBBirimView.Name = "CBBirimView";
-            this.CBBirimView.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.CBBirimView.OptionsView.ShowGroupPanel = false;
-            // 
-            // BTOlcuBirimiEkle
-            // 
-            this.BTOlcuBirimiEkle.Appearance.BackColor = System.Drawing.Color.LightGray;
-            this.BTOlcuBirimiEkle.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.BTOlcuBirimiEkle.Appearance.Options.UseBackColor = true;
-            this.BTOlcuBirimiEkle.Appearance.Options.UseFont = true;
-            this.BTOlcuBirimiEkle.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTOlcuBirimiEkle.ImageOptions.Image")));
-            this.BTOlcuBirimiEkle.Location = new System.Drawing.Point(453, 35);
-            this.BTOlcuBirimiEkle.Name = "BTOlcuBirimiEkle";
-            this.BTOlcuBirimiEkle.Size = new System.Drawing.Size(82, 39);
-            this.BTOlcuBirimiEkle.TabIndex = 7;
-            this.BTOlcuBirimiEkle.Text = "&Kaydet";
-            this.BTOlcuBirimiEkle.Click += new System.EventHandler(this.BTOlcuBirimiEkle_Click);
-            // 
-            // LBKatsayi
-            // 
-            this.LBKatsayi.Location = new System.Drawing.Point(244, 16);
-            this.LBKatsayi.Name = "LBKatsayi";
-            this.LBKatsayi.Size = new System.Drawing.Size(35, 13);
-            this.LBKatsayi.TabIndex = 6;
-            this.LBKatsayi.Text = "Katsayı";
-            // 
-            // LBBirim
-            // 
-            this.LBBirim.Location = new System.Drawing.Point(48, 16);
-            this.LBBirim.Name = "LBBirim";
-            this.LBBirim.Size = new System.Drawing.Size(22, 13);
-            this.LBBirim.TabIndex = 5;
-            this.LBBirim.Text = "Birim";
             // 
             // tabPage3
             // 
@@ -1853,9 +1742,9 @@
             // 
             this.tabPage5.Controls.Add(this.panel13);
             this.tabPage5.Controls.Add(this.panel12);
-            this.tabPage5.Location = new System.Drawing.Point(4, 24);
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(1120, 547);
+            this.tabPage5.Size = new System.Drawing.Size(1120, 549);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Resim";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -1867,7 +1756,7 @@
             this.panel13.Location = new System.Drawing.Point(0, 130);
             this.panel13.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(1120, 417);
+            this.panel13.Size = new System.Drawing.Size(1120, 419);
             this.panel13.TabIndex = 5;
             // 
             // panel10
@@ -1876,7 +1765,7 @@
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel10.Location = new System.Drawing.Point(0, 0);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(1120, 417);
+            this.panel10.Size = new System.Drawing.Size(1120, 419);
             this.panel10.TabIndex = 4;
             // 
             // gridControl2
@@ -1885,7 +1774,7 @@
             this.gridControl2.Location = new System.Drawing.Point(0, 0);
             this.gridControl2.MainView = this.tileView1;
             this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(1120, 417);
+            this.gridControl2.Size = new System.Drawing.Size(1120, 419);
             this.gridControl2.TabIndex = 0;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.tileView1});
@@ -2132,6 +2021,8 @@
             // 
             // GBStokKartiGenel
             // 
+            this.GBStokKartiGenel.Controls.Add(this.CBOlcuBr);
+            this.GBStokKartiGenel.Controls.Add(this.labelControl10);
             this.GBStokKartiGenel.Controls.Add(this.LBAciklama);
             this.GBStokKartiGenel.Controls.Add(this.LBGrupKodu);
             this.GBStokKartiGenel.Controls.Add(this.LBKategori);
@@ -2154,9 +2045,27 @@
             this.GBStokKartiGenel.TabStop = false;
             this.GBStokKartiGenel.Text = "Genel";
             // 
+            // CBOlcuBr
+            // 
+            this.CBOlcuBr.Location = new System.Drawing.Point(90, 173);
+            this.CBOlcuBr.Name = "CBOlcuBr";
+            this.CBOlcuBr.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CBOlcuBr.Properties.NullText = "";
+            this.CBOlcuBr.Size = new System.Drawing.Size(180, 20);
+            this.CBOlcuBr.TabIndex = 3;
+            // 
+            // labelControl10
+            // 
+            this.labelControl10.Location = new System.Drawing.Point(21, 176);
+            this.labelControl10.Name = "labelControl10";
+            this.labelControl10.Size = new System.Drawing.Size(46, 13);
+            this.labelControl10.TabIndex = 30;
+            this.labelControl10.Text = "Ölçü Birim";
+            // 
             // LBAciklama
             // 
-            this.LBAciklama.Location = new System.Drawing.Point(25, 179);
+            this.LBAciklama.Location = new System.Drawing.Point(25, 204);
             this.LBAciklama.Name = "LBAciklama";
             this.LBAciklama.Size = new System.Drawing.Size(41, 13);
             this.LBAciklama.TabIndex = 29;
@@ -2204,7 +2113,7 @@
             // 
             // TBAciklama
             // 
-            this.TBAciklama.Location = new System.Drawing.Point(90, 178);
+            this.TBAciklama.Location = new System.Drawing.Point(90, 203);
             this.TBAciklama.Name = "TBAciklama";
             this.TBAciklama.Size = new System.Drawing.Size(180, 85);
             this.TBAciklama.TabIndex = 24;
@@ -2296,16 +2205,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.TBSFiyat1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBSDoviz.Properties)).EndInit();
             this.tabPage2.ResumeLayout(false);
-            this.panel8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            this.panel7.ResumeLayout(false);
-            this.GBOlcuBirimleri.ResumeLayout(false);
-            this.GBOlcuBirimleriUstPanel.ResumeLayout(false);
-            this.GBOlcuBirimleriUstPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TBKatsayi.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CBBirim.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CBBirimView)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.GBStokKartiSayisalAciklama.ResumeLayout(false);
@@ -2365,6 +2268,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.TBSatisKdv.Properties)).EndInit();
             this.GBStokKartiGenel.ResumeLayout(false);
             this.GBStokKartiGenel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CBOlcuBr.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBAciklama.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTGrupKodu.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTKategori.Properties)).EndInit();
@@ -2389,8 +2293,6 @@
         private Panel panel2;
         private GroupBox GBAlisFiyati;
         private GroupBox GBSatisFiyati;
-        private GroupBox GBOlcuBirimleri;
-        private GroupBox GBOlcuBirimleriUstPanel;
         private Panel panel4;
         private TabPage tabPage3;
         private Panel panel5;
@@ -2399,8 +2301,6 @@
         private TabPage tabPage4;
         private Panel panel6;
         private GroupBox GBStokKartiRaporKodu;
-        private Panel panel8;
-        private Panel panel7;
         private DevExpress.XtraEditors.ButtonEdit BTStokKodu;
         private DevExpress.XtraEditors.ButtonEdit BTMarka;
         private MEYPAK.PRL.Assets.YeniTextEdit TBStokAdi;
@@ -2447,9 +2347,6 @@
         private DevExpress.XtraEditors.LabelControl LBSFiyat1;
         private DevExpress.XtraEditors.LabelControl LBSDoviz;
         private DevExpress.XtraEditors.SimpleButton BTStokKartiKaydet;
-        private DevExpress.XtraEditors.LabelControl LBBirim;
-        private DevExpress.XtraEditors.LabelControl LBKatsayi;
-        private DevExpress.XtraEditors.SimpleButton BTOlcuBirimiEkle;
         private DevExpress.XtraEditors.LabelControl LBSokKartiAciklama1;
         private DevExpress.XtraEditors.LabelControl LBStokKartiAciklama9;
         private DevExpress.XtraEditors.LabelControl LBStokKartiAciklama8;
@@ -2513,8 +2410,6 @@
         private MEYPAK.PRL.Assets.YeniTextEdit TBAciklama8;
         private MEYPAK.PRL.Assets.YeniTextEdit TBAciklama6;
         private MEYPAK.PRL.Assets.YeniTextEdit TBAciklama5;
-        private DevExpress.XtraEditors.GridLookUpEdit CBBirim;
-        private DevExpress.XtraGrid.Views.Grid.GridView CBBirimView;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private TabPage tabPage5;
@@ -2531,6 +2426,8 @@
         private DevExpress.XtraEditors.SimpleButton BTSil;
         private DevExpress.XtraEditors.SimpleButton BTResimSil;
         private DevExpress.XtraEditors.SimpleButton BTResimKaydet;
-        private DevExpress.XtraEditors.TextEdit TBKatsayi;
+        private DevExpress.XtraEditors.LabelControl labelControl10;
+        private DevExpress.XtraEditors.LookUpEdit CBOlcuBr;
+        private DevExpress.XtraEditors.PanelControl panelControl1;
     }
 }

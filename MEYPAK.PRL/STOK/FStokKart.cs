@@ -5,14 +5,21 @@ using System.IO;
 using MEYPAK.Interfaces.Stok;
 using DevExpress.XtraEditors;
 using System.Net.Http;
+using DevExpress.Utils;
+using DevExpress.XtraEditors.Repository;
+using MEYPAK.Entity.Models.DEPO;
+using MEYPAK.Entity.Models.STOK;
+using MEYPAK.Interfaces.Depo;
+using System.Data;
+using MEYPAK.Entity.PocoModels.ARAC;
+using MEYPAK.Interfaces.Arac;
+using MEYPAK.Interfaces.Personel;
 
 namespace MEYPAK.PRL
 {
     public partial class FStokKart : XtraForm
     {
-        /// <summary>
-        /// Kategori ve grup yapısı oluşturulacak.
-        /// </summary>
+       
         public FStokKart()
         {
             InitializeComponent();
@@ -52,6 +59,74 @@ namespace MEYPAK.PRL
 
         #region Methods
 
+        void OlcuBrGridDoldur()
+        {
+            if (CBOlcuBr.Enabled == false && _tempStok != null)
+            {
+                byte i = 0;
+                _StokOlcuBrServis.Data(ServisList.StokOlcuBrListeServis);
+                DataTable datatable = new DataTable();
+                DataColumn NUM = new DataColumn("NUM", typeof(int));
+                datatable.Columns.Add(NUM);
+                DataColumn OLCUBR = new DataColumn("OLCUBR", typeof(int));
+                datatable.Columns.Add(OLCUBR);
+                DataColumn KATSAYI = new DataColumn("KATSAYI", typeof(decimal));
+                datatable.Columns.Add(KATSAYI);
+                DataColumn ID = new DataColumn("ID", typeof(int));
+                datatable.Columns.Add(ID);
+
+                ID.ReadOnly= true;
+                NUM.ReadOnly= true;
+                //_StokOlcuBrServis.obje.Where(x=> x.stokid==_tempStok.id&& x.kayittipi == 0).ToList()[i].olcubrid
+
+                //_StokOlcuBrServis.obje.Where(x=>x.stokid==_tempStok.id && x.kayittipi==0)
+                gridControl1.DataSource = datatable;
+                DataTable datatb = new DataTable();
+                datatb.Columns.Add("OLCUBR", typeof(int));
+                datatb.Columns.Add("ADI", typeof(string));
+
+                foreach (var item in _PocoOlcuBrServis.obje.Where(x=>x.kayittipi==0 ))
+                {
+                    datatb.Rows.Add(item.id, item.adi);
+                }
+                
+                RepositoryItemLookUpEdit riLookupolcubr = new RepositoryItemLookUpEdit();
+                riLookupolcubr.DataSource = datatb;
+                riLookupolcubr.ValueMember = "OLCUBR";
+                riLookupolcubr.DisplayMember = "ADI";
+                riLookupolcubr.NullText = "Sec";
+                riLookupolcubr.HotTrackItems = true;
+                riLookupolcubr.BestFitWidth = 170;
+                riLookupolcubr.DropDownRows = datatb.Rows.Count;
+                riLookupolcubr.AcceptEditorTextAsNewValue = DefaultBoolean.True;
+                riLookupolcubr.AutoSearchColumnIndex = 1;
+                riLookupolcubr.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
+
+
+                
+                gridView1.Columns["OLCUBR"].ColumnEdit = riLookupolcubr;
+                gridView1.Columns["OLCUBR"].OptionsColumn.AllowEdit = true;
+                gridView1.Columns["OLCUBR"].Width = 170;
+                gridView1.Columns["ID"].Visible = false;
+                var b = _StokOlcuBrServis.obje.Where(x => x.stokid == _tempStok.id && x.kayittipi == 0).Count();
+                var a = _StokOlcuBrServis.obje.Where(x => x.stokid == _tempStok.id && x.kayittipi == 0).Count() > i + 1 ? _StokOlcuBrServis.obje.Where(x => x.stokid == _tempStok.id && x.kayittipi == 0).ToList()[i].olcubrid : 0;
+
+                foreach (var item in _PocoOlcuBrServis.obje.Where(x => x.kayittipi == 0))
+                {
+                    var item2 = _StokOlcuBrServis.obje.Where(x => x.stokid == _tempStok.id && x.kayittipi == 0 && x.num == i + 1).Count() >= 1 ? _StokOlcuBrServis.obje.Where(x => x.stokid == _tempStok.id && x.kayittipi == 0 && x.num == i + 1).FirstOrDefault() : null;
+                    datatable.Rows.Add(
+                    i + 1,
+                    item2 !=null ? item2.olcubrid : 0,
+                    item2 !=null ? item2.katsayi : 0,
+                    item2 !=null ? item2.id:0 );
+                    i++;
+                }
+
+
+
+
+            }
+        }
         public void Temizle(Control.ControlCollection ctrlCollection)           //Formdaki Textboxları temizle
         {
 
@@ -84,14 +159,18 @@ namespace MEYPAK.PRL
             TBAFiyat5.Text = "0";
             CBSDoviz.SelectedIndex = 0;
             CBADoviz.SelectedIndex = 0;
+            CBOlcuBr.EditValue = 0;
+            CBOlcuBr.Enabled = true;
+            BTKategori.Enabled = true;
             _tempStok = null;
             _tempKategori = null;
             _tempMarka = null;
-     
+
         }
 
         private void tbDoldur()                                                 // _tempStok nesnesi dolduğu zaman bu method ile formdaki nesneleri doldur
         {
+            OlcuBrGridDoldur();
             stokOlculist.Clear();
             _stokResimServis.Data(ServisList.StokResimListeServis);
             _PocoStokServis.Data(ServisList.StokListeServis);
@@ -103,10 +182,11 @@ namespace MEYPAK.PRL
                 BTStokKodu.Text = _tempStok.kod;
                 resimList.Clear();
             }
+            CBOlcuBr.EditValue = _tempStok.olcubR1;
             TBStokAdi.Text = _tempStok.adi;
             TBSatisOtv.Text = _tempStok.satisotv.ToString();
             TBSatisKdv.Text = _tempStok.satiskdv.ToString();
-            BTMarka.Text = _markaServis.obje.Where(x => x.id.ToString() == _tempStok.markaid.ToString()).Count()>0? _markaServis.obje.Where(x => x.id.ToString() == _tempStok.markaid.ToString()).FirstOrDefault().adi.ToString():"";
+            BTMarka.Text = _markaServis.obje.Where(x => x.id.ToString() == _tempStok.markaid.ToString()).Count() > 0 ? _markaServis.obje.Where(x => x.id.ToString() == _tempStok.markaid.ToString()).FirstOrDefault().adi.ToString() : "";
             BTKategori.Text = _StokKategoriervis.obje.Where(x => x.id == _tempStok.kategoriid).Count() > 0 ? _StokKategoriervis.obje.Where(x => x.id == _tempStok.kategoriid).FirstOrDefault().acıklama : "";
             BTGrupKodu.Text = _tempStok.grupkodu.ToString();
             TBAlisOtv.Text = _tempStok.alisotv.ToString();
@@ -131,14 +211,16 @@ namespace MEYPAK.PRL
                     resimList.Add(item);
                 }
             _StokKategoriervis.Data(ServisList.StokKategoriListeServis);
-         
+
 
             gridControl2.DataSource = resimList.Select(x => new { Resim = Base64ToImage(x.IMG), NUM = x.NUM });
-            gridControl1.DataSource = _StokOlcuBrServis.obje.Where(x => x.stokid == stokid).Select(x => new { ADI = _PocoOlcuBrServis.obje.Where(z => z.id == x.olcubrid).FirstOrDefault().adi, KATSAYI = x.katsayi, SIRA = x.num });
-            gridControl1.RefreshDataSource();
+            //gridControl1.DataSource = _StokOlcuBrServis.obje.Where(x => x.stokid == stokid).Select(x => new { ADI = _PocoOlcuBrServis.obje.Where(z => z.id == x.olcubrid).FirstOrDefault().adi, KATSAYI = x.katsayi, SIRA = x.num });
+            //gridControl1.RefreshDataSource();
+            CBOlcuBr.Enabled = false;
+            BTKategori.Enabled = false;
             //var a = _PocoStokServis.obje.Select(x=>x.mpst.Select(z=>z));
             //stokOlculist = _tempStok.MPSTOKOLCUBR.ToList();
-            
+
         }
 
         private void BTStokKodu_Leave(object sender, EventArgs e)               // BTStokKodu doluyken stok kodu kontrolü yapıp tempstok doldurulur.
@@ -152,9 +234,11 @@ namespace MEYPAK.PRL
             _StokKategoriervis.Data(ServisList.StokKategoriListeServis);
             _StokOlcuBrServis.Data(ServisList.StokOlcuBrListeServis);
             _PocoOlcuBrServis.Data(ServisList.OlcuBrListeServis);
-            _tempPocoOLCUBR = _PocoOlcuBrServis.obje;
+            _tempPocoOLCUBR = _PocoOlcuBrServis.obje.Where(x => x.kayittipi == 0).ToList();
             _PocoSTOKOLCUBR = _StokOlcuBrServis.obje.Where(x => x.kayittipi == 0).ToList();
-            CBBirim.Properties.DataSource = _tempPocoOLCUBR.Select(x => x.adi).ToList();
+            CBOlcuBr.Properties.DataSource = _PocoOlcuBrServis.obje.Where(x=>x.kayittipi==0).Select(x=> new {ID= x.id , ADI = x.adi});
+            CBOlcuBr.Properties.ValueMember = "ID";
+            CBOlcuBr.Properties.DisplayMember = "ADI";
 
         }
         private void BTKaydet_Click(object sender, EventArgs e)                 // Stok Kayıt
@@ -339,7 +423,8 @@ namespace MEYPAK.PRL
 
         private void BTStokKartiKaydet_Click(object sender, EventArgs e)
         {
-            if (_StokKategoriervis.obje.Where(x=>x.kayittipi==0 && x.acıklama == BTKategori.Text).Count()>0)
+
+            if (_StokKategoriervis.obje.Where(x => x.kayittipi == 0 && x.acıklama == BTKategori.Text).Count() > 0 && CBOlcuBr.EditValue != null)
             {
                 _markaServis.Data(ServisList.StokMarkaListeServis);
                 _tempStok = new PocoSTOK()
@@ -347,9 +432,9 @@ namespace MEYPAK.PRL
                     id = stokid,
                     kod = BTStokKodu.Text,
                     adi = TBStokAdi.Text,
-                    markaid = _markaServis.obje.Where(x => x.kayittipi == 0 && x.adi == BTMarka.Text).Count()!=0 ? _markaServis.obje.Where(x => x.kayittipi == 0 && x.adi == BTMarka.Text).FirstOrDefault().id:0,
+                    markaid = _markaServis.obje.Where(x => x.kayittipi == 0 && x.adi == BTMarka.Text).Count() != 0 ? _markaServis.obje.Where(x => x.kayittipi == 0 && x.adi == BTMarka.Text).FirstOrDefault().id : 0,
                     kategoriid = _StokKategoriervis.obje.Where(x => x.kayittipi == 0 && x.acıklama == BTKategori.Text).FirstOrDefault().id,
-
+                    olcubR1 = Convert.ToInt32(CBOlcuBr.EditValue),
                     grupkodu = BTGrupKodu.Text,
                     aciklama = TBAciklama.Text,
                     satiskdv = Convert.ToInt32(TBSatisKdv.Text),
@@ -372,17 +457,43 @@ namespace MEYPAK.PRL
 
 
                 };
-
+                
                 var snc = _PocoStokServis.obje;
                 _PocoStokServis.Data(ServisList.StokEkleServis, _tempStok);
                 _PocoStokServis.Data(ServisList.StokListeServis);
                 _tempStok = _PocoStokServis.obje.Where(x => x.kayittipi == 0 && x.kod == _tempStok.kod).FirstOrDefault();
-                foreach (var item in stokOlculist)
-                {
-                    item.stokid = _tempStok.id;
-                    _StokOlcuBrServis.Data(ServisList.StokOlcuBrEkleServis, item);
-                }
+                int stokolcubirimi =(int)_StokOlcuBrServis.obje.Where(x => x.kayittipi == 0 && x.stokid == _tempStok.id).Count();
 
+               if (stokolcubirimi >0)
+               {
+                    for (int i = 1; i < gridView1.RowCount; i++)
+                    {
+                        DataRowView row = gridView1.GetRow(i) as DataRowView;
+                        if (row != null && Convert.ToInt32(row.Row.ItemArray[1])!=0)
+                        {
+                            _StokOlcuBrServis.Data(ServisList.StokOlcuBrEkleServis, new PocoSTOKOLCUBR()
+                            {
+                                num = Convert.ToInt32(row.Row.ItemArray[0]),
+                                stokid = _tempStok.id,
+                                olcubrid = Convert.ToInt32(row.Row.ItemArray[1]),
+                                katsayi = Convert.ToDecimal(row.Row.ItemArray[2]),
+                                id = Convert.ToInt32(row.Row.ItemArray[3])
+                            });
+                        }
+                    }
+                }
+               else if (stokolcubirimi == 0)
+                {
+                    _StokOlcuBrServis.Data(ServisList.StokOlcuBrEkleServis, new PocoSTOKOLCUBR()
+                    {
+                        num = 1,
+                        stokid = _tempStok.id,
+                        olcubrid = _tempStok.olcubR1,
+                        katsayi = 1,
+                    });
+                }
+                
+                
                 foreach (var item in resimList)
                 {
                     if (!_silinenResimler.Contains(item))
@@ -395,18 +506,17 @@ namespace MEYPAK.PRL
                 {
                     _stokResimServis.Data(ServisList.StokResimDeleteByIdServis, id: item.id.ToString(), method: HttpMethod.Post);
                 }
-
+             
                 stokid = 0;
                 if (snc != null)
                     MessageBox.Show("Kayıt Başarılı.");
                 Temizle(this.Controls);
                 BTStokKodu.Text = "";
-
                 gridControl1.DataSource = "";
             }
             else
             {
-                MessageBox.Show("Kategori Seçmeden Stok Ekleyemezsiniz!");
+                MessageBox.Show("Kategori veya Olcu Birim Seçmeden Stok Ekleyemezsiniz!");
             }
 
 
@@ -542,32 +652,7 @@ namespace MEYPAK.PRL
 
         }
 
-        private void BTOlcuBirimiEkle_Click(object sender, EventArgs e)
-        {
-            decimal b;
-            if (CBBirim.EditValue != null && TBKatsayi.Text != "" && decimal.TryParse(TBKatsayi.Text, out b))
-            {
-                if (gridView1.RowCount == 0)
-                {
-                    num = 0;
-                }
-                _tempStokOlcuBr = new PocoSTOKOLCUBR()
-                {
-                    olcubrid = _tempPocoOLCUBR.Where(x => x.adi == CBBirim.EditValue.ToString()).FirstOrDefault().id,
-                    num = gridView1.RowCount + 1,
-                    katsayi = Convert.ToDecimal(TBKatsayi.Text),
-
-
-                };
-                stokOlculist.Add(_tempStokOlcuBr);
-                gridControl1.DataSource = stokOlculist.Select(x => new { ADI = _PocoOlcuBrServis.obje.Where(z => z.id == x.olcubrid).FirstOrDefault().adi, KATSAYI = x.katsayi, SIRA = x.num });
-                gridControl1.RefreshDataSource();
-            }
-            else
-            {
-                MessageBox.Show("Tüm Alanları Doğru Girdiğinize emin olun!");
-            }
-        }
+       
 
         private void gridView1_DoubleClick(object sender, EventArgs e)
         {
