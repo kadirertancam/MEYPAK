@@ -1062,7 +1062,7 @@
             this.accordionControlElement49.Name = "accordionControlElement49";
             this.accordionControlElement49.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement49.Text = "Alış Fatura Tanım";
-            this.accordionControlElement49.Click += new System.EventHandler(this.accordionControlElement49_Click);
+            //this.accordionControlElement49.Click += new System.EventHandler(this.accordionControlElement49_Click);
             // 
             // accordionControlElement43
             // 
@@ -1081,7 +1081,7 @@
             this.accordionControlElement48.Name = "accordionControlElement48";
             this.accordionControlElement48.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement48.Text = "Alış Irsaliye Tanım";
-            this.accordionControlElement48.Click += new System.EventHandler(this.accordionControlElement48_Click);
+           // this.accordionControlElement48.Click += new System.EventHandler(this.accordionControlElement48_Click);
             // 
             // accordionControlElement34
             // 
@@ -1367,7 +1367,7 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement46;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement47;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement48;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement48;
+      //  private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement48;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement49;
     }
 }

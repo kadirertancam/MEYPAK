@@ -235,7 +235,7 @@
             this.BTKaydet.Size = new System.Drawing.Size(95, 40);
             this.BTKaydet.TabIndex = 8;
             this.BTKaydet.Text = "&KAYDET";
-            this.BTKaydet.Click += new System.EventHandler(this.simpleButton1_Click);
+            this.BTKaydet.Click += new System.EventHandler(this.BTKaydet_Click);
             // 
             // label4
             // 

@@ -43,6 +43,7 @@
             this.DGAltHesap = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
@@ -55,6 +56,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
+            this.panelControl3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -68,11 +71,10 @@
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.panelControl3);
             this.groupControl1.Controls.Add(this.CBAktif1);
-            this.groupControl1.Controls.Add(this.BTSil);
             this.groupControl1.Controls.Add(this.TBKodu);
             this.groupControl1.Controls.Add(this.LBKodu);
-            this.groupControl1.Controls.Add(this.BTKaydet);
             this.groupControl1.Controls.Add(this.CBDoviz);
             this.groupControl1.Controls.Add(this.LBAdi);
             this.groupControl1.Controls.Add(this.LBDoviz);
@@ -101,9 +103,9 @@
             this.BTSil.Appearance.Options.UseFont = true;
             this.BTSil.AppearanceDisabled.Options.UseImage = true;
             this.BTSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTSil.ImageOptions.Image")));
-            this.BTSil.Location = new System.Drawing.Point(439, 36);
+            this.BTSil.Location = new System.Drawing.Point(106, 5);
             this.BTSil.Name = "BTSil";
-            this.BTSil.Size = new System.Drawing.Size(82, 39);
+            this.BTSil.Size = new System.Drawing.Size(95, 40);
             this.BTSil.TabIndex = 2;
             this.BTSil.Text = "&Sil";
             this.BTSil.Click += new System.EventHandler(this.BTSil_Click);
@@ -130,11 +132,11 @@
             this.BTKaydet.Appearance.Options.UseBackColor = true;
             this.BTKaydet.Appearance.Options.UseFont = true;
             this.BTKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTKaydet.ImageOptions.Image")));
-            this.BTKaydet.Location = new System.Drawing.Point(351, 36);
+            this.BTKaydet.Location = new System.Drawing.Point(5, 5);
             this.BTKaydet.Name = "BTKaydet";
-            this.BTKaydet.Size = new System.Drawing.Size(82, 39);
+            this.BTKaydet.Size = new System.Drawing.Size(95, 40);
             this.BTKaydet.TabIndex = 1;
-            this.BTKaydet.Text = "&Kaydet";
+            this.BTKaydet.Text = "&KAYDET";
             this.BTKaydet.Click += new System.EventHandler(this.BTKaydet_Click);
             // 
             // CBDoviz
@@ -200,6 +202,17 @@
             this.panelControl2.Size = new System.Drawing.Size(1117, 475);
             this.panelControl2.TabIndex = 4;
             // 
+            // panelControl3
+            // 
+            this.panelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl3.Controls.Add(this.BTKaydet);
+            this.panelControl3.Controls.Add(this.BTSil);
+            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelControl3.Location = new System.Drawing.Point(892, 23);
+            this.panelControl3.Name = "panelControl3";
+            this.panelControl3.Size = new System.Drawing.Size(219, 89);
+            this.panelControl3.TabIndex = 7;
+            // 
             // FCariAltHesap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -207,7 +220,7 @@
             this.ClientSize = new System.Drawing.Size(1117, 595);
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FCariAltHesap";
             this.Text = "FCariAltHesap";
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
@@ -223,6 +236,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
+            this.panelControl3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -243,5 +258,6 @@
         private DevExpress.XtraEditors.LabelControl LBAdi;
         private DevExpress.XtraEditors.LabelControl LBDoviz;
         private DevExpress.XtraEditors.TextEdit TBAdi;
+        private DevExpress.XtraEditors.PanelControl panelControl3;
     }
 }
