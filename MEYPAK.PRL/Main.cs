@@ -81,6 +81,8 @@ namespace MEYPAK.PRL
         FStokKasaHareket fStokKasaHareket;
         FKasaMarka fKasaMarka;
         FMarkaKart fMarkaKart;
+        FAlisIrsaliye fFAlisIrsaliye;
+        FAlisFatura fFAlisFatura;
         public Tarih_Date _tarih_Date;
         public DataTable guncelkur;
         GenericWebServis<PocoPARABIRIM> _parabirimServis;
@@ -148,8 +150,8 @@ namespace MEYPAK.PRL
         }
         private void Main_Load(object sender, EventArgs e)
         {
-            guncelkur = CurrenciesExchange.GetDataTableAllCurrenciesTodaysExchangeRates();
-            GuncelKur();
+            //guncelkur = CurrenciesExchange.GetDataTableAllCurrenciesTodaysExchangeRates();
+            //GuncelKur();
         }
 
         int i = 0;
@@ -587,6 +589,46 @@ namespace MEYPAK.PRL
             fMarkaKart.Tag = "TPMarkaKart" + i;
             page.Controls.Add(fMarkaKart);
             fMarkaKart.Show();
+            i++;
+        }
+
+        private void accordionControlElement48_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fFAlisIrsaliye = new FAlisIrsaliye();
+            page.Name = "TPAlisIrsaliye" + i;
+            page.Text = "Alış Irsaliye";
+            page.Tag = "TPAlisIrsaliye" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fFAlisIrsaliye.TopLevel = false;
+            fFAlisIrsaliye.AutoScroll = true;
+            fFAlisIrsaliye.Dock = DockStyle.Fill;
+            fFAlisIrsaliye.Tag = "TPAlisIrsaliye" + i;
+            page.Controls.Add(fFAlisIrsaliye);
+            fFAlisIrsaliye.Show();
+            i++;
+        }
+
+        private void accordionControlElement49_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fFAlisFatura = new FAlisFatura();
+            page.Name = "TPAlisFatura" + i;
+            page.Text = "Alış Fatura";
+            page.Tag = "TPAlisFatura" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fFAlisFatura.TopLevel = false;
+            fFAlisFatura.AutoScroll = true;
+            fFAlisFatura.Dock = DockStyle.Fill;
+            fFAlisFatura.Tag = "TPAlisFatura" + i;
+            page.Controls.Add(fFAlisFatura);
+            fFAlisFatura.Show();
             i++;
         }
     }
