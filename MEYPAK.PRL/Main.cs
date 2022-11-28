@@ -69,7 +69,7 @@ namespace MEYPAK.PRL
         FMusteriSiparis fSiparis;
         FSatinAlmaSiparis fSatinAlmaSiparis;
         FMalKabulPanel fMalKabulPanel; 
-        FStokFiyatList fStokFiyatList;
+       
         FCariHareket fCariHareket;
         FCariDurum fCariDurum;
         FCariKart fCariKart;
@@ -81,6 +81,7 @@ namespace MEYPAK.PRL
         FStokKasaHareket fStokKasaHareket;
         FKasaMarka fKasaMarka;
         FMarkaKart fMarkaKart;
+        
         public Tarih_Date _tarih_Date;
         public DataTable guncelkur;
         GenericWebServis<PocoPARABIRIM> _parabirimServis;
@@ -589,5 +590,26 @@ namespace MEYPAK.PRL
             fMarkaKart.Show();
             i++;
         }
+
+        //private void accordionControlElement48_Click(object sender, EventArgs e)
+        //{
+        //    XtraTabPage page = new XtraTabPage();
+        //    fiyatList = new FStokFiyatList();
+        //    page.Name = "TPStokFiyatListPanel" + i;
+        //    page.Text = "Stok Fiyat List Panel";
+        //    page.Tag = "TPStokFiyatListPanel" + i;
+        //    page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+        //    xtraTabControl1.TabPages.Add(page);
+        //    xtraTabControl1.SelectedTabPage = page;
+
+        //    fiyatList.FormBorderStyle = FormBorderStyle.None;
+        //    fiyatList.TopLevel = false;
+        //    fiyatList.AutoScroll = true;
+        //    fiyatList.Dock = DockStyle.Fill;
+        //    fiyatList.Tag = "TPStokFiyatListPanel" + i;
+        //    page.Controls.Add(fiyatList);
+        //    fiyatList.Show();
+        //    i++;
+        //}
     }
 }

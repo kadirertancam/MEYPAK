@@ -134,11 +134,7 @@ builder.Services.AddScoped<IStokServis, StokManager>();
 builder.Services.AddScoped<IStokHarDal, EFStokHareketRepo>();
 builder.Services.AddScoped<IStokHarServis, StokHarManager>();
 
-builder.Services.AddScoped<IStokFiyatListDal, EFStokFiyatListRepo>();
-builder.Services.AddScoped<IStokFiyatListServis, StokFiyatListManager>();
 
-builder.Services.AddScoped<IStokFiyatListHarDal, EFStokFiyatListHarRepo>();
-builder.Services.AddScoped<IStokFiyatListHarServis, StokFiyatListHarManager>();
 
 builder.Services.AddScoped<IStokKasaDal, EFStokKasaRepo>();
 builder.Services.AddScoped<IStokKasaServis, StokKasaManager>();

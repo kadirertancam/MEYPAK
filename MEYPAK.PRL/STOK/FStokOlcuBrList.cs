@@ -26,7 +26,7 @@ namespace MEYPAK.PRL.STOK
         FFatura ffatura;
         FStokHareket fStokHareket;
         FStokSayimPanel fstokSayimPanel;
-        FStokFiyatListPanel fstokFiyatListPanel;
+       
         FMusteriSiparis fSiparis;
         FSatinAlmaSiparis _fSatınAlmaSiparis;
         FDepolarArasıTransferHar fDepolarArasıHar;
@@ -55,8 +55,7 @@ namespace MEYPAK.PRL.STOK
                         fSTOKKART = (FStokKart)frm;
                     if (frm.Name.Contains("FStokSayimPanel"))
                         fstokSayimPanel = (FStokSayimPanel)frm;
-                    if (frm.Name.Contains("FStokFiyatListPanel"))
-                        fstokFiyatListPanel = (FStokFiyatListPanel)frm;
+                   
                     if (frm.Name.Contains("FDepolarArasıTransferHar"))
                         fDepolarArasıHar = (FDepolarArasıTransferHar)frm;
                     if (frm.Name.Contains("FMusteriSiparis"))

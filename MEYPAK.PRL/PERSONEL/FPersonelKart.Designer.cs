@@ -357,7 +357,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1119, 656);
+            this.panelControl1.Size = new System.Drawing.Size(1398, 818);
             this.panelControl1.TabIndex = 0;
             // 
             // panelControl4
@@ -366,7 +366,7 @@
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl4.Location = new System.Drawing.Point(319, 227);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(798, 427);
+            this.panelControl4.Size = new System.Drawing.Size(1077, 589);
             this.panelControl4.TabIndex = 2;
             // 
             // xtraTabControl2
@@ -375,7 +375,7 @@
             this.xtraTabControl2.Location = new System.Drawing.Point(2, 2);
             this.xtraTabControl2.Name = "xtraTabControl2";
             this.xtraTabControl2.SelectedTabPage = this.XTPKimlik;
-            this.xtraTabControl2.Size = new System.Drawing.Size(794, 423);
+            this.xtraTabControl2.Size = new System.Drawing.Size(1073, 585);
             this.xtraTabControl2.TabIndex = 0;
             this.xtraTabControl2.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.XTPKisisel,
@@ -388,8 +388,9 @@
             // XTPKimlik
             // 
             this.XTPKimlik.Controls.Add(this.panelControl9);
+            this.XTPKimlik.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("XTPKimlik.ImageOptions.Image")));
             this.XTPKimlik.Name = "XTPKimlik";
-            this.XTPKimlik.Size = new System.Drawing.Size(792, 398);
+            this.XTPKimlik.Size = new System.Drawing.Size(1071, 557);
             this.XTPKimlik.Text = "Kimlik-Adres Bilgileri";
             // 
             // panelControl9
@@ -431,7 +432,7 @@
             this.panelControl9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl9.Location = new System.Drawing.Point(0, 0);
             this.panelControl9.Name = "panelControl9";
-            this.panelControl9.Size = new System.Drawing.Size(792, 398);
+            this.panelControl9.Size = new System.Drawing.Size(1071, 557);
             this.panelControl9.TabIndex = 0;
             // 
             // DTPNufVerTar
@@ -476,9 +477,9 @@
             // 
             this.labelControl3.Location = new System.Drawing.Point(80, 96);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(59, 13);
+            this.labelControl3.Size = new System.Drawing.Size(63, 13);
             this.labelControl3.TabIndex = 8;
-            this.labelControl3.Text = "DOGUM YER";
+            this.labelControl3.Text = "DOGUM YERİ";
             // 
             // LBMedeniDurum
             // 
@@ -722,8 +723,9 @@
             // XTPKisisel
             // 
             this.XTPKisisel.Controls.Add(this.panelControl10);
+            this.XTPKisisel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("XTPKisisel.ImageOptions.Image")));
             this.XTPKisisel.Name = "XTPKisisel";
-            this.XTPKisisel.Size = new System.Drawing.Size(792, 398);
+            this.XTPKisisel.Size = new System.Drawing.Size(792, 395);
             this.XTPKisisel.Text = "Kişisel Bilgiler";
             // 
             // panelControl10
@@ -757,7 +759,7 @@
             this.panelControl10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl10.Location = new System.Drawing.Point(0, 0);
             this.panelControl10.Name = "panelControl10";
-            this.panelControl10.Size = new System.Drawing.Size(792, 398);
+            this.panelControl10.Size = new System.Drawing.Size(792, 395);
             this.panelControl10.TabIndex = 0;
             // 
             // CBAyakkabıNo
@@ -832,7 +834,7 @@
             this.LBIL.Name = "LBIL";
             this.LBIL.Size = new System.Drawing.Size(9, 13);
             this.LBIL.TabIndex = 0;
-            this.LBIL.Text = "IL";
+            this.LBIL.Text = "İL";
             // 
             // CBUstBeden
             // 
@@ -861,7 +863,7 @@
             this.LBIlce.Name = "LBIlce";
             this.LBIlce.Size = new System.Drawing.Size(22, 13);
             this.LBIlce.TabIndex = 1;
-            this.LBIlce.Text = "ILÇE";
+            this.LBIlce.Text = "İLÇE";
             // 
             // TBAdresMahalle
             // 
@@ -918,7 +920,7 @@
             this.LBUstBeden.Name = "LBUstBeden";
             this.LBUstBeden.Size = new System.Drawing.Size(54, 13);
             this.LBUstBeden.TabIndex = 20;
-            this.LBUstBeden.Text = "UST BEDEN";
+            this.LBUstBeden.Text = "ÜST BEDEN";
             // 
             // LBAdres
             // 
@@ -1017,8 +1019,9 @@
             // xtraTabPage3
             // 
             this.xtraTabPage3.Controls.Add(this.panelControl11);
+            this.xtraTabPage3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("xtraTabPage3.ImageOptions.Image")));
             this.xtraTabPage3.Name = "xtraTabPage3";
-            this.xtraTabPage3.Size = new System.Drawing.Size(792, 398);
+            this.xtraTabPage3.Size = new System.Drawing.Size(1071, 557);
             this.xtraTabPage3.Text = "Öğrenim ve Diğer B.";
             // 
             // panelControl11
@@ -1058,7 +1061,7 @@
             this.panelControl11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl11.Location = new System.Drawing.Point(0, 0);
             this.panelControl11.Name = "panelControl11";
-            this.panelControl11.Size = new System.Drawing.Size(792, 398);
+            this.panelControl11.Size = new System.Drawing.Size(1071, 557);
             this.panelControl11.TabIndex = 0;
             // 
             // TBMezuniyetYil
@@ -1336,6 +1339,7 @@
             this.CBMeslekKodu.Name = "CBMeslekKodu";
             this.CBMeslekKodu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CBMeslekKodu.Properties.NullText = "";
             this.CBMeslekKodu.Size = new System.Drawing.Size(147, 20);
             this.CBMeslekKodu.TabIndex = 26;
             // 
@@ -1371,8 +1375,9 @@
             // 
             this.XTPBanka.Controls.Add(this.panelControl6);
             this.XTPBanka.Controls.Add(this.panelControl5);
+            this.XTPBanka.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("XTPBanka.ImageOptions.Image")));
             this.XTPBanka.Name = "XTPBanka";
-            this.XTPBanka.Size = new System.Drawing.Size(792, 398);
+            this.XTPBanka.Size = new System.Drawing.Size(1071, 557);
             this.XTPBanka.Text = "Banka Bilgileri";
             // 
             // panelControl6
@@ -1381,7 +1386,7 @@
             this.panelControl6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl6.Location = new System.Drawing.Point(0, 119);
             this.panelControl6.Name = "panelControl6";
-            this.panelControl6.Size = new System.Drawing.Size(792, 279);
+            this.panelControl6.Size = new System.Drawing.Size(1071, 438);
             this.panelControl6.TabIndex = 1;
             // 
             // gridControl4
@@ -1390,7 +1395,7 @@
             this.gridControl4.Location = new System.Drawing.Point(2, 2);
             this.gridControl4.MainView = this.gridView4;
             this.gridControl4.Name = "gridControl4";
-            this.gridControl4.Size = new System.Drawing.Size(788, 275);
+            this.gridControl4.Size = new System.Drawing.Size(1067, 434);
             this.gridControl4.TabIndex = 0;
             this.gridControl4.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView4});
@@ -1414,7 +1419,7 @@
             this.panelControl5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl5.Location = new System.Drawing.Point(0, 0);
             this.panelControl5.Name = "panelControl5";
-            this.panelControl5.Size = new System.Drawing.Size(792, 119);
+            this.panelControl5.Size = new System.Drawing.Size(1071, 119);
             this.panelControl5.TabIndex = 0;
             // 
             // BTSPersonelBanka
@@ -1493,8 +1498,9 @@
             // 
             this.XTPZimmet.Controls.Add(this.panelControl8);
             this.XTPZimmet.Controls.Add(this.panelControl7);
+            this.XTPZimmet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("XTPZimmet.ImageOptions.Image")));
             this.XTPZimmet.Name = "XTPZimmet";
-            this.XTPZimmet.Size = new System.Drawing.Size(792, 398);
+            this.XTPZimmet.Size = new System.Drawing.Size(792, 395);
             this.XTPZimmet.Text = "Zimmet İşlemleri";
             // 
             // panelControl8
@@ -1503,7 +1509,7 @@
             this.panelControl8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl8.Location = new System.Drawing.Point(0, 119);
             this.panelControl8.Name = "panelControl8";
-            this.panelControl8.Size = new System.Drawing.Size(792, 279);
+            this.panelControl8.Size = new System.Drawing.Size(792, 276);
             this.panelControl8.TabIndex = 1;
             // 
             // gridControl3
@@ -1512,7 +1518,7 @@
             this.gridControl3.Location = new System.Drawing.Point(2, 2);
             this.gridControl3.MainView = this.gridView3;
             this.gridControl3.Name = "gridControl3";
-            this.gridControl3.Size = new System.Drawing.Size(788, 275);
+            this.gridControl3.Size = new System.Drawing.Size(788, 272);
             this.gridControl3.TabIndex = 0;
             this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView3});
@@ -1555,14 +1561,14 @@
             // 
             // BTNZimKaydet
             // 
-            this.BTNZimKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTNZimKaydet.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
             this.BTNZimKaydet.Appearance.Options.UseBackColor = true;
             this.BTNZimKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTNZimKaydet.ImageOptions.Image")));
-            this.BTNZimKaydet.Location = new System.Drawing.Point(676, 33);
+            this.BTNZimKaydet.Location = new System.Drawing.Point(672, 43);
             this.BTNZimKaydet.Name = "BTNZimKaydet";
-            this.BTNZimKaydet.Size = new System.Drawing.Size(109, 58);
+            this.BTNZimKaydet.Size = new System.Drawing.Size(95, 40);
             this.BTNZimKaydet.TabIndex = 62;
-            this.BTNZimKaydet.Text = "&Kaydet";
+            this.BTNZimKaydet.Text = "&KAYDET";
             this.BTNZimKaydet.Click += new System.EventHandler(this.BTNZimKaydet_Click);
             // 
             // TBZimAciklama
@@ -1640,8 +1646,9 @@
             // 
             this.XTPIzin.Controls.Add(this.panelControl13);
             this.XTPIzin.Controls.Add(this.panelControl12);
+            this.XTPIzin.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("XTPIzin.ImageOptions.Image")));
             this.XTPIzin.Name = "XTPIzin";
-            this.XTPIzin.Size = new System.Drawing.Size(792, 398);
+            this.XTPIzin.Size = new System.Drawing.Size(1071, 557);
             this.XTPIzin.Text = "İzin İşlemleri";
             // 
             // panelControl13
@@ -1650,7 +1657,7 @@
             this.panelControl13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl13.Location = new System.Drawing.Point(0, 177);
             this.panelControl13.Name = "panelControl13";
-            this.panelControl13.Size = new System.Drawing.Size(792, 221);
+            this.panelControl13.Size = new System.Drawing.Size(1071, 380);
             this.panelControl13.TabIndex = 1;
             // 
             // gridControl5
@@ -1659,7 +1666,7 @@
             this.gridControl5.Location = new System.Drawing.Point(2, 2);
             this.gridControl5.MainView = this.gridView5;
             this.gridControl5.Name = "gridControl5";
-            this.gridControl5.Size = new System.Drawing.Size(788, 217);
+            this.gridControl5.Size = new System.Drawing.Size(1067, 376);
             this.gridControl5.TabIndex = 0;
             this.gridControl5.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView5});
@@ -1685,19 +1692,19 @@
             this.panelControl12.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl12.Location = new System.Drawing.Point(0, 0);
             this.panelControl12.Name = "panelControl12";
-            this.panelControl12.Size = new System.Drawing.Size(792, 177);
+            this.panelControl12.Size = new System.Drawing.Size(1071, 177);
             this.panelControl12.TabIndex = 0;
             // 
             // simpleButton1
             // 
-            this.simpleButton1.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.simpleButton1.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
             this.simpleButton1.Appearance.Options.UseBackColor = true;
             this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(568, 60);
+            this.simpleButton1.Location = new System.Drawing.Point(528, 61);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(146, 46);
+            this.simpleButton1.Size = new System.Drawing.Size(95, 40);
             this.simpleButton1.TabIndex = 62;
-            this.simpleButton1.Text = "&Kaydet";
+            this.simpleButton1.Text = "&KAYDET";
             // 
             // textEdit3
             // 
@@ -1818,7 +1825,7 @@
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl3.Location = new System.Drawing.Point(319, 2);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(798, 225);
+            this.panelControl3.Size = new System.Drawing.Size(1077, 225);
             this.panelControl3.TabIndex = 1;
             // 
             // CBGorev
@@ -2087,7 +2094,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelControl2.Location = new System.Drawing.Point(2, 2);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(317, 652);
+            this.panelControl2.Size = new System.Drawing.Size(317, 814);
             this.panelControl2.TabIndex = 0;
             // 
             // xtraTabControl1
@@ -2096,7 +2103,7 @@
             this.xtraTabControl1.Location = new System.Drawing.Point(2, 2);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
-            this.xtraTabControl1.Size = new System.Drawing.Size(313, 648);
+            this.xtraTabControl1.Size = new System.Drawing.Size(313, 810);
             this.xtraTabControl1.TabIndex = 0;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage1,
@@ -2105,9 +2112,10 @@
             // xtraTabPage1
             // 
             this.xtraTabPage1.Controls.Add(this.gridControl1);
+            this.xtraTabPage1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("xtraTabPage1.ImageOptions.Image")));
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(311, 623);
-            this.xtraTabPage1.Text = "AKTIF PERSONEL";
+            this.xtraTabPage1.Size = new System.Drawing.Size(311, 782);
+            this.xtraTabPage1.Text = "AKTİF PERSONEL";
             // 
             // gridControl1
             // 
@@ -2115,7 +2123,7 @@
             this.gridControl1.Location = new System.Drawing.Point(0, 0);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(311, 623);
+            this.gridControl1.Size = new System.Drawing.Size(311, 782);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -2131,6 +2139,7 @@
             // xtraTabPage2
             // 
             this.xtraTabPage2.Controls.Add(this.gridControl2);
+            this.xtraTabPage2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("xtraTabPage2.ImageOptions.Image")));
             this.xtraTabPage2.Name = "xtraTabPage2";
             this.xtraTabPage2.Size = new System.Drawing.Size(311, 623);
             this.xtraTabPage2.Text = "PASIF PERSONEL";
@@ -2155,7 +2164,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1119, 656);
+            this.ClientSize = new System.Drawing.Size(1398, 818);
             this.Controls.Add(this.panelControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FPersonelKart";

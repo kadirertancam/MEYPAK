@@ -5,6 +5,7 @@ using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository;
 using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Entity.PocoModels.STOK;
+using MEYPAK.Interfaces.Depo;
 using MEYPAK.Interfaces.Stok;
 using MEYPAK.PRL.Assets;
 using System;
@@ -13,6 +14,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -48,12 +50,31 @@ namespace MEYPAK.PRL.STOK
 
         private void BTSil_Click(object sender, EventArgs e)
         {
-            if(_tempMarka!=null)
-            _markaServis.Data(ServisList.StokMarkaSilServis,null,"filter=ID eq"+ _tempMarka.id);
-           MarkalarıGetir();
-            
-        }
+            if (_tempMarka != null && _tempMarka.id > 0)
+            {
+                _markaServis.Data(ServisList.StokMarkaDeleteByIdServis, id: _tempMarka.id.ToString(), method: HttpMethod.Post);
+                Temizle(this.Controls);
+                MessageBox.Show($"{_tempMarka.adi} adlı marka başarıyla silindi!");
+                _tempMarka = null;
+                MarkalarıGetir();
+            }
+            else
+            {
+                MessageBox.Show("Silinecek marka bulunamadı!");
+                Temizle(this.Controls);
+            }
 
+
+
+
+
+
+            // if(_tempMarka!=null)
+            // _markaServis.Data(ServisList.StokMarkaSilServis,null,"filter=ID eq"+ _tempMarka.id);
+            //MarkalarıGetir();
+
+        }
+        
 
         public void Temizle(Control.ControlCollection ctrlCollection)           //Formdaki Textboxları temizle
         {
@@ -61,8 +82,7 @@ namespace MEYPAK.PRL.STOK
             {
                 if (ctrl is TextBoxBase)
                 {
-                    if (ctrl.Name != "TBStokKodu")
-                        ctrl.Text = String.Empty;
+                    ctrl.Text = String.Empty;
                 }
                 else
                 {
@@ -81,11 +101,10 @@ namespace MEYPAK.PRL.STOK
                 kayittipi = 0
             }));
 
-            MessageBox.Show("Başarılı.");
+            MessageBox.Show("Kayıt işlemi Başarılı!");
             id = 0;
             _tempMarka = null;
             Temizle(this.Controls);
-
             MarkalarıGetir();
         }
 

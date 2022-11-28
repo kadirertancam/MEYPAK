@@ -134,7 +134,6 @@ namespace MEYPAK.PRL.DEPO
             tileView1.UpdateCurrentRow();
             tileView1.ShowEditForm();
 
-
         }
 
         private void TileView1_CustomItemTemplate(object sender, TileViewCustomItemTemplateEventArgs e)

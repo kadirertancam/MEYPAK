@@ -37,6 +37,9 @@
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.BTCik = new DevExpress.XtraEditors.SimpleButton();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
+            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.TBDepo = new DevExpress.XtraEditors.TextEdit();
@@ -47,13 +50,16 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.exceleAktarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pdfeAktarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
-            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
-            this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.DGStokSayim)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
+            this.panelControl4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
+            this.panelControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
+            this.panelControl5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
@@ -63,12 +69,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.DTPSayimTar.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBAciklama.Properties)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
-            this.panelControl5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
-            this.panelControl3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
-            this.panelControl4.SuspendLayout();
             this.SuspendLayout();
             // 
             // LBDepo
@@ -92,7 +92,7 @@
             this.BTKaydet.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
             this.BTKaydet.Appearance.Options.UseBackColor = true;
             this.BTKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTKaydet.ImageOptions.Image")));
-            this.BTKaydet.Location = new System.Drawing.Point(5, 5);
+            this.BTKaydet.Location = new System.Drawing.Point(52, 5);
             this.BTKaydet.Name = "BTKaydet";
             this.BTKaydet.Size = new System.Drawing.Size(95, 40);
             this.BTKaydet.TabIndex = 79;
@@ -122,7 +122,7 @@
             this.BTCik.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
             this.BTCik.Appearance.Options.UseBackColor = true;
             this.BTCik.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTCik.ImageOptions.Image")));
-            this.BTCik.Location = new System.Drawing.Point(106, 5);
+            this.BTCik.Location = new System.Drawing.Point(153, 5);
             this.BTCik.Name = "BTCik";
             this.BTCik.Size = new System.Drawing.Size(95, 40);
             this.BTCik.TabIndex = 80;
@@ -140,6 +140,35 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(1398, 818);
             this.panelControl1.TabIndex = 81;
+            // 
+            // panelControl4
+            // 
+            this.panelControl4.Controls.Add(this.DGStokSayim);
+            this.panelControl4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl4.Location = new System.Drawing.Point(0, 100);
+            this.panelControl4.Name = "panelControl4";
+            this.panelControl4.Size = new System.Drawing.Size(1398, 659);
+            this.panelControl4.TabIndex = 83;
+            // 
+            // panelControl3
+            // 
+            this.panelControl3.Controls.Add(this.panelControl5);
+            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelControl3.Location = new System.Drawing.Point(0, 759);
+            this.panelControl3.Name = "panelControl3";
+            this.panelControl3.Size = new System.Drawing.Size(1398, 59);
+            this.panelControl3.TabIndex = 82;
+            // 
+            // panelControl5
+            // 
+            this.panelControl5.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl5.Controls.Add(this.BTCik);
+            this.panelControl5.Controls.Add(this.BTKaydet);
+            this.panelControl5.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelControl5.Location = new System.Drawing.Point(1119, 2);
+            this.panelControl5.Name = "panelControl5";
+            this.panelControl5.Size = new System.Drawing.Size(277, 55);
+            this.panelControl5.TabIndex = 84;
             // 
             // panelControl2
             // 
@@ -239,34 +268,6 @@
             this.pdfeAktarToolStripMenuItem.Text = "Pdf\'e Aktar";
             this.pdfeAktarToolStripMenuItem.Click += new System.EventHandler(this.pdfeAktarToolStripMenuItem_Click);
             // 
-            // panelControl5
-            // 
-            this.panelControl5.Controls.Add(this.BTCik);
-            this.panelControl5.Controls.Add(this.BTKaydet);
-            this.panelControl5.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelControl5.Location = new System.Drawing.Point(1189, 2);
-            this.panelControl5.Name = "panelControl5";
-            this.panelControl5.Size = new System.Drawing.Size(207, 55);
-            this.panelControl5.TabIndex = 84;
-            // 
-            // panelControl3
-            // 
-            this.panelControl3.Controls.Add(this.panelControl5);
-            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl3.Location = new System.Drawing.Point(0, 759);
-            this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(1398, 59);
-            this.panelControl3.TabIndex = 82;
-            // 
-            // panelControl4
-            // 
-            this.panelControl4.Controls.Add(this.DGStokSayim);
-            this.panelControl4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl4.Location = new System.Drawing.Point(0, 100);
-            this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(1398, 659);
-            this.panelControl4.TabIndex = 83;
-            // 
             // FStokSayimPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -281,6 +282,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
+            this.panelControl4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
+            this.panelControl3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).EndInit();
+            this.panelControl5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
@@ -291,12 +298,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.DTPSayimTar.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBAciklama.Properties)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).EndInit();
-            this.panelControl5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
-            this.panelControl3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
-            this.panelControl4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

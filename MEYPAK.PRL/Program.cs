@@ -33,6 +33,7 @@ namespace MEYPAK.PRL
             ApplicationConfiguration.Initialize();
             Application.EnableVisualStyles();
             Application.Run(new Main());
+           
         }
         
 

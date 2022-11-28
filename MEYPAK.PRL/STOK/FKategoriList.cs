@@ -38,7 +38,7 @@ namespace MEYPAK.PRL.STOK
         FCariKart fCariKart;
         string _form;
         string _islem;
-        GenericWebServis<PocoSTOKKATEGORI> _kategoriServis;
+        
         public FKategoriList(string form = "", string islem = "")
         {
             InitializeComponent();
@@ -48,7 +48,29 @@ namespace MEYPAK.PRL.STOK
             _cariServis = new GenericWebServis<PocoCARIKART>();
         }
 
+        #region Tanımlar
         GenericWebServis<PocoCARIKART> _cariServis;
+        GenericWebServis<PocoSTOKKATEGORI> _kategoriServis;
+
+        #endregion
+
+        #region Metotlar
+        public void Temizle(Control.ControlCollection ctrlCollection)           //Formdaki Textboxları temizle
+        {
+            foreach (Control ctrl in ctrlCollection)
+            {
+                if (ctrl is TextBoxBase)
+                {
+                    ctrl.Text = String.Empty;
+                }
+                else
+                {
+                    Temizle(ctrl.Controls);
+                }
+            }
+
+        }
+
         private void FKategoriList_Load(object sender, EventArgs e)
         {
             TreeViewiDoldur();
@@ -134,6 +156,7 @@ namespace MEYPAK.PRL.STOK
                 };
                 _kategoriServis.Data(ServisList.StokKategoriEkleServis, mPKATEGORI);
                 MessageBox.Show("Yeni Kategori Başarıyla Eklendi");
+                Temizle(this.Controls);
                 TreeViewiDoldur();
             }
             else
@@ -155,6 +178,7 @@ namespace MEYPAK.PRL.STOK
                 _kategoriServis.Data(ServisList.StokKategoriEkleServis, mPKATEGORI);
 
                 MessageBox.Show("Alt Kategori Başarıyla Eklendi");
+                Temizle(this.Controls);
                 TreeViewiDoldur();
 
 
@@ -176,12 +200,15 @@ namespace MEYPAK.PRL.STOK
                         _kategoriServis.Data(ServisList.StokKategoriDeleteByIdServis,id:item.id.ToString(), method: HttpMethod.Post);
                     }
                     _kategoriServis.Data(ServisList.StokKategoriDeleteByIdServis, id: treeView.SelectedNode.Name.ToString(), method: HttpMethod.Post);
-                    MessageBox.Show($"{treeView.SelectedNode.Name} ve tüm alt kategorileri Başarıyla silindi!");
+                    MessageBox.Show("Seçili Kategori ve tüm Alt Kategorileri Başarıyla silindi!");
+                    TreeViewiDoldur();
                 }
                 else
                 {
                     _kategoriServis.Data(ServisList.StokKategoriDeleteByIdServis,id:treeView.SelectedNode.Name.ToString(), method: HttpMethod.Post);
-                    MessageBox.Show($"{treeView.SelectedNode.Name} Başarıyla silindi!");
+                    MessageBox.Show("Başarıyla silindi!");
+                    TreeViewiDoldur();
+
                 }
                 
             }
@@ -191,5 +218,7 @@ namespace MEYPAK.PRL.STOK
             }
 
         }
+
+        #endregion
     }
 }

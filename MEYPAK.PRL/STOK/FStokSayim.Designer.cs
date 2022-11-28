@@ -122,7 +122,7 @@
             this.BTKaydet.Name = "BTKaydet";
             this.BTKaydet.Size = new System.Drawing.Size(95, 40);
             this.BTKaydet.TabIndex = 62;
-            this.BTKaydet.Text = "&Kaydet";
+            this.BTKaydet.Text = "&KAYDET";
             this.BTKaydet.Click += new System.EventHandler(this.BTKaydet_Click);
             // 
             // LBAciklama

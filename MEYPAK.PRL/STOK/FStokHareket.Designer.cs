@@ -236,9 +236,9 @@
             this.groupControl2.Controls.Add(this.LBStokHarToplamCikis);
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupControl2.GroupStyle = DevExpress.Utils.GroupStyle.Light;
-            this.groupControl2.Location = new System.Drawing.Point(2, 143);
+            this.groupControl2.Location = new System.Drawing.Point(2, 132);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(1392, 100);
+            this.groupControl2.Size = new System.Drawing.Size(1392, 111);
             this.groupControl2.TabIndex = 5;
             // 
             // groupControl1

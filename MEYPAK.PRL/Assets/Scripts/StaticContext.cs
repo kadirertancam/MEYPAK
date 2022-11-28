@@ -27,7 +27,7 @@ namespace MEYPAK.PRL.Assets.Scripts
         public static IOlcuBrServis _olcuBrServis ;
         public static IStokOlcuBrServis _stokOlcuBrServis ;
         public static IDepoServis _depoServis ; 
-        public static IStokFiyatListServis _stokFiyatListServis ;
+        
         public static IStokMalKabulListServis _stokMalKabulListServis;
 
 
