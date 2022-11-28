@@ -85,7 +85,7 @@
             // 
             // TBAciklama
             // 
-            this.TBAciklama.Location = new System.Drawing.Point(115, 75);
+            this.TBAciklama.Location = new System.Drawing.Point(132, 78);
             this.TBAciklama.Name = "TBAciklama";
             this.TBAciklama.Size = new System.Drawing.Size(154, 20);
             this.TBAciklama.TabIndex = 101;
@@ -95,9 +95,9 @@
             this.BTSil.Appearance.BackColor = System.Drawing.Color.Gainsboro;
             this.BTSil.Appearance.Options.UseBackColor = true;
             this.BTSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTSil.ImageOptions.Image")));
-            this.BTSil.Location = new System.Drawing.Point(203, 4);
+            this.BTSil.Location = new System.Drawing.Point(104, 3);
             this.BTSil.Name = "BTSil";
-            this.BTSil.Size = new System.Drawing.Size(70, 34);
+            this.BTSil.Size = new System.Drawing.Size(95, 40);
             this.BTSil.TabIndex = 64;
             this.BTSil.Text = "&Sil";
             this.BTSil.Click += new System.EventHandler(this.BTSil_Click);
@@ -119,16 +119,16 @@
             this.BTKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
             this.BTKaydet.Appearance.Options.UseBackColor = true;
             this.BTKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTKaydet.ImageOptions.Image")));
-            this.BTKaydet.Location = new System.Drawing.Point(320, 33);
+            this.BTKaydet.Location = new System.Drawing.Point(3, 3);
             this.BTKaydet.Name = "BTKaydet";
-            this.BTKaydet.Size = new System.Drawing.Size(70, 34);
+            this.BTKaydet.Size = new System.Drawing.Size(95, 40);
             this.BTKaydet.TabIndex = 62;
-            this.BTKaydet.Text = "&Kaydet";
+            this.BTKaydet.Text = "&KAYDET";
             this.BTKaydet.Click += new System.EventHandler(this.BTKaydet_Click);
             // 
             // LBAciklama
             // 
-            this.LBAciklama.Location = new System.Drawing.Point(61, 78);
+            this.LBAciklama.Location = new System.Drawing.Point(77, 82);
             this.LBAciklama.Name = "LBAciklama";
             this.LBAciklama.Size = new System.Drawing.Size(41, 13);
             this.LBAciklama.TabIndex = 11;
@@ -137,7 +137,7 @@
             // DTSayimTar
             // 
             this.DTSayimTar.EditValue = new System.DateTime(2022, 11, 16, 11, 39, 26, 554);
-            this.DTSayimTar.Location = new System.Drawing.Point(115, 27);
+            this.DTSayimTar.Location = new System.Drawing.Point(132, 30);
             this.DTSayimTar.Name = "DTSayimTar";
             this.DTSayimTar.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -204,14 +204,14 @@
             this.panelControl4.Controls.Add(this.BTDuzenle);
             this.panelControl4.Controls.Add(this.BTKaydet);
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelControl4.Location = new System.Drawing.Point(617, 33);
+            this.panelControl4.Location = new System.Drawing.Point(713, 33);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(303, 90);
+            this.panelControl4.Size = new System.Drawing.Size(207, 90);
             this.panelControl4.TabIndex = 106;
             // 
             // CBDepo
             // 
-            this.CBDepo.Location = new System.Drawing.Point(115, 51);
+            this.CBDepo.Location = new System.Drawing.Point(132, 54);
             this.CBDepo.Name = "CBDepo";
             this.CBDepo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -221,7 +221,7 @@
             // 
             // LBDepo
             // 
-            this.LBDepo.Location = new System.Drawing.Point(75, 54);
+            this.LBDepo.Location = new System.Drawing.Point(91, 58);
             this.LBDepo.Name = "LBDepo";
             this.LBDepo.Size = new System.Drawing.Size(25, 13);
             this.LBDepo.TabIndex = 104;
@@ -229,7 +229,7 @@
             // 
             // LBTarih
             // 
-            this.LBTarih.Location = new System.Drawing.Point(75, 29);
+            this.LBTarih.Location = new System.Drawing.Point(91, 33);
             this.LBTarih.Name = "LBTarih";
             this.LBTarih.Size = new System.Drawing.Size(24, 13);
             this.LBTarih.TabIndex = 103;

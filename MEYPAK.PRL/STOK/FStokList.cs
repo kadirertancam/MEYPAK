@@ -33,7 +33,7 @@ namespace MEYPAK.PRL.STOK
         FStokKart fSTOKKART;
         FStokHareket fStokHareket;
         FStokSayimPanel fStokSayimPanel;
-        FStokFiyatListPanel fstokFiyatListPanel;
+        
         FMusteriSiparis fSiparis;
         FSatinAlmaSiparis _fSatınAlmaSiparis;
         FDepolarArasıTransferHar fDepolarArasıHar;
@@ -72,8 +72,7 @@ namespace MEYPAK.PRL.STOK
                         fStokHareket = (FStokHareket)frm;
                     if (frm.Name.Contains("FStokKart"))
                         fSTOKKART = (FStokKart)frm;
-                    if(frm.Name.Contains("FStokFiyatListPanel"))
-                        fstokFiyatListPanel=(FStokFiyatListPanel)frm;
+                    
                     if (frm.Name.Contains("FDepolarArasıTransferHar"))
                         fDepolarArasıHar=(FDepolarArasıTransferHar)frm;
                     if (frm.Name.Contains("FMusteriSiparis"))
@@ -124,11 +123,7 @@ namespace MEYPAK.PRL.STOK
                 if (fStokHareket != null)
                     fStokHareket._tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
             }
-            else if (_islem == "stokfiyatlistpanel")
-            {
-                if (fstokFiyatListPanel != null)
-                    fstokFiyatListPanel._tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
-            }
+           
             else if (_islem == "siparis")
             {
                 if (fSiparis != null)

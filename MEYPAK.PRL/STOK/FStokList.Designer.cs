@@ -51,7 +51,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1064, 564);
+            this.panel1.Size = new System.Drawing.Size(1398, 818);
             this.panel1.TabIndex = 1;
             // 
             // panel2
@@ -60,7 +60,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 25);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1064, 539);
+            this.panel2.Size = new System.Drawing.Size(1398, 793);
             this.panel2.TabIndex = 2;
             // 
             // DGStokList
@@ -69,7 +69,7 @@
             this.DGStokList.Location = new System.Drawing.Point(0, 0);
             this.DGStokList.MainView = this.gridView1;
             this.DGStokList.Name = "DGStokList";
-            this.DGStokList.Size = new System.Drawing.Size(1064, 539);
+            this.DGStokList.Size = new System.Drawing.Size(1398, 793);
             this.DGStokList.TabIndex = 0;
             this.DGStokList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -77,6 +77,7 @@
             // 
             // gridView1
             // 
+            this.gridView1.DetailHeight = 303;
             this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
             this.gridView1.GridControl = this.DGStokList;
             this.gridView1.Name = "gridView1";
@@ -93,7 +94,7 @@
             this.TSStokList.Location = new System.Drawing.Point(0, 0);
             this.TSStokList.Name = "TSStokList";
             this.TSStokList.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.TSStokList.Size = new System.Drawing.Size(1064, 25);
+            this.TSStokList.Size = new System.Drawing.Size(1398, 25);
             this.TSStokList.TabIndex = 1;
             this.TSStokList.Text = "toolStrip1";
             // 
@@ -122,9 +123,9 @@
             // 
             // FStokList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1064, 564);
+            this.ClientSize = new System.Drawing.Size(1398, 818);
             this.Controls.Add(this.panel1);
             this.Name = "FStokList";
             this.Text = "FStokList";

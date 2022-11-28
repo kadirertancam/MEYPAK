@@ -4,6 +4,7 @@ using MEYPAK.DAL.Abstract.StokDal;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository;
 using MEYPAK.Entity.PocoModels.STOK;
+using MEYPAK.Interfaces.Depo;
 using MEYPAK.Interfaces.Kasa;
 using MEYPAK.Interfaces.Parametre;
 using MEYPAK.Interfaces.Stok;
@@ -15,6 +16,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -41,6 +43,23 @@ namespace MEYPAK.PRL.STOK
         #endregion
 
         #region Metotlar
+
+        public void Temizle(Control.ControlCollection ctrlCollection)           //Formdaki Textboxları temizle
+        {
+            foreach (Control ctrl in ctrlCollection)
+            {
+                if (ctrl is TextBoxBase)
+                {
+                    ctrl.Text = String.Empty;
+                }
+                else
+                {
+                    Temizle(ctrl.Controls);
+                }
+            }
+
+        }
+
         private void BTKaydet_Click(object sender, EventArgs e)
         {
            
@@ -109,14 +128,27 @@ namespace MEYPAK.PRL.STOK
 
         private void BTSil_Click(object sender, EventArgs e)
         {
-            _kasaServis.Data(ServisList.StokKasaListeServis);
-            _kasaServis.Data(ServisList.StokKasaSilServis, null, null, _kasaServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).ToList());
-            MessageBox.Show("Silme işlemi Başarılı!");
-            DGKasaPanel.DataSource = _kasaServis.obje.Where(x => x.kayittipi == 0);
-            DataGridDoldur();
-        }
+            if (_tempStokKasaPanel != null && _tempStokKasaPanel.id > 0)
+            {
+                _kasaServis.Data(ServisList.StokKasaDeleteByIdServis, id: _tempStokKasaPanel.id.ToString(), method: HttpMethod.Post);
+                Temizle(this.Controls);
+                MessageBox.Show($"{_tempStokKasaPanel.kasaadi} adlı kasa başarıyla silindi!");
+                _tempStokKasaPanel = null;
+                DataGridDoldur();
+            }
+            else
+            {
+                MessageBox.Show("Silinecek kasa bulunamadı!");
+                Temizle(this.Controls);
+            }
 
-        #endregion
+
+            //_kasaServis.Data(ServisList.StokKasaListeServis);
+            //_kasaServis.Data(ServisList.StokKasaSilServis, null, null, _kasaServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).ToList());
+            //MessageBox.Show("Silme işlemi Başarılı!");
+            //DGKasaPanel.DataSource = _kasaServis.obje.Where(x => x.kayittipi == 0);
+            //DataGridDoldur();
+        }
 
         private void gridView1_DoubleClick(object sender, EventArgs e)
         {
@@ -128,13 +160,17 @@ namespace MEYPAK.PRL.STOK
 
         private void buttonEdit1_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            fStokKasaMarkaList = new FStokKasaMarkaList(this.Tag.ToString(),"FStokKasa");
+            fStokKasaMarkaList = new FStokKasaMarkaList(this.Tag.ToString(), "FStokKasa");
             fStokKasaMarkaList.ShowDialog();
             if (_tempStokMarka != null)
             {
                 buttonEdit1.Text = _tempStokMarka.kod;
-                textEdit1.Text=_tempStokMarka.adi;
+                textEdit1.Text = _tempStokMarka.adi;
             }
         }
+
+        #endregion
+
+
     }
 }

@@ -16,8 +16,8 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
     {
         MEYPAKContext _context;
 
-        EFStokFiyatListRepo rr;
-        EFStokFiyatListHarRepo ss;
+        //EFStokFiyatListRepo rr;
+        //EFStokFiyatListHarRepo ss;
         EFStokOlcuBrRepo yy;
         EFOlcuBrRepo aa;
         public EFStokRepo(MEYPAKContext context) : base(context)

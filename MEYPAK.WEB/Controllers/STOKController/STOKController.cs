@@ -15,8 +15,7 @@ namespace MEYPAK.WEB.Controllers.STOKController
         GenericWebServis<PocoSTOK> _tempPocoStok = new GenericWebServis<PocoSTOK>();
         GenericWebServis<PocoHIZMET> _tempPocoHizmet = new GenericWebServis<PocoHIZMET>();
         GenericWebServis<PocoOLCUBR> _tempPocoOlcuBr = new GenericWebServis<PocoOLCUBR>();
-        GenericWebServis<PocoSTOKFIYATLIST> _tempPocoStokFiyatList = new GenericWebServis<PocoSTOKFIYATLIST>();
-        GenericWebServis<PocoSTOKFIYATLISTHAR> _tempPocoStokFiyatHarList = new GenericWebServis<PocoSTOKFIYATLISTHAR>();
+        
         GenericWebServis<PocoSTOKHAR> _tempPocoStokHar = new GenericWebServis<PocoSTOKHAR>();
         GenericWebServis<PocoSTOKKASA> _tempPocoStokKasa = new GenericWebServis<PocoSTOKKASA>();
         GenericWebServis<PocoSTOKKATEGORI> _tempPocoStokKategori = new GenericWebServis<PocoSTOKKATEGORI>();
@@ -197,113 +196,8 @@ namespace MEYPAK.WEB.Controllers.STOKController
 
         #endregion
 
-        #region STOKFIYATLIST
-
-        [HttpGet]
-        public async Task<IActionResult> StokFiyatListKart()
-        { 
-            tempstokkartid=0;
-            return View();
-        }
-
-        [HttpGet]
-        public object StokFiyatListGet(DataSourceLoadOptions loadOptions)
-        {
-            //var a = loadOptions.Take;
-            //var b = loadOptions.Skip;
-            //string url = "http://213.238.167.117:8080/Stok/PagingList?skip="+b+"&take="+a+"&requireTotalCount=true";
-            //_tempPocoStok.Data(url);
-            _tempPocoStokFiyatList.Data(ServisList.StokFiyatListListeServis);
-            return DataSourceLoader.Load(_tempPocoStokFiyatList.obje.Where(x => x.kayittipi == 0).Reverse().AsEnumerable(), loadOptions);
-        }
-        [HttpPut]
-        public async Task<IActionResult> StokFiyatListPut(int key, string values)
-        { //güncellenecek
-            _tempPocoStokFiyatList.Data(ServisList.StokFiyatListListeServis);
-            var employee = _tempPocoStokFiyatList.obje.First(a => a.id == key);
-            JsonConvert.PopulateObject(values, employee);
-
-            //_tempPocoStok.Data(ServisList.StokEkleServis, id);
-
-            _tempPocoStokFiyatList.Data(ServisList.StokFiyatListEkleServis, employee);
-            ViewBag.Durum = "Başarıyla Güncellendi.";
-            return Ok(_tempPocoStokFiyatList.obje.FirstOrDefault().id);
-        }
-        [HttpPost]
-        public   IActionResult StokFiyatListPost(string values)
-        {
-            PocoSTOKFIYATLIST newPoco = new PocoSTOKFIYATLIST();
-            JsonConvert.PopulateObject(values, newPoco);
-            _tempPocoStokFiyatList.Data(ServisList.StokFiyatListEkleServis, newPoco);
-            tempstokkartid = _tempPocoStokFiyatList.obje2.id;
-            return Ok();
-
-        }
-        [HttpDelete]
-        public void StokFiyatListDelete(int key)
-        {
-            string url = ServisList.StokFiyatListDeleteByIdServis;
-            url += "?id=";
-            url += key;
-            _tempPocoStokFiyatList.Data(url, method: HttpMethod.Post);
-            ViewBag.Durum = "Başarıyla silindi.";
-        }
-
-        #endregion
-
-        #region STOKFIYATLISTHAR
-
-        [HttpGet]
-        public   IActionResult StokFiyatListHarKart([FromQuery] int id)
-        {
-            if (id!=0)
-            {
-                tempstokkartid = id;
-            }
-            if (tempstokkartid != 0)
-                return View();
-            else 
-                return Redirect("http://localhost:5232/Home/Error"); 
-        }
-
-        [HttpGet]
-        public object StokFiyatListHarGet(DataSourceLoadOptions loadOptions)
-        {
-            _tempPocoStokFiyatHarList.Data(ServisList.StokFiyatListHarListeServis);
-            return DataSourceLoader.Load(_tempPocoStokFiyatHarList.obje.Where(x => x.kayittipi == 0 && x.fiyatlistid == tempstokkartid).Reverse().AsEnumerable(), loadOptions);
-        }
-        [HttpPut]
-        public async Task<IActionResult> StokFiyatListHarPut(int key, string values)
-        { //güncellenecek
-            _tempPocoStokFiyatHarList.Data(ServisList.StokFiyatListHarListeServis);
-            var employee = _tempPocoStokFiyatHarList.obje.First(a => a.id == key);
-            JsonConvert.PopulateObject(values, employee);
-            _tempPocoStokFiyatHarList.Data(ServisList.StokFiyatListHarEkleServis, employee);
-            ViewBag.Durum = "Başarıyla Güncellendi.";
-            return Ok();
-        }
-        [HttpPost]
-        public async Task<IActionResult> StokFiyatListHarPost(string values)
-        {
-            PocoSTOKFIYATLISTHAR newPoco = new PocoSTOKFIYATLISTHAR();
-            JsonConvert.PopulateObject(values, newPoco);
-            newPoco.fiyatlistid = tempstokkartid;
-            _tempPocoStokFiyatHarList.Data(ServisList.StokFiyatListHarEkleServis, newPoco);
-            
-            ViewBag.Durum = "Başarıyla eklendi.";
-            return Ok();
-        }
-        [HttpDelete]
-        public void StokFiyatListHarDelete(int key)
-        {
-            string url = ServisList.StokFiyatListHarDeleteByIdServis;
-            url += "?id=";
-            url += key;
-            _tempPocoStokFiyatHarList.Data(url, method: HttpMethod.Post);
-            ViewBag.Durum = "Başarıyla silindi.";
-        }
-
-        #endregion
+       
+    
 
         #region STOKHAR
 

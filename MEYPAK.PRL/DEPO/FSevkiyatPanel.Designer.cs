@@ -117,18 +117,22 @@
             this.Renk.AccessibleName = "Renk";
             this.Renk.Caption = "Renk";
             this.Renk.FieldName = "Renk";
+            this.Renk.MinWidth = 17;
             this.Renk.Name = "Renk";
             this.Renk.Visible = true;
             this.Renk.VisibleIndex = 7;
+            this.Renk.Width = 64;
             // 
             // DURUM
             // 
             this.DURUM.AccessibleName = "DURUM";
             this.DURUM.Caption = "DURUM";
             this.DURUM.FieldName = "DURUM";
+            this.DURUM.MinWidth = 17;
             this.DURUM.Name = "DURUM";
             this.DURUM.Visible = true;
             this.DURUM.VisibleIndex = 5;
+            this.DURUM.Width = 64;
             // 
             // repositoryItemPictureEdit1
             // 
@@ -141,7 +145,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1905, 859);
+            this.panel1.Size = new System.Drawing.Size(1633, 744);
             this.panel1.TabIndex = 0;
             // 
             // panel3
@@ -149,18 +153,18 @@
             this.panel3.Controls.Add(this.panel7);
             this.panel3.Controls.Add(this.panel6);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 616);
+            this.panel3.Location = new System.Drawing.Point(0, 534);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1905, 243);
+            this.panel3.Size = new System.Drawing.Size(1633, 210);
             this.panel3.TabIndex = 1;
             // 
             // panel7
             // 
             this.panel7.Controls.Add(this.groupBox4);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(964, 0);
+            this.panel7.Location = new System.Drawing.Point(826, 0);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(941, 243);
+            this.panel7.Size = new System.Drawing.Size(807, 210);
             this.panel7.TabIndex = 1;
             // 
             // groupBox4
@@ -170,7 +174,7 @@
             this.groupBox4.ForeColor = System.Drawing.Color.Chocolate;
             this.groupBox4.Location = new System.Drawing.Point(0, 0);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(941, 243);
+            this.groupBox4.Size = new System.Drawing.Size(807, 210);
             this.groupBox4.TabIndex = 2;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "groupBox4";
@@ -178,10 +182,10 @@
             // gridControl4
             // 
             this.gridControl4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl4.Location = new System.Drawing.Point(3, 19);
+            this.gridControl4.Location = new System.Drawing.Point(3, 17);
             this.gridControl4.MainView = this.tileView4;
             this.gridControl4.Name = "gridControl4";
-            this.gridControl4.Size = new System.Drawing.Size(935, 221);
+            this.gridControl4.Size = new System.Drawing.Size(801, 190);
             this.gridControl4.TabIndex = 0;
             this.gridControl4.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.tileView4});
@@ -196,6 +200,7 @@
             this.CKMIKTAR,
             this.CBIRIM,
             this.CDEPO});
+            this.tileView4.DetailHeight = 303;
             this.tileView4.GridControl = this.gridControl4;
             this.tileView4.Name = "tileView4";
             this.tileView4.OptionsTiles.ColumnCount = 1;
@@ -219,45 +224,55 @@
             this.KOD.AccessibleName = "KOD";
             this.KOD.Caption = "KOD";
             this.KOD.FieldName = "KOD";
+            this.KOD.MinWidth = 17;
             this.KOD.Name = "KOD";
             this.KOD.Visible = true;
             this.KOD.VisibleIndex = 0;
+            this.KOD.Width = 64;
             // 
             // ADI
             // 
             this.ADI.AccessibleName = "ADI";
             this.ADI.Caption = "ADI";
             this.ADI.FieldName = "ADI";
+            this.ADI.MinWidth = 17;
             this.ADI.Name = "ADI";
             this.ADI.Visible = true;
             this.ADI.VisibleIndex = 1;
+            this.ADI.Width = 64;
             // 
             // CKMIKTAR
             // 
             this.CKMIKTAR.AccessibleName = "CKMIKTAR";
             this.CKMIKTAR.Caption = "CKMIKTAR";
             this.CKMIKTAR.FieldName = "CKMIKTAR";
+            this.CKMIKTAR.MinWidth = 17;
             this.CKMIKTAR.Name = "CKMIKTAR";
             this.CKMIKTAR.Visible = true;
             this.CKMIKTAR.VisibleIndex = 2;
+            this.CKMIKTAR.Width = 64;
             // 
             // CBIRIM
             // 
             this.CBIRIM.AccessibleName = "CBIRIM";
             this.CBIRIM.Caption = "CBIRIM";
             this.CBIRIM.FieldName = "CBIRIM";
+            this.CBIRIM.MinWidth = 17;
             this.CBIRIM.Name = "CBIRIM";
             this.CBIRIM.Visible = true;
             this.CBIRIM.VisibleIndex = 3;
+            this.CBIRIM.Width = 64;
             // 
             // CDEPO
             // 
             this.CDEPO.AccessibleName = "CDEPO";
             this.CDEPO.Caption = "CDEPO";
             this.CDEPO.FieldName = "CDEPO";
+            this.CDEPO.MinWidth = 17;
             this.CDEPO.Name = "CDEPO";
             this.CDEPO.Visible = true;
             this.CDEPO.VisibleIndex = 4;
+            this.CDEPO.Width = 64;
             // 
             // panel6
             // 
@@ -265,7 +280,7 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(964, 243);
+            this.panel6.Size = new System.Drawing.Size(826, 210);
             this.panel6.TabIndex = 0;
             // 
             // groupBox3
@@ -275,7 +290,7 @@
             this.groupBox3.ForeColor = System.Drawing.Color.Chocolate;
             this.groupBox3.Location = new System.Drawing.Point(0, 0);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(964, 243);
+            this.groupBox3.Size = new System.Drawing.Size(826, 210);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "groupBox3";
@@ -283,10 +298,10 @@
             // gridControl3
             // 
             this.gridControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl3.Location = new System.Drawing.Point(3, 19);
+            this.gridControl3.Location = new System.Drawing.Point(3, 17);
             this.gridControl3.MainView = this.tileView3;
             this.gridControl3.Name = "gridControl3";
-            this.gridControl3.Size = new System.Drawing.Size(958, 221);
+            this.gridControl3.Size = new System.Drawing.Size(820, 190);
             this.gridControl3.TabIndex = 0;
             this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.tileView3});
@@ -307,6 +322,7 @@
             this.IEDepo,
             this.DepoButon,
             this.Resim});
+            this.tileView3.DetailHeight = 303;
             this.tileView3.GridControl = this.gridControl3;
             this.tileView3.Name = "tileView3";
             this.tileView3.OptionsTiles.GroupTextPadding = new System.Windows.Forms.Padding(12, 8, 12, 8);
@@ -329,99 +345,121 @@
             this.StokAdi.AccessibleName = "StokAdi";
             this.StokAdi.Caption = "StokAdi";
             this.StokAdi.FieldName = "StokAdi";
+            this.StokAdi.MinWidth = 17;
             this.StokAdi.Name = "StokAdi";
             this.StokAdi.Visible = true;
             this.StokAdi.VisibleIndex = 0;
+            this.StokAdi.Width = 64;
             // 
             // IEBelgeno
             // 
             this.IEBelgeno.AccessibleName = "IEBelgeno";
             this.IEBelgeno.Caption = "IEBelgeno";
             this.IEBelgeno.FieldName = "IEBelgeno";
+            this.IEBelgeno.MinWidth = 17;
             this.IEBelgeno.Name = "IEBelgeno";
             this.IEBelgeno.Visible = true;
             this.IEBelgeno.VisibleIndex = 1;
+            this.IEBelgeno.Width = 64;
             // 
             // StokKodu
             // 
             this.StokKodu.AccessibleName = "StokKodu";
             this.StokKodu.Caption = "StokKodu";
             this.StokKodu.FieldName = "StokKodu";
+            this.StokKodu.MinWidth = 17;
             this.StokKodu.Name = "StokKodu";
             this.StokKodu.Visible = true;
             this.StokKodu.VisibleIndex = 2;
+            this.StokKodu.Width = 64;
             // 
             // EmirNo
             // 
             this.EmirNo.AccessibleName = "EmirNo";
             this.EmirNo.Caption = "EmirNo";
             this.EmirNo.FieldName = "EmirNo";
+            this.EmirNo.MinWidth = 17;
             this.EmirNo.Name = "EmirNo";
             this.EmirNo.Visible = true;
             this.EmirNo.VisibleIndex = 3;
+            this.EmirNo.Width = 64;
             // 
             // SiparisMiktari
             // 
             this.SiparisMiktari.AccessibleName = "SiparisMiktari";
             this.SiparisMiktari.Caption = "SiparisMiktari";
             this.SiparisMiktari.FieldName = "SiparisMiktari";
+            this.SiparisMiktari.MinWidth = 17;
             this.SiparisMiktari.Name = "SiparisMiktari";
             this.SiparisMiktari.Visible = true;
             this.SiparisMiktari.VisibleIndex = 4;
+            this.SiparisMiktari.Width = 64;
             // 
             // EmirMiktari
             // 
             this.EmirMiktari.AccessibleName = "EmirMiktari";
             this.EmirMiktari.Caption = "EmirMiktari";
             this.EmirMiktari.FieldName = "EmirMiktari";
+            this.EmirMiktari.MinWidth = 17;
             this.EmirMiktari.Name = "EmirMiktari";
             this.EmirMiktari.Visible = true;
             this.EmirMiktari.VisibleIndex = 5;
+            this.EmirMiktari.Width = 64;
             // 
             // KalanMiktar
             // 
             this.KalanMiktar.AccessibleName = "KalanMiktar";
             this.KalanMiktar.Caption = "KalanMiktar";
             this.KalanMiktar.FieldName = "KalanMiktar";
+            this.KalanMiktar.MinWidth = 17;
             this.KalanMiktar.Name = "KalanMiktar";
             this.KalanMiktar.Visible = true;
             this.KalanMiktar.VisibleIndex = 6;
+            this.KalanMiktar.Width = 64;
             // 
             // Birim
             // 
             this.Birim.AccessibleName = "Birim";
             this.Birim.Caption = "Birim";
             this.Birim.FieldName = "Birim";
+            this.Birim.MinWidth = 17;
             this.Birim.Name = "Birim";
             this.Birim.Visible = true;
             this.Birim.VisibleIndex = 7;
+            this.Birim.Width = 64;
             // 
             // IEDepo
             // 
             this.IEDepo.AccessibleName = "IEDepo";
             this.IEDepo.Caption = "IEDepo";
             this.IEDepo.FieldName = "IEDepo";
+            this.IEDepo.MinWidth = 17;
             this.IEDepo.Name = "IEDepo";
             this.IEDepo.Visible = true;
             this.IEDepo.VisibleIndex = 8;
+            this.IEDepo.Width = 64;
             // 
             // DepoButon
             // 
             this.DepoButon.AccessibleName = "DepoButon";
             this.DepoButon.Caption = "DepoButon";
             this.DepoButon.FieldName = "DepoButon";
+            this.DepoButon.MinWidth = 17;
             this.DepoButon.Name = "DepoButon";
             this.DepoButon.Visible = true;
             this.DepoButon.VisibleIndex = 9;
+            this.DepoButon.Width = 64;
             // 
             // Resim
             // 
             this.Resim.AccessibleName = "Resim";
             this.Resim.Caption = "Resim";
             this.Resim.FieldName = "Resim";
+            this.Resim.MinWidth = 17;
             this.Resim.Name = "Resim";
             this.Resim.Visible = true;
             this.Resim.VisibleIndex = 10;
+            this.Resim.Width = 64;
             // 
             // panel2
             // 
@@ -430,16 +468,16 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1905, 616);
+            this.panel2.Size = new System.Drawing.Size(1633, 534);
             this.panel2.TabIndex = 0;
             // 
             // panel5
             // 
             this.panel5.Controls.Add(this.tabControl1);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(964, 0);
+            this.panel5.Location = new System.Drawing.Point(826, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(941, 616);
+            this.panel5.Size = new System.Drawing.Size(807, 534);
             this.panel5.TabIndex = 1;
             // 
             // tabControl1
@@ -450,7 +488,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(941, 616);
+            this.tabControl1.Size = new System.Drawing.Size(807, 534);
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl1.TabIndex = 0;
             this.tabControl1.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControl1_DrawItem);
@@ -460,10 +498,10 @@
             this.tabPage1.BackColor = System.Drawing.Color.Gray;
             this.tabPage1.Controls.Add(this.gridControl2);
             this.tabPage1.ForeColor = System.Drawing.Color.Chocolate;
-            this.tabPage1.Location = new System.Drawing.Point(4, 24);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(933, 588);
+            this.tabPage1.Size = new System.Drawing.Size(799, 508);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Toplama Emirleri";
             // 
@@ -473,7 +511,7 @@
             this.gridControl2.Location = new System.Drawing.Point(3, 3);
             this.gridControl2.MainView = this.tileView2;
             this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(927, 582);
+            this.gridControl2.Size = new System.Drawing.Size(793, 502);
             this.gridControl2.TabIndex = 0;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.tileView2});
@@ -496,6 +534,7 @@
             this.DURUM,
             this.Renk});
             this.tileView2.ColumnSet.GroupColumn = this.BELGENO;
+            this.tileView2.DetailHeight = 303;
             gridFormatRule1.Column = this.Renk;
             gridFormatRule1.ColumnApplyTo = this.DURUM;
             gridFormatRule1.Name = "Green";
@@ -531,63 +570,75 @@
             this.BELGENO.AppearanceHeader.Options.UseBackColor = true;
             this.BELGENO.Caption = "BELGENO";
             this.BELGENO.FieldName = "BELGENO";
+            this.BELGENO.MinWidth = 17;
             this.BELGENO.Name = "BELGENO";
             this.BELGENO.Visible = true;
             this.BELGENO.VisibleIndex = 0;
+            this.BELGENO.Width = 64;
             // 
             // ID
             // 
             this.ID.AccessibleName = "ID";
             this.ID.Caption = "ID";
             this.ID.FieldName = "ID";
+            this.ID.MinWidth = 17;
             this.ID.Name = "ID";
             this.ID.Visible = true;
             this.ID.VisibleIndex = 6;
+            this.ID.Width = 64;
             // 
             // MIKTAR
             // 
             this.MIKTAR.AccessibleName = "MIKTAR";
             this.MIKTAR.Caption = "MIKTAR";
             this.MIKTAR.FieldName = "MIKTAR";
+            this.MIKTAR.MinWidth = 17;
             this.MIKTAR.Name = "MIKTAR";
             this.MIKTAR.Visible = true;
             this.MIKTAR.VisibleIndex = 1;
+            this.MIKTAR.Width = 64;
             // 
             // CARIADI
             // 
             this.CARIADI.AccessibleName = "CARIADI";
             this.CARIADI.Caption = "CARIADI";
             this.CARIADI.FieldName = "CARIADI";
+            this.CARIADI.MinWidth = 17;
             this.CARIADI.Name = "CARIADI";
             this.CARIADI.Visible = true;
             this.CARIADI.VisibleIndex = 2;
+            this.CARIADI.Width = 64;
             // 
             // DEPO
             // 
             this.DEPO.AccessibleName = "DEPO";
             this.DEPO.Caption = "DEPO";
             this.DEPO.FieldName = "DEPO";
+            this.DEPO.MinWidth = 17;
             this.DEPO.Name = "DEPO";
             this.DEPO.Visible = true;
             this.DEPO.VisibleIndex = 3;
+            this.DEPO.Width = 64;
             // 
             // TIP
             // 
             this.TIP.AccessibleName = "TIP";
             this.TIP.Caption = "TIP";
             this.TIP.FieldName = "TIP";
+            this.TIP.MinWidth = 17;
             this.TIP.Name = "TIP";
             this.TIP.Visible = true;
             this.TIP.VisibleIndex = 4;
+            this.TIP.Width = 64;
             // 
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.Gray;
             this.tabPage2.Controls.Add(this.dataGridView5);
-            this.tabPage2.Location = new System.Drawing.Point(4, 24);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(933, 588);
+            this.tabPage2.Size = new System.Drawing.Size(799, 508);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Paketleme Emirleri";
             // 
@@ -598,7 +649,7 @@
             this.dataGridView5.Location = new System.Drawing.Point(3, 3);
             this.dataGridView5.Name = "dataGridView5";
             this.dataGridView5.RowTemplate.Height = 25;
-            this.dataGridView5.Size = new System.Drawing.Size(927, 582);
+            this.dataGridView5.Size = new System.Drawing.Size(793, 502);
             this.dataGridView5.TabIndex = 0;
             // 
             // panel4
@@ -607,7 +658,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(964, 616);
+            this.panel4.Size = new System.Drawing.Size(826, 534);
             this.panel4.TabIndex = 0;
             // 
             // groupBox1
@@ -617,7 +668,7 @@
             this.groupBox1.ForeColor = System.Drawing.Color.Chocolate;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(964, 616);
+            this.groupBox1.Size = new System.Drawing.Size(826, 534);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
@@ -625,14 +676,14 @@
             // gridControl1
             // 
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(3, 19);
+            this.gridControl1.Location = new System.Drawing.Point(3, 17);
             this.gridControl1.MainView = this.tileView1;
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemPictureEdit1,
             this.repositoryItemImageEdit1,
             this.repositoryItemImageEdit2});
-            this.gridControl1.Size = new System.Drawing.Size(958, 594);
+            this.gridControl1.Size = new System.Drawing.Size(820, 514);
             this.gridControl1.TabIndex = 1;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.tileView1});
@@ -647,6 +698,7 @@
             this.CCariAdi,
             this.CResim,
             this.CCerceve});
+            this.tileView1.DetailHeight = 303;
             this.tileView1.GridControl = this.gridControl1;
             this.tileView1.Name = "tileView1";
             this.tileView1.OptionsTiles.GroupTextPadding = new System.Windows.Forms.Padding(12, 8, 12, 8);
@@ -670,27 +722,33 @@
             this.CSevkiyatTarihi.AccessibleName = "CSevkiyatTarihi";
             this.CSevkiyatTarihi.Caption = "Sevkiyat Tarihi";
             this.CSevkiyatTarihi.FieldName = "CSevkiyatTarihi";
+            this.CSevkiyatTarihi.MinWidth = 17;
             this.CSevkiyatTarihi.Name = "CSevkiyatTarihi";
             this.CSevkiyatTarihi.Visible = true;
             this.CSevkiyatTarihi.VisibleIndex = 0;
+            this.CSevkiyatTarihi.Width = 64;
             // 
             // CBelgeNo
             // 
             this.CBelgeNo.AccessibleName = "CBelgeNo";
             this.CBelgeNo.Caption = "CBelgeNo";
             this.CBelgeNo.FieldName = "CBelgeNo";
+            this.CBelgeNo.MinWidth = 17;
             this.CBelgeNo.Name = "CBelgeNo";
             this.CBelgeNo.Visible = true;
             this.CBelgeNo.VisibleIndex = 1;
+            this.CBelgeNo.Width = 64;
             // 
             // CCariAdi
             // 
             this.CCariAdi.AccessibleName = "CCariAdi";
             this.CCariAdi.Caption = "Cari Adı";
             this.CCariAdi.FieldName = "CCariAdi";
+            this.CCariAdi.MinWidth = 17;
             this.CCariAdi.Name = "CCariAdi";
             this.CCariAdi.Visible = true;
             this.CCariAdi.VisibleIndex = 2;
+            this.CCariAdi.Width = 64;
             // 
             // CResim
             // 
@@ -698,9 +756,11 @@
             this.CResim.Caption = "Resim";
             this.CResim.ColumnEdit = this.repositoryItemImageEdit2;
             this.CResim.FieldName = "CResim";
+            this.CResim.MinWidth = 17;
             this.CResim.Name = "CResim";
             this.CResim.Visible = true;
             this.CResim.VisibleIndex = 3;
+            this.CResim.Width = 64;
             // 
             // repositoryItemImageEdit2
             // 
@@ -714,9 +774,11 @@
             // 
             this.CCerceve.Caption = "CCerceve";
             this.CCerceve.ColumnEdit = this.repositoryItemImageEdit1;
+            this.CCerceve.MinWidth = 17;
             this.CCerceve.Name = "CCerceve";
             this.CCerceve.Visible = true;
             this.CCerceve.VisibleIndex = 4;
+            this.CCerceve.Width = 64;
             // 
             // repositoryItemImageEdit1
             // 
@@ -727,12 +789,11 @@
             // 
             // FSevkiyatPanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(1905, 859);
+            this.ClientSize = new System.Drawing.Size(1633, 744);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FSevkiyatPanel";
             this.Text = " ";
             this.Load += new System.EventHandler(this.FSevkiyatPanel_Load);

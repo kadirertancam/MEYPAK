@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FDepoIsEmriPanel));
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
@@ -54,7 +55,7 @@
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckEdit1});
-            this.gridControl1.Size = new System.Drawing.Size(792, 373);
+            this.gridControl1.Size = new System.Drawing.Size(1390, 750);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -62,6 +63,7 @@
             // 
             // gridView1
             // 
+            this.gridView1.DetailHeight = 303;
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.RowCellClick += new DevExpress.XtraGrid.Views.Grid.RowCellClickEventHandler(this.gridView1_RowCellClick);
@@ -80,16 +82,16 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(800, 450);
+            this.panelControl1.Size = new System.Drawing.Size(1398, 818);
             this.panelControl1.TabIndex = 1;
             // 
             // panelControl3
             // 
             this.panelControl3.Controls.Add(this.gridControl1);
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl3.Location = new System.Drawing.Point(2, 71);
+            this.panelControl3.Location = new System.Drawing.Point(2, 62);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(796, 377);
+            this.panelControl3.Size = new System.Drawing.Size(1394, 754);
             this.panelControl3.TabIndex = 2;
             // 
             // panelControl2
@@ -98,24 +100,28 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl2.Location = new System.Drawing.Point(2, 2);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(796, 69);
+            this.panelControl2.Size = new System.Drawing.Size(1394, 60);
             this.panelControl2.TabIndex = 1;
             // 
             // simpleButton1
             // 
-            this.simpleButton1.Location = new System.Drawing.Point(657, 10);
+            this.simpleButton1.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.simpleButton1.Appearance.Options.UseBackColor = true;
+            this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.simpleButton1.Location = new System.Drawing.Point(563, 9);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(129, 54);
+            this.simpleButton1.Size = new System.Drawing.Size(147, 40);
             this.simpleButton1.TabIndex = 0;
             this.simpleButton1.Text = "İş Emri Oluştur";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // FDepoIsEmriPanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1398, 818);
             this.Controls.Add(this.panelControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FDepoIsEmriPanel";
             this.Text = "FDepoIsEmriPanel";
             this.Load += new System.EventHandler(this.FDepoIsEmriPanel_Load);

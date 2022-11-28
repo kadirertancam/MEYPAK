@@ -69,7 +69,7 @@ namespace MEYPAK.PRL
         FMusteriSiparis fSiparis;
         FSatinAlmaSiparis fSatinAlmaSiparis;
         FMalKabulPanel fMalKabulPanel; 
-        FStokFiyatList fStokFiyatList;
+       
         FCariHareket fCariHareket;
         FCariDurum fCariDurum;
         FCariKart fCariKart;
@@ -592,44 +592,25 @@ namespace MEYPAK.PRL
             i++;
         }
 
-        private void accordionControlElement48_Click(object sender, EventArgs e)
-        {
-            XtraTabPage page = new XtraTabPage();
-            fFAlisIrsaliye = new FAlisIrsaliye();
-            page.Name = "TPAlisIrsaliye" + i;
-            page.Text = "Alış Irsaliye";
-            page.Tag = "TPAlisIrsaliye" + i;
-            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+        //private void accordionControlElement48_Click(object sender, EventArgs e)
+        //{
+        //    XtraTabPage page = new XtraTabPage();
+        //    fiyatList = new FStokFiyatList();
+        //    page.Name = "TPStokFiyatListPanel" + i;
+        //    page.Text = "Stok Fiyat List Panel";
+        //    page.Tag = "TPStokFiyatListPanel" + i;
+        //    page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+        //    xtraTabControl1.TabPages.Add(page);
+        //    xtraTabControl1.SelectedTabPage = page;
 
-            fFAlisIrsaliye.TopLevel = false;
-            fFAlisIrsaliye.AutoScroll = true;
-            fFAlisIrsaliye.Dock = DockStyle.Fill;
-            fFAlisIrsaliye.Tag = "TPAlisIrsaliye" + i;
-            page.Controls.Add(fFAlisIrsaliye);
-            fFAlisIrsaliye.Show();
-            i++;
-        }
-
-        private void accordionControlElement49_Click(object sender, EventArgs e)
-        {
-            XtraTabPage page = new XtraTabPage();
-            fFAlisFatura = new FAlisFatura();
-            page.Name = "TPAlisFatura" + i;
-            page.Text = "Alış Fatura";
-            page.Tag = "TPAlisFatura" + i;
-            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
-
-            fFAlisFatura.TopLevel = false;
-            fFAlisFatura.AutoScroll = true;
-            fFAlisFatura.Dock = DockStyle.Fill;
-            fFAlisFatura.Tag = "TPAlisFatura" + i;
-            page.Controls.Add(fFAlisFatura);
-            fFAlisFatura.Show();
-            i++;
-        }
+        //    fiyatList.FormBorderStyle = FormBorderStyle.None;
+        //    fiyatList.TopLevel = false;
+        //    fiyatList.AutoScroll = true;
+        //    fiyatList.Dock = DockStyle.Fill;
+        //    fiyatList.Tag = "TPStokFiyatListPanel" + i;
+        //    page.Controls.Add(fiyatList);
+        //    fiyatList.Show();
+        //    i++;
+        //}
     }
 }
