@@ -240,21 +240,20 @@ namespace MEYPAK.BLL.Assets
 
         #endregion
 
-        #region StokFiyatListHar
-        public const string StokFiyatListHarListeServis =    "http://213.238.167.117:8080/STOKFIYATLISTHAR/STOKFIYATLISTHARListe"; 
-        public const string StokFiyatListHarEkleServis = "http://213.238.167.117:8080/STOKFIYATLISTHAR/STOKFIYATLISTHAREkleyadaGuncelle"; 
-        public const string StokFiyatListHarSilServis =              "http://213.238.167.117:8080/STOKFIYATLISTHAR/STOKFIYATLISTHARSil"; 
-        public const string StokFiyatListHarGuncelleServis = "http://213.238.167.117:8080/STOKFIYATLISTHAR/STOKFIYATLISTHARGuncelle";
-        public const string StokFiyatListHarDeleteByIdServis = "http://213.238.167.117:8080/STOKFIYATLISTHAR/DeleteById";
-
+        #region StokFiyat
+        public const string StokFiyatListeServis =      "http://213.238.167.117:8080/STOKFIYAT/STOKFIYATListe";
+        public const string StokFiyatEkleServis =       "http://213.238.167.117:8080/STOKFIYAT/STOKFIYATEkleyadaGuncelle";
+        public const string StokFiyatSilServis =        "http://213.238.167.117:8080/STOKFIYAT/STOKFIYATSil";
+        public const string StokFiyatGuncelleServis =   "http://213.238.167.117:8080/STOKFIYAT/STOKFIYATGuncelle";
+        public const string StokFiyatDeleteByIdServis = "http://213.238.167.117:8080/STOKFIYAT/DeleteById";
         #endregion
 
-        #region StokFiyatList
-        public const string StokFiyatListListeServis =          "http://213.238.167.117:8080/STOKFIYATLIST/STOKFIYATLISTListe"; 
-        public const string StokFiyatListEkleServis = "http://213.238.167.117:8080/STOKFIYATLIST/STOKFIYATLISTEkleyadaGuncelle"; 
-        public const string StokFiyatListSilServis =             "http://213.238.167.117:8080/STOKFIYATLIST/STOKFIYATLISTSil"; 
-        public const string StokFiyatListGuncelleServis =   "http://213.238.167.117:8080/STOKFIYATLIST/STOKFIYATLISTGuncelle";
-        public const string StokFiyatListDeleteByIdServis = "http://213.238.167.117:8080/STOKFIYATLIST/DeleteById";
+        #region StokFiyatHar
+        public const string StokFiyatHarListeServis = "http://213.238.167.117:8080/STOKFIYATHAR/STOKFIYATHARListe";
+        public const string StokFiyatHarEkleServis = "http://213.238.167.117:8080/STOKFIYATHAR/STOKFIYATHAREkleyadaGuncelle";
+        public const string StokFiyatHarSilServis = "http://213.238.167.117:8080/STOKFIYATHAR/STOKFIYATHARSil";
+        public const string StokFiyatHarGuncelleServis = "http://213.238.167.117:8080/STOKFIYATHAR/STOKFIYATHARGuncelle";
+        public const string StokFiyatHarDeleteByIdServis = "http://213.238.167.117:8080/STOKFIYATHAR/DeleteById";
         #endregion
 
         #region Stok
@@ -302,7 +301,7 @@ namespace MEYPAK.BLL.Assets
 
         #endregion
 
-        #region Siparis
+        #region SiparisKasaHareket
         public const string SiparisKasaHarListeServis =         "http://213.238.167.117:8080/SIPARISKASAHAR/SIPARISKASAHARListe";
         public const string SiparisKasaHarEkleServis =          "http://213.238.167.117:8080/SIPARISKASAHAR/SIPARISKASAHAREkleyadaGuncelle";
         public const string SiparisKasaHarSilServis =           "http://213.238.167.117:8080/SIPARISKASAHAR/SIPARISKASAHARSil";

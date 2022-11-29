@@ -134,8 +134,6 @@ builder.Services.AddScoped<IStokServis, StokManager>();
 builder.Services.AddScoped<IStokHarDal, EFStokHareketRepo>();
 builder.Services.AddScoped<IStokHarServis, StokHarManager>();
 
-
-
 builder.Services.AddScoped<IStokKasaDal, EFStokKasaRepo>();
 builder.Services.AddScoped<IStokKasaServis, StokKasaManager>();
 
@@ -160,6 +158,11 @@ builder.Services.AddScoped<IHizmetServis, HizmetManager>();
 builder.Services.AddScoped<IOlcuBrDal, EFOlcuBrRepo>();
 builder.Services.AddScoped<IOlcuBrServis, OlcuBrManager>();
 
+builder.Services.AddScoped<IStokFiyatDal, EFStokFiyatRepo>();
+builder.Services.AddScoped<IStokFiyatServis, StokFiyatManager>();
+
+builder.Services.AddScoped<IStokFiyatHarDal, EFStokFiyatHarRepo>();
+builder.Services.AddScoped<IStokFiyatHarServis, StokFiyatHarManager>();
 
 #endregion
 #region DEPO_Scoped_Islemleri

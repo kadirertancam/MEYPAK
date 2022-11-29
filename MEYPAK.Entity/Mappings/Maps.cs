@@ -60,6 +60,8 @@ namespace MEYPAK.Entity.Mappings
             CreateMap<MPSTOKSAYIMHAR, PocoSTOKSAYIMHAR>().ReverseMap();
             CreateMap<MPSTOKSEVKİYATLİST, PocoSTOKSEVKIYATLIST>().ReverseMap();
             CreateMap<MPOLCUBR, PocoOLCUBR>().ReverseMap();
+            CreateMap<MPSTOKFIYAT, PocoSTOKFIYAT>().ReverseMap();
+            CreateMap<MPSTOKFIYATHAR, PocoSTOKFIYATHAR>().ReverseMap();
            
             CreateMap<MPHIZMET, PocoHIZMET>().ReverseMap();
             CreateMap<MPSTOKKASAMARKA,PocoSTOKKASAMARKA>().ReverseMap();
