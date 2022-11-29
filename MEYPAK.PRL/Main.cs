@@ -71,6 +71,7 @@ namespace MEYPAK.PRL
         FSatinAlmaSiparis fSatinAlmaSiparis;
         FMalKabulPanel fMalKabulPanel;
         FStokFiyat fStokFiyat;
+        FHizmetKart fHizmetKart;
         FCariHareket fCariHareket;
         FCariDurum fCariDurum;
         FCariKart fCariKart;
@@ -613,5 +614,46 @@ namespace MEYPAK.PRL
             fStokFiyat.Show();
             
         }
+        private void accordionControlElement12_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fHizmetKart = new FHizmetKart();
+            page.Name = "TPHizmetKart" + i;
+            page.Text = "Hizmet Kart";
+            page.Tag = "TPHizmetKart" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fHizmetKart.FormBorderStyle = FormBorderStyle.None;
+            fHizmetKart.TopLevel = false;
+            fHizmetKart.AutoScroll = true;
+            fHizmetKart.Dock = DockStyle.Fill;
+            fHizmetKart.Tag = "TPHizmetKart" + i;
+            page.Controls.Add(fHizmetKart);
+            fHizmetKart.Show();
+            i++;
+        }
+
+        //private void accordionControlElement48_Click(object sender, EventArgs e)
+        //{
+        //    XtraTabPage page = new XtraTabPage();
+        //    fiyatList = new FStokFiyatList();
+        //    page.Name = "TPStokFiyatListPanel" + i;
+        //    page.Text = "Stok Fiyat List Panel";
+        //    page.Tag = "TPStokFiyatListPanel" + i;
+        //    page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+        //    xtraTabControl1.TabPages.Add(page);
+        //    xtraTabControl1.SelectedTabPage = page;
+
+        //    fiyatList.FormBorderStyle = FormBorderStyle.None;
+        //    fiyatList.TopLevel = false;
+        //    fiyatList.AutoScroll = true;
+        //    fiyatList.Dock = DockStyle.Fill;
+        //    fiyatList.Tag = "TPStokFiyatListPanel" + i;
+        //    page.Controls.Add(fiyatList);
+        //    fiyatList.Show();
+        //    i++;
+        //}
     }
 }
