@@ -59,7 +59,10 @@ namespace MEYPAK.Entity.Models.STOK
         public string RAPORKODU8 { get; set; } = "";
         [StringLength(50)]
         public string RAPORKODU9 { get; set; } = "";
-         
+
+        public string MUHALIS { get; set; } = "";
+        public string MUHSATIS { get; set; } = "";
+        public string MUHIADE { get; set; } = "";
         public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
 
 

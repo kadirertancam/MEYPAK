@@ -68,8 +68,8 @@ namespace MEYPAK.PRL
         FSayimIsle fSayimIsle;
         FMusteriSiparis fSiparis;
         FSatinAlmaSiparis fSatinAlmaSiparis;
-        FMalKabulPanel fMalKabulPanel; 
-       
+        FMalKabulPanel fMalKabulPanel;
+        FHizmetKart fHizmetKart;
         FCariHareket fCariHareket;
         FCariDurum fCariDurum;
         FCariKart fCariKart;
@@ -589,6 +589,27 @@ namespace MEYPAK.PRL
             fMarkaKart.Tag = "TPMarkaKart" + i;
             page.Controls.Add(fMarkaKart);
             fMarkaKart.Show();
+            i++;
+        }
+
+        private void accordionControlElement12_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fHizmetKart = new FHizmetKart();
+            page.Name = "TPHizmetKart" + i;
+            page.Text = "Hizmet Kart";
+            page.Tag = "TPHizmetKart" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fHizmetKart.FormBorderStyle = FormBorderStyle.None;
+            fHizmetKart.TopLevel = false;
+            fHizmetKart.AutoScroll = true;
+            fHizmetKart.Dock = DockStyle.Fill;
+            fHizmetKart.Tag = "TPHizmetKart" + i;
+            page.Controls.Add(fHizmetKart);
+            fHizmetKart.Show();
             i++;
         }
 
