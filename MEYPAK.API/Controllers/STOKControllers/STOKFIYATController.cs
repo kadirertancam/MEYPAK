@@ -14,10 +14,10 @@ namespace MEYPAK.API.Controllers.STOKControllers
         private readonly IMapper _mapper;
         private readonly IStokFiyatServis _stokFiyatServis;
         private MPAdoContext<MPSTOKFIYAT> _adostokfiyatServis = new MPAdoContext<MPSTOKFIYAT>();
-        public STOKFIYATController(IMapper mapper, IStokFiyatServis _stokFiyatServis)
+        public STOKFIYATController(IMapper mapper, IStokFiyatServis stokFiyatServis)
         {
             _mapper = mapper;
-            _stokFiyatServis = _stokFiyatServis;
+            _stokFiyatServis = stokFiyatServis;
         }
 
         [HttpGet]
