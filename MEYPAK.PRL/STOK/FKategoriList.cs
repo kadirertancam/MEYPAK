@@ -1,33 +1,11 @@
-﻿using MEYPAK.BLL.STOK;
-using MEYPAK.DAL.Concrete.EntityFramework.Repository;
-using MEYPAK.DAL.Concrete.EntityFramework.Context;
-using MEYPAK.Interfaces.Stok;
-using MEYPAK.PRL.Assets;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Drawing.Design;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Xml.Linq;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using MEYPAK.Entity.Models.STOK;
+﻿using System.Data;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.BLL.Assets;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using System.Windows.Input;
-using MEYPAK.Entity.Models.SIPARIS;
-using MEYPAK.PRL.DEPO;
-using MEYPAK.PRL.SIPARIS;
 using MEYPAK.PRL.CARI;
-using MEYPAK.Entity.Models.CARI;
 using MEYPAK.Entity.PocoModels.CARI;
-using MEYPAK.Interfaces.Parametre;
 using DevExpress.XtraEditors;
+using DevExpress.XtraTreeList;
+using DevExpress.XtraGrid.Views.Grid;
 using System.Net.Http;
 
 namespace MEYPAK.PRL.STOK
@@ -38,18 +16,17 @@ namespace MEYPAK.PRL.STOK
         FCariKart fCariKart;
         string _form;
         string _islem;
-        
+
         public FKategoriList(string form = "", string islem = "")
         {
             InitializeComponent();
             this._form = form;
             this._islem = islem;
             _kategoriServis = new GenericWebServis<PocoSTOKKATEGORI>();
-            _cariServis = new GenericWebServis<PocoCARIKART>();
+
         }
 
         #region Tanımlar
-        GenericWebServis<PocoCARIKART> _cariServis;
         GenericWebServis<PocoSTOKKATEGORI> _kategoriServis;
 
         #endregion
@@ -82,20 +59,32 @@ namespace MEYPAK.PRL.STOK
                         fStokKart = (FStokKart)frm;
                     if (frm.Name.Contains("FCariKart"))
                         fCariKart = (FCariKart)frm;
-
                 }
 
             }
             _kategoriServis.Data(ServisList.StokKategoriListeServis);
-
-
         }
         public void TreeViewiDoldur()
         {
             treeView.Nodes.Clear();
             _kategoriServis.Data(ServisList.StokKategoriListeServis);
             TreeNode ustNode = new TreeNode("Kategoriler");
-            treeView.Nodes.Add(TreeViewDon(ref ustNode, _kategoriServis.obje.Where(x => x.kayittipi == 0).ToList(), 0));
+
+            DataTable dataTable = new DataTable();
+            DataColumn ID = new DataColumn("ID", typeof(int));
+            dataTable.Columns.Add(ID);
+            DataColumn USTID = new DataColumn("USTID", typeof(int));
+            dataTable.Columns.Add(USTID);
+            DataColumn ADI = new DataColumn("ADI", typeof(string));
+            dataTable.Columns.Add(ADI);
+
+
+
+            foreach (var item in _kategoriServis.obje.Where(x => x.kayittipi == 0))
+            {
+                dataTable.Rows.Add(item.id, item.ustId, item.acıklama);
+            }
+            treeView.DataSource = dataTable;
         }
 
 
@@ -104,6 +93,7 @@ namespace MEYPAK.PRL.STOK
             foreach (var item in data.Where(x => x.ustId == ustid))
             {
                 var A = ustNode.Nodes.Add(item.id.ToString(), item.acıklama);
+
 
                 if (_kategoriServis.obje.Where(x => x.ustId == item.id && x.kayittipi == 0).Count() > 0)
                 {
@@ -115,35 +105,35 @@ namespace MEYPAK.PRL.STOK
 
 
 
-        private void treeView_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Enter)
-            {
-                if (_islem == "stokkart")
-                {
-                    if (treeView.SelectedNode.Name != "" && treeView.SelectedNode != null)
-                    {
-                        if (fStokKart != null)
-                        {
-                            fStokKart._tempKategori = _kategoriServis.obje.Where(x => x.id == Convert.ToInt32(treeView.SelectedNode.Name)).FirstOrDefault();
-                            this.Close();
-                        }
-                    }
-                }
-                else if (_islem == "carikart")
-                {
-                    if (treeView.SelectedNode.Name != "" && treeView.SelectedNode != null)
-                    {
-                        if (fCariKart != null)
-                        {
-                            fCariKart._tempCariStOKKATEGORI = _kategoriServis.obje.Where(x => x.id == Convert.ToInt32(treeView.SelectedNode.Name)).FirstOrDefault();
-                            this.Close();
-                        }
-                    }
-                }
-            }
+        //private void treeView_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    if (e.KeyChar == (char)Keys.Enter)
+        //    {
+        //        if (_islem == "stokkart")
+        //        {
+        //            if (treeView.SelectedNode.Name != "" && treeView.SelectedNode != null)
+        //            {
+        //                if (fStokKart != null)
+        //                {
+        //                    fStokKart._tempKategori = _kategoriServis.obje.Where(x => x.id == Convert.ToInt32(treeView.SelectedNode.Name)).FirstOrDefault();
+        //                    this.Close();
+        //                }
+        //            }
+        //        }
+        //        else if (_islem == "carikart")
+        //        {
+        //            if (treeView.SelectedNode.Name != "" && treeView.SelectedNode != null)
+        //            {
+        //                if (fCariKart != null)
+        //                {
+        //                    fCariKart._tempCariStOKKATEGORI = _kategoriServis.obje.Where(x => x.id == Convert.ToInt32(treeView.SelectedNode.Name)).FirstOrDefault();
+        //                    this.Close();
+        //                }
+        //            }
+        //        }
+        //    }
 
-        }
+        //}
 
         private void BTYeniEkle_Click(object sender, EventArgs e)
         {
@@ -167,12 +157,13 @@ namespace MEYPAK.PRL.STOK
 
         private void BTAltKateEkle_Click(object sender, EventArgs e)
         {
-            if (treeView.SelectedNode.Name != "" && treeView.SelectedNode != null)
+            if (treeView.Selection != null)
             {
+                TreeListMultiSelection selectedNodes = treeView.Selection;
                 PocoSTOKKATEGORI mPKATEGORI = new PocoSTOKKATEGORI()
                 {
                     acıklama = TBKategoriAdi.Text,
-                    ustId = Convert.ToInt32(treeView.SelectedNode.Name.ToString())
+                    ustId = _kategoriServis.obje.Where(x => x.kayittipi == 0 && x.acıklama == selectedNodes[0].GetValue(treeView.Columns[0]).ToString()).FirstOrDefault().id
 
                 };
                 _kategoriServis.Data(ServisList.StokKategoriEkleServis, mPKATEGORI);
@@ -191,26 +182,27 @@ namespace MEYPAK.PRL.STOK
 
         private void BtnKategoriSil_Click(object sender, EventArgs e)
         {
-            if (treeView.SelectedNode.Name != "" && treeView.SelectedNode != null)
+            if (treeView.Selection != null)
             {
-                if (_kategoriServis.obje.Where(x => x.ustId == Convert.ToInt32(treeView.SelectedNode.Name.ToString())).Count() > 0)
+                TreeListMultiSelection selectedNodes = treeView.Selection;
+                if (_kategoriServis.obje.Where(x=>x.kayittipi==0&& x.ustId == _kategoriServis.obje.Where(x => x.kayittipi == 0 && x.acıklama == selectedNodes[0].GetValue(treeView.Columns[0]).ToString()).FirstOrDefault().id).Count()>0)
                 {
-                    foreach (var item in _kategoriServis.obje.Where(x => x.ustId == Convert.ToInt32(treeView.SelectedNode.Name.ToString())))
+                    foreach (var item in _kategoriServis.obje.Where(x => x.kayittipi == 0 && x.ustId == _kategoriServis.obje.Where(x => x.kayittipi == 0 && x.acıklama == selectedNodes[0].GetValue(treeView.Columns[0]).ToString()).FirstOrDefault().id))
                     {
-                        _kategoriServis.Data(ServisList.StokKategoriDeleteByIdServis,id:item.id.ToString(), method: HttpMethod.Post);
+                        _kategoriServis.Data(ServisList.StokKategoriDeleteByIdServis, id: item.id.ToString(), method: HttpMethod.Post);
                     }
-                    _kategoriServis.Data(ServisList.StokKategoriDeleteByIdServis, id: treeView.SelectedNode.Name.ToString(), method: HttpMethod.Post);
+                    _kategoriServis.Data(ServisList.StokKategoriDeleteByIdServis, id: _kategoriServis.obje.Where(x => x.kayittipi == 0 && x.acıklama == selectedNodes[0].GetValue(treeView.Columns[0]).ToString()).FirstOrDefault().id.ToString(), method: HttpMethod.Post);
                     MessageBox.Show("Seçili Kategori ve tüm Alt Kategorileri Başarıyla silindi!");
                     TreeViewiDoldur();
                 }
                 else
                 {
-                    _kategoriServis.Data(ServisList.StokKategoriDeleteByIdServis,id:treeView.SelectedNode.Name.ToString(), method: HttpMethod.Post);
+                    _kategoriServis.Data(ServisList.StokKategoriDeleteByIdServis, id: _kategoriServis.obje.Where(x => x.kayittipi == 0 && x.acıklama == selectedNodes[0].GetValue(treeView.Columns[0]).ToString()).FirstOrDefault().id.ToString(), method: HttpMethod.Post);
                     MessageBox.Show("Başarıyla silindi!");
                     TreeViewiDoldur();
 
                 }
-                
+
             }
             else
             {
@@ -220,5 +212,32 @@ namespace MEYPAK.PRL.STOK
         }
 
         #endregion
+
+
+
+        private void treeView_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter && treeView.Selection != null)
+            {
+                TreeListMultiSelection selectedNodes = treeView.Selection;
+                if (_islem == "stokkart")
+                {
+                    if (fStokKart != null)
+                    {
+                        fStokKart._tempKategori = _kategoriServis.obje.Where(x => x.kayittipi == 0 && x.acıklama == selectedNodes[0].GetValue(treeView.Columns[0]).ToString()).FirstOrDefault();
+                        this.Close();
+                    }
+                }
+                else if (_islem == "carikart")
+                {
+                    if (fCariKart != null)
+                    {
+                        fCariKart._tempCariStOKKATEGORI = _kategoriServis.obje.Where(x => x.kayittipi == 0 && x.acıklama == selectedNodes[0].GetValue(treeView.Columns[0]).ToString()).FirstOrDefault();
+                        this.Close();
+                    }
+                }
+
+            }
+        }
     }
 }
