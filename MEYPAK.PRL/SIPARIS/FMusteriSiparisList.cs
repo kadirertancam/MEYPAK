@@ -80,7 +80,7 @@ namespace MEYPAK.PRL.SIPARIS
             {
                 if (fmusteriSiparis != null)
                 {
-                    fmusteriSiparis._tempSiparis = _mSiparisServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+                    fmusteriSiparis._tempSIPARIS = _mSiparisServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
                 }
 
             }
@@ -88,7 +88,7 @@ namespace MEYPAK.PRL.SIPARIS
             {
                 if (fsatinalmaSiparis != null)
                 {
-                    fsatinalmaSiparis._tempSiparis= _mSiparisServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+                    fsatinalmaSiparis._tempSIPARIS= _mSiparisServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
                 }
             }
             this.Close();

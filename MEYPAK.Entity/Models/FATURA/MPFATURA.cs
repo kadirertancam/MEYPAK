@@ -53,6 +53,7 @@ namespace MEYPAK.Entity.Models.FATURA
         public bool DURUM { get; set; }
         [Required]
         public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
+      
 
     }
 }

@@ -30,6 +30,7 @@ namespace MEYPAK.PRL.CARI
         FSatinAlmaSiparis fSatinAlmaSiparis;
         FSatisIrsaliye fSatisIrsaliye;
         FAlisIrsaliye fAlisIrsaliye;
+        FAlisFatura fAlisFatura;
         FCariKart fCariKart;
        
         FFatura ffatura;
@@ -60,11 +61,11 @@ namespace MEYPAK.PRL.CARI
             {
                 _fmusteriSiparis._tempCariKart = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
             }
-            if (_islem == "SatinAlmaSiparis")
+            if (_islem == "FSatinAlmaSiparis")
             {
                 fSatinAlmaSiparis._tempCariKart = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
             }
-            if (_islem == "SatisIrsaliye")
+            if (_islem == "FSatisIrsaliye")
             {
                 fSatisIrsaliye._tempCariKart = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
             }    if (_islem == "AlisIrsaliye")
@@ -74,6 +75,9 @@ namespace MEYPAK.PRL.CARI
             if (_islem == "FFatura")
             {
                 ffatura._tempCariKart = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+            } if (_islem == "FAlisFatura")
+            {
+                fAlisFatura._tempCariKart = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
             }
             this.Close();
         }
@@ -92,12 +96,14 @@ namespace MEYPAK.PRL.CARI
                         _fmusteriSiparis = (FMusteriSiparis)frm;
                     if (frm.Name.Contains("SatinAlmaSiparis"))
                         fSatinAlmaSiparis = (FSatinAlmaSiparis)frm;
-                    if (frm.Name.Contains("SatisIrsaliye"))
+                    if (frm.Name.Contains("FSatisIrsaliye"))
                         fSatisIrsaliye = (FSatisIrsaliye)frm;
                     if (frm.Name.Contains("AlisIrsaliye"))
                         fAlisIrsaliye = (FAlisIrsaliye)frm;
                     if (frm.Name.Contains("FFatura"))
                         ffatura = (FFatura)frm;
+                    if (frm.Name.Contains("FAlisFatura"))
+                        fAlisFatura = (FAlisFatura)frm;
                 }
             }
 

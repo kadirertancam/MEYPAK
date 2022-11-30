@@ -28,165 +28,457 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridView5 = new System.Windows.Forms.DataGridView();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FSevkiyatPanel));
+            DevExpress.XtraGrid.GridFormatRule gridFormatRule1 = new DevExpress.XtraGrid.GridFormatRule();
+            DevExpress.XtraEditors.FormatConditionRule2ColorScale formatConditionRule2ColorScale1 = new DevExpress.XtraEditors.FormatConditionRule2ColorScale();
+            this.Renk = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.DURUM = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.repositoryItemPictureEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
-            this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            this.tabPage1.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
-            this.groupBox3.SuspendLayout();
-            this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
-            this.groupBox4.SuspendLayout();
-            this.panel7.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.gridControl4 = new DevExpress.XtraGrid.GridControl();
+            this.tileView4 = new DevExpress.XtraGrid.Views.Tile.TileView();
+            this.KOD = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.ADI = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.CKMIKTAR = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.CBIRIM = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.CDEPO = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.gridControl3 = new DevExpress.XtraGrid.GridControl();
+            this.tileView3 = new DevExpress.XtraGrid.Views.Tile.TileView();
+            this.StokAdi = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.IEBelgeno = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.StokKodu = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.EmirNo = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.SiparisMiktari = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.EmirMiktari = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.KalanMiktar = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.Birim = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.IEDepo = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.DepoButon = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.Resim = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.gridControl2 = new DevExpress.XtraGrid.GridControl();
+            this.tileView2 = new DevExpress.XtraGrid.Views.Tile.TileView();
+            this.BELGENO = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.ID = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.MIKTAR = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.CARIADI = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.DEPO = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.TIP = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.dataGridView5 = new System.Windows.Forms.DataGridView();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.tileView1 = new DevExpress.XtraGrid.Views.Tile.TileView();
+            this.CSevkiyatTarihi = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.CBelgeNo = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.CCariAdi = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.CResim = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.repositoryItemImageEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemImageEdit();
+            this.CCerceve = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.repositoryItemImageEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemImageEdit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).BeginInit();
             this.panel1.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tileView4)).BeginInit();
+            this.panel6.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tileView3)).BeginInit();
+            this.panel2.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tileView2)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
+            this.panel4.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tileView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageEdit2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageEdit1)).BeginInit();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // Renk
             // 
-            this.groupBox1.Controls.Add(this.dataGridView1);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.ForeColor = System.Drawing.Color.Chocolate;
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(663, 616);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.Renk.AccessibleName = "Renk";
+            this.Renk.Caption = "Renk";
+            this.Renk.FieldName = "Renk";
+            this.Renk.MinWidth = 17;
+            this.Renk.Name = "Renk";
+            this.Renk.Visible = true;
+            this.Renk.VisibleIndex = 7;
+            this.Renk.Width = 64;
             // 
-            // dataGridView1
+            // DURUM
             // 
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Chocolate;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.DarkGreen;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 19);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Green;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkGray;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Green;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridView1.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.Gray;
-            this.dataGridView1.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.White;
-            this.dataGridView1.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.DarkGray;
-            this.dataGridView1.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(657, 594);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.DURUM.AccessibleName = "DURUM";
+            this.DURUM.Caption = "DURUM";
+            this.DURUM.FieldName = "DURUM";
+            this.DURUM.MinWidth = 17;
+            this.DURUM.Name = "DURUM";
+            this.DURUM.Visible = true;
+            this.DURUM.VisibleIndex = 5;
+            this.DURUM.Width = 64;
             // 
-            // dataGridView5
+            // repositoryItemPictureEdit1
             // 
-            this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView5.Location = new System.Drawing.Point(3, 3);
-            this.dataGridView5.Name = "dataGridView5";
-            this.dataGridView5.RowTemplate.Height = 25;
-            this.dataGridView5.Size = new System.Drawing.Size(687, 582);
-            this.dataGridView5.TabIndex = 0;
+            this.repositoryItemPictureEdit1.Name = "repositoryItemPictureEdit1";
             // 
-            // tabPage2
+            // panel1
             // 
-            this.tabPage2.BackColor = System.Drawing.Color.Gray;
-            this.tabPage2.Controls.Add(this.dataGridView5);
-            this.tabPage2.Location = new System.Drawing.Point(4, 24);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(693, 588);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Paketleme Emirleri";
+            this.panel1.Controls.Add(this.panel3);
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1633, 744);
+            this.panel1.TabIndex = 0;
             // 
-            // dataGridView2
+            // panel3
             // 
-            this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dataGridView2.Location = new System.Drawing.Point(3, 3);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView2.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridView2.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.Gray;
-            this.dataGridView2.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.White;
-            this.dataGridView2.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.DarkGray;
-            this.dataGridView2.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
-            this.dataGridView2.RowTemplate.Height = 25;
-            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(687, 582);
-            this.dataGridView2.TabIndex = 0;
-            this.dataGridView2.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellDoubleClick);
+            this.panel3.Controls.Add(this.panel7);
+            this.panel3.Controls.Add(this.panel6);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 534);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1633, 210);
+            this.panel3.TabIndex = 1;
             // 
-            // tabPage1
+            // panel7
             // 
-            this.tabPage1.BackColor = System.Drawing.Color.Gray;
-            this.tabPage1.Controls.Add(this.dataGridView2);
-            this.tabPage1.ForeColor = System.Drawing.Color.Chocolate;
-            this.tabPage1.Location = new System.Drawing.Point(4, 24);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(693, 588);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Toplama Emirleri";
+            this.panel7.Controls.Add(this.groupBox4);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel7.Location = new System.Drawing.Point(826, 0);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(807, 210);
+            this.panel7.TabIndex = 1;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.gridControl4);
+            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox4.ForeColor = System.Drawing.Color.Chocolate;
+            this.groupBox4.Location = new System.Drawing.Point(0, 0);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(807, 210);
+            this.groupBox4.TabIndex = 2;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "groupBox4";
+            // 
+            // gridControl4
+            // 
+            this.gridControl4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl4.Location = new System.Drawing.Point(3, 17);
+            this.gridControl4.MainView = this.tileView4;
+            this.gridControl4.Name = "gridControl4";
+            this.gridControl4.Size = new System.Drawing.Size(801, 190);
+            this.gridControl4.TabIndex = 0;
+            this.gridControl4.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.tileView4});
+            // 
+            // tileView4
+            // 
+            this.tileView4.Appearance.EmptySpace.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.tileView4.Appearance.EmptySpace.Options.UseBackColor = true;
+            this.tileView4.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.KOD,
+            this.ADI,
+            this.CKMIKTAR,
+            this.CBIRIM,
+            this.CDEPO});
+            this.tileView4.DetailHeight = 303;
+            this.tileView4.GridControl = this.gridControl4;
+            this.tileView4.Name = "tileView4";
+            this.tileView4.OptionsTiles.ColumnCount = 1;
+            this.tileView4.OptionsTiles.GroupTextPadding = new System.Windows.Forms.Padding(12, 8, 12, 8);
+            this.tileView4.OptionsTiles.IndentBetweenGroups = 0;
+            this.tileView4.OptionsTiles.IndentBetweenItems = 0;
+            this.tileView4.OptionsTiles.ItemPadding = new System.Windows.Forms.Padding(5);
+            this.tileView4.OptionsTiles.ItemSize = new System.Drawing.Size(1000, 120);
+            this.tileView4.OptionsTiles.LayoutMode = DevExpress.XtraGrid.Views.Tile.TileViewLayoutMode.List;
+            this.tileView4.OptionsTiles.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.tileView4.OptionsTiles.Padding = new System.Windows.Forms.Padding(9);
+            this.tileView4.OptionsTiles.RowCount = 0;
+            // 
+            // 
+            // 
+            this.tileView4.TileHtmlTemplate.Styles = resources.GetString("tileView4.TileHtmlTemplate.Styles");
+            this.tileView4.TileHtmlTemplate.Template = resources.GetString("tileView4.TileHtmlTemplate.Template");
+            // 
+            // KOD
+            // 
+            this.KOD.AccessibleName = "KOD";
+            this.KOD.Caption = "KOD";
+            this.KOD.FieldName = "KOD";
+            this.KOD.MinWidth = 17;
+            this.KOD.Name = "KOD";
+            this.KOD.Visible = true;
+            this.KOD.VisibleIndex = 0;
+            this.KOD.Width = 64;
+            // 
+            // ADI
+            // 
+            this.ADI.AccessibleName = "ADI";
+            this.ADI.Caption = "ADI";
+            this.ADI.FieldName = "ADI";
+            this.ADI.MinWidth = 17;
+            this.ADI.Name = "ADI";
+            this.ADI.Visible = true;
+            this.ADI.VisibleIndex = 1;
+            this.ADI.Width = 64;
+            // 
+            // CKMIKTAR
+            // 
+            this.CKMIKTAR.AccessibleName = "CKMIKTAR";
+            this.CKMIKTAR.Caption = "CKMIKTAR";
+            this.CKMIKTAR.FieldName = "CKMIKTAR";
+            this.CKMIKTAR.MinWidth = 17;
+            this.CKMIKTAR.Name = "CKMIKTAR";
+            this.CKMIKTAR.Visible = true;
+            this.CKMIKTAR.VisibleIndex = 2;
+            this.CKMIKTAR.Width = 64;
+            // 
+            // CBIRIM
+            // 
+            this.CBIRIM.AccessibleName = "CBIRIM";
+            this.CBIRIM.Caption = "CBIRIM";
+            this.CBIRIM.FieldName = "CBIRIM";
+            this.CBIRIM.MinWidth = 17;
+            this.CBIRIM.Name = "CBIRIM";
+            this.CBIRIM.Visible = true;
+            this.CBIRIM.VisibleIndex = 3;
+            this.CBIRIM.Width = 64;
+            // 
+            // CDEPO
+            // 
+            this.CDEPO.AccessibleName = "CDEPO";
+            this.CDEPO.Caption = "CDEPO";
+            this.CDEPO.FieldName = "CDEPO";
+            this.CDEPO.MinWidth = 17;
+            this.CDEPO.Name = "CDEPO";
+            this.CDEPO.Visible = true;
+            this.CDEPO.VisibleIndex = 4;
+            this.CDEPO.Width = 64;
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.groupBox3);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel6.Location = new System.Drawing.Point(0, 0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(826, 210);
+            this.panel6.TabIndex = 0;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.gridControl3);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox3.ForeColor = System.Drawing.Color.Chocolate;
+            this.groupBox3.Location = new System.Drawing.Point(0, 0);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(826, 210);
+            this.groupBox3.TabIndex = 2;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "groupBox3";
+            // 
+            // gridControl3
+            // 
+            this.gridControl3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl3.Location = new System.Drawing.Point(3, 17);
+            this.gridControl3.MainView = this.tileView3;
+            this.gridControl3.Name = "gridControl3";
+            this.gridControl3.Size = new System.Drawing.Size(820, 190);
+            this.gridControl3.TabIndex = 0;
+            this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.tileView3});
+            // 
+            // tileView3
+            // 
+            this.tileView3.Appearance.EmptySpace.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.tileView3.Appearance.EmptySpace.Options.UseBackColor = true;
+            this.tileView3.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.StokAdi,
+            this.IEBelgeno,
+            this.StokKodu,
+            this.EmirNo,
+            this.SiparisMiktari,
+            this.EmirMiktari,
+            this.KalanMiktar,
+            this.Birim,
+            this.IEDepo,
+            this.DepoButon,
+            this.Resim});
+            this.tileView3.DetailHeight = 303;
+            this.tileView3.GridControl = this.gridControl3;
+            this.tileView3.Name = "tileView3";
+            this.tileView3.OptionsTiles.GroupTextPadding = new System.Windows.Forms.Padding(12, 8, 12, 8);
+            this.tileView3.OptionsTiles.IndentBetweenGroups = 0;
+            this.tileView3.OptionsTiles.IndentBetweenItems = 0;
+            this.tileView3.OptionsTiles.ItemPadding = new System.Windows.Forms.Padding(0);
+            this.tileView3.OptionsTiles.LayoutMode = DevExpress.XtraGrid.Views.Tile.TileViewLayoutMode.List;
+            this.tileView3.OptionsTiles.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.tileView3.OptionsTiles.Padding = new System.Windows.Forms.Padding(3);
+            this.tileView3.OptionsTiles.RowCount = 0;
+            // 
+            // 
+            // 
+            this.tileView3.TileHtmlTemplate.Styles = resources.GetString("tileView3.TileHtmlTemplate.Styles");
+            this.tileView3.TileHtmlTemplate.Template = resources.GetString("tileView3.TileHtmlTemplate.Template");
+            this.tileView3.DoubleClick += new System.EventHandler(this.tileView3_DoubleClick);
+            // 
+            // StokAdi
+            // 
+            this.StokAdi.AccessibleName = "StokAdi";
+            this.StokAdi.Caption = "StokAdi";
+            this.StokAdi.FieldName = "StokAdi";
+            this.StokAdi.MinWidth = 17;
+            this.StokAdi.Name = "StokAdi";
+            this.StokAdi.Visible = true;
+            this.StokAdi.VisibleIndex = 0;
+            this.StokAdi.Width = 64;
+            // 
+            // IEBelgeno
+            // 
+            this.IEBelgeno.AccessibleName = "IEBelgeno";
+            this.IEBelgeno.Caption = "IEBelgeno";
+            this.IEBelgeno.FieldName = "IEBelgeno";
+            this.IEBelgeno.MinWidth = 17;
+            this.IEBelgeno.Name = "IEBelgeno";
+            this.IEBelgeno.Visible = true;
+            this.IEBelgeno.VisibleIndex = 1;
+            this.IEBelgeno.Width = 64;
+            // 
+            // StokKodu
+            // 
+            this.StokKodu.AccessibleName = "StokKodu";
+            this.StokKodu.Caption = "StokKodu";
+            this.StokKodu.FieldName = "StokKodu";
+            this.StokKodu.MinWidth = 17;
+            this.StokKodu.Name = "StokKodu";
+            this.StokKodu.Visible = true;
+            this.StokKodu.VisibleIndex = 2;
+            this.StokKodu.Width = 64;
+            // 
+            // EmirNo
+            // 
+            this.EmirNo.AccessibleName = "EmirNo";
+            this.EmirNo.Caption = "EmirNo";
+            this.EmirNo.FieldName = "EmirNo";
+            this.EmirNo.MinWidth = 17;
+            this.EmirNo.Name = "EmirNo";
+            this.EmirNo.Visible = true;
+            this.EmirNo.VisibleIndex = 3;
+            this.EmirNo.Width = 64;
+            // 
+            // SiparisMiktari
+            // 
+            this.SiparisMiktari.AccessibleName = "SiparisMiktari";
+            this.SiparisMiktari.Caption = "SiparisMiktari";
+            this.SiparisMiktari.FieldName = "SiparisMiktari";
+            this.SiparisMiktari.MinWidth = 17;
+            this.SiparisMiktari.Name = "SiparisMiktari";
+            this.SiparisMiktari.Visible = true;
+            this.SiparisMiktari.VisibleIndex = 4;
+            this.SiparisMiktari.Width = 64;
+            // 
+            // EmirMiktari
+            // 
+            this.EmirMiktari.AccessibleName = "EmirMiktari";
+            this.EmirMiktari.Caption = "EmirMiktari";
+            this.EmirMiktari.FieldName = "EmirMiktari";
+            this.EmirMiktari.MinWidth = 17;
+            this.EmirMiktari.Name = "EmirMiktari";
+            this.EmirMiktari.Visible = true;
+            this.EmirMiktari.VisibleIndex = 5;
+            this.EmirMiktari.Width = 64;
+            // 
+            // KalanMiktar
+            // 
+            this.KalanMiktar.AccessibleName = "KalanMiktar";
+            this.KalanMiktar.Caption = "KalanMiktar";
+            this.KalanMiktar.FieldName = "KalanMiktar";
+            this.KalanMiktar.MinWidth = 17;
+            this.KalanMiktar.Name = "KalanMiktar";
+            this.KalanMiktar.Visible = true;
+            this.KalanMiktar.VisibleIndex = 6;
+            this.KalanMiktar.Width = 64;
+            // 
+            // Birim
+            // 
+            this.Birim.AccessibleName = "Birim";
+            this.Birim.Caption = "Birim";
+            this.Birim.FieldName = "Birim";
+            this.Birim.MinWidth = 17;
+            this.Birim.Name = "Birim";
+            this.Birim.Visible = true;
+            this.Birim.VisibleIndex = 7;
+            this.Birim.Width = 64;
+            // 
+            // IEDepo
+            // 
+            this.IEDepo.AccessibleName = "IEDepo";
+            this.IEDepo.Caption = "IEDepo";
+            this.IEDepo.FieldName = "IEDepo";
+            this.IEDepo.MinWidth = 17;
+            this.IEDepo.Name = "IEDepo";
+            this.IEDepo.Visible = true;
+            this.IEDepo.VisibleIndex = 8;
+            this.IEDepo.Width = 64;
+            // 
+            // DepoButon
+            // 
+            this.DepoButon.AccessibleName = "DepoButon";
+            this.DepoButon.Caption = "DepoButon";
+            this.DepoButon.FieldName = "DepoButon";
+            this.DepoButon.MinWidth = 17;
+            this.DepoButon.Name = "DepoButon";
+            this.DepoButon.Visible = true;
+            this.DepoButon.VisibleIndex = 9;
+            this.DepoButon.Width = 64;
+            // 
+            // Resim
+            // 
+            this.Resim.AccessibleName = "Resim";
+            this.Resim.Caption = "Resim";
+            this.Resim.FieldName = "Resim";
+            this.Resim.MinWidth = 17;
+            this.Resim.Name = "Resim";
+            this.Resim.Visible = true;
+            this.Resim.VisibleIndex = 10;
+            this.Resim.Width = 64;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.panel5);
+            this.panel2.Controls.Add(this.panel4);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1633, 534);
+            this.panel2.TabIndex = 0;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.tabControl1);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel5.Location = new System.Drawing.Point(826, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(807, 534);
+            this.panel5.TabIndex = 1;
             // 
             // tabControl1
             // 
@@ -196,28 +488,169 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(701, 616);
+            this.tabControl1.Size = new System.Drawing.Size(807, 534);
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl1.TabIndex = 0;
+            this.tabControl1.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControl1_DrawItem);
             // 
-            // panel5
+            // tabPage1
             // 
-            this.panel5.Controls.Add(this.tabControl1);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(663, 0);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(701, 616);
-            this.panel5.TabIndex = 1;
+            this.tabPage1.BackColor = System.Drawing.Color.Gray;
+            this.tabPage1.Controls.Add(this.gridControl2);
+            this.tabPage1.ForeColor = System.Drawing.Color.Chocolate;
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(799, 508);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Toplama Emirleri";
             // 
-            // panel2
+            // gridControl2
             // 
-            this.panel2.Controls.Add(this.panel5);
-            this.panel2.Controls.Add(this.panel4);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1364, 616);
-            this.panel2.TabIndex = 0;
+            this.gridControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl2.Location = new System.Drawing.Point(3, 3);
+            this.gridControl2.MainView = this.tileView2;
+            this.gridControl2.Name = "gridControl2";
+            this.gridControl2.Size = new System.Drawing.Size(793, 502);
+            this.gridControl2.TabIndex = 0;
+            this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.tileView2});
+            // 
+            // tileView2
+            // 
+            this.tileView2.Appearance.EmptySpace.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.tileView2.Appearance.EmptySpace.Options.UseBackColor = true;
+            this.tileView2.Appearance.Group.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
+            this.tileView2.Appearance.Group.ForeColor = System.Drawing.Color.White;
+            this.tileView2.Appearance.Group.Options.UseBackColor = true;
+            this.tileView2.Appearance.Group.Options.UseForeColor = true;
+            this.tileView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.BELGENO,
+            this.ID,
+            this.MIKTAR,
+            this.CARIADI,
+            this.DEPO,
+            this.TIP,
+            this.DURUM,
+            this.Renk});
+            this.tileView2.ColumnSet.GroupColumn = this.BELGENO;
+            this.tileView2.DetailHeight = 303;
+            gridFormatRule1.Column = this.Renk;
+            gridFormatRule1.ColumnApplyTo = this.DURUM;
+            gridFormatRule1.Name = "Green";
+            gridFormatRule1.Rule = formatConditionRule2ColorScale1;
+            this.tileView2.FormatRules.Add(gridFormatRule1);
+            this.tileView2.GridControl = this.gridControl2;
+            this.tileView2.Name = "tileView2";
+            this.tileView2.OptionsKanban.GroupFooterButton.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
+            this.tileView2.OptionsKanban.GroupFooterButton.Appearance.Options.UseBackColor = true;
+            this.tileView2.OptionsTiles.GroupTextPadding = new System.Windows.Forms.Padding(12, 8, 12, 8);
+            this.tileView2.OptionsTiles.IndentBetweenGroups = 0;
+            this.tileView2.OptionsTiles.IndentBetweenItems = 0;
+            this.tileView2.OptionsTiles.ItemSize = new System.Drawing.Size(300, 150);
+            this.tileView2.OptionsTiles.LayoutMode = DevExpress.XtraGrid.Views.Tile.TileViewLayoutMode.List;
+            this.tileView2.OptionsTiles.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.tileView2.OptionsTiles.Padding = new System.Windows.Forms.Padding(0);
+            this.tileView2.OptionsTiles.RowCount = 0;
+            this.tileView2.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.BELGENO, DevExpress.Data.ColumnSortOrder.Ascending)});
+            // 
+            // 
+            // 
+            this.tileView2.TileHtmlTemplate.Styles = resources.GetString("tileView2.TileHtmlTemplate.Styles");
+            this.tileView2.TileHtmlTemplate.Template = resources.GetString("tileView2.TileHtmlTemplate.Template");
+            this.tileView2.ItemCustomize += new DevExpress.XtraGrid.Views.Tile.TileViewItemCustomizeEventHandler(this.tileView2_ItemCustomize);
+            this.tileView2.Click += new System.EventHandler(this.tileView2_Click);
+            this.tileView2.DoubleClick += new System.EventHandler(this.tileView2_DoubleClick);
+            // 
+            // BELGENO
+            // 
+            this.BELGENO.AccessibleName = "BELGENO";
+            this.BELGENO.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
+            this.BELGENO.AppearanceHeader.Options.UseBackColor = true;
+            this.BELGENO.Caption = "BELGENO";
+            this.BELGENO.FieldName = "BELGENO";
+            this.BELGENO.MinWidth = 17;
+            this.BELGENO.Name = "BELGENO";
+            this.BELGENO.Visible = true;
+            this.BELGENO.VisibleIndex = 0;
+            this.BELGENO.Width = 64;
+            // 
+            // ID
+            // 
+            this.ID.AccessibleName = "ID";
+            this.ID.Caption = "ID";
+            this.ID.FieldName = "ID";
+            this.ID.MinWidth = 17;
+            this.ID.Name = "ID";
+            this.ID.Visible = true;
+            this.ID.VisibleIndex = 6;
+            this.ID.Width = 64;
+            // 
+            // MIKTAR
+            // 
+            this.MIKTAR.AccessibleName = "MIKTAR";
+            this.MIKTAR.Caption = "MIKTAR";
+            this.MIKTAR.FieldName = "MIKTAR";
+            this.MIKTAR.MinWidth = 17;
+            this.MIKTAR.Name = "MIKTAR";
+            this.MIKTAR.Visible = true;
+            this.MIKTAR.VisibleIndex = 1;
+            this.MIKTAR.Width = 64;
+            // 
+            // CARIADI
+            // 
+            this.CARIADI.AccessibleName = "CARIADI";
+            this.CARIADI.Caption = "CARIADI";
+            this.CARIADI.FieldName = "CARIADI";
+            this.CARIADI.MinWidth = 17;
+            this.CARIADI.Name = "CARIADI";
+            this.CARIADI.Visible = true;
+            this.CARIADI.VisibleIndex = 2;
+            this.CARIADI.Width = 64;
+            // 
+            // DEPO
+            // 
+            this.DEPO.AccessibleName = "DEPO";
+            this.DEPO.Caption = "DEPO";
+            this.DEPO.FieldName = "DEPO";
+            this.DEPO.MinWidth = 17;
+            this.DEPO.Name = "DEPO";
+            this.DEPO.Visible = true;
+            this.DEPO.VisibleIndex = 3;
+            this.DEPO.Width = 64;
+            // 
+            // TIP
+            // 
+            this.TIP.AccessibleName = "TIP";
+            this.TIP.Caption = "TIP";
+            this.TIP.FieldName = "TIP";
+            this.TIP.MinWidth = 17;
+            this.TIP.Name = "TIP";
+            this.TIP.Visible = true;
+            this.TIP.VisibleIndex = 4;
+            this.TIP.Width = 64;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.BackColor = System.Drawing.Color.Gray;
+            this.tabPage2.Controls.Add(this.dataGridView5);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(799, 508);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Paketleme Emirleri";
+            // 
+            // dataGridView5
+            // 
+            this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView5.Location = new System.Drawing.Point(3, 3);
+            this.dataGridView5.Name = "dataGridView5";
+            this.dataGridView5.RowTemplate.Height = 25;
+            this.dataGridView5.Size = new System.Drawing.Size(793, 502);
+            this.dataGridView5.TabIndex = 0;
             // 
             // panel4
             // 
@@ -225,171 +658,229 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(663, 616);
+            this.panel4.Size = new System.Drawing.Size(826, 534);
             this.panel4.TabIndex = 0;
             // 
-            // dataGridView3
+            // groupBox1
             // 
-            this.dataGridView3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView3.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dataGridView3.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView3.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dataGridView3.Location = new System.Drawing.Point(3, 19);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dataGridView3.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView3.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridView3.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.Gray;
-            this.dataGridView3.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.White;
-            this.dataGridView3.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.DarkGray;
-            this.dataGridView3.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
-            this.dataGridView3.RowTemplate.Height = 25;
-            this.dataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView3.Size = new System.Drawing.Size(657, 334);
-            this.dataGridView3.TabIndex = 0;
+            this.groupBox1.Controls.Add(this.gridControl1);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.ForeColor = System.Drawing.Color.Chocolate;
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(826, 534);
+            this.groupBox1.TabIndex = 1;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
             // 
-            // groupBox3
+            // gridControl1
             // 
-            this.groupBox3.Controls.Add(this.dataGridView3);
-            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox3.ForeColor = System.Drawing.Color.Chocolate;
-            this.groupBox3.Location = new System.Drawing.Point(0, 0);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(663, 356);
-            this.groupBox3.TabIndex = 2;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "groupBox3";
+            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl1.Location = new System.Drawing.Point(3, 17);
+            this.gridControl1.MainView = this.tileView1;
+            this.gridControl1.Name = "gridControl1";
+            this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemPictureEdit1,
+            this.repositoryItemImageEdit1,
+            this.repositoryItemImageEdit2});
+            this.gridControl1.Size = new System.Drawing.Size(820, 514);
+            this.gridControl1.TabIndex = 1;
+            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.tileView1});
             // 
-            // panel6
+            // tileView1
             // 
-            this.panel6.Controls.Add(this.groupBox3);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel6.Location = new System.Drawing.Point(0, 0);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(663, 356);
-            this.panel6.TabIndex = 0;
+            this.tileView1.Appearance.EmptySpace.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.tileView1.Appearance.EmptySpace.Options.UseBackColor = true;
+            this.tileView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.CSevkiyatTarihi,
+            this.CBelgeNo,
+            this.CCariAdi,
+            this.CResim,
+            this.CCerceve});
+            this.tileView1.DetailHeight = 303;
+            this.tileView1.GridControl = this.gridControl1;
+            this.tileView1.Name = "tileView1";
+            this.tileView1.OptionsTiles.GroupTextPadding = new System.Windows.Forms.Padding(12, 8, 12, 8);
+            this.tileView1.OptionsTiles.IndentBetweenGroups = 0;
+            this.tileView1.OptionsTiles.IndentBetweenItems = 0;
+            this.tileView1.OptionsTiles.ItemPadding = new System.Windows.Forms.Padding(0);
+            this.tileView1.OptionsTiles.ItemSize = new System.Drawing.Size(362, 180);
+            this.tileView1.OptionsTiles.LayoutMode = DevExpress.XtraGrid.Views.Tile.TileViewLayoutMode.List;
+            this.tileView1.OptionsTiles.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.tileView1.OptionsTiles.Padding = new System.Windows.Forms.Padding(5);
+            this.tileView1.OptionsTiles.RowCount = 0;
             // 
-            // dataGridView4
             // 
-            this.dataGridView4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView4.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dataGridView4.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView4.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dataGridView4.Location = new System.Drawing.Point(3, 19);
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dataGridView4.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView4.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridView4.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.Gray;
-            this.dataGridView4.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.White;
-            this.dataGridView4.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.DarkGray;
-            this.dataGridView4.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
-            this.dataGridView4.RowTemplate.Height = 25;
-            this.dataGridView4.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView4.Size = new System.Drawing.Size(695, 334);
-            this.dataGridView4.TabIndex = 0;
             // 
-            // groupBox4
+            this.tileView1.TileHtmlTemplate.Styles = resources.GetString("tileView1.TileHtmlTemplate.Styles");
+            this.tileView1.TileHtmlTemplate.Template = resources.GetString("tileView1.TileHtmlTemplate.Template");
+            this.tileView1.Click += new System.EventHandler(this.tileView1_Click);
             // 
-            this.groupBox4.Controls.Add(this.dataGridView4);
-            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox4.ForeColor = System.Drawing.Color.Chocolate;
-            this.groupBox4.Location = new System.Drawing.Point(0, 0);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(701, 356);
-            this.groupBox4.TabIndex = 2;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "groupBox4";
+            // CSevkiyatTarihi
             // 
-            // panel7
+            this.CSevkiyatTarihi.AccessibleName = "CSevkiyatTarihi";
+            this.CSevkiyatTarihi.Caption = "Sevkiyat Tarihi";
+            this.CSevkiyatTarihi.FieldName = "CSevkiyatTarihi";
+            this.CSevkiyatTarihi.MinWidth = 17;
+            this.CSevkiyatTarihi.Name = "CSevkiyatTarihi";
+            this.CSevkiyatTarihi.Visible = true;
+            this.CSevkiyatTarihi.VisibleIndex = 0;
+            this.CSevkiyatTarihi.Width = 64;
             // 
-            this.panel7.Controls.Add(this.groupBox4);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(663, 0);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(701, 356);
-            this.panel7.TabIndex = 1;
+            // CBelgeNo
             // 
-            // panel3
+            this.CBelgeNo.AccessibleName = "CBelgeNo";
+            this.CBelgeNo.Caption = "CBelgeNo";
+            this.CBelgeNo.FieldName = "CBelgeNo";
+            this.CBelgeNo.MinWidth = 17;
+            this.CBelgeNo.Name = "CBelgeNo";
+            this.CBelgeNo.Visible = true;
+            this.CBelgeNo.VisibleIndex = 1;
+            this.CBelgeNo.Width = 64;
             // 
-            this.panel3.Controls.Add(this.panel7);
-            this.panel3.Controls.Add(this.panel6);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 616);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1364, 356);
-            this.panel3.TabIndex = 1;
+            // CCariAdi
             // 
-            // panel1
+            this.CCariAdi.AccessibleName = "CCariAdi";
+            this.CCariAdi.Caption = "Cari Adı";
+            this.CCariAdi.FieldName = "CCariAdi";
+            this.CCariAdi.MinWidth = 17;
+            this.CCariAdi.Name = "CCariAdi";
+            this.CCariAdi.Visible = true;
+            this.CCariAdi.VisibleIndex = 2;
+            this.CCariAdi.Width = 64;
             // 
-            this.panel1.Controls.Add(this.panel3);
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1364, 972);
-            this.panel1.TabIndex = 1;
+            // CResim
             // 
-            // FMalKabulPanel
+            this.CResim.AccessibleName = "CResim";
+            this.CResim.Caption = "Resim";
+            this.CResim.ColumnEdit = this.repositoryItemImageEdit2;
+            this.CResim.FieldName = "CResim";
+            this.CResim.MinWidth = 17;
+            this.CResim.Name = "CResim";
+            this.CResim.Visible = true;
+            this.CResim.VisibleIndex = 3;
+            this.CResim.Width = 64;
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            // repositoryItemImageEdit2
+            // 
+            this.repositoryItemImageEdit2.AutoHeight = false;
+            this.repositoryItemImageEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemImageEdit2.ContextImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("repositoryItemImageEdit2.ContextImageOptions.Image")));
+            this.repositoryItemImageEdit2.Name = "repositoryItemImageEdit2";
+            // 
+            // CCerceve
+            // 
+            this.CCerceve.Caption = "CCerceve";
+            this.CCerceve.ColumnEdit = this.repositoryItemImageEdit1;
+            this.CCerceve.MinWidth = 17;
+            this.CCerceve.Name = "CCerceve";
+            this.CCerceve.Visible = true;
+            this.CCerceve.VisibleIndex = 4;
+            this.CCerceve.Width = 64;
+            // 
+            // repositoryItemImageEdit1
+            // 
+            this.repositoryItemImageEdit1.AutoHeight = false;
+            this.repositoryItemImageEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemImageEdit1.Name = "repositoryItemImageEdit1";
+            // 
+            // FSevkiyatPanel
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1364, 972);
+            this.ClientSize = new System.Drawing.Size(1633, 744);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FMalKabulPanel";
-            this.Text = "FMalKabulPanel";
-            this.Activated += new System.EventHandler(this.FMalKabulPanel_Activated);
+            this.Name = "FSevkiyatPanel";
+            this.Text = " ";
             this.Load += new System.EventHandler(this.FMalKabulPanel_Load);
-            this.Shown += new System.EventHandler(this.FMalKabulPanel_Shown);
-            this.Leave += new System.EventHandler(this.FMalKabulPanel_Leave);
-            this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
-            this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            this.tabPage1.ResumeLayout(false);
-            this.tabControl1.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
-            this.groupBox4.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tileView4)).EndInit();
+            this.panel6.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tileView3)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tileView2)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
+            this.panel4.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tileView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageEdit2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageEdit1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private GroupBox groupBox1;
-        private DataGridView dataGridView5;
-        private TabPage tabPage2;
-        private TabPage tabPage1;
-        private TabControl tabControl1;
-        private Panel panel5;
-        private Panel panel2;
-        private Panel panel4;
-        private DataGridView dataGridView3;
-        private GroupBox groupBox3;
-        private Panel panel6;
-        private DataGridView dataGridView4;
-        private GroupBox groupBox4;
-        private Panel panel7;
-        private Panel panel3;
         private Panel panel1;
-        public DataGridView dataGridView1;
-        public DataGridView dataGridView2;
+        private Panel panel3;
+        private Panel panel7;
+        private GroupBox groupBox4;
+        private Panel panel6;
+        private GroupBox groupBox3;
+        private Panel panel2;
+        private Panel panel5;
+        private Panel panel4;
+        private GroupBox groupBox1;
+        private TabControl tabControl1;
+        private TabPage tabPage1;
+        private TabPage tabPage2;
+        private DataGridView dataGridView5;
+        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit repositoryItemPictureEdit1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemImageEdit repositoryItemImageEdit1;
+        private DevExpress.XtraGrid.Views.Tile.TileView tileView1;
+        private DevExpress.XtraGrid.Columns.TileViewColumn CSevkiyatTarihi;
+        private DevExpress.XtraGrid.Columns.TileViewColumn CBelgeNo;
+        private DevExpress.XtraGrid.Columns.TileViewColumn CCariAdi;
+        private DevExpress.XtraGrid.Columns.TileViewColumn CResim;
+        private DevExpress.XtraGrid.Columns.TileViewColumn CCerceve;
+        private DevExpress.XtraEditors.Repository.RepositoryItemImageEdit repositoryItemImageEdit2;
+        private DevExpress.XtraGrid.GridControl gridControl2;
+        private DevExpress.XtraGrid.Views.Tile.TileView tileView2;
+        private DevExpress.XtraGrid.Columns.TileViewColumn ID;
+        private DevExpress.XtraGrid.Columns.TileViewColumn BELGENO;
+        private DevExpress.XtraGrid.Columns.TileViewColumn MIKTAR;
+        private DevExpress.XtraGrid.Columns.TileViewColumn CARIADI;
+        private DevExpress.XtraGrid.Columns.TileViewColumn DEPO;
+        private DevExpress.XtraGrid.Columns.TileViewColumn TIP;
+        private DevExpress.XtraGrid.Columns.TileViewColumn DURUM;
+        private DevExpress.XtraGrid.GridControl gridControl3;
+        private DevExpress.XtraGrid.Views.Tile.TileView tileView3;
+        private DevExpress.XtraGrid.Columns.TileViewColumn StokAdi;
+        private DevExpress.XtraGrid.Columns.TileViewColumn IEBelgeno;
+        private DevExpress.XtraGrid.Columns.TileViewColumn StokKodu;
+        private DevExpress.XtraGrid.Columns.TileViewColumn EmirNo;
+        private DevExpress.XtraGrid.Columns.TileViewColumn SiparisMiktari;
+        private DevExpress.XtraGrid.Columns.TileViewColumn EmirMiktari;
+        private DevExpress.XtraGrid.Columns.TileViewColumn KalanMiktar;
+        private DevExpress.XtraGrid.Columns.TileViewColumn Birim;
+        private DevExpress.XtraGrid.Columns.TileViewColumn IEDepo;
+        private DevExpress.XtraGrid.GridControl gridControl4;
+        private DevExpress.XtraGrid.Views.Tile.TileView tileView4;
+        private DevExpress.XtraGrid.Columns.TileViewColumn DepoButon;
+        private DevExpress.XtraGrid.Columns.TileViewColumn KOD;
+        private DevExpress.XtraGrid.Columns.TileViewColumn ADI;
+        private DevExpress.XtraGrid.Columns.TileViewColumn CKMIKTAR;
+        private DevExpress.XtraGrid.Columns.TileViewColumn CBIRIM;
+        private DevExpress.XtraGrid.Columns.TileViewColumn CDEPO;
+        private DevExpress.XtraGrid.Columns.TileViewColumn Renk;
+        private DevExpress.XtraGrid.Columns.TileViewColumn Resim;
     }
 }

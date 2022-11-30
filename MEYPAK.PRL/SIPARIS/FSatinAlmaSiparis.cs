@@ -35,29 +35,69 @@ using DevExpress.XtraGrid.Views.Base;
 using MEYPAK.PRL.CARI;
 using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.Models.CARI;
+using DevExpress.Utils;
+using MEYPAK.Entity.PocoModels.PARAMETRE;
 
 namespace MEYPAK.PRL.SIPARIS
 {
     public partial class FSatinAlmaSiparis : Form
     {
 
+        #region TANIMLAR
+        FStokKasaList fKasaList;
+        List<PocoSiparisKalem> _tempSIPARISDETAY = new List<PocoSiparisKalem>();
+        DataGridViewComboBoxColumn DGVOlcuBr = new DataGridViewComboBoxColumn();
+        GenericWebServis<PocoCARIALTHESCARI> _carialthescaricari;
+        PocoSiparisKalem _tempPocokalem;
+        FStokList _fStokList;
+        FCariList _fCariList;
+        public PocoSTOK _tempStok;
+        public PocoSTOKKASA _tempKasa;
+        public PocoSIPARIS _tempSIPARIS;
+        public PocoCARIKART _tempCariKart;
+        DataGridViewButtonColumn DGVStokSec;
+        DataGridViewButtonColumn DGVKasaSec;
+        List<PocoOLCUBR> _tempolcuBr;
+        DataGridViewComboBoxColumn DGVFiyatList;
+        DataGridViewComboBoxColumn DGVKasaList;
+        GenericWebServis<PocoDEPO> _depoServis;
+        GenericWebServis<PocoSIPARIS> _SIPARISServis;
+        GenericWebServis<PocoSIPARISDETAY> _SIPARISDETAYServis;
+        GenericWebServis<PocoSTOKOLCUBR> _stokOlcuBr;
+        GenericWebServis<PocoOLCUBR> _olcuBr;
+        GenericWebServis<PocoCARIKART> _cariKart;
+        GenericWebServis<PocoSTOK> _stokServis;
+        FStokOlcuBrList _fStokOlcuBrList;
+        FStokKasaList _fStokKasaList;
+        GenericWebServis<PocoCARIALTHES> _cariAltHesapServis;
+        GenericWebServis<PocoPARABIRIM> _paraBirimServis;
+        GenericWebServis<PocoSTOKKASAHAR> _stokKasaHarServis;
+        GenericWebServis<PocoSTOKKASA> _kasaServis;
+        GenericWebServis<PocoCARIALTHES> _cariAltHes;
+        #endregion
         public FSatinAlmaSiparis()
         {
-            InitializeComponent(); 
-
+            InitializeComponent();
             DGVStokSec = new DataGridViewButtonColumn();
             DGVFiyatList = new DataGridViewComboBoxColumn();
             DGVKasaSec = new DataGridViewButtonColumn();
             DGVKasaList = new DataGridViewComboBoxColumn();
-
-
+            _paraBirimServis = new GenericWebServis<PocoPARABIRIM>();
+            _paraBirimServis.Data(ServisList.ParaBirimiListeServis);
+            _cariAltHesapServis = new GenericWebServis<PocoCARIALTHES>();
+            _cariAltHesapServis.Data(ServisList.CariAltHesListeServis);
             _depoServis = new GenericWebServis<PocoDEPO>();
             _depoServis.Data(ServisList.DepoListeServis);
+
+            CBParaBirimi.Properties.DataSource = _paraBirimServis.obje.Where(x => x.kayittipi == 0).Select(x => x.adi).ToList();
             CBDepo.Properties.DataSource = _depoServis.obje.Select(x => x.depoadi).ToList();
-            _siparisServis = new GenericWebServis<PocoSIPARIS>();
-            _siparisServis.Data(ServisList.SiparisListeServis);
-            _siparisDetayServis = new GenericWebServis<PocoSIPARISDETAY>();
-            _siparisDetayServis.Data(ServisList.DepoListeServis);
+            CBDepo.Text = _depoServis.obje.Select(x => x.depoadi).FirstOrDefault();
+
+
+
+            CBParaBirimi.Text = _paraBirimServis.obje.Where(x => x.kayittipi == 0 && x.adi == "TÜRK LİRASI").Select(x => x.adi).FirstOrDefault();
+            _SIPARISServis = new GenericWebServis<PocoSIPARIS>();
+            _SIPARISDETAYServis = new GenericWebServis<PocoSIPARISDETAY>();
             _stokOlcuBr = new GenericWebServis<PocoSTOKOLCUBR>();
             _stokOlcuBr.Data(ServisList.StokOlcuBrListeServis);
             _olcuBr = new GenericWebServis<PocoOLCUBR>();
@@ -65,256 +105,27 @@ namespace MEYPAK.PRL.SIPARIS
             _cariKart = new GenericWebServis<PocoCARIKART>();
             _cariKart.Data(ServisList.CariListeServis);
             _stokServis = new GenericWebServis<PocoSTOK>();
-            _siparisKasaHarServis = new GenericWebServis<PocoSIPARISKASAHAR>();
-
-
             gridView1.OptionsNavigation.AutoMoveRowFocus = true;
             gridView1.OptionsNavigation.AutoFocusNewRow = true;
+            _stokKasaHarServis = new GenericWebServis<PocoSTOKKASAHAR>();
+            _kasaServis = new GenericWebServis<PocoSTOKKASA>();
+            _tempKasaList = new List<KasaList>();
+            _carialthescaricari = new GenericWebServis<PocoCARIALTHESCARI>();
+            _kasaaa = new List<ListKasaList>();
         }
-        FStokKasaList fKasaList;
-        List<PocoSiparisKalem> _tempSiparisDetay = new List<PocoSiparisKalem>();
-        DataGridViewComboBoxColumn DGVOlcuBr = new DataGridViewComboBoxColumn();
-        GenericWebServis<PocoSIPARISKASAHAR> _siparisKasaHarServis;
 
-        PocoSiparisKalem _tempPocokalem;
-        FStokList _fStokList;
-        FCariList _fCariList;
-        public PocoSTOK _tempStok;
-        public PocoSTOKKASA _tempKasa;
-        public PocoSIPARIS _tempSiparis;
-        public PocoCARIKART _tempCariKart;
-
-        private void FSiparis_Load(object sender, EventArgs e)
-        {
-
-            DataGridYapilandir();
-            CBParaBirimi.EditValue = 0;
-        }
-        DataGridViewButtonColumn DGVStokSec;
-        DataGridViewButtonColumn DGVKasaSec;
-        List<PocoOLCUBR> _tempolcuBr;
-        DataGridViewComboBoxColumn DGVFiyatList;
-        DataGridViewComboBoxColumn DGVKasaList;
-        GenericWebServis<PocoSIPARIS> _siparisServis;
-        GenericWebServis<PocoDEPO> _depoServis;
-        GenericWebServis<PocoSIPARISDETAY> _siparisDetayServis;
-        GenericWebServis<PocoSTOKOLCUBR> _stokOlcuBr;
-        GenericWebServis<PocoOLCUBR> _olcuBr;
-        GenericWebServis<PocoCARIKART> _cariKart;
-        GenericWebServis<PocoSTOK> _stokServis;
-        FStokOlcuBrList _fStokOlcuBrList;
         void temizle()
         {
-            GCSatinAlmaSiparis.DataSource = "";
-            _tempSiparisDetay.Clear();
-            _tempSiparisDetay.Add(new PocoSiparisKalem());
-            GCSatinAlmaSiparis.DataSource = _tempSiparisDetay;
+            num = 0;
+            GCIrsaliye.DataSource = "";
+            _tempSIPARISDETAY.Clear();
+            _kasaaa.Clear();
+            _tempSIPARISDETAY.Add(new PocoSiparisKalem());
+            GCIrsaliye.DataSource = _tempSIPARISDETAY;
             //DGVOlcuBr.DataSource = _tempStok.MPSTOKOLCUBR.Select(x => x.MPOLCUBR.ADI).ToList();
             gridView1.Columns["StokId"].Visible = false;
             gridView1.Columns["KasaId"].Visible = false;
-
         }
-
-        GridColumn gridColumn2;
-        void DataGridYapilandir()
-        {
-            _tempStok = new PocoSTOK();
-            _tempSiparisDetay.Add(new PocoSiparisKalem());
-            GCSatinAlmaSiparis.DataSource = _tempSiparisDetay;
-            gridView1.RefreshData();
-            DGVStokSec.FlatStyle = FlatStyle.Flat;
-            DGVOlcuBr.Name = "DGVOlcuBr";
-            DGVOlcuBr.HeaderText = "Birim";
-            DGVOlcuBr.FlatStyle = FlatStyle.Flat;
-
-            GridColumn gridColumn = gridView1.Columns.AddVisible("Seç", "Seç");
-            RepositoryItemButtonEdit repositoryItemButtonEdit = new RepositoryItemButtonEdit();
-            repositoryItemButtonEdit.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            repositoryItemButtonEdit.NullText = "Seç";
-            repositoryItemButtonEdit.NullValuePrompt = "Seç";
-
-
-
-            gridColumn2 = gridView1.Columns.AddVisible("BirimSec", "Sec");
-            RepositoryItemButtonEdit repositoryItemButton2 = new RepositoryItemButtonEdit();
-            repositoryItemButton2.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            repositoryItemButton2.NullText = "Sec";
-            repositoryItemButton2.NullValuePrompt = "Seç";
-
-
-            GridColumn gridColumn3 = gridView1.Columns.AddVisible("KasaSec", "Sec");
-            RepositoryItemButtonEdit repositoryItemButtonEdit3 = new RepositoryItemButtonEdit();
-            repositoryItemButtonEdit3.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            repositoryItemButtonEdit3.NullText = "Sec";
-            repositoryItemButtonEdit3.NullValuePrompt = "Seç";
-
-
-
-            repositoryItemButtonEdit.ButtonClick += RepositoryItemButtonEdit_ButtonClick;
-            repositoryItemButtonEdit3.ButtonClick += RepositoryItemButtonEdit3_ButtonClick;
-            repositoryItemButton2.ButtonClick += RepositoryItemButtonEdit2_ButtonClick;
-
-            GCSatinAlmaSiparis.RepositoryItems.Add(repositoryItemButtonEdit);
-            GCSatinAlmaSiparis.RepositoryItems.Add(repositoryItemButton2);
-            GCSatinAlmaSiparis.RepositoryItems.Add(repositoryItemButtonEdit3);
-            gridColumn.ColumnEdit = repositoryItemButtonEdit;
-            gridColumn2.ColumnEdit = repositoryItemButton2;
-            gridColumn3.ColumnEdit = repositoryItemButtonEdit3;
-            gridColumn.ShowButtonMode = DevExpress.XtraGrid.Views.Base.ShowButtonModeEnum.ShowAlways;
-            gridView1.Columns["Seç"].VisibleIndex = 2;
-            gridView1.Columns["KasaSec"].VisibleIndex = 6;
-            gridView1.Columns["BirimSec"].VisibleIndex = 9;
-            gridView1.Columns["StokId"].Visible = false;
-            gridView1.Columns["KasaId"].Visible = false;
-            //     gridView1.Columns["Birim"].Visible = false;
-
-            //gridView1.Columns.Add(DGVOlcuBr);
-            //DGVStokSec.Name = "DGVStoKSec";
-            //DGVStokSec.HeaderText = "Seç";
-            //DGVStokSec.Text = "Seç";
-            //DGVStokSec.UseColumnTextForButtonValue = true;
-            //DGVFiyatList.Name = "DGVFiyatList";
-            //DGVFiyatList.FlatStyle = FlatStyle.Flat;
-            //gridView1.Columns.Add(DGVStokSec);
-            //gridView1.Columns.Add(DGVFiyatList);
-            //gridView1.Columns["StokId"].Visible = false;
-            //gridView1.Columns["MPSTOK"].Visible = false;
-            //gridView1.Columns["KasaId"].Visible = false; 
-            //gridView1.AllowUserToAddRows = false;
-            //gridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
-
-            //KASA SEÇME İŞLEMLERİ
-            //DGVKasaList.Name = "DVGKasaList";
-            //DGVKasaList.FlatStyle = FlatStyle.Flat;
-            //dataGridView1.Columns.Add(DGVKasaList);
-
-            //DGVKasaSec.FlatStyle = FlatStyle.Flat;
-            //DGVKasaSec.Name = "DGVKasaSec";
-            //DGVKasaSec.HeaderText = "Seç";
-            //DGVKasaSec.Text = "Seç";
-            //DGVKasaSec.UseColumnTextForButtonValue = true;
-            //dataGridView1.Columns.Add(DGVKasaSec);
-            //dataGridView1.Columns["DGVKasaSec"].DisplayIndex = 7;
-
-        }
-
-        private void RepositoryItemButtonEdit3_ButtonClick(object sender, ButtonPressedEventArgs e)
-        {
-            FStokKasaList fKasaList = new FStokKasaList(this.Tag.ToString(), "SatinAlmaSiparis");
-            fKasaList.ShowDialog();
-        }
-
-        private void RepositoryItemButtonEdit2_ButtonClick(object sender, ButtonPressedEventArgs e)
-        {
-            _fStokOlcuBrList = new FStokOlcuBrList(this.Tag.ToString(),"SatinAlmaSiparis");
-            _fStokOlcuBrList.stokid = _tempStok.id;
-            _fStokOlcuBrList.ShowDialog();
-        }
-
-        private DataView clone = null;
-        private void RepositoryItemButtonEdit_ButtonClick(object sender, ButtonPressedEventArgs e)
-        {
-            _fStokList = new FStokList(this.Tag.ToString(), "SatinAlmaSiparis");
-            _fStokList.ShowDialog();
-
-            _tempPocokalem = new PocoSiparisKalem()
-            {
-                StokId = _tempStok.id,
-                StokKodu = _tempStok.kod,
-                StokAdı = _tempStok.adi,
-                Birim = _olcuBr.obje.Where(x => x.adi == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "DGVOlcuBr").ToString()).FirstOrDefault().adi,
-                //KasaAdı = "",
-                Kdv = _tempStok.satiskdv,
-                Doviz = "TL", //_tempStok.SDOVIZID 
-            };
-
-
-
-            //TODO 24.10.2022 BAKILACAK
-
-            /* DGVFiyatList.DataSource = _tempStok.MPSTOKFIYATLISTHAR.Select(x => x.MPSTOKFIYATLIST.FIYATLISTADI).ToList();*/ //////////////////////////// BAKILCAK
-            _tempSiparisDetay[gridView1.FocusedRowHandle] = _tempPocokalem;
-            GCSatinAlmaSiparis.DataSource = _tempSiparisDetay;
-            gridView1.RefreshData();
-
-        }
-
-        private void BTKaydet_Click(object sender, EventArgs e)
-        {
-            _cariKart.Data(ServisList.CariListeServis);
-
-            _siparisServis.Data(ServisList.SiparisEkleServis, new PocoSIPARIS()
-            {
-                aciklama = TBAciklama.Text,
-                kur = Convert.ToDecimal(TBKur.Text),
-                belgeno = TBSiparisNo.Text,
-                vadetarihi = DTPVadeTarihi.Value,
-                guncellemetarihi = DateTime.Now,
-                vadegunu = Convert.ToInt32(TBGun.Text),
-                cariadi = TBCariAdi.Text,
-                cariid = _cariKart.obje.Where(x => x.kod == TBCariKodu.Text).FirstOrDefault().id,
-                depoid = _depoServis.obje.Where(x => x.depoadi == CBDepo.EditValue).FirstOrDefault().id,
-                dovizid = 0,
-                istkontotoplam = _tempSiparisDetay.Sum(x => x.İskontoTutarı),
-                kdvtoplam = _tempSiparisDetay.Sum(x => x.KdvTutarı),
-                bruttoplam = _tempSiparisDetay.Sum(x => x.BrütToplam),
-                nettoplam = _tempSiparisDetay.Sum(x => x.NetToplam),
-                geneltoplam = _tempSiparisDetay.Sum(x => x.KdvTutarı) + _tempSiparisDetay.Sum(x => x.NetToplam),
-                tip = 1,
-
-            });
-            _stokOlcuBr.Data(ServisList.StokOlcuBrListeServis);
-            _olcuBr.Data(ServisList.OlcuBrListeServis);
-            int i = 0;
-            foreach (var item in _tempSiparisDetay.Where(x => x.StokKodu != "").ToList())
-            {
-                var stokolcubr = _stokOlcuBr.obje.Where(x => x.stokid == item.StokId).FirstOrDefault();
-
-                _siparisDetayServis.Data(ServisList.SiparisDetayEkleServis, new PocoSIPARISDETAY()
-                {
-                    stokid = item.StokId,
-                    stokadi = item.StokAdı,
-                    aciklama = item.Acıklama,
-                    kdv = item.Kdv,
-                    //kasaid = item.KasaId,
-                    nettoplam = item.NetToplam,
-                    netfiyat = item.NetFiyat,
-                    birimid = _olcuBr.obje.Where(x => x.adi.ToString() == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Birim").ToString()).FirstOrDefault().id,
-                    dovizid = 0,
-                    miktar = item.Miktar,
-                    istkontO1 = item.İskonto1,
-                    istkontO2 = item.İskonto2,
-                    istkontO3 = item.İskonto3,
-                    siparisid = _siparisServis.obje2.id, ///ID gelecek
-
-                    brutfiyat = item.BrütFiyat,
-                    bruttoplam = item.BrütFiyat * item.Miktar,
-                    bekleyenmiktar = 0,
-                    hareketdurumu = 0,
-                    listefiyatid = 0,
-                    tip = 1,
-                    kdvtutari = item.KdvTutarı
-                });
-                i++;
-
-                _siparisKasaHarServis.Data(ServisList.SiparisKasaHarEkleServis, new PocoSIPARISKASAHAR()
-                {
-                    //KASAID = item.KasaId,
-                    SIPARISID = _siparisServis.obje2.id,
-                    SIPARISDETAYID = _siparisDetayServis.obje2.id
-                });
-
-
-
-
-            }
-            temizle();
-            //DataGrideSiparisleriGetir();
-        }
-
-
-
-
         public void Temizle(Control.ControlCollection ctrlCollection)
         {
             foreach (Control ctrl in ctrlCollection)
@@ -329,20 +140,325 @@ namespace MEYPAK.PRL.SIPARIS
                 }
             }
         }
+        RepositoryItemLookUpEdit riLookup, riLookup3;
+        GridColumn gridColumn2;
+        public List<ListKasaList> _kasaaa;
+        public List<KasaList> _tempKasaList;
+        public RepositoryItemButtonEdit repositoryItemButtonEdit;
+
+        void DataGridYapilandir()
+        {
+            _tempStok = new PocoSTOK();
+            _tempSIPARISDETAY.Add(new PocoSiparisKalem() { Tipi = "STOK" });
+            GCIrsaliye.DataSource = _tempSIPARISDETAY;
+
+            gridView1.Columns["sıra"].Visible = false;
+
+            repositoryItemButtonEdit = new RepositoryItemButtonEdit();
+            repositoryItemButtonEdit.NullText = "";
+            repositoryItemButtonEdit.NullValuePrompt = "";
+            repositoryItemButtonEdit.Buttons[0].Caption = "SEÇ"; 
+           repositoryItemButtonEdit.Buttons[0].Kind = ButtonPredefines.Glyph;
+            gridView1.Columns["StokKodu"].OptionsColumn.AllowEdit = true; 
+            gridView1.Columns["StokKodu"].ColumnEdit = repositoryItemButtonEdit;
+
+
+
+
+            gridColumn2 = gridView1.Columns.AddVisible("BirimSec", "Sec");
+            RepositoryItemButtonEdit repositoryItemButton2 = new RepositoryItemButtonEdit();
+            repositoryItemButton2.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            repositoryItemButton2.NullText = "Sec";
+            repositoryItemButton2.NullValuePrompt = "Seç";
+
+            GridColumn gridColumn3 = gridView1.Columns.AddVisible("KasaSec", "Sec");
+            RepositoryItemButtonEdit repositoryItemButtonEdit3 = new RepositoryItemButtonEdit();
+            repositoryItemButtonEdit3.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            repositoryItemButtonEdit3.NullText = "Sec";
+            repositoryItemButtonEdit3.NullValuePrompt = "Seç";
+
+
+            var datatb = new DataTable();
+            datatb.Columns.Add("ID", typeof(int));
+            datatb.Columns.Add("TIP", typeof(string));
+
+            datatb.Rows.Add(0, "STOK");
+            datatb.Rows.Add(1, "HIZMET");
+            datatb.Rows.Add(2, "KASA");
+            datatb.Rows.Add(3, "DEMIRBAS");
+            datatb.Rows.Add(4, "MUHASEBE");
+
+
+            riLookup = new RepositoryItemLookUpEdit();
+            riLookup.DataSource = datatb;
+            riLookup.ValueMember = "TIP";
+            riLookup.DisplayMember = "TIP";
+            riLookup.NullText = "Sec";
+
+            riLookup.HotTrackItems = true;
+            riLookup.BestFitWidth = 70;
+            // riLookup.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
+            riLookup.DropDownRows = datatb.Rows.Count;
+            riLookup.AcceptEditorTextAsNewValue = DefaultBoolean.True;
+            riLookup.AutoSearchColumnIndex = 1;
+            riLookup.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
+            riLookup.EditValueChanged += RiLookup_EditValueChanged;
+            riLookup.GetDataSourceRowByKeyValue(0);
+
+            gridView1.Columns["Tipi"].OptionsColumn.AllowEdit = true;
+            //repoGV.Columns.Add(colun2);
+            gridView1.Columns["Tipi"].ColumnEdit = riLookup;
+            _tempKasaList = new List<KasaList>();
+            riLookup3 = new RepositoryItemLookUpEdit();
+            riLookup3.ValueMember = "ID";
+            riLookup3.DisplayMember = "KASAADI";
+
+
+            riLookup3.NullText = "";
+
+            riLookup3.BestFitWidth = 70;
+            riLookup3.AutoHeight = true;
+            // riLookup.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
+            riLookup3.DropDownRows = _tempKasaList.Count();
+            riLookup3.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.False;
+            riLookup3.EditValueChanged += RiLookup_EditValueChanged;
+
+            gridView1.Columns["KasaAdı"].OptionsColumn.AllowEdit = true;
+            //repoGV.Columns.Add(colun2);
+            gridView1.Columns["KasaAdı"].ColumnEdit = riLookup3;
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("ID", typeof(int));
+            dt.Columns.Add("ADI", typeof(string));
+            _paraBirimServis.Data(ServisList.ParaBirimiListeServis);
+            foreach (var item in _paraBirimServis.obje)
+            {
+                dt.Rows.Add(item.id, item.adi);
+            }
+
+            gridView1.BestFitColumns();
+            RepositoryItemLookUpEdit riLookup2 = new RepositoryItemLookUpEdit();
+
+            riLookup2.DataSource = dt;
+            riLookup2.ValueMember = "ID";
+            riLookup2.DisplayMember = "ADI";
+            riLookup2.NullText = "Sec";
+            riLookup2.NullValuePrompt = "Seç";
+
+            riLookup2.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
+            riLookup2.DropDownRows = datatb.Rows.Count;
+
+            riLookup2.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete;
+            riLookup2.AutoSearchColumnIndex = 1;
+            riLookup2.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
+            gridView1.Columns["Doviz"].OptionsColumn.AllowEdit = true;
+            //repoGV.Columns.Add(colun2);
+            gridView1.Columns["Doviz"].ColumnEdit = riLookup2;
+
+            gridView1.BestFitColumns();
+
+
+
+            repositoryItemButtonEdit3.ButtonClick += RepositoryItemButtonEdit3_ButtonClick;
+            repositoryItemButtonEdit.ButtonClick += RepositoryItemButtonEdit_ButtonClick;
+            repositoryItemButton2.ButtonClick += RepositoryItemButtonEdit2_ButtonClick;
+             
+            GCIrsaliye.RepositoryItems.Add(repositoryItemButton2);
+            GCIrsaliye.RepositoryItems.Add(repositoryItemButtonEdit3); 
+            gridColumn2.ColumnEdit = repositoryItemButton2;
+            gridColumn3.ColumnEdit = repositoryItemButtonEdit3; 
+
+            gridView1.Columns["StokKodu"].VisibleIndex = 3;
+            gridView1.Columns["BirimSec"].VisibleIndex = 8;
+            gridView1.Columns["KasaSec"].VisibleIndex = 6;
+            gridView1.Columns["StokId"].Visible = false;
+            gridView1.Columns["Tipi"].VisibleIndex = 0;
+            gridView1.Columns["Doviz"].VisibleIndex = 20;
+            gridView1.Columns["KasaId"].Visible = false;
+            gridView1.Columns["Tipi"].UnboundDataType = System.Type.GetType("System.String");
+            GCIrsaliye.ForceInitialize();
+
+        }
+
+        private void RiLookup_EditValueChanged(object? sender, EventArgs e)
+        {
+
+        }
+
+
+        private void RepositoryItemButtonEdit3_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+
+            if (_kasaaa.Where(x => x.num.ToString() == gridView1.FocusedRowHandle.ToString()).Count() > 0)
+            {
+                fKasaList = new FStokKasaList(this.Tag.ToString(), "FSatinAlmaSiparis", gridView1.FocusedRowHandle.ToString(), _kasaaa);
+            }
+            else
+            {
+                fKasaList = new FStokKasaList(this.Tag.ToString(), "FSatinAlmaSiparis", gridView1.FocusedRowHandle.ToString());
+            }
+            fKasaList.ShowDialog();
+            if (_kasaaa.Where(x => x.num == gridView1.FocusedRowHandle).Count() > 0)
+                riLookup3.DataSource = _kasaaa.Where(x => x.num == gridView1.FocusedRowHandle).FirstOrDefault().KasaList;
+            GCIrsaliye.RefreshDataSource();
+        }
+
+        private void RepositoryItemButtonEdit2_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            _fStokOlcuBrList = new FStokOlcuBrList(this.Tag.ToString(), "FSatinAlmaSiparis");
+            _fStokOlcuBrList.stokid = _tempStok.id;
+            _fStokOlcuBrList.ShowDialog();
+        }
+
+        private DataView clone = null;
+        private void RepositoryItemButtonEdit_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            if (gridView1.GetFocusedRowCellValue("Tipi") == "STOK")
+            {
+                _fStokList = new FStokList(this.Tag.ToString(), "FSatinAlmaSiparis");
+                _fStokList.ShowDialog();
+
+                _tempPocokalem = new PocoSiparisKalem()
+                {
+                    Tipi = "STOK",
+                    StokId = _tempStok.id,
+                    StokKodu = _tempStok.kod,
+                    StokAdı = _tempStok.adi,
+                    sıra = gridView1.GetFocusedDataSourceRowIndex(),
+                    Birim = "",//_olcuBr.obje.Where(x => x.adi == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "DGVOlcuBr").ToString()).FirstOrDefault().adi,
+                               //KasaAdı = "",
+                    Kdv = _tempStok.satiskdv,
+                }; 
+            }
+            else if (gridView1.GetFocusedRowCellValue("Tipi") == "KASA")
+            {
+
+                _fStokKasaList = new FStokKasaList(this.Tag.ToString(), "FSatinAlmaSiparis");
+                _fStokKasaList.ShowDialog();
+                if (_tempKasa != null)
+                {
+                    _tempPocokalem = new PocoSiparisKalem()
+                    {
+                        Tipi = "KASA",
+                        StokId = _tempKasa.id,
+                        StokKodu = _tempKasa.kasakodu,
+                        StokAdı = _tempKasa.kasaadi,
+                        sıra = gridView1.GetFocusedDataSourceRowIndex(),
+                        Birim = "",//_olcuBr.obje.Where(x => x.adi == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "DGVOlcuBr").ToString()).FirstOrDefault().adi,
+                                   //KasaAdı = "",
+                        Kdv = 0  //_tempKasa.satiskdv,
+                    };
+                    repositoryItemButtonEdit.OwnerEdit.Text = _tempKasa.kasakodu;
+                }
+                
+            }
+
+
+
+
+            /* DGVFiyatList.DataSource = _tempStok.MPSTOKFIYATLISTHAR.Select(x => x.MPSTOKFIYATLIST.FIYATLISTADI).ToList();*/ //////////////////////////// BAKILCAK
+            _tempSIPARISDETAY[gridView1.FocusedRowHandle] = _tempPocokalem;
+            GCIrsaliye.DataSource = _tempSIPARISDETAY;
+            GCIrsaliye.RefreshDataSource();
+            GCIrsaliye.Refresh();
+
+        }
+         
 
         int i;
 
         decimal birimfiyat = 0, kdv = 0, bsnc = 0, brutfiyat = 0, netfiyat = 0, nettoplam = 0, brüttoplam = 0, geneltoplam = 0, isktoplam = 0, kdvtoplam = 0, miktar = 0;
 
+        private void gridView1_RowClick(object sender, RowClickEventArgs e)
+        {
+
+        }
+
+        private void gridView1_RowCellClick(object sender, RowCellClickEventArgs e)
+        {
+
+        }
+        int tempnum;
+        private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            tempnum = gridView1.GetFocusedDataSourceRowIndex();
+            if (_kasaaa.Where(x => x.num == tempnum).Count() > 0)
+                riLookup3.DataSource = _kasaaa.Where(x => x.num == tempnum).FirstOrDefault().KasaList;
+        }
+
+        private void BTKaydet_Click_1(object sender, EventArgs e)
+        {
+            _cariKart.Data(ServisList.CariListeServis);
+            _SIPARISServis.Data(ServisList.SiparisEkleServis, new PocoSIPARIS()
+            {
+                aciklama = TBAciklama.Text,
+                kur = Convert.ToDecimal(TBKur.Text),
+                belgeno = TBIrsaliyeNo.Text,
+                vadetarihi = (DateTime)DTPVadeTarihi.EditValue,
+                guncellemetarihi = DateTime.Now,
+                vadegunu = Convert.ToInt32(TBGun.Text),
+                cariadi = TBCariAdi.Text,
+                cariid = _cariKart.obje.Where(x => x.kod == TBCariKodu.Text).FirstOrDefault().id,
+                depoid = _depoServis.obje.Where(x => x.depoadi == CBDepo.EditValue).FirstOrDefault().id,
+                // althesapid = _cariAltHesapServis.obje.Where(x => x.adi == CBAltHesap.EditValue).FirstOrDefault().id,
+                dovizid = _paraBirimServis.obje.Where(x => x.adi == CBParaBirimi.Text).FirstOrDefault().id,
+                istkontotoplam = _tempSIPARISDETAY.Sum(x => x.İskontoTutarı),
+                kdvtoplam = _tempSIPARISDETAY.Sum(x => x.KdvTutarı),
+                bruttoplam = _tempSIPARISDETAY.Sum(x => x.BrütToplam),
+                nettoplam = _tempSIPARISDETAY.Sum(x => x.NetToplam),
+                geneltoplam = _tempSIPARISDETAY.Sum(x => x.KdvTutarı) + _tempSIPARISDETAY.Sum(x => x.NetToplam),
+                tip = 1,
+            });
+
+            _stokOlcuBr.Data(ServisList.StokOlcuBrListeServis);
+            _olcuBr.Data(ServisList.OlcuBrListeServis);
+            int i = 0;
+            foreach (var item in _tempSIPARISDETAY.Where(x => x.StokKodu != "").ToList())
+            {
+                var stokolcubr = _stokOlcuBr.obje.Where(x => x.stokid == item.StokId).FirstOrDefault();
+
+                _SIPARISDETAYServis.Data(ServisList.SiparisDetayEkleServis, new PocoSIPARISDETAY()
+                {
+                    stokid = item.StokId,
+                    stokadi = item.StokAdı,
+                    aciklama = item.Acıklama,
+                    kdv = item.Kdv,
+                    //kasaid = item.KasaId,
+                    nettoplam = item.NetToplam,
+                    netfiyat = item.NetFiyat,
+                    birimid = _olcuBr.obje.Where(x => x.adi.ToString() == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Birim").ToString()).FirstOrDefault().id,
+                    dovizid = 0,
+                    miktar = item.Miktar,
+                    istkontO1 = item.İskonto1,
+                    istkontO2 = item.İskonto2,
+                    istkontO3 = item.İskonto3,
+                    siparisid = _SIPARISServis.obje2.id, ///ID gelecek
+
+                    brutfiyat = item.BrütFiyat,
+                    bruttoplam = item.BrütFiyat * item.Miktar,
+                    bekleyenmiktar = 0,
+                    hareketdurumu = 0,
+                    listefiyatid = 0,
+                    tip = 1,
+                    kdvtutari = item.KdvTutarı
+                });
+                i++;
+
+
+
+
+            }
+            temizle();
+
+        }
+        int num = 0;
         private void gridView1_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter || e.KeyChar == (char)Keys.Down)
             {
-
-                GCSatinAlmaSiparis.DataSource = "";
-                _tempSiparisDetay.Add(new PocoSiparisKalem());
-                GCSatinAlmaSiparis.DataSource = _tempSiparisDetay;
-
+                num++;
+                _tempSIPARISDETAY.Add(new PocoSiparisKalem() { sıra = num });
+                GCIrsaliye.DataSource = _tempSIPARISDETAY;
 
                 //dataGridView1.Columns["DGVOlcuBr"].DisplayIndex = 6;
                 //dataGridView1.Columns["DGVFiyatList"].DisplayIndex = dataGridView1.ColumnCount - 1; 
@@ -356,15 +472,14 @@ namespace MEYPAK.PRL.SIPARIS
 
                 for (int i = 0; i < gridView1.RowCount; i++)
                 {
-                    gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "DGVOlcuBr", _tempSiparisDetay[i].Birim.ToString());
+                    gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "DGVOlcuBr", _tempSIPARISDETAY[i].Birim.ToString());
                 }
                 gridView1.FocusedRowHandle = gridView1.RowCount - 1;
                 gridView1.FocusedColumn = gridView1.Columns["StokKodu"];
                 gridView1.Columns["Seç"].VisibleIndex = 2;
-                gridView1.Columns["KasaSec"].VisibleIndex = 5;
                 gridView1.Columns["BirimSec"].VisibleIndex = 8;
                 gridView1.Columns["StokId"].Visible = false;
-                gridView1.Columns["KasaId"].Visible = false;
+                GCIrsaliye.RefreshDataSource();
                 ////dataGridView1.Invalidate();
                 //dataGridView1.Refresh();
 
@@ -395,19 +510,25 @@ namespace MEYPAK.PRL.SIPARIS
                 MessageBox.Show("BURDAAAA");
             }
         }
+        private void FSatinAlmaSiparis_Load(object sender, EventArgs e)
+        {
+            DataGridYapilandir();
+        }
 
-
-        int sy = 0;
-        private void gridView1_CellValueChanged(object sender, CellValueChangedEventArgs e)
+        private void gridView1_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
             if (sy == 0)
             {
                 sy = 1;
+
+                daralı = Convert.ToDecimal(gridView1.GetFocusedRowCellValue("Daralı"));
+                dara = Convert.ToDecimal(gridView1.GetFocusedRowCellValue("Dara"));
+                gridView1.SetFocusedRowCellValue("Safi", daralı - dara);
                 if (CHBKdvDahil.Checked == false)
                 {
                     birimfiyat = Convert.ToDecimal(gridView1.GetFocusedRowCellValue("BirimFiyat"));
                     brutfiyat = birimfiyat;
-                    miktar = _tempSiparisDetay.Where(x => x.StokId.ToString() == gridView1.GetFocusedRowCellValue("StokId").ToString()).FirstOrDefault().Miktar;
+                    miktar = _tempSIPARISDETAY.Where(x => x.StokId.ToString() == gridView1.GetFocusedRowCellValue("StokId").ToString()).FirstOrDefault().Miktar;
                     kdv = Convert.ToDecimal(gridView1.GetFocusedRowCellValue("Kdv"));
                     isktoplam = (birimfiyat * Convert.ToDecimal(gridView1.GetFocusedRowCellValue("İskonto1"))) / 100;
                     isktoplam += (isktoplam * Convert.ToDecimal(gridView1.GetFocusedRowCellValue("İskonto2"))) / 100;
@@ -424,7 +545,7 @@ namespace MEYPAK.PRL.SIPARIS
                     kdv = Convert.ToDecimal(gridView1.GetFocusedRowCellValue("Kdv"));
                     birimfiyat = (Convert.ToDecimal(gridView1.GetFocusedRowCellValue("BirimFiyat")));
                     netfiyat = birimfiyat / (1 + (kdv / 100));
-                    miktar = _tempSiparisDetay.Where(x => x.StokId.ToString() == gridView1.GetFocusedRowCellValue("StokId")).FirstOrDefault().Miktar;
+                    miktar = _tempSIPARISDETAY.Where(x => x.StokId.ToString() == gridView1.GetFocusedRowCellValue("StokId")).FirstOrDefault().Miktar;
                     isktoplam = (netfiyat * Convert.ToDecimal(gridView1.GetFocusedRowCellValue("İskonto1"))) / 100;
                     isktoplam += (isktoplam * Convert.ToDecimal(gridView1.GetFocusedRowCellValue("İskonto2"))) / 100;
                     isktoplam += (isktoplam * Convert.ToDecimal(gridView1.GetFocusedRowCellValue("İskonto3"))) / 100;
@@ -446,61 +567,75 @@ namespace MEYPAK.PRL.SIPARIS
                 gridView1.SetFocusedRowCellValue("NetFiyat", decimal.Round(netfiyat, 2));
 
 
-                TBBrutToplam.Text = decimal.Round(_tempSiparisDetay.Sum(x => x.BrütToplam), 2).ToString();
-                TBIskontoToplam.Text = decimal.Round(_tempSiparisDetay.Sum(x => x.İskontoTutarı), 2).ToString();
-                TBKdvTutari.Text = decimal.Round(_tempSiparisDetay.Sum(x => x.KdvTutarı), 2).ToString();
-                TBGenelToplam.Text = decimal.Round(_tempSiparisDetay.Sum(x => x.NetToplam + x.KdvTutarı), 2).ToString();
-                TBAraToplam.Text = decimal.Round(_tempSiparisDetay.Sum(x => x.NetToplam), 2).ToString();
+                TBBrutToplam.Text = decimal.Round(_tempSIPARISDETAY.Sum(x => x.BrütToplam), 2).ToString();
+                TBIskontoToplam.Text = decimal.Round(_tempSIPARISDETAY.Sum(x => x.İskontoTutarı), 2).ToString();
+                TBKdvTutari.Text = decimal.Round(_tempSIPARISDETAY.Sum(x => x.KdvTutarı), 2).ToString();
+                TBGenelToplam.Text = decimal.Round(_tempSIPARISDETAY.Sum(x => x.NetToplam + x.KdvTutarı), 2).ToString();
+                TBAraToplam.Text = decimal.Round(_tempSIPARISDETAY.Sum(x => x.NetToplam), 2).ToString();
                 sy = 0;
             }
         }
 
-        private void TBSiparisNo_Properties_Click(object sender, EventArgs e)
-        {
 
-        }
+
+        int sy = 0;
+        decimal daralı, dara;
+
+
+
 
         private void TBSiparisNo_Properties_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
-            FMusteriSiparisList fMusteriSiparisList = new FMusteriSiparisList(this.Tag.ToString(), "SatinAlmaSiparis");
-            fMusteriSiparisList.ShowDialog();
-            if (_tempSiparis != null)
+            FMusteriSiparisList FSatinAlmaSiparislist = new FMusteriSiparisList(this.Tag.ToString(), "FSatinAlmaSiparis");
+            FSatinAlmaSiparislist.ShowDialog();
+            if (_tempSIPARIS != null)
             {
-                TBSiparisNo.Text = _tempSiparis.belgeno;
+                TBIrsaliyeNo.Text = _tempSIPARIS.belgeno;
                 //todo : TBCariKodu.Text = 
 
-                TBCariKodu.Text = _cariKart.obje.Where(x => x.id == _tempSiparis.cariid).FirstOrDefault().kod;
-                TBCariAdi.Text = _tempSiparis.cariadi;
+                TBCariKodu.Text = _cariKart.obje.Where(x => x.id == _tempSIPARIS.cariid).FirstOrDefault().kod;
+                TBCariAdi.Text = _tempSIPARIS.cariadi;
                 _stokServis.Data(ServisList.StokListeServis);
                 //TODO TBKasa.Text = 
-                DTSiparisTarih.Value = _tempSiparis.siparistarihi;
-                TBAciklama.Text = _tempSiparis.aciklama;
-                DTPVadeTarihi.Value = _tempSiparis.vadetarihi;
-                DTSevkiyatTarih.Value = _tempSiparis.sevkiyattarihi;
-                TBGun.Text = _tempSiparis.vadegunu.ToString();
-                _siparisDetayServis.Data(ServisList.SiparisDetayListeServis + 2, null, "query=SIPARISID=" + _tempSiparis.id.ToString());
-                GCSatinAlmaSiparis.DataSource = _siparisDetayServis.obje.Select(x => new PocoSiparisKalem()
+                DTSiparisTarih.EditValue = _tempSIPARIS.siparistarihi;
+                TBAciklama.Text = _tempSIPARIS.aciklama;
+                DTPVadeTarihi.EditValue = _tempSIPARIS.vadetarihi;
+                TBGun.Text = _tempSIPARIS.vadegunu.ToString();
+
+
+                _SIPARISDETAYServis.Data(ServisList.SiparisDetayListeServis + 2, null, "query=SIPARISID=" + _tempSIPARIS.id.ToString());
+                GCIrsaliye.DataSource = _SIPARISDETAYServis.obje.Select(x => new PocoSiparisKalem()
                 {
                     StokId = x.stokid,
                     StokKodu = _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().kod,//,  TODOO:BAKILACAAAK
                     StokAdı = _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().adi,
                     Birim = "0",// _olcuBr.obje.Where(x => x.ADI == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "DGVOlcuBr").ToString()).FirstOrDefault().ADI,
-                    //KasaAdı = "",
+                                //KasaAdı = "",
                     Kdv = _tempStok.satiskdv,
                     Doviz = "TL", //_tempStok.SDOVIZID 
                 });
             }
-        }
 
+        }
         private void TBCariKodu_Properties_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
 
-            _fCariList = new FCariList(this.Tag.ToString(), "SatinAlmaSiparis");
+            _fCariList = new FCariList(this.Tag.ToString(), "FSatinAlmaSiparis");
             _fCariList.ShowDialog();
             if (_tempCariKart != null)
             {
+                List<PocoCARIALTHES> altcarilist = new List<PocoCARIALTHES>();
                 TBCariKodu.Text = _tempCariKart.kod;
                 TBCariAdi.Text = _tempCariKart.unvan == "" ? _tempCariKart.adi + " " + _tempCariKart.soyadi : _tempCariKart.unvan;
+                // CBAltHesap.Properties.DataSource = _cariAltHesapServis.obje.Where(x=>x.cariid==_tempCariKart.id).Select(x => x.adi).ToList();
+                _carialthescaricari.Data(ServisList.CariAltHesCariListeServis);
+                foreach (var item in _carialthescaricari.obje.Where(x => x.cariid == _tempCariKart.id))
+                {
+                    altcarilist.Add(_cariAltHesapServis.obje.Where(x => x.kayittipi == 0 && x.id == item.carialthesid).FirstOrDefault());
+                }
+                CBAltHesap.Properties.DataSource = altcarilist.Select(x => new { ID = x.id, ADI = x.adi });
+                CBAltHesap.Properties.ValueMember = "ID";
+                CBAltHesap.Properties.DisplayMember = "ADI";
             }
         }
 
@@ -562,46 +697,6 @@ namespace MEYPAK.PRL.SIPARIS
 
 
 
-        private void BTCariSec_Click(object sender, EventArgs e)
-        {
-        }
-
-
-        private void BTSiparisSec_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-
-        private void dataGridView1_CellLeave(object sender, DataGridViewCellEventArgs e)
-        {
-
-            //dataGridView1.Invalidate();
-            //dataGridView1.Refresh();
-
-
-        }
-
-        private void dataGridView1_RowLeave(object sender, DataGridViewCellEventArgs e)
-        {
-            //    if (gridView1.GetFocusedRowCellValue("DGVOlcuBr")!=null)
-            //    _tempSiparisDetay[e.RowIndex].Birim = dataGridView1.Rows[e.RowIndex].Cells["DGVOlcuBr"].Value.ToString();
-        }
-
-        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-            //if (_tempPocokalem != null)
-            //{
-            //    _tempSiparisDetay[e.RowIndex].Birim = dataGridView1.Rows[e.RowIndex].Cells["DGVOlcuBr"].EditedFormattedValue.ToString();
-            //}
-        }
-
-        private void dataGridView1_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
-        {
-
-
-        }
 
 
 
@@ -612,27 +707,6 @@ namespace MEYPAK.PRL.SIPARIS
                 e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
             }
         }
-        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            //if (dataGridView1.Rows.Count > 1)
-            //    i = 1;
-        }
-        private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
-        {
-            //if (_tempSiparisDetay != null)
-            //{
-            //    if (dataGridView1.CurrentCell == dataGridView1.Rows[e.RowIndex].Cells["BrütToplam"] && brutfiyat != 0)
-            //    {
-            //        dataGridView1.Rows[e.RowIndex].Cells["BrütToplam"].Value = brüttoplam;
-            //    }
-            //    else if (dataGridView1.CurrentCell == dataGridView1.Rows[e.RowIndex].Cells["NetToplam"] && nettoplam != 0)
-            //    {
-            //        dataGridView1.Rows[e.RowIndex].Cells["NetToplam"].Value = nettoplam;
-            //    }
-            //}
-        }
-
-
 
 
 

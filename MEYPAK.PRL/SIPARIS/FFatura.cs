@@ -26,6 +26,8 @@ using MEYPAK.Entity.Models.CARI;
 using MEYPAK.Interfaces.IRSALIYE;
 using MEYPAK.Entity.PocoModels.FATURA;
 using MEYPAK.Entity.PocoModels.IRSALIYE;
+using DevExpress.XtraVerticalGrid.Native;
+using MEYPAK.Interfaces.Stok;
 
 namespace MEYPAK.PRL.SIPARIS
 {
@@ -52,6 +54,7 @@ namespace MEYPAK.PRL.SIPARIS
         GenericWebServis<PocoFATURA> _faturaServis;
         GenericWebServis<PocoFATURADETAY> _faturadetayServis;
         GenericWebServis<PocoSTOKOLCUBR> _stokOlcuBr;
+        GenericWebServis<PocoSTOKHAR> _stokHarServis;
         GenericWebServis<PocoOLCUBR> _olcuBr;
         GenericWebServis<PocoCARIKART> _cariKart;
         GenericWebServis<PocoSTOK> _stokServis;
@@ -101,7 +104,12 @@ namespace MEYPAK.PRL.SIPARIS
             _carialthescaricari = new GenericWebServis<PocoCARIALTHESCARI>();
             _kasaaa = new List<ListKasaList>();
         }
-
+        FGetKunye _fGetKunye;
+        RepositoryItemLookUpEdit riLookup, riLookup3;
+        RepositoryItemButtonEdit repositoryItemButtonEdit;
+        GridColumn gridColumn2;
+        public List<ListKasaList> _kasaaa;
+        public List<KasaList> _tempKasaList;
         void temizle()
         {
             num = 0;
@@ -128,10 +136,6 @@ namespace MEYPAK.PRL.SIPARIS
                 }
             }
         }
-        RepositoryItemLookUpEdit riLookup, riLookup3;
-        GridColumn gridColumn2;
-        public List<ListKasaList> _kasaaa;
-        public List<KasaList> _tempKasaList;
         void DataGridYapilandir()
         {
             _tempStok = new PocoSTOK();
@@ -140,11 +144,14 @@ namespace MEYPAK.PRL.SIPARIS
 
             gridView1.Columns["sıra"].Visible = false;
 
-            GridColumn gridColumn = gridView1.Columns.AddVisible("Seç", "Seç");
-            RepositoryItemButtonEdit repositoryItemButtonEdit = new RepositoryItemButtonEdit();
-            repositoryItemButtonEdit.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            repositoryItemButtonEdit.NullText = "Seç";
-            repositoryItemButtonEdit.NullValuePrompt = "Seç";
+            repositoryItemButtonEdit = new RepositoryItemButtonEdit();
+            repositoryItemButtonEdit.NullText = "";
+            repositoryItemButtonEdit.NullValuePrompt = "";
+            repositoryItemButtonEdit.Buttons[0].Caption = "SEÇ";
+            repositoryItemButtonEdit.Buttons[0].Kind = ButtonPredefines.Glyph;
+            gridView1.Columns["StokKodu"].OptionsColumn.AllowEdit = true;
+            gridView1.Columns["StokKodu"].ColumnEdit = repositoryItemButtonEdit;
+
 
 
 
@@ -160,6 +167,13 @@ namespace MEYPAK.PRL.SIPARIS
             repositoryItemButtonEdit3.NullText = "Sec";
             repositoryItemButtonEdit3.NullValuePrompt = "Seç";
 
+
+
+            GridColumn gridColumn4 = gridView1.Columns.AddVisible("Kunye", "KunyeSec");
+            RepositoryItemButtonEdit repositoryItemButtonEdit4 = new RepositoryItemButtonEdit();
+            repositoryItemButtonEdit4.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            repositoryItemButtonEdit4.NullText = "Seç";
+            repositoryItemButtonEdit4.NullValuePrompt = "Seç";
 
             var datatb = new DataTable();
             datatb.Columns.Add("ID", typeof(int));
@@ -192,7 +206,7 @@ namespace MEYPAK.PRL.SIPARIS
             //repoGV.Columns.Add(colun2);
             gridView1.Columns["Tipi"].ColumnEdit = riLookup;
             _tempKasaList = new List<KasaList>();
-            riLookup3 = new RepositoryItemLookUpEdit(); 
+            riLookup3 = new RepositoryItemLookUpEdit();
             riLookup3.ValueMember = "ID";
             riLookup3.DisplayMember = "KASAADI";
 
@@ -245,25 +259,31 @@ namespace MEYPAK.PRL.SIPARIS
             repositoryItemButtonEdit3.ButtonClick += RepositoryItemButtonEdit3_ButtonClick;
             repositoryItemButtonEdit.ButtonClick += RepositoryItemButtonEdit_ButtonClick;
             repositoryItemButton2.ButtonClick += RepositoryItemButtonEdit2_ButtonClick;
+            repositoryItemButtonEdit4.ButtonClick += RepositoryItemButtonEdit4_ButtonClick;
 
-            GCIrsaliye.RepositoryItems.Add(repositoryItemButtonEdit);
             GCIrsaliye.RepositoryItems.Add(repositoryItemButton2);
             GCIrsaliye.RepositoryItems.Add(repositoryItemButtonEdit3);
-            gridColumn.ColumnEdit = repositoryItemButtonEdit;
+            GCIrsaliye.RepositoryItems.Add(repositoryItemButtonEdit4);
             gridColumn2.ColumnEdit = repositoryItemButton2;
             gridColumn3.ColumnEdit = repositoryItemButtonEdit3;
-            gridColumn.ShowButtonMode = DevExpress.XtraGrid.Views.Base.ShowButtonModeEnum.ShowAlways;
+            gridColumn4.ColumnEdit = repositoryItemButtonEdit4;
 
-            gridView1.Columns["Seç"].VisibleIndex = 2;
-            gridView1.Columns["BirimSec"].VisibleIndex = 9;
-            gridView1.Columns["KasaSec"].VisibleIndex = 7;
+            gridView1.Columns["StokKodu"].VisibleIndex = 3;
+            gridView1.Columns["BirimSec"].VisibleIndex = 8;
+            gridView1.Columns["KasaSec"].VisibleIndex = 6;
             gridView1.Columns["StokId"].Visible = false;
+            gridView1.Columns["Kunye"].VisibleIndex = 10;
             gridView1.Columns["Tipi"].VisibleIndex = 0;
             gridView1.Columns["Doviz"].VisibleIndex = 20;
             gridView1.Columns["KasaId"].Visible = false;
             gridView1.Columns["Tipi"].UnboundDataType = System.Type.GetType("System.String");
             GCIrsaliye.ForceInitialize();
+        }
 
+        private void RepositoryItemButtonEdit4_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            _fGetKunye = new FGetKunye(this.Tag.ToString(), "FFatura");
+            _fGetKunye.ShowDialog();
         }
 
         private void RiLookup_EditValueChanged(object? sender, EventArgs e)
@@ -424,6 +444,25 @@ namespace MEYPAK.PRL.SIPARIS
                     tip = 0,
                     kdvtutari = item.KdvTutarı
                 });
+
+                _stokHarServis.Data(ServisList.StokHarEkleServis, new Entity.PocoModels.STOK.PocoSTOKHAR()
+                {
+                    aciklama = item.Acıklama,
+                    belgE_NO = _faturaServis.obje2.belgeno,
+                    hareketturu = 1,
+                    birim = _olcuBr.obje.Where(x => x.adi.ToString() == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Birim").ToString()).FirstOrDefault().id,
+                    bruttoplam = item.BrütToplam,
+                    depoid = _faturaServis.obje2.depoid,
+                    io = 0,
+                    kdv = item.Kdv,
+                    miktar = item.Miktar,
+                    netfiyat = item.NetFiyat,
+                    nettoplam = item.NetToplam,
+                    stokid = item.StokId,
+                    sayimid = 0,
+                    kunye = item.Kunye,
+                });
+
                 i++;
 
 
