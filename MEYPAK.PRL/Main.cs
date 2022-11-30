@@ -178,7 +178,26 @@ namespace MEYPAK.PRL
             fSTOKKART.Show();
             i++;
         }
+        private void accordionControlElement12_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fHizmetKart = new FHizmetKart();
+            page.Name = "TPHizmetKart" + i;
+            page.Text = "Hizmet Kart";
+            page.Tag = "TPHizmetKart" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
 
+            fHizmetKart.FormBorderStyle = FormBorderStyle.None;
+            fHizmetKart.TopLevel = false;
+            fHizmetKart.AutoScroll = true;
+            fHizmetKart.Dock = DockStyle.Fill;
+            fHizmetKart.Tag = "TPHizmetKart" + i;
+            page.Controls.Add(fHizmetKart);
+            fHizmetKart.Show();
+            i++;
+        }
         private void accordionControlElement14_Click(object sender, EventArgs e)
         {
             XtraTabPage page = new XtraTabPage();
@@ -270,6 +289,7 @@ namespace MEYPAK.PRL
             page.Controls.Add(fSiparis);
             fSiparis.Show();
             i++;
+
         }
 
         private void accordionControlElement34_Click(object sender, EventArgs e)
@@ -595,7 +615,27 @@ namespace MEYPAK.PRL
             fMarkaKart.Show();
             i++;
         }
+       
 
+        private void accordionControlElement49_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fFAlisFatura = new FAlisFatura();
+            page.Name = "TPAlisFatura" + i;
+            page.Text = "Alış Fatura";
+            page.Tag = "TPAlisFatura" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fFAlisFatura.TopLevel = false;
+            fFAlisFatura.AutoScroll = true;
+            fFAlisFatura.Dock = DockStyle.Fill;
+            fFAlisFatura.Tag = "TPAlisFatura" + i;
+            page.Controls.Add(fFAlisFatura);
+            fFAlisFatura.Show();
+            i++;
+        }
         private void accordionControlElement50_Click(object sender, EventArgs e)
         {
             XtraTabPage page = new XtraTabPage();
@@ -612,29 +652,47 @@ namespace MEYPAK.PRL
             fStokFiyat.Tag = "TPStokFiyat" + i;
             page.Controls.Add(fStokFiyat);
             fStokFiyat.Show();
-            
-        }
-        private void accordionControlElement12_Click(object sender, EventArgs e)
+
+        } 
+        private void accordionControlElement17_Click(object sender, EventArgs e)
         {
             XtraTabPage page = new XtraTabPage();
-            fHizmetKart = new FHizmetKart();
-            page.Name = "TPHizmetKart" + i;
-            page.Text = "Hizmet Kart";
-            page.Tag = "TPHizmetKart" + i;
+            fMalKabulPanel = new FMalKabulPanel();
+            page.Name = "TPMalKabul" + i;
+            page.Text = "Mal Kabul";
+            page.Tag = "TPMalKabul" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
             xtraTabControl1.TabPages.Add(page);
             xtraTabControl1.SelectedTabPage = page;
 
-            fHizmetKart.FormBorderStyle = FormBorderStyle.None;
-            fHizmetKart.TopLevel = false;
-            fHizmetKart.AutoScroll = true;
-            fHizmetKart.Dock = DockStyle.Fill;
-            fHizmetKart.Tag = "TPHizmetKart" + i;
-            page.Controls.Add(fHizmetKart);
-            fHizmetKart.Show();
+            fMalKabulPanel.TopLevel = false;
+            fMalKabulPanel.AutoScroll = true;
+            fMalKabulPanel.Dock = DockStyle.Fill;
+            fMalKabulPanel.Tag = "TPMalKabul" + i;
+            page.Controls.Add(fMalKabulPanel);
+            fMalKabulPanel.Show();
             i++;
         }
 
+        private void accordionControlElement51_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fFAlisIrsaliye = new FAlisIrsaliye();
+            page.Name = "TPAlisIrsaliye" + i;
+            page.Text = "Alış Irsaliye";
+            page.Tag = "TPAlisIrsaliye" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fFAlisIrsaliye.TopLevel = false;
+            fFAlisIrsaliye.AutoScroll = true;
+            fFAlisIrsaliye.Dock = DockStyle.Fill;
+            fFAlisIrsaliye.Tag = "TPAlisIrsaliye" + i;
+            page.Controls.Add(fFAlisIrsaliye);
+            fFAlisIrsaliye.Show();
+            i++;
+        }
         //private void accordionControlElement48_Click(object sender, EventArgs e)
         //{
         //    XtraTabPage page = new XtraTabPage();

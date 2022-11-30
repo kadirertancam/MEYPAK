@@ -28,22 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FHizmetKart));
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FHizmetKart));
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
             this.TBHizmetAdi = new DevExpress.XtraEditors.TextEdit();
             this.BTHizmetSec = new DevExpress.XtraEditors.ButtonEdit();
             this.LBHizmetAdi = new DevExpress.XtraEditors.LabelControl();
@@ -56,9 +56,9 @@
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.XTPMuh = new DevExpress.XtraTab.XtraTabPage();
             this.panelControl7 = new DevExpress.XtraEditors.PanelControl();
-            this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.TBIadeKod = new DevExpress.XtraEditors.TextEdit();
+            this.TBSatisKod = new DevExpress.XtraEditors.TextEdit();
+            this.TBAlısKod = new DevExpress.XtraEditors.TextEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.LBMuhAlis = new DevExpress.XtraEditors.LabelControl();
@@ -139,9 +139,9 @@
             this.XTPMuh.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl7)).BeginInit();
             this.panelControl7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBIadeKod.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBSatisKod.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBAlısKod.Properties)).BeginInit();
             this.XTPRapor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
             this.panelControl5.SuspendLayout();
@@ -186,7 +186,7 @@
             this.BTHizmetSec.Location = new System.Drawing.Point(182, 36);
             this.BTHizmetSec.Name = "BTHizmetSec";
             this.BTHizmetSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTHizmetSec.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTHizmetSec_Properties_ButtonClick);
             this.BTHizmetSec.Size = new System.Drawing.Size(180, 22);
             this.BTHizmetSec.TabIndex = 33;
@@ -282,9 +282,9 @@
             // 
             // panelControl7
             // 
-            this.panelControl7.Controls.Add(this.textEdit3);
-            this.panelControl7.Controls.Add(this.textEdit2);
-            this.panelControl7.Controls.Add(this.textEdit1);
+            this.panelControl7.Controls.Add(this.TBIadeKod);
+            this.panelControl7.Controls.Add(this.TBSatisKod);
+            this.panelControl7.Controls.Add(this.TBAlısKod);
             this.panelControl7.Controls.Add(this.labelControl3);
             this.panelControl7.Controls.Add(this.labelControl2);
             this.panelControl7.Controls.Add(this.LBMuhAlis);
@@ -294,26 +294,26 @@
             this.panelControl7.Size = new System.Drawing.Size(1252, 539);
             this.panelControl7.TabIndex = 0;
             // 
-            // textEdit3
+            // TBIadeKod
             // 
-            this.textEdit3.Location = new System.Drawing.Point(151, 127);
-            this.textEdit3.Name = "textEdit3";
-            this.textEdit3.Size = new System.Drawing.Size(180, 20);
-            this.textEdit3.TabIndex = 6;
+            this.TBIadeKod.Location = new System.Drawing.Point(151, 127);
+            this.TBIadeKod.Name = "TBIadeKod";
+            this.TBIadeKod.Size = new System.Drawing.Size(180, 20);
+            this.TBIadeKod.TabIndex = 6;
             // 
-            // textEdit2
+            // TBSatisKod
             // 
-            this.textEdit2.Location = new System.Drawing.Point(151, 84);
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Size = new System.Drawing.Size(180, 20);
-            this.textEdit2.TabIndex = 5;
+            this.TBSatisKod.Location = new System.Drawing.Point(151, 84);
+            this.TBSatisKod.Name = "TBSatisKod";
+            this.TBSatisKod.Size = new System.Drawing.Size(180, 20);
+            this.TBSatisKod.TabIndex = 5;
             // 
-            // textEdit1
+            // TBAlısKod
             // 
-            this.textEdit1.Location = new System.Drawing.Point(151, 41);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(180, 20);
-            this.textEdit1.TabIndex = 4;
+            this.TBAlısKod.Location = new System.Drawing.Point(151, 41);
+            this.TBAlısKod.Name = "TBAlısKod";
+            this.TBAlısKod.Size = new System.Drawing.Size(180, 20);
+            this.TBAlısKod.TabIndex = 4;
             // 
             // labelControl3
             // 
@@ -822,7 +822,8 @@
             this.BTKategoriSec.Location = new System.Drawing.Point(182, 124);
             this.BTKategoriSec.Name = "BTKategoriSec";
             this.BTKategoriSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.BTKategoriSec.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTKategoriSec_Properties_ButtonClick);
             this.BTKategoriSec.Size = new System.Drawing.Size(180, 22);
             this.BTKategoriSec.TabIndex = 37;
             // 
@@ -831,7 +832,7 @@
             this.BTGrupKoduSec.Location = new System.Drawing.Point(182, 94);
             this.BTGrupKoduSec.Name = "BTGrupKoduSec";
             this.BTGrupKoduSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTGrupKoduSec.Size = new System.Drawing.Size(180, 22);
             this.BTGrupKoduSec.TabIndex = 36;
             // 
@@ -1271,9 +1272,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl7)).EndInit();
             this.panelControl7.ResumeLayout(false);
             this.panelControl7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBIadeKod.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBSatisKod.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBAlısKod.Properties)).EndInit();
             this.XTPRapor.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).EndInit();
             this.panelControl5.ResumeLayout(false);
@@ -1358,9 +1359,9 @@
         private DevExpress.XtraEditors.LabelControl LBStokKartiRaporKodu3;
         private DevExpress.XtraEditors.LabelControl LBStokKartiRaporKodu2;
         private DevExpress.XtraEditors.LabelControl LBStokKartiRaporKodu1;
-        private DevExpress.XtraEditors.TextEdit textEdit3;
-        private DevExpress.XtraEditors.TextEdit textEdit2;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.TextEdit TBIadeKod;
+        private DevExpress.XtraEditors.TextEdit TBSatisKod;
+        private DevExpress.XtraEditors.TextEdit TBAlısKod;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl LBMuhAlis;

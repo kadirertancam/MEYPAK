@@ -291,7 +291,7 @@ namespace MEYPAK.PRL.IRSALIYE
 
         private void RepositoryItemButtonEdit4_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
-            _fGetKunye = new FGetKunye();
+            _fGetKunye = new FGetKunye(this.Tag.ToString(),"FSatisIrsaliye");
             _fGetKunye.ShowDialog();
         }
 

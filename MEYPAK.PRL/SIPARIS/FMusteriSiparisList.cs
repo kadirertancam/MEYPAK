@@ -68,10 +68,7 @@ namespace MEYPAK.PRL.SIPARIS
         }
 
 
-        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-           
-        }
+
 
         private void gridView1_DoubleClick(object sender, EventArgs e)
         {
@@ -80,15 +77,15 @@ namespace MEYPAK.PRL.SIPARIS
             {
                 if (fmusteriSiparis != null)
                 {
-                    fmusteriSiparis._tempSiparis = _mSiparisServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+                    fmusteriSiparis._tempSIPARIS = _mSiparisServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
                 }
 
             }
-            if(_islem == "satinalmasiparis")
+            if(_islem == "SatinAlmaSiparis")
             {
                 if (fsatinalmaSiparis != null)
                 {
-                    fsatinalmaSiparis._tempSiparis= _mSiparisServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+                    fsatinalmaSiparis._tempSIPARIS= _mSiparisServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
                 }
             }
             this.Close();

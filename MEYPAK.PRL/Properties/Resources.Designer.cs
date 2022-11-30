@@ -83,6 +83,26 @@ namespace MEYPAK.PRL.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
+        internal static System.Drawing.Bitmap kategoriarti {
+            get {
+                object obj = ResourceManager.GetObject("kategoriarti", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap kategorieksi {
+            get {
+                object obj = ResourceManager.GetObject("kategorieksi", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
         internal static System.Drawing.Bitmap mobiliz_logo_tr_svg {
             get {
                 object obj = ResourceManager.GetObject("mobiliz-logo-tr-svg", resourceCulture);

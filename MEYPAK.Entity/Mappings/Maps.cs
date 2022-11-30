@@ -64,6 +64,7 @@ namespace MEYPAK.Entity.Mappings
             CreateMap<MPSTOKFIYATHAR, PocoSTOKFIYATHAR>().ReverseMap();
            
             CreateMap<MPHIZMET, PocoHIZMET>().ReverseMap();
+            CreateMap<MPHIZMETKATEGORI, PocoHIZMETKATEGORI>().ReverseMap();
             CreateMap<MPSTOKKASAMARKA,PocoSTOKKASAMARKA>().ReverseMap();
 
             //SIPARIS
@@ -109,6 +110,7 @@ namespace MEYPAK.Entity.Mappings
             //FATURA            
             CreateMap<MPFATURA, PocoFATURA>().ReverseMap();
             CreateMap<MPFATURADETAY, PocoFATURADETAY>().ReverseMap();
+            CreateMap<MPSERI, PocoSERI>().ReverseMap();
 
 
 

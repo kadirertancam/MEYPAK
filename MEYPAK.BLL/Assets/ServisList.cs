@@ -460,14 +460,21 @@ namespace MEYPAK.BLL.Assets
 
         #endregion
 
-        #region Kasa
-        public const string KasaListeServis =       "http://213.238.167.117:8080/KASA/KASAListe";
-        public const string KasaEkleServis =        "http://213.238.167.117:8080/KASA/KASAEkleyadaGuncelle";
-        public const string KasaSilServis =         "http://213.238.167.117:8080/KASA/KASASil";
-        public const string KasaGuncelleServis =    "http://213.238.167.117:8080/KASA/KASAGuncelle";
-        public const string KasaDeleteByIdServis =  "http://213.238.167.117:8080/KASA/DeleteById";
+        #region HizmetKategori
+        public const string HizmetKategoriListeServis =       "http://213.238.167.117:8080/HIZMETKATEGORI/HIZMETKATEGORIListe";
+        public const string HizmetKategoriEkleServis =        "http://213.238.167.117:8080/HIZMETKATEGORI/HIZMETKATEGORIEkleyadaGuncelle";
+        public const string HizmetKategoriSilServis =         "http://213.238.167.117:8080/HIZMETKATEGORI/HIZMETKATEGORISil";
+        public const string HizmetKategoriGuncelleServis =    "http://213.238.167.117:8080/HIZMETKATEGORI/HIZMETKATEGORIGuncelle";
+        public const string HizmetKategoriDeleteByIdServis =  "http://213.238.167.117:8080/HIZMETKATEGORI/DeleteById";
         #endregion
 
+        #region Kasa
+        public const string KasaListeServis = "http://213.238.167.117:8080/KASA/KASAListe";
+        public const string KasaEkleServis = "http://213.238.167.117:8080/KASA/KASAEkleyadaGuncelle";
+        public const string KasaSilServis = "http://213.238.167.117:8080/KASA/KASASil";
+        public const string KasaGuncelleServis = "http://213.238.167.117:8080/KASA/KASAGuncelle";
+        public const string KasaDeleteByIdServis = "http://213.238.167.117:8080/KASA/DeleteById";
+        #endregion
 
         #region CARIALTHESCARI
         public const string CariAltHesCariListeServis =            "http://213.238.167.117:8080/CARIALTHESCARI/CARIALTHESCARIListe";

@@ -45,6 +45,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
         public DbSet<MPDEPO> MPDEPO { get; set; }
         public DbSet<MPDEPOCEKILIST> MPDEPOCEKILIST { get; set; }
         public DbSet<MPHIZMET> MPHIZMET { get; set; }
+        public DbSet<MPHIZMETKATEGORI> MPHIZMETKATEGORI { get; set; }
         public DbSet<MPSTOKMARKA> MPSTOKMARKA { get; set; }
         public DbSet<MPSTOKOLCUBR> MPSTOKOLCUBR { get; set; }
         public DbSet<MPSTOKFIYAT> MPSTOKFIYAT { get; set; }
@@ -82,6 +83,8 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
         public DbSet<MPFATURA> MPFATURA { get; set; }
         public DbSet<MPFATURADETAY> MPFATURADETAY { get; set; }
         public DbSet<MPSTOKKASAMARKA> MPSTOKKASAMARKA { get; set; }
+        public DbSet<MPSERI> MPSERI { get; set; }
+
         
 
 

@@ -37,8 +37,9 @@ namespace MEYPAK.Entity.PocoModels
         public decimal KdvTutarı { get; set; }
         public decimal İskontoTutarı { get; set; }
         public decimal NetToplam { get; set; } = 0;
-        public decimal BrütToplam { get; set; } = 0; 
-         
+        public decimal BrütToplam { get; set; } = 0;
+        public int sıra { get; set; }
+
 
 
 

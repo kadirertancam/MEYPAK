@@ -1581,6 +1581,10 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<int>("KULLANICIID")
                         .HasColumnType("int");
 
+                    b.Property<string>("KUNYE")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("LISTEFIYATID")
                         .HasColumnType("int");
 
@@ -2873,6 +2877,39 @@ namespace MEYPAK.DAL.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("MPHIZMET");
+                });
+
+            modelBuilder.Entity("MEYPAK.Entity.Models.STOK.MPHIZMETKATEGORI", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+
+                    b.Property<string>("ADI")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<int>("ESKIID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("GUNCELLEMETARIHI")
+                        .HasColumnType("datetime2");
+
+                    b.Property<byte>("KAYITTIPI")
+                        .HasColumnType("tinyint");
+
+                    b.Property<DateTime>("OLUSTURMATARIHI")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("USTID")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("MPHIZMETKATEGORI");
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.STOK.MPOLCUBR", b =>

@@ -44,7 +44,7 @@ namespace MEYPAK.PRL.SIPARIS
             {
                 //if (fsatinalmaSiparis != null)
                 //{
-                //    fsatinalmaSiparis._tempSiparis = _mIrsaliyeServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+                //    fsatinalmaSiparis._tempIrsliye = _mIrsaliyeServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
                 //}
             }
             this.Close();

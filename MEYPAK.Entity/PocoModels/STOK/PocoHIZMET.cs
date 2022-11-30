@@ -34,6 +34,10 @@ namespace MEYPAK.Entity.PocoModels.STOK
         public string raporkodU7 { get; set; } = "";
         public string raporkodU8 { get; set; } = "";
         public string raporkodU9 { get; set; } = "";
+
+        public string muhalis { get; set; } = "";
+        public string muhsatis { get; set; } = "";
+        public string muhiade { get; set; } = "";
         public string donem { get; set; } = $"{DateTime.Now.ToString("yyyy")}";
     }
 }

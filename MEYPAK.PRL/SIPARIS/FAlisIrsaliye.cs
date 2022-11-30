@@ -91,8 +91,8 @@ namespace MEYPAK.PRL.IRSALIYE
             _stokHarServis = new GenericWebServis<PocoSTOKHAR>();
 
             CBParaBirimi.Properties.DataSource = _paraBirimServis.obje.Where(x => x.kayittipi == 0).Select(x => x.adi).ToList();
-            CBDepo.Properties.DataSource = _depoServis.obje.Select(x => x.depoadi).ToList();
-            CBDepo.Text = _depoServis.obje.Select(x => x.depoadi).FirstOrDefault();
+            CBDepo.Properties.DataSource = _depoServis.obje.Where(x => x.kayittipi == 0).Select(x => x.depoadi).ToList();
+            CBDepo.Text = _depoServis.obje.Where(x => x.kayittipi == 0).Select(x => x.depoadi).FirstOrDefault();
 
 
 

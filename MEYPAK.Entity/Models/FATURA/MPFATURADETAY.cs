@@ -42,5 +42,6 @@ namespace MEYPAK.Entity.Models.FATURA
 
         public decimal KDV { get; set; } = 0;
         public decimal KDVTUTARI { get; set; } = 0;
+        public string KUNYE { get; set; }
     }
 }

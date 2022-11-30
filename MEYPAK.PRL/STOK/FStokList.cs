@@ -39,6 +39,7 @@ namespace MEYPAK.PRL.STOK
         FDepolarArasıTransferHar fDepolarArasıHar;
         FSatisIrsaliye fSatisIrsaliye;
         FAlisIrsaliye fAlisIrsaliye;
+        FAlisFatura fAlisFatura;
         FFatura ffatura;
         int id;
         string _islem;
@@ -85,6 +86,8 @@ namespace MEYPAK.PRL.STOK
                         fAlisIrsaliye = (FAlisIrsaliye)frm;
                     if (frm.Name.Contains("FFatura"))
                         ffatura = (FFatura)frm;
+                    if (frm.Name.Contains("FAlisFatura"))
+                        fAlisFatura = (FAlisFatura)frm;
                 }
             }
             _stokMarka.Data(ServisList.StokMarkaListeServis);
@@ -124,7 +127,7 @@ namespace MEYPAK.PRL.STOK
                     fStokHareket._tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
             }
            
-            else if (_islem == "siparis")
+            else if (_islem == "FMusteriSiparis")
             {
                 if (fSiparis != null)
                     fSiparis._tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
@@ -134,7 +137,7 @@ namespace MEYPAK.PRL.STOK
                 if (fDepolarArasıHar != null)
                     fDepolarArasıHar._tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
             }
-            else if (_islem == "SatinAlmaSiparis")
+            else if (_islem == "FSatinAlmaSiparis")
             {
                 if (_fSatınAlmaSiparis != null)
                     _fSatınAlmaSiparis._tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
@@ -154,6 +157,11 @@ namespace MEYPAK.PRL.STOK
             {
                 if (ffatura != null)
                     ffatura._tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+            }
+              else if (_islem == "FAlisFatura")
+            {
+                if (fAlisFatura != null)
+                    fAlisFatura._tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
             }
 
             this.Close();
