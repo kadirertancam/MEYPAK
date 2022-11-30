@@ -6,8 +6,10 @@ using MEYPAK.Entity.Models.DEPO;
 using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.STOK;
+using MEYPAK.Interfaces;
 using MEYPAK.Interfaces.Cari;
 using MEYPAK.Interfaces.Depo;
+using MEYPAK.Interfaces.Parametre;
 using MEYPAK.Interfaces.Stok;
 using MEYPAK.PRL.CARI;
 using System;
@@ -19,6 +21,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static UlkeList;
 
 namespace MEYPAK.PRL.STOK.FiyatListesi
 {
@@ -54,7 +57,6 @@ namespace MEYPAK.PRL.STOK.FiyatListesi
             DataGridDoldur();
         }
         int _tempId = 0;
-
         private void BTKaydet_Click(object sender, EventArgs e)
         {
             if (_cariServis.obje.Where(x => x.id == _tempCariKart.id && x.kayittipi == 0).Count() > 0)
@@ -73,7 +75,7 @@ namespace MEYPAK.PRL.STOK.FiyatListesi
 
                 stokFiyatPanel = new FStokFiyatPanel(_tempStokFiyat, this.Tag.ToString());
                 stokFiyatPanel.ShowDialog();
-                MessageBox.Show("Kayıt başartılı");
+                MessageBox.Show("Stok Fiyat Listesi başarıyla kaydedildi!");
                 DataGridDoldur();
             }
             else
@@ -83,41 +85,55 @@ namespace MEYPAK.PRL.STOK.FiyatListesi
         }
         void DataGridDoldur()
         {
-            
-            _stokFiyatServis.Data(ServisList.StokFiyatListeServis);
-            _cariServis.Data(ServisList.CariListeServis);
-            DGStokFiyat.DataSource = _stokFiyatServis.obje.Where(x => x.kayittipi == 0 && x.cariid == _tempCariKart.id).Select(x => new
+            if (_tempCariKart != null)
             {
-                ID = x.id,
-                //CARIID = _tempCariKart.id,
-                FİYATLİSTESİ = x.adi,
-                ACIKLAMA = x.aciklama,
-                BASLANGICTARİHİ = x.baslangictarihi,
-                BİTİSTARİHİ = x.bitistarihi,
-            });
-            DGStokFiyat.Refresh();
-            DGStokFiyat.RefreshDataSource();
+                _stokFiyatServis.Data(ServisList.StokFiyatListeServis);
+                _cariServis.Data(ServisList.CariListeServis);
+
+                DGStokFiyat.DataSource = _stokFiyatServis.obje.Where(x => x.kayittipi == 0 && x.cariid == _tempCariKart.id).Select(x => new
+                {
+                    ID = x.id,
+                    CARIKODU = _cariServis.obje.Where(z =>z.kayittipi==0 && z.id == x.cariid).FirstOrDefault().adi.ToString(),
+                    FİYATLİSTESİ = x.adi,
+                    ACIKLAMA = x.aciklama,
+                    BASLANGICTARİHİ = x.baslangictarihi,
+                    BİTİSTARİHİ = x.bitistarihi,
+
+                });
+                DGStokFiyat.Refresh();
+                DGStokFiyat.RefreshDataSource();
+            }
+           
         }
-         
+
+        void DataGridiYapilandir()
+        {
+            if (_tempCariKart != null)
+            {
+                BTCariSec.Text = _tempCariKart.unvan.ToString();
+                _stokFiyatServis.Data(ServisList.StokFiyatListeServis);
+                DGStokFiyat.DataSource = _stokFiyatServis.obje.Where(x => x.cariid == _tempCariKart.id).Select(x => new
+                {
+                    ID = x.id,
+                    FİYATLİSTESİ = x.adi,
+                    ACIKLAMA = x.aciklama,
+                    BASLANGICTARİHİ = x.baslangictarihi,
+                    BİTİSTARİHİ = x.bitistarihi,
+                });
+            }
+            else
+            {
+                MessageBox.Show("Cari seçimi yapmalısınız!");
+            }
+        }
         private void BTCariSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
 
             FCariList fCariList = new FCariList(this.Tag.ToString(), "FStokFiyat");
             fCariList.ShowDialog();
-            if (_tempCariKart != null)
-            {
-                BTCariSec.Text = _tempCariKart.unvan.ToString(); 
-            }
-            else
-            {
-                MessageBox.Show("Cari Seçilmedi!");
-            }
+            DataGridiYapilandir();
 
         }
-
-
-        #endregion
-
         private void DGStokFiyat_DoubleClick(object sender, EventArgs e)
         {
             _tempStokFiyat = _stokFiyatServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
@@ -129,6 +145,7 @@ namespace MEYPAK.PRL.STOK.FiyatListesi
             if (_stokFiyatServis != null)
             {
                 _tempId = int.Parse(gridView1.GetFocusedRowCellValue("ID").ToString());
+                BTCariSec.Text = gridView1.GetFocusedRowCellValue("CARIID").ToString();
                 TBAdi.Text = gridView1.GetFocusedRowCellValue("FİYATLİSTESİ").ToString();
                 TBAciklama.Text = gridView1.GetFocusedRowCellValue("ACIKLAMA").ToString();
                 DTBaslangicTar.EditValue = Convert.ToDateTime(gridView1.GetFocusedRowCellValue("BASLANGICTARİHİ").ToString());
@@ -136,5 +153,36 @@ namespace MEYPAK.PRL.STOK.FiyatListesi
 
             }
         }
+        private void BTSil_Click(object sender, EventArgs e)
+        {
+            _stokFiyatServis.Data(ServisList.StokFiyatListeServis);
+            _cariServis.Data(ServisList.CariListeServis);
+            _stokFiyatServis.Data(ServisList.StokFiyatSilServis, null, null, _stokFiyatServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString() && x.cariid.ToString() == gridView1.GetFocusedRowCellValue("CARIID").ToString()).ToList());
+            MessageBox.Show("Silme işlemi Başarılı");
+            DataGridDoldur();
+        }
+        public void Temizle(Control.ControlCollection ctrlCollection)           //Formdaki Textboxları temizle
+        {
+            foreach (Control ctrl in ctrlCollection)
+            {
+                if (ctrl is TextBoxBase)
+                {
+                    ctrl.Text = String.Empty;
+                }
+                else
+                {
+                    Temizle(ctrl.Controls);
+                }
+            }
+
+        }
+        private void BTTemizle_Click(object sender, EventArgs e)
+        {
+            Temizle(this.Controls);
+            _tempStokFiyat = null;
+        }
+        #endregion
+
+       
     }
 }

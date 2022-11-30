@@ -12,7 +12,7 @@ namespace MEYPAK.Entity.Models.STOK
         public int SUBEID { get; set; } = 0;
         public int STOKFIYATID { get; set; }
         public int STOKID { get; set; }
-        public int PARABIRIMID { get; set; } = 1;
+        public int PARABIRIMID { get; set; }
         public decimal KUR { get; set; } = 1;
         public decimal FIYAT { get; set; }
         public int BIRIMID { get; set; }

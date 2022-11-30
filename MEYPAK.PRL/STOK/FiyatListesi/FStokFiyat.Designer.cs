@@ -168,6 +168,7 @@
             this.BTTemizle.Size = new System.Drawing.Size(95, 40);
             this.BTTemizle.TabIndex = 12;
             this.BTTemizle.Text = "&Temizle";
+            this.BTTemizle.Click += new System.EventHandler(this.BTTemizle_Click);
             // 
             // BTKaydet
             // 
@@ -191,6 +192,7 @@
             this.BTSil.Size = new System.Drawing.Size(95, 40);
             this.BTSil.TabIndex = 11;
             this.BTSil.Text = "&Sil";
+            this.BTSil.Click += new System.EventHandler(this.BTSil_Click);
             // 
             // TBAciklama
             // 

@@ -12,7 +12,7 @@ namespace MEYPAK.Entity.PocoModels.STOK
         public int subeid { get; set; } = 0;
         public int stokfiyatid { get; set; }
         public int stokid { get; set; }
-        public int parabirimid { get; set; } = 1;
+        public int parabirimid { get; set; }
         public decimal kur { get; set; } = 1;
         public decimal fiyat { get; set; }
         public int birimid { get; set; }
