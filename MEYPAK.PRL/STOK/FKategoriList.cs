@@ -144,15 +144,22 @@ namespace MEYPAK.PRL.STOK
         {
             if (TBKategoriAdi.Text != null && TBKategoriAdi.Text != "")
             {
-                PocoSTOKKATEGORI mPKATEGORI = new PocoSTOKKATEGORI()
+                if (_kategoriServis.obje.Where(x => x.kayittipi == 0 && x.acıklama == TBKategoriAdi.Text).Count() == 0)
                 {
-                    acıklama = TBKategoriAdi.Text,
-                    ustId = 0
-                };
-                _kategoriServis.Data(ServisList.StokKategoriEkleServis, mPKATEGORI);
-                MessageBox.Show("Yeni Kategori Başarıyla Eklendi");
-                Temizle(this.Controls);
-                TreeViewiDoldur();
+                    PocoSTOKKATEGORI mPKATEGORI = new PocoSTOKKATEGORI()
+                    {
+                        acıklama = TBKategoriAdi.Text,
+                        ustId = 0
+                    };
+                    _kategoriServis.Data(ServisList.StokKategoriEkleServis, mPKATEGORI);
+                    MessageBox.Show("Yeni Kategori Başarıyla Eklendi");
+                    Temizle(this.Controls);
+                    TreeViewiDoldur();
+                }
+                else
+                {
+                    MessageBox.Show("Aynı İsimde böyle bir kategori zaten mevcut!");
+                }
             }
             else
             {
@@ -164,18 +171,25 @@ namespace MEYPAK.PRL.STOK
         {
             if (treeView.Selection != null)
             {
-                TreeListMultiSelection selectedNodes = treeView.Selection;
-                PocoSTOKKATEGORI mPKATEGORI = new PocoSTOKKATEGORI()
+                if (_kategoriServis.obje.Where(x => x.kayittipi == 0 && x.acıklama == TBKategoriAdi.Text).Count() == 0)
                 {
-                    acıklama = TBKategoriAdi.Text,
-                    ustId = _kategoriServis.obje.Where(x => x.kayittipi == 0 && x.acıklama == selectedNodes[0].GetValue(treeView.Columns[0]).ToString()).FirstOrDefault().id
+                    TreeListMultiSelection selectedNodes = treeView.Selection;
+                    PocoSTOKKATEGORI mPKATEGORI = new PocoSTOKKATEGORI()
+                    {
+                        acıklama = TBKategoriAdi.Text,
+                        ustId = _kategoriServis.obje.Where(x => x.kayittipi == 0 && x.acıklama == selectedNodes[0].GetValue(treeView.Columns[0]).ToString()).FirstOrDefault().id
 
-                };
-                _kategoriServis.Data(ServisList.StokKategoriEkleServis, mPKATEGORI);
+                    };
+                    _kategoriServis.Data(ServisList.StokKategoriEkleServis, mPKATEGORI);
 
-                MessageBox.Show("Alt Kategori Başarıyla Eklendi");
-                Temizle(this.Controls);
-                TreeViewiDoldur();
+                    MessageBox.Show("Alt Kategori Başarıyla Eklendi");
+                    Temizle(this.Controls);
+                    TreeViewiDoldur();
+                }
+                else
+                {
+                    MessageBox.Show("Aynı İsimde böyle bir kategori zaten mevcut!");
+                }
             }
             else
             {
