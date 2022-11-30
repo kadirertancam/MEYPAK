@@ -40,6 +40,7 @@
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
+            this.BTSec = new DevExpress.XtraEditors.SimpleButton();
             this.BtnKategoriSil = new DevExpress.XtraEditors.SimpleButton();
             this.LBAdi = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.TBKategoriAdi.Properties)).BeginInit();
@@ -61,7 +62,7 @@
             this.BTAltEkle.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
             this.BTAltEkle.Appearance.Options.UseBackColor = true;
             this.BTAltEkle.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTAltEkle.ImageOptions.Image")));
-            this.BTAltEkle.Location = new System.Drawing.Point(129, 12);
+            this.BTAltEkle.Location = new System.Drawing.Point(247, 12);
             this.BTAltEkle.Name = "BTAltEkle";
             this.BTAltEkle.Size = new System.Drawing.Size(108, 40);
             this.BTAltEkle.TabIndex = 81;
@@ -73,7 +74,7 @@
             this.BTYeniEkle.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
             this.BTYeniEkle.Appearance.Options.UseBackColor = true;
             this.BTYeniEkle.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTYeniEkle.ImageOptions.Image")));
-            this.BTYeniEkle.Location = new System.Drawing.Point(15, 12);
+            this.BTYeniEkle.Location = new System.Drawing.Point(133, 12);
             this.BTYeniEkle.Name = "BTYeniEkle";
             this.BTYeniEkle.Size = new System.Drawing.Size(108, 40);
             this.BTYeniEkle.TabIndex = 80;
@@ -109,9 +110,11 @@
             // treeView
             // 
             this.treeView.Appearance.FocusedCell.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.treeView.Appearance.FocusedCell.BackColor2 = System.Drawing.Color.Green;
+            this.treeView.Appearance.FocusedCell.ForeColor = System.Drawing.Color.LightSteelBlue;
             this.treeView.Appearance.FocusedCell.Options.UseBackColor = true;
             this.treeView.Appearance.FocusedRow.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.treeView.Appearance.FocusedRow.Options.UseBackColor = true;
+            this.treeView.Appearance.FocusedRow.ForeColor = System.Drawing.Color.LightSteelBlue;
             this.treeView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeView.Location = new System.Drawing.Point(2, 2);
             this.treeView.Name = "treeView";
@@ -126,6 +129,7 @@
             this.treeView.ShowButtonMode = DevExpress.XtraTreeList.ShowButtonModeEnum.ShowForFocusedRow;
             this.treeView.Size = new System.Drawing.Size(1390, 703);
             this.treeView.TabIndex = 0;
+            this.treeView.CustomDrawNodeButton += new DevExpress.XtraTreeList.CustomDrawNodeButtonEventHandler(this.treeView_CustomDrawNodeButton);
             this.treeView.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.treeView_KeyPress);
             // 
             // ımageList1
@@ -166,21 +170,34 @@
             this.panelControl4.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.panelControl4.Appearance.Options.UseBackColor = true;
             this.panelControl4.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl4.Controls.Add(this.BTSec);
             this.panelControl4.Controls.Add(this.BtnKategoriSil);
             this.panelControl4.Controls.Add(this.BTYeniEkle);
             this.panelControl4.Controls.Add(this.BTAltEkle);
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelControl4.Location = new System.Drawing.Point(1025, 33);
+            this.panelControl4.Location = new System.Drawing.Point(901, 33);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(363, 63);
+            this.panelControl4.Size = new System.Drawing.Size(487, 63);
             this.panelControl4.TabIndex = 84;
+            // 
+            // BTSec
+            // 
+            this.BTSec.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.BTSec.Appearance.Options.UseBackColor = true;
+            this.BTSec.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("BTSec.ImageOptions.SvgImage")));
+            this.BTSec.Location = new System.Drawing.Point(16, 12);
+            this.BTSec.Name = "BTSec";
+            this.BTSec.Size = new System.Drawing.Size(108, 40);
+            this.BTSec.TabIndex = 84;
+            this.BTSec.Text = "Seç";
+            this.BTSec.Click += new System.EventHandler(this.BTSec_Click);
             // 
             // BtnKategoriSil
             // 
             this.BtnKategoriSil.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
             this.BtnKategoriSil.Appearance.Options.UseBackColor = true;
             this.BtnKategoriSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BtnKategoriSil.ImageOptions.Image")));
-            this.BtnKategoriSil.Location = new System.Drawing.Point(243, 12);
+            this.BtnKategoriSil.Location = new System.Drawing.Point(361, 12);
             this.BtnKategoriSil.Name = "BtnKategoriSil";
             this.BtnKategoriSil.Size = new System.Drawing.Size(108, 40);
             this.BtnKategoriSil.TabIndex = 83;
@@ -235,5 +252,6 @@
         private DevExpress.XtraEditors.PanelControl panelControl4;
         private ImageList ımageList1;
         private DevExpress.XtraTreeList.TreeList treeView;
+        private DevExpress.XtraEditors.SimpleButton BTSec;
     }
 }

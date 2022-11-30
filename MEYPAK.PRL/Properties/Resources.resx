@@ -130,4 +130,10 @@
   <data name="HoverButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\HoverButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="kategoriarti" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\kategoriarti.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="kategorieksi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\kategorieksi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

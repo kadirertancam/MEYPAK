@@ -1655,9 +1655,9 @@
             // 
             this.panelControl13.Controls.Add(this.gridControl5);
             this.panelControl13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl13.Location = new System.Drawing.Point(0, 177);
+            this.panelControl13.Location = new System.Drawing.Point(0, 146);
             this.panelControl13.Name = "panelControl13";
-            this.panelControl13.Size = new System.Drawing.Size(1071, 380);
+            this.panelControl13.Size = new System.Drawing.Size(1071, 411);
             this.panelControl13.TabIndex = 1;
             // 
             // gridControl5
@@ -1666,7 +1666,7 @@
             this.gridControl5.Location = new System.Drawing.Point(2, 2);
             this.gridControl5.MainView = this.gridView5;
             this.gridControl5.Name = "gridControl5";
-            this.gridControl5.Size = new System.Drawing.Size(1067, 376);
+            this.gridControl5.Size = new System.Drawing.Size(1067, 407);
             this.gridControl5.TabIndex = 0;
             this.gridControl5.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView5});
@@ -1692,7 +1692,7 @@
             this.panelControl12.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl12.Location = new System.Drawing.Point(0, 0);
             this.panelControl12.Name = "panelControl12";
-            this.panelControl12.Size = new System.Drawing.Size(1071, 177);
+            this.panelControl12.Size = new System.Drawing.Size(1071, 146);
             this.panelControl12.TabIndex = 0;
             // 
             // simpleButton1
@@ -1708,7 +1708,7 @@
             // 
             // textEdit3
             // 
-            this.textEdit3.Location = new System.Drawing.Point(349, 113);
+            this.textEdit3.Location = new System.Drawing.Point(349, 109);
             this.textEdit3.Name = "textEdit3";
             this.textEdit3.Size = new System.Drawing.Size(148, 20);
             this.textEdit3.TabIndex = 9;
@@ -1753,7 +1753,7 @@
             // 
             // LBIzinGorevPersonel
             // 
-            this.LBIzinGorevPersonel.Location = new System.Drawing.Point(179, 116);
+            this.LBIzinGorevPersonel.Location = new System.Drawing.Point(179, 112);
             this.LBIzinGorevPersonel.Name = "LBIzinGorevPersonel";
             this.LBIzinGorevPersonel.Size = new System.Drawing.Size(164, 13);
             this.LBIzinGorevPersonel.TabIndex = 4;
@@ -1975,7 +1975,8 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.CBCinsiyet.Properties.Items.AddRange(new object[] {
             "ERKEK",
-            "KADIN"});
+            "KADIN",
+            "BELİRTİLMEMİŞ"});
             this.CBCinsiyet.Properties.NullText = " ";
             this.CBCinsiyet.Size = new System.Drawing.Size(146, 20);
             this.CBCinsiyet.TabIndex = 22;

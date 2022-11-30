@@ -7,6 +7,9 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraTreeList;
 using DevExpress.XtraGrid.Views.Grid;
 using System.Net.Http;
+using System.Drawing.Drawing2D;
+using DevExpress.CodeParser;
+using Microsoft.Win32;
 
 namespace MEYPAK.PRL.STOK
 {
@@ -85,6 +88,8 @@ namespace MEYPAK.PRL.STOK
                 dataTable.Rows.Add(item.id, item.ustId, item.acıklama);
             }
             treeView.DataSource = dataTable;
+
+            treeView.BestFitColumns();
         }
 
 
@@ -171,8 +176,6 @@ namespace MEYPAK.PRL.STOK
                 MessageBox.Show("Alt Kategori Başarıyla Eklendi");
                 Temizle(this.Controls);
                 TreeViewiDoldur();
-
-
             }
             else
             {
@@ -185,7 +188,7 @@ namespace MEYPAK.PRL.STOK
             if (treeView.Selection != null)
             {
                 TreeListMultiSelection selectedNodes = treeView.Selection;
-                if (_kategoriServis.obje.Where(x=>x.kayittipi==0&& x.ustId == _kategoriServis.obje.Where(x => x.kayittipi == 0 && x.acıklama == selectedNodes[0].GetValue(treeView.Columns[0]).ToString()).FirstOrDefault().id).Count()>0)
+                if (_kategoriServis.obje.Where(x => x.kayittipi == 0 && x.ustId == _kategoriServis.obje.Where(x => x.kayittipi == 0 && x.acıklama == selectedNodes[0].GetValue(treeView.Columns[0]).ToString()).FirstOrDefault().id).Count() > 0)
                 {
                     foreach (var item in _kategoriServis.obje.Where(x => x.kayittipi == 0 && x.ustId == _kategoriServis.obje.Where(x => x.kayittipi == 0 && x.acıklama == selectedNodes[0].GetValue(treeView.Columns[0]).ToString()).FirstOrDefault().id))
                     {
@@ -238,6 +241,79 @@ namespace MEYPAK.PRL.STOK
                 }
 
             }
+        }
+
+        private void BTSec_Click(object sender, EventArgs e)
+        {
+            if (treeView.Selection != null)
+            {
+                TreeListMultiSelection selectedNodes = treeView.Selection;
+                if (_islem == "stokkart")
+                {
+                    if (fStokKart != null)
+                    {
+                        fStokKart._tempKategori = _kategoriServis.obje.Where(x => x.kayittipi == 0 && x.acıklama == selectedNodes[0].GetValue(treeView.Columns[0]).ToString()).FirstOrDefault();
+                        this.Close();
+                    }
+                }
+                else if (_islem == "carikart")
+                {
+                    if (fCariKart != null)
+                    {
+                        fCariKart._tempCariStOKKATEGORI = _kategoriServis.obje.Where(x => x.kayittipi == 0 && x.acıklama == selectedNodes[0].GetValue(treeView.Columns[0]).ToString()).FirstOrDefault();
+                        this.Close();
+                    }
+                }
+            }
+        }
+
+        private void treeView_CustomDrawNodeButton(object sender, CustomDrawNodeButtonEventArgs e)
+        {
+                Rectangle rect = Rectangle.Inflate(e.Bounds, -1, -2);
+                Brush backBrush; Bitmap bt;
+                if (e.Expanded == true)
+                {
+                    bt = new Bitmap(Properties.Resources.kategorieksi);
+                }
+                else
+                    bt = new Bitmap(Properties.Resources.kategoriarti);
+                //bt.LockBits(rect,System.Drawing.Imaging.ImageLockMode.ReadWrite,System.Drawing.Imaging.PixelFormat.Format64bppArgb);
+                for (int i = 0; i < e.Bounds.Width; i++)
+                {
+                    for (int j = 0; j < e.Bounds.Height; j++)
+                    {
+                        Color cl = bt.GetPixel(i, j);
+                        backBrush = new SolidBrush(cl);
+
+                        e.Cache.FillRectangle(backBrush, e.Bounds.X + i, e.Bounds.Y + j, 1, 1);
+
+                    }
+
+                }
+                #region MyRegion
+                // painting background
+                //Brush backBrush = e.Cache.GetGradientBrush(rect, Color.Black, Color.LightSkyBlue,
+                //  LinearGradientMode.ForwardDiagonal);
+
+                //e.Cache.FillRectangle(backBrush, rect);
+                // painting borders
+                //e.Cache.DrawRectangle(e.Cache.GetPen(Color.LightGray), rect);
+                // determining the character to display
+                //string displayCharacter = e.Expanded ? "-" : "+";
+                //formatting the output character
+                //StringFormat outCharacterFormat = e.Appearance.GetStringFormat();
+                //outCharacterFormat.Alignment = StringAlignment.Center;
+                //outCharacterFormat.LineAlignment = StringAlignment.Center;
+
+                //painting the character
+                //e.Appearance.FontSizeDelta = -2;
+                //e.Appearance.FontStyleDelta = FontStyle.Bold;
+                //e.Cache.DrawString(displayCharacter, e.Appearance.Font,
+                //    e.Cache.GetSolidBrush(Color.White), rect, outCharacterFormat);
+
+                // prohibiting default painting
+                #endregion
+                e.Handled = true;
         }
     }
 }

@@ -205,6 +205,9 @@ builder.Services.AddScoped<IIrsaliyeDetayServis, IrsaliyeDetayManager>();
 builder.Services.AddScoped<IHizmetDal, EFHizmetRepo>();
 builder.Services.AddScoped<IHizmetServis, HizmetManager>();
 
+
+builder.Services.AddScoped<IHizmetKategoriDal, EFHizmetKategoriRepo>();
+builder.Services.AddScoped<IHizmetKategoriServis, HizmetKategoriManager>();
 #endregion
 #region PERSONEL_Scoped_Islemleri
 
