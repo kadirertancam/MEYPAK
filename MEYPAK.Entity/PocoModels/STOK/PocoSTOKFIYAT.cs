@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.Entity.PocoModels.STOK
 {
-    internal class PocoSTOKFIYAT :SUPERPOCOMODEL
+    public class PocoSTOKFIYAT :SUPERPOCOMODEL
     {
-        public int firmaid { get; set; } = 0;
-        public int subeid { get; set; } = 0;
+        public int firmaid { get; set; }
+        public int subeid { get; set; } 
         public int cariid { get; set; }
         public string adi { get; set; } = "";
         public DateTime baslangictarihi { get; set; }

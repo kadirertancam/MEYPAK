@@ -274,8 +274,6 @@ namespace MEYPAK.PRL
             //         SFIYAT5 = Faker.RandomNumber.Next(255),
             //         SDOVIZID = Faker.RandomNumber.Next(255),
             //         ADOVIZID = Faker.RandomNumber.Next(255),
-
-
             //     });
             //    });
 
@@ -424,7 +422,7 @@ namespace MEYPAK.PRL
         private void BTStokKartiKaydet_Click(object sender, EventArgs e)
         {
 
-            if (_StokKategoriervis.obje.Where(x => x.kayittipi == 0 && x.acıklama == BTKategori.Text).Count() > 0 && CBOlcuBr.EditValue != null)
+            if (_StokKategoriervis.obje.Where(x => x.kayittipi == 0 && x.acıklama == BTKategori.Text).Count() > 0 && CBOlcuBr.EditValue != null && Convert.ToInt32(CBOlcuBr.EditValue)>0)
             {
                 _markaServis.Data(ServisList.StokMarkaListeServis);
                 _tempStok = new PocoSTOK()

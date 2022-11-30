@@ -28,13 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FKategoriList));
             this.BTAltEkle = new DevExpress.XtraEditors.SimpleButton();
             this.BTYeniEkle = new DevExpress.XtraEditors.SimpleButton();
             this.TBKategoriAdi = new DevExpress.XtraEditors.TextEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
-            this.treeView = new System.Windows.Forms.TreeView();
+            this.treeView = new DevExpress.XtraTreeList.TreeList();
+            this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
@@ -45,6 +47,7 @@
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.treeView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
@@ -105,12 +108,32 @@
             // 
             // treeView
             // 
+            this.treeView.Appearance.FocusedCell.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.treeView.Appearance.FocusedCell.Options.UseBackColor = true;
+            this.treeView.Appearance.FocusedRow.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.treeView.Appearance.FocusedRow.Options.UseBackColor = true;
             this.treeView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeView.Location = new System.Drawing.Point(2, 2);
             this.treeView.Name = "treeView";
+            this.treeView.OptionsBehavior.Editable = false;
+            this.treeView.OptionsView.ShowFirstLines = false;
+            this.treeView.OptionsView.ShowHorzLines = false;
+            this.treeView.OptionsView.ShowTreeLines = DevExpress.Utils.DefaultBoolean.False;
+            this.treeView.OptionsView.ShowVertLines = false;
+            this.treeView.OptionsView.TreeLineStyle = DevExpress.XtraTreeList.LineStyle.None;
+            this.treeView.ParentFieldName = "USTID";
+            this.treeView.SelectImageList = this.ımageList1;
+            this.treeView.ShowButtonMode = DevExpress.XtraTreeList.ShowButtonModeEnum.ShowForFocusedRow;
             this.treeView.Size = new System.Drawing.Size(1390, 703);
             this.treeView.TabIndex = 0;
             this.treeView.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.treeView_KeyPress);
+            // 
+            // ımageList1
+            // 
+            this.ımageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.ımageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ımageList1.ImageStream")));
+            this.ımageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.ımageList1.Images.SetKeyName(0, "yeni klasör.png");
             // 
             // panelControl2
             // 
@@ -179,7 +202,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1398, 818);
             this.Controls.Add(this.panelControl1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FKategoriList";
             this.Text = "FKategoriList";
             this.Load += new System.EventHandler(this.FKategoriList_Load);
@@ -188,6 +210,7 @@
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.treeView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
@@ -208,8 +231,9 @@
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.LabelControl LBAdi;
         private DevExpress.XtraEditors.PanelControl panelControl3;
-        private TreeView treeView;
         private DevExpress.XtraEditors.SimpleButton BtnKategoriSil;
         private DevExpress.XtraEditors.PanelControl panelControl4;
+        private ImageList ımageList1;
+        private DevExpress.XtraTreeList.TreeList treeView;
     }
 }

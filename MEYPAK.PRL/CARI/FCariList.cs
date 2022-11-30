@@ -8,6 +8,7 @@ using MEYPAK.Interfaces.Stok;
 using MEYPAK.PRL.IRSALIYE;
 using MEYPAK.PRL.SIPARIS;
 using MEYPAK.PRL.STOK;
+using MEYPAK.PRL.STOK.FiyatListesi;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -32,6 +33,7 @@ namespace MEYPAK.PRL.CARI
         FAlisIrsaliye fAlisIrsaliye;
         FAlisFatura fAlisFatura;
         FCariKart fCariKart;
+        FStokFiyat fStokFiyat;
        
         FFatura ffatura;
         public FCariList(string form="",string islem="")
@@ -50,15 +52,19 @@ namespace MEYPAK.PRL.CARI
         #endregion
 
         #region Metotlar
-       
+
         private void DGCariList_DoubleClick(object sender, EventArgs e)
         {
             if (_islem == "carikart")
+            
                 fCariKart._tempCariKart = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+            
             if (_islem == "carihar")
-                _cariHareket._tempCARIKART = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+             
+            _cariHareket._tempCARIKART = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+            
             if (_islem == "musterisiparis")
-            {
+            
                 _fmusteriSiparis._tempCariKart = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
             }
             if (_islem == "FSatinAlmaSiparis")
@@ -68,12 +74,12 @@ namespace MEYPAK.PRL.CARI
             if (_islem == "FSatisIrsaliye")
             {
                 fSatisIrsaliye._tempCariKart = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
-            }    if (_islem == "AlisIrsaliye")
-            {
+            if (_islem == "AlisIrsaliye")
+            
                 fAlisIrsaliye._tempCariKart = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
-            }
+            
             if (_islem == "FFatura")
-            {
+            
                 ffatura._tempCariKart = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
             } if (_islem == "FAlisFatura")
             {

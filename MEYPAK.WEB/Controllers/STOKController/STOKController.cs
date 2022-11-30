@@ -15,7 +15,7 @@ namespace MEYPAK.WEB.Controllers.STOKController
         GenericWebServis<PocoSTOK> _tempPocoStok = new GenericWebServis<PocoSTOK>();
         GenericWebServis<PocoHIZMET> _tempPocoHizmet = new GenericWebServis<PocoHIZMET>();
         GenericWebServis<PocoOLCUBR> _tempPocoOlcuBr = new GenericWebServis<PocoOLCUBR>();
-        
+        GenericWebServis<PocoSTOKFIYAT> _tempStokFiyat = new GenericWebServis<PocoSTOKFIYAT>();
         GenericWebServis<PocoSTOKHAR> _tempPocoStokHar = new GenericWebServis<PocoSTOKHAR>();
         GenericWebServis<PocoSTOKKASA> _tempPocoStokKasa = new GenericWebServis<PocoSTOKKASA>();
         GenericWebServis<PocoSTOKKATEGORI> _tempPocoStokKategori = new GenericWebServis<PocoSTOKKATEGORI>();
@@ -23,6 +23,7 @@ namespace MEYPAK.WEB.Controllers.STOKController
         GenericWebServis<PocoSTOKOLCUBR> _tempPocoStokOlcuBr = new GenericWebServis<PocoSTOKOLCUBR>();
         GenericWebServis<PocoSTOKSAYIM> _tempPocoStokSayim = new GenericWebServis<PocoSTOKSAYIM>();
         GenericWebServis<PocoSTOKSAYIMHAR> _tempPocoStokSayimHar = new GenericWebServis<PocoSTOKSAYIMHAR>();
+        GenericWebServis<PocoSTOKFIYATHAR> _tempPocoStokFiyatHar = new GenericWebServis<PocoSTOKFIYATHAR>();
 
 
         static List<PocoSTOK> PocoSTOKs = new List<PocoSTOK>();
@@ -195,9 +196,6 @@ namespace MEYPAK.WEB.Controllers.STOKController
         }
 
         #endregion
-
-       
-    
 
         #region STOKHAR
 
@@ -508,7 +506,6 @@ namespace MEYPAK.WEB.Controllers.STOKController
         }
 
         #endregion
-
 
         #region old_controller
 

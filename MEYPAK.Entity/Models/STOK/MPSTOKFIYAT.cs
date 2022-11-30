@@ -6,10 +6,14 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.Entity.Models.STOK
 {
-    internal class MPSTOKFIYAT : SUPERMODEL
+    public class MPSTOKFIYAT : SUPERMODEL
     {
-        public int FIRMAID { get; set; } = 0;
-        public int SUBEID { get; set; } = 0;
+        public MPSTOKFIYAT()
+        {
+            //     MPSTOKFIYATHAR = new HashSet<MPSTOKFIYATHAR>();
+        }
+        public int FIRMAID { get; set; } 
+        public int SUBEID { get; set; }
         public int CARIID { get; set; }
         public string ADI { get; set; } = "";
         public DateTime BASLANGICTARIHI { get; set; }

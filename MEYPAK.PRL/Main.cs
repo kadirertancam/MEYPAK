@@ -16,6 +16,7 @@ using MEYPAK.PRL.PARAMETRELER;
 using MEYPAK.PRL.PERSONEL;
 using MEYPAK.PRL.SIPARIS;
 using MEYPAK.PRL.STOK;
+using MEYPAK.PRL.STOK.FiyatListesi;
 using MEYPAK.PRL.STOK.StokKasa;
 using System;
 using System.Collections.Generic;
@@ -68,8 +69,9 @@ namespace MEYPAK.PRL
         FSayimIsle fSayimIsle;
         FMusteriSiparis fSiparis;
         FSatinAlmaSiparis fSatinAlmaSiparis;
-        FMalKabulPanel fMalKabulPanel; 
-       
+        FMalKabulPanel fMalKabulPanel;
+        FStokFiyat fStokFiyat;
+        FHizmetKart fHizmetKart;
         FCariHareket fCariHareket;
         FCariDurum fCariDurum;
         FCariKart fCariKart;
@@ -83,6 +85,8 @@ namespace MEYPAK.PRL
         FMarkaKart fMarkaKart;
         FAlisIrsaliye fFAlisIrsaliye;
         FAlisFatura fFAlisFatura;
+        
+        
         public Tarih_Date _tarih_Date;
         public DataTable guncelkur;
         GenericWebServis<PocoPARABIRIM> _parabirimServis;
@@ -125,7 +129,7 @@ namespace MEYPAK.PRL
                     dovizalis = item.ForexBuying,
                     dovizefektifalis = Convert.ToDecimal(item.BanknoteBuying==""?"0":item.BanknoteBuying),
                     dovizefektifsatis = Convert.ToDecimal(item.BanknoteSelling==""?"0":item.BanknoteSelling),
-
+                    
 
                 });
                 else
@@ -630,7 +634,25 @@ namespace MEYPAK.PRL
             fFAlisFatura.Show();
             i++;
         }
+        private void accordionControlElement50_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fStokFiyat = new FStokFiyat();
+            page.Name = "TPStokFiyat" + i;
+            page.Text = "Stok Fiyat";
+            page.Tag = "TPStokFiyat" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+            fStokFiyat.TopLevel = false;
+            fStokFiyat.AutoScroll = true;
+            fStokFiyat.Dock = DockStyle.Fill;
+            fStokFiyat.Tag = "TPStokFiyat" + i;
+            page.Controls.Add(fStokFiyat);
+            fStokFiyat.Show();
 
+        }
+        private
         private void accordionControlElement17_Click(object sender, EventArgs e)
         {
             XtraTabPage page = new XtraTabPage();
