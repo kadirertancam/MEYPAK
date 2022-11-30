@@ -113,6 +113,7 @@
             this.accordionControlElement28 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement42 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement47 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement48 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement3 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement14 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement15 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -1360,7 +1361,6 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement46;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement47;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement48;
-      //  private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement48;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement49;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement50;
     }
