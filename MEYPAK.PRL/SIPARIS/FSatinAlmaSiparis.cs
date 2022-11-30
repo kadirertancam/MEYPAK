@@ -586,7 +586,7 @@ namespace MEYPAK.PRL.SIPARIS
 
         private void TBSiparisNo_Properties_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
-            FMusteriSiparisList FSatinAlmaSiparislist = new FMusteriSiparisList(this.Tag.ToString(), "FSatinAlmaSiparis");
+            FMusteriSiparisList FSatinAlmaSiparislist = new FMusteriSiparisList(this.Tag.ToString(), "SatinAlmaSiparis");
             FSatinAlmaSiparislist.ShowDialog();
             if (_tempSIPARIS != null)
             {
