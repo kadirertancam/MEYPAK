@@ -63,10 +63,9 @@ namespace MEYPAK.PRL.CARI
              
             _cariHareket._tempCARIKART = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
             
-            if (_islem == "musterisiparis")
-            
+            if (_islem == "musterisiparis") 
                 _fmusteriSiparis._tempCariKart = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
-            }
+            
             if (_islem == "FSatinAlmaSiparis")
             {
                 fSatinAlmaSiparis._tempCariKart = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();

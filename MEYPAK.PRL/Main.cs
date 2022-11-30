@@ -651,8 +651,7 @@ namespace MEYPAK.PRL
             page.Controls.Add(fStokFiyat);
             fStokFiyat.Show();
 
-        }
-        private
+        } 
         private void accordionControlElement17_Click(object sender, EventArgs e)
         {
             XtraTabPage page = new XtraTabPage();
