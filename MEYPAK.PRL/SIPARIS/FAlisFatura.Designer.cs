@@ -28,16 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-            this.DTSevkiyatTarih = new DevExpress.XtraEditors.DateEdit();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.DTSiparisTarih = new DevExpress.XtraEditors.DateEdit();
             this.CHBKdvDahil = new DevExpress.XtraEditors.CheckEdit();
             this.TBGun = new DevExpress.XtraEditors.TextEdit();
@@ -58,7 +57,6 @@
             this.LBKur = new DevExpress.XtraEditors.LabelControl();
             this.LBAciklama = new DevExpress.XtraEditors.LabelControl();
             this.LBVadeTar = new DevExpress.XtraEditors.LabelControl();
-            this.LBSevkiyatTar = new DevExpress.XtraEditors.LabelControl();
             this.LBParaBirimi = new DevExpress.XtraEditors.LabelControl();
             this.LBSiparisTar = new DevExpress.XtraEditors.LabelControl();
             this.LBDepo = new DevExpress.XtraEditors.LabelControl();
@@ -100,8 +98,6 @@
             this.BTNDegistir = new System.Windows.Forms.Button();
             this.BTNSil = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.DTSevkiyatTarih.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DTSevkiyatTarih.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTSiparisTarih.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTSiparisTarih.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CHBKdvDahil.Properties)).BeginInit();
@@ -137,16 +133,6 @@
             this.panel6.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // DTSevkiyatTarih
-            // 
-            this.DTSevkiyatTarih.EditValue = new System.DateTime(2022, 11, 18, 17, 30, 31, 213);
-            this.DTSevkiyatTarih.Location = new System.Drawing.Point(697, 100);
-            this.DTSevkiyatTarih.Name = "DTSevkiyatTarih";
-            this.DTSevkiyatTarih.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.DTSevkiyatTarih.Size = new System.Drawing.Size(86, 20);
-            this.DTSevkiyatTarih.TabIndex = 161;
             // 
             // DTSiparisTarih
             // 
@@ -204,7 +190,7 @@
             this.TBCariKodu.Name = "TBCariKodu";
             this.TBCariKodu.Properties.Appearance.Options.UseFont = true;
             this.TBCariKodu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.TBCariKodu.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.TBCariKodu_Properties_ButtonClick);
             this.TBCariKodu.Size = new System.Drawing.Size(154, 22);
             this.TBCariKodu.TabIndex = 149;
@@ -215,7 +201,7 @@
             this.TBIrsaliyeNo.Name = "TBIrsaliyeNo";
             this.TBIrsaliyeNo.Properties.Appearance.Options.UseFont = true;
             this.TBIrsaliyeNo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.TBIrsaliyeNo.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.TBSiparisNo_Properties_ButtonClick);
             this.TBIrsaliyeNo.Size = new System.Drawing.Size(154, 22);
             this.TBIrsaliyeNo.TabIndex = 150;
@@ -264,7 +250,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.DTSevkiyatTarih);
             this.groupBox1.Controls.Add(this.DTSiparisTarih);
             this.groupBox1.Controls.Add(this.DTPVadeTarihi);
             this.groupBox1.Controls.Add(this.CHBKdvDahil);
@@ -282,7 +267,6 @@
             this.groupBox1.Controls.Add(this.LBKur);
             this.groupBox1.Controls.Add(this.LBAciklama);
             this.groupBox1.Controls.Add(this.LBVadeTar);
-            this.groupBox1.Controls.Add(this.LBSevkiyatTar);
             this.groupBox1.Controls.Add(this.LBParaBirimi);
             this.groupBox1.Controls.Add(this.LBSiparisTar);
             this.groupBox1.Controls.Add(this.LBDepo);
@@ -296,7 +280,7 @@
             this.groupBox1.Size = new System.Drawing.Size(1615, 185);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Satış İrsaliye";
+            this.groupBox1.Text = "Alış Fatura";
             // 
             // DTPVadeTarihi
             // 
@@ -360,14 +344,6 @@
             this.LBVadeTar.TabIndex = 127;
             this.LBVadeTar.Text = "Vade Tarihi";
             // 
-            // LBSevkiyatTar
-            // 
-            this.LBSevkiyatTar.Location = new System.Drawing.Point(624, 106);
-            this.LBSevkiyatTar.Name = "LBSevkiyatTar";
-            this.LBSevkiyatTar.Size = new System.Drawing.Size(70, 13);
-            this.LBSevkiyatTar.TabIndex = 126;
-            this.LBSevkiyatTar.Text = "Sevkiyat Tarihi";
-            // 
             // LBParaBirimi
             // 
             this.LBParaBirimi.Location = new System.Drawing.Point(327, 106);
@@ -380,9 +356,9 @@
             // 
             this.LBSiparisTar.Location = new System.Drawing.Point(329, 30);
             this.LBSiparisTar.Name = "LBSiparisTar";
-            this.LBSiparisTar.Size = new System.Drawing.Size(60, 13);
+            this.LBSiparisTar.Size = new System.Drawing.Size(61, 13);
             this.LBSiparisTar.TabIndex = 124;
-            this.LBSiparisTar.Text = "Sipariş Tarihi";
+            this.LBSiparisTar.Text = "Fatura Tarihi";
             // 
             // LBDepo
             // 
@@ -799,8 +775,6 @@
             this.Name = "FAlisFatura";
             this.Text = "FAlisFatura";
             this.Load += new System.EventHandler(this.FAlisFatura_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.DTSevkiyatTarih.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DTSevkiyatTarih.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTSiparisTarih.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTSiparisTarih.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CHBKdvDahil.Properties)).EndInit();
@@ -845,8 +819,6 @@
         }
 
         #endregion
-
-        private DevExpress.XtraEditors.DateEdit DTSevkiyatTarih;
         private DevExpress.XtraEditors.DateEdit DTSiparisTarih;
         private DevExpress.XtraEditors.CheckEdit CHBKdvDahil;
         private DevExpress.XtraEditors.TextEdit TBGun;
@@ -867,7 +839,6 @@
         private DevExpress.XtraEditors.LabelControl LBKur;
         private DevExpress.XtraEditors.LabelControl LBAciklama;
         private DevExpress.XtraEditors.LabelControl LBVadeTar;
-        private DevExpress.XtraEditors.LabelControl LBSevkiyatTar;
         private DevExpress.XtraEditors.LabelControl LBParaBirimi;
         private DevExpress.XtraEditors.LabelControl LBSiparisTar;
         private DevExpress.XtraEditors.LabelControl LBDepo;

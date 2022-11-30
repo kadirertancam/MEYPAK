@@ -142,16 +142,36 @@ namespace MEYPAK.PRL.STOK
         {
             string temp = "";
             _kasaServis.Data(ServisList.StokKasaListeServis);
-            if (_islem == "musterisiparis")
+            if (_islem == "FMusteriSiparis")
             {
                 if (fSiparis != null)
                 {
+                    ttt.Clear();
+                    fSiparis._tempKasaList.Clear();
                     foreach (var item in gridView1.GetSelectedRows())
                     {
-
-                        temp += gridView1.GetRowCellValue(item, "KASAADI").ToString() + "=>" + gridView1.GetRowCellValue(item, "MIKTAR").ToString() + ";";
+                        if (item != -1)
+                        {
+                            ttt.Add(new KasaList()
+                            {
+                                MARKA = gridView1.GetRowCellValue(item, "MARKA").ToString(),
+                                KASAADI = gridView1.GetRowCellValue(item, "KASAADI").ToString(),
+                                MIKTAR = int.Parse(gridView1.GetRowCellValue(item, "MIKTAR").ToString()),
+                                KASAID = int.Parse(gridView1.GetRowCellValue(item, "KASAID").ToString()),
+                            });
+                        }
+                        //temp += gridView1.GetRowCellValue(item, "KASAADI").ToString() + "=>" + gridView1.GetRowCellValue(item, "MIKTAR").ToString() + ";";
                     }
-                    fSiparis.gridView1.SetFocusedRowCellValue("KasaAdı", temp);
+                    if (fSiparis._kasaaa.Where(x => x.num.ToString() == this.num).Count() == 0)
+                        fSiparis._kasaaa.Add(new ListKasaList()
+                        {
+                            num = int.Parse(num),
+                            KasaList = ttt
+                        });
+                    else
+                    {
+                        fSiparis._kasaaa.Where(x => x.num.ToString() == this.num).FirstOrDefault().KasaList = ttt;
+                    }
                 }
             }
             else if (_islem == "FSatinAlmaSiparis")

@@ -82,7 +82,7 @@ namespace MEYPAK.PRL.STOK
 
         private void gridView1_DoubleClick(object sender, EventArgs e)
         {
-            if (_islem == "musterisiparis")
+            if (_islem == "FMusteriSiparis")
                 fSiparis.gridView1.SetFocusedRowCellValue("Birim", gridView1.GetFocusedRowCellValue("Column"));
             if (_islem == "FSatinAlmaSiparis")
                 _fSatınAlmaSiparis.gridView1.SetFocusedRowCellValue("Birim", gridView1.GetFocusedRowCellValue("Column"));

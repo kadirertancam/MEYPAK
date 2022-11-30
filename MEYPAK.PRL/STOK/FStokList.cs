@@ -127,7 +127,7 @@ namespace MEYPAK.PRL.STOK
                     fStokHareket._tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
             }
            
-            else if (_islem == "siparis")
+            else if (_islem == "FMusteriSiparis")
             {
                 if (fSiparis != null)
                     fSiparis._tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();

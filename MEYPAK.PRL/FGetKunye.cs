@@ -70,20 +70,18 @@ namespace MEYPAK.PRL
             {
                 foreach (var item in deserializedObject.Body.BaseResponseMessageOf_BildirimSorguCevap.Sonuc.Bildirimler)
                 {
-                    foreach (var item2 in _stokHarServis.obje)
+
+                    if (!_stokHarServis.obje.Any(x => x.kunye == item.KunyeNo.ToString()))
                     {
-                        if (item2.kunye != item.KunyeNo.ToString())
+                        _alisKunyelerisv2.Add(new AlisKunyeleriV2()
                         {
-                            _alisKunyelerisv2.Add(new AlisKunyeleriV2()
-                            {
-                                AracPlakaNo = item.AracPlakaNo,
-                                BildirimTarihi = item.BildirimTarihi,
-                                KalanMiktar = item.KalanMiktar.ToString(),
-                                KunyeNo = item.KunyeNo.ToString(),
-                                MalinMiktari = item.MalinMiktari.ToString(),
-                                MiktarBirimiAd = item.MiktarBirimiAd.ToString(),
-                            });
-                        }
+                            AracPlakaNo = item.AracPlakaNo,
+                            BildirimTarihi = item.BildirimTarihi,
+                            KalanMiktar = item.KalanMiktar.ToString(),
+                            KunyeNo = item.KunyeNo.ToString(),
+                            MalinMiktari = item.MalinMiktari.ToString(),
+                            MiktarBirimiAd = item.MiktarBirimiAd.ToString(),
+                        });
                     }
                 }
                 gridControl1.DataSource = _alisKunyelerisv2;

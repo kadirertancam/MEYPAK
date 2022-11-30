@@ -289,6 +289,7 @@ namespace MEYPAK.PRL
             page.Controls.Add(fSiparis);
             fSiparis.Show();
             i++;
+
         }
 
         private void accordionControlElement34_Click(object sender, EventArgs e)
@@ -614,25 +615,7 @@ namespace MEYPAK.PRL
             fMarkaKart.Show();
             i++;
         }
-        private void accordionControlElement48_Click(object sender, EventArgs e)
-        {
-            XtraTabPage page = new XtraTabPage();
-            fFAlisIrsaliye = new FAlisIrsaliye();
-            page.Name = "TPAlisIrsaliye" + i;
-            page.Text = "Alış Irsaliye";
-            page.Tag = "TPAlisIrsaliye" + i;
-            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
-
-            fFAlisIrsaliye.TopLevel = false;
-            fFAlisIrsaliye.AutoScroll = true;
-            fFAlisIrsaliye.Dock = DockStyle.Fill;
-            fFAlisIrsaliye.Tag = "TPAlisIrsaliye" + i;
-            page.Controls.Add(fFAlisIrsaliye);
-            fFAlisIrsaliye.Show();
-            i++;
-        }
+       
 
         private void accordionControlElement49_Click(object sender, EventArgs e)
         {
@@ -688,6 +671,26 @@ namespace MEYPAK.PRL
             fMalKabulPanel.Tag = "TPMalKabul" + i;
             page.Controls.Add(fMalKabulPanel);
             fMalKabulPanel.Show();
+            i++;
+        }
+
+        private void accordionControlElement51_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fFAlisIrsaliye = new FAlisIrsaliye();
+            page.Name = "TPAlisIrsaliye" + i;
+            page.Text = "Alış Irsaliye";
+            page.Tag = "TPAlisIrsaliye" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fFAlisIrsaliye.TopLevel = false;
+            fFAlisIrsaliye.AutoScroll = true;
+            fFAlisIrsaliye.Dock = DockStyle.Fill;
+            fFAlisIrsaliye.Tag = "TPAlisIrsaliye" + i;
+            page.Controls.Add(fFAlisIrsaliye);
+            fFAlisIrsaliye.Show();
             i++;
         }
         //private void accordionControlElement48_Click(object sender, EventArgs e)

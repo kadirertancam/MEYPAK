@@ -75,8 +75,8 @@ namespace MEYPAK.PRL.SIPARIS
             _depoServis.Data(ServisList.DepoListeServis);
 
             CBParaBirimi.Properties.DataSource = _paraBirimServis.obje.Where(x => x.kayittipi == 0).Select(x => x.adi).ToList();
-            CBDepo.Properties.DataSource = _depoServis.obje.Where(x => x.kayittipi == 0).Select(x => x.depoadi).ToList();
-            CBDepo.Text = _depoServis.obje.Where(x => x.kayittipi == 0).Select(x => x.depoadi).FirstOrDefault();
+            CBDepo.Properties.DataSource = _depoServis.obje.Select(x => x.depoadi).ToList();
+            CBDepo.Text = _depoServis.obje.Select(x => x.depoadi).FirstOrDefault();
 
 
 
@@ -129,6 +129,8 @@ namespace MEYPAK.PRL.SIPARIS
         GridColumn gridColumn2;
         public List<ListKasaList> _kasaaa;
         public List<KasaList> _tempKasaList;
+        public RepositoryItemButtonEdit repositoryItemButtonEdit;
+
         void DataGridYapilandir()
         {
             _tempStok = new PocoSTOK();
@@ -137,11 +139,14 @@ namespace MEYPAK.PRL.SIPARIS
 
             gridView1.Columns["sıra"].Visible = false;
 
-            GridColumn gridColumn = gridView1.Columns.AddVisible("Seç", "Seç");
-            RepositoryItemButtonEdit repositoryItemButtonEdit = new RepositoryItemButtonEdit();
-            repositoryItemButtonEdit.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            repositoryItemButtonEdit.NullText = "Seç";
-            repositoryItemButtonEdit.NullValuePrompt = "Seç";
+            repositoryItemButtonEdit = new RepositoryItemButtonEdit();
+            repositoryItemButtonEdit.NullText = "";
+            repositoryItemButtonEdit.NullValuePrompt = "";
+            repositoryItemButtonEdit.Buttons[0].Caption = "SEÇ";
+            repositoryItemButtonEdit.Buttons[0].Kind = ButtonPredefines.Glyph;
+            gridView1.Columns["StokKodu"].OptionsColumn.AllowEdit = true;
+            gridView1.Columns["StokKodu"].ColumnEdit = repositoryItemButtonEdit;
+
 
 
 
@@ -243,17 +248,14 @@ namespace MEYPAK.PRL.SIPARIS
             repositoryItemButtonEdit.ButtonClick += RepositoryItemButtonEdit_ButtonClick;
             repositoryItemButton2.ButtonClick += RepositoryItemButtonEdit2_ButtonClick;
 
-            GCIrsaliye.RepositoryItems.Add(repositoryItemButtonEdit);
             GCIrsaliye.RepositoryItems.Add(repositoryItemButton2);
             GCIrsaliye.RepositoryItems.Add(repositoryItemButtonEdit3);
-            gridColumn.ColumnEdit = repositoryItemButtonEdit;
             gridColumn2.ColumnEdit = repositoryItemButton2;
             gridColumn3.ColumnEdit = repositoryItemButtonEdit3;
-            gridColumn.ShowButtonMode = DevExpress.XtraGrid.Views.Base.ShowButtonModeEnum.ShowAlways;
 
-            gridView1.Columns["Seç"].VisibleIndex = 2;
-            gridView1.Columns["BirimSec"].VisibleIndex = 9;
-            gridView1.Columns["KasaSec"].VisibleIndex = 7;
+            gridView1.Columns["StokKodu"].VisibleIndex = 3;
+            gridView1.Columns["BirimSec"].VisibleIndex = 8;
+            gridView1.Columns["KasaSec"].VisibleIndex = 6;
             gridView1.Columns["StokId"].Visible = false;
             gridView1.Columns["Tipi"].VisibleIndex = 0;
             gridView1.Columns["Doviz"].VisibleIndex = 20;
@@ -331,7 +333,9 @@ namespace MEYPAK.PRL.SIPARIS
                                    //KasaAdı = "",
                         Kdv = 0  //_tempKasa.satiskdv,
                     };
+                    repositoryItemButtonEdit.OwnerEdit.Text = _tempKasa.kasakodu;
                 }
+
             }
 
 
@@ -340,9 +344,11 @@ namespace MEYPAK.PRL.SIPARIS
             /* DGVFiyatList.DataSource = _tempStok.MPSTOKFIYATLISTHAR.Select(x => x.MPSTOKFIYATLIST.FIYATLISTADI).ToList();*/ //////////////////////////// BAKILCAK
             _tempSIPARISDETAY[gridView1.FocusedRowHandle] = _tempPocokalem;
             GCIrsaliye.DataSource = _tempSIPARISDETAY;
-            gridView1.RefreshData();
+            GCIrsaliye.RefreshDataSource();
+            GCIrsaliye.Refresh();
 
         }
+
 
         int i;
 
@@ -423,7 +429,7 @@ namespace MEYPAK.PRL.SIPARIS
                 });
                 i++;
 
-                 
+
 
 
             }
