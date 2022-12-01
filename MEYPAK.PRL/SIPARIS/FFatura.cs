@@ -556,6 +556,7 @@ namespace MEYPAK.PRL.SIPARIS
         private void FFatura_Load(object sender, EventArgs e)
         {
             DataGridYapilandir();
+            Doldur();
         }
 
         private void gridView1_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
@@ -625,12 +626,8 @@ namespace MEYPAK.PRL.SIPARIS
         decimal daralı, dara;
 
 
-
-
-        private void TBSiparisNo_Properties_ButtonClick(object sender, ButtonPressedEventArgs e)
+        void Doldur()
         {
-            FFaturaList ffaturalist = new FFaturaList(this.Tag.ToString(), "FFatura");
-            ffaturalist.ShowDialog();
             if (_tempFatura != null)
             {
                 TBIrsaliyeNo.Text = _tempFatura.belgeno;
@@ -646,18 +643,25 @@ namespace MEYPAK.PRL.SIPARIS
                 TBGun.Text = _tempFatura.vadegunu.ToString();
 
 
-                _faturadetayServis.Data(ServisList.FaturaDetayListeServis + 2, null, "query=SIPARISID=" + _tempFatura.id.ToString());
+                _faturadetayServis.Data(ServisList.FaturaDetayListeServis + 2, null, "query=FATURAID=" + _tempFatura.id.ToString());
                 GCIrsaliye.DataSource = _faturadetayServis.obje.Select(x => new PocoSiparisKalem()
                 {
-                    StokId = x.stokid,
-                    StokKodu = _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().kod,//,  TODOO:BAKILACAAAK
-                    StokAdı = _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().adi,
-                    Birim = "0",// _olcuBr.obje.Where(x => x.ADI == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "DGVOlcuBr").ToString()).FirstOrDefault().ADI,
+                    StokId   =    x.stokid,
+                    StokKodu =  _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().kod,//,  TODOO:BAKILACAAAK
+                    StokAdı =   _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().adi,
+                    Birim =     "0",// _olcuBr.obje.Where(x => x.ADI == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "DGVOlcuBr").ToString()).FirstOrDefault().ADI,
                                 //KasaAdı = "",
                     Kdv = _tempStok.satiskdv,
                     Doviz = "TL", //_tempStok.SDOVIZID 
                 });
             }
+        }
+
+        private void TBSiparisNo_Properties_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            FFaturaList ffaturalist = new FFaturaList(this.Tag.ToString(), "FFatura");
+            ffaturalist.ShowDialog();
+            Doldur();
 
         }
         private void TBCariKodu_Properties_ButtonClick(object sender, ButtonPressedEventArgs e)

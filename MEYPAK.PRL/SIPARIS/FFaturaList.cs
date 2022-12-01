@@ -1,9 +1,11 @@
 ﻿using DevExpress.XtraEditors;
+using DevExpress.XtraTab;
 using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.PocoModels;
 using MEYPAK.Entity.PocoModels.FATURA;
 using MEYPAK.Entity.PocoModels.IRSALIYE;
 using MEYPAK.Interfaces.IRSALIYE;
+using MEYPAK.Interfaces.Stok;
 using MEYPAK.PRL.IRSALIYE;
 using System;
 using System.Collections.Generic;
@@ -27,14 +29,17 @@ namespace MEYPAK.PRL.SIPARIS
         }
 
         string _form, _islem;
-       
+        int i = 0;
         FFatura ffatura;
+        Main main;
         GenericWebServis<PocoFATURA> _faturaServis;
 
 
         private void FFaturaList_Load(object sender, EventArgs e)
         {
             _faturaServis = new GenericWebServis<PocoFATURA>();
+            if (this.Tag==null)
+            {
             foreach (Form frm in Application.OpenForms)
             {
                 if (_form == frm.Tag)
@@ -43,8 +48,17 @@ namespace MEYPAK.PRL.SIPARIS
                         ffatura = (FFatura)frm;
                 }
             }
+            }
+            else
+            {
+                foreach (Form frm in Application.OpenForms)
+                {
+                        if (frm.Name.Contains("Main"))
+                            main = (Main)frm;
+                }
+            }
             _faturaServis.Data(ServisList.FaturaListeServis);
-            if (_islem == "FSatisIrsaliye")
+            if (_islem == "FFatura")
                 gridControl1.DataSource = _faturaServis.obje.Where(x => x.tip == 1).Select(x => new
                 {
                     ID = x.id,
@@ -55,7 +69,7 @@ namespace MEYPAK.PRL.SIPARIS
                     x.depoid,
                     x.geneltoplam
                 });
-            if (_islem == "FAlisIrsaliye")
+            if (_islem == "FAlisFatura")
                 gridControl1.DataSource = _faturaServis.obje.Where(x => x.tip == 0).Select(x => new
                 {
                     ID = x.id,
@@ -71,16 +85,39 @@ namespace MEYPAK.PRL.SIPARIS
         private void gridView1_DoubleClick(object sender, EventArgs e)
         {
             _faturaServis.Data(ServisList.FaturaListeServis);
-            if (_islem == "FFatura")
+            if (this.Tag == null)
             {
-                if (ffatura != null)
+                if (_islem == "FFatura")
                 {
-                    ffatura._tempFatura = _faturaServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
-                }
+                    if (ffatura != null)
+                    {
+                        ffatura._tempFatura = _faturaServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+                    }
 
+                }
+                this.Close();
             }
-          
-            this.Close();
+            else
+            {
+                XtraTabPage page = new XtraTabPage();
+                ffatura = new FFatura();
+                page.Name = "TPFatura2" + i;
+                page.Text = "Fatura Tanım";
+                page.Tag = "TPFatura2" + i;
+                page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+
+                main.xtraTabControl1.TabPages.Add(page);
+                main.xtraTabControl1.SelectedTabPage = page;
+
+                ffatura.TopLevel = false;
+                ffatura.AutoScroll = true;
+                ffatura.Tag = "TPFatura2" + i;
+                ffatura.Dock = DockStyle.Fill;
+                page.Controls.Add(ffatura);
+                ffatura._tempFatura = _faturaServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+                ffatura.Show();
+                i++;
+            }
         }
     }
 }

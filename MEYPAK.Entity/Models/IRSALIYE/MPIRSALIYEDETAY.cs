@@ -13,9 +13,9 @@ namespace MEYPAK.Entity.Models.IRSALIYE
 {
     public class MPIRSALIYEDETAY:SUPERMODEL
     {
-
-        public int SIPARISID { get; set; }
+        public int IRSALIYEID { get; set; }
         [DefaultValue(0)]
+        public int STOKID { get; set; } = 0;
         public int BIRIMID { get; set; }
         [DefaultValue(0)]
         public int DOVIZID { get; set; } = 0;
@@ -28,6 +28,7 @@ namespace MEYPAK.Entity.Models.IRSALIYE
 
         public byte TIP { get; set; } = 0;
         [StringLength(50)]
+        
         public string STOKADI { get; set; } = "";
         [StringLength(200)]
         [DefaultValue("")]

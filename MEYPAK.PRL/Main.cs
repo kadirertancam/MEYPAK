@@ -59,6 +59,9 @@ namespace MEYPAK.PRL
             _parabirimServis = new GenericWebServis<PocoPARABIRIM>();
         }
         #region TANIMLAR
+        FStokList fstokList;
+        FCariList fcariList;
+        FFaturaList ffaturaList;
         FSevkiyatPanel fSevkiyatPanel;
         FSatisIrsaliye fSatisIrsaliye;
         FOlcuBrKart fOlcuBrKart;
@@ -693,25 +696,68 @@ namespace MEYPAK.PRL
             fFAlisIrsaliye.Show();
             i++;
         }
-        //private void accordionControlElement48_Click(object sender, EventArgs e)
-        //{
-        //    XtraTabPage page = new XtraTabPage();
-        //    fiyatList = new FStokFiyatList();
-        //    page.Name = "TPStokFiyatListPanel" + i;
-        //    page.Text = "Stok Fiyat List Panel";
-        //    page.Tag = "TPStokFiyatListPanel" + i;
-        //    page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-        //    xtraTabControl1.TabPages.Add(page);
-        //    xtraTabControl1.SelectedTabPage = page;
 
-        //    fiyatList.FormBorderStyle = FormBorderStyle.None;
-        //    fiyatList.TopLevel = false;
-        //    fiyatList.AutoScroll = true;
-        //    fiyatList.Dock = DockStyle.Fill;
-        //    fiyatList.Tag = "TPStokFiyatListPanel" + i;
-        //    page.Controls.Add(fiyatList);
-        //    fiyatList.Show();
-        //    i++;
-        //}
+        private void accordionControlElement48_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fstokList = new FStokList();
+            page.Name = "TPStokList" + i;
+            page.Text = "Stok List";
+            page.Tag = "TPStokList" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fstokList.FormBorderStyle = FormBorderStyle.None;
+            fstokList.TopLevel = false;
+            fstokList.AutoScroll = true;
+            fstokList.Dock = DockStyle.Fill;
+            fstokList.Tag = "TPStokList" + i;
+            page.Controls.Add(fstokList);
+            fstokList.Show();
+            i++;
+        }
+
+        private void accordionControlElement52_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fcariList = new FCariList();
+            page.Name = "TPCariList" + i;
+            page.Text = "Cari List";
+            page.Tag = "TPCariList" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fcariList.FormBorderStyle = FormBorderStyle.None;
+            fcariList.TopLevel = false;
+            fcariList.AutoScroll = true;
+            fcariList.Dock = DockStyle.Fill;
+            fcariList.Tag = "TPCariList" + i;
+            page.Controls.Add(fcariList);
+            fcariList.Show();
+            i++;
+        }
+
+        private void accordionControlElement53_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            ffaturaList = new FFaturaList(islem:"FFatura");
+            page.Name = "TPFaturaList" + i;
+            page.Text = "Fatura List";
+            page.Tag = "TPFaturaList" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            ffaturaList.FormBorderStyle = FormBorderStyle.None;
+            ffaturaList.TopLevel = false;
+            ffaturaList.AutoScroll = true;
+            ffaturaList.Dock = DockStyle.Fill;
+            ffaturaList.Tag = "TPFaturaList" + i;
+            page.Controls.Add(ffaturaList);
+            ffaturaList.Show();
+            i++;
+        }
     }
 }
