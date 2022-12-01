@@ -67,23 +67,23 @@ namespace MEYPAK.PRL.CARI
                 _fmusteriSiparis._tempCariKart = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
             
             if (_islem == "FSatinAlmaSiparis")
-            {
+            
                 fSatinAlmaSiparis._tempCariKart = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
-            }
+            
             if (_islem == "FSatisIrsaliye")
-            {
                 fSatisIrsaliye._tempCariKart = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
             if (_islem == "AlisIrsaliye")
-            
                 fAlisIrsaliye._tempCariKart = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
-            
             if (_islem == "FFatura")
-            
                 ffatura._tempCariKart = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
-            } if (_islem == "FAlisFatura")
-            {
+            
+            if (_islem == "FAlisFatura")
+            
                 fAlisFatura._tempCariKart = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
-            }
+            if (_islem == "FStokFiyat")
+            
+                fStokFiyat._tempCariKart = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+            
             this.Close();
         }
 
@@ -109,6 +109,8 @@ namespace MEYPAK.PRL.CARI
                         ffatura = (FFatura)frm;
                     if (frm.Name.Contains("FAlisFatura"))
                         fAlisFatura = (FAlisFatura)frm;
+                    if (frm.Name.Contains("FStokFiyat"))
+                        fStokFiyat = (FStokFiyat)frm;
                 }
             }
 

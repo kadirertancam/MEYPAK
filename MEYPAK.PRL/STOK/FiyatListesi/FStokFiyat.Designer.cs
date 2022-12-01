@@ -215,6 +215,7 @@
             // 
             // DTBaslangicTar
             // 
+            this.DTBaslangicTar.AllowDrop = true;
             this.DTBaslangicTar.EditValue = null;
             this.DTBaslangicTar.Location = new System.Drawing.Point(503, 44);
             this.DTBaslangicTar.Name = "DTBaslangicTar";
@@ -222,6 +223,8 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.DTBaslangicTar.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.DTBaslangicTar.Properties.MaskSettings.Set("mask", "D");
+            this.DTBaslangicTar.Properties.MaxValue = new System.DateTime(9999, 12, 31, 0, 0, 0, 0);
             this.DTBaslangicTar.Size = new System.Drawing.Size(180, 20);
             this.DTBaslangicTar.TabIndex = 7;
             // 

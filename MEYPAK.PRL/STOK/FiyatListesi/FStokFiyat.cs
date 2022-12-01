@@ -46,7 +46,7 @@ namespace MEYPAK.PRL.STOK.FiyatListesi
         GenericWebServis<PocoCARIKART> _cariServis;
         public PocoCARIKART _tempCariKart;
         public PocoSTOKFIYAT _tempStokFiyat;
-      
+       
         FStokFiyatPanel stokFiyatPanel;
 
         #endregion
@@ -59,6 +59,7 @@ namespace MEYPAK.PRL.STOK.FiyatListesi
         int _tempId = 0;
         private void BTKaydet_Click(object sender, EventArgs e)
         {
+            
             if (_cariServis.obje.Where(x => x.id == _tempCariKart.id && x.kayittipi == 0).Count() > 0)
             {
                 _stokFiyatServis.Data(ServisList.StokFiyatEkleServis, (new Entity.PocoModels.STOK.PocoSTOKFIYAT()
@@ -69,7 +70,7 @@ namespace MEYPAK.PRL.STOK.FiyatListesi
                     aciklama = TBAciklama.Text,
                     baslangictarihi = Convert.ToDateTime(DTBaslangicTar.Text.ToString()),
                     bitistarihi = Convert.ToDateTime(DTBitisTar.Text.ToString()),
-
+                
                 }));
                 _tempStokFiyat = _stokFiyatServis.obje2;
 
@@ -105,7 +106,6 @@ namespace MEYPAK.PRL.STOK.FiyatListesi
             }
            
         }
-
         void DataGridiYapilandir()
         {
             if (_tempCariKart != null)
