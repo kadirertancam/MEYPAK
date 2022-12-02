@@ -15,9 +15,10 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
 {
     public class EFADRESLISTREPO :  IAdresListDal
     {
-        public EFADRESLISTREPO(MEYPAKContext _context) 
+        MEYPAKContext _context;
+        public EFADRESLISTREPO(MEYPAKContext context) 
         {
-           
+           _context = context;
         }
 
         public bool DeleteById(int id)
