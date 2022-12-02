@@ -12,7 +12,7 @@ namespace MEYPAK.Entity.Models.FATURA
     {
         public int FATURAID { get; set; }
 
-        public int STOKID { get; set; } = 0;
+        public int STOKID { get; set; } 
         [DefaultValue(0)]
         public int BIRIMID { get; set; }
         [DefaultValue(0)]

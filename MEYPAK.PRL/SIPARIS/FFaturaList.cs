@@ -59,7 +59,7 @@ namespace MEYPAK.PRL.SIPARIS
             }
             _faturaServis.Data(ServisList.FaturaListeServis);
             if (_islem == "FFatura")
-                gridControl1.DataSource = _faturaServis.obje.Where(x => x.tip == 1).Select(x => new
+                gridControl1.DataSource = _faturaServis.obje.Where(x => x.tip == 0).Select(x => new
                 {
                     ID = x.id,
                     x.faturatarihi,
@@ -70,7 +70,7 @@ namespace MEYPAK.PRL.SIPARIS
                     x.geneltoplam
                 });
             if (_islem == "FAlisFatura")
-                gridControl1.DataSource = _faturaServis.obje.Where(x => x.tip == 0).Select(x => new
+                gridControl1.DataSource = _faturaServis.obje.Where(x => x.tip == 1).Select(x => new
                 {
                     ID = x.id,
                     x.faturatarihi,
