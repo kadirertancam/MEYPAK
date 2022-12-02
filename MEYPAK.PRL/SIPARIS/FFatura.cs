@@ -171,7 +171,7 @@ namespace MEYPAK.PRL.SIPARIS
 
 
 
-            GridColumn gridColumn4 = gridView1.Columns.AddVisible("Kunye", "KunyeSec");
+            GridColumn gridColumn4 = gridView1.Columns.AddVisible("KunyeSec", "KunyeSec");
             RepositoryItemButtonEdit repositoryItemButtonEdit4 = new RepositoryItemButtonEdit();
             repositoryItemButtonEdit4.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             repositoryItemButtonEdit4.NullText = "Seç";
@@ -270,14 +270,16 @@ namespace MEYPAK.PRL.SIPARIS
             gridColumn3.ColumnEdit = repositoryItemButtonEdit3;
             gridColumn4.ColumnEdit = repositoryItemButtonEdit4;
 
-            gridView1.Columns["StokKodu"].VisibleIndex = 3;
-            gridView1.Columns["BirimSec"].VisibleIndex = 8;
-            gridView1.Columns["KasaSec"].VisibleIndex = 6;
+            gridView1.Columns["StokKodu"].VisibleIndex = 4;
+            gridView1.Columns["BirimSec"].VisibleIndex = 9;
+            gridView1.Columns["KasaSec"].VisibleIndex = 7;
             gridView1.Columns["StokId"].Visible = false;
-            gridView1.Columns["Kunye"].VisibleIndex = 10;
+            gridView1.Columns["Kunye"].VisibleIndex = 11;
+            gridView1.Columns["KunyeSec"].VisibleIndex = 12;
             gridView1.Columns["Tipi"].VisibleIndex = 0;
-            gridView1.Columns["Doviz"].VisibleIndex = 20;
+            gridView1.Columns["Doviz"].VisibleIndex = 21;
             gridView1.Columns["KasaId"].Visible = false;
+            gridView1.Columns["id"].Visible = false;
             gridView1.Columns["Tipi"].UnboundDataType = System.Type.GetType("System.String");
             GCIrsaliye.ForceInitialize();
         }
@@ -390,6 +392,9 @@ namespace MEYPAK.PRL.SIPARIS
             tempnum = gridView1.GetFocusedDataSourceRowIndex();
             if (_kasaaa.Where(x => x.num == tempnum).Count() > 0)
                 riLookup3.DataSource = _kasaaa.Where(x => x.num == tempnum).FirstOrDefault().KasaList;
+            else
+                if (riLookup3 != null)
+                riLookup3.DataSource = "";
         }
 
         private void BTKaydet_Click_1(object sender, EventArgs e)
@@ -397,6 +402,7 @@ namespace MEYPAK.PRL.SIPARIS
             _cariKart.Data(ServisList.CariListeServis);
             _faturaServis.Data(ServisList.FaturaEkleServis, new PocoFATURA()
             {
+                id=_tempFatura!=null ? _tempFatura.id :0,
                 aciklama = TBAciklama.Text,
                 kur = Convert.ToDecimal(TBKur.Text),
                 belgeno = TBIrsaliyeNo.Text,
@@ -429,6 +435,7 @@ namespace MEYPAK.PRL.SIPARIS
 
                     _faturadetayServis.Data(ServisList.FaturaDetayEkleServis, new PocoFATURADETAY()
                     {
+                        id=item.id,
                         stokid = item.StokId,
                         stokadi = item.StokAdı,
                         aciklama = item.Acıklama,
@@ -519,6 +526,7 @@ namespace MEYPAK.PRL.SIPARIS
                 _tempFaturaDetay.Add(new PocoFaturaKalem() { sıra = num });
                 GCIrsaliye.DataSource = _tempFaturaDetay;
 
+
                 //dataGridView1.Columns["DGVOlcuBr"].DisplayIndex = 6;
                 //dataGridView1.Columns["DGVFiyatList"].DisplayIndex = dataGridView1.ColumnCount - 1; 
                 //dataGridView1.Columns["StokKodu"].DisplayIndex = 0;
@@ -528,14 +536,10 @@ namespace MEYPAK.PRL.SIPARIS
                 //dataGridView1.Columns["DGVKasaSec"].DisplayIndex = 8;
                 //dataGridView1.Columns["DVGKasaList"].DisplayIndex = dataGridView1.ColumnCount-1;
 
-
-                for (int i = 0; i < gridView1.RowCount; i++)
-                {
-                    gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "DGVOlcuBr", _tempFaturaDetay[i].Birim.ToString());
-                }
+               
+                
                 gridView1.FocusedRowHandle = gridView1.RowCount - 1;
-                gridView1.FocusedColumn = gridView1.Columns["StokKodu"];
-                gridView1.Columns["Seç"].VisibleIndex = 2;
+                gridView1.FocusedColumn = gridView1.Columns["StokKodu"]; 
                 gridView1.Columns["BirimSec"].VisibleIndex = 8;
                 gridView1.Columns["StokId"].Visible = false;
                 GCIrsaliye.RefreshDataSource();
@@ -641,11 +645,12 @@ namespace MEYPAK.PRL.SIPARIS
         int sy = 0;
         decimal daralı, dara;
 
-
         void Doldur()
         {
             if (_tempFatura != null)
             {
+                
+                _tempFaturaDetay.Clear();
                 _cariKart.Data(ServisList.CariListeServis);
                 TBIrsaliyeNo.Text = _tempFatura.belgeno;
 
@@ -682,26 +687,29 @@ namespace MEYPAK.PRL.SIPARIS
                     }
                     _kasaaa.Add( new ListKasaList() {  num=item2.num,KasaList=KasaList});
                 }
-
+                riLookup3.DataSource = "";
                 riLookup3.DataSource = _kasaaa.Where(x => x.num == gridView1.FocusedRowHandle).FirstOrDefault().KasaList;
-                _faturadetayServis.Data(ServisList.FaturaDetayListeServis + 2, null, "query=FATURAID=" + _tempFatura.id.ToString());
+                _faturadetayServis.Data(ServisList.FaturaDetayListeServis + 2, null, "query=FATURAID=" + _tempFatura.id.ToString()+" AND KAYITTIPI=0");
                 _olcuBr.Data(ServisList.OlcuBrListeServis);
-                GCIrsaliye.DataSource = _faturadetayServis.obje.Select(x => new PocoSiparisKalem()
+                _tempFaturaDetay.AddRange(_faturadetayServis.obje.Select(x => new PocoFaturaKalem()
                 {
-                    Tipi="STOK",
+                    id= x.id,
+                    Tipi = "STOK",
                     StokId = x.stokid,
                     StokKodu = _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().kod,//,  TODOO:BAKILACAAAK
                     StokAdı = _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().adi,
                     Birim = _olcuBr.obje.Where(z => z.id == x.birimid).FirstOrDefault().adi,
-                    //KasaAdı = "",
+                    Kunye = x.kunye,
                     Kdv = _tempStok.satiskdv,
                     BrütFiyat = x.brutfiyat,
                     Acıklama = x.aciklama,
                     BirimFiyat = x.netfiyat,
                     BrütToplam = x.bruttoplam,
-
+                    Miktar=x.miktar,
                     Doviz = "TÜRK LİRASI", //_tempStok.SDOVIZID 
-                });
+                }));
+                GCIrsaliye.DataSource = _tempFaturaDetay;
+                GCIrsaliye.RefreshDataSource();
             }
         }
 
