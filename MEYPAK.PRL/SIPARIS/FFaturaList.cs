@@ -21,7 +21,7 @@ namespace MEYPAK.PRL.SIPARIS
 {
     public partial class FFaturaList : XtraForm
     {
-        public FFaturaList(string tag = "",string islem="")
+        public FFaturaList(string tag = "", string islem = "")
         {
             InitializeComponent();
             _form = tag;
@@ -38,23 +38,23 @@ namespace MEYPAK.PRL.SIPARIS
         private void FFaturaList_Load(object sender, EventArgs e)
         {
             _faturaServis = new GenericWebServis<PocoFATURA>();
-            if (this.Tag==null)
+            if (this.Tag == null)
             {
-            foreach (Form frm in Application.OpenForms)
-            {
-                if (_form == frm.Tag)
+                foreach (Form frm in Application.OpenForms)
                 {
-                    if (frm.Name.Contains("FFatura"))
-                        ffatura = (FFatura)frm;
+                    if (_form == frm.Tag)
+                    {
+                        if (frm.Name.Contains("FFatura"))
+                            ffatura = (FFatura)frm;
+                    }
                 }
-            }
             }
             else
             {
                 foreach (Form frm in Application.OpenForms)
                 {
-                        if (frm.Name.Contains("Main"))
-                            main = (Main)frm;
+                    if (frm.Name.Contains("Main"))
+                        main = (Main)frm;
                 }
             }
             _faturaServis.Data(ServisList.FaturaListeServis);
@@ -121,3 +121,4 @@ namespace MEYPAK.PRL.SIPARIS
         }
     }
 }
+

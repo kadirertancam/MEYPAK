@@ -10,27 +10,10 @@ using MEYPAK.Entity.PocoModels.DEPO;
 using MEYPAK.Entity.PocoModels.PARAMETRE;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Entity.PocoModels;
-using MEYPAK.PRL.Assets;
 using MEYPAK.PRL.CARI;
 using MEYPAK.PRL.STOK;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using MEYPAK.Entity.Models.CARI;
-using MEYPAK.Interfaces.IRSALIYE;
 using MEYPAK.Entity.PocoModels.FATURA;
-using MEYPAK.Entity.PocoModels.IRSALIYE;
-using DevExpress.XtraVerticalGrid.Native;
-using MEYPAK.Interfaces.Stok;
-using MEYPAK.Interfaces.Fatura;
-using MEYPAK.Interfaces.Kasa;
-using MEYPAK.Entity.Models.STOK;
 
 namespace MEYPAK.PRL.SIPARIS
 {
@@ -50,7 +33,6 @@ namespace MEYPAK.PRL.SIPARIS
         public PocoCARIKART _tempCariKart;
         DataGridViewButtonColumn DGVStokSec;
         DataGridViewButtonColumn DGVKasaSec;
-        List<PocoOLCUBR> _tempolcuBr;
         DataGridViewComboBoxColumn DGVFiyatList;
         DataGridViewComboBoxColumn DGVKasaList;
         GenericWebServis<PocoDEPO> _depoServis;
@@ -67,7 +49,7 @@ namespace MEYPAK.PRL.SIPARIS
         GenericWebServis<PocoPARABIRIM> _paraBirimServis;
         GenericWebServis<PocoSTOKKASAHAR> _stokKasaHarServis;
         GenericWebServis<PocoSTOKKASA> _kasaServis;
-        GenericWebServis<PocoCARIALTHES> _cariAltHes;
+       
         GenericWebServis<PocoSTOKKASAMARKA> _stokKasaMarkaServis; 
         #endregion
         public FFatura()
@@ -87,8 +69,6 @@ namespace MEYPAK.PRL.SIPARIS
             CBParaBirimi.Properties.DataSource = _paraBirimServis.obje.Where(x => x.kayittipi == 0).Select(x => x.adi).ToList();
             CBDepo.Properties.DataSource = _depoServis.obje.Where(x => x.kayittipi == 0).Select(x => x.depoadi).ToList();
             CBDepo.Text = _depoServis.obje.Where(x => x.kayittipi == 0).Select(x => x.depoadi).FirstOrDefault();
-
-
 
             CBParaBirimi.Text = _paraBirimServis.obje.Where(x => x.kayittipi == 0 && x.adi == "TÜRK LİRASI").Select(x => x.adi).FirstOrDefault();
             _faturaServis = new GenericWebServis<PocoFATURA>();
@@ -292,7 +272,7 @@ namespace MEYPAK.PRL.SIPARIS
 
         private void RiLookup_EditValueChanged(object? sender, EventArgs e)
         {
-
+            riLookup.GetDataSourceRowByDisplayValue(riLookup.Name);
         }
 
 
@@ -340,7 +320,10 @@ namespace MEYPAK.PRL.SIPARIS
                                    //KasaAdı = "",
                         Kdv = _tempStok.satiskdv,
                     };
-                } 
+                    _tempFaturaDetay[gridView1.FocusedRowHandle] = _tempPocokalem;
+                    GCIrsaliye.DataSource = _tempFaturaDetay;
+                }
+              
             }
             else if (gridView1.GetFocusedRowCellValue("Tipi") == "KASA")
             {
@@ -360,15 +343,17 @@ namespace MEYPAK.PRL.SIPARIS
                                    //KasaAdı = "",
                         Kdv = 0  //_tempKasa.satiskdv,
                     };
+                    _tempFaturaDetay[gridView1.FocusedRowHandle] = _tempPocokalem;
+                    GCIrsaliye.DataSource = _tempFaturaDetay;
                 }
-            }
          
+            }
+
 
 
 
             /* DGVFiyatList.DataSource = _tempStok.MPSTOKFIYATLISTHAR.Select(x => x.MPSTOKFIYATLIST.FIYATLISTADI).ToList();*/ //////////////////////////// BAKILCAK
-            _tempFaturaDetay[gridView1.FocusedRowHandle] = _tempPocokalem;
-            GCIrsaliye.DataSource = _tempFaturaDetay;
+          
             gridView1.RefreshData();
 
         }
@@ -594,9 +579,9 @@ namespace MEYPAK.PRL.SIPARIS
                     brutfiyat = birimfiyat;
                     miktar = _tempFaturaDetay.Where(x => x.StokId.ToString() == gridView1.GetFocusedRowCellValue("StokId").ToString()).FirstOrDefault().Miktar;
                     kdv = Convert.ToDecimal(gridView1.GetFocusedRowCellValue("Kdv"));
-                    isktoplam = (birimfiyat * Convert.ToDecimal(gridView1.GetFocusedRowCellValue("İskonto1"))) / 100;
-                    isktoplam += (isktoplam * Convert.ToDecimal(gridView1.GetFocusedRowCellValue("İskonto2"))) / 100;
-                    isktoplam += (isktoplam * Convert.ToDecimal(gridView1.GetFocusedRowCellValue("İskonto3"))) / 100;
+                    isktoplam = birimfiyat-(birimfiyat * Convert.ToDecimal(gridView1.GetFocusedRowCellValue("İskonto1"))) / 100;
+                    isktoplam = isktoplam-(isktoplam * Convert.ToDecimal(gridView1.GetFocusedRowCellValue("İskonto2"))) / 100;
+                    isktoplam = isktoplam - (isktoplam * Convert.ToDecimal(gridView1.GetFocusedRowCellValue("İskonto3"))) / 100;
                     netfiyat = birimfiyat - isktoplam;
                     isktoplam = isktoplam * miktar;
                     nettoplam = netfiyat * miktar;
@@ -610,9 +595,9 @@ namespace MEYPAK.PRL.SIPARIS
                     birimfiyat = (Convert.ToDecimal(gridView1.GetFocusedRowCellValue("BirimFiyat")));
                     netfiyat = birimfiyat / (1 + (kdv / 100));
                     miktar = _tempFaturaDetay.Where(x => x.StokId.ToString() == gridView1.GetFocusedRowCellValue("StokId")).FirstOrDefault().Miktar;
-                    isktoplam = (netfiyat * Convert.ToDecimal(gridView1.GetFocusedRowCellValue("İskonto1"))) / 100;
-                    isktoplam += (isktoplam * Convert.ToDecimal(gridView1.GetFocusedRowCellValue("İskonto2"))) / 100;
-                    isktoplam += (isktoplam * Convert.ToDecimal(gridView1.GetFocusedRowCellValue("İskonto3"))) / 100;
+                    isktoplam = birimfiyat - (birimfiyat * Convert.ToDecimal(gridView1.GetFocusedRowCellValue("İskonto1"))) / 100;
+                    isktoplam = isktoplam - (isktoplam * Convert.ToDecimal(gridView1.GetFocusedRowCellValue("İskonto2"))) / 100;
+                    isktoplam = isktoplam - (isktoplam * Convert.ToDecimal(gridView1.GetFocusedRowCellValue("İskonto3"))) / 100;
                     netfiyat = netfiyat - isktoplam;
                     brutfiyat = netfiyat + isktoplam;
                     nettoplam = netfiyat * miktar;
