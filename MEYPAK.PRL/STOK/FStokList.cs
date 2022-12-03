@@ -25,6 +25,7 @@ using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.PRL.CARI;
 using MEYPAK.PRL.IRSALIYE;
 using DevExpress.XtraEditors;
+using DevExpress.XtraReports.Design;
 using MEYPAK.PRL.STOK.Raporlar;
 
 namespace MEYPAK.PRL.STOK
