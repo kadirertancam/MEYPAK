@@ -10,7 +10,7 @@ namespace MEYPAK.Entity.Models.FATURA
 {
     public class MPFATURA:SUPERMODEL
     {
-        public int SIPARISID { get; set; }
+        public int IRSALIYEID { get; set; }
         [DefaultValue(0)]
         public int SIRKETID { get; set; } = 0;
         [DefaultValue(0)]

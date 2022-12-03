@@ -128,8 +128,8 @@ namespace MEYPAK.PRL.CARI
             BTCariSec.Text = _tempCariKart.kod;
             TBUnvan.Text = _tempCariKart.unvan;
             CBUlke.Text = _tempCariKart.ulke;
-            CBIl.Text = _tempCariKart.il;
-            CBIlce.Text = _tempCariKart.ilce;
+            CBIl.EditValue = _tempCariKart.il;
+            CBIlce.EditValue = _tempCariKart.ilce;
             TBMahalle.Text = _tempCariKart.mahalle;
             TBSokak.Text = _tempCariKart.sokak;
             TBApt.Text = _tempCariKart.apt;
@@ -155,7 +155,7 @@ namespace MEYPAK.PRL.CARI
             TBCariSoyad.Text = _tempCariKart.soyadi;
             CBTip.SelectedIndex = _tempCariKart.tipi;
             TBAciklama.Text = _tempCariKart.aciklama;
-            CBSevkIl.Text = _tempCariKart.il;
+            CBSevkIl.EditValue = _tempCariKart.il;
             CBSevkIlce.EditValue = _tempCariKart.ilce;
             TBSevkMahalle.Text = _tempCariKart.mahalle;
             TBSevkSokak.Text = _tempCariKart.sokak;
@@ -197,6 +197,8 @@ namespace MEYPAK.PRL.CARI
                     resimList.Add(item);
                 }
             gridControl3.DataSource = resimList.Where(x => x.CARIID == _tempCariKart.id).Select(x => new { CResim = Base64ToImage(x.IMG) });
+            SevkAdresDoldur();
+            YetkiliBilgileriDoldur();
         }
         void AltCariDoldur()
         {
@@ -226,7 +228,7 @@ namespace MEYPAK.PRL.CARI
         public void FCariKart_Load(object sender, EventArgs e)
         {
             //Il combosu
-
+         
             string url = @"http://213.238.167.117:8081/il-ilce.json";
             string url2 = @"http://213.238.167.117:8081/ulkeler.json";
 
@@ -247,6 +249,11 @@ namespace MEYPAK.PRL.CARI
                     _ulkeList = JsonConvert.DeserializeObject<UlkeList.Root>(sr.ReadToEnd());
                 }
             CBUlke.Properties.DataSource = _ulkeList.Ulke.Select(x => x.ulkeadi);
+
+            if (_tempCariKart != null)
+            {
+                Doldur();
+            }
         }
 
         //Sevk Adres
@@ -705,77 +712,7 @@ namespace MEYPAK.PRL.CARI
         {
             FCariList fCariList = new FCariList(this.Tag.ToString(), "carikart");
             fCariList.ShowDialog();
-            if (_tempCariKart != null)
-            {
-
-                BTCariSec.Text = _tempCariKart.kod;
-                TBUnvan.Text = _tempCariKart.unvan;
-                CBUlke.EditValue = _tempCariKart.ulke;
-                CBIl.EditValue = _tempCariKart.il;
-                CBIlce.EditValue = _tempCariKart.ilce;
-                TBMahalle.Text = _tempCariKart.mahalle;
-                TBSokak.Text = _tempCariKart.sokak;
-                TBApt.Text = _tempCariKart.apt;
-                TBDaire.Text = _tempCariKart.daire;
-                TBPostaKod.Text = _tempCariKart.postakod;
-                CBVDaire.EditValue = _tempCariKart.vergidairesi;
-                TBVergiNo.Text = _tempCariKart.vergino;
-                TBTcNo.Text = _tempCariKart.tcno;
-                TBVadeGun.Text = _tempCariKart.vadegunu.ToString();
-                RGFiyat.EditValue = _tempCariKart.fiyatnum;
-                BTMuhSec.EditValue = _tempCariKart.muH_KOD;
-                TBTelefon1.Text = _tempCariKart.telefon;
-                TBTelefon2.Text = _tempCariKart.telefoN2;
-                TBCepTel.Text = _tempCariKart.ceptel;
-                TBFax.Text = _tempCariKart.fax;
-                TBWebSite.Text = _tempCariKart.web;
-                TBEposta.Text = _tempCariKart.eposta;
-                TBAdres.Text = _tempCariKart.adres;
-                BTGrupSec.EditValue = _tempCariKart.grupkodu;
-                BTKategoriSec.EditValue = _tempCariKart.kategori;
-                CBAktif.EditValue = CheckState.Checked;
-                BTAMuhSec.EditValue = _tempCariKart.amuhkod;
-                BTSMuhSec.EditValue = _tempCariKart.smuhkod;
-                TBCariAdi.Text = _tempCariKart.adi;
-                TBCariSoyad.Text = _tempCariKart.soyadi;
-                CBTip.EditValue = _tempCariKart.tipi;
-                TBAciklama.Text = _tempCariKart.aciklama;
-                TBAciklama1.Text = _tempCariKart.aciklamA1;
-                TBAciklama2.Text = _tempCariKart.aciklamA2;
-                TBAciklama3.Text = _tempCariKart.aciklamA3;
-                TBAciklama4.Text = _tempCariKart.aciklamA4;
-                TBAciklama5.Text = _tempCariKart.aciklamA5;
-                TBAciklama6.Text = _tempCariKart.aciklamA6;
-                TBAciklama7.Text = _tempCariKart.aciklamA7;
-                TBAciklama8.Text = _tempCariKart.aciklamA9;
-                //Yetkili Grid Doldurur
-                _cariYetkiliServis.Data(ServisList.CariYetkiliListeServis);
-                DGYetkiliBilgi.DataSource = _cariYetkiliServis.obje.Where(x => x.cariid == _tempCariKart.id).Select(x => new
-                {
-                    ID = x.id,
-                    CARIID = _tempCariKart.id,
-                    ADI = x.adi,
-                    TELEFON = x.yetkilitelefon,
-                    POZISYON = x.pozisyon
-                });
-                //SevkAdres Grid Doldurur
-                _sevkAdresServis.Data(ServisList.SevkAdresListeServis);
-                DGSevkAdres.DataSource = _sevkAdresServis.obje./*Where(x => x.cariid == _tempCariKart.id).*/Select(x => new
-                {
-                    ID = x.id,
-                    //CARIID = x.cariid,
-                    ALTHESAPID = x.althesapid.ToString(),
-                    KODU = x.kodu,
-                    IL = x.il,
-                    ILCE = x.ilce,
-                    MAHALLE = x.mahalle,
-                    SOKAK = x.sokak,
-                    APT = x.apartman,
-                    DAIRE = x.daire,
-
-                });
-
-            }
+            Doldur();
         }
 
         //Döküman Seç

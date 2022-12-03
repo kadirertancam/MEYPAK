@@ -1,10 +1,6 @@
 ﻿
-using DevExpress.LookAndFeel;
 using DevExpress.Pdf.Native.BouncyCastle.Asn1.Pkcs;
 using DevExpress.XtraEditors;
-using DevExpress.XtraReports.UI;
-using DevExpress.XtraReports.UserDesigner;
-using DevExpress.XtraReports.Wizards.Templates;
 using DevExpress.XtraTab;
 using DevExpress.XtraTab.ViewInfo;
 using MEYPAK.BLL.Assets;
@@ -18,11 +14,9 @@ using MEYPAK.PRL.DEPO;
 using MEYPAK.PRL.IRSALIYE;
 using MEYPAK.PRL.PARAMETRELER;
 using MEYPAK.PRL.PERSONEL;
-using MEYPAK.PRL.RAPORLAR;
 using MEYPAK.PRL.SIPARIS;
 using MEYPAK.PRL.STOK;
 using MEYPAK.PRL.STOK.FiyatListesi;
-using MEYPAK.PRL.STOK.Raporlar;
 using MEYPAK.PRL.STOK.StokKasa;
 using System;
 using System.Collections.Generic;
@@ -65,6 +59,9 @@ namespace MEYPAK.PRL
             _parabirimServis = new GenericWebServis<PocoPARABIRIM>();
         }
         #region TANIMLAR
+        FStokList fstokList;
+        FCariList fcariList;
+        FFaturaList ffaturaList;
         FSevkiyatPanel fSevkiyatPanel;
         FSatisIrsaliye fSatisIrsaliye;
         FOlcuBrKart fOlcuBrKart;
@@ -91,72 +88,72 @@ namespace MEYPAK.PRL
         FMarkaKart fMarkaKart;
         FAlisIrsaliye fFAlisIrsaliye;
         FAlisFatura fFAlisFatura;
-        FStokFiyatRaporu fStokFiyatRaporu;
-        
-        
+
+
         public Tarih_Date _tarih_Date;
         public DataTable guncelkur;
         GenericWebServis<PocoPARABIRIM> _parabirimServis;
         #endregion
         void StokPanelAc()
         {
-           
+
         }
         private void button1_Click(object sender, EventArgs e)
         {
             StokPanelAc();
         }
-        public void GuncelKur() {
+        public void GuncelKur()
+        {
             try
             {
 
-            
-            HttpRequestMessage client;
-            HttpClient httpClient = new HttpClient();
-            client = new HttpRequestMessage(HttpMethod.Post, "https://www.tcmb.gov.tr/kurlar/today.xml");
-            client.Headers.Add("Connection", "keep-alive");
-            client.Headers.Add("Host", "www.tcmb.gov.tr");
-            client.Headers.Add("User-Agent", "CodeGear SOAP 1.3");
-            client.Method = HttpMethod.Get; 
-            httpClient.DefaultRequestHeaders.ExpectContinue = false;
-            HttpResponseMessage resp = httpClient.SendAsync(client).Result;
-            var aaaa = resp.Content.ReadAsStringAsync().Result.ToString();
-            XmlSerializerHelper xmlSerializerHelper = new XmlSerializerHelper();
-            _tarih_Date = (Tarih_Date)xmlSerializerHelper.DeserializeFromXml(typeof(Tarih_Date),aaaa);
-            _parabirimServis.Data(ServisList.ParaBirimiListeServis);
-            foreach (var item in _tarih_Date.Currency)
-            {
-                if(_parabirimServis.obje.Where(x => x.adi == item.Isim).Count()>0)
-                _parabirimServis.Data(ServisList.ParaBirimiEkleServis, new PocoPARABIRIM()
+
+                HttpRequestMessage client;
+                HttpClient httpClient = new HttpClient();
+                client = new HttpRequestMessage(HttpMethod.Post, "https://www.tcmb.gov.tr/kurlar/today.xml");
+                client.Headers.Add("Connection", "keep-alive");
+                client.Headers.Add("Host", "www.tcmb.gov.tr");
+                client.Headers.Add("User-Agent", "CodeGear SOAP 1.3");
+                client.Method = HttpMethod.Get;
+                httpClient.DefaultRequestHeaders.ExpectContinue = false;
+                HttpResponseMessage resp = httpClient.SendAsync(client).Result;
+                var aaaa = resp.Content.ReadAsStringAsync().Result.ToString();
+                XmlSerializerHelper xmlSerializerHelper = new XmlSerializerHelper();
+                _tarih_Date = (Tarih_Date)xmlSerializerHelper.DeserializeFromXml(typeof(Tarih_Date), aaaa);
+                _parabirimServis.Data(ServisList.ParaBirimiListeServis);
+                foreach (var item in _tarih_Date.Currency)
                 {
-                    id= _parabirimServis.obje.Where(x => x.adi == item.Isim).FirstOrDefault().id,
-                    adi = item.Isim,
-                    kisaadi = item.Kod,
-                    dovizsatis = Convert.ToDecimal(item.ForexSelling==""?"0":item.ForexSelling),
-                    dovizalis = item.ForexBuying,
-                    dovizefektifalis = Convert.ToDecimal(item.BanknoteBuying==""?"0":item.BanknoteBuying),
-                    dovizefektifsatis = Convert.ToDecimal(item.BanknoteSelling==""?"0":item.BanknoteSelling),
-                    
-
-                });
-                else
-                    _parabirimServis.Data(ServisList.ParaBirimiEkleServis, new PocoPARABIRIM()
-                    {
-                        
-                        adi = item.Isim,
-                        kisaadi = item.Kod,
-                        dovizsatis = Convert.ToDecimal(item.ForexSelling == "" ? "0" : item.ForexSelling),
-                        dovizalis = item.ForexBuying,
-                        dovizefektifalis = Convert.ToDecimal(item.BanknoteBuying == "" ? "0" : item.BanknoteBuying),
-                        dovizefektifsatis = Convert.ToDecimal(item.BanknoteSelling == "" ? "0" : item.BanknoteSelling),
+                    if (_parabirimServis.obje.Where(x => x.adi == item.Isim).Count() > 0)
+                        _parabirimServis.Data(ServisList.ParaBirimiEkleServis, new PocoPARABIRIM()
+                        {
+                            id = _parabirimServis.obje.Where(x => x.adi == item.Isim).FirstOrDefault().id,
+                            adi = item.Isim,
+                            kisaadi = item.Kod,
+                            dovizsatis = Convert.ToDecimal(item.ForexSelling == "" ? "0" : item.ForexSelling),
+                            dovizalis = item.ForexBuying,
+                            dovizefektifalis = Convert.ToDecimal(item.BanknoteBuying == "" ? "0" : item.BanknoteBuying),
+                            dovizefektifsatis = Convert.ToDecimal(item.BanknoteSelling == "" ? "0" : item.BanknoteSelling),
 
 
-                    });
+                        });
+                    else
+                        _parabirimServis.Data(ServisList.ParaBirimiEkleServis, new PocoPARABIRIM()
+                        {
+
+                            adi = item.Isim,
+                            kisaadi = item.Kod,
+                            dovizsatis = Convert.ToDecimal(item.ForexSelling == "" ? "0" : item.ForexSelling),
+                            dovizalis = item.ForexBuying,
+                            dovizefektifalis = Convert.ToDecimal(item.BanknoteBuying == "" ? "0" : item.BanknoteBuying),
+                            dovizefektifsatis = Convert.ToDecimal(item.BanknoteSelling == "" ? "0" : item.BanknoteSelling),
+
+
+                        });
+                }
             }
-            }
-            catch 
+            catch
             {
-                 
+
             }
         }
         private void Main_Load(object sender, EventArgs e)
@@ -169,13 +166,13 @@ namespace MEYPAK.PRL
         private void accordionControlElement9_Click(object sender, EventArgs e)
         {
             XtraTabPage page = new XtraTabPage();
-            fSTOKKART = new FStokKart(); 
-            page.Name = "TPStokKart"+i;
-            page.Text = "Stok Kart"; 
+            fSTOKKART = new FStokKart();
+            page.Name = "TPStokKart" + i;
+            page.Text = "Stok Kart";
             page.Tag = "TPStokKart" + i;
-            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True; 
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
             xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;  
+            xtraTabControl1.SelectedTabPage = page;
 
             fSTOKKART.TopLevel = false;
             fSTOKKART.AutoScroll = true;
@@ -210,7 +207,7 @@ namespace MEYPAK.PRL
             XtraTabPage page = new XtraTabPage();
             fStokHareket = new FStokHareket();
             page.Name = "TPStokHareket" + i;
-            page.Text = "Stok Hareket"; 
+            page.Text = "Stok Hareket";
             page.Tag = "TPStokHareket" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
             xtraTabControl1.TabPages.Add(page);
@@ -219,7 +216,7 @@ namespace MEYPAK.PRL
             fStokHareket.TopLevel = false;
             fStokHareket.AutoScroll = true;
             fStokHareket.Dock = DockStyle.Fill;
-            fStokHareket.Tag= "TPStokHareket" + i;
+            fStokHareket.Tag = "TPStokHareket" + i;
             page.Controls.Add(fStokHareket);
             fStokHareket.Show();
         }
@@ -229,12 +226,12 @@ namespace MEYPAK.PRL
             XtraTabPage page = new XtraTabPage();
             fStokSayim = new FStokSayim();
             page.Name = "TPStokSayim" + i;
-            page.Text = "Stok Sayım"; 
+            page.Text = "Stok Sayım";
             page.Tag = "TPStokSayim" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
             xtraTabControl1.TabPages.Add(page);
             xtraTabControl1.SelectedTabPage = page;
-             
+
             fStokSayim.TopLevel = false;
             fStokSayim.AutoScroll = true;
             fStokSayim.Dock = DockStyle.Fill;
@@ -254,7 +251,7 @@ namespace MEYPAK.PRL
 
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
             xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page; 
+            xtraTabControl1.SelectedTabPage = page;
             fCariHareket.TopLevel = false;
             fCariHareket.AutoScroll = true;
             fCariHareket.Dock = DockStyle.Fill;
@@ -262,7 +259,7 @@ namespace MEYPAK.PRL
             page.Controls.Add(fCariHareket);
             fCariHareket.Show();
         }
-         
+
 
         private void xtraTabControl1_CloseButtonClick(object sender, EventArgs e)
         {
@@ -270,11 +267,11 @@ namespace MEYPAK.PRL
             (arg.Page as XtraTabPage).PageVisible = false;
             foreach (Form frm in Application.OpenForms)
             {
-                if((arg.Page as XtraTabPage).Tag== frm.Tag)
+                if ((arg.Page as XtraTabPage).Tag == frm.Tag)
                 {
                     frm.Dispose();
                 }
-            } 
+            }
             (arg.Page as XtraTabPage).Dispose();
         }
 
@@ -283,7 +280,7 @@ namespace MEYPAK.PRL
             XtraTabPage page = new XtraTabPage();
             fSiparis = new FMusteriSiparis();
             page.Name = "TPMusteriSiparis" + i;
-            page.Text = "Müşteri Sipariş"; 
+            page.Text = "Müşteri Sipariş";
             page.Tag = "TPMusteriSiparis" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
             xtraTabControl1.TabPages.Add(page);
@@ -304,7 +301,7 @@ namespace MEYPAK.PRL
             XtraTabPage page = new XtraTabPage();
             fSiparis = new FMusteriSiparis();
             page.Name = "TPMusteriSiparis" + i;
-            page.Text = "Müşteri Sipariş"; 
+            page.Text = "Müşteri Sipariş";
             page.Tag = "TPMusteriSiparis" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
             xtraTabControl1.TabPages.Add(page);
@@ -313,7 +310,7 @@ namespace MEYPAK.PRL
             fSiparis.TopLevel = false;
             fSiparis.AutoScroll = true;
             fSiparis.Dock = DockStyle.Fill;
-            fSiparis.Tag= "TPMusteriSiparis" + i;
+            fSiparis.Tag = "TPMusteriSiparis" + i;
             page.Controls.Add(fSiparis);
             fSiparis.Show();
             i++;
@@ -622,7 +619,7 @@ namespace MEYPAK.PRL
             fMarkaKart.Show();
             i++;
         }
-       
+
 
         private void accordionControlElement49_Click(object sender, EventArgs e)
         {
@@ -660,7 +657,7 @@ namespace MEYPAK.PRL
             page.Controls.Add(fStokFiyat);
             fStokFiyat.Show();
 
-        } 
+        }
         private void accordionControlElement17_Click(object sender, EventArgs e)
         {
             XtraTabPage page = new XtraTabPage();
@@ -701,25 +698,66 @@ namespace MEYPAK.PRL
             i++;
         }
 
-
         private void accordionControlElement48_Click(object sender, EventArgs e)
         {
             XtraTabPage page = new XtraTabPage();
-            fStokFiyatRaporu = new FStokFiyatRaporu();
-            page.Name = "TPStokFiyatRaporu" + i;
-            page.Text = "Stok Fiyat Raporu";
-            page.Tag = "TPStokFiyatRaporu" + i;
+            fstokList = new FStokList();
+            page.Name = "TPStokList" + i;
+            page.Text = "Stok List";
+            page.Tag = "TPStokList" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
             xtraTabControl1.TabPages.Add(page);
             xtraTabControl1.SelectedTabPage = page;
 
-            fStokFiyatRaporu.FormBorderStyle = FormBorderStyle.None;
-            fStokFiyatRaporu.TopLevel = false;
-            fStokFiyatRaporu.AutoScroll = true;
-            fStokFiyatRaporu.Dock = DockStyle.Fill;
-            fStokFiyatRaporu.Tag = "TPStokFiyatRaporu" + i;
-            page.Controls.Add(fStokFiyatRaporu);
-            fStokFiyatRaporu.Show();
+            fstokList.FormBorderStyle = FormBorderStyle.None;
+            fstokList.TopLevel = false;
+            fstokList.AutoScroll = true;
+            fstokList.Dock = DockStyle.Fill;
+            fstokList.Tag = "TPStokList" + i;
+            page.Controls.Add(fstokList);
+            fstokList.Show();
+            i++;
+        }
+
+        private void accordionControlElement52_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fcariList = new FCariList();
+            page.Name = "TPCariList" + i;
+            page.Text = "Cari List";
+            page.Tag = "TPCariList" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fcariList.FormBorderStyle = FormBorderStyle.None;
+            fcariList.TopLevel = false;
+            fcariList.AutoScroll = true;
+            fcariList.Dock = DockStyle.Fill;
+            fcariList.Tag = "TPCariList" + i;
+            page.Controls.Add(fcariList);
+            fcariList.Show();
+            i++;
+        }
+
+        private void accordionControlElement53_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            ffaturaList = new FFaturaList(islem: "FFatura");
+            page.Name = "TPFaturaList" + i;
+            page.Text = "Fatura List";
+            page.Tag = "TPFaturaList" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            ffaturaList.FormBorderStyle = FormBorderStyle.None;
+            ffaturaList.TopLevel = false;
+            ffaturaList.AutoScroll = true;
+            ffaturaList.Dock = DockStyle.Fill;
+            ffaturaList.Tag = "TPFaturaList" + i;
+            page.Controls.Add(ffaturaList);
+            ffaturaList.Show();
             i++;
         }
     }

@@ -1,6 +1,7 @@
 ﻿
 using MEYPAK.DAL.Abstract;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
+using MEYPAK.Entity.Models;
 using MEYPAK.Interfaces;
 using System.Linq.Expressions;
 using System.Reflection;
@@ -8,7 +9,7 @@ using System.Reflection;
 
 namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
 {
-    public class EFBaseRepo<T> : IGeneric<T> where T : class, new()
+    public class EFBaseRepo<T> : IGeneric<T> where T : SUPERMODEL, new()
     {
         private readonly MEYPAKContext context;
         private List<T> tList = new List<T>();
@@ -115,7 +116,9 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
 
         List<T> IGeneric<T>.Listele()
         {
-            return context.Set<T>().ToList();
+      
+
+            return context.Set<T>().Where(x=>x.KAYITTIPI==0).ToList();
         }
 
   

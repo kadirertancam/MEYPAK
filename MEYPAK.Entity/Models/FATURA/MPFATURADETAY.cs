@@ -11,6 +11,8 @@ namespace MEYPAK.Entity.Models.FATURA
     public class MPFATURADETAY :SUPERMODEL
     {
         public int FATURAID { get; set; }
+
+        public int STOKID { get; set; } 
         [DefaultValue(0)]
         public int BIRIMID { get; set; }
         [DefaultValue(0)]
@@ -22,7 +24,6 @@ namespace MEYPAK.Entity.Models.FATURA
         [DefaultValue(0)]
         public int KASAID { get; set; } = 0;
         public int NUM { get; set; }
-
         public byte TIP { get; set; } = 0;
         [StringLength(50)]
         public string STOKADI { get; set; } = "";
