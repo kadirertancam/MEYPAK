@@ -78,11 +78,11 @@ namespace MEYPAK.PRL.STOK
                     if (frm.Name.Contains("FStokKart"))
                         fSTOKKART = (FStokKart)frm;
                     if (frm.Name.Contains("FDepolarArasıTransferHar"))
-                        fDepolarArasıHar=(FDepolarArasıTransferHar)frm;
+                        fDepolarArasıHar = (FDepolarArasıTransferHar)frm;
                     if (frm.Name.Contains("FMusteriSiparis"))
-                        fSiparis=(FMusteriSiparis)frm;
+                        fSiparis = (FMusteriSiparis)frm;
                     if (frm.Name.Contains("FSatinAlmaSiparis"))
-                        _fSatınAlmaSiparis=(FSatinAlmaSiparis)frm;
+                        _fSatınAlmaSiparis = (FSatinAlmaSiparis)frm;
                     if (frm.Name.Contains("SatisIrsaliye"))
                         fSatisIrsaliye = (FSatisIrsaliye)frm;
                     if (frm.Name.Contains("AlisIrsaliye"))
@@ -162,22 +162,22 @@ namespace MEYPAK.PRL.STOK
                     if (fAlisIrsaliye != null)
                         fAlisIrsaliye._tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
 
-            }
-            else if (_islem == "FFatura")
-            {
-                if (ffatura != null)
-                    ffatura._tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
-            }
-            else if (_islem == "FAlisFatura")
-            {
-                if (fAlisFatura != null)
-                    fAlisFatura._tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
-            }
-            else if (_islem == "FStokFiyatRaporu")
-            {
-                if (fStokFiyatRaporu != null)
-                    fStokFiyatRaporu._tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
-            }
+                }
+                else if (_islem == "FFatura")
+                {
+                    if (ffatura != null)
+                        ffatura._tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+                }
+                else if (_islem == "FAlisFatura")
+                {
+                    if (fAlisFatura != null)
+                        fAlisFatura._tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+                }
+                else if (_islem == "FStokFiyatRaporu")
+                {
+                    if (fStokFiyatRaporu != null)
+                        fStokFiyatRaporu._tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+                }
 
                 this.Close();
             }

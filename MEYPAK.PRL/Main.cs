@@ -17,6 +17,7 @@ using MEYPAK.PRL.PERSONEL;
 using MEYPAK.PRL.SIPARIS;
 using MEYPAK.PRL.STOK;
 using MEYPAK.PRL.STOK.FiyatListesi;
+using MEYPAK.PRL.STOK.Raporlar;
 using MEYPAK.PRL.STOK.StokKasa;
 using System;
 using System.Collections.Generic;
@@ -88,6 +89,7 @@ namespace MEYPAK.PRL
         FMarkaKart fMarkaKart;
         FAlisIrsaliye fFAlisIrsaliye;
         FAlisFatura fFAlisFatura;
+        FStokFiyatRaporu fStokFiyatRaporu;
 
 
         public Tarih_Date _tarih_Date;
@@ -645,7 +647,7 @@ namespace MEYPAK.PRL
             XtraTabPage page = new XtraTabPage();
             fStokFiyat = new FStokFiyat();
             page.Name = "TPStokFiyat" + i;
-            page.Text = "Stok Fiyat";
+            page.Text = "Stok Fiyat Tanım";
             page.Tag = "TPStokFiyat" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
             xtraTabControl1.TabPages.Add(page);
@@ -758,6 +760,27 @@ namespace MEYPAK.PRL
             ffaturaList.Tag = "TPFaturaList" + i;
             page.Controls.Add(ffaturaList);
             ffaturaList.Show();
+            i++;
+        }
+
+        private void accordionControlElement54_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fStokFiyatRaporu = new FStokFiyatRaporu(islem: "FStokFiyatRaporu");
+            page.Name = "TPStokFiyatRaporu" + i;
+            page.Text = "Stok Fiyat Raporu";
+            page.Tag = "TPStokFiyatRaporu" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fStokFiyatRaporu.FormBorderStyle = FormBorderStyle.None;
+            fStokFiyatRaporu.TopLevel = false;
+            fStokFiyatRaporu.AutoScroll = true;
+            fStokFiyatRaporu.Dock = DockStyle.Fill;
+            fStokFiyatRaporu.Tag = "TPStokFiyatRaporu" + i;
+            page.Controls.Add(fStokFiyatRaporu);
+            fStokFiyatRaporu.Show();
             i++;
         }
     }

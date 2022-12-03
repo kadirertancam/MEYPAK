@@ -16,7 +16,7 @@ namespace MEYPAK.PRL.STOK.Raporlar
 {
     public partial class FStokFiyatRaporu : XtraForm
     {
-        public FStokFiyatRaporu()
+        public FStokFiyatRaporu(string tag = "", string islem = "")
         {
             InitializeComponent();
             _stokServis = new  GenericWebServis<PocoSTOK>();
@@ -25,9 +25,10 @@ namespace MEYPAK.PRL.STOK.Raporlar
             _stokFiyatServis.Data(ServisList.StokFiyatListeServis);
             _stokFiyatHarServis = new GenericWebServis<PocoSTOKFIYATHAR>();
             _stokFiyatHarServis.Data(ServisList.StokFiyatHarListeServis);
-            
+            _form = tag;
+            _islem = islem;
         }
-
+        string _form, _islem;
         #region Tanımlar
         GenericWebServis<PocoSTOK> _stokServis;
         GenericWebServis<PocoSTOKFIYAT> _stokFiyatServis;
