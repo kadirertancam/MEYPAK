@@ -1,6 +1,10 @@
 ﻿
+using DevExpress.LookAndFeel;
 using DevExpress.Pdf.Native.BouncyCastle.Asn1.Pkcs;
 using DevExpress.XtraEditors;
+using DevExpress.XtraReports.UI;
+using DevExpress.XtraReports.UserDesigner;
+using DevExpress.XtraReports.Wizards.Templates;
 using DevExpress.XtraTab;
 using DevExpress.XtraTab.ViewInfo;
 using MEYPAK.BLL.Assets;
@@ -14,9 +18,11 @@ using MEYPAK.PRL.DEPO;
 using MEYPAK.PRL.IRSALIYE;
 using MEYPAK.PRL.PARAMETRELER;
 using MEYPAK.PRL.PERSONEL;
+using MEYPAK.PRL.RAPORLAR;
 using MEYPAK.PRL.SIPARIS;
 using MEYPAK.PRL.STOK;
 using MEYPAK.PRL.STOK.FiyatListesi;
+using MEYPAK.PRL.STOK.Raporlar;
 using MEYPAK.PRL.STOK.StokKasa;
 using System;
 using System.Collections.Generic;
@@ -85,6 +91,7 @@ namespace MEYPAK.PRL
         FMarkaKart fMarkaKart;
         FAlisIrsaliye fFAlisIrsaliye;
         FAlisFatura fFAlisFatura;
+        FStokFiyatRaporu fStokFiyatRaporu;
         
         
         public Tarih_Date _tarih_Date;
@@ -693,25 +700,27 @@ namespace MEYPAK.PRL
             fFAlisIrsaliye.Show();
             i++;
         }
-        //private void accordionControlElement48_Click(object sender, EventArgs e)
-        //{
-        //    XtraTabPage page = new XtraTabPage();
-        //    fiyatList = new FStokFiyatList();
-        //    page.Name = "TPStokFiyatListPanel" + i;
-        //    page.Text = "Stok Fiyat List Panel";
-        //    page.Tag = "TPStokFiyatListPanel" + i;
-        //    page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-        //    xtraTabControl1.TabPages.Add(page);
-        //    xtraTabControl1.SelectedTabPage = page;
 
-        //    fiyatList.FormBorderStyle = FormBorderStyle.None;
-        //    fiyatList.TopLevel = false;
-        //    fiyatList.AutoScroll = true;
-        //    fiyatList.Dock = DockStyle.Fill;
-        //    fiyatList.Tag = "TPStokFiyatListPanel" + i;
-        //    page.Controls.Add(fiyatList);
-        //    fiyatList.Show();
-        //    i++;
-        //}
+
+        private void accordionControlElement48_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fStokFiyatRaporu = new FStokFiyatRaporu();
+            page.Name = "TPStokFiyatRaporu" + i;
+            page.Text = "Stok Fiyat Raporu";
+            page.Tag = "TPStokFiyatRaporu" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fStokFiyatRaporu.FormBorderStyle = FormBorderStyle.None;
+            fStokFiyatRaporu.TopLevel = false;
+            fStokFiyatRaporu.AutoScroll = true;
+            fStokFiyatRaporu.Dock = DockStyle.Fill;
+            fStokFiyatRaporu.Tag = "TPStokFiyatRaporu" + i;
+            page.Controls.Add(fStokFiyatRaporu);
+            fStokFiyatRaporu.Show();
+            i++;
+        }
     }
 }

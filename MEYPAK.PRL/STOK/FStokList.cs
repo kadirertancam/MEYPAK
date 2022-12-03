@@ -25,6 +25,7 @@ using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.PRL.CARI;
 using MEYPAK.PRL.IRSALIYE;
 using DevExpress.XtraEditors;
+using MEYPAK.PRL.STOK.Raporlar;
 
 namespace MEYPAK.PRL.STOK
 {
@@ -33,7 +34,7 @@ namespace MEYPAK.PRL.STOK
         FStokKart fSTOKKART;
         FStokHareket fStokHareket;
         FStokSayimPanel fStokSayimPanel;
-        
+        FStokFiyatRaporu fStokFiyatRaporu;
         FMusteriSiparis fSiparis;
         FSatinAlmaSiparis _fSatınAlmaSiparis;
         FDepolarArasıTransferHar fDepolarArasıHar;
@@ -73,7 +74,6 @@ namespace MEYPAK.PRL.STOK
                         fStokHareket = (FStokHareket)frm;
                     if (frm.Name.Contains("FStokKart"))
                         fSTOKKART = (FStokKart)frm;
-                    
                     if (frm.Name.Contains("FDepolarArasıTransferHar"))
                         fDepolarArasıHar=(FDepolarArasıTransferHar)frm;
                     if (frm.Name.Contains("FMusteriSiparis"))
@@ -88,6 +88,9 @@ namespace MEYPAK.PRL.STOK
                         ffatura = (FFatura)frm;
                     if (frm.Name.Contains("FAlisFatura"))
                         fAlisFatura = (FAlisFatura)frm;
+                    if (frm.Name.Contains("FStokFiyatRaporu"))
+                        fStokFiyatRaporu = (FStokFiyatRaporu)frm;
+
                 }
             }
             _stokMarka.Data(ServisList.StokMarkaListeServis);
@@ -158,10 +161,15 @@ namespace MEYPAK.PRL.STOK
                 if (ffatura != null)
                     ffatura._tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
             }
-              else if (_islem == "FAlisFatura")
+            else if (_islem == "FAlisFatura")
             {
                 if (fAlisFatura != null)
                     fAlisFatura._tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+            }
+            else if (_islem == "FStokFiyatRaporu")
+            {
+                if (fStokFiyatRaporu != null)
+                    fStokFiyatRaporu._tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
             }
 
             this.Close();
