@@ -135,9 +135,11 @@
             this.accordionControlElement45 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement49 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement43 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement51 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement34 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement37 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement32 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement48 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement33 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement21 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement38 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -153,7 +155,6 @@
             this.accordionControlElement27 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
             this.applicationMenu1 = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
-            this.accordionControlElement51 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -795,12 +796,15 @@
             // 
             // accordionControlElement19
             // 
+            this.accordionControlElement19.Appearance.Default.Font = new System.Drawing.Font("Barlow", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.accordionControlElement19.Appearance.Default.Options.UseFont = true;
             this.accordionControlElement19.Expanded = true;
             this.accordionControlElement19.HeaderTemplate.AddRange(new DevExpress.XtraBars.Navigation.HeaderElementInfo[] {
             new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.Image),
             new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.HeaderControl),
             new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.ContextButtons),
             new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.Text)});
+            this.accordionControlElement19.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
             this.accordionControlElement19.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement19.ImageOptions.Image")));
             this.accordionControlElement19.Name = "accordionControlElement19";
             this.accordionControlElement19.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
@@ -1074,6 +1078,13 @@
             this.accordionControlElement43.Text = "Satış Irsaliye Tanım";
             this.accordionControlElement43.Click += new System.EventHandler(this.accordionControlElement43_Click);
             // 
+            // accordionControlElement51
+            // 
+            this.accordionControlElement51.Name = "accordionControlElement51";
+            this.accordionControlElement51.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement51.Text = "Alış Irsaliye Tanım";
+            this.accordionControlElement51.Click += new System.EventHandler(this.accordionControlElement51_Click);
+            // 
             // accordionControlElement34
             // 
             this.accordionControlElement34.Name = "accordionControlElement34";
@@ -1090,8 +1101,18 @@
             // 
             // accordionControlElement32
             // 
+            this.accordionControlElement32.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.accordionControlElement48});
+            this.accordionControlElement32.Expanded = true;
             this.accordionControlElement32.Name = "accordionControlElement32";
             this.accordionControlElement32.Text = "Hareketler";
+            // 
+            // accordionControlElement48
+            // 
+            this.accordionControlElement48.Name = "accordionControlElement48";
+            this.accordionControlElement48.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement48.Text = "Müşteri Siparişi İrsaliyeleştir";
+            this.accordionControlElement48.Click += new System.EventHandler(this.accordionControlElement48_Click);
             // 
             // accordionControlElement33
             // 
@@ -1207,13 +1228,6 @@
             // applicationMenu1
             // 
             this.applicationMenu1.Name = "applicationMenu1";
-            // 
-            // accordionControlElement51
-            // 
-            this.accordionControlElement51.Name = "accordionControlElement51";
-            this.accordionControlElement51.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement51.Text = "Alış Irsaliye Tanım";
-            this.accordionControlElement51.Click += new System.EventHandler(this.accordionControlElement51_Click);
             // 
             // Main
             // 
@@ -1367,5 +1381,6 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement49;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement50;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement51;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement48;
     }
 }

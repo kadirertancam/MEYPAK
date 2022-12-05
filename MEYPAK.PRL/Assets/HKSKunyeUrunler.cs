@@ -168,7 +168,7 @@ public partial class BaseResponseMessageOf_BildirimSorguCevapSonuc
 [System.Xml.Serialization.XmlRootAttribute(elementName: "BildirimSorguDTO", Namespace = "http://schemas.datacontract.org/2004/07/GTB.HKS.Bildirim.Model", IsNullable = false)]
 public partial class BildirimSorguDTO
 {
-
+    public string BildirimciAdi { get; set; } = "";
     private bool analizStatusField;
 
     private string aracPlakaNoField;
