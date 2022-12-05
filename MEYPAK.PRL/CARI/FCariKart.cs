@@ -44,6 +44,7 @@ namespace MEYPAK.PRL.CARI
             _cariAltHesList = new List<PocoCARIALTHES>();
             _cariYetkiliServis = new GenericWebServis<PocoCARIYETKILI>();
             _cariDokumanServis = new GenericWebServis<PocoCARIDOKUMAN>();
+            _cariAltHesCariServis = new GenericWebServis<PocoCARIALTHESCARI>();
             CBAltHesap.Properties.DataSource = _cariAltHesapServis.obje.Select(x => new { ADI = x.adi, ID = x.id }).ToList();
             CBAltHesap.Properties.ValueMember = "ID";
             CBAltHesap.Properties.DisplayMember = "ADI";
@@ -60,6 +61,7 @@ namespace MEYPAK.PRL.CARI
         GenericWebServis<PocoSTOKKATEGORI> _cariStOKKATEGORI;
         GenericWebServis<PocoCARIYETKILI> _cariYetkiliServis;
         GenericWebServis<PocoCARIDOKUMAN> _cariDokumanServis;
+        GenericWebServis<PocoCARIALTHESCARI> _cariAltHesCariServis;
         FCariList fCariList;
         FKategoriList fKategoriList;
         List<PocoCARIALTHES> _cariAltHesList;
@@ -190,6 +192,18 @@ namespace MEYPAK.PRL.CARI
             BTRprSec9.EditValue = _tempCariKart.raporkoD9;
             resimList.Clear();
             _cariResimServis.Data(ServisList.CariResimListeServis);
+
+            _cariAltHesCariServis.Data(ServisList.CariAltHesCariListeServis);
+
+           if(_cariAltHesCariServis.obje.Where(x=>x.cariid==_tempCariKart.id).Count() > 0)
+            {
+                DGAltHesap.DataSource = _cariAltHesCariServis.obje.Where(x => x.cariid == _tempCariKart.id).Select(x => new { ALTHESAPADI = _cariAltHesapServis.obje.Where(z => z.id == x.carialthesid).FirstOrDefault().adi, PARABIRIMI = _cariParABIRIM.obje.Where(z => z.id == _cariAltHesapServis.obje.Where(y => y.id == x.carialthesid).FirstOrDefault().dovizid).FirstOrDefault().kisaadi, AKTIF = x.aktif });
+            }
+
+
+
+
+
             AltCariDoldur();
             if (_tempCariKart.id != null)
                 foreach (var item in _cariResimServis.obje.Where(x => x.CARIID == _tempCariKart.id))
@@ -202,6 +216,7 @@ namespace MEYPAK.PRL.CARI
         }
         void AltCariDoldur()
         {
+            
             if (_tempCARIALTHES != null)
             {
                 if (_tempCARIALTHES.id > 0)
@@ -592,6 +607,16 @@ namespace MEYPAK.PRL.CARI
 
                 });
 
+                foreach (var item in _cariAltHesList)
+                {
+
+                    _cariAltHesCariServis.Data(ServisList.CariAltHesCariEkleServis, new PocoCARIALTHESCARI()
+                    {
+                        carialthesid=item.id,
+                        cariid=_cariServis.obje2.id,
+                        
+                    });
+                }
 
                 MessageBox.Show("Kayıt işlemi Başarılı!");
                 FormuTemizle();
@@ -674,7 +699,16 @@ namespace MEYPAK.PRL.CARI
 
 
                             });
+                            foreach (var item in _cariAltHesList)
+                            {
 
+                                _cariAltHesCariServis.Data(ServisList.CariAltHesCariEkleServis, new PocoCARIALTHESCARI()
+                                {
+                                    carialthesid = item.id,
+                                    cariid = _cariServis.obje2.id,
+
+                                });
+                            }
 
                             MessageBox.Show("Kayıt işlemi Başarılı!");
                             FormuTemizle();

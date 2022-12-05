@@ -19,6 +19,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
@@ -394,6 +395,15 @@ namespace MEYPAK.PRL.PERSONEL
             PBPersonelResim.Image = null;
             base64 = "";
         }
+        private static Stream GetStreamFromUrl(string url)
+        {
+            byte[] imageData = null;
+
+            using (var wc = new System.Net.WebClient())
+                imageData = wc.DownloadData(url);
+
+            return new MemoryStream(imageData);
+        }
         void CombolarıDoldur()
         {
             _personelGorevServis.Data(ServisList.PersonelGorevListeServis);
@@ -402,21 +412,21 @@ namespace MEYPAK.PRL.PERSONEL
             CBDepartman.Properties.DisplayMember = "ADI";
             CBDepartman.Properties.DataSource = _personelDepartmanServis.obje.Select(x => new { ADI = x.adi, ID = x.id });
 
+            string url = @"http://213.238.167.117:8081/il-ilce.json";
+           
 
-
-            string path = Application.StartupPath + "/il-ilce.json";
-            using (FileStream s = File.Open(path, FileMode.Open))
+            using (Stream s = GetStreamFromUrl(url))
             using (StreamReader sr = new StreamReader(s))
                 while (!sr.EndOfStream)
                 {
-
                     _adresObje = JsonConvert.DeserializeObject<ADRESOBJECT.Root>(sr.ReadToEnd());
+                }
 
 
-                    CBAdresIL.Properties.DataSource = _adresObje.data.Select(x => x.il_adi);
+            CBAdresIL.Properties.DataSource = _adresObje.data.Select(x => x.il_adi);
                     CBNufIl.Properties.DataSource = _adresObje.data.Select(x => x.il_adi);
 
-                }
+                
         }
         void PersonelleriGetir()
         {
