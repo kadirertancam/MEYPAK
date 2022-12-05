@@ -251,13 +251,14 @@ namespace MEYPAK.PRL.SIPARIS
             gridColumn4.ColumnEdit = repositoryItemButtonEdit4;
 
             gridView1.Columns["StokKodu"].VisibleIndex = 4;
-            gridView1.Columns["BirimSec"].VisibleIndex = 9;
-            gridView1.Columns["KasaSec"].VisibleIndex = 7;
+            gridView1.Columns["BirimSec"].VisibleIndex = 10;
+            gridView1.Columns["KasaSec"].VisibleIndex = 8;
+            gridView1.Columns["KasaMiktar"].VisibleIndex = 7;
             gridView1.Columns["StokId"].Visible = false;
-            gridView1.Columns["Kunye"].VisibleIndex = 11;
-            gridView1.Columns["KunyeSec"].VisibleIndex = 12;
+            gridView1.Columns["Kunye"].VisibleIndex = 12;
+            gridView1.Columns["KunyeSec"].VisibleIndex = 13;
             gridView1.Columns["Tipi"].VisibleIndex = 0;
-            gridView1.Columns["Doviz"].VisibleIndex = 21;
+            gridView1.Columns["Doviz"].VisibleIndex = 22;
             gridView1.Columns["KasaId"].Visible = false;
             gridView1.Columns["id"].Visible = false;
             gridView1.Columns["Tipi"].UnboundDataType = System.Type.GetType("System.String");
@@ -339,7 +340,7 @@ namespace MEYPAK.PRL.SIPARIS
                         StokKodu = _tempKasa.kasakodu,
                         StokAdı = _tempKasa.kasaadi,
                         sıra = gridView1.GetFocusedDataSourceRowIndex(),
-                        Birim = "",//_olcuBr.obje.Where(x => x.adi == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "DGVOlcuBr").ToString()).FirstOrDefault().adi,
+                        Birim ="",//_olcuBr.obje.Where(x => x.adi == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "DGVOlcuBr").ToString()).FirstOrDefault().adi,
                                    //KasaAdı = "",
                         Kdv = 0  //_tempKasa.satiskdv,
                     };
@@ -430,14 +431,14 @@ namespace MEYPAK.PRL.SIPARIS
                         netfiyat = item.NetFiyat,
                         birimid = _olcuBr.obje.Where(x => x.adi.ToString() == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Birim").ToString()).FirstOrDefault().id,
                         dovizid = 0,
-                        miktar = item.Miktar,
-                        istkontO1 = item.İskonto1,
-                        istkontO2 = item.İskonto2,
-                        istkontO3 = item.İskonto3,
+                        safi = item.Safi,
+                        iskontO1 = item.İskonto1,
+                        iskontO2 = item.İskonto2,
+                        iskontO3 = item.İskonto3,
                         faturaid = _faturaServis.obje2.id, ///ID gelecek
                         kunye = item.Kunye,
                         brutfiyat = item.BrütFiyat,
-                        bruttoplam = item.BrütFiyat * item.Miktar,
+                        bruttoplam = item.BrütFiyat * item.Safi,
                         bekleyenmiktar = 0,
                         hareketdurumu = 0,
                         listefiyatid = 0,
@@ -455,7 +456,7 @@ namespace MEYPAK.PRL.SIPARIS
                         depoid = _faturaServis.obje2.depoid,
                         io = 0,
                         kdv = item.Kdv,
-                        miktar = item.Miktar,
+                        miktar = item.Safi,
                         netfiyat = item.NetFiyat,
                         nettoplam = item.NetToplam,
                         stokid = item.StokId,
@@ -577,7 +578,7 @@ namespace MEYPAK.PRL.SIPARIS
                 {
                     birimfiyat = Convert.ToDecimal(gridView1.GetFocusedRowCellValue("BirimFiyat"));
                     brutfiyat = birimfiyat;
-                    miktar = _tempFaturaDetay.Where(x => x.StokId.ToString() == gridView1.GetFocusedRowCellValue("StokId").ToString()).FirstOrDefault().Miktar;
+                    miktar = _tempFaturaDetay.Where(x => x.StokId.ToString() == gridView1.GetFocusedRowCellValue("StokId").ToString()).FirstOrDefault().Safi;
                     kdv = Convert.ToDecimal(gridView1.GetFocusedRowCellValue("Kdv"));
                     isktoplam = birimfiyat - (birimfiyat * Convert.ToDecimal(gridView1.GetFocusedRowCellValue("İskonto1"))) / 100;
                     isktoplam = isktoplam - (isktoplam * Convert.ToDecimal(gridView1.GetFocusedRowCellValue("İskonto2"))) / 100;
@@ -594,7 +595,7 @@ namespace MEYPAK.PRL.SIPARIS
                     kdv = Convert.ToDecimal(gridView1.GetFocusedRowCellValue("Kdv"));
                     birimfiyat = (Convert.ToDecimal(gridView1.GetFocusedRowCellValue("BirimFiyat")));
                     netfiyat = birimfiyat / (1 + (kdv / 100));
-                    miktar = _tempFaturaDetay.Where(x => x.StokId.ToString() == gridView1.GetFocusedRowCellValue("StokId")).FirstOrDefault().Miktar;
+                    miktar = _tempFaturaDetay.Where(x => x.StokId.ToString() == gridView1.GetFocusedRowCellValue("StokId")).FirstOrDefault().Safi;
                     isktoplam = birimfiyat - (birimfiyat * Convert.ToDecimal(gridView1.GetFocusedRowCellValue("İskonto1"))) / 100;
                     isktoplam = isktoplam - (isktoplam * Convert.ToDecimal(gridView1.GetFocusedRowCellValue("İskonto2"))) / 100;
                     isktoplam = isktoplam - (isktoplam * Convert.ToDecimal(gridView1.GetFocusedRowCellValue("İskonto3"))) / 100;
@@ -690,8 +691,8 @@ namespace MEYPAK.PRL.SIPARIS
                     Acıklama = x.aciklama,
                     BirimFiyat = x.netfiyat,
                     BrütToplam = x.bruttoplam,
-                    Miktar = x.miktar,
-                    Doviz = "TÜRK LİRASI", //_tempStok.SDOVIZID 
+                    Safi = x.safi,
+                    Doviz = 11638, //_tempStok.SDOVIZID 
                 }));
                 GCIrsaliye.DataSource = _tempFaturaDetay;
                 GCIrsaliye.RefreshDataSource();

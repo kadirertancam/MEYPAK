@@ -52,7 +52,7 @@ namespace MEYPAK.API.Controllers.CARIControllers
         }
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult CARIALTHESCARIEkleyadaGuncelle(PocoCARIALTHESCARI pModel)
+        public IActionResult CARIALTHESCARIEkleyadaGuncelle([FromBody]PocoCARIALTHESCARI pModel)
         {
             try
             {

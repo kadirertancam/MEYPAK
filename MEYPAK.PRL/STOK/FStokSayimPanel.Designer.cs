@@ -109,7 +109,6 @@
             this.DGStokSayim.TabIndex = 11;
             this.DGStokSayim.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
-            this.DGStokSayim.Click += new System.EventHandler(this.DGStokSayim_Click);
             // 
             // gridView1
             // 

@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid.Columns;
+using DevExpress.XtraRichEdit.Design;
 using MEYPAK.BLL.Assets;
 using MEYPAK.BLL.STOK;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
@@ -73,6 +74,9 @@ namespace MEYPAK.PRL.STOK
             _kasaServis.Data(ServisList.StokKasaListeServis);
             var ss_temp = _kasaServis.obje.Where(x => x.kayittipi == 0).Select(x => new KasaList { KASAID = x.id, MARKA = _stokKasaMarka.obje.Where(z => z.id == x.markaid).FirstOrDefault().adi, KASAADI = x.kasaadi, MIKTAR = 0 });
             GCKasaList.DataSource = ss_temp;
+            gridView1.Columns["ID"].OptionsColumn.ReadOnly= true;
+            gridView1.Columns["MARKA"].OptionsColumn.ReadOnly= true;
+            gridView1.Columns["KASAADI"].OptionsColumn.ReadOnly= true;
                 int satir = 0;
             if(_temp!=null)
             if (_temp.Count>0)
@@ -136,6 +140,11 @@ namespace MEYPAK.PRL.STOK
         private void textEdit1_EditValueChanged(object sender, EventArgs e)
         {
             gridView1.ApplyFindFilter(textEdit1.EditValue.ToString());
+        }
+
+        private void gridView1_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+            gridView1.SelectRow(e.RowHandle);
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
