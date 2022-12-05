@@ -1,13 +1,21 @@
-﻿using DevExpress.XtraEditors;
+﻿using DevExpress.Utils.Gesture;
+using DevExpress.XtraEditors;
+using DevExpress.XtraReports.UI;
 using MEYPAK.BLL.Assets;
+using MEYPAK.Entity.Models.STOK;
+using MEYPAK.Entity.PocoModels;
 using MEYPAK.Entity.PocoModels.STOK;
+using MEYPAK.Interfaces.Depo;
+using MEYPAK.Interfaces.Stok;
 using MEYPAK.PRL.CARI;
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -40,22 +48,50 @@ namespace MEYPAK.PRL.STOK.Raporlar
         #endregion
 
         #region Metotlar
+
+        void Doldur()
+        {
+            _stokFiyatServis.Data(ServisList.StokFiyatListeServis);
+            DGStokFiyatRpr.DataSource = _stokFiyatServis.obje.Where(x => x.kayittipi == 0 ).Select(x => new
+            {
+                ID = x.id,
+                FİYATLİSTESİ = x.adi,
+                ACIKLAMA = x.aciklama,
+                BASLANGICTARİHİ = x.baslangictarihi,
+                BİTİSTARİHİ = x.bitistarihi,
+
+            });
+            DGStokFiyatRpr.Refresh();
+            DGStokFiyatRpr.RefreshDataSource();
+        }
         private void BTStokSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
 
-            FStokList fStokList = new FStokList(this.Tag.ToString(), "FStokFiyarRaporu");
+            FStokList fStokList = new FStokList(this.Tag.ToString(), "FStokFiyatRaporu");
             fStokList.ShowDialog();
-            //DataGridiYapilandir();
+        }
 
+        private void FStokFiyatRaporu_Load(object sender, EventArgs e)
+        {
+            Doldur();
+            
+        }
+
+        private void DGStokFiyatRpr_Click(object sender, EventArgs e)
+        {
+
+        }
+
+      
+
+        private void BTRaporla_Click(object sender, EventArgs e)
+        {
+            
         }
 
         #endregion
 
-        private void buttonEdit1_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
-        {
-            FStokList fStokList = new FStokList(this.Tag.ToString(), "FStokFiyatRaporu");
-            fStokList.ShowDialog();
-            //DataGridiYapilandir();
-        }
+       
+       
     }
 }
