@@ -143,6 +143,7 @@
             this.accordionControlElement37 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement53 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement32 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACEMusteriSiparisIrsaliyelestir = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement33 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement21 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement38 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -798,12 +799,15 @@
             // 
             // accordionControlElement19
             // 
+            this.accordionControlElement19.Appearance.Default.Font = new System.Drawing.Font("Barlow", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.accordionControlElement19.Appearance.Default.Options.UseFont = true;
             this.accordionControlElement19.Expanded = true;
             this.accordionControlElement19.HeaderTemplate.AddRange(new DevExpress.XtraBars.Navigation.HeaderElementInfo[] {
             new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.Image),
             new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.HeaderControl),
             new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.ContextButtons),
             new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.Text)});
+            this.accordionControlElement19.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
             this.accordionControlElement19.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement19.ImageOptions.Image")));
             this.accordionControlElement19.Name = "accordionControlElement19";
             this.accordionControlElement19.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
@@ -1139,8 +1143,18 @@
             // 
             // accordionControlElement32
             // 
+            this.accordionControlElement32.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.ACEMusteriSiparisIrsaliyelestir});
+            this.accordionControlElement32.Expanded = true;
             this.accordionControlElement32.Name = "accordionControlElement32";
             this.accordionControlElement32.Text = "Hareketler";
+            // 
+            // ACEMusteriSiparisIrsaliyelestir
+            // 
+            this.ACEMusteriSiparisIrsaliyelestir.Name = "ACEMusteriSiparisIrsaliyelestir";
+            this.ACEMusteriSiparisIrsaliyelestir.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ACEMusteriSiparisIrsaliyelestir.Text = "Müşteri Siparişi İrsaliyeleştir";
+            this.ACEMusteriSiparisIrsaliyelestir.Click += new System.EventHandler(this.ACEMusteriSiparisIrsaliyelestir_Click);
             // 
             // accordionControlElement33
             // 
@@ -1410,6 +1424,7 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement50;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement51;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement48;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACEMusteriSiparisIrsaliyelestir;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement52;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement53;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement54;

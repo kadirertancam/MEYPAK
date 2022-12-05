@@ -30,10 +30,14 @@ namespace MEYPAK.Entity.Models.FATURA
         [StringLength(200)]
         [DefaultValue("")]
         public string ACIKLAMA { get; set; } = "";
-        public decimal MIKTAR { get; set; } = 0;
-        public decimal ISTKONTO1 { get; set; } = 0;
-        public decimal ISTKONTO2 { get; set; } = 0;
-        public decimal ISTKONTO3 { get; set; } = 0;
+        public decimal KASAMIKTAR { get; set; } = 0;
+        public decimal DARALI { get; set; }= 0;
+        public decimal DARA { get; set; } = 0;
+        public decimal SAFI { get; set; } = 0;
+        public decimal ISKONTO1 { get; set; } = 0;
+        public decimal ISKONTO2 { get; set; } = 0;
+        public decimal ISKONTO3 { get; set; } = 0;
+        public decimal ISKTOPLAM { get; set; }
         public decimal NETFIYAT { get; set; } = 0;
         public decimal BRUTFIYAT { get; set; } = 0;
         public decimal NETTOPLAM { get; set; } = 0;

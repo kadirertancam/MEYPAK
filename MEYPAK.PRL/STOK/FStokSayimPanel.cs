@@ -32,6 +32,7 @@ namespace MEYPAK.PRL.STOK
             _olcubrServis = new GenericWebServis<PocoOLCUBR>();
             _stokolcubrServis = new GenericWebServis<PocoSTOKOLCUBR>();
         }
+        #region Tanımlar
         string _islemtipi;
         string _form;
         PocoSTOKSAYIM _tempStokSayim;
@@ -44,6 +45,84 @@ namespace MEYPAK.PRL.STOK
         GenericWebServis<PocoSTOKKATEGORI> kategoriServis;
         GenericWebServis<PocoOLCUBR> _olcubrServis;
         GenericWebServis<PocoSTOKOLCUBR> _stokolcubrServis;
+        #endregion
+
+
+        #region Events
+        private void FStokSayimPanel_Load(object sender, EventArgs e)
+        {
+            DataGridiYapılandır();
+        }
+
+
+        private void BTKaydet_Click(object sender, EventArgs e)
+        {
+
+            for (int i = 0; i < gridView1.RowCount; i++)
+            {
+                DataRowView row = gridView1.GetRow(i) as DataRowView;
+                if (row != null)
+                {
+                    if (stokSayimHarServis.obje.Where(x => x.stokid == Convert.ToInt32(row.Row.ItemArray[0]) && x.stoksayimid == _tempStokSayim.id).Count() == 0)
+                    {
+                        if (Convert.ToInt32(row.Row.ItemArray[4]) != 0)
+                        {
+                            stokSayimHarServis.Data(ServisList.StokSayimHarEkleServis, new PocoSTOKSAYIMHAR()
+                            {
+                                stoksayimid = _tempStokSayim.id,
+                                depoid = _tempStokSayim.depoid,
+                                miktar = Convert.ToInt32(row.Row.ItemArray[4]),
+                                stokid = Convert.ToInt32(row.Row.ItemArray[0]),
+                                birimid = Convert.ToInt32(row.Row.ItemArray[5]),
+
+                            });
+                        }
+                    }
+                    else
+                    {
+                        if (Convert.ToInt32(row.Row.ItemArray[4]) != 0)
+                        {
+                            stokSayimHarServis.Data(ServisList.StokSayimHarEkleServis, new PocoSTOKSAYIMHAR()
+                            {
+                                id = stokSayimHarServis.obje.Where(x => x.stokid == Convert.ToInt32(row.Row.ItemArray[0]) && x.stoksayimid == _tempStokSayim.id).FirstOrDefault().id,
+                                stoksayimid = _tempStokSayim.id,
+                                depoid = _tempStokSayim.depoid,
+                                miktar = Convert.ToInt32(row.Row.ItemArray[4]),
+                                stokid = Convert.ToInt32(row.Row.ItemArray[0]),
+                                birimid = Convert.ToInt32(row.Row.ItemArray[5]),
+                            });
+                        }
+                        else
+                        {
+                            stokSayimHarServis.Data(ServisList.StokSayimHarSilServis, modellist: stokSayimHarServis.obje.Where(x => x.stokid == Convert.ToInt32(row.Row.ItemArray[0]) && x.stoksayimid == _tempStokSayim.id).ToList());
+
+                        }
+                    }
+                }
+            }
+            MessageBox.Show("Sayım Hareketi Başarıyla Kaydedildi");
+        }
+
+
+        private void BTCik_Click(object sender, EventArgs e)
+        {
+            MessageBoxButtons.CancelTryContinue.Equals(false);
+            this.Close();
+        }
+
+
+        private void pdfeAktarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Pdfaktar(gridView1, $"Stok Sayım {DTPSayimTar.EditValue}");
+        }
+
+
+        private void exceleAktarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Excelaktar(gridView1, $"Stok Sayım {DTPSayimTar.EditValue}");
+        }
+        #endregion
+
 
         #region Method
         public void Excelaktar(DevExpress.XtraGrid.Views.Grid.GridView GridView, string DosyaAdi)
@@ -69,10 +148,7 @@ namespace MEYPAK.PRL.STOK
             gridView1.ExportToPdf(dialog.FileName);
         }
 
-
-        #endregion
-
-        private void FStokSayimPanel_Load(object sender, EventArgs e)
+        void DataGridiYapılandır()
         {
             depoServis.Data(ServisList.DepoListeServis);
             kategoriServis.Data(ServisList.StokKategoriListeServis);
@@ -126,6 +202,7 @@ namespace MEYPAK.PRL.STOK
             riLookuparac.AcceptEditorTextAsNewValue = DefaultBoolean.True;
             riLookuparac.AutoSearchColumnIndex = 1;
             riLookuparac.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
+            
 
             datatab.Columns[0].ColumnMapping = MappingType.Hidden;
             gridView1.Columns["BİRİM"].OptionsColumn.AllowEdit = true;
@@ -140,102 +217,12 @@ namespace MEYPAK.PRL.STOK
                     stokHarServis.obje.Where(z => z.depoid == _tempStokSayim.depoid && z.stokid == item.id && z.io == 1).Sum(z => z.miktar) - stokHarServis.obje.Where(z => z.depoid == _tempStokSayim.depoid && z.stokid == item.id && z.io == 0).Sum(z => z.miktar),
                     stokSayimHarServis.obje.Where(d => d.kayittipi == 0 && d.stoksayimid == _tempStokSayim.id && d.stokid == item.id).Count() == 0
                     ? 0 : stokSayimHarServis.obje.Where(d => d.kayittipi == 0 && d.stoksayimid == _tempStokSayim.id && d.stokid == item.id).FirstOrDefault().miktar,
-                    1
+                    item.olcubR1
                     );
             }
 
-            //DataGridViewButtonColumn dgvBtColumn = new DataGridViewButtonColumn();
-            //dgvBtColumn.Name = "DGVBTStokSec";
-            //dgvBtColumn.Text = "Seç";
-            //dgvBtColumn.HeaderText = "Seç"; 
-            //dgvBtColumn.FlatStyle = FlatStyle.Flat;
-            //dgvBtColumn.DisplayIndex = 1; 
-
-            //dataGridView1.Columns.Add(dgvBtColumn);
-            //dataGridView1.CellClick += DataGridView1_CellClick;
-            //for (int i = 0; i < dataGridView1.Rows.Count; i++)
-            //{
-            //    dataGridView1.Rows[i].Cells[dataGridView1.Columns.Count - 1].Value = "Seç";
-
-            //}
-            //dataGridView1.AllowUserToAddRows = false;
-            //DataTable dataTable = (DataTable)dataGridView1.DataSource;
-            //DataRow drToAdd = dataTable.NewRow();
-            //dataGridView1.Rows.Add(drToAdd);
-            //dataTable.AcceptChanges(); 
         }
 
-
-        private void BTKaydet_Click(object sender, EventArgs e)
-        {
-
-            for (int i = 0; i < gridView1.RowCount; i++)
-            {
-                DataRowView row = gridView1.GetRow(i) as DataRowView;
-                if (row != null)
-                {
-                    if (stokSayimHarServis.obje.Where(x => x.stokid == Convert.ToInt32(row.Row.ItemArray[0]) && x.stoksayimid == _tempStokSayim.id).Count() == 0)
-                    {
-                        if (Convert.ToInt32(row.Row.ItemArray[4]) != 0)
-                        {
-                            stokSayimHarServis.Data(ServisList.StokSayimHarEkleServis, new PocoSTOKSAYIMHAR()
-                            {
-                                stoksayimid = _tempStokSayim.id,
-                                depoid = _tempStokSayim.depoid,
-                                miktar = Convert.ToInt32(row.Row.ItemArray[4]),
-                                stokid = Convert.ToInt32(row.Row.ItemArray[0]),
-                                birimid = Convert.ToInt32(row.Row.ItemArray[5]),
-
-                            });
-                        }
-                    }
-                    else
-                    {
-                        if (Convert.ToInt32(row.Row.ItemArray[4])!=0)
-                        {
-                        stokSayimHarServis.Data(ServisList.StokSayimHarEkleServis, new PocoSTOKSAYIMHAR()
-                        {
-                            id = stokSayimHarServis.obje.Where(x => x.stokid == Convert.ToInt32(row.Row.ItemArray[0]) && x.stoksayimid == _tempStokSayim.id).FirstOrDefault().id,
-                            stoksayimid = _tempStokSayim.id,
-                            depoid = _tempStokSayim.depoid,
-                            miktar = Convert.ToInt32(row.Row.ItemArray[4]),
-                            stokid = Convert.ToInt32(row.Row.ItemArray[0]),
-                            birimid = Convert.ToInt32(row.Row.ItemArray[5]),
-                        });
-                        }
-                        else
-                        {
-                            stokSayimHarServis.Data(ServisList.StokSayimHarSilServis, modellist: stokSayimHarServis.obje.Where(x => x.stokid == Convert.ToInt32(row.Row.ItemArray[0]) && x.stoksayimid == _tempStokSayim.id).ToList());
-
-                        }
-                    }
-                }
-            }
-            MessageBox.Show("Sayım Hareketi Başarıyla Kaydedildi");
-        }
-
-
-        private void BTCik_Click(object sender, EventArgs e)
-        {
-            MessageBoxButtons.CancelTryContinue.Equals(false);
-            this.Close();
-        }
-
-
-        private void pdfeAktarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Pdfaktar(gridView1, $"Stok Sayım {DTPSayimTar.EditValue}");
-        }
-
-
-        private void exceleAktarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Excelaktar(gridView1, $"Stok Sayım {DTPSayimTar.EditValue}");
-        }
-
-        private void DGStokSayim_Click(object sender, EventArgs e)
-        {
-
-        }
+        #endregion
     }
 }

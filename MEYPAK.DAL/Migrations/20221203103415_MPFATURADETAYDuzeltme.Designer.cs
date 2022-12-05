@@ -4,6 +4,7 @@ using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MEYPAK.DAL.Migrations
 {
     [DbContext(typeof(MEYPAKContext))]
-    partial class MEYPAKContextModelSnapshot : ModelSnapshot
+    [Migration("20221203103415_MPFATURADETAYDuzeltme")]
+    partial class MPFATURADETAYDuzeltme
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1563,16 +1565,13 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<byte>("HAREKETDURUMU")
                         .HasColumnType("tinyint");
 
-                    b.Property<decimal>("ISKONTO1")
+                    b.Property<decimal>("ISTKONTO1")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<decimal>("ISKONTO2")
+                    b.Property<decimal>("ISTKONTO2")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<decimal>("ISKONTO3")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("ISKTOPLAM")
+                    b.Property<decimal>("ISTKONTO3")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("KASAID")

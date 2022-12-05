@@ -262,7 +262,7 @@ namespace MEYPAK.PRL.DEPO
         
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
+           
         }
 
         private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)

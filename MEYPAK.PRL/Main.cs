@@ -1,6 +1,8 @@
 ﻿
 using DevExpress.Pdf.Native.BouncyCastle.Asn1.Pkcs;
 using DevExpress.XtraEditors;
+using DevExpress.XtraReports.Native;
+using DevExpress.XtraReports.UI;
 using DevExpress.XtraTab;
 using DevExpress.XtraTab.ViewInfo;
 using MEYPAK.BLL.Assets;
@@ -89,6 +91,8 @@ namespace MEYPAK.PRL
         FMarkaKart fMarkaKart;
         FAlisIrsaliye fFAlisIrsaliye;
         FAlisFatura fFAlisFatura;
+        FMusteriSiparisIrsaliyelestir fMusteriSiparisIrsaliyelestir;
+        
         FStokFiyatRaporu fStokFiyatRaporu;
 
 
@@ -698,6 +702,28 @@ namespace MEYPAK.PRL
             page.Controls.Add(fFAlisIrsaliye);
             fFAlisIrsaliye.Show();
             i++;
+        }
+          
+
+        private void ACEMusteriSiparisIrsaliyelestir_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fMusteriSiparisIrsaliyelestir = new FMusteriSiparisIrsaliyelestir();
+            page.Name = "TPMusteriSiparisIrsaliyelestir" + i;
+            page.Text = "Müşteri Siparişi İrsaliyeleştir";
+            page.Tag = "TPMusteriSiparisIrsaliyelestir" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fMusteriSiparisIrsaliyelestir.TopLevel = false;
+            fMusteriSiparisIrsaliyelestir.AutoScroll = true;
+            fMusteriSiparisIrsaliyelestir.Dock = DockStyle.Fill;
+            fMusteriSiparisIrsaliyelestir.Tag = "TPMusteriSiparisIrsaliyelestir" + i;
+            page.Controls.Add(fMusteriSiparisIrsaliyelestir);
+            fMusteriSiparisIrsaliyelestir.Show();
+            i++;
+
         }
 
         private void accordionControlElement48_Click(object sender, EventArgs e)
