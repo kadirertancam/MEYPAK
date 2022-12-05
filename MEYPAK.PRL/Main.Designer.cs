@@ -1424,6 +1424,7 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement50;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement51;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement48;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACEMusteriSiparisIrsaliyelestir;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement52;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement53;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement54;
