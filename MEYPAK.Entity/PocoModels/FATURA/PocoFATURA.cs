@@ -9,7 +9,7 @@ namespace MEYPAK.Entity.PocoModels.FATURA
 {
     public class PocoFATURA : SUPERPOCOMODEL
     {
-        public int siparisid { get; set; }
+        public int irsaliyeid { get; set; }
         public int sirketid { get; set; } = 0;
         public int subeid { get; set; } = 0;
         public int depoid { get; set; } = 0;

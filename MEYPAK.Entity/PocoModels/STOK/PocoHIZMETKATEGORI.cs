@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.Entity.PocoModels.STOK
 {
-    public class PocoHIZMETKATEGORI:SUPERMODEL
+    public class PocoHIZMETKATEGORI:SUPERPOCOMODEL
     {
         public int ustid { get; set; }
         public string adi { get; set; }

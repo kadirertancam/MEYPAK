@@ -280,7 +280,7 @@
             this.groupBox1.Size = new System.Drawing.Size(1615, 185);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Alış Fatura";
+            this.groupBox1.Text = "Satış Fatura";
             // 
             // DTPVadeTarihi
             // 
@@ -765,16 +765,16 @@
             this.panel3.Size = new System.Drawing.Size(1615, 423);
             this.panel3.TabIndex = 1;
             // 
-            // FAlisFatura
+            // FFatura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1615, 807);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FAlisFatura";
-            this.Text = "FAlisFatura";
-            this.Load += new System.EventHandler(this.FAlisFatura_Load);
+            this.Name = "FFatura";
+            this.Text = "FFatura";
+            this.Load += new System.EventHandler(this.FFatura_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DTSiparisTarih.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTSiparisTarih.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CHBKdvDahil.Properties)).EndInit();

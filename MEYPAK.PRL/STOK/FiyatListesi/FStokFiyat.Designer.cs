@@ -168,6 +168,7 @@
             this.BTTemizle.Size = new System.Drawing.Size(95, 40);
             this.BTTemizle.TabIndex = 12;
             this.BTTemizle.Text = "&Temizle";
+            this.BTTemizle.Click += new System.EventHandler(this.BTTemizle_Click);
             // 
             // BTKaydet
             // 
@@ -191,6 +192,7 @@
             this.BTSil.Size = new System.Drawing.Size(95, 40);
             this.BTSil.TabIndex = 11;
             this.BTSil.Text = "&Sil";
+            this.BTSil.Click += new System.EventHandler(this.BTSil_Click);
             // 
             // TBAciklama
             // 
@@ -213,6 +215,7 @@
             // 
             // DTBaslangicTar
             // 
+            this.DTBaslangicTar.AllowDrop = true;
             this.DTBaslangicTar.EditValue = null;
             this.DTBaslangicTar.Location = new System.Drawing.Point(503, 44);
             this.DTBaslangicTar.Name = "DTBaslangicTar";
@@ -220,6 +223,8 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.DTBaslangicTar.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.DTBaslangicTar.Properties.MaskSettings.Set("mask", "D");
+            this.DTBaslangicTar.Properties.MaxValue = new System.DateTime(9999, 12, 31, 0, 0, 0, 0);
             this.DTBaslangicTar.Size = new System.Drawing.Size(180, 20);
             this.DTBaslangicTar.TabIndex = 7;
             // 

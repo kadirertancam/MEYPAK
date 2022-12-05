@@ -23,7 +23,7 @@ namespace MEYPAK.PRL
         public FStokKart()
         {
             InitializeComponent();
-            _tempStok = new PocoSTOK();
+            
             _PocoOlcuBrServis = new GenericWebServis<PocoOLCUBR>();
             _StokOlcuBrServis = new GenericWebServis<PocoSTOKOLCUBR>();
             _PocoStokServis = new GenericWebServis<PocoSTOK>();
@@ -239,6 +239,9 @@ namespace MEYPAK.PRL
             CBOlcuBr.Properties.DataSource = _PocoOlcuBrServis.obje.Where(x=>x.kayittipi==0).Select(x=> new {ID= x.id , ADI = x.adi});
             CBOlcuBr.Properties.ValueMember = "ID";
             CBOlcuBr.Properties.DisplayMember = "ADI";
+            if (_tempStok!=null)
+                tbDoldur();
+            
 
         }
         private void BTKaydet_Click(object sender, EventArgs e)                 // Stok Kayıt

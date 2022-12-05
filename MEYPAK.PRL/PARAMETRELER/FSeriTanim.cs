@@ -1,6 +1,4 @@
-﻿using DevExpress.XtraEditors;
-using MEYPAK.BLL.Assets;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,26 +10,11 @@ using System.Windows.Forms;
 
 namespace MEYPAK.PRL.PARAMETRELER
 {
-    public partial class FSeriTanim : XtraForm
+    public partial class FSeriTanim : Form
     {
         public FSeriTanim()
         {
             InitializeComponent();
-        }
-        //TODO: Kullanıcı Yapısı Kurgulandıktan Sonra Bakılacakss
-        private void radioGroup1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FSeriTanim_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BESeri_EditValueChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

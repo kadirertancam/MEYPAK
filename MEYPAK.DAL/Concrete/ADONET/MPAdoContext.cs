@@ -66,7 +66,7 @@ namespace MEYPAK.DAL.Concrete.ADONET
                 {
                     genericT = new T();
                     var k = 0;
-                    for (int j = 0; j < genericT.GetType().GetProperties().Count()-7; j++)
+                    for (int j = 0; j < genericT.GetType().GetProperties().Count(); j++)
                     {
 
                         var ba = genericT.GetType().GetProperties()[j].Name.Substring(0, 2).ToString();

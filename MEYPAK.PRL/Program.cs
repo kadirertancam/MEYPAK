@@ -11,6 +11,7 @@ using MEYPAK.PRL.PARAMETRELER;
 using MEYPAK.PRL.PERSONEL;
 using MEYPAK.PRL.SIPARIS;
 using MEYPAK.PRL.STOK;
+using MEYPAK.PRL.STOK.Raporlar;
 using Microsoft.EntityFrameworkCore;
 using static MEYPAK.PRL.Assets.NinjectFactory;
 

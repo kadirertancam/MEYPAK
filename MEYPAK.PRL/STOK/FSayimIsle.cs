@@ -67,9 +67,10 @@ namespace MEYPAK.PRL.STOK
             if (_tempSayim != null)
             {
                 _stokSayimHarServis.Data(ServisList.StokSayimHarListeServis);
+                _stokHarServis.Data(ServisList.StokHarListeServis);
                 foreach (var item in _stokSayimHarServis.obje.Where(x => x.stoksayimid == _tempSayim.id))
                 {
-                    _stokHarServis.Data(ServisList.StokHarListeServis);
+                    
                     List < PocoSTOKHAR > stokharlist = _stokHarServis.obje.Where(x => x.kayittipi == 0&&x.stokid == item.stokid&&x.depoid==_tempSayim.depoid).ToList();
                     decimal a =  item.miktar - (stokharlist.Where(x => x.io == 1 && x.depoid == item.depoid && x.kayittipi==0).Sum(x => x.miktar) - stokharlist.Where(x => x.io == 0 && x.depoid == item.depoid && x.kayittipi == 0).Sum(x => x.miktar)) ;
                     _stokHarServis.Data(ServisList.StokHarEkleServis,new PocoSTOKHAR()

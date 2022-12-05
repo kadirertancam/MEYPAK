@@ -29,6 +29,6 @@ namespace MEYPAK.Entity.PocoModels.STOK
         public decimal bruttoplam { get; set; } = 0;
         public int sayimid { get; set; } = 0;
         public int kullaniciid { get; set; } = 0;
-        public string kunye { get; set; }
+        public string kunye { get; set; } = "";
     }
 }

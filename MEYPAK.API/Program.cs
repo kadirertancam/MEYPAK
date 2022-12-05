@@ -201,10 +201,8 @@ builder.Services.AddScoped<IIrsaliyeDetayServis, IrsaliyeDetayManager>();
 
 #endregion
 #region HIZMET_Scoped_Islemleri
-
 builder.Services.AddScoped<IHizmetDal, EFHizmetRepo>();
 builder.Services.AddScoped<IHizmetServis, HizmetManager>();
-
 
 builder.Services.AddScoped<IHizmetKategoriDal, EFHizmetKategoriRepo>();
 builder.Services.AddScoped<IHizmetKategoriServis, HizmetKategoriManager>();
@@ -276,6 +274,9 @@ builder.Services.AddScoped<IFaturaServis, FaturaManager>();
 
 builder.Services.AddScoped<IFaturaDetayDal, EFFaturaDetayRepo>();
 builder.Services.AddScoped<IFaturaDetayServis, FaturaDetayManager>();
+
+builder.Services.AddScoped<ISeriDal, EFSeriRepo>();
+builder.Services.AddScoped<ISeriServis, SeriManager>();
 #endregion
 
 

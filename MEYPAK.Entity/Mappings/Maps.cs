@@ -110,6 +110,7 @@ namespace MEYPAK.Entity.Mappings
             //FATURA            
             CreateMap<MPFATURA, PocoFATURA>().ReverseMap();
             CreateMap<MPFATURADETAY, PocoFATURADETAY>().ReverseMap();
+            CreateMap<MPSERI, PocoSERI>().ReverseMap();
 
 
 

@@ -83,6 +83,8 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
         public DbSet<MPFATURA> MPFATURA { get; set; }
         public DbSet<MPFATURADETAY> MPFATURADETAY { get; set; }
         public DbSet<MPSTOKKASAMARKA> MPSTOKKASAMARKA { get; set; }
+        public DbSet<MPSERI> MPSERI { get; set; }
+
         
 
 

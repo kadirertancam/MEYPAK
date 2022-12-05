@@ -9,6 +9,7 @@ namespace MEYPAK.Entity.PocoModels.FATURA
 {
     public class PocoFATURADETAY:SUPERPOCOMODEL
     { 
+        
         public int faturaid { get; set; }
         public int stokid { get; set; }
         public int birimid { get; set; }
