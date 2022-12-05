@@ -695,8 +695,9 @@ namespace MEYPAK.PRL
             fFAlisIrsaliye.Show();
             i++;
         }
+          
 
-        private void accordionControlElement48_Click(object sender, EventArgs e)
+        private void ACEMusteriSiparisIrsaliyelestir_Click(object sender, EventArgs e)
         {
             XtraTabPage page = new XtraTabPage();
             fMusteriSiparisIrsaliyelestir = new FMusteriSiparisIrsaliyelestir();
@@ -714,11 +715,7 @@ namespace MEYPAK.PRL
             page.Controls.Add(fMusteriSiparisIrsaliyelestir);
             fMusteriSiparisIrsaliyelestir.Show();
             i++;
-        }
 
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-       
         }
         //private void accordionControlElement48_Click(object sender, EventArgs e)
         //{

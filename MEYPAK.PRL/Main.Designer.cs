@@ -1112,7 +1112,7 @@
             this.ACEMusteriSiparisIrsaliyelestir.Name = "ACEMusteriSiparisIrsaliyelestir";
             this.ACEMusteriSiparisIrsaliyelestir.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.ACEMusteriSiparisIrsaliyelestir.Text = "Müşteri Siparişi İrsaliyeleştir";
-            this.ACEMusteriSiparisIrsaliyelestir.Click += new System.EventHandler(this.accordionControlElement48_Click);
+            this.ACEMusteriSiparisIrsaliyelestir.Click += new System.EventHandler(this.ACEMusteriSiparisIrsaliyelestir_Click);
             // 
             // accordionControlElement33
             // 
