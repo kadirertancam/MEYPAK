@@ -159,6 +159,7 @@
             this.accordionControlElement27 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
             this.applicationMenu1 = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
+            this.ACESeriTanim = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -1204,7 +1205,8 @@
             this.accordionControlElement22.Appearance.Default.ForeColor = System.Drawing.Color.Silver;
             this.accordionControlElement22.Appearance.Default.Options.UseForeColor = true;
             this.accordionControlElement22.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
-            this.accordionControlElement44});
+            this.accordionControlElement44,
+            this.ACESeriTanim});
             this.accordionControlElement22.Expanded = true;
             this.accordionControlElement22.Name = "accordionControlElement22";
             this.accordionControlElement22.Text = "Parametreler";
@@ -1271,6 +1273,13 @@
             // applicationMenu1
             // 
             this.applicationMenu1.Name = "applicationMenu1";
+            // 
+            // ACESeriTanim
+            // 
+            this.ACESeriTanim.Name = "ACESeriTanim";
+            this.ACESeriTanim.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ACESeriTanim.Text = "Seri Tanım";
+            this.ACESeriTanim.Click += new System.EventHandler(this.ACESeriTanim_Click);
             // 
             // Main
             // 
@@ -1429,5 +1438,6 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement52;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement53;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement54;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACESeriTanim;
     }
 }

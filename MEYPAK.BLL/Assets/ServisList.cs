@@ -155,6 +155,14 @@ namespace MEYPAK.BLL.Assets
         #endregion
 
         #region StokSevkiyatList
+        public const string SeriListeServis =               "http://213.238.167.117:8080/SERI/MPSERIListe";
+        public const string SeriEkleServis =                "http://213.238.167.117:8080/SERI/MPSERIEkleyadaGuncelle";
+        public const string SeriSilServis =                 "http://213.238.167.117:8080/SERI/MPSERISil";
+        public const string SeriGuncelleServis =            "http://213.238.167.117:8080/SERI/MPSERIGuncelle";
+        public const string SeriDeleteByIdServis =          "http://213.238.167.117:8080/SERI/DeleteById";
+        #endregion
+
+        #region StokSevkiyatList
         public const string StokSevkiyatListListeServis =           "http://213.238.167.117:8080/STOKSEVKIYATLIST/STOKSEVKIYATLISTListe";
         public const string StokSevkiyatListEkleServis = "http://213.238.167.117:8080/STOKSEVKIYATLIST/STOKSEVKIYATLISTEkleyadaGuncelle";
         public const string StokSevkiyatListSilServis =             "http://213.238.167.117:8080/STOKSEVKIYATLIST/STOKSEVKIYATLISTSil";

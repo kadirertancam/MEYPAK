@@ -92,6 +92,7 @@ namespace MEYPAK.PRL
         FAlisIrsaliye fFAlisIrsaliye;
         FAlisFatura fFAlisFatura;
         FMusteriSiparisIrsaliyelestir fMusteriSiparisIrsaliyelestir;
+        FSeriTanim fSeriTanim;
         
         FStokFiyatRaporu fStokFiyatRaporu;
 
@@ -807,6 +808,27 @@ namespace MEYPAK.PRL
             fStokFiyatRaporu.Tag = "TPStokFiyatRaporu" + i;
             page.Controls.Add(fStokFiyatRaporu);
             fStokFiyatRaporu.Show();
+            i++;
+        }
+
+        private void ACESeriTanim_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fSeriTanim = new FSeriTanim();
+            page.Name = "TPSeriTanim" + i;
+            page.Text = "Seri Tanım";
+            page.Tag = "TPSeriTanim" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fSeriTanim.FormBorderStyle = FormBorderStyle.None;
+            fSeriTanim.TopLevel = false;
+            fSeriTanim.AutoScroll = true;
+            fSeriTanim.Dock = DockStyle.Fill;
+            fSeriTanim.Tag = "TPSeriTanim" + i;
+            page.Controls.Add(fSeriTanim);
+            fSeriTanim.Show();
             i++;
         }
     }
