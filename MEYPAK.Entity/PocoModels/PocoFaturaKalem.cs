@@ -19,6 +19,8 @@ namespace MEYPAK.Entity.PocoModels
         public string KasaAdı { get; set; } = "";
         public string Acıklama { get; set; } = "";
         public string Birim { get; set; } = "";
+        public int Tevkifatno { get; set; } = 0;
+        public int Istisnano { get; set; } = 0;
         public decimal KasaMiktar { get; set; } = 0;
         public decimal Daralı { get; set; }
         public decimal Dara { get; set; }

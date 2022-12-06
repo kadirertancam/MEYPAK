@@ -23,6 +23,8 @@ namespace MEYPAK.Entity.PocoModels.FATURA
         public string stokadi { get; set; } = "";
         [StringLength(200)]
         public string aciklama { get; set; } = "";
+        public int tevkifatno { get; set; } = 0;
+        public int istisnano { get; set; } = 0;
         public decimal kasamiktar { get; set; } = 0;
         public decimal dara { get; set; }=0;
         public decimal darali { get; set; }= 0;
@@ -31,6 +33,7 @@ namespace MEYPAK.Entity.PocoModels.FATURA
         public decimal iskontO2 { get; set; } = 0;
         public decimal iskontO3 { get; set; } = 0;
         public decimal isktoplam { get; set; }
+        public decimal birimfiyat { get; set; } = 0;
         public decimal netfiyat { get; set; } = 0;
         public decimal brutfiyat { get; set; } = 0;
         public decimal nettoplam { get; set; } = 0;

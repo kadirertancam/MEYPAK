@@ -273,7 +273,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1398, 818);
             this.Controls.Add(this.panelControl1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FStokSayimPanel";
             this.Text = "FStokSayimPanel";
             this.Load += new System.EventHandler(this.FStokSayimPanel_Load);

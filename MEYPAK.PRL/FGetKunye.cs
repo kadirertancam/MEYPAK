@@ -36,6 +36,7 @@ namespace MEYPAK.PRL
         }
         FAlisIrsaliye fAlisIrsaliye;
         FAlisFatura fAlisFatura;
+        FFatura ffatura;
         GenericWebServis<PocoSTOKHAR> _stokHarServis;
         List<AlisKunyeleri> _alisKunyeleris;
         List<AlisKunyeleriV2> _alisKunyelerisv2;
@@ -157,6 +158,8 @@ namespace MEYPAK.PRL
                         fAlisIrsaliye = (FAlisIrsaliye)frm; 
                     if (frm.Name.Contains("FAlisFatura"))
                         fAlisFatura = (FAlisFatura)frm;
+                    if (frm.Name.Contains("FFatura"))
+                        ffatura = (FFatura)frm;
                 }
             }
 
@@ -170,11 +173,19 @@ namespace MEYPAK.PRL
                 {
                     fAlisIrsaliye.gridView1.SetFocusedRowCellValue("Kunye", gridView1.GetFocusedRowCellValue("KunyeNo").ToString());
                 }
-            }if (_islem == "FAlisFatura")
+            }
+            if (_islem == "FAlisFatura")
             {
                 if (fAlisFatura != null)
                 {
                     fAlisFatura.gridView1.SetFocusedRowCellValue("Kunye", gridView1.GetFocusedRowCellValue("KunyeNo").ToString());
+                }
+            }
+            if (_islem == "FFatura")
+            {
+                if (ffatura != null)
+                {
+                    ffatura.gridView1.SetFocusedRowCellValue("Kunye", gridView1.GetFocusedRowCellValue("KunyeNo").ToString());
                 }
             }
             this.Close();
