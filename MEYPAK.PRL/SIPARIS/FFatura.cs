@@ -100,6 +100,9 @@ namespace MEYPAK.PRL.SIPARIS
         public List<ListKasaList> _kasaaa;
         public List<StokOlcuBrTemp> _stokOlcuBrList;
         public List<KasaList> _tempKasaList;
+        List<StokOlcuBrTemp> olcuBrlist = new List<StokOlcuBrTemp>();
+        StokOlcuBrTemp stokOlcuBrTemp = new StokOlcuBrTemp();
+        List<OlcuBrlist> olcuBrlist1 = new List<OlcuBrlist>();
         void temizle()
         {
             num = 0;
@@ -350,9 +353,7 @@ namespace MEYPAK.PRL.SIPARIS
             if (gridView1.GetFocusedRowCellValue("Tipi") == "STOK")
             {
 
-                List<StokOlcuBrTemp> olcuBrlist = new List<StokOlcuBrTemp>();
-                StokOlcuBrTemp stokOlcuBrTemp = new StokOlcuBrTemp();
-                List<OlcuBrlist> olcuBrlist1 = new List<OlcuBrlist>();
+              
                 OlcuBrlist temppp = new OlcuBrlist();
                 _stokFiyatHarServis.Data(ServisList.StokFiyatHarListeServis);
                 _stokFiyatServis.Data(ServisList.StokFiyatListeServis);
@@ -372,7 +373,7 @@ namespace MEYPAK.PRL.SIPARIS
                         BirimFiyat = _tempCariKart != null && _tempCariKart.id > 0 && _stokFiyatServis.obje.Where(x => x.cariid == _tempCariKart.id).Count() > 0 && _stokFiyatHarServis.obje.Where(z => z.stokfiyatid == _stokFiyatServis.obje.Where(x => x.cariid == _tempCariKart.id).LastOrDefault().id && z.stokid == _tempStok.id).Count() > 0 ? _stokFiyatHarServis.obje.Where(z => z.stokfiyatid == _stokFiyatServis.obje.Where(x => x.cariid == _tempCariKart.id).LastOrDefault().id && z.stokid == _tempStok.id).LastOrDefault().fiyat : 0,
                         Kdv = _tempStok.satiskdv,
                     };
-                    if (_stokOlcuBrList.Where(x => x.num == gridView1.GetFocusedDataSourceRowIndex()).Count() > 0)
+                    if (_stokOlcuBrList.Where(x => x.num == gridView1.FocusedRowHandle).Count() > 0)
                     { 
                        
                         foreach (var item in _stokOlcuBr.obje.Where(x => x.stokid == _tempStok.id))
@@ -404,7 +405,7 @@ namespace MEYPAK.PRL.SIPARIS
                         olcuBrlist.Add(new StokOlcuBrTemp()
                         {
                             Olcubrlist = olcuBrlist1,
-                            num = gridView1.GetFocusedDataSourceRowIndex()
+                            num = 0
                         });
 
                     }
@@ -466,14 +467,14 @@ namespace MEYPAK.PRL.SIPARIS
         int tempnum;
         private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-            tempnum = gridView1.GetFocusedDataSourceRowIndex();
+            tempnum = gridView1.FocusedRowHandle;
             if (_kasaaa.Where(x => x.num == tempnum).Count() > 0)
                 riLookup3.DataSource = _kasaaa.Where(x => x.num == tempnum).FirstOrDefault().KasaList;
             else
                 if (riLookup3 != null)
                 riLookup3.DataSource = "";
-            if (_stokOlcuBrList.Where(x => x.num == tempnum).Count() > 0)
-                riLookup4.DataSource = _stokOlcuBrList.Where(x => x.num == tempnum).FirstOrDefault().Olcubrlist;
+            if (olcuBrlist.Where(x => x.num == tempnum).Count() > 0)
+                riLookup4.DataSource = olcuBrlist.Where(x => x.num == tempnum).FirstOrDefault().Olcubrlist;
         }
 
         private void TBGun_EditValueChanged(object sender, EventArgs e)
@@ -546,7 +547,7 @@ namespace MEYPAK.PRL.SIPARIS
                         birimfiyat = item.BirimFiyat,
                         nettoplam = item.NetToplam,
                         netfiyat = item.NetFiyat,
-                        birimid = Convert.ToInt32(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Birim")),
+                        birimid = Convert.ToInt32(gridView1.GetRowCellValue(item.sıra, "Birim")),
                         dovizid = item.Doviz,
                         kasamiktar = item.KasaMiktar,
                         dara = item.Dara,
@@ -772,24 +773,32 @@ namespace MEYPAK.PRL.SIPARIS
                 CBAltHesap.Properties.ValueMember = "ID";
                 CBAltHesap.Properties.DisplayMember = "ADI";
                 CBAltHesap.Properties.DataSource = altcarilist.Select(x => new { ID = x.id, ADI = x.adi.ToString() });
-                CBAltHesap.EditValue = _tempFatura.althesapid;
+                CBAltHesap.EditValue = _tempFatura.althesapid; 
+                List<OlcuBrlist> olcuBrlist1;
                 if (_faturadetayServis.obje.Where(x => x.faturaid == _tempFatura.id).Count() > 0)
                 {
                     foreach (var item2 in _faturadetayServis.obje.Where(x => x.faturaid == _tempFatura.id))
                     {
+                        olcuBrlist1 = new List<OlcuBrlist>();
                         KasaList = new List<KasaList>();
-                        _stokOlcuBrList.Add(new StokOlcuBrTemp()
-                        {
-                            num = item2.num,
-                            Olcubrlist = new List<OlcuBrlist>()
-                        {
-                            new OlcuBrlist()
+                        
+
+                            foreach (var item in _stokOlcuBr.obje.Where(x => x.stokid == item2.stokid))
                             {
-                                 adı=_olcuBr.obje.Where(z=>z.id== _stokOlcuBr.obje.Where(x=>x.stokid==item2.stokid).FirstOrDefault().olcubrid).FirstOrDefault().adi,
-                                id=_stokOlcuBr.obje.Where(x=>x.stokid==item2.stokid).FirstOrDefault().olcubrid,
+                                olcuBrlist1.Add(new OlcuBrlist()
+                                {
+                                    adı = _olcuBr.obje.Where(x => x.id == item.olcubrid).FirstOrDefault().adi,
+                                    id = _olcuBr.obje.Where(x => x.id == item.olcubrid).FirstOrDefault().id
+                                });
+                              
                             }
-                        }
+                        olcuBrlist.Add(new StokOlcuBrTemp()
+                        {
+                            Olcubrlist = olcuBrlist1,
+                            num = item2.num
                         });
+
+
                         gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "Birim", item2.birimid);
                         foreach (var item in _stokKasaHarServis.obje.Where(z => z.faturadetayid == item2.id && z.faturaid == item2.faturaid))
                         {
@@ -813,8 +822,8 @@ namespace MEYPAK.PRL.SIPARIS
                 {
                     _tempFaturaDetay.Add(new PocoFaturaKalem() { Tipi = "STOK" });
                 }
-
-                riLookup4.DataSource = _stokOlcuBrList.Where(x => x.num == gridView1.FocusedRowHandle).Count() > 0 ? _stokOlcuBrList.Where(x => x.num == gridView1.FocusedRowHandle).FirstOrDefault().Olcubrlist : "";
+                riLookup4.DataSource = "";
+                riLookup4.DataSource = olcuBrlist.Where(x => x.num == gridView1.FocusedRowHandle).FirstOrDefault().Olcubrlist;
                 riLookup3.DataSource = "";
                 riLookup3.DataSource = _kasaaa.Where(x => x.num == gridView1.FocusedRowHandle).Count() > 0 ? _kasaaa.Where(x => x.num == gridView1.FocusedRowHandle).FirstOrDefault().KasaList : "";
                 _faturadetayServis.Data(ServisList.FaturaDetayListeServis + 2, null, "query=FATURAID=" + _tempFatura.id.ToString() + " AND KAYITTIPI=0");
@@ -826,7 +835,7 @@ namespace MEYPAK.PRL.SIPARIS
                     StokId = x.stokid,
                     StokKodu = _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().kod,//,  TODOO:BAKILACAAAK
                     StokAdı = _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().adi,
-                    Birim = _olcuBr.obje.Where(z => z.id == x.birimid).FirstOrDefault().id.ToString(),
+                    Birim = x.birimid.ToString(),
                     Kunye = x.kunye,
                     NetFiyat = x.netfiyat,
                     İskonto1 = x.iskontO1,
