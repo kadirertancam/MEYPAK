@@ -68,11 +68,14 @@ namespace MEYPAK.PRL.STOK
         int i = 0;
         private void FStokList_Load(object sender, EventArgs e)
         {
-
+            
             foreach (Form frm in Application.OpenForms)
             {
+                if (frm.Name.Contains("Main"))
+                    main = (Main)frm;
                 if (_form == frm.Tag)
                 {
+                    
                     if (frm.Name.Contains("FStokHareket"))
                         fStokHareket = (FStokHareket)frm;
                     if (frm.Name.Contains("FStokKart"))
