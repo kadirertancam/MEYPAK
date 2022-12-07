@@ -1,4 +1,5 @@
-﻿using MEYPAK.BLL.Assets;
+﻿using DevExpress.XtraEditors;
+using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Entity.PocoModels.STOK;
 using System;
@@ -13,7 +14,7 @@ using System.Windows.Forms;
 
 namespace MEYPAK.PRL.STOK.StokKasa
 {
-    public partial class FStokKasaMarkaList : Form
+    public partial class FStokKasaMarkaList :   XtraForm
     {
         string _form, _islem;
         public FStokKasaMarkaList(string frm="",string islem="")

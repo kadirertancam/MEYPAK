@@ -1,6 +1,7 @@
 ﻿using DevExpress.DataProcessing.InMemoryDataProcessor;
 using DevExpress.Office.Utils;
 using DevExpress.Utils;
+using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Repository;
 using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.PocoModels;
@@ -23,7 +24,7 @@ using System.Windows.Forms;
 
 namespace MEYPAK.PRL.ARACLAR
 {
-    public partial class FAracRota : Form
+    public partial class FAracRota : XtraForm
     {
         public FAracRota()
         {

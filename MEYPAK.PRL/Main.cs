@@ -12,6 +12,7 @@ using MEYPAK.Interfaces.Depo;
 using MEYPAK.Interfaces.Siparis;
 using MEYPAK.PRL.Assets.Kur;
 using MEYPAK.PRL.CARI;
+using MEYPAK.PRL.CARI.Raporlar;
 using MEYPAK.PRL.DEPO;
 using MEYPAK.PRL.IRSALIYE;
 using MEYPAK.PRL.PARAMETRELER;
@@ -92,8 +93,13 @@ namespace MEYPAK.PRL
         FAlisIrsaliye fFAlisIrsaliye;
         FAlisFatura fFAlisFatura;
         FMusteriSiparisIrsaliyelestir fMusteriSiparisIrsaliyelestir;
-        
+        FStokHareketRaporu fStokHareketRaporu;
         FStokFiyatRaporu fStokFiyatRaporu;
+        FStokSayimRaporu fStokSayimRaporu;
+        FStokListesiRaporu fStokListesiRaporu;
+        FCariHareketRaporu fCariHareketRaporu;
+        FStokKategoriRaporu fStokKategoriRaporu;
+        FStokKasaHareketRaporu fStokKasaHarRaporu;
 
 
         public Tarih_Date _tarih_Date;
@@ -789,7 +795,7 @@ namespace MEYPAK.PRL
             i++;
         }
 
-        private void accordionControlElement54_Click(object sender, EventArgs e)
+        private void accordionControlElement54_Click(object sender, EventArgs e) 
         {
             XtraTabPage page = new XtraTabPage();
             fStokFiyatRaporu = new FStokFiyatRaporu(islem: "FStokFiyatRaporu");
@@ -807,6 +813,133 @@ namespace MEYPAK.PRL
             fStokFiyatRaporu.Tag = "TPStokFiyatRaporu" + i;
             page.Controls.Add(fStokFiyatRaporu);
             fStokFiyatRaporu.Show();
+            i++;
+        }
+
+        private void accordionControlElement55_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fStokHareketRaporu = new FStokHareketRaporu(islem: "FStokHareketRaporu");
+            page.Name = "TPStokHareketRaporu" + i;
+            page.Text = "Stok Hareket Raporu";
+            page.Tag = "TPStokHareketRaporu" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fStokHareketRaporu.FormBorderStyle = FormBorderStyle.None;
+            fStokHareketRaporu.TopLevel = false;
+            fStokHareketRaporu.AutoScroll = true;
+            fStokHareketRaporu.Dock = DockStyle.Fill;
+            fStokHareketRaporu.Tag = "TPStokHareketRaporu" + i;
+            page.Controls.Add(fStokHareketRaporu);
+            fStokHareketRaporu.Show();
+            i++;
+        }
+
+        private void accordionControlElement56_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fStokSayimRaporu = new FStokSayimRaporu(islem: "FStokSayimRaporu");
+            page.Name = "TPStokSayimRaporu" + i;
+            page.Text = "Stok Sayım Raporu";
+            page.Tag = "TPStokSayimRaporu" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fStokSayimRaporu.FormBorderStyle = FormBorderStyle.None;
+            fStokSayimRaporu.TopLevel = false;
+            fStokSayimRaporu.AutoScroll = true;
+            fStokSayimRaporu.Dock = DockStyle.Fill;
+            fStokSayimRaporu.Tag = "TPStokSayimRaporu" + i;
+            page.Controls.Add(fStokSayimRaporu);
+            fStokSayimRaporu.Show();
+            i++;
+        }
+
+        private void accordionControlElement57_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fStokListesiRaporu = new FStokListesiRaporu(islem: "FStokListesiRaporu");
+            page.Name = "TPStokListesiRaporu" + i;
+            page.Text = "Stok Listesi Raporu";
+            page.Tag = "TPStokListesiRaporu" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fStokListesiRaporu.FormBorderStyle = FormBorderStyle.None;
+            fStokListesiRaporu.TopLevel = false;
+            fStokListesiRaporu.AutoScroll = true;
+            fStokListesiRaporu.Dock = DockStyle.Fill;
+            fStokListesiRaporu.Tag = "TPStokListesiRaporu" + i;
+            page.Controls.Add(fStokListesiRaporu);
+            fStokListesiRaporu.Show();
+            i++;
+        }
+
+        private void accordionControlElement58_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fCariHareketRaporu = new FCariHareketRaporu(islem: "FCariHareketRaporu");
+            page.Name = "TPCariHareketRaporu" + i;
+            page.Text = "Cari Hareket Raporu";
+            page.Tag = "TPCariHareketRaporu" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fCariHareketRaporu.FormBorderStyle = FormBorderStyle.None;
+            fCariHareketRaporu.TopLevel = false;
+            fCariHareketRaporu.AutoScroll = true;
+            fCariHareketRaporu.Dock = DockStyle.Fill;
+            fCariHareketRaporu.Tag = "TPCariHareketRaporu" + i;
+            page.Controls.Add(fCariHareketRaporu);
+            fCariHareketRaporu.Show();
+            i++;
+
+        }
+
+        private void accordionControlElement59_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fStokKategoriRaporu = new FStokKategoriRaporu(islem: "FStokKategoriRaporu");
+            page.Name = "TPStokKategoriRaporu" + i;
+            page.Text = "Stok Kategori Raporu";
+            page.Tag = "TPStokKategoriRaporu" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fStokKategoriRaporu.FormBorderStyle = FormBorderStyle.None;
+            fStokKategoriRaporu.TopLevel = false;
+            fStokKategoriRaporu.AutoScroll = true;
+            fStokKategoriRaporu.Dock = DockStyle.Fill;
+            fStokKategoriRaporu.Tag = "TPStokKategoriRaporu" + i;
+            page.Controls.Add(fStokKategoriRaporu);
+            fStokKategoriRaporu.Show();
+            i++;
+        }
+
+        private void accordionControlElement60_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fStokKasaHarRaporu = new FStokKasaHareketRaporu(islem: "FStokKasaHareketRaporu");
+            page.Name = "TPStokKasaHareketRaporu" + i;
+            page.Text = "Stok Kasa Hareket Raporu";
+            page.Tag = "TPStokKasaHareketRaporu" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fStokKasaHarRaporu.FormBorderStyle = FormBorderStyle.None;
+            fStokKasaHarRaporu.TopLevel = false;
+            fStokKasaHarRaporu.AutoScroll = true;
+            fStokKasaHarRaporu.Dock = DockStyle.Fill;
+            fStokKasaHarRaporu.Tag = "TPStokKasaHareketRaporu" + i;
+            page.Controls.Add(fStokKasaHarRaporu);
+            fStokKasaHarRaporu.Show();
             i++;
         }
     }

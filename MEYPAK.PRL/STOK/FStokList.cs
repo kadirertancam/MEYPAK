@@ -43,6 +43,8 @@ namespace MEYPAK.PRL.STOK
         FAlisIrsaliye fAlisIrsaliye;
         FAlisFatura fAlisFatura;
         FFatura ffatura;
+        FStokHareketRaporu fStokHareketRaporu;
+        FStokListesiRaporu fStokListesiRaporu;
         Main main;
         int id;
         string _islem;
@@ -93,6 +95,7 @@ namespace MEYPAK.PRL.STOK
                         fAlisFatura = (FAlisFatura)frm;
                     if (frm.Name.Contains("FStokFiyatRaporu"))
                         fStokFiyatRaporu = (FStokFiyatRaporu)frm;
+                    
 
                 }
             }
@@ -178,7 +181,7 @@ namespace MEYPAK.PRL.STOK
                     if (fStokFiyatRaporu != null)
                         fStokFiyatRaporu._tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
                 }
-
+              
                 this.Close();
             }
             else

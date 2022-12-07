@@ -3,6 +3,7 @@ using MEYPAK.PRL.ARAÇLAR;
 using MEYPAK.PRL.ARACLAR;
 using MEYPAK.PRL.Assets;
 using MEYPAK.PRL.CARI;
+using MEYPAK.PRL.CARI.Raporlar;
 using MEYPAK.PRL.DEPO;
 using MEYPAK.PRL.IRSALIYE;
 using MEYPAK.PRL.KASA;
@@ -12,6 +13,7 @@ using MEYPAK.PRL.PERSONEL;
 using MEYPAK.PRL.SIPARIS;
 using MEYPAK.PRL.STOK;
 using MEYPAK.PRL.STOK.Raporlar;
+using MEYPAK.PRL.STOK.StokKasa;
 using Microsoft.EntityFrameworkCore;
 using static MEYPAK.PRL.Assets.NinjectFactory;
 

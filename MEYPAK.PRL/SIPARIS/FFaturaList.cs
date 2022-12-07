@@ -7,6 +7,7 @@ using MEYPAK.Entity.PocoModels.IRSALIYE;
 using MEYPAK.Interfaces.IRSALIYE;
 using MEYPAK.Interfaces.Stok;
 using MEYPAK.PRL.IRSALIYE;
+using MEYPAK.PRL.STOK.Raporlar;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,6 +32,7 @@ namespace MEYPAK.PRL.SIPARIS
         string _form, _islem;
         int i = 0;
         FFatura ffatura;
+        FStokKasaHareketRaporu fStokKasaHareketRaporu;
         Main main;
         GenericWebServis<PocoFATURA> _faturaServis;
 
@@ -46,6 +48,8 @@ namespace MEYPAK.PRL.SIPARIS
                     {
                         if (frm.Name.Contains("FFatura"))
                             ffatura = (FFatura)frm;
+                        if (frm.Name.Contains("FStokKasaHareketRaporu"))
+                            fStokKasaHareketRaporu = (FStokKasaHareketRaporu)frm;
                     }
                 }
             }

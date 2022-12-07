@@ -8,7 +8,7 @@ using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Depo;
 using MEYPAK.Interfaces.Stok;
 using MEYPAK.PRL.CARI;
-
+using DevExpress.XtraReports;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -76,22 +76,35 @@ namespace MEYPAK.PRL.STOK.Raporlar
             Doldur();
             
         }
-
-        private void DGStokFiyatRpr_Click(object sender, EventArgs e)
-        {
-
-        }
-
-      
-
         private void BTRaporla_Click(object sender, EventArgs e)
         {
             
         }
 
+        //private void selectedColumnsButton_Click(object sender, System.EventArgs e)
+        //{
+        //    Int32 selectedColumnCount = gridView1.Columns
+        //        .GetColumnCount(DataGridViewElementStates.Selected);
+        //    if (selectedColumnCount > 0)
+        //    {
+        //        System.Text.StringBuilder sb = new System.Text.StringBuilder();
+
+        //        for (int i = 0; i < selectedColumnCount; i++)
+        //        {
+        //            sb.Append("Column: ");
+        //            sb.Append(gridView1.SelectAll[i].Index
+        //                .ToString());
+        //            sb.Append(Environment.NewLine);
+        //        }
+
+        //        sb.Append("Total: " + selectedColumnCount.ToString());
+        //        MessageBox.Show(sb.ToString(), "Selected Columns");
+        //    }
+        //}
+
         #endregion
 
-       
-       
+
+
     }
 }

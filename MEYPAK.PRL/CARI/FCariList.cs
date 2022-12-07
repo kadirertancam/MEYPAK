@@ -6,10 +6,12 @@ using MEYPAK.Entity.Models.SIPARIS;
 using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Stok;
+using MEYPAK.PRL.CARI.Raporlar;
 using MEYPAK.PRL.IRSALIYE;
 using MEYPAK.PRL.SIPARIS;
 using MEYPAK.PRL.STOK;
 using MEYPAK.PRL.STOK.FiyatListesi;
+using MEYPAK.PRL.STOK.Raporlar;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -35,6 +37,8 @@ namespace MEYPAK.PRL.CARI
         FAlisFatura fAlisFatura;
         FCariKart fCariKart;
         FStokFiyat fStokFiyat;
+        FCariHareketRaporu fCariHareketRaporu;
+        FStokKasaHareketRaporu fStokKasaHareketRaporu;
         Main main;
         int i = 0;
         FFatura ffatura;
@@ -77,6 +81,10 @@ namespace MEYPAK.PRL.CARI
                     fAlisFatura._tempCariKart = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
                 if (_islem == "FStokFiyat")
                     fStokFiyat._tempCariKart = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+                if (_islem == "FCariHareketRaporu")
+                    fCariHareketRaporu._tempCariKart = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+                if (_islem == "FStokKasaHareketRaporu")
+                    fStokKasaHareketRaporu._tempCariKart = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
             }
             else
             {
@@ -128,6 +136,10 @@ namespace MEYPAK.PRL.CARI
                             fAlisFatura = (FAlisFatura)frm;
                         if (frm.Name.Contains("FStokFiyat"))
                             fStokFiyat = (FStokFiyat)frm;
+                        if (frm.Name.Contains("FCariHareketRaporu"))
+                            fCariHareketRaporu = (FCariHareketRaporu)frm;
+                        if (frm.Name.Contains("FStokKasaHareketRaporu"))
+                            fStokKasaHareketRaporu = (FStokKasaHareketRaporu)frm;
                     }
                 }
             }
