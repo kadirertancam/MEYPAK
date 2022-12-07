@@ -4,6 +4,7 @@ using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MEYPAK.DAL.Migrations
 {
     [DbContext(typeof(MEYPAKContext))]
-    partial class MEYPAKContextModelSnapshot : ModelSnapshot
+    [Migration("20221205143239_MPFATURADEYbfiyateklendi")]
+    partial class MPFATURADEYbfiyateklendi
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1578,9 +1580,6 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<decimal>("ISKTOPLAM")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("ISTISNANO")
-                        .HasColumnType("int");
-
                     b.Property<int>("KASAID")
                         .HasColumnType("int");
 
@@ -1627,9 +1626,6 @@ namespace MEYPAK.DAL.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<int>("STOKID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TEVKIFATNO")
                         .HasColumnType("int");
 
                     b.Property<byte>("TIP")
@@ -2010,40 +2006,6 @@ namespace MEYPAK.DAL.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("MPSERI");
-                });
-
-            modelBuilder.Entity("MEYPAK.Entity.Models.PARAMETRE.MPSERIHAR", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
-
-                    b.Property<int>("DURUM")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ESKIID")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("GUNCELLEMETARIHI")
-                        .HasColumnType("datetime2");
-
-                    b.Property<byte>("KAYITTIPI")
-                        .HasColumnType("tinyint");
-
-                    b.Property<DateTime>("OLUSTURMATARIHI")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("SERIID")
-                        .HasColumnType("int");
-
-                    b.Property<long>("SERINO")
-                        .HasColumnType("bigint");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("MPSERIHAR");
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.PERSONEL.MPPERSONEL", b =>

@@ -154,6 +154,21 @@ namespace MEYPAK.BLL.Assets
         public const string CariHarFiltreServis = "http://213.238.167.117:8080/ARAC/CARIHARListe2?query=";
         #endregion
 
+        #region Seri
+        public const string SeriListeServis =               "http://213.238.167.117:8080/Seri/SERIListe";
+        public const string SeriEkleServis =                "http://213.238.167.117:8080/Seri/SERIEkleyadaGuncelle";
+        public const string SeriSilServis =                 "http://213.238.167.117:8080/Seri/SERISil";
+        public const string SeriGuncelleServis =            "http://213.238.167.117:8080/Seri/SERIGuncelle";
+        public const string SeriDeleteByIdServis =          "http://213.238.167.117:8080/Seri/DeleteById";
+        #endregion
+        #region Seri
+        public const string SeriHarListeServis =        "http://213.238.167.117:8080/SeriHar/SeriHarListe";
+        public const string SeriHarEkleServis =         "http://213.238.167.117:8080/SeriHar/SeriHarEkleyadaGuncelle";
+        public const string SeriHarSilServis =          "http://213.238.167.117:8080/SeriHar/SeriHarSil";
+        public const string SeriHarGuncelleServis =     "http://213.238.167.117:8080/SeriHar/SeriHarGuncelle";
+        public const string SeriHarDeleteByIdServis =   "http://213.238.167.117:8080/SeriHar/DeleteById";
+        #endregion
+
         #region StokSevkiyatList
         public const string StokSevkiyatListListeServis =           "http://213.238.167.117:8080/STOKSEVKIYATLIST/STOKSEVKIYATLISTListe";
         public const string StokSevkiyatListEkleServis = "http://213.238.167.117:8080/STOKSEVKIYATLIST/STOKSEVKIYATLISTEkleyadaGuncelle";

@@ -15,5 +15,6 @@ namespace MEYPAK.Entity.PocoModels
     {
         public int id { get; set; }
         public string adı { get; set; }
+        public int num { get; set; }
     }
 }

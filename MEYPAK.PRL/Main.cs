@@ -93,6 +93,8 @@ namespace MEYPAK.PRL
         FAlisIrsaliye fFAlisIrsaliye;
         FAlisFatura fFAlisFatura;
         FMusteriSiparisIrsaliyelestir fMusteriSiparisIrsaliyelestir;
+        FSeriTanim fSeriTanim;
+        
         FStokHareketRaporu fStokHareketRaporu;
         FStokFiyatRaporu fStokFiyatRaporu;
         FStokSayimRaporu fStokSayimRaporu;

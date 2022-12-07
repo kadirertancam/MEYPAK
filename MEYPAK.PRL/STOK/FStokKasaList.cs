@@ -169,7 +169,7 @@ namespace MEYPAK.PRL.STOK
                             {
                                 MARKA = gridView1.GetRowCellValue(item, "MARKA").ToString(),
                                 KASAADI = gridView1.GetRowCellValue(item, "KASAADI").ToString(),
-                                MIKTAR = int.Parse(gridView1.GetRowCellValue(item, "MIKTAR").ToString()),
+                                MIKTAR = decimal.Parse(gridView1.GetRowCellValue(item, "MIKTAR").ToString()),
                                 KASAID = int.Parse(gridView1.GetRowCellValue(item, "KASAID").ToString()),
                             });
                         }
@@ -201,7 +201,7 @@ namespace MEYPAK.PRL.STOK
                             {
                                 MARKA = gridView1.GetRowCellValue(item, "MARKA").ToString(),
                                 KASAADI = gridView1.GetRowCellValue(item, "KASAADI").ToString(),
-                                MIKTAR = int.Parse(gridView1.GetRowCellValue(item, "MIKTAR").ToString()),
+                                MIKTAR = decimal.Parse(gridView1.GetRowCellValue(item, "MIKTAR").ToString()),
                                 KASAID = int.Parse(gridView1.GetRowCellValue(item, "KASAID").ToString()),
                             });
                         }
@@ -234,7 +234,7 @@ namespace MEYPAK.PRL.STOK
                             {
                                 MARKA = gridView1.GetRowCellValue(item, "MARKA").ToString(),
                                 KASAADI = gridView1.GetRowCellValue(item, "KASAADI").ToString(),
-                                MIKTAR = int.Parse(gridView1.GetRowCellValue(item, "MIKTAR").ToString()),
+                                MIKTAR = decimal.Parse(gridView1.GetRowCellValue(item, "MIKTAR").ToString()),
                                 KASAID = int.Parse(gridView1.GetRowCellValue(item, "KASAID").ToString()),
                             });
                         }
@@ -267,7 +267,7 @@ namespace MEYPAK.PRL.STOK
                             {
                                 MARKA = gridView1.GetRowCellValue(item, "MARKA").ToString(),
                                 KASAADI = gridView1.GetRowCellValue(item, "KASAADI").ToString(),
-                                MIKTAR = int.Parse(gridView1.GetRowCellValue(item, "MIKTAR").ToString()),
+                                MIKTAR = decimal.Parse(gridView1.GetRowCellValue(item, "MIKTAR").ToString()),
                                 KASAID = int.Parse(gridView1.GetRowCellValue(item, "KASAID").ToString()),
                             });
                         }
@@ -301,7 +301,7 @@ namespace MEYPAK.PRL.STOK
                             {
                                 MARKA = gridView1.GetRowCellValue(item, "MARKA").ToString(),
                                 KASAADI = gridView1.GetRowCellValue(item, "KASAADI").ToString(),
-                                MIKTAR = int.Parse(gridView1.GetRowCellValue(item, "MIKTAR").ToString()),
+                                MIKTAR = decimal.Parse(gridView1.GetRowCellValue(item, "MIKTAR").ToString()),
                                 KASAID = int.Parse(gridView1.GetRowCellValue(item, "KASAID").ToString()),
                             });
                         }
@@ -335,7 +335,7 @@ namespace MEYPAK.PRL.STOK
                             {
                                 MARKA = gridView1.GetRowCellValue(item, "MARKA").ToString(),
                                 KASAADI = gridView1.GetRowCellValue(item, "KASAADI").ToString(),
-                                MIKTAR = int.Parse(gridView1.GetRowCellValue(item, "MIKTAR").ToString()),
+                                MIKTAR = decimal.Parse(gridView1.GetRowCellValue(item, "MIKTAR").ToString()),
                                 KASAID = int.Parse(gridView1.GetRowCellValue(item, "KASAID").ToString()),
                             });
                         }

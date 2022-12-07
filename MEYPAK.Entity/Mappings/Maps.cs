@@ -35,7 +35,7 @@ namespace MEYPAK.Entity.Mappings
             //PARAMETRE
 
             CreateMap<MPPARABIRIM, PocoPARABIRIM>().ReverseMap();
-
+            CreateMap<MPSERIHAR, PocoSERIHAR>().ReverseMap();
             //CARI
             CreateMap<ADRESLIST, PocoAdresList>().ReverseMap();
             CreateMap<MPCARIKART, PocoCARIKART>().ReverseMap();

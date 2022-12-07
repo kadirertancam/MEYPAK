@@ -1,32 +1,31 @@
 ﻿using AutoMapper;
 using MEYPAK.DAL.Concrete.ADONET;
+using MEYPAK.Entity.Models.PARAMETRE;
+using MEYPAK.Entity.PocoModels.PARAMETRE;
 using MEYPAK.Interfaces.Parametre;
 using Microsoft.AspNetCore.Mvc;
-using MEYPAK.Entity.PocoModels.PARAMETRE;
-using MEYPAK.Entity.Models.PARAMETRE;
 
-namespace MEYPAK.API.Controllers.SERIController
+namespace MEYPAK.API.Controllers.PARAMETREControllers
 {
-    [ApiController]
-    [Route("[controller]")]
-    public class SERIController : Controller
+    public class SeriController : Controller
     {
         private readonly IMapper _mapper;
-        private readonly ISeriServis _SERIServis;
-        private MPAdoContext<MPSERI> _adoSERIServis = new MPAdoContext<MPSERI>();
-        public SERIController(IMapper mapper, ISeriServis SERIServis)
+        private readonly ISeriServis SERIServis;
+        private MPAdoContext<MPSERI> _adoSERIServis;
+        public SeriController(IMapper mapper, ISeriServis cariServis)
         {
             _mapper = mapper;
-            _SERIServis = SERIServis;
+            SERIServis = cariServis;
         }
-        
+
         [HttpGet]
         [Route("/[controller]/[action]")]
+
         public IActionResult SERIListe()
         {
             try
             {
-                var data = _SERIServis.Listele();
+                var data = SERIServis.Listele();
                 return Ok(data);
             }
             catch (Exception ex)
@@ -51,16 +50,16 @@ namespace MEYPAK.API.Controllers.SERIController
 
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult SERIEKleyadaGuncelle(PocoSERI pModel)
+        public IActionResult SERIEkleyadaGuncelle([FromBody]PocoSERI pModel)
         {
             try
             {
-                var data = _SERIServis.EkleyadaGuncelle(pModel);
+                var data = SERIServis.EkleyadaGuncelle(pModel);
                 return Ok(data);
             }
             catch (Exception ex)
             {
-                return Problem("Belirsiz bir hata oluştu!" + ex.Message);
+                return Problem("Belirsiz bir hata oluştu! " + ex.Message);
             }
         }
         [HttpPost]
@@ -69,7 +68,7 @@ namespace MEYPAK.API.Controllers.SERIController
         {
             try
             {
-                var data = _SERIServis.Sil(pModel);
+                var data = SERIServis.Sil(pModel);
                 return Ok(data);
             }
             catch (Exception ex)
@@ -83,7 +82,7 @@ namespace MEYPAK.API.Controllers.SERIController
         {
             try
             {
-                var data = _SERIServis.Guncelle(pModel);
+                var data = SERIServis.Guncelle(pModel);
                 return Ok(data);
             }
             catch (Exception ex)
@@ -91,22 +90,6 @@ namespace MEYPAK.API.Controllers.SERIController
                 return Problem("Belirsiz bir hata oluştu!" + ex.Message);
             }
         }
-        [HttpPost]
-        [Route("/[controller]/[action]")]
-        public IActionResult DeleteById([FromQuery] int id)
-        {
-            try
-            {
-                bool succes = _SERIServis.DeleteById(id);
-                if (succes)
-                    return Ok(id + " Başarıyla Silindi");
-                else
-                    return Ok(id + " Silinemedi.");
-            }
-            catch (Exception ex)
-            {
-                return Problem("Belirsiz bir hata oluştu!" + ex.Message);
-            }
-        }
+
     }
 }

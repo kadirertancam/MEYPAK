@@ -29,25 +29,25 @@
         private void InitializeComponent()
         {
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
-            this.yeniTextEdit1 = new MEYPAK.PRL.Assets.YeniTextEdit();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.CBTip = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.TBSeri = new MEYPAK.PRL.Assets.YeniTextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
-            this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.yeniTextEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
+            this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CBTip.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBSeri.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -60,19 +60,6 @@
             this.panelControl1.Size = new System.Drawing.Size(800, 450);
             this.panelControl1.TabIndex = 0;
             // 
-            // panelControl2
-            // 
-            this.panelControl2.Controls.Add(this.labelControl2);
-            this.panelControl2.Controls.Add(this.labelControl1);
-            this.panelControl2.Controls.Add(this.comboBoxEdit1);
-            this.panelControl2.Controls.Add(this.simpleButton1);
-            this.panelControl2.Controls.Add(this.yeniTextEdit1);
-            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl2.Location = new System.Drawing.Point(2, 2);
-            this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(796, 124);
-            this.panelControl2.TabIndex = 0;
-            // 
             // panelControl3
             // 
             this.panelControl3.Controls.Add(this.gridControl1);
@@ -81,51 +68,6 @@
             this.panelControl3.Name = "panelControl3";
             this.panelControl3.Size = new System.Drawing.Size(796, 322);
             this.panelControl3.TabIndex = 1;
-            // 
-            // yeniTextEdit1
-            // 
-            this.yeniTextEdit1.Location = new System.Drawing.Point(62, 36);
-            this.yeniTextEdit1.Name = "yeniTextEdit1";
-            this.yeniTextEdit1.Size = new System.Drawing.Size(100, 20);
-            this.yeniTextEdit1.TabIndex = 0;
-            // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Location = new System.Drawing.Point(189, 39);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(91, 43);
-            this.simpleButton1.TabIndex = 2;
-            this.simpleButton1.Text = "Kaydet";
-            // 
-            // comboBoxEdit1
-            // 
-            this.comboBoxEdit1.Location = new System.Drawing.Point(62, 62);
-            this.comboBoxEdit1.Name = "comboBoxEdit1";
-            this.comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit1.Properties.Items.AddRange(new object[] {
-            "E-Fatura",
-            "E-Arşiv",
-            "E-Irsaliye",
-            "E-Müstahsil"});
-            this.comboBoxEdit1.Size = new System.Drawing.Size(100, 20);
-            this.comboBoxEdit1.TabIndex = 3;
-            // 
-            // labelControl1
-            // 
-            this.labelControl1.Location = new System.Drawing.Point(20, 65);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(14, 13);
-            this.labelControl1.TabIndex = 4;
-            this.labelControl1.Text = "Tip";
-            // 
-            // labelControl2
-            // 
-            this.labelControl2.Location = new System.Drawing.Point(20, 39);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(18, 13);
-            this.labelControl2.TabIndex = 5;
-            this.labelControl2.Text = "Seri";
             // 
             // gridControl1
             // 
@@ -143,6 +85,65 @@
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             // 
+            // panelControl2
+            // 
+            this.panelControl2.Controls.Add(this.labelControl2);
+            this.panelControl2.Controls.Add(this.labelControl1);
+            this.panelControl2.Controls.Add(this.CBTip);
+            this.panelControl2.Controls.Add(this.simpleButton1);
+            this.panelControl2.Controls.Add(this.TBSeri);
+            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl2.Location = new System.Drawing.Point(2, 2);
+            this.panelControl2.Name = "panelControl2";
+            this.panelControl2.Size = new System.Drawing.Size(796, 124);
+            this.panelControl2.TabIndex = 0;
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Location = new System.Drawing.Point(20, 39);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(18, 13);
+            this.labelControl2.TabIndex = 5;
+            this.labelControl2.Text = "Seri";
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Location = new System.Drawing.Point(20, 65);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(14, 13);
+            this.labelControl1.TabIndex = 4;
+            this.labelControl1.Text = "Tip";
+            // 
+            // CBTip
+            // 
+            this.CBTip.Location = new System.Drawing.Point(62, 62);
+            this.CBTip.Name = "CBTip";
+            this.CBTip.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CBTip.Properties.Items.AddRange(new object[] {
+            "E-Fatura",
+            "E-Arşiv",
+            "E-Irsaliye",
+            "E-Müstahsil"});
+            this.CBTip.Size = new System.Drawing.Size(100, 20);
+            this.CBTip.TabIndex = 3;
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Location = new System.Drawing.Point(189, 39);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(91, 43);
+            this.simpleButton1.TabIndex = 2;
+            this.simpleButton1.Text = "Kaydet";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            // 
+            // TBSeri
+            // 
+            this.TBSeri.Location = new System.Drawing.Point(62, 36);
+            this.TBSeri.Name = "TBSeri";
+            this.TBSeri.Size = new System.Drawing.Size(100, 20);
+            this.TBSeri.TabIndex = 0;
+            // 
             // FSeriTanim
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -151,17 +152,18 @@
             this.Controls.Add(this.panelControl1);
             this.Name = "FSeriTanim";
             this.Text = "FSeriTanim";
+            this.Load += new System.EventHandler(this.FSeriTanim_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
+            this.panelControl3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             this.panelControl2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
-            this.panelControl3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.yeniTextEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CBTip.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBSeri.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -175,8 +177,8 @@
         private DevExpress.XtraEditors.PanelControl panelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
+        private DevExpress.XtraEditors.ComboBoxEdit CBTip;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private Assets.YeniTextEdit yeniTextEdit1;
+        private Assets.YeniTextEdit TBSeri;
     }
 }

@@ -136,7 +136,7 @@
             // 
             // DTSiparisTarih
             // 
-            this.DTSiparisTarih.EditValue = new System.DateTime(2022, 11, 18, 17, 30, 38, 141);
+            this.DTSiparisTarih.EditValue = new System.DateTime(2022, 12, 5, 16, 21, 27, 0);
             this.DTSiparisTarih.Location = new System.Drawing.Point(395, 27);
             this.DTSiparisTarih.Name = "DTSiparisTarih";
             this.DTSiparisTarih.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -157,8 +157,14 @@
             this.TBGun.EditValue = "0";
             this.TBGun.Location = new System.Drawing.Point(225, 120);
             this.TBGun.Name = "TBGun";
+            this.TBGun.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.TBGun.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.TBGun.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
+            this.TBGun.Properties.MaskSettings.Set("MaskManagerSignature", "allowNull=False");
+            this.TBGun.Properties.MaskSettings.Set("mask", "d");
             this.TBGun.Size = new System.Drawing.Size(45, 20);
             this.TBGun.TabIndex = 155;
+            this.TBGun.EditValueChanged += new System.EventHandler(this.TBGun_EditValueChanged);
             // 
             // CBAltHesap
             // 
@@ -284,13 +290,14 @@
             // 
             // DTPVadeTarihi
             // 
-            this.DTPVadeTarihi.EditValue = new System.DateTime(2022, 11, 18, 17, 30, 23, 918);
+            this.DTPVadeTarihi.EditValue = new System.DateTime(2022, 12, 5, 17, 30, 23, 0);
             this.DTPVadeTarihi.Location = new System.Drawing.Point(91, 120);
             this.DTPVadeTarihi.Name = "DTPVadeTarihi";
             this.DTPVadeTarihi.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.DTPVadeTarihi.Size = new System.Drawing.Size(107, 20);
             this.DTPVadeTarihi.TabIndex = 159;
+            this.DTPVadeTarihi.EditValueChanged += new System.EventHandler(this.DTPVadeTarihi_EditValueChanged);
             // 
             // TBAciklama
             // 
@@ -424,6 +431,7 @@
             this.gridView1.OptionsView.ShowFooter = true;
             this.gridView1.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gridView1_RowClick);
             this.gridView1.RowCellClick += new DevExpress.XtraGrid.Views.Grid.RowCellClickEventHandler(this.gridView1_RowCellClick);
+            this.gridView1.ColumnChanged += new System.EventHandler(this.gridView1_ColumnChanged);
             this.gridView1.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView1_FocusedRowChanged);
             this.gridView1.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridView1_CellValueChanged);
             this.gridView1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.gridView1_KeyPress);

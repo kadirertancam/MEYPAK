@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.Entity.Models.PARAMETRE
 {
-    public class MPSERI:SUPERMODEL
+    public class MPSERIHAR:SUPERMODEL
     {
-        public string SERINO { get; set; }
-        public int TIP { get; set; }   //0-Efatura,1-EArşiv,2-EIrsaliye,3-EMüstahsil
+        public int SERIID { get; set; } 
+        public long SERINO { get; set; }
+        public int DURUM { get; set; }
     }
 }
