@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.DAL.Concrete.EntityFramework.Repository.ParametreRepo
 {
-    internal class EFSeriHarRepo : EFBaseRepo<MPSERIHAR>, ISeriHarDal
+    public class EFSeriHarRepo : EFBaseRepo<MPSERIHAR>, ISeriHarDal
     {
         public MEYPAKContext context;
 

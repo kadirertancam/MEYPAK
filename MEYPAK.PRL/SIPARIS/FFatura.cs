@@ -373,7 +373,7 @@ namespace MEYPAK.PRL.SIPARIS
                         BirimFiyat = _tempCariKart != null && _tempCariKart.id > 0 && _stokFiyatServis.obje.Where(x => x.cariid == _tempCariKart.id).Count() > 0 && _stokFiyatHarServis.obje.Where(z => z.stokfiyatid == _stokFiyatServis.obje.Where(x => x.cariid == _tempCariKart.id).LastOrDefault().id && z.stokid == _tempStok.id).Count() > 0 ? _stokFiyatHarServis.obje.Where(z => z.stokfiyatid == _stokFiyatServis.obje.Where(x => x.cariid == _tempCariKart.id).LastOrDefault().id && z.stokid == _tempStok.id).LastOrDefault().fiyat : 0,
                         Kdv = _tempStok.satiskdv,
                     };
-                    if (_stokOlcuBrList.Where(x => x.num == gridView1.FocusedRowHandle).Count() > 0)
+                    if ( gridView1.FocusedRowHandle > 0)
                     { 
                        
                         foreach (var item in _stokOlcuBr.obje.Where(x => x.stokid == _tempStok.id))

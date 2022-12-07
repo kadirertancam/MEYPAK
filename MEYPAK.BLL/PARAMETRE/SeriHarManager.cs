@@ -16,8 +16,10 @@ namespace MEYPAK.BLL.PARAMETRE
     {
         IMapper _mapper;
         ISeriHarDal _seriHarDal;
-        public SeriHarManager(IMapper mapper, IGeneric<MPSERIHAR> repo, string includeEntities = null) : base(mapper, repo, includeEntities)
+        public SeriHarManager(IMapper mapper, ISeriHarDal repo ) : base(mapper, repo )
         {
+            _mapper = mapper;
+            _seriHarDal=repo;
         }
         public PocoSERIHAR EkleyadaGuncelle(PocoSERIHAR pModel)
         {

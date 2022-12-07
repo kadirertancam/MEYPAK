@@ -31,22 +31,9 @@ namespace MEYPAK.PRL.SIPARIS
         FIrsaliyeSettingsPanel ırsaliyeSettingsPanel;
         private void FMusteriSiparisIrsaliyelestir_Load(object sender, EventArgs e)
         {
-            _depoServis.Data(ServisList.DepoListeServis);
-            _siparisServis.Data(ServisList.SiparisListeServis);
-            DGSiparisList.DataSource = _siparisServis.obje.Where(x =>  x.kayittipi == 0 && x.tip == 0).Select(x => new
-            {
-                ID = x.id,
-                Tarih = x.siparistarihi,
-                BelgeNo = x.belgeno,
-                CariAdı = x.cariadi,
-                SevkiyatTarihi = x.sevkiyattarihi,
-                Depo = _depoServis.obje.Where(z => z.id == x.depoid).FirstOrDefault().depoadi,
-                GENELTOPLAM = x.geneltoplam,
-                DURUM = x.durum == false ? "Beklemede" : "Tamamlandı",
+            siparislist();
 
-            });
-            gridView2.Columns["ID"].Visible = false;
-            
+
         }
 
         private void gridView2_Click(object sender, EventArgs e)
@@ -80,6 +67,28 @@ namespace MEYPAK.PRL.SIPARIS
             gridControl1.DataSource = _siparisDetayServis.obje.Where(x => x.kayittipi == 0 && x.siparisid.ToString() == gridView2.GetFocusedRowCellValue("ID").ToString()).Select(x => new { ID = x.id, StokId = x.stokid, StokAdı = x.stokadi, Daralı = x.daralı, Dara = x.dara, Safi = x.safi, NetFiyat = x.netfiyat, BrutFiyat = x.brutfiyat, Iskonto1 = x.istkontO1, Iskonto2 = x.istkontO2, Iskonto3 = x.istkontO3, NetToplam = x.nettoplam, BrutToplam = x.bruttoplam });
             gridView1.Columns["StokId"].Visible = false;
             gridView1.Columns["ID"].Visible = false;
+        }
+        void siparislist()
+        {
+            _depoServis.Data(ServisList.DepoListeServis);
+            _siparisServis.Data(ServisList.SiparisListeServis);
+            DGSiparisList.DataSource = _siparisServis.obje.Where(x => x.kayittipi == 0 && x.tip == 0).Select(x => new
+            {
+                ID = x.id,
+                Tarih = x.siparistarihi,
+                BelgeNo = x.belgeno,
+                CariAdı = x.cariadi,
+                SevkiyatTarihi = x.sevkiyattarihi,
+                Depo = _depoServis.obje.Where(z => z.id == x.depoid).FirstOrDefault().depoadi,
+                GENELTOPLAM = x.geneltoplam,
+                DURUM = x.durum == false ? "Beklemede" : "Tamamlandı",
+
+            });
+            gridView2.Columns["ID"].Visible = false;
+        }
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+            siparislist();
         }
     }
 }

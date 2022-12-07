@@ -91,6 +91,9 @@ builder.Services.AddAutoMapper(x =>
 #region Parametre_Scoped_Islemleri
 builder.Services.AddScoped<IParaBirimDal, EFParaBirimRepo>();
 builder.Services.AddScoped<IParaBirimServis, ParaBirimManager>();
+
+builder.Services.AddScoped<ISeriHarDal, EFSeriHarRepo>();
+builder.Services.AddScoped<ISeriHarServis, SeriHarManager>();
 #endregion
 #region Cari_Scoped_Islemleri
 builder.Services.AddScoped<ICariResimDal, EFCariResimRepo>();

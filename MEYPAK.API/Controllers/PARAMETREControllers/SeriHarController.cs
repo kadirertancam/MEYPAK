@@ -7,25 +7,25 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MEYPAK.API.Controllers.PARAMETREControllers
 {
-    public class SeriHarHarController : Controller
+    public class SeriHarController : Controller
     {
         private readonly IMapper _mapper;
-        private readonly ISeriHarServis MPSeriHarServis;
-        private MPAdoContext<MPSERIHAR> _adoMPSeriHarServis;
-        public SeriHarHarController(IMapper mapper, ISeriHarServis cariServis)
+        private readonly ISeriHarServis SeriHarServis;
+        private MPAdoContext<MPSERIHAR> _adoSeriHarServis;
+        public SeriHarController(IMapper mapper, ISeriHarServis cariServis)
         {
             _mapper = mapper;
-            MPSeriHarServis = cariServis;
+            SeriHarServis = cariServis;
         }
 
         [HttpGet]
         [Route("/[controller]/[action]")]
 
-        public IActionResult MPSeriHarListe()
+        public IActionResult SeriHarListe()
         {
             try
             {
-                var data = MPSeriHarServis.Listele();
+                var data = SeriHarServis.Listele();
                 return Ok(data);
             }
             catch (Exception ex)
@@ -35,12 +35,12 @@ namespace MEYPAK.API.Controllers.PARAMETREControllers
         }
         [HttpGet]
         [Route("/[controller]/[action]")]
-        public IActionResult MPSeriHarListe2([FromQuery] string query)
+        public IActionResult SeriHarListe2([FromQuery] string query)
         {
             try
             {
-                _adoMPSeriHarServis.HepsiniGetir(query);
-                return Ok(_adoMPSeriHarServis.GenericList);
+                _adoSeriHarServis.HepsiniGetir(query);
+                return Ok(_adoSeriHarServis.GenericList);
             }
             catch (Exception ex)
             {
@@ -50,11 +50,11 @@ namespace MEYPAK.API.Controllers.PARAMETREControllers
 
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult MPSeriHarEkleyadaGuncelle([FromBody] PocoSERIHAR pModel)
+        public IActionResult SeriHarEkleyadaGuncelle([FromBody] PocoSERIHAR pModel)
         {
             try
             {
-                var data = MPSeriHarServis.EkleyadaGuncelle(pModel);
+                var data = SeriHarServis.EkleyadaGuncelle(pModel);
                 return Ok(data);
             }
             catch (Exception ex)
@@ -64,11 +64,11 @@ namespace MEYPAK.API.Controllers.PARAMETREControllers
         }
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult MPSeriHarSil(List<PocoSERIHAR> pModel)
+        public IActionResult SeriHarSil(List<PocoSERIHAR> pModel)
         {
             try
             {
-                var data = MPSeriHarServis.Sil(pModel);
+                var data = SeriHarServis.Sil(pModel);
                 return Ok(data);
             }
             catch (Exception ex)
@@ -78,11 +78,11 @@ namespace MEYPAK.API.Controllers.PARAMETREControllers
         }
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult MPSeriHarGuncelle(PocoSERIHAR pModel)
+        public IActionResult SeriHarGuncelle(PocoSERIHAR pModel)
         {
             try
             {
-                var data = MPSeriHarServis.Guncelle(pModel);
+                var data = SeriHarServis.Guncelle(pModel);
                 return Ok(data);
             }
             catch (Exception ex)

@@ -33,11 +33,9 @@
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.dateEdit2 = new DevExpress.XtraEditors.DateEdit();
             this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
-            this.yeniTextEdit2 = new MEYPAK.PRL.Assets.YeniTextEdit();
             this.yeniTextEdit1 = new MEYPAK.PRL.Assets.YeniTextEdit();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
@@ -46,7 +44,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.yeniTextEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.yeniTextEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,11 +53,9 @@
             this.groupControl1.Controls.Add(this.simpleButton1);
             this.groupControl1.Controls.Add(this.labelControl4);
             this.groupControl1.Controls.Add(this.labelControl3);
-            this.groupControl1.Controls.Add(this.labelControl2);
             this.groupControl1.Controls.Add(this.labelControl1);
             this.groupControl1.Controls.Add(this.dateEdit2);
             this.groupControl1.Controls.Add(this.dateEdit1);
-            this.groupControl1.Controls.Add(this.yeniTextEdit2);
             this.groupControl1.Controls.Add(this.yeniTextEdit1);
             this.groupControl1.Controls.Add(this.comboBox1);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -90,7 +85,7 @@
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(28, 130);
+            this.labelControl4.Location = new System.Drawing.Point(28, 105);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(56, 13);
             this.labelControl4.TabIndex = 9;
@@ -98,19 +93,11 @@
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(11, 104);
+            this.labelControl3.Location = new System.Drawing.Point(11, 79);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(68, 13);
             this.labelControl3.TabIndex = 8;
             this.labelControl3.Text = "Irsaliye Tarihi:";
-            // 
-            // labelControl2
-            // 
-            this.labelControl2.Location = new System.Drawing.Point(12, 78);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(67, 13);
-            this.labelControl2.TabIndex = 7;
-            this.labelControl2.Text = "Eski Belge No:";
             // 
             // labelControl1
             // 
@@ -123,7 +110,7 @@
             // dateEdit2
             // 
             this.dateEdit2.EditValue = null;
-            this.dateEdit2.Location = new System.Drawing.Point(90, 127);
+            this.dateEdit2.Location = new System.Drawing.Point(90, 102);
             this.dateEdit2.Name = "dateEdit2";
             this.dateEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -133,7 +120,7 @@
             // dateEdit1
             // 
             this.dateEdit1.EditValue = null;
-            this.dateEdit1.Location = new System.Drawing.Point(90, 101);
+            this.dateEdit1.Location = new System.Drawing.Point(90, 76);
             this.dateEdit1.Name = "dateEdit1";
             this.dateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -142,15 +129,9 @@
             this.dateEdit1.Size = new System.Drawing.Size(232, 20);
             this.dateEdit1.TabIndex = 4;
             // 
-            // yeniTextEdit2
-            // 
-            this.yeniTextEdit2.Location = new System.Drawing.Point(90, 75);
-            this.yeniTextEdit2.Name = "yeniTextEdit2";
-            this.yeniTextEdit2.Size = new System.Drawing.Size(232, 20);
-            this.yeniTextEdit2.TabIndex = 3;
-            // 
             // yeniTextEdit1
             // 
+            this.yeniTextEdit1.Enabled = false;
             this.yeniTextEdit1.Location = new System.Drawing.Point(149, 49);
             this.yeniTextEdit1.Name = "yeniTextEdit1";
             this.yeniTextEdit1.Size = new System.Drawing.Size(173, 20);
@@ -180,7 +161,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.yeniTextEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.yeniTextEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
 
@@ -193,11 +173,9 @@
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.LabelControl labelControl3;
-        private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.DateEdit dateEdit2;
         private DevExpress.XtraEditors.DateEdit dateEdit1;
-        private Assets.YeniTextEdit yeniTextEdit2;
         private Assets.YeniTextEdit yeniTextEdit1;
         private ComboBox comboBox1;
     }

@@ -28,6 +28,7 @@ namespace MEYPAK.PRL.SIPARIS
             _irsaliyeDetayServis = new GenericWebServis<PocoIRSALIYEDETAY>();
             _siparisDetayServis = new GenericWebServis<PocoSIPARISDETAY>();
             _seriServis = new GenericWebServis<PocoSERI>();
+            _seriHarServis = new GenericWebServis<PocoSERIHAR>();
         }
         FMusteriSiparisIrsaliyelestir musteriSiparisIrsaliyelestir;
         List<PocoSIPARISDETAY> tempSipDetay;
@@ -36,8 +37,10 @@ namespace MEYPAK.PRL.SIPARIS
         GenericWebServis<PocoIRSALIYEDETAY> _irsaliyeDetayServis;
         GenericWebServis<PocoSIPARISDETAY> _siparisDetayServis;
         GenericWebServis<PocoSERI> _seriServis;
+        GenericWebServis<PocoSERIHAR> _seriHarServis;
         private void simpleButton2_Click(object sender, EventArgs e)
         {
+            _siparisDetayServis.Data(ServisList.SiparisDetayListeServis);
             musteriSiparisIrsaliyelestir = (FMusteriSiparisIrsaliyelestir)Application.OpenForms["FMusteriSiparisIrsaliyelestir"];
             foreach (var item in musteriSiparisIrsaliyelestir.gridView1.GetSelectedRows())
             {
@@ -54,7 +57,7 @@ namespace MEYPAK.PRL.SIPARIS
                 {
                     aciklama = tempsip.aciklama,
                     althesapid = tempsip.althesapid,
-                    belgeno = tempsip.belgeno,
+                    belgeno = comboBox1.Text+yeniTextEdit1.Text,
                     bruttoplam = tempsip.bruttoplam,
                     cariadi = tempsip.cariadi,
                     cariid = tempsip.cariid,
@@ -88,6 +91,7 @@ namespace MEYPAK.PRL.SIPARIS
 
                 _irsaliyeDetayServis.Data(ServisList.IrsaliyeDetayEkleServis, new PocoIRSALIYEDETAY()
                 {
+                    irsaliyeid= _irsaliyeServis.obje2.id,
                     aciklama = item.aciklama,
                     bekleyenmiktar = item.bekleyenmiktar,
                     birimid = item.birimid,
@@ -112,17 +116,27 @@ namespace MEYPAK.PRL.SIPARIS
                 });
                 item.hareketdurumu = 1;
                 _siparisDetayServis.Data(ServisList.SiparisDetayEkleServis, item);
+
+                _seriHarServis.Data(ServisList.SeriHarListeServis);
+                var tempserihar = _seriHarServis.obje.Where(x => x.seriid == _seriServis.obje.Where(z => z.SERINO.ToString() == comboBox1.Text).FirstOrDefault().id).FirstOrDefault();
+                tempserihar.serino = tempserihar.serino + 1;
+                _seriHarServis.Data(ServisList.SeriHarEkleServis, tempserihar);
             }
         }
 
         private void FIrsaliyeSettingsPanel_Load(object sender, EventArgs e)
         {
+            musteriSiparisIrsaliyelestir = (FMusteriSiparisIrsaliyelestir)Application.OpenForms["FMusteriSiparisIrsaliyelestir"];
             _seriServis.Data(ServisList.SeriListeServis);
             foreach (var item in _seriServis.obje)
             {
                 comboBox1.Items.Add(item.SERINO);
             }
-            comboBox1.SelectedIndex = 0;
+            _seriHarServis.Data(ServisList.SeriHarListeServis);
+            comboBox1.Text = comboBox1.Items[0].ToString();
+            yeniTextEdit1.Text=(_seriHarServis.obje.Where(x=>x.seriid==_seriServis.obje.Where(z=>z.SERINO.ToString()==comboBox1.Text).FirstOrDefault().id).FirstOrDefault().serino +1).ToString();
+            dateEdit2.Text = musteriSiparisIrsaliyelestir.gridView2.GetFocusedRowCellValue("Tarih").ToString();
+            dateEdit1.Text = musteriSiparisIrsaliyelestir.gridView2.GetFocusedRowCellValue("SevkiyatTarihi").ToString();
         }
     }
 }
