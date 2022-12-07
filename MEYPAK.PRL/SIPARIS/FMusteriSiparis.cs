@@ -290,8 +290,8 @@ namespace MEYPAK.PRL.SIPARIS
 
         private void RepositoryItemButtonEdit2_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
-            _fStokOlcuBrList = new FStokOlcuBrList(this.Tag.ToString(), "FMusteriSiparis");
-            _fStokOlcuBrList.stokid = _tempStok.id;
+            _fStokOlcuBrList = new FStokOlcuBrList(this.Tag.ToString(), "FMusteriSiparis",_tempStok.id);
+           
             _fStokOlcuBrList.ShowDialog();
         }
 
@@ -314,6 +314,7 @@ namespace MEYPAK.PRL.SIPARIS
                                //KasaAdı = "",
                     Kdv = _tempStok.satiskdv,
                 };
+                
             }
             else if (gridView1.GetFocusedRowCellValue("Tipi") == "KASA")
             {

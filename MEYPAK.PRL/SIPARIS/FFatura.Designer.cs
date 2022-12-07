@@ -151,6 +151,7 @@
             this.CHBKdvDahil.Properties.Caption = "KDV Dahil";
             this.CHBKdvDahil.Size = new System.Drawing.Size(64, 20);
             this.CHBKdvDahil.TabIndex = 158;
+            this.CHBKdvDahil.CheckedChanged += new System.EventHandler(this.CHBKdvDahil_CheckedChanged);
             // 
             // TBGun
             // 

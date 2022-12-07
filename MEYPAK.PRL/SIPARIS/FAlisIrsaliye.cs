@@ -322,8 +322,7 @@ namespace MEYPAK.PRL.IRSALIYE
 
         private void RepositoryItemButtonEdit2_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
-            _fStokOlcuBrList = new FStokOlcuBrList(this.Tag.ToString(), "AlisIrsaliye");
-            _fStokOlcuBrList.stokid = _tempStok.id;
+            _fStokOlcuBrList = new FStokOlcuBrList(this.Tag.ToString(), "AlisIrsaliye",_tempStok.id);
             _fStokOlcuBrList.ShowDialog();
         }
 

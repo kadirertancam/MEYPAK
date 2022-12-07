@@ -305,8 +305,7 @@ namespace MEYPAK.PRL.SIPARIS
 
         private void RepositoryItemButtonEdit2_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
-            _fStokOlcuBrList = new FStokOlcuBrList(this.Tag.ToString(), "FSatinAlmaSiparis");
-            _fStokOlcuBrList.stokid = _tempStok.id;
+            _fStokOlcuBrList = new FStokOlcuBrList(this.Tag.ToString(), "FSatinAlmaSiparis",_tempStok.id);
             _fStokOlcuBrList.ShowDialog();
         }
 
