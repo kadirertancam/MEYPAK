@@ -17,7 +17,6 @@ namespace MEYPAK.Entity.PocoModels.FATURA
         public int dovizid { get; set; } = 0;
         public int listefiyatid { get; set; } = 0;
         public int kullaniciid { get; set; } = 0;
-        public int kasaid { get; set; } = 0;
         public byte tip { get; set; } = 0;
         [StringLength(50)]
         public string stokadi { get; set; } = "";
@@ -43,5 +42,6 @@ namespace MEYPAK.Entity.PocoModels.FATURA
         public decimal kdv { get; set; } = 0;
         public decimal kdvtutari { get; set; } = 0;
         public string kunye { get; set; }
+       
     }
 }

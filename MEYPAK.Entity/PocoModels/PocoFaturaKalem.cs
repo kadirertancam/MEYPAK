@@ -38,5 +38,7 @@ namespace MEYPAK.Entity.PocoModels
         public decimal NetToplam { get; set; } = 0;
         public decimal BrütToplam { get; set; } = 0;
         public string Kunye { get; set; }
+
+       
     }
 }

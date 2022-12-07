@@ -33,17 +33,18 @@ namespace MEYPAK.PRL.STOK
         FSatisIrsaliye fSatisIrsaliye;
         FAlisIrsaliye fAlisIrsaliye;
         FAlisFatura fAlisFatura;
-        public FStokOlcuBrList(string form="", string islem = "")
+        public FStokOlcuBrList(string form="", string islem = "", int stokid=0)
         {
             InitializeComponent();
             _olcuBr = new GenericWebServis<PocoOLCUBR>();
             _stokOlcuBr = new GenericWebServis<PocoSTOKOLCUBR>();
             _form = form; 
-            this._islem = islem;
+            this._islem = islem; 
+            _stokid=stokid;
         }
         GenericWebServis<PocoOLCUBR> _olcuBr;
         GenericWebServis<PocoSTOKOLCUBR> _stokOlcuBr;  
-        public int stokid;
+        int _stokid;
     
         private void FStokOlcuBrList_Load_1(object sender, EventArgs e)
         {
@@ -68,16 +69,25 @@ namespace MEYPAK.PRL.STOK
                         fSatisIrsaliye = (FSatisIrsaliye)frm;
                     if (frm.Name.Contains("FAlisIrsaliye"))
                         fAlisIrsaliye = (FAlisIrsaliye)frm;
-                    if (frm.Name.Contains("FFatura"))
-                        ffatura = (FFatura)frm;
                     if (frm.Name.Contains("FAlisFatura"))
                         fAlisFatura = (FAlisFatura)frm;
+                    if (frm.Name.Contains("FFatura"))
+                        ffatura = (FFatura)frm;
+                  
                 }
-            } 
-             
+            }
             _olcuBr.Data(ServisList.OlcuBrListeServis);
             _stokOlcuBr.Data(ServisList.StokOlcuBrListeServis);
-            GCStokOlcuBrList.DataSource = _stokOlcuBr.obje.Where(x=>x.stokid==stokid).Select(x=> _olcuBr.obje.Where(z=>z.id==x.olcubrid).Select(z=>z.adi).FirstOrDefault()).ToList();
+            if (_stokid==0)
+            {
+                GCStokOlcuBrList.DataSource = _stokOlcuBr.obje.Select(x => _olcuBr.obje.Where(z => z.id == x.olcubrid).Select(z => z.adi).FirstOrDefault()).ToList();
+            }
+            else
+            {
+                GCStokOlcuBrList.DataSource = _stokOlcuBr.obje.Where(x=>x.stokid==_stokid).Select(x => _olcuBr.obje.Where(z => z.id == x.olcubrid).Select(z => z.adi).FirstOrDefault()).ToList(); 
+            }
+
+
         }
 
         private void gridView1_DoubleClick(object sender, EventArgs e)
