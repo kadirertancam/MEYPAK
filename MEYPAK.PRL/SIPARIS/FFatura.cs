@@ -157,23 +157,30 @@ namespace MEYPAK.PRL.SIPARIS
             repositoryItemButtonEdit.Buttons[0].Kind = ButtonPredefines.Glyph;
             gridView1.Columns["StokKodu"].OptionsColumn.AllowEdit = true;
             gridView1.Columns["StokKodu"].ColumnEdit = repositoryItemButtonEdit;
+            repositoryItemButtonEdit.Buttons[0].Shortcut = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F3);
 
 
-
-            GridColumn gridColumn3 = gridView1.Columns.AddVisible("KasaSec", "Sec");
+          
             RepositoryItemButtonEdit repositoryItemButtonEdit3 = new RepositoryItemButtonEdit();
-            repositoryItemButtonEdit3.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            repositoryItemButtonEdit3.NullText = "Sec";
-            repositoryItemButtonEdit3.NullValuePrompt = "Seç";
+          
+            repositoryItemButtonEdit3.NullText = "";
+            repositoryItemButtonEdit3.NullValuePrompt = "";
+            repositoryItemButtonEdit3.Buttons[0].Caption = "SEÇ";
+            repositoryItemButtonEdit3.Buttons[0].Kind = ButtonPredefines.Glyph;
+            gridView1.Columns["KasaMiktar"].OptionsColumn.AllowEdit = true;
+            gridView1.Columns["KasaMiktar"].ColumnEdit = repositoryItemButtonEdit3;
+            repositoryItemButtonEdit3.Buttons[0].Shortcut = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F3);
 
-
-
-            GridColumn gridColumn4 = gridView1.Columns.AddVisible("KunyeSec", "KunyeSec");
+          
             RepositoryItemButtonEdit repositoryItemButtonEdit4 = new RepositoryItemButtonEdit();
-            repositoryItemButtonEdit4.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            repositoryItemButtonEdit4.NullText = "Seç";
-            repositoryItemButtonEdit4.NullValuePrompt = "Seç";
-
+  
+            repositoryItemButtonEdit4.NullText = "";
+            repositoryItemButtonEdit4.NullValuePrompt = "";
+            repositoryItemButtonEdit4.Buttons[0].Caption = "SEÇ";
+            repositoryItemButtonEdit4.Buttons[0].Kind = ButtonPredefines.Glyph;
+            gridView1.Columns["Kunye"].OptionsColumn.AllowEdit = true;
+            gridView1.Columns["Kunye"].ColumnEdit = repositoryItemButtonEdit4;
+            repositoryItemButtonEdit4.Buttons[0].Shortcut = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F3);
             var datatb = new DataTable();
             datatb.Columns.Add("ID", typeof(int));
             datatb.Columns.Add("TIP", typeof(string));
@@ -191,6 +198,7 @@ namespace MEYPAK.PRL.SIPARIS
             repositoryItemButtonEdit5.Buttons[0].Kind = ButtonPredefines.Glyph;
             gridView1.Columns["Birim"].OptionsColumn.AllowEdit = true;
             gridView1.Columns["Birim"].ColumnEdit = repositoryItemButtonEdit5;
+            repositoryItemButtonEdit5.Buttons[0].Shortcut = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F3);
 
 
             riLookup = new RepositoryItemLookUpEdit();
@@ -292,17 +300,16 @@ namespace MEYPAK.PRL.SIPARIS
 
             GCIrsaliye.RepositoryItems.Add(repositoryItemButtonEdit3);
             GCIrsaliye.RepositoryItems.Add(repositoryItemButtonEdit4);
-            gridColumn3.ColumnEdit = repositoryItemButtonEdit3;
-            gridColumn4.ColumnEdit = repositoryItemButtonEdit4;
+        
 
 
             gridView1.Columns["StokKodu"].VisibleIndex = 4;
-
+         
             gridView1.Columns["KasaMiktar"].VisibleIndex = 7;
-            gridView1.Columns["KasaSec"].VisibleIndex = 8;
+           
             gridView1.Columns["StokId"].Visible = false;
-            gridView1.Columns["Kunye"].VisibleIndex = 10;
-            gridView1.Columns["KunyeSec"].VisibleIndex = 11;
+            gridView1.Columns["Kunye"].VisibleIndex = 9;
+         
             gridView1.Columns["Tipi"].VisibleIndex = 0;
             gridView1.Columns["Doviz"].VisibleIndex = 23;
             gridView1.Columns["KasaId"].Visible = false;
@@ -642,6 +649,7 @@ namespace MEYPAK.PRL.SIPARIS
         }
         private void FFatura_Load(object sender, EventArgs e)
         {
+           
             _olcuBr.Data(ServisList.OlcuBrListeServis);
             _stokOlcuBr.Data(ServisList.StokOlcuBrListeServis);
             DataGridYapilandir();
@@ -733,7 +741,7 @@ namespace MEYPAK.PRL.SIPARIS
                 _tempFaturaDetay.Clear();
                 _cariKart.Data(ServisList.CariListeServis);
                 TBIrsaliyeNo.Text = _tempFatura.belgeno;
-                CHBKdvDahil.CheckState = _tempFatura.kdvdahil ? CheckState.Checked:CheckState.Unchecked;
+                CHBKdvDahil.Checked = _tempFatura.kdvdahil ? true:false;
                 //todo : TBCariKodu.Text = 
                 CBDepo.EditValue = _depoServis.obje.Where(x => x.id == _tempFatura.depoid).FirstOrDefault().depoadi;
                 TBKur.Text = _tempFatura.kur.ToString();
