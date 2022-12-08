@@ -8,6 +8,8 @@ namespace MEYPAK.Entity.PocoModels
 {
     public class PocoStokHareketListesi
     {
+        
+        public int ID { get; set; }
         public int STOKID { get; set; }
         public DateTime Tarih { get; set; }
         public string BelgeNo { get; set; }

@@ -31,12 +31,17 @@ namespace MEYPAK.PRL.SIPARIS
 
         string _form, _islem;
         int i = 0;
+
+        #region Tanımlar
         FFatura ffatura;
         FStokKasaHareketRaporu fStokKasaHareketRaporu;
+        FStokHareketRaporu fStokHareketRaporu;
         Main main;
         GenericWebServis<PocoFATURA> _faturaServis;
 
+        #endregion
 
+        #region Metotlar
         private void FFaturaList_Load(object sender, EventArgs e)
         {
             _faturaServis = new GenericWebServis<PocoFATURA>();
@@ -50,6 +55,8 @@ namespace MEYPAK.PRL.SIPARIS
                             ffatura = (FFatura)frm;
                         if (frm.Name.Contains("FStokKasaHareketRaporu"))
                             fStokKasaHareketRaporu = (FStokKasaHareketRaporu)frm;
+                        if (frm.Name.Contains("FStokHareketRaporu"))
+                            fStokHareketRaporu = (FStokHareketRaporu)frm;
                     }
                 }
             }
@@ -123,6 +130,8 @@ namespace MEYPAK.PRL.SIPARIS
                 i++;
             }
         }
+
+        #endregion
     }
 }
 

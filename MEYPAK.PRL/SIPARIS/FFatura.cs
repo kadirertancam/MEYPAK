@@ -647,6 +647,7 @@ namespace MEYPAK.PRL.SIPARIS
                 GCIrsaliye.RefreshDataSource();
             }
         }
+
         private void FFatura_Load(object sender, EventArgs e)
         {
            

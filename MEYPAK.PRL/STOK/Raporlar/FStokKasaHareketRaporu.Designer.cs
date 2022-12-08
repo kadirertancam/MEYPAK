@@ -90,7 +90,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1205, 719);
+            this.panelControl1.Size = new System.Drawing.Size(1304, 739);
             this.panelControl1.TabIndex = 0;
             // 
             // panelControl3
@@ -99,7 +99,7 @@
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl3.Location = new System.Drawing.Point(2, 171);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(1201, 546);
+            this.panelControl3.Size = new System.Drawing.Size(1300, 566);
             this.panelControl3.TabIndex = 1;
             // 
             // DGStokKasaHarRpr
@@ -108,7 +108,7 @@
             this.DGStokKasaHarRpr.Location = new System.Drawing.Point(2, 2);
             this.DGStokKasaHarRpr.MainView = this.gridView1;
             this.DGStokKasaHarRpr.Name = "DGStokKasaHarRpr";
-            this.DGStokKasaHarRpr.Size = new System.Drawing.Size(1197, 542);
+            this.DGStokKasaHarRpr.Size = new System.Drawing.Size(1296, 562);
             this.DGStokKasaHarRpr.TabIndex = 0;
             this.DGStokKasaHarRpr.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -117,6 +117,7 @@
             // 
             this.gridView1.GridControl = this.DGStokKasaHarRpr;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsPrint.PrintFilterInfo = true;
             // 
             // panelControl2
             // 
@@ -124,7 +125,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl2.Location = new System.Drawing.Point(2, 2);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(1201, 169);
+            this.panelControl2.Size = new System.Drawing.Size(1300, 169);
             this.panelControl2.TabIndex = 0;
             // 
             // groupControl1
@@ -143,7 +144,7 @@
             this.groupControl1.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             this.groupControl1.Location = new System.Drawing.Point(2, 2);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(1197, 162);
+            this.groupControl1.Size = new System.Drawing.Size(1296, 162);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Filtrele";
             // 
@@ -152,7 +153,7 @@
             this.panelControl4.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl4.Controls.Add(this.BTRaporla);
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelControl4.Location = new System.Drawing.Point(1080, 23);
+            this.panelControl4.Location = new System.Drawing.Point(1179, 23);
             this.panelControl4.Name = "panelControl4";
             this.panelControl4.Size = new System.Drawing.Size(115, 137);
             this.panelControl4.TabIndex = 9;
@@ -171,16 +172,17 @@
             // 
             // BTIrsaliyeSec
             // 
-            this.BTIrsaliyeSec.Location = new System.Drawing.Point(132, 106);
+            this.BTIrsaliyeSec.Location = new System.Drawing.Point(141, 108);
             this.BTIrsaliyeSec.Name = "BTIrsaliyeSec";
             this.BTIrsaliyeSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.BTIrsaliyeSec.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTIrsaliyeSec_Properties_ButtonClick);
             this.BTIrsaliyeSec.Size = new System.Drawing.Size(180, 22);
             this.BTIrsaliyeSec.TabIndex = 8;
             // 
             // LBIrsaliyeKodu
             // 
-            this.LBIrsaliyeKodu.Location = new System.Drawing.Point(50, 109);
+            this.LBIrsaliyeKodu.Location = new System.Drawing.Point(59, 111);
             this.LBIrsaliyeKodu.Name = "LBIrsaliyeKodu";
             this.LBIrsaliyeKodu.Size = new System.Drawing.Size(62, 13);
             this.LBIrsaliyeKodu.TabIndex = 7;
@@ -188,7 +190,7 @@
             // 
             // BTFaturaSec
             // 
-            this.BTFaturaSec.Location = new System.Drawing.Point(132, 80);
+            this.BTFaturaSec.Location = new System.Drawing.Point(141, 82);
             this.BTFaturaSec.Name = "BTFaturaSec";
             this.BTFaturaSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
@@ -198,7 +200,7 @@
             // 
             // LBFaturaKodu
             // 
-            this.LBFaturaKodu.Location = new System.Drawing.Point(53, 82);
+            this.LBFaturaKodu.Location = new System.Drawing.Point(62, 84);
             this.LBFaturaKodu.Name = "LBFaturaKodu";
             this.LBFaturaKodu.Size = new System.Drawing.Size(59, 13);
             this.LBFaturaKodu.TabIndex = 5;
@@ -206,7 +208,7 @@
             // 
             // BTKasaSec
             // 
-            this.BTKasaSec.Location = new System.Drawing.Point(132, 54);
+            this.BTKasaSec.Location = new System.Drawing.Point(141, 56);
             this.BTKasaSec.Name = "BTKasaSec";
             this.BTKasaSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
@@ -216,7 +218,7 @@
             // 
             // LBKasaKodu
             // 
-            this.LBKasaKodu.Location = new System.Drawing.Point(62, 58);
+            this.LBKasaKodu.Location = new System.Drawing.Point(71, 60);
             this.LBKasaKodu.Name = "LBKasaKodu";
             this.LBKasaKodu.Size = new System.Drawing.Size(50, 13);
             this.LBKasaKodu.TabIndex = 3;
@@ -224,7 +226,7 @@
             // 
             // BTCariSec
             // 
-            this.BTCariSec.Location = new System.Drawing.Point(132, 28);
+            this.BTCariSec.Location = new System.Drawing.Point(141, 30);
             this.BTCariSec.Name = "BTCariSec";
             this.BTCariSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
@@ -234,7 +236,7 @@
             // 
             // LBCariKodu
             // 
-            this.LBCariKodu.Location = new System.Drawing.Point(66, 31);
+            this.LBCariKodu.Location = new System.Drawing.Point(75, 33);
             this.LBCariKodu.Name = "LBCariKodu";
             this.LBCariKodu.Size = new System.Drawing.Size(46, 13);
             this.LBCariKodu.TabIndex = 0;
@@ -244,7 +246,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1205, 719);
+            this.ClientSize = new System.Drawing.Size(1304, 739);
             this.Controls.Add(this.panelControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FStokKasaHareketRaporu";

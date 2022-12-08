@@ -78,7 +78,7 @@ namespace MEYPAK.PRL.STOK
                 if (_form == frm.Tag)
                 {
                     
-                    if (frm.Name.Contains("FStokHareket"))
+                    if (frm.Name.Contains("stokhar"))
                         fStokHareket = (FStokHareket)frm;
                     if (frm.Name.Contains("FStokKart"))
                         fSTOKKART = (FStokKart)frm;
@@ -98,7 +98,9 @@ namespace MEYPAK.PRL.STOK
                         fAlisFatura = (FAlisFatura)frm;
                     if (frm.Name.Contains("FStokFiyatRaporu"))
                         fStokFiyatRaporu = (FStokFiyatRaporu)frm;
-                    
+                    if (frm.Name.Contains("FStokHareketRaporu"))
+                        fStokHareketRaporu = (FStokHareketRaporu)frm;
+
 
                 }
             }
@@ -184,7 +186,12 @@ namespace MEYPAK.PRL.STOK
                     if (fStokFiyatRaporu != null)
                         fStokFiyatRaporu._tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
                 }
-              
+                else if (_islem == "FStokHareketRaporu")
+                {
+                    if (fStokHareketRaporu != null)
+                        fStokHareketRaporu._tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+                }
+
                 this.Close();
             }
             else

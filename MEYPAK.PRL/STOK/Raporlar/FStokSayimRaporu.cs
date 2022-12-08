@@ -6,6 +6,8 @@ using MEYPAK.Entity.PocoModels.DEPO;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Depo;
 using MEYPAK.Interfaces.Stok;
+using MEYPAK.PRL.CARI;
+using MEYPAK.PRL.DEPO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -35,8 +37,12 @@ namespace MEYPAK.PRL.STOK.Raporlar
         GenericWebServis<PocoSTOK> _stokServis;
         GenericWebServis<PocoSTOKSAYIM> _stokSayimServis;
         GenericWebServis<PocoDEPO> _depoServis;
+        
         public PocoSTOK _tempStok;
+        public PocoDEPO _tempDepo;
         #endregion
+
+        #region Metotlar
         private void FStokSayimRaporu_Load(object sender, EventArgs e)
         {
             Doldur();
@@ -50,26 +56,36 @@ namespace MEYPAK.PRL.STOK.Raporlar
             Doldur();
         }
 
+        private void BTDepoSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            FDepoList fDepoList = new FDepoList(this.Tag.ToString(), "stoksayim");
+            fDepoList.ShowDialog();
+        }
+
         void Doldur()
         {
             _stokSayimServis.Data(ServisList.StokSayimListeServis);
             _depoServis.Data(ServisList.DepoListeServis);
             _stokSayimServis.Data(ServisList.StokSayimListeServis);
-            
+          
             DGStokSayimRpr.DataSource = _stokSayimServis.obje.Where(x => x.kayittipi == 0).Select(x => new
             {
                 ID = x.id,
                 SAYIMTARİHİ = x.sayimtarihi,
-                Açıklama = x.aciklama,
-                DEPO = _depoServis.obje.Where(y => y.id == x.depoid).Count() > 0 ? _depoServis.obje.Where(y => y.id == x.depoid).FirstOrDefault().depoadi : "",
-                FİRMA = x.firmaid,
-                ŞUBE = x.subeid,
+                AÇIKLAMA = x.aciklama,
+                KAYITTARİHİ = x.olusturmatarihi,
+                DEPOADI = _depoServis.obje.Where(y => y.id == x.depoid).Count() > 0 ? _depoServis.obje.Where(y => y.id == x.depoid).FirstOrDefault().depoadi : "",
+                DURUM = x.durum,
+                FİRMAADI = x.firmaid,
+                ŞUBEADI = x.subeid,
+                GÜNCELLENMETARİHİ =x.guncellemetarihi
 
-                
 
             });
             DGStokSayimRpr.Refresh();
             DGStokSayimRpr.RefreshDataSource();
         }
+
+        #endregion
     }
 }

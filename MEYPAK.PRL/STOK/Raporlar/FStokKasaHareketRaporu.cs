@@ -3,9 +3,15 @@ using DevExpress.XtraCharts.Native;
 using DevExpress.XtraEditors;
 using DevExpress.XtraSpreadsheet.Import.OpenXml;
 using MEYPAK.BLL.Assets;
+using MEYPAK.Entity.Models.CARI;
 using MEYPAK.Entity.PocoModels.CARI;
+using MEYPAK.Entity.PocoModels.FATURA;
+using MEYPAK.Entity.PocoModels.IRSALIYE;
 using MEYPAK.Entity.PocoModels.STOK;
+using MEYPAK.Interfaces.Cari;
+using MEYPAK.Interfaces.Depo;
 using MEYPAK.Interfaces.Hizmet;
+using MEYPAK.Interfaces.IRSALIYE;
 using MEYPAK.Interfaces.Parametre;
 using MEYPAK.Interfaces.Stok;
 using MEYPAK.PRL.CARI;
@@ -31,14 +37,22 @@ namespace MEYPAK.PRL.STOK.Raporlar
             _islem = islem;
             _stokKasaHarServis = new GenericWebServis<PocoSTOKKASAHAR>();
             _stokKasaServis = new GenericWebServis<PocoSTOKKASA>();
+            _cariServis = new GenericWebServis<PocoCARIKART>();
+            _faturaServis = new GenericWebServis<PocoFATURA>();
+            _irsaliyeServis = new GenericWebServis<PocoIRSALIYE>();
         }
         string _form, _islem;
 
         #region Tanımlar
         GenericWebServis<PocoSTOKKASAHAR> _stokKasaHarServis;
         GenericWebServis<PocoSTOKKASA> _stokKasaServis;
-        public PocoCARIKART _tempCariKart;
+        GenericWebServis<PocoCARIKART> _cariServis;
+        GenericWebServis<PocoFATURA> _faturaServis;
+        GenericWebServis<PocoIRSALIYE> _irsaliyeServis;
         public PocoSTOKKASA _tempStokKasa;
+        public PocoIRSALIYE _tempIrsaliye;
+        public PocoCARIKART _tempCariKart;
+      
 
         #endregion
 
@@ -53,10 +67,12 @@ namespace MEYPAK.PRL.STOK.Raporlar
         {
             _stokKasaHarServis.Data(ServisList.StokKasaHarListeServis);
             _stokKasaServis.Data(ServisList.StokKasaListeServis);
-            //if (_tempStok != null) { 
-            //    if (_tempStok.id > 0)
-            //    {
-                    DGStokKasaHarRpr.DataSource = _stokKasaHarServis.obje.Where(x => x.kayittipi == 0 /*&& x.id ==  _tempStok.id */).Select(x => new
+            _cariServis.Data(ServisList.CariListeServis);
+            _faturaServis.Data(ServisList.FaturaListeServis);
+            _irsaliyeServis.Data(ServisList.IrsaliyeListeServis);
+            
+          
+                    DGStokKasaHarRpr.DataSource = _stokKasaHarServis.obje.Select(x => new
                     {
 
                         ID = x.id,
@@ -64,21 +80,18 @@ namespace MEYPAK.PRL.STOK.Raporlar
                         BELGENO = x.belge_no,
                         MİKTAR = x.miktar,
                         KAYITTİPİ = x.kayittipi,
-                        STOKID = x.stokid,
-                        KASAID = x.kasaid,
-                        CARIID = x.cariid,
-                        FATURAID = x.faturaid,
+                        // STOKID = x.stokid,
+                        KASAADI = _stokKasaServis.obje.Select(x => x.kasaadi).FirstOrDefault(),
+                        CARIID = _cariServis.obje.Select(x=> x.unvan).FirstOrDefault(),
+                        FATURANO = _faturaServis.obje.Select(x=> x.belgeno).FirstOrDefault(),  
                         FATURADETAY = x.faturadetayid,
-                        İRSALİYEID = x.irsaliyeid,
+                        İRSALİYENO = _irsaliyeServis.obje.Select(x=>x.belgeno).FirstOrDefault(),
                         İRSALİYEDETAY = x.iresliyedetayid,
 
                     });
                     DGStokKasaHarRpr.Refresh();
                     DGStokKasaHarRpr.RefreshDataSource();
-                    
-            //    }
-              
-            //}
+            
         }
 
         private void BTKasaSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -101,19 +114,24 @@ namespace MEYPAK.PRL.STOK.Raporlar
                
             //}
 
-
-
-
             //temp = _stokKasaHarServis.obje.Where();
+        }
+
+        private void BTIrsaliyeSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            FIrsaliyeList fIrsaliyeList = new FIrsaliyeList(Tag.ToString(), "FStokKasaHareketRaporu");
+            fIrsaliyeList.ShowDialog(); 
         }
 
         private void BTCariSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             FCariList fCariList = new FCariList(Tag.ToString(), "FStokKasaHareketRaporu");
             fCariList.ShowDialog();
+            
         }
 
         
+
         #endregion
 
     }

@@ -32,11 +32,9 @@ namespace MEYPAK.PRL.STOK.FiyatListesi
         {
             InitializeComponent();
             _stokFiyatServis = new GenericWebServis<PocoSTOKFIYAT>();
-            _stokFiyatServis.Data(ServisList.StokFiyatListeServis);
             _stokFiyatHarServis = new GenericWebServis<PocoSTOKFIYATHAR>();
-            _stokFiyatHarServis.Data(ServisList.StokFiyatHarListeServis);
             _cariServis = new GenericWebServis<PocoCARIKART>();
-            _cariServis.Data(ServisList.CariListeServis);
+           
           
         }
 
