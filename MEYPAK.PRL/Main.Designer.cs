@@ -144,6 +144,7 @@
             this.accordionControlElement53 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement32 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEMusteriSiparisIrsaliyelestir = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACESatisIrsaliyeFaturalastir = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement33 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement21 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement38 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -152,6 +153,7 @@
             this.accordionControlElement40 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement22 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement44 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACESeriTanim = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement23 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement24 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement25 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -159,7 +161,6 @@
             this.accordionControlElement27 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
             this.applicationMenu1 = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
-            this.ACESeriTanim = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -1146,7 +1147,8 @@
             // accordionControlElement32
             // 
             this.accordionControlElement32.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
-            this.ACEMusteriSiparisIrsaliyelestir});
+            this.ACEMusteriSiparisIrsaliyelestir,
+            this.ACESatisIrsaliyeFaturalastir});
             this.accordionControlElement32.Expanded = true;
             this.accordionControlElement32.Name = "accordionControlElement32";
             this.accordionControlElement32.Text = "Hareketler";
@@ -1157,6 +1159,14 @@
             this.ACEMusteriSiparisIrsaliyelestir.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.ACEMusteriSiparisIrsaliyelestir.Text = "Müşteri Siparişi İrsaliyeleştir";
             this.ACEMusteriSiparisIrsaliyelestir.Click += new System.EventHandler(this.ACEMusteriSiparisIrsaliyelestir_Click);
+            // 
+            // ACESatisIrsaliyeFaturalastir
+            // 
+            this.ACESatisIrsaliyeFaturalastir.AccessibleName = "ACESatisIrsaliyeFaturalastir";
+            this.ACESatisIrsaliyeFaturalastir.Name = "ACESatisIrsaliyeFaturalastir";
+            this.ACESatisIrsaliyeFaturalastir.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ACESatisIrsaliyeFaturalastir.Text = "Satış Irsaliyesi Faturalaştır";
+            this.ACESatisIrsaliyeFaturalastir.Click += new System.EventHandler(this.ACESatisIrsaliyeFaturalastir_Click);
             // 
             // accordionControlElement33
             // 
@@ -1218,6 +1228,13 @@
             this.accordionControlElement44.Text = "Para Birimleri";
             this.accordionControlElement44.Click += new System.EventHandler(this.accordionControlElement44_Click);
             // 
+            // ACESeriTanim
+            // 
+            this.ACESeriTanim.Name = "ACESeriTanim";
+            this.ACESeriTanim.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ACESeriTanim.Text = "Seri Tanım";
+            this.ACESeriTanim.Click += new System.EventHandler(this.ACESeriTanim_Click);
+            // 
             // accordionControlElement23
             // 
             this.accordionControlElement23.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement23.ImageOptions.Image")));
@@ -1273,13 +1290,6 @@
             // applicationMenu1
             // 
             this.applicationMenu1.Name = "applicationMenu1";
-            // 
-            // ACESeriTanim
-            // 
-            this.ACESeriTanim.Name = "ACESeriTanim";
-            this.ACESeriTanim.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.ACESeriTanim.Text = "Seri Tanım";
-            this.ACESeriTanim.Click += new System.EventHandler(this.ACESeriTanim_Click);
             // 
             // Main
             // 
@@ -1439,5 +1449,6 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement53;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement54;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACESeriTanim;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACESatisIrsaliyeFaturalastir;
     }
 }

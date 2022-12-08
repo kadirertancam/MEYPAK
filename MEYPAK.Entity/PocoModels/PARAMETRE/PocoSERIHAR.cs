@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.Entity.PocoModels.PARAMETRE
 {
-    public class PocoSERIHAR
+    public class PocoSERIHAR:SUPERPOCOMODEL
     {
         public int seriid { get; set; }=0; 
         public long serino { get; set; }

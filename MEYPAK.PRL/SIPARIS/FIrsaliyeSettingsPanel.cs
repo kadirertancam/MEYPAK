@@ -30,7 +30,7 @@ namespace MEYPAK.PRL.SIPARIS
             _seriServis = new GenericWebServis<PocoSERI>();
             _seriHarServis = new GenericWebServis<PocoSERIHAR>();
         }
-        FMusteriSiparisIrsaliyelestir musteriSiparisIrsaliyelestir;
+        FSatisIrsaliyeFaturalastir fSatisIrsaliyeFaturalastir;
         List<PocoSIPARISDETAY> tempSipDetay;
         GenericWebServis<PocoSIPARIS> _siparisServis;
         GenericWebServis<PocoIRSALIYE> _irsaliyeServis;
@@ -41,18 +41,18 @@ namespace MEYPAK.PRL.SIPARIS
         private void simpleButton2_Click(object sender, EventArgs e)
         {
             _siparisDetayServis.Data(ServisList.SiparisDetayListeServis);
-            musteriSiparisIrsaliyelestir = (FMusteriSiparisIrsaliyelestir)Application.OpenForms["FMusteriSiparisIrsaliyelestir"];
-            foreach (var item in musteriSiparisIrsaliyelestir.gridView1.GetSelectedRows())
+            fSatisIrsaliyeFaturalastir = (FSatisIrsaliyeFaturalastir)Application.OpenForms["FSatisIrsaliyeFaturalastir"];
+            foreach (var item in fSatisIrsaliyeFaturalastir.gridView1.GetSelectedRows())
             {
                 if (item != -1)
                 {
-                    tempSipDetay.Add( _siparisDetayServis.obje.Where(x => x.kayittipi == 0 && x.tip == 0 && x.id.ToString() == musteriSiparisIrsaliyelestir.gridView1.GetRowCellValue(item, "ID").ToString()).FirstOrDefault());
+                    tempSipDetay.Add( _siparisDetayServis.obje.Where(x => x.kayittipi == 0 && x.tip == 0 && x.id.ToString() == fSatisIrsaliyeFaturalastir.gridView1.GetRowCellValue(item, "ID").ToString()).FirstOrDefault());
                 }
 
 
                 _siparisServis.Data(ServisList.SiparisListeServis);
                 // var tt= _irsaliyeServis.obje.Where(x=>x.id.ToString()==grid)
-                var tempsip = _siparisServis.obje.Where(x => x.kayittipi == 0 && x.tip == 0 && x.id.ToString() == musteriSiparisIrsaliyelestir.gridView1.GetRowCellValue(item, "ID").ToString()).FirstOrDefault();
+                var tempsip = _siparisServis.obje.Where(x => x.kayittipi == 0 && x.tip == 0 && x.id.ToString() == fSatisIrsaliyeFaturalastir.gridView1.GetRowCellValue(item, "ID").ToString()).FirstOrDefault();
                 _irsaliyeServis.Data(ServisList.IrsaliyeEkleServis, new PocoIRSALIYE()
                 {
                     aciklama = tempsip.aciklama,
@@ -100,13 +100,13 @@ namespace MEYPAK.PRL.SIPARIS
                     dovizid = item.dovizid,
                     eskiid = 0,
                     hareketdurumu = 0,
-                    istkontO1 = item.istkontO1,
-                    istkontO2 = item.istkontO2,
-                    istkontO3 = item.istkontO3,
+                    iskontO1 = item.istkontO1,
+                    iskontO2 = item.istkontO2,
+                    iskontO3 = item.istkontO3,
                     kdv = item.kdv,
                     kdvtutari = item.kdvtutari,
                     listefiyatid = item.listefiyatid,
-                    miktar = item.miktar,
+                    safi = item.safi,
                     netfiyat = item.netfiyat,
                     nettoplam = item.nettoplam,
                     stokadi = item.stokadi,
@@ -126,17 +126,22 @@ namespace MEYPAK.PRL.SIPARIS
 
         private void FIrsaliyeSettingsPanel_Load(object sender, EventArgs e)
         {
-            musteriSiparisIrsaliyelestir = (FMusteriSiparisIrsaliyelestir)Application.OpenForms["FMusteriSiparisIrsaliyelestir"];
+            fSatisIrsaliyeFaturalastir = (FSatisIrsaliyeFaturalastir)Application.OpenForms["FSatisIrsaliyeFaturalastir"];
             _seriServis.Data(ServisList.SeriListeServis);
-            foreach (var item in _seriServis.obje)
+            foreach (var item in _seriServis.obje.Where(x=>x.TIP==2))
             {
                 comboBox1.Items.Add(item.SERINO);
             }
             _seriHarServis.Data(ServisList.SeriHarListeServis);
             comboBox1.Text = comboBox1.Items[0].ToString();
             yeniTextEdit1.Text=(_seriHarServis.obje.Where(x=>x.seriid==_seriServis.obje.Where(z=>z.SERINO.ToString()==comboBox1.Text).FirstOrDefault().id).FirstOrDefault().serino +1).ToString();
-            dateEdit2.Text = musteriSiparisIrsaliyelestir.gridView2.GetFocusedRowCellValue("Tarih").ToString();
-            dateEdit1.Text = musteriSiparisIrsaliyelestir.gridView2.GetFocusedRowCellValue("SevkiyatTarihi").ToString();
+            dateEdit2.Text = fSatisIrsaliyeFaturalastir.gridView2.GetFocusedRowCellValue("Tarih").ToString();
+            dateEdit1.Text = fSatisIrsaliyeFaturalastir.gridView2.GetFocusedRowCellValue("SevkiyatTarihi").ToString();
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
