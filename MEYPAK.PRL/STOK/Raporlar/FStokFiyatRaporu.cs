@@ -8,7 +8,7 @@ using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Depo;
 using MEYPAK.Interfaces.Stok;
 using MEYPAK.PRL.CARI;
-
+using DevExpress.XtraReports;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +19,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MEYPAK.Entity.PocoModels.CARI;
 
 namespace MEYPAK.PRL.STOK.Raporlar
 {
@@ -27,12 +28,10 @@ namespace MEYPAK.PRL.STOK.Raporlar
         public FStokFiyatRaporu(string tag = "", string islem = "")
         {
             InitializeComponent();
-            _stokServis = new  GenericWebServis<PocoSTOK>();
-            _stokServis.Data(ServisList.StokListeServis);
+          
             _stokFiyatServis = new GenericWebServis<PocoSTOKFIYAT>();
-            _stokFiyatServis.Data(ServisList.StokFiyatListeServis);
             _stokFiyatHarServis = new GenericWebServis<PocoSTOKFIYATHAR>();
-            _stokFiyatHarServis.Data(ServisList.StokFiyatHarListeServis);
+            _cariServis = new GenericWebServis<PocoCARIKART>();
             _form = tag;
             _islem = islem;
         }
@@ -41,8 +40,10 @@ namespace MEYPAK.PRL.STOK.Raporlar
         GenericWebServis<PocoSTOK> _stokServis;
         GenericWebServis<PocoSTOKFIYAT> _stokFiyatServis;
         GenericWebServis<PocoSTOKFIYATHAR> _stokFiyatHarServis;
+        GenericWebServis<PocoCARIKART> _cariServis;
 
         public PocoSTOK _tempStok;
+        public PocoCARIKART _tempCariKart;
         public PocoSTOKFIYAT _tempStokFiyat;
         public PocoSTOKFIYATHAR _tempStokFiyatHar;
         #endregion
@@ -52,46 +53,63 @@ namespace MEYPAK.PRL.STOK.Raporlar
         void Doldur()
         {
             _stokFiyatServis.Data(ServisList.StokFiyatListeServis);
+            _cariServis.Data(ServisList.CariListeServis);
             DGStokFiyatRpr.DataSource = _stokFiyatServis.obje.Where(x => x.kayittipi == 0 ).Select(x => new
             {
                 ID = x.id,
-                FİYATLİSTESİ = x.adi,
-                ACIKLAMA = x.aciklama,
-                BASLANGICTARİHİ = x.baslangictarihi,
-                BİTİSTARİHİ = x.bitistarihi,
+                KAYITTARİHİ =x.olusturmatarihi,
+                FİYATLİSTESİADI = x.adi,
+                AÇIKLAMA = x.aciklama,
+                CARİADI = _cariServis.obje.Where(X=>x.kayittipi == 0).Select(x=> x.unvan).FirstOrDefault(),
+                BASLANGIÇTARİHİ = x.baslangictarihi,
+                BİTİŞTARİHİ = x.bitistarihi,
 
             });
             DGStokFiyatRpr.Refresh();
             DGStokFiyatRpr.RefreshDataSource();
         }
-        private void BTStokSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
-        {
-
-            FStokList fStokList = new FStokList(this.Tag.ToString(), "FStokFiyatRaporu");
-            fStokList.ShowDialog();
-        }
-
+       
         private void FStokFiyatRaporu_Load(object sender, EventArgs e)
         {
             Doldur();
             
         }
 
-        private void DGStokFiyatRpr_Click(object sender, EventArgs e)
+        private void BTCariSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-
+            FCariList fCariList = new FCariList(this.Tag.ToString(), "FStokFiyat");
+            fCariList.ShowDialog();
         }
-
-      
 
         private void BTRaporla_Click(object sender, EventArgs e)
         {
             
         }
 
+        //private void selectedColumnsButton_Click(object sender, System.EventArgs e)
+        //{
+        //    Int32 selectedColumnCount = gridView1.Columns
+        //        .GetColumnCount(DataGridViewElementStates.Selected);
+        //    if (selectedColumnCount > 0)
+        //    {
+        //        System.Text.StringBuilder sb = new System.Text.StringBuilder();
+
+        //        for (int i = 0; i < selectedColumnCount; i++)
+        //        {
+        //            sb.Append("Column: ");
+        //            sb.Append(gridView1.SelectAll[i].Index
+        //                .ToString());
+        //            sb.Append(Environment.NewLine);
+        //        }
+
+        //        sb.Append("Total: " + selectedColumnCount.ToString());
+        //        MessageBox.Show(sb.ToString(), "Selected Columns");
+        //    }
+        //}
+
         #endregion
 
-       
-       
+
+
     }
 }

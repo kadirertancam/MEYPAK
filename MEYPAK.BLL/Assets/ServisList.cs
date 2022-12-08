@@ -161,7 +161,8 @@ namespace MEYPAK.BLL.Assets
         public const string SeriGuncelleServis =            "http://213.238.167.117:8080/Seri/SERIGuncelle";
         public const string SeriDeleteByIdServis =          "http://213.238.167.117:8080/Seri/DeleteById";
         #endregion
-        #region Seri
+
+        #region SeriHar
         public const string SeriHarListeServis =        "http://213.238.167.117:8080/SeriHar/SeriHarListe";
         public const string SeriHarEkleServis =         "http://213.238.167.117:8080/SeriHar/SeriHarEkleyadaGuncelle";
         public const string SeriHarSilServis =          "http://213.238.167.117:8080/SeriHar/SeriHarSil";

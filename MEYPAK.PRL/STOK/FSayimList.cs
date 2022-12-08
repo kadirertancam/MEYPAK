@@ -22,6 +22,7 @@ using MEYPAK.Entity.Models.SIPARIS;
 using MEYPAK.PRL.DEPO;
 using MEYPAK.PRL.IRSALIYE;
 using MEYPAK.PRL.SIPARIS;
+using MEYPAK.PRL.STOK.Raporlar;
 
 namespace MEYPAK.PRL.STOK
 {
@@ -38,9 +39,16 @@ namespace MEYPAK.PRL.STOK
         }
         string _form;
         string _islem;
+
+        #region Tanımlar
         GenericWebServis<PocoSTOKSAYIM> _stokSayimServis ;
         GenericWebServis<PocoDEPO> _depoServis;
         FSayimIsle fSayimIsle;
+        FStokHareketRaporu fStokHareketRaporu;
+
+        #endregion
+
+        #region Metotlar
         private void FSayimList_Load(object sender, EventArgs e)
         {
 
@@ -50,7 +58,9 @@ namespace MEYPAK.PRL.STOK
                 {
                     if (frm.Name.Contains("FSayimIsle"))
                         fSayimIsle = (FSayimIsle)frm;
-             
+                    if (frm.Name.Contains("FStokHareketRaporu"))
+                        fStokHareketRaporu = (FStokHareketRaporu)frm;
+
                 }
             }
 
@@ -97,9 +107,15 @@ namespace MEYPAK.PRL.STOK
             {
                 fSayimIsle._tempSayim = _stokSayimServis.obje.Where(x=> x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
             }
-
+            if (_islem == "FStokHareketRaporu")
+            {
+                fStokHareketRaporu._tempSayim = _stokSayimServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+            }
 
             this.Close();
         }
+
+        #endregion
     }
 }
+  

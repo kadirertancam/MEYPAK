@@ -40,6 +40,7 @@ namespace MEYPAK.PRL.STOK
         FStokKasaMarkaList fStokKasaMarkaList;
         GenericWebServis<PocoSTOKKASAMARKA> _stokKasaMarkaServis;
         public PocoSTOKKASAMARKA _tempStokMarka;
+      
         #endregion
 
         #region Metotlar

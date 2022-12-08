@@ -22,7 +22,6 @@ namespace MEYPAK.Entity.Models.FATURA
         [DefaultValue(0)]
         public int KULLANICIID { get; set; } = 0;
         [DefaultValue(0)]
-        public int KASAID { get; set; } = 0;
         public int NUM { get; set; }
         public byte TIP { get; set; } = 0;
         [StringLength(50)]
@@ -49,5 +48,6 @@ namespace MEYPAK.Entity.Models.FATURA
         public decimal KDV { get; set; } = 0;
         public decimal KDVTUTARI { get; set; } = 0;
         public string KUNYE { get; set; }
+
     }
 }

@@ -118,7 +118,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(589, 387);
+            this.panelControl1.Size = new System.Drawing.Size(478, 339);
             this.panelControl1.TabIndex = 63;
             // 
             // groupControl1
@@ -136,7 +136,7 @@
             this.groupControl1.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             this.groupControl1.Location = new System.Drawing.Point(2, 2);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(585, 383);
+            this.groupControl1.Size = new System.Drawing.Size(474, 335);
             this.groupControl1.TabIndex = 63;
             this.groupControl1.Text = "Sayım İşleme";
             // 
@@ -178,7 +178,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(589, 387);
+            this.ClientSize = new System.Drawing.Size(478, 339);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.label4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

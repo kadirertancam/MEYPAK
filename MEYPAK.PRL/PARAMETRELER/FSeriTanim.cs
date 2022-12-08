@@ -1,4 +1,5 @@
-﻿using MEYPAK.BLL.Assets;
+﻿using DevExpress.XtraEditors;
+using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.Models.PARAMETRE;
 using MEYPAK.Entity.PocoModels.PARAMETRE;
 using MEYPAK.Interfaces.Parametre;
@@ -14,16 +15,20 @@ using System.Windows.Forms;
 
 namespace MEYPAK.PRL.PARAMETRELER
 {
-    public partial class FSeriTanim : Form
+    public partial class FSeriTanim : XtraForm
     {
-        public FSeriTanim()
+        public FSeriTanim(string tag = "", string islem = "")
         {
             InitializeComponent();
+            _form = tag;
+            _islem = islem;
             _seriServis = new GenericWebServis<PocoSERI>();
             _seriHarServis = new GenericWebServis<PocoSERIHAR>();
         }
         GenericWebServis<PocoSERI> _seriServis;
         GenericWebServis<PocoSERIHAR> _seriHarServis;
+        string _form, _islem;
+
         private void simpleButton1_Click(object sender, EventArgs e)
         {
             

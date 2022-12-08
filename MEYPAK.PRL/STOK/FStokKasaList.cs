@@ -14,6 +14,7 @@ using MEYPAK.PRL.Assets;
 using MEYPAK.PRL.DEPO;
 using MEYPAK.PRL.IRSALIYE;
 using MEYPAK.PRL.SIPARIS;
+using MEYPAK.PRL.STOK.Raporlar;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -34,6 +35,7 @@ namespace MEYPAK.PRL.STOK
         FAlisIrsaliye fAlisIrsaliye;
         FFatura ffatura;
         FAlisFatura fAlisFatura;
+        FStokKasaHareketRaporu fStokKasaHareketRaporu;
         GenericWebServis<PocoSTOKKASA> _kasaServis;
         GenericWebServis<PocoSTOKKASAMARKA> _stokKasaMarka;
         string _islem;
@@ -68,6 +70,8 @@ namespace MEYPAK.PRL.STOK
                         ffatura = (FFatura)frm;
                     if (frm.Name.Contains("FAlisFatura"))
                         fAlisFatura = (FAlisFatura)frm;
+                    if (frm.Name.Contains("FStokKasaHareketRaporu"))
+                        fStokKasaHareketRaporu = (FStokKasaHareketRaporu)frm;
                 }
             }
 
@@ -350,6 +354,7 @@ namespace MEYPAK.PRL.STOK
 
                 }
             }
+           
             this.Close();
 
         }

@@ -47,7 +47,7 @@ namespace MEYPAK.PRL.STOK
         void BakiyeGuncelle()
         {
             _stokHarServis.Data(ServisList.StokHarListeServis);
-            LBStokHarToplamGirisDeger.Text = _stokHarServis.obje.Where(x =>x.kayittipi==0&& x.io == 1 && x.stokid == _id).Sum(x => x.miktar).ToString();
+            LBStokHarToplamGirisDeger.Text = _stokHarServis.obje.Where(x => x.kayittipi == 0 && x.io == 1 && x.stokid == _id).Sum(x => x.miktar).ToString();
             LBStokHarToplamCikisDeger.Text = _stokHarServis.obje.Where(x => x.kayittipi == 0 && x.io == 0 && x.stokid == _id).Sum(x => x.miktar).ToString();
             LBStokHarBakiyeDeger.Text = (_stokHarServis.obje.Where(x => x.kayittipi == 0 && x.io == 1 && x.stokid == _id).Sum(x => x.miktar) - _stokHarServis.obje.Where(x => x.io == 0 && x.stokid == _id).Sum(x => x.miktar)).ToString();
         }

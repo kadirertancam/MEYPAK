@@ -200,10 +200,6 @@ namespace MEYPAK.PRL.CARI
                 DGAltHesap.DataSource = _cariAltHesCariServis.obje.Where(x => x.cariid == _tempCariKart.id).Select(x => new { ALTHESAPADI = _cariAltHesapServis.obje.Where(z => z.id == x.carialthesid).FirstOrDefault().adi, PARABIRIMI = _cariParABIRIM.obje.Where(z => z.id == _cariAltHesapServis.obje.Where(y => y.id == x.carialthesid).FirstOrDefault().dovizid).FirstOrDefault().kisaadi, AKTIF = x.aktif });
             }
 
-
-
-
-
             AltCariDoldur();
             if (_tempCariKart.id != null)
                 foreach (var item in _cariResimServis.obje.Where(x => x.CARIID == _tempCariKart.id))

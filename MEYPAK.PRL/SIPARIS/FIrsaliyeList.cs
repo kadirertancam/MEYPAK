@@ -1,8 +1,10 @@
 ﻿using DevExpress.XtraEditors;
 using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.PocoModels.IRSALIYE;
+using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Siparis;
 using MEYPAK.PRL.IRSALIYE;
+using MEYPAK.PRL.STOK.Raporlar;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,10 +26,12 @@ namespace MEYPAK.PRL.SIPARIS
             _form = frm;
             _islem = islem;
             _mIrsaliyeServis = new GenericWebServis<PocoIRSALIYE>();
+          
         }
         FSatisIrsaliye fsatisIralsiye;
+        FStokKasaHareketRaporu fStokKasaHareketRaporu;
         GenericWebServis<PocoIRSALIYE> _mIrsaliyeServis;
-        
+      
 
         private void gridView1_DoubleClick(object sender, EventArgs e)
         {
@@ -47,6 +51,14 @@ namespace MEYPAK.PRL.SIPARIS
                 //    fsatinalmaSiparis._tempIrsliye = _mIrsaliyeServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
                 //}
             }
+            if (_islem == "FStokKasaHareketRaporu")
+            {
+                if (fStokKasaHareketRaporu != null)
+                {
+                    fStokKasaHareketRaporu._tempIrsaliye = _mIrsaliyeServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+                }
+
+            }
             this.Close();
         }
 
@@ -58,7 +70,9 @@ namespace MEYPAK.PRL.SIPARIS
                 if (_form == frm.Tag)
                 {
                     if (frm.Name.Contains("FSatisIrsaliye"))
-                        fsatisIralsiye = (FSatisIrsaliye)frm; 
+                        fsatisIralsiye = (FSatisIrsaliye)frm;
+                    if (frm.Name.Contains("FStokKasaHareketRaporu"))
+                        fStokKasaHareketRaporu = (FStokKasaHareketRaporu)frm;
                 }
             }
             _mIrsaliyeServis.Data(ServisList.IrsaliyeListeServis);

@@ -70,7 +70,7 @@ namespace MEYPAK.PRL.STOK
                 }
                 else
                 {
-                    MessageBox.Show("Bu isimde zaten bir Olçü Birim Bulunmaktadır!");
+                    MessageBox.Show("Bu isimde zaten bir Ölçü Birim Bulunmaktadır!");
                 }
 
             }
