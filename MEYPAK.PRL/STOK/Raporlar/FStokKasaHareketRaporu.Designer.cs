@@ -167,6 +167,7 @@
             this.BTRaporla.Size = new System.Drawing.Size(95, 40);
             this.BTRaporla.TabIndex = 2;
             this.BTRaporla.Text = "&Raporla";
+            this.BTRaporla.Click += new System.EventHandler(this.BTRaporla_Click);
             // 
             // BTIrsaliyeSec
             // 

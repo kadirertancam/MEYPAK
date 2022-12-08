@@ -128,6 +128,7 @@
             this.accordionControlElement56 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement57 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement59 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement60 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement5 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement6 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement18 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -157,6 +158,7 @@
             this.accordionControlElement40 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement22 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement44 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACESeriTanim = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement23 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement24 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement25 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -164,8 +166,6 @@
             this.accordionControlElement27 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
             this.applicationMenu1 = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
-            this.accordionControlElement60 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.ACESeriTanim = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -1029,6 +1029,13 @@
             this.accordionControlElement59.Text = "Stok Kategori Raporu";
             this.accordionControlElement59.Click += new System.EventHandler(this.accordionControlElement59_Click);
             // 
+            // accordionControlElement60
+            // 
+            this.accordionControlElement60.Name = "accordionControlElement60";
+            this.accordionControlElement60.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement60.Text = "Stok Kasa Hareket Raporu";
+            this.accordionControlElement60.Click += new System.EventHandler(this.accordionControlElement60_Click);
+            // 
             // accordionControlElement5
             // 
             this.accordionControlElement5.Appearance.Default.ForeColor = System.Drawing.Color.Silver;
@@ -1266,6 +1273,13 @@
             this.accordionControlElement44.Text = "Para Birimleri";
             this.accordionControlElement44.Click += new System.EventHandler(this.accordionControlElement44_Click);
             // 
+            // ACESeriTanim
+            // 
+            this.ACESeriTanim.Name = "ACESeriTanim";
+            this.ACESeriTanim.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ACESeriTanim.Text = "Seri Tanım";
+            this.ACESeriTanim.Click += new System.EventHandler(this.ACESeriTanim_Click);
+            // 
             // accordionControlElement23
             // 
             this.accordionControlElement23.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement23.ImageOptions.Image")));
@@ -1321,20 +1335,6 @@
             // applicationMenu1
             // 
             this.applicationMenu1.Name = "applicationMenu1";
-            // 
-            // ACESeriTanim
-            // 
-            this.ACESeriTanim.Name = "ACESeriTanim";
-            this.ACESeriTanim.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.ACESeriTanim.Text = "Seri Tanım";
-            this.ACESeriTanim.Click += new System.EventHandler(this.ACESeriTanim_Click);
-            // 
-            // accordionControlElement60
-            // 
-            this.accordionControlElement60.Name = "accordionControlElement60";
-            this.accordionControlElement60.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement60.Text = "Stok Kasa Hareket Raporu";
-            this.accordionControlElement60.Click += new System.EventHandler(this.accordionControlElement60_Click);
             // 
             // Main
             // 
@@ -1500,5 +1500,6 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement59;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement60;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACESeriTanim;
+
     }
 }

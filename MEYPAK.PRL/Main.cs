@@ -944,5 +944,26 @@ namespace MEYPAK.PRL
             fStokKasaHarRaporu.Show();
             i++;
         }
+
+        private void ACESeriTanim_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fSeriTanim = new FSeriTanim(islem: "FSeriTanim");
+            page.Name = "TPSeriTanım" + i;
+            page.Text = "Seri Tanım";
+            page.Tag = "TPSeriTanım" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fSeriTanim.FormBorderStyle = FormBorderStyle.None;
+            fSeriTanim.TopLevel = false;
+            fSeriTanim.AutoScroll = true;
+            fSeriTanim.Dock = DockStyle.Fill;
+            fSeriTanim.Tag = "TPSeriTanım" + i;
+            page.Controls.Add(fSeriTanim);
+            fSeriTanim.Show();
+            i++;
+        }
     }
 }

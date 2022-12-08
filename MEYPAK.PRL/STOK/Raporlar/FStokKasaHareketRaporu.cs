@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraCharts.Designer.Native;
 using DevExpress.XtraCharts.Native;
 using DevExpress.XtraEditors;
+using DevExpress.XtraSpreadsheet.Import.OpenXml;
 using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.STOK;
@@ -90,6 +91,20 @@ namespace MEYPAK.PRL.STOK.Raporlar
         {
             FFaturaList fFaturaList = new FFaturaList(Tag.ToString(), "FStokKasaHareketRaporu");
             fFaturaList.ShowDialog();
+        }
+
+        private void BTRaporla_Click(object sender, EventArgs e)
+        {
+            //List<PocoSTOKKASAHAR> temp = new List<PocoSTOKKASAHAR>();
+            //if (BTCariSec.Text!="")
+            //{
+               
+            //}
+
+
+
+
+            //temp = _stokKasaHarServis.obje.Where();
         }
 
         private void BTCariSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
