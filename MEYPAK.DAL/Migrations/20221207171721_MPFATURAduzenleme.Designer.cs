@@ -4,6 +4,7 @@ using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MEYPAK.DAL.Migrations
 {
     [DbContext(typeof(MEYPAKContext))]
-    partial class MEYPAKContextModelSnapshot : ModelSnapshot
+    [Migration("20221207171721_MPFATURAduzenleme")]
+    partial class MPFATURAduzenleme
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -3380,9 +3382,6 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<int>("ESKIID")
                         .HasColumnType("int");
 
-                    b.Property<int>("FATURADETAYID")
-                        .HasColumnType("int");
-
                     b.Property<int>("FATURAID")
                         .HasColumnType("int");
 
@@ -3393,12 +3392,6 @@ namespace MEYPAK.DAL.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("IO")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IRSALIYEDETAYID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IRSALIYEID")
                         .HasColumnType("int");
 
                     b.Property<byte>("KAYITTIPI")

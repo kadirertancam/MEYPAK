@@ -19,6 +19,9 @@ namespace MEYPAK.Entity.PocoModels.STOK
         public string aciklama { get; set; } = "";
         public string belgE_NO { get; set; } = "";
         public int faturaid { get; set; } = 0;
+        public int faturadetayid { get; set; } = 0;
+        public int irsaliyeid { get; set; } = 0;
+        public int irsaliyedetayid { get; set; } = 0;
         public decimal kdv { get; set; } = 0;    
         public int io { get; set; } = 0;
         public decimal netfiyat { get; set; } = 0;

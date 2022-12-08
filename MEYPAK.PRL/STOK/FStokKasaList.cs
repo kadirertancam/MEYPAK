@@ -2,6 +2,7 @@
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraRichEdit.Design;
+using DevExpress.XtraSpreadsheet.Model;
 using MEYPAK.BLL.Assets;
 using MEYPAK.BLL.STOK;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
@@ -292,13 +293,14 @@ namespace MEYPAK.PRL.STOK
                 if (ffatura != null)
                 {
                     ttt.Clear();
-                    ffatura._tempKasaList.Clear();
+                    ffatura._tempKasaList.Clear(); 
                     foreach (var item in gridView1.GetSelectedRows())
                     {
                         if (item != -1)
                         {
                             ttt.Add(new KasaList()
                             {
+                                
                                 MARKA = gridView1.GetRowCellValue(item, "MARKA").ToString(),
                                 KASAADI = gridView1.GetRowCellValue(item, "KASAADI").ToString(),
                                 MIKTAR = decimal.Parse(gridView1.GetRowCellValue(item, "MIKTAR").ToString()),
@@ -315,6 +317,14 @@ namespace MEYPAK.PRL.STOK
                         });
                     else
                     {
+                        //_kasaa.kasalist ile ttt den kasaid si eşleşen var ise onun idsini alacak. yoksa 0 olarak gönderecek.
+                        foreach (var item in ttt)
+                        {
+                            if (ffatura._kasaaa.Where(x => x.num.ToString() == this.num).FirstOrDefault().KasaList.Where(x=>x.KASAID==item.KASAID).Count()>0)
+                            {
+                                item.ID = ffatura._kasaaa.Where(x => x.num.ToString() == this.num).FirstOrDefault().KasaList.Where(x => x.KASAID == item.KASAID).FirstOrDefault().ID;
+                            }
+                        }
                         ffatura._kasaaa.Where(x => x.num.ToString() == this.num).FirstOrDefault().KasaList = ttt;
                     }
 

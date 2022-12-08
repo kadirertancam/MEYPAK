@@ -1346,6 +1346,20 @@
             // 
             this.applicationMenu1.Name = "applicationMenu1";
             // 
+            // ACESeriTanim
+            // 
+            this.ACESeriTanim.Name = "ACESeriTanim";
+            this.ACESeriTanim.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ACESeriTanim.Text = "Seri Tanım";
+            //this.ACESeriTanim.Click += new System.EventHandler(this.ACESeriTanim_Click);
+            // 
+            // accordionControlElement60
+            // 
+            this.accordionControlElement60.Name = "accordionControlElement60";
+            this.accordionControlElement60.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement60.Text = "Stok Kasa Hareket Raporu";
+            this.accordionControlElement60.Click += new System.EventHandler(this.accordionControlElement60_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
