@@ -260,25 +260,7 @@ namespace MEYPAK.PRL.DEPO
 
         }
         
-        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-           
-        }
-
-        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-
-        }
-
-        private void dataGridView2_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-
-        }
-
-        private void dataGridView2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+       
 
         private void tileView2_DoubleClick(object sender, EventArgs e)
         {
@@ -299,7 +281,7 @@ namespace MEYPAK.PRL.DEPO
             gridControl2.Refresh();
 
         }
-
+        Bitmap bt;
         private void tileView2_Click(object sender, EventArgs e)
         {
             // if (Convert.ToInt32(dataGridView2.Rows[e.RowIndex].Cells["DURUM"].Value)==1)
@@ -315,19 +297,21 @@ namespace MEYPAK.PRL.DEPO
                 //var tempp = _stokSevkiyatList.obje.Where(x => x.EMIRID.ToString() == dataGridView2.Rows[e.RowIndex].Cells["id"].Value.ToString()).GroupBy(x => new { x.MPSTOK.kod, x.MPSTOK.adi, BIRIM = x.MPOLCUBR.adi, x.SIPARISMIKTARI }).Select(x => new { KOD = x.Select(x => x.MPSTOK.kod).FirstOrDefault(), ADI = x.Select(x => x.MPSTOK.adi).FirstOrDefault(), MIKTAR = x.Sum(z => z.MIKTAR), SIPARISMIKTARI = x.Select(x => x.SIPARISMIKTARI).FirstOrDefault(), KALANMIKTAR = x.Select(x => x.SIPARISMIKTARI).FirstOrDefault() - x.Sum(z => z.MIKTAR), BIRIM = x.Select(x => x.MPOLCUBR.adi).FirstOrDefault() }).ToList();
                 //dataGridView4.DataSource = tempp;
             }
-            Bitmap bt = new Bitmap("C:\\Users\\User\\source\\repos\\MEYPAK\\MEYPAK.PRL\\img\\icon-02.png");
+            
+            //_stokServis.obje.Where(x=> tileView1.GetFocusedRowCellValue()
+           bt = new Bitmap(Properties.Resources.icon_02);
             _stokResimServis.Data(ServisList.StokResimListeServis);
             gridControl3.DataSource = _siparisSevkEmriHarServis.obje.Where(x => x.emirid.ToString() == tileView2.GetFocusedRowCellValue("ID").ToString() && x.kayittipi==0 ).Select(x =>
              new
              {
                  IEBELGENO = _siparisServis.obje.Where(z => z.id == x.siparisid).FirstOrDefault().belgeno,
                  StokKodu = _stokServis.obje.Where(z => z.id == _siparisDetayServis.obje.Where(c => c.id == x.sipariskalemid && c.siparisid == x.siparisid).FirstOrDefault().stokid).FirstOrDefault().kod,
-                 StokAdi = _stokServis.obje.Where(z => z.id == _siparisDetayServis.obje.Where(c => c.id == x.sipariskalemid && c.siparisid == x.siparisid).FirstOrDefault().stokid).FirstOrDefault().adi,
+                 StokAdi =  _stokServis.obje.Where(z => z.id == _siparisDetayServis.obje.Where(c => c.id == x.sipariskalemid && c.siparisid == x.siparisid).FirstOrDefault().stokid).FirstOrDefault().adi,
                  EmirNo = x.emirid,
                  SiparisMiktari = x.siparismiktari,
                  EmirMiktari = x.emirmiktari,
                  KalanMiktar = _stokSevkiyatList.obje.Where(z => z.emirid == x.emirid && z.siparisdetayid == x.sipariskalemid).FirstOrDefault().kalanmiktar
-                 ,Resim=Base64ToImage(_stokResimServis.obje.Where(z=>z.STOKID== _siparisDetayServis.obje.Where(c => c.id == x.sipariskalemid && c.siparisid == x.siparisid).FirstOrDefault().stokid && z.NUM==0 ).FirstOrDefault().IMG)
+                 ,Resim=Base64ToImage(_stokResimServis.obje.Where(z=>z.STOKID== _siparisDetayServis.obje.Where(c => c.id == x.sipariskalemid && c.siparisid == x.siparisid).FirstOrDefault().stokid  ).FirstOrDefault().IMG)
                  //x.siparismiktari-x.emirmiktari
              ,
                  DepoButon = bt
@@ -426,15 +410,15 @@ namespace MEYPAK.PRL.DEPO
               new
               {
                   IEBELGENO = _siparisServis.obje.Where(z => z.id == x.siparisid).FirstOrDefault().belgeno,
-                  StokKodu = _siparisDetayServis.obje.Where(z => z.siparisid == x.siparisid).Select(c => _stokServis.obje.Where(v => v.id == c.stokid).Select(v => v.kod).FirstOrDefault()).FirstOrDefault() == null ? "" : "1",
-                  StokAdi = _siparisDetayServis.obje.Where(z => z.siparisid == x.siparisid).Select(c => _stokServis.obje.Where(v => v.id == c.stokid).Select(v => v.adi).FirstOrDefault()).FirstOrDefault() == null ? "" : "1",
+                  StokKodu = _stokServis.obje.Where(z => z.id == _siparisDetayServis.obje.Where(c => c.id == x.sipariskalemid && c.siparisid == x.siparisid).FirstOrDefault().stokid).FirstOrDefault().kod,
+                  StokAdi = _stokServis.obje.Where(z => z.id == _siparisDetayServis.obje.Where(c => c.id == x.sipariskalemid && c.siparisid == x.siparisid).FirstOrDefault().stokid).FirstOrDefault().adi,
                   EmirNo = x.emirid,
                   SiparisMiktari = x.siparismiktari,
                   EmirMiktari = x.emirmiktari,
                   KalanMiktar = _stokSevkiyatList.obje.Where(z => z.emirid == x.emirid && z.siparisdetayid == x.sipariskalemid).FirstOrDefault().kalanmiktar
 
                   //
-
+                  ,DepoButon= bt
               }).ToList();
             gridControl3.Refresh();
         }

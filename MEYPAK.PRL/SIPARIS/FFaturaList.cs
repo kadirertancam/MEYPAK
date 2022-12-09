@@ -90,7 +90,7 @@ namespace MEYPAK.PRL.SIPARIS
                     x.althesapid,
                     x.depoid,
                     x.geneltoplam
-                });
+                }); 
         }
 
         private void gridView1_DoubleClick(object sender, EventArgs e)
