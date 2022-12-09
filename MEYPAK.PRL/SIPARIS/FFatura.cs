@@ -339,11 +339,23 @@ namespace MEYPAK.PRL.SIPARIS
 
         void ToplamHesapla()
         {
-            TBBrutToplam.Text = decimal.Round(_tempFaturaDetay.Sum(x => x.BrütToplam), 2).ToString();
-            TBIskontoToplam.Text = decimal.Round(_tempFaturaDetay.Sum(x => x.İskontoTutarı), 2).ToString();
-            TBKdvTutari.Text = decimal.Round(_tempFaturaDetay.Sum(x => x.KdvTutarı), 2).ToString();
+            decimal isktoplam = 0;
+            isktoplam =  decimal.TryParse(TBAIskonto1.Text,out decimal a) ?  ((_tempFaturaDetay.Sum(x => x.NetToplam) * Convert.ToDecimal(TBAIskonto1.Text)) / 100): 0;
+            isktoplam = decimal.TryParse(TBAIskonto2.Text, out decimal b) ? isktoplam + (((_tempFaturaDetay.Sum(x => x.NetToplam)-isktoplam) * Convert.ToDecimal(TBAIskonto2.Text)) / 100) : isktoplam;
+            isktoplam = decimal.TryParse(TBAIskonto3.Text, out decimal c) ? isktoplam + (((_tempFaturaDetay.Sum(x => x.NetToplam) - isktoplam) * Convert.ToDecimal(TBAIskonto3.Text)) / 100):isktoplam;
+
+            TBBrutToplam.Text = decimal.Round((_tempFaturaDetay.Sum(x => x.BrütToplam) ),2).ToString();
+            TBIskontoToplam.Text = decimal.Round(_tempFaturaDetay.Sum(x => x.İskontoTutarı)+isktoplam, 2).ToString();
+            if (isktoplam>0)
+                TBKdvTutari.Text = decimal.Round(_tempFaturaDetay.Sum(x => x.KdvTutarı) - (_tempFaturaDetay.Sum(x => x.KdvTutarı) / ((_tempFaturaDetay.Sum(x => x.BrütToplam) / isktoplam))), 2).ToString();
+            else
+                TBKdvTutari.Text = decimal.Round(_tempFaturaDetay.Sum(x => x.KdvTutarı) , 2).ToString();
+
+
             TBGenelToplam.Text = decimal.Round(_tempFaturaDetay.Sum(x => x.NetToplam + x.KdvTutarı), 2).ToString();
-            TBAraToplam.Text = decimal.Round(_tempFaturaDetay.Sum(x => x.NetToplam), 2).ToString();
+            TBAraToplam.Text = decimal.Round(_tempFaturaDetay.Sum(x => x.NetToplam)-isktoplam, 2).ToString();
+
+           
         }
 
         void Hesapla(int rowindex)
@@ -698,6 +710,39 @@ namespace MEYPAK.PRL.SIPARIS
 
         }
 
+        private void TBAIskonto1_EditValueChanged(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(TBAIskonto1.Text)>=100)
+            {
+                MessageBox.Show("Iskonto oranı 100 den büyük olamaz");
+                TBAIskonto1.Text = "0";
+            }
+            else
+            ToplamHesapla();
+        }
+
+        private void TBAIskonto2_EditValueChanged(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(TBAIskonto2.Text) >= 100)
+            {
+                MessageBox.Show("Iskonto oranı 100 den büyük olamaz");
+                TBAIskonto2.Text = "0";
+            }
+            else
+                ToplamHesapla();
+        }
+
+        private void TBAIskonto3_EditValueChanged(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(TBAIskonto3.Text) >= 100)
+            {
+                MessageBox.Show("Iskonto oranı 100 den büyük olamaz");
+                TBAIskonto3.Text = "0";
+            }
+            else
+                ToplamHesapla();
+        }
+
         private void TBGun_EditValueChanged(object sender, EventArgs e)
         {
             if (DTPVadeTarihi.Text != DateTime.Now.AddDays((Convert.ToInt32(TBGun.Text))).ToString("dd.MM.yyyy"))
@@ -723,6 +768,9 @@ namespace MEYPAK.PRL.SIPARIS
 
         private void BTKaydet_Click_1(object sender, EventArgs e)
         {
+            if (_tempFatura!=null && TBIrsaliyeNo.Text != _tempFatura.belgeno)
+                _tempFatura = null;
+
             _cariKart.Data(ServisList.CariListeServis);
             if (_cariKart.obje.Where(x => x.kod == TBCariKodu.Text).Count() > 0)
             {
@@ -934,8 +982,11 @@ namespace MEYPAK.PRL.SIPARIS
                 }
                );
                 _tempFaturaDetay.Remove(_tempFaturaDetay[gridView1.FocusedRowHandle]);
-                _silinenkasaaa.Add(_kasaaa[gridView1.FocusedRowHandle]);
-                _kasaaa.Remove(_kasaaa[gridView1.FocusedRowHandle]);
+                if (_kasaaa.Count() > gridView1.FocusedRowHandle)
+                {
+                    _silinenkasaaa.Add(_kasaaa[gridView1.FocusedRowHandle]);
+                    _kasaaa.Remove(_kasaaa[gridView1.FocusedRowHandle]);
+                }
             }
             KasaAltBilgiDoldur();
             GCIrsaliye.RefreshDataSource();

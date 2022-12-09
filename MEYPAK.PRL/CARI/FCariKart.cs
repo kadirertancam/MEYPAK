@@ -126,6 +126,8 @@ namespace MEYPAK.PRL.CARI
         }
         void Doldur()
         {
+            if (_tempCariKart!=null)
+            {
             _cariAltHesList.Clear();
             BTCariSec.Text = _tempCariKart.kod;
             TBUnvan.Text = _tempCariKart.unvan;
@@ -209,6 +211,7 @@ namespace MEYPAK.PRL.CARI
             gridControl3.DataSource = resimList.Where(x => x.CARIID == _tempCariKart.id).Select(x => new { CResim = Base64ToImage(x.IMG) });
             SevkAdresDoldur();
             YetkiliBilgileriDoldur();
+            }
         }
         void AltCariDoldur()
         {
@@ -834,11 +837,16 @@ namespace MEYPAK.PRL.CARI
                 _tempCariKart = _cariServis.obje.Where(x => x.kayittipi == 0 && x.kod == BTCariSec.Text).FirstOrDefault();
                 if (_tempCariKart != null)
                     Doldur();
-                else
+                else if(BTCariSec.Text == "")
                 {
                     FormuTemizle();
                 }
             }
+        }
+
+        private void BTCariSec_Properties_Click(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+
         }
     }
 }

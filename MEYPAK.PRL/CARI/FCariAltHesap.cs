@@ -42,6 +42,7 @@ namespace MEYPAK.PRL.CARI
             _tempAltHesap = new PocoCARIALTHES();
             _cariAltHesapServis = new GenericWebServis<PocoCARIALTHES>();
             _parabirIMServis = new GenericWebServis<PocoPARABIRIM>();
+            _cariAltHesCariServis=new GenericWebServis<PocoCARIALTHESCARI>();
             _parabirIMServis.Data(ServisList.ParaBirimiListeServis);
             CBDoviz.Properties.DataSource = _parabirIMServis.obje.Where(x=>x.kayittipi==0).Select(x => new { ID=x.id,ADI=x.adi }).ToList(); //comboxun içini parabirim formundan doldurur
             CBDoviz.Properties.ValueMember= "ID";
@@ -53,6 +54,7 @@ namespace MEYPAK.PRL.CARI
         ADRESOBJECT.Root _adresObje;
         GenericWebServis<PocoCARIALTHES> _cariAltHesapServis;
         GenericWebServis<PocoPARABIRIM> _parabirIMServis;
+        GenericWebServis<PocoCARIALTHESCARI> _cariAltHesCariServis;
         PocoCARIALTHES _tempAltHesap;
 
         #endregion
@@ -68,11 +70,21 @@ namespace MEYPAK.PRL.CARI
         
         private void BTSil_Click(object sender, EventArgs e)
         {
-           
+            
             _cariAltHesapServis.Data(ServisList.CariAltHesListeServis);
-            _cariAltHesapServis.Data(ServisList.CariAltHesSilServis, null, null, _cariAltHesapServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).ToList());
-            MessageBox.Show("Silme işlemi Başarılı");
-            DataGridDoldur();
+            _cariAltHesCariServis.Data(ServisList.CariAltHesCariListeServis);
+            if (_cariAltHesCariServis.obje.Where(x => x.carialthesid == _cariAltHesapServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault().id).Count()==0)
+            {
+                _cariAltHesapServis.Data(ServisList.CariAltHesSilServis, null, null, _cariAltHesapServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).ToList());
+                MessageBox.Show("Silme işlemi Başarılı");
+                DataGridDoldur();
+            }
+            else
+            {
+                MessageBox.Show("Cariye bağlı olan alt hesap silinemez!");
+            }
+          
+           
         }
         public void Temizle(Control.ControlCollection ctrlCollection) //Formdaki textboxları temizler
         {
