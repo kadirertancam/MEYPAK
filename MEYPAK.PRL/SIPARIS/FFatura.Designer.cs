@@ -584,6 +584,7 @@
             this.TBAIskonto3.Properties.UseMaskAsDisplayFormat = true;
             this.TBAIskonto3.Size = new System.Drawing.Size(118, 26);
             this.TBAIskonto3.TabIndex = 15;
+            this.TBAIskonto3.EditValueChanged += new System.EventHandler(this.TBAIskonto3_EditValueChanged);
             // 
             // TBAIskonto1
             // 
@@ -599,6 +600,7 @@
             this.TBAIskonto1.Properties.UseMaskAsDisplayFormat = true;
             this.TBAIskonto1.Size = new System.Drawing.Size(118, 26);
             this.TBAIskonto1.TabIndex = 13;
+            this.TBAIskonto1.EditValueChanged += new System.EventHandler(this.TBAIskonto1_EditValueChanged);
             // 
             // TBAIskonto2
             // 
@@ -614,6 +616,7 @@
             this.TBAIskonto2.Properties.UseMaskAsDisplayFormat = true;
             this.TBAIskonto2.Size = new System.Drawing.Size(118, 26);
             this.TBAIskonto2.TabIndex = 14;
+            this.TBAIskonto2.EditValueChanged += new System.EventHandler(this.TBAIskonto2_EditValueChanged);
             // 
             // LBAltIskonto3
             // 
