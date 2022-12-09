@@ -9,6 +9,7 @@ using MEYPAK.Interfaces.Stok;
 using MEYPAK.PRL.CARI.Raporlar;
 using MEYPAK.PRL.IRSALIYE;
 using MEYPAK.PRL.SIPARIS;
+using MEYPAK.PRL.SIPARIS.Raporlar;
 using MEYPAK.PRL.STOK;
 using MEYPAK.PRL.STOK.FiyatListesi;
 using MEYPAK.PRL.STOK.Raporlar;
@@ -39,11 +40,13 @@ namespace MEYPAK.PRL.CARI
         FStokFiyat fStokFiyat;
         FCariHareketRaporu fCariHareketRaporu;
         FStokKasaHareketRaporu fStokKasaHareketRaporu;
-        
+        FStokFiyatRaporu fStokFiyatRaporu;
+        FFatura ffatura;
+        FFaturaRaporu fFaturaRaporu;
 
         Main main;
         int i = 0;
-        FFatura ffatura;
+       
         public FCariList(string form = "", string islem = "")
         {
             InitializeComponent();
@@ -87,8 +90,10 @@ namespace MEYPAK.PRL.CARI
                     fCariHareketRaporu._tempCariKart = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
                 if (_islem == "FStokKasaHareketRaporu")
                     fStokKasaHareketRaporu._tempCariKart = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
-               
-
+                if (_islem == "FStokFiyatRaporu")
+                    fStokFiyatRaporu._tempCariKart = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+                if (_islem == "FFaturaRaporu")
+                    fFaturaRaporu._tempCariKart = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
 
             }
             else
@@ -125,7 +130,9 @@ namespace MEYPAK.PRL.CARI
                     {
                         if (frm.Name.Contains("FCariKart"))
                             fCariKart = (FCariKart)frm;
-                        if (frm.Name.Contains("FCariHareket"))
+                        if (frm.Name.Contains("FCariHareketRaporu"))
+                            fCariHareketRaporu = (FCariHareketRaporu)frm;
+                        else if (frm.Name.Contains("FCariHareket"))
                             _cariHareket = (FCariHareket)frm;
                         if (frm.Name.Contains("FMusteriSiparis"))
                             _fmusteriSiparis = (FMusteriSiparis)frm;
@@ -135,17 +142,20 @@ namespace MEYPAK.PRL.CARI
                             fSatisIrsaliye = (FSatisIrsaliye)frm;
                         if (frm.Name.Contains("AlisIrsaliye"))
                             fAlisIrsaliye = (FAlisIrsaliye)frm;
-                        if (frm.Name.Contains("FFatura"))
+                        if (frm.Name.Contains("FFaturaRaporu"))
+                            fFaturaRaporu = (FFaturaRaporu)frm;
+                        else if (frm.Name.Contains("FFatura"))
                             ffatura = (FFatura)frm;
                         if (frm.Name.Contains("FAlisFatura"))
                             fAlisFatura = (FAlisFatura)frm;
-                        if (frm.Name.Contains("FStokFiyat"))
+                        if (frm.Name.Contains("FStokFiyatRaporu"))
+                            fStokFiyatRaporu = (FStokFiyatRaporu)frm;
+                        else if (frm.Name.Contains("FStokFiyat"))
                             fStokFiyat = (FStokFiyat)frm;
-                        if (frm.Name.Contains("FCariHareketRaporu"))
-                            fCariHareketRaporu = (FCariHareketRaporu)frm;
                         if (frm.Name.Contains("FStokKasaHareketRaporu"))
                             fStokKasaHareketRaporu = (FStokKasaHareketRaporu)frm;
-                        
+                       
+
                     }
                 }
             }

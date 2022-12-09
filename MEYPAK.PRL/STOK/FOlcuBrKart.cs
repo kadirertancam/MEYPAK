@@ -27,8 +27,10 @@ namespace MEYPAK.PRL.STOK
         {
             InitializeComponent();
             _OlcuBrServis = new GenericWebServis<PocoOLCUBR>();
+            _StokOlcuBrServis = new GenericWebServis<PocoSTOKOLCUBR>();
         }
         GenericWebServis<PocoOLCUBR> _OlcuBrServis ;
+        GenericWebServis<PocoSTOKOLCUBR> _StokOlcuBrServis ;
         private void FStokOlcuBrKart_Load(object sender, EventArgs e)
         {
             DataGridDoldur();
@@ -85,14 +87,26 @@ namespace MEYPAK.PRL.STOK
             id = 0;
             DataGridDoldur();
         }
-
+         
         private void BTSil_Click(object sender, EventArgs e)
         {
             _OlcuBrServis.Data(ServisList.OlcuBrListeServis);
-            _OlcuBrServis.Data(ServisList.OlcuBrSilServis,null,null, _OlcuBrServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).ToList());
-            MessageBox.Show("Silme Başarılı");
-            DGOlcuBirim.DataSource = _OlcuBrServis.obje.Where(x=> x.kayittipi == 0);
-            DataGridDoldur();
+            _StokOlcuBrServis.Data(ServisList.StokOlcuBrListeServis);
+            if (_StokOlcuBrServis.obje.Where(x=> x.olcubrid.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).Count()==0)
+            {
+                _OlcuBrServis.Data(ServisList.OlcuBrSilServis, null, null, _OlcuBrServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).ToList());
+                MessageBox.Show("Silme Başarılı");
+                DGOlcuBirim.DataSource = _OlcuBrServis.obje.Where(x => x.kayittipi == 0);
+                DataGridDoldur();
+            }
+            else
+            {
+                MessageBox.Show("Stok ile bağlantılı olan ölçü birim silinemez! ");
+            }
+           
         }
+
+       
+
     }
 }

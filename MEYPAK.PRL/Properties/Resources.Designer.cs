@@ -73,6 +73,16 @@ namespace MEYPAK.PRL.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
+        internal static System.Drawing.Bitmap BACKGROUND {
+            get {
+                object obj = ResourceManager.GetObject("BACKGROUND", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
         internal static System.Drawing.Bitmap HoverButton {
             get {
                 object obj = ResourceManager.GetObject("HoverButton", resourceCulture);

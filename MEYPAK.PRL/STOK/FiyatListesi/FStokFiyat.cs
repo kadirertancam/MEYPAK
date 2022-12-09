@@ -28,17 +28,19 @@ namespace MEYPAK.PRL.STOK.FiyatListesi
     public partial class FStokFiyat : XtraForm
     {
 
-        public FStokFiyat()
+        public FStokFiyat(string tag = "", string islem = "")
         {
             InitializeComponent();
             _stokFiyatServis = new GenericWebServis<PocoSTOKFIYAT>();
             _stokFiyatHarServis = new GenericWebServis<PocoSTOKFIYATHAR>();
             _cariServis = new GenericWebServis<PocoCARIKART>();
-           
-          
+            _form = tag;
+            _islem = islem;
+
         }
 
         #region Tanımlar
+        string _form, _islem;
         GenericWebServis<PocoSTOKFIYAT> _stokFiyatServis;
         GenericWebServis<PocoSTOKFIYATHAR> _stokFiyatHarServis;
         GenericWebServis<PocoCARIKART> _cariServis;

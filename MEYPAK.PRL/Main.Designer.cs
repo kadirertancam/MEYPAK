@@ -166,6 +166,7 @@
             this.accordionControlElement27 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
             this.applicationMenu1 = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
+            this.ACEFaturaRaporu = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -1055,7 +1056,6 @@
             this.accordionControlElement18,
             this.accordionControlElement35,
             this.accordionControlElement52});
-            this.accordionControlElement6.Expanded = true;
             this.accordionControlElement6.Name = "accordionControlElement6";
             this.accordionControlElement6.Text = "Tanımlar";
             // 
@@ -1215,6 +1215,9 @@
             // 
             // accordionControlElement33
             // 
+            this.accordionControlElement33.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.ACEFaturaRaporu});
+            this.accordionControlElement33.Expanded = true;
             this.accordionControlElement33.Name = "accordionControlElement33";
             this.accordionControlElement33.Text = "Raporlar";
             // 
@@ -1335,6 +1338,13 @@
             // applicationMenu1
             // 
             this.applicationMenu1.Name = "applicationMenu1";
+            // 
+            // ACEFaturaRaporu
+            // 
+            this.ACEFaturaRaporu.Name = "ACEFaturaRaporu";
+            this.ACEFaturaRaporu.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ACEFaturaRaporu.Text = "Fatura Raporu";
+            this.ACEFaturaRaporu.Click += new System.EventHandler(this.ACEFaturaRaporu_Click);
             // 
             // Main
             // 
@@ -1500,6 +1510,6 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement59;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement60;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACESeriTanim;
-
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACEFaturaRaporu;
     }
 }

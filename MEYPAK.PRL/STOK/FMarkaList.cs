@@ -7,6 +7,7 @@ using MEYPAK.DAL.Concrete.EntityFramework.Repository;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Stok;
 using MEYPAK.PRL.Assets;
+using MEYPAK.PRL.STOK.Raporlar;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,6 +24,7 @@ namespace MEYPAK.PRL.STOK
     {
         FMarkaKart FMarkaKart;
         FStokKart fStokKart;
+        FStokListesiRaporu fStokListesiRaporu;
         GenericWebServis<PocoSTOKMARKA> _markaServis;
         string _islem;
         string _form;
@@ -44,6 +46,11 @@ namespace MEYPAK.PRL.STOK
                 {
                     if (frm.Name.Contains("FStokKart"))
                         fStokKart = (FStokKart)frm;
+                }
+                if (_form == frm.Tag)
+                {
+                    if (frm.Name.Contains("FStokListesiRaporu"))
+                        fStokListesiRaporu = (FStokListesiRaporu)frm;
                 }
             }
         }
@@ -67,6 +74,10 @@ namespace MEYPAK.PRL.STOK
             if (_islem =="stokkart")
             {
                 fStokKart._tempMarka = _markaServis.obje.Where(x =>x.kayittipi==0 &&x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()).FirstOrDefault();
+            }
+            if (_islem == "FStokListesiRaporu")
+            {
+                fStokListesiRaporu._tempMarka = _markaServis.obje.Where(x => x.kayittipi == 0 && x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()).FirstOrDefault();
             }
             this.Close();
         }
