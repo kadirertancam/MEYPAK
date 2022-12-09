@@ -24,7 +24,7 @@ using Ninject.Infrastructure.Language;
 using DevExpress.DataProcessing;
 using DevExpress.XtraRichEdit.Model;
 using DevExpress.XtraVerticalGrid.Native;
-
+using MEYPAK.PRL.Assets;
 
 namespace MEYPAK.PRL.SIPARIS
 {
@@ -66,6 +66,7 @@ namespace MEYPAK.PRL.SIPARIS
             _kasaaa = new List<ListKasaList>();
             _stokHarServis = new GenericWebServis<PocoSTOKHAR>();
             _stokOlcuBrList = new List<StokOlcuBrTemp>();
+            kDVHesaps = new KDVHesap();
         }
 
         #region TANIMLAR
@@ -112,6 +113,7 @@ namespace MEYPAK.PRL.SIPARIS
         public List<KasaList> _tempKasaList;
         StokOlcuBrTemp stokOlcuBrTemp = new StokOlcuBrTemp();
         List<OlcuBrlist> olcuBrlist1 = new List<OlcuBrlist>();
+        KDVHesap kDVHesaps;
         int i;
         int num = 0;
         decimal birimfiyat = 0, kdv = 0, bsnc = 0, brutfiyat = 0, netfiyat = 0, nettoplam = 0, brüttoplam = 0, geneltoplam = 0, isktoplam = 0, kdvtoplam = 0, miktar = 0;
@@ -338,34 +340,55 @@ namespace MEYPAK.PRL.SIPARIS
         }
 
         void ToplamHesapla()
-        {
+        { 
             decimal isktoplam = 0;
-            isktoplam =  decimal.TryParse(TBAIskonto1.Text,out decimal a) ?  ((_tempFaturaDetay.Sum(x => x.NetToplam) * Convert.ToDecimal(TBAIskonto1.Text)) / 100): 0;
-            isktoplam = decimal.TryParse(TBAIskonto2.Text, out decimal b) ? isktoplam + (((_tempFaturaDetay.Sum(x => x.NetToplam)-isktoplam) * Convert.ToDecimal(TBAIskonto2.Text)) / 100) : isktoplam;
-            isktoplam = decimal.TryParse(TBAIskonto3.Text, out decimal c) ? isktoplam + (((_tempFaturaDetay.Sum(x => x.NetToplam) - isktoplam) * Convert.ToDecimal(TBAIskonto3.Text)) / 100):isktoplam;
+            decimal temppte = 0;
+            decimal nettop=0;
+            decimal kdvtoplamm = 0;
+            decimal iskk = 0;
+            if (TBAIskonto1.Text != "" || TBAIskonto2.Text!="" || TBAIskonto3.Text !="")
+            {
+                foreach (var item in _tempFaturaDetay)
+                {
+                    nettop = item.NetToplam - ((item.NetToplam * Convert.ToDecimal(TBAIskonto1.Text)) / 100);
+                    nettop = item.NetToplam - ((item.NetToplam * Convert.ToDecimal(TBAIskonto2.Text)) / 100);
+                    nettop = item.NetToplam - ((item.NetToplam * Convert.ToDecimal(TBAIskonto3.Text)) / 100);
+                    temppte += item.NetToplam - ((item.NetToplam * Convert.ToDecimal(TBAIskonto1.Text)) / 100);
+                    isktoplam += ((item.NetToplam * Convert.ToDecimal(TBAIskonto1.Text)) / 100);
+                    kdvtoplamm += ((nettop * item.Kdv) / 100);
+                    iskk = decimal.Round((_tempFaturaDetay.Sum(x => x.İskontoTutarı)), 2);
+                    isktoplam = isktoplam + iskk;
+                }
 
-            TBBrutToplam.Text = decimal.Round((_tempFaturaDetay.Sum(x => x.BrütToplam) ),2).ToString();
-            TBIskontoToplam.Text = decimal.Round(_tempFaturaDetay.Sum(x => x.İskontoTutarı)+isktoplam, 2).ToString();
-            if (isktoplam>0)
-                TBKdvTutari.Text = decimal.Round(_tempFaturaDetay.Sum(x => x.KdvTutarı) - (_tempFaturaDetay.Sum(x => x.KdvTutarı) / ((_tempFaturaDetay.Sum(x => x.BrütToplam) / isktoplam))), 2).ToString();
+
+
+                TBBrutToplam.Text = decimal.Round((_tempFaturaDetay.Sum(x => x.BrütToplam)), 2).ToString();
+                TBAraToplam.Text = temppte.ToString();
+                TBIskontoToplam.Text = isktoplam.ToString();
+                TBKdvTutari.Text = kdvtoplamm.ToString();
+                TBGenelToplam.Text = (temppte + kdvtoplamm).ToString();
+            }
             else
-                TBKdvTutari.Text = decimal.Round(_tempFaturaDetay.Sum(x => x.KdvTutarı) , 2).ToString();
+            {
 
+                TBBrutToplam.Text = decimal.Round(_tempFaturaDetay.Sum(x => x.BrütToplam), 2).ToString();
+                TBIskontoToplam.Text = decimal.Round(_tempFaturaDetay.Sum(x => x.İskontoTutarı), 2).ToString();
+                TBKdvTutari.Text = decimal.Round(_tempFaturaDetay.Sum(x => x.KdvTutarı), 2).ToString();
+                TBGenelToplam.Text = decimal.Round(_tempFaturaDetay.Sum(x => x.NetToplam + x.KdvTutarı), 2).ToString();
+                TBAraToplam.Text = decimal.Round(_tempFaturaDetay.Sum(x => x.NetToplam), 2).ToString();
+            }
 
-            TBGenelToplam.Text = decimal.Round(_tempFaturaDetay.Sum(x => x.NetToplam + x.KdvTutarı), 2).ToString();
-            TBAraToplam.Text = decimal.Round(_tempFaturaDetay.Sum(x => x.NetToplam)-isktoplam, 2).ToString();
-
-           
         }
 
         void Hesapla(int rowindex)
         {
             if (sy == 0)
             {
+              
                 sy = 1;
                 daralı = Convert.ToDecimal(gridView1.GetRowCellValue(rowindex, "Daralı"));
                 dara = Convert.ToDecimal(gridView1.GetRowCellValue(rowindex, "Dara"));
-                gridView1.SetRowCellValue(rowindex, "Safi", daralı - dara);
+                gridView1.SetRowCellValue(rowindex, "Safi", daralı - dara);  
                 if (CHBKdvDahil.Checked == false)
                 {
                     birimfiyat = Convert.ToDecimal(gridView1.GetRowCellValue(rowindex, "BirimFiyat"));
@@ -383,6 +406,8 @@ namespace MEYPAK.PRL.SIPARIS
                     kdvtoplam = (((nettoplam * kdv) / 100));
                     brüttoplam = brutfiyat * miktar;
                     geneltoplam = nettoplam + kdvtoplam;
+                   
+                  
                 }
                 else
                 {
@@ -402,7 +427,31 @@ namespace MEYPAK.PRL.SIPARIS
                     isktoplam = isktoplam * miktar;
 
                 }
+                kDVHesaps.kdv0 = 0;
+                kDVHesaps.kdv1 = 0;
+                kDVHesaps.kdv8 = 0;
+                kDVHesaps.kdv18 = 0;
 
+                foreach (var item in _tempFaturaDetay.Where(x => x.StokKodu != ""))
+                {
+                    if (item.Kdv == 0)
+                    {
+                        kDVHesaps.kdv0 += kdvtoplam;
+                    }
+                    else if (item.Kdv == 1)
+                    {
+                        kDVHesaps.kdv1 += kdvtoplam;
+                    }
+                    else if (item.Kdv == 8)
+                    {
+                        kDVHesaps.kdv8 += kdvtoplam;
+                    }
+                    else if (item.Kdv == 18)
+                    {
+                        kDVHesaps.kdv18 += kdvtoplam;
+                    }
+                }
+              
                 gridView1.SetRowCellValue(rowindex, "BrütFiyat", decimal.Round(brutfiyat, 2));
                 gridView1.SetRowCellValue(rowindex, "NetToplam", decimal.Round(nettoplam, 2));
                 gridView1.SetRowCellValue(rowindex, "BrütToplam", decimal.Round(brüttoplam, 2));

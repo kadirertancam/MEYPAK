@@ -535,6 +535,7 @@
             // 
             // TBIskonto
             // 
+            this.TBIskonto.EditValue = "0";
             this.TBIskonto.Location = new System.Drawing.Point(98, 19);
             this.TBIskonto.Name = "TBIskonto";
             this.TBIskonto.Properties.Appearance.BackColor = System.Drawing.Color.Gray;
@@ -572,6 +573,7 @@
             // 
             // TBAIskonto3
             // 
+            this.TBAIskonto3.EditValue = "0";
             this.TBAIskonto3.Location = new System.Drawing.Point(86, 69);
             this.TBAIskonto3.Name = "TBAIskonto3";
             this.TBAIskonto3.Properties.Appearance.Options.UseFont = true;
@@ -588,6 +590,7 @@
             // 
             // TBAIskonto1
             // 
+            this.TBAIskonto1.EditValue = "0";
             this.TBAIskonto1.Location = new System.Drawing.Point(86, 19);
             this.TBAIskonto1.Name = "TBAIskonto1";
             this.TBAIskonto1.Properties.Appearance.Options.UseFont = true;
@@ -604,6 +607,7 @@
             // 
             // TBAIskonto2
             // 
+            this.TBAIskonto2.EditValue = "0";
             this.TBAIskonto2.Location = new System.Drawing.Point(86, 45);
             this.TBAIskonto2.Name = "TBAIskonto2";
             this.TBAIskonto2.Properties.Appearance.Options.UseFont = true;
