@@ -589,9 +589,9 @@ namespace MEYPAK.PRL.SIPARIS
                     id = x.id,
                     Tipi = "STOK",
                     StokId = x.stokid,
-                    StokKodu = _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().kod,//,  TODOO:BAKILACAAAK
-                    StokAdı = _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().adi,
-                    Birim = _olcuBr.obje.Where(y => y.id == x.birimid).FirstOrDefault().adi,
+                    StokKodu = _stokServis.obje.Where(z => z.id == x.stokid).Count() > 0 ? _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().kod:"",//,  TODOO:BAKILACAAAK
+                    StokAdı = _stokServis.obje.Where(z => z.id == x.stokid).Count()>0? _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().adi:"",
+                    Birim = _olcuBr.obje.Where(y => y.id == x.birimid).Count()>0 ?_olcuBr.obje.Where(y => y.id == x.birimid).FirstOrDefault().adi:"",
                     Kunye = x.kunye,
                     NetFiyat = x.netfiyat,
                     İskonto1 = x.iskontO1,
@@ -1129,66 +1129,6 @@ namespace MEYPAK.PRL.SIPARIS
         }
 
         #endregion
-
-        #region CommentLine
-
-        //private void gridView1_CustomRowCellEditForEditing(object sender, CustomRowCellEditEventArgs e)
-        //{
-        //    if (gridView1.FocusedColumn.VisibleIndex == gridView1.Columns["Safi"].VisibleIndex)
-        //    {
-        //        e.RepositoryItem.KeyPress += new KeyPressEventHandler(Column1_KeyPress);
-        //    }
-
-        //    else if (gridView1.FocusedColumn.VisibleIndex == gridView1.Columns["BirimFiyat"].VisibleIndex)
-        //    {
-        //        e.RepositoryItem.KeyPress += new KeyPressEventHandler(Column1_KeyPress);
-        //    }
-
-        //    else if (gridView1.FocusedColumn.VisibleIndex == gridView1.Columns["NetFiyat"].VisibleIndex)
-        //    {
-        //        e.RepositoryItem.KeyPress += new KeyPressEventHandler(Column1_KeyPress);
-        //    }
-
-        //    else if (gridView1.FocusedColumn.VisibleIndex == gridView1.Columns["BrütFiyat"].VisibleIndex)
-        //    {
-        //        e.RepositoryItem.KeyPress += new KeyPressEventHandler(Column1_KeyPress);
-        //    }
-
-        //    else if (gridView1.FocusedColumn.VisibleIndex == gridView1.Columns["İskonto1"].VisibleIndex)
-        //    {
-        //        e.RepositoryItem.KeyPress += new KeyPressEventHandler(Column1_KeyPress);
-        //    }
-        //    else if (gridView1.FocusedColumn.VisibleIndex == gridView1.Columns["İskonto2"].VisibleIndex)
-        //    {
-        //        e.RepositoryItem.KeyPress += new KeyPressEventHandler(Column1_KeyPress);
-        //    }
-        //    else if (gridView1.FocusedColumn.VisibleIndex == gridView1.Columns["İskonto3"].VisibleIndex)
-        //    {
-        //        e.RepositoryItem.KeyPress += new KeyPressEventHandler(Column1_KeyPress);
-        //    }
-        //    else if (gridView1.FocusedColumn.VisibleIndex == gridView1.Columns["Kdv"].VisibleIndex)
-        //    {
-        //        e.RepositoryItem.KeyPress += new KeyPressEventHandler(Column1_KeyPress);
-        //    }
-        //    else if (gridView1.FocusedColumn.VisibleIndex == gridView1.Columns["KdvTutarı"].VisibleIndex)
-        //    {
-        //        e.RepositoryItem.KeyPress += new KeyPressEventHandler(Column1_KeyPress);
-        //    }
-        //    else if (gridView1.FocusedColumn.VisibleIndex == gridView1.Columns["İskontoTutarı"].VisibleIndex)
-        //    {
-        //        e.RepositoryItem.KeyPress += new KeyPressEventHandler(Column1_KeyPress);
-        //    }
-        //    else if (gridView1.FocusedColumn.VisibleIndex == gridView1.Columns["NetToplam"].VisibleIndex)
-        //    {
-        //        e.RepositoryItem.KeyPress += new KeyPressEventHandler(Column1_KeyPress);
-        //    }
-        //    else if (gridView1.FocusedColumn.VisibleIndex == gridView1.Columns["BrütToplam"].VisibleIndex)
-        //    {
-        //        e.RepositoryItem.KeyPress += new KeyPressEventHandler(Column1_KeyPress);
-        //    }
-        //}
-        #endregion
-
 
     }
 

@@ -9,6 +9,7 @@ namespace MEYPAK.Entity.PocoModels.CARI
     public class PocoCARIHAR:SUPERPOCOMODEL
     {
         public int cariid { get; set; }
+        public int carialthesapid { get; set; }
         public int harekettipi { get; set; }
         public decimal borc { get; set; }
         public decimal alacak { get; set; }
