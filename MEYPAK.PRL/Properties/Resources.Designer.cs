@@ -93,6 +93,16 @@ namespace MEYPAK.PRL.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
+        internal static System.Drawing.Bitmap icon_02 {
+            get {
+                object obj = ResourceManager.GetObject("icon-02", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
         internal static System.Drawing.Bitmap kategoriarti {
             get {
                 object obj = ResourceManager.GetObject("kategoriarti", resourceCulture);

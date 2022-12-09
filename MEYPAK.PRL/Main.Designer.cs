@@ -150,6 +150,7 @@
             this.accordionControlElement53 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement32 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEMusteriSiparisIrsaliyelestir = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACESatisIrsaliyeFaturalastir = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement33 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement21 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement38 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -1201,7 +1202,8 @@
             // accordionControlElement32
             // 
             this.accordionControlElement32.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
-            this.ACEMusteriSiparisIrsaliyelestir});
+            this.ACEMusteriSiparisIrsaliyelestir,
+            this.ACESatisIrsaliyeFaturalastir});
             this.accordionControlElement32.Expanded = true;
             this.accordionControlElement32.Name = "accordionControlElement32";
             this.accordionControlElement32.Text = "Hareketler";
@@ -1212,6 +1214,14 @@
             this.ACEMusteriSiparisIrsaliyelestir.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.ACEMusteriSiparisIrsaliyelestir.Text = "Müşteri Siparişi İrsaliyeleştir";
             this.ACEMusteriSiparisIrsaliyelestir.Click += new System.EventHandler(this.ACEMusteriSiparisIrsaliyelestir_Click);
+            // 
+            // ACESatisIrsaliyeFaturalastir
+            // 
+            this.ACESatisIrsaliyeFaturalastir.AccessibleName = "ACESatisIrsaliyeFaturalastir";
+            this.ACESatisIrsaliyeFaturalastir.Name = "ACESatisIrsaliyeFaturalastir";
+            this.ACESatisIrsaliyeFaturalastir.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ACESatisIrsaliyeFaturalastir.Text = "Satış Irsaliyesi Faturalaştır";
+            this.ACESatisIrsaliyeFaturalastir.Click += new System.EventHandler(this.ACESatisIrsaliyeFaturalastir_Click);
             // 
             // accordionControlElement33
             // 
@@ -1345,6 +1355,20 @@
             this.ACEFaturaRaporu.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.ACEFaturaRaporu.Text = "Fatura Raporu";
             this.ACEFaturaRaporu.Click += new System.EventHandler(this.ACEFaturaRaporu_Click);
+            // 
+            // ACESeriTanim
+            // 
+            this.ACESeriTanim.Name = "ACESeriTanim";
+            this.ACESeriTanim.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ACESeriTanim.Text = "Seri Tanım";
+            //this.ACESeriTanim.Click += new System.EventHandler(this.ACESeriTanim_Click);
+            // 
+            // accordionControlElement60
+            // 
+            this.accordionControlElement60.Name = "accordionControlElement60";
+            this.accordionControlElement60.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement60.Text = "Stok Kasa Hareket Raporu";
+            this.accordionControlElement60.Click += new System.EventHandler(this.accordionControlElement60_Click);
             // 
             // Main
             // 
@@ -1511,5 +1535,6 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement60;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACESeriTanim;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEFaturaRaporu;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACESatisIrsaliyeFaturalastir;
     }
 }

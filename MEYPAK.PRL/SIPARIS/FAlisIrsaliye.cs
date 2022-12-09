@@ -440,10 +440,10 @@ namespace MEYPAK.PRL.IRSALIYE
                     netfiyat = item.NetFiyat,
                     birimid = _olcuBr.obje.Where(x => x.adi.ToString() == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Birim").ToString()).FirstOrDefault().id,
                     dovizid = 0,
-                    miktar = item.Miktar,
-                    istkontO1 = item.İskonto1,
-                    istkontO2 = item.İskonto2,
-                    istkontO3 = item.İskonto3,
+                    safi = item.Safi, 
+                    iskontO1 = item.İskonto1,
+                    iskontO2 = item.İskonto2,
+                    iskontO3 = item.İskonto3,
                     irsaliyeid = _irsaliyeServis.obje2.id, ///ID gelecek
 
                     brutfiyat = item.BrütFiyat,

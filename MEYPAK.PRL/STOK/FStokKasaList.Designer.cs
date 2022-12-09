@@ -62,7 +62,7 @@
             this.GCKasaList.MainView = this.gridView1;
             this.GCKasaList.Name = "GCKasaList";
             this.GCKasaList.Size = new System.Drawing.Size(1016, 605);
-            this.GCKasaList.TabIndex = 0;
+            this.GCKasaList.TabIndex = 1;
             this.GCKasaList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 

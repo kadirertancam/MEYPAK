@@ -66,7 +66,7 @@ namespace MEYPAK.API.Controllers.CARIControllers
         }
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult CARIALTHESCARIHESSil(List<PocoCARIALTHESCARI> pModel)
+        public IActionResult CARIALTHESCARISil([FromBody]List<PocoCARIALTHESCARI> pModel)
         {
             try
             {

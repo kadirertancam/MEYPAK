@@ -31,7 +31,7 @@ namespace MEYPAK.PRL.PARAMETRELER
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            CBTip.SelectedIndex = 0;
+            
             _seriServis.Data(ServisList.SeriEkleServis, new PocoSERI()
             {
                 SERINO = TBSeri.Text,
@@ -43,14 +43,15 @@ namespace MEYPAK.PRL.PARAMETRELER
                 seriid=_seriServis.obje2.id,
                 serino=2022000000000
             });
-            gridControl1.DataSource = _seriServis.obje.Select(x => new { SeriNo = x.SERINO, Tip = x.TIP == 0 ? "E-Fatura" : x.TIP == 1 ? "E-Arşiv" : x.TIP == 2 ? "E-Irsaluye" : "E-Müstahsil" });
+            gridControl1.DataSource = _seriServis.obje.Select(x => new { SeriNo = x.SERINO, Tip = x.TIP == 0 ? "E-Fatura" : x.TIP == 1 ? "E-Arşiv" : x.TIP == 2 ? "E-Irsaliye" : "E-Müstahsil" });
             gridControl1.RefreshDataSource(); 
         }
 
         private void FSeriTanim_Load(object sender, EventArgs e)
         {
             _seriServis.Data(ServisList.SeriListeServis);
-            gridControl1.DataSource = _seriServis.obje.Select(x=> new {SeriNo=x.SERINO,Tip=x.TIP==0?"E-Fatura":x.TIP==1?"E-Arşiv":x.TIP==2?"E-Irsaluye":"E-Müstahsil"});
+            CBTip.SelectedIndex = 0;
+            gridControl1.DataSource = _seriServis.obje.Select(x=> new {SeriNo=x.SERINO,Tip=x.TIP==0?"E-Fatura":x.TIP==1?"E-Arşiv":x.TIP==2?"E-Irsaliye":"E-Müstahsil"});
         }
     }
 }

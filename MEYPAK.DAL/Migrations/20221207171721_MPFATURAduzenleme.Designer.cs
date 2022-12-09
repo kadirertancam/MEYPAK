@@ -4,6 +4,7 @@ using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MEYPAK.DAL.Migrations
 {
     [DbContext(typeof(MEYPAKContext))]
-    partial class MEYPAKContextModelSnapshot : ModelSnapshot
+    [Migration("20221207171721_MPFATURAduzenleme")]
+    partial class MPFATURAduzenleme
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -647,9 +649,6 @@ namespace MEYPAK.DAL.Migrations
 
                     b.Property<decimal>("BORC")
                         .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("CARIALTHESAPID")
-                        .HasColumnType("int");
 
                     b.Property<int>("CARIID")
                         .HasColumnType("int");
@@ -1781,9 +1780,6 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<int>("BEKLEYENMIKTAR")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("BIRIMFIYAT")
-                        .HasColumnType("decimal(18,2)");
-
                     b.Property<int>("BIRIMID")
                         .HasColumnType("int");
 
@@ -1791,12 +1787,6 @@ namespace MEYPAK.DAL.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<decimal>("BRUTTOPLAM")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("DARA")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("DARALI")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("DOVIZID")
@@ -1814,26 +1804,17 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<int>("IRSALIYEID")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("ISKONTO1")
+                    b.Property<decimal>("ISTKONTO1")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<decimal>("ISKONTO2")
+                    b.Property<decimal>("ISTKONTO2")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<decimal>("ISKONTO3")
+                    b.Property<decimal>("ISTKONTO3")
                         .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("ISKTOPLAM")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("ISTISNANO")
-                        .HasColumnType("int");
 
                     b.Property<int>("KASAID")
                         .HasColumnType("int");
-
-                    b.Property<decimal>("KASAMIKTAR")
-                        .HasColumnType("decimal(18,2)");
 
                     b.Property<byte>("KAYITTIPI")
                         .HasColumnType("tinyint");
@@ -1854,20 +1835,17 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<int>("LISTEFIYATID")
                         .HasColumnType("int");
 
+                    b.Property<decimal>("MIKTAR")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<decimal>("NETFIYAT")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<decimal>("NETTOPLAM")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("NUM")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("OLUSTURMATARIHI")
                         .HasColumnType("datetime2");
-
-                    b.Property<decimal>("SAFI")
-                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("STOKADI")
                         .IsRequired()
@@ -1875,9 +1853,6 @@ namespace MEYPAK.DAL.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<int>("STOKID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TEVKIFATNO")
                         .HasColumnType("int");
 
                     b.Property<byte>("TIP")
@@ -3407,9 +3382,6 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<int>("ESKIID")
                         .HasColumnType("int");
 
-                    b.Property<int>("FATURADETAYID")
-                        .HasColumnType("int");
-
                     b.Property<int>("FATURAID")
                         .HasColumnType("int");
 
@@ -3420,12 +3392,6 @@ namespace MEYPAK.DAL.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("IO")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IRSALIYEDETAYID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IRSALIYEID")
                         .HasColumnType("int");
 
                     b.Property<byte>("KAYITTIPI")

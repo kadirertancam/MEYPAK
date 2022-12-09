@@ -17,6 +17,7 @@ namespace MEYPAK.Entity.PocoModels.IRSALIYE
         public int irsaliyeid { get; set; }
         public int stokid { get; set; }
         public int birimid { get; set; }
+        public int num { get; set; }
         public int dovizid { get; set; } = 0;
         public int listefiyatid { get; set; } = 0;
         public int kullaniciid { get; set; } = 0;
@@ -26,10 +27,17 @@ namespace MEYPAK.Entity.PocoModels.IRSALIYE
         public string stokadi { get; set; } = "";
         [StringLength(200)]
         public string aciklama { get; set; } = "";
-        public decimal miktar { get; set; } = 0;
-        public decimal istkontO1 { get; set; } = 0;
-        public decimal istkontO2 { get; set; } = 0;
-        public decimal istkontO3 { get; set; } = 0;
+        public int tevkifatno { get; set; } = 0;
+        public int istisnano { get; set; } = 0;
+        public decimal kasamiktar { get; set; } = 0;
+        public decimal dara { get; set; } = 0;
+        public decimal darali { get; set; } = 0;
+        public decimal safi { get; set; } = 0;
+        public decimal iskontO1 { get; set; } = 0;
+        public decimal iskontO2 { get; set; } = 0;
+        public decimal iskontO3 { get; set; } = 0;
+        public decimal isktoplam { get; set; }
+        public decimal birimfiyat { get; set; } = 0;
         public decimal netfiyat { get; set; } = 0;
         public decimal brutfiyat { get; set; } = 0;
         public decimal nettoplam { get; set; } = 0;

@@ -95,6 +95,8 @@ namespace MEYPAK.PRL
         FAlisFatura fFAlisFatura;
         FMusteriSiparisIrsaliyelestir fMusteriSiparisIrsaliyelestir;
         FSeriTanim fSeriTanim;
+        FSatisIrsaliyeFaturalastir fSatisIrsaliyeFaturalastir;
+        
         FFaturaRaporu fFaturaRaporu;
         FStokHareketRaporu fStokHareketRaporu;
         FStokFiyatRaporu fStokFiyatRaporu;
@@ -985,6 +987,27 @@ namespace MEYPAK.PRL
             fFaturaRaporu.Tag = "TPFaturaRaporu" + i;
             page.Controls.Add(fFaturaRaporu);
             fFaturaRaporu.Show();
+            i++;
+        }
+
+        private void ACESatisIrsaliyeFaturalastir_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fSatisIrsaliyeFaturalastir = new FSatisIrsaliyeFaturalastir();
+            page.Name = "TPSatisIrsaliyeFaturalastir" + i;
+            page.Text = "Satış Irsaliyesi Faturalaştır";
+            page.Tag = "TPSatisIrsaliyeFaturalastir" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fSatisIrsaliyeFaturalastir.FormBorderStyle = FormBorderStyle.None;
+            fSatisIrsaliyeFaturalastir.TopLevel = false;
+            fSatisIrsaliyeFaturalastir.AutoScroll = true;
+            fSatisIrsaliyeFaturalastir.Dock = DockStyle.Fill;
+            fSatisIrsaliyeFaturalastir.Tag = "TPSatisIrsaliyeFaturalastir" + i;
+            page.Controls.Add(fSatisIrsaliyeFaturalastir);
+            fSatisIrsaliyeFaturalastir.Show();
             i++;
         }
     }
