@@ -351,7 +351,7 @@ namespace MEYPAK.PRL.SIPARIS
             decimal nettop=0;
             decimal kdvtoplamm = 0;
             decimal iskk = 0;
-            if (TBAIskonto1.Text != "" || TBAIskonto2.Text!="" || TBAIskonto3.Text !="")
+            if (TBAIskonto1.Text != "0" || TBAIskonto1.Text != "" || TBAIskonto2.Text!="0" || TBAIskonto2.Text != "" || TBAIskonto3.Text !="0" || TBAIskonto3.Text != "")
             {
                 foreach (var item in _tempFaturaDetay)
                 {

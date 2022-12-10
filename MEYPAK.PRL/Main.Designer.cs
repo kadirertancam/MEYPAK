@@ -152,6 +152,7 @@
             this.ACEMusteriSiparisIrsaliyelestir = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACESatisIrsaliyeFaturalastir = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement33 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACEFaturaRaporu = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement21 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement38 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement41 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -167,7 +168,6 @@
             this.accordionControlElement27 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
             this.applicationMenu1 = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
-            this.ACEFaturaRaporu = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -1231,6 +1231,13 @@
             this.accordionControlElement33.Name = "accordionControlElement33";
             this.accordionControlElement33.Text = "Raporlar";
             // 
+            // ACEFaturaRaporu
+            // 
+            this.ACEFaturaRaporu.Name = "ACEFaturaRaporu";
+            this.ACEFaturaRaporu.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ACEFaturaRaporu.Text = "Fatura Raporu";
+            this.ACEFaturaRaporu.Click += new System.EventHandler(this.ACEFaturaRaporu_Click);
+            // 
             // accordionControlElement21
             // 
             this.accordionControlElement21.Appearance.Default.ForeColor = System.Drawing.Color.Silver;
@@ -1349,27 +1356,6 @@
             // 
             this.applicationMenu1.Name = "applicationMenu1";
             // 
-            // ACEFaturaRaporu
-            // 
-            this.ACEFaturaRaporu.Name = "ACEFaturaRaporu";
-            this.ACEFaturaRaporu.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.ACEFaturaRaporu.Text = "Fatura Raporu";
-            this.ACEFaturaRaporu.Click += new System.EventHandler(this.ACEFaturaRaporu_Click);
-            // 
-            // ACESeriTanim
-            // 
-            this.ACESeriTanim.Name = "ACESeriTanim";
-            this.ACESeriTanim.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.ACESeriTanim.Text = "Seri Tanım";
-            //this.ACESeriTanim.Click += new System.EventHandler(this.ACESeriTanim_Click);
-            // 
-            // accordionControlElement60
-            // 
-            this.accordionControlElement60.Name = "accordionControlElement60";
-            this.accordionControlElement60.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement60.Text = "Stok Kasa Hareket Raporu";
-            this.accordionControlElement60.Click += new System.EventHandler(this.accordionControlElement60_Click);
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1378,7 +1364,7 @@
             this.Controls.Add(this.panel3);
             this.IsMdiContainer = true;
             this.Name = "Main";
-            this.Text = "Main";
+            this.Text = " 5645";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Main_Load);
             this.panel3.ResumeLayout(false);
