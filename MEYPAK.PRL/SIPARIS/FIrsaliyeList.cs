@@ -30,6 +30,7 @@ namespace MEYPAK.PRL.SIPARIS
           
         }
         FSatisIrsaliye fsatisIralsiye;
+        FAlisIrsaliye falisIralsiye;
         FFaturaRaporu fFaturaRaporu;
         FStokKasaHareketRaporu fStokKasaHareketRaporu;
         GenericWebServis<PocoIRSALIYE> _mIrsaliyeServis;
@@ -37,7 +38,7 @@ namespace MEYPAK.PRL.SIPARIS
 
         private void gridView1_DoubleClick(object sender, EventArgs e)
         {
-            _mIrsaliyeServis.Data(ServisList.SiparisListeServis);
+            _mIrsaliyeServis.Data(ServisList.IrsaliyeListeServis);
             if (_islem == "FSatisIrsaliye")
             {
                 if (fsatisIralsiye != null)
@@ -48,10 +49,10 @@ namespace MEYPAK.PRL.SIPARIS
             }
             if (_islem == "FAlisIrsaliye")
             {
-                //if (fsatinalmaSiparis != null)
-                //{
-                //    fsatinalmaSiparis._tempIrsliye = _mIrsaliyeServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
-                //}
+                if (falisIralsiye != null)
+                {
+                    falisIralsiye._tempIrsaliye = _mIrsaliyeServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+                }
             }
             if (_islem == "FStokKasaHareketRaporu")
             {

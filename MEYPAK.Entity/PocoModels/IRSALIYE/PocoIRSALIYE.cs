@@ -39,6 +39,9 @@ namespace MEYPAK.Entity.PocoModels.IRSALIYE
         public bool kdvdahil { get; set; }
         public decimal nettoplam { get; set; } = 0;
         public decimal kdvtoplam { get; set; } = 0;
+        public decimal altiskonto1 { get; set; } = 0;
+        public decimal altiskonto2 { get; set; } = 0;
+        public decimal altiskonto3 { get; set; } = 0;
         public decimal iskontotoplam { get; set; } = 0;
         public decimal bruttoplam { get; set; } = 0;
         public decimal geneltoplam { get; set; } = 0;

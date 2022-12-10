@@ -37,6 +37,11 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
             this.DTSiparisTarih = new DevExpress.XtraEditors.DateEdit();
             this.CHBKdvDahil = new DevExpress.XtraEditors.CheckEdit();
             this.TBGun = new DevExpress.XtraEditors.TextEdit();
@@ -44,12 +49,14 @@
             this.TBCariAdi = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.TBCariKodu = new DevExpress.XtraEditors.ButtonEdit();
-            this.TBIrsaliyeNo = new DevExpress.XtraEditors.ButtonEdit();
+            this.TBFaturaNo = new DevExpress.XtraEditors.ButtonEdit();
             this.LBGun = new DevExpress.XtraEditors.LabelControl();
             this.TBKur = new DevExpress.XtraEditors.TextEdit();
             this.CBParaBirimi = new DevExpress.XtraEditors.GridLookUpEdit();
             this.CBParaBirimiView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.BTNSatirSil = new System.Windows.Forms.Button();
             this.DTPVadeTarihi = new DevExpress.XtraEditors.DateEdit();
             this.TBAciklama = new DevExpress.XtraEditors.MemoEdit();
             this.CBDepo = new DevExpress.XtraEditors.GridLookUpEdit();
@@ -70,9 +77,10 @@
             this.GCIrsaliye = new DevExpress.XtraGrid.GridControl();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.TBIskonto = new DevExpress.XtraEditors.TextEdit();
-            this.LBIskonto = new DevExpress.XtraEditors.LabelControl();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.TBAIskonto3 = new DevExpress.XtraEditors.TextEdit();
             this.TBAIskonto1 = new DevExpress.XtraEditors.TextEdit();
@@ -95,7 +103,6 @@
             this.TBBrutToplam = new System.Windows.Forms.TextBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.BTKaydet = new System.Windows.Forms.Button();
-            this.BTNDegistir = new System.Windows.Forms.Button();
             this.BTNSil = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.DTSiparisTarih.Properties.CalendarTimeProperties)).BeginInit();
@@ -105,11 +112,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.CBAltHesap.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBCariAdi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBCariKodu.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TBIrsaliyeNo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBFaturaNo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBKur.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBParaBirimi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBParaBirimiView)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPVadeTarihi.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPVadeTarihi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBAciklama.Properties)).BeginInit();
@@ -121,8 +129,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.GCIrsaliye)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             this.panel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TBIskonto.Properties)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TBAIskonto3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBAIskonto1.Properties)).BeginInit();
@@ -136,13 +146,13 @@
             // 
             // DTSiparisTarih
             // 
-            this.DTSiparisTarih.EditValue = new System.DateTime(2022, 11, 18, 17, 30, 38, 141);
+            this.DTSiparisTarih.EditValue = new System.DateTime(2022, 12, 5, 16, 21, 27, 0);
             this.DTSiparisTarih.Location = new System.Drawing.Point(395, 27);
             this.DTSiparisTarih.Name = "DTSiparisTarih";
             this.DTSiparisTarih.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.DTSiparisTarih.Size = new System.Drawing.Size(184, 20);
-            this.DTSiparisTarih.TabIndex = 160;
+            this.DTSiparisTarih.TabIndex = 6;
             // 
             // CHBKdvDahil
             // 
@@ -150,15 +160,22 @@
             this.CHBKdvDahil.Name = "CHBKdvDahil";
             this.CHBKdvDahil.Properties.Caption = "KDV Dahil";
             this.CHBKdvDahil.Size = new System.Drawing.Size(64, 20);
-            this.CHBKdvDahil.TabIndex = 158;
+            this.CHBKdvDahil.TabIndex = 7;
+            this.CHBKdvDahil.CheckedChanged += new System.EventHandler(this.CHBKdvDahil_CheckedChanged);
             // 
             // TBGun
             // 
             this.TBGun.EditValue = "0";
             this.TBGun.Location = new System.Drawing.Point(225, 120);
             this.TBGun.Name = "TBGun";
-            this.TBGun.Size = new System.Drawing.Size(45, 20);
-            this.TBGun.TabIndex = 155;
+            this.TBGun.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.TBGun.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.TBGun.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
+            this.TBGun.Properties.MaskSettings.Set("MaskManagerSignature", "allowNull=False");
+            this.TBGun.Properties.MaskSettings.Set("mask", "d");
+            this.TBGun.Size = new System.Drawing.Size(51, 20);
+            this.TBGun.TabIndex = 5;
+            this.TBGun.EditValueChanged += new System.EventHandler(this.TBGun_EditValueChanged);
             // 
             // CBAltHesap
             // 
@@ -167,15 +184,15 @@
             this.CBAltHesap.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.CBAltHesap.Properties.NullText = "";
-            this.CBAltHesap.Size = new System.Drawing.Size(176, 20);
-            this.CBAltHesap.TabIndex = 154;
+            this.CBAltHesap.Size = new System.Drawing.Size(185, 20);
+            this.CBAltHesap.TabIndex = 3;
             // 
             // TBCariAdi
             // 
             this.TBCariAdi.Location = new System.Drawing.Point(91, 75);
             this.TBCariAdi.Name = "TBCariAdi";
-            this.TBCariAdi.Size = new System.Drawing.Size(154, 20);
-            this.TBCariAdi.TabIndex = 152;
+            this.TBCariAdi.Size = new System.Drawing.Size(185, 20);
+            this.TBCariAdi.TabIndex = 2;
             // 
             // labelControl1
             // 
@@ -192,19 +209,19 @@
             this.TBCariKodu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.TBCariKodu.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.TBCariKodu_Properties_ButtonClick);
-            this.TBCariKodu.Size = new System.Drawing.Size(154, 22);
-            this.TBCariKodu.TabIndex = 149;
+            this.TBCariKodu.Size = new System.Drawing.Size(185, 22);
+            this.TBCariKodu.TabIndex = 1;
             // 
-            // TBIrsaliyeNo
+            // TBFaturaNo
             // 
-            this.TBIrsaliyeNo.Location = new System.Drawing.Point(91, 27);
-            this.TBIrsaliyeNo.Name = "TBIrsaliyeNo";
-            this.TBIrsaliyeNo.Properties.Appearance.Options.UseFont = true;
-            this.TBIrsaliyeNo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.TBFaturaNo.Location = new System.Drawing.Point(142, 27);
+            this.TBFaturaNo.Name = "TBFaturaNo";
+            this.TBFaturaNo.Properties.Appearance.Options.UseFont = true;
+            this.TBFaturaNo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.TBIrsaliyeNo.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.TBSiparisNo_Properties_ButtonClick);
-            this.TBIrsaliyeNo.Size = new System.Drawing.Size(154, 22);
-            this.TBIrsaliyeNo.TabIndex = 150;
+            this.TBFaturaNo.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.TBSiparisNo_Properties_ButtonClick);
+            this.TBFaturaNo.Size = new System.Drawing.Size(134, 22);
+            this.TBFaturaNo.TabIndex = 0;
             // 
             // LBGun
             // 
@@ -225,7 +242,7 @@
             this.TBKur.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             this.TBKur.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.TBKur.Size = new System.Drawing.Size(190, 26);
-            this.TBKur.TabIndex = 142;
+            this.TBKur.TabIndex = 10;
             // 
             // CBParaBirimi
             // 
@@ -238,7 +255,7 @@
             this.CBParaBirimi.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.CBParaBirimi.Properties.PopupView = this.CBParaBirimiView;
             this.CBParaBirimi.Size = new System.Drawing.Size(131, 26);
-            this.CBParaBirimi.TabIndex = 141;
+            this.CBParaBirimi.TabIndex = 9;
             // 
             // CBParaBirimiView
             // 
@@ -250,6 +267,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.comboBoxEdit1);
+            this.groupBox1.Controls.Add(this.BTNSatirSil);
             this.groupBox1.Controls.Add(this.DTSiparisTarih);
             this.groupBox1.Controls.Add(this.DTPVadeTarihi);
             this.groupBox1.Controls.Add(this.CHBKdvDahil);
@@ -258,7 +277,7 @@
             this.groupBox1.Controls.Add(this.TBCariAdi);
             this.groupBox1.Controls.Add(this.labelControl1);
             this.groupBox1.Controls.Add(this.TBCariKodu);
-            this.groupBox1.Controls.Add(this.TBIrsaliyeNo);
+            this.groupBox1.Controls.Add(this.TBFaturaNo);
             this.groupBox1.Controls.Add(this.LBGun);
             this.groupBox1.Controls.Add(this.TBAciklama);
             this.groupBox1.Controls.Add(this.TBKur);
@@ -282,22 +301,47 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Satış Fatura";
             // 
+            // comboBoxEdit1
+            // 
+            this.comboBoxEdit1.Location = new System.Drawing.Point(91, 27);
+            this.comboBoxEdit1.Name = "comboBoxEdit1";
+            this.comboBoxEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBoxEdit1.Properties.Appearance.Options.UseFont = true;
+            this.comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEdit1.Size = new System.Drawing.Size(50, 22);
+            this.comboBoxEdit1.TabIndex = 155;
+            this.comboBoxEdit1.SelectedIndexChanged += new System.EventHandler(this.comboBoxEdit1_SelectedIndexChanged);
+            // 
+            // BTNSatirSil
+            // 
+            this.BTNSatirSil.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BTNSatirSil.Location = new System.Drawing.Point(765, 130);
+            this.BTNSatirSil.Name = "BTNSatirSil";
+            this.BTNSatirSil.Size = new System.Drawing.Size(87, 33);
+            this.BTNSatirSil.TabIndex = 154;
+            this.BTNSatirSil.TabStop = false;
+            this.BTNSatirSil.Text = "Seçili Satır Sil";
+            this.BTNSatirSil.UseVisualStyleBackColor = true;
+            this.BTNSatirSil.Click += new System.EventHandler(this.BTNSatirSil_Click);
+            // 
             // DTPVadeTarihi
             // 
-            this.DTPVadeTarihi.EditValue = new System.DateTime(2022, 11, 18, 17, 30, 23, 918);
+            this.DTPVadeTarihi.EditValue = new System.DateTime(2022, 12, 5, 17, 30, 23, 0);
             this.DTPVadeTarihi.Location = new System.Drawing.Point(91, 120);
             this.DTPVadeTarihi.Name = "DTPVadeTarihi";
             this.DTPVadeTarihi.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.DTPVadeTarihi.Size = new System.Drawing.Size(107, 20);
-            this.DTPVadeTarihi.TabIndex = 159;
+            this.DTPVadeTarihi.TabIndex = 4;
+            this.DTPVadeTarihi.EditValueChanged += new System.EventHandler(this.DTPVadeTarihi_EditValueChanged);
             // 
             // TBAciklama
             // 
             this.TBAciklama.Location = new System.Drawing.Point(697, 29);
             this.TBAciklama.Name = "TBAciklama";
             this.TBAciklama.Size = new System.Drawing.Size(155, 58);
-            this.TBAciklama.TabIndex = 143;
+            this.TBAciklama.TabIndex = 11;
             // 
             // CBDepo
             // 
@@ -310,7 +354,7 @@
             this.CBDepo.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.CBDepo.Properties.PopupView = this.CBDepoView;
             this.CBDepo.Size = new System.Drawing.Size(184, 26);
-            this.CBDepo.TabIndex = 140;
+            this.CBDepo.TabIndex = 8;
             // 
             // CBDepoView
             // 
@@ -413,7 +457,7 @@
             // 
             this.repositoryItemButtonEdit1.AutoHeight = false;
             this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F3), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
             // 
             // gridView1
@@ -422,8 +466,7 @@
             this.gridView1.GridControl = this.GCIrsaliye;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowFooter = true;
-            this.gridView1.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gridView1_RowClick);
-            this.gridView1.RowCellClick += new DevExpress.XtraGrid.Views.Grid.RowCellClickEventHandler(this.gridView1_RowCellClick);
+            this.gridView1.ColumnChanged += new System.EventHandler(this.gridView1_ColumnChanged);
             this.gridView1.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView1_FocusedRowChanged);
             this.gridView1.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridView1_CellValueChanged);
             this.gridView1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.gridView1_KeyPress);
@@ -437,7 +480,7 @@
             this.GCIrsaliye.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemButtonEdit1});
             this.GCIrsaliye.Size = new System.Drawing.Size(1615, 423);
-            this.GCIrsaliye.TabIndex = 16;
+            this.GCIrsaliye.TabIndex = 12;
             this.GCIrsaliye.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
@@ -455,6 +498,7 @@
             // panel4
             // 
             this.panel4.AutoSize = true;
+            this.panel4.Controls.Add(this.panel9);
             this.panel4.Controls.Add(this.panel8);
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -463,38 +507,41 @@
             this.panel4.Size = new System.Drawing.Size(1615, 199);
             this.panel4.TabIndex = 2;
             // 
+            // panel9
+            // 
+            this.panel9.Controls.Add(this.gridControl1);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel9.Location = new System.Drawing.Point(288, 0);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(291, 199);
+            this.panel9.TabIndex = 28;
+            // 
+            // gridControl1
+            // 
+            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl1.Location = new System.Drawing.Point(0, 0);
+            this.gridControl1.MainView = this.gridView2;
+            this.gridControl1.Name = "gridControl1";
+            this.gridControl1.Size = new System.Drawing.Size(291, 199);
+            this.gridControl1.TabIndex = 0;
+            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView2});
+            // 
+            // gridView2
+            // 
+            this.gridView2.GridControl = this.gridControl1;
+            this.gridView2.Name = "gridView2";
+            this.gridView2.OptionsBehavior.Editable = false;
+            this.gridView2.OptionsView.ShowGroupPanel = false;
+            // 
             // panel8
             // 
-            this.panel8.Controls.Add(this.TBIskonto);
-            this.panel8.Controls.Add(this.LBIskonto);
             this.panel8.Controls.Add(this.groupBox3);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel8.Location = new System.Drawing.Point(0, 0);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(288, 199);
             this.panel8.TabIndex = 27;
-            // 
-            // TBIskonto
-            // 
-            this.TBIskonto.Location = new System.Drawing.Point(98, 19);
-            this.TBIskonto.Name = "TBIskonto";
-            this.TBIskonto.Properties.Appearance.BackColor = System.Drawing.Color.Gray;
-            this.TBIskonto.Properties.Appearance.ForeColor = System.Drawing.Color.Transparent;
-            this.TBIskonto.Properties.Appearance.Options.UseBackColor = true;
-            this.TBIskonto.Properties.Appearance.Options.UseFont = true;
-            this.TBIskonto.Properties.Appearance.Options.UseForeColor = true;
-            this.TBIskonto.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.TBIskonto.Size = new System.Drawing.Size(118, 26);
-            this.TBIskonto.TabIndex = 136;
-            // 
-            // LBIskonto
-            // 
-            this.LBIskonto.Appearance.Options.UseFont = true;
-            this.LBIskonto.Location = new System.Drawing.Point(19, 21);
-            this.LBIskonto.Name = "LBIskonto";
-            this.LBIskonto.Size = new System.Drawing.Size(61, 13);
-            this.LBIskonto.TabIndex = 126;
-            this.LBIskonto.Text = "Satır İskonto";
             // 
             // groupBox3
             // 
@@ -513,30 +560,54 @@
             // 
             // TBAIskonto3
             // 
+            this.TBAIskonto3.EditValue = "0";
             this.TBAIskonto3.Location = new System.Drawing.Point(86, 69);
             this.TBAIskonto3.Name = "TBAIskonto3";
             this.TBAIskonto3.Properties.Appearance.Options.UseFont = true;
+            this.TBAIskonto3.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
+            this.TBAIskonto3.Properties.MaskSettings.Set("MaskManagerSignature", "allowNull=False");
+            this.TBAIskonto3.Properties.MaskSettings.Set("mask", "d");
+            this.TBAIskonto3.Properties.MaskSettings.Set("valueType", typeof(decimal));
+            this.TBAIskonto3.Properties.MaskSettings.Set("valueAfterDelete", DevExpress.Data.Mask.NumericMaskManager.ValueAfterDelete.ZeroThenNull);
             this.TBAIskonto3.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.TBAIskonto3.Properties.UseMaskAsDisplayFormat = true;
             this.TBAIskonto3.Size = new System.Drawing.Size(118, 26);
-            this.TBAIskonto3.TabIndex = 137;
+            this.TBAIskonto3.TabIndex = 15;
+            this.TBAIskonto3.EditValueChanged += new System.EventHandler(this.TBAIskonto3_EditValueChanged);
             // 
             // TBAIskonto1
             // 
+            this.TBAIskonto1.EditValue = "0";
             this.TBAIskonto1.Location = new System.Drawing.Point(86, 19);
             this.TBAIskonto1.Name = "TBAIskonto1";
             this.TBAIskonto1.Properties.Appearance.Options.UseFont = true;
+            this.TBAIskonto1.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
+            this.TBAIskonto1.Properties.MaskSettings.Set("MaskManagerSignature", "allowNull=False");
+            this.TBAIskonto1.Properties.MaskSettings.Set("mask", "d");
+            this.TBAIskonto1.Properties.MaskSettings.Set("valueType", typeof(decimal));
+            this.TBAIskonto1.Properties.MaskSettings.Set("valueAfterDelete", DevExpress.Data.Mask.NumericMaskManager.ValueAfterDelete.ZeroThenNull);
             this.TBAIskonto1.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.TBAIskonto1.Properties.UseMaskAsDisplayFormat = true;
             this.TBAIskonto1.Size = new System.Drawing.Size(118, 26);
-            this.TBAIskonto1.TabIndex = 135;
+            this.TBAIskonto1.TabIndex = 13;
+            this.TBAIskonto1.EditValueChanged += new System.EventHandler(this.TBAIskonto1_EditValueChanged);
             // 
             // TBAIskonto2
             // 
+            this.TBAIskonto2.EditValue = "0";
             this.TBAIskonto2.Location = new System.Drawing.Point(86, 45);
             this.TBAIskonto2.Name = "TBAIskonto2";
             this.TBAIskonto2.Properties.Appearance.Options.UseFont = true;
+            this.TBAIskonto2.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
+            this.TBAIskonto2.Properties.MaskSettings.Set("MaskManagerSignature", "allowNull=False");
+            this.TBAIskonto2.Properties.MaskSettings.Set("valueType", typeof(decimal));
+            this.TBAIskonto2.Properties.MaskSettings.Set("mask", "d");
+            this.TBAIskonto2.Properties.MaskSettings.Set("valueAfterDelete", DevExpress.Data.Mask.NumericMaskManager.ValueAfterDelete.ZeroThenNull);
             this.TBAIskonto2.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.TBAIskonto2.Properties.UseMaskAsDisplayFormat = true;
             this.TBAIskonto2.Size = new System.Drawing.Size(118, 26);
-            this.TBAIskonto2.TabIndex = 136;
+            this.TBAIskonto2.TabIndex = 14;
+            this.TBAIskonto2.EditValueChanged += new System.EventHandler(this.TBAIskonto2_EditValueChanged);
             // 
             // LBAltIskonto3
             // 
@@ -714,7 +785,6 @@
             // panel6
             // 
             this.panel6.Controls.Add(this.BTKaydet);
-            this.panel6.Controls.Add(this.BTNDegistir);
             this.panel6.Controls.Add(this.BTNSil);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel6.Location = new System.Drawing.Point(0, 137);
@@ -725,25 +795,14 @@
             // BTKaydet
             // 
             this.BTKaydet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BTKaydet.Location = new System.Drawing.Point(75, 8);
+            this.BTKaydet.Location = new System.Drawing.Point(87, 7);
             this.BTKaydet.Name = "BTKaydet";
-            this.BTKaydet.Size = new System.Drawing.Size(81, 43);
-            this.BTKaydet.TabIndex = 0;
+            this.BTKaydet.Size = new System.Drawing.Size(168, 43);
+            this.BTKaydet.TabIndex = 16;
             this.BTKaydet.TabStop = false;
             this.BTKaydet.Text = "Kaydet";
             this.BTKaydet.UseVisualStyleBackColor = true;
             this.BTKaydet.Click += new System.EventHandler(this.BTKaydet_Click_1);
-            // 
-            // BTNDegistir
-            // 
-            this.BTNDegistir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BTNDegistir.Location = new System.Drawing.Point(191, 8);
-            this.BTNDegistir.Name = "BTNDegistir";
-            this.BTNDegistir.Size = new System.Drawing.Size(81, 43);
-            this.BTNDegistir.TabIndex = 17;
-            this.BTNDegistir.TabStop = false;
-            this.BTNDegistir.Text = "Değiştir";
-            this.BTNDegistir.UseVisualStyleBackColor = true;
             // 
             // BTNSil
             // 
@@ -782,12 +841,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.CBAltHesap.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBCariAdi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBCariKodu.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TBIrsaliyeNo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBFaturaNo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBKur.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBParaBirimi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBParaBirimiView)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPVadeTarihi.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPVadeTarihi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBAciklama.Properties)).EndInit();
@@ -800,9 +860,10 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel4.ResumeLayout(false);
+            this.panel9.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TBIskonto.Properties)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TBAIskonto3.Properties)).EndInit();
@@ -826,7 +887,7 @@
         private DevExpress.XtraEditors.TextEdit TBCariAdi;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.ButtonEdit TBCariKodu;
-        private DevExpress.XtraEditors.ButtonEdit TBIrsaliyeNo;
+        private DevExpress.XtraEditors.ButtonEdit TBFaturaNo;
         private DevExpress.XtraEditors.LabelControl LBGun;
         private DevExpress.XtraEditors.TextEdit TBKur;
         private DevExpress.XtraEditors.GridLookUpEdit CBParaBirimi;
@@ -853,8 +914,6 @@
         private Panel panel1;
         private Panel panel4;
         private Panel panel8;
-        private DevExpress.XtraEditors.TextEdit TBIskonto;
-        private DevExpress.XtraEditors.LabelControl LBIskonto;
         private GroupBox groupBox3;
         private DevExpress.XtraEditors.TextEdit TBAIskonto3;
         private DevExpress.XtraEditors.TextEdit TBAIskonto1;
@@ -877,8 +936,12 @@
         private TextBox TBBrutToplam;
         private Panel panel6;
         private Button BTKaydet;
-        private Button BTNDegistir;
         private Button BTNSil;
         private Panel panel3;
+        private Panel panel9;
+        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+        private Button BTNSatirSil;
+        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
     }
 }

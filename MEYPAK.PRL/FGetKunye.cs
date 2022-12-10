@@ -35,6 +35,7 @@ namespace MEYPAK.PRL
             _alisKunyelerisv2 = new List<AlisKunyeleriV2>();
         }
         FAlisIrsaliye fAlisIrsaliye;
+        FSatisIrsaliye fSatisIrsaliye;
         FAlisFatura fAlisFatura;
         FFatura ffatura;
         GenericWebServis<PocoSTOKHAR> _stokHarServis;
@@ -155,7 +156,9 @@ namespace MEYPAK.PRL
                 if (_form == frm.Tag)
                 {
                     if (frm.Name.Contains("FAlisIrsaliye"))
-                        fAlisIrsaliye = (FAlisIrsaliye)frm; 
+                        fAlisIrsaliye = (FAlisIrsaliye)frm;
+                    if (frm.Name.Contains("FSatisIrsaliye"))
+                        fSatisIrsaliye = (FSatisIrsaliye)frm;
                     if (frm.Name.Contains("FAlisFatura"))
                         fAlisFatura = (FAlisFatura)frm;
                     if (frm.Name.Contains("FFatura"))
@@ -174,6 +177,13 @@ namespace MEYPAK.PRL
                     if (fAlisIrsaliye != null)
                     {
                         fAlisIrsaliye.gridView1.SetFocusedRowCellValue("Kunye", gridView1.GetFocusedRowCellValue("KunyeNo").ToString());
+                    }
+                }
+                if (_islem == "FSatisIrsaliye")
+                {
+                    if (fSatisIrsaliye != null)
+                    {
+                        fSatisIrsaliye.gridView1.SetFocusedRowCellValue("Kunye", gridView1.GetFocusedRowCellValue("KunyeNo").ToString());
                     }
                 }
                 if (_islem == "FAlisFatura")
@@ -205,6 +215,13 @@ namespace MEYPAK.PRL
                 if (fAlisIrsaliye != null)
                 {
                     fAlisIrsaliye.gridView1.SetFocusedRowCellValue("Kunye", gridView1.GetFocusedRowCellValue("KunyeNo").ToString());
+                }
+            }
+            if (_islem == "FSatisIrsaliye")
+            {
+                if (fSatisIrsaliye != null)
+                {
+                    fSatisIrsaliye.gridView1.SetFocusedRowCellValue("Kunye", gridView1.GetFocusedRowCellValue("KunyeNo").ToString());
                 }
             }
             if (_islem == "FAlisFatura")

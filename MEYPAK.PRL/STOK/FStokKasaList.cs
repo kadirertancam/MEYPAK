@@ -210,7 +210,7 @@ namespace MEYPAK.PRL.STOK
                     }
                 }
             }
-            else if (_islem == "SatisIrsaliye")
+            else if (_islem == "FSatisIrsaliye")
             {
 
                 if (fSatisIrsaliye != null)
@@ -223,6 +223,7 @@ namespace MEYPAK.PRL.STOK
                         {
                             ttt.Add(new KasaList()
                             {
+
                                 MARKA = gridView1.GetRowCellValue(item, "MARKA").ToString(),
                                 KASAADI = gridView1.GetRowCellValue(item, "KASAADI").ToString(),
                                 MIKTAR = decimal.Parse(gridView1.GetRowCellValue(item, "MIKTAR").ToString()),
@@ -239,12 +240,20 @@ namespace MEYPAK.PRL.STOK
                         });
                     else
                     {
+                        //_kasaa.kasalist ile ttt den kasaid si eşleşen var ise onun idsini alacak. yoksa 0 olarak gönderecek.
+                        foreach (var item in ttt)
+                        {
+                            if (fSatisIrsaliye._kasaaa.Where(x => x.num.ToString() == this.num).FirstOrDefault().KasaList.Where(x => x.KASAID == item.KASAID).Count() > 0)
+                            {
+                                item.ID = fSatisIrsaliye._kasaaa.Where(x => x.num.ToString() == this.num).FirstOrDefault().KasaList.Where(x => x.KASAID == item.KASAID).FirstOrDefault().ID;
+                            }
+                        }
                         fSatisIrsaliye._kasaaa.Where(x => x.num.ToString() == this.num).FirstOrDefault().KasaList = ttt;
                     }
 
                 }
             }
-            else if (_islem == "AlisIrsaliye")
+            else if (_islem == "FAlisIrsaliye")
             {
 
                 if (fAlisIrsaliye != null)
@@ -257,6 +266,7 @@ namespace MEYPAK.PRL.STOK
                         {
                             ttt.Add(new KasaList()
                             {
+
                                 MARKA = gridView1.GetRowCellValue(item, "MARKA").ToString(),
                                 KASAADI = gridView1.GetRowCellValue(item, "KASAADI").ToString(),
                                 MIKTAR = decimal.Parse(gridView1.GetRowCellValue(item, "MIKTAR").ToString()),
@@ -273,6 +283,14 @@ namespace MEYPAK.PRL.STOK
                         });
                     else
                     {
+                        //_kasaa.kasalist ile ttt den kasaid si eşleşen var ise onun idsini alacak. yoksa 0 olarak gönderecek.
+                        foreach (var item in ttt)
+                        {
+                            if (fAlisIrsaliye._kasaaa.Where(x => x.num.ToString() == this.num).FirstOrDefault().KasaList.Where(x => x.KASAID == item.KASAID).Count() > 0)
+                            {
+                                item.ID = fAlisIrsaliye._kasaaa.Where(x => x.num.ToString() == this.num).FirstOrDefault().KasaList.Where(x => x.KASAID == item.KASAID).FirstOrDefault().ID;
+                            }
+                        }
                         fAlisIrsaliye._kasaaa.Where(x => x.num.ToString() == this.num).FirstOrDefault().KasaList = ttt;
                     }
 
@@ -334,6 +352,7 @@ namespace MEYPAK.PRL.STOK
                         {
                             ttt.Add(new KasaList()
                             {
+
                                 MARKA = gridView1.GetRowCellValue(item, "MARKA").ToString(),
                                 KASAADI = gridView1.GetRowCellValue(item, "KASAADI").ToString(),
                                 MIKTAR = decimal.Parse(gridView1.GetRowCellValue(item, "MIKTAR").ToString()),
@@ -350,6 +369,14 @@ namespace MEYPAK.PRL.STOK
                         });
                     else
                     {
+                        //_kasaa.kasalist ile ttt den kasaid si eşleşen var ise onun idsini alacak. yoksa 0 olarak gönderecek.
+                        foreach (var item in ttt)
+                        {
+                            if (fAlisFatura._kasaaa.Where(x => x.num.ToString() == this.num).FirstOrDefault().KasaList.Where(x => x.KASAID == item.KASAID).Count() > 0)
+                            {
+                                item.ID = fAlisFatura._kasaaa.Where(x => x.num.ToString() == this.num).FirstOrDefault().KasaList.Where(x => x.KASAID == item.KASAID).FirstOrDefault().ID;
+                            }
+                        }
                         fAlisFatura._kasaaa.Where(x => x.num.ToString() == this.num).FirstOrDefault().KasaList = ttt;
                     }
 

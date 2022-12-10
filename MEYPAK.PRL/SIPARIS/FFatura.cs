@@ -980,7 +980,7 @@ namespace MEYPAK.PRL.SIPARIS
                                 kayittipi = 0,
                                 kasaid = item2.KASAID,
                                 miktar = item2.MIKTAR, // _kasaaa.Where(x => x.num == test.num).Select(x => x.KasaList.Sum(t => t.MIKTAR)).FirstOrDefault()
-                                iresliyedetayid = 0,
+                                irsaliyedetayid = 0,
                                 faturadetayid = _faturadetayServis.obje2.id
                             });
                             if (item2.ID > 0)

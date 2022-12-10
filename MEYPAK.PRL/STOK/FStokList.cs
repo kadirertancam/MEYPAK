@@ -159,13 +159,13 @@ namespace MEYPAK.PRL.STOK
                         _fSatınAlmaSiparis._tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
 
                 }
-                else if (_islem == "SatisIrsaliye")
+                else if (_islem == "FSatisIrsaliye")
                 {
                     if (fSatisIrsaliye != null)
                         fSatisIrsaliye._tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
 
                 }
-                else if (_islem == "AlisIrsaliye")
+                else if (_islem == "FAlisIrsaliye")
                 {
                     if (fAlisIrsaliye != null)
                         fAlisIrsaliye._tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
