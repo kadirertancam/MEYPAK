@@ -849,7 +849,7 @@ namespace MEYPAK.PRL.SIPARIS
         {
             _seriHarServis.Data(ServisList.SeriHarListeServis);
             _seriServis.Data(ServisList.SeriListeServis);
-            var serino = _seriHarServis.obje.Where(x => x.seriid == _seriServis.obje.Where(z => z.SERINO == comboBoxEdit1.Text).FirstOrDefault().id).FirstOrDefault().serino + 1;
+            var serino = _seriHarServis.obje.Where(x => x.seriid == _seriServis.obje.Where(z => z.SERINO == comboBoxEdit1.Text).FirstOrDefault().id).FirstOrDefault().serino ;
             TBFaturaNo.Text = serino.ToString();
         }
         private void BTKaydet_Click_1(object sender, EventArgs e)
