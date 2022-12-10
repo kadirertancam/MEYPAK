@@ -124,22 +124,13 @@ namespace MEYPAK.PRL.STOK
                 MARKA = _stokMarka.obje.Where(z => z.id == x.markaid).Select(z => z.adi).FirstOrDefault()
             }).ToList();
 
-            DGStokList.Refresh();
             DGStokList.RefreshDataSource();
-            //fSTOKKART =  (FStokKart)Application.OpenForms["FStokKart"];
-            //fStokHareket = (FStokHareket)Application.OpenForms["FStokHareket"];
-            //fstokSayimPanel = (FStokSayimPanel)Application.OpenForms["FStokSayimPanel"];
-            //fstokFiyatListPanel = (FStokFiyatListPanel)Application.OpenForms["FStokFiyatListPanel"];
-            //fDepolarArasıHar = (FDepolarArasıTransferHar)Application.OpenForms["FDepolarArasıTransferHar"];
-            //fSiparis = (FMusteriSiparis)Application.OpenForms["FMusteriSiparis"];
-            //_fSatınAlmaSiparis= (FSatınAlmaSiparis)Application.OpenForms["FSatınAlmaSiparis"];
-
         }
         private void DGStok_CellDoubleClick(object sender, EventArgs e)
         {
             if (this.Tag == null)
             {
-                _stokServis.Data(ServisList.StokListeServis);
+               
                 if (_islem == "stokkart")
                 {
                     if (fSTOKKART != null)
