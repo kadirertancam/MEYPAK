@@ -60,7 +60,8 @@ namespace MEYPAK.PRL.STOK.Raporlar
             });
             DGKategoriRpr.Refresh();
             DGKategoriRpr.RefreshDataSource();
-            #endregion
+           
         }
-        }
+        #endregion
+    }
 }

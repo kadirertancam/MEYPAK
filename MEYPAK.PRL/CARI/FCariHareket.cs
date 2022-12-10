@@ -107,6 +107,12 @@ namespace MEYPAK.PRL.CARI
             DTTar.EditValue = DateTime.Now;
         }
 
-       
+        private void BTCariSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            _fCariList=new FCariList();
+            _fCariList.ShowDialog();
+            if(_tempCARIKART!=null)
+                Doldur();
+        }
     }
 }
