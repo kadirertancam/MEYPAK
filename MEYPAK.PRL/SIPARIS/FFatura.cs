@@ -683,7 +683,7 @@ namespace MEYPAK.PRL.SIPARIS
                 riLookup3.DataSource = _kasaaa.Where(x => x.num == gridView1.FocusedRowHandle).FirstOrDefault().KasaList.Select(x => new { Marka = x.MARKA, Adı = x.KASAADI, Miktar = x.MIKTAR });
 
                 gridView1.SetFocusedRowCellValue("KasaMiktar", _kasaaa.Where(x => x.num == gridView1.FocusedRowHandle).Select(x => x.KasaList.Sum(z => z.MIKTAR)).FirstOrDefault().ToString());
-
+             //   _tempFaturaDetay.Where(x => x.sıra == gridView1.FocusedRowHandle).FirstOrDefault().KasaMiktar = Convert.ToDecimal(_kasaaa.Where(x => x.num == gridView1.FocusedRowHandle).Select(x => x.KasaList.Sum(z => z.MIKTAR)));
             }
             KasaAltBilgiDoldur();
             GCIrsaliye.RefreshDataSource();
@@ -704,24 +704,24 @@ namespace MEYPAK.PRL.SIPARIS
                 _fStokList.ShowDialog();
                 if (_tempStok.id != 0)
                 {
-                    if (Convert.ToInt32(gridView1.GetFocusedRowCellValue("id")) == 0) { 
-                    _tempPocokalem = new PocoFaturaKalem()
-                    {
-                        Tipi = "STOK",
-                        StokId = _tempStok.id,
-                        StokKodu = _tempStok.kod,
-                        StokAdı = _tempStok.adi,
-                        sıra = gridView1.FocusedRowHandle,
-                        Birim = _stokOlcuBr.obje.Where(x => x.stokid == _tempStok.id).Select(x => _olcuBr.obje.Where(z => z.id == x.olcubrid).FirstOrDefault().adi).FirstOrDefault().ToString(),//_olcuBr.obje.Where(x => x.adi == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "DGVOlcuBr").ToString()).FirstOrDefault().adi,
-                        BirimFiyat = _tempCariKart != null && _tempCariKart.id > 0 && _stokFiyatServis.obje.Where(x => x.cariid == _tempCariKart.id).Count() > 0 && _stokFiyatHarServis.obje.Where(z => z.stokfiyatid == _stokFiyatServis.obje.Where(x => x.cariid == _tempCariKart.id).LastOrDefault().id && z.stokid == _tempStok.id).Count() > 0 ? _stokFiyatHarServis.obje.Where(z => z.stokfiyatid == _stokFiyatServis.obje.Where(x => x.cariid == _tempCariKart.id).LastOrDefault().id && z.stokid == _tempStok.id).LastOrDefault().fiyat : 0,
-                        Kdv = _tempStok.satiskdv,
+                    //if (Convert.ToInt32(gridView1.GetFocusedRowCellValue("id")) == 0) { 
+                    //_tempPocokalem = new PocoFaturaKalem()
+                    //{
+                    //    Tipi = "STOK",
+                    //    StokId = _tempStok.id,
+                    //    StokKodu = _tempStok.kod,
+                    //    StokAdı = _tempStok.adi,
+                    //    sıra = gridView1.FocusedRowHandle,
+                    //    Birim = _stokOlcuBr.obje.Where(x => x.stokid == _tempStok.id).Select(x => _olcuBr.obje.Where(z => z.id == x.olcubrid).FirstOrDefault().adi).FirstOrDefault().ToString(),//_olcuBr.obje.Where(x => x.adi == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "DGVOlcuBr").ToString()).FirstOrDefault().adi,
+                    //    BirimFiyat = _tempCariKart != null && _tempCariKart.id > 0 && _stokFiyatServis.obje.Where(x => x.cariid == _tempCariKart.id).Count() > 0 && _stokFiyatHarServis.obje.Where(z => z.stokfiyatid == _stokFiyatServis.obje.Where(x => x.cariid == _tempCariKart.id).LastOrDefault().id && z.stokid == _tempStok.id).Count() > 0 ? _stokFiyatHarServis.obje.Where(z => z.stokfiyatid == _stokFiyatServis.obje.Where(x => x.cariid == _tempCariKart.id).LastOrDefault().id && z.stokid == _tempStok.id).LastOrDefault().fiyat : 0,
+                    //    Kdv = _tempStok.satiskdv,
 
 
-                    };
-                    _tempFaturaDetay[gridView1.FocusedRowHandle] = _tempPocokalem;
-                    }
-                    else
-                    {
+                    //};
+                    //_tempFaturaDetay[gridView1.FocusedRowHandle] = _tempPocokalem;
+                    //}
+                    //else
+                    //{
                         gridView1.SetFocusedRowCellValue("Tipi", "STOK");
                         gridView1.SetFocusedRowCellValue("StokId", _tempStok.id);
                         gridView1.SetFocusedRowCellValue("StokKodu", _tempStok.kod);
@@ -729,13 +729,14 @@ namespace MEYPAK.PRL.SIPARIS
                         gridView1.SetFocusedRowCellValue("Kdv", _tempStok.satiskdv);
                         gridView1.SetFocusedRowCellValue("BirimFiyat", _tempCariKart != null && _tempCariKart.id > 0 && _stokFiyatServis.obje.Where(x => x.cariid == _tempCariKart.id).Count() > 0 && _stokFiyatHarServis.obje.Where(z => z.stokfiyatid == _stokFiyatServis.obje.Where(x => x.cariid == _tempCariKart.id).LastOrDefault().id && z.stokid == _tempStok.id).Count() > 0 ? _stokFiyatHarServis.obje.Where(z => z.stokfiyatid == _stokFiyatServis.obje.Where(x => x.cariid == _tempCariKart.id).LastOrDefault().id && z.stokid == _tempStok.id).LastOrDefault().fiyat : 0);
                         gridView1.SetFocusedRowCellValue("Birim", _stokOlcuBr.obje.Where(x => x.stokid == _tempStok.id).Select(x => _olcuBr.obje.Where(z => z.id == x.olcubrid).FirstOrDefault().adi).FirstOrDefault().ToString());
-                    }
+                    //}
 
                     gridView1.SetFocusedRowCellValue("Doviz", _paraBirimServis.obje.Where(x => x.adi == "TÜRK LİRASI").FirstOrDefault().id);
                     //gridView1.SetFocusedRowCellValue("Birim", _olcuBr.obje.Where(y=>y.id == _stokOlcuBr.obje.Where(x => x.stokid == _tempStok.id).FirstOrDefault().olcubrid).FirstOrDefault().adi.ToString());
 
-                  
-                    GCIrsaliye.DataSource = _tempFaturaDetay;
+
+                    //GCIrsaliye.DataSource = _tempFaturaDetay;
+                    GCIrsaliye.RefreshDataSource();
 
                 }
 
@@ -894,7 +895,7 @@ namespace MEYPAK.PRL.SIPARIS
                 _olcuBr.Data(ServisList.OlcuBrListeServis);
                 int i = 0;
                 _stokHarServis.Data(ServisList.StokHarListeServis);
-                foreach (var item in _tempFaturaDetay.Where(x => x.StokKodu != "").ToList())
+                foreach (var item in _tempFaturaDetay.Where(x => x.StokKodu != "" && x.StokKodu!=null).ToList())
                 {
                     var stokolcubr = _stokOlcuBr.obje.Where(x => x.stokid == item.StokId).FirstOrDefault();
                     _faturadetayServis.Data(ServisList.FaturaDetayEkleServis, new PocoFATURADETAY()

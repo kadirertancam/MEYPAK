@@ -232,15 +232,13 @@ namespace MEYPAK.PRL.STOK
             {
                 Kaydet();
             }
-        }
-
-        private void FStokList_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar==(char)Keys.Escape)
+            if (e.KeyChar == (char)Keys.Escape)
             {
                 this.Close();
             }
         }
+
+
 
 
         //private void DGStok_CellDoubleClick(object sender, EventArgs e)
