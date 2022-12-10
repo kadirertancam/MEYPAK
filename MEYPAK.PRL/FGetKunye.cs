@@ -165,6 +165,39 @@ namespace MEYPAK.PRL
 
         }
 
+        private void gridView1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter && gridView1.FocusedRowHandle>-1)
+            {
+                if (_islem == "FAlisIrsaliye")
+                {
+                    if (fAlisIrsaliye != null)
+                    {
+                        fAlisIrsaliye.gridView1.SetFocusedRowCellValue("Kunye", gridView1.GetFocusedRowCellValue("KunyeNo").ToString());
+                    }
+                }
+                if (_islem == "FAlisFatura")
+                {
+                    if (fAlisFatura != null)
+                    {
+                        fAlisFatura.gridView1.SetFocusedRowCellValue("Kunye", gridView1.GetFocusedRowCellValue("KunyeNo").ToString());
+                    }
+                }
+                if (_islem == "FFatura")
+                {
+                    if (ffatura != null)
+                    {
+                        ffatura.gridView1.SetFocusedRowCellValue("Kunye", gridView1.GetFocusedRowCellValue("KunyeNo").ToString());
+                    }
+                }
+                this.Close();
+            }
+            else if (e.KeyChar == (char)Keys.Escape)
+            {
+                this.Close();
+            }
+        }
+
         private void gridView1_DoubleClick(object sender, EventArgs e)
         {
             if (_islem == "FAlisIrsaliye")

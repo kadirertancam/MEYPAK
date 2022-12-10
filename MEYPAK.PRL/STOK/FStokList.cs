@@ -79,8 +79,7 @@ namespace MEYPAK.PRL.STOK
                 if (_form == frm.Tag)
                 {
                     
-                    if (frm.Name.Contains("stokhar"))
-                        fStokHareket = (FStokHareket)frm;
+                    
                     if (frm.Name.Contains("FStokKart"))
                         fSTOKKART = (FStokKart)frm;
                     if (frm.Name.Contains("FDepolarArasıTransferHar"))
@@ -101,6 +100,8 @@ namespace MEYPAK.PRL.STOK
                         fStokFiyatRaporu = (FStokFiyatRaporu)frm;
                     if (frm.Name.Contains("FStokHareketRaporu"))
                         fStokHareketRaporu = (FStokHareketRaporu)frm;
+                    else if (frm.Name.Contains("FStokHareket"))
+                        fStokHareket = (FStokHareket)frm;
                     if (frm.Name.Contains("FStokListesiRaporu"))
                         fStokListesiRaporu = (FStokListesiRaporu)frm;
 

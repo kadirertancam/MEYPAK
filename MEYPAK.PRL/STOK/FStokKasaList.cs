@@ -142,17 +142,7 @@ namespace MEYPAK.PRL.STOK
         }
         List<KasaList> ttt = new List<KasaList>();
 
-        private void textEdit1_EditValueChanged(object sender, EventArgs e)
-        {
-            gridView1.ApplyFindFilter(textEdit1.EditValue.ToString());
-        }
-
-        private void gridView1_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
-        {
-            gridView1.SelectRow(e.RowHandle);
-        }
-
-        private void simpleButton1_Click(object sender, EventArgs e)
+        void Kaydet()
         {
             string temp = "";
             _kasaServis.Data(ServisList.StokKasaListeServis);
@@ -253,7 +243,8 @@ namespace MEYPAK.PRL.STOK
                     }
 
                 }
-            }  else if (_islem == "AlisIrsaliye")
+            }
+            else if (_islem == "AlisIrsaliye")
             {
 
                 if (fAlisIrsaliye != null)
@@ -293,14 +284,14 @@ namespace MEYPAK.PRL.STOK
                 if (ffatura != null)
                 {
                     ttt.Clear();
-                    ffatura._tempKasaList.Clear(); 
+                    ffatura._tempKasaList.Clear();
                     foreach (var item in gridView1.GetSelectedRows())
                     {
                         if (item != -1)
                         {
                             ttt.Add(new KasaList()
                             {
-                                
+
                                 MARKA = gridView1.GetRowCellValue(item, "MARKA").ToString(),
                                 KASAADI = gridView1.GetRowCellValue(item, "KASAADI").ToString(),
                                 MIKTAR = decimal.Parse(gridView1.GetRowCellValue(item, "MIKTAR").ToString()),
@@ -320,7 +311,7 @@ namespace MEYPAK.PRL.STOK
                         //_kasaa.kasalist ile ttt den kasaid si eşleşen var ise onun idsini alacak. yoksa 0 olarak gönderecek.
                         foreach (var item in ttt)
                         {
-                            if (ffatura._kasaaa.Where(x => x.num.ToString() == this.num).FirstOrDefault().KasaList.Where(x=>x.KASAID==item.KASAID).Count()>0)
+                            if (ffatura._kasaaa.Where(x => x.num.ToString() == this.num).FirstOrDefault().KasaList.Where(x => x.KASAID == item.KASAID).Count() > 0)
                             {
                                 item.ID = ffatura._kasaaa.Where(x => x.num.ToString() == this.num).FirstOrDefault().KasaList.Where(x => x.KASAID == item.KASAID).FirstOrDefault().ID;
                             }
@@ -329,7 +320,7 @@ namespace MEYPAK.PRL.STOK
                     }
 
                 }
-            } 
+            }
             else if (_islem == "FAlisFatura")
             {
 
@@ -364,9 +355,27 @@ namespace MEYPAK.PRL.STOK
 
                 }
             }
-           
-            this.Close();
 
+            this.Close();
+        }
+        private void textEdit1_EditValueChanged(object sender, EventArgs e)
+        {
+            gridView1.ApplyFindFilter(textEdit1.EditValue.ToString());
+        }
+
+        private void gridView1_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+            gridView1.SelectRow(e.RowHandle);
+        }
+
+        private void GCKasaList_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Kaydet();
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            Kaydet();
         }
     }
 }

@@ -28,6 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FStokHareket));
             this.LBStokHarBakiyeDeger = new DevExpress.XtraEditors.LabelControl();
             this.LBStokHarToplamCikisDeger = new DevExpress.XtraEditors.LabelControl();
@@ -172,9 +177,9 @@
             this.BTStokKoduSec.Location = new System.Drawing.Point(124, 42);
             this.BTStokKoduSec.Name = "BTStokKoduSec";
             this.BTStokKoduSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.BTStokKoduSec.Properties.Click += new System.EventHandler(this.buttonEdit1_Properties_Click);
-            this.BTStokKoduSec.Size = new System.Drawing.Size(160, 20);
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.BTStokKoduSec.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTStokKoduSec_Properties_ButtonClick);
+            this.BTStokKoduSec.Size = new System.Drawing.Size(160, 22);
             this.BTStokKoduSec.TabIndex = 7;
             // 
             // GCStokHareket

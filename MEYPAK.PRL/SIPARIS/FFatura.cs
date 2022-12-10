@@ -26,6 +26,7 @@ using DevExpress.XtraRichEdit.Model;
 using DevExpress.XtraVerticalGrid.Native;
 using MEYPAK.PRL.Assets;
 using MEYPAK.Interfaces.Parametre;
+using System.Linq;
 
 namespace MEYPAK.PRL.SIPARIS
 {
@@ -502,7 +503,7 @@ namespace MEYPAK.PRL.SIPARIS
                     }
                 }
             }
-            gridControl1.DataSource = tempkasalist;
+            gridControl1.DataSource = tempkasalist.OrderByDescending(x=> x.MIKTAR);
             gridView2.Columns["ID"].Visible = false;
             gridView2.Columns["KASAID"].Visible = false;
 
@@ -531,7 +532,7 @@ namespace MEYPAK.PRL.SIPARIS
                 _faturadetayServis.Data(ServisList.FaturaDetayListeServis);
                 _stokKasaMarkaServis.Data(ServisList.StokKasaMarkaListeServis);
                 // TBGun.Text = _tempFatura.vadegunu.ToString();
-                _stokKasaHarServis.Data(ServisList.StokKasaHarListeServis);
+            
                 _kasaServis.Data(ServisList.StokKasaListeServis);
                 List<KasaList> KasaList = new List<KasaList>();
                 KasaList kslt;
@@ -700,22 +701,37 @@ namespace MEYPAK.PRL.SIPARIS
                 _fStokList.ShowDialog();
                 if (_tempStok.id != 0)
                 {
+                    if (Convert.ToInt32(gridView1.GetFocusedRowCellValue("id")) == 0) { 
                     _tempPocokalem = new PocoFaturaKalem()
                     {
                         Tipi = "STOK",
                         StokId = _tempStok.id,
                         StokKodu = _tempStok.kod,
                         StokAdı = _tempStok.adi,
-                        sıra = gridView1.GetFocusedDataSourceRowIndex(),
+                        sıra = gridView1.FocusedRowHandle,
                         Birim = _stokOlcuBr.obje.Where(x => x.stokid == _tempStok.id).Select(x => _olcuBr.obje.Where(z => z.id == x.olcubrid).FirstOrDefault().adi).FirstOrDefault().ToString(),//_olcuBr.obje.Where(x => x.adi == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "DGVOlcuBr").ToString()).FirstOrDefault().adi,
                         BirimFiyat = _tempCariKart != null && _tempCariKart.id > 0 && _stokFiyatServis.obje.Where(x => x.cariid == _tempCariKart.id).Count() > 0 && _stokFiyatHarServis.obje.Where(z => z.stokfiyatid == _stokFiyatServis.obje.Where(x => x.cariid == _tempCariKart.id).LastOrDefault().id && z.stokid == _tempStok.id).Count() > 0 ? _stokFiyatHarServis.obje.Where(z => z.stokfiyatid == _stokFiyatServis.obje.Where(x => x.cariid == _tempCariKart.id).LastOrDefault().id && z.stokid == _tempStok.id).LastOrDefault().fiyat : 0,
                         Kdv = _tempStok.satiskdv,
+
+
                     };
+                    _tempFaturaDetay[gridView1.FocusedRowHandle] = _tempPocokalem;
+                    }
+                    else
+                    {
+                        gridView1.SetFocusedRowCellValue("Tipi", "STOK");
+                        gridView1.SetFocusedRowCellValue("StokId", _tempStok.id);
+                        gridView1.SetFocusedRowCellValue("StokKodu", _tempStok.kod);
+                        gridView1.SetFocusedRowCellValue("StokAdı", _tempStok.adi);
+                        gridView1.SetFocusedRowCellValue("Kdv", _tempStok.satiskdv);
+                        gridView1.SetFocusedRowCellValue("BirimFiyat", _tempCariKart != null && _tempCariKart.id > 0 && _stokFiyatServis.obje.Where(x => x.cariid == _tempCariKart.id).Count() > 0 && _stokFiyatHarServis.obje.Where(z => z.stokfiyatid == _stokFiyatServis.obje.Where(x => x.cariid == _tempCariKart.id).LastOrDefault().id && z.stokid == _tempStok.id).Count() > 0 ? _stokFiyatHarServis.obje.Where(z => z.stokfiyatid == _stokFiyatServis.obje.Where(x => x.cariid == _tempCariKart.id).LastOrDefault().id && z.stokid == _tempStok.id).LastOrDefault().fiyat : 0);
+                        gridView1.SetFocusedRowCellValue("Birim", _stokOlcuBr.obje.Where(x => x.stokid == _tempStok.id).Select(x => _olcuBr.obje.Where(z => z.id == x.olcubrid).FirstOrDefault().adi).FirstOrDefault().ToString());
+                    }
 
                     gridView1.SetFocusedRowCellValue("Doviz", _paraBirimServis.obje.Where(x => x.adi == "TÜRK LİRASI").FirstOrDefault().id);
                     //gridView1.SetFocusedRowCellValue("Birim", _olcuBr.obje.Where(y=>y.id == _stokOlcuBr.obje.Where(x => x.stokid == _tempStok.id).FirstOrDefault().olcubrid).FirstOrDefault().adi.ToString());
 
-                    _tempFaturaDetay[gridView1.FocusedRowHandle] = _tempPocokalem;
+                  
                     GCIrsaliye.DataSource = _tempFaturaDetay;
 
                 }
@@ -756,7 +772,7 @@ namespace MEYPAK.PRL.SIPARIS
 
         private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-            tempnum = gridView1.FocusedRowHandle;
+            tempnum = gridView1.GetFocusedDataSourceRowIndex();
             if (_kasaaa.Where(x => x.num == tempnum).Count() > 0)
                 riLookup3.DataSource = _kasaaa.Where(x => x.num == tempnum).FirstOrDefault().KasaList.Select(x => new { Marka = x.MARKA, Adı = x.KASAADI, Miktar = x.MIKTAR });
             else
@@ -767,7 +783,7 @@ namespace MEYPAK.PRL.SIPARIS
 
         private void TBAIskonto1_EditValueChanged(object sender, EventArgs e)
         {
-            if (Convert.ToInt32(TBAIskonto1.Text)>=100)
+            if (Convert.ToInt32(TBAIskonto1.Text)>100)
             {
                 MessageBox.Show("Iskonto oranı 100 den büyük olamaz");
                 TBAIskonto1.Text = "0";
@@ -778,7 +794,7 @@ namespace MEYPAK.PRL.SIPARIS
 
         private void TBAIskonto2_EditValueChanged(object sender, EventArgs e)
         {
-            if (Convert.ToInt32(TBAIskonto2.Text) >= 100)
+            if (Convert.ToInt32(TBAIskonto2.Text) > 100)
             {
                 MessageBox.Show("Iskonto oranı 100 den büyük olamaz");
                 TBAIskonto2.Text = "0";
@@ -789,7 +805,7 @@ namespace MEYPAK.PRL.SIPARIS
 
         private void TBAIskonto3_EditValueChanged(object sender, EventArgs e)
         {
-            if (Convert.ToInt32(TBAIskonto3.Text) >= 100)
+            if (Convert.ToInt32(TBAIskonto3.Text) > 100)
             {
                 MessageBox.Show("Iskonto oranı 100 den büyük olamaz");
                 TBAIskonto3.Text = "0";
@@ -1040,6 +1056,7 @@ namespace MEYPAK.PRL.SIPARIS
             _olcuBr.Data(ServisList.OlcuBrListeServis);
             _stokOlcuBr.Data(ServisList.StokOlcuBrListeServis);
             _stokServis.Data(ServisList.StokListeServis);
+            _stokKasaHarServis.Data(ServisList.StokKasaHarListeServis);
             DataGridYapilandir();
             TBGun.Properties.MaxLength = 4;
             DTPVadeTarihi.EditValue = DateTime.Now;

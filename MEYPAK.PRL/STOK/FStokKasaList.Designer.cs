@@ -65,6 +65,7 @@
             this.GCKasaList.TabIndex = 1;
             this.GCKasaList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            this.GCKasaList.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.GCKasaList_KeyPress);
             // 
             // gridView1
             // 
@@ -96,7 +97,7 @@
             this.simpleButton2.Location = new System.Drawing.Point(10, 70);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(167, 54);
-            this.simpleButton2.TabIndex = 2;
+            this.simpleButton2.TabIndex = 99;
             this.simpleButton2.Text = "Filtrele";
             // 
             // labelControl1
@@ -151,7 +152,7 @@
             this.simpleButton1.Location = new System.Drawing.Point(14, 9);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(95, 40);
-            this.simpleButton1.TabIndex = 0;
+            this.simpleButton1.TabIndex = 100;
             this.simpleButton1.Text = "&KAYDET";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
