@@ -4,6 +4,7 @@ using DevExpress.XtraRichEdit.Import.Html;
 using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Entity.PocoModels.STOK;
+using MEYPAK.Interfaces.Depo;
 using MEYPAK.Interfaces.Stok;
 using System;
 using System.Collections.Generic;
@@ -26,17 +27,23 @@ namespace MEYPAK.PRL.STOK.Raporlar
             _islem = islem;
             _stokServis = new GenericWebServis<PocoSTOK>();
             _markaServis = new GenericWebServis<PocoSTOKMARKA>();
+            _olcuBirimServis = new GenericWebServis<PocoOLCUBR>();
+            _kategoriServis = new GenericWebServis<PocoSTOKKATEGORI>();
         }
 
         #region Tanımlar
         string _form, _islem;
         GenericWebServis<PocoSTOK> _stokServis;
         GenericWebServis<PocoSTOKMARKA> _markaServis;
+        GenericWebServis<PocoOLCUBR> _olcuBirimServis;
+        GenericWebServis<PocoSTOKKATEGORI> _kategoriServis;
         public PocoSTOK _tempStok;
+        public PocoSTOKMARKA _tempMarka;
+        public PocoSTOKKATEGORI _tempKategori;
         #endregion
         private void BTStokSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            FStokList fStokList = new FStokList(this.Tag.ToString(), "stoklist");
+            FStokList fStokList = new FStokList(this.Tag.ToString(), "FStokListesiRaporu");
             fStokList.ShowDialog();
             Doldur();
         }
@@ -47,18 +54,35 @@ namespace MEYPAK.PRL.STOK.Raporlar
                 Doldur();
         }
 
+        private void BTKateSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            FKategoriList fKategoriList = new FKategoriList(this.Tag.ToString(), "FStokListesiRaporu");
+            fKategoriList.ShowDialog();
+            Doldur();
+        }
+
+        private void BTMarkaSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            FMarkaList fMarkaList = new FMarkaList(this.Tag.ToString(), "FStokListesiRaporu");
+            fMarkaList.ShowDialog();
+            Doldur();
+        }
+
         void Doldur()
         {
             _markaServis.Data(ServisList.StokMarkaListeServis);
             _stokServis.Data(ServisList.StokListeServis);
+            _olcuBirimServis.Data(ServisList.OlcuBrListeServis);
+            _kategoriServis.Data(ServisList.StokKategoriListeServis);
               DGStokRpr.DataSource = _stokServis.obje.Where(x => x.kayittipi == 0).Select(x => new
                {
                  ID = x.id,
                  KAYITTARİHİ = x.olusturmatarihi,
                  KOD = x.kod,
                  ADI = x.adi,
-                 ÖLÇÜBİRİMİ = x.olcubR1,
-                 MARKA = _stokServis.obje.Where(z => z.id == x.markaid).Select(z => z.adi).FirstOrDefault(),
+                 KATEGORİ = _kategoriServis.obje.Where(y => y.id == x.kategoriid).Count() > 0 ? _kategoriServis.obje.Where(y => y.id == x.kategoriid).FirstOrDefault().acıklama : "",
+                 ÖLÇÜBİRİMİ = _olcuBirimServis.obje.Where(y => y.id == x.olcubR1).Count() > 0 ? _olcuBirimServis.obje.Where(y => y.id == x.olcubR1).FirstOrDefault().adi : "",
+                 MARKA = _markaServis.obje.Where(y => y.id == x.markaid).Count() > 0 ? _markaServis.obje.Where(y => y.id == x.markaid).FirstOrDefault().adi : "",
                  ALIŞKDV = x.aliskdv,
                  SATIŞKDV =x.satiskdv,
                  ALIŞÖTV =x.alisotv,

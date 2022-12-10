@@ -31,11 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FCariAltHesap));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.CBAktif1 = new DevExpress.XtraEditors.CheckEdit();
+            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.BTKaydet = new DevExpress.XtraEditors.SimpleButton();
             this.BTSil = new DevExpress.XtraEditors.SimpleButton();
+            this.CHBAktif = new DevExpress.XtraEditors.CheckEdit();
             this.TBKodu = new DevExpress.XtraEditors.TextEdit();
             this.LBKodu = new DevExpress.XtraEditors.LabelControl();
-            this.BTKaydet = new DevExpress.XtraEditors.SimpleButton();
             this.CBDoviz = new DevExpress.XtraEditors.LookUpEdit();
             this.LBAdi = new DevExpress.XtraEditors.LabelControl();
             this.LBDoviz = new DevExpress.XtraEditors.LabelControl();
@@ -43,12 +44,13 @@
             this.DGAltHesap = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CBAktif1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
+            this.panelControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CHBAktif.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBKodu.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBDoviz.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBAdi.Properties)).BeginInit();
@@ -56,8 +58,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
-            this.panelControl3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -72,7 +72,7 @@
             // groupControl1
             // 
             this.groupControl1.Controls.Add(this.panelControl3);
-            this.groupControl1.Controls.Add(this.CBAktif1);
+            this.groupControl1.Controls.Add(this.CHBAktif);
             this.groupControl1.Controls.Add(this.TBKodu);
             this.groupControl1.Controls.Add(this.LBKodu);
             this.groupControl1.Controls.Add(this.CBDoviz);
@@ -87,14 +87,29 @@
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Alt Hesap";
             // 
-            // CBAktif1
+            // panelControl3
             // 
-            this.CBAktif1.Location = new System.Drawing.Point(257, 81);
-            this.CBAktif1.Name = "CBAktif1";
-            this.CBAktif1.Properties.Caption = "Aktif";
-            this.CBAktif1.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
-            this.CBAktif1.Size = new System.Drawing.Size(64, 20);
-            this.CBAktif1.TabIndex = 6;
+            this.panelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl3.Controls.Add(this.BTKaydet);
+            this.panelControl3.Controls.Add(this.BTSil);
+            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelControl3.Location = new System.Drawing.Point(892, 23);
+            this.panelControl3.Name = "panelControl3";
+            this.panelControl3.Size = new System.Drawing.Size(219, 89);
+            this.panelControl3.TabIndex = 7;
+            // 
+            // BTKaydet
+            // 
+            this.BTKaydet.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.BTKaydet.Appearance.Options.UseBackColor = true;
+            this.BTKaydet.Appearance.Options.UseFont = true;
+            this.BTKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTKaydet.ImageOptions.Image")));
+            this.BTKaydet.Location = new System.Drawing.Point(5, 5);
+            this.BTKaydet.Name = "BTKaydet";
+            this.BTKaydet.Size = new System.Drawing.Size(95, 40);
+            this.BTKaydet.TabIndex = 1;
+            this.BTKaydet.Text = "&KAYDET";
+            this.BTKaydet.Click += new System.EventHandler(this.BTKaydet_Click);
             // 
             // BTSil
             // 
@@ -109,6 +124,15 @@
             this.BTSil.TabIndex = 2;
             this.BTSil.Text = "&Sil";
             this.BTSil.Click += new System.EventHandler(this.BTSil_Click);
+            // 
+            // CHBAktif
+            // 
+            this.CHBAktif.Location = new System.Drawing.Point(257, 81);
+            this.CHBAktif.Name = "CHBAktif";
+            this.CHBAktif.Properties.Caption = "Aktif";
+            this.CHBAktif.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
+            this.CHBAktif.Size = new System.Drawing.Size(64, 20);
+            this.CHBAktif.TabIndex = 6;
             // 
             // TBKodu
             // 
@@ -125,19 +149,6 @@
             this.LBKodu.Size = new System.Drawing.Size(73, 13);
             this.LBKodu.TabIndex = 4;
             this.LBKodu.Text = "Alt Hesap Kodu";
-            // 
-            // BTKaydet
-            // 
-            this.BTKaydet.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.BTKaydet.Appearance.Options.UseBackColor = true;
-            this.BTKaydet.Appearance.Options.UseFont = true;
-            this.BTKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTKaydet.ImageOptions.Image")));
-            this.BTKaydet.Location = new System.Drawing.Point(5, 5);
-            this.BTKaydet.Name = "BTKaydet";
-            this.BTKaydet.Size = new System.Drawing.Size(95, 40);
-            this.BTKaydet.TabIndex = 1;
-            this.BTKaydet.Text = "&KAYDET";
-            this.BTKaydet.Click += new System.EventHandler(this.BTKaydet_Click);
             // 
             // CBDoviz
             // 
@@ -202,17 +213,6 @@
             this.panelControl2.Size = new System.Drawing.Size(1117, 475);
             this.panelControl2.TabIndex = 4;
             // 
-            // panelControl3
-            // 
-            this.panelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl3.Controls.Add(this.BTKaydet);
-            this.panelControl3.Controls.Add(this.BTSil);
-            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelControl3.Location = new System.Drawing.Point(892, 23);
-            this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(219, 89);
-            this.panelControl3.TabIndex = 7;
-            // 
             // FCariAltHesap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -228,7 +228,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CBAktif1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
+            this.panelControl3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.CHBAktif.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBKodu.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBDoviz.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBAdi.Properties)).EndInit();
@@ -236,20 +238,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
-            this.panelControl3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private DevExpress.XtraEditors.CheckEdit CBAktif;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraGrid.GridControl DGAltHesap;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraEditors.PanelControl panelControl2;
         private DevExpress.XtraEditors.GroupControl groupControl1;
-        private DevExpress.XtraEditors.CheckEdit CBAktif1;
+        private DevExpress.XtraEditors.CheckEdit CHBAktif;
         private DevExpress.XtraEditors.SimpleButton BTSil;
         private DevExpress.XtraEditors.TextEdit TBKodu;
         private DevExpress.XtraEditors.LabelControl LBKodu;

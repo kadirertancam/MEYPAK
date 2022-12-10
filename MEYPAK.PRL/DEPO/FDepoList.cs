@@ -7,6 +7,7 @@ using MEYPAK.DAL.Concrete.EntityFramework.Repository;
 using MEYPAK.Entity.PocoModels.DEPO;
 using MEYPAK.Interfaces.Depo;
 using MEYPAK.PRL.Assets;
+using MEYPAK.PRL.SIPARIS.Raporlar;
 using MEYPAK.PRL.STOK.Raporlar;
 using System;
 using System.Collections.Generic;
@@ -35,6 +36,7 @@ namespace MEYPAK.PRL.DEPO
         FDepolarArasıTransferHar depoTransferBilgiKart;
         FStokSayimRaporu fStokSayimRaporu;
         FStokHareketRaporu fStokHareketRaporu;
+        FFaturaRaporu fFaturaRaporu;
         GenericWebServis<PocoDEPO> _depoServis ;
 
         private void FDepoList_Load(object sender, EventArgs e)
@@ -68,6 +70,10 @@ namespace MEYPAK.PRL.DEPO
             else if (_islem == "FStokHareketRaporu")
             {
                 fStokHareketRaporu._tempDepo = _depoServis.obje.Where(x => x.depokodu == gridView1.GetFocusedRowCellValue("depokodu")).FirstOrDefault();
+            }
+            else if (_islem == "FFaturaRaporu")
+            {
+                fFaturaRaporu._tempDepo = _depoServis.obje.Where(x => x.depokodu == gridView1.GetFocusedRowCellValue("depokodu")).FirstOrDefault();
             }
             this.Close();
         }

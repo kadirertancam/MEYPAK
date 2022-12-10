@@ -27,10 +27,19 @@ namespace MEYPAK.PRL.STOK.Raporlar
         string _form, _islem;
         #region Tanımlar
         GenericWebServis<PocoSTOKKATEGORI> _kategoriServis;
+        public PocoSTOKKATEGORI _tempKategori;
+
+
 
         private void FStokKategoriRaporu_Load(object sender, EventArgs e)
         {
             Doldur();
+        }
+
+        private void BTKateSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            FKategoriList fKategoriList = new FKategoriList(this.Tag.ToString(), "FStokKategoriRaporu");
+            fKategoriList.ShowDialog();
         }
         #endregion
 

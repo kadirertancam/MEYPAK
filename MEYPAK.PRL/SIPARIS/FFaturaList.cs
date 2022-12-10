@@ -7,6 +7,7 @@ using MEYPAK.Entity.PocoModels.IRSALIYE;
 using MEYPAK.Interfaces.IRSALIYE;
 using MEYPAK.Interfaces.Stok;
 using MEYPAK.PRL.IRSALIYE;
+using MEYPAK.PRL.SIPARIS.Raporlar;
 using MEYPAK.PRL.STOK.Raporlar;
 using System;
 using System.Collections.Generic;
@@ -36,6 +37,7 @@ namespace MEYPAK.PRL.SIPARIS
         FFatura ffatura;
         FStokKasaHareketRaporu fStokKasaHareketRaporu;
         FStokHareketRaporu fStokHareketRaporu;
+        FFaturaRaporu fFaturaRaporu;
         Main main;
         GenericWebServis<PocoFATURA> _faturaServis;
 
@@ -51,12 +53,17 @@ namespace MEYPAK.PRL.SIPARIS
                 {
                     if (_form == frm.Tag)
                     {
-                        if (frm.Name.Contains("FFatura"))
-                            ffatura = (FFatura)frm;
                         if (frm.Name.Contains("FStokKasaHareketRaporu"))
                             fStokKasaHareketRaporu = (FStokKasaHareketRaporu)frm;
                         if (frm.Name.Contains("FStokHareketRaporu"))
                             fStokHareketRaporu = (FStokHareketRaporu)frm;
+                        if (frm.Name.Contains("FFaturaRaporu"))
+                            fFaturaRaporu = (FFaturaRaporu)frm;
+                       else if (frm.Name.Contains("FFatura"))
+                            ffatura = (FFatura)frm;
+                        
+                        
+
                     }
                 }
             }
@@ -68,8 +75,9 @@ namespace MEYPAK.PRL.SIPARIS
                         main = (Main)frm;
                 }
             }
+         
             _faturaServis.Data(ServisList.FaturaListeServis);
-            if (_islem == "FFatura")
+            if (_islem == "FFatura" || _islem== "FFaturaRaporu" || _islem == "FStokHareketRaporu" || _islem == "FStokKasaHareketRaporu")
                 gridControl1.DataSource = _faturaServis.obje.Where(x => x.tip == 0).Select(x => new
                 {
                     ID = x.id,
@@ -101,9 +109,29 @@ namespace MEYPAK.PRL.SIPARIS
                 if (_islem == "FFatura")
                 {
                     if (ffatura != null)
-                    {
+                    
                         ffatura._tempFatura = _faturaServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
-                    }
+                    
+                }
+                else if (_islem == "FFaturaRaporu")
+                {
+                    if (fFaturaRaporu != null)
+                    
+                        fFaturaRaporu._tempFatura = _faturaServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+                    
+                }
+                else if (_islem == "FStokHareketRaporu")
+                {
+                    if (fStokHareketRaporu != null)
+
+                        fStokHareketRaporu._tempFatura = _faturaServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+
+                }
+                else if (_islem == "FStokKasaHareketRaporu")
+                {
+                    if (fStokKasaHareketRaporu != null)
+
+                        fStokKasaHareketRaporu._tempFatura = _faturaServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
 
                 }
                 this.Close();

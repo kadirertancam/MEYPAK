@@ -45,6 +45,7 @@ namespace MEYPAK.PRL.STOK.Raporlar
         public PocoSTOKHAR _tempStokHar;
         public PocoDEPO _tempDepo;
         public PocoSTOKSAYIM _tempSayim;
+        public PocoFATURA _tempFatura;
         GenericWebServis<PocoSTOK> _stokServis;
         GenericWebServis<PocoSTOKHAR> _stokHarServis;
         GenericWebServis<PocoOLCUBR> _OlcuBrServis;

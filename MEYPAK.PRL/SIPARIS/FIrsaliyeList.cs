@@ -4,6 +4,7 @@ using MEYPAK.Entity.PocoModels.IRSALIYE;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Siparis;
 using MEYPAK.PRL.IRSALIYE;
+using MEYPAK.PRL.SIPARIS.Raporlar;
 using MEYPAK.PRL.STOK.Raporlar;
 using System;
 using System.Collections.Generic;
@@ -29,6 +30,7 @@ namespace MEYPAK.PRL.SIPARIS
           
         }
         FSatisIrsaliye fsatisIralsiye;
+        FFaturaRaporu fFaturaRaporu;
         FStokKasaHareketRaporu fStokKasaHareketRaporu;
         GenericWebServis<PocoIRSALIYE> _mIrsaliyeServis;
       
@@ -59,6 +61,14 @@ namespace MEYPAK.PRL.SIPARIS
                 }
 
             }
+            if (_islem == "FFaturaRaporu")
+            {
+                if (fFaturaRaporu != null)
+                {
+                    fFaturaRaporu._tempIrsaliye = _mIrsaliyeServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+                }
+
+            }
             this.Close();
         }
 
@@ -73,10 +83,12 @@ namespace MEYPAK.PRL.SIPARIS
                         fsatisIralsiye = (FSatisIrsaliye)frm;
                     if (frm.Name.Contains("FStokKasaHareketRaporu"))
                         fStokKasaHareketRaporu = (FStokKasaHareketRaporu)frm;
+                    if (frm.Name.Contains("FFaturaRaporu"))
+                        fFaturaRaporu = (FFaturaRaporu)frm;
                 }
             }
             _mIrsaliyeServis.Data(ServisList.IrsaliyeListeServis);
-            if (_islem == "FSatisIrsaliye")
+            if (_islem == "FSatisIrsaliye" || _islem == "FFaturaRaporu")
                 gridControl1.DataSource = _mIrsaliyeServis.obje.Where(x => x.tip == 0).Select(x => new
                 {
                     ID = x.id,

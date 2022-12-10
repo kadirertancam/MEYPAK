@@ -10,6 +10,7 @@ using System.Net.Http;
 using System.Drawing.Drawing2D;
 using DevExpress.CodeParser;
 using Microsoft.Win32;
+using MEYPAK.PRL.STOK.Raporlar;
 
 namespace MEYPAK.PRL.STOK
 {
@@ -17,6 +18,8 @@ namespace MEYPAK.PRL.STOK
     {
         FStokKart fStokKart;
         FCariKart fCariKart;
+        FStokListesiRaporu fStokListesiRaporu;
+        FStokKategoriRaporu fStokKategoriRaporu;
         string _form;
         string _islem;
 
@@ -62,6 +65,10 @@ namespace MEYPAK.PRL.STOK
                         fStokKart = (FStokKart)frm;
                     if (frm.Name.Contains("FCariKart"))
                         fCariKart = (FCariKart)frm;
+                    if (frm.Name.Contains("FStokListesiRaporu"))
+                        fStokListesiRaporu = (FStokListesiRaporu)frm;
+                    if (frm.Name.Contains("FStokKategoriRaporu"))
+                        fStokListesiRaporu = (FStokListesiRaporu)frm;
                 }
 
             }
@@ -253,6 +260,7 @@ namespace MEYPAK.PRL.STOK
                         this.Close();
                     }
                 }
+             
 
             }
         }
@@ -277,6 +285,20 @@ namespace MEYPAK.PRL.STOK
                         fCariKart._tempCariStOKKATEGORI = _kategoriServis.obje.Where(x => x.kayittipi == 0 && x.acıklama == selectedNodes[0].GetValue(treeView.Columns[0]).ToString()).FirstOrDefault();
                         this.Close();
                     }
+                }
+                else if (_islem == "FStokListesiRaporu" && fStokListesiRaporu!=null)
+                {
+
+                    fStokListesiRaporu._tempKategori = _kategoriServis.obje.Where(x => x.kayittipi == 0 && x.acıklama == selectedNodes[0].GetValue(treeView.Columns[0]).ToString()).FirstOrDefault();
+                        this.Close();
+           
+                }
+                else if (_islem == "FStokKategoriRaporu" && fStokKategoriRaporu != null)
+                {
+                   
+                        fStokKategoriRaporu._tempKategori = _kategoriServis.obje.Where(x => x.kayittipi == 0 && x.acıklama == selectedNodes[0].GetValue(treeView.Columns[0]).ToString()).FirstOrDefault();
+                        this.Close();
+                    
                 }
             }
         }

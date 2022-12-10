@@ -30,7 +30,6 @@ namespace MEYPAK.PRL.STOK.Raporlar
             InitializeComponent();
           
             _stokFiyatServis = new GenericWebServis<PocoSTOKFIYAT>();
-            _stokFiyatHarServis = new GenericWebServis<PocoSTOKFIYATHAR>();
             _cariServis = new GenericWebServis<PocoCARIKART>();
             _form = tag;
             _islem = islem;
@@ -39,13 +38,11 @@ namespace MEYPAK.PRL.STOK.Raporlar
         #region Tanımlar
         GenericWebServis<PocoSTOK> _stokServis;
         GenericWebServis<PocoSTOKFIYAT> _stokFiyatServis;
-        GenericWebServis<PocoSTOKFIYATHAR> _stokFiyatHarServis;
         GenericWebServis<PocoCARIKART> _cariServis;
-
         public PocoSTOK _tempStok;
         public PocoCARIKART _tempCariKart;
-        public PocoSTOKFIYAT _tempStokFiyat;
         public PocoSTOKFIYATHAR _tempStokFiyatHar;
+       
         #endregion
 
         #region Metotlar
@@ -63,6 +60,9 @@ namespace MEYPAK.PRL.STOK.Raporlar
                 CARİADI = _cariServis.obje.Where(X=>x.kayittipi == 0).Select(x=> x.unvan).FirstOrDefault(),
                 BASLANGIÇTARİHİ = x.baslangictarihi,
                 BİTİŞTARİHİ = x.bitistarihi,
+                FİRMAID =x.firmaid,
+                ŞUBEID = x.subeid,
+                GÜNCELLEMETARİHİ =x.guncellemetarihi
 
             });
             DGStokFiyatRpr.Refresh();
@@ -77,8 +77,9 @@ namespace MEYPAK.PRL.STOK.Raporlar
 
         private void BTCariSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            FCariList fCariList = new FCariList(this.Tag.ToString(), "FStokFiyat");
+            FCariList fCariList = new FCariList(this.Tag.ToString(), "FStokFiyatRaporu");
             fCariList.ShowDialog();
+            
         }
 
         private void BTRaporla_Click(object sender, EventArgs e)

@@ -43,7 +43,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(686, 390);
+            this.panelControl1.Size = new System.Drawing.Size(1059, 618);
             this.panelControl1.TabIndex = 0;
             // 
             // gridControl1
@@ -52,7 +52,7 @@
             this.gridControl1.Location = new System.Drawing.Point(2, 2);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(682, 386);
+            this.gridControl1.Size = new System.Drawing.Size(1055, 614);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -70,7 +70,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(686, 390);
+            this.ClientSize = new System.Drawing.Size(1059, 618);
             this.Controls.Add(this.panelControl1);
             this.Name = "FIrsaliyeList";
             this.Text = "FIrsaliyeList";

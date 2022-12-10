@@ -1,41 +1,15 @@
-﻿using DevExpress.Mvvm.POCO;
-using DevExpress.Text.Interop;
-using DevExpress.XtraEditors;
+﻿using DevExpress.XtraEditors;
 using MEYPAK.BLL.Assets;
-using MEYPAK.DAL.Abstract.CariDal;
-using MEYPAK.Entity.Models.DEPO;
-using MEYPAK.Entity.Models.STOK;
-using MEYPAK.Entity.PocoModels;
 using MEYPAK.Entity.PocoModels.CARI;
-using MEYPAK.Entity.PocoModels.DEPO;
 using MEYPAK.Entity.PocoModels.PARAMETRE;
-using MEYPAK.Entity.PocoModels.SIPARIS;
-using MEYPAK.Entity.PocoModels.STOK;
-using MEYPAK.Interfaces.Cari;
-using MEYPAK.Interfaces.Depo;
-using MEYPAK.Interfaces.Parametre;
-using MEYPAK.Interfaces.Personel;
-using MEYPAK.Interfaces.Stok;
-using MEYPAK.PRL.PARAMETRELER;
-using MEYPAK.PRL.STOK;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace MEYPAK.PRL.CARI
 {
     public partial class FCariAltHesap : XtraForm
     {
 
-        string islemtipi = "Kayıt";
+      
         public FCariAltHesap()
         {
             InitializeComponent();
@@ -66,7 +40,7 @@ namespace MEYPAK.PRL.CARI
             CombolariDoldur();
             CBDoviz.EditValue = 0;
         }
-        int id;
+  
         
         private void BTSil_Click(object sender, EventArgs e)
         {
@@ -77,7 +51,7 @@ namespace MEYPAK.PRL.CARI
             {
                 _cariAltHesapServis.Data(ServisList.CariAltHesSilServis, null, null, _cariAltHesapServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).ToList());
                 MessageBox.Show("Silme işlemi Başarılı");
-                DataGridDoldur();
+                DataGridDoldur(); 
             }
             else
             {
@@ -135,29 +109,22 @@ namespace MEYPAK.PRL.CARI
         private void BTKaydet_Click(object sender, EventArgs e)
         {
             _parabirIMServis.Data(ServisList.ParaBirimiListeServis);
-            if (islemtipi == "Kayıt")
+            if (_tempAltHesap != null && TBKodu.Text != _tempAltHesap.kod)
             {
-                _cariAltHesapServis.Data(ServisList.CariAltHesEkleServis, (new PocoCARIALTHES()
+                _tempAltHesap = null;
+            }
+            _cariAltHesapServis.Data(ServisList.CariAltHesEkleServis, (new PocoCARIALTHES()
                 {
+                    id = _tempAltHesap != null ? _tempAltHesap.id : 0,
                     adi = TBAdi.Text,
                     kod = TBKodu.Text,
                     dovizid = _parabirIMServis.obje.Where(x => x.adi.ToString() == CBDoviz.Text.ToString()).FirstOrDefault().id,
-             
-                }));
+                    aktif = CHBAktif.Checked ? 1 : 0
 
-            }
-            else
-                _cariAltHesapServis.Data(ServisList.CariAltHesEkleServis, (new PocoCARIALTHES()
-                {
-                    id = id,
-                    adi = TBAdi.Text,
-                    kod= TBKodu.Text,
-                    dovizid = _parabirIMServis.obje.Where(x => x.adi.ToString()  == CBDoviz.Text.ToString()).FirstOrDefault().id,
-                    
+                })) ;
 
-                })); 
+
             MessageBox.Show("Kayıt işlemi Başarılı!");
-            id = 0;
             DataGridDoldur();
             
         }
@@ -174,11 +141,10 @@ namespace MEYPAK.PRL.CARI
         {
             if (_tempAltHesap!=null)
             {
-                id = int.Parse(gridView1.GetFocusedRowCellValue("ID").ToString());
-                TBKodu.Text = gridView1.GetFocusedRowCellValue("AltHesapKodu").ToString();
-                TBAdi.Text = gridView1.GetFocusedRowCellValue("Adı").ToString();
+                TBKodu.Text = _tempAltHesap.kod;
+                TBAdi.Text = _tempAltHesap.adi;
                 CBDoviz.EditValue=_tempAltHesap.dovizid;
-                CBAktif1.EditValue = _tempAltHesap.aktif;
+                CHBAktif.Checked = _tempAltHesap.aktif == 0 ? false:true ;
             }
         }
 

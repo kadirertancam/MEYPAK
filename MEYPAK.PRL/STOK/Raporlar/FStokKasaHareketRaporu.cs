@@ -52,7 +52,8 @@ namespace MEYPAK.PRL.STOK.Raporlar
         public PocoSTOKKASA _tempStokKasa;
         public PocoIRSALIYE _tempIrsaliye;
         public PocoCARIKART _tempCariKart;
-      
+        public PocoFATURA _tempFatura;
+
 
         #endregion
 
@@ -82,10 +83,10 @@ namespace MEYPAK.PRL.STOK.Raporlar
                         KAYITTİPİ = x.kayittipi,
                         // STOKID = x.stokid,
                         KASAADI = _stokKasaServis.obje.Select(x => x.kasaadi).FirstOrDefault(),
-                        CARIID = _cariServis.obje.Select(x=> x.unvan).FirstOrDefault(),
-                        FATURANO = _faturaServis.obje.Select(x=> x.belgeno).FirstOrDefault(),  
+                        CARIADI = _cariServis.obje.Where(y => y.id == x.cariid).Count() > 0 ? _cariServis.obje.Where(y => y.id == x.cariid).FirstOrDefault().unvan : "",
+                        FATURANO = _faturaServis.obje.Where(y => y.id == x.faturaid).Count() > 0 ? _faturaServis.obje.Where(y => y.id == x.faturaid).FirstOrDefault().belgeno : "",
                         FATURADETAY = x.faturadetayid,
-                        İRSALİYENO = _irsaliyeServis.obje.Select(x=>x.belgeno).FirstOrDefault(),
+                        İRSALİYENO = _irsaliyeServis.obje.Where(y => y.id == x.irsaliyeid).Count() > 0 ? _irsaliyeServis.obje.Where(y => y.id == x.irsaliyeid).FirstOrDefault().belgeno : "",
                         İRSALİYEDETAY = x.iresliyedetayid,
 
                     });
@@ -121,6 +122,7 @@ namespace MEYPAK.PRL.STOK.Raporlar
         {
             FIrsaliyeList fIrsaliyeList = new FIrsaliyeList(Tag.ToString(), "FStokKasaHareketRaporu");
             fIrsaliyeList.ShowDialog(); 
+
         }
 
         private void BTCariSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)

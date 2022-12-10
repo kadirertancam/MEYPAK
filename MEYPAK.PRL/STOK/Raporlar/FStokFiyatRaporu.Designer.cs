@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FStokFiyatRaporu));
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.DGStokFiyatRpr = new DevExpress.XtraGrid.GridControl();
@@ -45,6 +45,7 @@
             this.BTRaporla = new DevExpress.XtraEditors.SimpleButton();
             this.BTCariSec = new DevExpress.XtraEditors.ButtonEdit();
             this.LBCariKodu = new DevExpress.XtraEditors.LabelControl();
+            this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
@@ -58,6 +59,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.DTKayitTar.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTKayitTar.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTCariSec.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
+            this.panelControl4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -74,9 +77,9 @@
             // 
             this.panelControl3.Controls.Add(this.DGStokFiyatRpr);
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl3.Location = new System.Drawing.Point(2, 149);
+            this.panelControl3.Location = new System.Drawing.Point(2, 125);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(1280, 727);
+            this.panelControl3.Size = new System.Drawing.Size(1280, 751);
             this.panelControl3.TabIndex = 1;
             // 
             // DGStokFiyatRpr
@@ -85,7 +88,7 @@
             this.DGStokFiyatRpr.Location = new System.Drawing.Point(2, 2);
             this.DGStokFiyatRpr.MainView = this.gridView1;
             this.DGStokFiyatRpr.Name = "DGStokFiyatRpr";
-            this.DGStokFiyatRpr.Size = new System.Drawing.Size(1276, 723);
+            this.DGStokFiyatRpr.Size = new System.Drawing.Size(1276, 747);
             this.DGStokFiyatRpr.TabIndex = 0;
             this.DGStokFiyatRpr.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -101,22 +104,22 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl2.Location = new System.Drawing.Point(2, 2);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(1280, 147);
+            this.panelControl2.Size = new System.Drawing.Size(1280, 123);
             this.panelControl2.TabIndex = 0;
             // 
             // groupControl1
             // 
             this.groupControl1.CaptionImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("groupControl1.CaptionImageOptions.Image")));
+            this.groupControl1.Controls.Add(this.panelControl4);
             this.groupControl1.Controls.Add(this.DTKayitTar);
             this.groupControl1.Controls.Add(this.LBTarih);
-            this.groupControl1.Controls.Add(this.BTRaporla);
             this.groupControl1.Controls.Add(this.BTCariSec);
             this.groupControl1.Controls.Add(this.LBCariKodu);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupControl1.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             this.groupControl1.Location = new System.Drawing.Point(2, 2);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(1276, 140);
+            this.groupControl1.Size = new System.Drawing.Size(1276, 117);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Stok Fiyat Raporu";
             // 
@@ -145,7 +148,7 @@
             this.BTRaporla.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
             this.BTRaporla.Appearance.Options.UseBackColor = true;
             this.BTRaporla.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTRaporla.ImageOptions.Image")));
-            this.BTRaporla.Location = new System.Drawing.Point(346, 45);
+            this.BTRaporla.Location = new System.Drawing.Point(5, 4);
             this.BTRaporla.Name = "BTRaporla";
             this.BTRaporla.Size = new System.Drawing.Size(95, 40);
             this.BTRaporla.TabIndex = 2;
@@ -157,7 +160,7 @@
             this.BTCariSec.Location = new System.Drawing.Point(132, 42);
             this.BTCariSec.Name = "BTCariSec";
             this.BTCariSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTCariSec.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTCariSec_Properties_ButtonClick);
             this.BTCariSec.Size = new System.Drawing.Size(180, 22);
             this.BTCariSec.TabIndex = 1;
@@ -169,6 +172,16 @@
             this.LBCariKodu.Size = new System.Drawing.Size(46, 13);
             this.LBCariKodu.TabIndex = 0;
             this.LBCariKodu.Text = "Cari Kodu";
+            // 
+            // panelControl4
+            // 
+            this.panelControl4.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl4.Controls.Add(this.BTRaporla);
+            this.panelControl4.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelControl4.Location = new System.Drawing.Point(1163, 23);
+            this.panelControl4.Name = "panelControl4";
+            this.panelControl4.Size = new System.Drawing.Size(111, 92);
+            this.panelControl4.TabIndex = 5;
             // 
             // FStokFiyatRaporu
             // 
@@ -194,6 +207,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.DTKayitTar.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTKayitTar.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTCariSec.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
+            this.panelControl4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -212,5 +227,6 @@
         private DevExpress.XtraEditors.LabelControl LBTarih;
         private DevExpress.XtraEditors.DateEdit DTKayitTar;
         private DevExpress.XtraEditors.ButtonEdit BTCariSec;
+        private DevExpress.XtraEditors.PanelControl panelControl4;
     }
 }

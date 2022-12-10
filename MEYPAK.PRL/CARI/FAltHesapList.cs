@@ -21,33 +21,32 @@ using MEYPAK.Entity.Models.SIPARIS;
 using MEYPAK.Entity.Models.STOK;
 using DevExpress.XtraEditors;
 using MEYPAK.Interfaces.Cari;
+using MEYPAK.PRL.SIPARIS.Raporlar;
 
 namespace MEYPAK.PRL.CARI
 {
     public partial class FAltHesapList : XtraForm
     {
-        string _islem;
-        string _form;
-        FCariAltHesap fCariAltHesap;
-        FCariKart fCariKart;
-        int id;
-       
-
         public FAltHesapList(string form="", string islem = "")
         {
+           
             InitializeComponent();
             this._islem = islem;
             this._form = form;
-
             _cariAltHesapServis = new GenericWebServis<PocoCARIALTHES>();
             _parabirIMServis = new GenericWebServis<PocoPARABIRIM>();
            
         }
 
         #region Tanımlar
+        int id;
+        string _islem;
+        string _form;
         GenericWebServis<PocoCARIALTHES> _cariAltHesapServis;
         GenericWebServis<PocoPARABIRIM> _parabirIMServis;
-       
+        FCariAltHesap fCariAltHesap;
+        FCariKart fCariKart;
+        FFaturaRaporu fFaturaRaporu;
         Form tempForm;
 
         #endregion
@@ -61,6 +60,12 @@ namespace MEYPAK.PRL.CARI
                     if (frm.Name.Contains("FCariKart"))
                         fCariKart = (FCariKart)frm;
                     
+                }
+                if (_form == frm.Tag)
+                {
+                    if (frm.Name.Contains("FFaturaRaporu"))
+                        fFaturaRaporu = (FFaturaRaporu)frm;
+
                 }
             }
             _parabirIMServis.Data(ServisList.ParaBirimiListeServis);
@@ -90,6 +95,11 @@ namespace MEYPAK.PRL.CARI
             {
                 if (fCariKart != null)
                     fCariKart._tempCARIALTHES = _cariAltHesapServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+            }
+            if (_islem == "FFaturaRaporu")
+            {
+                if (fFaturaRaporu != null)
+                    fFaturaRaporu._tempCARIALTHES = _cariAltHesapServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
             }
             this.Close();
         }

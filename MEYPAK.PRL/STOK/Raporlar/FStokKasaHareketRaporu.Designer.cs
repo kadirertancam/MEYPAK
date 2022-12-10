@@ -131,6 +131,7 @@
             // groupControl1
             // 
             this.groupControl1.CaptionImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("groupControl1.CaptionImageOptions.Image")));
+            this.groupControl1.ContentImageAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.groupControl1.Controls.Add(this.panelControl4);
             this.groupControl1.Controls.Add(this.BTIrsaliyeSec);
             this.groupControl1.Controls.Add(this.LBIrsaliyeKodu);
@@ -182,6 +183,8 @@
             // 
             // LBIrsaliyeKodu
             // 
+            this.LBIrsaliyeKodu.Appearance.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.LBIrsaliyeKodu.Appearance.Options.UseForeColor = true;
             this.LBIrsaliyeKodu.Location = new System.Drawing.Point(59, 111);
             this.LBIrsaliyeKodu.Name = "LBIrsaliyeKodu";
             this.LBIrsaliyeKodu.Size = new System.Drawing.Size(62, 13);
@@ -200,6 +203,8 @@
             // 
             // LBFaturaKodu
             // 
+            this.LBFaturaKodu.Appearance.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.LBFaturaKodu.Appearance.Options.UseForeColor = true;
             this.LBFaturaKodu.Location = new System.Drawing.Point(62, 84);
             this.LBFaturaKodu.Name = "LBFaturaKodu";
             this.LBFaturaKodu.Size = new System.Drawing.Size(59, 13);
@@ -218,6 +223,8 @@
             // 
             // LBKasaKodu
             // 
+            this.LBKasaKodu.Appearance.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.LBKasaKodu.Appearance.Options.UseForeColor = true;
             this.LBKasaKodu.Location = new System.Drawing.Point(71, 60);
             this.LBKasaKodu.Name = "LBKasaKodu";
             this.LBKasaKodu.Size = new System.Drawing.Size(50, 13);
@@ -236,6 +243,8 @@
             // 
             // LBCariKodu
             // 
+            this.LBCariKodu.Appearance.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.LBCariKodu.Appearance.Options.UseForeColor = true;
             this.LBCariKodu.Location = new System.Drawing.Point(75, 33);
             this.LBCariKodu.Name = "LBCariKodu";
             this.LBCariKodu.Size = new System.Drawing.Size(46, 13);

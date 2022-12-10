@@ -55,6 +55,7 @@
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.CBHareketTuru = new DevExpress.XtraEditors.LookUpEdit();
             this.LBHareketTuru = new DevExpress.XtraEditors.LabelControl();
             this.BTSayimSec = new DevExpress.XtraEditors.ButtonEdit();
             this.LBStokSayim = new DevExpress.XtraEditors.LabelControl();
@@ -66,7 +67,6 @@
             this.BTRaporla = new DevExpress.XtraEditors.SimpleButton();
             this.BTStokSec = new DevExpress.XtraEditors.ButtonEdit();
             this.LBStokSec = new DevExpress.XtraEditors.LabelControl();
-            this.CBHareketTuru = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
@@ -77,13 +77,13 @@
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CBHareketTuru.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTSayimSec.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTFaturaSec.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTDepoSec.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
             this.panelControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BTStokSec.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CBHareketTuru.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -152,9 +152,19 @@
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Filtrele";
             // 
+            // CBHareketTuru
+            // 
+            this.CBHareketTuru.Location = new System.Drawing.Point(168, 138);
+            this.CBHareketTuru.Name = "CBHareketTuru";
+            this.CBHareketTuru.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CBHareketTuru.Properties.NullText = "Hareket Türü Seçiniz..";
+            this.CBHareketTuru.Size = new System.Drawing.Size(180, 20);
+            this.CBHareketTuru.TabIndex = 11;
+            // 
             // LBHareketTuru
             // 
-            this.LBHareketTuru.Location = new System.Drawing.Point(86, 144);
+            this.LBHareketTuru.Location = new System.Drawing.Point(86, 141);
             this.LBHareketTuru.Name = "LBHareketTuru";
             this.LBHareketTuru.Size = new System.Drawing.Size(63, 13);
             this.LBHareketTuru.TabIndex = 10;
@@ -162,7 +172,7 @@
             // 
             // BTSayimSec
             // 
-            this.BTSayimSec.Location = new System.Drawing.Point(168, 114);
+            this.BTSayimSec.Location = new System.Drawing.Point(168, 111);
             this.BTSayimSec.Name = "BTSayimSec";
             this.BTSayimSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
@@ -172,7 +182,7 @@
             // 
             // LBStokSayim
             // 
-            this.LBStokSayim.Location = new System.Drawing.Point(97, 120);
+            this.LBStokSayim.Location = new System.Drawing.Point(97, 117);
             this.LBStokSayim.Name = "LBStokSayim";
             this.LBStokSayim.Size = new System.Drawing.Size(52, 13);
             this.LBStokSayim.TabIndex = 8;
@@ -180,7 +190,7 @@
             // 
             // BTFaturaSec
             // 
-            this.BTFaturaSec.Location = new System.Drawing.Point(168, 88);
+            this.BTFaturaSec.Location = new System.Drawing.Point(168, 85);
             this.BTFaturaSec.Name = "BTFaturaSec";
             this.BTFaturaSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
@@ -190,7 +200,7 @@
             // 
             // LBFaturaKodu
             // 
-            this.LBFaturaKodu.Location = new System.Drawing.Point(90, 93);
+            this.LBFaturaKodu.Location = new System.Drawing.Point(90, 90);
             this.LBFaturaKodu.Name = "LBFaturaKodu";
             this.LBFaturaKodu.Size = new System.Drawing.Size(59, 13);
             this.LBFaturaKodu.TabIndex = 6;
@@ -198,7 +208,7 @@
             // 
             // BTDepoSec
             // 
-            this.BTDepoSec.Location = new System.Drawing.Point(168, 62);
+            this.BTDepoSec.Location = new System.Drawing.Point(168, 59);
             this.BTDepoSec.Name = "BTDepoSec";
             this.BTDepoSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
@@ -208,7 +218,7 @@
             // 
             // LBDepoKodu
             // 
-            this.LBDepoKodu.Location = new System.Drawing.Point(97, 67);
+            this.LBDepoKodu.Location = new System.Drawing.Point(97, 64);
             this.LBDepoKodu.Name = "LBDepoKodu";
             this.LBDepoKodu.Size = new System.Drawing.Size(52, 13);
             this.LBDepoKodu.TabIndex = 4;
@@ -237,7 +247,7 @@
             // 
             // BTStokSec
             // 
-            this.BTStokSec.Location = new System.Drawing.Point(168, 36);
+            this.BTStokSec.Location = new System.Drawing.Point(168, 33);
             this.BTStokSec.Name = "BTStokSec";
             this.BTStokSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
@@ -247,21 +257,11 @@
             // 
             // LBStokSec
             // 
-            this.LBStokSec.Location = new System.Drawing.Point(101, 40);
+            this.LBStokSec.Location = new System.Drawing.Point(101, 37);
             this.LBStokSec.Name = "LBStokSec";
             this.LBStokSec.Size = new System.Drawing.Size(48, 13);
             this.LBStokSec.TabIndex = 0;
             this.LBStokSec.Text = "Stok Kodu";
-            // 
-            // CBHareketTuru
-            // 
-            this.CBHareketTuru.Location = new System.Drawing.Point(168, 141);
-            this.CBHareketTuru.Name = "CBHareketTuru";
-            this.CBHareketTuru.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.CBHareketTuru.Properties.NullText = "Hareket Türü Seçiniz..";
-            this.CBHareketTuru.Size = new System.Drawing.Size(180, 20);
-            this.CBHareketTuru.TabIndex = 11;
             // 
             // FStokHareketRaporu
             // 
@@ -284,13 +284,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CBHareketTuru.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTSayimSec.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTFaturaSec.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTDepoSec.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
             this.panelControl4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.BTStokSec.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CBHareketTuru.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

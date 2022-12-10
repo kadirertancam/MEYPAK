@@ -18,6 +18,7 @@ using MEYPAK.PRL.IRSALIYE;
 using MEYPAK.PRL.PARAMETRELER;
 using MEYPAK.PRL.PERSONEL;
 using MEYPAK.PRL.SIPARIS;
+using MEYPAK.PRL.SIPARIS.Raporlar;
 using MEYPAK.PRL.STOK;
 using MEYPAK.PRL.STOK.FiyatListesi;
 using MEYPAK.PRL.STOK.Raporlar;
@@ -96,6 +97,7 @@ namespace MEYPAK.PRL
         FSeriTanim fSeriTanim;
         FSatisIrsaliyeFaturalastir fSatisIrsaliyeFaturalastir;
         
+        FFaturaRaporu fFaturaRaporu;
         FStokHareketRaporu fStokHareketRaporu;
         FStokFiyatRaporu fStokFiyatRaporu;
         FStokSayimRaporu fStokSayimRaporu;
@@ -964,6 +966,27 @@ namespace MEYPAK.PRL
             fSeriTanim.Tag = "TPSeriTanım" + i;
             page.Controls.Add(fSeriTanim);
             fSeriTanim.Show();
+            i++;
+        }
+
+        private void ACEFaturaRaporu_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fFaturaRaporu = new FFaturaRaporu(islem: "FFaturaRaporu");
+            page.Name = "TPFaturaRaporu" + i;
+            page.Text = "Fatura Raporu";
+            page.Tag = "TPFaturaRaporu" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fFaturaRaporu.FormBorderStyle = FormBorderStyle.None;
+            fFaturaRaporu.TopLevel = false;
+            fFaturaRaporu.AutoScroll = true;
+            fFaturaRaporu.Dock = DockStyle.Fill;
+            fFaturaRaporu.Tag = "TPFaturaRaporu" + i;
+            page.Controls.Add(fFaturaRaporu);
+            fFaturaRaporu.Show();
             i++;
         }
 

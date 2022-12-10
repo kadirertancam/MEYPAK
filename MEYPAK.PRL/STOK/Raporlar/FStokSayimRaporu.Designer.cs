@@ -45,14 +45,12 @@
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.DTSayimTar = new DevExpress.XtraEditors.DateEdit();
-            this.LBTarih = new DevExpress.XtraEditors.LabelControl();
+            this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
+            this.BTRaporla = new DevExpress.XtraEditors.SimpleButton();
             this.BTCariSec = new DevExpress.XtraEditors.ButtonEdit();
             this.LBDepoKodu = new DevExpress.XtraEditors.LabelControl();
-            this.BTRaporla = new DevExpress.XtraEditors.SimpleButton();
             this.BTStokSec = new DevExpress.XtraEditors.ButtonEdit();
             this.LBStokKodu = new DevExpress.XtraEditors.LabelControl();
-            this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
@@ -63,12 +61,10 @@
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DTSayimTar.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DTSayimTar.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BTCariSec.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BTStokSec.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
             this.panelControl4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BTCariSec.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BTStokSec.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -85,9 +81,9 @@
             // 
             this.panelControl3.Controls.Add(this.DGStokSayimRpr);
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl3.Location = new System.Drawing.Point(2, 186);
+            this.panelControl3.Location = new System.Drawing.Point(2, 129);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(1346, 602);
+            this.panelControl3.Size = new System.Drawing.Size(1346, 659);
             this.panelControl3.TabIndex = 1;
             // 
             // DGStokSayimRpr
@@ -96,7 +92,7 @@
             this.DGStokSayimRpr.Location = new System.Drawing.Point(2, 2);
             this.DGStokSayimRpr.MainView = this.gridView1;
             this.DGStokSayimRpr.Name = "DGStokSayimRpr";
-            this.DGStokSayimRpr.Size = new System.Drawing.Size(1342, 598);
+            this.DGStokSayimRpr.Size = new System.Drawing.Size(1342, 655);
             this.DGStokSayimRpr.TabIndex = 0;
             this.DGStokSayimRpr.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -112,15 +108,13 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl2.Location = new System.Drawing.Point(2, 2);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(1346, 184);
+            this.panelControl2.Size = new System.Drawing.Size(1346, 127);
             this.panelControl2.TabIndex = 0;
             // 
             // groupControl1
             // 
             this.groupControl1.CaptionImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("groupControl1.CaptionImageOptions.Image")));
             this.groupControl1.Controls.Add(this.panelControl4);
-            this.groupControl1.Controls.Add(this.DTSayimTar);
-            this.groupControl1.Controls.Add(this.LBTarih);
             this.groupControl1.Controls.Add(this.BTCariSec);
             this.groupControl1.Controls.Add(this.LBDepoKodu);
             this.groupControl1.Controls.Add(this.BTStokSec);
@@ -129,31 +123,30 @@
             this.groupControl1.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             this.groupControl1.Location = new System.Drawing.Point(2, 2);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(1342, 176);
+            this.groupControl1.Size = new System.Drawing.Size(1342, 120);
             this.groupControl1.TabIndex = 0;
-            this.groupControl1.Text = "Stok Sayım Raporu";
+            this.groupControl1.Text = "Filtrele";
             // 
-            // DTSayimTar
+            // panelControl4
             // 
-            this.DTSayimTar.EditValue = new System.DateTime(2022, 12, 8, 13, 27, 52, 0);
-            this.DTSayimTar.Location = new System.Drawing.Point(157, 93);
-            this.DTSayimTar.Name = "DTSayimTar";
-            this.DTSayimTar.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.DTSayimTar.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.DTSayimTar.Properties.MaskSettings.Set("mask", "D");
-            this.DTSayimTar.Properties.NullDate = new System.DateTime(2022, 12, 8, 13, 27, 44, 116);
-            this.DTSayimTar.Size = new System.Drawing.Size(180, 20);
-            this.DTSayimTar.TabIndex = 6;
+            this.panelControl4.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl4.Controls.Add(this.BTRaporla);
+            this.panelControl4.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelControl4.Location = new System.Drawing.Point(1230, 23);
+            this.panelControl4.Name = "panelControl4";
+            this.panelControl4.Size = new System.Drawing.Size(110, 95);
+            this.panelControl4.TabIndex = 7;
             // 
-            // LBTarih
+            // BTRaporla
             // 
-            this.LBTarih.Location = new System.Drawing.Point(78, 96);
-            this.LBTarih.Name = "LBTarih";
-            this.LBTarih.Size = new System.Drawing.Size(57, 13);
-            this.LBTarih.TabIndex = 5;
-            this.LBTarih.Text = "Sayım Tarihi";
+            this.BTRaporla.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.BTRaporla.Appearance.Options.UseBackColor = true;
+            this.BTRaporla.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTRaporla.ImageOptions.Image")));
+            this.BTRaporla.Location = new System.Drawing.Point(5, 5);
+            this.BTRaporla.Name = "BTRaporla";
+            this.BTRaporla.Size = new System.Drawing.Size(95, 40);
+            this.BTRaporla.TabIndex = 2;
+            this.BTRaporla.Text = "&Raporla";
             // 
             // BTCariSec
             // 
@@ -173,17 +166,6 @@
             this.LBDepoKodu.TabIndex = 3;
             this.LBDepoKodu.Text = "Depo Kodu";
             // 
-            // BTRaporla
-            // 
-            this.BTRaporla.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.BTRaporla.Appearance.Options.UseBackColor = true;
-            this.BTRaporla.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTRaporla.ImageOptions.Image")));
-            this.BTRaporla.Location = new System.Drawing.Point(5, 5);
-            this.BTRaporla.Name = "BTRaporla";
-            this.BTRaporla.Size = new System.Drawing.Size(95, 40);
-            this.BTRaporla.TabIndex = 2;
-            this.BTRaporla.Text = "&Raporla";
-            // 
             // BTStokSec
             // 
             this.BTStokSec.Location = new System.Drawing.Point(157, 42);
@@ -201,16 +183,6 @@
             this.LBStokKodu.Size = new System.Drawing.Size(48, 13);
             this.LBStokKodu.TabIndex = 0;
             this.LBStokKodu.Text = "Stok Kodu";
-            // 
-            // panelControl4
-            // 
-            this.panelControl4.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl4.Controls.Add(this.BTRaporla);
-            this.panelControl4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelControl4.Location = new System.Drawing.Point(1230, 23);
-            this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(110, 151);
-            this.panelControl4.TabIndex = 7;
             // 
             // FStokSayimRaporu
             // 
@@ -233,12 +205,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DTSayimTar.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DTSayimTar.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BTCariSec.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BTStokSec.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
             this.panelControl4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.BTCariSec.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BTStokSec.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -256,8 +226,6 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraEditors.LabelControl LBCariKodu;
         private DevExpress.XtraEditors.ButtonEdit BTCariSec;
-        private DevExpress.XtraEditors.LabelControl LBTarih;
-        private DevExpress.XtraEditors.DateEdit DTSayimTar;
         private DevExpress.XtraEditors.LabelControl LBDepoKodu;
         private DevExpress.XtraEditors.PanelControl panelControl4;
     }
