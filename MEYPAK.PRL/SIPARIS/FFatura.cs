@@ -857,7 +857,9 @@ namespace MEYPAK.PRL.SIPARIS
             _cariKart.Data(ServisList.CariListeServis);
             if (_cariKart.obje.Where(x => x.kod == TBCariKodu.Text).Count() > 0)
             {
+                if(_tempFatura==null)
                 faturaNoGuncelle();
+
                 _faturaServis.Data(ServisList.FaturaEkleServis, new PocoFATURA()
                 {
                     id = _tempFatura != null ? _tempFatura.id : 0,
