@@ -175,6 +175,7 @@
             this.Name = "FStokKasaList";
             this.Text = "FKasaList";
             this.Load += new System.EventHandler(this.FKasaList_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FStokKasaList_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.GCKasaList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();

@@ -471,7 +471,6 @@
             this.gridView1.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView1_FocusedRowChanged);
             this.gridView1.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridView1_CellValueChanged);
             this.gridView1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.gridView1_KeyPress);
-            
             // 
             // GCIrsaliye
             // 
@@ -569,7 +568,7 @@
             this.TBAIskonto3.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             this.TBAIskonto3.Properties.MaskSettings.Set("MaskManagerSignature", "allowNull=False");
             this.TBAIskonto3.Properties.MaskSettings.Set("mask", "d");
-            this.TBAIskonto3.Properties.MaskSettings.Set("valueType", typeof(byte));
+            this.TBAIskonto3.Properties.MaskSettings.Set("valueType", typeof(decimal));
             this.TBAIskonto3.Properties.MaskSettings.Set("valueAfterDelete", DevExpress.Data.Mask.NumericMaskManager.ValueAfterDelete.ZeroThenNull);
             this.TBAIskonto3.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.TBAIskonto3.Properties.UseMaskAsDisplayFormat = true;
@@ -586,7 +585,7 @@
             this.TBAIskonto1.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             this.TBAIskonto1.Properties.MaskSettings.Set("MaskManagerSignature", "allowNull=False");
             this.TBAIskonto1.Properties.MaskSettings.Set("mask", "d");
-            this.TBAIskonto1.Properties.MaskSettings.Set("valueType", typeof(byte));
+            this.TBAIskonto1.Properties.MaskSettings.Set("valueType", typeof(decimal));
             this.TBAIskonto1.Properties.MaskSettings.Set("valueAfterDelete", DevExpress.Data.Mask.NumericMaskManager.ValueAfterDelete.ZeroThenNull);
             this.TBAIskonto1.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.TBAIskonto1.Properties.UseMaskAsDisplayFormat = true;
@@ -602,7 +601,7 @@
             this.TBAIskonto2.Properties.Appearance.Options.UseFont = true;
             this.TBAIskonto2.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             this.TBAIskonto2.Properties.MaskSettings.Set("MaskManagerSignature", "allowNull=False");
-            this.TBAIskonto2.Properties.MaskSettings.Set("valueType", typeof(byte));
+            this.TBAIskonto2.Properties.MaskSettings.Set("valueType", typeof(decimal));
             this.TBAIskonto2.Properties.MaskSettings.Set("mask", "d");
             this.TBAIskonto2.Properties.MaskSettings.Set("valueAfterDelete", DevExpress.Data.Mask.NumericMaskManager.ValueAfterDelete.ZeroThenNull);
             this.TBAIskonto2.Properties.Padding = new System.Windows.Forms.Padding(3);

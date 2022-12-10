@@ -127,11 +127,11 @@ namespace MEYPAK.PRL.STOK
 
             DGStokList.RefreshDataSource();
         }
-        private void DGStok_CellDoubleClick(object sender, EventArgs e)
-        {
+
+        void Kaydet() {
             if (this.Tag == null)
             {
-               
+
                 if (_islem == "stokkart")
                 {
                     if (fSTOKKART != null)
@@ -219,6 +219,26 @@ namespace MEYPAK.PRL.STOK
                 fSTOKKART._tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
                 fSTOKKART.Show();
                 i++;
+            }
+        }
+        private void DGStok_CellDoubleClick(object sender, EventArgs e)
+        {
+            Kaydet();
+        }
+
+        private void gridView1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar==(char)Keys.Enter)
+            {
+                Kaydet();
+            }
+        }
+
+        private void FStokList_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar==(char)Keys.Escape)
+            {
+                this.Close();
             }
         }
 
