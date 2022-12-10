@@ -25,6 +25,7 @@ using DevExpress.DataProcessing;
 using DevExpress.XtraRichEdit.Model;
 using DevExpress.XtraVerticalGrid.Native;
 using MEYPAK.PRL.Assets;
+using MEYPAK.Interfaces.Parametre;
 
 namespace MEYPAK.PRL.SIPARIS
 {
@@ -67,6 +68,8 @@ namespace MEYPAK.PRL.SIPARIS
             _stokHarServis = new GenericWebServis<PocoSTOKHAR>();
             _stokOlcuBrList = new List<StokOlcuBrTemp>();
             kDVHesaps = new KDVHesap();
+            _seriServis = new GenericWebServis<PocoSERI>();
+            _seriHarServis = new GenericWebServis<PocoSERIHAR>();
         }
 
         #region TANIMLAR
@@ -102,6 +105,8 @@ namespace MEYPAK.PRL.SIPARIS
         GenericWebServis<PocoSTOKFIYAT> _stokFiyatServis;
         GenericWebServis<PocoSTOKFIYATHAR> _stokFiyatHarServis;
         GenericWebServis<PocoSTOKKASAMARKA> _stokKasaMarkaServis;
+        GenericWebServis<PocoSERIHAR> _seriHarServis;
+        GenericWebServis<PocoSERI> _seriServis;
         List<KasaList> tempkasalist;
         FGetKunye _fGetKunye;
         RepositoryItemLookUpEdit riLookup, riLookup3;
@@ -146,8 +151,8 @@ namespace MEYPAK.PRL.SIPARIS
             TBCariKodu.Text = "";
             TBGenelToplam.Text = "0";
             TBGun.Text = "0";
-            TBIrsaliyeNo.Text = "";
-            TBIskonto.Text = "0";
+            TBFaturaNo.Text = "";
+            TBIskontoToplam.Text = "0";
             TBIskontoToplam.Text = "0";
             TBKdvTutari.Text = "0";
             TBKur.Text = "0";
@@ -159,7 +164,7 @@ namespace MEYPAK.PRL.SIPARIS
             _tempCariKart = null;
             CHBKdvDahil.Checked = false;
             gridControl1.DataSource = "";
-
+            faturaNoGuncelle();
 
         }
 
@@ -510,7 +515,7 @@ namespace MEYPAK.PRL.SIPARIS
                 _stokOlcuBrList.Clear();
                 _tempFaturaDetay.Clear();
                 _cariKart.Data(ServisList.CariListeServis);
-                TBIrsaliyeNo.Text = _tempFatura.belgeno;
+                TBFaturaNo.Text = _tempFatura.belgeno;
                 CHBKdvDahil.Checked = _tempFatura.kdvdahil ? true : false;
                 //todo : TBCariKodu.Text = 
                 CBDepo.EditValue = _depoServis.obje.Where(x => x.id == _tempFatura.depoid).FirstOrDefault().depoadi;
@@ -792,6 +797,12 @@ namespace MEYPAK.PRL.SIPARIS
                 ToplamHesapla();
         }
 
+        private void comboBoxEdit1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
+            faturaNoGuncelle();
+        }
+
         private void TBGun_EditValueChanged(object sender, EventArgs e)
         {
             if (DTPVadeTarihi.Text != DateTime.Now.AddDays((Convert.ToInt32(TBGun.Text))).ToString("dd.MM.yyyy"))
@@ -814,21 +825,28 @@ namespace MEYPAK.PRL.SIPARIS
                 if (gridView1.FocusedColumn.VisibleIndex == gridView1.Columns.View.VisibleColumns.Count)
                     MessageBox.Show("testt");
         }
-
+        void faturaNoGuncelle()
+        {
+            _seriHarServis.Data(ServisList.SeriHarListeServis);
+            _seriServis.Data(ServisList.SeriListeServis);
+            var serino = _seriHarServis.obje.Where(x => x.seriid == _seriServis.obje.Where(z => z.SERINO == comboBoxEdit1.Text).FirstOrDefault().id).FirstOrDefault().serino + 1;
+            TBFaturaNo.Text = serino.ToString();
+        }
         private void BTKaydet_Click_1(object sender, EventArgs e)
         {
-            if (_tempFatura!=null && TBIrsaliyeNo.Text != _tempFatura.belgeno)
+            if (_tempFatura!=null && TBFaturaNo.Text != _tempFatura.belgeno)
                 _tempFatura = null;
 
             _cariKart.Data(ServisList.CariListeServis);
             if (_cariKart.obje.Where(x => x.kod == TBCariKodu.Text).Count() > 0)
             {
+                faturaNoGuncelle();
                 _faturaServis.Data(ServisList.FaturaEkleServis, new PocoFATURA()
                 {
                     id = _tempFatura != null ? _tempFatura.id : 0,
                     aciklama = TBAciklama.Text,
                     kur = Convert.ToDecimal(TBKur.Text),
-                    belgeno = TBIrsaliyeNo.Text,
+                    belgeno = TBFaturaNo.Text,
                     vadetarihi = (DateTime)DTPVadeTarihi.EditValue,
                     guncellemetarihi = DateTime.Now,
                     vadegunu = Convert.ToInt32(TBGun.Text),
@@ -923,7 +941,7 @@ namespace MEYPAK.PRL.SIPARIS
                             _stokKasaHarServis.Data(ServisList.StokKasaHarEkleServis, new PocoSTOKKASAHAR()
                             {
                                 id = item2.ID,
-                                belge_no = TBIrsaliyeNo.Text,
+                                belge_no = TBFaturaNo.Text,
                                 faturaid = _faturaServis.obje2.id,
                                 io = 0,
                                 cariid = _cariKart.obje.Where(x => x.kod == TBCariKodu.Text).FirstOrDefault().id,
@@ -966,6 +984,7 @@ namespace MEYPAK.PRL.SIPARIS
                 }
 
                 temizle();
+
             }
             else
                 MessageBox.Show("Lütfen Cariyi Seçtiğinizden emin olunuz!");
@@ -1010,7 +1029,13 @@ namespace MEYPAK.PRL.SIPARIS
 
         private void FFatura_Load(object sender, EventArgs e)
         {
-
+            _seriServis.Data(ServisList.SeriListeServis);
+            _seriHarServis.Data(ServisList.SeriHarListeServis);
+            foreach (var item in _seriServis.obje.Where(x => x.TIP == 0).Select(x => x.SERINO))
+            {
+                comboBoxEdit1.Properties.Items.Add(item);
+            }
+            comboBoxEdit1.SelectedIndex = 0;
             _olcuBr.Data(ServisList.OlcuBrListeServis);
             _stokOlcuBr.Data(ServisList.StokOlcuBrListeServis);
             _stokServis.Data(ServisList.StokListeServis);
