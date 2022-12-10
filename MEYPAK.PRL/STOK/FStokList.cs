@@ -79,8 +79,7 @@ namespace MEYPAK.PRL.STOK
                 if (_form == frm.Tag)
                 {
                     
-                    if (frm.Name.Contains("stokhar"))
-                        fStokHareket = (FStokHareket)frm;
+                    
                     if (frm.Name.Contains("FStokKart"))
                         fSTOKKART = (FStokKart)frm;
                     if (frm.Name.Contains("FDepolarArasıTransferHar"))
@@ -101,6 +100,8 @@ namespace MEYPAK.PRL.STOK
                         fStokFiyatRaporu = (FStokFiyatRaporu)frm;
                     if (frm.Name.Contains("FStokHareketRaporu"))
                         fStokHareketRaporu = (FStokHareketRaporu)frm;
+                    else if (frm.Name.Contains("FStokHareket"))
+                        fStokHareket = (FStokHareket)frm;
                     if (frm.Name.Contains("FStokListesiRaporu"))
                         fStokListesiRaporu = (FStokRaporu)frm;
 
@@ -126,11 +127,11 @@ namespace MEYPAK.PRL.STOK
 
             DGStokList.RefreshDataSource();
         }
-        private void DGStok_CellDoubleClick(object sender, EventArgs e)
-        {
+
+        void Kaydet() {
             if (this.Tag == null)
             {
-               
+
                 if (_islem == "stokkart")
                 {
                     if (fSTOKKART != null)
@@ -220,6 +221,24 @@ namespace MEYPAK.PRL.STOK
                 i++;
             }
         }
+        private void DGStok_CellDoubleClick(object sender, EventArgs e)
+        {
+            Kaydet();
+        }
+
+        private void gridView1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar==(char)Keys.Enter)
+            {
+                Kaydet();
+            }
+            if (e.KeyChar == (char)Keys.Escape)
+            {
+                this.Close();
+            }
+        }
+
+
 
 
         //private void DGStok_CellDoubleClick(object sender, EventArgs e)

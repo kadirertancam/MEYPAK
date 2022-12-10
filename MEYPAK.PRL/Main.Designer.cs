@@ -1373,7 +1373,7 @@
             this.Controls.Add(this.panel3);
             this.IsMdiContainer = true;
             this.Name = "Main";
-            this.Text = "Main";
+            this.Text = " 5645";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Main_Load);
             this.panel3.ResumeLayout(false);

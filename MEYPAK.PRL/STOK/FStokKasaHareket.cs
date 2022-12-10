@@ -2,6 +2,7 @@
 using DevExpress.XtraRichEdit.Unicode;
 using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.PocoModels.CARI;
+using MEYPAK.Entity.PocoModels.DEPO;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Stok;
 using MEYPAK.PRL.Assets;
@@ -29,13 +30,15 @@ namespace MEYPAK.PRL.STOK
             _stokKasaHarServis = new GenericWebServis<PocoSTOKKASAHAR>();
             _stokKasaServis = new GenericWebServis<PocoSTOKKASA>();
             _tempSTOKKASAHAR=new PocoSTOKKASAHAR();
+            _depoServis = new GenericWebServis<PocoDEPO>();
         }
         GenericWebServis<PocoCARIHAR> _cariHarServis;
         GenericWebServis<PocoCARIKART> _cariServis;
         GenericWebServis<PocoSTOKKASAMARKA> _stokKasaMarkaServis;
         GenericWebServis<PocoSTOKKASAHAR> _stokKasaHarServis;
+        GenericWebServis<PocoDEPO> _depoServis;
         GenericWebServis<PocoSTOKKASA> _stokKasaServis;
-        List<StokKasaHarCariList> _stokKasaHarCariLists;
+        List<StokKasaHarCariList> _stokKasaHarCariLists; 
         PocoSTOKKASAHAR _tempSTOKKASAHAR;
         private void listBoxControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -75,6 +78,17 @@ namespace MEYPAK.PRL.STOK
                     ADI = _cariServis.obje.Where(x => x.id == item.FirstOrDefault()).FirstOrDefault().unvan
                 });
             }
+            _depoServis.Data(ServisList.DepoListeServis);
+            foreach (var item in _depoServis.obje)
+            {
+                _stokKasaHarCariLists.Add(new StokKasaHarCariList()
+                {
+                    ADI = item.depoadi,
+                    CARIID = item.id
+                });
+            }
+
+           
             gridControl4.DataSource = _stokKasaHarCariLists.Select(x => new { ID=x.CARIID,FIRMA = x.ADI });
         }
 
@@ -88,9 +102,10 @@ namespace MEYPAK.PRL.STOK
                 cariid = tileView3.GetFocusedRowCellValue("ID").ToString();
                 kasaid = tileView2.GetFocusedRowCellValue("ID").ToString();
                 var temp = _stokKasaHarServis.obje.Where(x => x.cariid.ToString() == cariid && x.io == 0 && x.kasaid.ToString() == kasaid).Select(x => new {   TARIH = x.olusturmatarihi, BELGENO = x.belge_no, 
-                    CIKISMIKTARI = _stokKasaHarServis.obje.Where(z => z.cariid.ToString() == cariid.ToString() && z.kasaid.ToString()==kasaid.ToString() && z.belge_no == x.belge_no).Sum(z => z.io == 0 ? z.miktar : 0),
-                    GIRISMIKTARI = _stokKasaHarServis.obje.Where(z => z.cariid.ToString() == cariid.ToString() && z.kasaid.ToString()==kasaid.ToString() && z.belge_no == x.belge_no).Sum(z => z.io == 1 ? z.miktar : 0) });
+                CIKISMIKTARI = _stokKasaHarServis.obje.Where(z => z.cariid.ToString() == cariid.ToString() && z.kasaid.ToString()==kasaid.ToString() && z.belge_no == x.belge_no).Sum(z => z.io == 0 ? z.miktar : 0),
+                GIRISMIKTARI = _stokKasaHarServis.obje.Where(z => z.cariid.ToString() == cariid.ToString() && z.kasaid.ToString()==kasaid.ToString() && z.belge_no == x.belge_no).Sum(z => z.io == 1 ? z.miktar : 0) });
                 gridControl1.DataSource = temp.GroupBy(x=> new { x.TARIH, x.BELGENO,x.CIKISMIKTARI,x.GIRISMIKTARI}).Select(x=>x.Select(z=> new {z.TARIH,z.BELGENO,z.CIKISMIKTARI,z.GIRISMIKTARI }).ToList()).FirstOrDefault();
+                
                 gridControl1.RefreshDataSource();
             }
             catch { }

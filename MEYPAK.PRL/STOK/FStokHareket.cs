@@ -290,6 +290,15 @@ namespace MEYPAK.PRL.STOK
 
         }
 
+        private void BTStokKoduSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            _tempStok = null;
+            FStokList fStokList = new FStokList(this.Tag.ToString(), "stokhar");
+            fStokList.ShowDialog();
+
+            Doldur();
+        }
+
         //private void gridView1_DoubleClick(object sender, EventArgs e)
         //{
         //    _tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("STOKID").ToString()).FirstOrDefault();
