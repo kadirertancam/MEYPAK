@@ -152,6 +152,7 @@
             this.ACEMusteriSiparisIrsaliyelestir = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACESatisIrsaliyeFaturalastir = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement33 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACEFaturaRaporu = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement21 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement38 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement41 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -167,7 +168,7 @@
             this.accordionControlElement27 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
             this.applicationMenu1 = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
-            this.ACEFaturaRaporu = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACECariRapor = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -1111,7 +1112,8 @@
             // accordionControlElement8
             // 
             this.accordionControlElement8.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
-            this.accordionControlElement58});
+            this.accordionControlElement58,
+            this.ACECariRapor});
             this.accordionControlElement8.Expanded = true;
             this.accordionControlElement8.Name = "accordionControlElement8";
             this.accordionControlElement8.Text = "Raporlar";
@@ -1231,6 +1233,13 @@
             this.accordionControlElement33.Name = "accordionControlElement33";
             this.accordionControlElement33.Text = "Raporlar";
             // 
+            // ACEFaturaRaporu
+            // 
+            this.ACEFaturaRaporu.Name = "ACEFaturaRaporu";
+            this.ACEFaturaRaporu.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ACEFaturaRaporu.Text = "Fatura Raporu";
+            this.ACEFaturaRaporu.Click += new System.EventHandler(this.ACEFaturaRaporu_Click);
+            // 
             // accordionControlElement21
             // 
             this.accordionControlElement21.Appearance.Default.ForeColor = System.Drawing.Color.Silver;
@@ -1349,26 +1358,12 @@
             // 
             this.applicationMenu1.Name = "applicationMenu1";
             // 
-            // ACEFaturaRaporu
+            // ACECariRapor
             // 
-            this.ACEFaturaRaporu.Name = "ACEFaturaRaporu";
-            this.ACEFaturaRaporu.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.ACEFaturaRaporu.Text = "Fatura Raporu";
-            this.ACEFaturaRaporu.Click += new System.EventHandler(this.ACEFaturaRaporu_Click);
-            // 
-            // ACESeriTanim
-            // 
-            this.ACESeriTanim.Name = "ACESeriTanim";
-            this.ACESeriTanim.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.ACESeriTanim.Text = "Seri Tanım";
-            //this.ACESeriTanim.Click += new System.EventHandler(this.ACESeriTanim_Click);
-            // 
-            // accordionControlElement60
-            // 
-            this.accordionControlElement60.Name = "accordionControlElement60";
-            this.accordionControlElement60.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement60.Text = "Stok Kasa Hareket Raporu";
-            this.accordionControlElement60.Click += new System.EventHandler(this.accordionControlElement60_Click);
+            this.ACECariRapor.Name = "ACECariRapor";
+            this.ACECariRapor.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ACECariRapor.Text = "Cari Raporu";
+            this.ACECariRapor.Click += new System.EventHandler(this.ACECariRapor_Click);
             // 
             // Main
             // 
@@ -1536,5 +1531,6 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACESeriTanim;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEFaturaRaporu;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACESatisIrsaliyeFaturalastir;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACECariRapor;
     }
 }

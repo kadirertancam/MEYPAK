@@ -96,12 +96,12 @@ namespace MEYPAK.PRL
         FMusteriSiparisIrsaliyelestir fMusteriSiparisIrsaliyelestir;
         FSeriTanim fSeriTanim;
         FSatisIrsaliyeFaturalastir fSatisIrsaliyeFaturalastir;
-        
+        FCariRaporu fCariRaporu;
         FFaturaRaporu fFaturaRaporu;
         FStokHareketRaporu fStokHareketRaporu;
         FStokFiyatRaporu fStokFiyatRaporu;
         FStokSayimRaporu fStokSayimRaporu;
-        FStokListesiRaporu fStokListesiRaporu;
+        FStokRaporu fStokListesiRaporu;
         FCariHareketRaporu fCariHareketRaporu;
         FStokKategoriRaporu fStokKategoriRaporu;
         FStokKasaHareketRaporu fStokKasaHarRaporu;
@@ -866,7 +866,7 @@ namespace MEYPAK.PRL
         private void accordionControlElement57_Click(object sender, EventArgs e)
         {
             XtraTabPage page = new XtraTabPage();
-            fStokListesiRaporu = new FStokListesiRaporu(islem: "FStokListesiRaporu");
+            fStokListesiRaporu = new FStokRaporu(islem: "FStokListesiRaporu");
             page.Name = "TPStokListesiRaporu" + i;
             page.Text = "Stok Listesi Raporu";
             page.Tag = "TPStokListesiRaporu" + i;
@@ -1009,6 +1009,28 @@ namespace MEYPAK.PRL
             page.Controls.Add(fSatisIrsaliyeFaturalastir);
             fSatisIrsaliyeFaturalastir.Show();
             i++;
+        }
+
+        private void ACECariRapor_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fCariRaporu = new FCariRaporu();
+            page.Name = "TPCariRaporu" + i;
+            page.Text = "Cari Raporu";
+            page.Tag = "TPCariRaporu" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fCariRaporu.FormBorderStyle = FormBorderStyle.None;
+            fCariRaporu.TopLevel = false;
+            fCariRaporu.AutoScroll = true;
+            fCariRaporu.Dock = DockStyle.Fill;
+            fCariRaporu.Tag = "TPCariRaporu" + i;
+            page.Controls.Add(fCariRaporu);
+            fCariRaporu.Show();
+            i++;
+
         }
     }
 }

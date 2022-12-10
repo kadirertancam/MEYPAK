@@ -42,7 +42,7 @@
             this.DGCariList.Location = new System.Drawing.Point(0, 0);
             this.DGCariList.MainView = this.gridView1;
             this.DGCariList.Name = "DGCariList";
-            this.DGCariList.Size = new System.Drawing.Size(686, 390);
+            this.DGCariList.Size = new System.Drawing.Size(1275, 693);
             this.DGCariList.TabIndex = 0;
             this.DGCariList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -64,14 +64,14 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(686, 390);
+            this.panel1.Size = new System.Drawing.Size(1275, 693);
             this.panel1.TabIndex = 1;
             // 
             // FCariList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(686, 390);
+            this.ClientSize = new System.Drawing.Size(1275, 693);
             this.Controls.Add(this.panel1);
             this.Name = "FCariList";
             this.Text = "FCariList";

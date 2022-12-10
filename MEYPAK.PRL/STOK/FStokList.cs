@@ -44,7 +44,7 @@ namespace MEYPAK.PRL.STOK
         FAlisFatura fAlisFatura;
         FFatura ffatura;
         FStokHareketRaporu fStokHareketRaporu;
-        FStokListesiRaporu fStokListesiRaporu;
+        FStokRaporu fStokListesiRaporu;
         Main main;
         int id;
         string _islem;
@@ -102,7 +102,7 @@ namespace MEYPAK.PRL.STOK
                     if (frm.Name.Contains("FStokHareketRaporu"))
                         fStokHareketRaporu = (FStokHareketRaporu)frm;
                     if (frm.Name.Contains("FStokListesiRaporu"))
-                        fStokListesiRaporu = (FStokListesiRaporu)frm;
+                        fStokListesiRaporu = (FStokRaporu)frm;
 
 
 

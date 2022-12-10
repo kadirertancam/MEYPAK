@@ -1,6 +1,6 @@
 ﻿namespace MEYPAK.PRL.STOK.Raporlar
 {
-    partial class FStokListesiRaporu
+    partial class FStokRaporu
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FStokListesiRaporu));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FStokRaporu));
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -213,15 +213,15 @@
             this.LBStokKodu.TabIndex = 3;
             this.LBStokKodu.Text = "Stok Kodu";
             // 
-            // FStokListesiRaporu
+            // FStokRaporu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1351, 716);
             this.Controls.Add(this.panelControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FStokListesiRaporu";
-            this.Text = "FStokListesiRaporu";
+            this.Name = "FStokRaporu";
+            this.Text = "FStokRaporu";
             this.Load += new System.EventHandler(this.FStokListesiRaporu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);

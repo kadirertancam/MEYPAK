@@ -24,7 +24,7 @@ namespace MEYPAK.PRL.STOK
     {
         FMarkaKart FMarkaKart;
         FStokKart fStokKart;
-        FStokListesiRaporu fStokListesiRaporu;
+        FStokRaporu fStokListesiRaporu;
         GenericWebServis<PocoSTOKMARKA> _markaServis;
         string _islem;
         string _form;
@@ -50,7 +50,7 @@ namespace MEYPAK.PRL.STOK
                 if (_form == frm.Tag)
                 {
                     if (frm.Name.Contains("FStokListesiRaporu"))
-                        fStokListesiRaporu = (FStokListesiRaporu)frm;
+                        fStokListesiRaporu = (FStokRaporu)frm;
                 }
             }
         }

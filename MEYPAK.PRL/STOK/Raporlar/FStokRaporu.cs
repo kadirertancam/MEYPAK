@@ -18,9 +18,9 @@ using System.Windows.Forms;
 
 namespace MEYPAK.PRL.STOK.Raporlar
 {
-    public partial class FStokListesiRaporu : XtraForm
+    public partial class FStokRaporu : XtraForm
     {
-        public FStokListesiRaporu(string tag = "", string islem = "")
+        public FStokRaporu(string tag = "", string islem = "")
         {
             InitializeComponent();
             _form = tag;
