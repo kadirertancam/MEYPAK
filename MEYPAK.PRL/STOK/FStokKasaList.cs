@@ -373,17 +373,15 @@ namespace MEYPAK.PRL.STOK
             if (e.KeyChar==(char)Keys.Enter)
             {
                Kaydet();
-            } 
-
-        }
-
-        private void FStokKasaList_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar==(char)Keys.Escape)
+            }
+            if (e.KeyChar == (char)Keys.Escape)
             {
                 this.Close();
             }
+
         }
+
+    
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {

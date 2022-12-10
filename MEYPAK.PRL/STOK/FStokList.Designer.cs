@@ -130,7 +130,6 @@
             this.Name = "FStokList";
             this.Text = "FStokList";
             this.Load += new System.EventHandler(this.FStokList_Load);
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FStokList_KeyPress);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
