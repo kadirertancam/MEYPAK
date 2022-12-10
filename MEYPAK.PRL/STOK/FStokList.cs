@@ -56,14 +56,15 @@ namespace MEYPAK.PRL.STOK
             this._form = form;
 
             _OlcuBrServis = new GenericWebServis<PocoOLCUBR>();
-            _OlcuBrServis.Data(ServisList.OlcuBrListeServis);
-            _stokOlcuBrServis = new GenericWebServis<PocoSTOKOLCUBR>();
-            _stokServis = new GenericWebServis<PocoSTOK>();
+            _kategoriServis = new GenericWebServis<PocoSTOKKATEGORI>();
+
+              _stokServis = new GenericWebServis<PocoSTOK>();
             _stokMarka = new GenericWebServis<PocoSTOKMARKA>();
 
         }
         GenericWebServis<PocoSTOK> _stokServis;
-        GenericWebServis<PocoSTOKOLCUBR> _stokOlcuBrServis;
+        GenericWebServis<PocoSTOKKATEGORI>_kategoriServis;
+      
         GenericWebServis<PocoOLCUBR> _OlcuBrServis;
         GenericWebServis<PocoSTOKMARKA> _stokMarka;
         Form tempForm;
@@ -109,32 +110,27 @@ namespace MEYPAK.PRL.STOK
             }
             _stokMarka.Data(ServisList.StokMarkaListeServis);
             _stokServis.Data(ServisList.StokListeServis);
+            _OlcuBrServis.Data(ServisList.OlcuBrListeServis);
+            _kategoriServis.Data(ServisList.StokKategoriListeServis);
+           
             DGStokList.DataSource = _stokServis.obje.Where(x => x.kayittipi == 0).Select(x => new
             {
                 ID = x.id,
                 KOD = x.kod,
                 ADI = x.adi,
                 GRUPKODU = x.grupkodu,
-                OLCUBR = x.olcubR1,
+                KATEGORI = _kategoriServis.obje.Where(y=>y.id == x.kategoriid).FirstOrDefault().acıklama,
+                OLCUBR = _OlcuBrServis.obje.Where(y=>y.id==x.olcubR1).FirstOrDefault().adi,
                 MARKA = _stokMarka.obje.Where(z => z.id == x.markaid).Select(z => z.adi).FirstOrDefault()
             }).ToList();
 
-            DGStokList.Refresh();
             DGStokList.RefreshDataSource();
-            //fSTOKKART =  (FStokKart)Application.OpenForms["FStokKart"];
-            //fStokHareket = (FStokHareket)Application.OpenForms["FStokHareket"];
-            //fstokSayimPanel = (FStokSayimPanel)Application.OpenForms["FStokSayimPanel"];
-            //fstokFiyatListPanel = (FStokFiyatListPanel)Application.OpenForms["FStokFiyatListPanel"];
-            //fDepolarArasıHar = (FDepolarArasıTransferHar)Application.OpenForms["FDepolarArasıTransferHar"];
-            //fSiparis = (FMusteriSiparis)Application.OpenForms["FMusteriSiparis"];
-            //_fSatınAlmaSiparis= (FSatınAlmaSiparis)Application.OpenForms["FSatınAlmaSiparis"];
-
         }
         private void DGStok_CellDoubleClick(object sender, EventArgs e)
         {
             if (this.Tag == null)
             {
-                _stokServis.Data(ServisList.StokListeServis);
+               
                 if (_islem == "stokkart")
                 {
                     if (fSTOKKART != null)

@@ -1,13 +1,19 @@
 ﻿using DevExpress.DirectX.Common.Direct2D;
 using DevExpress.DirectX.Common.DirectWrite;
 using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using MEYPAK.BLL.Assets;
+using MEYPAK.Entity.PocoModels.ARAC;
 using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.DEPO;
 using MEYPAK.Entity.PocoModels.FATURA;
 using MEYPAK.Entity.PocoModels.IRSALIYE;
+using MEYPAK.Entity.PocoModels.PARAMETRE;
+using MEYPAK.Entity.PocoModels.PERSONEL;
+using MEYPAK.Interfaces.Arac;
 using MEYPAK.Interfaces.IRSALIYE;
 using MEYPAK.Interfaces.Kasa;
+using MEYPAK.Interfaces.Parametre;
 using MEYPAK.Interfaces.Stok;
 using MEYPAK.PRL.CARI;
 using MEYPAK.PRL.DEPO;
@@ -32,6 +38,12 @@ namespace MEYPAK.PRL.SIPARIS.Raporlar
             _islem = islem;
             _faturaServis = new GenericWebServis<PocoFATURA>();
             _cariServis = new GenericWebServis<PocoCARIKART>();
+            _althesapServis = new GenericWebServis<PocoCARIALTHES>();
+            _irsaliyeServis = new GenericWebServis<PocoIRSALIYE>();
+            _paraBirimServis = new GenericWebServis<PocoPARABIRIM>();
+            _depoServis = new GenericWebServis<PocoDEPO>();
+            _personelServis = new GenericWebServis<PocoPERSONEL>();
+            _aracServis = new GenericWebServis<PocoARAC>();
         }
 
         #region Tanımlar
@@ -43,6 +55,12 @@ namespace MEYPAK.PRL.SIPARIS.Raporlar
         public PocoIRSALIYE _tempIrsaliye;
         GenericWebServis<PocoFATURA> _faturaServis;
         GenericWebServis<PocoCARIKART> _cariServis;
+        GenericWebServis<PocoCARIALTHES> _althesapServis;
+        GenericWebServis<PocoIRSALIYE> _irsaliyeServis;
+        GenericWebServis<PocoPARABIRIM> _paraBirimServis;
+        GenericWebServis<PocoDEPO> _depoServis;
+        GenericWebServis<PocoPERSONEL> _personelServis;
+        GenericWebServis<PocoARAC> _aracServis;
         #endregion
 
 
@@ -79,6 +97,7 @@ namespace MEYPAK.PRL.SIPARIS.Raporlar
 
         private void FFaturaRaporu_Load(object sender, EventArgs e)
         {
+            
             Doldur();
         }
 
@@ -87,8 +106,15 @@ namespace MEYPAK.PRL.SIPARIS.Raporlar
 
             _faturaServis.Data(ServisList.FaturaListeServis);
             _cariServis.Data(ServisList.CariListeServis);
+            _althesapServis.Data(ServisList.CariAltHesListeServis);
+            _irsaliyeServis.Data(ServisList.IrsaliyeListeServis);
+            _paraBirimServis.Data(ServisList.ParaBirimiListeServis);
+            _depoServis.Data(ServisList.DepoListeServis);
+            _personelServis.Data(ServisList.PersonelListeServis);
+            _aracServis.Data(ServisList.AracListeServis);
             DGFaturaRpr.DataSource = _faturaServis.obje.Select(x => new
             {
+                
 
                 ID = x.id,
                 KAYITTARİHİ = x.olusturmatarihi,
@@ -99,13 +125,34 @@ namespace MEYPAK.PRL.SIPARIS.Raporlar
                 FATURAADI = x.belgeno,
                 AÇIKLAMA =x.aciklama,
                 EKAÇIKLAMA = x.ekaciklama,
-                CARİKODU = _cariServis.obje.Where(y => y.id == x.id).Count() > 0 ? _cariServis.obje.Where(y => y.id == x.id).FirstOrDefault().unvan : "",
+                IRSALİYENO = _irsaliyeServis.obje.Where(y => y.id == x.irsaliyeid).Count() > 0 ? _irsaliyeServis.obje.Where(y => y.id == x.irsaliyeid).FirstOrDefault().belgeno : "",
+                CARİKODU = _cariServis.obje.Where(y => y.id == x.cariid).Count() > 0 ? _cariServis.obje.Where(y => y.id == x.cariid).FirstOrDefault().unvan : "",
                 CARİADI = x.cariadi,
-               
+                ALTHESAP = _althesapServis.obje.Where(y => y.id == x.althesapid).Count() > 0 ? _althesapServis.obje.Where(y => y.id == x.althesapid).FirstOrDefault().adi : "",
+                İRSALİYENO = _irsaliyeServis.obje.Where(y => y.id == x.irsaliyeid).Count() > 0 ? _irsaliyeServis.obje.Where(y => y.id == x.irsaliyeid).FirstOrDefault().belgeno : "",
+                VADETARİHİ = x.vadetarihi,
+                VADEGÜNÜ = x.vadegunu,
+                DÖVİZ = _paraBirimServis.obje.Where(y => y.id == x.dovizid).Count() > 0 ? _paraBirimServis.obje.Where(y => y.id == x.dovizid).FirstOrDefault().adi : "",
+                KUR = x.kur,
+                KDV = x.kdvdahil,
+                ISKONTO = x.iskontotoplam,
+                KDVTOPLAM = x.kdvtoplam,
+                BRÜTTOPLAM = x.bruttoplam,
+                NETTOPLAM =x.nettoplam,
+                GENELTOPLAM =x.geneltoplam,
+                DEPOADI = _depoServis.obje.Where(y => y.id == x.depoid).Count() > 0 ? _depoServis.obje.Where(y => y.id == x.depoid).FirstOrDefault().aciklama : "",
+                PERSONELADI = _personelServis.obje.Where(y => y.id == x.personelid).Count() > 0 ? _personelServis.obje.Where(y => y.id == x.personelid ).FirstOrDefault().adisoyadi : "",
+                ARACPLAKA = _aracServis.obje.Where(y => y.id == x.aracid).Count() > 0 ? _aracServis.obje.Where(y => y.id == x.aracid).FirstOrDefault().plaka : "",
+                KULLANICIID = x.kullaniciid,
+                KULLANICITİPİ = x.kullanicitipi,
+                ŞİRKETID = x.sirketid,
+                ŞUBEID =x.subeid,
+                DURUM = x.durum,
+                GÜNCELLEMETARİHİ = x.guncellemetarihi,
+
+ 
 
 
-               
-                
 
             });
             DGFaturaRpr.Refresh();

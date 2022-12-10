@@ -104,7 +104,10 @@
             // 
             this.gridView1.Appearance.GroupRow.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
             this.gridView1.GridControl = this.DGFaturaRpr;
+            this.gridView1.HorzScrollStep = 10;
+            this.gridView1.HorzScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
             this.gridView1.Name = "gridView1";
+            this.gridView1.VertScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
             // 
             // panelControl2
             // 

@@ -277,6 +277,8 @@ namespace MEYPAK.PRL.CARI
             _cariServis.Data(ServisList.CariListeServis);
             if (_tempCariKart != null)
             {
+                if (_cariAltHesapServis.obje.Where(x=>x.id== Convert.ToInt32(CBAltHesap.EditValue)).Count()>0)
+                {
                 _sevkAdresServis.Data(ServisList.SevkAdresEkleServis, new PocoSEVKADRES()
                 {
                     //cariid = _tempCariKart.id,
@@ -291,6 +293,10 @@ namespace MEYPAK.PRL.CARI
                 });
                 MessageBox.Show("Sevk Adres Başarıyla Eklendi!");
                 SevkAdresDoldur();
+                }
+                else
+                    MessageBox.Show("Alt Hesap Seçmeden Sevk Adresi Ekleyemezsiniz!");
+
             }
             else
             {
@@ -763,8 +769,6 @@ namespace MEYPAK.PRL.CARI
                 DAIRE = x.daire,
 
             });
-
-            DGSevkAdres.Refresh();
             DGSevkAdres.RefreshDataSource();
         }
         private void simpleButton1_Click(object sender, EventArgs e)
@@ -818,6 +822,8 @@ namespace MEYPAK.PRL.CARI
             else
                 MessageBox.Show("Silmek İstediğiniz Alt Hesabı Seçiniz!");
         }
+
+   
     }
 }
 #endregion

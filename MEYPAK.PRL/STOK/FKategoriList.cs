@@ -29,11 +29,12 @@ namespace MEYPAK.PRL.STOK
             this._form = form;
             this._islem = islem;
             _kategoriServis = new GenericWebServis<PocoSTOKKATEGORI>();
-
+            _stokServis=new GenericWebServis<PocoSTOK>();
         }
 
         #region Tanımlar
         GenericWebServis<PocoSTOKKATEGORI> _kategoriServis;
+        GenericWebServis<PocoSTOK> _stokServis;
 
         #endregion
 
@@ -73,6 +74,7 @@ namespace MEYPAK.PRL.STOK
 
             }
             _kategoriServis.Data(ServisList.StokKategoriListeServis);
+            _stokServis.Data(ServisList.StokListeServis);
         }
         public void TreeViewiDoldur()
         {
@@ -209,6 +211,8 @@ namespace MEYPAK.PRL.STOK
             if (treeView.Selection != null)
             {
                 TreeListMultiSelection selectedNodes = treeView.Selection;
+                if (_stokServis.obje.Where(x=> x.kategoriid == _kategoriServis.obje.Where(x =>  x.acıklama == selectedNodes[0].GetValue(treeView.Columns[0]).ToString()).FirstOrDefault().id).Count()==0)
+                {
                 if (_kategoriServis.obje.Where(x => x.kayittipi == 0 && x.ustId == _kategoriServis.obje.Where(x => x.kayittipi == 0 && x.acıklama == selectedNodes[0].GetValue(treeView.Columns[0]).ToString()).FirstOrDefault().id).Count() > 0)
                 {
                     foreach (var item in _kategoriServis.obje.Where(x => x.kayittipi == 0 && x.ustId == _kategoriServis.obje.Where(x => x.kayittipi == 0 && x.acıklama == selectedNodes[0].GetValue(treeView.Columns[0]).ToString()).FirstOrDefault().id))
@@ -226,6 +230,9 @@ namespace MEYPAK.PRL.STOK
                     TreeViewiDoldur();
 
                 }
+                }
+                else
+                    MessageBox.Show("Stok bağlantısı olan bir kategori silinemez!");
 
             }
             else

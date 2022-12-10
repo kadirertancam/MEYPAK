@@ -57,7 +57,7 @@ namespace MEYPAK.PRL.STOK.Raporlar
                 KAYITTARİHİ =x.olusturmatarihi,
                 FİYATLİSTESİADI = x.adi,
                 AÇIKLAMA = x.aciklama,
-                CARİADI = _cariServis.obje.Where(X=>x.kayittipi == 0).Select(x=> x.unvan).FirstOrDefault(),
+                CARİADI = _cariServis.obje.Where(X=>x.kayittipi == 0).Select(x=> x.kod).FirstOrDefault(),
                 BASLANGIÇTARİHİ = x.baslangictarihi,
                 BİTİŞTARİHİ = x.bitistarihi,
                 FİRMAID =x.firmaid,
