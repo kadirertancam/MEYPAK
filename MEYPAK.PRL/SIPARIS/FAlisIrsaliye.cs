@@ -993,7 +993,7 @@ namespace MEYPAK.PRL.IRSALIYE
                 {
                     foreach (var item in _tempSilinenFaturaDetay)
                     {
-                        _faturadetayServis.Data(ServisList.FaturaDetayDeleteByIdServis, id: item.id.ToString(), method: System.Net.Http.HttpMethod.Post);
+                        _faturadetayServis.Data(ServisList.IrsaliyeDetayDeleteByIdServis, id: item.id.ToString(), method: System.Net.Http.HttpMethod.Post);
                         _stokHarServis.Data(ServisList.StokHarSilServis, modellist: _stokHarServis.obje.Where(x => x.irsaliyedetayid == item.id).ToList());
                     }
                     if (_silinenkasaaa.Count() > 0)
