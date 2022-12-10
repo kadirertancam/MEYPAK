@@ -83,6 +83,7 @@
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsView.ShowFooter = true;
+            this.gridView1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.gridView1_KeyPress);
             // 
             // TSStokList
             // 
@@ -129,6 +130,7 @@
             this.Name = "FStokList";
             this.Text = "FStokList";
             this.Load += new System.EventHandler(this.FStokList_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FStokList_KeyPress);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

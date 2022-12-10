@@ -126,6 +126,7 @@ namespace MEYPAK.PRL.SIPARIS
         int tempnum;
         int sx = 0;
         int sy = 0;
+        int toplam = 0;
         decimal daralı, dara;
         #endregion
 
@@ -466,9 +467,11 @@ namespace MEYPAK.PRL.SIPARIS
                 gridView1.SetRowCellValue(rowindex, "KdvTutarı", decimal.Round(kdvtoplam, 2));
                 gridView1.SetRowCellValue(rowindex, "NetFiyat", decimal.Round(netfiyat, 2));
 
+                sy = 0;
+
                 ToplamHesapla();
             
-                sy = 0;
+                
             }
 
 
@@ -513,6 +516,7 @@ namespace MEYPAK.PRL.SIPARIS
         {
             if (_tempFatura != null)
             {
+                _stokKasaHarServis.Data(ServisList.StokKasaHarListeServis);
                 _kasaaa.Clear();
                 _stokOlcuBrList.Clear();
                 _tempFaturaDetay.Clear();
@@ -524,7 +528,7 @@ namespace MEYPAK.PRL.SIPARIS
                 TBKur.Text = _tempFatura.kur.ToString();
                 TBCariKodu.Text = _cariKart.obje.Where(x => x.id == _tempFatura.cariid).FirstOrDefault().kod;
                 TBCariAdi.Text = _tempFatura.cariadi;
-
+        
                 //TODO TBKasa.Text = 
                 DTSiparisTarih.EditValue = _tempFatura.faturatarihi;
                 TBAciklama.Text = _tempFatura.aciklama;
@@ -579,7 +583,7 @@ namespace MEYPAK.PRL.SIPARIS
 
                     }
 
-                    KasaAltBilgiDoldur();
+                    KasaAltBilgiDoldur(); 
 
                 }
                 else
@@ -622,16 +626,15 @@ namespace MEYPAK.PRL.SIPARIS
 
                 GCIrsaliye.DataSource = _tempFaturaDetay;
                 GCIrsaliye.RefreshDataSource();
+                
+
+                TBAIskonto1.EditValue = _tempFatura.altiskonto1;
+                TBAIskonto2.EditValue = _tempFatura.altiskonto2;
+                TBAIskonto3.EditValue = _tempFatura.altiskonto3;
                 sy = 0;
+                ToplamHesapla();
             }
-            if (_tempFatura != null)
-            {
-                TBBrutToplam.Text = decimal.Round(_tempFatura.bruttoplam, 2).ToString();
-                TBIskontoToplam.Text = decimal.Round(_tempFatura.iskontotoplam, 2).ToString();
-                TBKdvTutari.Text = decimal.Round(_tempFatura.kdvtoplam, 2).ToString();
-                TBGenelToplam.Text = decimal.Round(_tempFatura.geneltoplam, 2).ToString();
-                TBAraToplam.Text = decimal.Round(_tempFatura.nettoplam, 2).ToString();
-            }
+     
         }
 
         #endregion
@@ -788,7 +791,7 @@ namespace MEYPAK.PRL.SIPARIS
                 MessageBox.Show("Iskonto oranı 100 den büyük olamaz");
                 TBAIskonto1.Text = "0";
             }
-            else
+            else if(sy==0)
             ToplamHesapla();
         }
 
@@ -799,7 +802,7 @@ namespace MEYPAK.PRL.SIPARIS
                 MessageBox.Show("Iskonto oranı 100 den büyük olamaz");
                 TBAIskonto2.Text = "0";
             }
-            else
+            else if(sy == 0)
                 ToplamHesapla();
         }
 
@@ -810,7 +813,7 @@ namespace MEYPAK.PRL.SIPARIS
                 MessageBox.Show("Iskonto oranı 100 den büyük olamaz");
                 TBAIskonto3.Text = "0";
             }
-            else
+            else if (sy == 0)
                 ToplamHesapla();
         }
 
@@ -873,7 +876,10 @@ namespace MEYPAK.PRL.SIPARIS
                     depoid = _depoServis.obje.Where(x => x.depoadi == CBDepo.EditValue).FirstOrDefault().id,
                     althesapid = int.Parse(CBAltHesap.EditValue.ToString()),
                     dovizid = _paraBirimServis.obje.Where(x => x.adi == CBParaBirimi.Text).FirstOrDefault().id,
-                    iskontotoplam = _tempFaturaDetay.Sum(x => x.İskontoTutarı),
+                    altiskonto1= Convert.ToDecimal(TBAIskonto1.Text),
+                    altiskonto2= Convert.ToDecimal(TBAIskonto2.Text),
+                    altiskonto3= Convert.ToDecimal(TBAIskonto3.Text),
+                    iskontotoplam = Convert.ToDecimal(TBIskontoToplam.Text), //_tempFaturaDetay.Sum(x => x.İskontoTutarı),
                     kdvtoplam = _tempFaturaDetay.Sum(x => x.KdvTutarı),
                     bruttoplam = _tempFaturaDetay.Sum(x => x.BrütToplam),
                     nettoplam = _tempFaturaDetay.Sum(x => x.NetToplam),

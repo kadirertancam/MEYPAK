@@ -370,7 +370,19 @@ namespace MEYPAK.PRL.STOK
 
         private void GCKasaList_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Kaydet();
+            if (e.KeyChar==(char)Keys.Enter)
+            {
+               Kaydet();
+            } 
+
+        }
+
+        private void FStokKasaList_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar==(char)Keys.Escape)
+            {
+                this.Close();
+            }
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
