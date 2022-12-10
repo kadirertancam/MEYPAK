@@ -66,7 +66,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1117, 120);
+            this.panelControl1.Size = new System.Drawing.Size(1336, 120);
             this.panelControl1.TabIndex = 3;
             // 
             // groupControl1
@@ -83,7 +83,7 @@
             this.groupControl1.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             this.groupControl1.Location = new System.Drawing.Point(2, 2);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(1113, 114);
+            this.groupControl1.Size = new System.Drawing.Size(1332, 114);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Alt Hesap";
             // 
@@ -93,7 +93,7 @@
             this.panelControl3.Controls.Add(this.BTKaydet);
             this.panelControl3.Controls.Add(this.BTSil);
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelControl3.Location = new System.Drawing.Point(892, 23);
+            this.panelControl3.Location = new System.Drawing.Point(1111, 23);
             this.panelControl3.Name = "panelControl3";
             this.panelControl3.Size = new System.Drawing.Size(219, 89);
             this.panelControl3.TabIndex = 7;
@@ -189,7 +189,7 @@
             this.DGAltHesap.Location = new System.Drawing.Point(2, 2);
             this.DGAltHesap.MainView = this.gridView1;
             this.DGAltHesap.Name = "DGAltHesap";
-            this.DGAltHesap.Size = new System.Drawing.Size(1113, 471);
+            this.DGAltHesap.Size = new System.Drawing.Size(1332, 660);
             this.DGAltHesap.TabIndex = 0;
             this.DGAltHesap.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -210,14 +210,14 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl2.Location = new System.Drawing.Point(0, 120);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(1117, 475);
+            this.panelControl2.Size = new System.Drawing.Size(1336, 664);
             this.panelControl2.TabIndex = 4;
             // 
             // FCariAltHesap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1117, 595);
+            this.ClientSize = new System.Drawing.Size(1336, 784);
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
