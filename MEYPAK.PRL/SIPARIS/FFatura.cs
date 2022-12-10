@@ -930,10 +930,13 @@ namespace MEYPAK.PRL.SIPARIS
                         tip = 0,
                         kdvtutari = item.KdvTutarı
                     });
-                    _seriHarServis.Data(ServisList.SeriHarListeServis);
-                    var tempserihar = _seriHarServis.obje.Where(x => x.seriid == _seriServis.obje.Where(z => z.SERINO.ToString() == comboBoxEdit1.Text).FirstOrDefault().id).LastOrDefault();
-                    tempserihar.serino = tempserihar.serino + 1;
-                    _seriHarServis.Data(ServisList.SeriHarEkleServis, tempserihar);
+                    if (_tempFatura == null)
+                    {
+                        _seriHarServis.Data(ServisList.SeriHarListeServis);
+                        var tempserihar = _seriHarServis.obje.Where(x => x.seriid == _seriServis.obje.Where(z => z.SERINO.ToString() == comboBoxEdit1.Text).FirstOrDefault().id).LastOrDefault();
+                        tempserihar.serino = tempserihar.serino + 1;
+                        _seriHarServis.Data(ServisList.SeriHarEkleServis, tempserihar);
+                    }
                     _stokHarServis.Data(ServisList.StokHarEkleServis, new Entity.PocoModels.STOK.PocoSTOKHAR()
                     {
                         id = _stokHarServis.obje.Where(x => x.faturadetayid == _faturadetayServis.obje2.id).Count() > 0 ? _stokHarServis.obje.Where(x => x.faturadetayid == _faturadetayServis.obje2.id).FirstOrDefault().id : 0,
