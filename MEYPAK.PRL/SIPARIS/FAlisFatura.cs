@@ -152,8 +152,7 @@ namespace MEYPAK.PRL.SIPARIS
             CBParaBirimi.EditValue = _paraBirimServis.obje.Where(x => x.kayittipi == 0 && x.adi == "TÜRK LİRASI").Select(x => x.adi).FirstOrDefault();
             _tempCariKart = null;
             CHBKdvDahil.Checked = false;
-            gridControl1.DataSource = "";
-            faturaNoGuncelle();
+            gridControl1.DataSource = ""; 
 
         }
 
@@ -807,8 +806,7 @@ namespace MEYPAK.PRL.SIPARIS
 
         private void comboBoxEdit1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            faturaNoGuncelle();
+             
         }
 
         private void TBGun_EditValueChanged(object sender, EventArgs e)
@@ -833,13 +831,7 @@ namespace MEYPAK.PRL.SIPARIS
                 if (gridView1.FocusedColumn.VisibleIndex == gridView1.Columns.View.VisibleColumns.Count)
                     MessageBox.Show("testt");
         }
-        void faturaNoGuncelle()
-        {
-            _seriHarServis.Data(ServisList.SeriHarListeServis);
-            _seriServis.Data(ServisList.SeriListeServis);
-            var serino = _seriHarServis.obje.Where(x => x.seriid == _seriServis.obje.Where(z => z.SERINO == comboBoxEdit1.Text).FirstOrDefault().id).FirstOrDefault().serino;
-            TBFaturaNo.Text = serino.ToString();
-        }
+ 
         private void BTKaydet_Click_1(object sender, EventArgs e)
         {
             if (_tempFatura != null && TBFaturaNo.Text != _tempFatura.belgeno)
@@ -847,10 +839,7 @@ namespace MEYPAK.PRL.SIPARIS
 
             _cariKart.Data(ServisList.CariListeServis);
             if (_cariKart.obje.Where(x => x.kod == TBCariKodu.Text).Count() > 0)
-            {
-                if (_tempFatura == null)
-                    faturaNoGuncelle();
-
+            { 
                 _faturaServis.Data(ServisList.FaturaEkleServis, new PocoFATURA()
                 {
                     id = _tempFatura != null ? _tempFatura.id : 0,
@@ -875,7 +864,7 @@ namespace MEYPAK.PRL.SIPARIS
                     nettoplam = _tempFaturaDetay.Sum(x => x.NetToplam),
                     geneltoplam = _tempFaturaDetay.Sum(x => x.KdvTutarı) + _tempFaturaDetay.Sum(x => x.NetToplam),
                     kdvdahil = CHBKdvDahil.Checked,
-                    tip = 0,
+                    tip = 1,
                 });
 
                 _stokOlcuBr.Data(ServisList.StokOlcuBrListeServis);
@@ -914,16 +903,10 @@ namespace MEYPAK.PRL.SIPARIS
                         num = item.sıra,
                         hareketdurumu = 0,
                         listefiyatid = 0,
-                        tip = 0,
+                        tip = 1,
                         kdvtutari = item.KdvTutarı
                     });
-                    if (_tempFatura == null)
-                    {
-                        _seriHarServis.Data(ServisList.SeriHarListeServis);
-                        var tempserihar = _seriHarServis.obje.Where(x => x.seriid == _seriServis.obje.Where(z => z.SERINO.ToString() == comboBoxEdit1.Text).FirstOrDefault().id).LastOrDefault();
-                        tempserihar.serino = tempserihar.serino + 1;
-                        _seriHarServis.Data(ServisList.SeriHarEkleServis, tempserihar);
-                    }
+                   
                     _stokHarServis.Data(ServisList.StokHarEkleServis, new Entity.PocoModels.STOK.PocoSTOKHAR()
                     {
                         id = _stokHarServis.obje.Where(x => x.faturadetayid == _faturadetayServis.obje2.id).Count() > 0 ? _stokHarServis.obje.Where(x => x.faturadetayid == _faturadetayServis.obje2.id).FirstOrDefault().id : 0,
@@ -1049,13 +1032,7 @@ namespace MEYPAK.PRL.SIPARIS
 
         private void FFatura_Load(object sender, EventArgs e)
         {
-            _seriServis.Data(ServisList.SeriListeServis);
-            _seriHarServis.Data(ServisList.SeriHarListeServis);
-            foreach (var item in _seriServis.obje.Where(x => x.TIP == 0).Select(x => x.SERINO))
-            {
-                comboBoxEdit1.Properties.Items.Add(item);
-            }
-            comboBoxEdit1.SelectedIndex = 0;
+            
             _olcuBr.Data(ServisList.OlcuBrListeServis);
             _stokOlcuBr.Data(ServisList.StokOlcuBrListeServis);
             _stokServis.Data(ServisList.StokListeServis);

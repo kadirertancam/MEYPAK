@@ -33,5 +33,10 @@ namespace MEYPAK.PRL.PARAMETRELER
         {
 
         }
+
+        private void BTSeriKaydet_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
