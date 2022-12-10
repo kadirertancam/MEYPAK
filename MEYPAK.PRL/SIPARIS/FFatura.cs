@@ -355,11 +355,12 @@ namespace MEYPAK.PRL.SIPARIS
             {
                 foreach (var item in _tempFaturaDetay)
                 {
-                    nettop = item.NetToplam - ((item.NetToplam * Convert.ToDecimal(TBAIskonto1.Text)) / 100);
-                    nettop = item.NetToplam - ((item.NetToplam * Convert.ToDecimal(TBAIskonto2.Text)) / 100);
-                    nettop = item.NetToplam - ((item.NetToplam * Convert.ToDecimal(TBAIskonto3.Text)) / 100);
-                    temppte += item.NetToplam - ((item.NetToplam * Convert.ToDecimal(TBAIskonto1.Text)) / 100);
-                    isktoplam += ((item.NetToplam * Convert.ToDecimal(TBAIskonto1.Text)) / 100);
+                    nettop = item.NetToplam;
+                    nettop = nettop - ((nettop * Convert.ToDecimal(TBAIskonto1.Text)) / 100);
+                    nettop = nettop - ((nettop * Convert.ToDecimal(TBAIskonto2.Text)) / 100);
+                    nettop = nettop - ((nettop * Convert.ToDecimal(TBAIskonto3.Text)) / 100);
+                    isktoplam = ((nettop * Convert.ToDecimal(TBAIskonto1.Text)) / 100) + ((nettop * Convert.ToDecimal(TBAIskonto2.Text)) / 100) + ((nettop * Convert.ToDecimal(TBAIskonto3.Text)) / 100);
+                    temppte += nettop; 
                     kdvtoplamm += ((nettop * item.Kdv) / 100);
                     iskk = decimal.Round((_tempFaturaDetay.Sum(x => x.İskontoTutarı)), 2);
                     isktoplam = isktoplam + iskk;
@@ -369,7 +370,7 @@ namespace MEYPAK.PRL.SIPARIS
 
                 TBBrutToplam.Text = decimal.Round((_tempFaturaDetay.Sum(x => x.BrütToplam)), 2).ToString();
                 TBAraToplam.Text = temppte.ToString();
-                TBIskontoToplam.Text = isktoplam.ToString();
+                TBIskontoToplam.Text = (decimal.Round((_tempFaturaDetay.Sum(x => x.BrütToplam)), 2)- temppte).ToString();
                 TBKdvTutari.Text = kdvtoplamm.ToString();
                 TBGenelToplam.Text = (temppte + kdvtoplamm).ToString();
             }
