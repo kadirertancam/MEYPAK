@@ -217,7 +217,7 @@ namespace MEYPAK.PRL
             //gridControl1.DataSource = _StokOlcuBrServis.obje.Where(x => x.stokid == stokid).Select(x => new { ADI = _PocoOlcuBrServis.obje.Where(z => z.id == x.olcubrid).FirstOrDefault().adi, KATSAYI = x.katsayi, SIRA = x.num });
             //gridControl1.RefreshDataSource();
             CBOlcuBr.Enabled = false;
-            BTKategori.Enabled = false;
+            
             //var a = _PocoStokServis.obje.Select(x=>x.mpst.Select(z=>z));
             //stokOlculist = _tempStok.MPSTOKOLCUBR.ToList();
 
@@ -424,8 +424,8 @@ namespace MEYPAK.PRL
 
         private void BTStokKartiKaydet_Click(object sender, EventArgs e)
         {
-
-            if (_StokKategoriervis.obje.Where(x => x.kayittipi == 0 && x.acıklama == BTKategori.Text).Count() > 0 && CBOlcuBr.EditValue != null && Convert.ToInt32(CBOlcuBr.EditValue)>0)
+            _StokKategoriervis.Data(ServisList.StokKategoriListeServis);
+            if (_StokKategoriervis.obje.Where(x => x.acıklama == BTKategori.Text).Count() > 0 && CBOlcuBr.EditValue != null && Convert.ToInt32(CBOlcuBr.EditValue)>0)
             {
                 _markaServis.Data(ServisList.StokMarkaListeServis);
                 _tempStok = new PocoSTOK()
