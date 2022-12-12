@@ -27,8 +27,6 @@ namespace MEYPAK.Entity.PocoModels.IRSALIYE
         public string stokadi { get; set; } = "";
         [StringLength(200)]
         public string aciklama { get; set; } = "";
-        public int tevkifatno { get; set; } = 0;
-        public int istisnano { get; set; } = 0;
         public decimal kasamiktar { get; set; } = 0;
         public decimal dara { get; set; } = 0;
         public decimal darali { get; set; } = 0;
