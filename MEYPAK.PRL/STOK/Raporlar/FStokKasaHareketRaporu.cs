@@ -87,7 +87,7 @@ namespace MEYPAK.PRL.STOK.Raporlar
                         FATURANO = _faturaServis.obje.Where(y => y.id == x.faturaid).Count() > 0 ? _faturaServis.obje.Where(y => y.id == x.faturaid).FirstOrDefault().belgeno : "",
                         FATURADETAY = x.faturadetayid,
                         İRSALİYENO = _irsaliyeServis.obje.Where(y => y.id == x.irsaliyeid).Count() > 0 ? _irsaliyeServis.obje.Where(y => y.id == x.irsaliyeid).FirstOrDefault().belgeno : "",
-                        İRSALİYEDETAY = x.iresliyedetayid,
+                        İRSALİYEDETAY = x.irsaliyedetayid,
 
                     });
                     DGStokKasaHarRpr.Refresh();

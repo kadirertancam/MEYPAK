@@ -8,8 +8,9 @@ namespace MEYPAK.Entity.PocoModels.SIPARIS
 {
     public class PocoSIPARISKASAHAR : SUPERPOCOMODEL
     {
-        public int KASAID { get; set; } 
-        public int SIPARISDETAYID { get; set; }
-        public int SIPARISID { get; set; }
+        public int kasaid { get; set; } 
+        public int siparisdetayid { get; set; }
+        public int siparisid { get; set; }
+        public decimal miktar { get; set; }
     }
 }

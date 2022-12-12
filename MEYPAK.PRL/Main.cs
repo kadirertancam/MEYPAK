@@ -355,6 +355,13 @@ namespace MEYPAK.PRL
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
             xtraTabControl1.TabPages.Add(page);
             xtraTabControl1.SelectedTabPage = page;
+
+            fCariDurum.TopLevel = false;
+            fCariDurum.AutoScroll = true;
+            fCariDurum.Dock = DockStyle.Fill;
+            fCariDurum.Tag = "TPCariDurum" + i;
+            page.Controls.Add(fCariDurum);
+            fCariDurum.Show();
             i++;
         }
 

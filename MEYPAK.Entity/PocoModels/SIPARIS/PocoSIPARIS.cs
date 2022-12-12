@@ -33,8 +33,12 @@ namespace MEYPAK.Entity.PocoModels.SIPARIS
         public string serino { get; set; } = "";
         public string belgeno { get; set; } = "";
         public bool kdvdahil { get; set; }
+      
         public decimal nettoplam { get; set; } = 0;
         public decimal kdvtoplam { get; set; } = 0;
+        public decimal altiskonto1 { get; set; } = 0;
+        public decimal altiskonto2 { get; set; } = 0;
+        public decimal altiskonto3 { get; set; } = 0;
         public decimal istkontotoplam { get; set; } = 0;
         public decimal bruttoplam { get; set; } = 0;
         public decimal geneltoplam { get; set; } = 0;

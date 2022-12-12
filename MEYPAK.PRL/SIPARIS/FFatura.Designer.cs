@@ -103,7 +103,6 @@
             this.TBBrutToplam = new System.Windows.Forms.TextBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.BTKaydet = new System.Windows.Forms.Button();
-            this.BTNDegistir = new System.Windows.Forms.Button();
             this.BTNSil = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.DTSiparisTarih.Properties.CalendarTimeProperties)).BeginInit();
@@ -786,7 +785,6 @@
             // panel6
             // 
             this.panel6.Controls.Add(this.BTKaydet);
-            this.panel6.Controls.Add(this.BTNDegistir);
             this.panel6.Controls.Add(this.BTNSil);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel6.Location = new System.Drawing.Point(0, 137);
@@ -797,25 +795,14 @@
             // BTKaydet
             // 
             this.BTKaydet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BTKaydet.Location = new System.Drawing.Point(75, 8);
+            this.BTKaydet.Location = new System.Drawing.Point(87, 7);
             this.BTKaydet.Name = "BTKaydet";
-            this.BTKaydet.Size = new System.Drawing.Size(81, 43);
+            this.BTKaydet.Size = new System.Drawing.Size(168, 43);
             this.BTKaydet.TabIndex = 16;
             this.BTKaydet.TabStop = false;
             this.BTKaydet.Text = "Kaydet";
             this.BTKaydet.UseVisualStyleBackColor = true;
             this.BTKaydet.Click += new System.EventHandler(this.BTKaydet_Click_1);
-            // 
-            // BTNDegistir
-            // 
-            this.BTNDegistir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BTNDegistir.Location = new System.Drawing.Point(191, 8);
-            this.BTNDegistir.Name = "BTNDegistir";
-            this.BTNDegistir.Size = new System.Drawing.Size(81, 43);
-            this.BTNDegistir.TabIndex = 17;
-            this.BTNDegistir.TabStop = false;
-            this.BTNDegistir.Text = "Değiştir";
-            this.BTNDegistir.UseVisualStyleBackColor = true;
             // 
             // BTNSil
             // 
@@ -949,7 +936,6 @@
         private TextBox TBBrutToplam;
         private Panel panel6;
         private Button BTKaydet;
-        private Button BTNDegistir;
         private Button BTNSil;
         private Panel panel3;
         private Panel panel9;

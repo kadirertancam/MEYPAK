@@ -9,22 +9,22 @@ namespace MEYPAK.Entity.PocoModels
 {
     public class PocoIrsaliyeKalem
     {
-        
+        public int id { get; set; }
+        public int sıra { get; set; }
         public int StokId { get; set; }
         public string StokKodu { get; set; }
-        public int sıra { get; set; }
+        public List<KasaList> KASA { get; set; }
         public string StokAdı { get; set; } = "";
         public string Tipi { get; set; } = "STOK";
         public int KasaId { get; set; }
         public string KasaAdı { get; set; } = "";
         public string Acıklama { get; set; } = "";
         public string Birim { get; set; } = "";
-        public string Kunye { get; set; }
-        public decimal Miktar { get; set; } = 0;
+        public decimal KasaMiktar { get; set; } = 0;
         public decimal Daralı { get; set; }
         public decimal Dara { get; set; }
         public decimal Safi { get; set; }
-        public string Doviz { get; set; } = "";
+        public int Doviz { get; set; } = 11638;
         public decimal BirimFiyat { get; set; } = 0;
         public decimal NetFiyat { get; set; } = 0;
         public decimal BrütFiyat { get; set; } = 0;
@@ -36,5 +36,6 @@ namespace MEYPAK.Entity.PocoModels
         public decimal İskontoTutarı { get; set; }
         public decimal NetToplam { get; set; } = 0;
         public decimal BrütToplam { get; set; } = 0;
+        public string Kunye { get; set; }
     }
 }

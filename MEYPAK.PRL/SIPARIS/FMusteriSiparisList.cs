@@ -48,7 +48,7 @@ namespace MEYPAK.PRL.SIPARIS
                 }
             } 
             _mSiparisServis.Data(ServisList.SiparisListeServis);
-            if(_islem== "SatinAlmaSiparis")
+            if(_islem== "FSatinAlmaSiparis")
                 GCMusteriSiparisList.DataSource = _mSiparisServis.obje.Where(x=>x.tip==1).Select(x => new
                 {
                     ID = x.id,
@@ -60,6 +60,7 @@ namespace MEYPAK.PRL.SIPARIS
                     x.geneltoplam
                 });
             if (_islem == "Siparis" || _islem == "FMusteriSiparisRaporu")
+            if (_islem == "FMusteriSiparis")
                 GCMusteriSiparisList.DataSource = _mSiparisServis.obje.Where(x => x.tip == 0).Select(x => new
                 {
                     ID = x.id,
@@ -78,7 +79,7 @@ namespace MEYPAK.PRL.SIPARIS
         private void gridView1_DoubleClick(object sender, EventArgs e)
         {
             _mSiparisServis.Data(ServisList.SiparisListeServis);
-            if (_islem == "Siparis")
+            if (_islem == "FMusteriSiparis")
             {
                 if (fmusteriSiparis != null)
                 {
@@ -86,7 +87,7 @@ namespace MEYPAK.PRL.SIPARIS
                 }
 
             }
-            if(_islem == "SatinAlmaSiparis")
+            if(_islem == "FSatinAlmaSiparis")
             {
                 if (fsatinalmaSiparis != null)
                 {
