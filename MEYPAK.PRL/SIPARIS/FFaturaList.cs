@@ -28,6 +28,7 @@ namespace MEYPAK.PRL.SIPARIS
             InitializeComponent();
             _form = tag;
             _islem = islem;
+            falisFatura = new FAlisFatura();
         }
 
         string _form, _islem;
@@ -35,6 +36,7 @@ namespace MEYPAK.PRL.SIPARIS
 
         #region Tanımlar
         FFatura ffatura;
+        FAlisFatura falisFatura;
         FStokKasaHareketRaporu fStokKasaHareketRaporu;
         FStokHareketRaporu fStokHareketRaporu;
         FFaturaRaporu fFaturaRaporu;
@@ -59,6 +61,8 @@ namespace MEYPAK.PRL.SIPARIS
                             fStokHareketRaporu = (FStokHareketRaporu)frm;
                         if (frm.Name.Contains("FFaturaRaporu"))
                             fFaturaRaporu = (FFaturaRaporu)frm;
+                        if (frm.Name.Contains("FAlisFatura"))
+                            falisFatura = (FAlisFatura)frm;
                        else if (frm.Name.Contains("FFatura"))
                             ffatura = (FFatura)frm;
                         
@@ -114,6 +118,13 @@ namespace MEYPAK.PRL.SIPARIS
                     
                         ffatura._tempFatura = _faturaServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
                     
+                }
+                if (_islem == "FAlisFatura")
+                {
+                    if (falisFatura != null)
+
+                        falisFatura._tempFatura = _faturaServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+
                 }
                 else if (_islem == "FFaturaRaporu")
                 {
