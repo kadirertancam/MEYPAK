@@ -3,6 +3,7 @@ using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.Models.SIPARIS;
 using MEYPAK.Entity.PocoModels.SIPARIS;
 using MEYPAK.Interfaces.Stok;
+using MEYPAK.PRL.SIPARIS.Raporlar;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,6 +22,7 @@ namespace MEYPAK.PRL.SIPARIS
         string _form;
         FMusteriSiparis fmusteriSiparis;
         FSatinAlmaSiparis fsatinalmaSiparis;
+        FMusteriSiparisRaporu fMusteriSiparisRaporu;
         GenericWebServis<PocoSIPARIS> _mSiparisServis;
         public FMusteriSiparisList(string form="",string islem="")
         {
@@ -36,10 +38,13 @@ namespace MEYPAK.PRL.SIPARIS
             {
                 if (_form == frm.Tag)
                 {
-                    if (frm.Name.Contains("FMusteriSiparis"))
-                        fmusteriSiparis = (FMusteriSiparis)frm;
                     if (frm.Name.Contains("FSatinAlmaSiparis"))
                         fsatinalmaSiparis = (FSatinAlmaSiparis)frm;
+                    if (frm.Name.Contains("FMusteriSiparisRaporu"))
+                        fMusteriSiparisRaporu = (FMusteriSiparisRaporu)frm;
+                    else if (frm.Name.Contains("FMusteriSiparis"))
+                        fmusteriSiparis = (FMusteriSiparis)frm;
+                   
                 }
             } 
             _mSiparisServis.Data(ServisList.SiparisListeServis);
@@ -54,7 +59,7 @@ namespace MEYPAK.PRL.SIPARIS
                     x.depoid,
                     x.geneltoplam
                 });
-            if (_islem == "Siparis")
+            if (_islem == "Siparis" || _islem == "FMusteriSiparisRaporu")
                 GCMusteriSiparisList.DataSource = _mSiparisServis.obje.Where(x => x.tip == 0).Select(x => new
                 {
                     ID = x.id,
@@ -86,6 +91,13 @@ namespace MEYPAK.PRL.SIPARIS
                 if (fsatinalmaSiparis != null)
                 {
                     fsatinalmaSiparis._tempSIPARIS= _mSiparisServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+                }
+            }
+            if (_islem == "FMusteriSiparisRaporu")
+            {
+                if (fMusteriSiparisRaporu != null)
+                {
+                    fMusteriSiparisRaporu._tempSIPARIS = _mSiparisServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
                 }
             }
             this.Close();

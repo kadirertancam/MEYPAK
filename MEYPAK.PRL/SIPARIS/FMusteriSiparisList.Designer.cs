@@ -40,7 +40,7 @@
             this.GCMusteriSiparisList.Location = new System.Drawing.Point(0, 0);
             this.GCMusteriSiparisList.MainView = this.gridView1;
             this.GCMusteriSiparisList.Name = "GCMusteriSiparisList";
-            this.GCMusteriSiparisList.Size = new System.Drawing.Size(686, 390);
+            this.GCMusteriSiparisList.Size = new System.Drawing.Size(1344, 749);
             this.GCMusteriSiparisList.TabIndex = 0;
             this.GCMusteriSiparisList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -57,7 +57,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(686, 390);
+            this.ClientSize = new System.Drawing.Size(1344, 749);
             this.Controls.Add(this.GCMusteriSiparisList);
             this.Name = "FMusteriSiparisList";
             this.Text = "FMusteriSiparisList";

@@ -59,10 +59,12 @@ namespace MEYPAK.PRL.SIPARIS
         GenericWebServis<PocoSTOKKASAHAR> _stokKasaHarServis;
         GenericWebServis<PocoSTOKKASA> _kasaServis;
         GenericWebServis<PocoCARIALTHES> _cariAltHes;
+        
         #endregion
         public FMusteriSiparis()
         {
             InitializeComponent();
+            
             DGVStokSec = new DataGridViewButtonColumn();
             DGVFiyatList = new DataGridViewComboBoxColumn();
             DGVKasaSec = new DataGridViewButtonColumn();

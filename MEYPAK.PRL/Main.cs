@@ -14,6 +14,7 @@ using MEYPAK.PRL.Assets.Kur;
 using MEYPAK.PRL.CARI;
 using MEYPAK.PRL.CARI.Raporlar;
 using MEYPAK.PRL.DEPO;
+using MEYPAK.PRL.DEPO.Raporlar;
 using MEYPAK.PRL.IRSALIYE;
 using MEYPAK.PRL.PARAMETRELER;
 using MEYPAK.PRL.PERSONEL;
@@ -105,7 +106,8 @@ namespace MEYPAK.PRL
         FCariHareketRaporu fCariHareketRaporu;
         FStokKategoriRaporu fStokKategoriRaporu;
         FStokKasaHareketRaporu fStokKasaHarRaporu;
-
+        FMusteriSiparisRaporu fMusteriSiparisRaporu;
+        FDepoRaporu fDepoRaporu;
 
         public Tarih_Date _tarih_Date;
         public DataTable guncelkur;
@@ -1031,6 +1033,49 @@ namespace MEYPAK.PRL
             fCariRaporu.Show();
             i++;
 
+        }
+        
+        private void ACEMusteriSiparisRaporu_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fMusteriSiparisRaporu = new FMusteriSiparisRaporu();
+            page.Name = "TPMusteriSiparisRaporu" + i;
+            page.Text = "Müşteri Sipariş Raporu";
+            page.Tag = "TPMusteriSiparisRaporu" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fMusteriSiparisRaporu.FormBorderStyle = FormBorderStyle.None;
+            fMusteriSiparisRaporu.TopLevel = false;
+            fMusteriSiparisRaporu.AutoScroll = true;
+            fMusteriSiparisRaporu.Dock = DockStyle.Fill;
+            fMusteriSiparisRaporu.Tag = "TPMusteriSiparisRaporu" + i;
+            page.Controls.Add(fMusteriSiparisRaporu);
+            fMusteriSiparisRaporu.Show();
+            i++;
+
+        }
+
+        private void ACEDepoRaporu_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fDepoRaporu = new FDepoRaporu();
+            page.Name = "TPDepoRaporu" + i;
+            page.Text = "Depo Raporu";
+            page.Tag = "TPDepoRaporu" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fDepoRaporu.FormBorderStyle = FormBorderStyle.None;
+            fDepoRaporu.TopLevel = false;
+            fDepoRaporu.AutoScroll = true;
+            fDepoRaporu.Dock = DockStyle.Fill;
+            fDepoRaporu.Tag = "TPDepoRaporu" + i;
+            page.Controls.Add(fDepoRaporu);
+            fDepoRaporu.Show();
+            i++;
         }
     }
 }

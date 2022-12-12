@@ -44,6 +44,7 @@ namespace MEYPAK.PRL.CARI
         FFatura ffatura;
         FFaturaRaporu fFaturaRaporu;
         FCariRaporu fCariRaporu;
+        FMusteriSiparisRaporu fMusteriSiparisRaporu;
 
         Main main;
         int i = 0;
@@ -97,6 +98,8 @@ namespace MEYPAK.PRL.CARI
                     fFaturaRaporu._tempCariKart = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
                 if (_islem == "FCariRaporu")
                     fCariRaporu._tempCariKart = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+                if (_islem == "FMusteriSiparisRaporu")
+                    fMusteriSiparisRaporu._tempCariKart = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
             }
             else
             {
@@ -136,7 +139,9 @@ namespace MEYPAK.PRL.CARI
                             fCariHareketRaporu = (FCariHareketRaporu)frm;
                         else if (frm.Name.Contains("FCariHareket"))
                             _cariHareket = (FCariHareket)frm;
-                        if (frm.Name.Contains("FMusteriSiparis"))
+                        if (frm.Name.Contains("FMusteriSiparisRaporu"))
+                            fMusteriSiparisRaporu = (FMusteriSiparisRaporu)frm;
+                        else if (frm.Name.Contains("FMusteriSiparis"))
                             _fmusteriSiparis = (FMusteriSiparis)frm;
                         if (frm.Name.Contains("SatinAlmaSiparis"))
                             fSatinAlmaSiparis = (FSatinAlmaSiparis)frm;
