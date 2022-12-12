@@ -20,7 +20,7 @@ namespace MEYPAK.API.Controllers.SIPARISControllers
 
         [HttpGet]
         [Route("/[controller]/[action]")]
-        public IActionResult SIPARISDETAYListe()
+        public IActionResult SIPARISKASAHARListe()
         {
             try
             {
@@ -34,7 +34,7 @@ namespace MEYPAK.API.Controllers.SIPARISControllers
         }
         [HttpGet]
         [Route("/[controller]/[action]")]
-        public IActionResult SIPARISDETAYListe2([FromQuery] string query)
+        public IActionResult SIPARISKASAHARListe2([FromQuery] string query)
         {
             try
             {

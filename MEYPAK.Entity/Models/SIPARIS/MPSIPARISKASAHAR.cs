@@ -11,6 +11,7 @@ namespace MEYPAK.Entity.Models.SIPARIS
         public int KASAID { get; set; }
         public int SIPARISDETAYID { get; set; }
         public int SIPARISID { get; set; }
+        public decimal MIKTAR { get; set; }
 
     }
 }

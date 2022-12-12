@@ -466,9 +466,9 @@
             this.LBSsiparisNo.Location = new System.Drawing.Point(44, 33);
             this.LBSsiparisNo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.LBSsiparisNo.Name = "LBSsiparisNo";
-            this.LBSsiparisNo.Size = new System.Drawing.Size(48, 13);
+            this.LBSsiparisNo.Size = new System.Drawing.Size(51, 13);
             this.LBSsiparisNo.TabIndex = 118;
-            this.LBSsiparisNo.Text = "Fatura No";
+            this.LBSsiparisNo.Text = "İrsaliye No";
             // 
             // panel2
             // 

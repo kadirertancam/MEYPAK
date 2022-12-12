@@ -82,6 +82,8 @@ namespace MEYPAK.PRL.SIPARIS
                 {
                     if (frm.Name.Contains("FSatisIrsaliye"))
                         fsatisIralsiye = (FSatisIrsaliye)frm;
+                    if (frm.Name.Contains("FAlisIrsaliye"))
+                        falisIralsiye = (FAlisIrsaliye)frm;
                     if (frm.Name.Contains("FStokKasaHareketRaporu"))
                         fStokKasaHareketRaporu = (FStokKasaHareketRaporu)frm;
                     if (frm.Name.Contains("FFaturaRaporu"))

@@ -71,7 +71,7 @@ namespace MEYPAK.PRL.DEPO
                 {
                     StokAdı = x.stokadi,
                     StokKodu = _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().kod,
-                    Miktar = x.miktar,
+                    Miktar = x.safi,
                     SevkMiktarı = 0,
 
                 });
@@ -111,7 +111,7 @@ namespace MEYPAK.PRL.DEPO
                             siparisid = _tempSipDetay.siparisid,
                             sipariskalemid = _tempSipDetay.id,
                             emirid = int.Parse(_emirid),
-                            siparismiktari = _tempSipDetay.miktar,
+                            siparismiktari = _tempSipDetay.safi,
                             kullaniciid = 0,
                             tarih = DateTime.Now,
                             tip = 0,
@@ -121,7 +121,7 @@ namespace MEYPAK.PRL.DEPO
                         {
                             id= _stokSevkiyatList.obje.Where(z=>z.emirid.ToString()==_emirid).FirstOrDefault().id,
                             birimid = _tempSipDetay.birimid,
-                            siparismiktari = _tempSipDetay.miktar,
+                            siparismiktari = _tempSipDetay.safi,
                             depoid = _siparisServis.obje.Where(x => x.id == _tempSipDetay.siparisid).FirstOrDefault().depoid,
                             emirid = int.Parse(_emirid),
                             miktar = Convert.ToDecimal(gridView1.GetRowCellValue(j, "SevkMiktarı").ToString()),
@@ -142,7 +142,7 @@ namespace MEYPAK.PRL.DEPO
                 _depoEmirServis.Data(ServisList.DepoEmirEkleServis, new PocoDEPOEMIR()
                 {
                     siparisid = int.Parse(_sipid),
-                    miktar = _tempSiparisDetay.Sum(x => x.miktar),
+                    miktar = _tempSiparisDetay.Sum(x => x.safi),
                     sira = i,
                     tarih = DateTime.Now,
                     tip = 0,   /// TOPLAMA EMRİ TIPI OUTPUT =0 INPUT=1
@@ -168,7 +168,7 @@ namespace MEYPAK.PRL.DEPO
                             siparisid = _tempSipDetay.siparisid,
                             sipariskalemid = _tempSipDetay.id,
                             emirid = _depoEmirServis.obje2.id,
-                            siparismiktari = _tempSipDetay.miktar,
+                            siparismiktari = _tempSipDetay.safi,
                             kullaniciid = 0,
                             tarih = DateTime.Now,
                             tip = 0,
@@ -177,7 +177,7 @@ namespace MEYPAK.PRL.DEPO
                         _stokSevkiyatList.Data(ServisList.StokSevkiyatListEkleServis, new PocoSTOKSEVKIYATLIST()
                         {
                             birimid = _tempSipDetay.birimid,
-                            siparismiktari = _tempSipDetay.miktar,
+                            siparismiktari = _tempSipDetay.safi,
                             depoid = _siparisServis.obje.Where(x => x.id == _tempSipDetay.siparisid).FirstOrDefault().depoid,
                             emirid = _depoEmirServis.obje2.id,
                             miktar = Convert.ToDecimal(gridView1.GetRowCellValue(j, "SevkMiktarı").ToString()),

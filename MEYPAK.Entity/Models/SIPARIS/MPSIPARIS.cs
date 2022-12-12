@@ -52,6 +52,9 @@ namespace MEYPAK.Entity.Models.SIPARIS
         public bool KDVDAHİL { get; set; }
         public decimal NETTOPLAM { get; set; } = 0;
         public decimal KDVTOPLAM { get; set; } = 0;
+        public decimal ALTISKONTO1 { get; set; } = 0;
+        public decimal ALTISKONTO2 { get; set; } = 0;
+        public decimal ALTISKONTO3 { get; set; } = 0;
         public decimal ISKONTOTOPLAM { get; set; } = 0;
         public decimal BRUTTOPLAM { get; set; } = 0;
         public decimal GENELTOPLAM { get; set; } = 0;
