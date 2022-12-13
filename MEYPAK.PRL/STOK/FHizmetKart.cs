@@ -31,11 +31,13 @@ namespace MEYPAK.PRL.STOK
         {
             BTHizmetSec.Text = _tempHizmet.kod;
             TBHizmetAdi.Text = _tempHizmet.adi;
-            _tempHizmetKategori = _hizmetKategoriServis.obje.Where(x=> x.id == _tempHizmet.kategoriid).FirstOrDefault();
-            BTKategoriSec.Text = _tempHizmetKategori.adi;
+        
             TBAlısKod.Text = _tempHizmet.muhalis;
             TBSatisKod.Text = _tempHizmet.muhsatis;
             TBIadeKod.Text = _tempHizmet.muhiade;
+            _tempHizmetKategori = _hizmetKategoriServis.obje.Where(x => x.id == _tempHizmet.kategoriid).FirstOrDefault();
+            if (_tempHizmetKategori!=null)
+            BTKategoriSec.Text = _tempHizmetKategori.adi;
         }
 
         private void BTHizmetSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)

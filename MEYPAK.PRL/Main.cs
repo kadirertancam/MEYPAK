@@ -10,6 +10,8 @@ using MEYPAK.Entity.PocoModels.PARAMETRE;
 using MEYPAK.Interfaces;
 using MEYPAK.Interfaces.Depo;
 using MEYPAK.Interfaces.Siparis;
+using MEYPAK.PRL.ARACLAR;
+using MEYPAK.PRL.ARAÇLAR;
 using MEYPAK.PRL.Assets.Kur;
 using MEYPAK.PRL.CARI;
 using MEYPAK.PRL.CARI.Raporlar;
@@ -108,6 +110,8 @@ namespace MEYPAK.PRL
         FStokKasaHareketRaporu fStokKasaHarRaporu;
         FMusteriSiparisRaporu fMusteriSiparisRaporu;
         FDepoRaporu fDepoRaporu;
+        FAracTanim fAracTanim;
+        FAracRota fAracRota;
 
         public Tarih_Date _tarih_Date;
         public DataTable guncelkur;
@@ -1082,6 +1086,49 @@ namespace MEYPAK.PRL
             fDepoRaporu.Tag = "TPDepoRaporu" + i;
             page.Controls.Add(fDepoRaporu);
             fDepoRaporu.Show();
+            i++;
+        }
+
+        private void ACEAracTanim_Click(object sender, EventArgs e)
+        {
+
+            XtraTabPage page = new XtraTabPage();
+            fAracTanim = new FAracTanim();
+            page.Name = "TPAracTanim" + i;
+            page.Text = "Araç Tanım";
+            page.Tag = "TPAracTanim" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fAracTanim.FormBorderStyle = FormBorderStyle.None;
+            fAracTanim.TopLevel = false;
+            fAracTanim.AutoScroll = true;
+            fAracTanim.Dock = DockStyle.Fill;
+            fAracTanim.Tag = "TPAracTanim" + i;
+            page.Controls.Add(fAracTanim);
+            fAracTanim.Show();
+            i++;
+        }
+
+        private void ACEAracRotaTanim_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fAracRota = new FAracRota();
+            page.Name = "TPAracRota" + i;
+            page.Text = "Araç Rota";
+            page.Tag = "TPAracRota" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fAracRota.FormBorderStyle = FormBorderStyle.None;
+            fAracRota.TopLevel = false;
+            fAracRota.AutoScroll = true;
+            fAracRota.Dock = DockStyle.Fill;
+            fAracRota.Tag = "TPAracRota" + i;
+            page.Controls.Add(fAracRota);
+            fAracRota.Show();
             i++;
         }
     }
