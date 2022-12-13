@@ -19,39 +19,7 @@ namespace MEYPAK.PRL.SIPARIS
 {
     public partial class FMusteriSiparis : Form
     {
-        #region TANIMLAR
-        FStokKasaList fKasaList;
-        List<PocoSiparisKalem> _tempSIPARISDETAY = new List<PocoSiparisKalem>();
-        DataGridViewComboBoxColumn DGVOlcuBr = new DataGridViewComboBoxColumn();
-        GenericWebServis<PocoCARIALTHESCARI> _carialthescaricari;
-        PocoSiparisKalem _tempPocokalem;
-        FStokList _fStokList;
-        FCariList _fCariList;
-        public PocoSTOK _tempStok;
-        public PocoSTOKKASA _tempKasa;
-        public PocoSIPARIS _tempSIPARIS;
-        public PocoCARIKART _tempCariKart;
-        DataGridViewButtonColumn DGVStokSec;
-        DataGridViewButtonColumn DGVKasaSec;
-        List<PocoOLCUBR> _tempolcuBr;
-        DataGridViewComboBoxColumn DGVFiyatList;
-        DataGridViewComboBoxColumn DGVKasaList;
-        GenericWebServis<PocoDEPO> _depoServis;
-        GenericWebServis<PocoSIPARIS> _SIPARISServis;
-        GenericWebServis<PocoSIPARISDETAY> _SIPARISDETAYServis;
-        GenericWebServis<PocoSTOKOLCUBR> _stokOlcuBr;
-        GenericWebServis<PocoOLCUBR> _olcuBr;
-        GenericWebServis<PocoCARIKART> _cariKart;
-        GenericWebServis<PocoSTOK> _stokServis;
-        FStokOlcuBrList _fStokOlcuBrList;
-        FStokKasaList _fStokKasaList;
-        GenericWebServis<PocoCARIALTHES> _cariAltHesapServis;
-        GenericWebServis<PocoPARABIRIM> _paraBirimServis;
-        GenericWebServis<PocoSTOKKASAHAR> _stokKasaHarServis;
-        GenericWebServis<PocoSTOKKASA> _kasaServis;
-        GenericWebServis<PocoCARIALTHES> _cariAltHes;
-        
-        #endregion
+     
 
 
         public FMusteriSiparis()

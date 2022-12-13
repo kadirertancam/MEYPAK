@@ -11,10 +11,6 @@ namespace MEYPAK.Entity.Models.PERSONEL
 {
     public class MPPERSONEL:SUPERMODEL
     {
-
-        public int SIRKETID { get; set; }
-        public int SUBEID { get; set; }
-        [StringLength(11), Required]
         public string TC { get; set; }
         [StringLength(100)]
         public string ADI { get; set; }
@@ -22,20 +18,29 @@ namespace MEYPAK.Entity.Models.PERSONEL
         public string SOYADI { get; set; }
         [StringLength(200)]
         public string ADISOYADI => $"{ADI} {SOYADI}";
+        public string ILKSOYAD { get; set; }
+        public string RESIM { get; set; }
+
         [StringLength(50)]
         public DateTime DOGUMTAR { get; set; }
+        public string BABAADI { get; set; }
+        public string ANNEADI { get; set; }
+        public string DOGUMYERI { get; set; }
+        public string MEDENIDURUM { get; set; }
         public byte CINSIYET { get; set; }
+        public string TELEFON { get; set; }
+        public string CEPNO { get; set; }
+        public string EPOSTA { get; set; }
+        [MaxLength, Column(TypeName = "ntext")]
+        public string IMG { get; set; }
         public int PERSONELDEPARTMANID { get; set; } 
         public int PERSONELGOREVID { get; set; } 
         public string SGKSICILNO { get; set; }
         public DateTime ISBASTAR { get; set; }
         public DateTime ISBITTAR { get; set; } 
-        public string RESIM { get; set; }
-
         public string SGK { get; set; }
         public string BAGKUR { get; set; }
         public string EMEKLISANDIGI { get; set; }
-
         //506.G.20.mad.san
         public string G506MADSAN { get; set; }
         public string OGRENIMDURUMU { get; set; }
@@ -50,12 +55,7 @@ namespace MEYPAK.Entity.Models.PERSONEL
         public string MESLEKKODU { get; set; }
       //  public string GOREVI { get; set; }
         public string SOSYALGUVENLIKKODU { get; set; }
-        public string BABAADI { get; set; }
-        public string ANNEADI { get; set; }
-        public string DOGUMYERI { get; set; }
-        public string MEDENIDURUM { get; set; }
         public string UYRUK { get; set; }
-        public string ILKSOYAD { get; set; }
         public string NUFUSAKAYITLIIL { get; set; }
         public string NUFUSAKAYITLIILCE { get; set; }
         public string NUFUSAKAYITLIMAH { get; set; }
@@ -74,14 +74,11 @@ namespace MEYPAK.Entity.Models.PERSONEL
         public string ADRESPOSTAKODU { get; set; }
         public string VERGIDAIRESI { get; set; }
         public string VERGINO { get; set; }
-        public string TELEFON { get; set; }
-        public string CEPNO { get; set; }
-        public string EPOSTA { get; set; }
-        [MaxLength, Column(TypeName = "ntext")]
-        public string IMG { get; set; }
-
         public byte BEDENOLCUSU { get; set; }
         public byte PANTOLONOLCUSU { get; set; }
         public byte AYAKKABINO { get; set; }
+        public int SIRKETID { get; set; }
+        public int SUBEID { get; set; }
+       
     }
 }

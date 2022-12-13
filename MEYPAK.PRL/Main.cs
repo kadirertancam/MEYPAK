@@ -18,6 +18,7 @@ using MEYPAK.PRL.DEPO.Raporlar;
 using MEYPAK.PRL.IRSALIYE;
 using MEYPAK.PRL.PARAMETRELER;
 using MEYPAK.PRL.PERSONEL;
+using MEYPAK.PRL.PERSONEL.Raporlar;
 using MEYPAK.PRL.SIPARIS;
 using MEYPAK.PRL.SIPARIS.Raporlar;
 using MEYPAK.PRL.STOK;
@@ -108,7 +109,9 @@ namespace MEYPAK.PRL
         FStokKasaHareketRaporu fStokKasaHarRaporu;
         FMusteriSiparisRaporu fMusteriSiparisRaporu;
         FDepoRaporu fDepoRaporu;
-
+        FStokSevkiyatRaporu fStokSevkiyatRaporu;
+        FPersonelList fPersonelList;
+        FPersonelRaporu fPersonelRaporu;
         public Tarih_Date _tarih_Date;
         public DataTable guncelkur;
         GenericWebServis<PocoPARABIRIM> _parabirimServis;
@@ -1082,6 +1085,69 @@ namespace MEYPAK.PRL
             fDepoRaporu.Tag = "TPDepoRaporu" + i;
             page.Controls.Add(fDepoRaporu);
             fDepoRaporu.Show();
+            i++;
+        }
+
+        private void ACEStokSevkiyatRaporu_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fStokSevkiyatRaporu = new FStokSevkiyatRaporu();
+            page.Name = "TPStokSevkiyatRaporu" + i;
+            page.Text = "Stok Sevkiyat Raporu";
+            page.Tag = "TPStokSevkiyatRaporu" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fStokSevkiyatRaporu.FormBorderStyle = FormBorderStyle.None;
+            fStokSevkiyatRaporu.TopLevel = false;
+            fStokSevkiyatRaporu.AutoScroll = true;
+            fStokSevkiyatRaporu.Dock = DockStyle.Fill;
+            fStokSevkiyatRaporu.Tag = "TPStokSevkiyatRaporu" + i;
+            page.Controls.Add(fStokSevkiyatRaporu);
+            fStokSevkiyatRaporu.Show();
+            i++;
+        }
+
+        private void ACEPersonelListe_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fPersonelList = new FPersonelList();
+            page.Name = "TPPersonelList" + i;
+            page.Text = "Personel List";
+            page.Tag = "TPPersonelList" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fPersonelList.FormBorderStyle = FormBorderStyle.None;
+            fPersonelList.TopLevel = false;
+            fPersonelList.AutoScroll = true;
+            fPersonelList.Dock = DockStyle.Fill;
+            fPersonelList.Tag = "TPPersonelList" + i;
+            page.Controls.Add(fPersonelList);
+            fPersonelList.Show();
+            i++;
+        }
+
+        private void ACEPersonelRaporu_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fPersonelRaporu = new FPersonelRaporu();
+            page.Name = "TPPersonelRaporu" + i;
+            page.Text = "Personel Raporu";
+            page.Tag = "TPPersonelRaporu" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fPersonelRaporu.FormBorderStyle = FormBorderStyle.None;
+            fPersonelRaporu.TopLevel = false;
+            fPersonelRaporu.AutoScroll = true;
+            fPersonelRaporu.Dock = DockStyle.Fill;
+            fPersonelRaporu.Tag = "TPPersonelRaporu" + i;
+            page.Controls.Add(fPersonelRaporu);
+            fPersonelRaporu.Show();
             i++;
         }
     }

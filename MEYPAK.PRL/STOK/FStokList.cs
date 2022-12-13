@@ -27,6 +27,7 @@ using MEYPAK.PRL.IRSALIYE;
 using DevExpress.XtraEditors;
 using DevExpress.XtraReports.Design;
 using MEYPAK.PRL.STOK.Raporlar;
+using MEYPAK.PRL.DEPO.Raporlar;
 
 namespace MEYPAK.PRL.STOK
 {
@@ -45,6 +46,7 @@ namespace MEYPAK.PRL.STOK
         FFatura ffatura;
         FStokHareketRaporu fStokHareketRaporu;
         FStokRaporu fStokListesiRaporu;
+        FStokSevkiyatRaporu fStokSevkiyatRaporu;
         Main main;
         int id;
         string _islem;
@@ -104,7 +106,8 @@ namespace MEYPAK.PRL.STOK
                         fStokHareket = (FStokHareket)frm;
                     if (frm.Name.Contains("FStokListesiRaporu"))
                         fStokListesiRaporu = (FStokRaporu)frm;
-
+                    if (frm.Name.Contains("FStokSevkiyatRaporu"))
+                        fStokSevkiyatRaporu = (FStokSevkiyatRaporu)frm;
 
 
                 }
@@ -195,6 +198,11 @@ namespace MEYPAK.PRL.STOK
                 {
                     if (fStokListesiRaporu != null)
                         fStokListesiRaporu._tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+                }
+                else if (_islem == "FStokSevkiyatRaporu")
+                {
+                    if (fStokSevkiyatRaporu != null)
+                        fStokSevkiyatRaporu._tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
                 }
 
                 this.Close();

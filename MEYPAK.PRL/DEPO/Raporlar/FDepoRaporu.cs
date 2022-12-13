@@ -20,7 +20,7 @@ namespace MEYPAK.PRL.DEPO.Raporlar
 {
     public partial class FDepoRaporu : XtraForm
     {
-        public FDepoRaporu(string tag = "", string islem = "")
+        public FDepoRaporu(string islem = "",string tag = "")
         {
             InitializeComponent();
             _depoServis = new GenericWebServis<PocoDEPO>();
@@ -41,7 +41,7 @@ namespace MEYPAK.PRL.DEPO.Raporlar
         {
             FDepoList fDepoList = new FDepoList(this.Tag.ToString(), "FDepoRaporu");
             fDepoList.ShowDialog();
-            DataGridiYapilandir();
+            
 
 
         }
@@ -54,72 +54,49 @@ namespace MEYPAK.PRL.DEPO.Raporlar
 
         void Doldur()
         {
-
-            if (_tempDepo != null)
+            _depoServis.Data(ServisList.DepoListeServis);
+            DGDepoRpr.DataSource = _depoServis.obje.Where(x => x.kayittipi == 0).Select(x => new
             {
-                _depoServis.Data(ServisList.DepoListeServis);
-               
+                ID = x.id,
+                KAYITTARİHİ = x.olusturmatarihi,
+                DEPOKODU = x.depokodu,
+                DEPOADI = x.depoadi,
+                AÇIKLAMA = x.aciklama,
+                AKTİF = CBAktif.CheckedItems.Count,
+                ŞİRKETID = x.sirketid,
+                GÜNCELLEMETARİHİ = x.guncellemetarihi,
 
-                DGDepoRpr.DataSource = _depoServis.obje.Where(x => x.kayittipi == 0 && x.id == _tempDepo.id).Select(x => new
-                {
-                    ID = x.id,
-                    KAYITTARİHİ = x.olusturmatarihi,
-                    DEPOKODU = _depoServis.obje.Where(z => z.kayittipi == 0 && z.id == x.id).FirstOrDefault().depokodu.ToString(),
-                    DEPOADI = x.depoadi,
-                    AÇIKLAMA = x.aciklama,
-                    AKTİF = CBAktif.CheckedItems.Count,
-                    ŞİRKETID = x.sirketid,
-                    GÜNCELLEMETARİHİ = x.guncellemetarihi,
 
-                });
-                DGDepoRpr.Refresh();
-                DGDepoRpr.RefreshDataSource();
-            }
-            //_depoServis.Data(ServisList.DepoListeServis);
-            //DGDepoRpr.DataSource = _depoServis.obje.Where(x => x.kayittipi == 0).Select(x => new
+            });
+
+            DGDepoRpr.Refresh();
+            DGDepoRpr.RefreshDataSource();
+
+            //if (_tempDepo != null)
             //{
-            //    ID = x.id,
-            //    KAYITTARİHİ = x.olusturmatarihi,
-            //    DEPOKODU = x.depokodu,
-            //    DEPOADI = x.depoadi,
-            //    AÇIKLAMA = x.aciklama,
-            //    AKTİF = CBAktif.CheckedItems.Count,
-            //    ŞİRKETID = x.sirketid,
-            //    GÜNCELLEMETARİHİ = x.guncellemetarihi,
+            //    _depoServis.Data(ServisList.DepoListeServis);
+            //    DGDepoRpr.DataSource = _depoServis.obje.Where(x => x.kayittipi == 0 ).Select(x => new
+            //    {
+            //        ID = x.id,
+            //        KAYITTARİHİ = x.olusturmatarihi,
+            //        DEPOKODU = _depoServis.obje.Where(z => z.kayittipi == 0 && z.id == x.id).FirstOrDefault().depokodu.ToString(),
+            //        DEPOADI = x.depoadi,
+            //        AÇIKLAMA = x.aciklama,
+            //        AKTİF = CBAktif.CheckedItems.Count,
+            //        ŞİRKETID = x.sirketid,
+            //        GÜNCELLEMETARİHİ = x.guncellemetarihi,
+
+            //    });
+            //    DGDepoRpr.Refresh();
+            //    DGDepoRpr.RefreshDataSource();
+            //}
 
 
-            //});
-
-            //DGDepoRpr.Refresh();
-            //DGDepoRpr.RefreshDataSource();
 
         }
 
 
-        void DataGridiYapilandir()
-        {
-            if (_tempDepo != null)
-            {
-                BTDepoSec.Text = _tempDepo.depoadi.ToString();
-                CBAktif.SetItemChecked(0, _tempDepo.aktif == 0 ? false : true);
-                _depoServis.Data(ServisList.DepoListeServis);
-                DGDepoRpr.DataSource = _depoServis.obje.Where(x => x.id == _tempDepo.id).Select(x => new
-                {
-                    ID = x.id,
-                    KAYITTARİHİ = x.olusturmatarihi,
-                    DEPOKODU = x.depokodu,
-                    DEPOADI = x.depoadi,
-                    AÇIKLAMA = x.aciklama,
-                    AKTİF = CBAktif.CheckedItems.Count,
-                    ŞİRKETID = x.sirketid,
-                    GÜNCELLEMETARİHİ = x.guncellemetarihi,
-                });
-            }
-            else
-            {
-                MessageBox.Show("Depo seçimi yapmalısınız!");
-            }
-        }
+     
     }
 
 }

@@ -11,20 +11,29 @@ namespace MEYPAK.Entity.PocoModels.PERSONEL
 {
     public class PocoPERSONEL:SUPERPOCOMODEL
     {
-        public int sirketid { get; set; }=0;
-        public int subeid { get; set; }=0;
+       
         public string tc { get; set; } = "";
         public string adi { get; set; } = "";
         public string soyadi { get; set; } = "";
         public string adisoyadi { get; set; } = "";
+        public string ilksoyad { get; set; } = "";
+        public string resim { get; set; } = "";
         public DateTime dogumtar { get; set; } = Convert.ToDateTime("01/01/1990");
+        public string babaadi { get; set; } = "";
+        public string anneadi { get; set; } = "";
+        public string dogumyeri { get; set; } = "";
+        public string medenidurum { get; set; } = "";
         public byte cinsiyet { get; set; } = 0;
+        public string telefon { get; set; } = "";
+        public string cepno { get; set; } = "";
+        public string eposta { get; set; } = "";
+        [MaxLength, Column(TypeName = "ntext")]
+        public string img { get; set; } = "";
         public int personeldepartmanid { get; set; } =0;
         public int personelgorevid { get; set; } = 0;
-        public string sgksicilno { get; set; } = "";
         public DateTime isbastar { get; set; } = Convert.ToDateTime("01/01/1990");
         public DateTime isbittar { get; set; } = Convert.ToDateTime("01/01/1990");
-        public string resim { get; set; } = "";
+        public string sgksicilno { get; set; } = "";
         public string sgk { get; set; } = "";
         public string bagkur { get; set; } = "";
         public string emeklisandigi { get; set; } = "";
@@ -41,12 +50,9 @@ namespace MEYPAK.Entity.PocoModels.PERSONEL
         public string meslekkodu { get; set; } = "";
        // public string gorevi { get; set; } = "";
         public string sosyalguvenlikkodu { get; set; } = "";
-        public string babaadi { get; set; } = "";
-        public string anneadi { get; set; } = "";
-        public string dogumyeri { get; set; } = "";
-        public string medenidurum { get; set; } = "";
+        
         public string uyruk { get; set; } = "";
-        public string ilksoyad { get; set; } = "";
+       
         public string nufusakayitliil { get; set; } = "";
         public string nufusakayitliilce { get; set; } = "";
         public string nufusakayitlimah { get; set; } = "";
@@ -65,13 +71,11 @@ namespace MEYPAK.Entity.PocoModels.PERSONEL
         public string adrespostakodu { get; set; } = "";
         public string vergidairesi { get; set; } = "";
         public string vergino { get; set; } = "";
-        public string telefon { get; set; } = "";
-        public string cepno { get; set; } = "";
-        public string eposta { get; set; } = "";
-        [MaxLength, Column(TypeName = "ntext")]
-        public string img { get; set; } = "";
+     
         public byte bedenolcusu { get; set; } = 0;
         public byte pantolonolcusu { get; set; } = 0;
         public byte ayakkabino { get; set; } = 0;
+        public int sirketid { get; set; } = 0;
+        public int subeid { get; set; } = 0;
     }
 }

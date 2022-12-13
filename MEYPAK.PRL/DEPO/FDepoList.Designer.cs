@@ -43,7 +43,7 @@
             this.GCDepoList.Location = new System.Drawing.Point(2, 2);
             this.GCDepoList.MainView = this.gridView1;
             this.GCDepoList.Name = "GCDepoList";
-            this.GCDepoList.Size = new System.Drawing.Size(1394, 814);
+            this.GCDepoList.Size = new System.Drawing.Size(1181, 641);
             this.GCDepoList.TabIndex = 0;
             this.GCDepoList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -55,7 +55,6 @@
             this.gridView1.GridControl = this.GCDepoList;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
-            this.gridView1.DoubleClick += new System.EventHandler(this.gridView1_DoubleClick);
             // 
             // panelControl1
             // 
@@ -63,14 +62,14 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1398, 818);
+            this.panelControl1.Size = new System.Drawing.Size(1185, 645);
             this.panelControl1.TabIndex = 1;
             // 
             // FDepoList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1398, 818);
+            this.ClientSize = new System.Drawing.Size(1185, 645);
             this.Controls.Add(this.panelControl1);
             this.Name = "FDepoList";
             this.Text = "FDepoList";

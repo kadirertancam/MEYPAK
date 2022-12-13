@@ -28,7 +28,7 @@ namespace MEYPAK.PRL.DEPO
     public partial class FDepoList : XtraForm
     {
         string _islem,_form;
-        public FDepoList( string tag = "",string islem = "")
+        public FDepoList(string islem = "", string tag = "")
         {
             InitializeComponent();
             _depoServis = new GenericWebServis<PocoDEPO>();
@@ -43,6 +43,7 @@ namespace MEYPAK.PRL.DEPO
         FFaturaRaporu fFaturaRaporu;
         FDepoRaporu fDepoRaporu;
         FMusteriSiparisRaporu fMusteriSiparisRaporu;
+        FStokSevkiyatRaporu fStokSevkiyatRaporu;
         GenericWebServis<PocoDEPO> _depoServis ;
 
         private void FDepoList_Load(object sender, EventArgs e)
@@ -55,7 +56,9 @@ namespace MEYPAK.PRL.DEPO
             {
                 if (_form == frm.Tag)
                 {
-                    if (frm.Name.Contains("FDepoKart"))
+                    if (frm.Name.Contains("FDepoRaporu"))
+                        fDepoRaporu = (FDepoRaporu)frm;
+                    else if (frm.Name.Contains("FDepoKart"))
                         depoKart = (FDepoKart)frm;
                     if (frm.Name.Contains("FStokSayımRaporu"))
                         fStokSayimRaporu = (FStokSayimRaporu)frm;
@@ -65,24 +68,12 @@ namespace MEYPAK.PRL.DEPO
                         fFaturaRaporu = (FFaturaRaporu)frm;
                     if (frm.Name.Contains("FMUsteriSiparisRaporu"))
                         fMusteriSiparisRaporu = (FMusteriSiparisRaporu)frm;
-                    if (frm.Name.Contains("FDepoRaporu"))
-                        fDepoRaporu = (FDepoRaporu)frm;
+                    if (frm.Name.Contains("FStokSevkiyatRaporu"))
+                        fStokSevkiyatRaporu = (FStokSevkiyatRaporu)frm;
+
                 }
             }
 
-        }
-
-        private void gridView1_DoubleClick(object sender, EventArgs e)
-        {
-            _depoServis.Data(ServisList.DepoListeServis);
-            if (_islem == "FDepoRaporu")
-            {
-                if (fDepoRaporu != null)
-                {
-                    fDepoRaporu._tempDepo = _depoServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()).FirstOrDefault();
-                }
-
-            }
         }
 
         private void GCDepoList_DoubleClick(object sender, EventArgs e)
@@ -118,6 +109,10 @@ namespace MEYPAK.PRL.DEPO
             else if (_islem == "FDepoRaporu")
             {
                 fDepoRaporu._tempDepo = _depoServis.obje.Where(x => x.depokodu == gridView1.GetFocusedRowCellValue("id")).FirstOrDefault();
+            }
+            else if (_islem == "FStokSevkiyatRaporu")
+            {
+                fStokSevkiyatRaporu._tempDepo = _depoServis.obje.Where(x => x.depokodu == gridView1.GetFocusedRowCellValue("id")).FirstOrDefault();
             }
             this.Close();
         }

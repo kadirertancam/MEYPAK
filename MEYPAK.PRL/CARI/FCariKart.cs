@@ -5,7 +5,6 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraSpreadsheet.Import.OpenXml;
 using DevExpress.XtraTab;
 using MEYPAK.BLL.Assets;
-using MEYPAK.DAL.Migrations;
 using MEYPAK.Entity.Models.CARI;
 using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.PARAMETRE;
