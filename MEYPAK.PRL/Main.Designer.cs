@@ -139,6 +139,7 @@
             this.accordionControlElement36 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement8 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement58 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACECariRapor = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement20 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement31 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement45 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -168,7 +169,6 @@
             this.accordionControlElement27 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
             this.applicationMenu1 = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
-            this.ACECariRapor = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -803,7 +803,8 @@
             this.accordionControl1.LookAndFeel.SkinName = "Visual Studio 2013 Dark";
             this.accordionControl1.LookAndFeel.UseDefaultLookAndFeel = false;
             this.accordionControl1.Name = "accordionControl1";
-            this.accordionControl1.ShowFilterControl = DevExpress.XtraBars.Navigation.ShowFilterControl.Always;
+            this.accordionControl1.OptionsMinimizing.AllowMinimizeMode = DevExpress.Utils.DefaultBoolean.True;
+            this.accordionControl1.ShowFilterControl = DevExpress.XtraBars.Navigation.ShowFilterControl.Auto;
             this.accordionControl1.Size = new System.Drawing.Size(250, 593);
             this.accordionControl1.TabIndex = 1;
             this.accordionControl1.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
@@ -836,7 +837,6 @@
             this.accordionControlElement2,
             this.accordionControlElement3,
             this.accordionControlElement4});
-            this.accordionControlElement1.Expanded = true;
             this.accordionControlElement1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement1.ImageOptions.Image")));
             this.accordionControlElement1.ImageOptions.SvgImageSize = new System.Drawing.Size(32, 32);
             this.accordionControlElement1.Name = "accordionControlElement1";
@@ -855,7 +855,6 @@
             this.accordionControlElement47,
             this.accordionControlElement50,
             this.accordionControlElement48});
-            this.accordionControlElement2.Expanded = true;
             this.accordionControlElement2.Name = "accordionControlElement2";
             this.accordionControlElement2.Text = "Tanımlar";
             // 
@@ -1125,6 +1124,13 @@
             this.accordionControlElement58.Text = "Cari Hareket Raporu";
             this.accordionControlElement58.Click += new System.EventHandler(this.accordionControlElement58_Click);
             // 
+            // ACECariRapor
+            // 
+            this.ACECariRapor.Name = "ACECariRapor";
+            this.ACECariRapor.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ACECariRapor.Text = "Cari Raporu";
+            this.ACECariRapor.Click += new System.EventHandler(this.ACECariRapor_Click);
+            // 
             // accordionControlElement20
             // 
             this.accordionControlElement20.Appearance.Default.ForeColor = System.Drawing.Color.Silver;
@@ -1357,13 +1363,6 @@
             // applicationMenu1
             // 
             this.applicationMenu1.Name = "applicationMenu1";
-            // 
-            // ACECariRapor
-            // 
-            this.ACECariRapor.Name = "ACECariRapor";
-            this.ACECariRapor.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.ACECariRapor.Text = "Cari Raporu";
-            this.ACECariRapor.Click += new System.EventHandler(this.ACECariRapor_Click);
             // 
             // Main
             // 
