@@ -149,5 +149,9 @@ namespace MEYPAK.PRL.STOK.Raporlar
             DGStokRpr.RefreshDataSource();
              
         }
+
+        
+
+  
     }
 }

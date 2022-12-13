@@ -104,7 +104,7 @@ namespace MEYPAK.PRL.STOK
                         fStokHareketRaporu = (FStokHareketRaporu)frm;
                     else if (frm.Name.Contains("FStokHareket"))
                         fStokHareket = (FStokHareket)frm;
-                    if (frm.Name.Contains("FStokListesiRaporu"))
+                    if (frm.Name.Contains("FStokRaporu"))
                         fStokListesiRaporu = (FStokRaporu)frm;
                     if (frm.Name.Contains("FStokSevkiyatRaporu"))
                         fStokSevkiyatRaporu = (FStokSevkiyatRaporu)frm;

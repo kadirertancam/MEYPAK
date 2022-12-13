@@ -138,6 +138,7 @@
             this.groupControl1.Size = new System.Drawing.Size(1343, 125);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Stok Raporu";
+           
             // 
             // panelControl4
             // 

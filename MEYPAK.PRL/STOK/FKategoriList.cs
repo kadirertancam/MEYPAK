@@ -68,7 +68,7 @@ namespace MEYPAK.PRL.STOK
                         fStokKart = (FStokKart)frm;
                     if (frm.Name.Contains("FCariKart"))
                         fCariKart = (FCariKart)frm;
-                    if (frm.Name.Contains("FStokListesiRaporu"))
+                    if (frm.Name.Contains("FStokRaporu"))
                         fStokListesiRaporu = (FStokRaporu)frm;
                     if (frm.Name.Contains("FStokKategoriRaporu"))
                         fStokListesiRaporu = (FStokRaporu)frm;
