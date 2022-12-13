@@ -60,6 +60,16 @@ namespace MEYPAK.PRL.SIPARIS
                     x.geneltoplam
                 });
             if (_islem == "Siparis" || _islem == "FMusteriSiparisRaporu")
+                GCMusteriSiparisList.DataSource = _mSiparisServis.obje.Where(x => x.tip == 0).Select(x => new
+                {
+                    ID = x.id,
+                    x.siparistarihi,
+                    x.belgeno,
+                    x.cariadi,
+                    x.althesapid,
+                    x.depoid,
+                    x.geneltoplam
+                });
             if (_islem == "FMusteriSiparis")
                 GCMusteriSiparisList.DataSource = _mSiparisServis.obje.Where(x => x.tip == 0).Select(x => new
                 {
