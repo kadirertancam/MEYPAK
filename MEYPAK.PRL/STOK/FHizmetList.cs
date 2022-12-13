@@ -61,6 +61,8 @@ namespace MEYPAK.PRL.STOK
                 if (fHizmetKart != null)
                     fHizmetKart._tempHizmet = _hizmetservis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
             }
+
+            this.Close();
         }
     }
 }

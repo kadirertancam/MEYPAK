@@ -6,7 +6,6 @@ using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.PocoModels;
 using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.DEPO;
-using MEYPAK.Entity.PocoModels.IRSALIYE;
 using MEYPAK.Entity.PocoModels.PARAMETRE;
 using MEYPAK.Entity.PocoModels.SIPARIS;
 using MEYPAK.Entity.PocoModels.STOK;
@@ -59,8 +58,7 @@ namespace MEYPAK.PRL.SIPARIS
             _stokHarServis = new GenericWebServis<PocoSTOKHAR>();
             _stokOlcuBrList = new List<StokOlcuBrTemp>();
             kDVHesaps = new KDVHesap();
-            _seriServis = new GenericWebServis<PocoSERI>();
-            _seriHarServis = new GenericWebServis<PocoSERIHAR>();
+  
         }
 
         #region TANIMLAR
@@ -96,8 +94,6 @@ namespace MEYPAK.PRL.SIPARIS
         GenericWebServis<PocoSTOKFIYAT> _stokFiyatServis;
         GenericWebServis<PocoSTOKFIYATHAR> _stokFiyatHarServis;
         GenericWebServis<PocoSTOKKASAMARKA> _stokKasaMarkaServis;
-        GenericWebServis<PocoSERIHAR> _seriHarServis;
-        GenericWebServis<PocoSERI> _seriServis;
         List<KasaList> tempkasalist;
 
         RepositoryItemLookUpEdit riLookup, riLookup3;
@@ -156,7 +152,7 @@ namespace MEYPAK.PRL.SIPARIS
             _tempCariKart = null;
             CHBKdvDahil.Checked = false;
             gridControl1.DataSource = "";
-            faturaNoGuncelle();
+       
 
         }
 
@@ -773,11 +769,7 @@ namespace MEYPAK.PRL.SIPARIS
                 ToplamHesapla();
         }
 
-        private void comboBoxEdit1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            faturaNoGuncelle();
-        }
+  
 
         private void TBGun_EditValueChanged(object sender, EventArgs e)
         {
@@ -801,13 +793,7 @@ namespace MEYPAK.PRL.SIPARIS
                 if (gridView1.FocusedColumn.VisibleIndex == gridView1.Columns.View.VisibleColumns.Count)
                     MessageBox.Show("testt");
         }
-        void faturaNoGuncelle()
-        {
-            _seriHarServis.Data(ServisList.SeriHarListeServis);
-            _seriServis.Data(ServisList.SeriListeServis);
-            var serino = _seriHarServis.obje.Where(x => x.seriid == _seriServis.obje.Where(z => z.SERINO == comboBoxEdit1.Text).FirstOrDefault().id).FirstOrDefault().serino;
-            TBFaturaNo.Text = serino.ToString();
-        }
+  
         private void BTKaydet_Click_1(object sender, EventArgs e)
         {
             if (_tempSIPARIS != null && TBFaturaNo.Text != _tempSIPARIS.belgeno)
@@ -816,9 +802,7 @@ namespace MEYPAK.PRL.SIPARIS
             _cariKart.Data(ServisList.CariListeServis);
             if (_cariKart.obje.Where(x => x.kod == TBCariKodu.Text).Count() > 0)
             {
-                if (_tempSIPARIS == null)
-                    faturaNoGuncelle();
-
+               
                 _siparisServis.Data(ServisList.SiparisEkleServis, new PocoSIPARIS()
                 {
                     id = _tempSIPARIS != null ? _tempSIPARIS.id : 0,
@@ -865,7 +849,7 @@ namespace MEYPAK.PRL.SIPARIS
                         birimfiyat = item.BirimFiyat,
                         nettoplam = item.NetToplam,
                         netfiyat = item.NetFiyat,
-                        birimid = _olcuBr.obje.Where(y => y.adi == gridView1.GetRowCellValue(item.sıra, "Birim").ToString()).FirstOrDefault().id,
+                        birimid = _olcuBr.obje.Where(y => y.adi == item.Birim).FirstOrDefault().id,
                         dovizid = item.Doviz,
                         kasamiktar = item.KasaMiktar,
                         dara = item.Dara,
@@ -886,14 +870,7 @@ namespace MEYPAK.PRL.SIPARIS
                         tip = 0,
                         kdvtutari = item.KdvTutarı
                     });
-                    if (_tempSIPARIS == null)
-                    {
-                        _seriHarServis.Data(ServisList.SeriHarListeServis);
-                        var tempserihar = _seriHarServis.obje.Where(x => x.seriid == _seriServis.obje.Where(z => z.SERINO.ToString() == comboBoxEdit1.Text).FirstOrDefault().id).LastOrDefault();
-                        tempserihar.serino = tempserihar.serino + 1;
-                        _seriHarServis.Data(ServisList.SeriHarEkleServis, tempserihar);
-                    }
-
+             
 
                     i++;
 
@@ -995,13 +972,7 @@ namespace MEYPAK.PRL.SIPARIS
 
         private void FFatura_Load(object sender, EventArgs e)
         {
-            _seriServis.Data(ServisList.SeriListeServis);
-            _seriHarServis.Data(ServisList.SeriHarListeServis);
-            foreach (var item in _seriServis.obje.Where(x => x.TIP == 0).Select(x => x.SERINO))
-            {
-                comboBoxEdit1.Properties.Items.Add(item);
-            }
-            comboBoxEdit1.SelectedIndex = 0;
+  
             _olcuBr.Data(ServisList.OlcuBrListeServis);
             _stokOlcuBr.Data(ServisList.StokOlcuBrListeServis);
             _stokServis.Data(ServisList.StokListeServis);

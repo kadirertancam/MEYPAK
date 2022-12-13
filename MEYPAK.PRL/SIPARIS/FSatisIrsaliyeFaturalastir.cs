@@ -1,19 +1,8 @@
 ﻿using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.PocoModels.DEPO;
 using MEYPAK.Entity.PocoModels.IRSALIYE;
-using MEYPAK.Entity.PocoModels.SIPARIS;
 using MEYPAK.Entity.PocoModels;
-using MEYPAK.Interfaces.Depo;
-using MEYPAK.Interfaces.Siparis;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using MEYPAK.Entity.PocoModels.FATURA;
 
 namespace MEYPAK.PRL.SIPARIS
