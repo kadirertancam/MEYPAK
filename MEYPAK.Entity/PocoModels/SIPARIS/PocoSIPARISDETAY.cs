@@ -34,18 +34,20 @@ namespace MEYPAK.Entity.PocoModels.SIPARIS
         [DefaultValue(0)]
         public int kullaniciid { get; set; } = 0; 
         public int t_flag { get; set; } = 0; 
-        public decimal daralı { get; set; }
+        public decimal darali { get; set; }
         public decimal dara { get; set; }
         public decimal safi { get; set; }
+        public decimal kasamiktar { get; set; }
         public byte tip { get; set; } = 0;
         [StringLength(50)]
         public string stokadi { get; set; } = "";
         [StringLength(200)]
         public string aciklama { get; set; } = "";
-        public decimal miktar { get; set; } = 0;
+        public decimal birimfiyat { get; set; } = 0;
         public decimal istkontO1 { get; set; } = 0;
         public decimal istkontO2 { get; set; } = 0;
         public decimal istkontO3 { get; set; } = 0;
+        public decimal isktoplam { get; set; } = 0;
         public decimal netfiyat { get; set; } = 0;
         public decimal brutfiyat { get; set; } = 0;
         public decimal nettoplam { get; set; } = 0;
@@ -54,5 +56,6 @@ namespace MEYPAK.Entity.PocoModels.SIPARIS
         public byte hareketdurumu { get; set; } = 0;
         public decimal kdv { get; set; } = 0;
         public decimal kdvtutari { get; set; } = 0;
+        public int num { get; set; } 
     }
 }

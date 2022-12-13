@@ -47,6 +47,7 @@ namespace MEYPAK.PRL.CARI
         FCariAltHesap fCariAltHesap;
         FCariKart fCariKart;
         FFaturaRaporu fFaturaRaporu;
+        FMusteriSiparisRaporu fMusteriSiparisRaporu;
         Form tempForm;
 
         #endregion
@@ -65,6 +66,12 @@ namespace MEYPAK.PRL.CARI
                 {
                     if (frm.Name.Contains("FFaturaRaporu"))
                         fFaturaRaporu = (FFaturaRaporu)frm;
+
+                }
+                if (_form == frm.Tag)
+                {
+                    if (frm.Name.Contains("FMusteriSiparisRaporu"))
+                        fMusteriSiparisRaporu = (FMusteriSiparisRaporu)frm;
 
                 }
             }
@@ -100,6 +107,11 @@ namespace MEYPAK.PRL.CARI
             {
                 if (fFaturaRaporu != null)
                     fFaturaRaporu._tempCARIALTHES = _cariAltHesapServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+            }
+            if (_islem == "FMusteriSiparisRaporu")
+            {
+                if (fMusteriSiparisRaporu != null)
+                    fMusteriSiparisRaporu._tempCARIALTHES = _cariAltHesapServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
             }
             this.Close();
         }

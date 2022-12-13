@@ -56,9 +56,7 @@
     <Compile Update="SIPARIS\FAlisFatura.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="SIPARIS\FSatinAlmaSiparis.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Update="SIPARIS\FSatinAlmaSiparis.cs" />
     <Compile Update="SIPARIS\FAlisIrsaliye.cs">
       <SubType>Form</SubType>
     </Compile>

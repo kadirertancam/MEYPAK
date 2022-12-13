@@ -1,26 +1,11 @@
-﻿using DevExpress.DataProcessing.InMemoryDataProcessor;
-using DevExpress.Office.Utils;
-using DevExpress.Utils;
+﻿using DevExpress.Utils;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Repository;
 using MEYPAK.BLL.Assets;
-using MEYPAK.Entity.PocoModels;
 using MEYPAK.Entity.PocoModels.ARAC;
 using MEYPAK.Entity.PocoModels.DEPO;
 using MEYPAK.Entity.PocoModels.PERSONEL;
-using MEYPAK.Interfaces.Arac;
-using MEYPAK.Interfaces.Depo;
-using MEYPAK.Interfaces.Personel;
-using MEYPAK.PRL.SIPARIS;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace MEYPAK.PRL.ARACLAR
 {
@@ -62,6 +47,15 @@ namespace MEYPAK.PRL.ARACLAR
             _tempAracRota.Add(new PocoARACROTA());
 
             gridControl1.DataSource = _tempAracRota;
+            gridView1.Columns["id"].Visible= false;
+            gridView1.Columns["eskiid"].Visible= false;
+            gridView1.Columns["olusturmatarihi"].Visible= false;
+            gridView1.Columns["guncellemetarihi"].Visible= false;
+            gridView1.Columns["kayittipi"].Visible= false;
+
+            gridView1.Columns["cikisid"].VisibleIndex=1;
+            gridView1.Columns["hedefid"].VisibleIndex=2;
+
             var datatb = new DataTable();
             datatb.Columns.Add("aracid", typeof(int));
             datatb.Columns.Add("aracplaka", typeof(string));
@@ -108,7 +102,7 @@ namespace MEYPAK.PRL.ARACLAR
             riLookupdepo.DisplayMember = "depoadi";
             riLookupdepo.NullText = "Sec";
             riLookupdepo.HotTrackItems = true;
-            riLookupdepo.BestFitWidth = 120;
+            riLookupdepo.BestFitWidth = 150;
             riLookupdepo.DropDownRows = datatb.Rows.Count;
             riLookupdepo.AcceptEditorTextAsNewValue = DefaultBoolean.True;
             riLookupdepo.AutoSearchColumnIndex = 1;
@@ -116,11 +110,11 @@ namespace MEYPAK.PRL.ARACLAR
 
             gridView1.Columns["cikisid"].OptionsColumn.AllowEdit = true;
             gridView1.Columns["cikisid"].ColumnEdit = riLookupdepo;
-            gridView1.Columns["cikisid"].Width = 120;
+            gridView1.Columns["cikisid"].Width = 150;
 
             gridView1.Columns["hedefid"].OptionsColumn.AllowEdit = true;
             gridView1.Columns["hedefid"].ColumnEdit = riLookupdepo;
-            gridView1.Columns["hedefid"].Width = 120;
+            gridView1.Columns["hedefid"].Width = 150;
         }
 
         private void BTNAracKaydet_Click(object sender, EventArgs e)
@@ -154,7 +148,8 @@ namespace MEYPAK.PRL.ARACLAR
                 gridControl1.DataSource = "";
 
                 _tempAracRota.Add(new PocoARACROTA());
-                gridControl1.DataSource = _tempAracRota;
+                gridControl1.DataSource = _tempAracRota.Select(x => new { ARAC = x.aracid, CIKIS = x.cikisid, TARIH = x.tarih, HAREKET_SAAT = x.hareketsaati, HEDEF = x.hedefid });
+
             }
         }
 

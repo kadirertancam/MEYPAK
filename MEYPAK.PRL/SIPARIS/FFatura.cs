@@ -3,7 +3,6 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid.Columns;
-using DevExpress.XtraGrid.Views.Grid;
 using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.DEPO;
@@ -14,19 +13,8 @@ using MEYPAK.PRL.CARI;
 using MEYPAK.PRL.STOK;
 using System.Data;
 using MEYPAK.Entity.PocoModels.FATURA;
-using MEYPAK.Interfaces.Stok;
-using MEYPAK.Interfaces.Cari;
-using DevExpress.XtraGrid.Views.Base;
-using MEYPAK.Entity.Models.STOK;
-using System.ComponentModel.DataAnnotations;
-using DevExpress.CodeParser;
-using Ninject.Infrastructure.Language;
 using DevExpress.DataProcessing;
-using DevExpress.XtraRichEdit.Model;
-using DevExpress.XtraVerticalGrid.Native;
 using MEYPAK.PRL.Assets;
-using MEYPAK.Interfaces.Parametre;
-using System.Linq;
 
 namespace MEYPAK.PRL.SIPARIS
 {
@@ -909,7 +897,7 @@ namespace MEYPAK.PRL.SIPARIS
                         birimfiyat = item.BirimFiyat,
                         nettoplam = item.NetToplam,
                         netfiyat = item.NetFiyat,
-                        birimid = _olcuBr.obje.Where(y => y.adi == gridView1.GetRowCellValue(item.sıra, "Birim").ToString()).FirstOrDefault().id,
+                        birimid = _olcuBr.obje.Where(y => y.adi == item.Birim).FirstOrDefault().id,
                         dovizid = item.Doviz,
                         kasamiktar = item.KasaMiktar,
                         dara = item.Dara,
@@ -945,7 +933,7 @@ namespace MEYPAK.PRL.SIPARIS
                         aciklama = item.Acıklama,
                         belgE_NO = _faturaServis.obje2.belgeno,
                         hareketturu = 1,
-                        birim = _olcuBr.obje.Where(x => x.adi.ToString() == gridView1.GetRowCellValue(item.sıra, "Birim").ToString()).FirstOrDefault().id,
+                        birim = _olcuBr.obje.Where(x => x.adi.ToString() == item.Birim).FirstOrDefault().id,
                         bruttoplam = item.BrütToplam,
                         depoid = _faturaServis.obje2.depoid,
                         io = 0,

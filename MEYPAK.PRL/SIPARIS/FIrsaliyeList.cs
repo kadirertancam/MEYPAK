@@ -1,20 +1,10 @@
 ﻿using DevExpress.XtraEditors;
 using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.PocoModels.IRSALIYE;
-using MEYPAK.Entity.PocoModels.STOK;
-using MEYPAK.Interfaces.Siparis;
 using MEYPAK.PRL.IRSALIYE;
 using MEYPAK.PRL.SIPARIS.Raporlar;
 using MEYPAK.PRL.STOK.Raporlar;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace MEYPAK.PRL.SIPARIS
 {
@@ -82,6 +72,8 @@ namespace MEYPAK.PRL.SIPARIS
                 {
                     if (frm.Name.Contains("FSatisIrsaliye"))
                         fsatisIralsiye = (FSatisIrsaliye)frm;
+                    if (frm.Name.Contains("FAlisIrsaliye"))
+                        falisIralsiye = (FAlisIrsaliye)frm;
                     if (frm.Name.Contains("FStokKasaHareketRaporu"))
                         fStokKasaHareketRaporu = (FStokKasaHareketRaporu)frm;
                     if (frm.Name.Contains("FFaturaRaporu"))

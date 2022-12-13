@@ -32,8 +32,6 @@ namespace MEYPAK.Entity.Models.IRSALIYE
         public string STOKADI { get; set; } = "";
         [StringLength(200)]
         public string ACIKLAMA { get; set; } = "";
-        public int TEVKIFATNO { get; set; } = 0;
-        public int ISTISNANO { get; set; } = 0;
         public decimal KASAMIKTAR { get; set; } = 0;
         public decimal DARALI { get; set; } = 0;
         public decimal DARA { get; set; } = 0;

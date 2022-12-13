@@ -64,7 +64,7 @@ namespace MEYPAK.PRL.SIPARIS
         private void gridView2_Click_1(object sender, EventArgs e)
         {
             _siparisDetayServis.Data(ServisList.SiparisDetayListeServis);
-            gridControl1.DataSource = _siparisDetayServis.obje.Where(x => x.kayittipi == 0 && x.siparisid.ToString() == gridView2.GetFocusedRowCellValue("ID").ToString()).Select(x => new { ID = x.id, StokId = x.stokid, StokAdı = x.stokadi, Daralı = x.daralı, Dara = x.dara, Safi = x.safi, NetFiyat = x.netfiyat, BrutFiyat = x.brutfiyat, Iskonto1 = x.istkontO1, Iskonto2 = x.istkontO2, Iskonto3 = x.istkontO3, NetToplam = x.nettoplam, BrutToplam = x.bruttoplam });
+            gridControl1.DataSource = _siparisDetayServis.obje.Where(x => x.kayittipi == 0 && x.siparisid.ToString() == gridView2.GetFocusedRowCellValue("ID").ToString()).Select(x => new { ID = x.id, StokId = x.stokid, StokAdı = x.stokadi, Daralı = x.darali, Dara = x.dara, Safi = x.safi, NetFiyat = x.netfiyat, BrutFiyat = x.brutfiyat, Iskonto1 = x.istkontO1, Iskonto2 = x.istkontO2, Iskonto3 = x.istkontO3, NetToplam = x.nettoplam, BrutToplam = x.bruttoplam });
             gridView1.Columns["StokId"].Visible = false;
             gridView1.Columns["ID"].Visible = false;
         }

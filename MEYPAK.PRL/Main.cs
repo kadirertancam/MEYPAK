@@ -1,19 +1,14 @@
-﻿
-using DevExpress.Pdf.Native.BouncyCastle.Asn1.Pkcs;
-using DevExpress.XtraEditors;
-using DevExpress.XtraReports.Native;
-using DevExpress.XtraReports.UI;
+﻿using DevExpress.XtraEditors;
 using DevExpress.XtraTab;
 using DevExpress.XtraTab.ViewInfo;
 using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.PocoModels.PARAMETRE;
-using MEYPAK.Interfaces;
-using MEYPAK.Interfaces.Depo;
-using MEYPAK.Interfaces.Siparis;
-using MEYPAK.PRL.Assets.Kur;
+using MEYPAK.PRL.ARACLAR;
+using MEYPAK.PRL.ARAÇLAR;
 using MEYPAK.PRL.CARI;
 using MEYPAK.PRL.CARI.Raporlar;
 using MEYPAK.PRL.DEPO;
+using MEYPAK.PRL.DEPO.Raporlar;
 using MEYPAK.PRL.IRSALIYE;
 using MEYPAK.PRL.PARAMETRELER;
 using MEYPAK.PRL.PERSONEL;
@@ -23,20 +18,9 @@ using MEYPAK.PRL.STOK;
 using MEYPAK.PRL.STOK.FiyatListesi;
 using MEYPAK.PRL.STOK.Raporlar;
 using MEYPAK.PRL.STOK.StokKasa;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Drawing.Text;
-using System.IO;
-using System.Linq;
 using System.Net.Http;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Xml;
 using System.Xml.Serialization;
 
 namespace MEYPAK.PRL
@@ -105,20 +89,16 @@ namespace MEYPAK.PRL
         FCariHareketRaporu fCariHareketRaporu;
         FStokKategoriRaporu fStokKategoriRaporu;
         FStokKasaHareketRaporu fStokKasaHarRaporu;
-
+        FMusteriSiparisRaporu fMusteriSiparisRaporu;
+        FDepoRaporu fDepoRaporu;
+        FAracTanim fAracTanim;
+        FAracRota fAracRota;
 
         public Tarih_Date _tarih_Date;
         public DataTable guncelkur;
         GenericWebServis<PocoPARABIRIM> _parabirimServis;
         #endregion
-        void StokPanelAc()
-        {
 
-        }
-        private void button1_Click(object sender, EventArgs e)
-        {
-            StokPanelAc();
-        }
         public void GuncelKur()
         {
             try
@@ -353,6 +333,13 @@ namespace MEYPAK.PRL
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
             xtraTabControl1.TabPages.Add(page);
             xtraTabControl1.SelectedTabPage = page;
+
+            fCariDurum.TopLevel = false;
+            fCariDurum.AutoScroll = true;
+            fCariDurum.Dock = DockStyle.Fill;
+            fCariDurum.Tag = "TPCariDurum" + i;
+            page.Controls.Add(fCariDurum);
+            fCariDurum.Show();
             i++;
         }
 
@@ -1031,6 +1018,92 @@ namespace MEYPAK.PRL
             fCariRaporu.Show();
             i++;
 
+        }
+        
+        private void ACEMusteriSiparisRaporu_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fMusteriSiparisRaporu = new FMusteriSiparisRaporu();
+            page.Name = "TPMusteriSiparisRaporu" + i;
+            page.Text = "Müşteri Sipariş Raporu";
+            page.Tag = "TPMusteriSiparisRaporu" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fMusteriSiparisRaporu.FormBorderStyle = FormBorderStyle.None;
+            fMusteriSiparisRaporu.TopLevel = false;
+            fMusteriSiparisRaporu.AutoScroll = true;
+            fMusteriSiparisRaporu.Dock = DockStyle.Fill;
+            fMusteriSiparisRaporu.Tag = "TPMusteriSiparisRaporu" + i;
+            page.Controls.Add(fMusteriSiparisRaporu);
+            fMusteriSiparisRaporu.Show();
+            i++;
+
+        }
+
+        private void ACEDepoRaporu_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fDepoRaporu = new FDepoRaporu();
+            page.Name = "TPDepoRaporu" + i;
+            page.Text = "Depo Raporu";
+            page.Tag = "TPDepoRaporu" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fDepoRaporu.FormBorderStyle = FormBorderStyle.None;
+            fDepoRaporu.TopLevel = false;
+            fDepoRaporu.AutoScroll = true;
+            fDepoRaporu.Dock = DockStyle.Fill;
+            fDepoRaporu.Tag = "TPDepoRaporu" + i;
+            page.Controls.Add(fDepoRaporu);
+            fDepoRaporu.Show();
+            i++;
+        }
+
+        private void ACEAracTanim_Click(object sender, EventArgs e)
+        {
+
+            XtraTabPage page = new XtraTabPage();
+            fAracTanim = new FAracTanim();
+            page.Name = "TPAracTanim" + i;
+            page.Text = "Araç Tanım";
+            page.Tag = "TPAracTanim" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fAracTanim.FormBorderStyle = FormBorderStyle.None;
+            fAracTanim.TopLevel = false;
+            fAracTanim.AutoScroll = true;
+            fAracTanim.Dock = DockStyle.Fill;
+            fAracTanim.Tag = "TPAracTanim" + i;
+            page.Controls.Add(fAracTanim);
+            fAracTanim.Show();
+            i++;
+        }
+
+        private void ACEAracRotaTanim_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fAracRota = new FAracRota();
+            page.Name = "TPAracRota" + i;
+            page.Text = "Araç Rota";
+            page.Tag = "TPAracRota" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fAracRota.FormBorderStyle = FormBorderStyle.None;
+            fAracRota.TopLevel = false;
+            fAracRota.AutoScroll = true;
+            fAracRota.Dock = DockStyle.Fill;
+            fAracRota.Tag = "TPAracRota" + i;
+            page.Controls.Add(fAracRota);
+            fAracRota.Show();
+            i++;
         }
     }
 }

@@ -55,7 +55,6 @@
             this.CBParaBirimi = new DevExpress.XtraEditors.GridLookUpEdit();
             this.CBParaBirimiView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.BTNSatirSil = new System.Windows.Forms.Button();
             this.DTPVadeTarihi = new DevExpress.XtraEditors.DateEdit();
             this.TBAciklama = new DevExpress.XtraEditors.MemoEdit();
@@ -117,7 +116,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.CBParaBirimi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBParaBirimiView)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPVadeTarihi.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPVadeTarihi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBAciklama.Properties)).BeginInit();
@@ -221,14 +219,14 @@
             // 
             // TBFaturaNo
             // 
-            this.TBFaturaNo.Location = new System.Drawing.Point(166, 31);
+            this.TBFaturaNo.Location = new System.Drawing.Point(106, 31);
             this.TBFaturaNo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.TBFaturaNo.Name = "TBFaturaNo";
             this.TBFaturaNo.Properties.Appearance.Options.UseFont = true;
             this.TBFaturaNo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.TBFaturaNo.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.TBSiparisNo_Properties_ButtonClick);
-            this.TBFaturaNo.Size = new System.Drawing.Size(156, 22);
+            this.TBFaturaNo.Size = new System.Drawing.Size(216, 22);
             this.TBFaturaNo.TabIndex = 0;
             // 
             // LBGun
@@ -277,7 +275,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.comboBoxEdit1);
             this.groupBox1.Controls.Add(this.BTNSatirSil);
             this.groupBox1.Controls.Add(this.DTSiparisTarih);
             this.groupBox1.Controls.Add(this.DTPVadeTarihi);
@@ -312,19 +309,6 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Satış Fatura";
-            // 
-            // comboBoxEdit1
-            // 
-            this.comboBoxEdit1.Location = new System.Drawing.Point(106, 31);
-            this.comboBoxEdit1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.comboBoxEdit1.Name = "comboBoxEdit1";
-            this.comboBoxEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBoxEdit1.Properties.Appearance.Options.UseFont = true;
-            this.comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit1.Size = new System.Drawing.Size(58, 22);
-            this.comboBoxEdit1.TabIndex = 155;
-            this.comboBoxEdit1.SelectedIndexChanged += new System.EventHandler(this.comboBoxEdit1_SelectedIndexChanged);
             // 
             // BTNSatirSil
             // 
@@ -466,9 +450,9 @@
             this.LBSsiparisNo.Location = new System.Drawing.Point(44, 33);
             this.LBSsiparisNo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.LBSsiparisNo.Name = "LBSsiparisNo";
-            this.LBSsiparisNo.Size = new System.Drawing.Size(48, 13);
+            this.LBSsiparisNo.Size = new System.Drawing.Size(51, 13);
             this.LBSsiparisNo.TabIndex = 118;
-            this.LBSsiparisNo.Text = "Fatura No";
+            this.LBSsiparisNo.Text = "İrsaliye No";
             // 
             // panel2
             // 
@@ -909,7 +893,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.CBParaBirimiView)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPVadeTarihi.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPVadeTarihi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBAciklama.Properties)).EndInit();
@@ -1004,6 +987,5 @@
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
         private Button BTNSatirSil;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
     }
 }
