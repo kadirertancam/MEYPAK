@@ -1,18 +1,10 @@
-﻿
-using DevExpress.Pdf.Native.BouncyCastle.Asn1.Pkcs;
-using DevExpress.XtraEditors;
-using DevExpress.XtraReports.Native;
-using DevExpress.XtraReports.UI;
+﻿using DevExpress.XtraEditors;
 using DevExpress.XtraTab;
 using DevExpress.XtraTab.ViewInfo;
 using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.PocoModels.PARAMETRE;
-using MEYPAK.Interfaces;
-using MEYPAK.Interfaces.Depo;
-using MEYPAK.Interfaces.Siparis;
 using MEYPAK.PRL.ARACLAR;
 using MEYPAK.PRL.ARAÇLAR;
-using MEYPAK.PRL.Assets.Kur;
 using MEYPAK.PRL.CARI;
 using MEYPAK.PRL.CARI.Raporlar;
 using MEYPAK.PRL.DEPO;
@@ -26,20 +18,9 @@ using MEYPAK.PRL.STOK;
 using MEYPAK.PRL.STOK.FiyatListesi;
 using MEYPAK.PRL.STOK.Raporlar;
 using MEYPAK.PRL.STOK.StokKasa;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Drawing.Text;
-using System.IO;
-using System.Linq;
 using System.Net.Http;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Xml;
 using System.Xml.Serialization;
 
 namespace MEYPAK.PRL
@@ -117,14 +98,7 @@ namespace MEYPAK.PRL
         public DataTable guncelkur;
         GenericWebServis<PocoPARABIRIM> _parabirimServis;
         #endregion
-        void StokPanelAc()
-        {
 
-        }
-        private void button1_Click(object sender, EventArgs e)
-        {
-            StokPanelAc();
-        }
         public void GuncelKur()
         {
             try

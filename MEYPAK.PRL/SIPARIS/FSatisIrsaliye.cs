@@ -1,43 +1,19 @@
-﻿using DevExpress.ClipboardSource.SpreadsheetML;
-using DevExpress.Utils;
-using DevExpress.XtraEditors;
+﻿using DevExpress.Utils;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid.Columns;
-using DevExpress.XtraGrid.Views.Base;
-using DevExpress.XtraGrid.Views.Grid;
 using MEYPAK.BLL.Assets;
-using MEYPAK.Entity.Models.IRSALIYE;
-using MEYPAK.Entity.Models.SIPARIS;
-using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Entity.PocoModels;
 using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.DEPO;
-using MEYPAK.Entity.PocoModels.FATURA;
 using MEYPAK.Entity.PocoModels.IRSALIYE;
-using MEYPAK.Entity.PocoModels.IRSALIYE;
-using MEYPAK.Entity.PocoModels.KASA;
 using MEYPAK.Entity.PocoModels.PARAMETRE;
-using MEYPAK.Entity.PocoModels.SIPARIS;
 using MEYPAK.Entity.PocoModels.STOK;
-using MEYPAK.Interfaces.Depo;
-using MEYPAK.Interfaces.Parametre;
-using MEYPAK.Interfaces.Siparis;
-using MEYPAK.Interfaces.Stok;
 using MEYPAK.PRL.Assets;
-using MEYPAK.PRL.Assets.Scripts;
 using MEYPAK.PRL.CARI;
 using MEYPAK.PRL.SIPARIS;
 using MEYPAK.PRL.STOK;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using System.Data;                                                                                                                  
 
 namespace MEYPAK.PRL.IRSALIYE
 {
@@ -46,10 +22,10 @@ namespace MEYPAK.PRL.IRSALIYE
 
 
         public FSatisIrsaliye()
-        {
+        {                                                                                                                                                                         
             InitializeComponent();
             DGVStokSec = new DataGridViewButtonColumn();
-            DGVFiyatList = new DataGridViewComboBoxColumn();
+            DGVFiyatList = new DataGridViewComboBoxColumn();                                                                                                                            
             DGVKasaSec = new DataGridViewButtonColumn();
             DGVKasaList = new DataGridViewComboBoxColumn();
             _paraBirimServis = new GenericWebServis<PocoPARABIRIM>();
