@@ -43,6 +43,7 @@ namespace MEYPAK.Entity.Models.SIPARIS
         [StringLength(200)]
         [DefaultValue("")]
         public string ACIKLAMA { get; set; } = "";
+        public decimal BIRIMFIYAT { get; set; } = 0;
         public decimal ISTKONTO1 { get; set; } = 0;
         public decimal ISTKONTO2 { get; set; } = 0;
         public decimal ISTKONTO3 { get; set; } = 0;
