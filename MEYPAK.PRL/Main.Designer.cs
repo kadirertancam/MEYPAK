@@ -131,7 +131,6 @@
             this.accordionControlElement60 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEDepoRaporu = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEStokSevkiyatRaporu = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.ACEDepoRaporu = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement5 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement6 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement18 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -165,9 +164,6 @@
             this.accordionControlElement39 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement40 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEPersonelRaporu = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement22 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement44 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.ACESeriTanim = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement61 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement23 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEAracTanim = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -809,8 +805,7 @@
             this.accordionControl1.LookAndFeel.SkinName = "Visual Studio 2013 Dark";
             this.accordionControl1.LookAndFeel.UseDefaultLookAndFeel = false;
             this.accordionControl1.Name = "accordionControl1";
-            this.accordionControl1.OptionsMinimizing.AllowMinimizeMode = DevExpress.Utils.DefaultBoolean.True;
-            this.accordionControl1.ShowFilterControl = DevExpress.XtraBars.Navigation.ShowFilterControl.Auto;
+            this.accordionControl1.ShowFilterControl = DevExpress.XtraBars.Navigation.ShowFilterControl.Always;
             this.accordionControl1.Size = new System.Drawing.Size(250, 593);
             this.accordionControl1.TabIndex = 1;
             this.accordionControl1.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
@@ -843,7 +838,7 @@
             this.accordionControlElement2,
             this.accordionControlElement3,
             this.accordionControlElement4});
-            this.accordionControlElement1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement1.ImageOptions.Image")));
+            this.accordionControlElement1.Expanded = true;
             this.accordionControlElement1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement1.ImageOptions.SvgImage")));
             this.accordionControlElement1.ImageOptions.SvgImageSize = new System.Drawing.Size(32, 32);
             this.accordionControlElement1.Name = "accordionControlElement1";
@@ -1001,7 +996,6 @@
             this.ACEDepoRaporu,
             this.ACEStokSevkiyatRaporu});
             this.accordionControlElement4.Expanded = true;
-            this.ACEDepoRaporu});
             this.accordionControlElement4.Name = "accordionControlElement4";
             this.accordionControlElement4.Text = "Raporlar";
             // 
@@ -1061,13 +1055,6 @@
             this.ACEStokSevkiyatRaporu.Text = "Stok Sevkiyat Raporu";
             this.ACEStokSevkiyatRaporu.Click += new System.EventHandler(this.ACEStokSevkiyatRaporu_Click);
             // 
-            // ACEDepoRaporu
-            // 
-            this.ACEDepoRaporu.Name = "ACEDepoRaporu";
-            this.ACEDepoRaporu.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.ACEDepoRaporu.Text = "Depo Raporu";
-            this.ACEDepoRaporu.Click += new System.EventHandler(this.ACEDepoRaporu_Click);
-            // 
             // accordionControlElement5
             // 
             this.accordionControlElement5.Appearance.Default.ForeColor = System.Drawing.Color.Silver;
@@ -1076,6 +1063,7 @@
             this.accordionControlElement6,
             this.accordionControlElement7,
             this.accordionControlElement8});
+            this.accordionControlElement5.Expanded = true;
             this.accordionControlElement5.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement5.ImageOptions.SvgImage")));
             this.accordionControlElement5.Name = "accordionControlElement5";
             this.accordionControlElement5.Text = "Cari";
@@ -1141,6 +1129,7 @@
             this.accordionControlElement8.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.accordionControlElement58,
             this.ACECariRapor});
+            this.accordionControlElement8.Expanded = true;
             this.accordionControlElement8.Name = "accordionControlElement8";
             this.accordionControlElement8.Text = "Raporlar";
             // 
@@ -1285,6 +1274,7 @@
             this.accordionControlElement38,
             this.accordionControlElement39,
             this.accordionControlElement40});
+            this.accordionControlElement21.Expanded = true;
             this.accordionControlElement21.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement21.ImageOptions.Image")));
             this.accordionControlElement21.Name = "accordionControlElement21";
             this.accordionControlElement21.Text = "Personel";
@@ -1295,7 +1285,6 @@
             this.accordionControlElement41,
             this.ACEPersonelListe});
             this.accordionControlElement38.Expanded = true;
-            this.accordionControlElement41});
             this.accordionControlElement38.Name = "accordionControlElement38";
             this.accordionControlElement38.Text = "Tanımlar";
             // 
@@ -1594,8 +1583,8 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEAracRotaTanim;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement24;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement25;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement ACEStokSevkiyatRaporu;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEPersonelListe;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEPersonelRaporu;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACEStokSevkiyatRaporu;
     }
 }
