@@ -50,7 +50,19 @@ namespace MEYPAK.PRL.STOK
             _stokKasaMarkaServis.Data(ServisList.StokKasaMarkaListeServis);
             _stokKasaServis.Data(ServisList.StokKasaListeServis);
             _stokKasaHarServis.Data(ServisList.StokKasaMarkaListeServis);
-            gridControl2.DataSource = _stokKasaMarkaServis.obje.Select(x=>new { ID=x.id ,ADI = x.adi,MMIKTAR=_stokKasaHarServis.obje.Where(c=>c.kasaid==_stokKasaServis.obje.Where(v=>v.markaid==x.id).FirstOrDefault().id).Sum(c=>c.io==1?c.miktar:c.miktar*-1)});
+            gridControl2.DataSource = _stokKasaMarkaServis.obje.Select(x=>new {
+                ID=x.id ,
+                ADI = x.adi,
+                MMIKTAR= _stokKasaServis.obje.Where(v => v.markaid == x.id).Count()>0 ? _stokKasaHarServis.obje.Where(c => c.kasaid == _stokKasaServis.obje.Where(v => v.markaid == x.id).FirstOrDefault().id).Sum(c => c.io == 1 ? c.miktar : c.miktar * -1):0
+            });
+
+            //foreach (var item in _stokKasaMarkaServis.obje)
+            //{
+            //    var edsa = (_stokKasaServis.obje.Where(v => v.markaid == item.id).Count() > 0 ? _stokKasaHarServis.obje.Where(c => c.kasaid == _stokKasaServis.obje.Where(v => v.markaid == item.id).FirstOrDefault().id).Sum(c => c.io == 1 ? c.miktar : c.miktar * -1) : 0);
+            //    var a = _stokKasaServis.obje.Where(v => v.markaid == item.id).Count();
+            //    var sadsa = _stokKasaHarServis.obje.Where(c => c.kasaid == _stokKasaServis.obje.Where(v => v.markaid == item.id).FirstOrDefault().id);
+            //}
+            
             gridControl2.RefreshDataSource();
             DTPTarih.EditValue = DateTime.Now;
         }
