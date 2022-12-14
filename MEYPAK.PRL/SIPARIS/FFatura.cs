@@ -1143,7 +1143,6 @@ namespace MEYPAK.PRL.SIPARIS
 
         private void TBCariKodu_Properties_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
-
             _fCariList = new FCariList(this.Tag.ToString(), "FFatura");
             _fCariList.ShowDialog();
             if (_tempCariKart != null)
@@ -1152,6 +1151,7 @@ namespace MEYPAK.PRL.SIPARIS
                 _cariAltHesapServis.Data(ServisList.CariAltHesListeServis);
                 TBCariKodu.Text = _tempCariKart.kod;
                 TBCariAdi.Text = _tempCariKart.unvan == "" ? _tempCariKart.adi + " " + _tempCariKart.soyadi : _tempCariKart.unvan;
+                TBGun.EditValue = _tempCariKart.vadegunu;
 
                 // CBAltHesap.Properties.DataSource = _cariAltHesapServis.obje.Where(x=>x.cariid==_tempCariKart.id).Select(x => x.adi).ToList();
                 _carialthescaricari.Data(ServisList.CariAltHesCariListeServis);
@@ -1163,7 +1163,6 @@ namespace MEYPAK.PRL.SIPARIS
                 CBAltHesap.Properties.DisplayMember = "ADI";
                 CBAltHesap.EditValue = altcarilist.Count() > 0 ? altcarilist.Select(x => new { ID = x.id, ADI = x.adi.ToString() }).FirstOrDefault().ID : "";
                 CBAltHesap.Properties.DataSource = altcarilist.Select(x => new { ID = x.id, ADI = x.adi.ToString() });
-
             }
         }
 

@@ -1068,6 +1068,7 @@ namespace MEYPAK.PRL.SIPARIS
                 _cariAltHesapServis.Data(ServisList.CariAltHesListeServis);
                 TBCariKodu.Text = _tempCariKart.kod;
                 TBCariAdi.Text = _tempCariKart.unvan == "" ? _tempCariKart.adi + " " + _tempCariKart.soyadi : _tempCariKart.unvan;
+                TBGun.EditValue = _tempCariKart.vadegunu;
 
                 // CBAltHesap.Properties.DataSource = _cariAltHesapServis.obje.Where(x=>x.cariid==_tempCariKart.id).Select(x => x.adi).ToList();
                 _carialthescaricari.Data(ServisList.CariAltHesCariListeServis);

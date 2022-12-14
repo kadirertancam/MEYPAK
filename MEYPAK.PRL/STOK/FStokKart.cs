@@ -78,18 +78,16 @@ namespace MEYPAK.PRL
                 ID.ReadOnly= true;
                 NUM.ReadOnly= true;
                 //_StokOlcuBrServis.obje.Where(x=> x.stokid==_tempStok.id&& x.kayittipi == 0).ToList()[i].olcubrid
-
                 //_StokOlcuBrServis.obje.Where(x=>x.stokid==_tempStok.id && x.kayittipi==0)
-                gridControl1.DataSource = datatable;
                 DataTable datatb = new DataTable();
                 datatb.Columns.Add("OLCUBR", typeof(int));
                 datatb.Columns.Add("ADI", typeof(string));
-
                 foreach (var item in _PocoOlcuBrServis.obje.Where(x=>x.kayittipi==0 ))
                 {
                     datatb.Rows.Add(item.id, item.adi);
                 }
-                
+                gridControl1.DataSource = datatable;
+
                 RepositoryItemLookUpEdit riLookupolcubr = new RepositoryItemLookUpEdit();
                 riLookupolcubr.DataSource = datatb;
                 riLookupolcubr.ValueMember = "OLCUBR";
@@ -170,7 +168,7 @@ namespace MEYPAK.PRL
 
         private void tbDoldur()                                                 // _tempStok nesnesi dolduğu zaman bu method ile formdaki nesneleri doldur
         {
-            OlcuBrGridDoldur();
+           
             stokOlculist.Clear();
             _stokResimServis.Data(ServisList.StokResimListeServis);
             _PocoStokServis.Data(ServisList.StokListeServis);
@@ -211,7 +209,7 @@ namespace MEYPAK.PRL
                     resimList.Add(item);
                 }
             _StokKategoriervis.Data(ServisList.StokKategoriListeServis);
-
+            OlcuBrGridDoldur();
 
             gridControl2.DataSource = resimList.Select(x => new { Resim = Base64ToImage(x.IMG), NUM = x.NUM });
             //gridControl1.DataSource = _StokOlcuBrServis.obje.Where(x => x.stokid == stokid).Select(x => new { ADI = _PocoOlcuBrServis.obje.Where(z => z.id == x.olcubrid).FirstOrDefault().adi, KATSAYI = x.katsayi, SIRA = x.num });
@@ -223,10 +221,7 @@ namespace MEYPAK.PRL
 
         }
 
-        private void BTStokKodu_Leave(object sender, EventArgs e)               // BTStokKodu doluyken stok kodu kontrolü yapıp tempstok doldurulur.
-        {
 
-        }
         #endregion
         #region Events
         private void Form1_Load(object sender, EventArgs e)

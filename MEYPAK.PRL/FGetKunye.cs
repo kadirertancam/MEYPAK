@@ -1,22 +1,11 @@
-﻿using DevExpress.XtraEditors;
-using MEYPAK.BLL.Assets;
-using MEYPAK.Entity.PocoModels.FATURA;
+﻿using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.PocoModels.STOK;
-using MEYPAK.Interfaces.Fatura;
-using MEYPAK.Interfaces.Stok;
 using MEYPAK.PRL.Assets;
 using MEYPAK.PRL.IRSALIYE;
 using MEYPAK.PRL.SIPARIS;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Net.Http;
 using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Xml.Serialization;
 
 namespace MEYPAK.PRL
@@ -90,7 +79,7 @@ namespace MEYPAK.PRL
             }
             else if (_islem == "FSatisIrsaliye")
             {
-                foreach (var item in _stokHarServis.obje)
+                foreach (var item in _stokHarServis.obje.Where(x=> x.irsaliyedetayid>0))
                 {
                     foreach (var item2 in _alisKunyeleris)
                     {
@@ -104,14 +93,12 @@ namespace MEYPAK.PRL
                             KunyeNo = item.kunye
                         });
                 }
-
-                gridControl1.DataSource = _alisKunyeleris;
+                gridControl1.DataSource = _alisKunyeleris.Where(x=> x.Bakiye>=1);
             }
             else if (_islem == "FFatura")
             {
-                foreach (var item in _stokHarServis.obje)
+                foreach (var item in _stokHarServis.obje.Where(x=> x.faturadetayid>0))
                 {
-
                     foreach (var item2 in _alisKunyeleris)
                     {
                         if (item2.KunyeNo == item.kunye)
@@ -131,7 +118,6 @@ namespace MEYPAK.PRL
             {
                 foreach (var item in deserializedObject.Body.BaseResponseMessageOf_BildirimSorguCevap.Sonuc.Bildirimler)
                 {
-
                     if (!_stokHarServis.obje.Any(x => x.kunye == item.KunyeNo.ToString()))
                     {
                         _alisKunyelerisv2.Add(new AlisKunyeleriV2()
@@ -146,7 +132,6 @@ namespace MEYPAK.PRL
                     }
                 }
                 gridControl1.DataSource = _alisKunyelerisv2;
-
             }
 
 
