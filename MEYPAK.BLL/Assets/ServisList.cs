@@ -422,6 +422,14 @@ namespace MEYPAK.BLL.Assets
         public const string HizmetDeleteByIdServis = "http://213.238.167.117:8080/HIZMET/DeleteById";
         #endregion
 
+        #region HizmetHar
+        public const string HizmetHarListeServis =      "http://213.238.167.117:8080/HIZMETHAR/Liste";
+        public const string HizmetHarEkleServis =       "http://213.238.167.117:8080/HIZMETHAR/EkleyadaGuncelle";
+        public const string HizmetHarSilServis =        "http://213.238.167.117:8080/HIZMETHAR/Sil";
+        public const string HizmetHarGuncelleServis =   "http://213.238.167.117:8080/HIZMETHAR/Guncelle";
+        public const string HizmetHarDeleteByIdServis = "http://213.238.167.117:8080/HIZMETHAR/DeleteById";
+        #endregion
+
         #region DepoTransferHar
         public const string DepoTransferHarListeServis =     "http://213.238.167.117:8080/DEPOTRANSFERHAR/DEPOTRANSFERHARListe"; 
         public const string DepoTransferHarEkleServis = "http://213.238.167.117:8080/DEPOTRANSFERHAR/DEPOTRANSFERHAREkleyadaGuncelle";

@@ -41,7 +41,7 @@ namespace MEYPAK.Entity.PocoModels.STOK
         public int aliskdv { get; set; }
         public int satisotv { get; set; }
         public int alisotv { get; set; }
-        public string grupkodu { get; set; }
+        public string grupkodu { get; set; } = "";
         public string aciklama { get; set; } = "";
         public string aciklamA1 { get; set; } = "";
         public string aciklamA2 { get; set; } = "";
@@ -66,6 +66,6 @@ namespace MEYPAK.Entity.PocoModels.STOK
         public string raporkodU9 { get; set; } = "";
         public int gtin { get; set; }
         public int kullaniciid { get; set; }
-        public string donem { get; set; }
+        public string donem { get; set; }="2022";
     }
 }

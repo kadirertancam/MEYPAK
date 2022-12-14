@@ -940,6 +940,7 @@
             this.accordionControlElement17,
             this.accordionControlElement29,
             this.accordionControlElement46});
+            this.accordionControlElement3.Expanded = true;
             this.accordionControlElement3.Name = "accordionControlElement3";
             this.accordionControlElement3.Text = "Hareketler";
             // 
@@ -1155,6 +1156,7 @@
             this.accordionControlElement31,
             this.accordionControlElement32,
             this.accordionControlElement33});
+            this.accordionControlElement20.Expanded = true;
             this.accordionControlElement20.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement20.ImageOptions.Image")));
             this.accordionControlElement20.Name = "accordionControlElement20";
             this.accordionControlElement20.Text = "Fatura";

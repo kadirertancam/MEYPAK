@@ -155,8 +155,6 @@ builder.Services.AddScoped<IStokSayimServis, StokSayimManager>();
 builder.Services.AddScoped<IStokSayimHarDal, EFStokSayimHarRepo>();
 builder.Services.AddScoped<IStokSayimHarServis, StokSayimHarManager>();
 
-builder.Services.AddScoped<IHizmetDal, EFHizmetRepo>();
-builder.Services.AddScoped<IHizmetServis, HizmetManager>();
 
 builder.Services.AddScoped<IOlcuBrDal, EFOlcuBrRepo>();
 builder.Services.AddScoped<IOlcuBrServis, OlcuBrManager>();
@@ -206,6 +204,9 @@ builder.Services.AddScoped<IIrsaliyeDetayServis, IrsaliyeDetayManager>();
 #region HIZMET_Scoped_Islemleri
 builder.Services.AddScoped<IHizmetDal, EFHizmetRepo>();
 builder.Services.AddScoped<IHizmetServis, HizmetManager>();
+
+builder.Services.AddScoped<IHizmetHarDal, EFHizmetHarRepo>();
+builder.Services.AddScoped<IHizmetHarServis, HizmetHarManager>();
 
 builder.Services.AddScoped<IHizmetKategoriDal, EFHizmetKategoriRepo>();
 builder.Services.AddScoped<IHizmetKategoriServis, HizmetKategoriManager>();

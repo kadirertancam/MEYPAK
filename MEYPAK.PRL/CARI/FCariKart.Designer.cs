@@ -603,7 +603,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Yeni", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTAltHesSec.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTAltHesSec_Properties_ButtonClick);
             this.BTAltHesSec.Size = new System.Drawing.Size(173, 22);
-            this.BTAltHesSec.TabIndex = 30;
+            this.BTAltHesSec.TabIndex = 31;
             // 
             // LBAltHesAdi
             // 
@@ -618,7 +618,7 @@
             this.TBAltHesapAdi.Location = new System.Drawing.Point(102, 50);
             this.TBAltHesapAdi.Name = "TBAltHesapAdi";
             this.TBAltHesapAdi.Size = new System.Drawing.Size(173, 20);
-            this.TBAltHesapAdi.TabIndex = 31;
+            this.TBAltHesapAdi.TabIndex = 32;
             // 
             // tabPage1
             // 
@@ -1840,7 +1840,7 @@
             this.BTMuhSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions14, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject53, serializableAppearanceObject54, serializableAppearanceObject55, serializableAppearanceObject56, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTMuhSec.Size = new System.Drawing.Size(180, 22);
-            this.BTMuhSec.TabIndex = 24;
+            this.BTMuhSec.TabIndex = 25;
             // 
             // simpleButton1
             // 
@@ -1856,7 +1856,7 @@
             this.TBAciklama.Location = new System.Drawing.Point(112, 218);
             this.TBAciklama.Name = "TBAciklama";
             this.TBAciklama.Size = new System.Drawing.Size(180, 93);
-            this.TBAciklama.TabIndex = 28;
+            this.TBAciklama.TabIndex = 29;
             // 
             // LBAciklama
             // 
@@ -1873,7 +1873,7 @@
             this.TBAdres.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.TBAdres.Properties.Appearance.Options.UseForeColor = true;
             this.TBAdres.Size = new System.Drawing.Size(180, 87);
-            this.TBAdres.TabIndex = 27;
+            this.TBAdres.TabIndex = 28;
             // 
             // BTSMuhSec
             // 
@@ -1882,7 +1882,7 @@
             this.BTSMuhSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions15, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject57, serializableAppearanceObject58, serializableAppearanceObject59, serializableAppearanceObject60, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTSMuhSec.Size = new System.Drawing.Size(180, 22);
-            this.BTSMuhSec.TabIndex = 26;
+            this.BTSMuhSec.TabIndex = 27;
             // 
             // LBAdres
             // 
@@ -1903,7 +1903,7 @@
             this.CBAktif.Properties.Appearance.Options.UseForeColor = true;
             this.CBAktif.Properties.Caption = "Aktif";
             this.CBAktif.Size = new System.Drawing.Size(75, 20);
-            this.CBAktif.TabIndex = 29;
+            this.CBAktif.TabIndex = 30;
             // 
             // LBMuhKodu
             // 
@@ -1920,7 +1920,7 @@
             this.BTAMuhSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions16, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject61, serializableAppearanceObject62, serializableAppearanceObject63, serializableAppearanceObject64, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTAMuhSec.Size = new System.Drawing.Size(180, 22);
-            this.BTAMuhSec.TabIndex = 25;
+            this.BTAMuhSec.TabIndex = 26;
             // 
             // LBAMuhKodu
             // 
@@ -2206,7 +2206,7 @@
             this.TBEposta.Location = new System.Drawing.Point(103, 325);
             this.TBEposta.Name = "TBEposta";
             this.TBEposta.Size = new System.Drawing.Size(180, 20);
-            this.TBEposta.TabIndex = 23;
+            this.TBEposta.TabIndex = 24;
             // 
             // CBUlke
             // 
@@ -2223,7 +2223,7 @@
             this.TBWebSite.Location = new System.Drawing.Point(103, 299);
             this.TBWebSite.Name = "TBWebSite";
             this.TBWebSite.Size = new System.Drawing.Size(180, 20);
-            this.TBWebSite.TabIndex = 22;
+            this.TBWebSite.TabIndex = 23;
             // 
             // CBIlce
             // 
@@ -2233,21 +2233,21 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.CBIlce.Properties.NullText = "";
             this.CBIlce.Size = new System.Drawing.Size(75, 20);
-            this.CBIlce.TabIndex = 12;
+            this.CBIlce.TabIndex = 13;
             // 
             // TBFax
             // 
             this.TBFax.Location = new System.Drawing.Point(103, 272);
             this.TBFax.Name = "TBFax";
             this.TBFax.Size = new System.Drawing.Size(180, 20);
-            this.TBFax.TabIndex = 21;
+            this.TBFax.TabIndex = 22;
             // 
             // TBCepTel
             // 
             this.TBCepTel.Location = new System.Drawing.Point(103, 246);
             this.TBCepTel.Name = "TBCepTel";
             this.TBCepTel.Size = new System.Drawing.Size(180, 20);
-            this.TBCepTel.TabIndex = 20;
+            this.TBCepTel.TabIndex = 21;
             // 
             // CBIl
             // 
@@ -2265,21 +2265,21 @@
             this.TBTelefon2.Location = new System.Drawing.Point(103, 220);
             this.TBTelefon2.Name = "TBTelefon2";
             this.TBTelefon2.Size = new System.Drawing.Size(180, 20);
-            this.TBTelefon2.TabIndex = 19;
+            this.TBTelefon2.TabIndex = 20;
             // 
             // TBPostaKod
             // 
             this.TBPostaKod.Location = new System.Drawing.Point(103, 155);
             this.TBPostaKod.Name = "TBPostaKod";
             this.TBPostaKod.Size = new System.Drawing.Size(180, 20);
-            this.TBPostaKod.TabIndex = 17;
+            this.TBPostaKod.TabIndex = 18;
             // 
             // TBTelefon1
             // 
             this.TBTelefon1.Location = new System.Drawing.Point(103, 193);
             this.TBTelefon1.Name = "TBTelefon1";
             this.TBTelefon1.Size = new System.Drawing.Size(180, 20);
-            this.TBTelefon1.TabIndex = 18;
+            this.TBTelefon1.TabIndex = 19;
             // 
             // LBEposta
             // 
@@ -2314,7 +2314,7 @@
             this.TBDaire.Location = new System.Drawing.Point(208, 129);
             this.TBDaire.Name = "TBDaire";
             this.TBDaire.Size = new System.Drawing.Size(75, 20);
-            this.TBDaire.TabIndex = 16;
+            this.TBDaire.TabIndex = 17;
             this.TBDaire.TabStop = false;
             // 
             // LBFax
@@ -2350,7 +2350,7 @@
             this.TBApt.Location = new System.Drawing.Point(103, 130);
             this.TBApt.Name = "TBApt";
             this.TBApt.Size = new System.Drawing.Size(86, 20);
-            this.TBApt.TabIndex = 15;
+            this.TBApt.TabIndex = 16;
             // 
             // LBTelefon2
             // 
@@ -2385,7 +2385,7 @@
             this.TBSokak.Location = new System.Drawing.Point(103, 105);
             this.TBSokak.Name = "TBSokak";
             this.TBSokak.Size = new System.Drawing.Size(180, 20);
-            this.TBSokak.TabIndex = 14;
+            this.TBSokak.TabIndex = 15;
             // 
             // LBSokak
             // 
@@ -2417,7 +2417,7 @@
             this.TBMahalle.Location = new System.Drawing.Point(103, 79);
             this.TBMahalle.Name = "TBMahalle";
             this.TBMahalle.Size = new System.Drawing.Size(180, 20);
-            this.TBMahalle.TabIndex = 13;
+            this.TBMahalle.TabIndex = 14;
             // 
             // LBIlIlce
             // 

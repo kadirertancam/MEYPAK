@@ -74,6 +74,7 @@ namespace MEYPAK.PRL.SIPARIS
         public PocoSTOKKASA _tempKasa;
         public PocoSIPARIS _tempSIPARIS;
         public PocoCARIKART _tempCariKart;
+        public PocoHIZMET _tempHizmet;
         DataGridViewButtonColumn DGVStokSec;
         DataGridViewButtonColumn DGVKasaSec;
         DataGridViewComboBoxColumn DGVFiyatList;
@@ -554,7 +555,7 @@ namespace MEYPAK.PRL.SIPARIS
                 _tempSiparisDetay.AddRange(_siparisDetayServis.obje.Select(x => new PocoSiparisKalem()
                 {
                     id = x.id,
-                    Tipi = "STOK",
+                    Tipi = x.tip == 0 ? "STOK" : x.tip == 1 ? "HIZMET" : x.tip == 2 ? "KASA" : x.tip == 3 ? "DEMIRBAS" : "MUHASEBE",
                     StokId = x.stokid,
                     StokKodu = _stokServis.obje.Where(z => z.id == x.stokid).Count() > 0 ? _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().kod : "",//,  TODOO:BAKILACAAAK
                     StokAdı = _stokServis.obje.Where(z => z.id == x.stokid).Count() > 0 ? _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().adi : "",
@@ -1068,6 +1069,7 @@ namespace MEYPAK.PRL.SIPARIS
                 _cariAltHesapServis.Data(ServisList.CariAltHesListeServis);
                 TBCariKodu.Text = _tempCariKart.kod;
                 TBCariAdi.Text = _tempCariKart.unvan == "" ? _tempCariKart.adi + " " + _tempCariKart.soyadi : _tempCariKart.unvan;
+                TBGun.EditValue = _tempCariKart.vadegunu;
 
                 // CBAltHesap.Properties.DataSource = _cariAltHesapServis.obje.Where(x=>x.cariid==_tempCariKart.id).Select(x => x.adi).ToList();
                 _carialthescaricari.Data(ServisList.CariAltHesCariListeServis);
