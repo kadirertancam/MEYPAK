@@ -3,6 +3,9 @@ using DevExpress.XtraTreeList;
 using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.PRL.CARI;
+using MEYPAK.PRL.CARI.Raporlar;
+using MEYPAK.PRL.SIPARIS.Raporlar;
+using MEYPAK.PRL.STOK.Raporlar;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,13 +31,11 @@ namespace MEYPAK.PRL.STOK
             this._islem = islem;
             _kategoriServis = new GenericWebServis<PocoHIZMETKATEGORI>();
         }
-    
-
-   
- 
 
         #region Tanımlar
         GenericWebServis<PocoHIZMETKATEGORI> _kategoriServis;
+        FCariRaporu fCariRaporu;
+
 
         #endregion
 
@@ -64,6 +65,8 @@ namespace MEYPAK.PRL.STOK
                 {
                     if (frm.Name.Contains("FHizmetKart"))
                         fHizmetKart = (FHizmetKart)frm;
+                    if (frm.Name.Contains("FCariRaporu"))
+                        fCariRaporu = (FCariRaporu)frm;
                 }
 
             }
@@ -173,20 +176,20 @@ namespace MEYPAK.PRL.STOK
         {
             if (treeView.Selection != null)
             {
-                if (_kategoriServis.obje.Where(x=> x.kayittipi ==0 && x.adi == TBKategoriAdi.Text).Count()==0)
+                if (_kategoriServis.obje.Where(x => x.kayittipi == 0 && x.adi == TBKategoriAdi.Text).Count() == 0)
                 {
-                TreeListMultiSelection selectedNodes = treeView.Selection;
-                PocoHIZMETKATEGORI mPKATEGORI = new PocoHIZMETKATEGORI()
-                {
-                    adi = TBKategoriAdi.Text,
-                    ustid = _kategoriServis.obje.Where(x => x.kayittipi == 0 && x.adi == selectedNodes[0].GetValue(treeView.Columns[0]).ToString()).FirstOrDefault().id
+                    TreeListMultiSelection selectedNodes = treeView.Selection;
+                    PocoHIZMETKATEGORI mPKATEGORI = new PocoHIZMETKATEGORI()
+                    {
+                        adi = TBKategoriAdi.Text,
+                        ustid = _kategoriServis.obje.Where(x => x.kayittipi == 0 && x.adi == selectedNodes[0].GetValue(treeView.Columns[0]).ToString()).FirstOrDefault().id
 
-                };
-                _kategoriServis.Data(ServisList.HizmetKategoriEkleServis, mPKATEGORI);
+                    };
+                    _kategoriServis.Data(ServisList.HizmetKategoriEkleServis, mPKATEGORI);
 
-                MessageBox.Show("Alt Kategori Başarıyla Eklendi");
-                Temizle(this.Controls);
-                TreeViewiDoldur();
+                    MessageBox.Show("Alt Kategori Başarıyla Eklendi");
+                    Temizle(this.Controls);
+                    TreeViewiDoldur();
                 }
                 else
                 {
@@ -246,6 +249,7 @@ namespace MEYPAK.PRL.STOK
                         fHizmetKart._tempHizmetKategori = _kategoriServis.obje.Where(x => x.kayittipi == 0 && x.adi == selectedNodes[0].GetValue(treeView.Columns[0]).ToString()).FirstOrDefault();
                         this.Close();
                     }
+
                 }
 
             }
@@ -259,12 +263,17 @@ namespace MEYPAK.PRL.STOK
                 if (_islem == "hizmetkart")
                 {
                     if (fHizmetKart != null)
-                    {
                         fHizmetKart._tempHizmetKategori = _kategoriServis.obje.Where(x => x.kayittipi == 0 && x.adi == selectedNodes[0].GetValue(treeView.Columns[0]).ToString()).FirstOrDefault();
-                        this.Close();
-                    }
+                    
                 }
-             
+                if (_islem == "FCariRaporu")
+                {
+                    if (fCariRaporu != null)
+                        fCariRaporu._tempHizmetKategori = _kategoriServis.obje.Where(x => x.kayittipi == 0 && x.adi == selectedNodes[0].GetValue(treeView.Columns[0]).ToString()).FirstOrDefault();
+                     
+                }
+                this.Close();
+
             }
         }
 

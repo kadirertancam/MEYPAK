@@ -44,7 +44,7 @@ namespace MEYPAK.PRL.STOK.Raporlar
         #endregion
         private void BTStokSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            FStokList fStokList = new FStokList(this.Tag.ToString(), "FStokListesiRaporu");
+            FStokList fStokList = new FStokList(this.Tag.ToString(), "FStokRaporu");
             fStokList.ShowDialog();
             if(_tempStok != null)
                 BTStokSec.Text = _tempStok.adi;
