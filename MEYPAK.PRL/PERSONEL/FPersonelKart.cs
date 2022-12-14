@@ -51,7 +51,7 @@ namespace MEYPAK.PRL.PERSONEL
         //TODO RESİM EKLENECEK - (STOKTAN-CARİDEN RESİM ALINACAK)
 
         ADRESOBJECT.Root _adresObje;
-        PocoPERSONEL _tempPocoPERSONEL;
+        public  PocoPERSONEL _tempPocoPERSONEL;
         string base64 = "";
 
 

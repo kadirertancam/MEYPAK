@@ -17,31 +17,75 @@ using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.Models.PERSONEL;
 using MEYPAK.Entity.PocoModels.PERSONEL;
 using DevExpress.XtraEditors;
+using MEYPAK.Interfaces.Depo;
+using MEYPAK.PRL.DEPO.Raporlar;
+using MEYPAK.PRL.DEPO;
+using MEYPAK.PRL.SIPARIS.Raporlar;
+using MEYPAK.PRL.STOK.Raporlar;
+using MEYPAK.PRL.PERSONEL.Raporlar;
+using System.Windows.Media.TextFormatting;
+using DevExpress.XtraTab;
+using MEYPAK.PRL.CARI;
 
 namespace MEYPAK.PRL.PERSONEL
 {
     public partial class FPersonelList : XtraForm
     {
         FPersonelKart FPersonelKart;
-        public FPersonelList()
+        public FPersonelList(string form = "", string islem = "")
         {
             InitializeComponent();
-            FPersonelKart = (FPersonelKart)Application.OpenForms["FPersonelKart"];
+            _islem = islem;
+            _form = form;
             _personelServis = new GenericWebServis<PocoPERSONEL>();
         }
+        #region Tanımlar
+        string _islem, _form;
+        GenericWebServis<PocoPERSONEL> _personelServis;
+        FPersonelKart fPersonelKart;
+        FPersonelRaporu fPersonelRaporu;
+        public PocoPERSONEL _tempPocoPERSONEL;
+        Main main;
+        int i = 0;
 
-        GenericWebServis<PocoPERSONEL> _personelServis ;
+        #endregion
         private void FPersonelList_Load(object sender, EventArgs e)
         {
             _personelServis.Data(ServisList.PersonelListeServis);
-            DGPersonelList.DataSource= _personelServis.obje;
+            DGPersonelList.DataSource = _personelServis.obje;
+            gridView1.Columns["id"].VisibleIndex = 0;
+            gridView1.Columns["tc"].VisibleIndex = 1;
+            gridView1.Columns["adi"].VisibleIndex = 2;
+            gridView1.Columns["soyadi"].VisibleIndex = 3;
+            gridView1.Columns["adisoyadi"].VisibleIndex = 4;
+            gridView1.Columns["dogumtar"].VisibleIndex = 5;
+
+            foreach (Form frm in Application.OpenForms)
+            {
+                if (_form == frm.Tag)
+                {
+                    if (frm.Name.Contains("FPersonelKart"))
+                        fPersonelKart = (FPersonelKart)frm;
+                    else if (frm.Name.Contains("FPersonelRaporu"))
+                        fPersonelRaporu = (FPersonelRaporu)frm;
+
+                }
+            }
 
         }
 
-        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void DGPersonelList_DoubleClick(object sender, EventArgs e)
         {
-           // FPersonelKart._tempPersonel = _personelServis.obje.Where(x=>x.id.ToString()==DGPersonelList.Rows[e.RowIndex].Cells[0].Value.ToString()).FirstOrDefault();
-            this.Close();
+            if (_islem == "FPersonelKart")
+            {
+                fPersonelKart._tempPocoPERSONEL = _personelServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+            }
+            else if (_islem == "FPersonelRaporu")
+            {
+                fPersonelRaporu._tempPersonel = _personelServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+
+                this.Close();
+            }
         }
     }
-}
+    }

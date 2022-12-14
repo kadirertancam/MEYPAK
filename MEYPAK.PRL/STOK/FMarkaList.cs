@@ -46,10 +46,7 @@ namespace MEYPAK.PRL.STOK
                 {
                     if (frm.Name.Contains("FStokKart"))
                         fStokKart = (FStokKart)frm;
-                }
-                if (_form == frm.Tag)
-                {
-                    if (frm.Name.Contains("FStokListesiRaporu"))
+                    if (frm.Name.Contains("FStokRaporu"))
                         fStokListesiRaporu = (FStokRaporu)frm;
                 }
             }

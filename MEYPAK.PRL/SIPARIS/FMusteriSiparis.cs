@@ -18,6 +18,9 @@ namespace MEYPAK.PRL.SIPARIS
 {
     public partial class FMusteriSiparis : Form
     {
+     
+
+
         public FMusteriSiparis()
         {
             InitializeComponent();
