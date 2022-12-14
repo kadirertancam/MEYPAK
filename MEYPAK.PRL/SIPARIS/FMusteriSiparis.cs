@@ -74,6 +74,7 @@ namespace MEYPAK.PRL.SIPARIS
         public PocoSTOKKASA _tempKasa;
         public PocoSIPARIS _tempSIPARIS;
         public PocoCARIKART _tempCariKart;
+        public PocoHIZMET _tempHizmet;
         DataGridViewButtonColumn DGVStokSec;
         DataGridViewButtonColumn DGVKasaSec;
         DataGridViewComboBoxColumn DGVFiyatList;
@@ -554,7 +555,7 @@ namespace MEYPAK.PRL.SIPARIS
                 _tempSiparisDetay.AddRange(_siparisDetayServis.obje.Select(x => new PocoSiparisKalem()
                 {
                     id = x.id,
-                    Tipi = "STOK",
+                    Tipi = x.tip == 0 ? "STOK" : x.tip == 1 ? "HIZMET" : x.tip == 2 ? "KASA" : x.tip == 3 ? "DEMIRBAS" : "MUHASEBE",
                     StokId = x.stokid,
                     StokKodu = _stokServis.obje.Where(z => z.id == x.stokid).Count() > 0 ? _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().kod : "",//,  TODOO:BAKILACAAAK
                     StokAdı = _stokServis.obje.Where(z => z.id == x.stokid).Count() > 0 ? _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().adi : "",

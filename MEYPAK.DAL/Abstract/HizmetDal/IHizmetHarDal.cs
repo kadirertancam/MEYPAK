@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MEYPAK.DAL.Abstract.StokDal
+namespace MEYPAK.DAL.Abstract.HizmetDal
 {
-    public interface IHizmetHarDal:IGeneric<MPHIZMETHAR>
+    public interface IHizmetHarDal : IGeneric<MPHIZMETHAR>
     {
-        
+        public MPHIZMETHAR EkleyadaGuncelle(MPHIZMETHAR entity);
     }
 }

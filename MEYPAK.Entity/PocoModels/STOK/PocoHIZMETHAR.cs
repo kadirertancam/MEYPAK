@@ -10,25 +10,27 @@ namespace MEYPAK.Entity.PocoModels.STOK
     public class PocoHIZMETHAR:SUPERPOCOMODEL
     {
         [Required]
-        public int HIZMETID { get; set; }
-        public int HAREKETTURU { get; set; }        // 1SATISFATURA-2ALISFATURA-3SATISIRSALIYE-4ALISIRSALIYE-5SATIFATURAIADE-6ALISFATURAIADE-7SATISIRSALIYEIADE-8ALISIRSALIYEIADE-9MUHTELIF-10DAT-11Sayim
-        public int SIRKETID { get; set; } = 0;
-        public int SUBEID { get; set; } = 0;
-        public int DEPOID { get; set; } = 0;
-        [StringLength(500)]
-        public string ACIKLAMA { get; set; } = "";
-        [StringLength(100)]
-        public string BELGE_NO { get; set; } = "";
-        public int FATURAID { get; set; } = 0;
-        public int FATURADETAYID { get; set; } = 0;
-        public int IRSALIYEID { get; set; } = 0;
-        public int IRSALIYEDETAYID { get; set; } = 0;
-        public decimal KDV { get; set; } = 0;
-        public int IO { get; set; } = 0;
-        public decimal NETFIYAT { get; set; } = 0;
-        public decimal MIKTAR { get; set; } = 0;
-        public decimal NETTOPLAM { get; set; } = 0;
-        public decimal BRUTTOPLAM { get; set; } = 0;
-        public int KULLANICIID { get; set; } = 0;
+        public int hizmetid { get; set; }
+        public int hareketturu { get; set; }
+        public int sirketid { get; set; } = 0;
+        public int subeid { get; set; } = 0;
+        public int depoid { get; set; } = 0;
+        public string aciklama { get; set; } = "";
+        public string belgE_NO { get; set; } = "";
+        public int faturaid { get; set; } = 0;
+        public int faturadetayid { get; set; } = 0;
+        public int irsaliyeid { get; set; } = 0;
+        public int irsaliyedetayid { get; set; } = 0;
+        public decimal kdv { get; set; } = 0;
+        public int io { get; set; } = 0;
+        public decimal netfiyat { get; set; } = 0;
+        public decimal miktar { get; set; } = 0;
+        public int birim { get; set; } = 0;
+
+        public decimal nettoplam { get; set; } = 0;
+        public decimal bruttoplam { get; set; } = 0;
+    
+        public int kullaniciid { get; set; } = 0;
+      
     }
 }

@@ -63,62 +63,71 @@ namespace MEYPAK.PRL
         {
             if (CBOlcuBr.Enabled == false && _tempStok != null)
             {
-                byte i = 0;
-                _StokOlcuBrServis.Data(ServisList.StokOlcuBrListeServis);
-                DataTable datatable = new DataTable();
-                DataColumn NUM = new DataColumn("NUM", typeof(int));
-                datatable.Columns.Add(NUM);
-                DataColumn OLCUBR = new DataColumn("OLCUBR", typeof(int));
-                datatable.Columns.Add(OLCUBR);
-                DataColumn KATSAYI = new DataColumn("KATSAYI", typeof(decimal));
-                datatable.Columns.Add(KATSAYI);
-                DataColumn ID = new DataColumn("ID", typeof(int));
-                datatable.Columns.Add(ID);
-
-                ID.ReadOnly= true;
-                NUM.ReadOnly= true;
-                //_StokOlcuBrServis.obje.Where(x=> x.stokid==_tempStok.id&& x.kayittipi == 0).ToList()[i].olcubrid
-                //_StokOlcuBrServis.obje.Where(x=>x.stokid==_tempStok.id && x.kayittipi==0)
-                DataTable datatb = new DataTable();
-                datatb.Columns.Add("OLCUBR", typeof(int));
-                datatb.Columns.Add("ADI", typeof(string));
-                foreach (var item in _PocoOlcuBrServis.obje.Where(x=>x.kayittipi==0 ))
+                try
                 {
-                    datatb.Rows.Add(item.id, item.adi);
+                    byte i = 0;
+                    _StokOlcuBrServis.Data(ServisList.StokOlcuBrListeServis);
+                    DataTable datatable = new DataTable();
+                    DataColumn NUM = new DataColumn("NUM", typeof(int));
+                    datatable.Columns.Add(NUM);
+                    DataColumn OLCUBR = new DataColumn("OLCUBR", typeof(int));
+                    datatable.Columns.Add(OLCUBR);
+                    DataColumn KATSAYI = new DataColumn("KATSAYI", typeof(decimal));
+                    datatable.Columns.Add(KATSAYI);
+                    DataColumn ID = new DataColumn("ID", typeof(int));
+                    datatable.Columns.Add(ID);
+
+                    ID.ReadOnly = true;
+                    NUM.ReadOnly = true;
+                    //_StokOlcuBrServis.obje.Where(x=> x.stokid==_tempStok.id&& x.kayittipi == 0).ToList()[i].olcubrid
+                    //_StokOlcuBrServis.obje.Where(x=>x.stokid==_tempStok.id && x.kayittipi==0)
+                    DataTable datatb = new DataTable();
+                    datatb.Columns.Add("OLCUBR", typeof(int));
+                    datatb.Columns.Add("ADI", typeof(string));
+                    foreach (var item in _PocoOlcuBrServis.obje.Where(x => x.kayittipi == 0))
+                    {
+                        datatb.Rows.Add(item.id, item.adi);
+                    }
+                    foreach (var item in _PocoOlcuBrServis.obje.Where(x => x.kayittipi == 0))
+                    {
+                        var item2 = _StokOlcuBrServis.obje.Where(x => x.stokid == _tempStok.id && x.kayittipi == 0 && x.num == i + 1).Count() >= 1 ? _StokOlcuBrServis.obje.Where(x => x.stokid == _tempStok.id && x.kayittipi == 0 && x.num == i + 1).FirstOrDefault() : null;
+                        datatable.Rows.Add(
+                        i + 1,
+                        item2 != null ? item2.olcubrid : 0,
+                        item2 != null ? item2.katsayi : 0,
+                        item2 != null ? item2.id : 0);
+                        i++;
+                    }
+
+                    gridControl1.DataSource = datatable;
+
+                    RepositoryItemLookUpEdit riLookupolcubr = new RepositoryItemLookUpEdit();
+                    riLookupolcubr.DataSource = datatb;
+                    riLookupolcubr.ValueMember = "OLCUBR";
+                    riLookupolcubr.DisplayMember = "ADI";
+                    riLookupolcubr.NullText = "Sec";
+                    riLookupolcubr.HotTrackItems = true;
+                    riLookupolcubr.BestFitWidth = 170;
+                    riLookupolcubr.DropDownRows = datatb.Rows.Count;
+                    riLookupolcubr.AcceptEditorTextAsNewValue = DefaultBoolean.True;
+                    riLookupolcubr.AutoSearchColumnIndex = 1;
+                    riLookupolcubr.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
+
+
+
+                    gridView1.Columns["OLCUBR"].ColumnEdit = riLookupolcubr;
+                    gridView1.Columns["OLCUBR"].OptionsColumn.AllowEdit = true;
+                    gridView1.Columns["OLCUBR"].Width = 170;
+                    gridView1.Columns["ID"].Visible = false;
                 }
-                gridControl1.DataSource = datatable;
-
-                RepositoryItemLookUpEdit riLookupolcubr = new RepositoryItemLookUpEdit();
-                riLookupolcubr.DataSource = datatb;
-                riLookupolcubr.ValueMember = "OLCUBR";
-                riLookupolcubr.DisplayMember = "ADI";
-                riLookupolcubr.NullText = "Sec";
-                riLookupolcubr.HotTrackItems = true;
-                riLookupolcubr.BestFitWidth = 170;
-                riLookupolcubr.DropDownRows = datatb.Rows.Count;
-                riLookupolcubr.AcceptEditorTextAsNewValue = DefaultBoolean.True;
-                riLookupolcubr.AutoSearchColumnIndex = 1;
-                riLookupolcubr.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
-
-
-                
-                gridView1.Columns["OLCUBR"].ColumnEdit = riLookupolcubr;
-                gridView1.Columns["OLCUBR"].OptionsColumn.AllowEdit = true;
-                gridView1.Columns["OLCUBR"].Width = 170;
-                gridView1.Columns["ID"].Visible = false;
-                var b = _StokOlcuBrServis.obje.Where(x => x.stokid == _tempStok.id && x.kayittipi == 0).Count();
-                var a = _StokOlcuBrServis.obje.Where(x => x.stokid == _tempStok.id && x.kayittipi == 0).Count() > i + 1 ? _StokOlcuBrServis.obje.Where(x => x.stokid == _tempStok.id && x.kayittipi == 0).ToList()[i].olcubrid : 0;
-
-                foreach (var item in _PocoOlcuBrServis.obje.Where(x => x.kayittipi == 0))
+                catch (Exception)
                 {
-                    var item2 = _StokOlcuBrServis.obje.Where(x => x.stokid == _tempStok.id && x.kayittipi == 0 && x.num == i + 1).Count() >= 1 ? _StokOlcuBrServis.obje.Where(x => x.stokid == _tempStok.id && x.kayittipi == 0 && x.num == i + 1).FirstOrDefault() : null;
-                    datatable.Rows.Add(
-                    i + 1,
-                    item2 !=null ? item2.olcubrid : 0,
-                    item2 !=null ? item2.katsayi : 0,
-                    item2 !=null ? item2.id:0 );
-                    i++;
+
                 }
+                //var b = _StokOlcuBrServis.obje.Where(x => x.stokid == _tempStok.id && x.kayittipi == 0).Count();
+                //var a = _StokOlcuBrServis.obje.Where(x => x.stokid == _tempStok.id && x.kayittipi == 0).Count() > i + 1 ? _StokOlcuBrServis.obje.Where(x => x.stokid == _tempStok.id && x.kayittipi == 0).ToList()[i].olcubrid : 0;
+
+
 
 
 

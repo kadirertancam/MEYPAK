@@ -15,6 +15,8 @@ using System.Data;
 using MEYPAK.Entity.PocoModels.FATURA;
 using DevExpress.DataProcessing;
 using MEYPAK.PRL.Assets;
+using DevExpress.ClipboardSource.SpreadsheetML;
+using DevExpress.Mvvm.Native;
 
 namespace MEYPAK.PRL.SIPARIS
 {
@@ -59,6 +61,8 @@ namespace MEYPAK.PRL.SIPARIS
             kDVHesaps = new KDVHesap();
             _seriServis = new GenericWebServis<PocoSERI>();
             _seriHarServis = new GenericWebServis<PocoSERIHAR>();
+            _hizmetHarServis = new GenericWebServis<PocoHIZMETHAR>();
+            _hizmetServis = new GenericWebServis<PocoHIZMET>();
         }
 
         #region TANIMLAR
@@ -74,6 +78,7 @@ namespace MEYPAK.PRL.SIPARIS
         public PocoSTOKKASA _tempKasa;
         public PocoFATURA _tempFatura;
         public PocoCARIKART _tempCariKart;
+        public PocoHIZMET _tempHizmet;
         DataGridViewButtonColumn DGVStokSec;
         DataGridViewButtonColumn DGVKasaSec;
         DataGridViewComboBoxColumn DGVFiyatList;
@@ -87,6 +92,7 @@ namespace MEYPAK.PRL.SIPARIS
         GenericWebServis<PocoCARIKART> _cariKart;
         GenericWebServis<PocoSTOK> _stokServis;
         FStokKasaList _fStokKasaList;
+        FHizmetList _fHizmetList;
         GenericWebServis<PocoCARIALTHES> _cariAltHesapServis;
         GenericWebServis<PocoPARABIRIM> _paraBirimServis;
         GenericWebServis<PocoSTOKKASAHAR> _stokKasaHarServis;
@@ -96,6 +102,8 @@ namespace MEYPAK.PRL.SIPARIS
         GenericWebServis<PocoSTOKKASAMARKA> _stokKasaMarkaServis;
         GenericWebServis<PocoSERIHAR> _seriHarServis;
         GenericWebServis<PocoSERI> _seriServis;
+        GenericWebServis<PocoHIZMETHAR> _hizmetHarServis;
+        GenericWebServis<PocoHIZMET> _hizmetServis;
         List<KasaList> tempkasalist;
         FGetKunye _fGetKunye;
         RepositoryItemLookUpEdit riLookup, riLookup3;
@@ -583,13 +591,16 @@ namespace MEYPAK.PRL.SIPARIS
                 riLookup3.DataSource = _kasaaa.Where(x => x.num == gridView1.FocusedRowHandle).Count() > 0 ? _kasaaa.Where(x => x.num == gridView1.FocusedRowHandle).FirstOrDefault().KasaList.Select(x => new { Marka = x.MARKA, Adı = x.KASAADI, Miktar = x.MIKTAR }) : "";
                 _faturadetayServis.Data(ServisList.FaturaDetayListeServis + 2, null, "query=FATURAID=" + _tempFatura.id.ToString() + " AND KAYITTIPI=0");
                 _olcuBr.Data(ServisList.OlcuBrListeServis);
+
+
                 _tempFaturaDetay.AddRange(_faturadetayServis.obje.Select(x => new PocoFaturaKalem()
                 {
+
                     id = x.id,
-                    Tipi = "STOK",
+                    Tipi = x.tip==0 ? "STOK" : x.tip==1 ? "HIZMET" : x.tip ==2 ? "KASA" : x.tip == 3 ? "DEMIRBAS" : "MUHASEBE" ,
                     StokId = x.stokid,
-                    StokKodu = _stokServis.obje.Where(z => z.id == x.stokid).Count() > 0 ? _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().kod:"",//,  TODOO:BAKILACAAAK
-                    StokAdı = _stokServis.obje.Where(z => z.id == x.stokid).Count()>0? _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().adi:"",
+                    StokKodu = x.tip==0 ? _stokServis.obje.Where(z => z.id == x.stokid).Count() > 0 ? _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().kod:"": x.tip == 1 ? _hizmetServis.obje.Where(y=>y.id==x.stokid).Count()>0? _hizmetServis.obje.Where(y => y.id == x.stokid).FirstOrDefault().kod:"" : "",//,  TODOO:BAKILACAAAK
+                    StokAdı = x.tip == 0 ? _stokServis.obje.Where(z => z.id == x.stokid).Count()>0? _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().adi:"": x.tip == 1 ? _hizmetServis.obje.Where(y => y.id == x.stokid).Count() > 0 ? _hizmetServis.obje.Where(y => y.id == x.stokid).FirstOrDefault().kod : "" : "",
                     Birim = _olcuBr.obje.Where(y => y.id == x.birimid).Count()>0 ?_olcuBr.obje.Where(y => y.id == x.birimid).FirstOrDefault().adi:"",
                     Kunye = x.kunye,
                     NetFiyat = x.netfiyat,
@@ -655,7 +666,8 @@ namespace MEYPAK.PRL.SIPARIS
 
         private void RepositoryItemButtonEdit3_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
-
+            if (gridView1.GetFocusedRowCellValue("Tipi") == "STOK")
+            {
             if (_kasaaa.Where(x => x.num.ToString() == gridView1.FocusedRowHandle.ToString()).Count() > 0)
             {
 
@@ -675,6 +687,7 @@ namespace MEYPAK.PRL.SIPARIS
             }
             KasaAltBilgiDoldur();
             GCIrsaliye.RefreshDataSource();
+            }
         }
 
         private void RepositoryItemButtonEdit_ButtonClick(object sender, ButtonPressedEventArgs e)
@@ -710,13 +723,13 @@ namespace MEYPAK.PRL.SIPARIS
                     //}
                     //else
                     //{
-                        gridView1.SetFocusedRowCellValue("Tipi", "STOK");
-                        gridView1.SetFocusedRowCellValue("StokId", _tempStok.id);
-                        gridView1.SetFocusedRowCellValue("StokKodu", _tempStok.kod);
-                        gridView1.SetFocusedRowCellValue("StokAdı", _tempStok.adi);
-                        gridView1.SetFocusedRowCellValue("Kdv", _tempStok.satiskdv);
-                        gridView1.SetFocusedRowCellValue("BirimFiyat", _tempCariKart != null && _tempCariKart.id > 0 && _stokFiyatServis.obje.Where(x => x.cariid == _tempCariKart.id).Count() > 0 && _stokFiyatHarServis.obje.Where(z => z.stokfiyatid == _stokFiyatServis.obje.Where(x => x.cariid == _tempCariKart.id).LastOrDefault().id && z.stokid == _tempStok.id).Count() > 0 ? _stokFiyatHarServis.obje.Where(z => z.stokfiyatid == _stokFiyatServis.obje.Where(x => x.cariid == _tempCariKart.id).LastOrDefault().id && z.stokid == _tempStok.id).LastOrDefault().fiyat : 0);
-                        gridView1.SetFocusedRowCellValue("Birim", _stokOlcuBr.obje.Where(x => x.stokid == _tempStok.id).Select(x => _olcuBr.obje.Where(z => z.id == x.olcubrid).FirstOrDefault().adi).FirstOrDefault().ToString());
+                    gridView1.SetFocusedRowCellValue("Tipi", "STOK");
+                    gridView1.SetFocusedRowCellValue("StokId", _tempStok.id);
+                    gridView1.SetFocusedRowCellValue("StokKodu", _tempStok.kod);
+                    gridView1.SetFocusedRowCellValue("StokAdı", _tempStok.adi);
+                    gridView1.SetFocusedRowCellValue("Kdv", _tempStok.satiskdv);
+                    gridView1.SetFocusedRowCellValue("BirimFiyat", _tempCariKart != null && _tempCariKart.id > 0 && _stokFiyatServis.obje.Where(x => x.cariid == _tempCariKart.id).Count() > 0 && _stokFiyatHarServis.obje.Where(z => z.stokfiyatid == _stokFiyatServis.obje.Where(x => x.cariid == _tempCariKart.id).LastOrDefault().id && z.stokid == _tempStok.id).Count() > 0 ? _stokFiyatHarServis.obje.Where(z => z.stokfiyatid == _stokFiyatServis.obje.Where(x => x.cariid == _tempCariKart.id).LastOrDefault().id && z.stokid == _tempStok.id).LastOrDefault().fiyat : 0);
+                    gridView1.SetFocusedRowCellValue("Birim", _stokOlcuBr.obje.Where(x => x.stokid == _tempStok.id).Select(x => _olcuBr.obje.Where(z => z.id == x.olcubrid).FirstOrDefault().adi).FirstOrDefault().ToString());
                     //}
 
                     gridView1.SetFocusedRowCellValue("Doviz", _paraBirimServis.obje.Where(x => x.adi == "TÜRK LİRASI").FirstOrDefault().id);
@@ -752,13 +765,33 @@ namespace MEYPAK.PRL.SIPARIS
                 }
 
             }
+            else if (gridView1.GetFocusedRowCellValue("Tipi") == "HIZMET")
+            {
+                _fHizmetList = new FHizmetList(this.Tag.ToString(), "FFatura");
+                _fHizmetList.ShowDialog();
+                if (_tempHizmet!=null)
+                {
+                    _tempPocokalem = new PocoFaturaKalem()
+                    {
+                        Tipi = "HIZMET",
+                        StokId = _tempHizmet.id,
+                        StokKodu = _tempHizmet.kod,
+                        StokAdı = _tempHizmet.adi,
+                        sıra = gridView1.GetFocusedDataSourceRowIndex(),
+                        Birim = "",//_olcuBr.obje.Where(x => x.adi == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "DGVOlcuBr").ToString()).FirstOrDefault().adi,
+                                   //KasaAdı = "",
+                        Kdv = 0  //_tempKasa.satiskdv,
+                    };
+                    _tempFaturaDetay[gridView1.FocusedRowHandle] = _tempPocokalem;
+                    GCIrsaliye.DataSource = _tempFaturaDetay;
+                }
 
 
+            }
 
+                /* DGVFiyatList.DataSource = _tempStok.MPSTOKFIYATLISTHAR.Select(x => x.MPSTOKFIYATLIST.FIYATLISTADI).ToList();*/ //////////////////////////// BAKILCAK
 
-            /* DGVFiyatList.DataSource = _tempStok.MPSTOKFIYATLISTHAR.Select(x => x.MPSTOKFIYATLIST.FIYATLISTADI).ToList();*/ //////////////////////////// BAKILCAK
-
-            gridView1.RefreshData();
+                gridView1.RefreshData();
 
         }
 
@@ -883,6 +916,7 @@ namespace MEYPAK.PRL.SIPARIS
                 _olcuBr.Data(ServisList.OlcuBrListeServis);
                 int i = 0;
                 _stokHarServis.Data(ServisList.StokHarListeServis);
+                _hizmetHarServis.Data(ServisList.HizmetHarListeServis);
                 foreach (var item in _tempFaturaDetay.Where(x => x.StokKodu != "" && x.StokKodu!=null).ToList())
                 {
                     var stokolcubr = _stokOlcuBr.obje.Where(x => x.stokid == item.StokId).FirstOrDefault();
@@ -915,9 +949,11 @@ namespace MEYPAK.PRL.SIPARIS
                         num = item.sıra,
                         hareketdurumu = 0,
                         listefiyatid = 0,
-                        tip = 0,
+                        tip =  item.Tipi=="STOK" ? Convert.ToByte(0) : item.Tipi == "HIZMET" ? Convert.ToByte(1) : item.Tipi == "KASA" ? Convert.ToByte(2) : item.Tipi == "DEMIRBAS" ? Convert.ToByte(3) :Convert.ToByte(4),
                         kdvtutari = item.KdvTutarı
                     });
+
+            
                     if (_tempFatura == null)
                     {
                         _seriHarServis.Data(ServisList.SeriHarListeServis);
@@ -925,27 +961,53 @@ namespace MEYPAK.PRL.SIPARIS
                         tempserihar.serino = tempserihar.serino + 1;
                         _seriHarServis.Data(ServisList.SeriHarEkleServis, tempserihar);
                     }
-                    _stokHarServis.Data(ServisList.StokHarEkleServis, new Entity.PocoModels.STOK.PocoSTOKHAR()
+                    if (item.Tipi == "STOK")
                     {
-                        id = _stokHarServis.obje.Where(x => x.faturadetayid == _faturadetayServis.obje2.id).Count() > 0 ? _stokHarServis.obje.Where(x => x.faturadetayid == _faturadetayServis.obje2.id).FirstOrDefault().id : 0,
-                        faturadetayid = _faturadetayServis.obje2.id,
-                        faturaid = _faturaServis.obje2.id,
-                        aciklama = item.Acıklama,
-                        belgE_NO = _faturaServis.obje2.belgeno,
-                        hareketturu = 1,
-                        birim = _olcuBr.obje.Where(x => x.adi.ToString() == item.Birim).FirstOrDefault().id,
-                        bruttoplam = item.BrütToplam,
-                        depoid = _faturaServis.obje2.depoid,
-                        io = 0,
-                        kdv = item.Kdv,
-                        miktar = item.Safi,
-                        netfiyat = item.NetFiyat,
-                        nettoplam = item.NetToplam,
-                        stokid = item.StokId,
-                        sayimid = 0,
-                        kunye = item.Kunye,
-                    });
 
+                        _stokHarServis.Data(ServisList.StokHarEkleServis, new Entity.PocoModels.STOK.PocoSTOKHAR()
+                        {
+                            id = _stokHarServis.obje.Where(x => x.faturadetayid == _faturadetayServis.obje2.id).Count() > 0 ? _stokHarServis.obje.Where(x => x.faturadetayid == _faturadetayServis.obje2.id).FirstOrDefault().id : 0,
+                            faturadetayid = _faturadetayServis.obje2.id,
+                            faturaid = _faturaServis.obje2.id,
+                            aciklama = item.Acıklama,
+                            belgE_NO = _faturaServis.obje2.belgeno,
+                            hareketturu = 1,
+                            birim = _olcuBr.obje.Where(x => x.adi.ToString() == item.Birim).FirstOrDefault().id,
+                            bruttoplam = item.BrütToplam,
+                            depoid = _faturaServis.obje2.depoid,
+                            io = 0,
+                            kdv = item.Kdv,
+                            miktar = item.Safi,
+                            netfiyat = item.NetFiyat,
+                            nettoplam = item.NetToplam,
+                            stokid = item.StokId,
+                            sayimid = 0,
+                            kunye = item.Kunye,
+                        });
+                    }
+                    else if(item.Tipi== "HIZMET")
+                    {
+
+                        _hizmetHarServis.Data(ServisList.HizmetHarEkleServis, new Entity.PocoModels.STOK.PocoHIZMETHAR()
+                        {
+                            id = _hizmetHarServis.obje.Where(x => x.faturadetayid == _faturadetayServis.obje2.id).Count() > 0 ? _hizmetHarServis.obje.Where(x => x.faturadetayid == _faturadetayServis.obje2.id).FirstOrDefault().id : 0,
+                            faturadetayid = _faturadetayServis.obje2.id,
+                            faturaid = _faturaServis.obje2.id,
+                            aciklama = item.Acıklama,
+                            belgE_NO = _faturaServis.obje2.belgeno,
+                            hareketturu = 1,
+                            io=0,
+                            birim = _olcuBr.obje.Where(x => x.adi.ToString() == item.Birim).FirstOrDefault().id,
+                            bruttoplam = item.BrütToplam,
+                            depoid = _faturaServis.obje2.depoid,
+                            kdv = item.Kdv,
+                            miktar = item.Safi,
+                            netfiyat = item.NetFiyat,
+                            nettoplam = item.NetToplam,
+                            hizmetid = item.StokId,
+                    
+                        });
+                    }
                     i++;
 
 
@@ -1060,6 +1122,7 @@ namespace MEYPAK.PRL.SIPARIS
             _olcuBr.Data(ServisList.OlcuBrListeServis);
             _stokOlcuBr.Data(ServisList.StokOlcuBrListeServis);
             _stokServis.Data(ServisList.StokListeServis);
+            _hizmetServis.Data(ServisList.HizmetListeServis);
             _stokKasaHarServis.Data(ServisList.StokKasaHarListeServis);
             DataGridYapilandir();
             TBGun.Properties.MaxLength = 4;
