@@ -30,8 +30,7 @@ namespace MEYPAK.PRL.CARI
             _cariAltHesapServis.Data(ServisList.CariAltHesListeServis);
             CBParaBrm.Properties.DataSource = _parabirIMServis.obje.Select(x => x.adi).ToList(); //comboxun içini parabirim formundan doldurur
             RGCariHareket.SelectedIndex = 0;
-          
-            CBAltHesap.Properties.DataSource = _cariAltHesapServis.obje.Select(x => x.adi).ToList(); //combobox ın içini althesap formundan doldurur
+
 
 
         }
@@ -44,53 +43,20 @@ namespace MEYPAK.PRL.CARI
 
         public void Doldur()
         {
-          
+
             BTCariSec.Text = _tempCARIKART.kod;
-            TBAdi.Text = _tempCARIKART.unvan==""? _tempCARIKART.adi + " " + _tempCARIKART.soyadi : _tempCARIKART.unvan;
+            TBAdi.Text = _tempCARIKART.unvan == "" ? _tempCARIKART.adi + " " + _tempCARIKART.soyadi : _tempCARIKART.unvan;
             DGCariHareket.DataSource = _cariHarServis.obje.Where(x => x.cariid == _tempCARIKART.id);
             LBAlacakDeger.Text = _cariHarServis.obje.Where(x => x.cariid == _tempCARIKART.id).Sum(x => x.alacak).ToString();
             LBBorcDeger.Text = _cariHarServis.obje.Where(x => x.cariid == _tempCARIKART.id).Sum(x => x.borc).ToString();
-            LBBakiye.Text = _cariHarServis.obje.Where(x => x.cariid == _tempCARIKART.id).Sum(x => x.borc - x.alacak).ToString();
-            CBAltHesap.Text = _tempAltHesap.adi;
-            CBParaBrm.Text = _cariAltHesapServis.ToString();
+            LBBakiyeDeger.Text = _cariHarServis.obje.Where(x => x.cariid == _tempCARIKART.id).Sum(x => x.borc - x.alacak).ToString();
             DGCariHareket.Refresh();
             DGCariHareket.RefreshDataSource();
 
         }
 
-        private void TBCariKodu_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
-        {
-            _cariHarServis.Data(ServisList.CariHarListeServis);
-          //  _fCariList = new FCariList(this.Tag.ToString(),"carihar");
-            _fCariList.ShowDialog();
-            temizle();
-            Doldur();
-          
-        }
 
-        private void BTCariHareketKaydet_Click_1(object sender, EventArgs e)
-        {
-            _cariHarServis.Data(ServisList.CariHarEkleServis, new PocoCARIHAR()
-            {
-                cariid = _tempCARIKART.id,
-                aciklama = TBAciklama.Text,
-                alacak = RGCariHareket.SelectedIndex == 0 ? Convert.ToDecimal(TBFiyat.Text) : 0,
-                borc = RGCariHareket.SelectedIndex == 1 ? Convert.ToDecimal(TBFiyat.Text) : 0,
-                belgE_NO = TBBelgeNo.Text,
-                harekettipi = 5,
-          //TO DO:      // = Convert.ToDecimal(CBSube.Text),   //CBSUbe eklenecek
-                kur = Convert.ToDecimal(TBKur.Text),
-                tutar = Convert.ToDecimal(TBFiyat.Text),
-                parabirimid = _parabirIMServis.obje.Where(x => x.adi.ToString() == CBParaBrm.EditValue.ToString()).FirstOrDefault().id,
-                id = _tempAltHesap.id,
-                harekettarihi = DateTime.Now,
 
-                
-
-            });
-            temizle();
-            Doldur();
-        }
         void temizle()
         {
             TBAciklama.Text = "";
@@ -99,7 +65,7 @@ namespace MEYPAK.PRL.CARI
             TBBelgeNo.Text = "";
             CBParaBrm.Text = "";
             CBAltHesap.Text = "";
-          
+
         }
 
         private void FCariHareket_Load(object sender, EventArgs e)
@@ -109,10 +75,39 @@ namespace MEYPAK.PRL.CARI
 
         private void BTCariSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            _fCariList=new FCariList();
+            _cariHarServis.Data(ServisList.CariHarListeServis);
+            _fCariList = new FCariList(this.Tag.ToString(), "carihar");
             _fCariList.ShowDialog();
-            if(_tempCARIKART!=null)
-                Doldur();
+            temizle();
+            Doldur();
+            //_fCariList=new FCariList();
+            //_fCariList.ShowDialog();
+            //if(_tempCARIKART!=null)
+            //    Doldur();
+        }
+
+        private void BTKaydet_Click(object sender, EventArgs e)
+        {
+            _cariHarServis.Data(ServisList.CariHarEkleServis, new PocoCARIHAR()
+            {
+                cariid = _tempCARIKART.id,
+                aciklama = TBAciklama.Text,
+                alacak = RGCariHareket.SelectedIndex == 0 ? Convert.ToDecimal(TBFiyat.Text) : 0,
+                borc = RGCariHareket.SelectedIndex == 1 ? Convert.ToDecimal(TBFiyat.Text) : 0,
+                belgE_NO = TBBelgeNo.Text,
+                harekettipi = 5,
+                //TO DO:      // = Convert.ToDecimal(CBSube.Text),   //CBSUbe eklenecek
+                kur = Convert.ToDecimal(TBKur.Text),
+                tutar = Convert.ToDecimal(TBFiyat.Text),
+                parabirimid = _parabirIMServis.obje.Where(x => x.adi.ToString() == CBParaBrm.EditValue.ToString()).FirstOrDefault().id,
+                id = _tempAltHesap.id,
+                harekettarihi = DateTime.Now,
+
+
+
+            });
+            temizle();
+            Doldur();
         }
     }
 }

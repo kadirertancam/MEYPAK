@@ -43,7 +43,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1160, 651);
+            this.panelControl1.Size = new System.Drawing.Size(998, 568);
             this.panelControl1.TabIndex = 1;
             // 
             // DGSayimList
@@ -52,7 +52,7 @@
             this.DGSayimList.Location = new System.Drawing.Point(2, 2);
             this.DGSayimList.MainView = this.gridView1;
             this.DGSayimList.Name = "DGSayimList";
-            this.DGSayimList.Size = new System.Drawing.Size(1156, 647);
+            this.DGSayimList.Size = new System.Drawing.Size(994, 564);
             this.DGSayimList.TabIndex = 1;
             this.DGSayimList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -69,8 +69,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1160, 651);
+            this.ClientSize = new System.Drawing.Size(998, 568);
             this.Controls.Add(this.panelControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FSayimList";
             this.Text = "FSayimList";
             this.Load += new System.EventHandler(this.FSayimList_Load);

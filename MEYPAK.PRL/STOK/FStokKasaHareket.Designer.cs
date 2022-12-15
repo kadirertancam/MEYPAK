@@ -83,6 +83,7 @@
             this.gridControl2 = new DevExpress.XtraGrid.GridControl();
             this.tileView1 = new DevExpress.XtraGrid.Views.Tile.TileView();
             this.treeListBand1 = new DevExpress.XtraTreeList.Columns.TreeListBand();
+            this.panelControl8 = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
@@ -114,6 +115,8 @@
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tileView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl8)).BeginInit();
+            this.panelControl8.SuspendLayout();
             this.SuspendLayout();
             // 
             // FIRMA
@@ -223,7 +226,7 @@
             // groupControl1
             // 
             this.groupControl1.CaptionImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("groupControl1.CaptionImageOptions.Image")));
-            this.groupControl1.Controls.Add(this.BTKaydet);
+            this.groupControl1.Controls.Add(this.panelControl8);
             this.groupControl1.Controls.Add(this.label4);
             this.groupControl1.Controls.Add(this.DTPTarih);
             this.groupControl1.Controls.Add(this.label3);
@@ -233,7 +236,6 @@
             this.groupControl1.Controls.Add(this.label1);
             this.groupControl1.Controls.Add(this.TBBelgeNo);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl1.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             this.groupControl1.Location = new System.Drawing.Point(2, 2);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(731, 197);
@@ -245,39 +247,39 @@
             this.BTKaydet.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
             this.BTKaydet.Appearance.Options.UseBackColor = true;
             this.BTKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTKaydet.ImageOptions.Image")));
-            this.BTKaydet.Location = new System.Drawing.Point(611, 68);
+            this.BTKaydet.Location = new System.Drawing.Point(5, 5);
             this.BTKaydet.Name = "BTKaydet";
             this.BTKaydet.Size = new System.Drawing.Size(95, 40);
             this.BTKaydet.TabIndex = 8;
-            this.BTKaydet.Text = "&KAYDET";
+            this.BTKaydet.Text = "&Kaydet";
             this.BTKaydet.Click += new System.EventHandler(this.BTKaydet_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(41, 52);
+            this.label4.Location = new System.Drawing.Point(56, 72);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.Size = new System.Drawing.Size(31, 13);
             this.label4.TabIndex = 7;
-            this.label4.Text = "Tarih:";
+            this.label4.Text = "Tarih";
             // 
             // DTPTarih
             // 
             this.DTPTarih.EditValue = null;
-            this.DTPTarih.Location = new System.Drawing.Point(98, 50);
+            this.DTPTarih.Location = new System.Drawing.Point(103, 68);
             this.DTPTarih.Name = "DTPTarih";
             this.DTPTarih.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.DTPTarih.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.DTPTarih.Properties.NullDate = new System.DateTime(2022, 11, 26, 11, 32, 39, 904);
-            this.DTPTarih.Size = new System.Drawing.Size(180, 20);
+            this.DTPTarih.Size = new System.Drawing.Size(190, 20);
             this.DTPTarih.TabIndex = 6;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(345, 52);
+            this.label3.Location = new System.Drawing.Point(360, 72);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 13);
             this.label3.TabIndex = 5;
@@ -285,41 +287,41 @@
             // 
             // TBAciklama
             // 
-            this.TBAciklama.Location = new System.Drawing.Point(399, 50);
+            this.TBAciklama.Location = new System.Drawing.Point(414, 69);
             this.TBAciklama.Name = "TBAciklama";
-            this.TBAciklama.Size = new System.Drawing.Size(178, 85);
+            this.TBAciklama.Size = new System.Drawing.Size(178, 70);
             this.TBAciklama.TabIndex = 4;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(36, 118);
+            this.label2.Location = new System.Drawing.Point(51, 123);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 13);
+            this.label2.Size = new System.Drawing.Size(36, 13);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Miktar:";
+            this.label2.Text = "Miktar";
             // 
             // TBMiktar
             // 
-            this.TBMiktar.Location = new System.Drawing.Point(98, 115);
+            this.TBMiktar.Location = new System.Drawing.Point(103, 119);
             this.TBMiktar.Name = "TBMiktar";
-            this.TBMiktar.Size = new System.Drawing.Size(180, 20);
+            this.TBMiktar.Size = new System.Drawing.Size(190, 20);
             this.TBMiktar.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(23, 86);
+            this.label1.Location = new System.Drawing.Point(38, 100);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 13);
+            this.label1.Size = new System.Drawing.Size(49, 13);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Belge No:";
+            this.label1.Text = "Belge No";
             // 
             // TBBelgeNo
             // 
-            this.TBBelgeNo.Location = new System.Drawing.Point(98, 83);
+            this.TBBelgeNo.Location = new System.Drawing.Point(103, 93);
             this.TBBelgeNo.Name = "TBBelgeNo";
-            this.TBBelgeNo.Size = new System.Drawing.Size(180, 20);
+            this.TBBelgeNo.Size = new System.Drawing.Size(190, 20);
             this.TBBelgeNo.TabIndex = 0;
             // 
             // panelControl6
@@ -508,6 +510,16 @@
             this.treeListBand1.Caption = "ADI";
             this.treeListBand1.Name = "treeListBand1";
             // 
+            // panelControl8
+            // 
+            this.panelControl8.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl8.Controls.Add(this.BTKaydet);
+            this.panelControl8.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelControl8.Location = new System.Drawing.Point(620, 33);
+            this.panelControl8.Name = "panelControl8";
+            this.panelControl8.Size = new System.Drawing.Size(109, 162);
+            this.panelControl8.TabIndex = 9;
+            // 
             // FStokKasaHareket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -550,6 +562,8 @@
             this.panelControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tileView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl8)).EndInit();
+            this.panelControl8.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -589,5 +603,6 @@
         private Label label1;
         private Assets.YeniTextEdit TBBelgeNo;
         private DevExpress.XtraGrid.Columns.TileViewColumn MMIKTAR;
+        private DevExpress.XtraEditors.PanelControl panelControl8;
     }
 }
