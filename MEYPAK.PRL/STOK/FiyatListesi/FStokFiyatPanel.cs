@@ -56,7 +56,7 @@ namespace MEYPAK.PRL.STOK.FiyatListesi
         GenericWebServis<PocoSTOKKATEGORI> kategoriServis;
         GenericWebServis<PocoOLCUBR> _olcubrServis;
         PocoSTOKFIYAT _tempStokFiyat;
-
+      
         #endregion
 
         private void FStokFiyatPanel_Load(object sender, EventArgs e)
@@ -74,7 +74,7 @@ namespace MEYPAK.PRL.STOK.FiyatListesi
             TBAciklama.Text = _tempStokFiyat.aciklama;
             TBAdi.Text = _tempStokFiyat.adi;
 
-            var datatb = new DataTable();
+            DataTable datatb = new DataTable();
             DataColumn STOKID = new DataColumn("STOKID", typeof(int));
             datatb.Columns.Add(STOKID);
             DataColumn STOKADI = new DataColumn("STOKADI", typeof(string));
@@ -87,7 +87,7 @@ namespace MEYPAK.PRL.STOK.FiyatListesi
             datatb.Columns.Add(FİYAT);
 
             datatb.Columns[0].ColumnMapping = MappingType.Hidden;
-            DGStokFiyatPanel.DataSource = datatb;
+            
             //DataGridde bu alanlarda yalnızca okuma yapılır
             STOKID.ReadOnly = true;
             STOKADI.ReadOnly = true;
@@ -106,7 +106,7 @@ namespace MEYPAK.PRL.STOK.FiyatListesi
                     
                 ) ;
             }
-
+            DGStokFiyatPanel.DataSource = datatb;
         }
 
         private void BTCik_Click(object sender, EventArgs e)
@@ -120,9 +120,8 @@ namespace MEYPAK.PRL.STOK.FiyatListesi
             for (int i = 0; i < gridView1.RowCount; i++)
             {
                 DataRowView row = gridView1.GetRow(i) as DataRowView;
-                if (row != null)
+                if (row != null && Convert.ToDecimal(row.Row.ItemArray[4])>0)
                 {
-
                     stokFiyatHarServis.Data(ServisList.StokFiyatHarEkleServis, new PocoSTOKFIYATHAR()
                     {
                         id = stokFiyatHarServis.obje.Where(x => x.stokid == Convert.ToInt32(row.Row.ItemArray[0]) && x.stokfiyatid == _tempStokFiyat.id).Count() > 0 ? stokFiyatHarServis.obje.Where(x => x.stokid == Convert.ToInt32(row.Row.ItemArray[0]) && x.stokfiyatid == _tempStokFiyat.id).FirstOrDefault().id : 0,
@@ -130,7 +129,6 @@ namespace MEYPAK.PRL.STOK.FiyatListesi
                         stokid = Convert.ToInt32(row.Row.ItemArray[0]),
                         fiyat = Convert.ToDecimal(row.Row.ItemArray[4]),
                     });
-                    
                 }
             }
             MessageBox.Show("Stok Fiyat Başarıyla Kaydedildi");

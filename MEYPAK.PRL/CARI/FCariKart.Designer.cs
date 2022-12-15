@@ -1774,6 +1774,7 @@
             this.BTResimKaydet.Size = new System.Drawing.Size(82, 39);
             this.BTResimKaydet.TabIndex = 3;
             this.BTResimKaydet.Text = "&Kaydet";
+            this.BTResimKaydet.Click += new System.EventHandler(this.BTResimKaydet_Click);
             // 
             // pictureEdit1
             // 

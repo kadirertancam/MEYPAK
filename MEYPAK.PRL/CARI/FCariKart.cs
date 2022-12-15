@@ -401,7 +401,6 @@ namespace MEYPAK.PRL.CARI
         private void BTResimSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             if (e.Button.Caption == "SEÇ")
-
             {
                 OpenFileDialog ofd = new OpenFileDialog();
                 ofd.Filter = "Resim Dosyaları|*.jpg;*.jpeg;*.png;*.gif;";
@@ -823,7 +822,7 @@ namespace MEYPAK.PRL.CARI
                 MessageBox.Show("Silmek İstediğiniz Alt Hesabı Seçiniz!");
         }
 
-   
+
     }
 }
 #endregion

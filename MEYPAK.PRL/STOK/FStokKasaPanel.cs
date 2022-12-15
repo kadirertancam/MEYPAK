@@ -25,7 +25,7 @@ namespace MEYPAK.PRL.STOK
 {
     public partial class FStokKasaPanel : Form
     {
-      
+
         public FStokKasaPanel()
         {
             InitializeComponent();
@@ -35,12 +35,12 @@ namespace MEYPAK.PRL.STOK
         }
 
         #region Tanımlar
-        GenericWebServis<PocoSTOKKASA>_kasaServis;
+        GenericWebServis<PocoSTOKKASA> _kasaServis;
         PocoSTOKKASA _tempStokKasaPanel;
         FStokKasaMarkaList fStokKasaMarkaList;
         GenericWebServis<PocoSTOKKASAMARKA> _stokKasaMarkaServis;
         public PocoSTOKKASAMARKA _tempStokMarka;
-      
+
         #endregion
 
         #region Metotlar
@@ -63,14 +63,15 @@ namespace MEYPAK.PRL.STOK
 
         private void BTKaydet_Click(object sender, EventArgs e)
         {
-           
+
             _kasaServis.Data(ServisList.StokKasaEkleServis, new PocoSTOKKASA
             {
+                id = _tempStokKasaPanel.id,
                 kasakodu = TBKod.Text,
                 kasaadi = TBAdi.Text,
                 aciklama = TBAciklama.Text,
-                markaid=_tempStokMarka.id,
-                aktif =1,
+                markaid = _tempStokMarka.id,
+                aktif = 1,
                 olusturmatarihi = DateTime.Now,
             });
             MessageBox.Show("Kasa Başarıyla Eklendi.");
@@ -86,15 +87,16 @@ namespace MEYPAK.PRL.STOK
         void DataGridDoldur()
         {
             _kasaServis.Data(ServisList.StokKasaListeServis);
-            _stokKasaMarkaServis.Data(ServisList.StokKasaMarkaListeServis);     
+            _stokKasaMarkaServis.Data(ServisList.StokKasaMarkaListeServis);
             DGKasaPanel.DataSource = _kasaServis.obje.Where(x => x.kayittipi == 0).Select(x => new
             {
                 ID = x.id,
                 Kodu = x.kasakodu,
                 Adı = x.kasaadi,
                 Açıklama = x.aciklama,
-                markaid=x.markaid,id=x.id,  
-                MarkaAdı= x.markaid==0?"":_stokKasaMarkaServis.obje.Where(z=>z.id==x.markaid).FirstOrDefault().adi.ToString(),
+                markaid = x.markaid,
+                id = x.id,
+                MarkaAdı = x.markaid == 0 ? "" : _stokKasaMarkaServis.obje.Where(z => z.id == x.markaid).FirstOrDefault().adi.ToString(),
                 //Aktif =x.aktif,
                 OluşturmaTarihi = x.olusturmatarihi
 

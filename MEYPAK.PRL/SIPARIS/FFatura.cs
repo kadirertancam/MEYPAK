@@ -382,7 +382,7 @@ namespace MEYPAK.PRL.SIPARIS
                 TBAraToplam.Text = temppte.ToString();
                 TBIskontoToplam.Text = (decimal.Round((_tempFaturaDetay.Sum(x => x.BrütToplam)), 2)- temppte).ToString();
                 TBKdvTutari.Text = kdvtoplamm.ToString();
-                TBGenelToplam.Text = (temppte + kdvtoplamm).ToString();
+                TBGenelToplam.Text = decimal.Round((temppte + kdvtoplamm),2).ToString();
             }
             else
             {
@@ -955,7 +955,7 @@ namespace MEYPAK.PRL.SIPARIS
                         birimfiyat = item.BirimFiyat,
                         nettoplam = item.NetToplam,
                         netfiyat = item.NetFiyat,
-                        birimid = _olcuBr.obje.Where(y => y.adi == item.Birim).FirstOrDefault().id,
+                        birimid = item.Tipi=="STOK"? _olcuBr.obje.Where(y => y.adi == item.Birim).FirstOrDefault().id:0,
                         dovizid = item.Doviz,
                         kasamiktar = item.KasaMiktar,
                         dara = item.Dara,
@@ -1021,7 +1021,7 @@ namespace MEYPAK.PRL.SIPARIS
                             belgE_NO = _faturaServis.obje2.belgeno,
                             hareketturu = 1,
                             io=0,
-                            birim = _olcuBr.obje.Where(x => x.adi.ToString() == item.Birim).FirstOrDefault().id,
+                            birim = 0,
                             bruttoplam = item.BrütToplam,
                             depoid = _faturaServis.obje2.depoid,
                             kdv = item.Kdv,
