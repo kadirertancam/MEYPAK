@@ -1,8 +1,11 @@
-﻿using MEYPAK.BLL.Assets;
+﻿using DevExpress.XtraTab;
+using MEYPAK.BLL.Assets;
+using MEYPAK.Entity.PocoModels;
 using MEYPAK.Entity.PocoModels.FATURA;
 using MEYPAK.Entity.PocoModels.IRSALIYE;
 using MEYPAK.Entity.PocoModels.PARAMETRE;
 using MEYPAK.Entity.PocoModels.SIPARIS;
+using MEYPAK.Entity.PocoModels.STOK;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,15 +30,25 @@ namespace MEYPAK.PRL.SIPARIS
             _irsaliyeDetayServis = new GenericWebServis<PocoIRSALIYEDETAY>();
             _seriServis = new GenericWebServis<PocoSERI>();
             _seriHarServis = new GenericWebServis<PocoSERIHAR>();
+            _tempfatdetay = new List<PocoFaturaKalem>();
+            _olcuBrServis = new GenericWebServis<PocoOLCUBR>();
+            _stokServis = new GenericWebServis<PocoSTOK>();
         }
         FSatisIrsaliyeFaturalastir fSatisIrsaliyeFaturalastir;
         List<PocoIRSALIYEDETAY> tempIrsDetay;
+        List<PocoFaturaKalem> _tempfatdetay;
         GenericWebServis<PocoIRSALIYE> _irsaliyeServis;
         GenericWebServis<PocoFATURA> _faturaServis;
         GenericWebServis<PocoFATURADETAY> _faturaDetayServis;
         GenericWebServis<PocoIRSALIYEDETAY> _irsaliyeDetayServis;
         GenericWebServis<PocoSERI> _seriServis;
         GenericWebServis<PocoSERIHAR> _seriHarServis;
+        GenericWebServis<PocoOLCUBR> _olcuBrServis;
+        GenericWebServis<PocoSTOK> _stokServis;
+        Main main;
+        PocoFATURA tempfat;
+        FFatura fFatura;
+
         private void simpleButton2_Click(object sender, EventArgs e)
         {
             _irsaliyeDetayServis.Data(ServisList.IrsaliyeDetayListeServis);
@@ -44,14 +57,14 @@ namespace MEYPAK.PRL.SIPARIS
             {
                 if (item != -1)
                 {
-                    tempIrsDetay.Add(_irsaliyeDetayServis.obje.Where(x => x.kayittipi == 0 && x.tip == 0 && x.id.ToString() == fSatisIrsaliyeFaturalastir.gridView1.GetRowCellValue(item, "ID").ToString()).FirstOrDefault());
+                    tempIrsDetay.Add(_irsaliyeDetayServis.obje.Where(x => x.kayittipi == 0 && x.id.ToString() == fSatisIrsaliyeFaturalastir.gridView1.GetRowCellValue(item, "ID").ToString()).FirstOrDefault());
                 }
 
 
                 _irsaliyeServis.Data(ServisList.IrsaliyeListeServis);
                 // var tt= _irsaliyeServis.obje.Where(x=>x.id.ToString()==grid)
                 var tempirs = _irsaliyeServis.obje.Where(x => x.kayittipi == 0 && x.tip == 0 && x.id.ToString() == fSatisIrsaliyeFaturalastir.gridView2.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
-                _faturaServis.Data(ServisList.FaturaEkleServis, new PocoFATURA()
+                tempfat =new PocoFATURA()
                 {
                     aciklama = tempirs.aciklama,
                     althesapid = tempirs.althesapid,
@@ -79,46 +92,68 @@ namespace MEYPAK.PRL.SIPARIS
                     sirketid = tempirs.sirketid,
                     subeid = tempirs.subeid,
 
-                });
+                };
                 tempirs.durum = true;
                 _irsaliyeServis.Data(ServisList.IrsaliyeEkleServis, tempirs);
             }
+
+            _olcuBrServis.Data(ServisList.OlcuBrListeServis);
+            _stokServis.Data(ServisList.StokListeServis);
             foreach (var item in tempIrsDetay)
             {
-
-                _faturaDetayServis.Data(ServisList.FaturaDetayEkleServis, new PocoFATURADETAY()
+                _tempfatdetay.Add( new PocoFaturaKalem()
                 {
-                    faturaid = _faturaServis.obje2.id,
-                    aciklama = item.aciklama,
-                    bekleyenmiktar = item.bekleyenmiktar,
-                    birimid = item.birimid,
-                    brutfiyat = item.brutfiyat,
-                    bruttoplam = item.bruttoplam,
-                    dovizid = item.dovizid,
-                    eskiid = 0,
-                    hareketdurumu = 0,
-                    iskontO1 = item.iskontO1,
-                    iskontO2 = item.iskontO2,
-                    iskontO3 = item.iskontO3,
-                    kdv = item.kdv,
-                    kdvtutari = item.kdvtutari,
-                    listefiyatid = item.listefiyatid,
-                    safi = item.safi,
-                    netfiyat = item.netfiyat,
-                    nettoplam = item.nettoplam,
-                    stokadi = item.stokadi,
-                    stokid = item.stokid,
-                    tip = item.tip,
-                    kunye = "",
+                   
+                    Acıklama = item.aciklama, 
+                    Birim = item.birimid!=0?_olcuBrServis.obje.Where(x=>x.id==item.birimid).FirstOrDefault().adi:"",
+                    BrütFiyat = item.brutfiyat,
+                    BrütToplam = item.bruttoplam,
+                    Doviz = item.dovizid,  
+                    İskonto1 = item.iskontO1,
+                    İskonto2 = item.iskontO2,
+                    İskonto3 = item.iskontO3,
+                    Kdv = item.kdv,
+                    KdvTutarı = item.kdvtutari, 
+                    Dara=item.dara,
+                    Daralı=item.darali,
+                    BirimFiyat=item.birimfiyat,
+                    KasaMiktar=item.kasamiktar,
+                    StokKodu=_stokServis.obje.Where(x=>x.id==item.stokid).FirstOrDefault().kod,
+                    İskontoTutarı=item.isktoplam,
+                    sıra=item.num,
+                    Safi = item.safi,
+                    NetFiyat = item.netfiyat,
+                    NetToplam = item.nettoplam,
+                    StokAdı = item.stokadi,
+                    StokId = item.stokid,
+                    Tipi = item.tip == 0 ? "STOK" : item.tip == 1 ? "HIZMET" : item.tip == 2 ? "KASA" : item.tip == 3 ? "DEMIRBAS" : "MUHASEBE",
+                    Kunye = "",
                 });
-                item.hareketdurumu = 1;
-                _irsaliyeDetayServis.Data(ServisList.FaturaDetayEkleServis, item);
 
-                _seriHarServis.Data(ServisList.SeriHarListeServis);
-                var tempserihar = _seriHarServis.obje.Where(x => x.seriid == _seriServis.obje.Where(z => z.SERINO.ToString() == comboBox1.Text).FirstOrDefault().id).LastOrDefault();
-                tempserihar.serino = tempserihar.serino + 1;
-                _seriHarServis.Data(ServisList.SeriHarEkleServis, tempserihar);
+                item.hareketdurumu = 1;
+
             }
+            
+            main = (Main)Application.OpenForms["Main"];
+            XtraTabPage page = new XtraTabPage();
+            FFatura ffatura = new FFatura(tempfat, _tempfatdetay,1);
+            page.Name = "TPFatura" + main.i;
+            page.Text = "Fatura Tanım";
+            page.Tag = "TPFatura" + main.i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            main.xtraTabControl1.TabPages.Add(page);
+            main.xtraTabControl1.SelectedTabPage = page;
+
+            ffatura.TopLevel = false;
+            ffatura.AutoScroll = true;
+            ffatura.Dock = DockStyle.Fill;
+            ffatura.Tag = "TPFatura" + main.i;
+            page.Controls.Add(ffatura);
+            ffatura.Show();
+            main.i++;
+            this.Close();
+            
+            
         }
  
 

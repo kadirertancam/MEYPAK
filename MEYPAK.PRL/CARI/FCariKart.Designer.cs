@@ -1918,6 +1918,7 @@
             this.BTResimKaydet.TabIndex = 3;
             this.BTResimKaydet.Text = "&Kaydet";
             this.BTResimKaydet.Click += new System.EventHandler(this.BTResimKaydet_Click);
+            this.BTResimKaydet.Click += new System.EventHandler(this.BTResimKaydet_Click);
             // 
             // BTResimSec
             // 

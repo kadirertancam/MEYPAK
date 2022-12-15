@@ -841,15 +841,7 @@ namespace MEYPAK.PRL.CARI
                 MessageBox.Show("Silmek İstediğiniz Alt Hesabı Seçiniz!");
         }
 
-        private void LBSayisalAciklama4_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void panelControl21_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }
 #endregion

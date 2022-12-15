@@ -94,6 +94,7 @@ namespace MEYPAK.PRL.STOK.FiyatListesi
                 DGStokFiyat.DataSource = _stokFiyatServis.obje.Where(x => x.kayittipi == 0 && x.cariid == _tempCariKart.id).Select(x => new
                 {
                     ID = x.id,
+                    CARIID= _tempCariKart.id,
                     CARIKODU = _cariServis.obje.Where(z =>z.kayittipi==0 && z.id == x.cariid).FirstOrDefault().adi.ToString(),
                     FİYATLİSTESİ = x.adi,
                     ACIKLAMA = x.aciklama,
@@ -101,37 +102,40 @@ namespace MEYPAK.PRL.STOK.FiyatListesi
                     BİTİSTARİHİ = x.bitistarihi,
 
                 });
+                gridView1.Columns["ID"].Visible = false;
+                gridView1.Columns["CARIID"].Visible = false;
                 DGStokFiyat.Refresh();
                 DGStokFiyat.RefreshDataSource();
             }
            
         }
-        void DataGridiYapilandir()
-        {
-            if (_tempCariKart != null)
-            {
-                BTCariSec.Text = _tempCariKart.unvan.ToString();
-                _stokFiyatServis.Data(ServisList.StokFiyatListeServis);
-                DGStokFiyat.DataSource = _stokFiyatServis.obje.Where(x => x.cariid == _tempCariKart.id).Select(x => new
-                {
-                    ID = x.id,
-                    FİYATLİSTESİ = x.adi,
-                    ACIKLAMA = x.aciklama,
-                    BASLANGICTARİHİ = x.baslangictarihi,
-                    BİTİSTARİHİ = x.bitistarihi,
-                });
-            }
-            else
-            {
-                MessageBox.Show("Cari seçimi yapmalısınız!");
-            }
-        }
+        //void DataGridiYapilandir()
+        //{
+        //    if (_tempCariKart != null)
+        //    {
+        //        BTCariSec.Text = _tempCariKart.unvan.ToString();
+        //        _stokFiyatServis.Data(ServisList.StokFiyatListeServis);
+        //        DGStokFiyat.DataSource = _stokFiyatServis.obje.Where(x => x.cariid == _tempCariKart.id).Select(x => new
+        //        {
+        //            ID = x.id,
+        //            FİYATLİSTESİ = x.adi,
+        //            ACIKLAMA = x.aciklama,
+        //            BASLANGICTARİHİ = x.baslangictarihi,
+        //            BİTİSTARİHİ = x.bitistarihi,
+        //        });
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Cari seçimi yapmalısınız!");
+        //    }
+        //}
         private void BTCariSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
 
             FCariList fCariList = new FCariList(this.Tag.ToString(), "FStokFiyat");
             fCariList.ShowDialog();
-            DataGridiYapilandir();
+            BTCariSec.Text = _tempCariKart.unvan.ToString();
+            DataGridDoldur();
 
         }
         private void DGStokFiyat_DoubleClick(object sender, EventArgs e)
@@ -140,26 +144,31 @@ namespace MEYPAK.PRL.STOK.FiyatListesi
             stokFiyatPanel = new FStokFiyatPanel(_tempStokFiyat, this.Tag.ToString());
             stokFiyatPanel.ShowDialog();
         }
-        void BilgileriGetir()
-        {
-            if (_stokFiyatServis != null)
-            {
-                _tempId = int.Parse(gridView1.GetFocusedRowCellValue("ID").ToString());
-                BTCariSec.Text = gridView1.GetFocusedRowCellValue("CARIID").ToString();
-                TBAdi.Text = gridView1.GetFocusedRowCellValue("FİYATLİSTESİ").ToString();
-                TBAciklama.Text = gridView1.GetFocusedRowCellValue("ACIKLAMA").ToString();
-                DTBaslangicTar.EditValue = Convert.ToDateTime(gridView1.GetFocusedRowCellValue("BASLANGICTARİHİ").ToString());
-                DTBitisTar.EditValue = Convert.ToDateTime(gridView1.GetFocusedRowCellValue("BİTİSTARİHİ").ToString());
-
-            }
-        }
+  
         private void BTSil_Click(object sender, EventArgs e)
         {
-            _stokFiyatServis.Data(ServisList.StokFiyatListeServis);
-            _cariServis.Data(ServisList.CariListeServis);
-            _stokFiyatServis.Data(ServisList.StokFiyatSilServis, null, null, _stokFiyatServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString() && x.cariid.ToString() == gridView1.GetFocusedRowCellValue("CARIID").ToString()).ToList());
-            MessageBox.Show("Silme işlemi Başarılı");
-            DataGridDoldur();
+            if (gridView1.FocusedRowHandle>0)
+            {
+                DialogResult Secim = new DialogResult();
+
+                Secim = MessageBox.Show($"{gridView1.GetFocusedRowCellValue("FİYATLİSTESİ")} \nSilinsin mi?", "Kaydı Sil", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+
+                if (Secim == DialogResult.Yes)
+                {
+                    _stokFiyatHarServis.Data(ServisList.StokFiyatHarListeServis);
+                    _stokFiyatServis.Data(ServisList.StokFiyatSilServis, modellist: _stokFiyatServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString() && x.cariid.ToString() == gridView1.GetFocusedRowCellValue("CARIID").ToString()).ToList());
+                    _stokFiyatHarServis.Data(ServisList.StokFiyatHarSilServis, modellist: _stokFiyatHarServis.obje.Where(x => x.stokfiyatid.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).ToList());
+                    MessageBox.Show("Silme işlemi Başarılı");
+                    DataGridDoldur();
+                }
+               
+            }
+            else
+            {
+                MessageBox.Show("Fiyat Listesi Seçmeden Silme işlemi yapamazsınız!");
+            }
+
+          
         }
         public void Temizle(Control.ControlCollection ctrlCollection)           //Formdaki Textboxları temizle
         {
@@ -184,6 +193,18 @@ namespace MEYPAK.PRL.STOK.FiyatListesi
 
         #endregion
 
-        
+
+        //void BilgileriGetir()
+        //{
+        //    if (_stokFiyatServis != null)
+        //    {
+        //        _tempId = int.Parse(gridView1.GetFocusedRowCellValue("ID").ToString());
+        //        BTCariSec.Text = gridView1.GetFocusedRowCellValue("CARIID").ToString();
+        //        TBAdi.Text = gridView1.GetFocusedRowCellValue("FİYATLİSTESİ").ToString();
+        //        TBAciklama.Text = gridView1.GetFocusedRowCellValue("ACIKLAMA").ToString();
+        //        DTBaslangicTar.EditValue = Convert.ToDateTime(gridView1.GetFocusedRowCellValue("BASLANGICTARİHİ").ToString());
+        //        DTBitisTar.EditValue = Convert.ToDateTime(gridView1.GetFocusedRowCellValue("BİTİSTARİHİ").ToString());
+        //    }
+        //}
     }
 }

@@ -83,6 +83,16 @@ namespace MEYPAK.PRL.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
+        internal static System.Drawing.Bitmap CariNullResim {
+            get {
+                object obj = ResourceManager.GetObject("CariNullResim", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
         internal static System.Drawing.Bitmap HoverButton {
             get {
                 object obj = ResourceManager.GetObject("HoverButton", resourceCulture);
@@ -136,6 +146,16 @@ namespace MEYPAK.PRL.Properties {
         internal static System.Drawing.Bitmap normalButton {
             get {
                 object obj = ResourceManager.GetObject("normalButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap StokNullResim {
+            get {
+                object obj = ResourceManager.GetObject("StokNullResim", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -163,7 +163,7 @@ namespace MEYPAK.PRL
             //GuncelKur();
         }
 
-        int i = 0;
+        public int i = 0;
         private void accordionControlElement9_Click(object sender, EventArgs e)
         {
             XtraTabPage page = new XtraTabPage();

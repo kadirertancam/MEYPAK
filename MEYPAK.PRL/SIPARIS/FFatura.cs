@@ -17,13 +17,14 @@ using DevExpress.DataProcessing;
 using MEYPAK.PRL.Assets;
 using DevExpress.ClipboardSource.SpreadsheetML;
 using DevExpress.Mvvm.Native;
+using MEYPAK.Interfaces;
 
 namespace MEYPAK.PRL.SIPARIS
 {
     public partial class FFatura : XtraForm
     {
       
-        public FFatura()
+        public FFatura(PocoFATURA _tempFaturas=null, List<PocoFaturaKalem> _tempFaturaDetays=null,int tip=0)
         {
             InitializeComponent();
             DGVStokSec = new DataGridViewButtonColumn();
@@ -63,11 +64,21 @@ namespace MEYPAK.PRL.SIPARIS
             _seriHarServis = new GenericWebServis<PocoSERIHAR>();
             _hizmetHarServis = new GenericWebServis<PocoHIZMETHAR>();
             _hizmetServis = new GenericWebServis<PocoHIZMET>();
+            _cariHarServsi = new GenericWebServis<PocoCARIHAR>();
+            if (_tempFaturas != null)
+                _tempFatura = _tempFaturas; 
+            
+            if (_tempFaturaDetays != null)
+                _tempFaturaDetay = _tempFaturaDetays;
+            else
+                _tempFaturaDetay = new List<PocoFaturaKalem>();
+            fattip = tip;
         }
 
         #region TANIMLAR
+        int fattip;
         FStokKasaList fKasaList;
-        List<PocoFaturaKalem> _tempFaturaDetay = new List<PocoFaturaKalem>();
+        List<PocoFaturaKalem> _tempFaturaDetay;
         List<PocoFaturaKalem> _tempSilinenFaturaDetay = new List<PocoFaturaKalem>();
         DataGridViewComboBoxColumn DGVOlcuBr = new DataGridViewComboBoxColumn();
         GenericWebServis<PocoCARIALTHESCARI> _carialthescaricari;
@@ -91,6 +102,7 @@ namespace MEYPAK.PRL.SIPARIS
         GenericWebServis<PocoOLCUBR> _olcuBr;
         GenericWebServis<PocoCARIKART> _cariKart;
         GenericWebServis<PocoSTOK> _stokServis;
+        GenericWebServis<PocoCARIHAR> _cariHarServsi;
         FStokKasaList _fStokKasaList;
         FHizmetList _fHizmetList;
         GenericWebServis<PocoCARIALTHES> _cariAltHesapServis;
@@ -370,7 +382,7 @@ namespace MEYPAK.PRL.SIPARIS
                 TBAraToplam.Text = temppte.ToString();
                 TBIskontoToplam.Text = (decimal.Round((_tempFaturaDetay.Sum(x => x.BrütToplam)), 2)- temppte).ToString();
                 TBKdvTutari.Text = kdvtoplamm.ToString();
-                TBGenelToplam.Text = (temppte + kdvtoplamm).ToString();
+                TBGenelToplam.Text = decimal.Round((temppte + kdvtoplamm),2).ToString();
             }
             else
             {
@@ -515,6 +527,7 @@ namespace MEYPAK.PRL.SIPARIS
                 _stokKasaHarServis.Data(ServisList.StokKasaHarListeServis);
                 _kasaaa.Clear();
                 _stokOlcuBrList.Clear();
+                if(fattip==0)
                 _tempFaturaDetay.Clear();
                 _cariKart.Data(ServisList.CariListeServis);
                 TBFaturaNo.Text = _tempFatura.belgeno;
@@ -524,7 +537,7 @@ namespace MEYPAK.PRL.SIPARIS
                 TBKur.Text = _tempFatura.kur.ToString();
                 TBCariKodu.Text = _cariKart.obje.Where(x => x.id == _tempFatura.cariid).FirstOrDefault().kod;
                 TBCariAdi.Text = _tempFatura.cariadi;
-        
+                
                 //TODO TBKasa.Text = 
                 DTSiparisTarih.EditValue = _tempFatura.faturatarihi;
                 TBAciklama.Text = _tempFatura.aciklama;
@@ -555,27 +568,34 @@ namespace MEYPAK.PRL.SIPARIS
                 if (_faturadetayServis.obje.Where(x => x.faturaid == _tempFatura.id).Count() > 0)
                 {
 
-                    foreach (var item2 in _faturadetayServis.obje.Where(x => x.faturaid == _tempFatura.id))
+                    if (fattip == 0)
                     {
-
-                        KasaList = new List<KasaList>();
-                        gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "Birim", item2.birimid);
-                        foreach (var item in _stokKasaHarServis.obje.Where(z => z.faturadetayid == item2.id && z.faturaid == item2.faturaid))
+                        foreach (var item2 in _faturadetayServis.obje.Where(x => x.faturaid == _tempFatura.id))
                         {
 
-                            kslt = new KasaList()
+                            KasaList = new List<KasaList>();
+                            gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "Birim", item2.birimid);
+                            foreach (var item in _stokKasaHarServis.obje.Where(z => z.faturadetayid == item2.id && z.faturaid == item2.faturaid))
                             {
-                                ID = item.id,
-                                KASAADI = _kasaServis.obje.Where(z => z.id == item.kasaid).FirstOrDefault().kasaadi,
-                                KASAID = item.kasaid,
-                                MARKA = _stokKasaMarkaServis.obje.Where(c => c.id == _kasaServis.obje.Where(z => z.id == item.kasaid).FirstOrDefault().markaid).FirstOrDefault().adi,
-                                MIKTAR = item.miktar
-                            };
+
+                                kslt = new KasaList()
+                                {
+                                    ID = item.id,
+                                    KASAADI = _kasaServis.obje.Where(z => z.id == item.kasaid).FirstOrDefault().kasaadi,
+                                    KASAID = item.kasaid,
+                                    MARKA = _stokKasaMarkaServis.obje.Where(c => c.id == _kasaServis.obje.Where(z => z.id == item.kasaid).FirstOrDefault().markaid).FirstOrDefault().adi,
+                                    MIKTAR = item.miktar
+                                };
 
 
-                            KasaList.Add(kslt);
+                                KasaList.Add(kslt);
+                            }
+                            _kasaaa.Add(new ListKasaList() { num = item2.num, KasaList = KasaList });
+
                         }
-                        _kasaaa.Add(new ListKasaList() { num = item2.num, KasaList = KasaList });
+                    }
+                    else
+                    {
 
                     }
 
@@ -589,10 +609,11 @@ namespace MEYPAK.PRL.SIPARIS
                 }
                 riLookup3.DataSource = "";
                 riLookup3.DataSource = _kasaaa.Where(x => x.num == gridView1.FocusedRowHandle).Count() > 0 ? _kasaaa.Where(x => x.num == gridView1.FocusedRowHandle).FirstOrDefault().KasaList.Select(x => new { Marka = x.MARKA, Adı = x.KASAADI, Miktar = x.MIKTAR }) : "";
+                if(fattip==0)
                 _faturadetayServis.Data(ServisList.FaturaDetayListeServis + 2, null, "query=FATURAID=" + _tempFatura.id.ToString() + " AND KAYITTIPI=0");
                 _olcuBr.Data(ServisList.OlcuBrListeServis);
 
-
+                if(fattip==0)
                 _tempFaturaDetay.AddRange(_faturadetayServis.obje.Select(x => new PocoFaturaKalem()
                 {
 
@@ -621,7 +642,7 @@ namespace MEYPAK.PRL.SIPARIS
                     sıra = x.num,
                     Safi = x.safi,
                     Doviz = x.dovizid, //_tempStok.SDOVIZID 
-                }));
+                })); 
 
                 GCIrsaliye.DataSource = _tempFaturaDetay;
                 GCIrsaliye.RefreshDataSource();
@@ -912,11 +933,14 @@ namespace MEYPAK.PRL.SIPARIS
                     tip = 0,
                 });
 
+
                 _stokOlcuBr.Data(ServisList.StokOlcuBrListeServis);
                 _olcuBr.Data(ServisList.OlcuBrListeServis);
                 int i = 0;
                 _stokHarServis.Data(ServisList.StokHarListeServis);
                 _hizmetHarServis.Data(ServisList.HizmetHarListeServis);
+                
+
                 foreach (var item in _tempFaturaDetay.Where(x => x.StokKodu != "" && x.StokKodu!=null).ToList())
                 {
                     var stokolcubr = _stokOlcuBr.obje.Where(x => x.stokid == item.StokId).FirstOrDefault();
@@ -931,7 +955,7 @@ namespace MEYPAK.PRL.SIPARIS
                         birimfiyat = item.BirimFiyat,
                         nettoplam = item.NetToplam,
                         netfiyat = item.NetFiyat,
-                        birimid = _olcuBr.obje.Where(y => y.adi == item.Birim).FirstOrDefault().id,
+                        birimid = item.Tipi=="STOK"? _olcuBr.obje.Where(y => y.adi == item.Birim).FirstOrDefault().id:0,
                         dovizid = item.Doviz,
                         kasamiktar = item.KasaMiktar,
                         dara = item.Dara,
@@ -997,7 +1021,7 @@ namespace MEYPAK.PRL.SIPARIS
                             belgE_NO = _faturaServis.obje2.belgeno,
                             hareketturu = 1,
                             io=0,
-                            birim = _olcuBr.obje.Where(x => x.adi.ToString() == item.Birim).FirstOrDefault().id,
+                            birim = 0,
                             bruttoplam = item.BrütToplam,
                             depoid = _faturaServis.obje2.depoid,
                             kdv = item.Kdv,
@@ -1046,7 +1070,21 @@ namespace MEYPAK.PRL.SIPARIS
 
 
                 }
-
+                _cariHarServsi.Data(ServisList.CariHarEkleServis, new PocoCARIHAR()
+                {
+                    aciklama="",
+                    belgE_NO=_faturaServis.obje2.belgeno,
+                    alacak=_faturaServis.obje2.geneltoplam,
+                    borc=0,
+                    carialthesapid=_faturaServis.obje2.althesapid,
+                    cariid=_faturaServis.obje2.cariid,
+                    harekettarihi=_faturaServis.obje2.faturatarihi,
+                    harekettipi=1,
+                    kur=1,
+                    parabirimid= 11638,
+                    tutar=0- _faturaServis.obje2.geneltoplam,
+                   
+                });
                 if (_tempSilinenFaturaDetay.Count() > 0)
                 {
                     foreach (var item in _tempSilinenFaturaDetay)
@@ -1112,6 +1150,7 @@ namespace MEYPAK.PRL.SIPARIS
 
         private void FFatura_Load(object sender, EventArgs e)
         {
+
             _seriServis.Data(ServisList.SeriListeServis);
             _seriHarServis.Data(ServisList.SeriHarListeServis);
             foreach (var item in _seriServis.obje.Where(x => x.TIP == 0).Select(x => x.SERINO))

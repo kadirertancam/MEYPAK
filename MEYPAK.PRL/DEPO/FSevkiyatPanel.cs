@@ -14,6 +14,7 @@ using MEYPAK.Entity.Models.DEPO;
 using MEYPAK.Entity.Models.SIPARIS;
 using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Entity.PocoModels;
+using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.DEPO;
 using MEYPAK.Entity.PocoModels.SIPARIS;
 using MEYPAK.Entity.PocoModels.STOK;
@@ -57,6 +58,7 @@ namespace MEYPAK.PRL.DEPO
             _depoServis = new GenericWebServis<PocoDEPO>();
             _depoCekiListServis = new GenericWebServis<PocoDEPOCEKILIST>();
             _stokResimServis = new GenericWebServis<PocoSTOKRESIM>();
+            _cariResimServis = new GenericWebServis<PocoCARIRESIM>();
         }
         DataGridViewButtonColumn DGVTopla;
         List<PocoSIPARIS> _tempSiparis;
@@ -65,6 +67,7 @@ namespace MEYPAK.PRL.DEPO
         List<PocoSIPARISDETAY> _tempSTOKSEVK;
         List<PocoSIPARISDETAY> _tempSiparisDetay;
         public GenericWebServis<PocoSIPARIS> _siparisServis;
+        public GenericWebServis<PocoCARIRESIM> _cariResimServis;
         public GenericWebServis<PocoSTOK> _stokServis;
         public GenericWebServis<PocoDEPOEMIR> _depoEmirServis;
         public GenericWebServis<PocoSIPARISDETAY> _siparisDetayServis;
@@ -121,14 +124,16 @@ namespace MEYPAK.PRL.DEPO
             _depoEmirServis.Data(ServisList.DepoEmirListeServis);
             gridControl1.DataSource = _siparisServis.obje.Where(x => x.tip == 0).Select(x => new { x.sevkiyattarihi, x.belgeno, x.cariadi }).ToList();
             _siparisServis.Data(ServisList.SiparisListeServis);
-
+            _cariResimServis.Data(ServisList.CariResimListeServis);
             //fSevkiyatPanel.dataGridView2.DataSource = 
             //fSevkiyatPanel.dataGridView2.Refresh();
 
             tileView1.CustomItemTemplate += TileView1_CustomItemTemplate;
-            Bitmap bt = new Bitmap("C:\\Users\\User\\Desktop\\İCON\\Logolar\\pngwing.com-2.png");
 
-            gridControl1.DataSource = _siparisServis.obje.Where(x => x.tip == 0).Select(x => new { CSevkiyatTarihi = x.sevkiyattarihi, CBelgeNo = x.belgeno, CCariAdi = x.cariadi, CResim = bt }).ToList();
+            //Bitmap bt = new Bitmap("C:\\Users\\User\\Desktop\\İCON\\Logolar\\pngwing.com-2.png");
+            
+
+            gridControl1.DataSource = _siparisServis.obje.Where(x => x.tip == 0).Select(x => new { CSevkiyatTarihi = x.sevkiyattarihi, CBelgeNo = x.belgeno, CariAdi = x.cariadi, CResim = _cariResimServis.obje.Where(c=> c.CARIID==x.cariid).Count()>0? new Bitmap( _cariResimServis.obje.Where(c => c.CARIID == x.cariid).FirstOrDefault().IMG) : Properties.Resources.CariNullResim }).ToList();
             tileView1.ItemCustomize += TileView1_ItemCustomize;
             tileView1.AddNewRow();
             tileView1.UpdateCurrentRow();
@@ -311,7 +316,7 @@ namespace MEYPAK.PRL.DEPO
                  SiparisMiktari = x.siparismiktari,
                  EmirMiktari = x.emirmiktari,
                  KalanMiktar = _stokSevkiyatList.obje.Where(z => z.emirid == x.emirid && z.siparisdetayid == x.sipariskalemid).FirstOrDefault().kalanmiktar
-                 ,Resim=Base64ToImage(_stokResimServis.obje.Where(z=>z.STOKID== _siparisDetayServis.obje.Where(c => c.id == x.sipariskalemid && c.siparisid == x.siparisid).FirstOrDefault().stokid  ).FirstOrDefault().IMG)
+                 ,Resim= _stokResimServis.obje.Where(z => z.STOKID == _siparisDetayServis.obje.Where(c => c.id == x.sipariskalemid && c.siparisid == x.siparisid).FirstOrDefault().stokid).Count()>0? Base64ToImage(_stokResimServis.obje.Where(z=>z.STOKID== _siparisDetayServis.obje.Where(c => c.id == x.sipariskalemid && c.siparisid == x.siparisid).FirstOrDefault().stokid  ).FirstOrDefault().IMG): Properties.Resources.StokNullResim
                  //x.siparismiktari-x.emirmiktari
              ,
                  DepoButon = bt

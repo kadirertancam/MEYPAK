@@ -28,6 +28,7 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraReports.Design;
 using MEYPAK.PRL.STOK.Raporlar;
 using MEYPAK.PRL.DEPO.Raporlar;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace MEYPAK.PRL.STOK
 {
@@ -244,6 +245,11 @@ namespace MEYPAK.PRL.STOK
             {
                 this.Close();
             }
+        }
+
+        private void yeniTextEdit1_EditValueChanged(object sender, EventArgs e)
+        {
+            gridView1.ApplyFindFilter(yeniTextEdit1.EditValue.ToString());
         }
 
 

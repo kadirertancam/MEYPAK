@@ -104,6 +104,7 @@
             this.DGStokFiyat.TabIndex = 0;
             this.DGStokFiyat.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            this.DGStokFiyat.DoubleClick += new System.EventHandler(this.DGStokFiyat_DoubleClick);
             // 
             // gridView1
             // 
@@ -238,7 +239,7 @@
             this.BTCariSec.Location = new System.Drawing.Point(133, 49);
             this.BTCariSec.Name = "BTCariSec";
             this.BTCariSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTCariSec.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTCariSec_Properties_ButtonClick);
             this.BTCariSec.Size = new System.Drawing.Size(290, 22);
             this.BTCariSec.TabIndex = 5;
