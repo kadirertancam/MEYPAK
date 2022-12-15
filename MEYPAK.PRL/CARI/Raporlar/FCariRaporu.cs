@@ -1,11 +1,13 @@
 ﻿using DevExpress.DirectX.Common.Direct2D;
 using DevExpress.XtraEditors;
+using DevExpress.XtraRichEdit.Design;
 using DevExpress.XtraRichEdit.Import.Html;
 using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Depo;
 using MEYPAK.Interfaces.Fatura;
+using MEYPAK.Interfaces.Hizmet;
 using MEYPAK.Interfaces.Stok;
 using MEYPAK.PRL.STOK;
 using System;
@@ -22,26 +24,32 @@ namespace MEYPAK.PRL.CARI.Raporlar
 {
     public partial class FCariRaporu : XtraForm
     {
-        public FCariRaporu(string tag="", string islem="")
+        public FCariRaporu(string tag = "", string islem = "")
         {
             InitializeComponent();
             _form = tag;
             _islem = islem;
             _cariServis = new GenericWebServis<PocoCARIKART>();
-            _stokKategoriServis = new GenericWebServis<PocoSTOKKATEGORI>();
+            _hizmetKategoriServis = new GenericWebServis<PocoHIZMETKATEGORI>();
         }
 
         #region Tanımlar
         string _form, _islem;
         GenericWebServis<PocoCARIKART> _cariServis;
-        GenericWebServis<PocoSTOKKATEGORI> _stokKategoriServis;
+        GenericWebServis<PocoHIZMETKATEGORI> _hizmetKategoriServis;
         public PocoCARIKART _tempCariKart;
-        public PocoSTOKKATEGORI _tempKategori;
+        public PocoHIZMETKATEGORI _tempHizmetKategori;
         #endregion
+
+        #region Metotlar
         private void BTCariSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             FCariList fCariList = new FCariList(this.Tag.ToString(), "FCariRaporu");
             fCariList.ShowDialog();
+            if (_tempCariKart != null)
+                BTCariSec.Text = _tempCariKart.kod;
+
+            GridiDoldur(Filtrele());
         }
 
         private void FCariRaporu_Load(object sender, EventArgs e)
@@ -51,15 +59,40 @@ namespace MEYPAK.PRL.CARI.Raporlar
 
         private void BTKateSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            FKategoriList fKategoriList = new FKategoriList(this.Tag.ToString(), "FCariRaporu");
-            fKategoriList.ShowDialog();
+            FHizmetKategoriList fHizmetKategoriList = new FHizmetKategoriList(this.Tag.ToString(), "FCariRaporu");
+            fHizmetKategoriList.ShowDialog();
+            if (_tempHizmetKategori != null)
+                BTKateSec.Text = _tempHizmetKategori.adi;
+            GridiDoldur(Filtrele());
+
         }
 
         void Doldur()
         {
             _cariServis.Data(ServisList.CariListeServis);
-            _stokKategoriServis.Data(ServisList.StokKategoriListeServis);
-            DGCariRpr.DataSource = _cariServis.obje.Where(x => x.kayittipi == 0).Select(x => new
+            _hizmetKategoriServis.Data(ServisList.HizmetKategoriListeServis);
+            GridiDoldur(_cariServis.obje);
+            DGCariRpr.RefreshDataSource();
+
+        }
+
+        List<PocoCARIKART> Filtrele()
+        {
+            List<PocoCARIKART> filtre = new List<PocoCARIKART>();
+            if (BTCariSec.Text != "" && _tempCariKart != null)
+                filtre.Add(_tempCariKart);
+            else if (BTKateSec.Text != "" && _tempHizmetKategori != null)
+                filtre.AddRange(_cariServis.obje.Where(x => x.id == _tempHizmetKategori.id));
+            else
+                return _cariServis.obje;
+
+            return filtre;
+
+        }
+
+        void GridiDoldur(List<PocoCARIKART> A)
+        {
+            DGCariRpr.DataSource = A.Select(x => new
             {
                 ID = x.id,
                 KAYITTARİHİ = x.olusturmatarihi,
@@ -86,7 +119,7 @@ namespace MEYPAK.PRL.CARI.Raporlar
                 FAX = x.fax,
                 WEBSİTESİ = x.web,
                 EPOSTA = x.eposta,
-                KATEGORİADI = x.kategori.ToString(),
+                KATEGORİADI = _hizmetKategoriServis.obje.Where(y => y.id == x.id).Count() > 0 ? _hizmetKategoriServis.obje.Where(y => y.id == x.id).FirstOrDefault().adi : "",
                 GRUPKODU = x.grupkodu,
                 FİYATNUM = x.fiyatnum,
                 VADEGÜNÜ = x.vadegunu,
@@ -112,23 +145,21 @@ namespace MEYPAK.PRL.CARI.Raporlar
                 SYSAÇIKLAMA8 = x.saciklamA8,
                 SYSAÇIKLAMA9 = x.saciklamA9,
                 RAPORKODU1 = x.raporkoD1,
-                RAPORKODU2 = x.raporkoD2,   
+                RAPORKODU2 = x.raporkoD2,
                 RAPORKODU3 = x.raporkoD3,
                 RAPORKODU4 = x.raporkoD4,
                 RAPORKODU5 = x.raporkoD5,
                 RAPORKODU6 = x.raporkoD6,
-                RAPORKODU7 = x.raporkoD7,   
+                RAPORKODU7 = x.raporkoD7,
                 RAPORKODU8 = x.raporkoD8,
-                RAPORKODU9 = x.raporkoD9,   
+                RAPORKODU9 = x.raporkoD9,
                 KAYITTİPİ = x.kayittipi,
                 GÜNCELLEMETARİHİ = x.guncellemetarihi
-                     
-            });
-            DGCariRpr.Refresh();
-            DGCariRpr.RefreshDataSource();
 
-
-
+            }).ToList();
         }
+
+        #endregion
     }
 }
+

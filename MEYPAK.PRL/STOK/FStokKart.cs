@@ -677,6 +677,11 @@ namespace MEYPAK.PRL
 
         }
 
+        private void groupControl7_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
         private void TBSatisOtv_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar != '.' && e.KeyChar != ',')

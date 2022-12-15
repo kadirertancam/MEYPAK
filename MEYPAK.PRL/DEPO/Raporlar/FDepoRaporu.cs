@@ -5,6 +5,7 @@ using DevExpress.XtraEditors;
 using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.Models.DEPO;
 using MEYPAK.Entity.PocoModels.DEPO;
+using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Stok;
 using System;
 using System.Collections.Generic;
@@ -20,7 +21,7 @@ namespace MEYPAK.PRL.DEPO.Raporlar
 {
     public partial class FDepoRaporu : XtraForm
     {
-        public FDepoRaporu(string islem = "",string tag = "")
+        public FDepoRaporu(string tag = "",string islem = "")
         {
             InitializeComponent();
             _depoServis = new GenericWebServis<PocoDEPO>();
@@ -33,16 +34,16 @@ namespace MEYPAK.PRL.DEPO.Raporlar
         GenericWebServis<PocoDEPO> _depoServis;
         public PocoDEPO _tempDepo;
 
-
-
         #endregion
 
         private void BTDepoSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             FDepoList fDepoList = new FDepoList(this.Tag.ToString(), "FDepoRaporu");
             fDepoList.ShowDialog();
-            
-
+            if (_tempDepo != null) { 
+                BTDepoSec.Text = _tempDepo.depoadi;
+            GridiDoldur(Filtrele());
+            }
 
         }
 
@@ -52,51 +53,40 @@ namespace MEYPAK.PRL.DEPO.Raporlar
 
         }
 
-        void Doldur()
-        {
+        void Doldur() { 
             _depoServis.Data(ServisList.DepoListeServis);
-            DGDepoRpr.DataSource = _depoServis.obje.Where(x => x.kayittipi == 0).Select(x => new
+            GridiDoldur(_depoServis.obje);
+            DGDepoRpr.RefreshDataSource();
+        }
+
+        void GridiDoldur(List<PocoDEPO> A)
+        {
+            DGDepoRpr.DataSource = A.Select(x => new
             {
                 ID = x.id,
                 KAYITTARİHİ = x.olusturmatarihi,
                 DEPOKODU = x.depokodu,
                 DEPOADI = x.depoadi,
                 AÇIKLAMA = x.aciklama,
-                AKTİF = CBAktif.CheckedItems.Count,
+                
                 ŞİRKETID = x.sirketid,
                 GÜNCELLEMETARİHİ = x.guncellemetarihi,
 
-
-            });
-
-            DGDepoRpr.Refresh();
-            DGDepoRpr.RefreshDataSource();
-
-            //if (_tempDepo != null)
-            //{
-            //    _depoServis.Data(ServisList.DepoListeServis);
-            //    DGDepoRpr.DataSource = _depoServis.obje.Where(x => x.kayittipi == 0 ).Select(x => new
-            //    {
-            //        ID = x.id,
-            //        KAYITTARİHİ = x.olusturmatarihi,
-            //        DEPOKODU = _depoServis.obje.Where(z => z.kayittipi == 0 && z.id == x.id).FirstOrDefault().depokodu.ToString(),
-            //        DEPOADI = x.depoadi,
-            //        AÇIKLAMA = x.aciklama,
-            //        AKTİF = CBAktif.CheckedItems.Count,
-            //        ŞİRKETID = x.sirketid,
-            //        GÜNCELLEMETARİHİ = x.guncellemetarihi,
-
-            //    });
-            //    DGDepoRpr.Refresh();
-            //    DGDepoRpr.RefreshDataSource();
-            //}
-
-
-
+            }).ToList();
         }
 
+        List<PocoDEPO> Filtrele()
+        {
+            List<PocoDEPO> filtre = new List<PocoDEPO>();
+            if (BTDepoSec.Text != "" && _tempDepo != null)
+                filtre.Add(_tempDepo);
+          
+            else
+                return _depoServis.obje;
 
-     
+            return filtre;
+        }
+
     }
 
 }

@@ -73,7 +73,7 @@
             // 
             // LBDepo
             // 
-            this.LBDepo.Location = new System.Drawing.Point(317, 44);
+            this.LBDepo.Location = new System.Drawing.Point(323, 48);
             this.LBDepo.Name = "LBDepo";
             this.LBDepo.Size = new System.Drawing.Size(25, 13);
             this.LBDepo.TabIndex = 11;
@@ -81,7 +81,7 @@
             // 
             // LBTarih
             // 
-            this.LBTarih.Location = new System.Drawing.Point(69, 44);
+            this.LBTarih.Location = new System.Drawing.Point(57, 48);
             this.LBTarih.Name = "LBTarih";
             this.LBTarih.Size = new System.Drawing.Size(24, 13);
             this.LBTarih.TabIndex = 10;
@@ -92,11 +92,11 @@
             this.BTKaydet.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
             this.BTKaydet.Appearance.Options.UseBackColor = true;
             this.BTKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTKaydet.ImageOptions.Image")));
-            this.BTKaydet.Location = new System.Drawing.Point(52, 5);
+            this.BTKaydet.Location = new System.Drawing.Point(3, 5);
             this.BTKaydet.Name = "BTKaydet";
             this.BTKaydet.Size = new System.Drawing.Size(95, 40);
             this.BTKaydet.TabIndex = 79;
-            this.BTKaydet.Text = "&KAYDET";
+            this.BTKaydet.Text = "&Kaydet";
             this.BTKaydet.Click += new System.EventHandler(this.BTKaydet_Click);
             // 
             // DGStokSayim
@@ -105,7 +105,7 @@
             this.DGStokSayim.Location = new System.Drawing.Point(2, 2);
             this.DGStokSayim.MainView = this.gridView1;
             this.DGStokSayim.Name = "DGStokSayim";
-            this.DGStokSayim.Size = new System.Drawing.Size(1394, 655);
+            this.DGStokSayim.Size = new System.Drawing.Size(994, 405);
             this.DGStokSayim.TabIndex = 11;
             this.DGStokSayim.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -121,7 +121,7 @@
             this.BTCik.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
             this.BTCik.Appearance.Options.UseBackColor = true;
             this.BTCik.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTCik.ImageOptions.Image")));
-            this.BTCik.Location = new System.Drawing.Point(153, 5);
+            this.BTCik.Location = new System.Drawing.Point(102, 5);
             this.BTCik.Name = "BTCik";
             this.BTCik.Size = new System.Drawing.Size(95, 40);
             this.BTCik.TabIndex = 80;
@@ -137,25 +137,25 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1398, 818);
+            this.panelControl1.Size = new System.Drawing.Size(998, 568);
             this.panelControl1.TabIndex = 81;
             // 
             // panelControl4
             // 
             this.panelControl4.Controls.Add(this.DGStokSayim);
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl4.Location = new System.Drawing.Point(0, 100);
+            this.panelControl4.Location = new System.Drawing.Point(0, 101);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(1398, 659);
+            this.panelControl4.Size = new System.Drawing.Size(998, 409);
             this.panelControl4.TabIndex = 83;
             // 
             // panelControl3
             // 
             this.panelControl3.Controls.Add(this.panelControl5);
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl3.Location = new System.Drawing.Point(0, 759);
+            this.panelControl3.Location = new System.Drawing.Point(0, 510);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(1398, 59);
+            this.panelControl3.Size = new System.Drawing.Size(998, 58);
             this.panelControl3.TabIndex = 82;
             // 
             // panelControl5
@@ -164,9 +164,9 @@
             this.panelControl5.Controls.Add(this.BTCik);
             this.panelControl5.Controls.Add(this.BTKaydet);
             this.panelControl5.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelControl5.Location = new System.Drawing.Point(1119, 2);
+            this.panelControl5.Location = new System.Drawing.Point(792, 2);
             this.panelControl5.Name = "panelControl5";
-            this.panelControl5.Size = new System.Drawing.Size(277, 55);
+            this.panelControl5.Size = new System.Drawing.Size(204, 54);
             this.panelControl5.TabIndex = 84;
             // 
             // panelControl2
@@ -175,7 +175,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl2.Location = new System.Drawing.Point(0, 0);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(1398, 100);
+            this.panelControl2.Size = new System.Drawing.Size(998, 101);
             this.panelControl2.TabIndex = 81;
             // 
             // groupControl1
@@ -192,26 +192,25 @@
             this.groupControl1.Controls.Add(this.LBSayim);
             this.groupControl1.Controls.Add(this.LBDepo);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupControl1.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             this.groupControl1.Location = new System.Drawing.Point(2, 2);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(1394, 93);
+            this.groupControl1.Size = new System.Drawing.Size(994, 95);
             this.groupControl1.TabIndex = 0;
-            this.groupControl1.Text = "Sayım Bilgi";
+            this.groupControl1.Text = "Sayım Ekranı";
             // 
             // TBDepo
             // 
             this.TBDepo.Enabled = false;
-            this.TBDepo.Location = new System.Drawing.Point(360, 41);
+            this.TBDepo.Location = new System.Drawing.Point(364, 45);
             this.TBDepo.Name = "TBDepo";
-            this.TBDepo.Size = new System.Drawing.Size(154, 20);
+            this.TBDepo.Size = new System.Drawing.Size(297, 20);
             this.TBDepo.TabIndex = 88;
             // 
             // DTPSayimTar
             // 
             this.DTPSayimTar.EditValue = null;
             this.DTPSayimTar.Enabled = false;
-            this.DTPSayimTar.Location = new System.Drawing.Point(112, 41);
+            this.DTPSayimTar.Location = new System.Drawing.Point(103, 45);
             this.DTPSayimTar.Name = "DTPSayimTar";
             this.DTPSayimTar.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -223,14 +222,14 @@
             // TBAciklama
             // 
             this.TBAciklama.Enabled = false;
-            this.TBAciklama.Location = new System.Drawing.Point(633, 41);
+            this.TBAciklama.Location = new System.Drawing.Point(763, 45);
             this.TBAciklama.Name = "TBAciklama";
-            this.TBAciklama.Size = new System.Drawing.Size(154, 20);
+            this.TBAciklama.Size = new System.Drawing.Size(297, 20);
             this.TBAciklama.TabIndex = 86;
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(576, 44);
+            this.labelControl1.Location = new System.Drawing.Point(707, 48);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(41, 13);
             this.labelControl1.TabIndex = 85;
@@ -240,7 +239,7 @@
             // 
             this.LBSayim.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.LBSayim.Appearance.Options.UseFont = true;
-            this.LBSayim.Location = new System.Drawing.Point(375, 36);
+            this.LBSayim.Location = new System.Drawing.Point(375, 26);
             this.LBSayim.Name = "LBSayim";
             this.LBSayim.Size = new System.Drawing.Size(0, 18);
             this.LBSayim.TabIndex = 84;
@@ -271,8 +270,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1398, 818);
+            this.ClientSize = new System.Drawing.Size(998, 568);
             this.Controls.Add(this.panelControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "FStokSayimPanel";
             this.Text = "FStokSayimPanel";
             this.Load += new System.EventHandler(this.FStokSayimPanel_Load);

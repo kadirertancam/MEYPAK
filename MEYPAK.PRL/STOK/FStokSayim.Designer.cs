@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FStokSayim));
             this.DGStokSayim = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.TBAciklama = new DevExpress.XtraEditors.TextEdit();
             this.BTSil = new DevExpress.XtraEditors.SimpleButton();
             this.BTDuzenle = new DevExpress.XtraEditors.SimpleButton();
             this.BTKaydet = new DevExpress.XtraEditors.SimpleButton();
@@ -45,9 +44,9 @@
             this.CBDepo = new DevExpress.XtraEditors.LookUpEdit();
             this.LBDepo = new DevExpress.XtraEditors.LabelControl();
             this.LBTarih = new DevExpress.XtraEditors.LabelControl();
+            this.TBAciklama = new DevExpress.XtraEditors.MemoEdit();
             ((System.ComponentModel.ISupportInitialize)(this.DGStokSayim)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TBAciklama.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTSayimTar.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTSayimTar.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -61,6 +60,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
             this.panelControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CBDepo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBAciklama.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // DGStokSayim
@@ -69,7 +69,7 @@
             this.DGStokSayim.Location = new System.Drawing.Point(2, 2);
             this.DGStokSayim.MainView = this.gridView1;
             this.DGStokSayim.Name = "DGStokSayim";
-            this.DGStokSayim.Size = new System.Drawing.Size(918, 458);
+            this.DGStokSayim.Size = new System.Drawing.Size(1122, 723);
             this.DGStokSayim.TabIndex = 2;
             this.DGStokSayim.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -83,19 +83,12 @@
             this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.DoubleClick += new System.EventHandler(this.DGStokSayim_DoubleClick);
             // 
-            // TBAciklama
-            // 
-            this.TBAciklama.Location = new System.Drawing.Point(132, 78);
-            this.TBAciklama.Name = "TBAciklama";
-            this.TBAciklama.Size = new System.Drawing.Size(154, 20);
-            this.TBAciklama.TabIndex = 101;
-            // 
             // BTSil
             // 
-            this.BTSil.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTSil.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
             this.BTSil.Appearance.Options.UseBackColor = true;
             this.BTSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTSil.ImageOptions.Image")));
-            this.BTSil.Location = new System.Drawing.Point(104, 3);
+            this.BTSil.Location = new System.Drawing.Point(102, 3);
             this.BTSil.Name = "BTSil";
             this.BTSil.Size = new System.Drawing.Size(95, 40);
             this.BTSil.TabIndex = 64;
@@ -116,19 +109,19 @@
             // 
             // BTKaydet
             // 
-            this.BTKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTKaydet.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
             this.BTKaydet.Appearance.Options.UseBackColor = true;
             this.BTKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTKaydet.ImageOptions.Image")));
             this.BTKaydet.Location = new System.Drawing.Point(3, 3);
             this.BTKaydet.Name = "BTKaydet";
             this.BTKaydet.Size = new System.Drawing.Size(95, 40);
             this.BTKaydet.TabIndex = 62;
-            this.BTKaydet.Text = "&KAYDET";
+            this.BTKaydet.Text = "&Kaydet";
             this.BTKaydet.Click += new System.EventHandler(this.BTKaydet_Click);
             // 
             // LBAciklama
             // 
-            this.LBAciklama.Location = new System.Drawing.Point(77, 82);
+            this.LBAciklama.Location = new System.Drawing.Point(87, 105);
             this.LBAciklama.Name = "LBAciklama";
             this.LBAciklama.Size = new System.Drawing.Size(41, 13);
             this.LBAciklama.TabIndex = 11;
@@ -137,7 +130,7 @@
             // DTSayimTar
             // 
             this.DTSayimTar.EditValue = new System.DateTime(2022, 11, 16, 11, 39, 26, 554);
-            this.DTSayimTar.Location = new System.Drawing.Point(132, 30);
+            this.DTSayimTar.Location = new System.Drawing.Point(150, 50);
             this.DTSayimTar.Name = "DTSayimTar";
             this.DTSayimTar.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -145,7 +138,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.DTSayimTar.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.ClassicNew;
             this.DTSayimTar.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
-            this.DTSayimTar.Size = new System.Drawing.Size(154, 20);
+            this.DTSayimTar.Size = new System.Drawing.Size(176, 20);
             this.DTSayimTar.TabIndex = 102;
             // 
             // panelControl1
@@ -155,16 +148,16 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(926, 583);
+            this.panelControl1.Size = new System.Drawing.Size(1130, 930);
             this.panelControl1.TabIndex = 103;
             // 
             // panelControl3
             // 
             this.panelControl3.Controls.Add(this.DGStokSayim);
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl3.Location = new System.Drawing.Point(2, 119);
+            this.panelControl3.Location = new System.Drawing.Point(2, 201);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(922, 462);
+            this.panelControl3.Size = new System.Drawing.Size(1126, 727);
             this.panelControl3.TabIndex = 104;
             // 
             // panelControl2
@@ -174,7 +167,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl2.Location = new System.Drawing.Point(2, 2);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(922, 117);
+            this.panelControl2.Size = new System.Drawing.Size(1126, 199);
             this.panelControl2.TabIndex = 103;
             // 
             // groupControl1
@@ -182,20 +175,19 @@
             this.groupControl1.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupControl1.AppearanceCaption.Options.UseFont = true;
             this.groupControl1.CaptionImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("groupControl1.CaptionImageOptions.Image")));
+            this.groupControl1.Controls.Add(this.TBAciklama);
             this.groupControl1.Controls.Add(this.panelControl4);
             this.groupControl1.Controls.Add(this.DTSayimTar);
             this.groupControl1.Controls.Add(this.CBDepo);
-            this.groupControl1.Controls.Add(this.TBAciklama);
             this.groupControl1.Controls.Add(this.LBDepo);
             this.groupControl1.Controls.Add(this.LBAciklama);
             this.groupControl1.Controls.Add(this.LBTarih);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupControl1.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(922, 125);
+            this.groupControl1.Size = new System.Drawing.Size(1126, 196);
             this.groupControl1.TabIndex = 106;
-            this.groupControl1.Text = "Stok Sayım";
+            this.groupControl1.Text = "Sayım Tanım";
             // 
             // panelControl4
             // 
@@ -204,24 +196,24 @@
             this.panelControl4.Controls.Add(this.BTDuzenle);
             this.panelControl4.Controls.Add(this.BTKaydet);
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelControl4.Location = new System.Drawing.Point(713, 33);
+            this.panelControl4.Location = new System.Drawing.Point(923, 23);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(207, 90);
+            this.panelControl4.Size = new System.Drawing.Size(201, 171);
             this.panelControl4.TabIndex = 106;
             // 
             // CBDepo
             // 
-            this.CBDepo.Location = new System.Drawing.Point(132, 54);
+            this.CBDepo.Location = new System.Drawing.Point(150, 76);
             this.CBDepo.Name = "CBDepo";
             this.CBDepo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.CBDepo.Properties.NullText = "";
-            this.CBDepo.Size = new System.Drawing.Size(154, 20);
+            this.CBDepo.Size = new System.Drawing.Size(176, 20);
             this.CBDepo.TabIndex = 105;
             // 
             // LBDepo
             // 
-            this.LBDepo.Location = new System.Drawing.Point(91, 58);
+            this.LBDepo.Location = new System.Drawing.Point(103, 79);
             this.LBDepo.Name = "LBDepo";
             this.LBDepo.Size = new System.Drawing.Size(25, 13);
             this.LBDepo.TabIndex = 104;
@@ -229,17 +221,24 @@
             // 
             // LBTarih
             // 
-            this.LBTarih.Location = new System.Drawing.Point(91, 33);
+            this.LBTarih.Location = new System.Drawing.Point(71, 53);
             this.LBTarih.Name = "LBTarih";
-            this.LBTarih.Size = new System.Drawing.Size(24, 13);
+            this.LBTarih.Size = new System.Drawing.Size(57, 13);
             this.LBTarih.TabIndex = 103;
-            this.LBTarih.Text = "Tarih";
+            this.LBTarih.Text = "Sayım Tarihi";
+            // 
+            // TBAciklama
+            // 
+            this.TBAciklama.Location = new System.Drawing.Point(150, 102);
+            this.TBAciklama.Name = "TBAciklama";
+            this.TBAciklama.Size = new System.Drawing.Size(176, 69);
+            this.TBAciklama.TabIndex = 107;
             // 
             // FStokSayim
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(926, 583);
+            this.ClientSize = new System.Drawing.Size(1130, 930);
             this.Controls.Add(this.panelControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FStokSayim";
@@ -247,7 +246,6 @@
             this.Load += new System.EventHandler(this.FStokSayim_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DGStokSayim)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TBAciklama.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTSayimTar.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTSayimTar.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
@@ -262,6 +260,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
             this.panelControl4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.CBDepo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBAciklama.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -281,7 +280,6 @@
         private DevExpress.XtraEditors.LabelControl LBAciklama;
         private DevExpress.XtraEditors.SimpleButton BTSil;
         private DevExpress.XtraEditors.SimpleButton BTKaydet;
-        private DevExpress.XtraEditors.TextEdit TBAciklama;
         private DevExpress.XtraEditors.SimpleButton BTDuzenle;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.PanelControl panelControl3;
@@ -292,5 +290,6 @@
         private DevExpress.XtraEditors.LabelControl LBTarih;
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.PanelControl panelControl4;
+        private DevExpress.XtraEditors.MemoEdit TBAciklama;
     }
 }

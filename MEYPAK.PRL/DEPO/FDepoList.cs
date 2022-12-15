@@ -28,7 +28,7 @@ namespace MEYPAK.PRL.DEPO
     public partial class FDepoList : XtraForm
     {
         string _islem,_form;
-        public FDepoList(string islem = "", string tag = "")
+        public FDepoList(string tag = "",string islem = "")
         {
             InitializeComponent();
             _depoServis = new GenericWebServis<PocoDEPO>();
@@ -50,6 +50,12 @@ namespace MEYPAK.PRL.DEPO
         {
             _depoServis.Data(ServisList.DepoListeServis);
             GCDepoList.DataSource = _depoServis.obje;
+            gridView1.Columns["id"].Visible = false;
+            gridView1.Columns["eskiid"].Visible = false;
+            gridView1.Columns["olusturmatarihi"].Visible = false;
+            gridView1.Columns["guncellemetarihi"].Visible = false;
+            gridView1.Columns["sirketid"].Visible = false;
+            gridView1.Columns["kayittipi"].Visible = false;
 
 
             foreach (Form frm in Application.OpenForms)
@@ -78,42 +84,44 @@ namespace MEYPAK.PRL.DEPO
 
         private void GCDepoList_DoubleClick(object sender, EventArgs e)
         {
-            if (_islem == "FDepoKart")
-            {
-                depoKart._tempDepo = _depoServis.obje.Where(x => x.depokodu == gridView1.GetFocusedRowCellValue("id")).FirstOrDefault();
+            
+                if (_islem == "FDepoKart")
+                {
+                    depoKart._tempDepo = _depoServis.obje.Where(x => x.id == Convert.ToInt32(gridView1.GetFocusedRowCellValue("id"))).FirstOrDefault();
             }
-            else if (_islem == "FDepoTransferCıktı")
-            {
-                depoTransferKart._CıktıDepo = _depoServis.obje.Where(x => x.depokodu == gridView1.GetFocusedRowCellValue("id")).FirstOrDefault();
+                else if (_islem == "FDepoTransferCıktı")
+                {
+                    depoTransferKart._CıktıDepo = _depoServis.obje.Where(x => x.id == Convert.ToInt32(gridView1.GetFocusedRowCellValue("id"))).FirstOrDefault();
             }
-            else if (_islem == "FDepoTransferHedef")
-            {
-                depoTransferKart._HedefDepo = _depoServis.obje.Where(x => x.depokodu == gridView1.GetFocusedRowCellValue("id")).FirstOrDefault();
+                else if (_islem == "FDepoTransferHedef")
+                {
+                    depoTransferKart._HedefDepo = _depoServis.obje.Where(x => x.id == Convert.ToInt32(gridView1.GetFocusedRowCellValue("id"))).FirstOrDefault();
             }
-            else if (_islem == "FStokSayimRaporu")
-            {
-                fStokSayimRaporu._tempDepo = _depoServis.obje.Where(x => x.depokodu == gridView1.GetFocusedRowCellValue("id")).FirstOrDefault();
+                else if (_islem == "FStokSayimRaporu")
+                {
+                    fStokSayimRaporu._tempDepo = _depoServis.obje.Where(x => x.id == Convert.ToInt32(gridView1.GetFocusedRowCellValue("id"))).FirstOrDefault();
             }
-            else if (_islem == "FStokHareketRaporu")
-            {
-                fStokHareketRaporu._tempDepo = _depoServis.obje.Where(x => x.depokodu == gridView1.GetFocusedRowCellValue("id")).FirstOrDefault();
+                else if (_islem == "FStokHareketRaporu")
+                {
+                    fStokHareketRaporu._tempDepo = _depoServis.obje.Where(x => x.id == Convert.ToInt32(gridView1.GetFocusedRowCellValue("id"))).FirstOrDefault();
             }
-            else if (_islem == "FFaturaRaporu")
-            {
-                fFaturaRaporu._tempDepo = _depoServis.obje.Where(x => x.depokodu == gridView1.GetFocusedRowCellValue("id")).FirstOrDefault();
+                else if (_islem == "FFaturaRaporu")
+                {
+                    fFaturaRaporu._tempDepo = _depoServis.obje.Where(x => x.id == Convert.ToInt32(gridView1.GetFocusedRowCellValue("id"))).FirstOrDefault();
             }
-            else if (_islem == "FMUsteriSiparisRaporu")
-            {
-                fMusteriSiparisRaporu._tempDepo = _depoServis.obje.Where(x => x.depokodu == gridView1.GetFocusedRowCellValue("id")).FirstOrDefault();
+                else if (_islem == "FMUsteriSiparisRaporu")
+                {
+                    fMusteriSiparisRaporu._tempDepo = _depoServis.obje.Where(x => x.id == Convert.ToInt32(gridView1.GetFocusedRowCellValue("id"))).FirstOrDefault();
             }
-            else if (_islem == "FDepoRaporu")
-            {
-                fDepoRaporu._tempDepo = _depoServis.obje.Where(x => x.depokodu == gridView1.GetFocusedRowCellValue("id")).FirstOrDefault();
+                else if (_islem == "FDepoRaporu")
+                {
+                    fDepoRaporu._tempDepo = _depoServis.obje.Where(x => x.id == Convert.ToInt32( gridView1.GetFocusedRowCellValue("id"))).FirstOrDefault();
+                }
+                else if (_islem == "FStokSevkiyatRaporu")
+                {
+                    fStokSevkiyatRaporu._tempDepo = _depoServis.obje.Where(x => x.id == Convert.ToInt32(gridView1.GetFocusedRowCellValue("id"))).FirstOrDefault();
             }
-            else if (_islem == "FStokSevkiyatRaporu")
-            {
-                fStokSevkiyatRaporu._tempDepo = _depoServis.obje.Where(x => x.depokodu == gridView1.GetFocusedRowCellValue("id")).FirstOrDefault();
-            }
+            
             this.Close();
         }
 
