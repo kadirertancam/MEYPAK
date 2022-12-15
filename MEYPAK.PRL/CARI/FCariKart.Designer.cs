@@ -1082,6 +1082,7 @@
             this.LBSayisalAciklama4.Size = new System.Drawing.Size(86, 13);
             this.LBSayisalAciklama4.TabIndex = 39;
             this.LBSayisalAciklama4.Text = "Sayısal Açıklama 4";
+           
             
             // 
             // LBSayisalAciklama3
@@ -1588,7 +1589,6 @@
             this.panelControl21.Name = "panelControl21";
             this.panelControl21.Size = new System.Drawing.Size(177, 124);
             this.panelControl21.TabIndex = 71;
-           
             // 
             // BTYetkiliKaydet
             // 
