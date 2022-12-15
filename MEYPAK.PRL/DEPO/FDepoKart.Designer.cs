@@ -72,7 +72,7 @@
             this.GCDepoKart.Location = new System.Drawing.Point(2, 2);
             this.GCDepoKart.MainView = this.gridView1;
             this.GCDepoKart.Name = "GCDepoKart";
-            this.GCDepoKart.Size = new System.Drawing.Size(1392, 626);
+            this.GCDepoKart.Size = new System.Drawing.Size(1122, 705);
             this.GCDepoKart.TabIndex = 1;
             this.GCDepoKart.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -91,7 +91,7 @@
             this.BTDepoTemizle.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
             this.BTDepoTemizle.Appearance.Options.UseBackColor = true;
             this.BTDepoTemizle.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTDepoTemizle.ImageOptions.Image")));
-            this.BTDepoTemizle.Location = new System.Drawing.Point(214, 9);
+            this.BTDepoTemizle.Location = new System.Drawing.Point(200, 3);
             this.BTDepoTemizle.Name = "BTDepoTemizle";
             this.BTDepoTemizle.Size = new System.Drawing.Size(95, 40);
             this.BTDepoTemizle.TabIndex = 65;
@@ -103,11 +103,11 @@
             this.BTDepoKaydet.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
             this.BTDepoKaydet.Appearance.Options.UseBackColor = true;
             this.BTDepoKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTDepoKaydet.ImageOptions.Image")));
-            this.BTDepoKaydet.Location = new System.Drawing.Point(17, 9);
+            this.BTDepoKaydet.Location = new System.Drawing.Point(3, 3);
             this.BTDepoKaydet.Name = "BTDepoKaydet";
             this.BTDepoKaydet.Size = new System.Drawing.Size(95, 40);
             this.BTDepoKaydet.TabIndex = 64;
-            this.BTDepoKaydet.Text = "&KAYDET";
+            this.BTDepoKaydet.Text = "&Kaydet";
             this.BTDepoKaydet.Click += new System.EventHandler(this.BTDepoKartEkle_Click);
             // 
             // BTDepoKartSil
@@ -115,7 +115,7 @@
             this.BTDepoKartSil.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
             this.BTDepoKartSil.Appearance.Options.UseBackColor = true;
             this.BTDepoKartSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTDepoKartSil.ImageOptions.Image")));
-            this.BTDepoKartSil.Location = new System.Drawing.Point(113, 9);
+            this.BTDepoKartSil.Location = new System.Drawing.Point(102, 3);
             this.BTDepoKartSil.Name = "BTDepoKartSil";
             this.BTDepoKartSil.Size = new System.Drawing.Size(95, 40);
             this.BTDepoKartSil.TabIndex = 47;
@@ -136,12 +136,11 @@
             this.GCGenelBilgi.Controls.Add(this.LBDepoKartAciklama);
             this.GCGenelBilgi.Controls.Add(this.LBDepoKartKod);
             this.GCGenelBilgi.Dock = System.Windows.Forms.DockStyle.Top;
-            this.GCGenelBilgi.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             this.GCGenelBilgi.Location = new System.Drawing.Point(2, 2);
             this.GCGenelBilgi.Name = "GCGenelBilgi";
-            this.GCGenelBilgi.Size = new System.Drawing.Size(1392, 162);
+            this.GCGenelBilgi.Size = new System.Drawing.Size(1122, 211);
             this.GCGenelBilgi.TabIndex = 1;
-            this.GCGenelBilgi.Text = "Genel Bilgi";
+            this.GCGenelBilgi.Text = "Depo Tanım";
             // 
             // panelControl3
             // 
@@ -150,32 +149,32 @@
             this.panelControl3.Controls.Add(this.BTDepoTemizle);
             this.panelControl3.Controls.Add(this.BTDepoKaydet);
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelControl3.Location = new System.Drawing.Point(1064, 33);
+            this.panelControl3.Location = new System.Drawing.Point(821, 23);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(326, 127);
+            this.panelControl3.Size = new System.Drawing.Size(299, 186);
             this.panelControl3.TabIndex = 2;
             // 
             // TBAciklama
             // 
-            this.TBAciklama.Location = new System.Drawing.Point(98, 82);
+            this.TBAciklama.Location = new System.Drawing.Point(118, 108);
             this.TBAciklama.Name = "TBAciklama";
             this.TBAciklama.Properties.Appearance.ForeColor = System.Drawing.SystemColors.ControlText;
             this.TBAciklama.Properties.Appearance.Options.UseForeColor = true;
-            this.TBAciklama.Size = new System.Drawing.Size(154, 69);
+            this.TBAciklama.Size = new System.Drawing.Size(297, 69);
             this.TBAciklama.TabIndex = 66;
             // 
             // TBAdi
             // 
-            this.TBAdi.Location = new System.Drawing.Point(98, 58);
+            this.TBAdi.Location = new System.Drawing.Point(118, 82);
             this.TBAdi.Name = "TBAdi";
-            this.TBAdi.Size = new System.Drawing.Size(154, 20);
+            this.TBAdi.Size = new System.Drawing.Size(297, 20);
             this.TBAdi.TabIndex = 60;
             // 
             // TBKod
             // 
-            this.TBKod.Location = new System.Drawing.Point(98, 36);
+            this.TBKod.Location = new System.Drawing.Point(118, 56);
             this.TBKod.Name = "TBKod";
-            this.TBKod.Size = new System.Drawing.Size(154, 20);
+            this.TBKod.Size = new System.Drawing.Size(297, 20);
             this.TBKod.TabIndex = 59;
             // 
             // CBAktif
@@ -191,7 +190,7 @@
             this.CBAktif.IncrementalSearch = true;
             this.CBAktif.Items.AddRange(new DevExpress.XtraEditors.Controls.CheckedListBoxItem[] {
             new DevExpress.XtraEditors.Controls.CheckedListBoxItem(true, "Aktif", System.Windows.Forms.CheckState.Indeterminate)});
-            this.CBAktif.Location = new System.Drawing.Point(353, 126);
+            this.CBAktif.Location = new System.Drawing.Point(511, 150);
             this.CBAktif.Name = "CBAktif";
             this.CBAktif.SelectionMode = System.Windows.Forms.SelectionMode.None;
             this.CBAktif.Size = new System.Drawing.Size(81, 27);
@@ -200,7 +199,7 @@
             // LBDepoKartSubeler
             // 
             this.LBDepoKartSubeler.Appearance.Options.UseFont = true;
-            this.LBDepoKartSubeler.Location = new System.Drawing.Point(301, 38);
+            this.LBDepoKartSubeler.Location = new System.Drawing.Point(469, 59);
             this.LBDepoKartSubeler.Name = "LBDepoKartSubeler";
             this.LBDepoKartSubeler.Size = new System.Drawing.Size(36, 13);
             this.LBDepoKartSubeler.TabIndex = 57;
@@ -210,14 +209,14 @@
             // 
             this.CLBSubeler.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.CLBSubeler.FormattingEnabled = true;
-            this.CLBSubeler.Location = new System.Drawing.Point(341, 38);
+            this.CLBSubeler.Location = new System.Drawing.Point(511, 59);
             this.CLBSubeler.Name = "CLBSubeler";
             this.CLBSubeler.Size = new System.Drawing.Size(169, 82);
             this.CLBSubeler.TabIndex = 5;
             // 
             // LBDepoKartAdi
             // 
-            this.LBDepoKartAdi.Location = new System.Drawing.Point(75, 61);
+            this.LBDepoKartAdi.Location = new System.Drawing.Point(83, 85);
             this.LBDepoKartAdi.Name = "LBDepoKartAdi";
             this.LBDepoKartAdi.Size = new System.Drawing.Size(15, 13);
             this.LBDepoKartAdi.TabIndex = 4;
@@ -225,7 +224,7 @@
             // 
             // LBDepoKartAciklama
             // 
-            this.LBDepoKartAciklama.Location = new System.Drawing.Point(53, 83);
+            this.LBDepoKartAciklama.Location = new System.Drawing.Point(57, 109);
             this.LBDepoKartAciklama.Name = "LBDepoKartAciklama";
             this.LBDepoKartAciklama.Size = new System.Drawing.Size(41, 13);
             this.LBDepoKartAciklama.TabIndex = 5;
@@ -233,7 +232,7 @@
             // 
             // LBDepoKartKod
             // 
-            this.LBDepoKartKod.Location = new System.Drawing.Point(73, 38);
+            this.LBDepoKartKod.Location = new System.Drawing.Point(80, 59);
             this.LBDepoKartKod.Name = "LBDepoKartKod";
             this.LBDepoKartKod.Size = new System.Drawing.Size(18, 13);
             this.LBDepoKartKod.TabIndex = 3;
@@ -246,16 +245,16 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1400, 800);
+            this.panelControl1.Size = new System.Drawing.Size(1130, 930);
             this.panelControl1.TabIndex = 1;
             // 
             // panelControl4
             // 
             this.panelControl4.Controls.Add(this.GCDepoKart);
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl4.Location = new System.Drawing.Point(2, 168);
+            this.panelControl4.Location = new System.Drawing.Point(2, 219);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(1396, 630);
+            this.panelControl4.Size = new System.Drawing.Size(1126, 709);
             this.panelControl4.TabIndex = 3;
             // 
             // panelControl2
@@ -264,14 +263,14 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl2.Location = new System.Drawing.Point(2, 2);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(1396, 166);
+            this.panelControl2.Size = new System.Drawing.Size(1126, 217);
             this.panelControl2.TabIndex = 2;
             // 
             // FDepoKart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1400, 800);
+            this.ClientSize = new System.Drawing.Size(1130, 930);
             this.Controls.Add(this.panelControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FDepoKart";

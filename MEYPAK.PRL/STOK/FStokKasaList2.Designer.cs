@@ -44,7 +44,7 @@
             panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             panelControl1.Location = new System.Drawing.Point(0, 0);
             panelControl1.Name = "panelControl1";
-            panelControl1.Size = new System.Drawing.Size(1201, 732);
+            panelControl1.Size = new System.Drawing.Size(998, 568);
             panelControl1.TabIndex = 0;
             // 
             // DGStokKasaList
@@ -53,7 +53,7 @@
             this.DGStokKasaList.Location = new System.Drawing.Point(2, 2);
             this.DGStokKasaList.MainView = this.gridView1;
             this.DGStokKasaList.Name = "DGStokKasaList";
-            this.DGStokKasaList.Size = new System.Drawing.Size(1197, 728);
+            this.DGStokKasaList.Size = new System.Drawing.Size(994, 564);
             this.DGStokKasaList.TabIndex = 0;
             this.DGStokKasaList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -68,8 +68,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1201, 732);
+            this.ClientSize = new System.Drawing.Size(998, 568);
             this.Controls.Add(panelControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FStokKasaList2";
             this.Text = "FStokKasaListesi";
             this.Load += new System.EventHandler(this.FStokKasaList2_Load);

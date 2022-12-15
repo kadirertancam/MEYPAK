@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FOlcuBrKart));
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.BTSil = new DevExpress.XtraEditors.SimpleButton();
             this.BTKaydet = new DevExpress.XtraEditors.SimpleButton();
             this.TBOlcuBirim = new DevExpress.XtraEditors.TextEdit();
@@ -40,9 +41,10 @@
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.DGOlcuBirim = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
+            this.panelControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TBOlcuBirim.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBAdi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -51,8 +53,6 @@
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGOlcuBirim)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
-            this.panelControl3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupControl1
@@ -64,12 +64,22 @@
             this.groupControl1.Controls.Add(this.LBOlcuBirimAdi);
             this.groupControl1.Controls.Add(this.LBOlcuBirim);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupControl1.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             this.groupControl1.Location = new System.Drawing.Point(2, 2);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(1396, 109);
+            this.groupControl1.Size = new System.Drawing.Size(1126, 138);
             this.groupControl1.TabIndex = 81;
             this.groupControl1.Text = "Ölçü Birim Tanım";
+            // 
+            // panelControl3
+            // 
+            this.panelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl3.Controls.Add(this.BTSil);
+            this.panelControl3.Controls.Add(this.BTKaydet);
+            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelControl3.Location = new System.Drawing.Point(915, 23);
+            this.panelControl3.Name = "panelControl3";
+            this.panelControl3.Size = new System.Drawing.Size(209, 113);
+            this.panelControl3.TabIndex = 84;
             // 
             // BTSil
             // 
@@ -97,21 +107,21 @@
             // 
             // TBOlcuBirim
             // 
-            this.TBOlcuBirim.Location = new System.Drawing.Point(164, 59);
+            this.TBOlcuBirim.Location = new System.Drawing.Point(151, 82);
             this.TBOlcuBirim.Name = "TBOlcuBirim";
-            this.TBOlcuBirim.Size = new System.Drawing.Size(180, 20);
+            this.TBOlcuBirim.Size = new System.Drawing.Size(297, 20);
             this.TBOlcuBirim.TabIndex = 83;
             // 
             // TBAdi
             // 
-            this.TBAdi.Location = new System.Drawing.Point(164, 35);
+            this.TBAdi.Location = new System.Drawing.Point(151, 58);
             this.TBAdi.Name = "TBAdi";
-            this.TBAdi.Size = new System.Drawing.Size(180, 20);
+            this.TBAdi.Size = new System.Drawing.Size(297, 20);
             this.TBAdi.TabIndex = 82;
             // 
             // LBOlcuBirimAdi
             // 
-            this.LBOlcuBirimAdi.Location = new System.Drawing.Point(79, 38);
+            this.LBOlcuBirimAdi.Location = new System.Drawing.Point(66, 61);
             this.LBOlcuBirimAdi.Name = "LBOlcuBirimAdi";
             this.LBOlcuBirimAdi.Size = new System.Drawing.Size(64, 13);
             this.LBOlcuBirimAdi.TabIndex = 10;
@@ -119,7 +129,7 @@
             // 
             // LBOlcuBirim
             // 
-            this.LBOlcuBirim.Location = new System.Drawing.Point(121, 61);
+            this.LBOlcuBirim.Location = new System.Drawing.Point(108, 84);
             this.LBOlcuBirim.Name = "LBOlcuBirim";
             this.LBOlcuBirim.Size = new System.Drawing.Size(22, 13);
             this.LBOlcuBirim.TabIndex = 11;
@@ -131,16 +141,16 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1400, 115);
+            this.panelControl1.Size = new System.Drawing.Size(1130, 144);
             this.panelControl1.TabIndex = 83;
             // 
             // panelControl2
             // 
             this.panelControl2.Controls.Add(this.DGOlcuBirim);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl2.Location = new System.Drawing.Point(0, 115);
+            this.panelControl2.Location = new System.Drawing.Point(0, 144);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(1400, 735);
+            this.panelControl2.Size = new System.Drawing.Size(1130, 786);
             this.panelControl2.TabIndex = 84;
             // 
             // DGOlcuBirim
@@ -149,7 +159,7 @@
             this.DGOlcuBirim.Location = new System.Drawing.Point(2, 2);
             this.DGOlcuBirim.MainView = this.gridView1;
             this.DGOlcuBirim.Name = "DGOlcuBirim";
-            this.DGOlcuBirim.Size = new System.Drawing.Size(1396, 731);
+            this.DGOlcuBirim.Size = new System.Drawing.Size(1126, 782);
             this.DGOlcuBirim.TabIndex = 80;
             this.DGOlcuBirim.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -164,22 +174,11 @@
             this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.DoubleClick += new System.EventHandler(this.gridView1_DoubleClick);
             // 
-            // panelControl3
-            // 
-            this.panelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl3.Controls.Add(this.BTSil);
-            this.panelControl3.Controls.Add(this.BTKaydet);
-            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelControl3.Location = new System.Drawing.Point(1185, 23);
-            this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(209, 84);
-            this.panelControl3.TabIndex = 84;
-            // 
             // FOlcuBrKart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1400, 850);
+            this.ClientSize = new System.Drawing.Size(1130, 930);
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -189,6 +188,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
+            this.panelControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.TBOlcuBirim.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBAdi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
@@ -197,8 +198,6 @@
             this.panelControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DGOlcuBirim)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
-            this.panelControl3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

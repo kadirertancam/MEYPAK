@@ -22,6 +22,7 @@ namespace MEYPAK.PRL.STOK
             this._islem = islem;
             this._form = form;
             _stokKasaServis = new GenericWebServis<PocoSTOKKASA>();
+           
         }
 
         #region Tanımlar
@@ -43,6 +44,8 @@ namespace MEYPAK.PRL.STOK
                         fStokKasaHareketRaporu = (FStokKasaHareketRaporu)frm;
                 }
             }
+            
+
         }
 
         private void gridView1_DoubleClick(object sender, EventArgs e)
