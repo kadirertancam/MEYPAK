@@ -28,6 +28,7 @@ namespace MEYPAK.PRL
             _stokKategoriServis = new GenericWebServis<PocoSTOKKATEGORI>();
             _olcuBrServis = new GenericWebServis<PocoOLCUBR>();
             _stokServis = new GenericWebServis<PocoSTOK>();
+            _stokOlcuBrServis = new GenericWebServis<PocoSTOKOLCUBR>();
         }
 
         DataTable temptable;
@@ -36,6 +37,7 @@ namespace MEYPAK.PRL
         GenericWebServis<PocoSTOKKATEGORI> _stokKategoriServis;
         GenericWebServis<PocoOLCUBR> _olcuBrServis;
         GenericWebServis<PocoSTOK> _stokServis;
+        GenericWebServis<PocoSTOKOLCUBR> _stokOlcuBrServis;
         string path = "";
         Syncfusion.XlsIO.IWorkbook workbook;
         private void button1_Click(object sender, EventArgs e)
@@ -61,6 +63,14 @@ namespace MEYPAK.PRL
                         olcubR1 = _olcuBrServis.obje.Where(x => x.birim == tesst[4].ToString()).FirstOrDefault().id,
                         aliskdv = 1,
                         satiskdv = 1
+                    });
+                    _stokOlcuBrServis.Data(ServisList.StokOlcuBrEkleServis, new PocoSTOKOLCUBR()
+                    {
+                        katsayi = 1,
+                        num = 1,
+                        olcubrid = _olcuBrServis.obje.Where(x => x.birim == tesst[4].ToString()).FirstOrDefault().id,
+                        stokid = _stokServis.obje2.id,
+
                     });
                 }
             }

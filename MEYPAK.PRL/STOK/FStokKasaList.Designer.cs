@@ -99,6 +99,7 @@
             this.simpleButton2.Size = new System.Drawing.Size(167, 54);
             this.simpleButton2.TabIndex = 99;
             this.simpleButton2.Text = "Filtrele";
+            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
             // labelControl1
             // 

@@ -35,7 +35,7 @@ namespace MEYPAK.PRL
             NinjectFactory.CompositionRoot.Initialize(a);
             ApplicationConfiguration.Initialize();
             Application.EnableVisualStyles();
-            Application.Run(new StokExcelAktarým());
+            Application.Run(new Main());
         }
         
 
