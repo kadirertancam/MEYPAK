@@ -383,6 +383,19 @@
             this.LBAlacakDeger.TabIndex = 66;
             this.LBAlacakDeger.Text = "0";
             // 
+            // BTKaydet
+            // 
+            this.BTKaydet.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.BTKaydet.Appearance.Options.UseBackColor = true;
+            this.BTKaydet.Appearance.Options.UseFont = true;
+            this.BTKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTKaydet.ImageOptions.Image")));
+            this.BTKaydet.Location = new System.Drawing.Point(41, 199);
+            this.BTKaydet.Name = "BTKaydet";
+            this.BTKaydet.Size = new System.Drawing.Size(70, 34);
+            this.BTKaydet.TabIndex = 65;
+            this.BTKaydet.Text = "&Kaydet";
+            this.BTKaydet.Click += new System.EventHandler(this.BTKaydet_Click);
+            // 
             // groupControl1
             // 
             this.groupControl1.CaptionImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("groupControl1.CaptionImageOptions.Image")));

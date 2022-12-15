@@ -152,6 +152,7 @@ namespace MEYPAK.PRL.STOK.FiyatListesi
                 DialogResult Secim = new DialogResult();
 
                 Secim = MessageBox.Show($"{gridView1.GetFocusedRowCellValue("FİYATLİSTESİ")} \nSilinsin mi?", "Kaydı Sil", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+               
 
                 if (Secim == DialogResult.Yes)
                 {

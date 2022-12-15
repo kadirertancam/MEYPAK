@@ -4,23 +4,14 @@ using MEYPAK.Entity.PocoModels;
 using MEYPAK.Entity.PocoModels.FATURA;
 using MEYPAK.Entity.PocoModels.IRSALIYE;
 using MEYPAK.Entity.PocoModels.PARAMETRE;
-using MEYPAK.Entity.PocoModels.SIPARIS;
 using MEYPAK.Entity.PocoModels.STOK;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace MEYPAK.PRL.SIPARIS
 {
     public partial class FFaturaSettingsPanel : Form
     {
-        public FFaturaSettingsPanel()
+        public FFaturaSettingsPanel(string tag = "", string form = "")
         {
             InitializeComponent();
             tempIrsDetay = new List<PocoIRSALIYEDETAY>();
@@ -33,7 +24,11 @@ namespace MEYPAK.PRL.SIPARIS
             _tempfatdetay = new List<PocoFaturaKalem>();
             _olcuBrServis = new GenericWebServis<PocoOLCUBR>();
             _stokServis = new GenericWebServis<PocoSTOK>();
+            _tag = tag;
+            _form = form;
         }
+        string _tag;
+        string _form;
         FSatisIrsaliyeFaturalastir fSatisIrsaliyeFaturalastir;
         List<PocoIRSALIYEDETAY> tempIrsDetay;
         List<PocoFaturaKalem> _tempfatdetay;
@@ -52,49 +47,44 @@ namespace MEYPAK.PRL.SIPARIS
         private void simpleButton2_Click(object sender, EventArgs e)
         {
             _irsaliyeDetayServis.Data(ServisList.IrsaliyeDetayListeServis);
-            fSatisIrsaliyeFaturalastir = (FSatisIrsaliyeFaturalastir)Application.OpenForms["FSatisIrsaliyeFaturalastir"];
+            _irsaliyeServis.Data(ServisList.IrsaliyeListeServis);
+            var tempirs = _irsaliyeServis.obje.Where(x => x.kayittipi == 0 && x.tip == 0 && x.id.ToString() == fSatisIrsaliyeFaturalastir.gridView2.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+            tempfat = new PocoFATURA()
+            {
+                aciklama = tempirs.aciklama,
+                althesapid = tempirs.althesapid,
+                belgeno = comboBox1.Text + yeniTextEdit1.Text,
+                bruttoplam = tempirs.bruttoplam,
+                cariadi = tempirs.cariadi,
+                cariid = tempirs.cariid,
+                depoid = tempirs.depoid,
+                donem = tempirs.donem,
+                dovizid = tempirs.dovizid,
+                durum = tempirs.durum,
+                ekaciklama = tempirs.ekaciklama,
+                geneltoplam = tempirs.geneltoplam,
+                faturatarihi = tempirs.irsaliyetarihi,
+                iskontotoplam = tempirs.iskontotoplam,
+                kdvdahil = tempirs.kdvdahil,
+                kdvtoplam = tempirs.kdvtoplam,
+                kur = tempirs.kur,
+                kullanicitipi = tempirs.kullanicitipi,
+                nettoplam = tempirs.nettoplam,
+                tip = tempirs.tip,
+                irsaliyeid = tempirs.id,
+                vadegunu = tempirs.vadegunu,
+                vadetarihi = tempirs.vadetarihi,
+                sirketid = tempirs.sirketid,
+                subeid = tempirs.subeid,
+
+            };
+            tempirs.durum = true;
+            _irsaliyeServis.Data(ServisList.IrsaliyeEkleServis, tempirs);
+
             foreach (var item in fSatisIrsaliyeFaturalastir.gridView1.GetSelectedRows())
             {
                 if (item != -1)
-                {
                     tempIrsDetay.Add(_irsaliyeDetayServis.obje.Where(x => x.kayittipi == 0 && x.id.ToString() == fSatisIrsaliyeFaturalastir.gridView1.GetRowCellValue(item, "ID").ToString()).FirstOrDefault());
-                }
-
-
-                _irsaliyeServis.Data(ServisList.IrsaliyeListeServis);
-                // var tt= _irsaliyeServis.obje.Where(x=>x.id.ToString()==grid)
-                var tempirs = _irsaliyeServis.obje.Where(x => x.kayittipi == 0 && x.tip == 0 && x.id.ToString() == fSatisIrsaliyeFaturalastir.gridView2.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
-                tempfat =new PocoFATURA()
-                {
-                    aciklama = tempirs.aciklama,
-                    althesapid = tempirs.althesapid,
-                    belgeno = comboBox1.Text + yeniTextEdit1.Text,
-                    bruttoplam = tempirs.bruttoplam,
-                    cariadi = tempirs.cariadi,
-                    cariid = tempirs.cariid,
-                    depoid = tempirs.depoid,
-                    donem = tempirs.donem,
-                    dovizid = tempirs.dovizid,
-                    durum = tempirs.durum,
-                    ekaciklama = tempirs.ekaciklama,
-                    geneltoplam = tempirs.geneltoplam,
-                    faturatarihi = tempirs.irsaliyetarihi,
-                    iskontotoplam = tempirs.iskontotoplam,
-                    kdvdahil = tempirs.kdvdahil,
-                    kdvtoplam = tempirs.kdvtoplam,
-                    kur = tempirs.kur,
-                    kullanicitipi = tempirs.kullanicitipi,
-                    nettoplam = tempirs.nettoplam,
-                    tip = tempirs.tip,
-                    irsaliyeid = tempirs.id, 
-                    vadegunu = tempirs.vadegunu,
-                    vadetarihi = tempirs.vadetarihi,
-                    sirketid = tempirs.sirketid,
-                    subeid = tempirs.subeid,
-
-                };
-                tempirs.durum = true;
-                _irsaliyeServis.Data(ServisList.IrsaliyeEkleServis, tempirs);
             }
 
             _olcuBrServis.Data(ServisList.OlcuBrListeServis);
@@ -159,7 +149,14 @@ namespace MEYPAK.PRL.SIPARIS
 
         private void FFaturaSettingsPanel_Load(object sender, EventArgs e)
         {
-            fSatisIrsaliyeFaturalastir = (FSatisIrsaliyeFaturalastir)Application.OpenForms["FSatisIrsaliyeFaturalastir"];
+            foreach (Form item in Application.OpenForms)
+            {
+                if (item.Tag == _tag)
+                {
+                    if (_form == "FSatisIrsaliyeFaturalastir")
+                        fSatisIrsaliyeFaturalastir = (FSatisIrsaliyeFaturalastir)item;
+                }
+            }
             _seriServis.Data(ServisList.SeriListeServis);
             foreach (var item in _seriServis.obje.Where(x => x.TIP == 0))
             {

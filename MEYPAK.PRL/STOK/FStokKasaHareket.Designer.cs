@@ -141,6 +141,8 @@
             // 
             this.MIKTAR.AccessibleName = "MIKTAR";
             this.MIKTAR.Caption = "MIKTAR";
+            this.MIKTAR.DisplayFormat.FormatString = "n0";
+            this.MIKTAR.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.MIKTAR.FieldName = "MIKTAR";
             this.MIKTAR.Name = "MIKTAR";
             this.MIKTAR.Visible = true;
@@ -159,6 +161,8 @@
             // 
             this.MMIKTAR.AccessibleName = "MMIKTAR";
             this.MMIKTAR.Caption = "MMIKTAR";
+            this.MMIKTAR.DisplayFormat.FormatString = "n0";
+            this.MMIKTAR.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.MMIKTAR.FieldName = "MMIKTAR";
             this.MMIKTAR.Name = "MMIKTAR";
             this.MMIKTAR.Visible = true;

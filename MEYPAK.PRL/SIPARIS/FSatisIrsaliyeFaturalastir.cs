@@ -36,7 +36,7 @@ namespace MEYPAK.PRL.SIPARIS
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            faturaSettingsPanel = new FFaturaSettingsPanel();
+            faturaSettingsPanel = new FFaturaSettingsPanel(this.Tag.ToString(), "FSatisIrsaliyeFaturalastir");
             faturaSettingsPanel.ShowDialog();
         }
 

@@ -262,7 +262,7 @@ namespace MEYPAK.PRL.STOK
                     fAlisIrsaliye._tempKasaList.Clear();
                     foreach (var item in gridView1.GetSelectedRows())
                     {
-                        if (item != -1)
+                        if (item >0 )
                         {
                             ttt.Add(new KasaList()
                             {
