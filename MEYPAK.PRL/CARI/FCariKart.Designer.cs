@@ -1082,7 +1082,7 @@
             this.LBSayisalAciklama4.Size = new System.Drawing.Size(86, 13);
             this.LBSayisalAciklama4.TabIndex = 39;
             this.LBSayisalAciklama4.Text = "Sayısal Açıklama 4";
-            this.LBSayisalAciklama4.Click += new System.EventHandler(this.LBSayisalAciklama4_Click);
+           
             // 
             // LBSayisalAciklama3
             // 
@@ -1588,7 +1588,6 @@
             this.panelControl21.Name = "panelControl21";
             this.panelControl21.Size = new System.Drawing.Size(177, 124);
             this.panelControl21.TabIndex = 71;
-            this.panelControl21.Paint += new System.Windows.Forms.PaintEventHandler(this.panelControl21_Paint);
             // 
             // BTYetkiliKaydet
             // 
