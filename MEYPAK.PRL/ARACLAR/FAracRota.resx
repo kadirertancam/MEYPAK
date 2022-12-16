@@ -63,16 +63,16 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="simpleButton1.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAAAE3RFWHRUaXRsZQBQcmV2aWV3
-        O1ByaW50mJGh8wAAAaBJREFUWEfFlTFOw0AQRdMhRRyH0j2X4BCcIBIXSEVDxYmQ0tFyAQ6Qysy3Zqzx
-        3+94N4HF0ouzf+fP/NhOshvH8V+RYk+k2JPFYhiG/H68koMx9crkORkpAjOp5rUUIdQMIEVgpmi2aLTB
-        agg1A0gReJNbAoA5hJoBpAhSkzxgizw8mEKoGUCKIDXgIZfIgzMHNQMsFlZYNMv7DNXPHgV7g0Kw4jif
-        DDiLmgC1FbQHcHAcDQQ5+xlrHLlui6sCPBmfYSagYz8PucTk4zlBIVgxjhj+bjwaez9jHSHk7TGZaQ6A
-        yxzD74zQAdYR4sjeVJdpDoB7DRM+8dTE9QA69k/spbqgOQAeOJj2vOf7uB3YP6/sM80B+l8BMnzAYPR7
-        BsjwDYODYfjEf/stSMX444jha8y/A9yMegWTj+uC6cULeTiuBG7H6i8hN0u9MlUBXqPQeTHujQc2bGEe
-        pirAVxQaGA7tDetcXIN7M1UBng2EwJVYGNO6gJt5L2Y7gCKM3kSy4mPaArDxt+A5gRSBanIL3D+QYk+k
-        2BMp9kSK/Rh3P1qNwaeMlGL+AAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
+        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAATdEVYdFRpdGxlAFByZXZpZXc7UHJpbnSYkaHzAAAB
+        oElEQVRYR8WVMU7DQBBF0yFFHIfSPZfgEJwgEhdIRUPFiZDS0XIBDpDKzLdmrPHf73g3gcXSi7N/58/8
+        2E6yG8fxX5FiT6TYk8ViGIb8frySgzH1yuQ5GSkCM6nmtRQh1AwgRWCmaLZotMFqCDUDSBF4k1sCgDmE
+        mgGkCFKTPGCLPDyYQqgZQIogNeAhl8iDMwc1AywWVlg0y/sM1c8eBXuDQrDiOJ8MOIuaALUVtAdwcBwN
+        BDn7GWscuW6LqwI8GZ9hJqBjPw+5xOTjOUEhWDGOGP5uPBp7P2MdIeTtMZlpDoDLHMPvjNAB1hHiyN5U
+        l2kOgHsNEz7x1MT1ADr2T+yluqA5AB44mPa85/u4Hdg/r+wzzQH6XwEyfMBg9HsGyPANg4Nh+MR/+y1I
+        xfjjiOFrzL8D3Ix6BZOP64LpxQt5OK4EbsfqLyE3S70yVQFeo9B5Me6NBzZsYR6mKsBXFBoYDu0N61xc
+        g3szVQGeDYTAlVgY07qAm3kvZjuAIozeRLLiY9oCsPG34DmBFIFqcgvcP5BiT6TYEyn2RIr9GHc/Wo3B
+        p4yUYv4AAAAASUVORK5CYII=
 </value>
   </data>
   <data name="BTNAracKaydet.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

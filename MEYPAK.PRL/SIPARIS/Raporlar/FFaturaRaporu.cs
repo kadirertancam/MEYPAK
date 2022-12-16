@@ -10,6 +10,7 @@ using MEYPAK.Entity.PocoModels.FATURA;
 using MEYPAK.Entity.PocoModels.IRSALIYE;
 using MEYPAK.Entity.PocoModels.PARAMETRE;
 using MEYPAK.Entity.PocoModels.PERSONEL;
+using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Arac;
 using MEYPAK.Interfaces.IRSALIYE;
 using MEYPAK.Interfaces.Kasa;
@@ -68,31 +69,50 @@ namespace MEYPAK.PRL.SIPARIS.Raporlar
         {
             FCariList fCariList = new FCariList(this.Tag.ToString(), "FFaturaRaporu");
             fCariList.ShowDialog();
-            
+            if (_tempCariKart != null)
+                BTCariSec.Text = _tempCariKart.unvan;
+
+            GridiDoldur(Filtrele());
         }
         private void BTFaturaSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             FFaturaList ffaturalist = new FFaturaList(this.Tag.ToString(), "FFaturaRaporu");
             ffaturalist.ShowDialog();
-           
+            if (_tempFatura != null)
+                BTFaturaSec.Text = _tempFatura.belgeno;
+
+            GridiDoldur(Filtrele());
+
         }
 
         private void BTDepoSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             FDepoList fDepoList = new FDepoList(this.Tag.ToString(), "FFaturaRaporu");
             fDepoList.ShowDialog();
+            if (_tempDepo != null)
+                BTDepoSec.Text = _tempDepo.aciklama;
+
+            GridiDoldur(Filtrele());
         }
 
         private void BTAltHesSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             FAltHesapList fAltHesapList = new FAltHesapList(this.Tag.ToString(), "FFaturaRaporu");
             fAltHesapList.ShowDialog();
+            if (_tempCARIALTHES != null)
+                BTAltHesSec.Text = _tempCARIALTHES.adi;
+
+            GridiDoldur(Filtrele());
         }
 
         private void BTIrsaliyeSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             FIrsaliyeList fIrsaliyeList = new FIrsaliyeList(this.Tag.ToString(), "FFaturaRaporu");
             fIrsaliyeList.ShowDialog();
+            if (_tempIrsaliye != null)
+                BTIrsaliyeSec.Text = _tempIrsaliye.belgeno;
+
+            GridiDoldur(Filtrele());
         }
 
         private void FFaturaRaporu_Load(object sender, EventArgs e)
@@ -112,18 +132,42 @@ namespace MEYPAK.PRL.SIPARIS.Raporlar
             _depoServis.Data(ServisList.DepoListeServis);
             _personelServis.Data(ServisList.PersonelListeServis);
             _aracServis.Data(ServisList.AracListeServis);
-            DGFaturaRpr.DataSource = _faturaServis.obje.Select(x => new
-            {
-                
+            GridiDoldur(_faturaServis.obje);
+            DGFaturaRpr.RefreshDataSource();
+        }
 
+        List<PocoFATURA> Filtrele()
+        {
+            List<PocoFATURA> filtre = new List<PocoFATURA>();
+            if (BTFaturaSec.Text != "" && _tempFatura != null)
+                filtre.Add(_tempFatura);
+            else if (BTCariSec.Text != "" && _tempCariKart != null)
+                filtre.AddRange(_faturaServis.obje.Where(x => x.cariid == _tempCariKart.id));
+            else if (BTDepoSec.Text != "" && _tempDepo != null)
+                filtre.AddRange(_faturaServis.obje.Where(x => x.depoid == _tempDepo.id));
+            else if (BTAltHesSec.Text != "" && _tempCARIALTHES != null)
+                filtre.AddRange(_faturaServis.obje.Where(x => x.althesapid == _tempCARIALTHES.id));
+            else if (BTIrsaliyeSec.Text != "" && _tempIrsaliye != null)
+                filtre.AddRange(_faturaServis.obje.Where(x => x.irsaliyeid == _tempIrsaliye.id));
+            else
+                return _faturaServis.obje;
+
+
+            return filtre;
+        }
+
+        void GridiDoldur(List<PocoFATURA> A)
+        {
+            DGFaturaRpr.DataSource = A.Select(x => new
+            {
                 ID = x.id,
                 KAYITTARİHİ = x.olusturmatarihi,
-                FATURATARİHİ =x.faturatarihi,
+                FATURATARİHİ = x.faturatarihi,
                 DÖNEM = x.donem,
                 SERİNO = x.serino,
                 TİPİ = x.tip,
                 FATURAADI = x.belgeno,
-                AÇIKLAMA =x.aciklama,
+                AÇIKLAMA = x.aciklama,
                 EKAÇIKLAMA = x.ekaciklama,
                 IRSALİYENO = _irsaliyeServis.obje.Where(y => y.id == x.irsaliyeid).Count() > 0 ? _irsaliyeServis.obje.Where(y => y.id == x.irsaliyeid).FirstOrDefault().belgeno : "",
                 CARİKODU = _cariServis.obje.Where(y => y.id == x.cariid).Count() > 0 ? _cariServis.obje.Where(y => y.id == x.cariid).FirstOrDefault().unvan : "",
@@ -138,28 +182,23 @@ namespace MEYPAK.PRL.SIPARIS.Raporlar
                 ISKONTO = x.iskontotoplam,
                 KDVTOPLAM = x.kdvtoplam,
                 BRÜTTOPLAM = x.bruttoplam,
-                NETTOPLAM =x.nettoplam,
-                GENELTOPLAM =x.geneltoplam,
+                NETTOPLAM = x.nettoplam,
+                GENELTOPLAM = x.geneltoplam,
                 DEPOADI = _depoServis.obje.Where(y => y.id == x.depoid).Count() > 0 ? _depoServis.obje.Where(y => y.id == x.depoid).FirstOrDefault().aciklama : "",
-                PERSONELADI = _personelServis.obje.Where(y => y.id == x.personelid).Count() > 0 ? _personelServis.obje.Where(y => y.id == x.personelid ).FirstOrDefault().adisoyadi : "",
+                PERSONELADI = _personelServis.obje.Where(y => y.id == x.personelid).Count() > 0 ? _personelServis.obje.Where(y => y.id == x.personelid).FirstOrDefault().adisoyadi : "",
                 ARACPLAKA = _aracServis.obje.Where(y => y.id == x.aracid).Count() > 0 ? _aracServis.obje.Where(y => y.id == x.aracid).FirstOrDefault().plaka : "",
                 KULLANICIID = x.kullaniciid,
                 KULLANICITİPİ = x.kullanicitipi,
                 ŞİRKETID = x.sirketid,
-                ŞUBEID =x.subeid,
+                ŞUBEID = x.subeid,
                 DURUM = x.durum,
                 GÜNCELLEMETARİHİ = x.guncellemetarihi,
 
- 
 
 
-
-            });
-            DGFaturaRpr.Refresh();
-            DGFaturaRpr.RefreshDataSource();
+            }).ToList();
         }
-       
 
-       
+
     }
 }

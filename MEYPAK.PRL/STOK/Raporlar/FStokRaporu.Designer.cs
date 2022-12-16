@@ -89,9 +89,9 @@
             // 
             this.panelControl3.Controls.Add(this.DGStokRpr);
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl3.Location = new System.Drawing.Point(2, 134);
+            this.panelControl3.Location = new System.Drawing.Point(2, 158);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(1347, 580);
+            this.panelControl3.Size = new System.Drawing.Size(1347, 556);
             this.panelControl3.TabIndex = 1;
             // 
             // DGStokRpr
@@ -100,7 +100,7 @@
             this.DGStokRpr.Location = new System.Drawing.Point(2, 2);
             this.DGStokRpr.MainView = this.gridView1;
             this.DGStokRpr.Name = "DGStokRpr";
-            this.DGStokRpr.Size = new System.Drawing.Size(1343, 576);
+            this.DGStokRpr.Size = new System.Drawing.Size(1343, 552);
             this.DGStokRpr.TabIndex = 0;
             this.DGStokRpr.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -118,7 +118,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl2.Location = new System.Drawing.Point(2, 2);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(1347, 132);
+            this.panelControl2.Size = new System.Drawing.Size(1347, 156);
             this.panelControl2.TabIndex = 0;
             // 
             // groupControl1
@@ -132,13 +132,11 @@
             this.groupControl1.Controls.Add(this.LBKategori);
             this.groupControl1.Controls.Add(this.LBStokKodu);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupControl1.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             this.groupControl1.Location = new System.Drawing.Point(2, 2);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(1343, 125);
+            this.groupControl1.Size = new System.Drawing.Size(1343, 150);
             this.groupControl1.TabIndex = 0;
-            this.groupControl1.Text = "Stok Raporu";
-           
+            this.groupControl1.Text = "Filtrele";
             // 
             // panelControl4
             // 
@@ -147,7 +145,7 @@
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Right;
             this.panelControl4.Location = new System.Drawing.Point(1231, 23);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(110, 100);
+            this.panelControl4.Size = new System.Drawing.Size(110, 125);
             this.panelControl4.TabIndex = 10;
             // 
             // BTRaporla
@@ -164,38 +162,38 @@
             // 
             // BTMarkaSec
             // 
-            this.BTMarkaSec.Location = new System.Drawing.Point(164, 86);
+            this.BTMarkaSec.Location = new System.Drawing.Point(145, 98);
             this.BTMarkaSec.Name = "BTMarkaSec";
             this.BTMarkaSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTMarkaSec.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTMarkaSec_Properties_ButtonClick);
-            this.BTMarkaSec.Size = new System.Drawing.Size(180, 22);
+            this.BTMarkaSec.Size = new System.Drawing.Size(297, 22);
             this.BTMarkaSec.TabIndex = 9;
             // 
             // BTKateSec
             // 
-            this.BTKateSec.Location = new System.Drawing.Point(164, 60);
+            this.BTKateSec.Location = new System.Drawing.Point(145, 72);
             this.BTKateSec.Name = "BTKateSec";
             this.BTKateSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTKateSec.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTKateSec_Properties_ButtonClick);
-            this.BTKateSec.Size = new System.Drawing.Size(180, 22);
+            this.BTKateSec.Size = new System.Drawing.Size(297, 22);
             this.BTKateSec.TabIndex = 8;
             // 
             // BTStokSec
             // 
-            this.BTStokSec.Location = new System.Drawing.Point(164, 34);
+            this.BTStokSec.Location = new System.Drawing.Point(145, 46);
             this.BTStokSec.Name = "BTStokSec";
             this.BTStokSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTStokSec.Properties.Name = "BTStokSec";
             this.BTStokSec.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTStokSec_Properties_ButtonClick);
-            this.BTStokSec.Size = new System.Drawing.Size(180, 22);
+            this.BTStokSec.Size = new System.Drawing.Size(297, 22);
             this.BTStokSec.TabIndex = 7;
             // 
             // LBMarka
             // 
-            this.LBMarka.Location = new System.Drawing.Point(89, 90);
+            this.LBMarka.Location = new System.Drawing.Point(70, 102);
             this.LBMarka.Name = "LBMarka";
             this.LBMarka.Size = new System.Drawing.Size(56, 13);
             this.LBMarka.TabIndex = 5;
@@ -203,7 +201,7 @@
             // 
             // LBKategori
             // 
-            this.LBKategori.Location = new System.Drawing.Point(105, 64);
+            this.LBKategori.Location = new System.Drawing.Point(86, 76);
             this.LBKategori.Name = "LBKategori";
             this.LBKategori.Size = new System.Drawing.Size(40, 13);
             this.LBKategori.TabIndex = 4;
@@ -211,7 +209,7 @@
             // 
             // LBStokKodu
             // 
-            this.LBStokKodu.Location = new System.Drawing.Point(97, 37);
+            this.LBStokKodu.Location = new System.Drawing.Point(78, 49);
             this.LBStokKodu.Name = "LBStokKodu";
             this.LBStokKodu.Size = new System.Drawing.Size(48, 13);
             this.LBStokKodu.TabIndex = 3;

@@ -47,7 +47,7 @@ namespace MEYPAK.PRL.CARI.Raporlar
             FCariList fCariList = new FCariList(this.Tag.ToString(), "FCariRaporu");
             fCariList.ShowDialog();
             if (_tempCariKart != null)
-                BTCariSec.Text = _tempCariKart.kod;
+                BTCariSec.Text = _tempCariKart.unvan;
 
             GridiDoldur(Filtrele());
         }

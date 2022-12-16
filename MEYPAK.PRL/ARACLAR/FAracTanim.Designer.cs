@@ -952,7 +952,7 @@
             // XTPBelgeler
             // 
             this.XTPBelgeler.Name = "XTPBelgeler";
-            this.XTPBelgeler.Size = new System.Drawing.Size(663, 323);
+            this.XTPBelgeler.Size = new System.Drawing.Size(893, 687);
             this.XTPBelgeler.Text = "Diğer Belgeler";
             // 
             // panelControl3
@@ -1243,6 +1243,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1128, 898);
             this.Controls.Add(this.panelControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FAracTanim";
             this.Text = "FAracTanim";
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
