@@ -26,7 +26,7 @@ namespace MEYPAK.PRL.STOK.Raporlar
         public FStokSayimRaporu(string tag = "", string islem = "")
         {
             InitializeComponent();
-            _stokServis = new GenericWebServis<PocoSTOK>();
+            
             _stokSayimServis = new GenericWebServis<PocoSTOKSAYIM>();
             _depoServis = new GenericWebServis<PocoDEPO>();
             _form = tag;
@@ -35,12 +35,13 @@ namespace MEYPAK.PRL.STOK.Raporlar
 
         #region Tanımlar
         string _form, _islem;
-        GenericWebServis<PocoSTOK> _stokServis;
+    
         GenericWebServis<PocoSTOKSAYIM> _stokSayimServis;
         GenericWebServis<PocoDEPO> _depoServis;
+
         
-        public PocoSTOK _tempStok;
         public PocoDEPO _tempDepo;
+        public PocoSTOKSAYIM _tempSayim;
         #endregion
 
         #region Metotlar
@@ -49,28 +50,52 @@ namespace MEYPAK.PRL.STOK.Raporlar
             Doldur();
         }
 
-        private void BTStokSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
-        {
-            _tempStok = null;
-            FStokList fStokList = new FStokList(this.Tag.ToString(), "stoksayim");
-            fStokList.ShowDialog();
-            Doldur();
-        }
 
         private void BTDepoSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             FDepoList fDepoList = new FDepoList(this.Tag.ToString(), "stoksayim");
             fDepoList.ShowDialog();
+            if (_tempDepo != null)
+                BTDepoSec.Text = _tempDepo.aciklama;
+
+            GridiDoldur(Filtrele());
+        }
+
+        private void BTSayimSec_Properties_ButtonClick_1(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            FSayimList fSayimList = new FSayimList(this.Tag.ToString(), "FStokSayim");
+            fSayimList.ShowDialog();
+            if (_tempSayim != null)
+                BTSayimSec.Text = _tempSayim.aciklama;
+
+            GridiDoldur(Filtrele());
         }
 
         void Doldur()
         {
-            _stokSayimServis.Data(ServisList.StokSayimListeServis);
+            
             _depoServis.Data(ServisList.DepoListeServis);
             _stokSayimServis.Data(ServisList.StokSayimListeServis);
-            
-          
-            DGStokSayimRpr.DataSource = _stokSayimServis.obje.Where(x => x.kayittipi == 0).Select(x => new
+            GridiDoldur(_stokSayimServis.obje);
+            DGStokSayimRpr.RefreshDataSource();
+        }
+
+
+        List<PocoSTOKSAYIM> Filtrele()
+        {
+            List<PocoSTOKSAYIM> filtre = new List<PocoSTOKSAYIM>();
+            if (BTSayimSec.Text != "" && _tempSayim != null)
+                filtre.Add(_tempSayim);
+            else if (BTDepoSec.Text != "" && _tempDepo != null)
+                filtre.AddRange(_stokSayimServis.obje.Where(x => x.depoid == _tempDepo.id));
+            else
+                return _stokSayimServis.obje;
+            return filtre;
+        }
+
+        void GridiDoldur(List<PocoSTOKSAYIM> A)
+        {
+            DGStokSayimRpr.DataSource = A.Select(x => new
             {
                 ID = x.id,
                 KAYITTARİHİ = x.olusturmatarihi,
@@ -80,14 +105,13 @@ namespace MEYPAK.PRL.STOK.Raporlar
                 DURUM = x.durum,
                 FİRMAID = x.firmaid,
                 ŞUBEID = x.subeid,
-                GÜNCELLENMETARİHİ =x.guncellemetarihi
+                GÜNCELLENMETARİHİ = x.guncellemetarihi
 
-
-            });
-            DGStokSayimRpr.Refresh();
-            DGStokSayimRpr.RefreshDataSource();
+            }).ToList();
         }
 
         #endregion
+
     }
 }
+        

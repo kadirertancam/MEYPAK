@@ -60,7 +60,11 @@ namespace MEYPAK.PRL.STOK.Raporlar
             
             FStokList fStokList = new FStokList(this.Tag.ToString(), "FStokHareketRaporu");
             fStokList.ShowDialog();
-            
+            if (_tempStok != null)
+                BTStokSec.Text = _tempStok.adi;
+
+           GridiDoldur(Filtrele());
+
         }
 
         private void FStokHareketRaporu_Load(object sender, EventArgs e)
@@ -73,19 +77,31 @@ namespace MEYPAK.PRL.STOK.Raporlar
         {
             FDepoList fDepoList = new FDepoList(this.Tag.ToString(), "FStokHareketRaporu");
             fDepoList.ShowDialog();
+            if (_tempDepo != null)
+                BTDepoSec.Text = _tempDepo.aciklama;
+
+            GridiDoldur(Filtrele());
         }
 
         private void BTFaturaSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             FFaturaList fFaturaList = new FFaturaList(this.Tag.ToString(), "FStokHareketRaporu");
             fFaturaList.ShowDialog();
-            
+            if (_tempFatura != null)
+                BTFaturaSec.Text = _tempFatura.belgeno;
+
+            GridiDoldur(Filtrele());
+
         }
 
         private void BTSayimSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             FSayimList fSayimList = new FSayimList(this.Tag.ToString(), "FStokHareketRaporu");
             fSayimList.ShowDialog();
+            if (_tempSayim != null)
+                BTSayimSec.Text = _tempSayim.aciklama;
+
+            GridiDoldur(Filtrele());
         }
 
         void Doldur()
@@ -96,12 +112,39 @@ namespace MEYPAK.PRL.STOK.Raporlar
             _sayimServis.Data(ServisList.StokSayimListeServis);
             _faturaServis.Data(ServisList.FaturaListeServis);
            _OlcuBrServis.Data(ServisList.OlcuBrListeServis);
-            DGStokHareketRpr.DataSource = _stokHarServis.obje.Where(x => x.kayittipi == 0).Select(x => new
+            GridiDoldur(_stokHarServis.obje);
+            DGStokHareketRpr.RefreshDataSource();
+
+
+        }
+
+        List<PocoSTOKHAR> Filtrele()
+        {
+            List<PocoSTOKHAR> filtre = new List<PocoSTOKHAR>();
+            if (BTStokSec.Text != "" && _tempStok != null)
+                filtre.AddRange(_stokHarServis.obje.Where(x => x.stokid == _tempStok.id));
+            else if (BTDepoSec.Text != "" && _tempDepo != null)
+                filtre.AddRange(_stokHarServis.obje.Where(x => x.depoid == _tempDepo.id));
+            else if (BTFaturaSec.Text != "" && _tempFatura != null)
+                filtre.AddRange(_stokHarServis.obje.Where(x => x.faturaid == _tempFatura.id));
+            else if (BTSayimSec.Text != "" && _tempSayim != null)
+                filtre.AddRange(_stokHarServis.obje.Where(x => x.sayimid == _tempSayim.id));
+            else
+                return _stokHarServis.obje;
+
+
+            return filtre;
+        }
+
+
+        void GridiDoldur(List<PocoSTOKHAR> A)
+        {
+            DGStokHareketRpr.DataSource = A.Select(x => new
             {
                 ID = x.id,
                 KAYITTARİHİ = x.olusturmatarihi,
                 BELGENO = x.belgE_NO,
-                AÇIKLAMA =x.aciklama,
+                AÇIKLAMA = x.aciklama,
                 HAREKETTTÜRÜ = x.hareketturu == 1 ? "Satış Fatura" : x.hareketturu == 2 ? "Alış Fatura" : x.hareketturu == 3 ? "Satış Irsaliye" : x.hareketturu == 4 ? "Alış Irsaliye" : x.hareketturu == 5 ? "Satış Fatura Iade" : x.hareketturu == 6 ? "Alış Fatura Iade" : x.hareketturu == 7 ? "Satış Irsalye Iade" : x.hareketturu == 8 ? "Alış Irsaliye Iade" : x.hareketturu == 9 ? "Muhtelif" : x.hareketturu == 10 ? "DAT" : x.hareketturu == 11 ? "Sayim" : "Muhtelif",
                 STOKADI = _stokServis.obje.Where(y => y.id == x.stokid).Count() > 0 ? _stokServis.obje.Where(y => y.id == x.stokid).FirstOrDefault().adi : "", //farklı tablodan gridde id den farklı veri getirme
                 KÜNYE = x.kunye,
@@ -109,31 +152,20 @@ namespace MEYPAK.PRL.STOK.Raporlar
                 SAYIMAÇIKLAMA = _sayimServis.obje.Where(y => y.id == x.id).Count() > 0 ? _sayimServis.obje.Where(y => y.id == x.id).FirstOrDefault().aciklama : "",
                 FATURANO = _faturaServis.obje.Where(y => y.id == x.id).Count() > 0 ? _faturaServis.obje.Where(y => y.id == x.id).FirstOrDefault().belgeno : "",
                 BİRİM = _OlcuBrServis.obje.Where(y => y.id == x.id).Count() > 0 ? _OlcuBrServis.obje.Where(y => y.id == x.id).FirstOrDefault().adi : "",
-                MİKTAR =x.miktar,
+                MİKTAR = x.miktar,
                 BRÜTTOPLAM = x.bruttoplam,
                 GİRİŞ = x.io == 1 ? x.miktar : 0,
                 ÇIKIŞ = x.io == 0 ? x.miktar : 0,
                 KDV = x.kdv,
                 NETFİYAT = x.netfiyat,
                 NETTOPLAM = x.nettoplam,
-                SİRKETID =x.sirketid,
-                ŞUBEID =x.subeid,
+                SİRKETID = x.sirketid,
+                ŞUBEID = x.subeid,
                 KULLANICIID = x.kullaniciid,
-                GÜNCELLEMETARİHİ =x.guncellemetarihi,
-                
-            });
-            DGStokHareketRpr.Refresh();
-            DGStokHareketRpr.RefreshDataSource();
+                GÜNCELLEMETARİHİ = x.guncellemetarihi,
 
-
-          
-               
-           
-
+            }).ToList();
         }
-
-        
-
 
     }
         #endregion

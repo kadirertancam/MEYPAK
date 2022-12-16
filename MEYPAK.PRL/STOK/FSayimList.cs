@@ -45,6 +45,7 @@ namespace MEYPAK.PRL.STOK
         GenericWebServis<PocoDEPO> _depoServis;
         FSayimIsle fSayimIsle;
         FStokHareketRaporu fStokHareketRaporu;
+        FStokSayimRaporu fStokSayimRaporu;
 
         #endregion
 
@@ -60,6 +61,8 @@ namespace MEYPAK.PRL.STOK
                         fSayimIsle = (FSayimIsle)frm;
                     if (frm.Name.Contains("FStokHareketRaporu"))
                         fStokHareketRaporu = (FStokHareketRaporu)frm;
+                    if (frm.Name.Contains("FStokSayimRaporu"))
+                        fStokSayimRaporu = (FStokSayimRaporu)frm;
 
                 }
             }
@@ -110,6 +113,10 @@ namespace MEYPAK.PRL.STOK
             if (_islem == "FStokHareketRaporu")
             {
                 fStokHareketRaporu._tempSayim = _stokSayimServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+            }
+            if (_islem == "FStokSayimRaporu")
+            {
+                fStokSayimRaporu._tempSayim = _stokSayimServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
             }
 
             this.Close();
