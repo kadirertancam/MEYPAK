@@ -65,6 +65,7 @@
             this.GCKasaList.TabIndex = 1;
             this.GCKasaList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            this.GCKasaList.Enter += new System.EventHandler(this.GCKasaList_Enter);
             this.GCKasaList.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.GCKasaList_KeyPress);
             // 
             // gridView1
@@ -75,6 +76,7 @@
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsSelection.MultiSelect = true;
             this.gridView1.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
+            this.gridView1.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView1_FocusedRowChanged);
             this.gridView1.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridView1_CellValueChanged);
             this.gridView1.DoubleClick += new System.EventHandler(this.gridView1_DoubleClick);
             // 
@@ -116,6 +118,7 @@
             this.textEdit1.Size = new System.Drawing.Size(167, 20);
             this.textEdit1.TabIndex = 0;
             this.textEdit1.EditValueChanged += new System.EventHandler(this.textEdit1_EditValueChanged);
+            this.textEdit1.Leave += new System.EventHandler(this.textEdit1_Leave);
             // 
             // panelControl5
             // 

@@ -1,6 +1,8 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Repository;
+using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Columns;
+using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraRichEdit.Design;
 using DevExpress.XtraSpreadsheet.Model;
 using MEYPAK.BLL.Assets;
@@ -411,6 +413,23 @@ namespace MEYPAK.PRL.STOK
         private void simpleButton2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void textEdit1_Leave(object sender, EventArgs e)
+        {
+            this.ActiveControl = GCKasaList;
+        }
+
+        private void GCKasaList_Enter(object sender, EventArgs e)
+        {
+            gridView1.FocusedColumn = gridView1.Columns[gridView1.Columns.Count - 1];
+        }
+
+        private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            GridView view = (GridView)sender;
+            if (e.FocusedRowHandle < 0)
+                view.FocusedRowHandle = e.PrevFocusedRowHandle == GridControl.InvalidRowHandle ? 0 : e.PrevFocusedRowHandle;
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
