@@ -45,7 +45,7 @@ namespace MEYPAK.PRL.CARI
         FFaturaRaporu fFaturaRaporu;
         FCariRaporu fCariRaporu;
         FMusteriSiparisRaporu fMusteriSiparisRaporu;
-
+        FCariDurum fCariDurum;
         Main main;
         int i = 0;
        
@@ -100,6 +100,9 @@ namespace MEYPAK.PRL.CARI
                     fCariRaporu._tempCariKart = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
                 if (_islem == "FMusteriSiparisRaporu")
                     fMusteriSiparisRaporu._tempCariKart = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+                if (_islem == "FCariDurum")
+                    fCariDurum._tempCariKart = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+
             }
             else
             {
@@ -162,7 +165,9 @@ namespace MEYPAK.PRL.CARI
                         if (frm.Name.Contains("FStokKasaHareketRaporu"))
                             fStokKasaHareketRaporu = (FStokKasaHareketRaporu)frm;
                         if (frm.Name.Contains("FCariRaporu"))
-                            fCariRaporu = (FCariRaporu)frm;
+                            fCariRaporu = (FCariRaporu)frm; 
+                        if (frm.Name.Contains("FCariDurum"))
+                            fCariDurum = (FCariDurum)frm;
 
                     }
                 }
