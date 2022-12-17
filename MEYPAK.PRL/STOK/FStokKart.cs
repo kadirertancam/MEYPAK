@@ -235,6 +235,7 @@ namespace MEYPAK.PRL
         #region Events
         private void Form1_Load(object sender, EventArgs e)
         {
+           
             _StokKategoriervis.Data(ServisList.StokKategoriListeServis);
             _StokOlcuBrServis.Data(ServisList.StokOlcuBrListeServis);
             _PocoOlcuBrServis.Data(ServisList.OlcuBrListeServis);

@@ -9,6 +9,7 @@ using MEYPAK.Entity.PocoModels.DEPO;
 using MEYPAK.Entity.PocoModels.PARAMETRE;
 using MEYPAK.Entity.PocoModels.SIPARIS;
 using MEYPAK.Entity.PocoModels.STOK;
+using MEYPAK.Interfaces;
 using MEYPAK.PRL.Assets;
 using MEYPAK.PRL.CARI;
 using MEYPAK.PRL.STOK;
@@ -990,7 +991,7 @@ namespace MEYPAK.PRL.SIPARIS
             if (e.KeyChar == (char)Keys.Enter || e.KeyChar == (char)Keys.Down)
             {
                 num++;
-                _tempSiparisDetay.Add(new PocoSiparisKalem() { sıra = num });
+                _tempSiparisDetay.Add(new PocoSiparisKalem() {  Tipi = "STOK",  sıra = num });
                 GCIrsaliye.DataSource = _tempSiparisDetay;
 
                 gridView1.FocusedRowHandle = gridView1.RowCount - 1;

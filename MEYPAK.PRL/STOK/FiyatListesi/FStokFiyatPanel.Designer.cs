@@ -185,7 +185,7 @@
             // 
             this.DTBitisTar.EditValue = new System.DateTime(2022, 11, 29, 13, 35, 1, 824);
             this.DTBitisTar.Enabled = false;
-            this.DTBitisTar.Location = new System.Drawing.Point(894, 43);
+            this.DTBitisTar.Location = new System.Drawing.Point(613, 94);
             this.DTBitisTar.Name = "DTBitisTar";
             this.DTBitisTar.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -233,7 +233,7 @@
             // 
             // LBBitisTar
             // 
-            this.LBBitisTar.Location = new System.Drawing.Point(828, 46);
+            this.LBBitisTar.Location = new System.Drawing.Point(547, 97);
             this.LBBitisTar.Name = "LBBitisTar";
             this.LBBitisTar.Size = new System.Drawing.Size(48, 13);
             this.LBBitisTar.TabIndex = 4;

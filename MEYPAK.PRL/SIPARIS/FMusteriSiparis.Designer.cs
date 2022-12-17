@@ -405,9 +405,9 @@
             this.LBSiparisTar.Location = new System.Drawing.Point(384, 35);
             this.LBSiparisTar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.LBSiparisTar.Name = "LBSiparisTar";
-            this.LBSiparisTar.Size = new System.Drawing.Size(61, 13);
+            this.LBSiparisTar.Size = new System.Drawing.Size(3, 13);
             this.LBSiparisTar.TabIndex = 124;
-            this.LBSiparisTar.Text = "Fatura Tarihi";
+            this.LBSiparisTar.Text = " ";
             // 
             // LBDepo
             // 

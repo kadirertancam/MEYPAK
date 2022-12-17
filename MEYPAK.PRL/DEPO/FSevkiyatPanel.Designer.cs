@@ -85,6 +85,7 @@
             this.repositoryItemImageEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemImageEdit();
             this.CCerceve = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.repositoryItemImageEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemImageEdit();
+            this.CAltCari = new DevExpress.XtraGrid.Columns.TileViewColumn();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -177,7 +178,7 @@
             this.groupBox4.Size = new System.Drawing.Size(807, 210);
             this.groupBox4.TabIndex = 2;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "groupBox4";
+            this.groupBox4.Text = "Toplama Emri Sonuç";
             // 
             // gridControl4
             // 
@@ -293,7 +294,7 @@
             this.groupBox3.Size = new System.Drawing.Size(826, 210);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "groupBox3";
+            this.groupBox3.Text = "Toplama Emir Detay";
             // 
             // gridControl3
             // 
@@ -671,7 +672,7 @@
             this.groupBox1.Size = new System.Drawing.Size(826, 534);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Text = "Sipariş Listesi";
             // 
             // gridControl1
             // 
@@ -697,7 +698,8 @@
             this.CBelgeNo,
             this.CCariAdi,
             this.CResim,
-            this.CCerceve});
+            this.CCerceve,
+            this.CAltCari});
             this.tileView1.DetailHeight = 303;
             this.tileView1.GridControl = this.gridControl1;
             this.tileView1.Name = "tileView1";
@@ -708,7 +710,6 @@
             this.tileView1.OptionsTiles.ItemSize = new System.Drawing.Size(362, 180);
             this.tileView1.OptionsTiles.LayoutMode = DevExpress.XtraGrid.Views.Tile.TileViewLayoutMode.List;
             this.tileView1.OptionsTiles.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.tileView1.OptionsTiles.Padding = new System.Windows.Forms.Padding(5);
             this.tileView1.OptionsTiles.RowCount = 0;
             // 
             // 
@@ -786,6 +787,15 @@
             this.repositoryItemImageEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.repositoryItemImageEdit1.Name = "repositoryItemImageEdit1";
+            // 
+            // CAltCari
+            // 
+            this.CAltCari.AccessibleName = "CAltCari";
+            this.CAltCari.Caption = "CAltCari";
+            this.CAltCari.FieldName = "CAltCari";
+            this.CAltCari.Name = "CAltCari";
+            this.CAltCari.Visible = true;
+            this.CAltCari.VisibleIndex = 5;
             // 
             // FSevkiyatPanel
             // 
@@ -882,5 +892,6 @@
         private DevExpress.XtraGrid.Columns.TileViewColumn CDEPO;
         private DevExpress.XtraGrid.Columns.TileViewColumn Renk;
         private DevExpress.XtraGrid.Columns.TileViewColumn Resim;
+        private DevExpress.XtraGrid.Columns.TileViewColumn CAltCari;
     }
 }

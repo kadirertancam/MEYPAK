@@ -583,7 +583,7 @@ namespace MEYPAK.PRL.IRSALIYE
                     KasaAltBilgiDoldur();
 
                 }
-                else
+                else if(irstip == 0)
                 {
                     gridControl1.DataSource = "";
                     _tempIrsaliyeDetay.Add(new PocoIrsaliyeKalem() { Tipi = "STOK" });
@@ -981,7 +981,7 @@ namespace MEYPAK.PRL.IRSALIYE
                             irsaliyeid = _irsaliyeServis.obje2.id,
                             aciklama = item.Acıklama,
                             belgE_NO = _irsaliyeServis.obje2.belgeno,
-                            hareketturu = 1,
+                            hareketturu = 3,
                             birim = _olcuBr.obje.Where(x => x.adi.ToString() == gridView1.GetRowCellValue(item.sıra, "Birim").ToString()).FirstOrDefault().id,
                             bruttoplam = item.BrütToplam,
                             depoid = _irsaliyeServis.obje2.depoid,

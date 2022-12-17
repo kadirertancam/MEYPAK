@@ -111,7 +111,8 @@
 	text-overflow:ellipsis;
 	overflow:hidden;
 	white-space:nowrap;
-	color:White
+	color:White;
+	padding-left:20px
 }
 .plaintext2 {
 	
@@ -200,8 +201,8 @@
 		 &lt;div class="plaintext"&gt;Stok Kodu&lt;div style="padding-top:5px;"&gt;${KOD}&lt;/div&gt;&lt;/div&gt;
 		  &lt;div class="plaintext"&gt;Stok Adı&lt;div style="padding-top:5px;"&gt;${ADI}&lt;/div&gt;&lt;/div&gt;
 			 &lt;div class="plaintext"&gt;Miktar&lt;div style="padding-top:5px;"&gt;${CKMIKTAR}&lt;/div&gt;&lt;/div&gt;
-			&lt;div class="plaintext"&gt;Birim&lt;div style="padding-top:5px;"&gt;${CBIRIM}&lt;/div&gt;&lt;/div&gt;
-			&lt;div class="plaintext"&gt;Depo&lt;div style="padding-top:5px;"&gt;${CDEPO}&lt;/div&gt;&lt;/div&gt;
+			&lt;div class="plaintext"&gt;Birim&lt;div style="padding-top:5px; "&gt;${CBIRIM}&lt;/div&gt;&lt;/div&gt;
+			&lt;div class="plaintext"&gt;Depo&lt;div style="padding-top:5px; "&gt;${CDEPO}&lt;/div&gt;&lt;/div&gt;
 
 			
 		&lt;/div&gt;
@@ -357,7 +358,7 @@
 			
 		 	&lt;div class="plaintext2"&gt; &lt;div&gt;${StokKodu}&lt;/div&gt; &lt;div style="padding-top:5px;"&gt;${StokAdi}&lt;/div&gt;
 		 		 &lt;div style="padding-top:5px;"&gt;${IEBelgeno}&lt;/div&gt; &lt;/div&gt;
-			&lt;div class="plaintext"&gt;Emir No&lt;div style="padding-top:5px;"&gt;${EmirNo}&lt;/div&gt;&lt;/div&gt;
+			&lt;div class="plaintext" style="padding-left:15px"&gt;Emir No&lt;div style="padding-top:5px;"&gt;${EmirNo}&lt;/div&gt;&lt;/div&gt;
 			&lt;div class="plaintext4"&gt;T. Siparis Miktarı&lt;div style="padding-top:5px;"&gt;${SiparisMiktari}&lt;/div&gt;&lt;/div&gt;
 			&lt;div class="plaintext"&gt;Emir Miktarı&lt;div style="padding-top:5px;"&gt;${EmirMiktari}&lt;/div&gt;&lt;/div&gt;
 			&lt;div class="plaintext"&gt;Kalan Miktar&lt;div style="padding-top:5px;"&gt;${KalanMiktar}&lt;/div&gt;&lt;/div&gt;
@@ -3377,6 +3378,11 @@ body {
 	white-space:pre-line;
 	color:White;
 }
+.description2 {
+	padding-left:150px;
+}
+
+
 :root:select .description {
 	margin-bottom:8px;
 	margin-top:6px;
@@ -3448,7 +3454,8 @@ body {
 			&lt;div class="top-block"&gt;
 				&lt;div class="caption"&gt;&lt;b style="color:white"&gt;${CBelgeNo}&lt;/b&gt;&lt;/div&gt;
 			&lt;/div&gt;
-			&lt;div class="description"&gt; &lt;b style="color:white"&gt;${CCariAdi}&lt;/b&gt;&lt;/div&gt;
+			&lt;div class="description"&gt; &lt;b style="color:white"&gt;${CCariAdi}&lt;/b&gt; &lt;b class="description2" style="color:white"&gt;${CAltCari}&lt;/b&gt;&lt;/div&gt;
+			
 			&lt;div class="bottom-block"&gt;
 				&lt;div class="bottom-block-near"&gt;
 					&lt;div class="description"&gt;&lt;span style="color:white"&gt;Sevk Tarihi: &lt;/span&gt;&lt;span style="color:white"&gt;${CSevkiyatTarihi}&lt;/span&gt;&lt;/div&gt; 
