@@ -88,6 +88,7 @@ namespace MEYPAK.PRL.STOK.FiyatListesi
         {
             if (_tempCariKart != null)
             {
+                BTCariSec.Text = _tempCariKart.unvan.ToString();
                 _stokFiyatServis.Data(ServisList.StokFiyatListeServis);
                 _cariServis.Data(ServisList.CariListeServis);
 
@@ -102,6 +103,7 @@ namespace MEYPAK.PRL.STOK.FiyatListesi
                     BİTİSTARİHİ = x.bitistarihi,
 
                 });
+               
                 gridView1.Columns["ID"].Visible = false;
                 gridView1.Columns["CARIID"].Visible = false;
                 DGStokFiyat.Refresh();
@@ -134,7 +136,6 @@ namespace MEYPAK.PRL.STOK.FiyatListesi
 
             FCariList fCariList = new FCariList(this.Tag.ToString(), "FStokFiyat");
             fCariList.ShowDialog();
-            BTCariSec.Text = _tempCariKart.unvan.ToString();
             DataGridDoldur();
 
         }

@@ -32,6 +32,16 @@
             DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition1 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement1 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FStokKart));
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -47,16 +57,6 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject18 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject19 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject20 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions6 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject21 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject22 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject23 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject24 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.Resim = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.LBAFiyat5 = new DevExpress.XtraEditors.LabelControl();
             this.TBAFiyat5 = new MEYPAK.PRL.Assets.YeniTextEdit();
@@ -169,23 +169,23 @@
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl6 = new DevExpress.XtraEditors.PanelControl();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
-            this.xtraTabPage3 = new DevExpress.XtraTab.XtraTabPage();
-            this.groupControl7 = new DevExpress.XtraEditors.GroupControl();
-            this.groupControl6 = new DevExpress.XtraEditors.GroupControl();
-            this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
-            this.panelControl12 = new DevExpress.XtraEditors.PanelControl();
-            this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
-            this.panelControl11 = new DevExpress.XtraEditors.PanelControl();
-            this.groupControl5 = new DevExpress.XtraEditors.GroupControl();
-            this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
-            this.xtraTabPage4 = new DevExpress.XtraTab.XtraTabPage();
-            this.groupControl8 = new DevExpress.XtraEditors.GroupControl();
             this.xtraTabPage5 = new DevExpress.XtraTab.XtraTabPage();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.groupControl9 = new DevExpress.XtraEditors.GroupControl();
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.panelControl7 = new DevExpress.XtraEditors.PanelControl();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
+            this.panelControl12 = new DevExpress.XtraEditors.PanelControl();
+            this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
+            this.panelControl11 = new DevExpress.XtraEditors.PanelControl();
+            this.groupControl5 = new DevExpress.XtraEditors.GroupControl();
+            this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
+            this.xtraTabPage3 = new DevExpress.XtraTab.XtraTabPage();
+            this.groupControl7 = new DevExpress.XtraEditors.GroupControl();
+            this.groupControl6 = new DevExpress.XtraEditors.GroupControl();
+            this.xtraTabPage4 = new DevExpress.XtraTab.XtraTabPage();
+            this.groupControl8 = new DevExpress.XtraEditors.GroupControl();
             this.panelControl8 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl9 = new DevExpress.XtraEditors.PanelControl();
             this.BTSil = new DevExpress.XtraEditors.SimpleButton();
@@ -257,11 +257,14 @@
             this.panelControl6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
-            this.xtraTabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl7)).BeginInit();
-            this.groupControl7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl6)).BeginInit();
-            this.groupControl6.SuspendLayout();
+            this.xtraTabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl9)).BeginInit();
+            this.groupControl9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl7)).BeginInit();
+            this.panelControl7.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl12)).BeginInit();
             this.panelControl12.SuspendLayout();
@@ -272,17 +275,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).BeginInit();
             this.groupControl5.SuspendLayout();
             this.xtraTabPage2.SuspendLayout();
+            this.xtraTabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl7)).BeginInit();
+            this.groupControl7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl6)).BeginInit();
+            this.groupControl6.SuspendLayout();
             this.xtraTabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl8)).BeginInit();
             this.groupControl8.SuspendLayout();
-            this.xtraTabPage5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
-            this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl9)).BeginInit();
-            this.groupControl9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl7)).BeginInit();
-            this.panelControl7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl8)).BeginInit();
             this.panelControl8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl9)).BeginInit();
@@ -325,7 +325,7 @@
             this.TBAFiyat5.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.TBAFiyat5.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             this.TBAFiyat5.Size = new System.Drawing.Size(297, 20);
-            this.TBAFiyat5.TabIndex = 32;
+            this.TBAFiyat5.TabIndex = 20;
             // 
             // LBAFiyat4
             // 
@@ -346,7 +346,7 @@
             this.TBAFiyat4.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.TBAFiyat4.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             this.TBAFiyat4.Size = new System.Drawing.Size(297, 20);
-            this.TBAFiyat4.TabIndex = 31;
+            this.TBAFiyat4.TabIndex = 19;
             // 
             // LBAFiyat3
             // 
@@ -367,7 +367,7 @@
             this.TBAFiyat3.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.TBAFiyat3.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             this.TBAFiyat3.Size = new System.Drawing.Size(297, 20);
-            this.TBAFiyat3.TabIndex = 30;
+            this.TBAFiyat3.TabIndex = 18;
             // 
             // LBAFiyat2
             // 
@@ -388,7 +388,7 @@
             this.TBAFiyat2.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.TBAFiyat2.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             this.TBAFiyat2.Size = new System.Drawing.Size(297, 20);
-            this.TBAFiyat2.TabIndex = 29;
+            this.TBAFiyat2.TabIndex = 17;
             // 
             // LBAFiyat1
             // 
@@ -409,7 +409,7 @@
             this.TBAFiyat1.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.TBAFiyat1.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             this.TBAFiyat1.Size = new System.Drawing.Size(297, 20);
-            this.TBAFiyat1.TabIndex = 28;
+            this.TBAFiyat1.TabIndex = 16;
             // 
             // LBADoviz
             // 
@@ -431,7 +431,7 @@
             this.CBADoviz.Properties.Items.AddRange(new object[] {
             "TL"});
             this.CBADoviz.Size = new System.Drawing.Size(297, 20);
-            this.CBADoviz.TabIndex = 27;
+            this.CBADoviz.TabIndex = 15;
             // 
             // LBSFiyat5
             // 
@@ -598,7 +598,7 @@
             this.NUDSayisalAciklama5.Properties.MaskSettings.Set("mask", "d");
             this.NUDSayisalAciklama5.Properties.Name = "SESayisalAciklama1";
             this.NUDSayisalAciklama5.Size = new System.Drawing.Size(295, 20);
-            this.NUDSayisalAciklama5.TabIndex = 48;
+            this.NUDSayisalAciklama5.TabIndex = 42;
             // 
             // NUDSayisalAciklama2
             // 
@@ -621,7 +621,7 @@
             this.NUDSayisalAciklama2.Properties.MaskSettings.Set("mask", "d");
             this.NUDSayisalAciklama2.Properties.Name = "SESayisalAciklama1";
             this.NUDSayisalAciklama2.Size = new System.Drawing.Size(297, 20);
-            this.NUDSayisalAciklama2.TabIndex = 45;
+            this.NUDSayisalAciklama2.TabIndex = 39;
             // 
             // NUDSayisalAciklama3
             // 
@@ -644,7 +644,7 @@
             this.NUDSayisalAciklama3.Properties.MaskSettings.Set("mask", "d");
             this.NUDSayisalAciklama3.Properties.Name = "SESayisalAciklama1";
             this.NUDSayisalAciklama3.Size = new System.Drawing.Size(297, 20);
-            this.NUDSayisalAciklama3.TabIndex = 46;
+            this.NUDSayisalAciklama3.TabIndex = 40;
             // 
             // NUDSayisalAciklama4
             // 
@@ -667,7 +667,7 @@
             this.NUDSayisalAciklama4.Properties.MaskSettings.Set("mask", "d");
             this.NUDSayisalAciklama4.Properties.Name = "SESayisalAciklama1";
             this.NUDSayisalAciklama4.Size = new System.Drawing.Size(296, 20);
-            this.NUDSayisalAciklama4.TabIndex = 47;
+            this.NUDSayisalAciklama4.TabIndex = 41;
             // 
             // NUDSayisalAciklama6
             // 
@@ -690,7 +690,7 @@
             this.NUDSayisalAciklama6.Properties.MaskSettings.Set("mask", "d");
             this.NUDSayisalAciklama6.Properties.Name = "SESayisalAciklama1";
             this.NUDSayisalAciklama6.Size = new System.Drawing.Size(296, 20);
-            this.NUDSayisalAciklama6.TabIndex = 49;
+            this.NUDSayisalAciklama6.TabIndex = 43;
             // 
             // NUDSayisalAciklama7
             // 
@@ -713,7 +713,7 @@
             this.NUDSayisalAciklama7.Properties.MaskSettings.Set("mask", "d");
             this.NUDSayisalAciklama7.Properties.Name = "SESayisalAciklama1";
             this.NUDSayisalAciklama7.Size = new System.Drawing.Size(295, 20);
-            this.NUDSayisalAciklama7.TabIndex = 50;
+            this.NUDSayisalAciklama7.TabIndex = 44;
             // 
             // NUDSayisalAciklama8
             // 
@@ -736,7 +736,7 @@
             this.NUDSayisalAciklama8.Properties.MaskSettings.Set("mask", "d");
             this.NUDSayisalAciklama8.Properties.Name = "SESayisalAciklama1";
             this.NUDSayisalAciklama8.Size = new System.Drawing.Size(296, 20);
-            this.NUDSayisalAciklama8.TabIndex = 51;
+            this.NUDSayisalAciklama8.TabIndex = 45;
             // 
             // NUDSayisalAciklama9
             // 
@@ -759,7 +759,7 @@
             this.NUDSayisalAciklama9.Properties.MaskSettings.Set("mask", "d");
             this.NUDSayisalAciklama9.Properties.Name = "SESayisalAciklama1";
             this.NUDSayisalAciklama9.Size = new System.Drawing.Size(296, 20);
-            this.NUDSayisalAciklama9.TabIndex = 52;
+            this.NUDSayisalAciklama9.TabIndex = 46;
             // 
             // NUDSayisalAciklama1
             // 
@@ -782,7 +782,7 @@
             this.NUDSayisalAciklama1.Properties.MaskSettings.Set("mask", "d");
             this.NUDSayisalAciklama1.Properties.Name = "SESayisalAciklama1";
             this.NUDSayisalAciklama1.Size = new System.Drawing.Size(297, 20);
-            this.NUDSayisalAciklama1.TabIndex = 44;
+            this.NUDSayisalAciklama1.TabIndex = 38;
             // 
             // labelControl9
             // 
@@ -863,7 +863,7 @@
             this.TBAciklama7.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TBAciklama7.Properties.Appearance.Options.UseFont = true;
             this.TBAciklama7.Size = new System.Drawing.Size(297, 20);
-            this.TBAciklama7.TabIndex = 41;
+            this.TBAciklama7.TabIndex = 35;
             // 
             // TBAciklama9
             // 
@@ -872,7 +872,7 @@
             this.TBAciklama9.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TBAciklama9.Properties.Appearance.Options.UseFont = true;
             this.TBAciklama9.Size = new System.Drawing.Size(297, 20);
-            this.TBAciklama9.TabIndex = 43;
+            this.TBAciklama9.TabIndex = 37;
             // 
             // TBAciklama4
             // 
@@ -881,7 +881,7 @@
             this.TBAciklama4.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TBAciklama4.Properties.Appearance.Options.UseFont = true;
             this.TBAciklama4.Size = new System.Drawing.Size(297, 20);
-            this.TBAciklama4.TabIndex = 38;
+            this.TBAciklama4.TabIndex = 32;
             // 
             // TBAciklama8
             // 
@@ -890,7 +890,7 @@
             this.TBAciklama8.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TBAciklama8.Properties.Appearance.Options.UseFont = true;
             this.TBAciklama8.Size = new System.Drawing.Size(297, 20);
-            this.TBAciklama8.TabIndex = 42;
+            this.TBAciklama8.TabIndex = 36;
             // 
             // TBAciklama1
             // 
@@ -899,7 +899,7 @@
             this.TBAciklama1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TBAciklama1.Properties.Appearance.Options.UseFont = true;
             this.TBAciklama1.Size = new System.Drawing.Size(297, 20);
-            this.TBAciklama1.TabIndex = 35;
+            this.TBAciklama1.TabIndex = 29;
             // 
             // TBAciklama6
             // 
@@ -908,7 +908,7 @@
             this.TBAciklama6.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TBAciklama6.Properties.Appearance.Options.UseFont = true;
             this.TBAciklama6.Size = new System.Drawing.Size(297, 20);
-            this.TBAciklama6.TabIndex = 40;
+            this.TBAciklama6.TabIndex = 34;
             // 
             // TBAciklama3
             // 
@@ -917,7 +917,7 @@
             this.TBAciklama3.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TBAciklama3.Properties.Appearance.Options.UseFont = true;
             this.TBAciklama3.Size = new System.Drawing.Size(297, 20);
-            this.TBAciklama3.TabIndex = 37;
+            this.TBAciklama3.TabIndex = 31;
             // 
             // TBAciklama5
             // 
@@ -926,7 +926,7 @@
             this.TBAciklama5.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TBAciklama5.Properties.Appearance.Options.UseFont = true;
             this.TBAciklama5.Size = new System.Drawing.Size(297, 20);
-            this.TBAciklama5.TabIndex = 39;
+            this.TBAciklama5.TabIndex = 33;
             // 
             // LBStokKartiAciklama9
             // 
@@ -944,7 +944,7 @@
             this.TBAciklama2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TBAciklama2.Properties.Appearance.Options.UseFont = true;
             this.TBAciklama2.Size = new System.Drawing.Size(297, 20);
-            this.TBAciklama2.TabIndex = 36;
+            this.TBAciklama2.TabIndex = 30;
             // 
             // LBStokKartiAciklama8
             // 
@@ -1021,7 +1021,7 @@
             this.TEStokKartRaporKodu9.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TEStokKartRaporKodu9.Properties.Appearance.Options.UseFont = true;
             this.TEStokKartRaporKodu9.Size = new System.Drawing.Size(297, 20);
-            this.TEStokKartRaporKodu9.TabIndex = 61;
+            this.TEStokKartRaporKodu9.TabIndex = 56;
             // 
             // TEStokKartRaporKodu6
             // 
@@ -1030,7 +1030,7 @@
             this.TEStokKartRaporKodu6.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TEStokKartRaporKodu6.Properties.Appearance.Options.UseFont = true;
             this.TEStokKartRaporKodu6.Size = new System.Drawing.Size(297, 20);
-            this.TEStokKartRaporKodu6.TabIndex = 58;
+            this.TEStokKartRaporKodu6.TabIndex = 53;
             // 
             // TEStokKartRaporKodu5
             // 
@@ -1039,7 +1039,7 @@
             this.TEStokKartRaporKodu5.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TEStokKartRaporKodu5.Properties.Appearance.Options.UseFont = true;
             this.TEStokKartRaporKodu5.Size = new System.Drawing.Size(297, 20);
-            this.TEStokKartRaporKodu5.TabIndex = 57;
+            this.TEStokKartRaporKodu5.TabIndex = 52;
             // 
             // TEStokKartRaporKodu8
             // 
@@ -1048,7 +1048,7 @@
             this.TEStokKartRaporKodu8.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TEStokKartRaporKodu8.Properties.Appearance.Options.UseFont = true;
             this.TEStokKartRaporKodu8.Size = new System.Drawing.Size(297, 20);
-            this.TEStokKartRaporKodu8.TabIndex = 60;
+            this.TEStokKartRaporKodu8.TabIndex = 55;
             // 
             // TEStokKartRaporKodu7
             // 
@@ -1057,7 +1057,7 @@
             this.TEStokKartRaporKodu7.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TEStokKartRaporKodu7.Properties.Appearance.Options.UseFont = true;
             this.TEStokKartRaporKodu7.Size = new System.Drawing.Size(297, 20);
-            this.TEStokKartRaporKodu7.TabIndex = 59;
+            this.TEStokKartRaporKodu7.TabIndex = 54;
             // 
             // TEStokKartRaporKodu4
             // 
@@ -1066,7 +1066,7 @@
             this.TEStokKartRaporKodu4.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TEStokKartRaporKodu4.Properties.Appearance.Options.UseFont = true;
             this.TEStokKartRaporKodu4.Size = new System.Drawing.Size(297, 20);
-            this.TEStokKartRaporKodu4.TabIndex = 56;
+            this.TEStokKartRaporKodu4.TabIndex = 51;
             // 
             // TEStokKartRaporKodu3
             // 
@@ -1075,7 +1075,7 @@
             this.TEStokKartRaporKodu3.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TEStokKartRaporKodu3.Properties.Appearance.Options.UseFont = true;
             this.TEStokKartRaporKodu3.Size = new System.Drawing.Size(297, 20);
-            this.TEStokKartRaporKodu3.TabIndex = 55;
+            this.TEStokKartRaporKodu3.TabIndex = 50;
             // 
             // TEStokKartRaporKodu2
             // 
@@ -1084,7 +1084,7 @@
             this.TEStokKartRaporKodu2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TEStokKartRaporKodu2.Properties.Appearance.Options.UseFont = true;
             this.TEStokKartRaporKodu2.Size = new System.Drawing.Size(297, 20);
-            this.TEStokKartRaporKodu2.TabIndex = 54;
+            this.TEStokKartRaporKodu2.TabIndex = 49;
             // 
             // TEStokKartRaporKodu1
             // 
@@ -1093,7 +1093,7 @@
             this.TEStokKartRaporKodu1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TEStokKartRaporKodu1.Properties.Appearance.Options.UseFont = true;
             this.TEStokKartRaporKodu1.Size = new System.Drawing.Size(297, 20);
-            this.TEStokKartRaporKodu1.TabIndex = 53;
+            this.TEStokKartRaporKodu1.TabIndex = 48;
             // 
             // LBStokKartiRaporKodu9
             // 
@@ -1222,10 +1222,10 @@
             this.buttonEdit1.Location = new System.Drawing.Point(156, 72);
             this.buttonEdit1.Name = "buttonEdit1";
             this.buttonEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.buttonEdit1.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.buttonEdit1_Properties_ButtonClick_1);
             this.buttonEdit1.Size = new System.Drawing.Size(297, 22);
-            this.buttonEdit1.TabIndex = 62;
+            this.buttonEdit1.TabIndex = 13;
             // 
             // labelControl4
             // 
@@ -1243,7 +1243,7 @@
             this.CEStokKartiOzellik.Properties.Appearance.Options.UseFont = true;
             this.CEStokKartiOzellik.Properties.Caption = "Aktif";
             this.CEStokKartiOzellik.Size = new System.Drawing.Size(75, 20);
-            this.CEStokKartiOzellik.TabIndex = 3;
+            this.CEStokKartiOzellik.TabIndex = 11;
             // 
             // LBAlisOtv
             // 
@@ -1262,7 +1262,7 @@
             this.TBAlisOtv.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.TBAlisOtv.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             this.TBAlisOtv.Size = new System.Drawing.Size(261, 20);
-            this.TBAlisOtv.TabIndex = 23;
+            this.TBAlisOtv.TabIndex = 10;
             // 
             // LBSatisOtv
             // 
@@ -1281,7 +1281,7 @@
             this.TBSatisOtv.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.TBSatisOtv.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             this.TBSatisOtv.Size = new System.Drawing.Size(261, 20);
-            this.TBSatisOtv.TabIndex = 22;
+            this.TBSatisOtv.TabIndex = 9;
             // 
             // LBAlisKdv
             // 
@@ -1308,7 +1308,7 @@
             this.TBAlisKdv.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.TBAlisKdv.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             this.TBAlisKdv.Size = new System.Drawing.Size(261, 20);
-            this.TBAlisKdv.TabIndex = 21;
+            this.TBAlisKdv.TabIndex = 8;
             // 
             // TBSatisKdv
             // 
@@ -1319,7 +1319,7 @@
             this.TBSatisKdv.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.TBSatisKdv.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             this.TBSatisKdv.Size = new System.Drawing.Size(261, 20);
-            this.TBSatisKdv.TabIndex = 20;
+            this.TBSatisKdv.TabIndex = 7;
             // 
             // CBOlcuBr
             // 
@@ -1329,7 +1329,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.CBOlcuBr.Properties.NullText = "";
             this.CBOlcuBr.Size = new System.Drawing.Size(261, 20);
-            this.CBOlcuBr.TabIndex = 3;
+            this.CBOlcuBr.TabIndex = 5;
             // 
             // labelControl10
             // 
@@ -1392,7 +1392,7 @@
             this.TBAciklama.Location = new System.Drawing.Point(137, 201);
             this.TBAciklama.Name = "TBAciklama";
             this.TBAciklama.Size = new System.Drawing.Size(261, 88);
-            this.TBAciklama.TabIndex = 24;
+            this.TBAciklama.TabIndex = 6;
             // 
             // BTGrupKodu
             // 
@@ -1400,9 +1400,9 @@
             this.BTGrupKodu.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.BTGrupKodu.Name = "BTGrupKodu";
             this.BTGrupKodu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTGrupKodu.Size = new System.Drawing.Size(261, 22);
-            this.BTGrupKodu.TabIndex = 22;
+            this.BTGrupKodu.TabIndex = 4;
             // 
             // BTKategori
             // 
@@ -1410,10 +1410,10 @@
             this.BTKategori.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.BTKategori.Name = "BTKategori";
             this.BTKategori.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTKategori.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.buttonEdit3_Properties_ButtonClick);
             this.BTKategori.Size = new System.Drawing.Size(261, 22);
-            this.BTKategori.TabIndex = 21;
+            this.BTKategori.TabIndex = 3;
             // 
             // BTMarka
             // 
@@ -1421,17 +1421,17 @@
             this.BTMarka.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.BTMarka.Name = "BTMarka";
             this.BTMarka.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions6, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject21, serializableAppearanceObject22, serializableAppearanceObject23, serializableAppearanceObject24, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTMarka.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.buttonEdit2_Properties_ButtonClick);
             this.BTMarka.Size = new System.Drawing.Size(261, 22);
-            this.BTMarka.TabIndex = 20;
+            this.BTMarka.TabIndex = 2;
             // 
             // TBStokAdi
             // 
             this.TBStokAdi.Location = new System.Drawing.Point(137, 65);
             this.TBStokAdi.Name = "TBStokAdi";
             this.TBStokAdi.Size = new System.Drawing.Size(261, 20);
-            this.TBStokAdi.TabIndex = 19;
+            this.TBStokAdi.TabIndex = 1;
             // 
             // BTStokKodu
             // 
@@ -1440,10 +1440,10 @@
             this.BTStokKodu.Name = "BTStokKodu";
             this.BTStokKodu.Properties.Appearance.Options.UseFont = true;
             this.BTStokKodu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTStokKodu.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.buttonEdit1_Properties_ButtonClick);
             this.BTStokKodu.Size = new System.Drawing.Size(261, 22);
-            this.BTStokKodu.TabIndex = 3;
+            this.BTStokKodu.TabIndex = 0;
             this.BTStokKodu.Leave += new System.EventHandler(this.BTStokKodu_Leave_1);
             // 
             // panelControl2
@@ -1472,81 +1472,77 @@
             this.xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xtraTabControl1.Location = new System.Drawing.Point(2, 2);
             this.xtraTabControl1.Name = "xtraTabControl1";
-            this.xtraTabControl1.SelectedTabPage = this.xtraTabPage3;
+            this.xtraTabControl1.SelectedTabPage = this.xtraTabPage5;
             this.xtraTabControl1.Size = new System.Drawing.Size(1122, 533);
-            this.xtraTabControl1.TabIndex = 1;
+            this.xtraTabControl1.TabIndex = 47;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.xtraTabPage5,
             this.xtraTabPage1,
             this.xtraTabPage2,
             this.xtraTabPage3,
-            this.xtraTabPage4,
-            this.xtraTabPage5});
+            this.xtraTabPage4});
             // 
-            // xtraTabPage3
+            // xtraTabPage5
             // 
-            this.xtraTabPage3.Controls.Add(this.groupControl7);
-            this.xtraTabPage3.Controls.Add(this.groupControl6);
-            this.xtraTabPage3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("xtraTabPage3.ImageOptions.Image")));
-            this.xtraTabPage3.Name = "xtraTabPage3";
-            this.xtraTabPage3.Size = new System.Drawing.Size(1120, 505);
-            this.xtraTabPage3.Text = "Açıklamalar";
+            this.xtraTabPage5.Controls.Add(this.panelControl1);
+            this.xtraTabPage5.Controls.Add(this.groupControl9);
+            this.xtraTabPage5.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("xtraTabPage5.ImageOptions.Image")));
+            this.xtraTabPage5.Name = "xtraTabPage5";
+            this.xtraTabPage5.Size = new System.Drawing.Size(1120, 505);
+            this.xtraTabPage5.Text = "Resim";
             // 
-            // groupControl7
+            // panelControl1
             // 
-            this.groupControl7.Appearance.BackColor = System.Drawing.Color.White;
-            this.groupControl7.Appearance.Options.UseBackColor = true;
-            this.groupControl7.Controls.Add(this.NUDSayisalAciklama5);
-            this.groupControl7.Controls.Add(this.LBStokKartiSayisalAciklama1);
-            this.groupControl7.Controls.Add(this.NUDSayisalAciklama2);
-            this.groupControl7.Controls.Add(this.labelControl8);
-            this.groupControl7.Controls.Add(this.NUDSayisalAciklama3);
-            this.groupControl7.Controls.Add(this.labelControl7);
-            this.groupControl7.Controls.Add(this.NUDSayisalAciklama4);
-            this.groupControl7.Controls.Add(this.labelControl6);
-            this.groupControl7.Controls.Add(this.NUDSayisalAciklama6);
-            this.groupControl7.Controls.Add(this.labelControl3);
-            this.groupControl7.Controls.Add(this.NUDSayisalAciklama7);
-            this.groupControl7.Controls.Add(this.labelControl2);
-            this.groupControl7.Controls.Add(this.NUDSayisalAciklama8);
-            this.groupControl7.Controls.Add(this.labelControl1);
-            this.groupControl7.Controls.Add(this.NUDSayisalAciklama9);
-            this.groupControl7.Controls.Add(this.labelControl5);
-            this.groupControl7.Controls.Add(this.NUDSayisalAciklama1);
-            this.groupControl7.Controls.Add(this.labelControl9);
-            this.groupControl7.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupControl7.Location = new System.Drawing.Point(0, 233);
-            this.groupControl7.Name = "groupControl7";
-            this.groupControl7.Size = new System.Drawing.Size(1120, 272);
-            this.groupControl7.TabIndex = 1;
-            this.groupControl7.Text = "Sayısal Açıklama";
-            this.groupControl7.Paint += new System.Windows.Forms.PaintEventHandler(this.groupControl7_Paint);
+            this.panelControl1.Controls.Add(this.gridControl2);
+            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl1.Location = new System.Drawing.Point(0, 167);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(1120, 338);
+            this.panelControl1.TabIndex = 87;
             // 
-            // groupControl6
+            // groupControl9
             // 
-            this.groupControl6.Controls.Add(this.TBAciklama7);
-            this.groupControl6.Controls.Add(this.LBSokKartiAciklama1);
-            this.groupControl6.Controls.Add(this.TBAciklama9);
-            this.groupControl6.Controls.Add(this.LBStokKartiAciklama2);
-            this.groupControl6.Controls.Add(this.TBAciklama4);
-            this.groupControl6.Controls.Add(this.LBStokKartiAciklama3);
-            this.groupControl6.Controls.Add(this.TBAciklama8);
-            this.groupControl6.Controls.Add(this.LBStokKartiAciklama4);
-            this.groupControl6.Controls.Add(this.TBAciklama1);
-            this.groupControl6.Controls.Add(this.LBStokKartiAciklama5);
-            this.groupControl6.Controls.Add(this.TBAciklama6);
-            this.groupControl6.Controls.Add(this.LBStokKartiAciklama6);
-            this.groupControl6.Controls.Add(this.TBAciklama3);
-            this.groupControl6.Controls.Add(this.LBStokKartiAciklama7);
-            this.groupControl6.Controls.Add(this.TBAciklama5);
-            this.groupControl6.Controls.Add(this.LBStokKartiAciklama8);
-            this.groupControl6.Controls.Add(this.LBStokKartiAciklama9);
-            this.groupControl6.Controls.Add(this.TBAciklama2);
-            this.groupControl6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupControl6.Location = new System.Drawing.Point(0, 0);
-            this.groupControl6.Name = "groupControl6";
-            this.groupControl6.Size = new System.Drawing.Size(1120, 228);
-            this.groupControl6.TabIndex = 0;
-            this.groupControl6.Text = "Açıklama";
+            this.groupControl9.Controls.Add(this.pictureEdit1);
+            this.groupControl9.Controls.Add(this.panelControl7);
+            this.groupControl9.Controls.Add(this.labelControl4);
+            this.groupControl9.Controls.Add(this.buttonEdit1);
+            this.groupControl9.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupControl9.Location = new System.Drawing.Point(0, 0);
+            this.groupControl9.Name = "groupControl9";
+            this.groupControl9.Size = new System.Drawing.Size(1120, 167);
+            this.groupControl9.TabIndex = 0;
+            this.groupControl9.Text = "Resim Bilgileri";
+            // 
+            // pictureEdit1
+            // 
+            this.pictureEdit1.Location = new System.Drawing.Point(504, 37);
+            this.pictureEdit1.Name = "pictureEdit1";
+            this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pictureEdit1.Size = new System.Drawing.Size(100, 106);
+            this.pictureEdit1.TabIndex = 88;
+            // 
+            // panelControl7
+            // 
+            this.panelControl7.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl7.Controls.Add(this.simpleButton1);
+            this.panelControl7.Controls.Add(this.BTResimKaydet);
+            this.panelControl7.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelControl7.Location = new System.Drawing.Point(871, 23);
+            this.panelControl7.Name = "panelControl7";
+            this.panelControl7.Size = new System.Drawing.Size(247, 142);
+            this.panelControl7.TabIndex = 87;
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.simpleButton1.Appearance.Options.UseBackColor = true;
+            this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.simpleButton1.Location = new System.Drawing.Point(127, 3);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(115, 40);
+            this.simpleButton1.TabIndex = 87;
+            this.simpleButton1.Text = "Resim Sil";
+            this.simpleButton1.Click += new System.EventHandler(this.BTResimSil_Click);
             // 
             // xtraTabPage1
             // 
@@ -1625,6 +1621,72 @@
             this.xtraTabPage2.Size = new System.Drawing.Size(1120, 505);
             this.xtraTabPage2.Text = "Ölçü Birimleri";
             // 
+            // xtraTabPage3
+            // 
+            this.xtraTabPage3.Controls.Add(this.groupControl7);
+            this.xtraTabPage3.Controls.Add(this.groupControl6);
+            this.xtraTabPage3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("xtraTabPage3.ImageOptions.Image")));
+            this.xtraTabPage3.Name = "xtraTabPage3";
+            this.xtraTabPage3.Size = new System.Drawing.Size(1120, 505);
+            this.xtraTabPage3.Text = "Açıklamalar";
+            // 
+            // groupControl7
+            // 
+            this.groupControl7.Appearance.BackColor = System.Drawing.Color.White;
+            this.groupControl7.Appearance.Options.UseBackColor = true;
+            this.groupControl7.Controls.Add(this.NUDSayisalAciklama5);
+            this.groupControl7.Controls.Add(this.LBStokKartiSayisalAciklama1);
+            this.groupControl7.Controls.Add(this.NUDSayisalAciklama2);
+            this.groupControl7.Controls.Add(this.labelControl8);
+            this.groupControl7.Controls.Add(this.NUDSayisalAciklama3);
+            this.groupControl7.Controls.Add(this.labelControl7);
+            this.groupControl7.Controls.Add(this.NUDSayisalAciklama4);
+            this.groupControl7.Controls.Add(this.labelControl6);
+            this.groupControl7.Controls.Add(this.NUDSayisalAciklama6);
+            this.groupControl7.Controls.Add(this.labelControl3);
+            this.groupControl7.Controls.Add(this.NUDSayisalAciklama7);
+            this.groupControl7.Controls.Add(this.labelControl2);
+            this.groupControl7.Controls.Add(this.NUDSayisalAciklama8);
+            this.groupControl7.Controls.Add(this.labelControl1);
+            this.groupControl7.Controls.Add(this.NUDSayisalAciklama9);
+            this.groupControl7.Controls.Add(this.labelControl5);
+            this.groupControl7.Controls.Add(this.NUDSayisalAciklama1);
+            this.groupControl7.Controls.Add(this.labelControl9);
+            this.groupControl7.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.groupControl7.Location = new System.Drawing.Point(0, 233);
+            this.groupControl7.Name = "groupControl7";
+            this.groupControl7.Size = new System.Drawing.Size(1120, 272);
+            this.groupControl7.TabIndex = 1;
+            this.groupControl7.Text = "Sayısal Açıklama";
+            this.groupControl7.Paint += new System.Windows.Forms.PaintEventHandler(this.groupControl7_Paint);
+            // 
+            // groupControl6
+            // 
+            this.groupControl6.Controls.Add(this.TBAciklama7);
+            this.groupControl6.Controls.Add(this.LBSokKartiAciklama1);
+            this.groupControl6.Controls.Add(this.TBAciklama9);
+            this.groupControl6.Controls.Add(this.LBStokKartiAciklama2);
+            this.groupControl6.Controls.Add(this.TBAciklama4);
+            this.groupControl6.Controls.Add(this.LBStokKartiAciklama3);
+            this.groupControl6.Controls.Add(this.TBAciklama8);
+            this.groupControl6.Controls.Add(this.LBStokKartiAciklama4);
+            this.groupControl6.Controls.Add(this.TBAciklama1);
+            this.groupControl6.Controls.Add(this.LBStokKartiAciklama5);
+            this.groupControl6.Controls.Add(this.TBAciklama6);
+            this.groupControl6.Controls.Add(this.LBStokKartiAciklama6);
+            this.groupControl6.Controls.Add(this.TBAciklama3);
+            this.groupControl6.Controls.Add(this.LBStokKartiAciklama7);
+            this.groupControl6.Controls.Add(this.TBAciklama5);
+            this.groupControl6.Controls.Add(this.LBStokKartiAciklama8);
+            this.groupControl6.Controls.Add(this.LBStokKartiAciklama9);
+            this.groupControl6.Controls.Add(this.TBAciklama2);
+            this.groupControl6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupControl6.Location = new System.Drawing.Point(0, 0);
+            this.groupControl6.Name = "groupControl6";
+            this.groupControl6.Size = new System.Drawing.Size(1120, 228);
+            this.groupControl6.TabIndex = 0;
+            this.groupControl6.Text = "Açıklama";
+            // 
             // xtraTabPage4
             // 
             this.xtraTabPage4.Controls.Add(this.groupControl8);
@@ -1659,68 +1721,6 @@
             this.groupControl8.Size = new System.Drawing.Size(1120, 505);
             this.groupControl8.TabIndex = 0;
             this.groupControl8.Text = "Rapor Kodu";
-            // 
-            // xtraTabPage5
-            // 
-            this.xtraTabPage5.Controls.Add(this.panelControl1);
-            this.xtraTabPage5.Controls.Add(this.groupControl9);
-            this.xtraTabPage5.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("xtraTabPage5.ImageOptions.Image")));
-            this.xtraTabPage5.Name = "xtraTabPage5";
-            this.xtraTabPage5.Size = new System.Drawing.Size(1120, 505);
-            this.xtraTabPage5.Text = "Resim";
-            // 
-            // panelControl1
-            // 
-            this.panelControl1.Controls.Add(this.gridControl2);
-            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl1.Location = new System.Drawing.Point(0, 167);
-            this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1120, 338);
-            this.panelControl1.TabIndex = 87;
-            // 
-            // groupControl9
-            // 
-            this.groupControl9.Controls.Add(this.pictureEdit1);
-            this.groupControl9.Controls.Add(this.panelControl7);
-            this.groupControl9.Controls.Add(this.labelControl4);
-            this.groupControl9.Controls.Add(this.buttonEdit1);
-            this.groupControl9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupControl9.Location = new System.Drawing.Point(0, 0);
-            this.groupControl9.Name = "groupControl9";
-            this.groupControl9.Size = new System.Drawing.Size(1120, 167);
-            this.groupControl9.TabIndex = 0;
-            this.groupControl9.Text = "Resim Bilgileri";
-            // 
-            // pictureEdit1
-            // 
-            this.pictureEdit1.Location = new System.Drawing.Point(504, 37);
-            this.pictureEdit1.Name = "pictureEdit1";
-            this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.pictureEdit1.Size = new System.Drawing.Size(100, 106);
-            this.pictureEdit1.TabIndex = 88;
-            // 
-            // panelControl7
-            // 
-            this.panelControl7.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl7.Controls.Add(this.simpleButton1);
-            this.panelControl7.Controls.Add(this.BTResimKaydet);
-            this.panelControl7.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelControl7.Location = new System.Drawing.Point(871, 23);
-            this.panelControl7.Name = "panelControl7";
-            this.panelControl7.Size = new System.Drawing.Size(247, 142);
-            this.panelControl7.TabIndex = 87;
-            // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.simpleButton1.Appearance.Options.UseBackColor = true;
-            this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(127, 3);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(115, 40);
-            this.simpleButton1.TabIndex = 87;
-            this.simpleButton1.Text = "Resim Sil";
-            this.simpleButton1.Click += new System.EventHandler(this.BTResimSil_Click);
             // 
             // panelControl8
             // 
@@ -1914,13 +1914,15 @@
             this.panelControl6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);
-            this.xtraTabPage3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl7)).EndInit();
-            this.groupControl7.ResumeLayout(false);
-            this.groupControl7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl6)).EndInit();
-            this.groupControl6.ResumeLayout(false);
-            this.groupControl6.PerformLayout();
+            this.xtraTabPage5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            this.panelControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl9)).EndInit();
+            this.groupControl9.ResumeLayout(false);
+            this.groupControl9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl7)).EndInit();
+            this.panelControl7.ResumeLayout(false);
             this.xtraTabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl12)).EndInit();
             this.panelControl12.ResumeLayout(false);
@@ -1933,19 +1935,17 @@
             this.groupControl5.ResumeLayout(false);
             this.groupControl5.PerformLayout();
             this.xtraTabPage2.ResumeLayout(false);
+            this.xtraTabPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl7)).EndInit();
+            this.groupControl7.ResumeLayout(false);
+            this.groupControl7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl6)).EndInit();
+            this.groupControl6.ResumeLayout(false);
+            this.groupControl6.PerformLayout();
             this.xtraTabPage4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl8)).EndInit();
             this.groupControl8.ResumeLayout(false);
             this.groupControl8.PerformLayout();
-            this.xtraTabPage5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
-            this.panelControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl9)).EndInit();
-            this.groupControl9.ResumeLayout(false);
-            this.groupControl9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl7)).EndInit();
-            this.panelControl7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl8)).EndInit();
             this.panelControl8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl9)).EndInit();

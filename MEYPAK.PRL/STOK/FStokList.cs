@@ -128,7 +128,7 @@ namespace MEYPAK.PRL.STOK
                 OLCUBR = _OlcuBrServis.obje.Where(y=>y.id==x.olcubR1).FirstOrDefault().adi,
                 MARKA = _stokMarka.obje.Where(z => z.id == x.markaid).Select(z => z.adi).FirstOrDefault()
             }).ToList();
-
+            gridView1.Columns["ADI"].Width= 180;
             DGStokList.RefreshDataSource();
         }
 

@@ -59,6 +59,7 @@ namespace MEYPAK.PRL.DEPO
             _depoCekiListServis = new GenericWebServis<PocoDEPOCEKILIST>();
             _stokResimServis = new GenericWebServis<PocoSTOKRESIM>();
             _cariResimServis = new GenericWebServis<PocoCARIRESIM>();
+            _cariAltHesapServis= new GenericWebServis<PocoCARIALTHES>();
         }
         DataGridViewButtonColumn DGVTopla;
         List<PocoSIPARIS> _tempSiparis;
@@ -78,6 +79,7 @@ namespace MEYPAK.PRL.DEPO
         public GenericWebServis<PocoDEPO> _depoServis;
         public GenericWebServis<PocoDEPOCEKILIST> _depoCekiListServis;
         public GenericWebServis<PocoSTOKRESIM> _stokResimServis;
+        public GenericWebServis<PocoCARIALTHES> _cariAltHesapServis;
         FDepoIsEmriPanel fDepoIsEmriPanel;
 
         #region TabControl Tasarım
@@ -119,7 +121,7 @@ namespace MEYPAK.PRL.DEPO
             //DGVTopla.UseColumnTextForButtonValue = true;
             //dataGridView1.Columns.Add(DGVTopla);
             //dataGridView1.Columns["DGVTopla"].DefaultCellStyle.ForeColor = Color.Aqua;
-
+            _cariAltHesapServis.Data(ServisList.CariAltHesListeServis);
             _siparisServis.Data(ServisList.SiparisListeServis);
             _depoEmirServis.Data(ServisList.DepoEmirListeServis);
             gridControl1.DataSource = _siparisServis.obje.Where(x => x.tip == 0).Select(x => new { x.sevkiyattarihi, x.belgeno, x.cariadi }).ToList();
@@ -131,9 +133,10 @@ namespace MEYPAK.PRL.DEPO
             tileView1.CustomItemTemplate += TileView1_CustomItemTemplate;
 
             //Bitmap bt = new Bitmap("C:\\Users\\User\\Desktop\\İCON\\Logolar\\pngwing.com-2.png");
-            
+          
 
-            gridControl1.DataSource = _siparisServis.obje.Where(x => x.tip == 0).Select(x => new { CSevkiyatTarihi = x.sevkiyattarihi, CBelgeNo = x.belgeno, CariAdi = x.cariadi, CResim = _cariResimServis.obje.Where(c=> c.CARIID==x.cariid).Count()>0? Base64StringToBitmap(_cariResimServis.obje.Where(c => c.CARIID == x.cariid).FirstOrDefault().IMG) : Properties.Resources.CariNullResim }).ToList();
+
+            gridControl1.DataSource = _siparisServis.obje.Where(x => x.tip == 0).Select(x => new { CSevkiyatTarihi = x.sevkiyattarihi, CBelgeNo = x.belgeno, CCariAdi = x.cariadi, CAltCari= _cariAltHesapServis.obje.Where(y => y.id == x.althesapid).FirstOrDefault().adi, CResim = _cariResimServis.obje.Where(c=> c.CARIID==x.cariid).Count()>0? Base64StringToBitmap(_cariResimServis.obje.Where(c => c.CARIID == x.cariid).FirstOrDefault().IMG) : Properties.Resources.CariNullResim }).Reverse().ToList();
             tileView1.ItemCustomize += TileView1_ItemCustomize;
             tileView1.AddNewRow();
             tileView1.UpdateCurrentRow();
@@ -290,6 +293,8 @@ namespace MEYPAK.PRL.DEPO
 
         private void tileView2_DoubleClick(object sender, EventArgs e)
         {
+            if (tileView2.GetFocusedRowCellValue("BELGENO")!=null)
+            {
             var _belgeno = tileView2.GetFocusedRowCellValue("BELGENO").ToString();
             _siparisDetayServis.Data(ServisList.SiparisDetayListeServis);
             int i = 1;
@@ -305,6 +310,7 @@ namespace MEYPAK.PRL.DEPO
 
             gridControl2.DataSource = _depoEmirServis.obje.Select(x => new { ID = x.id, _siparisServis.obje.Where(z => x.siparisid == z.id).FirstOrDefault().belgeno, x.miktar, CARIADI = _siparisServis.obje.Where(z => z.id == x.siparisid).FirstOrDefault().cariadi, DEPO = _depoServis.obje.Where(v => v.id == _siparisServis.obje.Where(z => z.id == x.siparisid).FirstOrDefault().depoid).FirstOrDefault().depoadi, x.tip, x.durum }).ToList();
             gridControl2.Refresh();
+            }
 
         }
         Bitmap bt;
@@ -375,7 +381,7 @@ namespace MEYPAK.PRL.DEPO
             var belgeno = tileView1.GetFocusedRowCellValue("CBelgeNo").ToString();
             gridControl2.DataSource = _depoEmirServis.obje.Where(x=>x.siparisid==_siparisServis.obje.Where(z=>z.belgeno.ToString()== belgeno).FirstOrDefault().id).Select(x => new TVDepoEmir { ID = x.id, BELGENO = _siparisServis.obje.Where(z => z.id == x.siparisid).FirstOrDefault().belgeno,MIKTAR=x.miktar, CARIADI = _siparisServis.obje.Where(z => z.id == x.siparisid).FirstOrDefault().cariadi, DEPO = _depoServis.obje.Where(u=>u.id.ToString() == _siparisServis.obje.Where(z => z.id == x.siparisid).FirstOrDefault().depoid.ToString()).FirstOrDefault().depoadi, TIP= x.tip,Renk="Green", DURUM= 
                 
-           Math.Round( 100- ((_stokSevkiyatList.obje.Where(z => z.emirid == x.id && z.kayittipi==0).Sum(z=>z.kalanmiktar)*100)/ _stokSevkiyatList.obje.Where(z => z.emirid == x.id && z.kayittipi==0).Sum(c=>c.miktar)))
+           Math.Round( 100- ((_stokSevkiyatList.obje.Where(z => z.emirid == x.id && z.kayittipi==0).Sum(z=>z.kalanmiktar)*100)/ (_stokSevkiyatList.obje.Where(z => z.emirid == x.id && z.kayittipi == 0).Sum(c => c.miktar)==0? 1: _stokSevkiyatList.obje.Where(z => z.emirid == x.id && z.kayittipi==0).Sum(c=>c.miktar))))
                 }).ToList(); 
 
 
@@ -403,6 +409,8 @@ namespace MEYPAK.PRL.DEPO
 
         private void tileView3_DoubleClick(object sender, EventArgs e)
         {
+            if (tileView2.GetFocusedRowCellValue("ID")!=null)
+            {
             _siparisDetayServis.Data(ServisList.SiparisDetayListeServis);
             _depoEmirServis.Data(ServisList.DepoEmirListeServis);
             var tempp = _depoEmirServis.obje.Where(x => x.id.ToString() == tileView2.GetFocusedRowCellValue("ID").ToString());
@@ -447,6 +455,7 @@ namespace MEYPAK.PRL.DEPO
                   ,DepoButon= bt
               }).ToList();
             gridControl3.Refresh();
+            }
         }
     }
 }

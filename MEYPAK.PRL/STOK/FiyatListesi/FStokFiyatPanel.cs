@@ -44,10 +44,10 @@ namespace MEYPAK.PRL.STOK.FiyatListesi
             _olcubrServis = new GenericWebServis<PocoOLCUBR>();
         }
 
-    #region Tanımlar
+        #region Tanımlar
         string _islemtipi;
         string _form;
-       
+
         GenericWebServis<PocoSTOKFIYATHAR> stokFiyatHarServis;
         GenericWebServis<PocoSTOKFIYAT> stokFiyatServis;
         GenericWebServis<PocoCARIKART> cariServis;
@@ -56,7 +56,7 @@ namespace MEYPAK.PRL.STOK.FiyatListesi
         GenericWebServis<PocoSTOKKATEGORI> kategoriServis;
         GenericWebServis<PocoOLCUBR> _olcubrServis;
         PocoSTOKFIYAT _tempStokFiyat;
-      
+
         #endregion
 
         private void FStokFiyatPanel_Load(object sender, EventArgs e)
@@ -87,7 +87,7 @@ namespace MEYPAK.PRL.STOK.FiyatListesi
             datatb.Columns.Add(FİYAT);
 
             datatb.Columns[0].ColumnMapping = MappingType.Hidden;
-            
+
             //DataGridde bu alanlarda yalnızca okuma yapılır
             STOKID.ReadOnly = true;
             STOKADI.ReadOnly = true;
@@ -101,10 +101,10 @@ namespace MEYPAK.PRL.STOK.FiyatListesi
                     item.adi,
                     kategoriServis.obje.Where(x => x.id == item.kategoriid).FirstOrDefault().acıklama,
                     _olcubrServis.obje.Where(x => x.id == item.olcubR1).FirstOrDefault().adi,
-                    stokFiyatHarServis.obje.Where(x=> x.kayittipi==0 &&x.stokfiyatid == _tempStokFiyat.id && x.stokid == item.id).Count()>0 ? 
+                    stokFiyatHarServis.obje.Where(x => x.kayittipi == 0 && x.stokfiyatid == _tempStokFiyat.id && x.stokid == item.id).Count() > 0 ?
                     stokFiyatHarServis.obje.Where(x => x.kayittipi == 0 && x.stokfiyatid == _tempStokFiyat.id && x.stokid == item.id).FirstOrDefault().fiyat : 0.00
-                    
-                ) ;
+
+                );
             }
             DGStokFiyatPanel.DataSource = datatb;
         }
@@ -120,7 +120,7 @@ namespace MEYPAK.PRL.STOK.FiyatListesi
             for (int i = 0; i < gridView1.RowCount; i++)
             {
                 DataRowView row = gridView1.GetRow(i) as DataRowView;
-                if (row != null && Convert.ToDecimal(row.Row.ItemArray[4])>0)
+                if (row != null && Convert.ToDecimal(row.Row.ItemArray[4]) > 0)
                 {
                     stokFiyatHarServis.Data(ServisList.StokFiyatHarEkleServis, new PocoSTOKFIYATHAR()
                     {

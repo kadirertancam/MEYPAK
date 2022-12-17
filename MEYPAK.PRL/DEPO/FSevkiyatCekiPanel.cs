@@ -55,6 +55,7 @@ namespace MEYPAK.PRL.DEPO
         GenericWebServis<PocoSIPARISDETAY> _siparisDetayServis;
         GenericWebServis<PocoSIPARISSEVKEMIRHAR> _siparisSevkEmriHar;
         GenericWebServis<PocoSTOKSEVKIYATLIST> _stokSevkiyatListServis;
+     
         List<PocoSTOK> _tempStok;
         PocoSTOK _Stok;
         public PocoDEPOEMIR _tempEmir;
@@ -107,9 +108,15 @@ namespace MEYPAK.PRL.DEPO
         {
             _stokServis.Data(ServisList.StokListeServis);
             _olcuBrServis.Data(ServisList.OlcuBrListeServis);
-            // _tempList.Add(new PocoStokSevkiyatList());
+            _siparisSevkEmriHar.Data(ServisList.SiparisSevkEmriHarListeServis);
+            _siparisDetayServis.Data(ServisList.SiparisDetayListeServis);
+            
+
+
             gridControl1.DataSource = 
-                _tempList.Select(x => new CekiPanelList { ID= x.id,StokKodu = _stokServis.obje.Where(z=>x.stokid==z.id).FirstOrDefault().kod, StokAdı = _stokServis.obje.Where(z => x.stokid == z.id).FirstOrDefault().adi, Birim = _olcuBrServis.obje.Where(z=>z.id==x.birimid).FirstOrDefault().adi,Miktar=x.miktar });
+               _tempList.Select(x => new CekiPanelList { ID= x.id,StokKodu = _stokServis.obje.Where(z=>x.stokid==z.id).FirstOrDefault().kod, StokAdı = _stokServis.obje.Where(z => x.stokid == z.id).FirstOrDefault().adi, Birim = _olcuBrServis.obje.Where(z=>z.id==x.birimid).FirstOrDefault().adi, 
+                   Miktar = x.miktar > 1 ? x.miktar : _siparisSevkEmriHar.obje.Where(y => y.emirid == x.isemriid && y.sipariskalemid == _siparisDetayServis.obje.Where(y => y.stokid == x.stokid).FirstOrDefault().id).Count()>0?
+                                                      _siparisSevkEmriHar.obje.Where(y => y.emirid == x.isemriid && y.sipariskalemid == _siparisDetayServis.obje.Where(y => y.stokid == x.stokid).FirstOrDefault().id).FirstOrDefault().emirmiktari:0 });
             comboBox1.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             comboBox1.AutoCompleteSource = AutoCompleteSource.ListItems;
             comboBox1.DisplayMember = "KOD";
@@ -124,7 +131,7 @@ namespace MEYPAK.PRL.DEPO
         private void comboBox1_TextChanged(object sender, EventArgs e)
         {
 
-
+             
         }
 
         private void button2_Click(object sender, EventArgs e)

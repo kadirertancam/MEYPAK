@@ -5,10 +5,14 @@ using DevExpress.XtraVerticalGrid.Native;
 using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.Models.DEPO;
 using MEYPAK.Entity.Models.SIPARIS;
+using MEYPAK.Entity.PocoModels.ARAC;
 using MEYPAK.Entity.PocoModels.DEPO;
+using MEYPAK.Entity.PocoModels.PERSONEL;
 using MEYPAK.Entity.PocoModels.SIPARIS;
 using MEYPAK.Entity.PocoModels.STOK;
+using MEYPAK.Interfaces.Arac;
 using MEYPAK.Interfaces.Depo;
+using MEYPAK.Interfaces.Personel;
 using MEYPAK.Interfaces.Siparis;
 using MEYPAK.Interfaces.Stok;
 using MEYPAK.PRL.Assets;
@@ -37,6 +41,8 @@ namespace MEYPAK.PRL.DEPO
             _siparisSevkEmriHarServis=new GenericWebServis<PocoSIPARISSEVKEMIRHAR>();
             _stokSevkiyatList = new GenericWebServis<PocoSTOKSEVKIYATLIST>();
             _siparisServis = new GenericWebServis<PocoSIPARIS>();
+            _aracServis = new GenericWebServis<PocoARAC>();
+            _personelServis= new GenericWebServis<PocoPERSONEL>();
             _emirid = emirid;
         }
         GenericWebServis<PocoSIPARISDETAY> _siparisDetayServis;
@@ -45,7 +51,10 @@ namespace MEYPAK.PRL.DEPO
         GenericWebServis<PocoSIPARIS> _siparisServis;
         GenericWebServis<PocoSIPARISSEVKEMIRHAR> _siparisSevkEmriHarServis;
         GenericWebServis<PocoSTOKSEVKIYATLIST> _stokSevkiyatList;
+        GenericWebServis<PocoARAC> _aracServis;
+        GenericWebServis<PocoPERSONEL> _personelServis;
         List<PocoSIPARISDETAY> _tempSiparisDetay;
+     
         string _emirid;
         string _sipid;
         private void FDepoIsEmriPanel_Load(object sender, EventArgs e)
@@ -78,6 +87,24 @@ namespace MEYPAK.PRL.DEPO
                 
             }
             gridControl1.DataSource = tempp;
+
+
+            _aracServis.Data(ServisList.AracListeServis);
+            _personelServis.Data(ServisList.PersonelListeServis);
+            DataTable datatb = new DataTable();
+            datatb.Columns.Add("aracid", typeof(int));
+            datatb.Columns.Add("aracplaka", typeof(string));
+            foreach (var item in _aracServis.obje)
+            {
+                datatb.Rows.Add(item.id, _personelServis.obje.Where(x => x.id == item.soforid).FirstOrDefault().adisoyadi + " - " + item.tip + " - " + item.plaka);
+            }
+
+           datatb.Columns["aracid"].ColumnMapping = MappingType.Hidden;
+           CBArac.Properties.DataSource= datatb;
+           CBArac.Properties.DisplayMember= "aracplaka";
+           CBArac.Properties.ValueMember= "aracid";
+           
+
 
         }
         bool check=false;
@@ -214,6 +241,11 @@ namespace MEYPAK.PRL.DEPO
         private void gridView1_CustomRowCellEdit(object sender, DevExpress.XtraGrid.Views.Grid.CustomRowCellEditEventArgs e)
         {
            
+        }
+
+        private void buttonEdit1_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            
         }
     }
 }

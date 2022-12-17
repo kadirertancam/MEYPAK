@@ -950,7 +950,7 @@ namespace MEYPAK.PRL.SIPARIS
                             faturaid = _faturaServis.obje2.id,
                             aciklama = item.Acıklama,
                             belgE_NO = _faturaServis.obje2.belgeno,
-                            hareketturu = 1,
+                            hareketturu = 2,
                             birim = _olcuBr.obje.Where(x => x.adi.ToString() == item.Birim).FirstOrDefault().id,
                             bruttoplam = item.BrütToplam,
                             depoid = _faturaServis.obje2.depoid,

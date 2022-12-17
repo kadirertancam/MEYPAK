@@ -37,11 +37,6 @@ namespace MEYPAK.PRL.SIPARIS
 
         }
 
-        private void gridView2_Click(object sender, EventArgs e)
-        {
-           
-        }
-
         private void simpleButton1_Click(object sender, EventArgs e)
         {
             ırsaliyeSettingsPanel = new FIrsaliyeSettingsPanel(this.Tag.ToString(), "FMusteriSiparisIrsaliyelestir");
