@@ -85,5 +85,10 @@ namespace MEYPAK.PRL.STOK
             if (_tempHizmetKategori != null)
                 BTKategoriSec.Text = _tempHizmetKategori.adi; 
         }
+
+        private void labelControl11_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

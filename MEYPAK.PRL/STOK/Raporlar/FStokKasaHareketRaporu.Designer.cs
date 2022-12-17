@@ -142,7 +142,6 @@
             this.groupControl1.Controls.Add(this.BTCariSec);
             this.groupControl1.Controls.Add(this.LBCariKodu);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupControl1.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             this.groupControl1.Location = new System.Drawing.Point(2, 2);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(1296, 162);
@@ -173,19 +172,19 @@
             // 
             // BTIrsaliyeSec
             // 
-            this.BTIrsaliyeSec.Location = new System.Drawing.Point(141, 108);
+            this.BTIrsaliyeSec.Location = new System.Drawing.Point(143, 124);
             this.BTIrsaliyeSec.Name = "BTIrsaliyeSec";
             this.BTIrsaliyeSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTIrsaliyeSec.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTIrsaliyeSec_Properties_ButtonClick);
-            this.BTIrsaliyeSec.Size = new System.Drawing.Size(180, 22);
+            this.BTIrsaliyeSec.Size = new System.Drawing.Size(297, 22);
             this.BTIrsaliyeSec.TabIndex = 8;
             // 
             // LBIrsaliyeKodu
             // 
             this.LBIrsaliyeKodu.Appearance.ForeColor = System.Drawing.SystemColors.ControlText;
             this.LBIrsaliyeKodu.Appearance.Options.UseForeColor = true;
-            this.LBIrsaliyeKodu.Location = new System.Drawing.Point(59, 111);
+            this.LBIrsaliyeKodu.Location = new System.Drawing.Point(61, 127);
             this.LBIrsaliyeKodu.Name = "LBIrsaliyeKodu";
             this.LBIrsaliyeKodu.Size = new System.Drawing.Size(62, 13);
             this.LBIrsaliyeKodu.TabIndex = 7;
@@ -193,19 +192,19 @@
             // 
             // BTFaturaSec
             // 
-            this.BTFaturaSec.Location = new System.Drawing.Point(141, 82);
+            this.BTFaturaSec.Location = new System.Drawing.Point(143, 98);
             this.BTFaturaSec.Name = "BTFaturaSec";
             this.BTFaturaSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTFaturaSec.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTFaturaSec_Properties_ButtonClick);
-            this.BTFaturaSec.Size = new System.Drawing.Size(180, 22);
+            this.BTFaturaSec.Size = new System.Drawing.Size(297, 22);
             this.BTFaturaSec.TabIndex = 6;
             // 
             // LBFaturaKodu
             // 
             this.LBFaturaKodu.Appearance.ForeColor = System.Drawing.SystemColors.ControlText;
             this.LBFaturaKodu.Appearance.Options.UseForeColor = true;
-            this.LBFaturaKodu.Location = new System.Drawing.Point(62, 84);
+            this.LBFaturaKodu.Location = new System.Drawing.Point(64, 100);
             this.LBFaturaKodu.Name = "LBFaturaKodu";
             this.LBFaturaKodu.Size = new System.Drawing.Size(59, 13);
             this.LBFaturaKodu.TabIndex = 5;
@@ -213,19 +212,19 @@
             // 
             // BTKasaSec
             // 
-            this.BTKasaSec.Location = new System.Drawing.Point(141, 56);
+            this.BTKasaSec.Location = new System.Drawing.Point(143, 72);
             this.BTKasaSec.Name = "BTKasaSec";
             this.BTKasaSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTKasaSec.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTKasaSec_Properties_ButtonClick);
-            this.BTKasaSec.Size = new System.Drawing.Size(180, 22);
+            this.BTKasaSec.Size = new System.Drawing.Size(297, 22);
             this.BTKasaSec.TabIndex = 4;
             // 
             // LBKasaKodu
             // 
             this.LBKasaKodu.Appearance.ForeColor = System.Drawing.SystemColors.ControlText;
             this.LBKasaKodu.Appearance.Options.UseForeColor = true;
-            this.LBKasaKodu.Location = new System.Drawing.Point(71, 60);
+            this.LBKasaKodu.Location = new System.Drawing.Point(73, 76);
             this.LBKasaKodu.Name = "LBKasaKodu";
             this.LBKasaKodu.Size = new System.Drawing.Size(50, 13);
             this.LBKasaKodu.TabIndex = 3;
@@ -233,19 +232,19 @@
             // 
             // BTCariSec
             // 
-            this.BTCariSec.Location = new System.Drawing.Point(141, 30);
+            this.BTCariSec.Location = new System.Drawing.Point(143, 46);
             this.BTCariSec.Name = "BTCariSec";
             this.BTCariSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTCariSec.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTCariSec_Properties_ButtonClick);
-            this.BTCariSec.Size = new System.Drawing.Size(180, 22);
+            this.BTCariSec.Size = new System.Drawing.Size(297, 22);
             this.BTCariSec.TabIndex = 1;
             // 
             // LBCariKodu
             // 
             this.LBCariKodu.Appearance.ForeColor = System.Drawing.SystemColors.ControlText;
             this.LBCariKodu.Appearance.Options.UseForeColor = true;
-            this.LBCariKodu.Location = new System.Drawing.Point(75, 33);
+            this.LBCariKodu.Location = new System.Drawing.Point(77, 49);
             this.LBCariKodu.Name = "LBCariKodu";
             this.LBCariKodu.Size = new System.Drawing.Size(46, 13);
             this.LBCariKodu.TabIndex = 0;

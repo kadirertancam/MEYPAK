@@ -74,7 +74,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1281, 724);
+            this.panelControl1.Size = new System.Drawing.Size(1130, 930);
             this.panelControl1.TabIndex = 0;
             // 
             // panelControl3
@@ -83,7 +83,7 @@
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl3.Location = new System.Drawing.Point(2, 127);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(1277, 595);
+            this.panelControl3.Size = new System.Drawing.Size(1126, 801);
             this.panelControl3.TabIndex = 1;
             // 
             // DGCariRpr
@@ -92,7 +92,7 @@
             this.DGCariRpr.Location = new System.Drawing.Point(2, 2);
             this.DGCariRpr.MainView = this.gridView1;
             this.DGCariRpr.Name = "DGCariRpr";
-            this.DGCariRpr.Size = new System.Drawing.Size(1273, 591);
+            this.DGCariRpr.Size = new System.Drawing.Size(1122, 797);
             this.DGCariRpr.TabIndex = 0;
             this.DGCariRpr.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -109,7 +109,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl2.Location = new System.Drawing.Point(2, 2);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(1277, 125);
+            this.panelControl2.Size = new System.Drawing.Size(1126, 125);
             this.panelControl2.TabIndex = 0;
             // 
             // groupControl1
@@ -124,7 +124,7 @@
             this.groupControl1.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             this.groupControl1.Location = new System.Drawing.Point(2, 2);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(1273, 118);
+            this.groupControl1.Size = new System.Drawing.Size(1122, 118);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Filtrele";
             // 
@@ -133,7 +133,7 @@
             this.panelControl4.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl4.Controls.Add(this.BTRaporla);
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelControl4.Location = new System.Drawing.Point(1160, 23);
+            this.panelControl4.Location = new System.Drawing.Point(1009, 23);
             this.panelControl4.Name = "panelControl4";
             this.panelControl4.Size = new System.Drawing.Size(111, 93);
             this.panelControl4.TabIndex = 5;
@@ -156,7 +156,7 @@
             this.BTKateSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTKateSec.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTKateSec_Properties_ButtonClick);
-            this.BTKateSec.Size = new System.Drawing.Size(180, 22);
+            this.BTKateSec.Size = new System.Drawing.Size(297, 22);
             this.BTKateSec.TabIndex = 3;
             // 
             // BTCariSec
@@ -166,7 +166,7 @@
             this.BTCariSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTCariSec.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTCariSec_Properties_ButtonClick);
-            this.BTCariSec.Size = new System.Drawing.Size(180, 22);
+            this.BTCariSec.Size = new System.Drawing.Size(297, 22);
             this.BTCariSec.TabIndex = 2;
             // 
             // LBKategori
@@ -189,7 +189,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1281, 724);
+            this.ClientSize = new System.Drawing.Size(1130, 930);
             this.Controls.Add(this.panelControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FCariRaporu";

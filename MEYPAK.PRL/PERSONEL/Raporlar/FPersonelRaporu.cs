@@ -46,7 +46,12 @@ namespace MEYPAK.PRL.PERSONEL.Raporlar
         {
             FPersonelList fPersonelList = new FPersonelList(this.Tag.ToString(), "FPersonelRaporu");
             fPersonelList.ShowDialog();
+            if (_tempPersonel != null)
+                BTPersonelSec.Text = _tempPersonel.adi;
+
+            //GridiDoldur(Filtrele());
 
         }
+
     }
 }

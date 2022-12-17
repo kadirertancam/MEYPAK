@@ -596,7 +596,7 @@ namespace MEYPAK.PRL.SIPARIS
                     }
                     else
                     {
-
+                        //TODO: KASA BİLGİSİ IRSALIYEDEN GELECEK ŞEKİLDE YAPILANDIRILACAK
                     }
 
                     KasaAltBilgiDoldur(); 
@@ -653,6 +653,7 @@ namespace MEYPAK.PRL.SIPARIS
                 TBAIskonto3.EditValue = _tempFatura.altiskonto3;
                 sy = 0;
                 ToplamHesapla();
+                fattip = 0;
             }
      
         }

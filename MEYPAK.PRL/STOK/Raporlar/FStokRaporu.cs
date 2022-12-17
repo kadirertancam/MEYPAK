@@ -51,7 +51,7 @@ namespace MEYPAK.PRL.STOK.Raporlar
 
             GridiDoldur(Filtrele());
         }
-
+        
         private void FStokListesiRaporu_Load(object sender, EventArgs e)
         {
 

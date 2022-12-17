@@ -66,7 +66,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1325, 748);
+            this.panelControl1.Size = new System.Drawing.Size(1130, 930);
             this.panelControl1.TabIndex = 0;
             // 
             // panelControl3
@@ -75,7 +75,7 @@
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl3.Location = new System.Drawing.Point(2, 97);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(1321, 649);
+            this.panelControl3.Size = new System.Drawing.Size(1126, 831);
             this.panelControl3.TabIndex = 1;
             // 
             // DGDepoRpr
@@ -84,7 +84,7 @@
             this.DGDepoRpr.Location = new System.Drawing.Point(2, 2);
             this.DGDepoRpr.MainView = this.gridView1;
             this.DGDepoRpr.Name = "DGDepoRpr";
-            this.DGDepoRpr.Size = new System.Drawing.Size(1317, 645);
+            this.DGDepoRpr.Size = new System.Drawing.Size(1122, 827);
             this.DGDepoRpr.TabIndex = 0;
             this.DGDepoRpr.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -100,7 +100,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl2.Location = new System.Drawing.Point(2, 2);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(1321, 95);
+            this.panelControl2.Size = new System.Drawing.Size(1126, 95);
             this.panelControl2.TabIndex = 0;
             // 
             // groupControl1
@@ -113,7 +113,7 @@
             this.groupControl1.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             this.groupControl1.Location = new System.Drawing.Point(2, 2);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(1317, 89);
+            this.groupControl1.Size = new System.Drawing.Size(1122, 89);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Filtrele";
             // 
@@ -122,7 +122,7 @@
             this.panelControl4.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl4.Controls.Add(this.BTRaporla);
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelControl4.Location = new System.Drawing.Point(1212, 23);
+            this.panelControl4.Location = new System.Drawing.Point(1017, 23);
             this.panelControl4.Name = "panelControl4";
             this.panelControl4.Size = new System.Drawing.Size(103, 64);
             this.panelControl4.TabIndex = 4;
@@ -140,17 +140,17 @@
             // 
             // BTDepoSec
             // 
-            this.BTDepoSec.Location = new System.Drawing.Point(155, 36);
+            this.BTDepoSec.Location = new System.Drawing.Point(137, 36);
             this.BTDepoSec.Name = "BTDepoSec";
             this.BTDepoSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTDepoSec.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTDepoSec_Properties_ButtonClick);
-            this.BTDepoSec.Size = new System.Drawing.Size(180, 22);
+            this.BTDepoSec.Size = new System.Drawing.Size(297, 22);
             this.BTDepoSec.TabIndex = 2;
             // 
             // LBDepoKodu
             // 
-            this.LBDepoKodu.Location = new System.Drawing.Point(79, 39);
+            this.LBDepoKodu.Location = new System.Drawing.Point(61, 39);
             this.LBDepoKodu.Name = "LBDepoKodu";
             this.LBDepoKodu.Size = new System.Drawing.Size(52, 13);
             this.LBDepoKodu.TabIndex = 0;
@@ -160,7 +160,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1325, 748);
+            this.ClientSize = new System.Drawing.Size(1130, 930);
             this.Controls.Add(this.panelControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FDepoRaporu";

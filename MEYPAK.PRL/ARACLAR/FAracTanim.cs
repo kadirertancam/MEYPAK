@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraEditors.Controls;
+﻿using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Controls;
 using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.PocoModels.ARAC;
 using MEYPAK.Entity.PocoModels.PERSONEL;
@@ -19,7 +20,7 @@ using System.Windows.Forms;
 
 namespace MEYPAK.PRL.ARAÇLAR
 {
-    public partial class FAracTanim : Form
+    public partial class FAracTanim :   XtraForm
     {
         GenericWebServis<PocoARAC> _aracServis;
         GenericWebServis<PocoARACRUHSATRESIM> _aracServisRUHSATRESIMServis;

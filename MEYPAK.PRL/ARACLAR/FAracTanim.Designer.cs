@@ -120,6 +120,7 @@
             this.dateEdit3 = new DevExpress.XtraEditors.DateEdit();
             this.XTPBelgeler = new DevExpress.XtraTab.XtraTabPage();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.CBModel = new DevExpress.XtraEditors.LookUpEdit();
             this.BTNAracFoto = new DevExpress.XtraEditors.ButtonEdit();
             this.labelControl29 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl28 = new DevExpress.XtraEditors.LabelControl();
@@ -146,7 +147,6 @@
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.CBModel = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
@@ -210,6 +210,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CBModel.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTNAracFoto.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBMarka.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBTip.Properties)).BeginInit();
@@ -222,7 +223,6 @@
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CBModel.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // Resim
@@ -230,27 +230,33 @@
             this.Resim.AccessibleName = "Resim";
             this.Resim.Caption = "Resim";
             this.Resim.FieldName = "Resim";
+            this.Resim.MinWidth = 17;
             this.Resim.Name = "Resim";
             this.Resim.Visible = true;
             this.Resim.VisibleIndex = 0;
+            this.Resim.Width = 64;
             // 
             // tileViewColumn2
             // 
             this.tileViewColumn2.AccessibleName = "Resim";
             this.tileViewColumn2.Caption = "Resim";
             this.tileViewColumn2.FieldName = "Resim";
+            this.tileViewColumn2.MinWidth = 17;
             this.tileViewColumn2.Name = "tileViewColumn2";
             this.tileViewColumn2.Visible = true;
             this.tileViewColumn2.VisibleIndex = 0;
+            this.tileViewColumn2.Width = 64;
             // 
             // tileViewColumn1
             // 
             this.tileViewColumn1.AccessibleName = "Resim";
             this.tileViewColumn1.Caption = "Resim";
             this.tileViewColumn1.FieldName = "Resim";
+            this.tileViewColumn1.MinWidth = 17;
             this.tileViewColumn1.Name = "tileViewColumn1";
             this.tileViewColumn1.Visible = true;
             this.tileViewColumn1.VisibleIndex = 0;
+            this.tileViewColumn1.Width = 64;
             // 
             // panelControl1
             // 
@@ -260,16 +266,16 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1046, 614);
+            this.panelControl1.Size = new System.Drawing.Size(1128, 898);
             this.panelControl1.TabIndex = 0;
             // 
             // panelControl4
             // 
             this.panelControl4.Controls.Add(this.xtraTabControl1);
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl4.Location = new System.Drawing.Point(264, 207);
+            this.panelControl4.Location = new System.Drawing.Point(227, 180);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(780, 405);
+            this.panelControl4.Size = new System.Drawing.Size(899, 716);
             this.panelControl4.TabIndex = 2;
             // 
             // xtraTabControl1
@@ -278,7 +284,7 @@
             this.xtraTabControl1.Location = new System.Drawing.Point(2, 2);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.XTPSigorta;
-            this.xtraTabControl1.Size = new System.Drawing.Size(776, 401);
+            this.xtraTabControl1.Size = new System.Drawing.Size(895, 712);
             this.xtraTabControl1.TabIndex = 0;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.XTPRuhsat,
@@ -292,16 +298,16 @@
             this.XTPSigorta.Controls.Add(this.panelControl5);
             this.XTPSigorta.Controls.Add(this.panelControl6);
             this.XTPSigorta.Name = "XTPSigorta";
-            this.XTPSigorta.Size = new System.Drawing.Size(774, 376);
+            this.XTPSigorta.Size = new System.Drawing.Size(893, 687);
             this.XTPSigorta.Text = "Sigorta Bilgileri";
             // 
             // panelControl5
             // 
             this.panelControl5.Controls.Add(this.GridSigorta);
             this.panelControl5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl5.Location = new System.Drawing.Point(0, 136);
+            this.panelControl5.Location = new System.Drawing.Point(0, 118);
             this.panelControl5.Name = "panelControl5";
-            this.panelControl5.Size = new System.Drawing.Size(774, 240);
+            this.panelControl5.Size = new System.Drawing.Size(893, 569);
             this.panelControl5.TabIndex = 29;
             // 
             // GridSigorta
@@ -310,7 +316,7 @@
             this.GridSigorta.Location = new System.Drawing.Point(2, 2);
             this.GridSigorta.MainView = this.tileView1;
             this.GridSigorta.Name = "GridSigorta";
-            this.GridSigorta.Size = new System.Drawing.Size(770, 236);
+            this.GridSigorta.Size = new System.Drawing.Size(889, 565);
             this.GridSigorta.TabIndex = 1;
             this.GridSigorta.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.tileView1});
@@ -319,6 +325,7 @@
             // 
             this.tileView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.Resim});
+            this.tileView1.DetailHeight = 303;
             this.tileView1.GridControl = this.GridSigorta;
             this.tileView1.Name = "tileView1";
             this.tileView1.OptionsTiles.ColumnCount = 4;
@@ -356,12 +363,12 @@
             this.panelControl6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl6.Location = new System.Drawing.Point(0, 0);
             this.panelControl6.Name = "panelControl6";
-            this.panelControl6.Size = new System.Drawing.Size(774, 136);
+            this.panelControl6.Size = new System.Drawing.Size(893, 118);
             this.panelControl6.TabIndex = 28;
             // 
             // labelControl33
             // 
-            this.labelControl33.Location = new System.Drawing.Point(42, 64);
+            this.labelControl33.Location = new System.Drawing.Point(28, 53);
             this.labelControl33.Name = "labelControl33";
             this.labelControl33.Size = new System.Drawing.Size(6, 13);
             this.labelControl33.TabIndex = 76;
@@ -369,7 +376,7 @@
             // 
             // labelControl32
             // 
-            this.labelControl32.Location = new System.Drawing.Point(33, 29);
+            this.labelControl32.Location = new System.Drawing.Point(20, 23);
             this.labelControl32.Name = "labelControl32";
             this.labelControl32.Size = new System.Drawing.Size(6, 13);
             this.labelControl32.TabIndex = 75;
@@ -377,7 +384,7 @@
             // 
             // labelControl31
             // 
-            this.labelControl31.Location = new System.Drawing.Point(318, 65);
+            this.labelControl31.Location = new System.Drawing.Point(362, 50);
             this.labelControl31.Name = "labelControl31";
             this.labelControl31.Size = new System.Drawing.Size(6, 13);
             this.labelControl31.TabIndex = 74;
@@ -385,7 +392,7 @@
             // 
             // labelControl30
             // 
-            this.labelControl30.Location = new System.Drawing.Point(288, 29);
+            this.labelControl30.Location = new System.Drawing.Point(336, 19);
             this.labelControl30.Name = "labelControl30";
             this.labelControl30.Size = new System.Drawing.Size(6, 13);
             this.labelControl30.TabIndex = 73;
@@ -393,27 +400,30 @@
             // 
             // BTNSigortaKaydet
             // 
-            this.BTNSigortaKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTNSigortaKaydet.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
             this.BTNSigortaKaydet.Appearance.Options.UseBackColor = true;
             this.BTNSigortaKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTNSigortaKaydet.ImageOptions.Image")));
-            this.BTNSigortaKaydet.Location = new System.Drawing.Point(602, 26);
+            this.BTNSigortaKaydet.Location = new System.Drawing.Point(741, 18);
             this.BTNSigortaKaydet.Name = "BTNSigortaKaydet";
-            this.BTNSigortaKaydet.Size = new System.Drawing.Size(128, 59);
+            this.BTNSigortaKaydet.Size = new System.Drawing.Size(129, 51);
             this.BTNSigortaKaydet.TabIndex = 66;
             this.BTNSigortaKaydet.Text = "Sigorta Kaydet";
             this.BTNSigortaKaydet.Click += new System.EventHandler(this.BTNSigortaKaydet_Click);
             // 
             // simpleButton4
             // 
-            this.simpleButton4.Location = new System.Drawing.Point(413, 100);
+            this.simpleButton4.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.simpleButton4.Appearance.Options.UseBackColor = true;
+            this.simpleButton4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton4.ImageOptions.Image")));
+            this.simpleButton4.Location = new System.Drawing.Point(497, 88);
             this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.Size = new System.Drawing.Size(73, 25);
+            this.simpleButton4.Size = new System.Drawing.Size(63, 22);
             this.simpleButton4.TabIndex = 46;
             this.simpleButton4.Text = "Ekle";
             // 
             // labelControl8
             // 
-            this.labelControl8.Location = new System.Drawing.Point(42, 32);
+            this.labelControl8.Location = new System.Drawing.Point(28, 26);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(63, 13);
             this.labelControl8.TabIndex = 35;
@@ -421,7 +431,7 @@
             // 
             // labelControl10
             // 
-            this.labelControl10.Location = new System.Drawing.Point(217, 108);
+            this.labelControl10.Location = new System.Drawing.Point(281, 95);
             this.labelControl10.Name = "labelControl10";
             this.labelControl10.Size = new System.Drawing.Size(46, 13);
             this.labelControl10.TabIndex = 44;
@@ -429,7 +439,7 @@
             // 
             // labelControl11
             // 
-            this.labelControl11.Location = new System.Drawing.Point(51, 64);
+            this.labelControl11.Location = new System.Drawing.Point(36, 53);
             this.labelControl11.Name = "labelControl11";
             this.labelControl11.Size = new System.Drawing.Size(54, 13);
             this.labelControl11.TabIndex = 36;
@@ -438,32 +448,32 @@
             // DTPSigPolBitTar
             // 
             this.DTPSigPolBitTar.EditValue = null;
-            this.DTPSigPolBitTar.Location = new System.Drawing.Point(420, 65);
+            this.DTPSigPolBitTar.Location = new System.Drawing.Point(482, 49);
             this.DTPSigPolBitTar.Name = "DTPSigPolBitTar";
             this.DTPSigPolBitTar.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.DTPSigPolBitTar.Size = new System.Drawing.Size(134, 20);
+            this.DTPSigPolBitTar.Size = new System.Drawing.Size(201, 20);
             this.DTPSigPolBitTar.TabIndex = 40;
             // 
             // buttonEdit1
             // 
-            this.buttonEdit1.Location = new System.Drawing.Point(269, 103);
+            this.buttonEdit1.Location = new System.Drawing.Point(343, 90);
             this.buttonEdit1.Name = "buttonEdit1";
             this.buttonEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.buttonEdit1.Size = new System.Drawing.Size(134, 20);
+            this.buttonEdit1.Size = new System.Drawing.Size(133, 20);
             this.buttonEdit1.TabIndex = 43;
             // 
             // TBSigAcenteAdi
             // 
-            this.TBSigAcenteAdi.Location = new System.Drawing.Point(111, 29);
+            this.TBSigAcenteAdi.Location = new System.Drawing.Point(97, 23);
             this.TBSigAcenteAdi.Name = "TBSigAcenteAdi";
-            this.TBSigAcenteAdi.Size = new System.Drawing.Size(134, 20);
+            this.TBSigAcenteAdi.Size = new System.Drawing.Size(201, 20);
             this.TBSigAcenteAdi.TabIndex = 41;
             // 
             // labelControl12
             // 
-            this.labelControl12.Location = new System.Drawing.Point(296, 33);
+            this.labelControl12.Location = new System.Drawing.Point(343, 23);
             this.labelControl12.Name = "labelControl12";
             this.labelControl12.Size = new System.Drawing.Size(118, 13);
             this.labelControl12.TabIndex = 37;
@@ -472,16 +482,16 @@
             // DTPSigPolBasTar
             // 
             this.DTPSigPolBasTar.EditValue = null;
-            this.DTPSigPolBasTar.Location = new System.Drawing.Point(420, 26);
+            this.DTPSigPolBasTar.Location = new System.Drawing.Point(482, 23);
             this.DTPSigPolBasTar.Name = "DTPSigPolBasTar";
             this.DTPSigPolBasTar.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.DTPSigPolBasTar.Size = new System.Drawing.Size(134, 20);
+            this.DTPSigPolBasTar.Size = new System.Drawing.Size(201, 20);
             this.DTPSigPolBasTar.TabIndex = 39;
             // 
             // labelControl15
             // 
-            this.labelControl15.Location = new System.Drawing.Point(326, 68);
+            this.labelControl15.Location = new System.Drawing.Point(374, 53);
             this.labelControl15.Name = "labelControl15";
             this.labelControl15.Size = new System.Drawing.Size(88, 13);
             this.labelControl15.TabIndex = 38;
@@ -489,16 +499,16 @@
             // 
             // TBSigPoliceNo
             // 
-            this.TBSigPoliceNo.Location = new System.Drawing.Point(111, 61);
+            this.TBSigPoliceNo.Location = new System.Drawing.Point(97, 51);
             this.TBSigPoliceNo.Name = "TBSigPoliceNo";
-            this.TBSigPoliceNo.Size = new System.Drawing.Size(134, 20);
+            this.TBSigPoliceNo.Size = new System.Drawing.Size(201, 20);
             this.TBSigPoliceNo.TabIndex = 42;
             // 
             // LBSigorta
             // 
             this.LBSigorta.Appearance.ForeColor = System.Drawing.Color.Red;
             this.LBSigorta.Appearance.Options.UseForeColor = true;
-            this.LBSigorta.Location = new System.Drawing.Point(326, 5);
+            this.LBSigorta.Location = new System.Drawing.Point(373, 0);
             this.LBSigorta.Name = "LBSigorta";
             this.LBSigorta.Size = new System.Drawing.Size(45, 13);
             this.LBSigorta.TabIndex = 0;
@@ -508,7 +518,7 @@
             // 
             this.XTPRuhsat.Controls.Add(this.panelControl12);
             this.XTPRuhsat.Name = "XTPRuhsat";
-            this.XTPRuhsat.Size = new System.Drawing.Size(774, 376);
+            this.XTPRuhsat.Size = new System.Drawing.Size(893, 687);
             this.XTPRuhsat.Text = "Ruhsat Bilgileri";
             // 
             // panelControl12
@@ -518,16 +528,16 @@
             this.panelControl12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl12.Location = new System.Drawing.Point(0, 0);
             this.panelControl12.Name = "panelControl12";
-            this.panelControl12.Size = new System.Drawing.Size(774, 376);
+            this.panelControl12.Size = new System.Drawing.Size(893, 687);
             this.panelControl12.TabIndex = 0;
             // 
             // panelControl14
             // 
             this.panelControl14.Controls.Add(this.GridRuhsat);
             this.panelControl14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl14.Location = new System.Drawing.Point(2, 66);
+            this.panelControl14.Location = new System.Drawing.Point(2, 57);
             this.panelControl14.Name = "panelControl14";
-            this.panelControl14.Size = new System.Drawing.Size(770, 308);
+            this.panelControl14.Size = new System.Drawing.Size(889, 628);
             this.panelControl14.TabIndex = 1;
             // 
             // GridRuhsat
@@ -536,7 +546,7 @@
             this.GridRuhsat.Location = new System.Drawing.Point(2, 2);
             this.GridRuhsat.MainView = this.tileView3;
             this.GridRuhsat.Name = "GridRuhsat";
-            this.GridRuhsat.Size = new System.Drawing.Size(766, 304);
+            this.GridRuhsat.Size = new System.Drawing.Size(885, 624);
             this.GridRuhsat.TabIndex = 2;
             this.GridRuhsat.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.tileView3});
@@ -545,6 +555,7 @@
             // 
             this.tileView3.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.tileViewColumn2});
+            this.tileView3.DetailHeight = 303;
             this.tileView3.GridControl = this.GridRuhsat;
             this.tileView3.Name = "tileView3";
             this.tileView3.OptionsTiles.ColumnCount = 4;
@@ -568,21 +579,24 @@
             this.panelControl13.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl13.Location = new System.Drawing.Point(2, 2);
             this.panelControl13.Name = "panelControl13";
-            this.panelControl13.Size = new System.Drawing.Size(770, 64);
+            this.panelControl13.Size = new System.Drawing.Size(889, 55);
             this.panelControl13.TabIndex = 0;
             // 
             // simpleButton1
             // 
-            this.simpleButton1.Location = new System.Drawing.Point(431, 17);
+            this.simpleButton1.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.simpleButton1.Appearance.Options.UseBackColor = true;
+            this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.simpleButton1.Location = new System.Drawing.Point(321, 15);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(73, 25);
+            this.simpleButton1.Size = new System.Drawing.Size(63, 22);
             this.simpleButton1.TabIndex = 49;
-            this.simpleButton1.Text = "Ekle";
+            this.simpleButton1.Text = "&Ekle";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // labelControl16
             // 
-            this.labelControl16.Location = new System.Drawing.Point(235, 23);
+            this.labelControl16.Location = new System.Drawing.Point(43, 19);
             this.labelControl16.Name = "labelControl16";
             this.labelControl16.Size = new System.Drawing.Size(46, 13);
             this.labelControl16.TabIndex = 48;
@@ -590,20 +604,20 @@
             // 
             // BTNRuhsatSec
             // 
-            this.BTNRuhsatSec.Location = new System.Drawing.Point(287, 20);
+            this.BTNRuhsatSec.Location = new System.Drawing.Point(114, 15);
             this.BTNRuhsatSec.Name = "BTNRuhsatSec";
             this.BTNRuhsatSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(),
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", "Seç", null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTNRuhsatSec.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.buttonEdit2_Properties_ButtonClick);
-            this.BTNRuhsatSec.Size = new System.Drawing.Size(134, 22);
+            this.BTNRuhsatSec.Size = new System.Drawing.Size(187, 22);
             this.BTNRuhsatSec.TabIndex = 47;
             // 
             // XTPKasko
             // 
             this.XTPKasko.Controls.Add(this.panelControl7);
             this.XTPKasko.Name = "XTPKasko";
-            this.XTPKasko.Size = new System.Drawing.Size(774, 376);
+            this.XTPKasko.Size = new System.Drawing.Size(893, 687);
             this.XTPKasko.Text = "Kasko Bilgileri";
             // 
             // panelControl7
@@ -613,16 +627,16 @@
             this.panelControl7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl7.Location = new System.Drawing.Point(0, 0);
             this.panelControl7.Name = "panelControl7";
-            this.panelControl7.Size = new System.Drawing.Size(774, 376);
+            this.panelControl7.Size = new System.Drawing.Size(893, 687);
             this.panelControl7.TabIndex = 0;
             // 
             // panelControl9
             // 
             this.panelControl9.Controls.Add(this.GridKasko);
             this.panelControl9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl9.Location = new System.Drawing.Point(2, 135);
+            this.panelControl9.Location = new System.Drawing.Point(2, 117);
             this.panelControl9.Name = "panelControl9";
-            this.panelControl9.Size = new System.Drawing.Size(770, 239);
+            this.panelControl9.Size = new System.Drawing.Size(889, 568);
             this.panelControl9.TabIndex = 1;
             // 
             // GridKasko
@@ -631,7 +645,7 @@
             this.GridKasko.Location = new System.Drawing.Point(2, 2);
             this.GridKasko.MainView = this.tileView2;
             this.GridKasko.Name = "GridKasko";
-            this.GridKasko.Size = new System.Drawing.Size(766, 235);
+            this.GridKasko.Size = new System.Drawing.Size(885, 564);
             this.GridKasko.TabIndex = 2;
             this.GridKasko.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.tileView2});
@@ -640,6 +654,7 @@
             // 
             this.tileView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.tileViewColumn1});
+            this.tileView2.DetailHeight = 303;
             this.tileView2.GridControl = this.GridKasko;
             this.tileView2.Name = "tileView2";
             this.tileView2.OptionsTiles.ColumnCount = 4;
@@ -673,26 +688,29 @@
             this.panelControl8.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl8.Location = new System.Drawing.Point(2, 2);
             this.panelControl8.Name = "panelControl8";
-            this.panelControl8.Size = new System.Drawing.Size(770, 133);
+            this.panelControl8.Size = new System.Drawing.Size(889, 115);
             this.panelControl8.TabIndex = 0;
             // 
             // BTNKaskoKaydet
             // 
-            this.BTNKaskoKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTNKaskoKaydet.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
             this.BTNKaskoKaydet.Appearance.Options.UseBackColor = true;
             this.BTNKaskoKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTNKaskoKaydet.ImageOptions.Image")));
-            this.BTNKaskoKaydet.Location = new System.Drawing.Point(594, 23);
+            this.BTNKaskoKaydet.Location = new System.Drawing.Point(774, 33);
             this.BTNKaskoKaydet.Name = "BTNKaskoKaydet";
-            this.BTNKaskoKaydet.Size = new System.Drawing.Size(128, 59);
+            this.BTNKaskoKaydet.Size = new System.Drawing.Size(110, 51);
             this.BTNKaskoKaydet.TabIndex = 65;
             this.BTNKaskoKaydet.Text = "Kasko Kaydet";
             this.BTNKaskoKaydet.Click += new System.EventHandler(this.BTNKaskoKaydet_Click);
             // 
             // BTNKaskoEkle
             // 
-            this.BTNKaskoEkle.Location = new System.Drawing.Point(400, 100);
+            this.BTNKaskoEkle.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.BTNKaskoEkle.Appearance.Options.UseBackColor = true;
+            this.BTNKaskoEkle.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTNKaskoEkle.ImageOptions.Image")));
+            this.BTNKaskoEkle.Location = new System.Drawing.Point(569, 83);
             this.BTNKaskoEkle.Name = "BTNKaskoEkle";
-            this.BTNKaskoEkle.Size = new System.Drawing.Size(73, 25);
+            this.BTNKaskoEkle.Size = new System.Drawing.Size(63, 22);
             this.BTNKaskoEkle.TabIndex = 35;
             this.BTNKaskoEkle.Text = "Ekle";
             // 
@@ -700,7 +718,7 @@
             // 
             this.labelControl18.Appearance.ForeColor = System.Drawing.Color.Red;
             this.labelControl18.Appearance.Options.UseForeColor = true;
-            this.labelControl18.Location = new System.Drawing.Point(327, 5);
+            this.labelControl18.Location = new System.Drawing.Point(454, 3);
             this.labelControl18.Name = "labelControl18";
             this.labelControl18.Size = new System.Drawing.Size(33, 13);
             this.labelControl18.TabIndex = 18;
@@ -708,7 +726,7 @@
             // 
             // labelControl19
             // 
-            this.labelControl19.Location = new System.Drawing.Point(43, 30);
+            this.labelControl19.Location = new System.Drawing.Point(14, 26);
             this.labelControl19.Name = "labelControl19";
             this.labelControl19.Size = new System.Drawing.Size(63, 13);
             this.labelControl19.TabIndex = 19;
@@ -716,7 +734,7 @@
             // 
             // labelControl20
             // 
-            this.labelControl20.Location = new System.Drawing.Point(208, 106);
+            this.labelControl20.Location = new System.Drawing.Point(290, 88);
             this.labelControl20.Name = "labelControl20";
             this.labelControl20.Size = new System.Drawing.Size(46, 13);
             this.labelControl20.TabIndex = 31;
@@ -724,7 +742,7 @@
             // 
             // TBKasPoliceNo
             // 
-            this.TBKasPoliceNo.Location = new System.Drawing.Point(52, 62);
+            this.TBKasPoliceNo.Location = new System.Drawing.Point(23, 53);
             this.TBKasPoliceNo.Name = "TBKasPoliceNo";
             this.TBKasPoliceNo.Size = new System.Drawing.Size(54, 13);
             this.TBKasPoliceNo.TabIndex = 20;
@@ -733,32 +751,32 @@
             // DTPKasPolBitTar
             // 
             this.DTPKasPolBitTar.EditValue = null;
-            this.DTPKasPolBitTar.Location = new System.Drawing.Point(421, 62);
+            this.DTPKasPolBitTar.Location = new System.Drawing.Point(507, 50);
             this.DTPKasPolBitTar.Name = "DTPKasPolBitTar";
             this.DTPKasPolBitTar.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.DTPKasPolBitTar.Size = new System.Drawing.Size(134, 20);
+            this.DTPKasPolBitTar.Size = new System.Drawing.Size(201, 20);
             this.DTPKasPolBitTar.TabIndex = 24;
             // 
             // buttonEdit3
             // 
-            this.buttonEdit3.Location = new System.Drawing.Point(260, 103);
+            this.buttonEdit3.Location = new System.Drawing.Point(355, 85);
             this.buttonEdit3.Name = "buttonEdit3";
             this.buttonEdit3.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.buttonEdit3.Size = new System.Drawing.Size(134, 20);
+            this.buttonEdit3.Size = new System.Drawing.Size(201, 20);
             this.buttonEdit3.TabIndex = 30;
             // 
             // TBKasAcenteAdi
             // 
-            this.TBKasAcenteAdi.Location = new System.Drawing.Point(112, 26);
+            this.TBKasAcenteAdi.Location = new System.Drawing.Point(94, 23);
             this.TBKasAcenteAdi.Name = "TBKasAcenteAdi";
-            this.TBKasAcenteAdi.Size = new System.Drawing.Size(134, 20);
+            this.TBKasAcenteAdi.Size = new System.Drawing.Size(201, 20);
             this.TBKasAcenteAdi.TabIndex = 25;
             // 
             // labelControl22
             // 
-            this.labelControl22.Location = new System.Drawing.Point(297, 30);
+            this.labelControl22.Location = new System.Drawing.Point(369, 26);
             this.labelControl22.Name = "labelControl22";
             this.labelControl22.Size = new System.Drawing.Size(118, 13);
             this.labelControl22.TabIndex = 21;
@@ -767,16 +785,16 @@
             // DTPKasPolBasTar
             // 
             this.DTPKasPolBasTar.EditValue = null;
-            this.DTPKasPolBasTar.Location = new System.Drawing.Point(421, 23);
+            this.DTPKasPolBasTar.Location = new System.Drawing.Point(507, 23);
             this.DTPKasPolBasTar.Name = "DTPKasPolBasTar";
             this.DTPKasPolBasTar.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.DTPKasPolBasTar.Size = new System.Drawing.Size(134, 20);
+            this.DTPKasPolBasTar.Size = new System.Drawing.Size(201, 20);
             this.DTPKasPolBasTar.TabIndex = 23;
             // 
             // labelControl23
             // 
-            this.labelControl23.Location = new System.Drawing.Point(327, 65);
+            this.labelControl23.Location = new System.Drawing.Point(399, 53);
             this.labelControl23.Name = "labelControl23";
             this.labelControl23.Size = new System.Drawing.Size(88, 13);
             this.labelControl23.TabIndex = 22;
@@ -784,9 +802,9 @@
             // 
             // textEdit6
             // 
-            this.textEdit6.Location = new System.Drawing.Point(112, 58);
+            this.textEdit6.Location = new System.Drawing.Point(94, 49);
             this.textEdit6.Name = "textEdit6";
-            this.textEdit6.Size = new System.Drawing.Size(134, 20);
+            this.textEdit6.Size = new System.Drawing.Size(201, 20);
             this.textEdit6.TabIndex = 26;
             // 
             // XTPMuayene
@@ -794,16 +812,16 @@
             this.XTPMuayene.Controls.Add(this.panelControl11);
             this.XTPMuayene.Controls.Add(this.panelControl10);
             this.XTPMuayene.Name = "XTPMuayene";
-            this.XTPMuayene.Size = new System.Drawing.Size(774, 376);
+            this.XTPMuayene.Size = new System.Drawing.Size(893, 687);
             this.XTPMuayene.Text = "Muayene Bilgileri";
             // 
             // panelControl11
             // 
             this.panelControl11.Controls.Add(this.GridMuayene);
             this.panelControl11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl11.Location = new System.Drawing.Point(0, 98);
+            this.panelControl11.Location = new System.Drawing.Point(0, 85);
             this.panelControl11.Name = "panelControl11";
-            this.panelControl11.Size = new System.Drawing.Size(774, 278);
+            this.panelControl11.Size = new System.Drawing.Size(893, 602);
             this.panelControl11.TabIndex = 9;
             // 
             // GridMuayene
@@ -812,13 +830,14 @@
             this.GridMuayene.Location = new System.Drawing.Point(2, 2);
             this.GridMuayene.MainView = this.gridView2;
             this.GridMuayene.Name = "GridMuayene";
-            this.GridMuayene.Size = new System.Drawing.Size(770, 274);
+            this.GridMuayene.Size = new System.Drawing.Size(889, 598);
             this.GridMuayene.TabIndex = 0;
             this.GridMuayene.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
             // 
             // gridView2
             // 
+            this.gridView2.DetailHeight = 303;
             this.gridView2.GridControl = this.GridMuayene;
             this.gridView2.Name = "gridView2";
             // 
@@ -836,23 +855,23 @@
             this.panelControl10.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl10.Location = new System.Drawing.Point(0, 0);
             this.panelControl10.Name = "panelControl10";
-            this.panelControl10.Size = new System.Drawing.Size(774, 98);
+            this.panelControl10.Size = new System.Drawing.Size(893, 85);
             this.panelControl10.TabIndex = 8;
             // 
             // BTNMuayeneKaydet
             // 
-            this.BTNMuayeneKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTNMuayeneKaydet.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
             this.BTNMuayeneKaydet.Appearance.Options.UseBackColor = true;
             this.BTNMuayeneKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTNMuayeneKaydet.ImageOptions.Image")));
-            this.BTNMuayeneKaydet.Location = new System.Drawing.Point(620, 22);
+            this.BTNMuayeneKaydet.Location = new System.Drawing.Point(756, 16);
             this.BTNMuayeneKaydet.Name = "BTNMuayeneKaydet";
-            this.BTNMuayeneKaydet.Size = new System.Drawing.Size(128, 59);
+            this.BTNMuayeneKaydet.Size = new System.Drawing.Size(130, 51);
             this.BTNMuayeneKaydet.TabIndex = 64;
             this.BTNMuayeneKaydet.Text = "Muayene Kaydet";
             // 
             // labelControl13
             // 
-            this.labelControl13.Location = new System.Drawing.Point(15, 28);
+            this.labelControl13.Location = new System.Drawing.Point(18, 24);
             this.labelControl13.Name = "labelControl13";
             this.labelControl13.Size = new System.Drawing.Size(100, 13);
             this.labelControl13.TabIndex = 2;
@@ -861,18 +880,18 @@
             // dateEdit8
             // 
             this.dateEdit8.EditValue = null;
-            this.dateEdit8.Location = new System.Drawing.Point(455, 55);
+            this.dateEdit8.Location = new System.Drawing.Point(510, 47);
             this.dateEdit8.Name = "dateEdit8";
             this.dateEdit8.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateEdit8.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit8.Size = new System.Drawing.Size(134, 20);
+            this.dateEdit8.Size = new System.Drawing.Size(201, 20);
             this.dateEdit8.TabIndex = 7;
             // 
             // labelControl6
             // 
-            this.labelControl6.Location = new System.Drawing.Point(337, 28);
+            this.labelControl6.Location = new System.Drawing.Point(375, 24);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(115, 13);
             this.labelControl6.TabIndex = 0;
@@ -881,18 +900,18 @@
             // dateEdit7
             // 
             this.dateEdit7.EditValue = null;
-            this.dateEdit7.Location = new System.Drawing.Point(455, 25);
+            this.dateEdit7.Location = new System.Drawing.Point(510, 21);
             this.dateEdit7.Name = "dateEdit7";
             this.dateEdit7.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateEdit7.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit7.Size = new System.Drawing.Size(134, 20);
+            this.dateEdit7.Size = new System.Drawing.Size(201, 20);
             this.dateEdit7.TabIndex = 6;
             // 
             // labelControl7
             // 
-            this.labelControl7.Location = new System.Drawing.Point(344, 62);
+            this.labelControl7.Location = new System.Drawing.Point(381, 54);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(108, 13);
             this.labelControl7.TabIndex = 1;
@@ -901,18 +920,18 @@
             // dateEdit4
             // 
             this.dateEdit4.EditValue = null;
-            this.dateEdit4.Location = new System.Drawing.Point(136, 59);
+            this.dateEdit4.Location = new System.Drawing.Point(141, 51);
             this.dateEdit4.Name = "dateEdit4";
             this.dateEdit4.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateEdit4.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit4.Size = new System.Drawing.Size(134, 20);
+            this.dateEdit4.Size = new System.Drawing.Size(201, 20);
             this.dateEdit4.TabIndex = 5;
             // 
             // labelControl14
             // 
-            this.labelControl14.Location = new System.Drawing.Point(15, 62);
+            this.labelControl14.Location = new System.Drawing.Point(18, 54);
             this.labelControl14.Name = "labelControl14";
             this.labelControl14.Size = new System.Drawing.Size(97, 13);
             this.labelControl14.TabIndex = 3;
@@ -921,19 +940,19 @@
             // dateEdit3
             // 
             this.dateEdit3.EditValue = null;
-            this.dateEdit3.Location = new System.Drawing.Point(136, 25);
+            this.dateEdit3.Location = new System.Drawing.Point(141, 22);
             this.dateEdit3.Name = "dateEdit3";
             this.dateEdit3.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateEdit3.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit3.Size = new System.Drawing.Size(134, 20);
+            this.dateEdit3.Size = new System.Drawing.Size(201, 20);
             this.dateEdit3.TabIndex = 4;
             // 
             // XTPBelgeler
             // 
             this.XTPBelgeler.Name = "XTPBelgeler";
-            this.XTPBelgeler.Size = new System.Drawing.Size(774, 376);
+            this.XTPBelgeler.Size = new System.Drawing.Size(893, 687);
             this.XTPBelgeler.Text = "Diğer Belgeler";
             // 
             // panelControl3
@@ -963,26 +982,36 @@
             this.panelControl3.Controls.Add(this.PBAracResim);
             this.panelControl3.Controls.Add(this.LBPlaka);
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl3.Location = new System.Drawing.Point(264, 2);
+            this.panelControl3.Location = new System.Drawing.Point(227, 2);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(780, 205);
+            this.panelControl3.Size = new System.Drawing.Size(899, 178);
             this.panelControl3.TabIndex = 1;
+            // 
+            // CBModel
+            // 
+            this.CBModel.Location = new System.Drawing.Point(295, 108);
+            this.CBModel.Name = "CBModel";
+            this.CBModel.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CBModel.Properties.NullText = "";
+            this.CBModel.Size = new System.Drawing.Size(201, 20);
+            this.CBModel.TabIndex = 76;
             // 
             // BTNAracFoto
             // 
             this.BTNAracFoto.EditValue = "Fotoğrafı Değistir";
-            this.BTNAracFoto.Location = new System.Drawing.Point(26, 178);
+            this.BTNAracFoto.Location = new System.Drawing.Point(31, 141);
             this.BTNAracFoto.Name = "BTNAracFoto";
             this.BTNAracFoto.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(),
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "Resmi Kaydet", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", "Resmi Kaydet", null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTNAracFoto.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTNAracFoto_Properties_ButtonClick);
-            this.BTNAracFoto.Size = new System.Drawing.Size(159, 20);
+            this.BTNAracFoto.Size = new System.Drawing.Size(136, 20);
             this.BTNAracFoto.TabIndex = 75;
             // 
             // labelControl29
             // 
-            this.labelControl29.Location = new System.Drawing.Point(495, 68);
+            this.labelControl29.Location = new System.Drawing.Point(557, 56);
             this.labelControl29.Name = "labelControl29";
             this.labelControl29.Size = new System.Drawing.Size(6, 13);
             this.labelControl29.TabIndex = 74;
@@ -990,7 +1019,7 @@
             // 
             // labelControl28
             // 
-            this.labelControl28.Location = new System.Drawing.Point(505, 32);
+            this.labelControl28.Location = new System.Drawing.Point(566, 25);
             this.labelControl28.Name = "labelControl28";
             this.labelControl28.Size = new System.Drawing.Size(6, 13);
             this.labelControl28.TabIndex = 73;
@@ -998,7 +1027,7 @@
             // 
             // labelControl27
             // 
-            this.labelControl27.Location = new System.Drawing.Point(208, 164);
+            this.labelControl27.Location = new System.Drawing.Point(205, 141);
             this.labelControl27.Name = "labelControl27";
             this.labelControl27.Size = new System.Drawing.Size(6, 13);
             this.labelControl27.TabIndex = 72;
@@ -1006,7 +1035,7 @@
             // 
             // labelControl26
             // 
-            this.labelControl26.Location = new System.Drawing.Point(231, 127);
+            this.labelControl26.Location = new System.Drawing.Point(230, 114);
             this.labelControl26.Name = "labelControl26";
             this.labelControl26.Size = new System.Drawing.Size(6, 13);
             this.labelControl26.TabIndex = 71;
@@ -1014,7 +1043,7 @@
             // 
             // labelControl25
             // 
-            this.labelControl25.Location = new System.Drawing.Point(230, 93);
+            this.labelControl25.Location = new System.Drawing.Point(228, 84);
             this.labelControl25.Name = "labelControl25";
             this.labelControl25.Size = new System.Drawing.Size(6, 13);
             this.labelControl25.TabIndex = 70;
@@ -1022,7 +1051,7 @@
             // 
             // labelControl24
             // 
-            this.labelControl24.Location = new System.Drawing.Point(250, 59);
+            this.labelControl24.Location = new System.Drawing.Point(245, 54);
             this.labelControl24.Name = "labelControl24";
             this.labelControl24.Size = new System.Drawing.Size(6, 13);
             this.labelControl24.TabIndex = 69;
@@ -1030,7 +1059,7 @@
             // 
             // labelControl17
             // 
-            this.labelControl17.Location = new System.Drawing.Point(236, 26);
+            this.labelControl17.Location = new System.Drawing.Point(231, 26);
             this.labelControl17.Name = "labelControl17";
             this.labelControl17.Size = new System.Drawing.Size(6, 13);
             this.labelControl17.TabIndex = 68;
@@ -1038,30 +1067,30 @@
             // 
             // BTNAracKaydet
             // 
-            this.BTNAracKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTNAracKaydet.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
             this.BTNAracKaydet.Appearance.Options.UseBackColor = true;
             this.BTNAracKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTNAracKaydet.ImageOptions.Image")));
-            this.BTNAracKaydet.Location = new System.Drawing.Point(576, 123);
+            this.BTNAracKaydet.Location = new System.Drawing.Point(794, 126);
             this.BTNAracKaydet.Name = "BTNAracKaydet";
-            this.BTNAracKaydet.Size = new System.Drawing.Size(128, 59);
+            this.BTNAracKaydet.Size = new System.Drawing.Size(95, 40);
             this.BTNAracKaydet.TabIndex = 67;
-            this.BTNAracKaydet.Text = "Kaydet";
+            this.BTNAracKaydet.Text = "&Kaydet";
             this.BTNAracKaydet.Click += new System.EventHandler(this.BTNAracKaydet_Click);
             // 
             // CBMarka
             // 
-            this.CBMarka.Location = new System.Drawing.Point(291, 91);
+            this.CBMarka.Location = new System.Drawing.Point(295, 79);
             this.CBMarka.Name = "CBMarka";
             this.CBMarka.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.CBMarka.Properties.NullText = "";
-            this.CBMarka.Size = new System.Drawing.Size(135, 20);
+            this.CBMarka.Size = new System.Drawing.Size(201, 20);
             this.CBMarka.TabIndex = 22;
             this.CBMarka.EditValueChanged += new System.EventHandler(this.CBMarka_EditValueChanged);
             // 
             // CBTip
             // 
-            this.CBTip.Location = new System.Drawing.Point(291, 56);
+            this.CBTip.Location = new System.Drawing.Point(295, 49);
             this.CBTip.Name = "CBTip";
             this.CBTip.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -1074,30 +1103,30 @@
             "DORSE",
             "TRAKTÖR",
             "SERVİS"});
-            this.CBTip.Size = new System.Drawing.Size(135, 20);
+            this.CBTip.Size = new System.Drawing.Size(201, 20);
             this.CBTip.TabIndex = 21;
             // 
             // CBSofor2
             // 
-            this.CBSofor2.Location = new System.Drawing.Point(565, 66);
+            this.CBSofor2.Location = new System.Drawing.Point(626, 54);
             this.CBSofor2.Name = "CBSofor2";
             this.CBSofor2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.CBSofor2.Size = new System.Drawing.Size(139, 20);
+            this.CBSofor2.Size = new System.Drawing.Size(164, 20);
             this.CBSofor2.TabIndex = 20;
             // 
             // CBSofor1
             // 
-            this.CBSofor1.Location = new System.Drawing.Point(565, 30);
+            this.CBSofor1.Location = new System.Drawing.Point(626, 23);
             this.CBSofor1.Name = "CBSofor1";
             this.CBSofor1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.CBSofor1.Size = new System.Drawing.Size(139, 20);
+            this.CBSofor1.Size = new System.Drawing.Size(164, 20);
             this.CBSofor1.TabIndex = 19;
             // 
             // CBYakitTuru
             // 
-            this.CBYakitTuru.Location = new System.Drawing.Point(291, 162);
+            this.CBYakitTuru.Location = new System.Drawing.Point(295, 136);
             this.CBYakitTuru.Name = "CBYakitTuru";
             this.CBYakitTuru.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -1106,19 +1135,19 @@
             "DİZEL",
             "HİBRİT",
             "ELEKTİRİK"});
-            this.CBYakitTuru.Size = new System.Drawing.Size(135, 20);
+            this.CBYakitTuru.Size = new System.Drawing.Size(201, 20);
             this.CBYakitTuru.TabIndex = 16;
             // 
             // TBPlaka
             // 
-            this.TBPlaka.Location = new System.Drawing.Point(291, 24);
+            this.TBPlaka.Location = new System.Drawing.Point(295, 21);
             this.TBPlaka.Name = "TBPlaka";
-            this.TBPlaka.Size = new System.Drawing.Size(134, 20);
+            this.TBPlaka.Size = new System.Drawing.Size(201, 20);
             this.TBPlaka.TabIndex = 11;
             // 
             // labelControl9
             // 
-            this.labelControl9.Location = new System.Drawing.Point(514, 33);
+            this.labelControl9.Location = new System.Drawing.Point(574, 26);
             this.labelControl9.Name = "labelControl9";
             this.labelControl9.Size = new System.Drawing.Size(35, 13);
             this.labelControl9.TabIndex = 10;
@@ -1126,7 +1155,7 @@
             // 
             // labelControl5
             // 
-            this.labelControl5.Location = new System.Drawing.Point(505, 69);
+            this.labelControl5.Location = new System.Drawing.Point(566, 57);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(44, 13);
             this.labelControl5.TabIndex = 6;
@@ -1134,7 +1163,7 @@
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(215, 165);
+            this.labelControl4.Location = new System.Drawing.Point(214, 139);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(59, 13);
             this.labelControl4.TabIndex = 5;
@@ -1142,7 +1171,7 @@
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(240, 129);
+            this.labelControl3.Location = new System.Drawing.Point(239, 113);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(34, 13);
             this.labelControl3.TabIndex = 4;
@@ -1150,7 +1179,7 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(239, 94);
+            this.labelControl2.Location = new System.Drawing.Point(238, 82);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(35, 13);
             this.labelControl2.TabIndex = 3;
@@ -1158,7 +1187,7 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(258, 59);
+            this.labelControl1.Location = new System.Drawing.Point(254, 52);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(16, 13);
             this.labelControl1.TabIndex = 2;
@@ -1166,15 +1195,15 @@
             // 
             // PBAracResim
             // 
-            this.PBAracResim.Location = new System.Drawing.Point(26, 26);
+            this.PBAracResim.Location = new System.Drawing.Point(39, 10);
             this.PBAracResim.Name = "PBAracResim";
             this.PBAracResim.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.PBAracResim.Size = new System.Drawing.Size(159, 146);
+            this.PBAracResim.Size = new System.Drawing.Size(120, 125);
             this.PBAracResim.TabIndex = 1;
             // 
             // LBPlaka
             // 
-            this.LBPlaka.Location = new System.Drawing.Point(243, 26);
+            this.LBPlaka.Location = new System.Drawing.Point(241, 24);
             this.LBPlaka.Name = "LBPlaka";
             this.LBPlaka.Size = new System.Drawing.Size(31, 13);
             this.LBPlaka.TabIndex = 0;
@@ -1186,7 +1215,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelControl2.Location = new System.Drawing.Point(2, 2);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(262, 610);
+            this.panelControl2.Size = new System.Drawing.Size(225, 894);
             this.panelControl2.TabIndex = 0;
             // 
             // gridControl1
@@ -1195,7 +1224,7 @@
             this.gridControl1.Location = new System.Drawing.Point(2, 2);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(258, 606);
+            this.gridControl1.Size = new System.Drawing.Size(221, 890);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -1203,26 +1232,18 @@
             // 
             // gridView1
             // 
+            this.gridView1.DetailHeight = 303;
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
             // 
-            // CBModel
-            // 
-            this.CBModel.Location = new System.Drawing.Point(291, 126);
-            this.CBModel.Name = "CBModel";
-            this.CBModel.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.CBModel.Properties.NullText = "";
-            this.CBModel.Size = new System.Drawing.Size(135, 20);
-            this.CBModel.TabIndex = 76;
-            // 
             // FAracTanim
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1046, 614);
+            this.ClientSize = new System.Drawing.Size(1128, 898);
             this.Controls.Add(this.panelControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FAracTanim";
             this.Text = "FAracTanim";
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
@@ -1293,6 +1314,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
             this.panelControl3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CBModel.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTNAracFoto.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBMarka.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBTip.Properties)).EndInit();
@@ -1305,7 +1327,6 @@
             this.panelControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CBModel.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

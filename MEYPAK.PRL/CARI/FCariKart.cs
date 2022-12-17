@@ -96,19 +96,37 @@ namespace MEYPAK.PRL.CARI
                 if (editor != null)
                     editor.EditValue = null;
             }
-            foreach (var ctrl in groupBox1.Controls)
+            foreach (var ctrl in groupControl7.Controls)
             {
                 BaseEdit editor = ctrl as BaseEdit;
                 if (editor != null)
                     editor.EditValue = null;
             }
-            foreach (var ctrl in groupBox2.Controls)
+            foreach (var ctrl in groupControl3.Controls)
             {
                 BaseEdit editor = ctrl as BaseEdit;
                 if (editor != null)
                     editor.EditValue = null;
             }
-            foreach (var ctrl in groupBox4.Controls)
+            foreach (var ctrl in groupControl10.Controls)
+            {
+                BaseEdit editor = ctrl as BaseEdit;
+                if (editor != null)
+                    editor.EditValue = null;
+            }
+            foreach (var ctrl in groupControl4.Controls)
+            {
+                BaseEdit editor = ctrl as BaseEdit;
+                if (editor != null)
+                    editor.EditValue = null;
+            }
+            foreach (var ctrl in groupControl9.Controls)
+            {
+                BaseEdit editor = ctrl as BaseEdit;
+                if (editor != null)
+                    editor.EditValue = null;
+            }
+            foreach (var ctrl in groupControl8.Controls)
             {
                 BaseEdit editor = ctrl as BaseEdit;
                 if (editor != null)
@@ -400,7 +418,8 @@ namespace MEYPAK.PRL.CARI
         string base64 = "";
         private void BTResimSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            if (e.Button.Caption == "SEÇ")
+            if (e.Button.Caption == "Seç")
+
             {
                 OpenFileDialog ofd = new OpenFileDialog();
                 ofd.Filter = "Resim Dosyaları|*.jpg;*.jpeg;*.png;*.gif;";
@@ -622,8 +641,8 @@ namespace MEYPAK.PRL.CARI
                 FormuTemizle();
                 _tempCariKart = _cariServis.obje2;
                 foreach (var item in resimList)
-                {
-                    item.CARIID = _cariServis.obje.Where(x => x.kod == BTCariSec.Text).FirstOrDefault().id;
+                { 
+                    item.CARIID = _tempCariKart.id;  // _cariServis.obje.Where(x => x.kod == BTCariSec.Text).FirstOrDefault().id;
                     _cariResimServis.Data(ServisList.CariResimEkleServis, item);
                 }
 

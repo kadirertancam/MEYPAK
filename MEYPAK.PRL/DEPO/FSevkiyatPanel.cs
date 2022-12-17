@@ -133,14 +133,35 @@ namespace MEYPAK.PRL.DEPO
             //Bitmap bt = new Bitmap("C:\\Users\\User\\Desktop\\İCON\\Logolar\\pngwing.com-2.png");
             
 
-            gridControl1.DataSource = _siparisServis.obje.Where(x => x.tip == 0).Select(x => new { CSevkiyatTarihi = x.sevkiyattarihi, CBelgeNo = x.belgeno, CariAdi = x.cariadi, CResim = _cariResimServis.obje.Where(c=> c.CARIID==x.cariid).Count()>0? new Bitmap( _cariResimServis.obje.Where(c => c.CARIID == x.cariid).FirstOrDefault().IMG) : Properties.Resources.CariNullResim }).ToList();
+            gridControl1.DataSource = _siparisServis.obje.Where(x => x.tip == 0).Select(x => new { CSevkiyatTarihi = x.sevkiyattarihi, CBelgeNo = x.belgeno, CariAdi = x.cariadi, CResim = _cariResimServis.obje.Where(c=> c.CARIID==x.cariid).Count()>0? Base64StringToBitmap(_cariResimServis.obje.Where(c => c.CARIID == x.cariid).FirstOrDefault().IMG) : Properties.Resources.CariNullResim }).ToList();
             tileView1.ItemCustomize += TileView1_ItemCustomize;
             tileView1.AddNewRow();
             tileView1.UpdateCurrentRow();
             tileView1.ShowEditForm();
 
         }
+        public  Bitmap Base64StringToBitmap(string base64String)
+        {
+            Bitmap bmpReturn = null;
 
+
+            byte[] byteBuffer = Convert.FromBase64String(base64String);
+            MemoryStream memoryStream = new MemoryStream(byteBuffer);
+
+
+            memoryStream.Position = 0;
+
+
+            bmpReturn = (Bitmap)Bitmap.FromStream(memoryStream);
+
+
+            memoryStream.Close();
+            memoryStream = null;
+            byteBuffer = null;
+
+
+            return bmpReturn;
+        }
         private void TileView1_CustomItemTemplate(object sender, TileViewCustomItemTemplateEventArgs e)
         {
 

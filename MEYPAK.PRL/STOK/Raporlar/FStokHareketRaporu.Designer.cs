@@ -55,8 +55,6 @@
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.CBHareketTuru = new DevExpress.XtraEditors.LookUpEdit();
-            this.LBHareketTuru = new DevExpress.XtraEditors.LabelControl();
             this.BTSayimSec = new DevExpress.XtraEditors.ButtonEdit();
             this.LBStokSayim = new DevExpress.XtraEditors.LabelControl();
             this.BTFaturaSec = new DevExpress.XtraEditors.ButtonEdit();
@@ -77,7 +75,6 @@
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CBHareketTuru.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTSayimSec.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTFaturaSec.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTDepoSec.Properties)).BeginInit();
@@ -100,9 +97,9 @@
             // 
             this.panelControl3.Controls.Add(this.DGStokHareketRpr);
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl3.Location = new System.Drawing.Point(2, 193);
+            this.panelControl3.Location = new System.Drawing.Point(2, 169);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(1304, 576);
+            this.panelControl3.Size = new System.Drawing.Size(1304, 600);
             this.panelControl3.TabIndex = 1;
             // 
             // DGStokHareketRpr
@@ -111,7 +108,7 @@
             this.DGStokHareketRpr.Location = new System.Drawing.Point(2, 2);
             this.DGStokHareketRpr.MainView = this.gridView1;
             this.DGStokHareketRpr.Name = "DGStokHareketRpr";
-            this.DGStokHareketRpr.Size = new System.Drawing.Size(1300, 572);
+            this.DGStokHareketRpr.Size = new System.Drawing.Size(1300, 596);
             this.DGStokHareketRpr.TabIndex = 0;
             this.DGStokHareketRpr.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -127,14 +124,12 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl2.Location = new System.Drawing.Point(2, 2);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(1304, 191);
+            this.panelControl2.Size = new System.Drawing.Size(1304, 167);
             this.panelControl2.TabIndex = 0;
             // 
             // groupControl1
             // 
             this.groupControl1.CaptionImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("groupControl1.CaptionImageOptions.Image")));
-            this.groupControl1.Controls.Add(this.CBHareketTuru);
-            this.groupControl1.Controls.Add(this.LBHareketTuru);
             this.groupControl1.Controls.Add(this.BTSayimSec);
             this.groupControl1.Controls.Add(this.LBStokSayim);
             this.groupControl1.Controls.Add(this.BTFaturaSec);
@@ -145,44 +140,25 @@
             this.groupControl1.Controls.Add(this.BTStokSec);
             this.groupControl1.Controls.Add(this.LBStokSec);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupControl1.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             this.groupControl1.Location = new System.Drawing.Point(2, 2);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(1300, 184);
+            this.groupControl1.Size = new System.Drawing.Size(1300, 160);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Filtrele";
             // 
-            // CBHareketTuru
-            // 
-            this.CBHareketTuru.Location = new System.Drawing.Point(168, 138);
-            this.CBHareketTuru.Name = "CBHareketTuru";
-            this.CBHareketTuru.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.CBHareketTuru.Properties.NullText = "Hareket Türü Seçiniz..";
-            this.CBHareketTuru.Size = new System.Drawing.Size(180, 20);
-            this.CBHareketTuru.TabIndex = 11;
-            // 
-            // LBHareketTuru
-            // 
-            this.LBHareketTuru.Location = new System.Drawing.Point(86, 141);
-            this.LBHareketTuru.Name = "LBHareketTuru";
-            this.LBHareketTuru.Size = new System.Drawing.Size(63, 13);
-            this.LBHareketTuru.TabIndex = 10;
-            this.LBHareketTuru.Text = "Hareket Türü";
-            // 
             // BTSayimSec
             // 
-            this.BTSayimSec.Location = new System.Drawing.Point(168, 111);
+            this.BTSayimSec.Location = new System.Drawing.Point(169, 115);
             this.BTSayimSec.Name = "BTSayimSec";
             this.BTSayimSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTSayimSec.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTSayimSec_Properties_ButtonClick);
-            this.BTSayimSec.Size = new System.Drawing.Size(180, 22);
+            this.BTSayimSec.Size = new System.Drawing.Size(297, 22);
             this.BTSayimSec.TabIndex = 9;
             // 
             // LBStokSayim
             // 
-            this.LBStokSayim.Location = new System.Drawing.Point(97, 117);
+            this.LBStokSayim.Location = new System.Drawing.Point(98, 121);
             this.LBStokSayim.Name = "LBStokSayim";
             this.LBStokSayim.Size = new System.Drawing.Size(52, 13);
             this.LBStokSayim.TabIndex = 8;
@@ -190,17 +166,17 @@
             // 
             // BTFaturaSec
             // 
-            this.BTFaturaSec.Location = new System.Drawing.Point(168, 85);
+            this.BTFaturaSec.Location = new System.Drawing.Point(169, 89);
             this.BTFaturaSec.Name = "BTFaturaSec";
             this.BTFaturaSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTFaturaSec.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTFaturaSec_Properties_ButtonClick);
-            this.BTFaturaSec.Size = new System.Drawing.Size(180, 22);
+            this.BTFaturaSec.Size = new System.Drawing.Size(297, 22);
             this.BTFaturaSec.TabIndex = 7;
             // 
             // LBFaturaKodu
             // 
-            this.LBFaturaKodu.Location = new System.Drawing.Point(90, 90);
+            this.LBFaturaKodu.Location = new System.Drawing.Point(91, 94);
             this.LBFaturaKodu.Name = "LBFaturaKodu";
             this.LBFaturaKodu.Size = new System.Drawing.Size(59, 13);
             this.LBFaturaKodu.TabIndex = 6;
@@ -208,17 +184,17 @@
             // 
             // BTDepoSec
             // 
-            this.BTDepoSec.Location = new System.Drawing.Point(168, 59);
+            this.BTDepoSec.Location = new System.Drawing.Point(169, 63);
             this.BTDepoSec.Name = "BTDepoSec";
             this.BTDepoSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTDepoSec.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTDepoSec_Properties_ButtonClick);
-            this.BTDepoSec.Size = new System.Drawing.Size(180, 22);
+            this.BTDepoSec.Size = new System.Drawing.Size(297, 22);
             this.BTDepoSec.TabIndex = 5;
             // 
             // LBDepoKodu
             // 
-            this.LBDepoKodu.Location = new System.Drawing.Point(97, 64);
+            this.LBDepoKodu.Location = new System.Drawing.Point(98, 68);
             this.LBDepoKodu.Name = "LBDepoKodu";
             this.LBDepoKodu.Size = new System.Drawing.Size(52, 13);
             this.LBDepoKodu.TabIndex = 4;
@@ -231,7 +207,7 @@
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Right;
             this.panelControl4.Location = new System.Drawing.Point(1183, 23);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(115, 159);
+            this.panelControl4.Size = new System.Drawing.Size(115, 135);
             this.panelControl4.TabIndex = 3;
             // 
             // BTRaporla
@@ -247,17 +223,17 @@
             // 
             // BTStokSec
             // 
-            this.BTStokSec.Location = new System.Drawing.Point(168, 33);
+            this.BTStokSec.Location = new System.Drawing.Point(169, 37);
             this.BTStokSec.Name = "BTStokSec";
             this.BTStokSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTStokSec.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTStokSec_Properties_ButtonClick);
-            this.BTStokSec.Size = new System.Drawing.Size(180, 22);
+            this.BTStokSec.Size = new System.Drawing.Size(297, 22);
             this.BTStokSec.TabIndex = 1;
             // 
             // LBStokSec
             // 
-            this.LBStokSec.Location = new System.Drawing.Point(101, 37);
+            this.LBStokSec.Location = new System.Drawing.Point(102, 41);
             this.LBStokSec.Name = "LBStokSec";
             this.LBStokSec.Size = new System.Drawing.Size(48, 13);
             this.LBStokSec.TabIndex = 0;
@@ -284,7 +260,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CBHareketTuru.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTSayimSec.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTFaturaSec.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTDepoSec.Properties)).EndInit();
@@ -313,8 +288,6 @@
         private DevExpress.XtraEditors.ButtonEdit BTFaturaSec;
         private DevExpress.XtraEditors.LabelControl LBStokSayim;
         private DevExpress.XtraEditors.ButtonEdit BTSayimSec;
-        private DevExpress.XtraEditors.LabelControl LBHareketTuru;
         private DevExpress.XtraEditors.GridLookUpEdit gridLookUpEdit2;
-        private DevExpress.XtraEditors.LookUpEdit CBHareketTuru;
     }
 }

@@ -43,7 +43,7 @@ namespace MEYPAK.PRL.SIPARIS
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            ırsaliyeSettingsPanel = new FIrsaliyeSettingsPanel();
+            ırsaliyeSettingsPanel = new FIrsaliyeSettingsPanel(this.Tag.ToString(), "FMusteriSiparisIrsaliyelestir");
             ırsaliyeSettingsPanel.ShowDialog();
         }
  

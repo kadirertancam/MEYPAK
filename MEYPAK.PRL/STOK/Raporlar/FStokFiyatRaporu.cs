@@ -51,22 +51,9 @@ namespace MEYPAK.PRL.STOK.Raporlar
         {
             _stokFiyatServis.Data(ServisList.StokFiyatListeServis);
             _cariServis.Data(ServisList.CariListeServis);
-            DGStokFiyatRpr.DataSource = _stokFiyatServis.obje.Where(x => x.kayittipi == 0 ).Select(x => new
-            {
-                ID = x.id,
-                KAYITTARİHİ =x.olusturmatarihi,
-                FİYATLİSTESİADI = x.adi,
-                AÇIKLAMA = x.aciklama,
-                CARİADI = _cariServis.obje.Where(X=>x.kayittipi == 0).Select(x=> x.kod).FirstOrDefault(),
-                BASLANGIÇTARİHİ = x.baslangictarihi,
-                BİTİŞTARİHİ = x.bitistarihi,
-                FİRMAID =x.firmaid,
-                ŞUBEID = x.subeid,
-                GÜNCELLEMETARİHİ =x.guncellemetarihi
-
-            });
-            DGStokFiyatRpr.Refresh();
+            GridiDoldur(_stokFiyatServis.obje);
             DGStokFiyatRpr.RefreshDataSource();
+
         }
        
         private void FStokFiyatRaporu_Load(object sender, EventArgs e)
@@ -79,34 +66,47 @@ namespace MEYPAK.PRL.STOK.Raporlar
         {
             FCariList fCariList = new FCariList(this.Tag.ToString(), "FStokFiyatRaporu");
             fCariList.ShowDialog();
-            
+            if (_tempCariKart != null)
+                BTCariSec.Text = _tempCariKart.unvan;
+
+           GridiDoldur(Filtrele());
+
+        }
+        List<PocoSTOKFIYAT> Filtrele()
+        {
+            List<PocoSTOKFIYAT> filtre = new List<PocoSTOKFIYAT>();
+            if (BTCariSec.Text != "" && _tempCariKart != null)
+                filtre.AddRange(_stokFiyatServis.obje.Where(x => x.cariid == _tempCariKart.id));
+          
+            else
+                return _stokFiyatServis.obje;
+
+
+            return filtre;
         }
 
         private void BTRaporla_Click(object sender, EventArgs e)
         {
             
         }
+        void GridiDoldur(List<PocoSTOKFIYAT> A)
+        {
+            DGStokFiyatRpr.DataSource = A.Select(x => new
+            {
+                ID = x.id,
+                KAYITTARİHİ = x.olusturmatarihi,
+                FİYATLİSTESİADI = x.adi,
+                AÇIKLAMA = x.aciklama,
+                CARİADI = _cariServis.obje.Where(y => y.id == x.cariid).Count() > 0 ? _cariServis.obje.Where(y => y.id == x.cariid).FirstOrDefault().unvan : "",
+                BASLANGIÇTARİHİ = x.baslangictarihi,
+                BİTİŞTARİHİ = x.bitistarihi,
+                FİRMAID = x.firmaid,
+                ŞUBEID = x.subeid,
+                GÜNCELLEMETARİHİ = x.guncellemetarihi
 
-        //private void selectedColumnsButton_Click(object sender, System.EventArgs e)
-        //{
-        //    Int32 selectedColumnCount = gridView1.Columns
-        //        .GetColumnCount(DataGridViewElementStates.Selected);
-        //    if (selectedColumnCount > 0)
-        //    {
-        //        System.Text.StringBuilder sb = new System.Text.StringBuilder();
 
-        //        for (int i = 0; i < selectedColumnCount; i++)
-        //        {
-        //            sb.Append("Column: ");
-        //            sb.Append(gridView1.SelectAll[i].Index
-        //                .ToString());
-        //            sb.Append(Environment.NewLine);
-        //        }
-
-        //        sb.Append("Total: " + selectedColumnCount.ToString());
-        //        MessageBox.Show(sb.ToString(), "Selected Columns");
-        //    }
-        //}
+            }).ToList();
+        }
 
         #endregion
 

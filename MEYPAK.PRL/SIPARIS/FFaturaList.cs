@@ -23,7 +23,7 @@ namespace MEYPAK.PRL.SIPARIS
 {
     public partial class FFaturaList : XtraForm
     {
-        public FFaturaList(string tag = "", string islem = "")
+        public FFaturaList(string tag = "",string islem = "")
         {
             InitializeComponent();
             _form = tag;
@@ -55,19 +55,19 @@ namespace MEYPAK.PRL.SIPARIS
                 {
                     if (_form == frm.Tag)
                     {
+                        
                         if (frm.Name.Contains("FStokKasaHareketRaporu"))
                             fStokKasaHareketRaporu = (FStokKasaHareketRaporu)frm;
-                        if (frm.Name.Contains("FStokHareketRaporu"))
-                            fStokHareketRaporu = (FStokHareketRaporu)frm;
                         if (frm.Name.Contains("FFaturaRaporu"))
                             fFaturaRaporu = (FFaturaRaporu)frm;
+                        else if (frm.Name.Contains("FFatura"))
+                            ffatura = (FFatura)frm;
+                        if (frm.Name.Contains("FStokHareketRaporu"))
+                            fStokHareketRaporu = (FStokHareketRaporu)frm;
                         if (frm.Name.Contains("FAlisFatura"))
                             falisFatura = (FAlisFatura)frm;
-                       else if (frm.Name.Contains("FFatura"))
-                            ffatura = (FFatura)frm;
+                       
                         
-                        
-
                     }
                 }
             }
@@ -115,35 +115,30 @@ namespace MEYPAK.PRL.SIPARIS
                 if (_islem == "FFatura")
                 {
                     if (ffatura != null)
-                    
                         ffatura._tempFatura = _faturaServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
                     
                 }
                 if (_islem == "FAlisFatura")
                 {
                     if (falisFatura != null)
-
                         falisFatura._tempFatura = _faturaServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
 
                 }
                 else if (_islem == "FFaturaRaporu")
                 {
                     if (fFaturaRaporu != null)
-                    
                         fFaturaRaporu._tempFatura = _faturaServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
                     
                 }
                 else if (_islem == "FStokHareketRaporu")
                 {
                     if (fStokHareketRaporu != null)
-
                         fStokHareketRaporu._tempFatura = _faturaServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
 
                 }
                 else if (_islem == "FStokKasaHareketRaporu")
                 {
                     if (fStokKasaHareketRaporu != null)
-
                         fStokKasaHareketRaporu._tempFatura = _faturaServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
 
                 }

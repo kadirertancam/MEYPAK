@@ -82,7 +82,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1107, 603);
+            this.panelControl1.Size = new System.Drawing.Size(1130, 930);
             this.panelControl1.TabIndex = 0;
             // 
             // panelControl3
@@ -91,7 +91,7 @@
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl3.Location = new System.Drawing.Point(2, 123);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(1103, 478);
+            this.panelControl3.Size = new System.Drawing.Size(1126, 805);
             this.panelControl3.TabIndex = 1;
             // 
             // DGPersonelRpr
@@ -100,7 +100,7 @@
             this.DGPersonelRpr.Location = new System.Drawing.Point(2, 2);
             this.DGPersonelRpr.MainView = this.gridView1;
             this.DGPersonelRpr.Name = "DGPersonelRpr";
-            this.DGPersonelRpr.Size = new System.Drawing.Size(1099, 474);
+            this.DGPersonelRpr.Size = new System.Drawing.Size(1122, 801);
             this.DGPersonelRpr.TabIndex = 0;
             this.DGPersonelRpr.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -117,7 +117,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl2.Location = new System.Drawing.Point(2, 2);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(1103, 121);
+            this.panelControl2.Size = new System.Drawing.Size(1126, 121);
             this.panelControl2.TabIndex = 0;
             // 
             // groupControl1
@@ -134,7 +134,7 @@
             this.groupControl1.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             this.groupControl1.Location = new System.Drawing.Point(2, 2);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(1099, 115);
+            this.groupControl1.Size = new System.Drawing.Size(1122, 115);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Filtrele";
             // 
@@ -143,9 +143,9 @@
             this.panelControl4.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl4.Controls.Add(this.BTRaporla);
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelControl4.Location = new System.Drawing.Point(1000, 23);
+            this.panelControl4.Location = new System.Drawing.Point(1017, 23);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(97, 90);
+            this.panelControl4.Size = new System.Drawing.Size(103, 90);
             this.panelControl4.TabIndex = 7;
             // 
             // BTRaporla
@@ -153,43 +153,43 @@
             this.BTRaporla.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
             this.BTRaporla.Appearance.Options.UseBackColor = true;
             this.BTRaporla.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTRaporla.ImageOptions.Image")));
-            this.BTRaporla.Location = new System.Drawing.Point(4, 4);
+            this.BTRaporla.Location = new System.Drawing.Point(3, 3);
             this.BTRaporla.Name = "BTRaporla";
-            this.BTRaporla.Size = new System.Drawing.Size(81, 35);
+            this.BTRaporla.Size = new System.Drawing.Size(95, 40);
             this.BTRaporla.TabIndex = 6;
             this.BTRaporla.Text = "&Raporla";
             // 
             // BTGorevSec
             // 
-            this.BTGorevSec.Location = new System.Drawing.Point(148, 79);
+            this.BTGorevSec.Location = new System.Drawing.Point(159, 79);
             this.BTGorevSec.Name = "BTGorevSec";
             this.BTGorevSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.BTGorevSec.Size = new System.Drawing.Size(180, 22);
+            this.BTGorevSec.Size = new System.Drawing.Size(297, 22);
             this.BTGorevSec.TabIndex = 5;
             // 
             // BTDepartmanSec
             // 
-            this.BTDepartmanSec.Location = new System.Drawing.Point(148, 53);
+            this.BTDepartmanSec.Location = new System.Drawing.Point(159, 53);
             this.BTDepartmanSec.Name = "BTDepartmanSec";
             this.BTDepartmanSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.BTDepartmanSec.Size = new System.Drawing.Size(180, 22);
+            this.BTDepartmanSec.Size = new System.Drawing.Size(297, 22);
             this.BTDepartmanSec.TabIndex = 4;
             // 
             // BTPersonelSec
             // 
-            this.BTPersonelSec.Location = new System.Drawing.Point(148, 27);
+            this.BTPersonelSec.Location = new System.Drawing.Point(159, 27);
             this.BTPersonelSec.Name = "BTPersonelSec";
             this.BTPersonelSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTPersonelSec.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTPersonelSec_Properties_ButtonClick);
-            this.BTPersonelSec.Size = new System.Drawing.Size(180, 22);
+            this.BTPersonelSec.Size = new System.Drawing.Size(297, 22);
             this.BTPersonelSec.TabIndex = 3;
             // 
             // LBGorev
             // 
-            this.LBGorev.Location = new System.Drawing.Point(107, 83);
+            this.LBGorev.Location = new System.Drawing.Point(118, 83);
             this.LBGorev.Name = "LBGorev";
             this.LBGorev.Size = new System.Drawing.Size(29, 13);
             this.LBGorev.TabIndex = 2;
@@ -197,7 +197,7 @@
             // 
             // LBDepartmanAdı
             // 
-            this.LBDepartmanAdı.Location = new System.Drawing.Point(83, 57);
+            this.LBDepartmanAdı.Location = new System.Drawing.Point(94, 57);
             this.LBDepartmanAdı.Name = "LBDepartmanAdı";
             this.LBDepartmanAdı.Size = new System.Drawing.Size(53, 13);
             this.LBDepartmanAdı.TabIndex = 1;
@@ -205,7 +205,7 @@
             // 
             // LBPersonelAdı
             // 
-            this.LBPersonelAdı.Location = new System.Drawing.Point(77, 31);
+            this.LBPersonelAdı.Location = new System.Drawing.Point(88, 31);
             this.LBPersonelAdı.Name = "LBPersonelAdı";
             this.LBPersonelAdı.Size = new System.Drawing.Size(59, 13);
             this.LBPersonelAdı.TabIndex = 0;
@@ -215,7 +215,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1107, 603);
+            this.ClientSize = new System.Drawing.Size(1130, 930);
             this.Controls.Add(this.panelControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FPersonelRaporu";
