@@ -5,9 +5,11 @@ using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.Models.DEPO;
 using MEYPAK.Entity.Models.SIPARIS;
 using MEYPAK.Entity.PocoModels;
+using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.DEPO;
 using MEYPAK.Entity.PocoModels.SIPARIS;
 using MEYPAK.Entity.PocoModels.STOK;
+using MEYPAK.Interfaces.Cari;
 using MEYPAK.Interfaces.Depo;
 using MEYPAK.Interfaces.Siparis;
 using MEYPAK.Interfaces.Stok;
@@ -47,6 +49,7 @@ namespace MEYPAK.PRL.DEPO
             _depoServis = new GenericWebServis<PocoDEPO>();
             _depoCekiListServis = new GenericWebServis<PocoDEPOCEKILIST>();
             _stokResimServis = new GenericWebServis<PocoSTOKRESIM>();
+            _cariResimServis = new GenericWebServis<PocoCARIRESIM>();
         }
         DataGridViewButtonColumn DGVTopla;
         List<PocoSIPARIS> _tempSiparis;
@@ -65,6 +68,7 @@ namespace MEYPAK.PRL.DEPO
         public GenericWebServis<PocoDEPO> _depoServis;
         public GenericWebServis<PocoDEPOCEKILIST> _depoCekiListServis;
         public GenericWebServis<PocoSTOKRESIM> _stokResimServis;
+        public GenericWebServis<PocoCARIRESIM> _cariResimServis;
         FDepoIsEmriPanel fDepoIsEmriPanel;
         private void tabControl1_DrawItem(object sender, DrawItemEventArgs e)
         {
@@ -86,6 +90,7 @@ namespace MEYPAK.PRL.DEPO
         }
         private void FMalKabulPanel_Load(object sender, EventArgs e)
         {
+            _cariResimServis.Data(ServisList.CariResimListeServis);
             _siparisServis.Data(ServisList.SiparisListeServis);
             _depoEmirServis.Data(ServisList.DepoEmirListeServis);
             gridControl1.DataSource = _siparisServis.obje.Where(x => x.tip == 1).Select(x => new { x.sevkiyattarihi, x.belgeno, x.cariadi }).ToList();
@@ -95,21 +100,39 @@ namespace MEYPAK.PRL.DEPO
             //fSevkiyatPanel.dataGridView2.Refresh();
 
             tileView1.CustomItemTemplate += TileView1_CustomItemTemplate;
-            Bitmap bt = new Bitmap("C:\\Users\\User\\Desktop\\İCON\\Logolar\\pngwing.com-2.png");
-
-            gridControl1.DataSource = _siparisServis.obje.Where(x => x.tip == 1).Select(x => new { CSevkiyatTarihi = x.sevkiyattarihi, CBelgeNo = x.belgeno, CCariAdi = x.cariadi, CResim = bt }).ToList();
+            //Bitmap bt = new Bitmap("C:\\Users\\User\\Desktop\\İCON\\Logolar\\pngwing.com-2.png");
+            gridControl1.DataSource = _siparisServis.obje.Where(x => x.tip == 1).Select(x => new { CSevkiyatTarihi = x.sevkiyattarihi, CBelgeNo = x.belgeno, CCariAdi = x.cariadi, CResim = _cariResimServis.obje.Where(c => c.CARIID == x.cariid).Count() > 0 ? Base64StringToBitmap(_cariResimServis.obje.Where(c => c.CARIID == x.cariid).FirstOrDefault().IMG) : Properties.Resources.CariNullResim }).ToList();
             tileView1.ItemCustomize += TileView1_ItemCustomize;
             tileView1.AddNewRow();
             tileView1.UpdateCurrentRow();
             tileView1.ShowEditForm();
-
-
         }
         private void TileView1_CustomItemTemplate(object sender, TileViewCustomItemTemplateEventArgs e)
         {
-
         }
 
+        public Bitmap Base64StringToBitmap(string base64String)
+        {
+            Bitmap bmpReturn = null;
+
+
+            byte[] byteBuffer = Convert.FromBase64String(base64String);
+            MemoryStream memoryStream = new MemoryStream(byteBuffer);
+
+
+            memoryStream.Position = 0;
+
+
+            bmpReturn = (Bitmap)Bitmap.FromStream(memoryStream);
+
+
+            memoryStream.Close();
+            memoryStream = null;
+            byteBuffer = null;
+
+
+            return bmpReturn;
+        }
         private void TileView1_ItemCustomize(object sender, TileViewItemCustomizeEventArgs e)
         {
 
@@ -268,7 +291,7 @@ namespace MEYPAK.PRL.DEPO
             gridControl2.Refresh();
 
         }
-
+        Bitmap bt;
         private void tileView2_Click(object sender, EventArgs e)
         {
             // if (Convert.ToInt32(dataGridView2.Rows[e.RowIndex].Cells["DURUM"].Value)==1)
@@ -284,7 +307,8 @@ namespace MEYPAK.PRL.DEPO
                 //var tempp = _stokSevkiyatList.obje.Where(x => x.EMIRID.ToString() == dataGridView2.Rows[e.RowIndex].Cells["id"].Value.ToString()).GroupBy(x => new { x.MPSTOK.kod, x.MPSTOK.adi, BIRIM = x.MPOLCUBR.adi, x.SIPARISMIKTARI }).Select(x => new { KOD = x.Select(x => x.MPSTOK.kod).FirstOrDefault(), ADI = x.Select(x => x.MPSTOK.adi).FirstOrDefault(), MIKTAR = x.Sum(z => z.MIKTAR), SIPARISMIKTARI = x.Select(x => x.SIPARISMIKTARI).FirstOrDefault(), KALANMIKTAR = x.Select(x => x.SIPARISMIKTARI).FirstOrDefault() - x.Sum(z => z.MIKTAR), BIRIM = x.Select(x => x.MPOLCUBR.adi).FirstOrDefault() }).ToList();
                 //dataGridView4.DataSource = tempp;
             }
-            Bitmap bt = new Bitmap("C:\\Users\\User\\source\\repos\\MEYPAK\\MEYPAK.PRL\\img\\icon-02.png");
+            //Bitmap bt = new Bitmap("C:\\Users\\User\\source\\repos\\MEYPAK\\MEYPAK.PRL\\img\\icon-02.png");
+            bt = new Bitmap(Properties.Resources.icon_02);
             _stokResimServis.Data(ServisList.StokResimListeServis);
             gridControl3.DataSource = _siparisSevkEmriHarServis.obje.Where(x => x.emirid.ToString() == tileView2.GetFocusedRowCellValue("ID").ToString() && x.kayittipi == 0).Select(x =>
              new
@@ -297,7 +321,7 @@ namespace MEYPAK.PRL.DEPO
                  EmirMiktari = x.emirmiktari,
                  KalanMiktar = _stokSevkiyatList.obje.Where(z => z.emirid == x.emirid && z.siparisdetayid == x.sipariskalemid).FirstOrDefault().kalanmiktar
                  ,
-                 Resim = Base64ToImage(_stokResimServis.obje.Where(z => z.STOKID == _siparisDetayServis.obje.Where(c => c.id == x.sipariskalemid && c.siparisid == x.siparisid).FirstOrDefault().stokid && z.NUM == 0).FirstOrDefault().IMG)
+                 Resim = _stokResimServis.obje.Where(z => z.STOKID == _siparisDetayServis.obje.Where(c => c.id == x.sipariskalemid && c.siparisid == x.siparisid).FirstOrDefault().stokid).Count() > 0 ? Base64ToImage(_stokResimServis.obje.Where(z => z.STOKID == _siparisDetayServis.obje.Where(c => c.id == x.sipariskalemid && c.siparisid == x.siparisid).FirstOrDefault().stokid).FirstOrDefault().IMG) : Properties.Resources.StokNullResim
                  //x.siparismiktari-x.emirmiktari
              ,
                  DepoButon = bt

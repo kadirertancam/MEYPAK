@@ -23,6 +23,7 @@ namespace MEYPAK.Entity.Models.DEPO
         public int SATINALMAMALKABULEMRIHARID { get; set; }
         public decimal SIPARISMIKTARI { get; set; }
         public decimal MIKTAR { get; set; }
+        public decimal KALANMIKTAR { get; set; }
         public int EMIRID { get; set; }
     }
 }

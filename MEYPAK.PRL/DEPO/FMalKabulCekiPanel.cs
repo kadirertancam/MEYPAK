@@ -34,17 +34,15 @@ namespace MEYPAK.PRL.DEPO
             _olcuBrServis = new GenericWebServis<PocoOLCUBR>();
             _depoServis = new GenericWebServis<PocoDEPO>();
             _siparisDetayServis = new GenericWebServis<PocoSIPARISDETAY>();
-            _siparisSevkEmriHar = new GenericWebServis<PocoSIPARISSEVKEMIRHAR>();
-            _depoCekiListServis = new GenericWebServis<PocoDEPOCEKILIST>();
-            _stokSevkiyatListServis = new GenericWebServis<PocoSTOKSEVKIYATLIST>();
+            _satinAlmaMalKabulEmriHar = new GenericWebServis<PocoSATINALMAMALKABULEMRIHAR>();
+            _depoCekiListServis = new GenericWebServis<PocoDEPOCEKILIST>(); 
         }
         GenericWebServis<PocoDEPOCEKILIST> _depoCekiListServis;
         GenericWebServis<PocoSTOK> _stokServis;
         GenericWebServis<PocoOLCUBR> _olcuBrServis;
         GenericWebServis<PocoDEPO> _depoServis;
         GenericWebServis<PocoSIPARISDETAY> _siparisDetayServis;
-        GenericWebServis<PocoSIPARISSEVKEMIRHAR> _siparisSevkEmriHar;
-        GenericWebServis<PocoSTOKSEVKIYATLIST> _stokSevkiyatListServis;
+        GenericWebServis<PocoSATINALMAMALKABULEMRIHAR> _satinAlmaMalKabulEmriHar; 
         List<PocoSTOK> _tempStok;
         PocoSTOK _Stok;
         public PocoDEPOEMIR _tempEmir;
@@ -74,7 +72,7 @@ namespace MEYPAK.PRL.DEPO
         private void BTKaydet_Click(object sender, EventArgs e)
         {
             _siparisDetayServis.Data(ServisList.SiparisDetayListeServis);
-            _siparisSevkEmriHar.Data(ServisList.SiparisSevkEmriHarListeServis);
+            //_satinAlmaMalKabulEmriHar.Data(ServisList.S);
             int _id;
             for (int i = 0; i < gridView1.RowCount; i++)
             {
@@ -93,12 +91,12 @@ namespace MEYPAK.PRL.DEPO
                 });
             }
             _depoCekiListServis.Data(ServisList.DepoCekiListListeServis);
-            _stokMalKabulListServis.Data(ServisList.StokSevkiyatListListeServis);
-            var taaa = _stokSevkiyatListServis.obje.Where(x => x.emirid == _tempEmir.id);
+            _stokMalKabulListServis.Data(ServisList.StokMalKabulListListeServis);
+            var taaa = _stokMalKabulListServis.obje.Where(x => x.emirid == _tempEmir.id);
             foreach (var item in taaa)
             {
-                _stokSevkiyatListServis.Data(ServisList.StokSevkiyatListEkleServis,
-                    new PocoSTOKSEVKIYATLIST()
+                _stokMalKabulListServis.Data(ServisList.StokMalKabulListEkleServis,
+                    new PocoSTOKMALKABULLIST()
                     {
                         id = item.id,
                         miktar = item.miktar,
@@ -110,7 +108,7 @@ namespace MEYPAK.PRL.DEPO
                         kayittipi = item.kayittipi,
                         kullaniciid = item.kullaniciid,
                         olusturmatarihi = item.olusturmatarihi,
-                        sevkemriharid = item.sevkemriharid,
+                        malkabulharemriid = item.malkabulharemriid,
                         siparisdetayid = item.siparisdetayid,
                         siparismiktari = item.siparismiktari,
                         sirketid = item.sirketid,

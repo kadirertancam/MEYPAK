@@ -23,6 +23,7 @@ namespace MEYPAK.Entity.PocoModels.DEPO
         public int siparisdetayid { get; set; }
         public decimal siparismiktari { get; set; }
         public decimal miktar { get; set; }
+        public decimal kalanmiktar { get; set; }
         public int emirid { get; set; }
         public int kullaniciid { get; set; }
     }

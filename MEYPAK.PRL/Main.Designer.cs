@@ -975,6 +975,7 @@
             this.accordionControlElement17.Name = "accordionControlElement17";
             this.accordionControlElement17.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement17.Text = "MalKabul";
+            this.accordionControlElement17.Visible = false;
             this.accordionControlElement17.Click += new System.EventHandler(this.accordionControlElement17_Click);
             // 
             // accordionControlElement29
@@ -1431,6 +1432,7 @@
             this.Name = "Main";
             this.Text = "Eliz Meypak Bilişim";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Main_FormClosed);
             this.Load += new System.EventHandler(this.Main_Load);
             this.panel3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

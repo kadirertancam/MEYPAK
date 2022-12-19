@@ -1172,5 +1172,10 @@ namespace MEYPAK.PRL
             fStokSevkiyatRaporu.Show();
             i++;
         }
+
+        private void Main_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
