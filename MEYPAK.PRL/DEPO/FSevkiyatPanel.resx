@@ -578,10 +578,10 @@ body {
 			&lt;div class="description"&gt;&lt;b style="color:white"&gt;${CARIADI}&lt;/b&gt;&lt;/div&gt;
 			&lt;div class="bottom-block"&gt;
 				&lt;div class="bottom-block-near"&gt;
-					 	&lt;div class="description"&gt;&lt;span style="color:white"&gt;DEPO: &lt;/span&gt;${DEPO}&lt;/div&gt;
+					 	&lt;div style="margin-bottom:8px; margin-top:6px; color:white;"&gt;&lt;span style="color:white"&gt;DEPO: &lt;/span&gt;${DEPO}&lt;/div&gt;
 				&lt;/div&gt;
 				
-			 &lt;div class="description2"&gt;${DURUM}&lt;span&gt;%&lt;/span&gt;&lt;/div&gt;
+			 &lt;div style="color:white; font-size:20px;"&gt;${DURUM}&lt;span style="color:white"&gt;%&lt;/span&gt;&lt;/div&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;

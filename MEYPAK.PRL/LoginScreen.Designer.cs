@@ -41,7 +41,7 @@
             // 
             // textEdit1
             // 
-            this.textEdit1.Location = new System.Drawing.Point(588, 269);
+            this.textEdit1.Location = new System.Drawing.Point(650, 284);
             this.textEdit1.Name = "textEdit1";
             this.textEdit1.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -50,12 +50,13 @@
             this.textEdit1.Properties.Appearance.Options.UseFont = true;
             this.textEdit1.Properties.Appearance.Options.UseForeColor = true;
             this.textEdit1.Properties.NullText = "Kullanıcı Adı";
-            this.textEdit1.Size = new System.Drawing.Size(167, 30);
+            this.textEdit1.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.textEdit1.Size = new System.Drawing.Size(209, 36);
             this.textEdit1.TabIndex = 0;
             // 
             // textEdit2
             // 
-            this.textEdit2.Location = new System.Drawing.Point(588, 305);
+            this.textEdit2.Location = new System.Drawing.Point(650, 326);
             this.textEdit2.Name = "textEdit2";
             this.textEdit2.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textEdit2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -64,13 +65,14 @@
             this.textEdit2.Properties.Appearance.Options.UseFont = true;
             this.textEdit2.Properties.Appearance.Options.UseForeColor = true;
             this.textEdit2.Properties.NullText = "Şifre";
+            this.textEdit2.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.textEdit2.Properties.PasswordChar = '*';
-            this.textEdit2.Size = new System.Drawing.Size(167, 30);
+            this.textEdit2.Size = new System.Drawing.Size(209, 36);
             this.textEdit2.TabIndex = 1;
             // 
             // comboBoxEdit1
             // 
-            this.comboBoxEdit1.Location = new System.Drawing.Point(588, 197);
+            this.comboBoxEdit1.Location = new System.Drawing.Point(650, 200);
             this.comboBoxEdit1.Name = "comboBoxEdit1";
             this.comboBoxEdit1.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.comboBoxEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -84,12 +86,13 @@
             "GÜNDÜZ MEY-PAK",
             "ELİZ MEYPAK"});
             this.comboBoxEdit1.Properties.NullText = "Firma";
-            this.comboBoxEdit1.Size = new System.Drawing.Size(167, 30);
+            this.comboBoxEdit1.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.comboBoxEdit1.Size = new System.Drawing.Size(209, 36);
             this.comboBoxEdit1.TabIndex = 2;
             // 
             // comboBoxEdit2
             // 
-            this.comboBoxEdit2.Location = new System.Drawing.Point(588, 233);
+            this.comboBoxEdit2.Location = new System.Drawing.Point(650, 242);
             this.comboBoxEdit2.Name = "comboBoxEdit2";
             this.comboBoxEdit2.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.comboBoxEdit2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -104,7 +107,8 @@
             "ANTALYA DEPO",
             "MERSİN DEPO"});
             this.comboBoxEdit2.Properties.NullText = "Şube";
-            this.comboBoxEdit2.Size = new System.Drawing.Size(167, 30);
+            this.comboBoxEdit2.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.comboBoxEdit2.Size = new System.Drawing.Size(209, 36);
             this.comboBoxEdit2.TabIndex = 3;
             // 
             // BTNGiris
@@ -115,9 +119,9 @@
             this.BTNGiris.Appearance.Options.UseForeColor = true;
             this.BTNGiris.AppearanceDisabled.BackColor = System.Drawing.Color.Lime;
             this.BTNGiris.AppearanceDisabled.Options.UseBackColor = true;
-            this.BTNGiris.Location = new System.Drawing.Point(627, 369);
+            this.BTNGiris.Location = new System.Drawing.Point(704, 399);
             this.BTNGiris.Name = "BTNGiris";
-            this.BTNGiris.Size = new System.Drawing.Size(96, 30);
+            this.BTNGiris.Size = new System.Drawing.Size(109, 35);
             this.BTNGiris.TabIndex = 4;
             this.BTNGiris.Text = "GİRİŞ YAP";
             this.BTNGiris.Click += new System.EventHandler(this.BTNGiris_Click);
@@ -126,13 +130,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Teal;
             this.BackgroundImage = global::MEYPAK.PRL.Properties.Resources.giris;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(909, 561);
             this.Controls.Add(this.BTNGiris);
             this.Controls.Add(this.comboBoxEdit2);
             this.Controls.Add(this.comboBoxEdit1);
             this.Controls.Add(this.textEdit2);
             this.Controls.Add(this.textEdit1);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "LoginScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
