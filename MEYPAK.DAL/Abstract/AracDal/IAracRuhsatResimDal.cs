@@ -9,6 +9,6 @@ namespace MEYPAK.DAL.Abstract.AracDal
 {
     public interface IAracRuhsatResimDal : IGeneric<MPARACRUHSATRESIM>
     {
-        public MPARACRUHSATRESIM EkleyadaGuncelle(MPARACRUHSATRESIM entity);
+
     }
 }

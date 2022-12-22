@@ -10,6 +10,6 @@ namespace MEYPAK.DAL.Abstract.StokDal
 {
     public interface IStokKasaMarkaDal:IGeneric<MPSTOKKASAMARKA>
     {
-        public MPSTOKKASAMARKA EkleyadaGuncelle(MPSTOKKASAMARKA entity);
+      
     }
 }

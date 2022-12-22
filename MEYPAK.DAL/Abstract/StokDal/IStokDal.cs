@@ -6,7 +6,7 @@ namespace MEYPAK.DAL.Abstract.StokDal
 {
     public interface IStokDal : IGeneric<MPSTOK>
     {
-        public MPSTOK EkleyadaGuncelle(MPSTOK entity);
+        
 
         public List<MPSTOK> PagingList(int skip, int take);
 

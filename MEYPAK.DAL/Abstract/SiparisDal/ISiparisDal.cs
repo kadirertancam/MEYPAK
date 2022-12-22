@@ -10,7 +10,6 @@ namespace MEYPAK.DAL.Abstract.SiparisDal
 {
     public interface ISiparisDal:IGeneric<MPSIPARIS>
     {
-        public MPSIPARIS EkleyadaGuncelle(MPSIPARIS entity);
 
         public List<MPSIPARIS> PagingList(int skip, int take);
 

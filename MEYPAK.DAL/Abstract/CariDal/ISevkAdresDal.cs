@@ -10,6 +10,5 @@ namespace MEYPAK.DAL.Abstract.CariDal
 {
     public interface ISevkAdresDal : IGeneric<MPSEVKADRES>
     {
-        public MPSEVKADRES EkleyadaGuncelle(MPSEVKADRES entity);
     }
 }

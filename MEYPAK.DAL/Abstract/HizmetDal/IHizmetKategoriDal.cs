@@ -9,6 +9,6 @@ namespace MEYPAK.DAL.Abstract.HizmetDal
 {
     public interface IHizmetKategoriDal:IGeneric<MPHIZMETKATEGORI>
     {
-        public MPHIZMETKATEGORI EkleyadaGuncelle(MPHIZMETKATEGORI entity);
+      
     }
 }

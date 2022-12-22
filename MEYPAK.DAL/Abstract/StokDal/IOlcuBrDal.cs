@@ -12,6 +12,6 @@ namespace MEYPAK.DAL.Abstract.StokDal
     {
         public List<MPOLCUBR> PagingList(int skip, int take);
 
-        public MPOLCUBR EkleyadaGuncelle(MPOLCUBR entity);
+       
     }
 }

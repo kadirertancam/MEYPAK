@@ -10,6 +10,5 @@ namespace MEYPAK.DAL.Abstract.FaturaDal
 {
     public interface IFaturaDal : IGeneric<MPFATURA>
     {
-        public MPFATURA EkleyadaGuncelle(MPFATURA entity);
     }
 }

@@ -9,6 +9,5 @@ namespace MEYPAK.DAL.Abstract.CariDal
 {
     public  interface ICariDokumanDal:IGeneric<MPCARIDOKUMAN>
     {
-        public MPCARIDOKUMAN EkleyadaGuncelle(MPCARIDOKUMAN entity);
     }
 }

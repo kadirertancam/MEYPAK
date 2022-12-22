@@ -9,6 +9,5 @@ namespace MEYPAK.DAL.Abstract.ParametreDal
 {
     public interface ISeriDal:IGeneric<MPSERI>
     {
-        public MPSERI EkleyadaGuncelle(MPSERI entity);
     }
 }

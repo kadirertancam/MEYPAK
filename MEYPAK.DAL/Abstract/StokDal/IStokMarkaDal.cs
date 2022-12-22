@@ -10,7 +10,6 @@ namespace MEYPAK.DAL.Abstract.StokDal
 {
     public interface IStokMarkaDal : IGeneric<MPSTOKMARKA>
     {
-        public MPSTOKMARKA EkleyadaGuncelle(MPSTOKMARKA entity);
 
         public List<MPSTOKMARKA> PagingList(int skip, int take);
 

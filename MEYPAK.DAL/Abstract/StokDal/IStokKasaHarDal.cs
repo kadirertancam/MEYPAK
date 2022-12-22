@@ -10,6 +10,6 @@ namespace MEYPAK.DAL.Abstract.KasaDal
 {
     public interface IStokKasaHarDal:IGeneric<MPSTOKKASAHAR>
     {
-        public MPSTOKKASAHAR EkleyadaGuncelle(MPSTOKKASAHAR entity);
+        
     }
 }

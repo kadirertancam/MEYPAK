@@ -167,6 +167,7 @@
             this.TBTutar.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.TBTutar.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.TBTutar.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
+            this.TBTutar.Properties.MaskSettings.Set("mask", "n");
             this.TBTutar.Size = new System.Drawing.Size(116, 20);
             this.TBTutar.TabIndex = 10;
             // 

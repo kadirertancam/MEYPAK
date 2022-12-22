@@ -77,7 +77,7 @@ namespace MEYPAK.BLL.Assets
                     obje2 = JsonConvert.DeserializeObject<T>(a);
 
             }
-            catch (Exception ex)
+            catch  
             {
 
                throw new Exception(a.ToString());

@@ -10,6 +10,6 @@ namespace MEYPAK.DAL.Abstract.KasaDal
 {
     public interface IKasaDal:IGeneric<MPKASA>
     {
-        public MPKASA EkleyadaGuncelle(MPKASA entity);
+
     }
 }

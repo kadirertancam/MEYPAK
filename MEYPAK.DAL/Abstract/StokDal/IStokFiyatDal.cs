@@ -9,7 +9,6 @@ namespace MEYPAK.DAL.Abstract.StokDal
 {
     public interface IStokFiyatDal : IGeneric<MPSTOKFIYAT>
     {
-        public MPSTOKFIYAT EkleyadaGuncelle(MPSTOKFIYAT entity);
 
         public List<MPSTOKFIYAT> PagingList(int skip, int take);
     }

@@ -11,8 +11,6 @@ namespace MEYPAK.DAL.Abstract.StokDal
     public interface IStokOlcuBrDal : IGeneric<MPSTOKOLCUBR>
     {
 
-        public MPSTOKOLCUBR EkleyadaGuncelle(MPSTOKOLCUBR entity);
-
         public List<MPSTOKOLCUBR> PagingList(int skip, int take);
 
     }

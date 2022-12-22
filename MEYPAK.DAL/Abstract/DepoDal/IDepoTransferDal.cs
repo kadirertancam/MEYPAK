@@ -5,7 +5,7 @@ namespace MEYPAK.DAL.Abstract.DepoDal
 {
     public interface IDepoTransferDal:IGeneric<MPDEPOTRANSFER>
     {
-        public MPDEPOTRANSFER EkleyadaGuncelle(MPDEPOTRANSFER entity);
+        
 
         List<PocoDepolarArasıTransfer> PocoDepolarArasıTransferListesi();
 

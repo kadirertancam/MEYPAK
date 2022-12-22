@@ -9,6 +9,6 @@ namespace MEYPAK.DAL.Abstract.PersonelDal
 {
     public interface IPersonelZimmetDal:IGeneric<MPPERSONELZIMMET>
     {
-        public MPPERSONELZIMMET EkleyadaGuncelle(MPPERSONELZIMMET entity);
+
     }
 }

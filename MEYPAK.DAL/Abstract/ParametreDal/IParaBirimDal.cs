@@ -10,6 +10,6 @@ namespace MEYPAK.DAL.Abstract.ParametreDal
 {
     public interface IParaBirimDal:IGeneric<MPPARABIRIM>
     {
-        public MPPARABIRIM EkleyadaGuncelle(MPPARABIRIM entity);
+      
     }
 }

@@ -44,7 +44,7 @@ namespace MEYPAK.PRL.KASA
                 kod = TBKod.Text,
                 parabirimid = _parabirimServis.obje.Where(x => x.id == Convert.ToInt32(CBParaBirim.EditValue)).FirstOrDefault().id,
                 tarih = (DateTime)DTPTarih.EditValue,
-                tutar = Convert.ToInt32(TBTutar.Text),
+              
                 durum = Convert.ToByte(CEAktif.EditValue)
             });
             MessageBox.Show("Kasa Başarıyla Eklendi.");
@@ -63,7 +63,7 @@ namespace MEYPAK.PRL.KASA
                 TBAdi.Text = _tempkasa.adi;
                 TBAciklama.Text = _tempkasa.aciklama;
                 TBKod.Text = _tempkasa.kod;
-                TBTutar.Text = _tempkasa.tutar.ToString();
+               
                 DTPTarih.EditValue = _tempkasa.tarih;
                 CEAktif.Checked = _tempkasa.durum !=0 ? true:false;
                 CBParaBirim.EditValue = _tempkasa.parabirimid;

@@ -8,8 +8,7 @@ using System.Threading.Tasks;
 namespace MEYPAK.DAL.Abstract.CariDal
 {
     public interface ICariAltHesDal:IGeneric<MPCARIALTHES>
-    {
-        public MPCARIALTHES EkleyadaGuncelle (MPCARIALTHES entity);  
+    {  
        
     }
 }
