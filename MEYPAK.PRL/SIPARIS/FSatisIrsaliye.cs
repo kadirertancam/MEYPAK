@@ -23,7 +23,7 @@ namespace MEYPAK.PRL.IRSALIYE
     {
 
 
-        public FSatisIrsaliye(PocoIRSALIYE _tempIrsaliyes = null, List<PocoIrsaliyeKalem> _tempIrsaliyeDetays = null, int tip = 0)
+        public FSatisIrsaliye(PocoIRSALIYE _tempIrsaliyes = null, List<PocoIrsaliyeKalem> _tempIrsaliyeDetays = null, List<ListKasaList> tempkasa=null , int tip = 0)
         {                                                                                                                                                                         
             InitializeComponent();
             DGVStokSec = new DataGridViewButtonColumn();
@@ -70,6 +70,8 @@ namespace MEYPAK.PRL.IRSALIYE
                 _tempIrsaliyeDetay = _tempIrsaliyeDetays;
             else
                 _tempIrsaliyeDetay = new List<PocoIrsaliyeKalem>();
+            if (tempkasa != null)
+                _kasaaa = tempkasa;
             irstip = tip;
         }
 
@@ -510,7 +512,7 @@ namespace MEYPAK.PRL.IRSALIYE
             if (_tempIrsaliye != null)
             {
                 _stokKasaHarServis.Data(ServisList.StokKasaHarListeServis);
-                _kasaaa.Clear();
+                //_kasaaa.Clear();
                 _stokOlcuBrList.Clear();
                 if(irstip==0)
                 _tempIrsaliyeDetay.Clear();
@@ -550,9 +552,8 @@ namespace MEYPAK.PRL.IRSALIYE
                 CBAltHesap.Properties.DataSource = altcarilist.Select(x => new { ID = x.id, ADI = x.adi.ToString() });
                 CBAltHesap.EditValue = _tempIrsaliye.althesapid;
                 List<OlcuBrlist> olcuBrlist1;
-                if (_irsaliyeDetayServis.obje.Where(x => x.irsaliyeid == _tempIrsaliye.id).Count() > 0)
-                {
-                    if(irstip==0)
+                if (_irsaliyeDetayServis.obje.Where(x => x.irsaliyeid == _tempIrsaliye.id).Count() > 0 || _kasaaa!=null)
+                { 
                     foreach (var item2 in _irsaliyeDetayServis.obje.Where(x => x.irsaliyeid == _tempIrsaliye.id))
                     {
 
@@ -574,14 +575,10 @@ namespace MEYPAK.PRL.IRSALIYE
                             KasaList.Add(kslt);
                         }
                         _kasaaa.Add(new ListKasaList() { num = item2.num, KasaList = KasaList });
-
-                    }
-                    else
-                    {
-                        //TODO: KASA BİLGİSİ SIPARISTEN GELECEK ŞEKİLDE YAPILANDIRILACAK
-                    }
+                         
+                    } 
                     KasaAltBilgiDoldur();
-
+                  
                 }
                 else if(irstip == 0)
                 {
@@ -812,6 +809,7 @@ namespace MEYPAK.PRL.IRSALIYE
         {
             tempnum = gridView1.GetFocusedDataSourceRowIndex();
             if (_kasaaa.Where(x => x.num == tempnum).Count() > 0)
+                if(riLookup3!=null)
                 riLookup3.DataSource = _kasaaa.Where(x => x.num == tempnum).FirstOrDefault().KasaList.Select(x => new { Marka = x.MARKA, Adı = x.KASAADI, Miktar = x.MIKTAR });
             else
                 if (riLookup3 != null)

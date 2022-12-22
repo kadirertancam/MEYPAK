@@ -1,10 +1,14 @@
-﻿using DevExpress.XtraTab;
+﻿using DevExpress.Utils;
+using DevExpress.XtraTab;
 using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.PocoModels;
 using MEYPAK.Entity.PocoModels.FATURA;
 using MEYPAK.Entity.PocoModels.IRSALIYE;
 using MEYPAK.Entity.PocoModels.PARAMETRE;
 using MEYPAK.Entity.PocoModels.STOK;
+using MEYPAK.Interfaces.Kasa;
+using MEYPAK.Interfaces.Siparis;
+using MEYPAK.Interfaces.Stok;
 using System.Data;
 
 namespace MEYPAK.PRL.SIPARIS
@@ -24,6 +28,7 @@ namespace MEYPAK.PRL.SIPARIS
             _tempfatdetay = new List<PocoFaturaKalem>();
             _olcuBrServis = new GenericWebServis<PocoOLCUBR>();
             _stokServis = new GenericWebServis<PocoSTOK>();
+            _stokKasaHarServis = new GenericWebServis<PocoSTOKKASAHAR>();
             _tag = tag;
             _form = form;
         }
@@ -39,7 +44,12 @@ namespace MEYPAK.PRL.SIPARIS
         GenericWebServis<PocoSERI> _seriServis;
         GenericWebServis<PocoSERIHAR> _seriHarServis;
         GenericWebServis<PocoOLCUBR> _olcuBrServis;
-        GenericWebServis<PocoSTOK> _stokServis;
+        GenericWebServis<PocoSTOK> _stokServis; 
+        GenericWebServis<PocoSTOKKASAHAR> _stokKasaHarServis;
+        GenericWebServis<PocoSTOKKASA> _stokKasaServis;
+        GenericWebServis<PocoSTOKKASAMARKA> _stokKasaMarkaServis;
+        List<ListKasaList> tempkasa;
+        List<KasaList> kasalist;
         Main main;
         PocoFATURA tempfat;
         FFatura fFatura;
@@ -119,14 +129,25 @@ namespace MEYPAK.PRL.SIPARIS
                     Tipi = item.tip == 0 ? "STOK" : item.tip == 1 ? "HIZMET" : item.tip == 2 ? "KASA" : item.tip == 3 ? "DEMIRBAS" : "MUHASEBE",
                     Kunye = "",
                 });
-
+                kasalist = new List<KasaList>();
+                foreach (var item2 in _stokKasaHarServis.obje.Where(x => x.irsaliyeid == item.irsaliyeid && x.irsaliyedetayid == item.id))
+                {
+                    kasalist.Add(new KasaList()
+                    {
+                        KASAADI = _stokKasaServis.obje.Where(x => x.id == item2.kasaid).FirstOrDefault().kasaadi,
+                        KASAID = item2.kasaid,
+                        MARKA = _stokKasaMarkaServis.obje.Where(z => z.id == _stokKasaServis.obje.Where(x => x.id == item2.kasaid).FirstOrDefault().markaid).FirstOrDefault().adi,
+                        MIKTAR = item2.miktar,
+                        ID = item.id
+                    });
+                }
                 item.hareketdurumu = 1;
-
+                tempkasa.Add(new ListKasaList() { num = item.num, KasaList = kasalist });
             }
             
             main = (Main)Application.OpenForms["Main"];
             XtraTabPage page = new XtraTabPage();
-            FFatura ffatura = new FFatura(tempfat, _tempfatdetay,1);
+            FFatura ffatura = new FFatura(tempfat, _tempfatdetay, tempkasa, 1);
             page.Name = "TPFatura" + main.i;
             page.Text = "Fatura Tanım";
             page.Tag = "TPFatura" + main.i;

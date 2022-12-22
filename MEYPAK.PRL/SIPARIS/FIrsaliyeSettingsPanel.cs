@@ -1,10 +1,13 @@
 ﻿using DevExpress.XtraTab;
 using MEYPAK.BLL.Assets;
+using MEYPAK.Entity.Models.KASA;
 using MEYPAK.Entity.PocoModels;
 using MEYPAK.Entity.PocoModels.IRSALIYE;
 using MEYPAK.Entity.PocoModels.PARAMETRE;
 using MEYPAK.Entity.PocoModels.SIPARIS;
 using MEYPAK.Entity.PocoModels.STOK;
+using MEYPAK.Interfaces.Kasa;
+using MEYPAK.Interfaces.Siparis;
 using MEYPAK.Interfaces.Stok;
 using MEYPAK.PRL.IRSALIYE;
 using System.Data;
@@ -26,7 +29,11 @@ namespace MEYPAK.PRL.SIPARIS
             _olcuBrServis= new GenericWebServis<PocoOLCUBR>();
             _stokServis= new GenericWebServis<PocoSTOK>();
             _tempIrsDetay = new List<PocoIrsaliyeKalem>();
-            _tag = tag;
+            _siparisKasaHarServis = new GenericWebServis<PocoSIPARISKASAHAR>();
+            _stokKasaHarServis = new GenericWebServis<PocoSTOKKASAHAR>();
+            _stokKasaMarkaServis = new GenericWebServis<PocoSTOKKASAMARKA>();
+            _stokKasaServis = new GenericWebServis<PocoSTOKKASA>();
+           _tag = tag;
             _form= form;
         }
         string _tag;
@@ -41,15 +48,21 @@ namespace MEYPAK.PRL.SIPARIS
         GenericWebServis<PocoSERIHAR> _seriHarServis;
         GenericWebServis<PocoOLCUBR> _olcuBrServis;
         GenericWebServis<PocoSTOK> _stokServis;
-
+        GenericWebServis<PocoSIPARISKASAHAR> _siparisKasaHarServis;
+        GenericWebServis<PocoSTOKKASAHAR> _stokKasaHarServis;
+        GenericWebServis<PocoSTOKKASA> _stokKasaServis;
+        GenericWebServis<PocoSTOKKASAMARKA> _stokKasaMarkaServis;
+        List<ListKasaList> tempkasa;
+        List<KasaList> kasalist;
         Main main;
         PocoIRSALIYE _tempIrs;
         List<PocoIrsaliyeKalem> _tempIrsDetay;
         private void simpleButton2_Click(object sender, EventArgs e)
         {
+            tempkasa = new List<ListKasaList>();
             _siparisDetayServis.Data(ServisList.SiparisDetayListeServis);
             _siparisServis.Data(ServisList.SiparisListeServis);
-
+            _siparisKasaHarServis.Data(ServisList.SiparisKasaHarListeServis);
             var tempsip = _siparisServis.obje.Where(x => x.kayittipi == 0 && x.tip == 0 && x.id.ToString() == fSatisIrsaliyeFaturalastir.gridView2.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
             _tempIrs = new PocoIRSALIYE()
             {
@@ -91,8 +104,12 @@ namespace MEYPAK.PRL.SIPARIS
 
                
             }
+            _stokKasaHarServis.Data(ServisList.StokKasaHarListeServis);
+            _siparisKasaHarServis.Data(ServisList.SiparisKasaHarListeServis);
             _olcuBrServis.Data(ServisList.OlcuBrListeServis);
             _stokServis.Data(ServisList.StokListeServis);
+            _stokKasaMarkaServis.Data(ServisList.StokKasaMarkaListeServis);
+            _stokKasaServis.Data(ServisList.StokKasaListeServis);
             foreach (var item in tempSipDetay)
             {
 
@@ -122,16 +139,30 @@ namespace MEYPAK.PRL.SIPARIS
                     StokId = item.stokid,
                     Tipi = item.tip == 0 ? "STOK" : item.tip == 1 ? "HIZMET" : item.tip == 2 ? "KASA" : item.tip == 3 ? "DEMIRBAS" : "MUHASEBE",
                     Kunye = "",
+                    KasaMiktar= _siparisKasaHarServis.obje.Where(x => x.siparisid == item.siparisid && x.siparisdetayid == item.id).Sum(x=>x.miktar)
                 });
-
+                
+               kasalist = new List<KasaList>();
+                foreach (var item2 in _siparisKasaHarServis.obje.Where(x => x.siparisid == item.siparisid && x.siparisdetayid == item.id))
+                {
+                      kasalist.Add(new KasaList()
+                    {
+                        KASAADI = _stokKasaServis.obje.Where(x => x.id == item2.kasaid).FirstOrDefault().kasaadi,
+                        KASAID = item2.kasaid,
+                        MARKA = _stokKasaMarkaServis.obje.Where(z => z.id == _stokKasaServis.obje.Where(x => x.id == item2.kasaid).FirstOrDefault().markaid).FirstOrDefault().adi,
+                        MIKTAR = item2.miktar,
+                        ID = item.id
+                    });
+                }
                
-                item.hareketdurumu = 1;
-               
+               item.hareketdurumu = 1;
+                tempkasa.Add(new ListKasaList() { num = item.num,KasaList= kasalist });
             }
+ 
 
             main = (Main)Application.OpenForms["Main"];
             XtraTabPage page = new XtraTabPage();
-            FSatisIrsaliye fSatisIrsaliye = new FSatisIrsaliye(_tempIrs,_tempIrsDetay,1);
+            FSatisIrsaliye fSatisIrsaliye = new FSatisIrsaliye(_tempIrs,_tempIrsDetay, tempkasa, 1);
             page.Name = "TPSatisIrsaliye" + main.i;
             page.Text = "Satis Irsaliye";
             page.Tag = "TPSatisIrsaliye" + main.i;

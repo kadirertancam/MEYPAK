@@ -58,5 +58,10 @@ namespace MEYPAK.PRL
             //  var o=  aaaa.DeserializeXml<Envelope>();
             //   gridControl1.DataSource = o.Body.BaseResponseMessageOfBildirimSorguCevap.Sonuc.Bildirimler.BildirimSorguDTO;
         }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

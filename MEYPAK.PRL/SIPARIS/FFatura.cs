@@ -18,13 +18,14 @@ using MEYPAK.PRL.Assets;
 using DevExpress.ClipboardSource.SpreadsheetML;
 using DevExpress.Mvvm.Native;
 using MEYPAK.Interfaces;
+using MEYPAK.Entity.Models.KASA;
 
 namespace MEYPAK.PRL.SIPARIS
 {
     public partial class FFatura : XtraForm
     {
       
-        public FFatura(PocoFATURA _tempFaturas=null, List<PocoFaturaKalem> _tempFaturaDetays=null,int tip=0)
+        public FFatura(PocoFATURA _tempFaturas=null, List<PocoFaturaKalem> _tempFaturaDetays=null, List<ListKasaList> _tempkasa=null, int tip=0)
         {
             InitializeComponent();
             DGVStokSec = new DataGridViewButtonColumn();
@@ -66,8 +67,10 @@ namespace MEYPAK.PRL.SIPARIS
             _hizmetServis = new GenericWebServis<PocoHIZMET>();
             _cariHarServsi = new GenericWebServis<PocoCARIHAR>();
             if (_tempFaturas != null)
-                _tempFatura = _tempFaturas; 
-            
+                _tempFatura = _tempFaturas;
+            if (_tempkasa != null)
+                _kasaaa = _tempkasa;
+
             if (_tempFaturaDetays != null)
                 _tempFaturaDetay = _tempFaturaDetays;
             else
