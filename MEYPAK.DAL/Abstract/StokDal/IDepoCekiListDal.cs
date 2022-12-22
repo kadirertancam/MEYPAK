@@ -5,7 +5,7 @@ namespace MEYPAK.DAL.Abstract.StokDal
 {
     public interface IDepoCekiListDal:IGeneric<MPDEPOCEKILIST>
     {
-        public MPDEPOCEKILIST EkleyadaGuncelle(MPDEPOCEKILIST entity);
+       
 
         public List<MPDEPOCEKILIST> PagingList(int skip, int take);
 

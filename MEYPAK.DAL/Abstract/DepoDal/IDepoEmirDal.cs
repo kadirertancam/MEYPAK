@@ -4,7 +4,7 @@ namespace MEYPAK.DAL.Abstract.DepoDal
 {
     public interface IDepoEmirDal:IGeneric<MPDEPOEMIR>
     {
-        public MPDEPOEMIR EkleyadaGuncelle(MPDEPOEMIR entity);
+        
 
         public List<MPDEPOEMIR> PagingList(int skip, int take);
 

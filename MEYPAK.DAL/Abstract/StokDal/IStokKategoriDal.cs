@@ -10,7 +10,7 @@ namespace MEYPAK.DAL.Abstract.StokDal
 {
     public interface IStokKategoriDal:IGeneric<MPSTOKKATEGORI>
     {
-        public MPSTOKKATEGORI EkleyadaGuncelle(MPSTOKKATEGORI entity);
+       
 
         public List<MPSTOKKATEGORI> PagingList(int skip, int take);
 

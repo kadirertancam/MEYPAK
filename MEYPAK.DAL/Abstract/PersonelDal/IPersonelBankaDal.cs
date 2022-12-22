@@ -10,6 +10,6 @@ namespace MEYPAK.DAL.Abstract.PersonelDal
 {
     public interface IPersonelBankaDal:IGeneric<MPPERSONELBANKA>
     {
-        public MPPERSONELBANKA EkleyadaGuncelle(MPPERSONELBANKA entity);
+      
     }
 }

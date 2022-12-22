@@ -157,6 +157,10 @@
             this.accordionControlElement33 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEFaturaRaporu = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEMusteriSiparisRaporu = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACEKasa = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACEKasaTanim = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACEKasaHareket = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACEKasaRapor = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement21 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement38 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement41 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -175,6 +179,8 @@
             this.ACESeriTanim = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
             this.applicationMenu1 = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
+            this.ACEKasaKart = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACEKasaHar = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -798,6 +804,7 @@
             this.accordionControlElement1,
             this.accordionControlElement5,
             this.accordionControlElement20,
+            this.ACEKasa,
             this.accordionControlElement21,
             this.accordionControlElement61,
             this.accordionControlElement22});
@@ -838,7 +845,6 @@
             this.accordionControlElement2,
             this.accordionControlElement3,
             this.accordionControlElement4});
-            this.accordionControlElement1.Expanded = true;
             this.accordionControlElement1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement1.ImageOptions.SvgImage")));
             this.accordionControlElement1.ImageOptions.SvgImageSize = new System.Drawing.Size(32, 32);
             this.accordionControlElement1.Name = "accordionControlElement1";
@@ -1071,7 +1077,6 @@
             this.accordionControlElement6,
             this.accordionControlElement7,
             this.accordionControlElement8});
-            this.accordionControlElement5.Expanded = true;
             this.accordionControlElement5.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement5.ImageOptions.SvgImage")));
             this.accordionControlElement5.Name = "accordionControlElement5";
             this.accordionControlElement5.Text = "Cari";
@@ -1163,7 +1168,6 @@
             this.accordionControlElement31,
             this.accordionControlElement32,
             this.accordionControlElement33});
-            this.accordionControlElement20.Expanded = true;
             this.accordionControlElement20.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement20.ImageOptions.Image")));
             this.accordionControlElement20.Name = "accordionControlElement20";
             this.accordionControlElement20.Text = "Fatura";
@@ -1275,6 +1279,38 @@
             this.ACEMusteriSiparisRaporu.Text = "Müşteri Sipariş Raporu";
             this.ACEMusteriSiparisRaporu.Click += new System.EventHandler(this.ACEMusteriSiparisRaporu_Click);
             // 
+            // ACEKasa
+            // 
+            this.ACEKasa.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.ACEKasaTanim,
+            this.ACEKasaHareket,
+            this.ACEKasaRapor});
+            this.ACEKasa.Expanded = true;
+            this.ACEKasa.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ACEKasa.ImageOptions.Image")));
+            this.ACEKasa.Name = "ACEKasa";
+            this.ACEKasa.Text = "Kasa";
+            // 
+            // ACEKasaTanim
+            // 
+            this.ACEKasaTanim.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.ACEKasaKart});
+            this.ACEKasaTanim.Expanded = true;
+            this.ACEKasaTanim.Name = "ACEKasaTanim";
+            this.ACEKasaTanim.Text = "Tanım";
+            // 
+            // ACEKasaHareket
+            // 
+            this.ACEKasaHareket.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.ACEKasaHar});
+            this.ACEKasaHareket.Expanded = true;
+            this.ACEKasaHareket.Name = "ACEKasaHareket";
+            this.ACEKasaHareket.Text = "Hareket";
+            // 
+            // ACEKasaRapor
+            // 
+            this.ACEKasaRapor.Name = "ACEKasaRapor";
+            this.ACEKasaRapor.Text = "Rapor";
+            // 
             // accordionControlElement21
             // 
             this.accordionControlElement21.Appearance.Default.ForeColor = System.Drawing.Color.Silver;
@@ -1283,7 +1319,6 @@
             this.accordionControlElement38,
             this.accordionControlElement39,
             this.accordionControlElement40});
-            this.accordionControlElement21.Expanded = true;
             this.accordionControlElement21.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement21.ImageOptions.Image")));
             this.accordionControlElement21.Name = "accordionControlElement21";
             this.accordionControlElement21.Text = "Personel";
@@ -1421,6 +1456,20 @@
             // applicationMenu1
             // 
             this.applicationMenu1.Name = "applicationMenu1";
+            // 
+            // ACEKasaKart
+            // 
+            this.ACEKasaKart.Name = "ACEKasaKart";
+            this.ACEKasaKart.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ACEKasaKart.Text = "Kasa Kart";
+            this.ACEKasaKart.Click += new System.EventHandler(this.ACEKasaKart_Click);
+            // 
+            // ACEKasaHar
+            // 
+            this.ACEKasaHar.Name = "ACEKasaHar";
+            this.ACEKasaHar.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ACEKasaHar.Text = "Kasa Hareket";
+            this.ACEKasaHar.Click += new System.EventHandler(this.ACEKasaHar_Click);
             // 
             // Main
             // 
@@ -1596,5 +1645,11 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEPersonelListe;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEPersonelRaporu;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEStokSevkiyatRaporu;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACEKasa;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACEKasaTanim;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACEKasaHareket;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACEKasaRapor;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACEKasaKart;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACEKasaHar;
     }
 }

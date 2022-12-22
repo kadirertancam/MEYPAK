@@ -81,6 +81,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
         public DbSet<MPSATINALMAMALKABULEMRIHAR> MPSATINALMAMALKABULEMRIHAR { get; set; }
         public DbSet<MPPARABIRIM> MPPARABIRIM { get; set; }
         public DbSet<MPKASA> MPKASA { get; set; }
+        public DbSet<MPKASAHAR> MPKASAHAR { get; set; }
         public DbSet<MPSTOKKASAHAR> MPSTOKKASAHAR { get; set; }
         public DbSet<MPFATURA> MPFATURA { get; set; }
         public DbSet<MPFATURADETAY> MPFATURADETAY { get; set; }

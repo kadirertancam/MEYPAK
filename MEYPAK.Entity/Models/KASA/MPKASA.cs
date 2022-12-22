@@ -13,7 +13,6 @@ namespace MEYPAK.Entity.Models.KASA
         public string KOD { get; set; }
         public string ACIKLAMA { get; set; }
         public DateTime TARIH { get; set; }
-        public decimal TUTAR { get; set; }
         public byte DURUM { get; set; }
     }
 }

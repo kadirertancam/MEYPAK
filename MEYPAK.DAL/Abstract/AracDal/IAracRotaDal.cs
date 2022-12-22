@@ -9,6 +9,5 @@ namespace MEYPAK.DAL.Abstract.AracDal
 {
     public interface IAracRotaDal : IGeneric<MPARACROTA>
     {
-        public MPARACROTA EkleyadaGuncelle(MPARACROTA entity);
     }
 }

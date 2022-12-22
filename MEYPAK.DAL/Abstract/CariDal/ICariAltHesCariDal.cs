@@ -9,6 +9,5 @@ namespace MEYPAK.DAL.Abstract.CariDal
 {
     public interface ICariAltHesCariDal:IGeneric<MPCARIALTHESCARI>
     {
-        public MPCARIALTHESCARI EkleyadaGuncelle(MPCARIALTHESCARI entity);
     }
 }

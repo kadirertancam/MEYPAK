@@ -9,7 +9,7 @@ namespace MEYPAK.DAL.Abstract.CariDal
 {
     public interface ICariResimDal:IGeneric<MPCARIRESIM>
     {
-        public MPCARIRESIM EkleyadaGuncelle(MPCARIRESIM entity);
+      
 
     }
 }

@@ -9,6 +9,6 @@ namespace MEYPAK.DAL.Abstract.HizmetDal
 {
     public interface IHizmetHarDal : IGeneric<MPHIZMETHAR>
     {
-        public MPHIZMETHAR EkleyadaGuncelle(MPHIZMETHAR entity);
+       
     }
 }

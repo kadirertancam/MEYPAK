@@ -9,6 +9,6 @@ namespace MEYPAK.DAL.Abstract.CariDal
 {
     public interface ICariYetkiliDal : IGeneric<MPCARIYETKILI>
     {
-        public MPCARIYETKILI EkleyadaGuncelle(MPCARIYETKILI entity);
+
     }
 }

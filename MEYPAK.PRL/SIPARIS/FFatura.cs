@@ -157,11 +157,8 @@ namespace MEYPAK.PRL.SIPARIS
             TBAIskonto1.Text = "0";
             TBAIskonto2.Text = "0";
             TBAIskonto3.Text = "0";
-
-
             TBCariAdi.Text = "";
             TBCariKodu.Text = "";
-
             TBGun.Text = "0";
             TBFaturaNo.Text = "";
             TBIskontoToplam.EditValue = 0;
@@ -179,7 +176,6 @@ namespace MEYPAK.PRL.SIPARIS
             CHBKdvDahil.Checked = false;
             gridControl1.DataSource = "";
             faturaNoGuncelle();
-
         }
 
         void DataGridYapilandir()

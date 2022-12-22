@@ -10,7 +10,6 @@ namespace MEYPAK.DAL.Abstract.StokDal
 {
     public interface IStokSayimHarDal:IGeneric<MPSTOKSAYIMHAR>
     {
-        public MPSTOKSAYIMHAR EkleyadaGuncelle(MPSTOKSAYIMHAR entity);
 
         public List<MPSTOKSAYIMHAR> PagingList(int skip, int take);
     }

@@ -17,5 +17,6 @@ namespace MEYPAK.DAL.Abstract
         Durum Guncelle(T entity, Expression<Func<T, bool>> predicate); 
         T Guncelle(T entity);
         T Ekle(T entity);
+        T EkleyadaGuncelle(T entity);
     }
 }

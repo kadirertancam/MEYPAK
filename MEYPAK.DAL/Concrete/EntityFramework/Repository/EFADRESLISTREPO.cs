@@ -31,6 +31,11 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
             throw new NotImplementedException();
         }
 
+        public ADRESLIST EkleyadaGuncelle(ADRESLIST entity)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<ADRESLIST> Getir(Expression<Func<ADRESLIST, bool>> predicate)
         {
             throw new NotImplementedException();

@@ -11,7 +11,6 @@ namespace MEYPAK.DAL.Abstract.DepoDal
 {
     public interface IStokMalKKabulListDal:IGeneric<MPSTOKMALKABULLIST>
     {
-        public MPSTOKMALKABULLIST EkleyadaGuncelle(MPSTOKMALKABULLIST entity);
         public List<MPSTOKMALKABULLIST> PagingList(int skip, int take);
 
     }

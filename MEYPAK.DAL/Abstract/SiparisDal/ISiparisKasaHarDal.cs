@@ -9,6 +9,6 @@ namespace MEYPAK.DAL.Abstract.SiparisDal
 {
     public interface ISiparisKasaHarDal:IGeneric<MPSIPARISKASAHAR>
     {
-        public MPSIPARISKASAHAR EkleyadaGuncelle(MPSIPARISKASAHAR entity);
+       
     }
 }

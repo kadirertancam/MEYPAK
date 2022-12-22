@@ -9,7 +9,7 @@ namespace MEYPAK.DAL.Abstract.StokDal
 {
     public interface IStokResimDal:IGeneric<MPSTOKRESIM>
     {
-        public MPSTOKRESIM EkleyadaGuncelle(MPSTOKRESIM entity);
+        
 
     }
 }

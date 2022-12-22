@@ -7,7 +7,7 @@ namespace MEYPAK.DAL.Abstract.IrsaliyeDal
     public interface IIrsaliyeDetayDal:IGeneric<MPIRSALIYEDETAY>
     {
 
-        public MPIRSALIYEDETAY EkleyadaGuncelle(MPIRSALIYEDETAY entity);
+   
 
         public List<MPIRSALIYEDETAY> PagingList(int skip, int take);
 

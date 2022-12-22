@@ -10,6 +10,7 @@ using MEYPAK.PRL.CARI.Raporlar;
 using MEYPAK.PRL.DEPO;
 using MEYPAK.PRL.DEPO.Raporlar;
 using MEYPAK.PRL.IRSALIYE;
+using MEYPAK.PRL.KASA;
 using MEYPAK.PRL.PARAMETRELER;
 using MEYPAK.PRL.PERSONEL;
 using MEYPAK.PRL.PERSONEL.Raporlar;
@@ -97,7 +98,8 @@ namespace MEYPAK.PRL
         FPersonelList fPersonelList;
         FPersonelRaporu fPersonelRaporu;
         FStokSevkiyatRaporu fStokSevkiyatRaporu;
-
+        FKasaKart fKasaKart;
+        FKasaHareket fKasaHareket;
         public Tarih_Date _tarih_Date;
         public DataTable guncelkur;
         GenericWebServis<PocoPARABIRIM> _parabirimServis;
@@ -1176,6 +1178,48 @@ namespace MEYPAK.PRL
         private void Main_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void ACEKasaKart_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fKasaKart = new FKasaKart();
+            page.Name = "TPKasaKart" + i;
+            page.Text = "Kasa Kart";
+            page.Tag = "TPKasaKart" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fKasaKart.FormBorderStyle = FormBorderStyle.None;
+            fKasaKart.TopLevel = false;
+            fKasaKart.AutoScroll = true;
+            fKasaKart.Dock = DockStyle.Fill;
+            fKasaKart.Tag = "TPKasaKart" + i;
+            page.Controls.Add(fKasaKart);
+            fKasaKart.Show();
+            i++;
+        }
+
+        private void ACEKasaHar_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fKasaHareket = new FKasaHareket();
+            page.Name = "TPKasaHareket" + i;
+            page.Text = "Kasa Hareket";
+            page.Tag = "TPKasaHareket" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fKasaHareket.FormBorderStyle = FormBorderStyle.None;
+            fKasaHareket.TopLevel = false;
+            fKasaHareket.AutoScroll = true;
+            fKasaHareket.Dock = DockStyle.Fill;
+            fKasaHareket.Tag = "TPKasaHareket" + i;
+            page.Controls.Add(fKasaHareket);
+            fKasaHareket.Show();
+            i++;
         }
     }
 }
