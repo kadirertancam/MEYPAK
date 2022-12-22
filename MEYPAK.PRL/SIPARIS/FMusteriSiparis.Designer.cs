@@ -91,19 +91,19 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.LBGenelToplam = new System.Windows.Forms.Label();
-            this.TBGenelToplam = new System.Windows.Forms.TextBox();
             this.LBKdvTutari = new System.Windows.Forms.Label();
             this.LBAraToplam = new System.Windows.Forms.Label();
             this.LBIskontoTutari = new System.Windows.Forms.Label();
             this.LBBrutToplam = new System.Windows.Forms.Label();
-            this.TBKdvTutari = new System.Windows.Forms.TextBox();
-            this.TBAraToplam = new System.Windows.Forms.TextBox();
-            this.TBIskontoToplam = new System.Windows.Forms.TextBox();
-            this.TBBrutToplam = new System.Windows.Forms.TextBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.BTKaydet = new System.Windows.Forms.Button();
             this.BTNSil = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.TBGenelToplam = new DevExpress.XtraEditors.TextEdit();
+            this.TBKdvTutari = new DevExpress.XtraEditors.TextEdit();
+            this.TBAraToplam = new DevExpress.XtraEditors.TextEdit();
+            this.TBIskontoToplam = new DevExpress.XtraEditors.TextEdit();
+            this.TBBrutToplam = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.DTSiparisTarih.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTSiparisTarih.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CHBKdvDahil.Properties)).BeginInit();
@@ -140,6 +140,11 @@
             this.groupBox2.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TBGenelToplam.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBKdvTutari.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBAraToplam.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBIskontoToplam.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBBrutToplam.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // DTSiparisTarih
@@ -689,16 +694,16 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.LBGenelToplam);
             this.groupBox2.Controls.Add(this.TBGenelToplam);
-            this.groupBox2.Controls.Add(this.LBKdvTutari);
-            this.groupBox2.Controls.Add(this.LBAraToplam);
-            this.groupBox2.Controls.Add(this.LBIskontoTutari);
-            this.groupBox2.Controls.Add(this.LBBrutToplam);
             this.groupBox2.Controls.Add(this.TBKdvTutari);
             this.groupBox2.Controls.Add(this.TBAraToplam);
             this.groupBox2.Controls.Add(this.TBIskontoToplam);
             this.groupBox2.Controls.Add(this.TBBrutToplam);
+            this.groupBox2.Controls.Add(this.LBGenelToplam);
+            this.groupBox2.Controls.Add(this.LBKdvTutari);
+            this.groupBox2.Controls.Add(this.LBAraToplam);
+            this.groupBox2.Controls.Add(this.LBIskontoTutari);
+            this.groupBox2.Controls.Add(this.LBBrutToplam);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -717,19 +722,6 @@
             this.LBGenelToplam.Size = new System.Drawing.Size(79, 15);
             this.LBGenelToplam.TabIndex = 9;
             this.LBGenelToplam.Text = "Genel Toplam";
-            // 
-            // TBGenelToplam
-            // 
-            this.TBGenelToplam.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.TBGenelToplam.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TBGenelToplam.Enabled = false;
-            this.TBGenelToplam.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.TBGenelToplam.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.TBGenelToplam.Location = new System.Drawing.Point(102, 138);
-            this.TBGenelToplam.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.TBGenelToplam.Name = "TBGenelToplam";
-            this.TBGenelToplam.Size = new System.Drawing.Size(196, 20);
-            this.TBGenelToplam.TabIndex = 8;
             // 
             // LBKdvTutari
             // 
@@ -770,58 +762,6 @@
             this.LBBrutToplam.Size = new System.Drawing.Size(71, 15);
             this.LBBrutToplam.TabIndex = 4;
             this.LBBrutToplam.Text = "Brüt Toplam";
-            // 
-            // TBKdvTutari
-            // 
-            this.TBKdvTutari.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.TBKdvTutari.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TBKdvTutari.Enabled = false;
-            this.TBKdvTutari.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.TBKdvTutari.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.TBKdvTutari.Location = new System.Drawing.Point(102, 110);
-            this.TBKdvTutari.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.TBKdvTutari.Name = "TBKdvTutari";
-            this.TBKdvTutari.Size = new System.Drawing.Size(196, 20);
-            this.TBKdvTutari.TabIndex = 3;
-            // 
-            // TBAraToplam
-            // 
-            this.TBAraToplam.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.TBAraToplam.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TBAraToplam.Enabled = false;
-            this.TBAraToplam.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.TBAraToplam.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.TBAraToplam.Location = new System.Drawing.Point(102, 81);
-            this.TBAraToplam.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.TBAraToplam.Name = "TBAraToplam";
-            this.TBAraToplam.Size = new System.Drawing.Size(196, 20);
-            this.TBAraToplam.TabIndex = 2;
-            // 
-            // TBIskontoToplam
-            // 
-            this.TBIskontoToplam.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.TBIskontoToplam.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TBIskontoToplam.Enabled = false;
-            this.TBIskontoToplam.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.TBIskontoToplam.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.TBIskontoToplam.Location = new System.Drawing.Point(102, 52);
-            this.TBIskontoToplam.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.TBIskontoToplam.Name = "TBIskontoToplam";
-            this.TBIskontoToplam.Size = new System.Drawing.Size(196, 20);
-            this.TBIskontoToplam.TabIndex = 1;
-            // 
-            // TBBrutToplam
-            // 
-            this.TBBrutToplam.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.TBBrutToplam.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TBBrutToplam.Enabled = false;
-            this.TBBrutToplam.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.TBBrutToplam.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.TBBrutToplam.Location = new System.Drawing.Point(102, 27);
-            this.TBBrutToplam.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.TBBrutToplam.Name = "TBBrutToplam";
-            this.TBBrutToplam.Size = new System.Drawing.Size(196, 20);
-            this.TBBrutToplam.TabIndex = 0;
             // 
             // panel6
             // 
@@ -868,6 +808,96 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1884, 488);
             this.panel3.TabIndex = 1;
+            // 
+            // TBGenelToplam
+            // 
+            this.TBGenelToplam.Enabled = false;
+            this.TBGenelToplam.Location = new System.Drawing.Point(102, 139);
+            this.TBGenelToplam.Name = "TBGenelToplam";
+            this.TBGenelToplam.Properties.Appearance.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.TBGenelToplam.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.TBGenelToplam.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.TBGenelToplam.Properties.Appearance.Options.UseBackColor = true;
+            this.TBGenelToplam.Properties.Appearance.Options.UseFont = true;
+            this.TBGenelToplam.Properties.Appearance.Options.UseForeColor = true;
+            this.TBGenelToplam.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.TBGenelToplam.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.TBGenelToplam.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
+            this.TBGenelToplam.Properties.MaskSettings.Set("MaskManagerSignature", "allowNull=False");
+            this.TBGenelToplam.Size = new System.Drawing.Size(168, 22);
+            this.TBGenelToplam.TabIndex = 43;
+            // 
+            // TBKdvTutari
+            // 
+            this.TBKdvTutari.Enabled = false;
+            this.TBKdvTutari.Location = new System.Drawing.Point(102, 109);
+            this.TBKdvTutari.Name = "TBKdvTutari";
+            this.TBKdvTutari.Properties.Appearance.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.TBKdvTutari.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.TBKdvTutari.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.TBKdvTutari.Properties.Appearance.Options.UseBackColor = true;
+            this.TBKdvTutari.Properties.Appearance.Options.UseFont = true;
+            this.TBKdvTutari.Properties.Appearance.Options.UseForeColor = true;
+            this.TBKdvTutari.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.TBKdvTutari.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.TBKdvTutari.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
+            this.TBKdvTutari.Properties.MaskSettings.Set("MaskManagerSignature", "allowNull=False");
+            this.TBKdvTutari.Size = new System.Drawing.Size(168, 22);
+            this.TBKdvTutari.TabIndex = 42;
+            // 
+            // TBAraToplam
+            // 
+            this.TBAraToplam.Enabled = false;
+            this.TBAraToplam.Location = new System.Drawing.Point(102, 80);
+            this.TBAraToplam.Name = "TBAraToplam";
+            this.TBAraToplam.Properties.Appearance.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.TBAraToplam.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.TBAraToplam.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.TBAraToplam.Properties.Appearance.Options.UseBackColor = true;
+            this.TBAraToplam.Properties.Appearance.Options.UseFont = true;
+            this.TBAraToplam.Properties.Appearance.Options.UseForeColor = true;
+            this.TBAraToplam.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.TBAraToplam.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.TBAraToplam.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
+            this.TBAraToplam.Properties.MaskSettings.Set("MaskManagerSignature", "allowNull=False");
+            this.TBAraToplam.Size = new System.Drawing.Size(168, 22);
+            this.TBAraToplam.TabIndex = 41;
+            // 
+            // TBIskontoToplam
+            // 
+            this.TBIskontoToplam.Enabled = false;
+            this.TBIskontoToplam.Location = new System.Drawing.Point(102, 51);
+            this.TBIskontoToplam.Name = "TBIskontoToplam";
+            this.TBIskontoToplam.Properties.Appearance.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.TBIskontoToplam.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.TBIskontoToplam.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.TBIskontoToplam.Properties.Appearance.Options.UseBackColor = true;
+            this.TBIskontoToplam.Properties.Appearance.Options.UseFont = true;
+            this.TBIskontoToplam.Properties.Appearance.Options.UseForeColor = true;
+            this.TBIskontoToplam.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.TBIskontoToplam.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.TBIskontoToplam.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
+            this.TBIskontoToplam.Properties.MaskSettings.Set("MaskManagerSignature", "allowNull=False");
+            this.TBIskontoToplam.Size = new System.Drawing.Size(168, 22);
+            this.TBIskontoToplam.TabIndex = 40;
+            // 
+            // TBBrutToplam
+            // 
+            this.TBBrutToplam.Enabled = false;
+            this.TBBrutToplam.Location = new System.Drawing.Point(102, 22);
+            this.TBBrutToplam.Name = "TBBrutToplam";
+            this.TBBrutToplam.Properties.Appearance.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.TBBrutToplam.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.TBBrutToplam.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.TBBrutToplam.Properties.Appearance.Options.UseBackColor = true;
+            this.TBBrutToplam.Properties.Appearance.Options.UseFont = true;
+            this.TBBrutToplam.Properties.Appearance.Options.UseForeColor = true;
+            this.TBBrutToplam.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.TBBrutToplam.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.TBBrutToplam.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
+            this.TBBrutToplam.Properties.MaskSettings.Set("MaskManagerSignature", "allowNull=False");
+            this.TBBrutToplam.Size = new System.Drawing.Size(168, 22);
+            this.TBBrutToplam.TabIndex = 39;
             // 
             // FMusteriSiparis
             // 
@@ -920,6 +950,11 @@
             this.groupBox2.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.TBGenelToplam.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBKdvTutari.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBAraToplam.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBIskontoToplam.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBBrutToplam.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -970,15 +1005,10 @@
         private Panel panel7;
         private GroupBox groupBox2;
         private Label LBGenelToplam;
-        private TextBox TBGenelToplam;
         private Label LBKdvTutari;
         private Label LBAraToplam;
         private Label LBIskontoTutari;
         private Label LBBrutToplam;
-        private TextBox TBKdvTutari;
-        private TextBox TBAraToplam;
-        private TextBox TBIskontoToplam;
-        private TextBox TBBrutToplam;
         private Panel panel6;
         private Button BTKaydet;
         private Button BTNSil;
@@ -987,5 +1017,10 @@
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
         private Button BTNSatirSil;
+        private DevExpress.XtraEditors.TextEdit TBGenelToplam;
+        private DevExpress.XtraEditors.TextEdit TBKdvTutari;
+        private DevExpress.XtraEditors.TextEdit TBAraToplam;
+        private DevExpress.XtraEditors.TextEdit TBIskontoToplam;
+        private DevExpress.XtraEditors.TextEdit TBBrutToplam;
     }
 }

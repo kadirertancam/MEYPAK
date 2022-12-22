@@ -154,17 +154,16 @@ namespace MEYPAK.PRL.IRSALIYE
             TBAIskonto1.Text = "0";
             TBAIskonto2.Text = "0";
             TBAIskonto3.Text = "0";
-            TBAraToplam.Text = "0";
-            TBBrutToplam.Text = "0";
             TBCariAdi.Text = "";
             TBCariKodu.Text = "";
-            TBGenelToplam.Text = "0";
             TBGun.Text = "0";
             TBFaturaNo.Text = "";
-            TBIskontoToplam.Text = "0";
-            TBIskontoToplam.Text = "0";
-            TBKdvTutari.Text = "0";
             TBKur.Text = "0";
+            TBIskontoToplam.EditValue = 0;
+            TBBrutToplam.EditValue = 0;
+            TBAraToplam.EditValue = 0;
+            TBGenelToplam.EditValue = 0;
+            TBKdvTutari.EditValue = 0;
             DTPVadeTarihi.EditValue = DateTime.Now;
             DTSiparisTarih.EditValue = DateTime.Now;
             CBAltHesap.Properties.DataSource = "";
@@ -323,7 +322,28 @@ namespace MEYPAK.PRL.IRSALIYE
             GCIrsaliye.RepositoryItems.Add(repositoryItemButtonEdit3);
             GCIrsaliye.RepositoryItems.Add(repositoryItemButtonEdit4);
 
+            gridView1.Columns["Daralı"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            gridView1.Columns["Daralı"].DisplayFormat.FormatString = "n2";
 
+            gridView1.Columns["Safi"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            gridView1.Columns["Safi"].DisplayFormat.FormatString = "n2";
+            gridView1.Columns["Safi"].OptionsColumn.AllowEdit = false;
+
+            gridView1.Columns["KdvTutarı"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            gridView1.Columns["KdvTutarı"].DisplayFormat.FormatString = "n2";
+            gridView1.Columns["KdvTutarı"].OptionsColumn.AllowEdit = false;
+
+            gridView1.Columns["İskontoTutarı"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            gridView1.Columns["İskontoTutarı"].DisplayFormat.FormatString = "n2";
+            gridView1.Columns["İskontoTutarı"].OptionsColumn.AllowEdit = false;
+
+            gridView1.Columns["NetToplam"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            gridView1.Columns["NetToplam"].DisplayFormat.FormatString = "n2";
+            gridView1.Columns["NetToplam"].OptionsColumn.AllowEdit = false;
+
+            gridView1.Columns["BrütToplam"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            gridView1.Columns["BrütToplam"].DisplayFormat.FormatString = "n2";
+            gridView1.Columns["BrütToplam"].OptionsColumn.AllowEdit = false;
 
             gridView1.Columns["StokKodu"].VisibleIndex = 4;
             gridView1.Columns["KasaMiktar"].VisibleIndex = 7;
@@ -361,20 +381,20 @@ namespace MEYPAK.PRL.IRSALIYE
 
 
 
-                TBBrutToplam.Text = decimal.Round((_tempIrsaliyeDetay.Sum(x => x.BrütToplam)), 2).ToString();
-                TBAraToplam.Text = temppte.ToString();
-                TBIskontoToplam.Text = (decimal.Round((_tempIrsaliyeDetay.Sum(x => x.BrütToplam)), 2) - temppte).ToString();
-                TBKdvTutari.Text = kdvtoplamm.ToString();
-                TBGenelToplam.Text = decimal.Round((temppte + kdvtoplamm),2).ToString();
+                TBBrutToplam.EditValue = decimal.Round((_tempIrsaliyeDetay.Sum(x => x.BrütToplam)), 2);
+                TBAraToplam.EditValue = decimal.Round(temppte,2);
+                TBIskontoToplam.EditValue = (decimal.Round((_tempIrsaliyeDetay.Sum(x => x.BrütToplam)), 2) - temppte);
+                TBKdvTutari.EditValue = decimal.Round(kdvtoplamm,2);
+                TBGenelToplam.EditValue = decimal.Round((temppte + kdvtoplamm),2);
             }
             else
             {
 
-                TBBrutToplam.Text = decimal.Round(_tempIrsaliyeDetay.Sum(x => x.BrütToplam), 2).ToString();
-                TBIskontoToplam.Text = decimal.Round(_tempIrsaliyeDetay.Sum(x => x.İskontoTutarı), 2).ToString();
-                TBKdvTutari.Text = decimal.Round(_tempIrsaliyeDetay.Sum(x => x.KdvTutarı), 2).ToString();
-                TBGenelToplam.Text = decimal.Round(_tempIrsaliyeDetay.Sum(x => x.NetToplam + x.KdvTutarı), 2).ToString();
-                TBAraToplam.Text = decimal.Round(_tempIrsaliyeDetay.Sum(x => x.NetToplam), 2).ToString();
+                TBBrutToplam.EditValue = decimal.Round(_tempIrsaliyeDetay.Sum(x => x.BrütToplam), 2);
+                TBIskontoToplam.EditValue = decimal.Round(_tempIrsaliyeDetay.Sum(x => x.İskontoTutarı), 2);
+                TBKdvTutari.EditValue = decimal.Round(_tempIrsaliyeDetay.Sum(x => x.KdvTutarı), 2);
+                TBGenelToplam.EditValue = decimal.Round(_tempIrsaliyeDetay.Sum(x => x.NetToplam + x.KdvTutarı), 2);
+                TBAraToplam.EditValue = decimal.Round(_tempIrsaliyeDetay.Sum(x => x.NetToplam), 2);
             }
 
         }
@@ -914,7 +934,7 @@ namespace MEYPAK.PRL.IRSALIYE
                     altiskonto1 = Convert.ToDecimal(TBAIskonto1.Text),
                     altiskonto2 = Convert.ToDecimal(TBAIskonto2.Text),
                     altiskonto3 = Convert.ToDecimal(TBAIskonto3.Text),
-                    iskontotoplam = Convert.ToDecimal(TBIskontoToplam.Text), //_tempIrsaliyeDetay.Sum(x => x.İskontoTutarı),
+                    iskontotoplam = Convert.ToDecimal(TBIskontoToplam.EditValue), //_tempIrsaliyeDetay.Sum(x => x.İskontoTutarı),
                     kdvtoplam = _tempIrsaliyeDetay.Sum(x => x.KdvTutarı),
                     bruttoplam = _tempIrsaliyeDetay.Sum(x => x.BrütToplam),
                     nettoplam = _tempIrsaliyeDetay.Sum(x => x.NetToplam),

@@ -330,6 +330,7 @@
             this.tileView3.OptionsTiles.IndentBetweenGroups = 0;
             this.tileView3.OptionsTiles.IndentBetweenItems = 0;
             this.tileView3.OptionsTiles.ItemPadding = new System.Windows.Forms.Padding(0);
+            this.tileView3.OptionsTiles.ItemSize = new System.Drawing.Size(248, 100);
             this.tileView3.OptionsTiles.LayoutMode = DevExpress.XtraGrid.Views.Tile.TileViewLayoutMode.List;
             this.tileView3.OptionsTiles.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.tileView3.OptionsTiles.Padding = new System.Windows.Forms.Padding(3);
