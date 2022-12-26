@@ -35,7 +35,7 @@ namespace MEYPAK.PRL.STOK
             InitializeComponent();
             _stokSayimServis = new GenericWebServis<PocoSTOKSAYIM>();
             _depoServis = new GenericWebServis<PocoDEPO>();
-            
+            this.gridView1.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
         }
         string _form;
         string _islem;

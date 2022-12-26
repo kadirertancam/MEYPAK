@@ -26,6 +26,7 @@ using MEYPAK.PRL.PERSONEL.Raporlar;
 using System.Windows.Media.TextFormatting;
 using DevExpress.XtraTab;
 using MEYPAK.PRL.CARI;
+using MEYPAK.PRL.KASA;
 
 namespace MEYPAK.PRL.PERSONEL
 {
@@ -44,6 +45,7 @@ namespace MEYPAK.PRL.PERSONEL
         GenericWebServis<PocoPERSONEL> _personelServis;
         FPersonelKart fPersonelKart;
         FPersonelRaporu fPersonelRaporu;
+        FKasaHareket fKasaHareket;
         public PocoPERSONEL _tempPocoPERSONEL;
         Main main;
         int i = 0;
@@ -65,10 +67,11 @@ namespace MEYPAK.PRL.PERSONEL
                 if (_form == frm.Tag)
                 {
                     if (frm.Name.Contains("FPersonelKart"))
-                        fPersonelKart = (FPersonelKart)frm;
+                        fPersonelKart = (FPersonelKart)frm; 
                     else if (frm.Name.Contains("FPersonelRaporu"))
                         fPersonelRaporu = (FPersonelRaporu)frm;
-
+                    else if (frm.Name.Contains("FKasaHareket"))
+                        fKasaHareket = (FKasaHareket)frm;
                 }
             }
 
@@ -78,14 +81,19 @@ namespace MEYPAK.PRL.PERSONEL
         {
             if (_islem == "FPersonelKart")
             {
-                fPersonelKart._tempPocoPERSONEL = _personelServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+                fPersonelKart._tempPocoPERSONEL = _personelServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()).FirstOrDefault();
             }
             else if (_islem == "FPersonelRaporu")
             {
-                fPersonelRaporu._tempPersonel = _personelServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
-
-                this.Close();
+                fPersonelRaporu._tempPersonel =   _personelServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()).FirstOrDefault();
             }
+            else if (_islem == "FKasaHareket")
+            {
+                fKasaHareket._tempPersonel     =  _personelServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()).FirstOrDefault();
+            }
+
+
+            this.Close();
         }
     }
     }

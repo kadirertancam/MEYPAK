@@ -53,6 +53,7 @@ namespace MEYPAK.PRL.KASA
             {
                 fKasaHareket._tempKasa = kasaServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()).FirstOrDefault();
             }
+            this.Close();
         }
     }
 }

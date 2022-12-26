@@ -7,6 +7,7 @@ using MEYPAK.Entity.PocoModels.IRSALIYE;
 using MEYPAK.Interfaces.IRSALIYE;
 using MEYPAK.Interfaces.Stok;
 using MEYPAK.PRL.IRSALIYE;
+using MEYPAK.PRL.KASA;
 using MEYPAK.PRL.SIPARIS.Raporlar;
 using MEYPAK.PRL.STOK.Raporlar;
 using System;

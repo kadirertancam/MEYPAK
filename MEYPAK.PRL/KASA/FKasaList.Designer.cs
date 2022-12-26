@@ -50,6 +50,7 @@
             // 
             this.gridView1.GridControl = this.GCKasa;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.Editable = false;
             // 
             // FKasaList
             // 

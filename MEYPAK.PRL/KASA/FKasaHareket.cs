@@ -1,11 +1,16 @@
 ﻿using DevExpress.CodeParser;
+using DevExpress.XtraCharts.Designer.Native;
 using DevExpress.XtraEditors;
 using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.FATURA;
 using MEYPAK.Entity.PocoModels.KASA;
 using MEYPAK.Entity.PocoModels.PARAMETRE;
+using MEYPAK.Entity.PocoModels.PERSONEL;
 using MEYPAK.Interfaces.Parametre;
+using MEYPAK.PRL.CARI;
+using MEYPAK.PRL.PERSONEL;
+using MEYPAK.PRL.SIPARIS;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,14 +28,17 @@ namespace MEYPAK.PRL.KASA
         public FKasaHareket()
         {
             InitializeComponent();
-            kasaHarServis=new GenericWebServis<PocoKASAHAR>();
-            parabirimServis = new GenericWebServis<PocoPARABIRIM>();    
+            kasaHarServis = new GenericWebServis<PocoKASAHAR>();
+            parabirimServis = new GenericWebServis<PocoPARABIRIM>();
+            this.gridView1.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
         }
         GenericWebServis<PocoKASAHAR> kasaHarServis;
         GenericWebServis<PocoPARABIRIM> parabirimServis;
-       public PocoKASA _tempKasa;
-       public PocoCARIKART _tempCari;
-       public PocoFATURA _tempFatura;
+
+        public PocoKASA _tempKasa;
+        public PocoCARIKART _tempCari;
+        public PocoFATURA _tempFatura;
+        public PocoPERSONEL _tempPersonel;
 
         private void FKasaHareket_Load(object sender, EventArgs e)
         {
@@ -43,29 +51,50 @@ namespace MEYPAK.PRL.KASA
             TBKur.EditValue = 0;
             TBTutar.EditValue = 0;
             DTPTarih.EditValue = DateTime.Now;
+
+           
         }
 
         private void BTNCariSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-
+            FCariList fCariList = new FCariList(this.Tag.ToString(), "FKasaHareket");
+            fCariList.ShowDialog();
+            if (_tempCari != null)
+            {
+                BTNCariSec.Text = _tempCari.kod;
+                TBCariAdi.Text = _tempCari.adi != "" ? _tempCari.adi : _tempCari.unvan;
+            }
         }
 
         private void BTNFaturaSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-
+            FFaturaList fFaturaList = new FFaturaList(this.Tag.ToString(), "FKasaHareket");
+            fFaturaList.ShowDialog();
+            if (_tempFatura != null)
+                BTNFaturaSec.Text = _tempFatura.belgeno;
         }
 
         private void BTNKasaSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            FKasaList fKasaList = new FKasaList(this.Tag.ToString(),"FKasaHareket");
+            FKasaList fKasaList = new FKasaList(this.Tag.ToString(), "FKasaHareket");
             fKasaList.ShowDialog();
             if (_tempKasa != null)
                 BTNKasaSec.Text = _tempKasa.adi;
+            GridiDoldur();
+
+        }
+
+        private void BTNPersonelSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            FPersonelList fPersonelList = new FPersonelList(this.Tag.ToString(), "FKasaHareket");
+            fPersonelList.ShowDialog();
+            if (_tempPersonel != null)
+                BTNPersonelSec.Text = _tempPersonel.adisoyadi;
         }
 
         private void radioGroup1_Properties_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
             GroupBoxlarıKapat();
             switch (radioGroup1.SelectedIndex)
             {
@@ -92,10 +121,23 @@ namespace MEYPAK.PRL.KASA
             }
         }
 
+        void GridiDoldur()
+        {
+            if (_tempKasa != null)
+            {
+                kasaHarServis.Data(ServisList.KasaHarListeServis);
+                GCKasaHareket.DataSource = kasaHarServis.obje.Where(x => x.KASAID == _tempKasa.id).Reverse();
+            }
+            else
+            {
+                GCKasaHareket.DataSource = "";
+            }
+        }
+
         void GroupBoxlarıKapat()
         {
-            GBBanka.Visible= false;
-            GBBanka.Enabled= false;
+            GBBanka.Visible = false;
+            GBBanka.Enabled = false;
             GBMuhtelif.Visible = false;
             GBMuhtelif.Enabled = false;
             GBCari.Visible = false;
@@ -105,30 +147,57 @@ namespace MEYPAK.PRL.KASA
             GBPersonel.Visible = false;
             GBPersonel.Enabled = false;
         }
+        void FormuTemizle()
+        {
+            foreach (var ctrl in panelControl6.Controls)
+            {
+                BaseEdit editor = ctrl as BaseEdit;
+                if (editor != null)
+                    editor.EditValue = null;
+            }
+            foreach (var ctrl in panelControl7.Controls)
+            {
+                BaseEdit editor = ctrl as BaseEdit;
+                if (editor != null)
+                    editor.EditValue = null;
+            }
+            foreach (var ctrl in panelControl2.Controls)
+            {
+                BaseEdit editor = ctrl as BaseEdit;
+                if (editor != null)
+                    editor.EditValue = null;
+            }
+            _tempKasa = null;
+            _tempCari = null;
+            _tempFatura = null;
+            _tempPersonel = null;
+
+        }
 
         private void BTNKaydet_Click(object sender, EventArgs e)
         {
-            if (_tempKasa!=null)
+            if (_tempKasa != null)
             {
                 switch (radioGroup1.SelectedIndex)
                 {
                     case 0: //CARI
-                        if (_tempCari!=null && _tempFatura!=null)
+                        if (_tempCari != null && _tempFatura != null)
                         {
                             kasaHarServis.Data(ServisList.KasaHarEkleServis, new PocoKASAHAR()
                             {
                                 CARIID = _tempCari.id,
-                                FATURAID = _tempFatura.id,
-                                BELGENO = TBBelgeNo.Text,
+                               
 
                                 TARIH = Convert.ToDateTime(DTPTarih.EditValue),
                                 KASAID = _tempKasa.id,
-                                IO =Convert.ToByte(radioGroup2.SelectedIndex),
-                                TIP= 0,
+                                IO = Convert.ToByte(radioGroup2.SelectedIndex),
+                                TIP = 0,
                                 PARABIRIMID = Convert.ToInt32(CBParaBirim.EditValue),
                                 KUR = Convert.ToDecimal(TBKur.EditValue),
                                 TUTAR = Convert.ToDecimal(TBTutar.EditValue),
-                            }) ;
+                            });
+                            MessageBox.Show("Hareket Başarıyla Eklendi.");
+                            FormuTemizle();
                         }
                         else
                             MessageBox.Show("Cari veya Fatura Seçmeden Hareket Giremezsiniz!");
@@ -147,14 +216,17 @@ namespace MEYPAK.PRL.KASA
                                 PARABIRIMID = Convert.ToInt32(CBParaBirim.EditValue),
                                 KUR = Convert.ToDecimal(TBKur.EditValue),
                                 TUTAR = Convert.ToDecimal(TBTutar.EditValue),
-                            }) ;
+                            });
+                            MessageBox.Show("Hareket Başarıyla Eklendi.");
+                            FormuTemizle();
                         }
                         break;
                     case 2: //PERSONEL
-                        if (true/*tempbanka!=nul*/)
+                        if (_tempPersonel != null)
                         {
                             kasaHarServis.Data(ServisList.KasaHarEkleServis, new PocoKASAHAR()
                             {
+                                PERSONELID = _tempPersonel.id,
 
                                 TARIH = Convert.ToDateTime(DTPTarih.EditValue),
                                 KASAID = _tempKasa.id,
@@ -164,7 +236,11 @@ namespace MEYPAK.PRL.KASA
                                 KUR = Convert.ToDecimal(TBKur.EditValue),
                                 TUTAR = Convert.ToDecimal(TBTutar.EditValue),
                             });
+                            MessageBox.Show("Hareket Başarıyla Eklendi.");
+                            FormuTemizle();
                         }
+                        else
+                            MessageBox.Show("Personel Seçmeden Hareket Giremezsiniz!");
                         break;
                     case 3: //MUHTELIF
                         if (true/*tempbanka!=nul*/)
@@ -180,6 +256,8 @@ namespace MEYPAK.PRL.KASA
                                 KUR = Convert.ToDecimal(TBKur.EditValue),
                                 TUTAR = Convert.ToDecimal(TBTutar.EditValue),
                             });
+                            MessageBox.Show("Hareket Başarıyla Eklendi.");
+                            FormuTemizle();
                         }
                         break;
                     case 4: //MUHASEBE
@@ -187,8 +265,8 @@ namespace MEYPAK.PRL.KASA
                         {
                             kasaHarServis.Data(ServisList.KasaHarEkleServis, new PocoKASAHAR()
                             {
-                              
-                                MUHID =Convert.ToInt32(TBMuhKodu.Text),
+
+                                MUHID = Convert.ToInt32(TBMuhKodu.Text),
 
 
                                 TARIH = Convert.ToDateTime(DTPTarih.EditValue),
@@ -198,7 +276,9 @@ namespace MEYPAK.PRL.KASA
                                 PARABIRIMID = Convert.ToInt32(CBParaBirim.EditValue),
                                 KUR = Convert.ToDecimal(TBKur.EditValue),
                                 TUTAR = Convert.ToDecimal(TBTutar.EditValue),
-                            }) ;
+                            });
+                            MessageBox.Show("Hareket Başarıyla Eklendi.");
+                            FormuTemizle();
                         }
                         break;
                 }
@@ -207,6 +287,18 @@ namespace MEYPAK.PRL.KASA
                 MessageBox.Show("Kasa Seçmeden Hareket Giremezsiniz!");
         }
 
- 
+        private void gridView1_RowStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowStyleEventArgs e)
+        {
+            string quantity = Convert.ToString(gridView1.GetRowCellValue(e.RowHandle, "IO"));
+
+            if (quantity == "0")
+            {
+                e.Appearance.BackColor = Color.Red;
+            }
+            else
+            {
+                e.Appearance.BackColor = Color.LightGreen;
+            }
+        }
     }
 }
