@@ -71,7 +71,7 @@ namespace MEYPAK.PRL.KASA
             FFaturaList fFaturaList = new FFaturaList(this.Tag.ToString(), "FKasaHareket");
             fFaturaList.ShowDialog();
             if (_tempFatura != null)
-                BTNFaturaSec.Text = _tempFatura.belgeno;
+                //BTNFaturaSec.Text = _tempFatura.belgeno;
         }
 
         private void BTNKasaSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
