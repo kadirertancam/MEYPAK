@@ -97,6 +97,15 @@ namespace MEYPAK.BLL.Assets
 
         #endregion
 
+        #region Banka
+        public const string BANKAListeServis =              "http://213.238.167.117:8080/BANKA/BANKAListe";
+        public const string BANKAEkleServis =               "http://213.238.167.117:8080/BANKA/BANKAEkleyadaGuncelle";
+        public const string BANKASilServis =                "http://213.238.167.117:8080/BANKA/BANKASil";
+        public const string BANKAGuncelleServis =           "http://213.238.167.117:8080/BANKA/BANKAGuncelle";
+        public const string BANKADeleteByIdServis =         "http://213.238.167.117:8080/BANKA/DeleteById";
+        public const string BANKAFiltreServis =             "http://213.238.167.117:8080/BANKA/BANKAListe2?query=";
+        #endregion
+
         #region Cari
 
         public const string CariListeServis = "http://213.238.167.117:8080/CARI/CARIListe";

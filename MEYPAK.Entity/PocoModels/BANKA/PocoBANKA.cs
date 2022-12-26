@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.Entity.PocoModels.BANKA
 {
-    internal class PocoBANKA:SUPERPOCOMODEL
+    public class PocoBANKA:SUPERPOCOMODEL
     {
-        public int kod { get; set; }
-        public int adi { get; set; }
-        public int il { get; set; }
-        public int ilce { get; set; }
+        public string kod { get; set; }
+        public string adi { get; set; }
+        public string il { get; set; }
+        public string ilce { get; set; }
         public int aktif { get; set; }
     }
 }

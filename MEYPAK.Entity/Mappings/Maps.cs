@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MEYPAK.Entity.Models.ARAC;
+using MEYPAK.Entity.Models.BANKA;
 using MEYPAK.Entity.Models.CARI;
 using MEYPAK.Entity.Models.DEPO;
 using MEYPAK.Entity.Models.FATURA;
@@ -10,6 +11,7 @@ using MEYPAK.Entity.Models.PERSONEL;
 using MEYPAK.Entity.Models.SIPARIS;
 using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Entity.PocoModels.ARAC;
+using MEYPAK.Entity.PocoModels.BANKA;
 using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.DEPO;
 using MEYPAK.Entity.PocoModels.FATURA;
@@ -31,6 +33,9 @@ namespace MEYPAK.Entity.Mappings
     {
         public Maps()
         {
+
+            //BANKA
+            CreateMap<MPBANKA, PocoBANKA>().ReverseMap();
 
             //PARAMETRE
 

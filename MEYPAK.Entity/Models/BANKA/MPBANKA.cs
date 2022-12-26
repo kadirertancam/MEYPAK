@@ -8,10 +8,10 @@ namespace MEYPAK.Entity.Models.BANKA
 {
     public class MPBANKA:SUPERMODEL
     {
-        public int KOD { get; set; }
-        public int ADI { get; set; }
-        public int IL { get; set; }
-        public int ILCE { get; set; }
+        public string KOD { get; set; }
+        public string ADI { get; set; }
+        public string IL { get; set; }
+        public string ILCE { get; set; }
         public int AKTIF { get; set; }
     }
 }

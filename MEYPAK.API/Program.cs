@@ -46,6 +46,9 @@ using MEYPAK.DAL.Abstract.FaturaDal;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository.FaturaRepo;
 using MEYPAK.Interfaces.Fatura;
 using MEYPAK.BLL.FATURA;
+using MEYPAK.DAL.Abstract.BankaDal;
+using MEYPAK.Interfaces.Banka;
+using MEYPAK.BLL.BANKA;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -87,7 +90,10 @@ builder.Services.AddAutoMapper(x =>
 });
 
 
-
+#region Banka_Scoped_Islemleri
+builder.Services.AddScoped<IBankaDal, EFBankaRepo>();
+builder.Services.AddScoped<IBankaServis, BankaManager>();
+#endregion
 #region Parametre_Scoped_Islemleri
 builder.Services.AddScoped<IParaBirimDal, EFParaBirimRepo>();
 builder.Services.AddScoped<IParaBirimServis, ParaBirimManager>();

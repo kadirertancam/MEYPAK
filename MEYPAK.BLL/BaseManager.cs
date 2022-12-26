@@ -81,5 +81,12 @@ namespace MEYPAK.BLL
         {
             return _repo.DeleteById(id);
         }
+
+        public Poco EkleyadaGuncelle(Poco entity)
+        {
+            T Model = _mapper.Map<Poco, T>(entity); 
+            Poco pRModel = _mapper.Map<T, Poco>(_repo.Ekle(Model)); 
+            return pRModel;
+        }
     }
 }

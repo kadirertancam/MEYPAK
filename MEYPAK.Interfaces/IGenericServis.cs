@@ -14,6 +14,7 @@ namespace MEYPAK.Interfaces
         public bool DeleteById(int id);
         bool Sil(List<Poco> entity);
         Durum Guncelle(Poco entity, Expression<Func<Poco, bool>> predicate);
+        Poco EkleyadaGuncelle(Poco entity);
         Durum Guncelle(Poco entity);
         Poco Ekle(Poco entity);
     }

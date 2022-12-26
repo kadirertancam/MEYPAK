@@ -1,6 +1,7 @@
 ﻿using MEYPAK.Entity.IdentityModels;
 using MEYPAK.Entity.Models;
 using MEYPAK.Entity.Models.ARAC;
+using MEYPAK.Entity.Models.BANKA;
 using MEYPAK.Entity.Models.CARI;
 using MEYPAK.Entity.Models.DEPO;
 using MEYPAK.Entity.Models.FATURA;
@@ -27,6 +28,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
             
 
         }
+        public DbSet<MPBANKA> MPBANKA { get; set; }
         public DbSet<MPSERIHAR> MPSERIHAR { get; set; }
         public DbSet<MPCARIALTHESCARI> MPCARIALTHESCARI { get; set; }
         public DbSet<MPSIPARISKASAHAR> MPSIPARISKASAHAR { get; set; }

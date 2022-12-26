@@ -189,7 +189,7 @@ public partial class BildirimSorguDTO
 
     private decimal kalanMiktarField;
 
-    private ulong kunyeNoField;
+    private string kunyeNoField;
 
     private string malinAdiField;
 
@@ -352,7 +352,7 @@ public partial class BildirimSorguDTO
     }
 
     /// <remarks/>
-    public ulong KunyeNo
+    public string KunyeNo
     {
         get
         {

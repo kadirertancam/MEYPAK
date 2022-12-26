@@ -19,6 +19,7 @@ using DevExpress.ClipboardSource.SpreadsheetML;
 using DevExpress.Mvvm.Native;
 using MEYPAK.Interfaces;
 using MEYPAK.Entity.Models.KASA;
+using System.ComponentModel.Design;
 
 namespace MEYPAK.PRL.SIPARIS
 {
@@ -339,7 +340,7 @@ namespace MEYPAK.PRL.SIPARIS
 
             GCIrsaliye.RepositoryItems.Add(repositoryItemButtonEdit3);
             GCIrsaliye.RepositoryItems.Add(repositoryItemButtonEdit4);
-
+    
             gridView1.Columns["Daralı"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             gridView1.Columns["Daralı"].DisplayFormat.FormatString = "n2";
 
@@ -396,8 +397,7 @@ namespace MEYPAK.PRL.SIPARIS
                     iskk = decimal.Round((_tempFaturaDetay.Sum(x => x.İskontoTutarı)), 2);
                     isktoplam = isktoplam + iskk;
                 }
-
-
+                 
 
                 TBBrutToplam.EditValue = decimal.Round((_tempFaturaDetay.Sum(x => x.BrütToplam)), 2);
                 TBAraToplam.EditValue = decimal.Round(temppte, 2);
@@ -487,8 +487,7 @@ namespace MEYPAK.PRL.SIPARIS
                     {
                         kDVHesaps.kdv18 += kdvtoplam;
                     }
-                }
-
+                } 
                 gridView1.SetRowCellValue(rowindex, "BrütFiyat", decimal.Round(brutfiyat, 2));
                 gridView1.SetRowCellValue(rowindex, "NetToplam", decimal.Round(nettoplam, 2));
                 gridView1.SetRowCellValue(rowindex, "BrütToplam", decimal.Round(brüttoplam, 2));
