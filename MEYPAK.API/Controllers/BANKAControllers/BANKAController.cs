@@ -50,7 +50,7 @@ namespace MEYPAK.API.Controllers.BANKAControllers
         }
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult BANKAEkleyadaGuncelle(PocoBANKA pModel)
+        public IActionResult BANKAEkleyadaGuncelle([FromBody]PocoBANKA pModel)
         {
             try
             {

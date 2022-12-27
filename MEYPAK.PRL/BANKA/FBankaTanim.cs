@@ -28,8 +28,11 @@ namespace MEYPAK.PRL.BANKA
                 KOD = buttonEdit1.Text,
                 ADI = yeniTextEdit1.Text,
                 IL = yeniTextEdit2.Text,
-                ILCE = yeniTextEdit3.Text
+                ILCE = yeniTextEdit3.Text,
+                AKTIF=1
             });
+            _bankaServis.Data(ServisList.BANKAListeServis);
+            gridControl1.DataSource = _bankaServis.obje;
         }
     }
 }
