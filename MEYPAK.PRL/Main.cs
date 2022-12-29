@@ -5,6 +5,7 @@ using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.PocoModels.PARAMETRE;
 using MEYPAK.PRL.ARACLAR;
 using MEYPAK.PRL.ARAÇLAR;
+using MEYPAK.PRL.BANKA;
 using MEYPAK.PRL.CARI;
 using MEYPAK.PRL.CARI.Raporlar;
 using MEYPAK.PRL.DEPO;
@@ -100,6 +101,11 @@ namespace MEYPAK.PRL
         FStokSevkiyatRaporu fStokSevkiyatRaporu;
         FKasaKart fKasaKart;
         FKasaHareket fKasaHareket;
+        FBankaTanim fBankaTanim;
+        FBankaHesapTanim fBankaHesapTanim;
+        FBankaSubeTanim fBankaSubeTanim;
+        FHesapHareket fHesapHareket;
+
         public Tarih_Date _tarih_Date;
         public DataTable guncelkur;
         GenericWebServis<PocoPARABIRIM> _parabirimServis;
@@ -1219,6 +1225,90 @@ namespace MEYPAK.PRL
             fKasaHareket.Tag = "TPKasaHareket" + i;
             page.Controls.Add(fKasaHareket);
             fKasaHareket.Show();
+            i++;
+        }
+
+        private void ACEBankaKart_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fBankaTanim = new FBankaTanim();
+            page.Name = "TPBankaTanim" + i;
+            page.Text = "Banka Tanım";
+            page.Tag = "TPBankaTanim" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fBankaTanim.FormBorderStyle = FormBorderStyle.None;
+            fBankaTanim.TopLevel = false;
+            fBankaTanim.AutoScroll = true;
+            fBankaTanim.Dock = DockStyle.Fill;
+            fBankaTanim.Tag = "TPBankaTanim" + i;
+            page.Controls.Add(fBankaTanim);
+            fBankaTanim.Show();
+            i++;
+        }
+
+        private void ACESubeKart_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fBankaSubeTanim = new FBankaSubeTanim();
+            page.Name = "TPBankaSubeTanim" + i;
+            page.Text = "Sube Tanım";
+            page.Tag = "TPBankaSubeTanim" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fBankaSubeTanim.FormBorderStyle = FormBorderStyle.None;
+            fBankaSubeTanim.TopLevel = false;
+            fBankaSubeTanim.AutoScroll = true;
+            fBankaSubeTanim.Dock = DockStyle.Fill;
+            fBankaSubeTanim.Tag = "TPBankaSubeTanim" + i;
+            page.Controls.Add(fBankaSubeTanim);
+            fBankaSubeTanim.Show();
+            i++;
+        }
+
+        private void ACEHesapKart_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fBankaHesapTanim = new FBankaHesapTanim();
+            page.Name = "TPBankaHesapTanim" + i;
+            page.Text = "Hesap Tanım";
+            page.Tag = "TPBankaHesapTanim" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fBankaHesapTanim.FormBorderStyle = FormBorderStyle.None;
+            fBankaHesapTanim.TopLevel = false;
+            fBankaHesapTanim.AutoScroll = true;
+            fBankaHesapTanim.Dock = DockStyle.Fill;
+            fBankaHesapTanim.Tag = "TPBankaHesapTanim" + i;
+            page.Controls.Add(fBankaHesapTanim);
+            fBankaHesapTanim.Show();
+            i++;
+        }
+
+        private void ACEHesapHar_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fHesapHareket = new FHesapHareket();
+            page.Name = "TPHesapHareket" + i;
+            page.Text = "Hesap Hareket";
+            page.Tag = "TPHesapHareket" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fHesapHareket.FormBorderStyle = FormBorderStyle.None;
+            fHesapHareket.TopLevel = false;
+            fHesapHareket.AutoScroll = true;
+            fHesapHareket.Dock = DockStyle.Fill;
+            fHesapHareket.Tag = "TPHesapHareket" + i;
+            page.Controls.Add(fHesapHareket);
+            fHesapHareket.Show();
             i++;
         }
     }

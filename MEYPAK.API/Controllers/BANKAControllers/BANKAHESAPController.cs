@@ -3,19 +3,18 @@ using MEYPAK.DAL.Concrete.ADONET;
 using MEYPAK.Entity.Models.BANKA;
 using MEYPAK.Entity.PocoModels.BANKA;
 using MEYPAK.Interfaces.Banka;
-using MEYPAK.Interfaces.Cari;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MEYPAK.API.Controllers.BANKAControllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class BANKAController : Controller
+    public class BANKAHESAPController : Controller
     {
         private readonly IMapper _mapper;
-        private readonly IBankaServis _bankaServis;
-        private MPAdoContext<MPBANKA> _adobankaServis = new MPAdoContext<MPBANKA>();
-        public BANKAController(IMapper mapper, IBankaServis bankaServis)
+        private readonly IBankaHesapServis _bankaServis;
+        private MPAdoContext<MPBANKAHESAP> _adobankaServis = new MPAdoContext<MPBANKAHESAP>();
+        public BANKAHESAPController(IMapper mapper, IBankaHesapServis bankaServis)
         {
             _mapper = mapper;
             _bankaServis = bankaServis;
@@ -24,7 +23,7 @@ namespace MEYPAK.API.Controllers.BANKAControllers
         [HttpGet]
         [Route("/[controller]/[action]")]
 
-        public IActionResult BANKAListe()
+        public IActionResult BANKAHESAPListe()
         {
             try
             {
@@ -38,7 +37,7 @@ namespace MEYPAK.API.Controllers.BANKAControllers
         }
         [HttpGet]
         [Route("/[controller]/[action]")]
-        public IActionResult BANKAListe2([FromQuery] string query)
+        public IActionResult BANKAHESAPListe2([FromQuery] string query)
         {
             try
             {
@@ -52,7 +51,7 @@ namespace MEYPAK.API.Controllers.BANKAControllers
         }
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult BANKAEkleyadaGuncelle([FromBody]PocoBANKA pModel)
+        public IActionResult BANKAHESAPEkleyadaGuncelle([FromBody] PocoBANKAHESAP pModel)
         {
             try
             {
@@ -66,7 +65,7 @@ namespace MEYPAK.API.Controllers.BANKAControllers
         }
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult BANKASil(List<PocoBANKA> pModel)
+        public IActionResult BANKAHESAPSil(List<PocoBANKAHESAP> pModel)
         {
             try
             {
@@ -80,7 +79,7 @@ namespace MEYPAK.API.Controllers.BANKAControllers
         }
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult BANKAGuncelle(PocoBANKA pModel)
+        public IActionResult BANKAHESAPGuncelle(PocoBANKAHESAP pModel)
         {
             try
             {
@@ -109,7 +108,5 @@ namespace MEYPAK.API.Controllers.BANKAControllers
                 return Problem("Belirsiz bir hata oluştu!" + ex.Message);
             }
         }
-
-
     }
 }

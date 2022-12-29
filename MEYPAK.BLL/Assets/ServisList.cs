@@ -97,13 +97,40 @@ namespace MEYPAK.BLL.Assets
 
         #endregion
 
+        #region HesapHar
+        public const string HesapHarListeServis =              "http://213.238.167.117:8080/HESAPHAR/HESAPHARListe";
+        public const string HesapHarEkleServis =               "http://213.238.167.117:8080/HESAPHAR/HESAPHAREkleyadaGuncelle";
+        public const string HesapHarSilServis =                "http://213.238.167.117:8080/HESAPHAR/HESAPHARSil";
+        public const string HesapHarGuncelleServis =           "http://213.238.167.117:8080/HESAPHAR/HESAPHARGuncelle";
+        public const string HesapHarDeleteByIdServis =         "http://213.238.167.117:8080/HESAPHAR/DeleteById";
+        public const string HesapHarFiltreServis =             "http://213.238.167.117:8080/HESAPHAR/HESAPHARListe2?query=";
+        #endregion
+
         #region Banka
-        public const string BANKAListeServis =              "http://213.238.167.117:8080/BANKA/BANKAListe";
-        public const string BANKAEkleServis =               "http://213.238.167.117:8080/BANKA/BANKAEkleyadaGuncelle";
-        public const string BANKASilServis =                "http://213.238.167.117:8080/BANKA/BANKASil";
-        public const string BANKAGuncelleServis =           "http://213.238.167.117:8080/BANKA/BANKAGuncelle";
-        public const string BANKADeleteByIdServis =         "http://213.238.167.117:8080/BANKA/DeleteById";
-        public const string BANKAFiltreServis =             "http://213.238.167.117:8080/BANKA/BANKAListe2?query=";
+        public const string BANKAListeServis = "http://213.238.167.117:8080/BANKA/BANKAListe";
+        public const string BANKAEkleServis = "http://213.238.167.117:8080/BANKA/BANKAEkleyadaGuncelle";
+        public const string BANKASilServis = "http://213.238.167.117:8080/BANKA/BANKASil";
+        public const string BANKAGuncelleServis = "http://213.238.167.117:8080/BANKA/BANKAGuncelle";
+        public const string BANKADeleteByIdServis = "http://213.238.167.117:8080/BANKA/DeleteById";
+        public const string BANKAFiltreServis = "http://213.238.167.117:8080/BANKA/BANKAListe2?query=";
+        #endregion
+
+        #region BankaHesap
+        public const string BANKAHesapListeServis = "http://213.238.167.117:8080/BANKAHESAP/BANKAHESAPListe";
+        public const string BANKAHesapEkleServis = "http://213.238.167.117:8080/BANKAHESAP/BANKAHESAPEkleyadaGuncelle";
+        public const string BANKAHesapSilServis = "http://213.238.167.117:8080/BANKAHESAP/BANKAHESAPSil";
+        public const string BANKAHesapGuncelleServis = "http://213.238.167.117:8080/BANKAHESAP/BANKAHESAPGuncelle";
+        public const string BANKAHesapDeleteByIdServis = "http://213.238.167.117:8080/BANKAHESAP/DeleteById";
+        public const string BANKAHesapFiltreServis = "http://213.238.167.117:8080/BANKAHESAP/BANKAHESAPListe2?query=";
+        #endregion
+
+        #region BankaSube
+        public const string BANKASubeListeServis = "http://213.238.167.117:8080/BANKASUBE/BANKASUBEListe";
+        public const string BANKASubeEkleServis = "http://213.238.167.117:8080/BANKASUBE/BANKASUBEEkleyadaGuncelle";
+        public const string BANKASubeSilServis = "http://213.238.167.117:8080/BANKASUBE/BANKASUBESil";
+        public const string BANKASubeGuncelleServis = "http://213.238.167.117:8080/BANKASUBE/BANKASUBEGuncelle";
+        public const string BANKASubeDeleteByIdServis = "http://213.238.167.117:8080/BANKASUBE/DeleteById";
+        public const string BANKASubeFiltreServis = "http://213.238.167.117:8080/BANKASUBE/BANKASUBEListe2?query=";
         #endregion
 
         #region Cari

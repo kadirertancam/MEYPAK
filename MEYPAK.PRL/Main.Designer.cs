@@ -159,8 +159,18 @@
             this.ACEMusteriSiparisRaporu = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEKasa = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEKasaTanim = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACEKasaKart = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEKasaHareket = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACEKasaHar = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEKasaRapor = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACEBanka = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACEBankaTanim = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACEBankaKart = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACESubeKart = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACEHesapKart = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACEBankaHareket = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACEHesapHar = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACEBankaRapor = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement21 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement38 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement41 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -179,8 +189,6 @@
             this.ACESeriTanim = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
             this.applicationMenu1 = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
-            this.ACEKasaKart = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.ACEKasaHar = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -805,6 +813,7 @@
             this.accordionControlElement5,
             this.accordionControlElement20,
             this.ACEKasa,
+            this.ACEBanka,
             this.accordionControlElement21,
             this.accordionControlElement61,
             this.accordionControlElement22});
@@ -1285,7 +1294,6 @@
             this.ACEKasaTanim,
             this.ACEKasaHareket,
             this.ACEKasaRapor});
-            this.ACEKasa.Expanded = true;
             this.ACEKasa.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ACEKasa.ImageOptions.Image")));
             this.ACEKasa.Name = "ACEKasa";
             this.ACEKasa.Text = "Kasa";
@@ -1298,6 +1306,13 @@
             this.ACEKasaTanim.Name = "ACEKasaTanim";
             this.ACEKasaTanim.Text = "Tanım";
             // 
+            // ACEKasaKart
+            // 
+            this.ACEKasaKart.Name = "ACEKasaKart";
+            this.ACEKasaKart.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ACEKasaKart.Text = "Kasa Kart";
+            this.ACEKasaKart.Click += new System.EventHandler(this.ACEKasaKart_Click);
+            // 
             // ACEKasaHareket
             // 
             this.ACEKasaHareket.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
@@ -1306,10 +1321,76 @@
             this.ACEKasaHareket.Name = "ACEKasaHareket";
             this.ACEKasaHareket.Text = "Hareket";
             // 
+            // ACEKasaHar
+            // 
+            this.ACEKasaHar.Name = "ACEKasaHar";
+            this.ACEKasaHar.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ACEKasaHar.Text = "Kasa Hareket";
+            this.ACEKasaHar.Click += new System.EventHandler(this.ACEKasaHar_Click);
+            // 
             // ACEKasaRapor
             // 
             this.ACEKasaRapor.Name = "ACEKasaRapor";
             this.ACEKasaRapor.Text = "Rapor";
+            // 
+            // ACEBanka
+            // 
+            this.ACEBanka.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.ACEBankaTanim,
+            this.ACEBankaHareket,
+            this.ACEBankaRapor});
+            this.ACEBanka.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ACEBanka.ImageOptions.Image")));
+            this.ACEBanka.Name = "ACEBanka";
+            this.ACEBanka.Text = "Banka";
+            // 
+            // ACEBankaTanim
+            // 
+            this.ACEBankaTanim.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.ACEBankaKart,
+            this.ACESubeKart,
+            this.ACEHesapKart});
+            this.ACEBankaTanim.Name = "ACEBankaTanim";
+            this.ACEBankaTanim.Text = "Tanım";
+            // 
+            // ACEBankaKart
+            // 
+            this.ACEBankaKart.Name = "ACEBankaKart";
+            this.ACEBankaKart.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ACEBankaKart.Text = "Banka Tanım";
+            this.ACEBankaKart.Click += new System.EventHandler(this.ACEBankaKart_Click);
+            // 
+            // ACESubeKart
+            // 
+            this.ACESubeKart.Name = "ACESubeKart";
+            this.ACESubeKart.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ACESubeKart.Text = "Şube Tanım";
+            this.ACESubeKart.Click += new System.EventHandler(this.ACESubeKart_Click);
+            // 
+            // ACEHesapKart
+            // 
+            this.ACEHesapKart.Name = "ACEHesapKart";
+            this.ACEHesapKart.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ACEHesapKart.Text = "Hesap Tanım";
+            this.ACEHesapKart.Click += new System.EventHandler(this.ACEHesapKart_Click);
+            // 
+            // ACEBankaHareket
+            // 
+            this.ACEBankaHareket.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.ACEHesapHar});
+            this.ACEBankaHareket.Name = "ACEBankaHareket";
+            this.ACEBankaHareket.Text = "Hareket";
+            // 
+            // ACEHesapHar
+            // 
+            this.ACEHesapHar.Name = "ACEHesapHar";
+            this.ACEHesapHar.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ACEHesapHar.Text = "Hesap Hareket";
+            this.ACEHesapHar.Click += new System.EventHandler(this.ACEHesapHar_Click);
+            // 
+            // ACEBankaRapor
+            // 
+            this.ACEBankaRapor.Name = "ACEBankaRapor";
+            this.ACEBankaRapor.Text = "Rapor";
             // 
             // accordionControlElement21
             // 
@@ -1384,7 +1465,7 @@
             this.ACEAracTanim,
             this.ACEAracRotaTanim});
             this.accordionControlElement23.Name = "accordionControlElement23";
-            this.accordionControlElement23.Text = "Tanımlar";
+            this.accordionControlElement23.Text = "Tanım";
             // 
             // ACEAracTanim
             // 
@@ -1403,12 +1484,12 @@
             // accordionControlElement24
             // 
             this.accordionControlElement24.Name = "accordionControlElement24";
-            this.accordionControlElement24.Text = "Hareketler";
+            this.accordionControlElement24.Text = "Hareket";
             // 
             // accordionControlElement25
             // 
             this.accordionControlElement25.Name = "accordionControlElement25";
-            this.accordionControlElement25.Text = "Raporlar";
+            this.accordionControlElement25.Text = "Rapor";
             // 
             // accordionControlElement22
             // 
@@ -1456,20 +1537,6 @@
             // applicationMenu1
             // 
             this.applicationMenu1.Name = "applicationMenu1";
-            // 
-            // ACEKasaKart
-            // 
-            this.ACEKasaKart.Name = "ACEKasaKart";
-            this.ACEKasaKart.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.ACEKasaKart.Text = "Kasa Kart";
-            this.ACEKasaKart.Click += new System.EventHandler(this.ACEKasaKart_Click);
-            // 
-            // ACEKasaHar
-            // 
-            this.ACEKasaHar.Name = "ACEKasaHar";
-            this.ACEKasaHar.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.ACEKasaHar.Text = "Kasa Hareket";
-            this.ACEKasaHar.Click += new System.EventHandler(this.ACEKasaHar_Click);
             // 
             // Main
             // 
@@ -1651,5 +1718,13 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEKasaRapor;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEKasaKart;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEKasaHar;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACEBanka;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACEBankaTanim;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACEBankaKart;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACESubeKart;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACEHesapKart;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACEBankaHareket;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACEBankaRapor;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACEHesapHar;
     }
 }

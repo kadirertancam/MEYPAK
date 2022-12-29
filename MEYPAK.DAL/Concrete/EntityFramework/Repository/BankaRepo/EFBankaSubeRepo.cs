@@ -7,12 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
+namespace MEYPAK.DAL.Concrete.EntityFramework.Repository.BankaRapo
 {
-    public class EFBankaRepo : EFBaseRepo<MPBANKA>, IBankaDal
+    public class EFBankaSubeRepo : EFBaseRepo<MPBANKASUBE>, IBankaSubeDal
     {
         MEYPAKContext context;
-        public EFBankaRepo(MEYPAKContext _context) : base(_context)
+        public EFBankaSubeRepo(MEYPAKContext _context) : base(_context)
         {
             context = _context;
         }

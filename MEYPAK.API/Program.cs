@@ -49,6 +49,8 @@ using MEYPAK.BLL.FATURA;
 using MEYPAK.DAL.Abstract.BankaDal;
 using MEYPAK.Interfaces.Banka;
 using MEYPAK.BLL.BANKA;
+using MEYPAK.DAL.Concrete.EntityFramework.Repository.BankaRapo;
+using MEYPAK.DAL.Concrete.EntityFramework.Repository.BankaRepo;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -93,6 +95,15 @@ builder.Services.AddAutoMapper(x =>
 #region Banka_Scoped_Islemleri
 builder.Services.AddScoped<IBankaDal, EFBankaRepo>();
 builder.Services.AddScoped<IBankaServis, BankaManager>();
+
+builder.Services.AddScoped<IBankaHesapDal, EFBankaHesapRepo>();
+builder.Services.AddScoped<IBankaHesapServis, BankaHesapManager>();
+
+builder.Services.AddScoped<IBankaSubeDal, EFBankaSubeRepo>();
+builder.Services.AddScoped<IBankaSubeServis, BankaSubeManager>();
+
+builder.Services.AddScoped<IHesapHarDal, EFHesapHarRepo>();
+builder.Services.AddScoped<IHesapHarServis, HesapHarManager>();
 #endregion
 #region Parametre_Scoped_Islemleri
 builder.Services.AddScoped<IParaBirimDal, EFParaBirimRepo>();
