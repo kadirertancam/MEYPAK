@@ -38,23 +38,25 @@ namespace MEYPAK.PRL.EFatura
 
             private string noteField;
 
-            private DocumentCurrencyCode documentCurrencyCodeField;
+            private string documentCurrencyCodeField;
 
             private byte lineCountNumericField;
 
             private AdditionalDocumentReference additionalDocumentReferenceField;
 
-            private Signature1 signatureField;
+            private Signature signatureField;
 
             private AccountingSupplierParty accountingSupplierPartyField;
 
             private AccountingCustomerParty accountingCustomerPartyField;
 
+            private AllowanceCharge allowanceChargeField;
+
             private TaxTotal taxTotalField;
 
             private LegalMonetaryTotal legalMonetaryTotalField;
 
-            private InvoiceLine invoiceLineField;
+            private List<InvoiceLine> invoiceLineField;
 
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2")]
@@ -198,7 +200,7 @@ namespace MEYPAK.PRL.EFatura
 
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public DocumentCurrencyCode DocumentCurrencyCode
+            public string DocumentCurrencyCode
             {
                 get
                 {
@@ -240,7 +242,7 @@ namespace MEYPAK.PRL.EFatura
 
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2")]
-            public Signature1 Signature
+            public Signature Signature
             {
                 get
                 {
@@ -282,6 +284,20 @@ namespace MEYPAK.PRL.EFatura
 
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2")]
+            public AllowanceCharge AllowanceCharge
+            {
+                get
+                {
+                    return this.allowanceChargeField;
+                }
+                set
+                {
+                    this.allowanceChargeField = value;
+                }
+            }
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2")]
             public TaxTotal TaxTotal
             {
                 get
@@ -310,7 +326,7 @@ namespace MEYPAK.PRL.EFatura
 
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2")]
-            public InvoiceLine InvoiceLine
+            public List<InvoiceLine> InvoiceLine
             {
                 get
                 {
@@ -354,10 +370,10 @@ namespace MEYPAK.PRL.EFatura
         public partial class UBLExtensionsUBLExtension
         {
 
-            private UBLExtensionsUBLExtensionExtensionContent extensionContentField;
+            private object extensionContentField;
 
             /// <remarks/>
-            public UBLExtensionsUBLExtensionExtensionContent ExtensionContent
+            public object ExtensionContent
             {
                 get
                 {
@@ -366,950 +382,6 @@ namespace MEYPAK.PRL.EFatura
                 set
                 {
                     this.extensionContentField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.SerializableAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2")]
-        public partial class UBLExtensionsUBLExtensionExtensionContent
-        {
-
-            private Signature signatureField;
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlElementAttribute(Namespace = "http://www.w3.org/2000/09/xmldsig#")]
-            public Signature Signature
-            {
-                get
-                {
-                    return this.signatureField;
-                }
-                set
-                {
-                    this.signatureField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.SerializableAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.w3.org/2000/09/xmldsig#")]
-        [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://www.w3.org/2000/09/xmldsig#", IsNullable = false)]
-        public partial class Signature
-        {
-
-            private SignatureSignedInfo signedInfoField;
-
-            private SignatureSignatureValue signatureValueField;
-
-            private SignatureKeyInfo keyInfoField;
-
-            private SignatureObject objectField;
-
-            private string idField;
-
-            /// <remarks/>
-            public SignatureSignedInfo SignedInfo
-            {
-                get
-                {
-                    return this.signedInfoField;
-                }
-                set
-                {
-                    this.signedInfoField = value;
-                }
-            }
-
-            /// <remarks/>
-            public SignatureSignatureValue SignatureValue
-            {
-                get
-                {
-                    return this.signatureValueField;
-                }
-                set
-                {
-                    this.signatureValueField = value;
-                }
-            }
-
-            /// <remarks/>
-            public SignatureKeyInfo KeyInfo
-            {
-                get
-                {
-                    return this.keyInfoField;
-                }
-                set
-                {
-                    this.keyInfoField = value;
-                }
-            }
-
-            /// <remarks/>
-            public SignatureObject Object
-            {
-                get
-                {
-                    return this.objectField;
-                }
-                set
-                {
-                    this.objectField = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlAttributeAttribute()]
-            public string Id
-            {
-                get
-                {
-                    return this.idField;
-                }
-                set
-                {
-                    this.idField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.SerializableAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.w3.org/2000/09/xmldsig#")]
-        public partial class SignatureSignedInfo
-        {
-
-            private SignatureSignedInfoCanonicalizationMethod canonicalizationMethodField;
-
-            private SignatureSignedInfoSignatureMethod signatureMethodField;
-
-            private SignatureSignedInfoReference[] referenceField;
-
-            private string idField;
-
-            /// <remarks/>
-            public SignatureSignedInfoCanonicalizationMethod CanonicalizationMethod
-            {
-                get
-                {
-                    return this.canonicalizationMethodField;
-                }
-                set
-                {
-                    this.canonicalizationMethodField = value;
-                }
-            }
-
-            /// <remarks/>
-            public SignatureSignedInfoSignatureMethod SignatureMethod
-            {
-                get
-                {
-                    return this.signatureMethodField;
-                }
-                set
-                {
-                    this.signatureMethodField = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlElementAttribute("Reference")]
-            public SignatureSignedInfoReference[] Reference
-            {
-                get
-                {
-                    return this.referenceField;
-                }
-                set
-                {
-                    this.referenceField = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlAttributeAttribute()]
-            public string Id
-            {
-                get
-                {
-                    return this.idField;
-                }
-                set
-                {
-                    this.idField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.SerializableAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.w3.org/2000/09/xmldsig#")]
-        public partial class SignatureSignedInfoCanonicalizationMethod
-        {
-
-            private string algorithmField;
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlAttributeAttribute()]
-            public string Algorithm
-            {
-                get
-                {
-                    return this.algorithmField;
-                }
-                set
-                {
-                    this.algorithmField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.SerializableAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.w3.org/2000/09/xmldsig#")]
-        public partial class SignatureSignedInfoSignatureMethod
-        {
-
-            private string algorithmField;
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlAttributeAttribute()]
-            public string Algorithm
-            {
-                get
-                {
-                    return this.algorithmField;
-                }
-                set
-                {
-                    this.algorithmField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.SerializableAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.w3.org/2000/09/xmldsig#")]
-        public partial class SignatureSignedInfoReference
-        {
-
-            private SignatureSignedInfoReferenceTransforms transformsField;
-
-            private SignatureSignedInfoReferenceDigestMethod digestMethodField;
-
-            private string digestValueField;
-
-            private string uRIField;
-
-            private string idField;
-
-            private string typeField;
-
-            /// <remarks/>
-            public SignatureSignedInfoReferenceTransforms Transforms
-            {
-                get
-                {
-                    return this.transformsField;
-                }
-                set
-                {
-                    this.transformsField = value;
-                }
-            }
-
-            /// <remarks/>
-            public SignatureSignedInfoReferenceDigestMethod DigestMethod
-            {
-                get
-                {
-                    return this.digestMethodField;
-                }
-                set
-                {
-                    this.digestMethodField = value;
-                }
-            }
-
-            /// <remarks/>
-            public string DigestValue
-            {
-                get
-                {
-                    return this.digestValueField;
-                }
-                set
-                {
-                    this.digestValueField = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlAttributeAttribute()]
-            public string URI
-            {
-                get
-                {
-                    return this.uRIField;
-                }
-                set
-                {
-                    this.uRIField = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlAttributeAttribute()]
-            public string Id
-            {
-                get
-                {
-                    return this.idField;
-                }
-                set
-                {
-                    this.idField = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlAttributeAttribute()]
-            public string Type
-            {
-                get
-                {
-                    return this.typeField;
-                }
-                set
-                {
-                    this.typeField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.SerializableAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.w3.org/2000/09/xmldsig#")]
-        public partial class SignatureSignedInfoReferenceTransforms
-        {
-
-            private SignatureSignedInfoReferenceTransformsTransform transformField;
-
-            /// <remarks/>
-            public SignatureSignedInfoReferenceTransformsTransform Transform
-            {
-                get
-                {
-                    return this.transformField;
-                }
-                set
-                {
-                    this.transformField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.SerializableAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.w3.org/2000/09/xmldsig#")]
-        public partial class SignatureSignedInfoReferenceTransformsTransform
-        {
-
-            private string algorithmField;
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlAttributeAttribute()]
-            public string Algorithm
-            {
-                get
-                {
-                    return this.algorithmField;
-                }
-                set
-                {
-                    this.algorithmField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.SerializableAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.w3.org/2000/09/xmldsig#")]
-        public partial class SignatureSignedInfoReferenceDigestMethod
-        {
-
-            private string algorithmField;
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlAttributeAttribute()]
-            public string Algorithm
-            {
-                get
-                {
-                    return this.algorithmField;
-                }
-                set
-                {
-                    this.algorithmField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.SerializableAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.w3.org/2000/09/xmldsig#")]
-        public partial class SignatureSignatureValue
-        {
-
-            private string idField;
-
-            private string valueField;
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlAttributeAttribute()]
-            public string Id
-            {
-                get
-                {
-                    return this.idField;
-                }
-                set
-                {
-                    this.idField = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlTextAttribute()]
-            public string Value
-            {
-                get
-                {
-                    return this.valueField;
-                }
-                set
-                {
-                    this.valueField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.SerializableAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.w3.org/2000/09/xmldsig#")]
-        public partial class SignatureKeyInfo
-        {
-
-            private SignatureKeyInfoKeyValue keyValueField;
-
-            private SignatureKeyInfoX509Data x509DataField;
-
-            /// <remarks/>
-            public SignatureKeyInfoKeyValue KeyValue
-            {
-                get
-                {
-                    return this.keyValueField;
-                }
-                set
-                {
-                    this.keyValueField = value;
-                }
-            }
-
-            /// <remarks/>
-            public SignatureKeyInfoX509Data X509Data
-            {
-                get
-                {
-                    return this.x509DataField;
-                }
-                set
-                {
-                    this.x509DataField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.SerializableAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.w3.org/2000/09/xmldsig#")]
-        public partial class SignatureKeyInfoKeyValue
-        {
-
-            private SignatureKeyInfoKeyValueRSAKeyValue rSAKeyValueField;
-
-            /// <remarks/>
-            public SignatureKeyInfoKeyValueRSAKeyValue RSAKeyValue
-            {
-                get
-                {
-                    return this.rSAKeyValueField;
-                }
-                set
-                {
-                    this.rSAKeyValueField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.SerializableAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.w3.org/2000/09/xmldsig#")]
-        public partial class SignatureKeyInfoKeyValueRSAKeyValue
-        {
-
-            private string modulusField;
-
-            private string exponentField;
-
-            /// <remarks/>
-            public string Modulus
-            {
-                get
-                {
-                    return this.modulusField;
-                }
-                set
-                {
-                    this.modulusField = value;
-                }
-            }
-
-            /// <remarks/>
-            public string Exponent
-            {
-                get
-                {
-                    return this.exponentField;
-                }
-                set
-                {
-                    this.exponentField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.SerializableAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.w3.org/2000/09/xmldsig#")]
-        public partial class SignatureKeyInfoX509Data
-        {
-
-            private string x509SubjectNameField;
-
-            private string x509CertificateField;
-
-            /// <remarks/>
-            public string X509SubjectName
-            {
-                get
-                {
-                    return this.x509SubjectNameField;
-                }
-                set
-                {
-                    this.x509SubjectNameField = value;
-                }
-            }
-
-            /// <remarks/>
-            public string X509Certificate
-            {
-                get
-                {
-                    return this.x509CertificateField;
-                }
-                set
-                {
-                    this.x509CertificateField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.SerializableAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.w3.org/2000/09/xmldsig#")]
-        public partial class SignatureObject
-        {
-
-            private QualifyingProperties qualifyingPropertiesField;
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlElementAttribute(Namespace = "http://uri.etsi.org/01903/v1.3.2#")]
-            public QualifyingProperties QualifyingProperties
-            {
-                get
-                {
-                    return this.qualifyingPropertiesField;
-                }
-                set
-                {
-                    this.qualifyingPropertiesField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.SerializableAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://uri.etsi.org/01903/v1.3.2#")]
-        [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://uri.etsi.org/01903/v1.3.2#", IsNullable = false)]
-        public partial class QualifyingProperties
-        {
-
-            private QualifyingPropertiesSignedProperties signedPropertiesField;
-
-            private string targetField;
-
-            /// <remarks/>
-            public QualifyingPropertiesSignedProperties SignedProperties
-            {
-                get
-                {
-                    return this.signedPropertiesField;
-                }
-                set
-                {
-                    this.signedPropertiesField = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlAttributeAttribute()]
-            public string Target
-            {
-                get
-                {
-                    return this.targetField;
-                }
-                set
-                {
-                    this.targetField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.SerializableAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://uri.etsi.org/01903/v1.3.2#")]
-        public partial class QualifyingPropertiesSignedProperties
-        {
-
-            private QualifyingPropertiesSignedPropertiesSignedSignatureProperties signedSignaturePropertiesField;
-
-            private string idField;
-
-            /// <remarks/>
-            public QualifyingPropertiesSignedPropertiesSignedSignatureProperties SignedSignatureProperties
-            {
-                get
-                {
-                    return this.signedSignaturePropertiesField;
-                }
-                set
-                {
-                    this.signedSignaturePropertiesField = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlAttributeAttribute()]
-            public string Id
-            {
-                get
-                {
-                    return this.idField;
-                }
-                set
-                {
-                    this.idField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.SerializableAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://uri.etsi.org/01903/v1.3.2#")]
-        public partial class QualifyingPropertiesSignedPropertiesSignedSignatureProperties
-        {
-
-            private System.DateTime signingTimeField;
-
-            private QualifyingPropertiesSignedPropertiesSignedSignaturePropertiesSigningCertificate signingCertificateField;
-
-            private QualifyingPropertiesSignedPropertiesSignedSignaturePropertiesSignerRole signerRoleField;
-
-            /// <remarks/>
-            public System.DateTime SigningTime
-            {
-                get
-                {
-                    return this.signingTimeField;
-                }
-                set
-                {
-                    this.signingTimeField = value;
-                }
-            }
-
-            /// <remarks/>
-            public QualifyingPropertiesSignedPropertiesSignedSignaturePropertiesSigningCertificate SigningCertificate
-            {
-                get
-                {
-                    return this.signingCertificateField;
-                }
-                set
-                {
-                    this.signingCertificateField = value;
-                }
-            }
-
-            /// <remarks/>
-            public QualifyingPropertiesSignedPropertiesSignedSignaturePropertiesSignerRole SignerRole
-            {
-                get
-                {
-                    return this.signerRoleField;
-                }
-                set
-                {
-                    this.signerRoleField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.SerializableAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://uri.etsi.org/01903/v1.3.2#")]
-        public partial class QualifyingPropertiesSignedPropertiesSignedSignaturePropertiesSigningCertificate
-        {
-
-            private QualifyingPropertiesSignedPropertiesSignedSignaturePropertiesSigningCertificateCert certField;
-
-            /// <remarks/>
-            public QualifyingPropertiesSignedPropertiesSignedSignaturePropertiesSigningCertificateCert Cert
-            {
-                get
-                {
-                    return this.certField;
-                }
-                set
-                {
-                    this.certField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.SerializableAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://uri.etsi.org/01903/v1.3.2#")]
-        public partial class QualifyingPropertiesSignedPropertiesSignedSignaturePropertiesSigningCertificateCert
-        {
-
-            private QualifyingPropertiesSignedPropertiesSignedSignaturePropertiesSigningCertificateCertCertDigest certDigestField;
-
-            private QualifyingPropertiesSignedPropertiesSignedSignaturePropertiesSigningCertificateCertIssuerSerial issuerSerialField;
-
-            /// <remarks/>
-            public QualifyingPropertiesSignedPropertiesSignedSignaturePropertiesSigningCertificateCertCertDigest CertDigest
-            {
-                get
-                {
-                    return this.certDigestField;
-                }
-                set
-                {
-                    this.certDigestField = value;
-                }
-            }
-
-            /// <remarks/>
-            public QualifyingPropertiesSignedPropertiesSignedSignaturePropertiesSigningCertificateCertIssuerSerial IssuerSerial
-            {
-                get
-                {
-                    return this.issuerSerialField;
-                }
-                set
-                {
-                    this.issuerSerialField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.SerializableAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://uri.etsi.org/01903/v1.3.2#")]
-        public partial class QualifyingPropertiesSignedPropertiesSignedSignaturePropertiesSigningCertificateCertCertDigest
-        {
-
-            private DigestMethod digestMethodField;
-
-            private string digestValueField;
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlElementAttribute(Namespace = "http://www.w3.org/2000/09/xmldsig#")]
-            public DigestMethod DigestMethod
-            {
-                get
-                {
-                    return this.digestMethodField;
-                }
-                set
-                {
-                    this.digestMethodField = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlElementAttribute(Namespace = "http://www.w3.org/2000/09/xmldsig#")]
-            public string DigestValue
-            {
-                get
-                {
-                    return this.digestValueField;
-                }
-                set
-                {
-                    this.digestValueField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.SerializableAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.w3.org/2000/09/xmldsig#")]
-        [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://www.w3.org/2000/09/xmldsig#", IsNullable = false)]
-        public partial class DigestMethod
-        {
-
-            private string algorithmField;
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlAttributeAttribute()]
-            public string Algorithm
-            {
-                get
-                {
-                    return this.algorithmField;
-                }
-                set
-                {
-                    this.algorithmField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.SerializableAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://uri.etsi.org/01903/v1.3.2#")]
-        public partial class QualifyingPropertiesSignedPropertiesSignedSignaturePropertiesSigningCertificateCertIssuerSerial
-        {
-
-            private string x509IssuerNameField;
-
-            private ulong x509SerialNumberField;
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlElementAttribute(Namespace = "http://www.w3.org/2000/09/xmldsig#")]
-            public string X509IssuerName
-            {
-                get
-                {
-                    return this.x509IssuerNameField;
-                }
-                set
-                {
-                    this.x509IssuerNameField = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlElementAttribute(Namespace = "http://www.w3.org/2000/09/xmldsig#")]
-            public ulong X509SerialNumber
-            {
-                get
-                {
-                    return this.x509SerialNumberField;
-                }
-                set
-                {
-                    this.x509SerialNumberField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.SerializableAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://uri.etsi.org/01903/v1.3.2#")]
-        public partial class QualifyingPropertiesSignedPropertiesSignedSignaturePropertiesSignerRole
-        {
-
-            private QualifyingPropertiesSignedPropertiesSignedSignaturePropertiesSignerRoleClaimedRoles claimedRolesField;
-
-            /// <remarks/>
-            public QualifyingPropertiesSignedPropertiesSignedSignaturePropertiesSignerRoleClaimedRoles ClaimedRoles
-            {
-                get
-                {
-                    return this.claimedRolesField;
-                }
-                set
-                {
-                    this.claimedRolesField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.SerializableAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://uri.etsi.org/01903/v1.3.2#")]
-        public partial class QualifyingPropertiesSignedPropertiesSignedSignaturePropertiesSignerRoleClaimedRoles
-        {
-
-            private string claimedRoleField;
-
-            /// <remarks/>
-            public string ClaimedRole
-            {
-                get
-                {
-                    return this.claimedRoleField;
-                }
-                set
-                {
-                    this.claimedRoleField = value;
                 }
             }
         }
@@ -1358,95 +430,6 @@ namespace MEYPAK.PRL.EFatura
         /// <remarks/>
         [System.SerializableAttribute()]
         [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-        [System.Xml.Serialization.XmlRootAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
-        public partial class DocumentCurrencyCode
-        {
-
-            private string listAgencyNameField;
-
-            private string listIDField;
-
-            private string listNameField;
-
-            private ushort listVersionIDField;
-
-            private string valueField;
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlAttributeAttribute()]
-            public string listAgencyName
-            {
-                get
-                {
-                    return this.listAgencyNameField;
-                }
-                set
-                {
-                    this.listAgencyNameField = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlAttributeAttribute()]
-            public string listID
-            {
-                get
-                {
-                    return this.listIDField;
-                }
-                set
-                {
-                    this.listIDField = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlAttributeAttribute()]
-            public string listName
-            {
-                get
-                {
-                    return this.listNameField;
-                }
-                set
-                {
-                    this.listNameField = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlAttributeAttribute()]
-            public ushort listVersionID
-            {
-                get
-                {
-                    return this.listVersionIDField;
-                }
-                set
-                {
-                    this.listVersionIDField = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlTextAttribute()]
-            public string Value
-            {
-                get
-                {
-                    return this.valueField;
-                }
-                set
-                {
-                    this.valueField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.SerializableAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
         [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2")]
         [System.Xml.Serialization.XmlRootAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2", IsNullable = false)]
         public partial class AdditionalDocumentReference
@@ -1455,6 +438,8 @@ namespace MEYPAK.PRL.EFatura
             private ID idField;
 
             private System.DateTime issueDateField;
+
+            private string documentTypeField;
 
             private AdditionalDocumentReferenceAttachment attachmentField;
 
@@ -1483,6 +468,20 @@ namespace MEYPAK.PRL.EFatura
                 set
                 {
                     this.issueDateField = value;
+                }
+            }
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+            public string DocumentType
+            {
+                get
+                {
+                    return this.documentTypeField;
+                }
+                set
+                {
+                    this.documentTypeField = value;
                 }
             }
 
@@ -1532,27 +531,27 @@ namespace MEYPAK.PRL.EFatura
         public partial class EmbeddedDocumentBinaryObject
         {
 
-            private string characterSetCodeField;
+            private string mimeCodeField;
 
             private string encodingCodeField;
 
-            private string filenameField;
+            private string characterSetCodeField;
 
-            private string mimeCodeField;
+            private string filenameField;
 
             private string valueField;
 
             /// <remarks/>
             [System.Xml.Serialization.XmlAttributeAttribute()]
-            public string characterSetCode
+            public string mimeCode
             {
                 get
                 {
-                    return this.characterSetCodeField;
+                    return this.mimeCodeField;
                 }
                 set
                 {
-                    this.characterSetCodeField = value;
+                    this.mimeCodeField = value;
                 }
             }
 
@@ -1572,6 +571,20 @@ namespace MEYPAK.PRL.EFatura
 
             /// <remarks/>
             [System.Xml.Serialization.XmlAttributeAttribute()]
+            public string characterSetCode
+            {
+                get
+                {
+                    return this.characterSetCodeField;
+                }
+                set
+                {
+                    this.characterSetCodeField = value;
+                }
+            }
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlAttributeAttribute()]
             public string filename
             {
                 get
@@ -1581,20 +594,6 @@ namespace MEYPAK.PRL.EFatura
                 set
                 {
                     this.filenameField = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlAttributeAttribute()]
-            public string mimeCode
-            {
-                get
-                {
-                    return this.mimeCodeField;
-                }
-                set
-                {
-                    this.mimeCodeField = value;
                 }
             }
 
@@ -1617,8 +616,8 @@ namespace MEYPAK.PRL.EFatura
         [System.SerializableAttribute()]
         [System.ComponentModel.DesignerCategoryAttribute("code")]
         [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2")]
-        [System.Xml.Serialization.XmlRootAttribute("Signature", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2", IsNullable = false)]
-        public partial class Signature1
+        [System.Xml.Serialization.XmlRootAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2", IsNullable = false)]
+        public partial class Signature
         {
 
             private ID idField;
@@ -1737,7 +736,7 @@ namespace MEYPAK.PRL.EFatura
         public partial class SignatureSignatoryPartyPostalAddress
         {
 
-            private byte roomField;
+            private string roomField;
 
             private string streetNameField;
 
@@ -1757,7 +756,7 @@ namespace MEYPAK.PRL.EFatura
 
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public byte Room
+            public string Room
             {
                 get
                 {
@@ -1983,7 +982,9 @@ namespace MEYPAK.PRL.EFatura
         public partial class AccountingSupplierPartyParty
         {
 
-            private AccountingSupplierPartyPartyPartyIdentification partyIdentificationField;
+            private string websiteURIField;
+
+            private AccountingSupplierPartyPartyPartyIdentification[] partyIdentificationField;
 
             private AccountingSupplierPartyPartyPartyName partyNameField;
 
@@ -1994,7 +995,22 @@ namespace MEYPAK.PRL.EFatura
             private AccountingSupplierPartyPartyContact contactField;
 
             /// <remarks/>
-            public AccountingSupplierPartyPartyPartyIdentification PartyIdentification
+            [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+            public string WebsiteURI
+            {
+                get
+                {
+                    return this.websiteURIField;
+                }
+                set
+                {
+                    this.websiteURIField = value;
+                }
+            }
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlElementAttribute("PartyIdentification")]
+            public AccountingSupplierPartyPartyPartyIdentification[] PartyIdentification
             {
                 get
                 {
@@ -2114,7 +1130,7 @@ namespace MEYPAK.PRL.EFatura
         public partial class AccountingSupplierPartyPartyPostalAddress
         {
 
-            private byte roomField;
+            private string roomField;
 
             private string streetNameField;
 
@@ -2134,7 +1150,7 @@ namespace MEYPAK.PRL.EFatura
 
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public byte Room
+            public string Room
             {
                 get
                 {
@@ -2336,15 +1352,15 @@ namespace MEYPAK.PRL.EFatura
         public partial class AccountingSupplierPartyPartyContact
         {
 
-            private uint telephoneField;
+            private string telephoneField;
 
-            private uint telefaxField;
+            private string telefaxField;
 
             private string electronicMailField;
 
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public uint Telephone
+            public string Telephone
             {
                 get
                 {
@@ -2358,7 +1374,7 @@ namespace MEYPAK.PRL.EFatura
 
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public uint Telefax
+            public string Telefax
             {
                 get
                 {
@@ -2416,6 +1432,8 @@ namespace MEYPAK.PRL.EFatura
         public partial class AccountingCustomerPartyParty
         {
 
+            private string websiteURIField;
+
             private AccountingCustomerPartyPartyPartyIdentification partyIdentificationField;
 
             private AccountingCustomerPartyPartyPartyName partyNameField;
@@ -2425,6 +1443,20 @@ namespace MEYPAK.PRL.EFatura
             private AccountingCustomerPartyPartyPartyTaxScheme partyTaxSchemeField;
 
             private AccountingCustomerPartyPartyContact contactField;
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+            public string WebsiteURI
+            {
+                get
+                {
+                    return this.websiteURIField;
+                }
+                set
+                {
+                    this.websiteURIField = value;
+                }
+            }
 
             /// <remarks/>
             public AccountingCustomerPartyPartyPartyIdentification PartyIdentification
@@ -2547,7 +1579,7 @@ namespace MEYPAK.PRL.EFatura
         public partial class AccountingCustomerPartyPartyPostalAddress
         {
 
-            private byte roomField;
+            private string roomField;
 
             private string streetNameField;
 
@@ -2567,7 +1599,7 @@ namespace MEYPAK.PRL.EFatura
 
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public byte Room
+            public string Room
             {
                 get
                 {
@@ -2769,15 +1801,15 @@ namespace MEYPAK.PRL.EFatura
         public partial class AccountingCustomerPartyPartyContact
         {
 
-            private uint telephoneField;
+            private string telephoneField;
 
-            private uint telefaxField;
+            private string telefaxField;
 
             private string electronicMailField;
 
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public uint Telephone
+            public string Telephone
             {
                 get
                 {
@@ -2791,7 +1823,7 @@ namespace MEYPAK.PRL.EFatura
 
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public uint Telefax
+            public string Telefax
             {
                 get
                 {
@@ -2814,6 +1846,88 @@ namespace MEYPAK.PRL.EFatura
                 set
                 {
                     this.electronicMailField = value;
+                }
+            }
+        }
+
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2")]
+        [System.Xml.Serialization.XmlRootAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2", IsNullable = false)]
+        public partial class AllowanceCharge
+        {
+
+            private bool chargeIndicatorField;
+
+            private Amount amountField;
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+            public bool ChargeIndicator
+            {
+                get
+                {
+                    return this.chargeIndicatorField;
+                }
+                set
+                {
+                    this.chargeIndicatorField = value;
+                }
+            }
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+            public Amount Amount
+            {
+                get
+                {
+                    return this.amountField;
+                }
+                set
+                {
+                    this.amountField = value;
+                }
+            }
+        }
+
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+        [System.Xml.Serialization.XmlRootAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
+        public partial class Amount
+        {
+
+            private string currencyIDField;
+
+            private decimal valueField;
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlAttributeAttribute()]
+            public string currencyID
+            {
+                get
+                {
+                    return this.currencyIDField;
+                }
+                set
+                {
+                    this.currencyIDField = value;
+                }
+            }
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlTextAttribute()]
+            public decimal Value
+            {
+                get
+                {
+                    return this.valueField;
+                }
+                set
+                {
+                    this.valueField = value;
                 }
             }
         }
@@ -2912,7 +2026,7 @@ namespace MEYPAK.PRL.EFatura
 
             private byte calculationSequenceNumericField;
 
-            private byte percentField;
+            private decimal percentField;
 
             private TaxTotalTaxSubtotalTaxCategory taxCategoryField;
 
@@ -2960,7 +2074,7 @@ namespace MEYPAK.PRL.EFatura
 
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public byte Percent
+            public decimal Percent
             {
                 get
                 {
@@ -3398,6 +2512,8 @@ namespace MEYPAK.PRL.EFatura
 
             private LineExtensionAmount lineExtensionAmountField;
 
+            private InvoiceLineAllowanceCharge allowanceChargeField;
+
             private InvoiceLineTaxTotal taxTotalField;
 
             private InvoiceLineItem itemField;
@@ -3443,6 +2559,19 @@ namespace MEYPAK.PRL.EFatura
                 set
                 {
                     this.lineExtensionAmountField = value;
+                }
+            }
+
+            /// <remarks/>
+            public InvoiceLineAllowanceCharge AllowanceCharge
+            {
+                get
+                {
+                    return this.allowanceChargeField;
+                }
+                set
+                {
+                    this.allowanceChargeField = value;
                 }
             }
 
@@ -3496,7 +2625,7 @@ namespace MEYPAK.PRL.EFatura
 
             private string unitCodeField;
 
-            private byte valueField;
+            private decimal valueField;
 
             /// <remarks/>
             [System.Xml.Serialization.XmlAttributeAttribute()]
@@ -3514,7 +2643,136 @@ namespace MEYPAK.PRL.EFatura
 
             /// <remarks/>
             [System.Xml.Serialization.XmlTextAttribute()]
-            public byte Value
+            public decimal Value
+            {
+                get
+                {
+                    return this.valueField;
+                }
+                set
+                {
+                    this.valueField = value;
+                }
+            }
+        }
+
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2")]
+        public partial class InvoiceLineAllowanceCharge
+        {
+
+            private bool chargeIndicatorField;
+
+            private object allowanceChargeReasonField;
+
+            private byte multiplierFactorNumericField;
+
+            private Amount amountField;
+
+            private BaseAmount baseAmountField;
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+            public bool ChargeIndicator
+            {
+                get
+                {
+                    return this.chargeIndicatorField;
+                }
+                set
+                {
+                    this.chargeIndicatorField = value;
+                }
+            }
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+            public object AllowanceChargeReason
+            {
+                get
+                {
+                    return this.allowanceChargeReasonField;
+                }
+                set
+                {
+                    this.allowanceChargeReasonField = value;
+                }
+            }
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+            public byte MultiplierFactorNumeric
+            {
+                get
+                {
+                    return this.multiplierFactorNumericField;
+                }
+                set
+                {
+                    this.multiplierFactorNumericField = value;
+                }
+            }
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+            public Amount Amount
+            {
+                get
+                {
+                    return this.amountField;
+                }
+                set
+                {
+                    this.amountField = value;
+                }
+            }
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+            public BaseAmount BaseAmount
+            {
+                get
+                {
+                    return this.baseAmountField;
+                }
+                set
+                {
+                    this.baseAmountField = value;
+                }
+            }
+        }
+
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+        [System.Xml.Serialization.XmlRootAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
+        public partial class BaseAmount
+        {
+
+            private string currencyIDField;
+
+            private ushort valueField;
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlAttributeAttribute()]
+            public string currencyID
+            {
+                get
+                {
+                    return this.currencyIDField;
+                }
+                set
+                {
+                    this.currencyIDField = value;
+                }
+            }
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlTextAttribute()]
+            public ushort Value
             {
                 get
                 {
@@ -3579,7 +2837,7 @@ namespace MEYPAK.PRL.EFatura
 
             private byte calculationSequenceNumericField;
 
-            private byte percentField;
+            private decimal percentField;
 
             private InvoiceLineTaxTotalTaxSubtotalTaxCategory taxCategoryField;
 
@@ -3627,7 +2885,7 @@ namespace MEYPAK.PRL.EFatura
 
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public byte Percent
+            public decimal Percent
             {
                 get
                 {
@@ -3725,6 +2983,8 @@ namespace MEYPAK.PRL.EFatura
 
             private string nameField;
 
+            private InvoiceLineItemAdditionalItemIdentification additionalItemIdentificationField;
+
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
             public string Name
@@ -3736,6 +2996,44 @@ namespace MEYPAK.PRL.EFatura
                 set
                 {
                     this.nameField = value;
+                }
+            }
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlElementAttribute("AdditionalItemIdentification")]
+            public InvoiceLineItemAdditionalItemIdentification AdditionalItemIdentification
+            {
+                get
+                {
+                    return this.additionalItemIdentificationField;
+                }
+                set
+                {
+                    this.additionalItemIdentificationField = value;
+                }
+            }
+        }
+
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2")]
+        public partial class InvoiceLineItemAdditionalItemIdentification
+        {
+
+            private ID idField;
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+            public ID ID
+            {
+                get
+                {
+                    return this.idField;
+                }
+                set
+                {
+                    this.idField = value;
                 }
             }
         }

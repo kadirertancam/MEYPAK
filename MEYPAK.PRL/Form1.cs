@@ -55,7 +55,7 @@ namespace MEYPAK.PRL
 
                     httpClient.DefaultRequestHeaders.ExpectContinue = false;
                     HttpResponseMessage resp = httpClient.SendAsync(client).Result;
-                    var aaaa = resp.Content.ReadAsStringAsync().Result.ToString();
+                    var aaaa = resp.Content.ReadAsStringAsync() .Result.ToString();
                     XmlSerializerHelper xmlSerializerHelper = new XmlSerializerHelper();
                     var deserializedObject = (Envelope)xmlSerializerHelper.DeserializeFromXml(typeof(Envelope), aaaa);
                     foreach (var item in deserializedObject.Body.BaseResponseMessageOf_BildirimSorguCevap.Sonuc.Bildirimler)
