@@ -1,15 +1,5 @@
-﻿using DevExpress.XtraEditors;
-using MEYPAK.BLL.Assets;
+﻿using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.Models.BANKA;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace MEYPAK.PRL.BANKA
 {
@@ -31,6 +21,16 @@ namespace MEYPAK.PRL.BANKA
                 ILCE = yeniTextEdit3.Text,
                 AKTIF=1
             });
+            GridiDoldur();
+        }
+
+        private void FBankaTanim_Load(object sender, EventArgs e)
+        {
+            GridiDoldur();
+        }
+
+        void GridiDoldur()
+        {
             _bankaServis.Data(ServisList.BANKAListeServis);
             gridControl1.DataSource = _bankaServis.obje;
         }

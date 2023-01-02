@@ -29,6 +29,9 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
 
         }
         public DbSet<MPBANKA> MPBANKA { get; set; }
+        public DbSet<MPBANKASUBE> MPBANKASUBE { get; set; }
+        public DbSet<MPBANKAHESAP> MPBANKAHESAP { get; set; }
+        public DbSet<MPHESAPHAREKET> MPHESAPHAREKET { get; set; }
         public DbSet<MPSERIHAR> MPSERIHAR { get; set; }
         public DbSet<MPCARIALTHESCARI> MPCARIALTHESCARI { get; set; }
         public DbSet<MPSIPARISKASAHAR> MPSIPARISKASAHAR { get; set; }

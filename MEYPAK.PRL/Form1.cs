@@ -22,13 +22,13 @@ namespace MEYPAK.PRL
             islem();
         }
         List<BildirimSorguDTO> envelopes = new List<BildirimSorguDTO>();
-  
+        DateTime basTar = Convert.ToDateTime("01.01.2014");
         void islem()
         {
             SaveFileDialog sv = new SaveFileDialog();
             if (sv.ShowDialog() == DialogResult.OK)
             { 
-                for (int i = 1; i < 120; i++)
+                for (int i = 0; i < 104; i++)
                 {
 
 
@@ -38,13 +38,12 @@ namespace MEYPAK.PRL
                     client.Headers.Add("Connection", "keep-alive");
                     client.Headers.Add("Host", "hks.hal.gov.tr");
                     client.Headers.Add("User-Agent", "CodeGear SOAP 1.3");
-                    DateTime dt_Ay_ilkGun = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
-                    dt_Ay_ilkGun = dt_Ay_ilkGun.AddMonths(2);
+                    DateTime dt_Ay_ilkGun = basTar.AddMonths(i);
                     DateTime dt_Ay_sonGun = dt_Ay_ilkGun.AddMonths(1).AddDays(-1);
                     client.Headers.Add("SOAPAction", "\"http://www.gtb.gov.tr//WebServices/IBildirimService/BildirimServisBildirimciyeYapilanBildirimListesi\"");
                     client.Headers.Add("VsDebuggerCausalityData", "uIDPo/l8atIDoqFFniLRCUIFbKQAAAAA64uYbk/jW0K+h9kz55jWZeM1+BqDlnNPpgceAHjWSsYACQAA");
                     //  client.Headers.Add("Content-Type", "text/xml");
-                    string xml = "<?xml version=\"1.0\"?><SOAP-ENV:Envelope xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><SOAP-ENV:Body><BaseRequestMessageOf_BildirimSorguIstek xmlns=\"http://www.gtb.gov.tr//WebServices\"><Istek><BaslangicTarihi xmlns=\"http://schemas.datacontract.org/2004/07/GTB.HKS.Bildirim.ServiceContract\">" + dt_Ay_ilkGun.AddMonths((i*-1)-1).ToString("yyyy-MM-ddTHH:mm:ss.fffffffK") + "</BaslangicTarihi><BitisTarihi xmlns=\"http://schemas.datacontract.org/2004/07/GTB.HKS.Bildirim.ServiceContract\">" + dt_Ay_sonGun.AddMonths((i * -1) - 1).ToString("yyyy-MM-ddTHH:mm:ss.fffffffK") + "</BitisTarihi><KalanMiktariSifirdanBuyukOlanlar xmlns=\"http://schemas.datacontract.org/2004/07/GTB.HKS.Bildirim.ServiceContract\">true</KalanMiktariSifirdanBuyukOlanlar><KunyeNo xmlns=\"http://schemas.datacontract.org/2004/07/GTB.HKS.Bildirim.ServiceContract\">0</KunyeNo><KunyeTuru xmlns=\"http://schemas.datacontract.org/2004/07/GTB.HKS.Bildirim.ServiceContract\">1</KunyeTuru><Sifat xmlns=\"http://schemas.datacontract.org/2004/07/GTB.HKS.Bildirim.ServiceContract\">6</Sifat><UniqueId xmlns=\"http://schemas.datacontract.org/2004/07/GTB.HKS.Bildirim.ServiceContract\"></UniqueId></Istek><Password>Meypak139</Password><ServicePassword>18E932F8</ServicePassword><UserName>4300580693</UserName></BaseRequestMessageOf_BildirimSorguIstek></SOAP-ENV:Body></SOAP-ENV:Envelope>\r\n";
+                    string xml = "<?xml version=\"1.0\"?><SOAP-ENV:Envelope xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><SOAP-ENV:Body><BaseRequestMessageOf_BildirimSorguIstek xmlns=\"http://www.gtb.gov.tr//WebServices\"><Istek><BaslangicTarihi xmlns=\"http://schemas.datacontract.org/2004/07/GTB.HKS.Bildirim.ServiceContract\">" + dt_Ay_ilkGun.ToString("yyyy-MM-ddTHH:mm:ss.fffffffK") + "</BaslangicTarihi><BitisTarihi xmlns=\"http://schemas.datacontract.org/2004/07/GTB.HKS.Bildirim.ServiceContract\">" + dt_Ay_sonGun.ToString("yyyy-MM-ddTHH:mm:ss.fffffffK") + "</BitisTarihi><KalanMiktariSifirdanBuyukOlanlar xmlns=\"http://schemas.datacontract.org/2004/07/GTB.HKS.Bildirim.ServiceContract\">true</KalanMiktariSifirdanBuyukOlanlar><KunyeNo xmlns=\"http://schemas.datacontract.org/2004/07/GTB.HKS.Bildirim.ServiceContract\">0</KunyeNo><KunyeTuru xmlns=\"http://schemas.datacontract.org/2004/07/GTB.HKS.Bildirim.ServiceContract\">1</KunyeTuru><Sifat xmlns=\"http://schemas.datacontract.org/2004/07/GTB.HKS.Bildirim.ServiceContract\">9</Sifat><UniqueId xmlns=\"http://schemas.datacontract.org/2004/07/GTB.HKS.Bildirim.ServiceContract\"></UniqueId></Istek><Password>Meypak139</Password><ServicePassword>18E932F8</ServicePassword><UserName>4300580693</UserName></BaseRequestMessageOf_BildirimSorguIstek></SOAP-ENV:Body></SOAP-ENV:Envelope>\r\n";
                     client.Method = HttpMethod.Post;
 
 
@@ -65,8 +64,7 @@ namespace MEYPAK.PRL
                 }
 
                 gridControl1.DataSource = envelopes;
-
-
+               
                 gridView1.ExportToXlsx(sv.FileName);
             }
         }

@@ -29,26 +29,26 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.label4 = new System.Windows.Forms.Label();
+            this.yeniTextEdit3 = new MEYPAK.PRL.Assets.YeniTextEdit();
+            this.yeniTextEdit2 = new MEYPAK.PRL.Assets.YeniTextEdit();
+            this.label3 = new System.Windows.Forms.Label();
+            this.yeniTextEdit1 = new MEYPAK.PRL.Assets.YeniTextEdit();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.buttonEdit1 = new DevExpress.XtraEditors.ButtonEdit();
             this.panel2 = new System.Windows.Forms.Panel();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.buttonEdit1 = new DevExpress.XtraEditors.ButtonEdit();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.yeniTextEdit1 = new MEYPAK.PRL.Assets.YeniTextEdit();
-            this.yeniTextEdit2 = new MEYPAK.PRL.Assets.YeniTextEdit();
-            this.label3 = new System.Windows.Forms.Label();
-            this.yeniTextEdit3 = new MEYPAK.PRL.Assets.YeniTextEdit();
-            this.label4 = new System.Windows.Forms.Label();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.yeniTextEdit3.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.yeniTextEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.yeniTextEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit1.Properties)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.yeniTextEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.yeniTextEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.yeniTextEdit3.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -67,6 +67,81 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(801, 116);
             this.panel1.TabIndex = 0;
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Location = new System.Drawing.Point(307, 34);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(100, 54);
+            this.simpleButton1.TabIndex = 8;
+            this.simpleButton1.Text = "Kaydet";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(178, 71);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(11, 13);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "/";
+            // 
+            // yeniTextEdit3
+            // 
+            this.yeniTextEdit3.Location = new System.Drawing.Point(195, 68);
+            this.yeniTextEdit3.Name = "yeniTextEdit3";
+            this.yeniTextEdit3.Size = new System.Drawing.Size(83, 20);
+            this.yeniTextEdit3.TabIndex = 6;
+            // 
+            // yeniTextEdit2
+            // 
+            this.yeniTextEdit2.Location = new System.Drawing.Point(96, 68);
+            this.yeniTextEdit2.Name = "yeniTextEdit2";
+            this.yeniTextEdit2.Size = new System.Drawing.Size(74, 20);
+            this.yeniTextEdit2.TabIndex = 5;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(27, 71);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(34, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "İl/İlçe";
+            // 
+            // yeniTextEdit1
+            // 
+            this.yeniTextEdit1.Location = new System.Drawing.Point(96, 42);
+            this.yeniTextEdit1.Name = "yeniTextEdit1";
+            this.yeniTextEdit1.Size = new System.Drawing.Size(182, 20);
+            this.yeniTextEdit1.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(27, 45);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(54, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Banka Adı";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(27, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(63, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Banka Kodu";
+            // 
+            // buttonEdit1
+            // 
+            this.buttonEdit1.Location = new System.Drawing.Point(96, 12);
+            this.buttonEdit1.Name = "buttonEdit1";
+            this.buttonEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.buttonEdit1.Size = new System.Drawing.Size(182, 20);
+            this.buttonEdit1.TabIndex = 0;
             // 
             // panel2
             // 
@@ -92,81 +167,7 @@
             // 
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
-            // 
-            // buttonEdit1
-            // 
-            this.buttonEdit1.Location = new System.Drawing.Point(96, 12);
-            this.buttonEdit1.Name = "buttonEdit1";
-            this.buttonEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.buttonEdit1.Size = new System.Drawing.Size(182, 20);
-            this.buttonEdit1.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(27, 15);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Banka Kodu";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(27, 45);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Banka Adı";
-            // 
-            // yeniTextEdit1
-            // 
-            this.yeniTextEdit1.Location = new System.Drawing.Point(96, 42);
-            this.yeniTextEdit1.Name = "yeniTextEdit1";
-            this.yeniTextEdit1.Size = new System.Drawing.Size(182, 20);
-            this.yeniTextEdit1.TabIndex = 3;
-            // 
-            // yeniTextEdit2
-            // 
-            this.yeniTextEdit2.Location = new System.Drawing.Point(96, 68);
-            this.yeniTextEdit2.Name = "yeniTextEdit2";
-            this.yeniTextEdit2.Size = new System.Drawing.Size(74, 20);
-            this.yeniTextEdit2.TabIndex = 5;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(27, 71);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(34, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "İl/İlçe";
-            // 
-            // yeniTextEdit3
-            // 
-            this.yeniTextEdit3.Location = new System.Drawing.Point(195, 68);
-            this.yeniTextEdit3.Name = "yeniTextEdit3";
-            this.yeniTextEdit3.Size = new System.Drawing.Size(83, 20);
-            this.yeniTextEdit3.TabIndex = 6;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(178, 71);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(11, 13);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "/";
-            // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Location = new System.Drawing.Point(307, 34);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(100, 54);
-            this.simpleButton1.TabIndex = 8;
-            this.simpleButton1.Text = "Kaydet";
-            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            this.gridView1.OptionsBehavior.Editable = false;
             // 
             // FBankaTanim
             // 
@@ -177,15 +178,16 @@
             this.Controls.Add(this.panel1);
             this.Name = "FBankaTanim";
             this.Text = "FBankaTanim";
+            this.Load += new System.EventHandler(this.FBankaTanim_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.yeniTextEdit3.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.yeniTextEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.yeniTextEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit1.Properties)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.yeniTextEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.yeniTextEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.yeniTextEdit3.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

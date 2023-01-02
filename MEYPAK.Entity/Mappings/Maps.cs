@@ -36,6 +36,9 @@ namespace MEYPAK.Entity.Mappings
 
             //BANKA
             CreateMap<MPBANKA, PocoBANKA>().ReverseMap();
+            CreateMap<MPBANKASUBE, PocoBANKASUBE>().ReverseMap();
+            CreateMap<MPBANKAHESAP, PocoBANKAHESAP>().ReverseMap();
+            CreateMap<MPHESAPHAREKET, PocoHESAPHAREKET>().ReverseMap();
 
             //PARAMETRE
 

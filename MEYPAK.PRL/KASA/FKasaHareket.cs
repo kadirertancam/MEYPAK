@@ -181,7 +181,7 @@ namespace MEYPAK.PRL.KASA
                 switch (radioGroup1.SelectedIndex)
                 {
                     case 0: //CARI
-                        if (_tempCari != null && _tempFatura != null)
+                        if (_tempCari != null)
                         {
                             kasaHarServis.Data(ServisList.KasaHarEkleServis, new PocoKASAHAR()
                             {
