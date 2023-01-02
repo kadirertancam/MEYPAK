@@ -37,7 +37,7 @@ namespace MEYPAK.PRL
             _cariServis.Data(ServisList.CariListeServis);
             _faturaDetayServis.Data(ServisList.FaturaDetayListeServis);
            var fatura= _faturaServis.obje.FirstOrDefault();
-            var cari = _cariServis.obje.Where(x=>x.id==fatura.id)
+            var cari = _cariServis.obje.Where(x => x.id == fatura.id);
             DataSet ds;
             XmlDataDocument xmlDoc;
             XslCompiledTransform xslTran;
@@ -46,19 +46,19 @@ namespace MEYPAK.PRL
             XmlTextWriter writer;
             try
             {
-                TemelFaturaXML.Invoice temelfatura= new Invoice()
+                TemelFaturaXML.Invoice temelfatura = new Invoice()
                 {
-                    AccountingCustomerParty= new AccountingCustomerParty()
+                    AccountingCustomerParty = new AccountingCustomerParty()
                     {
-                        Party= new AccountingCustomerPartyParty()
+                        Party = new AccountingCustomerPartyParty()
                         {
-                            Contact= new AccountingCustomerPartyPartyContact()
+                            Contact = new AccountingCustomerPartyPartyContact()
                             {
-                                
+
                             }
                         }
                     }
-                }
+                };
                 
                 //Create the DataSet from the XML file
                 ds = new DataSet();

@@ -16,10 +16,10 @@ namespace MEYPAK.PRL.BANKA
             _hesapHarServis = new GenericWebServis<PocoHESAPHAREKET>();
         }
 
-        GenericWebServis<PocoBANKASUBE> _subeServis; 
-        GenericWebServis<PocoBANKA> _bankaServis;
-        GenericWebServis<PocoBANKAHESAP> _hesapServis;
-        GenericWebServis<PocoHESAPHAREKET> _hesapHarServis;
+        GenericWebServis<PocoBANKASUBE>     _subeServis; 
+        GenericWebServis<PocoBANKA>         _bankaServis;
+        GenericWebServis<PocoBANKAHESAP>    _hesapServis;
+        GenericWebServis<PocoHESAPHAREKET>  _hesapHarServis;
 
         private void BTNKaydet_Click(object sender, EventArgs e)
         {
