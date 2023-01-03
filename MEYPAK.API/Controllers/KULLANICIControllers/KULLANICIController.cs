@@ -21,12 +21,13 @@ namespace MEYPAK.API.Controllers.KULLANICIControllers
             _roleManager = roleManager;
             _signManager = signManager;
         }
+
         [HttpGet]
         [Authorize]
         [Route("/[controller]/[action]")]
         public IActionResult Index()
         {
-            return Ok("Sistemdesin");
+            return Ok("Sisteme Giriş Yapıldı.");
         }
         [HttpPost]
         [Route("/[controller]/[action]")]
@@ -42,7 +43,7 @@ namespace MEYPAK.API.Controllers.KULLANICIControllers
 
                 if (user == null)
                 {
-                    throw new Exception("Sistemde kullanıcı bilgisiz bulunamadı.");
+                    throw new Exception("Sistemde kullanıcı bilgisi bulunamadı.");
                 }
                 var result = _signManager.PasswordSignInAsync(user, model.Password, model.RememberMe, false).Result;
                 return Ok("Giriş Başarılı");
@@ -54,7 +55,7 @@ namespace MEYPAK.API.Controllers.KULLANICIControllers
         }
 
         [HttpGet]
-        [Authorize]
+
         [Route("/[controller]/[action]")]
         public IActionResult Logout()
         {

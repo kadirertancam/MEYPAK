@@ -584,5 +584,12 @@ namespace MEYPAK.BLL.Assets
         public const string FaturaDeleteByIdServis = "http://213.238.167.117:8080/FATURA/DeleteById";
         public const string FaturaFiltreServis = "http://213.238.167.117:8080/FATURA/FATURAListe2?query=";
         #endregion
+
+        #region USER-IDENTITY
+        public const string UserLoginServis =        "http://213.238.167.117:8080/KULLANICI/Login";
+        public const string UserEkleServis =         "http://213.238.167.117:8080/KULLANICI/Register";
+
+
+        #endregion
     }
 }
