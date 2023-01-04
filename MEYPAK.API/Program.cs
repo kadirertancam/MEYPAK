@@ -49,8 +49,11 @@ using MEYPAK.BLL.FATURA;
 using MEYPAK.DAL.Abstract.BankaDal;
 using MEYPAK.Interfaces.Banka;
 using MEYPAK.BLL.BANKA;
-using MEYPAK.DAL.Concrete.EntityFramework.Repository.BankaRapo;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository.BankaRepo;
+using MEYPAK.DAL.Abstract.CekSenetDal;
+using MEYPAK.DAL.Concrete.EntityFramework.Repository.CekSenetRepo;
+using MEYPAK.Interfaces.CekSenet;
+using MEYPAK.BLL.CEKSENET;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -92,6 +95,14 @@ builder.Services.AddAutoMapper(x =>
 });
 
 
+#region CekSenet_Scoped_Islemleri
+builder.Services.AddScoped<ICekDal, EFCekRepo>();
+builder.Services.AddScoped<ICekServis, CekManager>();
+
+builder.Services.AddScoped<ISenetDal,  EFSenetRepo>();
+builder.Services.AddScoped<ISenetServis, SenetManager>();
+
+#endregion
 #region Banka_Scoped_Islemleri
 builder.Services.AddScoped<IBankaDal, EFBankaRepo>();
 builder.Services.AddScoped<IBankaServis, BankaManager>();
@@ -104,6 +115,9 @@ builder.Services.AddScoped<IBankaSubeServis, BankaSubeManager>();
 
 builder.Services.AddScoped<IHesapHarDal, EFHesapHarRepo>();
 builder.Services.AddScoped<IHesapHarServis, HesapHarManager>();
+
+builder.Services.AddScoped<IKrediKartiDal, EFKrediKartRepo>();
+builder.Services.AddScoped<IKrediKartServis, KrediKartManager>();
 #endregion
 #region Parametre_Scoped_Islemleri
 builder.Services.AddScoped<IParaBirimDal, EFParaBirimRepo>();

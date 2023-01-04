@@ -11,4 +11,8 @@
     <ProjectReference Include="..\MEYPAK.Entity\MEYPAK.Entity.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="CekSenet\" />
+  </ItemGroup>
+
 </Project>

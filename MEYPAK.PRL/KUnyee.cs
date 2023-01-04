@@ -100,6 +100,7 @@ namespace MEYPAK.PRL
         private void KUnyee_Load(object sender, EventArgs e)
         {
             Sifatlar();
+            BildirimTurleri();
         }
     }
 }

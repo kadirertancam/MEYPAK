@@ -97,13 +97,31 @@ namespace MEYPAK.BLL.Assets
 
         #endregion
 
+        #region SENET
+        public const string SenetListeServis =              "http://213.238.167.117:8080/SENET/Liste";
+        public const string SenetEkleServis =               "http://213.238.167.117:8080/SENET/EkleyadaGuncelle";
+        public const string SenetSilServis =                "http://213.238.167.117:8080/SENET/Sil";
+        public const string SenetGuncelleServis =           "http://213.238.167.117:8080/SENET/Guncelle";
+        public const string SenetDeleteByIdServis =         "http://213.238.167.117:8080/SENET/DeleteById";
+        public const string SenetFiltreServis =             "http://213.238.167.117:8080/SENET/Liste2?query=";
+        #endregion
+
+        #region CEK
+        public const string CekListeServis = "http://213.238.167.117:8080/CEK/Liste";
+        public const string CekEkleServis = "http://213.238.167.117:8080/CEK/EkleyadaGuncelle";
+        public const string CekSilServis = "http://213.238.167.117:8080/CEK/Sil";
+        public const string CekGuncelleServis = "http://213.238.167.117:8080/CEK/Guncelle";
+        public const string CekDeleteByIdServis = "http://213.238.167.117:8080/CEK/DeleteById";
+        public const string CekFiltreServis = "http://213.238.167.117:8080/CEK/Liste2?query=";
+        #endregion
+
         #region HesapHar
-        public const string HesapHarListeServis =              "http://213.238.167.117:8080/HESAPHAR/HESAPHARListe";
-        public const string HesapHarEkleServis =               "http://213.238.167.117:8080/HESAPHAR/HESAPHAREkleyadaGuncelle";
-        public const string HesapHarSilServis =                "http://213.238.167.117:8080/HESAPHAR/HESAPHARSil";
-        public const string HesapHarGuncelleServis =           "http://213.238.167.117:8080/HESAPHAR/HESAPHARGuncelle";
-        public const string HesapHarDeleteByIdServis =         "http://213.238.167.117:8080/HESAPHAR/DeleteById";
-        public const string HesapHarFiltreServis =             "http://213.238.167.117:8080/HESAPHAR/HESAPHARListe2?query=";
+        public const string HesapHarListeServis = "http://213.238.167.117:8080/HESAPHAR/HESAPHARListe";
+        public const string HesapHarEkleServis = "http://213.238.167.117:8080/HESAPHAR/HESAPHAREkleyadaGuncelle";
+        public const string HesapHarSilServis = "http://213.238.167.117:8080/HESAPHAR/HESAPHARSil";
+        public const string HesapHarGuncelleServis = "http://213.238.167.117:8080/HESAPHAR/HESAPHARGuncelle";
+        public const string HesapHarDeleteByIdServis = "http://213.238.167.117:8080/HESAPHAR/DeleteById";
+        public const string HesapHarFiltreServis = "http://213.238.167.117:8080/HESAPHAR/HESAPHARListe2?query=";
         #endregion
 
         #region Banka
@@ -113,6 +131,15 @@ namespace MEYPAK.BLL.Assets
         public const string BANKAGuncelleServis = "http://213.238.167.117:8080/BANKA/BANKAGuncelle";
         public const string BANKADeleteByIdServis = "http://213.238.167.117:8080/BANKA/DeleteById";
         public const string BANKAFiltreServis = "http://213.238.167.117:8080/BANKA/BANKAListe2?query=";
+        #endregion
+
+        #region KrediKart
+        public const string KrediKartListeServis =       "http://213.238.167.117:8080/KREDIKART/Liste";
+        public const string KrediKartEkleServis =        "http://213.238.167.117:8080/KREDIKART/EkleyadaGuncelle";
+        public const string KrediKartSilServis =         "http://213.238.167.117:8080/KREDIKART/Sil";
+        public const string KrediKartGuncelleServis =    "http://213.238.167.117:8080/KREDIKART/Guncelle";
+        public const string KrediKartDeleteByIdServis =  "http://213.238.167.117:8080/KREDIKART/DeleteById";
+        public const string KrediKartFiltreServis =      "http://213.238.167.117:8080/KREDIKART/Liste2?query=";
         #endregion
 
         #region BankaHesap

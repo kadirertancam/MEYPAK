@@ -3,6 +3,7 @@ using MEYPAK.Entity.Models;
 using MEYPAK.Entity.Models.ARAC;
 using MEYPAK.Entity.Models.BANKA;
 using MEYPAK.Entity.Models.CARI;
+using MEYPAK.Entity.Models.CEKSENET;
 using MEYPAK.Entity.Models.DEPO;
 using MEYPAK.Entity.Models.FATURA;
 using MEYPAK.Entity.Models.IRSALIYE;
@@ -28,10 +29,13 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
             
 
         }
+        public DbSet<MPMUSTERICEKSENET> MPCEK { get; set; }
+      
         public DbSet<MPBANKA> MPBANKA { get; set; }
         public DbSet<MPBANKASUBE> MPBANKASUBE { get; set; }
         public DbSet<MPBANKAHESAP> MPBANKAHESAP { get; set; }
         public DbSet<MPHESAPHAREKET> MPHESAPHAREKET { get; set; }
+        public DbSet<MPKREDIKART> MPKREDIKART { get; set; }
         public DbSet<MPSERIHAR> MPSERIHAR { get; set; }
         public DbSet<MPCARIALTHESCARI> MPCARIALTHESCARI { get; set; }
         public DbSet<MPSIPARISKASAHAR> MPSIPARISKASAHAR { get; set; }

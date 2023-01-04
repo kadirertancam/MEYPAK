@@ -1,35 +1,33 @@
 ﻿using AutoMapper;
 using MEYPAK.DAL.Concrete.ADONET;
-using MEYPAK.Entity.Models.CARI;
-using MEYPAK.Entity.PocoModels.CARI;
-using MEYPAK.Interfaces.Cari;
+using MEYPAK.Entity.Models.BANKA;
+using MEYPAK.Entity.PocoModels.BANKA;
+using MEYPAK.Interfaces.Banka;
 using Microsoft.AspNetCore.Mvc;
 
-namespace MEYPAK.API.Controllers.CARIControllers
+namespace MEYPAK.API.Controllers.BANKAControllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class CARIALTHESCARIController : Controller
+    public class KREDIKARTController : Controller
     {
-
         private readonly IMapper _mapper;
-        private readonly ICariAltHesCariServis _cariAltHesCariServis;
-        private MPAdoContext<MPCARIALTHESCARI> _adocariAltHesCariServis = new MPAdoContext<MPCARIALTHESCARI>();
-
-        public CARIALTHESCARIController(IMapper mapper, ICariAltHesCariServis cariAltHesServis)
+        private readonly IKrediKartServis _bankaServis;
+        private MPAdoContext<PocoKREDIKART> _adobankaServis = new MPAdoContext<PocoKREDIKART>();
+        public KREDIKARTController(IMapper mapper, IKrediKartServis bankaServis)
         {
             _mapper = mapper;
-            _cariAltHesCariServis = cariAltHesServis;
+            _bankaServis = bankaServis;
         }
 
         [HttpGet]
         [Route("/[controller]/[action]")]
 
-        public IActionResult CARIALTHESCARIListe()
+        public IActionResult Liste()
         {
             try
             {
-                var data = _cariAltHesCariServis.Listele();
+                var data = _bankaServis.Listele();
                 return Ok(data);
             }
             catch (Exception ex)
@@ -39,12 +37,12 @@ namespace MEYPAK.API.Controllers.CARIControllers
         }
         [HttpGet]
         [Route("/[controller]/[action]")]
-        public IActionResult CARIALTHESCARIListe2([FromQuery] string query)
+        public IActionResult Liste2([FromQuery] string query)
         {
             try
             {
-                _adocariAltHesCariServis.HepsiniGetir(query);
-                return Ok(_adocariAltHesCariServis.GenericList);
+                _adobankaServis.HepsiniGetir(query);
+                return Ok(_adobankaServis.GenericList);
             }
             catch (Exception ex)
             {
@@ -53,11 +51,11 @@ namespace MEYPAK.API.Controllers.CARIControllers
         }
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult CARIALTHESCARIEkleyadaGuncelle([FromBody]PocoCARIALTHESCARI pModel)
+        public IActionResult EkleyadaGuncelle([FromBody] PocoKREDIKART pModel)
         {
             try
             {
-                var data = _cariAltHesCariServis.EkleyadaGuncelle(pModel);
+                var data = _bankaServis.EkleyadaGuncelle(pModel);
                 return Ok(data);
             }
             catch (Exception ex)
@@ -67,11 +65,11 @@ namespace MEYPAK.API.Controllers.CARIControllers
         }
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult CARIALTHESCARISil([FromBody]List<PocoCARIALTHESCARI> pModel)
+        public IActionResult Sil(List<PocoKREDIKART> pModel)
         {
             try
             {
-                var data = _cariAltHesCariServis.Sil(pModel);
+                var data = _bankaServis.Sil(pModel);
                 return Ok(data);
             }
             catch (Exception ex)
@@ -81,11 +79,11 @@ namespace MEYPAK.API.Controllers.CARIControllers
         }
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult CARIALTHESCARIGuncelle(PocoCARIALTHESCARI pModel)
+        public IActionResult Guncelle(PocoKREDIKART pModel)
         {
             try
             {
-                var data = _cariAltHesCariServis.Guncelle(pModel);
+                var data = _bankaServis.Guncelle(pModel);
                 return Ok(data);
             }
             catch (Exception ex)
@@ -99,7 +97,7 @@ namespace MEYPAK.API.Controllers.CARIControllers
         {
             try
             {
-                bool succes = _cariAltHesCariServis.DeleteById(id);
+                bool succes = _bankaServis.DeleteById(id);
                 if (succes)
                     return Ok(id + " Başarıyla Silindi");
                 else

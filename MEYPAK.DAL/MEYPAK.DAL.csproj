@@ -27,4 +27,8 @@
     <ProjectReference Include="..\MEYPAK.Interfaces\MEYPAK.Interfaces.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Concrete\EntityFramework\Repository\CekSenetRepo\" />
+  </ItemGroup>
+
 </Project>

@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MEYPAK.API.Controllers.CARIControllers
 {
+    [ApiController]
+    [Route("[controller]")]
     public class CARIDOKUMANController : Controller
     {
         private readonly IMapper _mapper;

@@ -9,12 +9,10 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.DAL.Concrete.EntityFramework.Repository.BankaRepo
 {
-    public class EFBankaRepo : EFBaseRepo<MPBANKA>, IBankaDal
+    public class EFKrediKartRepo : EFBaseRepo<MPKREDIKART>, IKrediKartiDal
     {
-        MEYPAKContext context;
-        public EFBankaRepo(MEYPAKContext _context) : base(_context)
+        public EFKrediKartRepo(MEYPAKContext _context) : base(_context)
         {
-            context=_context;
         }
     }
 }
