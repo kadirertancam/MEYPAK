@@ -157,6 +157,11 @@
             this.accordionControlElement33 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEFaturaRaporu = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEMusteriSiparisRaporu = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACECekSenet = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACECekSenetTanim = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACEMusteriCekTanim = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACECekSenetHareket = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACECekSenetRapor = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEKasa = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEKasaTanim = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEKasaKart = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -189,6 +194,7 @@
             this.ACESeriTanim = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
             this.applicationMenu1 = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
+            this.ACEMusteriSenetTanim = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -812,6 +818,7 @@
             this.accordionControlElement1,
             this.accordionControlElement5,
             this.accordionControlElement20,
+            this.ACECekSenet,
             this.ACEKasa,
             this.ACEBanka,
             this.accordionControlElement21,
@@ -1288,8 +1295,49 @@
             this.ACEMusteriSiparisRaporu.Text = "Müşteri Sipariş Raporu";
             this.ACEMusteriSiparisRaporu.Click += new System.EventHandler(this.ACEMusteriSiparisRaporu_Click);
             // 
+            // ACECekSenet
+            // 
+            this.ACECekSenet.Appearance.Default.ForeColor = System.Drawing.Color.Silver;
+            this.ACECekSenet.Appearance.Default.Options.UseForeColor = true;
+            this.ACECekSenet.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.ACECekSenetTanim,
+            this.ACECekSenetHareket,
+            this.ACECekSenetRapor});
+            this.ACECekSenet.Expanded = true;
+            this.ACECekSenet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ACECekSenet.ImageOptions.Image")));
+            this.ACECekSenet.Name = "ACECekSenet";
+            this.ACECekSenet.Text = "Çek/Senet";
+            // 
+            // ACECekSenetTanim
+            // 
+            this.ACECekSenetTanim.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.ACEMusteriCekTanim,
+            this.ACEMusteriSenetTanim});
+            this.ACECekSenetTanim.Expanded = true;
+            this.ACECekSenetTanim.Name = "ACECekSenetTanim";
+            this.ACECekSenetTanim.Text = "Tanımlar";
+            // 
+            // ACEMusteriCekTanim
+            // 
+            this.ACEMusteriCekTanim.Name = "ACEMusteriCekTanim";
+            this.ACEMusteriCekTanim.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ACEMusteriCekTanim.Text = "Müşteri Çek Tanım";
+            this.ACEMusteriCekTanim.Click += new System.EventHandler(this.ACEMusteriCekTanim_Click);
+            // 
+            // ACECekSenetHareket
+            // 
+            this.ACECekSenetHareket.Name = "ACECekSenetHareket";
+            this.ACECekSenetHareket.Text = "Hareketler";
+            // 
+            // ACECekSenetRapor
+            // 
+            this.ACECekSenetRapor.Name = "ACECekSenetRapor";
+            this.ACECekSenetRapor.Text = "Raporlar";
+            // 
             // ACEKasa
             // 
+            this.ACEKasa.Appearance.Default.ForeColor = System.Drawing.Color.Silver;
+            this.ACEKasa.Appearance.Default.Options.UseForeColor = true;
             this.ACEKasa.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.ACEKasaTanim,
             this.ACEKasaHareket,
@@ -1302,7 +1350,6 @@
             // 
             this.ACEKasaTanim.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.ACEKasaKart});
-            this.ACEKasaTanim.Expanded = true;
             this.ACEKasaTanim.Name = "ACEKasaTanim";
             this.ACEKasaTanim.Text = "Tanım";
             // 
@@ -1538,6 +1585,13 @@
             // 
             this.applicationMenu1.Name = "applicationMenu1";
             // 
+            // ACEMusteriSenetTanim
+            // 
+            this.ACEMusteriSenetTanim.Name = "ACEMusteriSenetTanim";
+            this.ACEMusteriSenetTanim.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ACEMusteriSenetTanim.Text = "Müşteri Senet Tanım";
+            this.ACEMusteriSenetTanim.Click += new System.EventHandler(this.ACEMusteriSenetTanim_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1726,5 +1780,11 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEBankaHareket;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEBankaRapor;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEHesapHar;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACECekSenet;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACECekSenetTanim;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACECekSenetHareket;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACECekSenetRapor;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACEMusteriCekTanim;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACEMusteriSenetTanim;
     }
 }
