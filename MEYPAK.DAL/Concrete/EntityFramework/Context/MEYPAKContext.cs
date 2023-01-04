@@ -29,8 +29,19 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
             
 
         }
-        public DbSet<MPMUSTERICEKSENET> MPCEK { get; set; }
-      
+        public DbSet<MPMUSTERICEKSENET> MPMUSTERICEKSENET { get; set; }
+        public DbSet<MPMUSTERICEKHAR> MPMUSTERICEKHAR { get; set; }
+        public DbSet<MPMUSTERICEKNO> MPMUSTERICEKNO { get; set; }
+        public DbSet<MPMUSTERICEKSB> MPMUSTERICEKSB { get; set; }
+        public DbSet<MPMUSTERISENETHAR> MPMUSTERISENETHAR { get; set; }
+        public DbSet<MPMUSTERISENETNO>  MPMUSTERISENETNO { get; set; }
+        public DbSet<MPMUSTERISENETSB>  MPMUSTERISENETSB { get; set; }
+        public DbSet<MPFIRMACEKHAR> MPFIRMACEKHAR { get; set; }
+        public DbSet<MPFIRMACEKNO>  MPFIRMACEKNO { get; set; }
+        public DbSet<MPFIRMACEKSB>  MPFIRMACEKSB { get; set; }
+        public DbSet<MPFIRMASENETHAR> MPFIRMASENETHAR { get; set; }
+        public DbSet<MPFIRMASENETNO>  MPFIRMASENETNO { get; set; }
+        public DbSet<MPFIRMASENETSB>  MPFIRMASENETSB { get; set; }
         public DbSet<MPBANKA> MPBANKA { get; set; }
         public DbSet<MPBANKASUBE> MPBANKASUBE { get; set; }
         public DbSet<MPBANKAHESAP> MPBANKAHESAP { get; set; }
