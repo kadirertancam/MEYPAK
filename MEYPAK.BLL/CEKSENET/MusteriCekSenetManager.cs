@@ -14,7 +14,7 @@ namespace MEYPAK.BLL.CEKSENET
 {
     public class MusteriCekSenetManager : BaseManager<PocoMUSTERICEKSENET, MPMUSTERICEKSENET>, IMusteriCekSenetServis
     {
-        public MusteriCekSenetManager(IMapper mapper, IGeneric<MPMUSTERICEKSENET> repo, string includeEntities = null) : base(mapper, repo, includeEntities)
+        public MusteriCekSenetManager(IMapper mapper, IMusteriCekSenetDal repo, string includeEntities = null) : base(mapper, repo, includeEntities)
         {
         }
     }

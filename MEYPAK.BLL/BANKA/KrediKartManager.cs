@@ -15,7 +15,7 @@ namespace MEYPAK.BLL.BANKA
 {
     public class KrediKartManager : BaseManager<PocoKREDIKART, MPKREDIKART>, IKrediKartServis
     {
-        public KrediKartManager(IMapper mapper, IGeneric<MPKREDIKART> repo) : base(mapper, repo)
+        public KrediKartManager(IMapper mapper, IKrediKartiDal repo) : base(mapper, repo)
         {
         }
     }

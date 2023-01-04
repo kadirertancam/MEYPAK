@@ -11,8 +11,10 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository.CekSenetRepo
 {
     public class EFFirmaSenetNoRepo : EFBaseRepo<MPFIRMASENETNO>, IFirmaSenetNoDal
     {
+        MEYPAKContext context;
         public EFFirmaSenetNoRepo(MEYPAKContext _context) : base(_context)
         {
+            context= _context;
         }
     }
 }

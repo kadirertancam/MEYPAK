@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MEYPAK.DAL.Abstract;
+using MEYPAK.DAL.Abstract.CekSenetDal;
 using MEYPAK.Entity.Models.CEKSENET;
 using MEYPAK.Entity.PocoModels.CEKSENET;
 using MEYPAK.Interfaces.CekSenet;
@@ -13,7 +14,7 @@ namespace MEYPAK.BLL.CEKSENET
 {
     public class FirmaSenetHarManager : BaseManager<PocoFIRMASENETHAR, MPFIRMASENETHAR>, IFirmaSenetHarServis
     {
-        public FirmaSenetHarManager(IMapper mapper, IGeneric<MPFIRMASENETHAR> repo, string includeEntities = null) : base(mapper, repo, includeEntities)
+        public FirmaSenetHarManager(IMapper mapper, IFirmaSenetHarDal repo, string includeEntities = null) : base(mapper, repo, includeEntities)
         {
         }
     }
