@@ -58,10 +58,10 @@
             this.BTBordroSec = new DevExpress.XtraEditors.ButtonEdit();
             this.BTCariSec = new DevExpress.XtraEditors.ButtonEdit();
             this.LBCariAdi = new DevExpress.XtraEditors.LabelControl();
-            this.DTTarih = new DevExpress.XtraEditors.DateTimeOffsetEdit();
             this.LBCariKodu = new DevExpress.XtraEditors.LabelControl();
             this.LBBordroNo = new DevExpress.XtraEditors.LabelControl();
             this.LBTarih = new DevExpress.XtraEditors.LabelControl();
+            this.DTTarih = new DevExpress.XtraEditors.DateEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
@@ -77,6 +77,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.TBCariAdi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTBordroSec.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTCariSec.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DTTarih.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTTarih.Properties)).BeginInit();
             this.SuspendLayout();
             // 
@@ -117,6 +118,7 @@
             // 
             // panelControl2
             // 
+            this.panelControl2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl2.Controls.Add(this.LBBakiye);
             this.panelControl2.Controls.Add(this.LBAlacak);
             this.panelControl2.Controls.Add(this.LBBakiyeDeger);
@@ -193,12 +195,12 @@
             // groupControl1
             // 
             this.groupControl1.CaptionImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("groupControl1.CaptionImageOptions.Image")));
+            this.groupControl1.Controls.Add(this.DTTarih);
             this.groupControl1.Controls.Add(this.panelControl4);
             this.groupControl1.Controls.Add(this.TBCariAdi);
             this.groupControl1.Controls.Add(this.BTBordroSec);
             this.groupControl1.Controls.Add(this.BTCariSec);
             this.groupControl1.Controls.Add(this.LBCariAdi);
-            this.groupControl1.Controls.Add(this.DTTarih);
             this.groupControl1.Controls.Add(this.LBCariKodu);
             this.groupControl1.Controls.Add(this.LBBordroNo);
             this.groupControl1.Controls.Add(this.LBTarih);
@@ -275,16 +277,6 @@
             this.LBCariAdi.TabIndex = 6;
             this.LBCariAdi.Text = "Cari Adı";
             // 
-            // DTTarih
-            // 
-            this.DTTarih.EditValue = new System.DateTime(2023, 1, 4, 16, 20, 41, 0);
-            this.DTTarih.Location = new System.Drawing.Point(115, 48);
-            this.DTTarih.Name = "DTTarih";
-            this.DTTarih.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.DTTarih.Size = new System.Drawing.Size(193, 20);
-            this.DTTarih.TabIndex = 9;
-            // 
             // LBCariKodu
             // 
             this.LBCariKodu.Location = new System.Drawing.Point(354, 51);
@@ -308,6 +300,18 @@
             this.LBTarih.Size = new System.Drawing.Size(24, 13);
             this.LBTarih.TabIndex = 5;
             this.LBTarih.Text = "Tarih";
+            // 
+            // DTTarih
+            // 
+            this.DTTarih.EditValue = new System.DateTime(2023, 1, 5, 17, 56, 6, 934);
+            this.DTTarih.Location = new System.Drawing.Point(115, 48);
+            this.DTTarih.Name = "DTTarih";
+            this.DTTarih.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.DTTarih.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.DTTarih.Size = new System.Drawing.Size(193, 20);
+            this.DTTarih.TabIndex = 13;
             // 
             // FMusteriSenetTanim
             // 
@@ -335,6 +339,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.TBCariAdi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTBordroSec.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTCariSec.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DTTarih.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTTarih.Properties)).EndInit();
             this.ResumeLayout(false);
 
@@ -368,6 +373,6 @@
         private DevExpress.XtraEditors.TextEdit TBCariAdi;
         private DevExpress.XtraEditors.ButtonEdit BTBordroSec;
         private DevExpress.XtraEditors.ButtonEdit BTCariSec;
-        private DevExpress.XtraEditors.DateTimeOffsetEdit DTTarih;
+        private DevExpress.XtraEditors.DateEdit DTTarih;
     }
 }

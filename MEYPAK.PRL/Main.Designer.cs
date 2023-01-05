@@ -160,7 +160,10 @@
             this.ACECekSenet = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACECekSenetTanim = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEMusteriCekTanim = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACEMusteriSenetTanim = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACECekSenetHareket = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACEMCekCiro = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACEMSenetCiro = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACECekSenetRapor = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEKasa = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEKasaTanim = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -194,7 +197,6 @@
             this.ACESeriTanim = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
             this.applicationMenu1 = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
-            this.ACEMusteriSenetTanim = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -1303,7 +1305,6 @@
             this.ACECekSenetTanim,
             this.ACECekSenetHareket,
             this.ACECekSenetRapor});
-            this.ACECekSenet.Expanded = true;
             this.ACECekSenet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ACECekSenet.ImageOptions.Image")));
             this.ACECekSenet.Name = "ACECekSenet";
             this.ACECekSenet.Text = "Çek/Senet";
@@ -1313,7 +1314,6 @@
             this.ACECekSenetTanim.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.ACEMusteriCekTanim,
             this.ACEMusteriSenetTanim});
-            this.ACECekSenetTanim.Expanded = true;
             this.ACECekSenetTanim.Name = "ACECekSenetTanim";
             this.ACECekSenetTanim.Text = "Tanımlar";
             // 
@@ -1324,10 +1324,34 @@
             this.ACEMusteriCekTanim.Text = "Müşteri Çek Tanım";
             this.ACEMusteriCekTanim.Click += new System.EventHandler(this.ACEMusteriCekTanim_Click);
             // 
+            // ACEMusteriSenetTanim
+            // 
+            this.ACEMusteriSenetTanim.Name = "ACEMusteriSenetTanim";
+            this.ACEMusteriSenetTanim.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ACEMusteriSenetTanim.Text = "Müşteri Senet Tanım";
+            this.ACEMusteriSenetTanim.Click += new System.EventHandler(this.ACEMusteriSenetTanim_Click);
+            // 
             // ACECekSenetHareket
             // 
+            this.ACECekSenetHareket.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.ACEMCekCiro,
+            this.ACEMSenetCiro});
             this.ACECekSenetHareket.Name = "ACECekSenetHareket";
             this.ACECekSenetHareket.Text = "Hareketler";
+            // 
+            // ACEMCekCiro
+            // 
+            this.ACEMCekCiro.Name = "ACEMCekCiro";
+            this.ACEMCekCiro.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ACEMCekCiro.Text = "Müşteri Çek Ciro";
+            this.ACEMCekCiro.Click += new System.EventHandler(this.ACEMCekCiro_Click);
+            // 
+            // ACEMSenetCiro
+            // 
+            this.ACEMSenetCiro.Name = "ACEMSenetCiro";
+            this.ACEMSenetCiro.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ACEMSenetCiro.Text = "Müşteri Senet Ciro";
+            this.ACEMSenetCiro.Click += new System.EventHandler(this.ACEMSenetCiro_Click);
             // 
             // ACECekSenetRapor
             // 
@@ -1382,6 +1406,8 @@
             // 
             // ACEBanka
             // 
+            this.ACEBanka.Appearance.Default.ForeColor = System.Drawing.Color.Silver;
+            this.ACEBanka.Appearance.Default.Options.UseForeColor = true;
             this.ACEBanka.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.ACEBankaTanim,
             this.ACEBankaHareket,
@@ -1585,13 +1611,6 @@
             // 
             this.applicationMenu1.Name = "applicationMenu1";
             // 
-            // ACEMusteriSenetTanim
-            // 
-            this.ACEMusteriSenetTanim.Name = "ACEMusteriSenetTanim";
-            this.ACEMusteriSenetTanim.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.ACEMusteriSenetTanim.Text = "Müşteri Senet Tanım";
-            this.ACEMusteriSenetTanim.Click += new System.EventHandler(this.ACEMusteriSenetTanim_Click);
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1786,5 +1805,7 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACECekSenetRapor;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEMusteriCekTanim;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEMusteriSenetTanim;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACEMCekCiro;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACEMSenetCiro;
     }
 }

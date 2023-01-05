@@ -108,6 +108,8 @@ namespace MEYPAK.PRL
         FHesapHareket fHesapHareket;
         FMusteriCekTanim fMusteriCekTanim;
         FMusteriSenetTanim fMusteriSenetTanim;
+        FMusteriCekCiro fMusteriCekCiro;
+        FMusteriSenetCiro fMusteriSenetCiro;
 
         public Tarih_Date _tarih_Date;
         public DataTable guncelkur;
@@ -1356,6 +1358,49 @@ namespace MEYPAK.PRL
             fMusteriSenetTanim.Show();
             i++;
 
+        }
+
+        private void ACEMCekCiro_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fMusteriCekCiro = new FMusteriCekCiro();
+            page.Name = "TPMusteriCekCiro" + i;
+            page.Text = "Müşteri Çek Ciro";
+            page.Tag = "TPMusteriCekCiro" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fMusteriCekCiro.FormBorderStyle = FormBorderStyle.None;
+            fMusteriCekCiro.TopLevel = false;
+            fMusteriCekCiro.AutoScroll = true;
+            fMusteriCekCiro.Dock = DockStyle.Fill;
+            fMusteriCekCiro.Tag = "TPMusteriCekCiro" + i;
+            page.Controls.Add(fMusteriCekCiro);
+            fMusteriCekCiro.Show();
+            i++;
+
+        }
+
+        private void ACEMSenetCiro_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fMusteriSenetCiro = new FMusteriSenetCiro();
+            page.Name = "TPMusteriSenetCiro" + i;
+            page.Text = "Müşteri Senet Ciro";
+            page.Tag = "TPMusteriSenetCiro" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fMusteriSenetCiro.FormBorderStyle = FormBorderStyle.None;
+            fMusteriSenetCiro.TopLevel = false;
+            fMusteriSenetCiro.AutoScroll = true;
+            fMusteriSenetCiro.Dock = DockStyle.Fill;
+            fMusteriSenetCiro.Tag = "TPMusteriSenetCiro" + i;
+            page.Controls.Add(fMusteriSenetCiro);
+            fMusteriSenetCiro.Show();
+            i++;
         }
     }
 }

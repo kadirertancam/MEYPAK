@@ -5,6 +5,7 @@ using MEYPAK.PRL.Assets;
 using MEYPAK.PRL.BANKA;
 using MEYPAK.PRL.CARI;
 using MEYPAK.PRL.CARI.Raporlar;
+using MEYPAK.PRL.CEKSENET;
 using MEYPAK.PRL.DEPO;
 using MEYPAK.PRL.IRSALIYE;
 using MEYPAK.PRL.KASA;
@@ -36,7 +37,7 @@ namespace MEYPAK.PRL
             NinjectFactory.CompositionRoot.Initialize(a);
             ApplicationConfiguration.Initialize();
             Application.EnableVisualStyles();
-            Application.Run(new Main());
+            Application.Run(new FMusteriSenetCiro());
         }
         
 
