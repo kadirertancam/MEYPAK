@@ -2,6 +2,7 @@
 using MEYPAK.Entity.Models.ARAC;
 using MEYPAK.Entity.Models.BANKA;
 using MEYPAK.Entity.Models.CARI;
+using MEYPAK.Entity.Models.CEKSENET;
 using MEYPAK.Entity.Models.DEPO;
 using MEYPAK.Entity.Models.FATURA;
 using MEYPAK.Entity.Models.IRSALIYE;
@@ -13,6 +14,7 @@ using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Entity.PocoModels.ARAC;
 using MEYPAK.Entity.PocoModels.BANKA;
 using MEYPAK.Entity.PocoModels.CARI;
+using MEYPAK.Entity.PocoModels.CEKSENET;
 using MEYPAK.Entity.PocoModels.DEPO;
 using MEYPAK.Entity.PocoModels.FATURA;
 using MEYPAK.Entity.PocoModels.IRSALIYE;
@@ -33,12 +35,33 @@ namespace MEYPAK.Entity.Mappings
     {
         public Maps()
         {
+            //CEKSENET
+            CreateMap<MPFIRMACEKHAR, PocoFIRMACEKHAR>().ReverseMap();
+            CreateMap<MPFIRMACEKNO, PocoFIRMACEKNO>().ReverseMap();
+            CreateMap<MPFIRMACEKSB, PocoFIRMACEKSB>().ReverseMap();
+
+            CreateMap<MPFIRMASENETHAR,PocoFIRMASENETHAR>().ReverseMap();
+            CreateMap<MPFIRMASENETNO, PocoFIRMASENETNO>().ReverseMap();
+            CreateMap<MPFIRMASENETSB, PocoFIRMASENETSB>().ReverseMap();
+
+            CreateMap<MPMUSTERICEKHAR,PocoMUSTERICEKHAR>().ReverseMap();
+            CreateMap<MPMUSTERICEKNO, PocoMUSTERICEKNO>().ReverseMap();
+            CreateMap<MPMUSTERICEKSB, PocoMUSTERICEKSB>().ReverseMap();
+
+            CreateMap<MPMUSTERISENETHAR,PocoMUSTERISENETHAR>().ReverseMap();
+            CreateMap<MPMUSTERISENETNO, PocoMUSTERISENETNO>().ReverseMap();
+            CreateMap<MPMUSTERISENETSB, PocoMUSTERISENETSB>().ReverseMap();
+
+            CreateMap<MPMUSTERICEKSENET,PocoMUSTERICEKSENET>().ReverseMap();
+
 
             //BANKA
             CreateMap<MPBANKA, PocoBANKA>().ReverseMap();
             CreateMap<MPBANKASUBE, PocoBANKASUBE>().ReverseMap();
             CreateMap<MPBANKAHESAP, PocoBANKAHESAP>().ReverseMap();
             CreateMap<MPHESAPHAREKET, PocoHESAPHAREKET>().ReverseMap();
+            CreateMap<MPKREDIKART, PocoKREDIKART>().ReverseMap();
+           
 
             //PARAMETRE
 

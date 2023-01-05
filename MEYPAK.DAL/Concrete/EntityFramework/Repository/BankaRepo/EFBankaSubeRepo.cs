@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MEYPAK.DAL.Concrete.EntityFramework.Repository.BankaRapo
+namespace MEYPAK.DAL.Concrete.EntityFramework.Repository.BankaRepo
 {
     public class EFBankaSubeRepo : EFBaseRepo<MPBANKASUBE>, IBankaSubeDal
     {

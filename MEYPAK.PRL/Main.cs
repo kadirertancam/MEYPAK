@@ -8,6 +8,7 @@ using MEYPAK.PRL.ARAÇLAR;
 using MEYPAK.PRL.BANKA;
 using MEYPAK.PRL.CARI;
 using MEYPAK.PRL.CARI.Raporlar;
+using MEYPAK.PRL.CEKSENET;
 using MEYPAK.PRL.DEPO;
 using MEYPAK.PRL.DEPO.Raporlar;
 using MEYPAK.PRL.IRSALIYE;
@@ -105,6 +106,8 @@ namespace MEYPAK.PRL
         FBankaHesapTanim fBankaHesapTanim;
         FBankaSubeTanim fBankaSubeTanim;
         FHesapHareket fHesapHareket;
+        FMusteriCekTanim fMusteriCekTanim;
+        FMusteriSenetTanim fMusteriSenetTanim;
 
         public Tarih_Date _tarih_Date;
         public DataTable guncelkur;
@@ -1310,6 +1313,49 @@ namespace MEYPAK.PRL
             page.Controls.Add(fHesapHareket);
             fHesapHareket.Show();
             i++;
+        }
+
+        private void ACEMusteriCekTanim_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fMusteriCekTanim = new FMusteriCekTanim();
+            page.Name = "TPMusteriCekTanim" + i;
+            page.Text = "Müşteri Çek Tanım";
+            page.Tag = "TPMusteriCekTanim" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fMusteriCekTanim.FormBorderStyle = FormBorderStyle.None;
+            fMusteriCekTanim.TopLevel = false;
+            fMusteriCekTanim.AutoScroll = true;
+            fMusteriCekTanim.Dock = DockStyle.Fill;
+            fMusteriCekTanim.Tag = "TPMusteriCekTanim" + i;
+            page.Controls.Add(fMusteriCekTanim);
+            fMusteriCekTanim.Show();
+            i++;
+        }
+
+        private void ACEMusteriSenetTanim_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fMusteriSenetTanim = new FMusteriSenetTanim();
+            page.Name = "TPMusteriSenetTanim" + i;
+            page.Text = "Müşteri Senet Tanım";
+            page.Tag = "TPMusteriSenetTanim" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fMusteriSenetTanim.FormBorderStyle = FormBorderStyle.None;
+            fMusteriSenetTanim.TopLevel = false;
+            fMusteriSenetTanim.AutoScroll = true;
+            fMusteriSenetTanim.Dock = DockStyle.Fill;
+            fMusteriSenetTanim.Tag = "TPMusteriSenetTanim" + i;
+            page.Controls.Add(fMusteriSenetTanim);
+            fMusteriSenetTanim.Show();
+            i++;
+
         }
     }
 }

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MEYPAK.API.Controllers.CARIControllers
 {
+    [ApiController]
     [Route("[controller]")]
     public class CARIALTHESCARIController : Controller
     {

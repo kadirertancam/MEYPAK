@@ -21,7 +21,7 @@ namespace MEYPAK.PRL.ARACLAR
             _depoServis = new GenericWebServis<PocoDEPO>();
 
         }
-        RepositoryItemLookUpEdit riLookuparac;
+        RepositoryItemLookUpEdit  riLookuparac;
         RepositoryItemLookUpEdit riLookupdepo;
         GenericWebServis<PocoARAC> _aracServis;
         GenericWebServis<PocoDEPO> _depoServis;

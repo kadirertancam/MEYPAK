@@ -98,12 +98,12 @@ namespace MEYPAK.BLL.Assets
         #endregion
 
         #region HesapHar
-        public const string HesapHarListeServis =              "http://213.238.167.117:8080/HESAPHAR/HESAPHARListe";
-        public const string HesapHarEkleServis =               "http://213.238.167.117:8080/HESAPHAR/HESAPHAREkleyadaGuncelle";
-        public const string HesapHarSilServis =                "http://213.238.167.117:8080/HESAPHAR/HESAPHARSil";
-        public const string HesapHarGuncelleServis =           "http://213.238.167.117:8080/HESAPHAR/HESAPHARGuncelle";
-        public const string HesapHarDeleteByIdServis =         "http://213.238.167.117:8080/HESAPHAR/DeleteById";
-        public const string HesapHarFiltreServis =             "http://213.238.167.117:8080/HESAPHAR/HESAPHARListe2?query=";
+        public const string HesapHarListeServis = "http://213.238.167.117:8080/HESAPHAR/HESAPHARListe";
+        public const string HesapHarEkleServis = "http://213.238.167.117:8080/HESAPHAR/HESAPHAREkleyadaGuncelle";
+        public const string HesapHarSilServis = "http://213.238.167.117:8080/HESAPHAR/HESAPHARSil";
+        public const string HesapHarGuncelleServis = "http://213.238.167.117:8080/HESAPHAR/HESAPHARGuncelle";
+        public const string HesapHarDeleteByIdServis = "http://213.238.167.117:8080/HESAPHAR/DeleteById";
+        public const string HesapHarFiltreServis = "http://213.238.167.117:8080/HESAPHAR/HESAPHARListe2?query=";
         #endregion
 
         #region Banka
@@ -113,6 +113,15 @@ namespace MEYPAK.BLL.Assets
         public const string BANKAGuncelleServis = "http://213.238.167.117:8080/BANKA/BANKAGuncelle";
         public const string BANKADeleteByIdServis = "http://213.238.167.117:8080/BANKA/DeleteById";
         public const string BANKAFiltreServis = "http://213.238.167.117:8080/BANKA/BANKAListe2?query=";
+        #endregion
+
+        #region KrediKart
+        public const string KrediKartListeServis =       "http://213.238.167.117:8080/KREDIKART/Liste";
+        public const string KrediKartEkleServis =        "http://213.238.167.117:8080/KREDIKART/EkleyadaGuncelle";
+        public const string KrediKartSilServis =         "http://213.238.167.117:8080/KREDIKART/Sil";
+        public const string KrediKartGuncelleServis =    "http://213.238.167.117:8080/KREDIKART/Guncelle";
+        public const string KrediKartDeleteByIdServis =  "http://213.238.167.117:8080/KREDIKART/DeleteById";
+        public const string KrediKartFiltreServis =      "http://213.238.167.117:8080/KREDIKART/Liste2?query=";
         #endregion
 
         #region BankaHesap
@@ -584,5 +593,146 @@ namespace MEYPAK.BLL.Assets
         public const string FaturaDeleteByIdServis = "http://213.238.167.117:8080/FATURA/DeleteById";
         public const string FaturaFiltreServis = "http://213.238.167.117:8080/FATURA/FATURAListe2?query=";
         #endregion
+
+        #region USER-IDENTITY
+        public const string UserLoginServis =        "http://213.238.167.117:8080/KULLANICI/Login";
+        public const string UserEkleServis =         "http://213.238.167.117:8080/KULLANICI/Register";
+
+
+        #endregion
+
+        #region FIRMACEKHAR
+        public const string FirmaCekHarListeServis = "http://213.238.167.117:8080/FIRMACEKHAR/Liste";
+        public const string FirmaCekHarEkleServis = "http://213.238.167.117:8080/FIRMACEKHAR/EkleyadaGuncelle";
+        public const string FirmaCekHarSilServis = "http://213.238.167.117:8080/FIRMACEKHAR/Sil";
+        public const string FirmaCekHarGuncelleServis = "http://213.238.167.117:8080/FIRMACEKHAR/Guncelle";
+        public const string FirmaCekHarDeleteByIdServis = "http://213.238.167.117:8080/FIRMACEKHAR/DeleteById";
+        public const string FirmaCekHarFiltreServis = "http://213.238.167.117:8080/FIRMACEKHAR/Liste2?query=";
+
+        #endregion
+
+        #region FIRMACEKNO
+        public const string FirmaCekNoListeServis = "http://213.238.167.117:8080/FIRMACEKNO/Liste";
+        public const string FirmaCekNoEkleServis = "http://213.238.167.117:8080/FIRMACEKNO/EkleyadaGuncelle";
+        public const string FirmaCekNoSilServis = "http://213.238.167.117:8080/FIRMACEKNO/Sil";
+        public const string FirmaCekNoGuncelleServis = "http://213.238.167.117:8080/FIRMACEKNO/Guncelle";
+        public const string FirmaCekNoDeleteByIdServis = "http://213.238.167.117:8080/FIRMACEKNO/DeleteById";
+        public const string FirmaCekNoFiltreServis = "http://213.238.167.117:8080/FIRMACEKNO/Liste2?query=";
+
+        #endregion
+
+        #region FIRMACEKSB
+        public const string FirmaCekSBListeServis = "http://213.238.167.117:8080/FIRMACEKSB/Liste";
+        public const string FirmaCekSBEkleServis = "http://213.238.167.117:8080/FIRMACEKSB/EkleyadaGuncelle";
+        public const string FirmaCekSBSilServis = "http://213.238.167.117:8080/FIRMACEKSB/Sil";
+        public const string FirmaCekSBGuncelleServis = "http://213.238.167.117:8080/FIRMACEKSB/Guncelle";
+        public const string FirmaCekSBDeleteByIdServis = "http://213.238.167.117:8080/FIRMACEKSB/DeleteById";
+        public const string FirmaCekSBFiltreServis = "http://213.238.167.117:8080/FIRMACEKSB/Liste2?query=";
+
+        #endregion
+
+        #region FIRMASENETHAR
+        public const string FirmaSenetHarListeServis = "http://213.238.167.117:8080/FIRMASENETHAR/Liste";
+        public const string FirmaSenetHarEkleServis = "http://213.238.167.117:8080/FIRMASENETHAR/EkleyadaGuncelle";
+        public const string FirmaSenetHarSilServis = "http://213.238.167.117:8080/FIRMASENETHAR/Sil";
+        public const string FirmaSenetHarGuncelleServis = "http://213.238.167.117:8080/FIRMASENETHAR/Guncelle";
+        public const string FirmaSenetHarDeleteByIdServis = "http://213.238.167.117:8080/FIRMASENETHAR/DeleteById";
+        public const string FirmaSenetHarFiltreServis = "http://213.238.167.117:8080/FIRMASENETHAR/Liste2?query=";
+
+        #endregion
+
+        #region FIRMASENETNO
+        public const string FirmaSenetNoListeServis = "http://213.238.167.117:8080/FIRMASENETNO/Liste";
+        public const string FirmaSenetNoEkleServis = "http://213.238.167.117:8080/FIRMASENETNO/EkleyadaGuncelle";
+        public const string FirmaSenetNoSilServis = "http://213.238.167.117:8080/FIRMASENETNO/Sil";
+        public const string FirmaSenetNoGuncelleServis = "http://213.238.167.117:8080/FIRMASENETNO/Guncelle";
+        public const string FirmaSenetNoDeleteByIdServis = "http://213.238.167.117:8080/FIRMASENETNO/DeleteById";
+        public const string FirmaSenetNoFiltreServis = "http://213.238.167.117:8080/FIRMASENETNO/Liste2?query=";
+
+        #endregion
+
+        #region FIRMASENETSB
+        public const string FirmaSenetSBListeServis = "http://213.238.167.117:8080/FIRMASENETSB/Liste";
+        public const string FirmaSenetSBEkleServis = "http://213.238.167.117:8080/FIRMASENETSB/EkleyadaGuncelle";
+        public const string FirmaSenetSBSilServis = "http://213.238.167.117:8080/FIRMASENETSB/Sil";
+        public const string FirmaSenetSBGuncelleServis = "http://213.238.167.117:8080/FIRMASENETSB/Guncelle";
+        public const string FirmaSenetSBDeleteByIdServis = "http://213.238.167.117:8080/FIRMASENETSB/DeleteById";
+        public const string FirmaSenetSBFiltreServis = "http://213.238.167.117:8080/FIRMASENETSB/Liste2?query=";
+
+        #endregion
+
+        #region MUSTERICEKHAR
+        public const string MusteriCekHarListeServis = "http://213.238.167.117:8080/MUSTERICEKHAR/Liste";
+        public const string MusteriCekHarEkleServis = "http://213.238.167.117:8080/MUSTERICEKHAR/EkleyadaGuncelle";
+        public const string MusteriCekHarSilServis = "http://213.238.167.117:8080/MUSTERICEKHAR/Sil";
+        public const string MusteriCekHarGuncelleServis = "http://213.238.167.117:8080/MUSTERICEKHAR/Guncelle";
+        public const string MusteriCekHarDeleteByIdServis = "http://213.238.167.117:8080/MUSTERICEKHAR/DeleteById";
+        public const string MusteriCekHarFiltreServis = "http://213.238.167.117:8080/MUSTERICEKHAR/Liste2?query=";
+
+        #endregion
+
+        #region MUSTERICEKNO
+        public const string MusteriCekNoListeServis = "http://213.238.167.117:8080/MUSTERICEKNO/Liste";
+        public const string MusteriCekNoEkleServis = "http://213.238.167.117:8080/MUSTERICEKNO/EkleyadaGuncelle";
+        public const string MusteriCekNoSilServis = "http://213.238.167.117:8080/MUSTERICEKNO/Sil";
+        public const string MusteriCekNoGuncelleServis = "http://213.238.167.117:8080/MUSTERICEKNO/Guncelle";
+        public const string MusteriCekNoDeleteByIdServis = "http://213.238.167.117:8080/MUSTERICEKNO/DeleteById";
+        public const string MusteriCekNoFiltreServis = "http://213.238.167.117:8080/MUSTERICEKNO/Liste2?query=";
+
+        #endregion
+
+        #region MUSTERICEKSB
+        public const string MusteriCekSBListeServis = "http://213.238.167.117:8080/MUSTERICEKSB/Liste";
+        public const string MusteriCekSBEkleServis = "http://213.238.167.117:8080/MUSTERICEKSB/EkleyadaGuncelle";
+        public const string MusteriCekSBSilServis = "http://213.238.167.117:8080/MUSTERICEKSB/Sil";
+        public const string MusteriCekSBGuncelleServis = "http://213.238.167.117:8080/MUSTERICEKSB/Guncelle";
+        public const string MusteriCekSBDeleteByIdServis = "http://213.238.167.117:8080/MUSTERICEKSB/DeleteById";
+        public const string MusteriCekSBFiltreServis = "http://213.238.167.117:8080/MUSTERICEKSB/Liste2?query=";
+
+        #endregion
+
+        #region MUSTERISENETHAR
+        public const string MusteriSenetHarListeServis = "http://213.238.167.117:8080/MUSTERISENETHAR/Liste";
+        public const string MusteriSenetHarEkleServis = "http://213.238.167.117:8080/MUSTERISENETHAR/EkleyadaGuncelle";
+        public const string MusteriSenetHarSilServis = "http://213.238.167.117:8080/MUSTERISENETHAR/Sil";
+        public const string MusteriSenetHarGuncelleServis = "http://213.238.167.117:8080/MUSTERISENETHAR/Guncelle";
+        public const string MusteriSenetHarDeleteByIdServis = "http://213.238.167.117:8080/MUSTERISENETHAR/DeleteById";
+        public const string MusteriSenetHarFiltreServis = "http://213.238.167.117:8080/MUSTERISENETHAR/Liste2?query=";
+
+        #endregion
+
+        #region MUSTERISENETNO
+        public const string MusteriSenetNoListeServis = "http://213.238.167.117:8080/MUSTERISENETNO/Liste";
+        public const string MusteriSenetNoEkleServis = "http://213.238.167.117:8080/MUSTERISENETNO/EkleyadaGuncelle";
+        public const string MusteriSenetNoSilServis = "http://213.238.167.117:8080/MUSTERISENETNO/Sil";
+        public const string MusteriSenetNoGuncelleServis = "http://213.238.167.117:8080/MUSTERISENETNO/Guncelle";
+        public const string MusteriSenetNoDeleteByIdServis = "http://213.238.167.117:8080/MUSTERISENETNO/DeleteById";
+        public const string MusteriSenetNoFiltreServis = "http://213.238.167.117:8080/MUSTERISENETNO/Liste2?query=";
+
+        #endregion
+
+        #region MUSTERISENETSB
+        public const string MusteriSenetSBListeServis = "http://213.238.167.117:8080/MUSTERISENETSB/Liste";
+        public const string MusteriSenetSBEkleServis = "http://213.238.167.117:8080/MUSTERISENETSB/EkleyadaGuncelle";
+        public const string MusteriSenetSBSilServis = "http://213.238.167.117:8080/MUSTERISENETSB/Sil";
+        public const string MusteriSenetSBGuncelleServis = "http://213.238.167.117:8080/MUSTERISENETSB/Guncelle";
+        public const string MusteriSenetSBDeleteByIdServis = "http://213.238.167.117:8080/MUSTERISENETSB/DeleteById";
+        public const string MusteriSenetSBFiltreServis = "http://213.238.167.117:8080/MUSTERISENETSB/Liste2?query=";
+
+        #endregion
+
+        #region MUSTERICEKSENET
+        public const string MusteriCekSenetListeServis =      "http://213.238.167.117:8080/MUSTERICEKSENET/Liste";
+        public const string MusteriCekSenetEkleServis =       "http://213.238.167.117:8080/MUSTERICEKSENET/EkleyadaGuncelle";
+        public const string MusteriCekSenetSilServis =        "http://213.238.167.117:8080/MUSTERICEKSENET/Sil";
+        public const string MusteriCekSenetGuncelleServis =   "http://213.238.167.117:8080/MUSTERICEKSENET/Guncelle";
+        public const string MusteriCekSenetDeleteByIdServis = "http://213.238.167.117:8080/MUSTERICEKSENET/DeleteById";
+        public const string MusteriCekSenetFiltreServis =     "http://213.238.167.117:8080/MUSTERICEKSENET/Liste2?query=";
+
+        #endregion
+
+
+
+
     }
 }

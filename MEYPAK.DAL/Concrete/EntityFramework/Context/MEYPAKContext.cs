@@ -3,6 +3,7 @@ using MEYPAK.Entity.Models;
 using MEYPAK.Entity.Models.ARAC;
 using MEYPAK.Entity.Models.BANKA;
 using MEYPAK.Entity.Models.CARI;
+using MEYPAK.Entity.Models.CEKSENET;
 using MEYPAK.Entity.Models.DEPO;
 using MEYPAK.Entity.Models.FATURA;
 using MEYPAK.Entity.Models.IRSALIYE;
@@ -28,10 +29,24 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
             
 
         }
+        public DbSet<MPMUSTERICEKSENET> MPMUSTERICEKSENET { get; set; }
+        public DbSet<MPMUSTERICEKHAR> MPMUSTERICEKHAR { get; set; }
+        public DbSet<MPMUSTERICEKNO> MPMUSTERICEKNO { get; set; }
+        public DbSet<MPMUSTERICEKSB> MPMUSTERICEKSB { get; set; }
+        public DbSet<MPMUSTERISENETHAR> MPMUSTERISENETHAR { get; set; }
+        public DbSet<MPMUSTERISENETNO>  MPMUSTERISENETNO { get; set; }
+        public DbSet<MPMUSTERISENETSB>  MPMUSTERISENETSB { get; set; }
+        public DbSet<MPFIRMACEKHAR> MPFIRMACEKHAR { get; set; }
+        public DbSet<MPFIRMACEKNO>  MPFIRMACEKNO { get; set; }
+        public DbSet<MPFIRMACEKSB>  MPFIRMACEKSB { get; set; }
+        public DbSet<MPFIRMASENETHAR> MPFIRMASENETHAR { get; set; }
+        public DbSet<MPFIRMASENETNO>  MPFIRMASENETNO { get; set; }
+        public DbSet<MPFIRMASENETSB>  MPFIRMASENETSB { get; set; }
         public DbSet<MPBANKA> MPBANKA { get; set; }
         public DbSet<MPBANKASUBE> MPBANKASUBE { get; set; }
         public DbSet<MPBANKAHESAP> MPBANKAHESAP { get; set; }
         public DbSet<MPHESAPHAREKET> MPHESAPHAREKET { get; set; }
+        public DbSet<MPKREDIKART> MPKREDIKART { get; set; }
         public DbSet<MPSERIHAR> MPSERIHAR { get; set; }
         public DbSet<MPCARIALTHESCARI> MPCARIALTHESCARI { get; set; }
         public DbSet<MPSIPARISKASAHAR> MPSIPARISKASAHAR { get; set; }

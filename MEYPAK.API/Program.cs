@@ -49,8 +49,11 @@ using MEYPAK.BLL.FATURA;
 using MEYPAK.DAL.Abstract.BankaDal;
 using MEYPAK.Interfaces.Banka;
 using MEYPAK.BLL.BANKA;
-using MEYPAK.DAL.Concrete.EntityFramework.Repository.BankaRapo;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository.BankaRepo;
+using MEYPAK.DAL.Abstract.CekSenetDal;
+using MEYPAK.Interfaces.CekSenet;
+using MEYPAK.DAL.Concrete.EntityFramework.Repository.CekSenetRepo;
+using MEYPAK.BLL.CEKSENET;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -92,6 +95,48 @@ builder.Services.AddAutoMapper(x =>
 });
 
 
+#region CekSenet_Scoped_Islemleri
+builder.Services.AddScoped<IFirmaCekHarDal, EFFirmaCekHarRepo>();
+builder.Services.AddScoped<IFirmaCekHarServis, FirmaCekHarManager>();
+
+builder.Services.AddScoped<IFirmaCekNoDal, EFFirmaCekNoRepo>();
+builder.Services.AddScoped<IFirmaCekNoServis, FirmaCekNoManager>();
+
+builder.Services.AddScoped<IFirmaCekSBDal,  EFFirmaCekSBRepo>();
+builder.Services.AddScoped<IFirmaCekSBServis, FirmaCekSBManager>();
+
+builder.Services.AddScoped<IFirmaSenetHarDal, EFFirmaSenetHarRepo>();
+builder.Services.AddScoped<IFirmaSenetHarServis, FirmaSenetHarManager>();
+
+builder.Services.AddScoped<IFirmaSenetNoDal,  EFFirmaSenetNoRepo>();
+builder.Services.AddScoped<IFirmaSenetNoServis, FirmaSenetNoManager>();
+
+builder.Services.AddScoped<IFirmaSenetSBDal, EFFirmaSenetSBRepo>();
+builder.Services.AddScoped<IFirmaSenetSBServis, FirmaSenetSBManager>();
+
+builder.Services.AddScoped<IMusteriCekHarDal, EFMusteriCekHarRepo>();
+builder.Services.AddScoped<IMusteriCekHarServis, MusteriCekHarManager>();
+
+builder.Services.AddScoped<IMusteriCekNoDal,  EFMusteriCekNoRepo>();
+builder.Services.AddScoped<IMusteriCekNoServis, MusteriCekNoManager>();
+
+builder.Services.AddScoped<IMusteriCekSBDal, EFMusteriCekSBRepo>();
+builder.Services.AddScoped<IMusteriCekSBServis, MusteriCekSBManager>();
+
+builder.Services.AddScoped<IMusteriSenetHarDal, EFMusteriSenetHarRepo>();
+builder.Services.AddScoped<IMusteriSenetHarServis, MusteriSenetHarManager>();
+
+builder.Services.AddScoped<IMusteriSenetNoDal,  EFMusteriSenetNoRepo>();
+builder.Services.AddScoped<IMusteriSenetNoServis, MusteriSenetNoManager>();
+
+builder.Services.AddScoped<IMusteriSenetSBDal, EFMusteriSenetSBRepo>();
+builder.Services.AddScoped<IMusteriSenetSBServis, MusteriSenetSBManager>();
+
+builder.Services.AddScoped<IMusteriCekSenetDal, EFMusteriCekSenetRepo>();
+builder.Services.AddScoped<IMusteriCekSenetServis, MusteriCekSenetManager>();
+
+
+#endregion
 #region Banka_Scoped_Islemleri
 builder.Services.AddScoped<IBankaDal, EFBankaRepo>();
 builder.Services.AddScoped<IBankaServis, BankaManager>();
@@ -104,6 +149,9 @@ builder.Services.AddScoped<IBankaSubeServis, BankaSubeManager>();
 
 builder.Services.AddScoped<IHesapHarDal, EFHesapHarRepo>();
 builder.Services.AddScoped<IHesapHarServis, HesapHarManager>();
+
+builder.Services.AddScoped<IKrediKartiDal, EFKrediKartRepo>();
+builder.Services.AddScoped<IKrediKartServis, KrediKartManager>();
 #endregion
 #region Parametre_Scoped_Islemleri
 builder.Services.AddScoped<IParaBirimDal, EFParaBirimRepo>();
