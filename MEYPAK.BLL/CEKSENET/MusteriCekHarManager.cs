@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MEYPAK.DAL.Abstract;
+using MEYPAK.DAL.Abstract.CekSenetDal;
 using MEYPAK.Entity.Models.CEKSENET;
 using MEYPAK.Entity.PocoModels.CEKSENET;
 using MEYPAK.Interfaces.CekSenet;
@@ -13,7 +14,7 @@ namespace MEYPAK.BLL.CEKSENET
 {
     public class MusteriCekHarManager : BaseManager<PocoMUSTERICEKHAR, MPMUSTERICEKHAR>, IMusteriCekHarServis
     {
-        public MusteriCekHarManager(IMapper mapper, IGeneric<MPMUSTERICEKHAR> repo, string includeEntities = null) : base(mapper, repo, includeEntities)
+        public MusteriCekHarManager(IMapper mapper, IMusteriCekHarDal repo, string includeEntities = null) : base(mapper, repo, includeEntities)
         {
         }
     }

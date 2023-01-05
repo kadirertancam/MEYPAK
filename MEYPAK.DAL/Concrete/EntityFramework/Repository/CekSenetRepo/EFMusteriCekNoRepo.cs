@@ -11,8 +11,10 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository.CekSenetRepo
 {
     public class EFMusteriCekNoRepo : EFBaseRepo<MPMUSTERICEKNO>, IMusteriCekNoDal
     {
+        MEYPAKContext context;
         public EFMusteriCekNoRepo(MEYPAKContext _context) : base(_context)
         {
+            context = _context;
         }
     }
 }

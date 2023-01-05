@@ -20,6 +20,28 @@ using DevExpress.Mvvm.Native;
 using MEYPAK.Interfaces;
 using MEYPAK.Entity.Models.KASA;
 using System.ComponentModel.Design;
+using DevExpress.XtraReports.UI;
+using static DevExpress.XtraPrinting.Native.ExportOptionsPropertiesNames;
+using System.IO;
+using DevExpress.Utils.Extensions;
+using DevExpress.XtraPrinting.Control;
+using DevExpress.XtraPrinting.Preview;
+using DevExpress.XtraPrinting;
+using System.Windows.Controls;
+using DocumentViewer = DevExpress.XtraPrinting.Preview.DocumentViewer;
+using System.Drawing.Printing;
+using System.Windows.Forms;
+using DevExpress.XtraRichEdit.API.Native;
+using DevExpress.XtraRichEdit;
+using DevExpress.Pdf.Native.BouncyCastle.Asn1.X509;
+using System.Diagnostics;
+using DevExpress.CodeParser;
+using DevExpress.Utils.MVVM.Services;
+using Spire.Pdf;
+using PrintDialog = System.Windows.Forms.PrintDialog;
+using DevExpress.Pdf;
+using DevExpress.XtraPdfViewer;
+
 
 namespace MEYPAK.PRL.SIPARIS
 {
@@ -67,6 +89,7 @@ namespace MEYPAK.PRL.SIPARIS
             _hizmetHarServis = new GenericWebServis<PocoHIZMETHAR>();
             _hizmetServis = new GenericWebServis<PocoHIZMET>();
             _cariHarServsi = new GenericWebServis<PocoCARIHAR>();
+            faturaBasim = new FaturaBasim();
             if (_tempFaturas != null)
                 _tempFatura = _tempFaturas;
             if (_tempkasa != null)
@@ -81,6 +104,7 @@ namespace MEYPAK.PRL.SIPARIS
 
         #region TANIMLAR
         int fattip;
+        FaturaBasim faturaBasim;
         FStokKasaList fKasaList;
         List<PocoFaturaKalem> _tempFaturaDetay;
         List<PocoFaturaKalem> _tempSilinenFaturaDetay = new List<PocoFaturaKalem>();
@@ -89,6 +113,7 @@ namespace MEYPAK.PRL.SIPARIS
         PocoFaturaKalem _tempPocokalem;
         FStokList _fStokList;
         FCariList _fCariList;
+        PdfViewer pdfViewer1 = new PdfViewer();
         public PocoSTOK _tempStok;
         public PocoSTOKKASA _tempKasa;
         public PocoFATURA _tempFatura;
@@ -887,6 +912,86 @@ namespace MEYPAK.PRL.SIPARIS
             }
             else if (sy == 0)
                 ToplamHesapla();
+        }
+        private PrintPreviewDialog printPreviewDialog1 = new PrintPreviewDialog(); 
+
+        // Declare a string to hold the entire document contents.
+        private string documentContents;
+
+        // Declare a variable to hold the portion of the document that
+        // is not printed.
+        private string stringToPrint;
+        List<string> fileList = new List<string>();
+        RichEditDocumentServer server;
+        PerformanceCounter counter;
+        PrintPreviewDialog prv;
+        PrintDocument prndc;
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string html = "";
+            faturaBasim.Basim(_tempFatura.id);
+
+
+            // Create a PDF Viewer instance and load a PDF into it.
+            PdfViewer pdfViewer = this.pdfViewer1;
+            pdfViewer.LoadDocument(Application.StartupPath+"output.pdf");
+
+            // If required, declare and specify the system printer settings.
+            PrinterSettings printerSettings = new PrinterSettings();
+            printerSettings.PrinterName = "Microsoft XPS Document Writer";
+            printerSettings.PrintToFile = false;
+            //printerSettings.PrintFileName = $"{Application.StartupPath}output.pdf";
+
+            // Declare the PDF printer settings.
+            // If required, pass the system settings to the PDF printer settings constructor.
+            PdfPrinterSettings pdfPrinterSettings = new PdfPrinterSettings(printerSettings);
+
+            // Specify the PDF printer settings.
+            pdfPrinterSettings.PageOrientation = PdfPrintPageOrientation.Auto;
+            pdfPrinterSettings.PageNumbers = new int[] { 1, 3, 4, 5 };
+            pdfPrinterSettings.ScaleMode = PdfPrintScaleMode.CustomScale;
+            pdfPrinterSettings.Scale = 90;
+
+            // Print the document using the specified printer settings.
+            pdfViewer.ShowPrintPageSetupDialog();
+
+
+
+
+            //RichEditDocumentServer richServer = new RichEditDocumentServer(); 
+
+            //// Specify default formatting 
+            //richServer.LoadDocument(Application.StartupPath + "output.pdf");
+            //// Add document content  
+
+            //richServer.Document.Sections[0].Margins.Left = 100f;
+            //richServer.Document.Sections[0].Margins.Right = 0f;
+            //richServer.Document.Sections[0].Margins.Top = 100f;
+            //richServer.Document.Sections[0].Margins.Bottom = 0f;
+            //richServer.Document.Sections[0].Page.PaperKind = System.Drawing.Printing.PaperKind.Custom;
+            //richServer.Document.Sections[0].Page.Width = 3850;
+            //richServer.Document.Sections[0].Page.Height = 2920;
+            //richServer.Document.Sections[0].Page.Landscape = true;
+
+            //// Invoke the Print Preview dialog
+            //using (PrintingSystem printingSystem = new PrintingSystem())
+            //{
+            //    using (PrintableComponentLink link = new PrintableComponentLink(printingSystem))
+            //    {
+                   
+            //        link.Component = richServer;
+            //        link.CreateDocument();
+                   
+            //        link.ShowPreviewDialog();
+            //    }
+            //}
+
+
+        }
+
+        private void Prndc_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            
         }
 
         private void comboBoxEdit1_SelectedIndexChanged(object sender, EventArgs e)

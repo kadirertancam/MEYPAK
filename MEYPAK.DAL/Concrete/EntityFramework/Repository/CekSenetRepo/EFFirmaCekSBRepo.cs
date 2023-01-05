@@ -11,8 +11,10 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository.CekSenetRepo
 {
     public class EFFirmaCekSBRepo : EFBaseRepo<MPFIRMACEKSB>, IFirmaCekSBDal
     {
+        MEYPAKContext context;
         public EFFirmaCekSBRepo(MEYPAKContext _context) : base(_context)
         {
+            context= _context;
         }
     }
 }
