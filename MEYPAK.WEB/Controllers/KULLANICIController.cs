@@ -30,7 +30,11 @@ namespace MEYPAK.WEB.Controllers
             try
             {
                 _loginService.Data(ServisList.UserLoginServis,model);
-                return RedirectToAction("StokKart","STOK");
+                if (model.Email=="admin"&&model.Password=="123")
+                {
+                    return RedirectToAction("StokKart", "STOK");
+                }
+               return RedirectToAction("Index","Default");
             }
             catch (Exception ex)
             {

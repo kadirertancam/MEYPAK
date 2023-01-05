@@ -289,5 +289,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Home\" />
+    <Folder Include="wwwroot\Index\img\" />
   </ItemGroup>
 </Project>
