@@ -105,7 +105,7 @@
             this.DGStokSayim.Location = new System.Drawing.Point(2, 2);
             this.DGStokSayim.MainView = this.gridView1;
             this.DGStokSayim.Name = "DGStokSayim";
-            this.DGStokSayim.Size = new System.Drawing.Size(994, 405);
+            this.DGStokSayim.Size = new System.Drawing.Size(1288, 482);
             this.DGStokSayim.TabIndex = 11;
             this.DGStokSayim.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -137,7 +137,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(998, 568);
+            this.panelControl1.Size = new System.Drawing.Size(1292, 645);
             this.panelControl1.TabIndex = 81;
             // 
             // panelControl4
@@ -146,16 +146,16 @@
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl4.Location = new System.Drawing.Point(0, 101);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(998, 409);
+            this.panelControl4.Size = new System.Drawing.Size(1292, 486);
             this.panelControl4.TabIndex = 83;
             // 
             // panelControl3
             // 
             this.panelControl3.Controls.Add(this.panelControl5);
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl3.Location = new System.Drawing.Point(0, 510);
+            this.panelControl3.Location = new System.Drawing.Point(0, 587);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(998, 58);
+            this.panelControl3.Size = new System.Drawing.Size(1292, 58);
             this.panelControl3.TabIndex = 82;
             // 
             // panelControl5
@@ -164,7 +164,7 @@
             this.panelControl5.Controls.Add(this.BTCik);
             this.panelControl5.Controls.Add(this.BTKaydet);
             this.panelControl5.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelControl5.Location = new System.Drawing.Point(792, 2);
+            this.panelControl5.Location = new System.Drawing.Point(1086, 2);
             this.panelControl5.Name = "panelControl5";
             this.panelControl5.Size = new System.Drawing.Size(204, 54);
             this.panelControl5.TabIndex = 84;
@@ -175,7 +175,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl2.Location = new System.Drawing.Point(0, 0);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(998, 101);
+            this.panelControl2.Size = new System.Drawing.Size(1292, 101);
             this.panelControl2.TabIndex = 81;
             // 
             // groupControl1
@@ -194,7 +194,7 @@
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupControl1.Location = new System.Drawing.Point(2, 2);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(994, 95);
+            this.groupControl1.Size = new System.Drawing.Size(1288, 95);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Sayım Ekranı";
             // 
@@ -270,7 +270,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(998, 568);
+            this.ClientSize = new System.Drawing.Size(1292, 645);
             this.Controls.Add(this.panelControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "FStokSayimPanel";
