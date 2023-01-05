@@ -58,7 +58,7 @@ namespace MEYPAK.PRL.EFatura
 
             private LegalMonetaryTotal legalMonetaryTotalField;
 
-            private InvoiceLine invoiceLineField;
+            private List<InvoiceLine> invoiceLineField;
 
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2")]
@@ -342,7 +342,7 @@ namespace MEYPAK.PRL.EFatura
 
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2")]
-            public InvoiceLine InvoiceLine
+            public List<InvoiceLine> InvoiceLine
             {
                 get
                 {

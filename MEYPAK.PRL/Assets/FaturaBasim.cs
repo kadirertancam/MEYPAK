@@ -83,14 +83,10 @@ namespace MEYPAK.PRL.Assets
                         PostalAddress = new AccountingCustomerPartyPartyPostalAddress()
                         {
 
-                            BuildingName = "",
-                            BuildingNumber = cari.apt,
+                            
                             CityName = cari.il.ToString(),
                             CitySubdivisionName = cari.ilce.ToString(),
-                            Country = new AccountingCustomerPartyPartyPostalAddressCountry() { Name = cari.ulke },
-                            PostalZone = "0",
-                            Region = cari.mahalle.ToString(),
-                            Room = cari.daire,
+                           Country= new AccountingCustomerPartyPartyPostalAddressCountry() { Name = cari.ulke },
                             StreetName = cari.sokak.ToString(),
 
                         }
@@ -204,12 +200,9 @@ namespace MEYPAK.PRL.Assets
 
                 var t3 = new AdditionalDocumentReference[]
                 {
-                    new AdditionalDocumentReferenceAttachment()
+                    new AdditionalDocumentReference()
                     {
-                        EmbeddedDocumentBinaryObject= new EmbeddedDocumentBinaryObject()
-                        {
-                           
-                        }
+                        
                       
                     }
                 };
@@ -287,7 +280,10 @@ namespace MEYPAK.PRL.Assets
                     IssueDate = fatura.vadetarihi,
                     LegalMonetaryTotal = t6,
                     LineCountNumeric = 1,
-                    Note = "",
+                    Note = new string[]
+                    {
+                        ""
+                    },
                     ProfileID = "TEMELFATURA",
                     TaxTotal = t8,
                     ID = new ID()

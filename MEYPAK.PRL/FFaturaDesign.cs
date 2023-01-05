@@ -90,15 +90,11 @@ namespace MEYPAK.PRL
                         },
                         PostalAddress = new AccountingCustomerPartyPartyPostalAddress()
                         {
-
-                            BuildingName = "",
-                            BuildingNumber = cari.apt,
+                             
                             CityName = cari.il.ToString(),
                             CitySubdivisionName = cari.ilce.ToString(),
                             Country = new AccountingCustomerPartyPartyPostalAddressCountry() { Name = cari.ulke },
-                            PostalZone = "0",
-                            Region = cari.mahalle.ToString(),
-                            Room = cari.daire,
+                           
                             StreetName = cari.sokak.ToString(),
 
                         }
@@ -210,8 +206,9 @@ namespace MEYPAK.PRL
                 }
 
 
-                var t3 = new AdditionalDocumentReference()
+                var t3 = new AdditionalDocumentReference[]
                 {
+                    new AdditionalDocumentReference(){
                     Attachment = new AdditionalDocumentReferenceAttachment()
                     {
                         EmbeddedDocumentBinaryObject = new EmbeddedDocumentBinaryObject()
@@ -230,6 +227,7 @@ namespace MEYPAK.PRL
                         Value = "123123123123"
                     },
                     IssueDate = fatura.vadetarihi
+                    }
                 };
                 var t5 = fatSatir;
                 var t6 = new LegalMonetaryTotal()
@@ -305,7 +303,10 @@ namespace MEYPAK.PRL
                     IssueDate = fatura.vadetarihi,
                     LegalMonetaryTotal = t6,
                     LineCountNumeric = 1,
-                    Note = "",
+                    Note = new string[]
+                    {
+                        ""
+                    },
                     ProfileID = "TEMELFATURA",
                     TaxTotal = t8,
                     ID = new ID()
@@ -313,15 +314,7 @@ namespace MEYPAK.PRL
                         schemeID = "",
                         Value = fatura.belgeno,
                     },
-                    AllowanceCharge = new AllowanceCharge()
-                    {
-                        Amount = new Amount()
-                        {
-                            currencyID = "TRL",
-                            Value = 999
-                        },
-                        ChargeIndicator = false
-                    },
+                
                     UBLExtensions = new UBLExtensions()
                     {
                         UBLExtension = new UBLExtensionsUBLExtension()
