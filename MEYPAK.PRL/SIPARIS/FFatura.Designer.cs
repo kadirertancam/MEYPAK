@@ -105,6 +105,7 @@
             this.BTKaydet = new System.Windows.Forms.Button();
             this.BTNSil = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DTSiparisTarih.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTSiparisTarih.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CHBKdvDahil.Properties)).BeginInit();
@@ -818,6 +819,7 @@
             // 
             // panel6
             // 
+            this.panel6.Controls.Add(this.button1);
             this.panel6.Controls.Add(this.BTKaydet);
             this.panel6.Controls.Add(this.BTNSil);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -829,7 +831,7 @@
             // BTKaydet
             // 
             this.BTKaydet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BTKaydet.Location = new System.Drawing.Point(87, 7);
+            this.BTKaydet.Location = new System.Drawing.Point(143, 7);
             this.BTKaydet.Name = "BTKaydet";
             this.BTKaydet.Size = new System.Drawing.Size(168, 43);
             this.BTKaydet.TabIndex = 16;
@@ -857,6 +859,18 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1615, 423);
             this.panel3.TabIndex = 1;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Location = new System.Drawing.Point(3, 7);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(134, 43);
+            this.button1.TabIndex = 19;
+            this.button1.TabStop = false;
+            this.button1.Text = "Basım";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // FFatura
             // 
@@ -982,5 +996,6 @@
         private DevExpress.XtraEditors.TextEdit TBAraToplam;
         private DevExpress.XtraEditors.TextEdit TBIskontoToplam;
         private DevExpress.XtraEditors.TextEdit TBBrutToplam;
+        private Button button1;
     }
 }
