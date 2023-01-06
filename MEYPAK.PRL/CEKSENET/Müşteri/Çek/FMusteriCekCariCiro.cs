@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace MEYPAK.PRL.CEKSENET
 {
-    public partial class FMusteriCekCiro : XtraForm
+    public partial class FMusteriCekCariCiro : XtraForm
     {
-        public FMusteriCekCiro()
+        public FMusteriCekCariCiro()
         {
             InitializeComponent();
         }

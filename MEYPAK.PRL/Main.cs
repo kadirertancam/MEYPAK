@@ -107,9 +107,12 @@ namespace MEYPAK.PRL
         FBankaSubeTanim fBankaSubeTanim;
         FHesapHareket fHesapHareket;
         FMusteriCekTanim fMusteriCekTanim;
+        FMusteriCekCariCiro fMusteriCekCariCiro;
         FMusteriSenetTanim fMusteriSenetTanim;
-        FMusteriCekCiro fMusteriCekCiro;
-        FMusteriSenetCiro fMusteriSenetCiro;
+        FMusteriSenetCariCiro fMusteriSenetCariCiro;
+        FFirmaCekTanim fFirmaCekTanim;
+        FFirmaSenetTanim fFirmaSenetTanim;
+
 
         public Tarih_Date _tarih_Date;
         public DataTable guncelkur;
@@ -1321,9 +1324,9 @@ namespace MEYPAK.PRL
         {
             XtraTabPage page = new XtraTabPage();
             fMusteriCekTanim = new FMusteriCekTanim();
-            page.Name = "TPMusteriCekTanim" + i;
+            page.Name = "TPMusteriÇekTanım" + i;
             page.Text = "Müşteri Çek Tanım";
-            page.Tag = "TPMusteriCekTanim" + i;
+            page.Tag = "TPMusteriÇekTanım" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
             xtraTabControl1.TabPages.Add(page);
             xtraTabControl1.SelectedTabPage = page;
@@ -1332,19 +1335,40 @@ namespace MEYPAK.PRL
             fMusteriCekTanim.TopLevel = false;
             fMusteriCekTanim.AutoScroll = true;
             fMusteriCekTanim.Dock = DockStyle.Fill;
-            fMusteriCekTanim.Tag = "TPMusteriCekTanim" + i;
+            fMusteriCekTanim.Tag = "TPMusteriÇekTanım" + i;
             page.Controls.Add(fMusteriCekTanim);
             fMusteriCekTanim.Show();
             i++;
         }
 
-        private void ACEMusteriSenetTanim_Click(object sender, EventArgs e)
+        private void ACEMCekCariCiro_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fMusteriCekCariCiro = new FMusteriCekCariCiro();
+            page.Name = "TPMusteriÇekCariCiro" + i;
+            page.Text = "Müşteri Çek Cari Ciro";
+            page.Tag = "TPMusteriÇekCariCiro" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fMusteriCekCariCiro.FormBorderStyle = FormBorderStyle.None;
+            fMusteriCekCariCiro.TopLevel = false;
+            fMusteriCekCariCiro.AutoScroll = true;
+            fMusteriCekCariCiro.Dock = DockStyle.Fill;
+            fMusteriCekCariCiro.Tag = "TPMusteriÇekCariCiro" + i;
+            page.Controls.Add(fMusteriCekCariCiro);
+            fMusteriCekCariCiro.Show();
+            i++;
+        }
+
+        private void ACEMSenetTanim_Click(object sender, EventArgs e)
         {
             XtraTabPage page = new XtraTabPage();
             fMusteriSenetTanim = new FMusteriSenetTanim();
-            page.Name = "TPMusteriSenetTanim" + i;
+            page.Name = "TPMusteriSenetTanım" + i;
             page.Text = "Müşteri Senet Tanım";
-            page.Tag = "TPMusteriSenetTanim" + i;
+            page.Tag = "TPMusteriSenetTanım" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
             xtraTabControl1.TabPages.Add(page);
             xtraTabControl1.SelectedTabPage = page;
@@ -1353,53 +1377,73 @@ namespace MEYPAK.PRL
             fMusteriSenetTanim.TopLevel = false;
             fMusteriSenetTanim.AutoScroll = true;
             fMusteriSenetTanim.Dock = DockStyle.Fill;
-            fMusteriSenetTanim.Tag = "TPMusteriSenetTanim" + i;
+            fMusteriSenetTanim.Tag = "TPMusteriSenetTanım" + i;
             page.Controls.Add(fMusteriSenetTanim);
             fMusteriSenetTanim.Show();
             i++;
 
         }
 
-        private void ACEMCekCiro_Click(object sender, EventArgs e)
+        private void ACEMSenetCariCiro_Click(object sender, EventArgs e)
         {
             XtraTabPage page = new XtraTabPage();
-            fMusteriCekCiro = new FMusteriCekCiro();
-            page.Name = "TPMusteriCekCiro" + i;
-            page.Text = "Müşteri Çek Ciro";
-            page.Tag = "TPMusteriCekCiro" + i;
+            fMusteriSenetCariCiro = new FMusteriSenetCariCiro();
+            page.Name = "TPMusteriSenetCariCiro" + i;
+            page.Text = "Müşteri Senet Cari Ciro";
+            page.Tag = "TPMusteriSenetCariCiro" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
             xtraTabControl1.TabPages.Add(page);
             xtraTabControl1.SelectedTabPage = page;
 
-            fMusteriCekCiro.FormBorderStyle = FormBorderStyle.None;
-            fMusteriCekCiro.TopLevel = false;
-            fMusteriCekCiro.AutoScroll = true;
-            fMusteriCekCiro.Dock = DockStyle.Fill;
-            fMusteriCekCiro.Tag = "TPMusteriCekCiro" + i;
-            page.Controls.Add(fMusteriCekCiro);
-            fMusteriCekCiro.Show();
+            fMusteriSenetCariCiro.FormBorderStyle = FormBorderStyle.None;
+            fMusteriSenetCariCiro.TopLevel = false;
+            fMusteriSenetCariCiro.AutoScroll = true;
+            fMusteriSenetCariCiro.Dock = DockStyle.Fill;
+            fMusteriSenetCariCiro.Tag = "TPMusteriSenetCariCiro" + i;
+            page.Controls.Add(fMusteriSenetCariCiro);
+            fMusteriSenetCariCiro.Show();
             i++;
-
         }
 
-        private void ACEMSenetCiro_Click(object sender, EventArgs e)
+        private void ACEFCekTanim_Click(object sender, EventArgs e)
         {
             XtraTabPage page = new XtraTabPage();
-            fMusteriSenetCiro = new FMusteriSenetCiro();
-            page.Name = "TPMusteriSenetCiro" + i;
-            page.Text = "Müşteri Senet Ciro";
-            page.Tag = "TPMusteriSenetCiro" + i;
+            fFirmaCekTanim = new FFirmaCekTanim();
+            page.Name = "TPFirmaCekTanim" + i;
+            page.Text = "Firma Çek Tanım";
+            page.Tag = "TPFirmaCekTanim" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
             xtraTabControl1.TabPages.Add(page);
             xtraTabControl1.SelectedTabPage = page;
 
-            fMusteriSenetCiro.FormBorderStyle = FormBorderStyle.None;
-            fMusteriSenetCiro.TopLevel = false;
-            fMusteriSenetCiro.AutoScroll = true;
-            fMusteriSenetCiro.Dock = DockStyle.Fill;
-            fMusteriSenetCiro.Tag = "TPMusteriSenetCiro" + i;
-            page.Controls.Add(fMusteriSenetCiro);
-            fMusteriSenetCiro.Show();
+            fFirmaCekTanim.FormBorderStyle = FormBorderStyle.None;
+            fFirmaCekTanim.TopLevel = false;
+            fFirmaCekTanim.AutoScroll = true;
+            fFirmaCekTanim.Dock = DockStyle.Fill;
+            fFirmaCekTanim.Tag = "TPFirmaCekTanim" + i;
+            page.Controls.Add(fFirmaCekTanim);
+            fFirmaCekTanim.Show();
+            i++;
+        }
+
+        private void ACEFSenetTanim_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fFirmaSenetTanim = new FFirmaSenetTanim();
+            page.Name = "TPFirmaSenetTanim" + i;
+            page.Text = "Firma Senet Tanım";
+            page.Tag = "TPFirmaSenetTanim" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fFirmaSenetTanim.FormBorderStyle = FormBorderStyle.None;
+            fFirmaSenetTanim.TopLevel = false;
+            fFirmaSenetTanim.AutoScroll = true;
+            fFirmaSenetTanim.Dock = DockStyle.Fill;
+            fFirmaSenetTanim.Tag = "TPFirmaSenetTanim" + i;
+            page.Controls.Add(fFirmaSenetTanim);
+            fFirmaSenetTanim.Show();
             i++;
         }
     }

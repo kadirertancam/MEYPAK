@@ -75,6 +75,11 @@
             this.barButtonItem28 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem29 = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItem15 = new DevExpress.XtraBars.BarSubItem();
+            this.barSubItem20 = new DevExpress.XtraBars.BarSubItem();
+            this.barSubItem21 = new DevExpress.XtraBars.BarSubItem();
+            this.barSubItem22 = new DevExpress.XtraBars.BarSubItem();
+            this.barSubItem23 = new DevExpress.XtraBars.BarSubItem();
+            this.barSubItem24 = new DevExpress.XtraBars.BarSubItem();
             this.barSubItem16 = new DevExpress.XtraBars.BarSubItem();
             this.barSubItem17 = new DevExpress.XtraBars.BarSubItem();
             this.barSubItem18 = new DevExpress.XtraBars.BarSubItem();
@@ -158,12 +163,22 @@
             this.ACEFaturaRaporu = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEMusteriSiparisRaporu = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACECekSenet = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.ACECekSenetTanim = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACEMusteriCek = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEMusteriCekTanim = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.ACEMusteriSenetTanim = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.ACECekSenetHareket = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.ACEMCekCiro = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.ACEMSenetCiro = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACEMCekCariCiro = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACEMCekTahsilat = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACEMCekTeminat = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACEMCekProtesto = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACEMusteriSenet = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACEMSenetTanim = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACEMSenetCariCiro = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACEMSenetTahsilat = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACEMSenetTeminat = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACEMSenetProtesto = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACEFirmaCek = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACEFCekTanim = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACEFirmaSenet = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACEFSenetTanim = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACECekSenetRapor = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEKasa = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEKasaTanim = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -347,8 +362,13 @@
             this.barButtonItem34,
             this.barButtonItem35,
             this.barButtonItem36,
-            this.barButtonItem37});
-            this.barManager1.MaxItemId = 67;
+            this.barButtonItem37,
+            this.barSubItem20,
+            this.barSubItem21,
+            this.barSubItem22,
+            this.barSubItem23,
+            this.barSubItem24});
+            this.barManager1.MaxItemId = 72;
             this.barManager1.StatusBar = this.bar2;
             // 
             // bar1
@@ -368,6 +388,11 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem1, true),
             new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem8),
             new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem12),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem20),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem21),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem22),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem23),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem24),
             new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem16)});
             this.bar1.Text = "Custom 2";
             // 
@@ -629,6 +654,36 @@
             this.barSubItem15.Caption = "Raporlar";
             this.barSubItem15.Id = 38;
             this.barSubItem15.Name = "barSubItem15";
+            // 
+            // barSubItem20
+            // 
+            this.barSubItem20.Caption = "Çek/Senet";
+            this.barSubItem20.Id = 67;
+            this.barSubItem20.Name = "barSubItem20";
+            // 
+            // barSubItem21
+            // 
+            this.barSubItem21.Caption = "Kasa";
+            this.barSubItem21.Id = 68;
+            this.barSubItem21.Name = "barSubItem21";
+            // 
+            // barSubItem22
+            // 
+            this.barSubItem22.Caption = "Banka";
+            this.barSubItem22.Id = 69;
+            this.barSubItem22.Name = "barSubItem22";
+            // 
+            // barSubItem23
+            // 
+            this.barSubItem23.Caption = "Personel";
+            this.barSubItem23.Id = 70;
+            this.barSubItem23.Name = "barSubItem23";
+            // 
+            // barSubItem24
+            // 
+            this.barSubItem24.Caption = "Araç";
+            this.barSubItem24.Id = 71;
+            this.barSubItem24.Name = "barSubItem24";
             // 
             // barSubItem16
             // 
@@ -1302,20 +1357,27 @@
             this.ACECekSenet.Appearance.Default.ForeColor = System.Drawing.Color.Silver;
             this.ACECekSenet.Appearance.Default.Options.UseForeColor = true;
             this.ACECekSenet.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
-            this.ACECekSenetTanim,
-            this.ACECekSenetHareket,
+            this.ACEMusteriCek,
+            this.ACEMusteriSenet,
+            this.ACEFirmaCek,
+            this.ACEFirmaSenet,
             this.ACECekSenetRapor});
+            this.ACECekSenet.Expanded = true;
             this.ACECekSenet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ACECekSenet.ImageOptions.Image")));
             this.ACECekSenet.Name = "ACECekSenet";
             this.ACECekSenet.Text = "Çek/Senet";
             // 
-            // ACECekSenetTanim
+            // ACEMusteriCek
             // 
-            this.ACECekSenetTanim.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.ACEMusteriCek.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.ACEMusteriCekTanim,
-            this.ACEMusteriSenetTanim});
-            this.ACECekSenetTanim.Name = "ACECekSenetTanim";
-            this.ACECekSenetTanim.Text = "Tanımlar";
+            this.ACEMCekCariCiro,
+            this.ACEMCekTahsilat,
+            this.ACEMCekTeminat,
+            this.ACEMCekProtesto});
+            this.ACEMusteriCek.Expanded = true;
+            this.ACEMusteriCek.Name = "ACEMusteriCek";
+            this.ACEMusteriCek.Text = "Müşteri Çek";
             // 
             // ACEMusteriCekTanim
             // 
@@ -1324,34 +1386,104 @@
             this.ACEMusteriCekTanim.Text = "Müşteri Çek Tanım";
             this.ACEMusteriCekTanim.Click += new System.EventHandler(this.ACEMusteriCekTanim_Click);
             // 
-            // ACEMusteriSenetTanim
+            // ACEMCekCariCiro
             // 
-            this.ACEMusteriSenetTanim.Name = "ACEMusteriSenetTanim";
-            this.ACEMusteriSenetTanim.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.ACEMusteriSenetTanim.Text = "Müşteri Senet Tanım";
-            this.ACEMusteriSenetTanim.Click += new System.EventHandler(this.ACEMusteriSenetTanim_Click);
+            this.ACEMCekCariCiro.Name = "ACEMCekCariCiro";
+            this.ACEMCekCariCiro.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ACEMCekCariCiro.Text = "Müşteri Çek Cari Ciro";
+            this.ACEMCekCariCiro.Click += new System.EventHandler(this.ACEMCekCariCiro_Click);
             // 
-            // ACECekSenetHareket
+            // ACEMCekTahsilat
             // 
-            this.ACECekSenetHareket.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
-            this.ACEMCekCiro,
-            this.ACEMSenetCiro});
-            this.ACECekSenetHareket.Name = "ACECekSenetHareket";
-            this.ACECekSenetHareket.Text = "Hareketler";
+            this.ACEMCekTahsilat.Name = "ACEMCekTahsilat";
+            this.ACEMCekTahsilat.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ACEMCekTahsilat.Text = "Müşteri Çek Tahsilat";
             // 
-            // ACEMCekCiro
+            // ACEMCekTeminat
             // 
-            this.ACEMCekCiro.Name = "ACEMCekCiro";
-            this.ACEMCekCiro.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.ACEMCekCiro.Text = "Müşteri Çek Ciro";
-            this.ACEMCekCiro.Click += new System.EventHandler(this.ACEMCekCiro_Click);
+            this.ACEMCekTeminat.Name = "ACEMCekTeminat";
+            this.ACEMCekTeminat.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ACEMCekTeminat.Text = "Müşteri Çek Teminat";
             // 
-            // ACEMSenetCiro
+            // ACEMCekProtesto
             // 
-            this.ACEMSenetCiro.Name = "ACEMSenetCiro";
-            this.ACEMSenetCiro.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.ACEMSenetCiro.Text = "Müşteri Senet Ciro";
-            this.ACEMSenetCiro.Click += new System.EventHandler(this.ACEMSenetCiro_Click);
+            this.ACEMCekProtesto.Name = "ACEMCekProtesto";
+            this.ACEMCekProtesto.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ACEMCekProtesto.Text = "Müşteri Çek Protesto";
+            // 
+            // ACEMusteriSenet
+            // 
+            this.ACEMusteriSenet.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.ACEMSenetTanim,
+            this.ACEMSenetCariCiro,
+            this.ACEMSenetTahsilat,
+            this.ACEMSenetTeminat,
+            this.ACEMSenetProtesto});
+            this.ACEMusteriSenet.Expanded = true;
+            this.ACEMusteriSenet.Name = "ACEMusteriSenet";
+            this.ACEMusteriSenet.Text = "Müşteri Senet";
+            // 
+            // ACEMSenetTanim
+            // 
+            this.ACEMSenetTanim.Name = "ACEMSenetTanim";
+            this.ACEMSenetTanim.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ACEMSenetTanim.Text = "Müşteri Senet Tanım";
+            this.ACEMSenetTanim.Click += new System.EventHandler(this.ACEMSenetTanim_Click);
+            // 
+            // ACEMSenetCariCiro
+            // 
+            this.ACEMSenetCariCiro.Name = "ACEMSenetCariCiro";
+            this.ACEMSenetCariCiro.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ACEMSenetCariCiro.Text = "Müşteri Senet Cari Ciro";
+            this.ACEMSenetCariCiro.Click += new System.EventHandler(this.ACEMSenetCariCiro_Click);
+            // 
+            // ACEMSenetTahsilat
+            // 
+            this.ACEMSenetTahsilat.Name = "ACEMSenetTahsilat";
+            this.ACEMSenetTahsilat.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ACEMSenetTahsilat.Text = "Müşteri Senet Tahsilat";
+            // 
+            // ACEMSenetTeminat
+            // 
+            this.ACEMSenetTeminat.Name = "ACEMSenetTeminat";
+            this.ACEMSenetTeminat.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ACEMSenetTeminat.Text = "Müşteri Senet Teminat";
+            // 
+            // ACEMSenetProtesto
+            // 
+            this.ACEMSenetProtesto.Name = "ACEMSenetProtesto";
+            this.ACEMSenetProtesto.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ACEMSenetProtesto.Text = "Müşteri Senet Protesto";
+            // 
+            // ACEFirmaCek
+            // 
+            this.ACEFirmaCek.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.ACEFCekTanim});
+            this.ACEFirmaCek.Expanded = true;
+            this.ACEFirmaCek.Name = "ACEFirmaCek";
+            this.ACEFirmaCek.Text = "Firma Çek";
+            // 
+            // ACEFCekTanim
+            // 
+            this.ACEFCekTanim.Name = "ACEFCekTanim";
+            this.ACEFCekTanim.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ACEFCekTanim.Text = "Firma Çek Tanım";
+            this.ACEFCekTanim.Click += new System.EventHandler(this.ACEFCekTanim_Click);
+            // 
+            // ACEFirmaSenet
+            // 
+            this.ACEFirmaSenet.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.ACEFSenetTanim});
+            this.ACEFirmaSenet.Expanded = true;
+            this.ACEFirmaSenet.Name = "ACEFirmaSenet";
+            this.ACEFirmaSenet.Text = "Firma Senet";
+            // 
+            // ACEFSenetTanim
+            // 
+            this.ACEFSenetTanim.Name = "ACEFSenetTanim";
+            this.ACEFSenetTanim.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ACEFSenetTanim.Text = "Firma Senet Tanım";
+            this.ACEFSenetTanim.Click += new System.EventHandler(this.ACEFSenetTanim_Click);
             // 
             // ACECekSenetRapor
             // 
@@ -1800,12 +1932,27 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEBankaRapor;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEHesapHar;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACECekSenet;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement ACECekSenetTanim;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement ACECekSenetHareket;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement ACECekSenetRapor;
+        private DevExpress.XtraBars.BarSubItem barSubItem20;
+        private DevExpress.XtraBars.BarSubItem barSubItem21;
+        private DevExpress.XtraBars.BarSubItem barSubItem22;
+        private DevExpress.XtraBars.BarSubItem barSubItem23;
+        private DevExpress.XtraBars.BarSubItem barSubItem24;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACEMusteriCek;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEMusteriCekTanim;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement ACEMusteriSenetTanim;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement ACEMCekCiro;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement ACEMSenetCiro;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACEMusteriSenet;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACEFirmaCek;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACEFirmaSenet;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACECekSenetRapor;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACEMCekCariCiro;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACEMCekTahsilat;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACEMCekTeminat;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACEMCekProtesto;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACEMSenetTanim;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACEMSenetCariCiro;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACEMSenetTahsilat;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACEMSenetTeminat;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACEMSenetProtesto;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACEFCekTanim;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACEFSenetTanim;
     }
 }

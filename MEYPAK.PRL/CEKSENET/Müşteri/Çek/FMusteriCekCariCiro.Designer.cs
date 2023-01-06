@@ -1,6 +1,6 @@
 ﻿namespace MEYPAK.PRL.CEKSENET
 {
-    partial class FMusteriCekCiro
+    partial class FMusteriCekCariCiro
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FMusteriCekCiro));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FMusteriCekCariCiro));
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -189,7 +189,7 @@
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(1169, 176);
             this.groupControl1.TabIndex = 0;
-            this.groupControl1.Text = "Müşteri Çek Ciro";
+            this.groupControl1.Text = "Müşteri Çek Cari Ciro";
             this.groupControl1.Paint += new System.Windows.Forms.PaintEventHandler(this.groupControl1_Paint);
             // 
             // DTTarihh
@@ -295,14 +295,14 @@
             this.LBBordro.TabIndex = 0;
             this.LBBordro.Text = "Bordro";
             // 
-            // FMusteriCekCiro
+            // FMusteriCekCariCiro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1173, 658);
             this.Controls.Add(this.panelControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FMusteriCekCiro";
+            this.Name = "FMusteriCekCariCiro";
             this.Text = "FMusteriCekCiro";
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
