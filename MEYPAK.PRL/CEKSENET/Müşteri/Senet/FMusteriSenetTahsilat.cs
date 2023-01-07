@@ -9,13 +9,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MEYPAK.PRL.CEKSENET
+namespace MEYPAK.PRL.CEKSENET.Müşteri.Senet
 {
-    public partial class FMusteriCekCariCiro : XtraForm
+    public partial class FMusteriSenetTahsilat : XtraForm
     {
-        public FMusteriCekCariCiro()
+        public FMusteriSenetTahsilat()
         {
             InitializeComponent();
+        }
+
+        private void LBCariKodu_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

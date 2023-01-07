@@ -190,7 +190,6 @@
             this.groupControl1.Size = new System.Drawing.Size(1169, 176);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Müşteri Çek Cari Ciro";
-            this.groupControl1.Paint += new System.Windows.Forms.PaintEventHandler(this.groupControl1_Paint);
             // 
             // DTTarihh
             // 

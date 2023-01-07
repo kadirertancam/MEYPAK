@@ -9,11 +9,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MEYPAK.PRL.CEKSENET
+namespace MEYPAK.PRL.CEKSENET.Müşteri.Çek
 {
-    public partial class FMusteriCekCariCiro : XtraForm
+    public partial class FMusteriCekTeminat : XtraForm
     {
-        public FMusteriCekCariCiro()
+        public FMusteriCekTeminat()
         {
             InitializeComponent();
         }

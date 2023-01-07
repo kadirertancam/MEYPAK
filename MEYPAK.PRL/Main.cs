@@ -9,6 +9,8 @@ using MEYPAK.PRL.BANKA;
 using MEYPAK.PRL.CARI;
 using MEYPAK.PRL.CARI.Raporlar;
 using MEYPAK.PRL.CEKSENET;
+using MEYPAK.PRL.CEKSENET.Müşteri.Çek;
+using MEYPAK.PRL.CEKSENET.Müşteri.Senet;
 using MEYPAK.PRL.DEPO;
 using MEYPAK.PRL.DEPO.Raporlar;
 using MEYPAK.PRL.IRSALIYE;
@@ -112,6 +114,11 @@ namespace MEYPAK.PRL
         FMusteriSenetCariCiro fMusteriSenetCariCiro;
         FFirmaCekTanim fFirmaCekTanim;
         FFirmaSenetTanim fFirmaSenetTanim;
+        FMusteriCekTahsilat fMusteriCekTahsilat;
+        FMusteriCekTeminat fMusteriCekTeminat;
+        FMusteriCekProtesto fMusteriCekProtesto;
+        FMusteriSenetTahsilat fMusteriSenetTahsilat;
+        FMusteriSenetTeminat fMusteriSenetTeminat;
 
 
         public Tarih_Date _tarih_Date;
@@ -1444,6 +1451,111 @@ namespace MEYPAK.PRL
             fFirmaSenetTanim.Tag = "TPFirmaSenetTanim" + i;
             page.Controls.Add(fFirmaSenetTanim);
             fFirmaSenetTanim.Show();
+            i++;
+        }
+
+        private void ACEMCekTahsilat_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fMusteriCekTahsilat = new FMusteriCekTahsilat();
+            page.Name = "TPMusteriCekTahsilat" + i;
+            page.Text = "Müşteri Çek Tahsilat";
+            page.Tag = "TPMusteriCekTahsilat" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fMusteriCekTahsilat.FormBorderStyle = FormBorderStyle.None;
+            fMusteriCekTahsilat.TopLevel = false;
+            fMusteriCekTahsilat.AutoScroll = true;
+            fMusteriCekTahsilat.Dock = DockStyle.Fill;
+            fMusteriCekTahsilat.Tag = "TPMusteriCekTahsilat" + i;
+            page.Controls.Add(fMusteriCekTahsilat);
+            fMusteriCekTahsilat.Show();
+            i++;
+        }
+
+        private void ACEMCekTeminat_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fMusteriCekTeminat= new FMusteriCekTeminat();
+            page.Name = "TPMusteriCekTeminat" + i;
+            page.Text = "Müşteri Çek Teminat";
+            page.Tag = "TPMusteriCekTeminat" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fMusteriCekTeminat.FormBorderStyle = FormBorderStyle.None;
+            fMusteriCekTeminat.TopLevel = false;
+            fMusteriCekTeminat.AutoScroll = true;
+            fMusteriCekTeminat.Dock = DockStyle.Fill;
+            fMusteriCekTeminat.Tag = "TPMusteriCekTeminat" + i;
+            page.Controls.Add(fMusteriCekTeminat);
+            fMusteriCekTeminat.Show();
+            i++;
+        }
+
+        private void ACEMCekProtesto_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fMusteriCekProtesto = new FMusteriCekProtesto();
+            page.Name = "TPMusteriCekProtesto" + i;
+            page.Text = "Müşteri Çek Protesto";
+            page.Tag = "TPMusteriCekProtesto" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fMusteriCekProtesto.FormBorderStyle = FormBorderStyle.None;
+            fMusteriCekProtesto.TopLevel = false;
+            fMusteriCekProtesto.AutoScroll = true;
+            fMusteriCekProtesto.Dock = DockStyle.Fill;
+            fMusteriCekProtesto.Tag = "TPMusteriCekProtesto" + i;
+            page.Controls.Add(fMusteriCekProtesto);
+            fMusteriCekProtesto.Show();
+            i++;
+        }
+
+        private void ACEMSenetTahsilat_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fMusteriSenetTahsilat = new FMusteriSenetTahsilat();
+            page.Name = "TPMusteriSenetTahsilat" + i;
+            page.Text = "Müşteri Senet Tahsilat";
+            page.Tag = "TPMusteriSenetTahsilat" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fMusteriSenetTahsilat.FormBorderStyle = FormBorderStyle.None;
+            fMusteriSenetTahsilat.TopLevel = false;
+            fMusteriSenetTahsilat.AutoScroll = true;
+            fMusteriSenetTahsilat.Dock = DockStyle.Fill;
+            fMusteriSenetTahsilat.Tag = "TPMusteriSenetTahsilat" + i;
+            page.Controls.Add(fMusteriSenetTahsilat);
+            fMusteriSenetTahsilat.Show();
+            i++;
+        }
+
+        private void ACEMSenetTeminat_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fMusteriSenetTeminat = new FMusteriSenetTeminat();
+            page.Name = "TPMusteriSenetTeminat" + i;
+            page.Text = "Müşteri Senet Teminat";
+            page.Tag = "TPMusteriSenetTeminat" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fMusteriSenetTeminat.FormBorderStyle = FormBorderStyle.None;
+            fMusteriSenetTeminat.TopLevel = false;
+            fMusteriSenetTeminat.AutoScroll = true;
+            fMusteriSenetTeminat.Dock = DockStyle.Fill;
+            fMusteriSenetTeminat.Tag = "TPMusteriSenetTeminat" + i;
+            page.Controls.Add(fMusteriSenetTeminat);
+            fMusteriSenetTeminat.Show();
             i++;
         }
     }

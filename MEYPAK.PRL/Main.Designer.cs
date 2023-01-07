@@ -210,6 +210,7 @@
             this.accordionControlElement22 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement44 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACESeriTanim = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlSeparator2 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
             this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
             this.applicationMenu1 = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
             this.panel3.SuspendLayout();
@@ -880,7 +881,8 @@
             this.ACEBanka,
             this.accordionControlElement21,
             this.accordionControlElement61,
-            this.accordionControlElement22});
+            this.accordionControlElement22,
+            this.accordionControlSeparator2});
             this.accordionControl1.Location = new System.Drawing.Point(0, 0);
             this.accordionControl1.LookAndFeel.SkinName = "Visual Studio 2013 Dark";
             this.accordionControl1.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -1398,18 +1400,21 @@
             this.ACEMCekTahsilat.Name = "ACEMCekTahsilat";
             this.ACEMCekTahsilat.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.ACEMCekTahsilat.Text = "Müşteri Çek Tahsilat";
+            this.ACEMCekTahsilat.Click += new System.EventHandler(this.ACEMCekTahsilat_Click);
             // 
             // ACEMCekTeminat
             // 
             this.ACEMCekTeminat.Name = "ACEMCekTeminat";
             this.ACEMCekTeminat.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.ACEMCekTeminat.Text = "Müşteri Çek Teminat";
+            this.ACEMCekTeminat.Click += new System.EventHandler(this.ACEMCekTeminat_Click);
             // 
             // ACEMCekProtesto
             // 
             this.ACEMCekProtesto.Name = "ACEMCekProtesto";
             this.ACEMCekProtesto.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.ACEMCekProtesto.Text = "Müşteri Çek Protesto";
+            this.ACEMCekProtesto.Click += new System.EventHandler(this.ACEMCekProtesto_Click);
             // 
             // ACEMusteriSenet
             // 
@@ -1442,12 +1447,14 @@
             this.ACEMSenetTahsilat.Name = "ACEMSenetTahsilat";
             this.ACEMSenetTahsilat.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.ACEMSenetTahsilat.Text = "Müşteri Senet Tahsilat";
+            this.ACEMSenetTahsilat.Click += new System.EventHandler(this.ACEMSenetTahsilat_Click);
             // 
             // ACEMSenetTeminat
             // 
             this.ACEMSenetTeminat.Name = "ACEMSenetTeminat";
             this.ACEMSenetTeminat.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.ACEMSenetTeminat.Text = "Müşteri Senet Teminat";
+            this.ACEMSenetTeminat.Click += new System.EventHandler(this.ACEMSenetTeminat_Click);
             // 
             // ACEMSenetProtesto
             // 
@@ -1721,6 +1728,10 @@
             this.ACESeriTanim.Text = "Seri Tanım";
             this.ACESeriTanim.Click += new System.EventHandler(this.ACESeriTanim_Click);
             // 
+            // accordionControlSeparator2
+            // 
+            this.accordionControlSeparator2.Name = "accordionControlSeparator2";
+            // 
             // ımageList1
             // 
             this.ımageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
@@ -1954,5 +1965,6 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEMSenetProtesto;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEFCekTanim;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEFSenetTanim;
+        private DevExpress.XtraBars.Navigation.AccordionControlSeparator accordionControlSeparator2;
     }
 }
