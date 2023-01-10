@@ -30,26 +30,31 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FStokKasaHareket));
             DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition1 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
-            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition1 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
-            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement1 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition2 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
             DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition3 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
-            DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition4 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
+            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition1 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
             DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition2 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
             DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition3 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
-            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition4 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
-            DevExpress.XtraEditors.TableLayout.TableSpan tableSpan1 = new DevExpress.XtraEditors.TableLayout.TableSpan();
-            DevExpress.XtraEditors.TableLayout.TableSpan tableSpan2 = new DevExpress.XtraEditors.TableLayout.TableSpan();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement1 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement2 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
-            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement3 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition4 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
             DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition5 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
             DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition6 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
-            DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition7 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
+            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition4 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
             DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition5 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
             DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition6 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
-            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition7 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
+            DevExpress.XtraEditors.TableLayout.TableSpan tableSpan1 = new DevExpress.XtraEditors.TableLayout.TableSpan();
+            DevExpress.XtraEditors.TableLayout.TableSpan tableSpan2 = new DevExpress.XtraEditors.TableLayout.TableSpan();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement3 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement4 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition7 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
+            DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition8 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
+            DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition9 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
+            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition7 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
+            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition8 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
+            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition9 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement5 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement6 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             this.FIRMA = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.KASATIP = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.MIKTAR = new DevExpress.XtraGrid.Columns.TileViewColumn();
@@ -62,6 +67,7 @@
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.panelControl8 = new DevExpress.XtraEditors.PanelControl();
             this.BTKaydet = new DevExpress.XtraEditors.SimpleButton();
             this.label4 = new System.Windows.Forms.Label();
             this.DTPTarih = new DevExpress.XtraEditors.DateEdit();
@@ -83,7 +89,7 @@
             this.gridControl2 = new DevExpress.XtraGrid.GridControl();
             this.tileView1 = new DevExpress.XtraGrid.Views.Tile.TileView();
             this.treeListBand1 = new DevExpress.XtraTreeList.Columns.TreeListBand();
-            this.panelControl8 = new DevExpress.XtraEditors.PanelControl();
+            this.FMIKTAR = new DevExpress.XtraGrid.Columns.TileViewColumn();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
@@ -96,6 +102,8 @@
             this.panelControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl8)).BeginInit();
+            this.panelControl8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DTPTarih.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPTarih.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBAciklama.Properties)).BeginInit();
@@ -115,8 +123,6 @@
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tileView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl8)).BeginInit();
-            this.panelControl8.SuspendLayout();
             this.SuspendLayout();
             // 
             // FIRMA
@@ -246,6 +252,16 @@
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Kasa Hareket Bilgi";
             // 
+            // panelControl8
+            // 
+            this.panelControl8.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl8.Controls.Add(this.BTKaydet);
+            this.panelControl8.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelControl8.Location = new System.Drawing.Point(620, 33);
+            this.panelControl8.Name = "panelControl8";
+            this.panelControl8.Size = new System.Drawing.Size(109, 162);
+            this.panelControl8.TabIndex = 9;
+            // 
             // BTKaydet
             // 
             this.BTKaydet.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
@@ -352,7 +368,8 @@
             // tileView3
             // 
             this.tileView3.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.FIRMA});
+            this.FIRMA,
+            this.FMIKTAR});
             this.tileView3.GridControl = this.gridControl4;
             this.tileView3.Name = "tileView3";
             this.tileView3.OptionsTiles.GroupTextPadding = new System.Windows.Forms.Padding(12, 8, 12, 8);
@@ -364,13 +381,26 @@
             this.tileView3.OptionsTiles.Padding = new System.Windows.Forms.Padding(0);
             this.tileView3.OptionsTiles.RowCount = 0;
             this.tileView3.TileColumns.Add(tableColumnDefinition1);
+            this.tileView3.TileColumns.Add(tableColumnDefinition2);
+            this.tileView3.TileColumns.Add(tableColumnDefinition3);
             this.tileView3.TileRows.Add(tableRowDefinition1);
+            this.tileView3.TileRows.Add(tableRowDefinition2);
+            this.tileView3.TileRows.Add(tableRowDefinition3);
             tileViewItemElement1.Column = this.FIRMA;
+            tileViewItemElement1.ColumnIndex = 1;
             tileViewItemElement1.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
             tileViewItemElement1.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Squeeze;
+            tileViewItemElement1.RowIndex = 1;
             tileViewItemElement1.Text = "FIRMA";
             tileViewItemElement1.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileViewItemElement2.Column = this.FMIKTAR;
+            tileViewItemElement2.ColumnIndex = 2;
+            tileViewItemElement2.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileViewItemElement2.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Squeeze;
+            tileViewItemElement2.Text = "FMIKTAR";
+            tileViewItemElement2.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
             this.tileView3.TileTemplate.Add(tileViewItemElement1);
+            this.tileView3.TileTemplate.Add(tileViewItemElement2);
             this.tileView3.Click += new System.EventHandler(this.tileView3_Click);
             // 
             // gridView3
@@ -414,12 +444,12 @@
             this.tileView2.OptionsTiles.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.tileView2.OptionsTiles.Padding = new System.Windows.Forms.Padding(0);
             this.tileView2.OptionsTiles.RowCount = 0;
-            this.tileView2.TileColumns.Add(tableColumnDefinition2);
-            this.tileView2.TileColumns.Add(tableColumnDefinition3);
             this.tileView2.TileColumns.Add(tableColumnDefinition4);
-            this.tileView2.TileRows.Add(tableRowDefinition2);
-            this.tileView2.TileRows.Add(tableRowDefinition3);
+            this.tileView2.TileColumns.Add(tableColumnDefinition5);
+            this.tileView2.TileColumns.Add(tableColumnDefinition6);
             this.tileView2.TileRows.Add(tableRowDefinition4);
+            this.tileView2.TileRows.Add(tableRowDefinition5);
+            this.tileView2.TileRows.Add(tableRowDefinition6);
             tableSpan1.ColumnSpan = 2;
             tableSpan1.RowSpan = 3;
             tableSpan2.ColumnIndex = 2;
@@ -427,21 +457,21 @@
             tableSpan2.RowSpan = 2;
             this.tileView2.TileSpans.Add(tableSpan1);
             this.tileView2.TileSpans.Add(tableSpan2);
-            tileViewItemElement2.Column = this.KASATIP;
-            tileViewItemElement2.ColumnIndex = 1;
-            tileViewItemElement2.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            tileViewItemElement2.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Squeeze;
-            tileViewItemElement2.RowIndex = 1;
-            tileViewItemElement2.Text = "KASATIP";
-            tileViewItemElement2.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            tileViewItemElement3.Column = this.MIKTAR;
-            tileViewItemElement3.ColumnIndex = 2;
+            tileViewItemElement3.Column = this.KASATIP;
+            tileViewItemElement3.ColumnIndex = 1;
             tileViewItemElement3.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
             tileViewItemElement3.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Squeeze;
-            tileViewItemElement3.Text = "MIKTAR";
+            tileViewItemElement3.RowIndex = 1;
+            tileViewItemElement3.Text = "KASATIP";
             tileViewItemElement3.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileView2.TileTemplate.Add(tileViewItemElement2);
+            tileViewItemElement4.Column = this.MIKTAR;
+            tileViewItemElement4.ColumnIndex = 2;
+            tileViewItemElement4.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileViewItemElement4.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Squeeze;
+            tileViewItemElement4.Text = "MIKTAR";
+            tileViewItemElement4.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
             this.tileView2.TileTemplate.Add(tileViewItemElement3);
+            this.tileView2.TileTemplate.Add(tileViewItemElement4);
             this.tileView2.Click += new System.EventHandler(this.tileView2_Click);
             // 
             // gridView2
@@ -485,27 +515,27 @@
             this.tileView1.OptionsTiles.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.tileView1.OptionsTiles.Padding = new System.Windows.Forms.Padding(0);
             this.tileView1.OptionsTiles.RowCount = 0;
-            this.tileView1.TileColumns.Add(tableColumnDefinition5);
-            this.tileView1.TileColumns.Add(tableColumnDefinition6);
             this.tileView1.TileColumns.Add(tableColumnDefinition7);
-            this.tileView1.TileRows.Add(tableRowDefinition5);
-            this.tileView1.TileRows.Add(tableRowDefinition6);
+            this.tileView1.TileColumns.Add(tableColumnDefinition8);
+            this.tileView1.TileColumns.Add(tableColumnDefinition9);
             this.tileView1.TileRows.Add(tableRowDefinition7);
-            tileViewItemElement4.Column = this.ADI;
-            tileViewItemElement4.ColumnIndex = 1;
-            tileViewItemElement4.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            tileViewItemElement4.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Squeeze;
-            tileViewItemElement4.RowIndex = 1;
-            tileViewItemElement4.Text = "ADI";
-            tileViewItemElement4.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            tileViewItemElement5.Column = this.MMIKTAR;
-            tileViewItemElement5.ColumnIndex = 2;
+            this.tileView1.TileRows.Add(tableRowDefinition8);
+            this.tileView1.TileRows.Add(tableRowDefinition9);
+            tileViewItemElement5.Column = this.ADI;
+            tileViewItemElement5.ColumnIndex = 1;
             tileViewItemElement5.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
             tileViewItemElement5.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Squeeze;
-            tileViewItemElement5.Text = "MMARKA";
+            tileViewItemElement5.RowIndex = 1;
+            tileViewItemElement5.Text = "ADI";
             tileViewItemElement5.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileView1.TileTemplate.Add(tileViewItemElement4);
+            tileViewItemElement6.Column = this.MMIKTAR;
+            tileViewItemElement6.ColumnIndex = 2;
+            tileViewItemElement6.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileViewItemElement6.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Squeeze;
+            tileViewItemElement6.Text = "MMARKA";
+            tileViewItemElement6.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
             this.tileView1.TileTemplate.Add(tileViewItemElement5);
+            this.tileView1.TileTemplate.Add(tileViewItemElement6);
             this.tileView1.Click += new System.EventHandler(this.tileView1_Click);
             // 
             // treeListBand1
@@ -514,15 +544,14 @@
             this.treeListBand1.Caption = "ADI";
             this.treeListBand1.Name = "treeListBand1";
             // 
-            // panelControl8
+            // FMIKTAR
             // 
-            this.panelControl8.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl8.Controls.Add(this.BTKaydet);
-            this.panelControl8.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelControl8.Location = new System.Drawing.Point(620, 33);
-            this.panelControl8.Name = "panelControl8";
-            this.panelControl8.Size = new System.Drawing.Size(109, 162);
-            this.panelControl8.TabIndex = 9;
+            this.FMIKTAR.AccessibleName = "FMIKTAR";
+            this.FMIKTAR.Caption = "FMIKTAR";
+            this.FMIKTAR.FieldName = "FMIKTAR";
+            this.FMIKTAR.Name = "FMIKTAR";
+            this.FMIKTAR.Visible = true;
+            this.FMIKTAR.VisibleIndex = 1;
             // 
             // FStokKasaHareket
             // 
@@ -547,6 +576,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl8)).EndInit();
+            this.panelControl8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DTPTarih.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPTarih.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBAciklama.Properties)).EndInit();
@@ -566,8 +597,6 @@
             this.panelControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tileView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl8)).EndInit();
-            this.panelControl8.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -608,5 +637,6 @@
         private Assets.YeniTextEdit TBBelgeNo;
         private DevExpress.XtraGrid.Columns.TileViewColumn MMIKTAR;
         private DevExpress.XtraEditors.PanelControl panelControl8;
+        private DevExpress.XtraGrid.Columns.TileViewColumn FMIKTAR;
     }
 }

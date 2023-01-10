@@ -1,6 +1,8 @@
 ﻿using DevExpress.XtraEditors;
 using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.PocoModels.STOK;
+using MEYPAK.PRL.IRSALIYE;
+using MEYPAK.PRL.SIPARIS;
 using MEYPAK.PRL.STOK.Raporlar;
 using System;
 using System.Collections.Generic;
@@ -22,26 +24,35 @@ namespace MEYPAK.PRL.STOK
             this._islem = islem;
             this._form = form;
             _stokKasaServis = new GenericWebServis<PocoSTOKKASA>();
-           
+            _stokKasaMarkaServis = new GenericWebServis<PocoSTOKKASAMARKA>();
+
         }
 
         #region Tanımlar
         string _islem;
         string _form;
         GenericWebServis<PocoSTOKKASA> _stokKasaServis;
+        GenericWebServis<PocoSTOKKASAMARKA> _stokKasaMarkaServis;
         FStokKasaHareketRaporu fStokKasaHareketRaporu;
+        FAlisFatura FAlisFatura;
+        FAlisIrsaliye FAlisIrsaliye;
         #endregion
 
         private void FStokKasaList2_Load(object sender, EventArgs e)
         {
             _stokKasaServis.Data(ServisList.StokKasaListeServis);
-            DGStokKasaList.DataSource = _stokKasaServis.obje.Where(x => x.kayittipi == 0);
+            _stokKasaMarkaServis.Data(ServisList.StokKasaMarkaListeServis);
+            DGStokKasaList.DataSource = _stokKasaServis.obje.Where(x => x.kayittipi == 0).Select(x=>new { id=x.id,Marka=_stokKasaMarkaServis.obje.Where(z=>z.id==x.markaid).FirstOrDefault().adi,KasaKodu=x.kasakodu,KasaAdı=x.kasaadi,x.aciklama, });
             foreach (Form frm in Application.OpenForms)
             {
                 if (_form == frm.Tag)
                 {
                     if (frm.Name.Contains("FStokKasaHareketRaporu"))
                         fStokKasaHareketRaporu = (FStokKasaHareketRaporu)frm;
+                    if(frm.Name.Contains("FAlisFatura"))
+                        FAlisFatura = (FAlisFatura)frm; 
+                    if(frm.Name.Contains("FAlisIrsaliye"))
+                        FAlisIrsaliye = (FAlisIrsaliye)frm;
                 }
             }
             
@@ -53,6 +64,13 @@ namespace MEYPAK.PRL.STOK
             if (_islem == "FStokKasaHareketRaporu")
             {
                 fStokKasaHareketRaporu._tempStokKasa = _stokKasaServis.obje.Where(x => x.kayittipi == 0 && x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()).FirstOrDefault();
+            }
+            if(_islem=="FAlisFatura")
+            {
+                FAlisFatura._tempKasa = _stokKasaServis.obje.Where(x => x.kayittipi == 0 && x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()).FirstOrDefault();
+            } if(_islem== "FAlisIrsaliye")
+            {
+                FAlisIrsaliye._tempKasa = _stokKasaServis.obje.Where(x => x.kayittipi == 0 && x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()).FirstOrDefault();
             }
             this.Close();
         }
