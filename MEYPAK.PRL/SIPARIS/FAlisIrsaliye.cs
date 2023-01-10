@@ -91,7 +91,7 @@ namespace MEYPAK.PRL.IRSALIYE
         GenericWebServis<PocoOLCUBR> _olcuBr;
         GenericWebServis<PocoCARIKART> _cariKart;
         GenericWebServis<PocoSTOK> _stokServis;
-        FStokKasaList _fStokKasaList;
+        FStokKasaList2 _fStokKasaList;
         FHizmetList _fHizmetList;
         GenericWebServis<PocoCARIALTHES> _cariAltHesapServis;
         GenericWebServis<PocoPARABIRIM> _paraBirimServis;
@@ -745,7 +745,7 @@ namespace MEYPAK.PRL.IRSALIYE
             else if (gridView1.GetFocusedRowCellValue("Tipi") == "KASA")
             {
 
-                _fStokKasaList = new FStokKasaList(this.Tag.ToString(), "FAlisIrsaliye");
+                _fStokKasaList = new FStokKasaList2(this.Tag.ToString(), "FAlisIrsaliye");
                 _fStokKasaList.ShowDialog();
                 if (_tempKasa != null)
                 {
@@ -984,6 +984,21 @@ namespace MEYPAK.PRL.IRSALIYE
                             netfiyat = item.NetFiyat,
                             nettoplam = item.NetToplam,
                             hizmetid = item.StokId,
+
+                        });
+                    }
+                    if (item.Tipi == "KASA")
+                    {
+                        _stokKasaHarServis.Data(ServisList.StokKasaHarEkleServis, new Entity.PocoModels.STOK.PocoSTOKKASAHAR()
+                        {
+                            id = _stokHarServis.obje.Where(x => x.irsaliyedetayid == _irsaliyeDetayServis.obje2.id).Count() > 0 ? _stokHarServis.obje.Where(x => x.irsaliyedetayid == _irsaliyeDetayServis.obje2.id).FirstOrDefault().id : 0,
+                            irsaliyedetayid = _irsaliyeDetayServis.obje2.id,
+                            irsaliyeid = _irsaliyeServis.obje2.id,
+                            io = 1,
+                            miktar = item.Safi,
+                            belge_no = _irsaliyeServis.obje2.belgeno,
+                            cariid = _irsaliyeServis.obje2.cariid,
+                            kasaid = item.StokId
 
                         });
                     }

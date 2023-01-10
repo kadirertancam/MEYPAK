@@ -87,7 +87,7 @@ namespace MEYPAK.PRL.SIPARIS
         GenericWebServis<PocoOLCUBR> _olcuBr;
         GenericWebServis<PocoCARIKART> _cariKart;
         GenericWebServis<PocoSTOK> _stokServis;
-        FStokKasaList _fStokKasaList;
+        FStokKasaList2 _fStokKasaList;
         GenericWebServis<PocoCARIALTHES> _cariAltHesapServis;
         GenericWebServis<PocoPARABIRIM> _paraBirimServis;
         GenericWebServis<PocoSTOKKASAHAR> _stokKasaHarServis;
@@ -518,8 +518,15 @@ namespace MEYPAK.PRL.SIPARIS
                 }
             }
             gridControl1.DataSource = tempkasalist.OrderByDescending(x => x.MIKTAR);
-            gridView2.Columns["ID"].Visible = false;
-            gridView2.Columns["KASAID"].Visible = false;
+            try
+            {
+                gridView2.Columns["ID"].Visible = false;
+                gridView2.Columns["KASAID"].Visible = false;
+            }
+            catch (Exception)
+            { 
+            }
+           
 
         }
 
@@ -762,7 +769,7 @@ namespace MEYPAK.PRL.SIPARIS
             else if (gridView1.GetFocusedRowCellValue("Tipi") == "KASA")
             {
 
-                _fStokKasaList = new FStokKasaList(this.Tag.ToString(), "FAlisFatura");
+                _fStokKasaList = new FStokKasaList2(this.Tag.ToString(), "FAlisFatura");
                 _fStokKasaList.ShowDialog();
                 if (_tempKasa != null)
                 {
@@ -780,7 +787,6 @@ namespace MEYPAK.PRL.SIPARIS
                     _tempFaturaDetay[gridView1.FocusedRowHandle] = _tempPocokalem;
                     GCIrsaliye.DataSource = _tempFaturaDetay;
                 }
-
             }
             else if (gridView1.GetFocusedRowCellValue("Tipi") == "HIZMET")
             {
@@ -982,6 +988,21 @@ namespace MEYPAK.PRL.SIPARIS
                             stokid = item.StokId,
                             sayimid = 0,
                             kunye = item.Kunye,
+                        });
+                    }
+                    if (item.Tipi == "KASA")
+                    {
+                        _stokKasaHarServis.Data(ServisList.StokKasaHarEkleServis, new Entity.PocoModels.STOK.PocoSTOKKASAHAR()
+                        {
+                            id = _stokHarServis.obje.Where(x => x.faturadetayid == _faturadetayServis.obje2.id).Count() > 0 ? _stokHarServis.obje.Where(x => x.faturadetayid == _faturadetayServis.obje2.id).FirstOrDefault().id : 0,
+                            faturadetayid = _faturadetayServis.obje2.id,
+                            faturaid = _faturaServis.obje2.id, 
+                            io = 1, 
+                            miktar = item.Safi,  
+                            belge_no=_faturaServis.obje2.belgeno,
+                            cariid=_faturaServis.obje2.cariid,
+                            kasaid=item.StokId
+
                         });
                     }
                     else if (item.Tipi == "HIZMET")
