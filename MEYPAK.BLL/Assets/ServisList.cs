@@ -601,6 +601,16 @@ namespace MEYPAK.BLL.Assets
 
         #endregion
 
+        #region CEKSENETUSTSB
+        public const string CekSenetUstSBListeServis =       "http://213.238.167.117:8080/CEKSENETUSTSB/Liste";
+        public const string CekSenetUstSBEkleServis =        "http://213.238.167.117:8080/CEKSENETUSTSB/EkleyadaGuncelle";
+        public const string CekSenetUstSBSilServis =         "http://213.238.167.117:8080/CEKSENETUSTSB/Sil";
+        public const string CekSenetUstSBGuncelleServis =    "http://213.238.167.117:8080/CEKSENETUSTSB/Guncelle";
+        public const string CekSenetUstSBDeleteByIdServis =  "http://213.238.167.117:8080/CEKSENETUSTSB/DeleteById";
+        public const string CekSenetUstSBFiltreServis =      "http://213.238.167.117:8080/CEKSENETUSTSB/Liste2?query=";
+
+        #endregion
+
         #region FIRMACEKHAR
         public const string FirmaCekHarListeServis = "http://213.238.167.117:8080/FIRMACEKHAR/Liste";
         public const string FirmaCekHarEkleServis = "http://213.238.167.117:8080/FIRMACEKHAR/EkleyadaGuncelle";

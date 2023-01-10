@@ -7,6 +7,7 @@ using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Stok;
 using MEYPAK.PRL.CARI.Raporlar;
+using MEYPAK.PRL.CEKSENET;
 using MEYPAK.PRL.IRSALIYE;
 using MEYPAK.PRL.KASA;
 using MEYPAK.PRL.SIPARIS;
@@ -48,6 +49,7 @@ namespace MEYPAK.PRL.CARI
         FMusteriSiparisRaporu fMusteriSiparisRaporu;
         FCariDurum fCariDurum;
         FKasaHareket fKasaHareket;
+        FFirmaSenetTanim fFirmaSenet;
         Main main;
         int i = 0;
        
@@ -106,7 +108,8 @@ namespace MEYPAK.PRL.CARI
                     fCariDurum._tempCariKart = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
                 if (_islem == "FKasaHareket")
                     fKasaHareket._tempCari = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
-
+                if (_islem == "FFirmaSenetTanim")
+                    fFirmaSenet._tempCari = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
             }
             else
             {
@@ -174,6 +177,8 @@ namespace MEYPAK.PRL.CARI
                             fCariDurum = (FCariDurum)frm;
                         if (frm.Name.Contains("FKasaHareket"))
                             fKasaHareket = (FKasaHareket)frm;
+                        if (frm.Name.Contains("FFirmaSenetTanim"))
+                            fFirmaSenet = (FFirmaSenetTanim)frm;
                     }
                 }
             }
