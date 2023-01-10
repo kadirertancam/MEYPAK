@@ -49,10 +49,6 @@ namespace MEYPAK.PRL.CEKSENET
         List<PocoMusteriCekKalem> _tempMCekSb;
         public PocoCARIKART _tempCariKart;
 
-
-
-
-
         #endregion
         #region Metotlar
 
@@ -75,7 +71,6 @@ namespace MEYPAK.PRL.CEKSENET
         {
             
         }
-
         private void BTCariSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             _fCariList = new FCariList(this.Tag.ToString(), "FMusteriCekTanim");
@@ -86,7 +81,6 @@ namespace MEYPAK.PRL.CEKSENET
                 TBCariAdi.Text = _tempCariKart.unvan == "" ? _tempCariKart.adi + " " + _tempCariKart.soyadi : _tempCariKart.unvan;
             }
         }
-
         #endregion
 
         private void FMusteriCekTanim_Load(object sender, EventArgs e)
