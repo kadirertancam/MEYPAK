@@ -92,7 +92,6 @@ namespace MEYPAK.PRL.STOK
 
             }
         }
-
         public void Temizle(Control.ControlCollection ctrlCollection)           //Formdaki Textboxları temizle
         {
             foreach (Control ctrl in ctrlCollection)
@@ -117,9 +116,6 @@ namespace MEYPAK.PRL.STOK
             CLBDepo.DataSource = _depoServis.obje.Where(x => x.kayittipi == 0).Select(x => x.depoadi).ToList();
 
         }
-
-
-
         private void BTStokKoduSec_Click(object sender, EventArgs e)
         {
             _tempStok = null;
@@ -130,7 +126,6 @@ namespace MEYPAK.PRL.STOK
         }
 
 
-
         private void BTStokKoduSec_Leave(object sender, EventArgs e)
         {
             if (BTStokKoduSec.EditValue != "" && _stokServis.obje.Where(x => x.kod == BTStokKoduSec.EditValue).FirstOrDefault() != null)
@@ -139,7 +134,6 @@ namespace MEYPAK.PRL.STOK
                 Doldur();
             }
         }
-
 
 
         #region KeyPress
