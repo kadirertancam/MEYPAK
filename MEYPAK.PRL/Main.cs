@@ -119,6 +119,7 @@ namespace MEYPAK.PRL
         FMusteriCekProtesto fMusteriCekProtesto;
         FMusteriSenetTahsilat fMusteriSenetTahsilat;
         FMusteriSenetTeminat fMusteriSenetTeminat;
+        FMusteriSenetProtesto fMusteriSenetProtesto;
 
 
         public Tarih_Date _tarih_Date;
@@ -1556,6 +1557,27 @@ namespace MEYPAK.PRL
             fMusteriSenetTeminat.Tag = "TPMusteriSenetTeminat" + i;
             page.Controls.Add(fMusteriSenetTeminat);
             fMusteriSenetTeminat.Show();
+            i++;
+        }
+
+        private void ACEMSenetProtesto_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fMusteriSenetProtesto = new FMusteriSenetProtesto();
+            page.Name = "TPMusteriSenetProtesto" + i;
+            page.Text = "Müşteri Senet Protesto";
+            page.Tag = "TPMusteriSenetProtesto" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fMusteriSenetProtesto.FormBorderStyle = FormBorderStyle.None;
+            fMusteriSenetProtesto.TopLevel = false;
+            fMusteriSenetProtesto.AutoScroll = true;
+            fMusteriSenetProtesto.Dock = DockStyle.Fill;
+            fMusteriSenetProtesto.Tag = "TPMusteriSenetProtesto" + i;
+            page.Controls.Add(fMusteriSenetProtesto);
+            fMusteriSenetProtesto.Show();
             i++;
         }
     }
