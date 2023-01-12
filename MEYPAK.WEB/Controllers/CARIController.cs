@@ -12,15 +12,14 @@ namespace MEYPAK.WEB.Controllers
     {
         private readonly ILogger<CARIController> _logger;
         GenericWebServis<PocoCARIKART> _tempPocoCariKart = new GenericWebServis<PocoCARIKART>();
+        GenericWebServis<PocoCARIHAR> _tempPocoCariHar = new GenericWebServis<PocoCARIHAR>();
 
         static List<PocoCARIKART> pocoCARIKARTs = new List<PocoCARIKART>();
         static int tempcarikartid = 0;
         public CARIController(ILogger<CARIController> logger)
         {
             _logger = logger;
-
         }
-
         #region CARI
 
         [HttpGet]

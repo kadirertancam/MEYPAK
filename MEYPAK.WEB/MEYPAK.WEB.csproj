@@ -5,10 +5,15 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="wwwroot\Sufee-Admin\**" />
     <Compile Remove="wwwroot\Template_Ven\**" />
+    <Content Remove="wwwroot\Sufee-Admin\**" />
     <Content Remove="wwwroot\Template_Ven\**" />
+    <EmbeddedResource Remove="wwwroot\Sufee-Admin\**" />
     <EmbeddedResource Remove="wwwroot\Template_Ven\**" />
+    <None Remove="wwwroot\Sufee-Admin\**" />
     <None Remove="wwwroot\Template_Ven\**" />
+    <TypeScriptCompile Remove="wwwroot\Sufee-Admin\**" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Models\NinjectFactory.cs" />
@@ -277,6 +282,10 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="4.9.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.11" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Ninject" Version="3.3.6" />
@@ -288,6 +297,7 @@
     <PackageReference Include="DevExtreme.AspNet.Data" Version="2.8.6" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Views\CARI\" />
     <Folder Include="Views\Home\" />
     <Folder Include="wwwroot\Index\img\" />
   </ItemGroup>
