@@ -25,9 +25,11 @@ namespace MEYPAK.PRL.CEKSENET
             _firmaSenetServis = new GenericWebServis<PocoFIRMASENETSB>();
             _cariKartServis= new GenericWebServis<PocoCARIKART>();
             _tempSenetKalem = new List<PocoFIRMASENETSB>();
+            _cekSenetUstServis= new GenericWebServis<PocoCEKSENETUSTSB>();
         }
         GenericWebServis<PocoFIRMASENETSB> _firmaSenetServis;
         GenericWebServis<PocoCARIKART> _cariKartServis;
+        GenericWebServis<PocoCEKSENETUSTSB> _cekSenetUstServis;
         PocoFIRMASENETSB _tempFirmaSenet;
         List<PocoFIRMASENETSB> _tempSenetKalem;
        public PocoCARIKART _tempCari;
@@ -40,9 +42,17 @@ namespace MEYPAK.PRL.CEKSENET
             {
                 if (item != new PocoFIRMASENETSB())
                 {
-                    _firmaSenetServis.Data(ServisList.FirmaSenetSBEkleServis,new PocoFIRMASENETSB()
+                    _cekSenetUstServis.Data(ServisList.CekSenetUstSBEkleServis,new PocoCEKSENETUSTSB()
                     {
 
+                    });
+
+                    _firmaSenetServis.Data(ServisList.FirmaSenetSBEkleServis,new PocoFIRMASENETSB()
+                    {
+                        BORDRONO = item.BORDRONO,
+                        SENETNO= item.SENETNO,
+                        VADETARIH = item.VADETARIH,
+                        
                     });
                 }
             }
@@ -54,7 +64,7 @@ namespace MEYPAK.PRL.CEKSENET
             DGFirmaSenet.DataSource = _tempSenetKalem;
         }
 
-        private void FFirmaSenetTanim_Load(object sender, EventArgs e)
+        private void FFirmaSenetTanim_Load(object sender, EventArgs e) 
         {
             GridiYapilandir();
         }
