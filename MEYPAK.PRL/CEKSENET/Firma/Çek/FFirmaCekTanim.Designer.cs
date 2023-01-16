@@ -62,6 +62,8 @@
             this.LBCariKodu = new DevExpress.XtraEditors.LabelControl();
             this.LBBordro = new DevExpress.XtraEditors.LabelControl();
             this.LBTarih = new DevExpress.XtraEditors.LabelControl();
+            this.CBAltHesap = new DevExpress.XtraEditors.LookUpEdit();
+            this.LBAltHesap = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
@@ -79,6 +81,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.BTBordroSec.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTTarih.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTTarih.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CBAltHesap.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -196,6 +199,8 @@
             // groupControl1
             // 
             this.groupControl1.CaptionImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("groupControl1.CaptionImageOptions.Image")));
+            this.groupControl1.Controls.Add(this.CBAltHesap);
+            this.groupControl1.Controls.Add(this.LBAltHesap);
             this.groupControl1.Controls.Add(this.panelControl3);
             this.groupControl1.Controls.Add(this.TBCariAdi);
             this.groupControl1.Controls.Add(this.BTCariSec);
@@ -249,7 +254,7 @@
             // TBCariAdi
             // 
             this.TBCariAdi.Enabled = false;
-            this.TBCariAdi.Location = new System.Drawing.Point(421, 74);
+            this.TBCariAdi.Location = new System.Drawing.Point(703, 50);
             this.TBCariAdi.Name = "TBCariAdi";
             this.TBCariAdi.Size = new System.Drawing.Size(193, 20);
             this.TBCariAdi.TabIndex = 7;
@@ -287,7 +292,7 @@
             // 
             // LBCariAdi
             // 
-            this.LBCariAdi.Location = new System.Drawing.Point(363, 76);
+            this.LBCariAdi.Location = new System.Drawing.Point(645, 52);
             this.LBCariAdi.Name = "LBCariAdi";
             this.LBCariAdi.Size = new System.Drawing.Size(37, 13);
             this.LBCariAdi.TabIndex = 3;
@@ -316,6 +321,24 @@
             this.LBTarih.Size = new System.Drawing.Size(24, 13);
             this.LBTarih.TabIndex = 0;
             this.LBTarih.Text = "Tarih";
+            // 
+            // CBAltHesap
+            // 
+            this.CBAltHesap.Location = new System.Drawing.Point(421, 76);
+            this.CBAltHesap.Name = "CBAltHesap";
+            this.CBAltHesap.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CBAltHesap.Properties.NullText = "";
+            this.CBAltHesap.Size = new System.Drawing.Size(193, 20);
+            this.CBAltHesap.TabIndex = 154;
+            // 
+            // LBAltHesap
+            // 
+            this.LBAltHesap.Location = new System.Drawing.Point(354, 79);
+            this.LBAltHesap.Name = "LBAltHesap";
+            this.LBAltHesap.Size = new System.Drawing.Size(46, 13);
+            this.LBAltHesap.TabIndex = 155;
+            this.LBAltHesap.Text = "Alt Hesap";
             // 
             // FFirmaCekTanim
             // 
@@ -346,6 +369,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.BTBordroSec.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTTarih.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTTarih.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CBAltHesap.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -375,5 +399,7 @@
         private DevExpress.XtraEditors.PanelControl panelControl4;
         private DevExpress.XtraGrid.GridControl DGFirmaCek;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraEditors.LookUpEdit CBAltHesap;
+        private DevExpress.XtraEditors.LabelControl LBAltHesap;
     }
 }

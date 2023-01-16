@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.Entity.Models.CEKSENET
 {
+    
     public class MPCEKSENETUSTSB:SUPERMODEL
     {
         public int BELGETIP { get; set; }
