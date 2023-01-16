@@ -54,18 +54,17 @@ namespace MEYPAK.PRL.CEKSENET
 
         public void Doldur()
         {
+            _cariHarServis.Data(ServisList.CariHarListeServis);
             DGMusteriCek.DataSource = _cariHarServis.obje.Where(x => x.cariid == _tempCariKart.id);
             LBAlacakDeger.Text = _cariHarServis.obje.Where(x => x.cariid == _tempCariKart.id).Sum(x => x.alacak).ToString();
             LBBorcDeger.Text = _cariHarServis.obje.Where(x => x.cariid == _tempCariKart.id).Sum(x => x.borc).ToString();
-            LBBakiye.Text = _cariHarServis.obje.Where(x => x.cariid == _tempCariKart.id).Sum(x => x.borc - x.alacak).ToString();
+            LBBakiyeDeger.Text = _cariHarServis.obje.Where(x => x.cariid == _tempCariKart.id).Sum(x => x.borc - x.alacak).ToString();
         }
-
+           
         void DataGridYapilandir()
         {
             _tempMCekSb.Add(new PocoMusteriCekKalem());
             DGMusteriCek.DataSource = _tempMCekSb;
-
-            
         }
         private void BTBordroSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
@@ -79,6 +78,7 @@ namespace MEYPAK.PRL.CEKSENET
             {
                 BTCariSec.Text = _tempCariKart.kod;
                 TBCariAdi.Text = _tempCariKart.unvan == "" ? _tempCariKart.adi + " " + _tempCariKart.soyadi : _tempCariKart.unvan;
+                Doldur();
             }
         }
         #endregion
@@ -86,7 +86,6 @@ namespace MEYPAK.PRL.CEKSENET
         private void FMusteriCekTanim_Load(object sender, EventArgs e)
         {
             DataGridYapilandir();
-            Doldur();
         }
 
         private void gridView1_KeyPress(object sender, KeyPressEventArgs e)
@@ -96,6 +95,11 @@ namespace MEYPAK.PRL.CEKSENET
                 _tempMCekSb.Add(new PocoMusteriCekKalem());
                 DGMusteriCek.RefreshDataSource();
             }
+        }
+
+        private void BTKaydet_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

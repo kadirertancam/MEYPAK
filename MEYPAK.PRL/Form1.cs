@@ -28,7 +28,7 @@ namespace MEYPAK.PRL
             SaveFileDialog sv = new SaveFileDialog();
             if (sv.ShowDialog() == DialogResult.OK)
             { 
-                for (int i = 0; i < 107; i++)
+                for (int i = 0; i < 250; i++)
                 {
 
 

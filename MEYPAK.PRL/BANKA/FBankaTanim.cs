@@ -15,12 +15,13 @@ namespace MEYPAK.PRL.BANKA
         {
             _bankaServis.Data(ServisList.BANKAEkleServis, new MPBANKA()
             {
-                KOD = buttonEdit1.Text,
-                ADI = yeniTextEdit1.Text,
-                IL = yeniTextEdit2.Text,
-                ILCE = yeniTextEdit3.Text,
+                KOD = TBBankaKod.Text,
+                ADI = TBBankaAdi.Text,
+                IL = TBIlce.Text,
+                ILCE = TBIl.Text,
                 AKTIF=1
             });
+            MessageBox.Show("Banka Başarıyla Eklendi");
             GridiDoldur();
         }
 

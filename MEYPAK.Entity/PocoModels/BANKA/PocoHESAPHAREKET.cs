@@ -13,5 +13,7 @@ namespace MEYPAK.Entity.PocoModels.BANKA
         public string ISLEMTURU { get; set; }
         public string ACIKLAMA { get; set; }
         public decimal MIKTAR { get; set; }
+        public int CARIID { get; set; }
+        public int ALTHESCARIID { get; set; }
     }
 }

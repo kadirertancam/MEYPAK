@@ -2,6 +2,9 @@
 using DevExpress.XtraEditors;
 using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.PocoModels.BANKA;
+using MEYPAK.Entity.PocoModels.CARI;
+using MEYPAK.Interfaces.Cari;
+using MEYPAK.PRL.CARI;
 
 namespace MEYPAK.PRL.BANKA
 {
@@ -14,17 +17,25 @@ namespace MEYPAK.PRL.BANKA
             _bankaServis = new GenericWebServis<PocoBANKA>();
             _hesapServis = new GenericWebServis<PocoBANKAHESAP>();
             _hesapHarServis = new GenericWebServis<PocoHESAPHAREKET>();
+            _cariHarServis = new GenericWebServis<PocoCARIHAR>();
+            _cariAltHesServis = new GenericWebServis<PocoCARIALTHES>();
+            _cariAltHesCariServis = new GenericWebServis<PocoCARIALTHESCARI>();
         }
 
         GenericWebServis<PocoBANKASUBE>     _subeServis; 
         GenericWebServis<PocoBANKA>         _bankaServis;
         GenericWebServis<PocoBANKAHESAP>    _hesapServis;
         GenericWebServis<PocoHESAPHAREKET>  _hesapHarServis;
+        GenericWebServis<PocoCARIHAR>  _cariHarServis;
+        GenericWebServis<PocoCARIALTHES>  _cariAltHesServis;
+        GenericWebServis<PocoCARIALTHESCARI>  _cariAltHesCariServis;
+        public PocoCARIKART _tempCari;
 
         private void BTNKaydet_Click(object sender, EventArgs e)
         {
-            if (CBBanka.EditValue!=null && CBSube.EditValue!=null&& CBHesap.EditValue!=null && decimal.TryParse(TBTutar.Text,out decimal a)&& CBIslemTur.SelectedText!="")
+            if (CBBanka.EditValue!=null && CBSube.EditValue!=null&& CBHesap.EditValue!=null && decimal.TryParse(TBTutar.Text,out decimal a)&& CBIslemTur.SelectedText!=""&&_tempCari!=null&& lookUpEdit1.EditValue!="")
             {
+               
                 _hesapHarServis.Data(ServisList.HesapHarEkleServis, new PocoHESAPHAREKET()
                 {
                     HESAPID =Convert.ToInt32( CBHesap.EditValue),
@@ -32,6 +43,16 @@ namespace MEYPAK.PRL.BANKA
                     MIKTAR = Convert.ToDecimal(TBTutar.Text),
                     ISLEMTURU = CBIslemTur.SelectedText,
                     ACIKLAMA = TBAciklama.Text,
+                    CARIID = _tempCari.id,
+                    ALTHESCARIID = Convert.ToInt32(lookUpEdit1.EditValue),
+                    
+                });
+                _cariHarServis.Data(ServisList.CariHarEkleServis, new PocoCARIHAR()
+                {
+                    carialthesapid = Convert.ToInt32(lookUpEdit1.EditValue),
+                    cariid = _tempCari.id,
+                    tutar = Convert.ToDecimal(TBTutar.Text),
+                    harekettipi = 0
                 });
                 MessageBox.Show("Hareket Başarıyla Eklendi.");
                 GridiDoldur();
@@ -110,6 +131,31 @@ namespace MEYPAK.PRL.BANKA
                     editor.EditValue = null;
             }
 
+        }
+
+        private void BTCari_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            FCariList fCariList = new FCariList(this.Tag.ToString(), "FHesapHareket");
+            fCariList.ShowDialog();
+
+            if (_tempCari != null)
+            {
+                BTCari.Text = _tempCari.kod;
+                TBCariAdi.Text = _tempCari.unvan;
+                _cariAltHesServis.Data(ServisList.CariAltHesListeServis);
+                _cariAltHesCariServis.Data(ServisList.CariAltHesCariListeServis);
+
+                lookUpEdit1.Properties.DataSource = _cariAltHesCariServis.obje.Where(x => x.cariid == _tempCari.id).Select(x => new
+                {
+                    ID= x.carialthesid,
+                    ADI = _cariAltHesServis.obje.Where(y=> y.id == x.carialthesid).FirstOrDefault().adi
+                });
+                lookUpEdit1.Properties.DisplayMember = "ADI";
+                lookUpEdit1.Properties.ValueMember = "ID";
+                lookUpEdit1.Properties.PopulateColumns();
+                lookUpEdit1.Properties.Columns["ID"].Visible= false;
+
+            }
         }
     }
 }
