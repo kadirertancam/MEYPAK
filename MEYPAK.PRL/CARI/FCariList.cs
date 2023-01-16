@@ -6,6 +6,7 @@ using MEYPAK.Entity.Models.SIPARIS;
 using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Stok;
+using MEYPAK.PRL.BANKA;
 using MEYPAK.PRL.CARI.Raporlar;
 using MEYPAK.PRL.CEKSENET;
 using MEYPAK.PRL.IRSALIYE;
@@ -31,7 +32,7 @@ namespace MEYPAK.PRL.CARI
     {
         string _islem;
         string _form;
-
+        FFirmaCekTanim _firmaCekTanim;
         FCariHareket _cariHareket;
         FMusteriSiparis _fmusteriSiparis;
         FSatinAlmaSiparis fSatinAlmaSiparis;
@@ -51,6 +52,7 @@ namespace MEYPAK.PRL.CARI
         FKasaHareket fKasaHareket;
         FFirmaSenetTanim fFirmaSenet;
         FMusteriCekTanim fMusteriCekTanim;
+        FHesapHareket fHesapHareket;
         Main main;
         int i = 0;
        
@@ -109,10 +111,15 @@ namespace MEYPAK.PRL.CARI
                     fCariDurum._tempCariKart = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
                 if (_islem == "FKasaHareket")
                     fKasaHareket._tempCari = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+                if(_islem== "FFirmaCekTanim")
+                    _firmaCekTanim.tempCari= _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
                 if (_islem == "FMusteriCekTanim")
                     fMusteriCekTanim._tempCariKart = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
                 if (_islem == "FFirmaSenetTanim")
                     fFirmaSenet._tempCari = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+                if(_islem== "FHesapHareket")
+                    fHesapHareket._tempCari = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+
             }
             else
             {
@@ -180,10 +187,10 @@ namespace MEYPAK.PRL.CARI
                             fCariDurum = (FCariDurum)frm;
                         if (frm.Name.Contains("FKasaHareket"))
                             fKasaHareket = (FKasaHareket)frm;
-                        if (frm.Name.Contains("FMusteriCekTanim"))
-                            fMusteriCekTanim = (FMusteriCekTanim)frm;
                         if (frm.Name.Contains("FFirmaSenetTanim"))
                             fFirmaSenet = (FFirmaSenetTanim)frm;
+                        if (frm.Name.Contains("FHesapHareket"))
+                            fHesapHareket = (FHesapHareket)frm;
                     }
                 }
             }

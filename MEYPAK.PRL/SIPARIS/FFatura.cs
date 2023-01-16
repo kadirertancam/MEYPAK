@@ -928,7 +928,7 @@ namespace MEYPAK.PRL.SIPARIS
         private void button1_Click(object sender, EventArgs e)
         {
             string html = "";
-            faturaBasim.Basim(_tempFatura.id);
+            faturaBasim.TemelFaturaBasim(_tempFatura.id);
 
 
             // Create a PDF Viewer instance and load a PDF into it.

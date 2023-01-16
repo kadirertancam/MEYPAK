@@ -34,7 +34,7 @@ namespace MEYPAK.PRL.Assets
         GenericWebServis<PocoCARIKART> _cariServis;
         GenericWebServis<PocoFATURADETAY> _faturaDetayServis;
 
-        public void Basim(int faturaid)
+        public void TemelFaturaBasim(int faturaid)
         {
             _faturaServis.Data(ServisList.FaturaListeServis);
             _cariServis.Data(ServisList.CariListeServis);
@@ -344,6 +344,332 @@ namespace MEYPAK.PRL.Assets
 
                 server = new RichEditDocumentServer();
                 var ss = temelfatura.SerializeToXml<TemelFaturaXML.Invoice>();
+
+                //File.WriteAllText("Employee.xml", ss.ToString(),Encoding.UTF8);
+
+                //Create the DataSet from the XML file
+                XslCompiledTransform proc = new XslCompiledTransform();
+                proc.Load("Employee.xslt");
+                proc.Transform(Application.StartupPath + "Employee.xml", Application.StartupPath + "output.html");
+                PrintToPDF(Application.StartupPath + "output.html");
+                MessageBox.Show("Document created successfully.....");
+
+            }
+            catch (Exception ex)
+            {
+                writer = null;
+                nav = null;
+                root = null;
+                xmlDoc = null;
+                ds = null;
+                MessageBox.Show(ex.StackTrace);
+            }
+        }
+
+
+        public void HKSBasim(int faturaid)
+        {
+            _faturaServis.Data(ServisList.FaturaListeServis);
+            _cariServis.Data(ServisList.CariListeServis);
+            _faturaDetayServis.Data(ServisList.FaturaDetayListeServis);
+            var fatura = _faturaServis.obje.Where(x => x.id == faturaid).FirstOrDefault();
+            var cari = _cariServis.obje.Where(x => x.id == fatura.cariid).FirstOrDefault();
+            var faturadetay = _faturaDetayServis.obje.Where(x => x.faturaid == fatura.id);
+            DataSet ds;
+            XmlDataDocument xmlDoc;
+            XslCompiledTransform xslTran;
+            XmlElement root;
+            XPathNavigator nav;
+            XmlTextWriter writer;
+            try
+            {
+                var rsa = RSA.Create();
+                var t1 = new HKSFaturaXML.AccountingCustomerParty()
+                {
+                    Party = new HKSFaturaXML.AccountingCustomerPartyParty()
+                    {
+                        Contact = new HKSFaturaXML.AccountingCustomerPartyPartyContact()
+                        {
+                            ElectronicMail = cari.eposta,
+                            Telefax = cari.fax.ToString(),
+                            Telephone = cari.telefon.ToString()
+                        },
+                        PartyIdentification = new HKSFaturaXML.AccountingCustomerPartyPartyPartyIdentification()
+                        {
+                            ID = new HKSFaturaXML.ID()
+                            {
+                                schemeID = "VKN",
+                                Value = cari.vergino.ToString()
+                            }
+                        },
+                        PartyName = new HKSFaturaXML.AccountingCustomerPartyPartyPartyName()
+                        {
+                            Name = cari.unvan.ToString(),
+                        },
+                        PartyTaxScheme = new HKSFaturaXML.AccountingCustomerPartyPartyPartyTaxScheme()
+                        {
+                            TaxScheme = new HKSFaturaXML.AccountingCustomerPartyPartyPartyTaxSchemeTaxScheme()
+                            {
+                                Name = cari.vergidairesi.ToString()
+                            }
+                        },
+                        PostalAddress = new HKSFaturaXML.AccountingCustomerPartyPartyPostalAddress()
+                        {
+
+
+                            CityName = cari.il.ToString(),
+                            CitySubdivisionName = cari.ilce.ToString(),
+                            Country = new HKSFaturaXML.AccountingCustomerPartyPartyPostalAddressCountry() { Name = cari.ulke },
+                            StreetName = cari.sokak.ToString(),
+
+                        }
+                    }
+                };
+                var t2 = new HKSFaturaXML.AccountingSupplierParty()
+                {
+                    Party = new HKSFaturaXML.AccountingSupplierPartyParty()
+                    {
+                        Contact = new HKSFaturaXML.AccountingSupplierPartyPartyContact()
+                        {
+                            ElectronicMail = "gunduzmeypak@gmail.com",
+                            Telefax = "000000000",
+                            Telephone = "000",
+
+                        },
+
+                        PartyName = new HKSFaturaXML.AccountingSupplierPartyPartyPartyName()
+                        {
+                            Name = "Gündüz Meypak A.Ş."
+                        },
+                        PartyTaxScheme = new HKSFaturaXML.AccountingSupplierPartyPartyPartyTaxScheme()
+                        {
+                            TaxScheme = new HKSFaturaXML.AccountingSupplierPartyPartyPartyTaxSchemeTaxScheme()
+                            {
+                                Name = "Başkent"
+                            }
+                        },
+                        PostalAddress = new HKSFaturaXML.AccountingSupplierPartyPartyPostalAddress()
+                        {
+                            BuildingName = "",
+                            BuildingNumber = "0",
+                            CityName = "Ankara",
+                            CitySubdivisionName = "Çankaya",
+                            Country = new HKSFaturaXML.AccountingSupplierPartyPartyPostalAddressCountry() { Name = "Türkiye" },
+                            PostalZone = "0",
+                            Region = "Kızılırmak",
+                            Room = "0",
+                            StreetName = "DumluPınar"
+
+
+                        }
+
+                    }
+                };
+                List<HKSFaturaXML.InvoiceLine> fatSatir = new List<HKSFaturaXML.InvoiceLine>();
+                foreach (var item in faturadetay)
+                {
+                    fatSatir.Add(new HKSFaturaXML.InvoiceLine()
+                    {
+
+                        ID = new HKSFaturaXML.ID()
+                        {
+                            schemeID = "",
+                            Value = item.stokid.ToString()
+                        },
+                        InvoicedQuantity = new HKSFaturaXML.InvoicedQuantity()
+                        {
+                            unitCode = "NIU",
+                            Value = item.safi
+                        },
+                        Item = new HKSFaturaXML.InvoiceLineItem()
+                        {
+                            Name = item.stokadi
+
+                        },
+                        LineExtensionAmount = new HKSFaturaXML.LineExtensionAmount()
+                        {
+                            currencyID = "TRL",
+                            Value = item.nettoplam
+                        },
+                        Price = new HKSFaturaXML.InvoiceLinePrice()
+                        {
+                            PriceAmount = new HKSFaturaXML.PriceAmount()
+                            {
+                                currencyID = "TRL",
+                                Value = Convert.ToByte(item.birimfiyat)
+
+
+                            }
+                        },
+                        TaxTotal = new HKSFaturaXML.InvoiceLineTaxTotal()
+                        {
+                            TaxAmount = new HKSFaturaXML.TaxAmount()
+                            {
+                                currencyID = "TRL",
+                                Value = item.kdvtutari
+                            },
+                            TaxSubtotal = new HKSFaturaXML.InvoiceLineTaxTotalTaxSubtotal()
+                            {
+                                TaxAmount = new HKSFaturaXML.TaxAmount()
+                                {
+                                    currencyID = "TRL",
+                                    Value = item.kdvtutari
+                                },
+                                Percent = item.kdv,
+                                TaxableAmount = new HKSFaturaXML.TaxableAmount() { currencyID = "TRL", Value = item.nettoplam },
+                                TaxCategory = new HKSFaturaXML.InvoiceLineTaxTotalTaxSubtotalTaxCategory()
+                                {
+                                    TaxScheme = new HKSFaturaXML.InvoiceLineTaxTotalTaxSubtotalTaxCategoryTaxScheme()
+                                    {
+                                        TaxTypeCode = "0015",
+                                        Name = "KDV"
+                                    }
+                                }
+                            }
+                        }
+                    });
+                }
+
+
+                var t3 = new HKSFaturaXML.AdditionalDocumentReference
+                {
+                   
+                };
+                var t5 = fatSatir;
+                var t6 = new HKSFaturaXML.LegalMonetaryTotal()
+                {
+                    AllowanceTotalAmount = new HKSFaturaXML.AllowanceTotalAmount()
+                    {
+                        currencyID = "TRL",
+                        Value = fatura.iskontotoplam
+                    },
+                    LineExtensionAmount = new HKSFaturaXML.LineExtensionAmount()
+                    {
+                        currencyID = "TRL",
+                        Value = fatura.nettoplam
+                    },
+                    PayableAmount = new HKSFaturaXML.PayableAmount()
+                    {
+                        currencyID = "TRL",
+                        Value = fatura.geneltoplam
+                    },
+                    TaxExclusiveAmount = new HKSFaturaXML.TaxExclusiveAmount()
+                    {
+                        currencyID = "TRL",
+                        Value = fatura.bruttoplam
+                    },
+                    TaxInclusiveAmount = new HKSFaturaXML.TaxInclusiveAmount()
+                    {
+                        currencyID = "TRL",
+                        Value = fatura.bruttoplam + fatura.kdvtoplam
+                    },
+
+                };
+                var t8 = new HKSFaturaXML.TaxTotal()
+                {
+                    TaxAmount = new HKSFaturaXML.TaxAmount()
+                    {
+                        currencyID = "TRL",
+                        Value = fatura.kdvtoplam
+                    },
+                    TaxSubtotal = new HKSFaturaXML.TaxTotalTaxSubtotal()
+                    {
+                        CalculationSequenceNumeric = 1,
+                        Percent = faturadetay.FirstOrDefault().kdv,
+                        TaxableAmount = new HKSFaturaXML.TaxableAmount()
+                        {
+                            currencyID = "TRL",
+                            Value = fatura.kdvtoplam
+                        },
+                        TaxAmount = new HKSFaturaXML.TaxAmount()
+                        {
+                            currencyID = "TRL",
+                            Value = fatura.kdvtoplam
+                        },
+                        TaxCategory = new HKSFaturaXML.TaxTotalTaxSubtotalTaxCategory()
+                        {
+                            TaxScheme = new HKSFaturaXML.TaxTotalTaxSubtotalTaxCategoryTaxScheme()
+                            {
+                                Name = "KDV",
+                                TaxTypeCode = "0015"
+                            }
+                        }
+                    }
+                };
+                HKSFaturaXML.Invoice hksFatura = new HKSFaturaXML.Invoice()
+                {
+                    AccountingCustomerParty = t1,
+                    AccountingSupplierParty = t2,
+                    AdditionalDocumentReference = t3,
+                    CopyIndicator = false,
+                    CustomizationID = "TR1.0",
+                    UBLVersionID = decimal.Parse("2.1"),
+                    InvoiceLine = t5,
+                    InvoiceTypeCode = "SATIS",
+                    IssueDate = fatura.vadetarihi,
+                    LegalMonetaryTotal = t6,
+                    LineCountNumeric = 1,
+                    Note="" ,
+                    ProfileID = "TEMELFATURA",
+                    TaxTotal = t8,
+                    ID = new HKSFaturaXML.ID()
+                    {
+                        schemeID = "",
+                        Value = fatura.belgeno,
+                    },
+
+                    UBLExtensions = new HKSFaturaXML.UBLExtensions()
+                    {
+                        UBLExtension = new HKSFaturaXML.UBLExtensionsUBLExtension()
+                        {
+                            ExtensionContent = new UBLExtensionsUBLExtensionExtensionContent()
+                            {
+                                autogeneratedwildcard = new object()
+                            }
+                        }
+                    },
+                    DocumentCurrencyCode = "TRY",
+                    Signature = new HKSFaturaXML.Signature()
+                    {
+
+                        ID = new HKSFaturaXML.ID()
+                        {
+                            schemeID = "VKN_TCKN",
+                            Value = cari.vergino
+                        },
+                        SignatoryParty = new HKSFaturaXML.SignatureSignatoryParty()
+                        {
+                            PartyIdentification = new HKSFaturaXML.SignatureSignatoryPartyPartyIdentification()
+                            {
+                                ID = new HKSFaturaXML.ID()
+                                {
+                                    schemeID = "VKN",
+                                    Value = cari.vergino
+                                }
+                            },
+                            PostalAddress = new HKSFaturaXML.SignatureSignatoryPartyPostalAddress()
+                            {
+                                Room = "340",
+                                BuildingName = "YDA CENTER",
+                                BuildingNumber = cari.apt,
+                                CityName = cari.il,
+                                Country = new HKSFaturaXML.SignatureSignatoryPartyPostalAddressCountry() { Name = cari.ulke },
+                                CitySubdivisionName = cari.ilce,
+                                PostalZone = cari.postakod,
+                                Region = cari.ilce,
+                                StreetName = cari.adres,
+
+
+                            }
+                        }
+                    }
+
+                };
+
+
+
+                server = new RichEditDocumentServer();
+                var ss = hksFatura.SerializeToXml<HKSFaturaXML.Invoice>();
 
                 //File.WriteAllText("Employee.xml", ss.ToString(),Encoding.UTF8);
 

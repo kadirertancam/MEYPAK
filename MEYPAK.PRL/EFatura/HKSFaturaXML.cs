@@ -56,7 +56,7 @@ namespace MEYPAK.PRL.EFatura
 
             private LegalMonetaryTotal legalMonetaryTotalField;
 
-            private InvoiceLine invoiceLineField;
+            private List<InvoiceLine> invoiceLineField;
 
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2")]
@@ -326,7 +326,7 @@ namespace MEYPAK.PRL.EFatura
 
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2")]
-            public InvoiceLine InvoiceLine
+            public List<InvoiceLine> InvoiceLine
             {
                 get
                 {
@@ -742,13 +742,13 @@ namespace MEYPAK.PRL.EFatura
 
             private string buildingNameField;
 
-            private byte buildingNumberField;
+            private string buildingNumberField;
 
             private string citySubdivisionNameField;
 
             private string cityNameField;
 
-            private ushort postalZoneField;
+            private string postalZoneField;
 
             private string regionField;
 
@@ -798,7 +798,7 @@ namespace MEYPAK.PRL.EFatura
 
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public byte BuildingNumber
+            public string BuildingNumber
             {
                 get
                 {
@@ -840,7 +840,7 @@ namespace MEYPAK.PRL.EFatura
 
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public ushort PostalZone
+            public string PostalZone
             {
                 get
                 {
@@ -1136,13 +1136,13 @@ namespace MEYPAK.PRL.EFatura
 
             private string buildingNameField;
 
-            private byte buildingNumberField;
+            private string buildingNumberField;
 
             private string citySubdivisionNameField;
 
             private string cityNameField;
 
-            private ushort postalZoneField;
+            private string postalZoneField;
 
             private string regionField;
 
@@ -1192,7 +1192,7 @@ namespace MEYPAK.PRL.EFatura
 
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public byte BuildingNumber
+            public string BuildingNumber
             {
                 get
                 {
@@ -1234,7 +1234,7 @@ namespace MEYPAK.PRL.EFatura
 
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public ushort PostalZone
+            public string PostalZone
             {
                 get
                 {
@@ -2026,7 +2026,7 @@ namespace MEYPAK.PRL.EFatura
 
             private byte calculationSequenceNumericField;
 
-            private byte percentField;
+            private decimal percentField;
 
             private TaxTotalTaxSubtotalTaxCategory taxCategoryField;
 
@@ -2074,7 +2074,7 @@ namespace MEYPAK.PRL.EFatura
 
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public byte Percent
+            public decimal Percent
             {
                 get
                 {
@@ -2173,7 +2173,7 @@ namespace MEYPAK.PRL.EFatura
 
             private string nameField;
 
-            private byte taxTypeCodeField;
+            private string taxTypeCodeField;
 
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
@@ -2191,7 +2191,7 @@ namespace MEYPAK.PRL.EFatura
 
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public byte TaxTypeCode
+            public string TaxTypeCode
             {
                 get
                 {
@@ -2625,7 +2625,7 @@ namespace MEYPAK.PRL.EFatura
 
             private string unitCodeField;
 
-            private byte valueField;
+            private decimal valueField;
 
             /// <remarks/>
             [System.Xml.Serialization.XmlAttributeAttribute()]
@@ -2643,7 +2643,7 @@ namespace MEYPAK.PRL.EFatura
 
             /// <remarks/>
             [System.Xml.Serialization.XmlTextAttribute()]
-            public byte Value
+            public decimal Value
             {
                 get
                 {
@@ -2837,7 +2837,7 @@ namespace MEYPAK.PRL.EFatura
 
             private byte calculationSequenceNumericField;
 
-            private byte percentField;
+            private decimal percentField;
 
             private InvoiceLineTaxTotalTaxSubtotalTaxCategory taxCategoryField;
 
@@ -2885,7 +2885,7 @@ namespace MEYPAK.PRL.EFatura
 
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public byte Percent
+            public decimal Percent
             {
                 get
                 {
@@ -2943,7 +2943,7 @@ namespace MEYPAK.PRL.EFatura
 
             private string nameField;
 
-            private byte taxTypeCodeField;
+            private string taxTypeCodeField;
 
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
@@ -2961,7 +2961,7 @@ namespace MEYPAK.PRL.EFatura
 
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public byte TaxTypeCode
+            public string TaxTypeCode
             {
                 get
                 {
