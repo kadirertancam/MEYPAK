@@ -50,6 +50,7 @@ namespace MEYPAK.PRL.CARI
         FCariDurum fCariDurum;
         FKasaHareket fKasaHareket;
         FFirmaSenetTanim fFirmaSenet;
+        FMusteriCekTanim fMusteriCekTanim;
         Main main;
         int i = 0;
        
@@ -88,7 +89,7 @@ namespace MEYPAK.PRL.CARI
                     fAlisIrsaliye._tempCariKart = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
                 if (_islem == "FFatura")
                     ffatura._tempCariKart = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
-                if (_islem == "FAlisFatura")
+                else if (_islem == "FAlisFatura")
                     fAlisFatura._tempCariKart = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
                 if (_islem == "FStokFiyat")
                     fStokFiyat._tempCariKart = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
@@ -110,6 +111,8 @@ namespace MEYPAK.PRL.CARI
                     fKasaHareket._tempCari = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
                 if(_islem== "FFirmaCekTanim")
                     _firmaCekTanim.tempCari= _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+                if (_islem == "FMusteriCekTanim")
+                    fMusteriCekTanim._tempCariKart = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
                 if (_islem == "FFirmaSenetTanim")
                     fFirmaSenet._tempCari = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
             }
@@ -179,8 +182,6 @@ namespace MEYPAK.PRL.CARI
                             fCariDurum = (FCariDurum)frm;
                         if (frm.Name.Contains("FKasaHareket"))
                             fKasaHareket = (FKasaHareket)frm;
-                        if (frm.Name.Contains("FFirmaCekTanim"))
-                            _firmaCekTanim = (FFirmaCekTanim)frm;
                         if (frm.Name.Contains("FFirmaSenetTanim"))
                             fFirmaSenet = (FFirmaSenetTanim)frm;
                     }

@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FCariHareket));
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.TBAciklama = new DevExpress.XtraEditors.MemoEdit();
             this.LBAdi = new DevExpress.XtraEditors.LabelControl();
             this.LBFiyat = new DevExpress.XtraEditors.LabelControl();
@@ -272,9 +272,9 @@
             this.panelControl4.Controls.Add(this.BTDegistir);
             this.panelControl4.Controls.Add(this.BTKaydet);
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelControl4.Location = new System.Drawing.Point(812, 2);
+            this.panelControl4.Location = new System.Drawing.Point(917, 2);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(312, 111);
+            this.panelControl4.Size = new System.Drawing.Size(207, 111);
             this.panelControl4.TabIndex = 69;
             // 
             // BTSil
@@ -282,7 +282,7 @@
             this.BTSil.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
             this.BTSil.Appearance.Options.UseBackColor = true;
             this.BTSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTSil.ImageOptions.Image")));
-            this.BTSil.Location = new System.Drawing.Point(207, 5);
+            this.BTSil.Location = new System.Drawing.Point(101, 3);
             this.BTSil.Name = "BTSil";
             this.BTSil.Size = new System.Drawing.Size(95, 40);
             this.BTSil.TabIndex = 61;
@@ -293,7 +293,7 @@
             this.BTDegistir.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
             this.BTDegistir.Appearance.Options.UseBackColor = true;
             this.BTDegistir.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTDegistir.ImageOptions.Image")));
-            this.BTDegistir.Location = new System.Drawing.Point(106, 5);
+            this.BTDegistir.Location = new System.Drawing.Point(3, 3);
             this.BTDegistir.Name = "BTDegistir";
             this.BTDegistir.Size = new System.Drawing.Size(95, 40);
             this.BTDegistir.TabIndex = 60;
@@ -305,11 +305,12 @@
             this.BTKaydet.Appearance.Options.UseBackColor = true;
             this.BTKaydet.Appearance.Options.UseFont = true;
             this.BTKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTKaydet.ImageOptions.Image")));
-            this.BTKaydet.Location = new System.Drawing.Point(5, 5);
+            this.BTKaydet.Location = new System.Drawing.Point(41, 199);
             this.BTKaydet.Name = "BTKaydet";
-            this.BTKaydet.Size = new System.Drawing.Size(95, 40);
+            this.BTKaydet.Size = new System.Drawing.Size(70, 34);
             this.BTKaydet.TabIndex = 65;
             this.BTKaydet.Text = "&Kaydet";
+            this.BTKaydet.Click += new System.EventHandler(this.BTKaydet_Click);
             // 
             // LBBakiye
             // 
@@ -382,19 +383,6 @@
             this.LBAlacakDeger.Size = new System.Drawing.Size(8, 18);
             this.LBAlacakDeger.TabIndex = 66;
             this.LBAlacakDeger.Text = "0";
-            // 
-            // BTKaydet
-            // 
-            this.BTKaydet.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.BTKaydet.Appearance.Options.UseBackColor = true;
-            this.BTKaydet.Appearance.Options.UseFont = true;
-            this.BTKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTKaydet.ImageOptions.Image")));
-            this.BTKaydet.Location = new System.Drawing.Point(41, 199);
-            this.BTKaydet.Name = "BTKaydet";
-            this.BTKaydet.Size = new System.Drawing.Size(70, 34);
-            this.BTKaydet.TabIndex = 65;
-            this.BTKaydet.Text = "&Kaydet";
-            this.BTKaydet.Click += new System.EventHandler(this.BTKaydet_Click);
             // 
             // groupControl1
             // 
@@ -534,7 +522,7 @@
             this.BTCariSec.Location = new System.Drawing.Point(117, 40);
             this.BTCariSec.Name = "BTCariSec";
             this.BTCariSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTCariSec.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTCariSec_Properties_ButtonClick);
             this.BTCariSec.Size = new System.Drawing.Size(297, 22);
             this.BTCariSec.TabIndex = 40;

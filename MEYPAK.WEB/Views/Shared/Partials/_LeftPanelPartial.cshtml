@@ -1,17 +1,14 @@
 ﻿<!-- Sidebar Menu -->
 <nav class="mt-2">
     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-        <!-- Add icons to the links using the .nav-icon class
-             with font-awesome or any other icon font library -->
-        <li class="nav-item">
+        <!--MAİN-->
         <li class="nav-item">
             <a href="#" class="nav-link active">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>Genel Bakış</p>
             </a>
         </li>
-        </li>
-
+        <!--STOK-->
         <li class="nav-item">
             <a href="#" class="nav-link">
                 <i class="fa fa-cube nav-icon" aria-hidden="true"></i>
@@ -20,173 +17,62 @@
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="far fa-circle nav-icon" aria-hidden="true" style="font-size: 12px;"></i>
-                        <p>Tanım</p>
-                        <i class="right fas fa-angle-left"></i>
-                    </a>
-                    <partial name="Partials/UnderPartials/STOK/_StokTanımPartial" />
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="far fa-circle nav-icon" aria-hidden="true" style="font-size: 12px;"></i>
-                        <p>Hareket</p>
-                        <i class="right fas fa-angle-left"></i>
-                    </a>
-                    <partial name="Partials/UnderPartials/STOK/_StokHareketPartial" />
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="far fa-circle nav-icon" aria-hidden="true" style="font-size: 12px;"></i>
-                        <p>Rapor</p>
-                        <i class="right fas fa-angle-left"></i>
-                    </a>
-                    <partial name="Partials/UnderPartials/STOK/_StokRaporPartial" />
+                    <partial name="Partials/UnderPartials/STOK/_StokPartial" />
                 </li>
             </ul>
         </li>
+        <!--DEPO-->
         <li class="nav-item">
             <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-th"></i>
-                <p>Depo</p>
+                <i class="fas fa-warehouse nav-icon" aria-hidden="true"></i>
+                <p>DEPO</p>
                 <i class="right fas fa-angle-left"></i>
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-circle"></i>
-                        <p>Tanım</p>
-                        <i class="right fas fa-angle-left"></i>
-                    </a>
-                    <partial name="Partials/UnderPartials/DEPO/_DepoTanımPartial" />
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-circle"></i>
-                        <p>Hareket</p>
-                        <i class="right fas fa-angle-left"></i>
-                    </a>
-                    <partial name="Partials/UnderPartials/DEPO/_DepoHareketPartial" />
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-circle"></i>
-                        <p>Rapor</p>
-                        <i class="right fas fa-angle-left"></i>
-                    </a>
-                    <partial name="Partials/UnderPartials/DEPO/_DepoRaporPartial" />
+                    <partial name="Partials/UnderPartials/DEPO/_DepoPartial" />
                 </li>
             </ul>
         </li>
-
-
+        <!--CARI-->
         <li class="nav-item">
             <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-th"></i>
-                <p>Sipariş</p>
+                <i class="fas fa-user-tie nav-icon" aria-hidden="true"></i>
+                <p>CARİ</p>
                 <i class="right fas fa-angle-left"></i>
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-circle"></i>
-                        <p>Tanım</p>
-                        <i class="right fas fa-angle-left"></i>
-                    </a>
-                    <partial name="Partials/UnderPartials/SIPARIS/_SiparisTanımPartial" />
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-circle"></i>
-                        <p>Hareket</p>
-                        <i class="right fas fa-angle-left"></i>
-                    </a>
-                    <partial name="Partials/UnderPartials/SIPARIS/_SiparisHareketPartial" />
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-circle"></i>
-                        <p>Rapor</p>
-                        <i class="right fas fa-angle-left"></i>
-                    </a>
-                    <partial name="Partials/UnderPartials/SIPARIS/_SiparisRaporPartial" />
+                    <partial name="Partials/UnderPartials/CARI/_CariPartial" />
                 </li>
             </ul>
         </li>
-
+        <!--FATURA-->
         <li class="nav-item">
             <a href="#" class="nav-link">
-                <i class="fa fa-users"></i>
-                <p>PERSONEL</p>
-                <i class="right fas fa-angle-left"></i>
-            </a>
-            <ul class="nav nav-treeview">
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="far fa-circle nav-icon" aria-hidden="true" style="font-size: 12px;"></i>
-                        <p>Tanım</p>
-                        <i class="right fas fa-angle-left"></i>
-                    </a>
-                    <partial name="Partials/UnderPartials/PERSONEL/_PersonelTanımPartial" />
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="far fa-circle nav-icon" aria-hidden="true" style="font-size: 12px;"></i>
-                        <p>Hareket</p>
-                        <i class="right fas fa-angle-left"></i>
-                    </a>
-                    <partial name="Partials/UnderPartials/PERSONEL/_PersonelHareketPartial" />
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="far fa-circle nav-icon" aria-hidden="true" style="font-size: 12px;"></i>
-                        <p>Rapor</p>
-                        <i class="right fas fa-angle-left"></i>
-                    </a>
-                    <partial name="Partials/UnderPartials/PERSONEL/_PersonelRaporPartial" />
-                </li>
-            </ul>
-        </li>
-
-        <li class="nav-item">
-            <a href="#" class="nav-link">
-                <i class="fa fa-file-word-o"></i>
+                <i class="far fa-file-alt nav-icon" aria-hidden="true"></i>
                 <p>FATURA</p>
                 <i class="right fas fa-angle-left"></i>
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="far fa-circle nav-icon" aria-hidden="true" style="font-size: 12px;"></i>
-                        <p>Tanım</p>
-                        <i class="right fas fa-angle-left"></i>
-                    </a>
-                    <partial name="Partials/UnderPartials/FATURA/_FaturaTanımPartial" />
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="far fa-circle nav-icon" aria-hidden="true" style="font-size: 12px;"></i>
-                        <p>Hareket</p>
-                        <i class="right fas fa-angle-left"></i>
-                    </a>
-                    <partial name="Partials/UnderPartials/FATURA/_FaturaHareketPartial" />
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="far fa-circle nav-icon" aria-hidden="true" style="font-size: 12px;"></i>
-                        <p>Rapor</p>
-                        <i class="right fas fa-angle-left"></i>
-                    </a>
-                    <partial name="Partials/UnderPartials/FATURA/_FaturaRaporPartial" />
+                    <partial name="Partials/UnderPartials/FATURA/_FaturaPartial" />
                 </li>
             </ul>
         </li>
-
-
-
-
-
-
+        <!--ÇEK/SENET-->
+        <li class="nav-item">
+            <a href="#" class="nav-link">
+                <i class="fas fa-money-check-alt nav-icon" aria-hidden="true"></i>
+                <p>ÇEK/SENET</p>
+                <i class="right fas fa-angle-left"></i>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <partial name="Partials/UnderPartials/CEKSENET/CEK/_CekPartial" />
+                </li>
+            </ul>
+        </li>
     </ul>
 </nav>
 </div>
