@@ -45,10 +45,10 @@ namespace MEYPAK.PRL.CEKSENET
 
             _cekSenetUstSbServis.Data(ServisList.CekSenetUstSBEkleServis, new PocoCEKSENETUSTSB()
             {
-                BELGENO=BTBordroSec.Text,
-                ADET= firmaCekKalem.Count,
-                ALTHESAPID=int.Parse(CBAltHesap.EditValue.ToString()), 
-                CARIID = _cariKartServis.obje.Where(x => x.kod == BTCariSec.Text).FirstOrDefault().id,
+                //BORDROTIP=BTBordroSec.Text,
+                //ADET= firmaCekKalem.Count,
+                //ALTHESAPID=int.Parse(CBAltHesap.EditValue.ToString()), 
+                //CARIID = _cariKartServis.obje.Where(x => x.kod == BTCariSec.Text).FirstOrDefault().id,
                 
 
             });
@@ -76,10 +76,6 @@ namespace MEYPAK.PRL.CEKSENET
                     TUTAR=item.TUTAR,
                     KUR=0,
                     
-                   
-                    
-                    
-                
                 
             };
             }
@@ -93,8 +89,6 @@ namespace MEYPAK.PRL.CEKSENET
                 TARIH = DateTime.Now,
             });
             DGFirmaCek.DataSource = firmaCekKalem;
-
-
         }
 
         private void FFirmaCekTanim_Load(object sender, EventArgs e)
