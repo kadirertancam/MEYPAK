@@ -36,6 +36,8 @@ namespace MEYPAK.Entity.Mappings
         public Maps()
         {
             //CEKSENET
+            CreateMap<MPCEKSENETUSTSB, PocoCEKSENETUSTSB>().ReverseMap();
+
             CreateMap<MPFIRMACEKHAR, PocoFIRMACEKHAR>().ReverseMap();
             CreateMap<MPFIRMACEKNO, PocoFIRMACEKNO>().ReverseMap();
             CreateMap<MPFIRMACEKSB, PocoFIRMACEKSB>().ReverseMap();

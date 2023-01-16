@@ -30,6 +30,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
 
         }
         public DbSet<MPMUSTERICEKSENET> MPMUSTERICEKSENET { get; set; }
+        public DbSet<MPCEKSENETUSTSB> MPCEKSENETUSTSB { get; set; }
         public DbSet<MPMUSTERICEKHAR> MPMUSTERICEKHAR { get; set; }
         public DbSet<MPMUSTERICEKNO> MPMUSTERICEKNO { get; set; }
         public DbSet<MPMUSTERICEKSB> MPMUSTERICEKSB { get; set; }

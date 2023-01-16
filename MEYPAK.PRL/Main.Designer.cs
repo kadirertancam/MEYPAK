@@ -1461,6 +1461,7 @@
             this.ACEMSenetProtesto.Name = "ACEMSenetProtesto";
             this.ACEMSenetProtesto.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.ACEMSenetProtesto.Text = "Müşteri Senet Protesto";
+            this.ACEMSenetProtesto.Click += new System.EventHandler(this.ACEMSenetProtesto_Click);
             // 
             // ACEFirmaCek
             // 

@@ -96,6 +96,9 @@ builder.Services.AddAutoMapper(x =>
 
 
 #region CekSenet_Scoped_Islemleri
+builder.Services.AddScoped<ICekSenetUstSBDal, EFCekSenetUstSBRepo>();
+builder.Services.AddScoped<ICekSenetUstSBServis, CekSenetUstSBManager>();
+
 builder.Services.AddScoped<IFirmaCekHarDal, EFFirmaCekHarRepo>();
 builder.Services.AddScoped<IFirmaCekHarServis, FirmaCekHarManager>();
 
