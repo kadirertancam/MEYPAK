@@ -9,7 +9,7 @@ namespace MEYPAK.Entity.PocoModels.CEKSENET
     public class PocoFIRMASENETSB:SUPERPOCOMODEL
     {
         public int USTID { get; set; }
-        public int BORDRONO { get; set; }
+        public string BORDRONO { get; set; }
         public int SENETNO { get; set; }
         public int CARIID { get; set; }
         public DateTime CIKISTARIH { get; set; }

@@ -70,7 +70,7 @@ namespace MEYPAK.PRL.CEKSENET
                 {
                     
                     USTID = _cekSenetUstSbServis.obje2.id,
-                    BORDRONO = int.Parse(BTBordroSec.Text),
+                    BORDRONO = _cekSenetUstSbServis.obje2.BORDRONO,
                     CARIID = _cariKartServis.obje.Where(x => x.kod == BTCariSec.Text).FirstOrDefault().id,
                     VADETARIH = item.VADETARIHI,
                     BANKA = item.BANKA,
@@ -100,6 +100,7 @@ namespace MEYPAK.PRL.CEKSENET
                 {
                     SIRA = i++,
                     TARIH = DateTime.Now,
+                    VADETARIHI= DateTime.Now,
                 });
             }
             else
@@ -128,6 +129,7 @@ namespace MEYPAK.PRL.CEKSENET
             }
             
             DGFirmaCek.DataSource = firmaCekKalem;
+            DGFirmaCek.RefreshDataSource();
             gridView1.Columns["ID"].Visible= false;
             gridView1.Columns["ID"].OptionsColumn.AllowEdit=false;
             gridView1.Columns["SIRA"].OptionsColumn.AllowEdit = false;
@@ -177,7 +179,7 @@ namespace MEYPAK.PRL.CEKSENET
                 CariDoldur();
                 CBAltHesap.EditValue = tempCekSenetUstSb.ALTHESAPID;
 
-
+                gridYapilandir();
             }
         }
 
