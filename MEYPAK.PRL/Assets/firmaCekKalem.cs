@@ -8,6 +8,7 @@ namespace MEYPAK.PRL.Assets
 {
     public class firmaCekKalem
     {
+        public int ID { get; set; }
         public int SIRA { get; set; }
         public string CEKNO { get; set; }
         public DateTime TARIH { get; set; }
