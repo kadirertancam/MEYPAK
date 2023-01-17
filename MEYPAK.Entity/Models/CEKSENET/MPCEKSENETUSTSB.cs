@@ -22,7 +22,6 @@ namespace MEYPAK.Entity.Models.CEKSENET
         public int CARIID { get; set; }
         public int ALTHESAPID { get; set; }
         public decimal DOVIZTUTAR { get; set; }
-
         public int DONEM { get; set; }
     }
 }
