@@ -191,6 +191,9 @@ namespace MEYPAK.PRL.CARI
                             fFirmaSenet = (FFirmaSenetTanim)frm;
                         if (frm.Name.Contains("FHesapHareket"))
                             fHesapHareket = (FHesapHareket)frm;
+                        if (frm.Name.Contains("FFirmaCekTanim"))
+                            _firmaCekTanim = (FFirmaCekTanim)frm;
+                            
                     }
                 }
             }

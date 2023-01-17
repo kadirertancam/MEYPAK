@@ -15,11 +15,14 @@ namespace MEYPAK.Entity.Models.CEKSENET
         public decimal TOPLAM { get; set; }
         public int ORTVADE { get; set; }
         public DateTime ORTVADETARIH { get; set; }
-        public string ACIKLAMA1 { get; set; }
-        public string ACIKLAMA2 { get; set; }
+        public string ACIKLAMA1 { get; set; } = "";
+        public string ACIKLAMA2 { get; set; } = "";
         public int DOVIZID { get; set; }
         public int KUR { get; set; }
+        public int CARIID { get; set; }
+        public int ALTHESAPID { get; set; }
         public decimal DOVIZTUTAR { get; set; }
+
         public int DONEM { get; set; }
     }
 }

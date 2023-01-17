@@ -3,6 +3,7 @@ using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.CEKSENET;
 using MEYPAK.Interfaces.Cari;
+using MEYPAK.Interfaces.CekSenet;
 using MEYPAK.PRL.Assets;
 using MEYPAK.PRL.CARI;
 using System;
@@ -28,6 +29,7 @@ namespace MEYPAK.PRL.CEKSENET
             _cekSenetUstSbServis = new GenericWebServis<PocoCEKSENETUSTSB>();
             _cariAltHesServis = new GenericWebServis<PocoCARIALTHES>();
             _cariAltHesCariServis = new GenericWebServis<PocoCARIALTHESCARI>();
+            _cekSenetUstSbServis.Data(ServisList.CekSenetUstSBListeServis);
         }
         GenericWebServis<PocoFIRMACEKSB> _firmaCekServis;
         GenericWebServis<PocoCARIKART> _cariKartServis;
@@ -38,28 +40,33 @@ namespace MEYPAK.PRL.CEKSENET
         List<firmaCekKalem> firmaCekKalem;
         FCariList _cariListe;
         public PocoCARIKART tempCari;
+        public PocoCEKSENETUSTSB tempCekSenetUstSb;
         private void BTKaydet_Click(object sender, EventArgs e)
         {
             _firmaCekServis.Data(ServisList.FirmaCekSBListeServis);
             _cariKartServis.Data(ServisList.CariListeServis);
+            _cekSenetUstSbServis.Data(ServisList.CekSenetUstSBListeServis);
 
             _cekSenetUstSbServis.Data(ServisList.CekSenetUstSBEkleServis, new PocoCEKSENETUSTSB()
             {
-                //BORDROTIP=BTBordroSec.Text,
-                //ADET= firmaCekKalem.Count,
-                //ALTHESAPID=int.Parse(CBAltHesap.EditValue.ToString()), 
-                //CARIID = _cariKartServis.obje.Where(x => x.kod == BTCariSec.Text).FirstOrDefault().id,
+                id= tempCekSenetUstSb!=null? tempCekSenetUstSb.id:0,
+                BORDROTIP = 1,
+                BORDRONO = _cekSenetUstSbServis.obje.Count() > 0 ? (Convert.ToInt32(_cekSenetUstSbServis.obje.LastOrDefault().BORDRONO) + 1).ToString() : "10000000",
+                ALTHESAPID = int.Parse(CBAltHesap.EditValue.ToString()),
+                CARIID = _cariKartServis.obje.Where(x => x.kod == BTCariSec.Text).FirstOrDefault().id,
+                TOPLAM = firmaCekKalem.Sum(x=>x.TUTAR),
                 
-
             });
 
 
             foreach (var item in firmaCekKalem)
             {
 
-                
-                _tempFirmaCek = new PocoFIRMACEKSB()
+
+                _firmaCekServis.Data(ServisList.FirmaCekSBEkleServis,new PocoFIRMACEKSB()
                 {
+                    
+                    USTID = _cekSenetUstSbServis.obje2.id,
                     BORDRONO = int.Parse(BTBordroSec.Text),
                     CARIID = _cariKartServis.obje.Where(x => x.kod == BTCariSec.Text).FirstOrDefault().id,
                     VADETARIH = item.VADETARIHI,
@@ -69,15 +76,14 @@ namespace MEYPAK.PRL.CEKSENET
                     ACIKLAMA2 = item.ACIKLAMA2,
                     CEKNO = item.CEKNO,
                     HESAPNO = item.HESAPNO,
-                    IBANNO=item.IBAN,
-                    DOVIZID=item.DOVIZCINSI,
-                    DOVIZTUTAR=item.DOVIZTUTAR,
-                    CIKISTARIH=item.TARIH,
-                    TUTAR=item.TUTAR,
-                    KUR=0,
-                    
-                
-            };
+                    IBANNO = item.IBAN,
+                    DOVIZID = item.DOVIZCINSI,
+                    DOVIZTUTAR = item.DOVIZTUTAR,
+                    CIKISTARIH = item.TARIH,
+                    TUTAR = item.TUTAR,
+                    KUR = 0,
+
+                });
             }
         }
 
@@ -123,10 +129,21 @@ namespace MEYPAK.PRL.CEKSENET
             var tempp = from test in _cariAltHesCariServis.obje
                         join test2 in _cariAltHesServis.obje on test.carialthesid equals test2.id
                         where test.cariid == tempCari.id
-                        select new { test2.id,test2.adi};
+                        select new { test2.id, test2.adi };
 
             CBAltHesap.Properties.DataSource = tempp;
 
+        }
+
+        private void BTBordroSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+          FBordroList fBordro=new FBordroList();
+            fBordro.ShowDialog();
+
+            if (tempCekSenetUstSb!=null)
+            {
+
+            }
         }
     }
 }

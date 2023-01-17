@@ -51,6 +51,8 @@
             this.LBBorc = new DevExpress.XtraEditors.LabelControl();
             this.LBAlacakDeger = new DevExpress.XtraEditors.LabelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.CBAltHesap = new DevExpress.XtraEditors.LookUpEdit();
+            this.LBAltHesap = new DevExpress.XtraEditors.LabelControl();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.BTSil = new DevExpress.XtraEditors.SimpleButton();
             this.BTKaydet = new DevExpress.XtraEditors.SimpleButton();
@@ -62,8 +64,6 @@
             this.LBCariKodu = new DevExpress.XtraEditors.LabelControl();
             this.LBBordro = new DevExpress.XtraEditors.LabelControl();
             this.LBTarih = new DevExpress.XtraEditors.LabelControl();
-            this.CBAltHesap = new DevExpress.XtraEditors.LookUpEdit();
-            this.LBAltHesap = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
@@ -74,6 +74,7 @@
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CBAltHesap.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TBCariAdi.Properties)).BeginInit();
@@ -81,7 +82,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.BTBordroSec.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTTarih.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTTarih.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CBAltHesap.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -217,6 +217,24 @@
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Firma Çek Tanım";
             // 
+            // CBAltHesap
+            // 
+            this.CBAltHesap.Location = new System.Drawing.Point(421, 76);
+            this.CBAltHesap.Name = "CBAltHesap";
+            this.CBAltHesap.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CBAltHesap.Properties.NullText = "";
+            this.CBAltHesap.Size = new System.Drawing.Size(193, 20);
+            this.CBAltHesap.TabIndex = 154;
+            // 
+            // LBAltHesap
+            // 
+            this.LBAltHesap.Location = new System.Drawing.Point(354, 79);
+            this.LBAltHesap.Name = "LBAltHesap";
+            this.LBAltHesap.Size = new System.Drawing.Size(46, 13);
+            this.LBAltHesap.TabIndex = 155;
+            this.LBAltHesap.Text = "Alt Hesap";
+            // 
             // panelControl3
             // 
             this.panelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
@@ -275,6 +293,7 @@
             this.BTBordroSec.Name = "BTBordroSec";
             this.BTBordroSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.BTBordroSec.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTBordroSec_Properties_ButtonClick);
             this.BTBordroSec.Size = new System.Drawing.Size(193, 22);
             this.BTBordroSec.TabIndex = 5;
             // 
@@ -322,24 +341,6 @@
             this.LBTarih.TabIndex = 0;
             this.LBTarih.Text = "Tarih";
             // 
-            // CBAltHesap
-            // 
-            this.CBAltHesap.Location = new System.Drawing.Point(421, 76);
-            this.CBAltHesap.Name = "CBAltHesap";
-            this.CBAltHesap.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.CBAltHesap.Properties.NullText = "";
-            this.CBAltHesap.Size = new System.Drawing.Size(193, 20);
-            this.CBAltHesap.TabIndex = 154;
-            // 
-            // LBAltHesap
-            // 
-            this.LBAltHesap.Location = new System.Drawing.Point(354, 79);
-            this.LBAltHesap.Name = "LBAltHesap";
-            this.LBAltHesap.Size = new System.Drawing.Size(46, 13);
-            this.LBAltHesap.TabIndex = 155;
-            this.LBAltHesap.Text = "Alt Hesap";
-            // 
             // FFirmaCekTanim
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -362,6 +363,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CBAltHesap.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.TBCariAdi.Properties)).EndInit();
@@ -369,7 +371,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.BTBordroSec.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTTarih.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTTarih.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CBAltHesap.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
