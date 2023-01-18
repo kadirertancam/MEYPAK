@@ -19,16 +19,16 @@ namespace MEYPAK.Entity.PocoModels.CEKSENET
         public int DOVIZID { get; set; }
         public decimal KUR { get; set; }
         public decimal DOVIZTUTAR { get; set; }
-        public string BANKA { get; set; }
-        public string SUBE { get; set; }
-        public string HESAPNO { get; set; }
-        public int SERINO { get; set; }
-        public string IBANNO { get; set; }
+        public string BANKA { get; set; } = "";
+        public string SUBE { get; set; } = "";
+        public string HESAPNO { get; set; }= "";
+        public string SERINO { get; set; } = "";
+        public string IBANNO { get; set; } = "";
         public int MUHASEBEID { get; set; }
         public int ISLEM { get; set; }
         public int DURUM { get; set; }
-        public string ACIKLAMA1 { get; set; }
-        public string ACIKLAMA2 { get; set; }
+        public string ACIKLAMA1 { get; set; } = "";
+        public string ACIKLAMA2 { get; set; } = "";
         public int AKTIF { get; set; }
         public int BANKAID { get; set; }
         public int SONUSTID { get; set; }

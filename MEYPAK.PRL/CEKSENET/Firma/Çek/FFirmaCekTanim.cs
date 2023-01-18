@@ -135,11 +135,8 @@ namespace MEYPAK.PRL.CEKSENET
             gridView1.Columns["SIRA"].OptionsColumn.AllowEdit = false;
         }
 
-        private void FFirmaCekTanim_Load(object sender, EventArgs e)
-        {
-            gridYapilandir();
-            DTTarih.EditValue = DateTime.Now;
-        }
+
+
 
         private void gridView1_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -197,6 +194,12 @@ namespace MEYPAK.PRL.CEKSENET
             CBAltHesap.Properties.DisplayMember = "adi";
             CBAltHesap.Properties.ValueMember = "id";
 
+        }
+
+        private void FFirmaCekTanim_Load(object sender, EventArgs e)
+        {
+            gridYapilandir();
+            DTTarih.EditValue = DateTime.Now;
         }
     }
 }

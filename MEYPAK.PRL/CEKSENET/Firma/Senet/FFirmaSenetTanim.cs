@@ -4,6 +4,7 @@ using MEYPAK.Entity.PocoModels;
 using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.CEKSENET;
 using MEYPAK.Interfaces.Cari;
+using MEYPAK.PRL.Assets;
 using MEYPAK.PRL.CARI;
 using System;
 using System.Collections.Generic;
@@ -23,70 +24,175 @@ namespace MEYPAK.PRL.CEKSENET
         {
             InitializeComponent();
             _firmaSenetServis = new GenericWebServis<PocoFIRMASENETSB>();
-            _cariKartServis= new GenericWebServis<PocoCARIKART>();
-            _tempSenetKalem = new List<PocoFIRMASENETSB>();
-            _cekSenetUstServis= new GenericWebServis<PocoCEKSENETUSTSB>();
+            _cariKartServis = new GenericWebServis<PocoCARIKART>();
+            firmaCekKalem = new List<firmaSenetKalem>();
+            _cekSenetUstSbServis = new GenericWebServis<PocoCEKSENETUSTSB>();
+            _cariAltHesServis = new GenericWebServis<PocoCARIALTHES>();
+            _cariAltHesCariServis = new GenericWebServis<PocoCARIALTHESCARI>();
+            _cekSenetUstSbServis.Data(ServisList.CekSenetUstSBListeServis);
+            _cariKartServis.Data(ServisList.CariListeServis);
+            _firmaSenetServis.Data(ServisList.FirmaSenetSBListeServis);
         }
         GenericWebServis<PocoFIRMASENETSB> _firmaSenetServis;
         GenericWebServis<PocoCARIKART> _cariKartServis;
-        GenericWebServis<PocoCEKSENETUSTSB> _cekSenetUstServis;
-        PocoFIRMASENETSB _tempFirmaSenet;
-        List<PocoFIRMASENETSB> _tempSenetKalem;
-       public PocoCARIKART _tempCari;
-
+        GenericWebServis<PocoCARIALTHES> _cariAltHesServis;
+        GenericWebServis<PocoCARIALTHESCARI> _cariAltHesCariServis;
+        GenericWebServis<PocoCEKSENETUSTSB> _cekSenetUstSbServis;
+        PocoFIRMACEKSB _tempFirmaCek;
+        List<firmaSenetKalem> firmaCekKalem;
+        FCariList _cariListe;
+        public PocoCARIKART tempCari;
+        public PocoCEKSENETUSTSB tempCekSenetUstSb;
+        int i = 0;
         private void BTKaydet_Click(object sender, EventArgs e)
         {
-            _firmaSenetServis.Data(ServisList.FirmaSenetSBListeServis);
-            _cariKartServis.Data(ServisList.CariListeServis);
-            foreach (var item in _tempSenetKalem)
+
+            _cekSenetUstSbServis.Data(ServisList.CekSenetUstSBListeServis);
+
+            _cekSenetUstSbServis.Data(ServisList.CekSenetUstSBEkleServis, new PocoCEKSENETUSTSB()
             {
-                if (item != new PocoFIRMASENETSB())
+                id = tempCekSenetUstSb != null ? tempCekSenetUstSb.id : 0,
+                BORDROTIP = 2,
+                BORDRONO = _cekSenetUstSbServis.obje.Count() > 0 ? (Convert.ToInt32(_cekSenetUstSbServis.obje.LastOrDefault().BORDRONO) + 1).ToString() : "10000000",
+                ALTHESAPID = int.Parse(CBAltHesap.EditValue.ToString()),
+                CARIID = _cariKartServis.obje.Where(x => x.kod == BTCariSec.Text).FirstOrDefault().id,
+                TOPLAM = firmaCekKalem.Sum(x => x.TUTAR),
+
+            });
+
+
+            foreach (var item in firmaCekKalem)
+            {
+
+
+                _firmaSenetServis.Data(ServisList.FirmaSenetSBEkleServis, new PocoFIRMASENETSB()
                 {
-                    _cekSenetUstServis.Data(ServisList.CekSenetUstSBEkleServis,new PocoCEKSENETUSTSB()
-                    {
 
-                    });
+                    USTID = _cekSenetUstSbServis.obje2.id,
+                    SENETNO = _cekSenetUstSbServis.obje2.BORDRONO,
+                    CARIID = _cariKartServis.obje.Where(x => x.kod == BTCariSec.Text).FirstOrDefault().id,
+                    VADETARIH = item.VADETARIHI,
+                    ACIKLAMA1 = item.ACIKLAMA1,
+                    ACIKLAMA2 = item.ACIKLAMA2,
+                    DOVIZID = item.DOVIZCINSI,
+                    DOVIZTUTAR = item.DOVIZTUTAR,
+                    CIKISTARIH = item.TARIH,
+                    TUTAR = item.TUTAR,
+                    KUR = 0,
 
-                    _firmaSenetServis.Data(ServisList.FirmaSenetSBEkleServis,new PocoFIRMASENETSB()
-                    {
-                        BORDRONO = item.BORDRONO,
-                        SENETNO= item.SENETNO,
-                        VADETARIH = item.VADETARIH,
-                        
-                    });
-                }
+                });
             }
         }
 
-        void GridiYapilandir()
+        void gridYapilandir()
         {
-            _tempSenetKalem.Add(new PocoFIRMASENETSB());
-            DGFirmaSenet.DataSource = _tempSenetKalem;
+            firmaCekKalem.Clear();
+            i = 0;
+            if (tempCekSenetUstSb == null)
+            {
+                firmaCekKalem.Add(new Assets.firmaSenetKalem()
+                {
+                    SIRA = i++,
+                    TARIH = DateTime.Now,
+                    VADETARIHI = DateTime.Now,
+                });
+            }
+            else
+            {
+                foreach (var item in _firmaSenetServis.obje.Where(x => x.USTID == tempCekSenetUstSb.id))
+                {
+                    firmaCekKalem.Add(new Assets.firmaSenetKalem()
+                    {
+                        ID = item.id,
+                        SIRA = i++,
+                        SENETNO = item.SENETNO,
+                        TARIH = item.CIKISTARIH,
+                        VADETARIHI = item.VADETARIH,
+                        TUTAR = item.TUTAR,
+                        DOVIZCINSI = item.DOVIZID,
+                        DOVIZTUTAR = item.DOVIZTUTAR,
+                        ACIKLAMA1 = item.ACIKLAMA1,
+                        ACIKLAMA2 = item.ACIKLAMA2,
+                   
+
+                    });
+                }
+            }
+
+            DGFirmaSenet.DataSource = firmaCekKalem;
+            DGFirmaSenet.RefreshDataSource();
+            gridView1.Columns["ID"].Visible = false;
+            gridView1.Columns["ID"].OptionsColumn.AllowEdit = false;
+            gridView1.Columns["SIRA"].OptionsColumn.AllowEdit = false;
         }
 
-        private void FFirmaSenetTanim_Load(object sender, EventArgs e) 
-        {
-            GridiYapilandir();
-        }
 
         private void gridView1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Enter)
+            if (e.KeyChar == (char)Keys.Enter || e.KeyChar == (char)Keys.Down)
             {
-                _tempSenetKalem.Add(new PocoFIRMASENETSB());
+                firmaCekKalem.Add(new firmaSenetKalem()
+                {
+                    SIRA = firmaCekKalem.LastOrDefault().SIRA + 1,
+                    TARIH = DateTime.Now,
+                    VADETARIHI = DateTime.Now,
+
+                });
                 DGFirmaSenet.RefreshDataSource();
             }
         }
 
         private void BTCariSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            FCariList _cariList = new FCariList(this.Tag.ToString(), "FFirmaSenetTanim");
-            _cariList.ShowDialog();
-
-            if (_tempCari!=null)
+            _cariListe = new FCariList(this.Tag.ToString(), "FFirmaSenetTanim");
+            _cariListe.ShowDialog();
+            if (tempCari!=null)
             {
-                TBCariAdi.Text = _tempCari.unvan;
-                BTCariSec.Text = _tempCari.kod;
+                CariDoldur();
+            }
+           
+
+
+
+        }
+
+
+
+        void CariDoldur()
+        {
+            BTCariSec.Text = tempCari.kod;
+            TBCariAdi.Text = tempCari.unvan;
+            _cariAltHesServis.Data(ServisList.CariAltHesListeServis);
+            _cariAltHesCariServis.Data(ServisList.CariAltHesCariListeServis);
+            var tempp = from test in _cariAltHesCariServis.obje
+                        join test2 in _cariAltHesServis.obje on test.carialthesid equals test2.id
+                        where test.cariid == tempCari.id
+                        select new { test2.id, test2.adi };
+            CBAltHesap.Properties.DataSource = tempp;
+            CBAltHesap.Properties.DisplayMember = "adi";
+            CBAltHesap.Properties.ValueMember = "id";
+
+        }
+
+        private void FFirmaSenetTanim_Load(object sender, EventArgs e)
+        {
+            gridYapilandir();
+            DTTarih.EditValue = DateTime.Now;
+        }
+
+        private void BTBordroSec_Properties_ButtonClick_1(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            FBordroList fBordro = new FBordroList(this.Tag.ToString(), "FFirmaSenetTanim");
+            fBordro.ShowDialog();
+
+            if (tempCekSenetUstSb != null)
+            {
+                BTBordroSec.Text = tempCekSenetUstSb.BORDRONO;
+                tempCari = _cariKartServis.obje.Where(x => x.id == tempCekSenetUstSb.CARIID).FirstOrDefault();
+                CariDoldur();
+                CBAltHesap.EditValue = tempCekSenetUstSb.ALTHESAPID;
+
+                gridYapilandir();
             }
         }
     }
