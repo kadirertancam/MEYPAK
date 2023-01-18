@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.PRL.EFatura
 {
-    public class TemelFaturaXML
+    public class deneme
     {
 
         // NOT: Oluşturulan kod en az .NET Framework 4.5 veya.NET Core/Standard 2.0 gerektirebilir.
@@ -20,7 +20,7 @@ namespace MEYPAK.PRL.EFatura
 
             private UBLExtensions uBLExtensionsField;
 
-            private decimal uBLVersionIDField;
+            private byte uBLVersionIDField;
 
             private string customizationIDField;
 
@@ -30,23 +30,17 @@ namespace MEYPAK.PRL.EFatura
 
             private bool copyIndicatorField;
 
-            private string uUIDField;
-
             private System.DateTime issueDateField;
-
-            private System.DateTime issueTimeField;
 
             private string invoiceTypeCodeField;
 
-            private string[] noteField;
+            private object noteField;
 
             private string documentCurrencyCodeField;
 
             private byte lineCountNumericField;
 
-            private DespatchDocumentReference despatchDocumentReferenceField;
-
-            private AdditionalDocumentReference[] additionalDocumentReferenceField;
+            private AdditionalDocumentReference additionalDocumentReferenceField;
 
             private Signature signatureField;
 
@@ -54,12 +48,15 @@ namespace MEYPAK.PRL.EFatura
 
             private AccountingCustomerParty accountingCustomerPartyField;
 
+            private AllowanceCharge allowanceChargeField;
+
             private TaxTotal taxTotalField;
 
             private LegalMonetaryTotal legalMonetaryTotalField;
 
-            private List<InvoiceLine> invoiceLineField;
-            private List<KasaListeItems> kasaListField;
+            private InvoiceLine[] invoiceLineField;
+
+            private KasaListe kasaListeField;
 
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2")]
@@ -77,7 +74,7 @@ namespace MEYPAK.PRL.EFatura
 
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public decimal UBLVersionID
+            public byte UBLVersionID
             {
                 get
                 {
@@ -146,20 +143,6 @@ namespace MEYPAK.PRL.EFatura
             }
 
             /// <remarks/>
-            [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public string UUID
-            {
-                get
-                {
-                    return this.uUIDField;
-                }
-                set
-                {
-                    this.uUIDField = value;
-                }
-            }
-
-            /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", DataType = "date")]
             public System.DateTime IssueDate
             {
@@ -170,20 +153,6 @@ namespace MEYPAK.PRL.EFatura
                 set
                 {
                     this.issueDateField = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", DataType = "time")]
-            public System.DateTime IssueTime
-            {
-                get
-                {
-                    return this.issueTimeField;
-                }
-                set
-                {
-                    this.issueTimeField = value;
                 }
             }
 
@@ -202,8 +171,8 @@ namespace MEYPAK.PRL.EFatura
             }
 
             /// <remarks/>
-            [System.Xml.Serialization.XmlElementAttribute("Note", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public string[] Note
+            [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+            public object Note
             {
                 get
                 {
@@ -245,21 +214,7 @@ namespace MEYPAK.PRL.EFatura
 
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2")]
-            public DespatchDocumentReference DespatchDocumentReference
-            {
-                get
-                {
-                    return this.despatchDocumentReferenceField;
-                }
-                set
-                {
-                    this.despatchDocumentReferenceField = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlElementAttribute("AdditionalDocumentReference", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2")]
-            public AdditionalDocumentReference[] AdditionalDocumentReference
+            public AdditionalDocumentReference AdditionalDocumentReference
             {
                 get
                 {
@@ -315,6 +270,20 @@ namespace MEYPAK.PRL.EFatura
 
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2")]
+            public AllowanceCharge AllowanceCharge
+            {
+                get
+                {
+                    return this.allowanceChargeField;
+                }
+                set
+                {
+                    this.allowanceChargeField = value;
+                }
+            }
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2")]
             public TaxTotal TaxTotal
             {
                 get
@@ -342,8 +311,8 @@ namespace MEYPAK.PRL.EFatura
             }
 
             /// <remarks/>
-            [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2")]
-            public List<InvoiceLine> InvoiceLine
+            [System.Xml.Serialization.XmlElementAttribute("InvoiceLine", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2")]
+            public InvoiceLine[] InvoiceLine
             {
                 get
                 {
@@ -354,15 +323,18 @@ namespace MEYPAK.PRL.EFatura
                     this.invoiceLineField = value;
                 }
             }
-            public List<KasaListeItems> KasaListe
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2")]
+            public KasaListe KasaListe
             {
                 get
                 {
-                    return this.kasaListField;
+                    return this.kasaListeField;
                 }
                 set
                 {
-                    this.kasaListField = value;
+                    this.kasaListeField = value;
                 }
             }
         }
@@ -375,10 +347,10 @@ namespace MEYPAK.PRL.EFatura
         public partial class UBLExtensions
         {
 
-            private UBLExtensionsUBLExtension uBLExtensionField;
+            private object uBLExtensionField;
 
             /// <remarks/>
-            public UBLExtensionsUBLExtension UBLExtension
+            public object UBLExtension
             {
                 get
                 {
@@ -387,53 +359,6 @@ namespace MEYPAK.PRL.EFatura
                 set
                 {
                     this.uBLExtensionField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.SerializableAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2")]
-        public partial class UBLExtensionsUBLExtension
-        {
-
-            private UBLExtensionsUBLExtensionExtensionContent extensionContentField;
-
-            /// <remarks/>
-            public UBLExtensionsUBLExtensionExtensionContent ExtensionContent
-            {
-                get
-                {
-                    return this.extensionContentField;
-                }
-                set
-                {
-                    this.extensionContentField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.SerializableAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2")]
-        public partial class UBLExtensionsUBLExtensionExtensionContent
-        {
-
-            private object autogeneratedwildcardField;
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlElementAttribute("auto-generated-wildcard", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2")]
-            public object autogeneratedwildcard
-            {
-                get
-                {
-                    return this.autogeneratedwildcardField;
-                }
-                set
-                {
-                    this.autogeneratedwildcardField = value;
                 }
             }
         }
@@ -484,57 +409,12 @@ namespace MEYPAK.PRL.EFatura
         [System.ComponentModel.DesignerCategoryAttribute("code")]
         [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2")]
         [System.Xml.Serialization.XmlRootAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2", IsNullable = false)]
-        public partial class DespatchDocumentReference
-        {
-
-            private ID idField;
-
-            private System.DateTime issueDateField;
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public ID ID
-            {
-                get
-                {
-                    return this.idField;
-                }
-                set
-                {
-                    this.idField = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", DataType = "date")]
-            public System.DateTime IssueDate
-            {
-                get
-                {
-                    return this.issueDateField;
-                }
-                set
-                {
-                    this.issueDateField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.SerializableAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2")]
-        [System.Xml.Serialization.XmlRootAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2", IsNullable = false)]
         public partial class AdditionalDocumentReference
         {
 
             private ID idField;
 
             private System.DateTime issueDateField;
-
-            private string documentTypeCodeField;
-
-            private string documentTypeField;
 
             private AdditionalDocumentReferenceAttachment attachmentField;
 
@@ -563,34 +443,6 @@ namespace MEYPAK.PRL.EFatura
                 set
                 {
                     this.issueDateField = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public string DocumentTypeCode
-            {
-                get
-                {
-                    return this.documentTypeCodeField;
-                }
-                set
-                {
-                    this.documentTypeCodeField = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public string DocumentType
-            {
-                get
-                {
-                    return this.documentTypeField;
-                }
-                set
-                {
-                    this.documentTypeField = value;
                 }
             }
 
@@ -640,27 +492,25 @@ namespace MEYPAK.PRL.EFatura
         public partial class EmbeddedDocumentBinaryObject
         {
 
-            private string characterSetCodeField;
+            private string mimeCodeField;
 
             private string encodingCodeField;
 
+            private string characterSetCodeField;
+
             private string filenameField;
-
-            private string mimeCodeField;
-
-            private string valueField;
 
             /// <remarks/>
             [System.Xml.Serialization.XmlAttributeAttribute()]
-            public string characterSetCode
+            public string mimeCode
             {
                 get
                 {
-                    return this.characterSetCodeField;
+                    return this.mimeCodeField;
                 }
                 set
                 {
-                    this.characterSetCodeField = value;
+                    this.mimeCodeField = value;
                 }
             }
 
@@ -680,6 +530,20 @@ namespace MEYPAK.PRL.EFatura
 
             /// <remarks/>
             [System.Xml.Serialization.XmlAttributeAttribute()]
+            public string characterSetCode
+            {
+                get
+                {
+                    return this.characterSetCodeField;
+                }
+                set
+                {
+                    this.characterSetCodeField = value;
+                }
+            }
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlAttributeAttribute()]
             public string filename
             {
                 get
@@ -689,34 +553,6 @@ namespace MEYPAK.PRL.EFatura
                 set
                 {
                     this.filenameField = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlAttributeAttribute()]
-            public string mimeCode
-            {
-                get
-                {
-                    return this.mimeCodeField;
-                }
-                set
-                {
-                    this.mimeCodeField = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlTextAttribute()]
-            public string Value
-            {
-                get
-                {
-                    return this.valueField;
-                }
-                set
-                {
-                    this.valueField = value;
                 }
             }
         }
@@ -732,8 +568,6 @@ namespace MEYPAK.PRL.EFatura
             private ID idField;
 
             private SignatureSignatoryParty signatoryPartyField;
-
-            private SignatureDigitalSignatureAttachment digitalSignatureAttachmentField;
 
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
@@ -759,19 +593,6 @@ namespace MEYPAK.PRL.EFatura
                 set
                 {
                     this.signatoryPartyField = value;
-                }
-            }
-
-            /// <remarks/>
-            public SignatureDigitalSignatureAttachment DigitalSignatureAttachment
-            {
-                get
-                {
-                    return this.digitalSignatureAttachmentField;
-                }
-                set
-                {
-                    this.digitalSignatureAttachmentField = value;
                 }
             }
         }
@@ -845,47 +666,27 @@ namespace MEYPAK.PRL.EFatura
         public partial class SignatureSignatoryPartyPostalAddress
         {
 
-            private object postboxField;
-
-            private object roomField;
+            private string roomField;
 
             private string streetNameField;
 
-            private object blockNameField;
+            private string buildingNameField;
 
-            private object buildingNameField;
-
-            private object buildingNumberField;
+            private byte buildingNumberField;
 
             private string citySubdivisionNameField;
 
             private string cityNameField;
 
-            private object postalZoneField;
+            private string postalZoneField;
 
-            private object regionField;
-
-            private object districtField;
+            private string regionField;
 
             private SignatureSignatoryPartyPostalAddressCountry countryField;
 
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public object Postbox
-            {
-                get
-                {
-                    return this.postboxField;
-                }
-                set
-                {
-                    this.postboxField = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public object Room
+            public string Room
             {
                 get
                 {
@@ -913,21 +714,7 @@ namespace MEYPAK.PRL.EFatura
 
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public object BlockName
-            {
-                get
-                {
-                    return this.blockNameField;
-                }
-                set
-                {
-                    this.blockNameField = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public object BuildingName
+            public string BuildingName
             {
                 get
                 {
@@ -941,7 +728,7 @@ namespace MEYPAK.PRL.EFatura
 
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public object BuildingNumber
+            public byte BuildingNumber
             {
                 get
                 {
@@ -983,7 +770,7 @@ namespace MEYPAK.PRL.EFatura
 
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public object PostalZone
+            public string PostalZone
             {
                 get
                 {
@@ -997,7 +784,7 @@ namespace MEYPAK.PRL.EFatura
 
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public object Region
+            public string Region
             {
                 get
                 {
@@ -1006,20 +793,6 @@ namespace MEYPAK.PRL.EFatura
                 set
                 {
                     this.regionField = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public object District
-            {
-                get
-                {
-                    return this.districtField;
-                }
-                set
-                {
-                    this.districtField = value;
                 }
             }
 
@@ -1065,53 +838,6 @@ namespace MEYPAK.PRL.EFatura
         [System.SerializableAttribute()]
         [System.ComponentModel.DesignerCategoryAttribute("code")]
         [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2")]
-        public partial class SignatureDigitalSignatureAttachment
-        {
-
-            private SignatureDigitalSignatureAttachmentExternalReference externalReferenceField;
-
-            /// <remarks/>
-            public SignatureDigitalSignatureAttachmentExternalReference ExternalReference
-            {
-                get
-                {
-                    return this.externalReferenceField;
-                }
-                set
-                {
-                    this.externalReferenceField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.SerializableAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2")]
-        public partial class SignatureDigitalSignatureAttachmentExternalReference
-        {
-
-            private string uRIField;
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public string URI
-            {
-                get
-                {
-                    return this.uRIField;
-                }
-                set
-                {
-                    this.uRIField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.SerializableAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2")]
         [System.Xml.Serialization.XmlRootAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2", IsNullable = false)]
         public partial class AccountingSupplierParty
         {
@@ -1139,10 +865,6 @@ namespace MEYPAK.PRL.EFatura
         public partial class AccountingSupplierPartyParty
         {
 
-            private object websiteURIField;
-
-            private AccountingSupplierPartyPartyPartyIdentification partyIdentificationField;
-
             private AccountingSupplierPartyPartyPartyName partyNameField;
 
             private AccountingSupplierPartyPartyPostalAddress postalAddressField;
@@ -1150,33 +872,6 @@ namespace MEYPAK.PRL.EFatura
             private AccountingSupplierPartyPartyPartyTaxScheme partyTaxSchemeField;
 
             private AccountingSupplierPartyPartyContact contactField;
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public object WebsiteURI
-            {
-                get
-                {
-                    return this.websiteURIField;
-                }
-                set
-                {
-                    this.websiteURIField = value;
-                }
-            }
-
-            /// <remarks/>
-            public AccountingSupplierPartyPartyPartyIdentification PartyIdentification
-            {
-                get
-                {
-                    return this.partyIdentificationField;
-                }
-                set
-                {
-                    this.partyIdentificationField = value;
-                }
-            }
 
             /// <remarks/>
             public AccountingSupplierPartyPartyPartyName PartyName
@@ -1235,30 +930,6 @@ namespace MEYPAK.PRL.EFatura
         [System.SerializableAttribute()]
         [System.ComponentModel.DesignerCategoryAttribute("code")]
         [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2")]
-        public partial class AccountingSupplierPartyPartyPartyIdentification
-        {
-
-            private ID idField;
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public ID ID
-            {
-                get
-                {
-                    return this.idField;
-                }
-                set
-                {
-                    this.idField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.SerializableAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2")]
         public partial class AccountingSupplierPartyPartyPartyName
         {
 
@@ -1286,47 +957,27 @@ namespace MEYPAK.PRL.EFatura
         public partial class AccountingSupplierPartyPartyPostalAddress
         {
 
-            private object postboxField;
-
-            private object roomField;
+            private string roomField;
 
             private string streetNameField;
 
-            private object blockNameField;
+            private string buildingNameField;
 
-            private object buildingNameField;
-
-            private object buildingNumberField;
+            private byte buildingNumberField;
 
             private string citySubdivisionNameField;
 
             private string cityNameField;
 
-            private object postalZoneField;
+            private string postalZoneField;
 
-            private object regionField;
-
-            private object districtField;
+            private string regionField;
 
             private AccountingSupplierPartyPartyPostalAddressCountry countryField;
 
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public object Postbox
-            {
-                get
-                {
-                    return this.postboxField;
-                }
-                set
-                {
-                    this.postboxField = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public object Room
+            public string Room
             {
                 get
                 {
@@ -1354,21 +1005,7 @@ namespace MEYPAK.PRL.EFatura
 
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public object BlockName
-            {
-                get
-                {
-                    return this.blockNameField;
-                }
-                set
-                {
-                    this.blockNameField = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public object BuildingName
+            public string BuildingName
             {
                 get
                 {
@@ -1382,7 +1019,7 @@ namespace MEYPAK.PRL.EFatura
 
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public object BuildingNumber
+            public byte BuildingNumber
             {
                 get
                 {
@@ -1424,7 +1061,7 @@ namespace MEYPAK.PRL.EFatura
 
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public object PostalZone
+            public string PostalZone
             {
                 get
                 {
@@ -1438,7 +1075,7 @@ namespace MEYPAK.PRL.EFatura
 
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public object Region
+            public string Region
             {
                 get
                 {
@@ -1447,20 +1084,6 @@ namespace MEYPAK.PRL.EFatura
                 set
                 {
                     this.regionField = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public object District
-            {
-                get
-                {
-                    return this.districtField;
-                }
-                set
-                {
-                    this.districtField = value;
                 }
             }
 
@@ -1558,7 +1181,7 @@ namespace MEYPAK.PRL.EFatura
 
             private string telephoneField;
 
-            private object telefaxField;
+            private string telefaxField;
 
             private string electronicMailField;
 
@@ -1578,7 +1201,7 @@ namespace MEYPAK.PRL.EFatura
 
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public object Telefax
+            public string Telefax
             {
                 get
                 {
@@ -1646,8 +1269,6 @@ namespace MEYPAK.PRL.EFatura
 
             private AccountingCustomerPartyPartyContact contactField;
 
-            private AccountingCustomerPartyPartyPerson personField;
-
             /// <remarks/>
             public AccountingCustomerPartyPartyPartyIdentification PartyIdentification
             {
@@ -1712,19 +1333,6 @@ namespace MEYPAK.PRL.EFatura
                     this.contactField = value;
                 }
             }
-
-            /// <remarks/>
-            public AccountingCustomerPartyPartyPerson Person
-            {
-                get
-                {
-                    return this.personField;
-                }
-                set
-                {
-                    this.personField = value;
-                }
-            }
         }
 
         /// <remarks/>
@@ -1782,13 +1390,37 @@ namespace MEYPAK.PRL.EFatura
         public partial class AccountingCustomerPartyPartyPostalAddress
         {
 
+            private string roomField;
+
             private string streetNameField;
+
+            private string buildingNameField;
+
+            private byte buildingNumberField;
 
             private string citySubdivisionNameField;
 
             private string cityNameField;
 
+            private string postalZoneField;
+
+            private string regionField;
+
             private AccountingCustomerPartyPartyPostalAddressCountry countryField;
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+            public string Room
+            {
+                get
+                {
+                    return this.roomField;
+                }
+                set
+                {
+                    this.roomField = value;
+                }
+            }
 
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
@@ -1801,6 +1433,34 @@ namespace MEYPAK.PRL.EFatura
                 set
                 {
                     this.streetNameField = value;
+                }
+            }
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+            public string BuildingName
+            {
+                get
+                {
+                    return this.buildingNameField;
+                }
+                set
+                {
+                    this.buildingNameField = value;
+                }
+            }
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+            public byte BuildingNumber
+            {
+                get
+                {
+                    return this.buildingNumberField;
+                }
+                set
+                {
+                    this.buildingNumberField = value;
                 }
             }
 
@@ -1829,6 +1489,34 @@ namespace MEYPAK.PRL.EFatura
                 set
                 {
                     this.cityNameField = value;
+                }
+            }
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+            public string PostalZone
+            {
+                get
+                {
+                    return this.postalZoneField;
+                }
+                set
+                {
+                    this.postalZoneField = value;
+                }
+            }
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+            public string Region
+            {
+                get
+                {
+                    return this.regionField;
+                }
+                set
+                {
+                    this.regionField = value;
                 }
             }
 
@@ -1926,7 +1614,7 @@ namespace MEYPAK.PRL.EFatura
 
             private string telephoneField;
 
-            private object telefaxField;
+            private string telefaxField;
 
             private string electronicMailField;
 
@@ -1946,7 +1634,7 @@ namespace MEYPAK.PRL.EFatura
 
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public object Telefax
+            public string Telefax
             {
                 get
                 {
@@ -1977,38 +1665,80 @@ namespace MEYPAK.PRL.EFatura
         [System.SerializableAttribute()]
         [System.ComponentModel.DesignerCategoryAttribute("code")]
         [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2")]
-        public partial class AccountingCustomerPartyPartyPerson
+        [System.Xml.Serialization.XmlRootAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2", IsNullable = false)]
+        public partial class AllowanceCharge
         {
 
-            private string firstNameField;
+            private bool chargeIndicatorField;
 
-            private string familyNameField;
+            private Amount amountField;
 
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public string FirstName
+            public bool ChargeIndicator
             {
                 get
                 {
-                    return this.firstNameField;
+                    return this.chargeIndicatorField;
                 }
                 set
                 {
-                    this.firstNameField = value;
+                    this.chargeIndicatorField = value;
                 }
             }
 
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public string FamilyName
+            public Amount Amount
             {
                 get
                 {
-                    return this.familyNameField;
+                    return this.amountField;
                 }
                 set
                 {
-                    this.familyNameField = value;
+                    this.amountField = value;
+                }
+            }
+        }
+
+        /// <remarks/>
+        [System.SerializableAttribute()]
+        [System.ComponentModel.DesignerCategoryAttribute("code")]
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+        [System.Xml.Serialization.XmlRootAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
+        public partial class Amount
+        {
+
+            private string currencyIDField;
+
+            private ushort valueField;
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlAttributeAttribute()]
+            public string currencyID
+            {
+                get
+                {
+                    return this.currencyIDField;
+                }
+                set
+                {
+                    this.currencyIDField = value;
+                }
+            }
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlTextAttribute()]
+            public ushort Value
+            {
+                get
+                {
+                    return this.valueField;
+                }
+                set
+                {
+                    this.valueField = value;
                 }
             }
         }
@@ -2105,9 +1835,7 @@ namespace MEYPAK.PRL.EFatura
 
             private TaxAmount taxAmountField;
 
-            private decimal calculationSequenceNumericField;
-
-            private TransactionCurrencyTaxAmount transactionCurrencyTaxAmountField;
+            private byte calculationSequenceNumericField;
 
             private decimal percentField;
 
@@ -2143,7 +1871,7 @@ namespace MEYPAK.PRL.EFatura
 
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public decimal CalculationSequenceNumeric
+            public byte CalculationSequenceNumeric
             {
                 get
                 {
@@ -2152,20 +1880,6 @@ namespace MEYPAK.PRL.EFatura
                 set
                 {
                     this.calculationSequenceNumericField = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public TransactionCurrencyTaxAmount TransactionCurrencyTaxAmount
-            {
-                get
-                {
-                    return this.transactionCurrencyTaxAmountField;
-                }
-                set
-                {
-                    this.transactionCurrencyTaxAmountField = value;
                 }
             }
 
@@ -2241,47 +1955,6 @@ namespace MEYPAK.PRL.EFatura
         /// <remarks/>
         [System.SerializableAttribute()]
         [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-        [System.Xml.Serialization.XmlRootAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
-        public partial class TransactionCurrencyTaxAmount
-        {
-
-            private string currencyIDField;
-
-            private decimal valueField;
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlAttributeAttribute()]
-            public string currencyID
-            {
-                get
-                {
-                    return this.currencyIDField;
-                }
-                set
-                {
-                    this.currencyIDField = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlTextAttribute()]
-            public decimal Value
-            {
-                get
-                {
-                    return this.valueField;
-                }
-                set
-                {
-                    this.valueField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.SerializableAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
         [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2")]
         public partial class TaxTotalTaxSubtotalTaxCategory
         {
@@ -2311,7 +1984,7 @@ namespace MEYPAK.PRL.EFatura
 
             private string nameField;
 
-            private string taxTypeCodeField;
+            private byte taxTypeCodeField;
 
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
@@ -2329,7 +2002,7 @@ namespace MEYPAK.PRL.EFatura
 
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public string TaxTypeCode
+            public byte TaxTypeCode
             {
                 get
                 {
@@ -2357,8 +2030,6 @@ namespace MEYPAK.PRL.EFatura
             private TaxInclusiveAmount taxInclusiveAmountField;
 
             private AllowanceTotalAmount allowanceTotalAmountField;
-
-            private PayableRoundingAmount payableRoundingAmountField;
 
             private PayableAmount payableAmountField;
 
@@ -2415,20 +2086,6 @@ namespace MEYPAK.PRL.EFatura
                 set
                 {
                     this.allowanceTotalAmountField = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public PayableRoundingAmount PayableRoundingAmount
-            {
-                get
-                {
-                    return this.payableRoundingAmountField;
-                }
-                set
-                {
-                    this.payableRoundingAmountField = value;
                 }
             }
 
@@ -2576,47 +2233,6 @@ namespace MEYPAK.PRL.EFatura
         [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
         [System.Xml.Serialization.XmlRootAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
         public partial class AllowanceTotalAmount
-        {
-
-            private string currencyIDField;
-
-            private decimal valueField;
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlAttributeAttribute()]
-            public string currencyID
-            {
-                get
-                {
-                    return this.currencyIDField;
-                }
-                set
-                {
-                    this.currencyIDField = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlTextAttribute()]
-            public decimal Value
-            {
-                get
-                {
-                    return this.valueField;
-                }
-                set
-                {
-                    this.valueField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.SerializableAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-        [System.Xml.Serialization.XmlRootAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
-        public partial class PayableRoundingAmount
         {
 
             private string currencyIDField;
@@ -2886,9 +2502,7 @@ namespace MEYPAK.PRL.EFatura
 
             private TaxAmount taxAmountField;
 
-            private decimal calculationSequenceNumericField;
-
-            private TransactionCurrencyTaxAmount transactionCurrencyTaxAmountField;
+            private byte calculationSequenceNumericField;
 
             private decimal percentField;
 
@@ -2924,7 +2538,7 @@ namespace MEYPAK.PRL.EFatura
 
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public decimal CalculationSequenceNumeric
+            public byte CalculationSequenceNumeric
             {
                 get
                 {
@@ -2933,20 +2547,6 @@ namespace MEYPAK.PRL.EFatura
                 set
                 {
                     this.calculationSequenceNumericField = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public TransactionCurrencyTaxAmount TransactionCurrencyTaxAmount
-            {
-                get
-                {
-                    return this.transactionCurrencyTaxAmountField;
-                }
-                set
-                {
-                    this.transactionCurrencyTaxAmountField = value;
                 }
             }
 
@@ -3010,7 +2610,7 @@ namespace MEYPAK.PRL.EFatura
 
             private string nameField;
 
-            private string taxTypeCodeField;
+            private byte taxTypeCodeField;
 
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
@@ -3028,7 +2628,7 @@ namespace MEYPAK.PRL.EFatura
 
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public string TaxTypeCode
+            public byte TaxTypeCode
             {
                 get
                 {
@@ -3050,14 +2650,6 @@ namespace MEYPAK.PRL.EFatura
 
             private string nameField;
 
-            private object brandNameField;
-
-            private InvoiceLineItemBuyersItemIdentification buyersItemIdentificationField;
-
-            private InvoiceLineItemSellersItemIdentification sellersItemIdentificationField;
-
-            private InvoiceLineItemManufacturersItemIdentification manufacturersItemIdentificationField;
-
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
             public string Name
@@ -3069,131 +2661,6 @@ namespace MEYPAK.PRL.EFatura
                 set
                 {
                     this.nameField = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public object BrandName
-            {
-                get
-                {
-                    return this.brandNameField;
-                }
-                set
-                {
-                    this.brandNameField = value;
-                }
-            }
-
-            /// <remarks/>
-            public InvoiceLineItemBuyersItemIdentification BuyersItemIdentification
-            {
-                get
-                {
-                    return this.buyersItemIdentificationField;
-                }
-                set
-                {
-                    this.buyersItemIdentificationField = value;
-                }
-            }
-
-            /// <remarks/>
-            public InvoiceLineItemSellersItemIdentification SellersItemIdentification
-            {
-                get
-                {
-                    return this.sellersItemIdentificationField;
-                }
-                set
-                {
-                    this.sellersItemIdentificationField = value;
-                }
-            }
-
-            /// <remarks/>
-            public InvoiceLineItemManufacturersItemIdentification ManufacturersItemIdentification
-            {
-                get
-                {
-                    return this.manufacturersItemIdentificationField;
-                }
-                set
-                {
-                    this.manufacturersItemIdentificationField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.SerializableAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2")]
-        public partial class InvoiceLineItemBuyersItemIdentification
-        {
-
-            private ID idField;
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public ID ID
-            {
-                get
-                {
-                    return this.idField;
-                }
-                set
-                {
-                    this.idField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.SerializableAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2")]
-        public partial class InvoiceLineItemSellersItemIdentification
-        {
-
-            private ID idField;
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public ID ID
-            {
-                get
-                {
-                    return this.idField;
-                }
-                set
-                {
-                    this.idField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.SerializableAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2")]
-        public partial class InvoiceLineItemManufacturersItemIdentification
-        {
-
-            private ID idField;
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public ID ID
-            {
-                get
-                {
-                    return this.idField;
-                }
-                set
-                {
-                    this.idField = value;
                 }
             }
         }
@@ -3232,7 +2699,7 @@ namespace MEYPAK.PRL.EFatura
 
             private string currencyIDField;
 
-            private decimal valueField;
+            private byte valueField;
 
             /// <remarks/>
             [System.Xml.Serialization.XmlAttributeAttribute()]
@@ -3250,7 +2717,7 @@ namespace MEYPAK.PRL.EFatura
 
             /// <remarks/>
             [System.Xml.Serialization.XmlTextAttribute()]
-            public decimal Value
+            public byte Value
             {
                 get
                 {
@@ -3271,19 +2738,19 @@ namespace MEYPAK.PRL.EFatura
         public partial class KasaListe
         {
 
-            private KasaListeItems kasaListeItemsField;
+            private KasaListe1 kasaListe1Field;
 
             /// <remarks/>
-            [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-            public KasaListeItems KasaListeItems
+            [System.Xml.Serialization.XmlElementAttribute("KasaListe", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+            public KasaListe1 KasaListe1
             {
                 get
                 {
-                    return this.kasaListeItemsField;
+                    return this.kasaListe1Field;
                 }
                 set
                 {
-                    this.kasaListeItemsField = value;
+                    this.kasaListe1Field = value;
                 }
             }
         }
@@ -3292,18 +2759,18 @@ namespace MEYPAK.PRL.EFatura
         [System.SerializableAttribute()]
         [System.ComponentModel.DesignerCategoryAttribute("code")]
         [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-        [System.Xml.Serialization.XmlRootAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
-        public partial class KasaListeItems
+        [System.Xml.Serialization.XmlRootAttribute("KasaListe", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
+        public partial class KasaListe1
         {
 
-            private int kasaIdField;
+            private byte kasaIdField;
 
             private string kasaAdıField;
 
-            private decimal kasaMiktarField;
+            private byte kasaMiktarField;
 
             /// <remarks/>
-            public int KasaId
+            public byte KasaId
             {
                 get
                 {
@@ -3329,7 +2796,7 @@ namespace MEYPAK.PRL.EFatura
             }
 
             /// <remarks/>
-            public decimal KasaMiktar
+            public byte KasaMiktar
             {
                 get
                 {
@@ -3341,7 +2808,6 @@ namespace MEYPAK.PRL.EFatura
                 }
             }
         }
-
 
 
     }

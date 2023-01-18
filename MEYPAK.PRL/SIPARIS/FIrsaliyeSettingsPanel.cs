@@ -162,7 +162,7 @@ namespace MEYPAK.PRL.SIPARIS
 
             main = (Main)Application.OpenForms["Main"];
             XtraTabPage page = new XtraTabPage();
-            FSatisIrsaliye fSatisIrsaliye = new FSatisIrsaliye(_tempIrs,_tempIrsDetay, tempkasa, 1);
+            FSatisIrsaliye fSatisIrsaliye = new FSatisIrsaliye(_tempIrs,_tempIrsDetay, tempkasa, tempsip.id, 1);
             page.Name = "TPSatisIrsaliye" + main.i;
             page.Text = "Satis Irsaliye";
             page.Tag = "TPSatisIrsaliye" + main.i;
@@ -200,7 +200,7 @@ namespace MEYPAK.PRL.SIPARIS
             }
             _seriHarServis.Data(ServisList.SeriHarListeServis);
             comboBox1.Text = comboBox1.Items[0].ToString();
-            yeniTextEdit1.Text=(_seriHarServis.obje.Where(x=>x.seriid==_seriServis.obje.Where(z=>z.SERINO.ToString()==comboBox1.Text).FirstOrDefault().id).FirstOrDefault().serino +1).ToString();
+            yeniTextEdit1.Text=(_seriHarServis.obje.Where(x=>x.seriid==_seriServis.obje.Where(z=>z.SERINO.ToString()==comboBox1.Text && z.kayittipi==0).FirstOrDefault().id).FirstOrDefault().serino+1).ToString();
             dateEdit2.Text = fSatisIrsaliyeFaturalastir.gridView2.GetFocusedRowCellValue("Tarih").ToString();
             dateEdit1.Text = fSatisIrsaliyeFaturalastir.gridView2.GetFocusedRowCellValue("SevkiyatTarihi").ToString();
         }

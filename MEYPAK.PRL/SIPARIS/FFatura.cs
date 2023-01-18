@@ -1173,7 +1173,7 @@ namespace MEYPAK.PRL.SIPARIS
                         {   //kasalist içinde olmayan stokkasaharların silinmesi
                             _stokKasaHarServis.Data(ServisList.StokKasaHarEkleServis, new PocoSTOKKASAHAR()
                             {
-                                id = item2.ID,
+                                id = _stokKasaHarServis.obje.Where(x => x.id == item2.ID).Count() > 0 ? item.id : 0,
                                 belge_no = TBFaturaNo.Text,
                                 faturaid = _faturaServis.obje2.id,
                                 io = 0,

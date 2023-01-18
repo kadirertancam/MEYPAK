@@ -18,6 +18,8 @@ using System.Xml.Xsl;
 using System.Xml;
 using static MEYPAK.PRL.EFatura.TemelFaturaXML;
 using System.Xml.Serialization.Extensions;
+using MEYPAK.Entity.PocoModels.STOK;
+using MEYPAK.Interfaces.Kasa;
 
 namespace MEYPAK.PRL.Assets
 {
@@ -28,14 +30,20 @@ namespace MEYPAK.PRL.Assets
             _faturaServis = new GenericWebServis<PocoFATURA>();
             _cariServis = new GenericWebServis<PocoCARIKART>();
             _faturaDetayServis = new GenericWebServis<PocoFATURADETAY>();
+            _stokKasaHarServis = new GenericWebServis<PocoSTOKKASAHAR>();
+            _stokKasaServis = new GenericWebServis<PocoSTOKKASA>();
         }
 
         GenericWebServis<PocoFATURA> _faturaServis;
         GenericWebServis<PocoCARIKART> _cariServis;
         GenericWebServis<PocoFATURADETAY> _faturaDetayServis;
+        GenericWebServis<PocoSTOKKASAHAR> _stokKasaHarServis;
+        GenericWebServis<PocoSTOKKASA> _stokKasaServis;
 
         public void TemelFaturaBasim(int faturaid)
         {
+            _stokKasaHarServis.Data(ServisList.StokKasaHarListeServis);
+            _stokKasaServis.Data(ServisList.StokKasaListeServis);
             _faturaServis.Data(ServisList.FaturaListeServis);
             _cariServis.Data(ServisList.CariListeServis);
             _faturaDetayServis.Data(ServisList.FaturaDetayListeServis);
@@ -196,7 +204,20 @@ namespace MEYPAK.PRL.Assets
                         }
                     });
                 }
+                List<KasaListeItems> tkasa = new List<KasaListeItems>();
+                foreach (var item in _stokKasaHarServis.obje.Where(x=>x.faturaid==faturaid))
+                {
 
+                    tkasa.Add( 
+                        new KasaListeItems()
+                        {
+                            KasaAdı= _stokKasaServis.obje.Where(x=>x.id== item.kasaid).FirstOrDefault().kasaadi,
+                            KasaId=item.kasaid,
+                            KasaMiktar=item.miktar
+                        } );
+
+
+                }
 
                 var t3 = new AdditionalDocumentReference[]
                 {
@@ -336,7 +357,7 @@ namespace MEYPAK.PRL.Assets
 
                             }
                         }
-                    }
+                    },KasaListe=tkasa
 
                 };
 
