@@ -79,15 +79,11 @@ namespace MEYPAK.PRL.STOK.Raporlar
                         ID = x.id,
                         KAYITTARİHİ = x.olusturmatarihi,
                         BELGENO = x.belge_no,
+                        CARIADI = _cariServis.obje.Where(y => y.id == x.cariid).Count() > 0 ? _cariServis.obje.Where(y => y.id == x.cariid).FirstOrDefault().unvan : "",
+                        KASAADI = _stokKasaServis.obje.Select(x => x.kasaadi).FirstOrDefault(), 
                         MİKTAR = x.miktar,
-                        KAYITTİPİ = x.kayittipi,
                         // STOKID = x.stokid,
-                        KASAADI = _stokKasaServis.obje.Select(x => x.kasaadi).FirstOrDefault(),
-                        CARIADI = _cariServis.obje.Where(y => y.id == x.cariid).Count() > 0 ? _cariServis.obje.Where(y => y.id == x.cariid).FirstOrDefault().kod : "",
-                        FATURANO = _faturaServis.obje.Where(y => y.id == x.faturaid).Count() > 0 ? _faturaServis.obje.Where(y => y.id == x.faturaid).FirstOrDefault().belgeno : "",
-                        FATURADETAY = x.faturadetayid,
-                        İRSALİYENO = _irsaliyeServis.obje.Where(y => y.id == x.irsaliyeid).Count() > 0 ? _irsaliyeServis.obje.Where(y => y.id == x.irsaliyeid).FirstOrDefault().belgeno : "",
-                        İRSALİYEDETAY = x.irsaliyedetayid,
+                          KAYITTİPİ = x.kayittipi,
 
                     });
                     DGStokKasaHarRpr.Refresh();

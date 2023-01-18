@@ -9,8 +9,8 @@ namespace MEYPAK.Entity.Models.CEKSENET
     public class MPFIRMACEKSB:SUPERMODEL
     {
         public int USTID { get; set; }
-        public int BORDRONO { get; set; }
-        public int CEKNO { get; set; }
+        public string BORDRONO { get; set; }
+        public string CEKNO { get; set; }
         public int CARIID { get; set; }
         public DateTime CIKISTARIH { get; set; }
         public DateTime VADETARIH { get; set; }
@@ -19,16 +19,16 @@ namespace MEYPAK.Entity.Models.CEKSENET
         public int DOVIZID { get; set; }
         public decimal KUR { get; set; }
         public decimal DOVIZTUTAR { get; set; }
-        public int BANKA { get; set; }
-        public int SUBE { get; set; }
-        public int HESAPNO { get; set; }
-        public int SERINO { get; set; }
-        public int IBANNO { get; set; }
+        public string BANKA { get; set; }
+        public string SUBE { get; set; }
+        public string HESAPNO { get; set; }
+        public string SERINO { get; set; }
+        public string IBANNO { get; set; }
         public int MUHASEBEID { get; set; }
         public int ISLEM { get; set; }
         public int DURUM { get; set; }
-        public int ACIKLAMA1 { get; set; }
-        public int ACIKLAMA2 { get; set; }
+        public string ACIKLAMA1 { get; set; }
+        public string ACIKLAMA2 { get; set; }
         public int AKTIF { get; set; }
         public int BANKAID { get; set; }
         public int SONUSTID { get; set; }

@@ -28,7 +28,7 @@ namespace MEYPAK.Entity.PocoModels
         public decimal BirimFiyat { get; set; } = 0;
         public decimal NetFiyat { get; set; } = 0;
         public decimal BrütFiyat { get; set; } = 0;
-        public decimal İskonto1 { get; set; } = 0;
+        public decimal İskonto1 { get; set; } = 0; 
         public decimal İskonto2 { get; set; } = 0;
         public decimal İskonto3 { get; set; } = 0;
         public decimal Kdv { get; set; } = 0;

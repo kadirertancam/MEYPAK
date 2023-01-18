@@ -4,6 +4,7 @@ using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MEYPAK.DAL.Migrations
 {
     [DbContext(typeof(MEYPAKContext))]
-    partial class MEYPAKContextModelSnapshot : ModelSnapshot
+    [Migration("20230117155049_BordroNoDuzeltme")]
+    partial class BordroNoDuzeltme
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1845,9 +1847,8 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<int>("ASIL")
                         .HasColumnType("int");
 
-                    b.Property<string>("BANKA")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("BANKA")
+                        .HasColumnType("int");
 
                     b.Property<string>("BORDRONO")
                         .IsRequired()
@@ -1856,9 +1857,8 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<int>("CARIID")
                         .HasColumnType("int");
 
-                    b.Property<string>("CEKNO")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("CEKNO")
+                        .HasColumnType("int");
 
                     b.Property<int>("CIROBANKAID")
                         .HasColumnType("int");
@@ -1875,8 +1875,8 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<int>("DOVIZID")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("DOVTUTAR")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<int>("DOVTUTAR")
+                        .HasColumnType("int");
 
                     b.Property<int>("DURUM")
                         .HasColumnType("int");
@@ -1890,13 +1890,11 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<DateTime>("GUNCELLEMETARIHI")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("HESAPNO")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("HESAPNO")
+                        .HasColumnType("int");
 
-                    b.Property<string>("IBANNO")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("IBANNO")
+                        .HasColumnType("int");
 
                     b.Property<string>("IL")
                         .IsRequired()
@@ -1921,8 +1919,8 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<int>("MUHASEBEID")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("ODEMETARIH")
-                        .HasColumnType("datetime2");
+                    b.Property<int>("ODEMETARIH")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("OLUSTURMATARIHI")
                         .HasColumnType("datetime2");
@@ -1933,9 +1931,8 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<int>("SONUSTID")
                         .HasColumnType("int");
 
-                    b.Property<string>("SUBE")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("SUBE")
+                        .HasColumnType("int");
 
                     b.Property<decimal>("TUTAR")
                         .HasColumnType("decimal(18,2)");

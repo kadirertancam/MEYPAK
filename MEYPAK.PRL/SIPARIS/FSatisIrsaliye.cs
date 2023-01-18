@@ -9,8 +9,10 @@ using MEYPAK.Entity.PocoModels.DEPO;
 using MEYPAK.Entity.PocoModels.FATURA;
 using MEYPAK.Entity.PocoModels.IRSALIYE;
 using MEYPAK.Entity.PocoModels.PARAMETRE;
+using MEYPAK.Entity.PocoModels.SIPARIS;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Hizmet;
+using MEYPAK.Interfaces.Siparis;
 using MEYPAK.PRL.Assets;
 using MEYPAK.PRL.CARI;
 using MEYPAK.PRL.SIPARIS;
@@ -23,7 +25,7 @@ namespace MEYPAK.PRL.IRSALIYE
     {
 
 
-        public FSatisIrsaliye(PocoIRSALIYE _tempIrsaliyes = null, List<PocoIrsaliyeKalem> _tempIrsaliyeDetays = null, List<ListKasaList> tempkasa=null , int tip = 0)
+        public FSatisIrsaliye(PocoIRSALIYE _tempIrsaliyes = null, List<PocoIrsaliyeKalem> _tempIrsaliyeDetays = null, List<ListKasaList> tempkasa=null ,int siparisidd=0, int tip = 0)
         {                                                                                                                                                                         
             InitializeComponent();
             DGVStokSec = new DataGridViewButtonColumn();
@@ -61,7 +63,8 @@ namespace MEYPAK.PRL.IRSALIYE
             kDVHesaps = new KDVHesap();
             _seriServis = new GenericWebServis<PocoSERI>();
             _seriHarServis = new GenericWebServis<PocoSERIHAR>();
-            _hizmetHarServis= new GenericWebServis<PocoHIZMETHAR>();
+            _siparisServis = new GenericWebServis<PocoSIPARIS>();
+            _hizmetHarServis = new GenericWebServis<PocoHIZMETHAR>();
             _hizmetServis = new GenericWebServis<PocoHIZMET>();
             if (_tempIrsaliyes != null)
                 _tempIrsaliye = _tempIrsaliyes;
@@ -73,10 +76,12 @@ namespace MEYPAK.PRL.IRSALIYE
             if (tempkasa != null)
                 _kasaaa = tempkasa;
             irstip = tip;
+            this.siparisidd = siparisidd;
         }
 
         #region TANIMLAR
         int irstip;
+        int siparisidd;
         FStokKasaList fKasaList;
         List<PocoIrsaliyeKalem> _tempIrsaliyeDetay = new List<PocoIrsaliyeKalem>();
         List<PocoIrsaliyeKalem> _tempSilinenFaturaDetay = new List<PocoIrsaliyeKalem>();
@@ -102,6 +107,7 @@ namespace MEYPAK.PRL.IRSALIYE
         GenericWebServis<PocoOLCUBR> _olcuBr;
         GenericWebServis<PocoCARIKART> _cariKart;
         GenericWebServis<PocoSTOK> _stokServis;
+        GenericWebServis<PocoSIPARIS> _siparisServis;
         FStokKasaList _fStokKasaList;
         FHizmetList _fHizmetList;
         GenericWebServis<PocoCARIALTHES> _cariAltHesapServis;
@@ -902,7 +908,7 @@ namespace MEYPAK.PRL.IRSALIYE
         {
             _seriHarServis.Data(ServisList.SeriHarListeServis);
             _seriServis.Data(ServisList.SeriListeServis);
-            var serino = _seriHarServis.obje.Where(x => x.seriid == _seriServis.obje.Where(z => z.SERINO == comboBoxEdit1.Text).FirstOrDefault().id).FirstOrDefault().serino;
+            var serino = _seriHarServis.obje.Where(x => x.seriid == _seriServis.obje.Where(z => z.SERINO == comboBoxEdit1.Text).FirstOrDefault().id).FirstOrDefault().serino+1;
             TBFaturaNo.Text = serino.ToString();
         }
         private void BTKaydet_Click_1(object sender, EventArgs e)
@@ -924,7 +930,7 @@ namespace MEYPAK.PRL.IRSALIYE
                     belgeno = TBFaturaNo.Text,
                     vadetarihi = (DateTime)DTPVadeTarihi.EditValue,
                     guncellemetarihi = DateTime.Now,
-                    vadegunu = Convert.ToInt32(TBGun.Text),
+                    vadegunu = Convert.ToInt32(TBGun.Text),siparisid=siparisidd,
                     cariadi = TBCariAdi.Text,
                     irsaliyetarihi = (DateTime)DTSiparisTarih.EditValue,
                     cariid = _cariKart.obje.Where(x => x.kod == TBCariKodu.Text).FirstOrDefault().id,
@@ -942,12 +948,22 @@ namespace MEYPAK.PRL.IRSALIYE
                     kdvdahil = CHBKdvDahil.Checked,
                     tip = 0,
                 });
-
+                _siparisServis.Data(ServisList.SiparisListeServis);
+                var tempsip = _siparisServis.obje.Where(x => x.id == siparisidd).FirstOrDefault();
+                tempsip.durum = true;
+                _siparisServis.Data(ServisList.SiparisEkleServis, tempsip);
                 _stokOlcuBr.Data(ServisList.StokOlcuBrListeServis);
                 _olcuBr.Data(ServisList.OlcuBrListeServis);
                 int i = 0;
                 _stokHarServis.Data(ServisList.StokHarListeServis);
                 _hizmetHarServis.Data(ServisList.HizmetHarListeServis);
+                if (_tempIrsaliye != null)
+                {
+                    _seriHarServis.Data(ServisList.SeriHarListeServis);
+                    var tempserihar = _seriHarServis.obje.Where(x => x.seriid == _seriServis.obje.Where(z => z.SERINO.ToString() == comboBoxEdit1.Text).FirstOrDefault().id).LastOrDefault();
+                    tempserihar.serino = tempserihar.serino + 1;
+                    _seriHarServis.Data(ServisList.SeriHarEkleServis, tempserihar);
+                }
                 foreach (var item in _tempIrsaliyeDetay.Where(x => x.StokKodu != "" && x.StokKodu != null).ToList())
                 {
                     var stokolcubr = _stokOlcuBr.obje.Where(x => x.stokid == item.StokId).FirstOrDefault();
@@ -983,13 +999,7 @@ namespace MEYPAK.PRL.IRSALIYE
                         tip = item.Tipi == "STOK" ? Convert.ToByte(0) : item.Tipi == "HIZMET" ? Convert.ToByte(1) : item.Tipi == "KASA" ? Convert.ToByte(2) : item.Tipi == "DEMIRBAS" ? Convert.ToByte(3) : Convert.ToByte(4),
                         kdvtutari = item.KdvTutarı
                     });
-                    if (_tempIrsaliye == null)
-                    {
-                        _seriHarServis.Data(ServisList.SeriHarListeServis);
-                        var tempserihar = _seriHarServis.obje.Where(x => x.seriid == _seriServis.obje.Where(z => z.SERINO.ToString() == comboBoxEdit1.Text).FirstOrDefault().id).LastOrDefault();
-                        tempserihar.serino = tempserihar.serino + 1;
-                        _seriHarServis.Data(ServisList.SeriHarEkleServis, tempserihar);
-                    }
+                  
                     if (item.Tipi == "STOK")
                     {
                         _stokHarServis.Data(ServisList.StokHarEkleServis, new Entity.PocoModels.STOK.PocoSTOKHAR()
@@ -1050,7 +1060,7 @@ namespace MEYPAK.PRL.IRSALIYE
                         {   //kasalist içinde olmayan stokkasaharların silinmesi
                             _stokKasaHarServis.Data(ServisList.StokKasaHarEkleServis, new PocoSTOKKASAHAR()
                             {
-                                id = item2.ID,
+                                id = _stokKasaHarServis.obje.Where(x=>x.id== item2.ID).Count()>0?item.id:0,
                                 belge_no = TBFaturaNo.Text,
                                 irsaliyeid = _irsaliyeServis.obje2.id,
                                 io = 0,
@@ -1142,7 +1152,7 @@ namespace MEYPAK.PRL.IRSALIYE
         {
             _seriServis.Data(ServisList.SeriListeServis);
             _seriHarServis.Data(ServisList.SeriHarListeServis);
-            foreach (var item in _seriServis.obje.Where(x => x.TIP == 0).Select(x => x.SERINO))
+            foreach (var item in _seriServis.obje.Where(x => x.TIP == 2 ).Select(x => x.SERINO))
             {
                 comboBoxEdit1.Properties.Items.Add(item);
             }
