@@ -28,7 +28,9 @@ namespace MEYPAK.PRL.SIPARIS
             _tempfatdetay = new List<PocoFaturaKalem>();
             _olcuBrServis = new GenericWebServis<PocoOLCUBR>();
             _stokServis = new GenericWebServis<PocoSTOK>();
+            _stokKasaServis = new GenericWebServis<PocoSTOKKASA>();
             _stokKasaHarServis = new GenericWebServis<PocoSTOKKASAHAR>();
+            _stokKasaMarkaServis = new GenericWebServis<PocoSTOKKASAMARKA>();
             _tag = tag;
             _form = form;
         }
@@ -96,9 +98,11 @@ namespace MEYPAK.PRL.SIPARIS
                 if (item != -1)
                     tempIrsDetay.Add(_irsaliyeDetayServis.obje.Where(x => x.kayittipi == 0 && x.id.ToString() == fSatisIrsaliyeFaturalastir.gridView1.GetRowCellValue(item, "ID").ToString()).FirstOrDefault());
             }
-
+            _stokKasaServis.Data(ServisList.StokKasaListeServis);
             _olcuBrServis.Data(ServisList.OlcuBrListeServis);
             _stokServis.Data(ServisList.StokListeServis);
+            tempkasa = new List<ListKasaList>();
+            _stokKasaMarkaServis.Data(ServisList.StokKasaMarkaListeServis);
             foreach (var item in tempIrsDetay)
             {
                 _tempfatdetay.Add( new PocoFaturaKalem()
@@ -130,6 +134,7 @@ namespace MEYPAK.PRL.SIPARIS
                     Kunye = "",
                 });
                 kasalist = new List<KasaList>();
+                _stokKasaHarServis.Data(ServisList.StokKasaHarListeServis);
                 foreach (var item2 in _stokKasaHarServis.obje.Where(x => x.irsaliyeid == item.irsaliyeid && x.irsaliyedetayid == item.id))
                 {
                     kasalist.Add(new KasaList()

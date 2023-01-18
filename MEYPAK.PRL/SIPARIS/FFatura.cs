@@ -207,9 +207,9 @@ namespace MEYPAK.PRL.SIPARIS
         {
             _tempStok = new PocoSTOK();
             _tempFaturaDetay.Add(new PocoFaturaKalem() { Tipi = "STOK" });
-            GCIrsaliye.DataSource = _tempFaturaDetay;
+          
 
-            gridView1.Columns["sıra"].Visible = false;
+           
 
             repositoryItemButtonEdit = new RepositoryItemButtonEdit();
             repositoryItemButtonEdit.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
@@ -217,8 +217,6 @@ namespace MEYPAK.PRL.SIPARIS
             repositoryItemButtonEdit.NullValuePrompt = "";
             repositoryItemButtonEdit.Buttons[0].Caption = "SEÇ";
             repositoryItemButtonEdit.Buttons[0].Kind = ButtonPredefines.Glyph;
-            gridView1.Columns["StokKodu"].OptionsColumn.AllowEdit = true;
-            gridView1.Columns["StokKodu"].ColumnEdit = repositoryItemButtonEdit;
             repositoryItemButtonEdit.Buttons[0].Shortcut = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.Enter);
 
 
@@ -229,8 +227,6 @@ namespace MEYPAK.PRL.SIPARIS
             repositoryItemButtonEdit3.NullValuePrompt = "";
             repositoryItemButtonEdit3.Buttons[0].Caption = "SEÇ";
             repositoryItemButtonEdit3.Buttons[0].Kind = ButtonPredefines.Glyph;
-            gridView1.Columns["KasaMiktar"].OptionsColumn.AllowEdit = true;
-            gridView1.Columns["KasaMiktar"].ColumnEdit = repositoryItemButtonEdit3;
             repositoryItemButtonEdit3.Buttons[0].Shortcut = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.Enter);
 
 
@@ -240,8 +236,6 @@ namespace MEYPAK.PRL.SIPARIS
             repositoryItemButtonEdit4.NullValuePrompt = "";
             repositoryItemButtonEdit4.Buttons[0].Caption = "SEÇ";
             repositoryItemButtonEdit4.Buttons[0].Kind = ButtonPredefines.Glyph;
-            gridView1.Columns["Kunye"].OptionsColumn.AllowEdit = true;
-            gridView1.Columns["Kunye"].ColumnEdit = repositoryItemButtonEdit4;
             repositoryItemButtonEdit4.Buttons[0].Shortcut = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.Enter);
             var datatb = new DataTable();
             datatb.Columns.Add("ID", typeof(int));
@@ -259,8 +253,6 @@ namespace MEYPAK.PRL.SIPARIS
             repositoryItemButtonEdit5.NullValuePrompt = "";
             repositoryItemButtonEdit5.Buttons[0].Caption = "SEÇ";
             repositoryItemButtonEdit5.Buttons[0].Kind = ButtonPredefines.Glyph;
-            gridView1.Columns["Birim"].OptionsColumn.AllowEdit = true;
-            gridView1.Columns["Birim"].ColumnEdit = repositoryItemButtonEdit5;
             repositoryItemButtonEdit5.Buttons[0].Shortcut = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.Enter);
 
 
@@ -280,9 +272,7 @@ namespace MEYPAK.PRL.SIPARIS
             riLookup.EditValueChanged += RiLookup_EditValueChanged;
             riLookup.GetDataSourceRowByKeyValue(0);
 
-            gridView1.Columns["Tipi"].OptionsColumn.AllowEdit = true;
             //repoGV.Columns.Add(colun2);
-            gridView1.Columns["Tipi"].ColumnEdit = riLookup;
             _tempKasaList = new List<KasaList>();
             riLookup3 = new RepositoryItemLookUpEdit();
             riLookup3.ValueMember = "ADI";
@@ -295,8 +285,20 @@ namespace MEYPAK.PRL.SIPARIS
             riLookup3.DropDownRows = _tempKasaList.Count();
             riLookup3.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
             riLookup3.EditValueChanged += RiLookup_EditValueChanged;
-
+            GCIrsaliye.DataSource = _tempFaturaDetay;
+            gridView1.Columns["sıra"].Visible = false;
             gridView1.Columns["KasaAdı"].OptionsColumn.AllowEdit = true;
+            gridView1.Columns["StokKodu"].OptionsColumn.AllowEdit = true;
+            gridView1.Columns["StokKodu"].ColumnEdit = repositoryItemButtonEdit;
+
+            gridView1.Columns["Tipi"].ColumnEdit = riLookup;
+            gridView1.Columns["Tipi"].OptionsColumn.AllowEdit = true;
+            gridView1.Columns["Birim"].OptionsColumn.AllowEdit = true;
+            gridView1.Columns["Birim"].ColumnEdit = repositoryItemButtonEdit5;
+            gridView1.Columns["Kunye"].OptionsColumn.AllowEdit = true;
+            gridView1.Columns["Kunye"].ColumnEdit = repositoryItemButtonEdit4;
+            gridView1.Columns["KasaMiktar"].OptionsColumn.AllowEdit = true;
+            gridView1.Columns["KasaMiktar"].ColumnEdit = repositoryItemButtonEdit3;
             //repoGV.Columns.Add(colun2);
             gridView1.Columns["KasaAdı"].ColumnEdit = riLookup3;
 
@@ -568,8 +570,7 @@ namespace MEYPAK.PRL.SIPARIS
         {
             if (_tempFatura != null)
             {
-                _stokKasaHarServis.Data(ServisList.StokKasaHarListeServis);
-                _kasaaa.Clear();
+                _stokKasaHarServis.Data(ServisList.StokKasaHarListeServis); 
                 _stokOlcuBrList.Clear();
                 if (fattip == 0)
                     _tempFaturaDetay.Clear();
@@ -609,12 +610,10 @@ namespace MEYPAK.PRL.SIPARIS
                 CBAltHesap.Properties.DataSource = altcarilist.Select(x => new { ID = x.id, ADI = x.adi.ToString() });
                 CBAltHesap.EditValue = _tempFatura.althesapid;
                 List<OlcuBrlist> olcuBrlist1;
-                if (_faturadetayServis.obje.Where(x => x.faturaid == _tempFatura.id).Count() > 0)
+                if (_faturadetayServis.obje.Where(x => x.faturaid == _tempFatura.id).Count() > 0 || _kasaaa != null)
                 {
-
-                    if (fattip == 0)
-                    {
-                        foreach (var item2 in _faturadetayServis.obje.Where(x => x.faturaid == _tempFatura.id))
+ 
+                        foreach (var item2 in _faturadetayServis.obje.Where(x => x.faturaid == _tempFatura.id) )
                         {
 
                             KasaList = new List<KasaList>();
@@ -637,11 +636,8 @@ namespace MEYPAK.PRL.SIPARIS
                             _kasaaa.Add(new ListKasaList() { num = item2.num, KasaList = KasaList });
 
                         }
-                    }
-                    else
-                    {
-                        //TODO: KASA BİLGİSİ IRSALIYEDEN GELECEK ŞEKİLDE YAPILANDIRILACAK
-                    }
+             
+                   
 
                     KasaAltBilgiDoldur();
 
