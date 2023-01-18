@@ -24,13 +24,8 @@ app.UseEndpoints(endpoints =>
 
 
     endpoints.MapControllerRoute(
-        name: "Stok/Taným/StokEkle",
-        pattern: "Stok/Taným/StokEkle",
-          new {controller ="STOK", action = "StokEkle"});
-
-    endpoints.MapControllerRoute(
         name: "default",
-        pattern: "{controller=STOK}/{action=StokKart}/{id?}");
+        pattern: "{controller=Default}/{action=Index}/{id?}");
 }
 ); 
 app.Run();

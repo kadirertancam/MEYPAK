@@ -2,7 +2,7 @@
 @using MEYPAK.Entity.PocoModels.STOK
 <div class="menu-container dx-swatch-additional">
 
-
+    <h2> Stok Raporu </h2>
 
     <div id="data-grid-demo">
         @(
@@ -16,7 +16,7 @@
             .AllowAdding(true)
             .AllowDeleting(true)
             .Popup(p => p
-            .Title("Stok Kart")
+            .Title("Stok Raporu")
             .ShowTitle(true)
             .Width(700)
             .Height(525)
@@ -32,7 +32,7 @@
                     groupItems.AddSimpleFor(m => m.kategoriid);
                     groupItems.AddSimpleFor(m => m.kod);
 
-                
+
 
                     groupItems.AddSimpleFor(m => m.sfiyaT1);
                     groupItems.AddSimpleFor(m => m.sfiyaT2);
@@ -44,7 +44,7 @@
                 .Editor(editor => editor.TextArea().Height(100));
                 });
 
-           
+
 
             }))
             )
@@ -63,7 +63,7 @@
                 .ValueExpr("id")
                 .DisplayExpr("acıklama"));
 
-                
+
 
                 columns.AddFor(m => m.sfiyaT1);
 
@@ -77,7 +77,6 @@
                 columns.AddFor(m => m.aciklamA5)
                 .Visible(false);
 
-
                 columns.Add()
                 .Type(GridCommandColumnType.Buttons)
                 .Buttons(b =>
@@ -85,13 +84,14 @@
                     b.Add().Name(GridColumnButtonName.Edit).Text("Düzenle");
                     b.Add().Name(GridColumnButtonName.Delete).Text("Sil");
                 });
+
             })
             .DataSource(d => d.Mvc()
             .Controller("STOK")
             .LoadAction("StokGet").InsertAction("StokPost").UpdateAction("StokPut").DeleteAction("StokDelete").Key("id")
 
             )
-            )
+         )
 
 
 

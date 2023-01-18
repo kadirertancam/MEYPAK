@@ -40,7 +40,7 @@ namespace MEYPAK.WEB.Controllers.STOKController
         #region STOK
 
         [HttpGet]
-        public IActionResult StokKart()
+        public IActionResult StokRapor()
         {
             return View();
         }
@@ -507,556 +507,611 @@ namespace MEYPAK.WEB.Controllers.STOKController
 
         #endregion
 
-        #region old_controller
-
-        #region STOK
-
-
-
-
-
-
-        //[HttpGet]
-        //public IActionResult StokSil()
-        //{
-        //    return View();
-        //}
-
-        //[HttpPost]
-        //public async Task<IActionResult> StokSil(List<PocoSTOK> pModel)
-        //{
-
-        //    _tempPocoStok.Data(ServisList.StokSilServis,modellist: pModel);
-
-        //    ViewBag.Durum = "Başarıyla silindi.";
-        //    return View();
-        //}
-
-        //#endregion
-
-        //#region HIZMET
-
-
-        //[HttpGet]
-        //public IActionResult HizmetEkle()
-        //{
-        //    return View();
-        //}
-
-        //[HttpPost]
-        //public async Task<IActionResult> HizmetEkle(PocoHIZMET pModel)
-        //{
-        //    _tempPocoHizmet.Data(ServisList.HizmetEkleServis, pModel);
-
-        //    ViewBag.Durum = "Başarıyla eklendi.";
-        //    return View();
-        //}
-        //[HttpGet]
-        //public IActionResult HizmetSil()
-        //{
-        //    return View();
-        //}
-
-        //[HttpPost]
-        //public async Task<IActionResult> HizmetSil(List<PocoHIZMET> pModel)
-        //{
-        //    _tempPocoHizmet.Data(ServisList.HizmetSilServis,modellist: pModel);
-
-        //    ViewBag.Durum = "Başarıyla Silindi.";
-        //    return View();
-        //}
-
-        //[HttpGet]
-        //public object HizmetListe(DataSourceLoadOptions loadOptions)
-        //{
-
-        //    _tempPocoHizmet.Data(ServisList.HizmetListeServis);
-        //    return DataSourceLoader.Load(_tempPocoHizmet.obje, loadOptions);
-        //}
-
-        #endregion
-
-        #region OLCUBR
-        //[HttpGet]
-        //public async Task<IActionResult> OlcuBrKart()
-        //{
-        //    _tempPocoOlcuBr.Data(ServisList.OlcuBrListeServis);
-        //    return View(_tempPocoOlcuBr.obje);
-        //}
-
-        //[HttpGet]
-        //public IActionResult OlcuBrEkle()
-        //{
-        //    return View();
-        //}
-
-        //[HttpPost]
-        //public async Task<IActionResult> OlcuBrEkle(PocoOLCUBR pModel)
-        //{
-        //    _tempPocoOlcuBr.Data(ServisList.OlcuBrEkleServis, pModel);
-
-        //    ViewBag.Durum = "Başarıyla eklendi.";
-        //    return View();
-        //}
-        //[HttpGet]
-        //public IActionResult OlcuBrSil()
-        //{
-        //    return View();
-        //}
-
-        //[HttpPost]
-        //public async Task<IActionResult> OlcuBrSil(List<PocoOLCUBR> pModel)
-        //{
-        //    _tempPocoOlcuBr.Data(ServisList.OlcuBrSilServis,modellist: pModel);
-
-        //    ViewBag.Durum = "Başarıyla silindi.";
-        //    return View();
-        //}
-        //[HttpGet]
-        //public object OlcuBrGet(DataSourceLoadOptions loadOptions)
-        //{
-        //    var a = loadOptions.Take;
-        //    var b = loadOptions.Skip;
-        //    string url = "http://213.238.167.117:8080/OLCUBR/PagingList?skip=" + b + "&take=" + a + "&requireTotalCount=true";
-        //    _tempPocoOlcuBr.Data(url);
-        //    return DataSourceLoader.Load(_tempPocoOlcuBr.obje, loadOptions);
-        //}
-
-        #endregion
-
-        #region STOKFIYATLIST
-
-        //[HttpGet]
-
-        //public async Task<IActionResult> StokFiyatListKart()
-        //{
-
-        //    _tempPocoStokFiyatList.Data(ServisList.StokFiyatListListeServis);
-        //    return View(_tempPocoStokFiyatList.obje);
-        //}
-
-        //[HttpGet]
-        //public IActionResult StokFiyatListEkle()
-        //{
-        //    return View();
-        //}
-
-        //[HttpPost]
-        //public async Task<IActionResult> StokFiyatListEkle(PocoSTOKFIYATLIST pModel)
-        //{
-        //    _tempPocoStokFiyatList.Data(ServisList.StokFiyatListEkleServis, pModel);
-
-        //    ViewBag.Durum = "Başarıyla eklendi.";
-        //    return View();
-        //}
-        //[HttpGet]
-        //public IActionResult StokFiyatListSil()
-        //{
-        //    return View();
-        //}
-
-        //[HttpPost]
-        //public async Task<IActionResult> StokFiyatListSil(List<PocoSTOKFIYATLIST> pModel)
-        //{
-        //    _tempPocoStokFiyatList.Data(ServisList.StokFiyatListEkleServis,modellist: pModel);
-
-        //    ViewBag.Durum = "Başarıyla silindi.";
-        //    return View();
-        //}
-        //[HttpGet]
-        //public object StokFiyatListGet(DataSourceLoadOptions loadOptions)
-        //{
-        //    var a = loadOptions.Take;
-        //    var b = loadOptions.Skip;
-        //    string url = "http://213.238.167.117:8080/STOKFIYATLIST/PagingList?skip=" + b + "&take=" + a + "&requireTotalCount=true";
-        //    _tempPocoStokFiyatList.Data(url);
-        //    return DataSourceLoader.Load(_tempPocoStokFiyatList.obje, loadOptions);
-        //}
-
-
-        #endregion
-
-        #region STOKFIYATLISTHAR
-
-        //[HttpGet]
-
-        //public async Task<IActionResult> StokFiyatListHarKart()
-        //{
-
-        //    _tempPocoStokFiyatHarList.Data(ServisList.StokFiyatListHarListeServis);
-        //    return View(_tempPocoStokFiyatHarList.obje);
-        //}
-
-        //[HttpGet]
-        //public IActionResult StokFiyatListHarEkle()
-        //{
-        //    return View();
-        //}
-
-        //[HttpPost]
-        //public async Task<IActionResult> StokFiyatListHarEkle(PocoSTOKFIYATLISTHAR pModel)
-        //{
-        //    _tempPocoStokFiyatHarList.Data(ServisList.StokFiyatListHarEkleServis, pModel);
-
-        //    ViewBag.Durum = "Başarıyla eklendi.";
-        //    return View();
-        //}
-        //[HttpGet]
-        //public IActionResult StokFiyatListHarSil()
-        //{
-        //    return View();
-        //}
-
-        //[HttpPost]
-        //public async Task<IActionResult> StokFiyatListHarSil(List<PocoSTOKFIYATLISTHAR> pModel)
-        //{
-        //    _tempPocoStokFiyatHarList.Data(ServisList.StokFiyatListHarSilServis,modellist: pModel);
-
-        //    ViewBag.Durum = "Başarıyla silindi.";
-        //    return View();
-        //}
-        //[HttpGet]
-        //public object StokFiyatListHarGet(DataSourceLoadOptions loadOptions)
-        //{
-        //    var a = loadOptions.Take;
-        //    var b = loadOptions.Skip;
-        //    string url = "http://213.238.167.117:8080/STOKFIYATLISTHAR/PagingList?skip=" + b + "&take=" + a + "&requireTotalCount=true";
-        //    _tempPocoStokFiyatHarList.Data(url);
-        //    return DataSourceLoader.Load(_tempPocoStokFiyatHarList.obje, loadOptions);
-        //}
-
-        #endregion
-
-        #region STOKHAR
-
-        //[HttpGet]
-        //public async Task<IActionResult> StokHarKart()
-        //{
-        //    _tempPocoStokHar.Data(ServisList.StokHarListeServis);
-
-        //    return View(_tempPocoStokHar.obje);
-        //}
-
-        //[HttpGet]
-        //public IActionResult StokHarEkle()
-        //{
-        //    return View();
-        //}
-
-        //[HttpPost]
-        //public async Task<IActionResult> StokHarEkle(PocoSTOKHAR pModel)
-        //{
-
-        //    _tempPocoStokHar.Data(ServisList.StokHarEkleServis, pModel);
-
-        //    ViewBag.Durum = "Başarıyla eklendi.";
-        //    return View();
-        //}
-
-        //[HttpGet]
-        //public IActionResult StokHarSil()
-        //{
-        //    return View();
-        //}
-
-        //[HttpPost]
-        //public async Task<IActionResult> StokHarSil(List<PocoSTOKHAR> pModel)
-        //{
-
-        //    _tempPocoStokHar.Data(ServisList.StokHarSilServis,modellist: pModel);
-
-        //    ViewBag.Durum = "Başarıyla silindi.";
-        //    return View();
-        //}
-
-        //[HttpGet]
-        //public object StokHarGet(DataSourceLoadOptions loadOptions)
-        //{
-        //    var a = loadOptions.Take;
-        //    var b = loadOptions.Skip;
-        //    string url = "http://213.238.167.117:8080/STOKHAR/PagingList?skip=" + b + "&take=" + a + "&requireTotalCount=true";
-        //    _tempPocoStokHar.Data(url);
-        //    return DataSourceLoader.Load(_tempPocoStokHar.obje, loadOptions);
-        //}
-        #endregion
-
-        #region STOKKASA
-
-
-        //[HttpGet]
-        //public async Task<IActionResult> StokKasaKart()
-        //{
-        //    _tempPocoStokKasa.Data(ServisList.StokKasaListeServis);
-
-        //    return View(_tempPocoStokKasa.obje);
-        //}
-
-        //[HttpGet]
-        //public IActionResult StokKasaEkle()
-        //{
-        //    return View();
-        //}
-
-        //[HttpPost]
-        //public async Task<IActionResult> StokKasaEkle(PocoSTOKKASA pModel)
-        //{
-        //    _tempPocoStokKasa.Data(ServisList.StokKasaEkleServis, pModel);
-
-        //    ViewBag.Durum = "Başarıyla eklendi.";
-        //    return View();
-        //}
-        //[HttpGet]
-        //public IActionResult StokKasaSil()
-        //{
-        //    return View();
-        //}
-
-        //[HttpPost]
-        //public async Task<IActionResult> StokKasaSil(List<PocoSTOKKASA> pModel)
-        //{
-
-        //    _tempPocoStokKasa.Data(ServisList.StokKasaSilServis,modellist: pModel);
-
-        //    ViewBag.Durum = "Başarıyla silindi.";
-        //    return View();
-        //}
-
-        //[HttpGet]
-        //public object StokKasaGet(DataSourceLoadOptions loadOptions)
-        //{
-        //    var a = loadOptions.Take;
-        //    var b = loadOptions.Skip;
-        //    string url = "http://213.238.167.117:8080/STOKHAR/PagingList?skip=" + b + "&take=" + a + "&requireTotalCount=true";
-        //    _tempPocoStokHar.Data(url);
-        //    return DataSourceLoader.Load(_tempPocoStokHar.obje, loadOptions);
-        //}
-        #endregion
-
-        #region STOKKATEGORI
-
-
-        //[HttpGet]
-        //public async Task<IActionResult> StokKategoriKart()
-        //{
-        //    _tempPocoStokKategori.Data(ServisList.StokKategoriListeServis);
-
-        //    return View(_tempPocoStokKategori.obje);
-        //}
-
-        //[HttpGet]
-        //public IActionResult StokKategoriEkle()
-        //{
-        //    return View();
-        //}
-
-        //[HttpPost]
-        //public async Task<IActionResult> StokKategoriEkle(PocoSTOKKATEGORI pModel)
-        //{
-
-        //    _tempPocoStokKategori.Data(ServisList.StokKategoriEkleServis, pModel);
-
-        //    ViewBag.Durum = "Başarıyla eklendi.";
-        //    return View();
-        //}
-        //[HttpGet]
-        //public IActionResult StokKategoriSil()
-        //{
-        //    return View();
-        //}
-
-        //[HttpPost]
-        //public async Task<IActionResult> StokKategoriSil(List<PocoSTOKKATEGORI> pModel)
-        //{
-
-        //    _tempPocoStokKategori.Data(ServisList.StokKategoriSilServis,modellist: pModel);
-
-        //    ViewBag.Durum = "Başarıyla silindi.";
-        //    return View();
-        //}
-
-        //[HttpGet]
-        //public object StokKategoriGet(DataSourceLoadOptions loadOptions)
-        //{
-        //    var a = loadOptions.Take;
-        //    var b = loadOptions.Skip;
-        //    string url = "http://213.238.167.117:8080/STOKKATEGORI/PagingList?skip=" + b + "&take=" + a + "&requireTotalCount=true";
-        //    _tempPocoStokKategori.Data(url);
-        //    return DataSourceLoader.Load(_tempPocoStokKategori.obje, loadOptions);
-        //}
-        #endregion
-
-        #region STOKMARKA
-
-
-        //[HttpGet]
-        //public async Task<IActionResult> StokMarkaKart()
-        //{
-        //    _tempPocoStokMarka.Data(ServisList.StokMarkaListeServis);
-
-        //    return View(_tempPocoStokMarka.obje);
-        //}
-
-        //[HttpGet]
-        //public IActionResult StokMarkaEkle()
-        //{
-        //    return View();
-        //}
-
-        //[HttpPost]
-        //public async Task<IActionResult> StokMarkaEkle(PocoSTOKMARKA pModel)
-        //{
-
-        //    _tempPocoStokMarka.Data(ServisList.StokMarkaEkleServis, pModel);
-
-        //    ViewBag.Durum = "Başarıyla eklendi.";
-        //    return View();
-        //}
-        //[HttpGet]
-        //public IActionResult StokMarkaSil()
-        //{
-        //    return View();
-        //}
-
-        //[HttpPost]
-        //public async Task<IActionResult> StokMarkaSil(List<PocoSTOKMARKA> pModel)
-        //{
-
-        //    _tempPocoStokMarka.Data(ServisList.StokMarkaSilServis,modellist: pModel);
-
-        //    ViewBag.Durum = "Başarıyla silindi.";
-        //    return View();
-        //}
-        #endregion
-
-        #region STOKOLCUBR
-
-
-        //[HttpGet]
-        //public async Task<IActionResult> StokOlcuBrKart()
-        //{
-        //    _tempPocoStokOlcuBr.Data(ServisList.StokOlcuBrListeServis);
-
-        //    return View(_tempPocoStokOlcuBr.obje);
-        //}
-
-        //[HttpGet]
-        //public IActionResult StokOlcuBrEkle()
-        //{
-        //    return View();
-        //}
-
-        //[HttpPost]
-        //public async Task<IActionResult> StokOlcuBrEkle(PocoSTOKOLCUBR pModel)
-        //{
-
-        //    _tempPocoStokOlcuBr.Data(ServisList.StokOlcuBrEkleServis, pModel);
-
-        //    ViewBag.Durum = "Başarıyla eklendi.";
-        //    return View();
-        //}
-        //[HttpGet]
-        //public IActionResult StokOlcuBrSil()
-        //{
-        //    return View();
-        //}
-
-        //[HttpPost]
-        //public async Task<IActionResult> StokOlcuBrSil(List<PocoSTOKOLCUBR> pModel)
-        //{
-
-        //    _tempPocoStokOlcuBr.Data(ServisList.StokOlcuBrSilServis,modellist: pModel);
-
-        //    ViewBag.Durum = "Başarıyla silindi.";
-        //    return View();
-        //}
-        #endregion
-
-        #region STOKSAYIM
-
-
-        //[HttpGet]
-        //public async Task<IActionResult> StokSayimKart()
-        //{
-        //    _tempPocoStokSayim.Data(ServisList.StokSayimListeServis);
-
-        //    return View(_tempPocoStokSayim.obje);
-        //}
-
-        //[HttpGet]
-        //public IActionResult StokSayimEkle()
-        //{
-        //    return View();
-        //}
-
-        //[HttpPost]
-        //public async Task<IActionResult> StokSayimEkle(PocoSTOKSAYIM pModel)
-        //{
-
-        //    _tempPocoStokSayim.Data(ServisList.StokSayimEkleServis, pModel);
-
-        //    ViewBag.Durum = "Başarıyla eklendi.";
-        //    return View();
-        //}
-        //[HttpGet]
-        //public IActionResult StokSayimSil()
-        //{
-        //    return View();
-        //}
-
-        //[HttpPost]
-        //public async Task<IActionResult> StokSayimSil(List<PocoSTOKSAYIM> pModel)
-        //{
-
-        //    _tempPocoStokSayim.Data(ServisList.StokSayimSilServis, modellist: pModel);
-
-        //    ViewBag.Durum = "Başarıyla silindi.";
-        //    return View();
-        //}
-        #endregion
-
-        #region STOKSAYIMHAR
-
-
-        //[HttpGet]
-        //public async Task<IActionResult> StokSayimHarKart()
-        //{
-        //    _tempPocoStokSayimHar.Data(ServisList.StokSayimHarListeServis);
-
-        //    return View(_tempPocoStokSayimHar.obje);
-        //}
-
-        //[HttpGet]
-        //public IActionResult StokSayimHarEkle()
-        //{
-        //    return View();
-        //}
-
-        //[HttpPost]
-        //public async Task<IActionResult> StokSayimHarEkle(PocoSTOKSAYIMHAR pModel)
-        //{
-
-        //    _tempPocoStokSayimHar.Data(ServisList.StokSayimHarEkleServis, pModel);
-
-        //    ViewBag.Durum = "Başarıyla eklendi.";
-        //    return View();
-        //}
-        //[HttpGet]
-        //public IActionResult StokSayimHarSil()
-        //{
-        //    return View();
-        //}
-
-        //[HttpPost]
-        //public async Task<IActionResult> StokSayimHarSil(List<PocoSTOKSAYIMHAR> pModel)
-        //{
-
-        //    _tempPocoStokSayimHar.Data(ServisList.StokSayimHarSilServis,modellist: pModel);
-
-        //    ViewBag.Durum = "Başarıyla Silindi.";
-        //    return View();
-        //}
-        #endregion
-
-        #endregion
+        #region STOKFİYATHAR
+
+        [HttpGet]
+        public IActionResult StokFiyatListHarKart()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public object StokFiyatListHarGet(DataSourceLoadOptions loadOptions)
+        {
+            //var a = loadOptions.Take;
+            //var b = loadOptions.Skip;
+            //string url = "http://213.238.167.117:8080/Stok/PagingList?skip="+b+"&take="+a+"&requireTotalCount=true";
+            //_tempPocoStok.Data(url);
+            _tempPocoStokFiyatHar.Data(ServisList.StokFiyatHarListeServis);
+            return DataSourceLoader.Load(_tempPocoStokFiyatHar.obje.Where(x => x.kayittipi == 0).Reverse().AsEnumerable(), loadOptions);
+        }
+        [HttpPut]
+        public async Task<IActionResult> StokFiyatListHarPut(int key, string values)
+        { //güncellenecek
+            _tempPocoStokFiyatHar.Data(ServisList.StokFiyatHarListeServis);
+            var employee = _tempPocoStokFiyatHar.obje.First(a => a.id == key);
+            JsonConvert.PopulateObject(values, employee);
+
+            //_tempPocoStok.Data(ServisList.StokEkleServis, id);
+
+            _tempPocoStokFiyatHar.Data(ServisList.StokFiyatHarEkleServis, employee);
+            ViewBag.Durum = "Başarıyla Güncellendi.";
+            return Ok();
+        }
+        [HttpPost]
+        public async Task<IActionResult> StokFiyatListHarPost(string values)
+        {
+            PocoSTOKFIYATHAR newPoco = new PocoSTOKFIYATHAR();
+            JsonConvert.PopulateObject(values, newPoco);
+            _tempPocoStokFiyatHar.Data(ServisList.StokFiyatHarEkleServis, newPoco);
+
+            ViewBag.Durum = "Başarıyla eklendi.";
+            return Ok();
+        }
+        [HttpDelete]
+        public void StokFiyatListHarDelete(int key)
+        {
+            string url = ServisList.StokFiyatHarDeleteByIdServis;
+            url += "?id=";
+            url += key;
+            _tempPocoStokFiyatHar.Data(url, method: HttpMethod.Post);
+            ViewBag.Durum = "Başarıyla silindi.";
+        }
     }
+
+    #endregion
+
+    #region old_controller
+
+    #region STOK
+
+
+
+
+
+
+    //[HttpGet]
+    //public IActionResult StokSil()
+    //{
+    //    return View();
+    //}
+
+    //[HttpPost]
+    //public async Task<IActionResult> StokSil(List<PocoSTOK> pModel)
+    //{
+
+    //    _tempPocoStok.Data(ServisList.StokSilServis,modellist: pModel);
+
+    //    ViewBag.Durum = "Başarıyla silindi.";
+    //    return View();
+    //}
+
+    //#endregion
+
+    //#region HIZMET
+
+
+    //[HttpGet]
+    //public IActionResult HizmetEkle()
+    //{
+    //    return View();
+    //}
+
+    //[HttpPost]
+    //public async Task<IActionResult> HizmetEkle(PocoHIZMET pModel)
+    //{
+    //    _tempPocoHizmet.Data(ServisList.HizmetEkleServis, pModel);
+
+    //    ViewBag.Durum = "Başarıyla eklendi.";
+    //    return View();
+    //}
+    //[HttpGet]
+    //public IActionResult HizmetSil()
+    //{
+    //    return View();
+    //}
+
+    //[HttpPost]
+    //public async Task<IActionResult> HizmetSil(List<PocoHIZMET> pModel)
+    //{
+    //    _tempPocoHizmet.Data(ServisList.HizmetSilServis,modellist: pModel);
+
+    //    ViewBag.Durum = "Başarıyla Silindi.";
+    //    return View();
+    //}
+
+    //[HttpGet]
+    //public object HizmetListe(DataSourceLoadOptions loadOptions)
+    //{
+
+    //    _tempPocoHizmet.Data(ServisList.HizmetListeServis);
+    //    return DataSourceLoader.Load(_tempPocoHizmet.obje, loadOptions);
+    //}
+
+    #endregion
+
+    #region OLCUBR
+    //[HttpGet]
+    //public async Task<IActionResult> OlcuBrKart()
+    //{
+    //    _tempPocoOlcuBr.Data(ServisList.OlcuBrListeServis);
+    //    return View(_tempPocoOlcuBr.obje);
+    //}
+
+    //[HttpGet]
+    //public IActionResult OlcuBrEkle()
+    //{
+    //    return View();
+    //}
+
+    //[HttpPost]
+    //public async Task<IActionResult> OlcuBrEkle(PocoOLCUBR pModel)
+    //{
+    //    _tempPocoOlcuBr.Data(ServisList.OlcuBrEkleServis, pModel);
+
+    //    ViewBag.Durum = "Başarıyla eklendi.";
+    //    return View();
+    //}
+    //[HttpGet]
+    //public IActionResult OlcuBrSil()
+    //{
+    //    return View();
+    //}
+
+    //[HttpPost]
+    //public async Task<IActionResult> OlcuBrSil(List<PocoOLCUBR> pModel)
+    //{
+    //    _tempPocoOlcuBr.Data(ServisList.OlcuBrSilServis,modellist: pModel);
+
+    //    ViewBag.Durum = "Başarıyla silindi.";
+    //    return View();
+    //}
+    //[HttpGet]
+    //public object OlcuBrGet(DataSourceLoadOptions loadOptions)
+    //{
+    //    var a = loadOptions.Take;
+    //    var b = loadOptions.Skip;
+    //    string url = "http://213.238.167.117:8080/OLCUBR/PagingList?skip=" + b + "&take=" + a + "&requireTotalCount=true";
+    //    _tempPocoOlcuBr.Data(url);
+    //    return DataSourceLoader.Load(_tempPocoOlcuBr.obje, loadOptions);
+    //}
+
+    #endregion
+
+    #region STOKFIYATLIST
+
+    //[HttpGet]
+
+    //public async Task<IActionResult> StokFiyatListKart()
+    //{
+
+    //    _tempPocoStokFiyatList.Data(ServisList.StokFiyatListListeServis);
+    //    return View(_tempPocoStokFiyatList.obje);
+    //}
+
+    //[HttpGet]
+    //public IActionResult StokFiyatListEkle()
+    //{
+    //    return View();
+    //}
+
+    //[HttpPost]
+    //public async Task<IActionResult> StokFiyatListEkle(PocoSTOKFIYATLIST pModel)
+    //{
+    //    _tempPocoStokFiyatList.Data(ServisList.StokFiyatListEkleServis, pModel);
+
+    //    ViewBag.Durum = "Başarıyla eklendi.";
+    //    return View();
+    //}
+    //[HttpGet]
+    //public IActionResult StokFiyatListSil()
+    //{
+    //    return View();
+    //}
+
+    //[HttpPost]
+    //public async Task<IActionResult> StokFiyatListSil(List<PocoSTOKFIYATLIST> pModel)
+    //{
+    //    _tempPocoStokFiyatList.Data(ServisList.StokFiyatListEkleServis,modellist: pModel);
+
+    //    ViewBag.Durum = "Başarıyla silindi.";
+    //    return View();
+    //}
+    //[HttpGet]
+    //public object StokFiyatListGet(DataSourceLoadOptions loadOptions)
+    //{
+    //    var a = loadOptions.Take;
+    //    var b = loadOptions.Skip;
+    //    string url = "http://213.238.167.117:8080/STOKFIYATLIST/PagingList?skip=" + b + "&take=" + a + "&requireTotalCount=true";
+    //    _tempPocoStokFiyatList.Data(url);
+    //    return DataSourceLoader.Load(_tempPocoStokFiyatList.obje, loadOptions);
+    //}
+
+
+    #endregion
+
+    #region STOKFIYATLISTHAR
+
+    //[HttpGet]
+
+    //public async Task<IActionResult> StokFiyatListHarKart()
+    //{
+
+    //    _tempPocoStokFiyatHarList.Data(ServisList.StokFiyatListHarListeServis);
+    //    return View(_tempPocoStokFiyatHarList.obje);
+    //}
+
+    //[HttpGet]
+    //public IActionResult StokFiyatListHarEkle()
+    //{
+    //    return View();
+    //}
+
+    //[HttpPost]
+    //public async Task<IActionResult> StokFiyatListHarEkle(PocoSTOKFIYATLISTHAR pModel)
+    //{
+    //    _tempPocoStokFiyatHarList.Data(ServisList.StokFiyatListHarEkleServis, pModel);
+
+    //    ViewBag.Durum = "Başarıyla eklendi.";
+    //    return View();
+    //}
+    //[HttpGet]
+    //public IActionResult StokFiyatListHarSil()
+    //{
+    //    return View();
+    //}
+
+    //[HttpPost]
+    //public async Task<IActionResult> StokFiyatListHarSil(List<PocoSTOKFIYATLISTHAR> pModel)
+    //{
+    //    _tempPocoStokFiyatHarList.Data(ServisList.StokFiyatListHarSilServis,modellist: pModel);
+
+    //    ViewBag.Durum = "Başarıyla silindi.";
+    //    return View();
+    //}
+    //[HttpGet]
+    //public object StokFiyatListHarGet(DataSourceLoadOptions loadOptions)
+    //{
+    //    var a = loadOptions.Take;
+    //    var b = loadOptions.Skip;
+    //    string url = "http://213.238.167.117:8080/STOKFIYATLISTHAR/PagingList?skip=" + b + "&take=" + a + "&requireTotalCount=true";
+    //    _tempPocoStokFiyatHarList.Data(url);
+    //    return DataSourceLoader.Load(_tempPocoStokFiyatHarList.obje, loadOptions);
+    //}
+
+    #endregion
+
+    #region STOKHAR
+
+    //[HttpGet]
+    //public async Task<IActionResult> StokHarKart()
+    //{
+    //    _tempPocoStokHar.Data(ServisList.StokHarListeServis);
+
+    //    return View(_tempPocoStokHar.obje);
+    //}
+
+    //[HttpGet]
+    //public IActionResult StokHarEkle()
+    //{
+    //    return View();
+    //}
+
+    //[HttpPost]
+    //public async Task<IActionResult> StokHarEkle(PocoSTOKHAR pModel)
+    //{
+
+    //    _tempPocoStokHar.Data(ServisList.StokHarEkleServis, pModel);
+
+    //    ViewBag.Durum = "Başarıyla eklendi.";
+    //    return View();
+    //}
+
+    //[HttpGet]
+    //public IActionResult StokHarSil()
+    //{
+    //    return View();
+    //}
+
+    //[HttpPost]
+    //public async Task<IActionResult> StokHarSil(List<PocoSTOKHAR> pModel)
+    //{
+
+    //    _tempPocoStokHar.Data(ServisList.StokHarSilServis,modellist: pModel);
+
+    //    ViewBag.Durum = "Başarıyla silindi.";
+    //    return View();
+    //}
+
+    //[HttpGet]
+    //public object StokHarGet(DataSourceLoadOptions loadOptions)
+    //{
+    //    var a = loadOptions.Take;
+    //    var b = loadOptions.Skip;
+    //    string url = "http://213.238.167.117:8080/STOKHAR/PagingList?skip=" + b + "&take=" + a + "&requireTotalCount=true";
+    //    _tempPocoStokHar.Data(url);
+    //    return DataSourceLoader.Load(_tempPocoStokHar.obje, loadOptions);
+    //}
+    #endregion
+
+    #region STOKKASA
+
+
+    //[HttpGet]
+    //public async Task<IActionResult> StokKasaKart()
+    //{
+    //    _tempPocoStokKasa.Data(ServisList.StokKasaListeServis);
+
+    //    return View(_tempPocoStokKasa.obje);
+    //}
+
+    //[HttpGet]
+    //public IActionResult StokKasaEkle()
+    //{
+    //    return View();
+    //}
+
+    //[HttpPost]
+    //public async Task<IActionResult> StokKasaEkle(PocoSTOKKASA pModel)
+    //{
+    //    _tempPocoStokKasa.Data(ServisList.StokKasaEkleServis, pModel);
+
+    //    ViewBag.Durum = "Başarıyla eklendi.";
+    //    return View();
+    //}
+    //[HttpGet]
+    //public IActionResult StokKasaSil()
+    //{
+    //    return View();
+    //}
+
+    //[HttpPost]
+    //public async Task<IActionResult> StokKasaSil(List<PocoSTOKKASA> pModel)
+    //{
+
+    //    _tempPocoStokKasa.Data(ServisList.StokKasaSilServis,modellist: pModel);
+
+    //    ViewBag.Durum = "Başarıyla silindi.";
+    //    return View();
+    //}
+
+    //[HttpGet]
+    //public object StokKasaGet(DataSourceLoadOptions loadOptions)
+    //{
+    //    var a = loadOptions.Take;
+    //    var b = loadOptions.Skip;
+    //    string url = "http://213.238.167.117:8080/STOKHAR/PagingList?skip=" + b + "&take=" + a + "&requireTotalCount=true";
+    //    _tempPocoStokHar.Data(url);
+    //    return DataSourceLoader.Load(_tempPocoStokHar.obje, loadOptions);
+    //}
+    #endregion
+
+    #region STOKKATEGORI
+
+
+    //[HttpGet]
+    //public async Task<IActionResult> StokKategoriKart()
+    //{
+    //    _tempPocoStokKategori.Data(ServisList.StokKategoriListeServis);
+
+    //    return View(_tempPocoStokKategori.obje);
+    //}
+
+    //[HttpGet]
+    //public IActionResult StokKategoriEkle()
+    //{
+    //    return View();
+    //}
+
+    //[HttpPost]
+    //public async Task<IActionResult> StokKategoriEkle(PocoSTOKKATEGORI pModel)
+    //{
+
+    //    _tempPocoStokKategori.Data(ServisList.StokKategoriEkleServis, pModel);
+
+    //    ViewBag.Durum = "Başarıyla eklendi.";
+    //    return View();
+    //}
+    //[HttpGet]
+    //public IActionResult StokKategoriSil()
+    //{
+    //    return View();
+    //}
+
+    //[HttpPost]
+    //public async Task<IActionResult> StokKategoriSil(List<PocoSTOKKATEGORI> pModel)
+    //{
+
+    //    _tempPocoStokKategori.Data(ServisList.StokKategoriSilServis,modellist: pModel);
+
+    //    ViewBag.Durum = "Başarıyla silindi.";
+    //    return View();
+    //}
+
+    //[HttpGet]
+    //public object StokKategoriGet(DataSourceLoadOptions loadOptions)
+    //{
+    //    var a = loadOptions.Take;
+    //    var b = loadOptions.Skip;
+    //    string url = "http://213.238.167.117:8080/STOKKATEGORI/PagingList?skip=" + b + "&take=" + a + "&requireTotalCount=true";
+    //    _tempPocoStokKategori.Data(url);
+    //    return DataSourceLoader.Load(_tempPocoStokKategori.obje, loadOptions);
+    //}
+    #endregion
+
+    #region STOKMARKA
+
+
+    //[HttpGet]
+    //public async Task<IActionResult> StokMarkaKart()
+    //{
+    //    _tempPocoStokMarka.Data(ServisList.StokMarkaListeServis);
+
+    //    return View(_tempPocoStokMarka.obje);
+    //}
+
+    //[HttpGet]
+    //public IActionResult StokMarkaEkle()
+    //{
+    //    return View();
+    //}
+
+    //[HttpPost]
+    //public async Task<IActionResult> StokMarkaEkle(PocoSTOKMARKA pModel)
+    //{
+
+    //    _tempPocoStokMarka.Data(ServisList.StokMarkaEkleServis, pModel);
+
+    //    ViewBag.Durum = "Başarıyla eklendi.";
+    //    return View();
+    //}
+    //[HttpGet]
+    //public IActionResult StokMarkaSil()
+    //{
+    //    return View();
+    //}
+
+    //[HttpPost]
+    //public async Task<IActionResult> StokMarkaSil(List<PocoSTOKMARKA> pModel)
+    //{
+
+    //    _tempPocoStokMarka.Data(ServisList.StokMarkaSilServis,modellist: pModel);
+
+    //    ViewBag.Durum = "Başarıyla silindi.";
+    //    return View();
+    //}
+    #endregion
+
+    #region STOKOLCUBR
+
+
+    //[HttpGet]
+    //public async Task<IActionResult> StokOlcuBrKart()
+    //{
+    //    _tempPocoStokOlcuBr.Data(ServisList.StokOlcuBrListeServis);
+
+    //    return View(_tempPocoStokOlcuBr.obje);
+    //}
+
+    //[HttpGet]
+    //public IActionResult StokOlcuBrEkle()
+    //{
+    //    return View();
+    //}
+
+    //[HttpPost]
+    //public async Task<IActionResult> StokOlcuBrEkle(PocoSTOKOLCUBR pModel)
+    //{
+
+    //    _tempPocoStokOlcuBr.Data(ServisList.StokOlcuBrEkleServis, pModel);
+
+    //    ViewBag.Durum = "Başarıyla eklendi.";
+    //    return View();
+    //}
+    //[HttpGet]
+    //public IActionResult StokOlcuBrSil()
+    //{
+    //    return View();
+    //}
+
+    //[HttpPost]
+    //public async Task<IActionResult> StokOlcuBrSil(List<PocoSTOKOLCUBR> pModel)
+    //{
+
+    //    _tempPocoStokOlcuBr.Data(ServisList.StokOlcuBrSilServis,modellist: pModel);
+
+    //    ViewBag.Durum = "Başarıyla silindi.";
+    //    return View();
+    //}
+    #endregion
+
+    #region STOKSAYIM
+
+
+    //[HttpGet]
+    //public async Task<IActionResult> StokSayimKart()
+    //{
+    //    _tempPocoStokSayim.Data(ServisList.StokSayimListeServis);
+
+    //    return View(_tempPocoStokSayim.obje);
+    //}
+
+    //[HttpGet]
+    //public IActionResult StokSayimEkle()
+    //{
+    //    return View();
+    //}
+
+    //[HttpPost]
+    //public async Task<IActionResult> StokSayimEkle(PocoSTOKSAYIM pModel)
+    //{
+
+    //    _tempPocoStokSayim.Data(ServisList.StokSayimEkleServis, pModel);
+
+    //    ViewBag.Durum = "Başarıyla eklendi.";
+    //    return View();
+    //}
+    //[HttpGet]
+    //public IActionResult StokSayimSil()
+    //{
+    //    return View();
+    //}
+
+    //[HttpPost]
+    //public async Task<IActionResult> StokSayimSil(List<PocoSTOKSAYIM> pModel)
+    //{
+
+    //    _tempPocoStokSayim.Data(ServisList.StokSayimSilServis, modellist: pModel);
+
+    //    ViewBag.Durum = "Başarıyla silindi.";
+    //    return View();
+    //}
+    #endregion
+
+    #region STOKSAYIMHAR
+
+
+    //[HttpGet]
+    //public async Task<IActionResult> StokSayimHarKart()
+    //{
+    //    _tempPocoStokSayimHar.Data(ServisList.StokSayimHarListeServis);
+
+    //    return View(_tempPocoStokSayimHar.obje);
+    //}
+
+    //[HttpGet]
+    //public IActionResult StokSayimHarEkle()
+    //{
+    //    return View();
+    //}
+
+    //[HttpPost]
+    //public async Task<IActionResult> StokSayimHarEkle(PocoSTOKSAYIMHAR pModel)
+    //{
+
+    //    _tempPocoStokSayimHar.Data(ServisList.StokSayimHarEkleServis, pModel);
+
+    //    ViewBag.Durum = "Başarıyla eklendi.";
+    //    return View();
+    //}
+    //[HttpGet]
+    //public IActionResult StokSayimHarSil()
+    //{
+    //    return View();
+    //}
+
+    //[HttpPost]
+    //public async Task<IActionResult> StokSayimHarSil(List<PocoSTOKSAYIMHAR> pModel)
+    //{
+
+    //    _tempPocoStokSayimHar.Data(ServisList.StokSayimHarSilServis,modellist: pModel);
+
+    //    ViewBag.Durum = "Başarıyla Silindi.";
+    //    return View();
+    //}
+    #endregion
+
+    #endregion
 }
+
+

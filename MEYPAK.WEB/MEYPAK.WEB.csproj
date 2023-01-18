@@ -640,7 +640,7 @@
     <Folder Include="obj\Debug\net6.0\staticwebassets\" />
     <Folder Include="Views\CEKSENET\SENET\" />
     <Folder Include="Views\Home\" />
-    <Folder Include="Views\Shared\Partials\UnderPartials\CEKSENET\SENET\" />
+    <Folder Include="Views\Shared\Partials\UnderPartials\NewFolder\" />
     <Folder Include="wwwroot\Index\img\" />
   </ItemGroup>
 </Project>
