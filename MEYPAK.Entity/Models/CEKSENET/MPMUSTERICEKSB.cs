@@ -9,7 +9,7 @@ namespace MEYPAK.Entity.Models.CEKSENET
     public class MPMUSTERICEKSB:SUPERMODEL
     {
         public int USTID { get; set; }
-        public int BORDRONO { get; set; }
+        public string BORDRONO { get; set; }
         public int CEKNO { get; set; }
         public int CARIID { get; set; }
         public DateTime GIRISTAR { get; set; }

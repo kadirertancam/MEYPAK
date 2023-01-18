@@ -70,6 +70,8 @@ namespace MEYPAK.PRL.CEKSENET
             if (_islem== "FFirmaCekTanim")
             fFirmaCekTanim.tempCekSenetUstSb = _ceksenetustsbServis.obje.Where(x=>x.BORDRONO== gridView1.GetFocusedRowCellValue("BORDRONO").ToString()).FirstOrDefault();
 
+            this.Close();
+
         }
     }
 }
