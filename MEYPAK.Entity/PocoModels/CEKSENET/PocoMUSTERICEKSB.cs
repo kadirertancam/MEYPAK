@@ -10,30 +10,30 @@ namespace MEYPAK.Entity.PocoModels.CEKSENET
     {
         public int USTID { get; set; }
         public string BORDRONO { get; set; }
-        public int CEKNO { get; set; }
+        public string CEKNO { get; set; }
         public int CARIID { get; set; }
         public DateTime GIRISTAR { get; set; }
         public int ASIL { get; set; }
         public int CIROEDEN { get; set; }
-        public int VADETARIH { get; set; }
-        public int ODEMETARIH { get; set; }
+        public DateTime VADETARIH { get; set; }
+        public DateTime ODEMETARIH { get; set; }
         public decimal TUTAR { get; set; }
         public int DOVIZID { get; set; }
         public decimal KUR   { get; set; }
-        public int DOVTUTAR { get; set; }
-        public int BANKA { get; set; }
-        public int SUBE { get; set; }
-        public int HESAPNO { get; set; }
+        public decimal DOVTUTAR { get; set; }
+        public string BANKA { get; set; }
+        public string SUBE { get; set; }
+        public string HESAPNO { get; set; }
         public int SERINO { get; set; }
-        public int IBANNO { get; set; }
+        public string IBANNO { get; set; }
         public int MUHASEBEID { get; set; }
         public int ISLEM { get; set; }
         public int DURUM { get; set; }
         public string ACIKLAMA1 { get; set; }
         public string ACIKLAMA2 { get; set; }
         public int AKTIF { get; set; }
-        public string IL { get; set; }
-        public string ILCE { get; set; }
+        public string IL { get; set; } = "";
+        public string ILCE { get; set; } = "";
         public int VERILENID { get; set; }
         public int VERILENBORDRONO { get; set; }
         public int SONUSTID { get; set; }

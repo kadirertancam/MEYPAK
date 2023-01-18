@@ -51,6 +51,8 @@
             this.LBBorc = new DevExpress.XtraEditors.LabelControl();
             this.LBAlacakDeger = new DevExpress.XtraEditors.LabelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.CBAltHesap = new DevExpress.XtraEditors.LookUpEdit();
+            this.LBAltHesap = new DevExpress.XtraEditors.LabelControl();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.BTSil = new DevExpress.XtraEditors.SimpleButton();
             this.BTKaydet = new DevExpress.XtraEditors.SimpleButton();
@@ -72,6 +74,7 @@
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CBAltHesap.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TBCariAdi.Properties)).BeginInit();
@@ -196,6 +199,8 @@
             // groupControl1
             // 
             this.groupControl1.CaptionImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("groupControl1.CaptionImageOptions.Image")));
+            this.groupControl1.Controls.Add(this.CBAltHesap);
+            this.groupControl1.Controls.Add(this.LBAltHesap);
             this.groupControl1.Controls.Add(this.panelControl3);
             this.groupControl1.Controls.Add(this.TBCariAdi);
             this.groupControl1.Controls.Add(this.BTCariSec);
@@ -211,6 +216,24 @@
             this.groupControl1.Size = new System.Drawing.Size(1167, 117);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Firma Senet Tanım";
+            // 
+            // CBAltHesap
+            // 
+            this.CBAltHesap.Location = new System.Drawing.Point(700, 50);
+            this.CBAltHesap.Name = "CBAltHesap";
+            this.CBAltHesap.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CBAltHesap.Properties.NullText = "";
+            this.CBAltHesap.Size = new System.Drawing.Size(193, 20);
+            this.CBAltHesap.TabIndex = 156;
+            // 
+            // LBAltHesap
+            // 
+            this.LBAltHesap.Location = new System.Drawing.Point(633, 53);
+            this.LBAltHesap.Name = "LBAltHesap";
+            this.LBAltHesap.Size = new System.Drawing.Size(46, 13);
+            this.LBAltHesap.TabIndex = 157;
+            this.LBAltHesap.Text = "Alt Hesap";
             // 
             // panelControl3
             // 
@@ -270,6 +293,7 @@
             this.BTBordroSec.Name = "BTBordroSec";
             this.BTBordroSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.BTBordroSec.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTBordroSec_Properties_ButtonClick_1);
             this.BTBordroSec.Size = new System.Drawing.Size(193, 22);
             this.BTBordroSec.TabIndex = 5;
             // 
@@ -339,6 +363,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CBAltHesap.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.TBCariAdi.Properties)).EndInit();
@@ -349,6 +374,8 @@
             this.ResumeLayout(false);
 
         }
+
+ 
 
         #endregion
 
@@ -375,5 +402,7 @@
         private DevExpress.XtraEditors.PanelControl panelControl4;
         private DevExpress.XtraGrid.GridControl DGFirmaSenet;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraEditors.LookUpEdit CBAltHesap;
+        private DevExpress.XtraEditors.LabelControl LBAltHesap;
     }
 }

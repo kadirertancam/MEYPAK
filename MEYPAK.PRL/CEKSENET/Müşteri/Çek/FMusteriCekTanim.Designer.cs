@@ -29,11 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FMusteriCekTanim));
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -50,6 +45,7 @@
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.label1 = new System.Windows.Forms.Label();
             this.DTTarih = new DevExpress.XtraEditors.DateEdit();
             this.TBCariAdi = new DevExpress.XtraEditors.TextEdit();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
@@ -67,10 +63,7 @@
             this.LBBorcDeger = new DevExpress.XtraEditors.LabelControl();
             this.LBBorc = new DevExpress.XtraEditors.LabelControl();
             this.LBAlacakDeger = new DevExpress.XtraEditors.LabelControl();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.BTAltHes = new DevExpress.XtraEditors.ButtonEdit();
-            this.TBAltHesapAdı = new DevExpress.XtraEditors.TextEdit();
+            this.CBAltHes = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
@@ -88,8 +81,7 @@
             this.panelControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BTBordroSec.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTCariSec.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BTAltHes.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TBAltHesapAdı.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CBAltHes.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -147,9 +139,7 @@
             // groupControl1
             // 
             this.groupControl1.CaptionImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("groupControl1.CaptionImageOptions.Image")));
-            this.groupControl1.Controls.Add(this.TBAltHesapAdı);
-            this.groupControl1.Controls.Add(this.BTAltHes);
-            this.groupControl1.Controls.Add(this.label2);
+            this.groupControl1.Controls.Add(this.CBAltHes);
             this.groupControl1.Controls.Add(this.label1);
             this.groupControl1.Controls.Add(this.DTTarih);
             this.groupControl1.Controls.Add(this.TBCariAdi);
@@ -166,6 +156,15 @@
             this.groupControl1.Size = new System.Drawing.Size(1169, 122);
             this.groupControl1.TabIndex = 1;
             this.groupControl1.Text = "Müşteri Çek Tanım";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(658, 51);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(50, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "AltHesap";
             // 
             // DTTarih
             // 
@@ -226,7 +225,7 @@
             this.BTBordroSec.Location = new System.Drawing.Point(115, 74);
             this.BTBordroSec.Name = "BTBordroSec";
             this.BTBordroSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTBordroSec.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTBordroSec_Properties_ButtonClick);
             this.BTBordroSec.Size = new System.Drawing.Size(193, 22);
             this.BTBordroSec.TabIndex = 3;
@@ -236,7 +235,7 @@
             this.BTCariSec.Location = new System.Drawing.Point(417, 47);
             this.BTCariSec.Name = "BTCariSec";
             this.BTCariSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTCariSec.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTCariSec_Properties_ButtonClick);
             this.BTCariSec.Size = new System.Drawing.Size(193, 22);
             this.BTCariSec.TabIndex = 2;
@@ -333,39 +332,15 @@
             this.LBAlacakDeger.TabIndex = 4;
             this.LBAlacakDeger.Text = "...";
             // 
-            // label1
+            // CBAltHes
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(658, 51);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 13);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "AltHesap";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(637, 77);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Alt Hesap Adı";
-            // 
-            // BTAltHes
-            // 
-            this.BTAltHes.Location = new System.Drawing.Point(719, 48);
-            this.BTAltHes.Name = "BTAltHes";
-            this.BTAltHes.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", "Seç", null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.BTAltHes.Size = new System.Drawing.Size(193, 22);
-            this.BTAltHes.TabIndex = 7;
-            // 
-            // TBAltHesapAdı
-            // 
-            this.TBAltHesapAdı.Location = new System.Drawing.Point(719, 75);
-            this.TBAltHesapAdı.Name = "TBAltHesapAdı";
-            this.TBAltHesapAdı.Size = new System.Drawing.Size(193, 20);
-            this.TBAltHesapAdı.TabIndex = 8;
+            this.CBAltHes.Location = new System.Drawing.Point(714, 48);
+            this.CBAltHes.Name = "CBAltHes";
+            this.CBAltHes.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CBAltHes.Properties.NullText = "";
+            this.CBAltHes.Size = new System.Drawing.Size(193, 20);
+            this.CBAltHes.TabIndex = 6;
             // 
             // FMusteriCekTanim
             // 
@@ -396,11 +371,12 @@
             this.panelControl4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.BTBordroSec.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTCariSec.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BTAltHes.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TBAltHesapAdı.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CBAltHes.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
+
+
 
         #endregion
 
@@ -427,9 +403,7 @@
         private DevExpress.XtraEditors.PanelControl panelControl2;
         private DevExpress.XtraEditors.PanelControl panelControl4;
         private DevExpress.XtraEditors.DateEdit DTTarih;
-        private DevExpress.XtraEditors.TextEdit TBAltHesapAdı;
-        private DevExpress.XtraEditors.ButtonEdit BTAltHes;
-        private Label label2;
         private Label label1;
+        private DevExpress.XtraEditors.LookUpEdit CBAltHes;
     }
 }
