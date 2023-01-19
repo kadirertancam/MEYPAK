@@ -27,6 +27,8 @@ namespace MEYPAK.Entity.Models.STOK
         public int FATURADETAYID { get; set; } = 0;
         public int IRSALIYEID  { get; set; } = 0;
         public int IRSALIYEDETAYID  { get; set; } = 0;
+        public int SARFID { get; set; } = 0;
+        public int SARFDETAYID { get; set; } = 0;
         public decimal KDV { get; set; } = 0;
         public int IO { get; set; } = 0;
         public decimal NETFIYAT { get; set; } = 0;

@@ -1492,6 +1492,7 @@
             // 
             // ACECekSenetRapor
             // 
+            this.ACECekSenetRapor.Expanded = true;
             this.ACECekSenetRapor.Name = "ACECekSenetRapor";
             this.ACECekSenetRapor.Text = "Raporlar";
             // 
