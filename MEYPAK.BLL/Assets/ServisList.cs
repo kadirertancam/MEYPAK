@@ -212,6 +212,14 @@ namespace MEYPAK.BLL.Assets
         public const string SeriDeleteByIdServis =          "http://213.238.167.117:8080/Seri/DeleteById";
         #endregion
 
+        #region SatınAlmaMalKabulHar
+        public const string SatinAlmaMalKabulHarListeServis =       "http://213.238.167.117:8080/SATINALMAMALKABULEMRIHAR/SATINALMAMALKABULEMRIHARListe";
+        public const string SatinAlmaMalKabulHarEkleServis =        "http://213.238.167.117:8080/SATINALMAMALKABULEMRIHAR/SATINALMAMALKABULEMRIHAREkleyadaGuncelle";
+        public const string SatinAlmaMalKabulHarSilServis =         "http://213.238.167.117:8080/SATINALMAMALKABULEMRIHAR/SATINALMAMALKABULEMRIHARSil";
+        public const string SatinAlmaMalKabulHarGuncelleServis = "http://213.238.167.117:8080/SATINALMAMALKABULEMRIHAR/SATINALMAMALKABULEMRIHARGuncelle";
+        public const string SatinAlmaMalKabulHarDeleteByIdServis = "http://213.238.167.117:8080/SATINALMAMALKABULEMRIHAR/DeleteById";
+        #endregion
+
         #region SeriHar
         public const string SeriHarListeServis =        "http://213.238.167.117:8080/SeriHar/SeriHarListe";
         public const string SeriHarEkleServis =         "http://213.238.167.117:8080/SeriHar/SeriHarEkleyadaGuncelle";

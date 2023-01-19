@@ -303,6 +303,9 @@ builder.Services.AddScoped<ISiparisDetayServis, SiparisDetayManager>();
 builder.Services.AddScoped<ISiparisSevkEmriHarDal, EFSiparisSevkEmriHarRepo>();
 builder.Services.AddScoped<ISiparisSevkEmriHarServis, SiparisSevkEmriHarManager>();
 
+builder.Services.AddScoped<ISatinAlmaMalKabulEmriHarDal, EFSatýnAlmaMalKabulEmriHarRepo>();
+builder.Services.AddScoped<ISatinAlmaMalKabulEmriHarServis, SatýnAlmaMalKabulHarManager>();
+
 builder.Services.AddScoped<ISiparisKasaHarDal, EFSiparisKasaHarRepo>();
 builder.Services.AddScoped<ISiparisKasaHarServis, SiparisKasaHarManager>();
 

@@ -38,7 +38,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.gridControl4 = new DevExpress.XtraGrid.GridControl();
+            this.GCCekiPanel = new DevExpress.XtraGrid.GridControl();
             this.tileView4 = new DevExpress.XtraGrid.Views.Tile.TileView();
             this.KOD = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.ADI = new DevExpress.XtraGrid.Columns.TileViewColumn();
@@ -47,7 +47,7 @@
             this.CDEPO = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.panel6 = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.gridControl3 = new DevExpress.XtraGrid.GridControl();
+            this.GCIsEmriDetayPanel = new DevExpress.XtraGrid.GridControl();
             this.tileView3 = new DevExpress.XtraGrid.Views.Tile.TileView();
             this.StokAdi = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.IEBelgeno = new DevExpress.XtraGrid.Columns.TileViewColumn();
@@ -64,7 +64,7 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.gridControl2 = new DevExpress.XtraGrid.GridControl();
+            this.GCIsEmriPanel = new DevExpress.XtraGrid.GridControl();
             this.tileView2 = new DevExpress.XtraGrid.Views.Tile.TileView();
             this.BELGENO = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.ID = new DevExpress.XtraGrid.Columns.TileViewColumn();
@@ -76,7 +76,7 @@
             this.dataGridView5 = new System.Windows.Forms.DataGridView();
             this.panel4 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.GCSiparisPanel = new DevExpress.XtraGrid.GridControl();
             this.tileView1 = new DevExpress.XtraGrid.Views.Tile.TileView();
             this.CSevkiyatTarihi = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.CBelgeNo = new DevExpress.XtraGrid.Columns.TileViewColumn();
@@ -91,23 +91,23 @@
             this.panel3.SuspendLayout();
             this.panel7.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GCCekiPanel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tileView4)).BeginInit();
             this.panel6.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GCIsEmriDetayPanel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tileView3)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GCIsEmriPanel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tileView2)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
             this.panel4.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GCSiparisPanel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tileView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageEdit1)).BeginInit();
@@ -170,7 +170,7 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.gridControl4);
+            this.groupBox4.Controls.Add(this.GCCekiPanel);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox4.ForeColor = System.Drawing.Color.Chocolate;
             this.groupBox4.Location = new System.Drawing.Point(0, 0);
@@ -180,15 +180,15 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Toplama Emri Sonuç";
             // 
-            // gridControl4
+            // GCCekiPanel
             // 
-            this.gridControl4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl4.Location = new System.Drawing.Point(3, 17);
-            this.gridControl4.MainView = this.tileView4;
-            this.gridControl4.Name = "gridControl4";
-            this.gridControl4.Size = new System.Drawing.Size(801, 190);
-            this.gridControl4.TabIndex = 0;
-            this.gridControl4.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.GCCekiPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GCCekiPanel.Location = new System.Drawing.Point(3, 17);
+            this.GCCekiPanel.MainView = this.tileView4;
+            this.GCCekiPanel.Name = "GCCekiPanel";
+            this.GCCekiPanel.Size = new System.Drawing.Size(801, 190);
+            this.GCCekiPanel.TabIndex = 0;
+            this.GCCekiPanel.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.tileView4});
             // 
             // tileView4
@@ -202,7 +202,7 @@
             this.CBIRIM,
             this.CDEPO});
             this.tileView4.DetailHeight = 303;
-            this.tileView4.GridControl = this.gridControl4;
+            this.tileView4.GridControl = this.GCCekiPanel;
             this.tileView4.Name = "tileView4";
             this.tileView4.OptionsTiles.ColumnCount = 1;
             this.tileView4.OptionsTiles.GroupTextPadding = new System.Windows.Forms.Padding(12, 8, 12, 8);
@@ -286,7 +286,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.gridControl3);
+            this.groupBox3.Controls.Add(this.GCIsEmriDetayPanel);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.ForeColor = System.Drawing.Color.Chocolate;
             this.groupBox3.Location = new System.Drawing.Point(0, 0);
@@ -296,15 +296,15 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Toplama Emir Detay";
             // 
-            // gridControl3
+            // GCIsEmriDetayPanel
             // 
-            this.gridControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl3.Location = new System.Drawing.Point(3, 17);
-            this.gridControl3.MainView = this.tileView3;
-            this.gridControl3.Name = "gridControl3";
-            this.gridControl3.Size = new System.Drawing.Size(820, 190);
-            this.gridControl3.TabIndex = 0;
-            this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.GCIsEmriDetayPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GCIsEmriDetayPanel.Location = new System.Drawing.Point(3, 17);
+            this.GCIsEmriDetayPanel.MainView = this.tileView3;
+            this.GCIsEmriDetayPanel.Name = "GCIsEmriDetayPanel";
+            this.GCIsEmriDetayPanel.Size = new System.Drawing.Size(820, 190);
+            this.GCIsEmriDetayPanel.TabIndex = 0;
+            this.GCIsEmriDetayPanel.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.tileView3});
             // 
             // tileView3
@@ -324,7 +324,7 @@
             this.DepoButon,
             this.Resim});
             this.tileView3.DetailHeight = 303;
-            this.tileView3.GridControl = this.gridControl3;
+            this.tileView3.GridControl = this.GCIsEmriDetayPanel;
             this.tileView3.Name = "tileView3";
             this.tileView3.OptionsTiles.GroupTextPadding = new System.Windows.Forms.Padding(12, 8, 12, 8);
             this.tileView3.OptionsTiles.IndentBetweenGroups = 0;
@@ -498,7 +498,7 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.Gray;
-            this.tabPage1.Controls.Add(this.gridControl2);
+            this.tabPage1.Controls.Add(this.GCIsEmriPanel);
             this.tabPage1.ForeColor = System.Drawing.Color.Chocolate;
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -507,15 +507,15 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Toplama Emirleri";
             // 
-            // gridControl2
+            // GCIsEmriPanel
             // 
-            this.gridControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl2.Location = new System.Drawing.Point(3, 3);
-            this.gridControl2.MainView = this.tileView2;
-            this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(793, 502);
-            this.gridControl2.TabIndex = 0;
-            this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.GCIsEmriPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GCIsEmriPanel.Location = new System.Drawing.Point(3, 3);
+            this.GCIsEmriPanel.MainView = this.tileView2;
+            this.GCIsEmriPanel.Name = "GCIsEmriPanel";
+            this.GCIsEmriPanel.Size = new System.Drawing.Size(793, 502);
+            this.GCIsEmriPanel.TabIndex = 0;
+            this.GCIsEmriPanel.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.tileView2});
             // 
             // tileView2
@@ -542,7 +542,7 @@
             gridFormatRule1.Name = "Green";
             gridFormatRule1.Rule = formatConditionRule2ColorScale1;
             this.tileView2.FormatRules.Add(gridFormatRule1);
-            this.tileView2.GridControl = this.gridControl2;
+            this.tileView2.GridControl = this.GCIsEmriPanel;
             this.tileView2.Name = "tileView2";
             this.tileView2.OptionsKanban.GroupFooterButton.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
             this.tileView2.OptionsKanban.GroupFooterButton.Appearance.Options.UseBackColor = true;
@@ -665,7 +665,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.gridControl1);
+            this.groupBox1.Controls.Add(this.GCSiparisPanel);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.ForeColor = System.Drawing.Color.Chocolate;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
@@ -675,19 +675,19 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Sipariş Listesi";
             // 
-            // gridControl1
+            // GCSiparisPanel
             // 
-            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(3, 17);
-            this.gridControl1.MainView = this.tileView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.GCSiparisPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GCSiparisPanel.Location = new System.Drawing.Point(3, 17);
+            this.GCSiparisPanel.MainView = this.tileView1;
+            this.GCSiparisPanel.Name = "GCSiparisPanel";
+            this.GCSiparisPanel.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemPictureEdit1,
             this.repositoryItemImageEdit1,
             this.repositoryItemImageEdit2});
-            this.gridControl1.Size = new System.Drawing.Size(820, 514);
-            this.gridControl1.TabIndex = 1;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.GCSiparisPanel.Size = new System.Drawing.Size(820, 514);
+            this.GCSiparisPanel.TabIndex = 1;
+            this.GCSiparisPanel.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.tileView1});
             // 
             // tileView1
@@ -702,7 +702,7 @@
             this.CCerceve,
             this.CAltCari});
             this.tileView1.DetailHeight = 303;
-            this.tileView1.GridControl = this.gridControl1;
+            this.tileView1.GridControl = this.GCSiparisPanel;
             this.tileView1.Name = "tileView1";
             this.tileView1.OptionsTiles.GroupTextPadding = new System.Windows.Forms.Padding(12, 8, 12, 8);
             this.tileView1.OptionsTiles.IndentBetweenGroups = 0;
@@ -813,23 +813,23 @@
             this.panel3.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GCCekiPanel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tileView4)).EndInit();
             this.panel6.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GCIsEmriDetayPanel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tileView3)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GCIsEmriPanel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tileView2)).EndInit();
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
             this.panel4.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GCSiparisPanel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tileView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageEdit1)).EndInit();
@@ -853,7 +853,7 @@
         private TabPage tabPage1;
         private TabPage tabPage2;
         private DataGridView dataGridView5;
-        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.GridControl GCSiparisPanel;
         private DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit repositoryItemPictureEdit1;
         private DevExpress.XtraEditors.Repository.RepositoryItemImageEdit repositoryItemImageEdit1;
         private DevExpress.XtraGrid.Views.Tile.TileView tileView1;
@@ -863,7 +863,7 @@
         private DevExpress.XtraGrid.Columns.TileViewColumn CResim;
         private DevExpress.XtraGrid.Columns.TileViewColumn CCerceve;
         private DevExpress.XtraEditors.Repository.RepositoryItemImageEdit repositoryItemImageEdit2;
-        private DevExpress.XtraGrid.GridControl gridControl2;
+        private DevExpress.XtraGrid.GridControl GCIsEmriPanel;
         private DevExpress.XtraGrid.Views.Tile.TileView tileView2;
         private DevExpress.XtraGrid.Columns.TileViewColumn ID;
         private DevExpress.XtraGrid.Columns.TileViewColumn BELGENO;
@@ -872,7 +872,7 @@
         private DevExpress.XtraGrid.Columns.TileViewColumn DEPO;
         private DevExpress.XtraGrid.Columns.TileViewColumn TIP;
         private DevExpress.XtraGrid.Columns.TileViewColumn DURUM;
-        private DevExpress.XtraGrid.GridControl gridControl3;
+        private DevExpress.XtraGrid.GridControl GCIsEmriDetayPanel;
         private DevExpress.XtraGrid.Views.Tile.TileView tileView3;
         private DevExpress.XtraGrid.Columns.TileViewColumn StokAdi;
         private DevExpress.XtraGrid.Columns.TileViewColumn IEBelgeno;
@@ -883,7 +883,7 @@
         private DevExpress.XtraGrid.Columns.TileViewColumn KalanMiktar;
         private DevExpress.XtraGrid.Columns.TileViewColumn Birim;
         private DevExpress.XtraGrid.Columns.TileViewColumn IEDepo;
-        private DevExpress.XtraGrid.GridControl gridControl4;
+        private DevExpress.XtraGrid.GridControl GCCekiPanel;
         private DevExpress.XtraGrid.Views.Tile.TileView tileView4;
         private DevExpress.XtraGrid.Columns.TileViewColumn DepoButon;
         private DevExpress.XtraGrid.Columns.TileViewColumn KOD;

@@ -72,6 +72,7 @@
             // 
             // comboBoxEdit1
             // 
+            this.comboBoxEdit1.EditValue = "ElizMeypak";
             this.comboBoxEdit1.Location = new System.Drawing.Point(650, 200);
             this.comboBoxEdit1.Name = "comboBoxEdit1";
             this.comboBoxEdit1.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -92,6 +93,7 @@
             // 
             // comboBoxEdit2
             // 
+            this.comboBoxEdit2.EditValue = "Merkez";
             this.comboBoxEdit2.Location = new System.Drawing.Point(650, 242);
             this.comboBoxEdit2.Name = "comboBoxEdit2";
             this.comboBoxEdit2.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));

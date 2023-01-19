@@ -220,6 +220,9 @@
 	border-left-width: 4px;
 	border-left-color: @Primary;
 }
+:root:select .card{
+	background-color:@HighlightAlternate/0.3; 
+}
 .content {
 	margin-top:18%;
 	margin-bottom:18%;
@@ -378,7 +381,7 @@
 	padding:6px;
 }
 :root:select .card{
-	background-color:@HighlightAlternate/0.1; 
+	background-color:@HighlightAlternate/0.3; 
 }
 .button{
 	flex-grow:1;
@@ -3337,7 +3340,7 @@ body {
 	background-color:#252526
 }
 :root:select .card{
-	background-color:@HighlightAlternate/0.1; 
+	background-color:@HighlightAlternate/0.3; 
 }
 .card {
 	font: 13px 'Segoe UI';
@@ -3379,7 +3382,7 @@ body {
 	color:White;
 }
 .description2 {
-	padding-left:150px;
+	;
 }
 
 
@@ -3454,7 +3457,7 @@ body {
 			&lt;div class="top-block"&gt;
 				&lt;div class="caption"&gt;&lt;b style="color:white"&gt;${CBelgeNo}&lt;/b&gt;&lt;/div&gt;
 			&lt;/div&gt;
-			&lt;div class="description"&gt; &lt;b style="color:white"&gt;${CCariAdi}&lt;/b&gt; &lt;b class="description2" style="color:white"&gt;${CAltCari}&lt;/b&gt;&lt;/div&gt;
+			&lt;div class="description"&gt; &lt;b style="color:white"&gt;${CCariAdi}&lt;/b&gt; &lt;div&gt;&lt;/div&gt;&lt;b class="description2" style="color:white"&gt;${CAltCari}&lt;/b&gt;&lt;/div&gt;
 			
 			&lt;div class="bottom-block"&gt;
 				&lt;div class="bottom-block-near"&gt;
