@@ -34,7 +34,8 @@ namespace MEYPAK.PRL.KASA
             parabirimServis = new GenericWebServis<PocoPARABIRIM>();
             _cariKartServis = new GenericWebServis<PocoCARIKART>();
             _personelServis = new GenericWebServis<PocoPERSONEL>();
-            this.gridView1.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.gridView1.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(100,((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+           
         }
         GenericWebServis<PocoKASAHAR> kasaHarServis;
         GenericWebServis<PocoPARABIRIM> parabirimServis;
@@ -135,6 +136,8 @@ namespace MEYPAK.PRL.KASA
                 _cariKartServis.Data(ServisList.CariListeServis);
                 kasaHarServis.Data(ServisList.KasaHarListeServis);
                 GCKasaHareket.DataSource = kasaHarServis.obje.Where(x => x.KASAID == _tempKasa.id).Select(x=> new { Tarih=x.TARIH,CariKod= x.CARIID!=0?_cariKartServis.obje.Where(z=>z.id==x.CARIID).FirstOrDefault().kod: x.PERSONELID != 0 ? _personelServis.obje.Where(z => z.id == x.PERSONELID).FirstOrDefault().tc: "",  CariAdı = x.CARIID != 0 ? _cariKartServis.obje.Where(z => z.id == x.CARIID).FirstOrDefault().unvan:x.PERSONELID!=0? _personelServis.obje.Where(z=>z.id==x.PERSONELID).FirstOrDefault().adisoyadi:"", IslemTipi=x.TIP==0?"Cari":x.TIP==1?"Banka":x.TIP==2?"Personel":x.TIP==3?"Muhtelif":x.TIP==4?"Muhasebe":"",GC=x.IO==0?"Çıkış":"Giriş",TUTAR=x.TUTAR }).Reverse();
+           
+                
             }
             else
             {
@@ -303,7 +306,7 @@ namespace MEYPAK.PRL.KASA
 
             if (quantity == "Çıkış")
             {
-                e.Appearance.BackColor = Color.Red;
+                e.Appearance.BackColor = Color.Crimson;
             }
             else
             {

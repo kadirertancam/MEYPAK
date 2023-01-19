@@ -11,8 +11,27 @@ namespace MEYPAK.BLL.Assets
         #region
 
         #endregion
-        
 
+        #region STOKSARFDETAY
+        public const string StokSarfDetayListeServis =       "http://213.238.167.117:8080/STOKSARFDETAY/Liste";
+        public const string StokSarfDetayEkleServis =        "http://213.238.167.117:8080/STOKSARFDETAY/EkleyadaGuncelle";
+        public const string StokSarfDetaySilServis =         "http://213.238.167.117:8080/STOKSARFDETAY/Sil";
+        public const string StokSarfDetayGuncelleServis =    "http://213.238.167.117:8080/STOKSARFDETAY/Guncelle";
+        public const string StokSarfDetayDeleteByIdServis =  "http://213.238.167.117:8080/STOKSARFDETAY/DeleteById";
+        public const string StokSarfDetayListeFiltreServis = "http://213.238.167.117:8080/STOKSARFDETAY/Liste2?query=";
+
+
+        #endregion
+        #region STOKSARF
+        public const string StokSarfListeServis = "http://213.238.167.117:8080/STOKSARF/Liste";
+        public const string StokSarfEkleServis = "http://213.238.167.117:8080/STOKSARF/EkleyadaGuncelle";
+        public const string StokSarfSilServis = "http://213.238.167.117:8080/STOKSARF/Sil";
+        public const string StokSarfGuncelleServis = "http://213.238.167.117:8080/STOKSARF/Guncelle";
+        public const string StokSarfDeleteByIdServis = "http://213.238.167.117:8080/STOKSARF/DeleteById";
+        public const string StokSarfListeFiltreServis = "http://213.238.167.117:8080/STOKSARF/Liste2?query=";
+
+
+        #endregion
         #region Arac
         public const string AracListeServis =    "http://213.238.167.117:8080/ARAC/ARACListe";
         public const string AracEkleServis = "http://213.238.167.117:8080/ARAC/ARACEkleyadaGuncelle";

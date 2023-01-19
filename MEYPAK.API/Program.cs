@@ -353,6 +353,15 @@ builder.Services.AddScoped<IFaturaDetayServis, FaturaDetayManager>();
 builder.Services.AddScoped<ISeriDal, EFSeriRepo>();
 builder.Services.AddScoped<ISeriServis, SeriManager>();
 #endregion
+#region STOKSARF_Scoped_Islemleri
+
+builder.Services.AddScoped<IStokSarfDal, EFStokSarfRepo>();
+builder.Services.AddScoped<IStokSarfServis, StokSarfManager>();
+
+builder.Services.AddScoped<IStokSarfDetayDal, EFStokSarfDetayRepo>();
+builder.Services.AddScoped<IStokSarfDetayServis, StokSarfDetayManager>();
+
+#endregion
 
 
 

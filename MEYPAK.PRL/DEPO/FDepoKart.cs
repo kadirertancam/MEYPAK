@@ -72,7 +72,7 @@ namespace MEYPAK.PRL.DEPO
             _depoServis.Data(ServisList.DepoListeServis);
             GCDepoKart.DataSource = _depoServis.obje.Where(x => x.kayittipi == 0);
             gridView1.Columns["id"].Visible = false;
-            
+
         }
 
         private void BTDepoKartEkle_Click(object sender, EventArgs e)

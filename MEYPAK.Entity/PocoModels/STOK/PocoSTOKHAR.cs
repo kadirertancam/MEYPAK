@@ -22,6 +22,8 @@ namespace MEYPAK.Entity.PocoModels.STOK
         public int faturadetayid { get; set; } = 0;
         public int irsaliyeid { get; set; } = 0;
         public int irsaliyedetayid { get; set; } = 0;
+        public int sarfid { get; set; } = 0;
+        public int sarfdetayid { get; set; } = 0;
         public decimal kdv { get; set; } = 0;    
         public int io { get; set; } = 0;
         public decimal netfiyat { get; set; } = 0;

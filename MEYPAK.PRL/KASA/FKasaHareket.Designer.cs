@@ -195,6 +195,14 @@
             // 
             // gridView1
             // 
+            this.gridView1.Appearance.FocusedCell.ForeColor = System.Drawing.Color.White;
+            this.gridView1.Appearance.FocusedCell.Options.UseForeColor = true;
+            this.gridView1.Appearance.FocusedRow.ForeColor = System.Drawing.Color.White;
+            this.gridView1.Appearance.FocusedRow.Options.UseForeColor = true;
+            this.gridView1.Appearance.HideSelectionRow.ForeColor = System.Drawing.Color.White;
+            this.gridView1.Appearance.HideSelectionRow.Options.UseForeColor = true;
+            this.gridView1.Appearance.SelectedRow.ForeColor = System.Drawing.Color.White;
+            this.gridView1.Appearance.SelectedRow.Options.UseForeColor = true;
             this.gridView1.DetailHeight = 303;
             this.gridView1.GridControl = this.GCKasaHareket;
             this.gridView1.Name = "gridView1";
