@@ -450,7 +450,7 @@ namespace MEYPAK.PRL.STOK
                         belgE_NO = _sarfServis.obje2.SARFNO,
                         hareketturu = 12,
                         birim = _olcuBr.obje.Where(x => x.id == item.BIRIMID).FirstOrDefault().id,
-                     
+                    
                         depoid = _sarfServis.obje2.DEPOID,
                         io = 0,
                         miktar = item.MIKTAR,

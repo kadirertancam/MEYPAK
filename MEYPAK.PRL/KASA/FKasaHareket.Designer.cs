@@ -62,22 +62,6 @@
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.label2 = new System.Windows.Forms.Label();
             this.panelControl6 = new DevExpress.XtraEditors.PanelControl();
-            this.GBCari = new DevExpress.XtraEditors.GroupControl();
-            this.TBCariAdi = new DevExpress.XtraEditors.TextEdit();
-            this.BTNCariSec = new DevExpress.XtraEditors.ButtonEdit();
-            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.GBPersonel = new DevExpress.XtraEditors.GroupControl();
-            this.BTNPersonelSec = new DevExpress.XtraEditors.ButtonEdit();
-            this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
-            this.GBMuhasebe = new DevExpress.XtraEditors.GroupControl();
-            this.TBMuhKodu = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
             this.GBBanka = new DevExpress.XtraEditors.GroupControl();
             this.TBBankaSubeAdi = new DevExpress.XtraEditors.TextEdit();
             this.TBBankaSubeKod = new DevExpress.XtraEditors.TextEdit();
@@ -98,6 +82,22 @@
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.DTPTarih = new DevExpress.XtraEditors.DateEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.GBMuhasebe = new DevExpress.XtraEditors.GroupControl();
+            this.TBMuhKodu = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
+            this.GBPersonel = new DevExpress.XtraEditors.GroupControl();
+            this.BTNPersonelSec = new DevExpress.XtraEditors.ButtonEdit();
+            this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
+            this.GBCari = new DevExpress.XtraEditors.GroupControl();
+            this.TBCariAdi = new DevExpress.XtraEditors.TextEdit();
+            this.BTNCariSec = new DevExpress.XtraEditors.ButtonEdit();
+            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
@@ -121,16 +121,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.CBParaBirim.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).BeginInit();
             this.panelControl6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.GBCari)).BeginInit();
-            this.GBCari.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TBCariAdi.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BTNCariSec.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GBPersonel)).BeginInit();
-            this.GBPersonel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BTNPersonelSec.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GBMuhasebe)).BeginInit();
-            this.GBMuhasebe.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TBMuhKodu.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GBBanka)).BeginInit();
             this.GBBanka.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TBBankaSubeAdi.Properties)).BeginInit();
@@ -151,6 +141,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.BTNKasaSec.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPTarih.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPTarih.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GBMuhasebe)).BeginInit();
+            this.GBMuhasebe.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TBMuhKodu.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GBPersonel)).BeginInit();
+            this.GBPersonel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BTNPersonelSec.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GBCari)).BeginInit();
+            this.GBCari.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TBCariAdi.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BTNCariSec.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -168,9 +168,9 @@
             this.panelControl3.Controls.Add(this.panelControl5);
             this.panelControl3.Controls.Add(this.panelControl4);
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl3.Location = new System.Drawing.Point(2, 464);
+            this.panelControl3.Location = new System.Drawing.Point(2, 379);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(1211, 342);
+            this.panelControl3.Size = new System.Drawing.Size(1211, 427);
             this.panelControl3.TabIndex = 1;
             // 
             // panelControl5
@@ -179,7 +179,7 @@
             this.panelControl5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl5.Location = new System.Drawing.Point(2, 2);
             this.panelControl5.Name = "panelControl5";
-            this.panelControl5.Size = new System.Drawing.Size(1207, 269);
+            this.panelControl5.Size = new System.Drawing.Size(1207, 354);
             this.panelControl5.TabIndex = 1;
             // 
             // GCKasaHareket
@@ -188,7 +188,7 @@
             this.GCKasaHareket.Location = new System.Drawing.Point(2, 2);
             this.GCKasaHareket.MainView = this.gridView1;
             this.GCKasaHareket.Name = "GCKasaHareket";
-            this.GCKasaHareket.Size = new System.Drawing.Size(1203, 265);
+            this.GCKasaHareket.Size = new System.Drawing.Size(1203, 350);
             this.GCKasaHareket.TabIndex = 0;
             this.GCKasaHareket.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -215,7 +215,7 @@
             this.panelControl4.Controls.Add(this.simpleButton2);
             this.panelControl4.Controls.Add(this.BTNKaydet);
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl4.Location = new System.Drawing.Point(2, 271);
+            this.panelControl4.Location = new System.Drawing.Point(2, 356);
             this.panelControl4.Name = "panelControl4";
             this.panelControl4.Size = new System.Drawing.Size(1207, 69);
             this.panelControl4.TabIndex = 0;
@@ -245,7 +245,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl2.Location = new System.Drawing.Point(2, 2);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(1211, 462);
+            this.panelControl2.Size = new System.Drawing.Size(1211, 377);
             this.panelControl2.TabIndex = 0;
             // 
             // groupControl3
@@ -256,7 +256,7 @@
             this.groupControl3.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             this.groupControl3.Location = new System.Drawing.Point(2, 183);
             this.groupControl3.Name = "groupControl3";
-            this.groupControl3.Size = new System.Drawing.Size(1207, 277);
+            this.groupControl3.Size = new System.Drawing.Size(1207, 192);
             this.groupControl3.TabIndex = 2;
             this.groupControl3.Text = "HAREKET BİLGİLERİ";
             // 
@@ -266,7 +266,7 @@
             this.panelControl7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl7.Location = new System.Drawing.Point(610, 23);
             this.panelControl7.Name = "panelControl7";
-            this.panelControl7.Size = new System.Drawing.Size(595, 252);
+            this.panelControl7.Size = new System.Drawing.Size(595, 167);
             this.panelControl7.TabIndex = 1;
             // 
             // GBTutar
@@ -280,7 +280,7 @@
             this.GBTutar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GBTutar.Location = new System.Drawing.Point(2, 2);
             this.GBTutar.Name = "GBTutar";
-            this.GBTutar.Size = new System.Drawing.Size(591, 248);
+            this.GBTutar.Size = new System.Drawing.Size(591, 163);
             this.GBTutar.TabIndex = 7;
             this.GBTutar.Text = "Tutar Bilgileri";
             // 
@@ -348,6 +348,7 @@
             // 
             // panelControl6
             // 
+
             this.panelControl6.Controls.Add(this.GBCari);
             this.panelControl6.Controls.Add(this.GBPersonel);
             this.panelControl6.Controls.Add(this.GBMuhasebe);
@@ -356,158 +357,8 @@
             this.panelControl6.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelControl6.Location = new System.Drawing.Point(2, 23);
             this.panelControl6.Name = "panelControl6";
-            this.panelControl6.Size = new System.Drawing.Size(608, 252);
+            this.panelControl6.Size = new System.Drawing.Size(608, 167);
             this.panelControl6.TabIndex = 0;
-            // 
-            // GBCari
-            // 
-            this.GBCari.Controls.Add(this.TBCariAdi);
-            this.GBCari.Controls.Add(this.BTNCariSec);
-            this.GBCari.Controls.Add(this.labelControl11);
-            this.GBCari.Controls.Add(this.labelControl10);
-            this.GBCari.Controls.Add(this.labelControl9);
-            this.GBCari.Controls.Add(this.labelControl8);
-            this.GBCari.Controls.Add(this.labelControl7);
-            this.GBCari.Controls.Add(this.labelControl2);
-            this.GBCari.Controls.Add(this.labelControl3);
-            this.GBCari.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GBCari.Location = new System.Drawing.Point(2, 2);
-            this.GBCari.Name = "GBCari";
-            this.GBCari.Size = new System.Drawing.Size(604, 248);
-            this.GBCari.TabIndex = 5;
-            this.GBCari.Text = "Cari";
-            // 
-            // TBCariAdi
-            // 
-            this.TBCariAdi.Enabled = false;
-            this.TBCariAdi.Location = new System.Drawing.Point(245, 104);
-            this.TBCariAdi.Name = "TBCariAdi";
-            this.TBCariAdi.Size = new System.Drawing.Size(150, 20);
-            this.TBCariAdi.TabIndex = 11;
-            // 
-            // BTNCariSec
-            // 
-            this.BTNCariSec.Location = new System.Drawing.Point(245, 75);
-            this.BTNCariSec.Name = "BTNCariSec";
-            this.BTNCariSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.BTNCariSec.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTNCariSec_Properties_ButtonClick);
-            this.BTNCariSec.Size = new System.Drawing.Size(150, 22);
-            this.BTNCariSec.TabIndex = 9;
-            // 
-            // labelControl11
-            // 
-            this.labelControl11.Location = new System.Drawing.Point(336, 219);
-            this.labelControl11.Name = "labelControl11";
-            this.labelControl11.Size = new System.Drawing.Size(6, 13);
-            this.labelControl11.TabIndex = 7;
-            this.labelControl11.Text = "0";
-            // 
-            // labelControl10
-            // 
-            this.labelControl10.Location = new System.Drawing.Point(183, 219);
-            this.labelControl10.Name = "labelControl10";
-            this.labelControl10.Size = new System.Drawing.Size(6, 13);
-            this.labelControl10.TabIndex = 6;
-            this.labelControl10.Text = "0";
-            // 
-            // labelControl9
-            // 
-            this.labelControl9.Location = new System.Drawing.Point(336, 195);
-            this.labelControl9.Name = "labelControl9";
-            this.labelControl9.Size = new System.Drawing.Size(31, 13);
-            this.labelControl9.TabIndex = 5;
-            this.labelControl9.Text = "Alacak";
-            // 
-            // labelControl8
-            // 
-            this.labelControl8.Location = new System.Drawing.Point(183, 195);
-            this.labelControl8.Name = "labelControl8";
-            this.labelControl8.Size = new System.Drawing.Size(21, 13);
-            this.labelControl8.TabIndex = 4;
-            this.labelControl8.Text = "Borç";
-            // 
-            // labelControl7
-            // 
-            this.labelControl7.Location = new System.Drawing.Point(15, 104);
-            this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(0, 13);
-            this.labelControl7.TabIndex = 3;
-            // 
-            // labelControl2
-            // 
-            this.labelControl2.Location = new System.Drawing.Point(174, 81);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(53, 13);
-            this.labelControl2.TabIndex = 0;
-            this.labelControl2.Text = "Cari Kodu :";
-            // 
-            // labelControl3
-            // 
-            this.labelControl3.Location = new System.Drawing.Point(183, 105);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(44, 13);
-            this.labelControl3.TabIndex = 1;
-            this.labelControl3.Text = "Cari Adı :";
-            // 
-            // GBPersonel
-            // 
-            this.GBPersonel.Controls.Add(this.BTNPersonelSec);
-            this.GBPersonel.Controls.Add(this.labelControl14);
-            this.GBPersonel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GBPersonel.Enabled = false;
-            this.GBPersonel.Location = new System.Drawing.Point(2, 2);
-            this.GBPersonel.Name = "GBPersonel";
-            this.GBPersonel.Size = new System.Drawing.Size(604, 248);
-            this.GBPersonel.TabIndex = 5;
-            this.GBPersonel.Text = "Personel";
-            this.GBPersonel.Visible = false;
-            // 
-            // BTNPersonelSec
-            // 
-            this.BTNPersonelSec.Location = new System.Drawing.Point(161, 61);
-            this.BTNPersonelSec.Name = "BTNPersonelSec";
-            this.BTNPersonelSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.BTNPersonelSec.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTNPersonelSec_Properties_ButtonClick);
-            this.BTNPersonelSec.Size = new System.Drawing.Size(134, 22);
-            this.BTNPersonelSec.TabIndex = 1;
-            // 
-            // labelControl14
-            // 
-            this.labelControl14.Location = new System.Drawing.Point(101, 64);
-            this.labelControl14.Name = "labelControl14";
-            this.labelControl14.Size = new System.Drawing.Size(41, 13);
-            this.labelControl14.TabIndex = 0;
-            this.labelControl14.Text = "Personel";
-            // 
-            // GBMuhasebe
-            // 
-            this.GBMuhasebe.Controls.Add(this.TBMuhKodu);
-            this.GBMuhasebe.Controls.Add(this.labelControl13);
-            this.GBMuhasebe.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GBMuhasebe.Enabled = false;
-            this.GBMuhasebe.Location = new System.Drawing.Point(2, 2);
-            this.GBMuhasebe.Name = "GBMuhasebe";
-            this.GBMuhasebe.Size = new System.Drawing.Size(604, 248);
-            this.GBMuhasebe.TabIndex = 5;
-            this.GBMuhasebe.Text = "Muhasebe";
-            this.GBMuhasebe.Visible = false;
-            // 
-            // TBMuhKodu
-            // 
-            this.TBMuhKodu.Location = new System.Drawing.Point(211, 61);
-            this.TBMuhKodu.Name = "TBMuhKodu";
-            this.TBMuhKodu.Size = new System.Drawing.Size(142, 20);
-            this.TBMuhKodu.TabIndex = 1;
-            // 
-            // labelControl13
-            // 
-            this.labelControl13.Location = new System.Drawing.Point(120, 64);
-            this.labelControl13.Name = "labelControl13";
-            this.labelControl13.Size = new System.Drawing.Size(76, 13);
-            this.labelControl13.TabIndex = 0;
-            this.labelControl13.Text = "Muhasebe Kodu";
             // 
             // GBBanka
             // 
@@ -523,42 +374,42 @@
             this.GBBanka.Enabled = false;
             this.GBBanka.Location = new System.Drawing.Point(2, 2);
             this.GBBanka.Name = "GBBanka";
-            this.GBBanka.Size = new System.Drawing.Size(604, 248);
+            this.GBBanka.Size = new System.Drawing.Size(604, 163);
             this.GBBanka.TabIndex = 5;
             this.GBBanka.Text = "Banka";
             this.GBBanka.Visible = false;
             // 
             // TBBankaSubeAdi
             // 
-            this.TBBankaSubeAdi.Location = new System.Drawing.Point(235, 87);
+            this.TBBankaSubeAdi.Location = new System.Drawing.Point(108, 78);
             this.TBBankaSubeAdi.Name = "TBBankaSubeAdi";
             this.TBBankaSubeAdi.Size = new System.Drawing.Size(146, 20);
             this.TBBankaSubeAdi.TabIndex = 15;
             // 
             // TBBankaSubeKod
             // 
-            this.TBBankaSubeKod.Location = new System.Drawing.Point(235, 121);
+            this.TBBankaSubeKod.Location = new System.Drawing.Point(382, 42);
             this.TBBankaSubeKod.Name = "TBBankaSubeKod";
             this.TBBankaSubeKod.Size = new System.Drawing.Size(146, 20);
             this.TBBankaSubeKod.TabIndex = 14;
             // 
             // TBBankaIban
             // 
-            this.TBBankaIban.Location = new System.Drawing.Point(235, 157);
+            this.TBBankaIban.Location = new System.Drawing.Point(382, 78);
             this.TBBankaIban.Name = "TBBankaIban";
             this.TBBankaIban.Size = new System.Drawing.Size(146, 20);
             this.TBBankaIban.TabIndex = 13;
             // 
             // TBBankaAdi
             // 
-            this.TBBankaAdi.Location = new System.Drawing.Point(235, 51);
+            this.TBBankaAdi.Location = new System.Drawing.Point(108, 42);
             this.TBBankaAdi.Name = "TBBankaAdi";
             this.TBBankaAdi.Size = new System.Drawing.Size(146, 20);
             this.TBBankaAdi.TabIndex = 12;
             // 
             // LBIban
             // 
-            this.LBIban.Location = new System.Drawing.Point(187, 160);
+            this.LBIban.Location = new System.Drawing.Point(334, 81);
             this.LBIban.Name = "LBIban";
             this.LBIban.Size = new System.Drawing.Size(42, 13);
             this.LBIban.TabIndex = 11;
@@ -566,7 +417,7 @@
             // 
             // LBBankaSubeKodu
             // 
-            this.LBBankaSubeKodu.Location = new System.Drawing.Point(137, 124);
+            this.LBBankaSubeKodu.Location = new System.Drawing.Point(284, 45);
             this.LBBankaSubeKodu.Name = "LBBankaSubeKodu";
             this.LBBankaSubeKodu.Size = new System.Drawing.Size(92, 13);
             this.LBBankaSubeKodu.TabIndex = 10;
@@ -574,7 +425,7 @@
             // 
             // LBBankaSubeAdi
             // 
-            this.LBBankaSubeAdi.Location = new System.Drawing.Point(147, 90);
+            this.LBBankaSubeAdi.Location = new System.Drawing.Point(20, 81);
             this.LBBankaSubeAdi.Name = "LBBankaSubeAdi";
             this.LBBankaSubeAdi.Size = new System.Drawing.Size(82, 13);
             this.LBBankaSubeAdi.TabIndex = 9;
@@ -582,7 +433,7 @@
             // 
             // LBBankaAdi
             // 
-            this.LBBankaAdi.Location = new System.Drawing.Point(175, 54);
+            this.LBBankaAdi.Location = new System.Drawing.Point(48, 45);
             this.LBBankaAdi.Name = "LBBankaAdi";
             this.LBBankaAdi.Size = new System.Drawing.Size(54, 13);
             this.LBBankaAdi.TabIndex = 8;
@@ -594,7 +445,7 @@
             this.GBMuhtelif.Enabled = false;
             this.GBMuhtelif.Location = new System.Drawing.Point(2, 2);
             this.GBMuhtelif.Name = "GBMuhtelif";
-            this.GBMuhtelif.Size = new System.Drawing.Size(604, 248);
+            this.GBMuhtelif.Size = new System.Drawing.Size(604, 163);
             this.GBMuhtelif.TabIndex = 5;
             this.GBMuhtelif.Text = "Muhtelif";
             this.GBMuhtelif.Visible = false;
@@ -676,7 +527,7 @@
             this.BTNKasaSec.Location = new System.Drawing.Point(44, 43);
             this.BTNKasaSec.Name = "BTNKasaSec";
             this.BTNKasaSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTNKasaSec.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTNKasaSec_Properties_ButtonClick);
             this.BTNKasaSec.Size = new System.Drawing.Size(147, 22);
             this.BTNKasaSec.TabIndex = 11;
@@ -708,6 +559,156 @@
             this.labelControl1.Size = new System.Drawing.Size(28, 13);
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "Tarih:";
+            // 
+            // GBMuhasebe
+            // 
+            this.GBMuhasebe.Controls.Add(this.TBMuhKodu);
+            this.GBMuhasebe.Controls.Add(this.labelControl13);
+            this.GBMuhasebe.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GBMuhasebe.Enabled = false;
+            this.GBMuhasebe.Location = new System.Drawing.Point(2, 2);
+            this.GBMuhasebe.Name = "GBMuhasebe";
+            this.GBMuhasebe.Size = new System.Drawing.Size(604, 169);
+            this.GBMuhasebe.TabIndex = 5;
+            this.GBMuhasebe.Text = "Muhasebe";
+            this.GBMuhasebe.Visible = false;
+            // 
+            // TBMuhKodu
+            // 
+            this.TBMuhKodu.Location = new System.Drawing.Point(119, 55);
+            this.TBMuhKodu.Name = "TBMuhKodu";
+            this.TBMuhKodu.Size = new System.Drawing.Size(142, 20);
+            this.TBMuhKodu.TabIndex = 1;
+            // 
+            // labelControl13
+            // 
+            this.labelControl13.Location = new System.Drawing.Point(28, 58);
+            this.labelControl13.Name = "labelControl13";
+            this.labelControl13.Size = new System.Drawing.Size(76, 13);
+            this.labelControl13.TabIndex = 0;
+            this.labelControl13.Text = "Muhasebe Kodu";
+            // 
+            // GBPersonel
+            // 
+            this.GBPersonel.Controls.Add(this.BTNPersonelSec);
+            this.GBPersonel.Controls.Add(this.labelControl14);
+            this.GBPersonel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GBPersonel.Enabled = false;
+            this.GBPersonel.Location = new System.Drawing.Point(2, 2);
+            this.GBPersonel.Name = "GBPersonel";
+            this.GBPersonel.Size = new System.Drawing.Size(604, 169);
+            this.GBPersonel.TabIndex = 5;
+            this.GBPersonel.Text = "Personel";
+            this.GBPersonel.Visible = false;
+            // 
+            // BTNPersonelSec
+            // 
+            this.BTNPersonelSec.Location = new System.Drawing.Point(90, 46);
+            this.BTNPersonelSec.Name = "BTNPersonelSec";
+            this.BTNPersonelSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.BTNPersonelSec.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTNPersonelSec_Properties_ButtonClick);
+            this.BTNPersonelSec.Size = new System.Drawing.Size(134, 22);
+            this.BTNPersonelSec.TabIndex = 1;
+            // 
+            // labelControl14
+            // 
+            this.labelControl14.Location = new System.Drawing.Point(30, 49);
+            this.labelControl14.Name = "labelControl14";
+            this.labelControl14.Size = new System.Drawing.Size(41, 13);
+            this.labelControl14.TabIndex = 0;
+            this.labelControl14.Text = "Personel";
+            // 
+            // GBCari
+            // 
+            this.GBCari.Controls.Add(this.TBCariAdi);
+            this.GBCari.Controls.Add(this.BTNCariSec);
+            this.GBCari.Controls.Add(this.labelControl11);
+            this.GBCari.Controls.Add(this.labelControl10);
+            this.GBCari.Controls.Add(this.labelControl9);
+            this.GBCari.Controls.Add(this.labelControl8);
+            this.GBCari.Controls.Add(this.labelControl7);
+            this.GBCari.Controls.Add(this.labelControl2);
+            this.GBCari.Controls.Add(this.labelControl3);
+            this.GBCari.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GBCari.Location = new System.Drawing.Point(2, 2);
+            this.GBCari.Name = "GBCari";
+            this.GBCari.Size = new System.Drawing.Size(604, 169);
+            this.GBCari.TabIndex = 5;
+            this.GBCari.Text = "Cari";
+            // 
+            // TBCariAdi
+            // 
+            this.TBCariAdi.Enabled = false;
+            this.TBCariAdi.Location = new System.Drawing.Point(96, 68);
+            this.TBCariAdi.Name = "TBCariAdi";
+            this.TBCariAdi.Size = new System.Drawing.Size(150, 20);
+            this.TBCariAdi.TabIndex = 11;
+            // 
+            // BTNCariSec
+            // 
+            this.BTNCariSec.Location = new System.Drawing.Point(96, 39);
+            this.BTNCariSec.Name = "BTNCariSec";
+            this.BTNCariSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.BTNCariSec.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTNCariSec_Properties_ButtonClick);
+            this.BTNCariSec.Size = new System.Drawing.Size(150, 22);
+            this.BTNCariSec.TabIndex = 9;
+            // 
+            // labelControl11
+            // 
+            this.labelControl11.Location = new System.Drawing.Point(210, 128);
+            this.labelControl11.Name = "labelControl11";
+            this.labelControl11.Size = new System.Drawing.Size(6, 13);
+            this.labelControl11.TabIndex = 7;
+            this.labelControl11.Text = "0";
+            // 
+            // labelControl10
+            // 
+            this.labelControl10.Location = new System.Drawing.Point(72, 128);
+            this.labelControl10.Name = "labelControl10";
+            this.labelControl10.Size = new System.Drawing.Size(6, 13);
+            this.labelControl10.TabIndex = 6;
+            this.labelControl10.Text = "0";
+            // 
+            // labelControl9
+            // 
+            this.labelControl9.Location = new System.Drawing.Point(210, 104);
+            this.labelControl9.Name = "labelControl9";
+            this.labelControl9.Size = new System.Drawing.Size(31, 13);
+            this.labelControl9.TabIndex = 5;
+            this.labelControl9.Text = "Alacak";
+            // 
+            // labelControl8
+            // 
+            this.labelControl8.Location = new System.Drawing.Point(72, 104);
+            this.labelControl8.Name = "labelControl8";
+            this.labelControl8.Size = new System.Drawing.Size(21, 13);
+            this.labelControl8.TabIndex = 4;
+            this.labelControl8.Text = "Borç";
+            // 
+            // labelControl7
+            // 
+            this.labelControl7.Location = new System.Drawing.Point(15, 104);
+            this.labelControl7.Name = "labelControl7";
+            this.labelControl7.Size = new System.Drawing.Size(0, 13);
+            this.labelControl7.TabIndex = 3;
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Location = new System.Drawing.Point(25, 45);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(53, 13);
+            this.labelControl2.TabIndex = 0;
+            this.labelControl2.Text = "Cari Kodu :";
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Location = new System.Drawing.Point(34, 69);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(44, 13);
+            this.labelControl3.TabIndex = 1;
+            this.labelControl3.Text = "Cari Adı :";
             // 
             // FKasaHareket
             // 
@@ -742,19 +743,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.CBParaBirim.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).EndInit();
             this.panelControl6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.GBCari)).EndInit();
-            this.GBCari.ResumeLayout(false);
-            this.GBCari.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TBCariAdi.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BTNCariSec.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GBPersonel)).EndInit();
-            this.GBPersonel.ResumeLayout(false);
-            this.GBPersonel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BTNPersonelSec.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GBMuhasebe)).EndInit();
-            this.GBMuhasebe.ResumeLayout(false);
-            this.GBMuhasebe.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TBMuhKodu.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GBBanka)).EndInit();
             this.GBBanka.ResumeLayout(false);
             this.GBBanka.PerformLayout();
@@ -777,6 +765,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.BTNKasaSec.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPTarih.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPTarih.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GBMuhasebe)).EndInit();
+            this.GBMuhasebe.ResumeLayout(false);
+            this.GBMuhasebe.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TBMuhKodu.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GBPersonel)).EndInit();
+            this.GBPersonel.ResumeLayout(false);
+            this.GBPersonel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BTNPersonelSec.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GBCari)).EndInit();
+            this.GBCari.ResumeLayout(false);
+            this.GBCari.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TBCariAdi.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BTNCariSec.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
