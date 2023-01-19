@@ -120,6 +120,7 @@ namespace MEYPAK.PRL
         FMusteriSenetTahsilat fMusteriSenetTahsilat;
         FMusteriSenetTeminat fMusteriSenetTeminat;
         FMusteriSenetProtesto fMusteriSenetProtesto;
+        FStokSarf fStokSarf;
 
 
         public Tarih_Date _tarih_Date;
@@ -1578,6 +1579,27 @@ namespace MEYPAK.PRL
             fMusteriSenetProtesto.Tag = "TPMusteriSenetProtesto" + i;
             page.Controls.Add(fMusteriSenetProtesto);
             fMusteriSenetProtesto.Show();
+            i++;
+        }
+
+        private void ACEStokSarf_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fStokSarf = new FStokSarf();
+            page.Name = "TPStokSarf" + i;
+            page.Text = "Stok Sarfiyat";
+            page.Tag = "TPStokSarf" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fStokSarf.FormBorderStyle = FormBorderStyle.None;
+            fStokSarf.TopLevel = false;
+            fStokSarf.AutoScroll = true;
+            fStokSarf.Dock = DockStyle.Fill;
+            fStokSarf.Tag = "TPStokSarf" + i;
+            page.Controls.Add(fStokSarf);
+            fStokSarf.Show();
             i++;
         }
     }

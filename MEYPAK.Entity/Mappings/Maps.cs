@@ -35,6 +35,10 @@ namespace MEYPAK.Entity.Mappings
     {
         public Maps()
         {
+            //SARF
+            CreateMap<MPSTOKSARF, PocoSTOKSARF>().ReverseMap();
+            CreateMap<MPSTOKSARFDETAY, PocoSTOKSARFDETAY>().ReverseMap();
+
             //CEKSENET
             CreateMap<MPCEKSENETUSTSB, PocoCEKSENETUSTSB>().ReverseMap();
 
