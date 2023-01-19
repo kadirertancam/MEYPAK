@@ -1364,7 +1364,6 @@
             this.ACEFirmaCek,
             this.ACEFirmaSenet,
             this.ACECekSenetRapor});
-            this.ACECekSenet.Expanded = true;
             this.ACECekSenet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ACECekSenet.ImageOptions.Image")));
             this.ACECekSenet.Name = "ACECekSenet";
             this.ACECekSenet.Text = "Çek/Senet";
@@ -1377,7 +1376,6 @@
             this.ACEMCekTahsilat,
             this.ACEMCekTeminat,
             this.ACEMCekProtesto});
-            this.ACEMusteriCek.Expanded = true;
             this.ACEMusteriCek.Name = "ACEMusteriCek";
             this.ACEMusteriCek.Text = "Müşteri Çek";
             // 
@@ -1424,7 +1422,6 @@
             this.ACEMSenetTahsilat,
             this.ACEMSenetTeminat,
             this.ACEMSenetProtesto});
-            this.ACEMusteriSenet.Expanded = true;
             this.ACEMusteriSenet.Name = "ACEMusteriSenet";
             this.ACEMusteriSenet.Text = "Müşteri Senet";
             // 
@@ -1467,7 +1464,6 @@
             // 
             this.ACEFirmaCek.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.ACEFCekTanim});
-            this.ACEFirmaCek.Expanded = true;
             this.ACEFirmaCek.Name = "ACEFirmaCek";
             this.ACEFirmaCek.Text = "Firma Çek";
             // 
@@ -1482,7 +1478,6 @@
             // 
             this.ACEFirmaSenet.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.ACEFSenetTanim});
-            this.ACEFirmaSenet.Expanded = true;
             this.ACEFirmaSenet.Name = "ACEFirmaSenet";
             this.ACEFirmaSenet.Text = "Firma Senet";
             // 
@@ -1495,6 +1490,7 @@
             // 
             // ACECekSenetRapor
             // 
+            this.ACECekSenetRapor.Expanded = true;
             this.ACECekSenetRapor.Name = "ACECekSenetRapor";
             this.ACECekSenetRapor.Text = "Raporlar";
             // 

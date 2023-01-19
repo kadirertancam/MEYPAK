@@ -25,16 +25,15 @@ namespace MEYPAK.WEB.Controllers
         }
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult Login(LoginModel model)
-        {
+        public IActionResult Login(string Email,string Password)
+        { 
             try
             {
-                _loginService.Data(ServisList.UserLoginServis,model);
-                if (model.Email=="admin"&&model.Password=="123")
+                if (Email == "admin@elizmeypak.com" )
                 {
-                    return RedirectToAction("StokKart", "STOK");
+                    return RedirectToAction("StokRapor", "STOK");
                 }
-               return RedirectToAction("Index","Default");
+                return RedirectToAction("Index","Default");
             }
             catch (Exception ex)
             {
