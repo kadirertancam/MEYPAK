@@ -49,7 +49,7 @@ namespace MEYPAK.PRL.CARI
             DGCariHareket.DataSource = _cariHarServis.obje.Where(x => x.cariid == _tempCARIKART.id);
             LBAlacakDeger.Text = _cariHarServis.obje.Where(x => x.cariid == _tempCARIKART.id).Sum(x => x.alacak).ToString();
             LBBorcDeger.Text = _cariHarServis.obje.Where(x => x.cariid == _tempCARIKART.id).Sum(x => x.borc).ToString();
-            LBBakiye.Text = _cariHarServis.obje.Where(x => x.cariid == _tempCARIKART.id).Sum(x => x.borc - x.alacak).ToString();
+            LBBakiyeDeger.Text = _cariHarServis.obje.Where(x => x.cariid == _tempCARIKART.id).Sum(x => x.borc - x.alacak).ToString();
             DGCariHareket.Refresh();
             DGCariHareket.RefreshDataSource();
 

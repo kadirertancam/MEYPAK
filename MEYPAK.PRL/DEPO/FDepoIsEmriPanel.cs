@@ -55,6 +55,7 @@ namespace MEYPAK.PRL.DEPO
         GenericWebServis<PocoSIPARIS> _siparisServis;
         GenericWebServis<PocoSIPARISSEVKEMIRHAR> _siparisSevkEmriHarServis;
         GenericWebServis<PocoSATINALMAMALKABULEMRIHAR> _satinAlmaMalKabulEmriHarServis;
+
         GenericWebServis<PocoSTOKMALKABULLIST> _stokMalKabulList;
         GenericWebServis<PocoSTOKSEVKIYATLIST> _stokSevkiyatList;
         GenericWebServis<PocoARAC> _aracServis;
@@ -66,7 +67,7 @@ namespace MEYPAK.PRL.DEPO
         string _sipid;
         private void FDepoIsEmriPanel_Load(object sender, EventArgs e)
         {
-            _satinAlmaMalKabulEmriHarServis.Data(ServisList.StokMalKabulListListeServis);
+            _satinAlmaMalKabulEmriHarServis.Data(ServisList.SatinAlmaMalKabulHarListeServis);
             _siparisDetayServis.Data(ServisList.SiparisDetayListeServis);
             _stokServis.Data(ServisList.StokListeServis);
             _depoEmirServis.Data(ServisList.DepoEmirListeServis);
@@ -156,7 +157,7 @@ namespace MEYPAK.PRL.DEPO
             if (_emirid != "")
             {
                 _siparisSevkEmriHarServis.Data(ServisList.SiparisSevkEmriHarListeServis);
-                _satinAlmaMalKabulEmriHarServis.Data(ServisList.StokMalKabulListListeServis);
+                _satinAlmaMalKabulEmriHarServis.Data(ServisList.SatinAlmaMalKabulHarListeServis);
                 if (ms == 0)
                 {
                     for (int j = 0; j < gridView1.RowCount; j++)
@@ -210,7 +211,7 @@ namespace MEYPAK.PRL.DEPO
                             var _tempSipDetay = _siparisDetayServis.obje.Where(x => x.siparisid.ToString() == _sipid.ToString() && x.stokid == _stokServis.obje.Where(z => z.kod == gridView1.GetRowCellValue(j, "StokKodu").ToString() && z.kayittipi == 0).Select(z => z.id).FirstOrDefault()).FirstOrDefault();
                             _tempSipDetay.hareketdurumu = 1;
                             _siparisDetayServis.Data(ServisList.SiparisDetayEkleServis, _tempSipDetay);
-                            _satinAlmaMalKabulEmriHarServis.Data(ServisList.StokMalKabulListEkleServis, new PocoSATINALMAMALKABULEMRIHAR()
+                            _satinAlmaMalKabulEmriHarServis.Data(ServisList.SatinAlmaMalKabulHarEkleServis, new PocoSATINALMAMALKABULEMRIHAR()
                             {
                                 id = _satinAlmaMalKabulEmriHarServis.obje.Where(z => z.emirid.ToString() == _emirid).FirstOrDefault().id,
                                 emirmiktari = Convert.ToDecimal(gridView1.GetRowCellValue(j, "SevkMiktarı").ToString()),
@@ -311,7 +312,7 @@ namespace MEYPAK.PRL.DEPO
                             var _tempSipDetay = _siparisDetayServis.obje.Where(x => x.siparisid.ToString() == _sipid.ToString() && x.stokid == _stokServis.obje.Where(z => z.kod == gridView1.GetRowCellValue(j, "StokKodu").ToString() && z.kayittipi == 0).Select(z => z.id).FirstOrDefault()).FirstOrDefault();
                             _tempSipDetay.hareketdurumu = 1;
                             _siparisDetayServis.Data(ServisList.SiparisDetayEkleServis, _tempSipDetay);
-                            _satinAlmaMalKabulEmriHarServis.Data(ServisList.StokMalKabulListEkleServis, new PocoSATINALMAMALKABULEMRIHAR()
+                            _satinAlmaMalKabulEmriHarServis.Data(ServisList.SatinAlmaMalKabulHarEkleServis, new PocoSATINALMAMALKABULEMRIHAR()
                             {
                                 emirmiktari = Convert.ToDecimal(gridView1.GetRowCellValue(j, "SevkMiktarı").ToString()),
                                 siparisid = _tempSipDetay.siparisid,

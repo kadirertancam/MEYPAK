@@ -16,6 +16,7 @@ using System.Data;
 using MEYPAK.Entity.PocoModels.FATURA;
 using MEYPAK.PRL.Assets;
 using MEYPAK.Interfaces.Hizmet;
+using MEYPAK.Interfaces.Cari;
 
 namespace MEYPAK.PRL.SIPARIS
 {
@@ -59,6 +60,7 @@ namespace MEYPAK.PRL.SIPARIS
             kDVHesaps = new KDVHesap();
             _hizmetHarServis= new GenericWebServis<PocoHIZMETHAR>();
             _hizmetServis= new GenericWebServis<PocoHIZMET>();
+            _cariHarServsi = new GenericWebServis<PocoCARIHAR>();
         }
 
         #region TANIMLAR
@@ -79,6 +81,7 @@ namespace MEYPAK.PRL.SIPARIS
         DataGridViewButtonColumn DGVKasaSec;
         DataGridViewComboBoxColumn DGVFiyatList;
         DataGridViewComboBoxColumn DGVKasaList;
+        GenericWebServis<PocoCARIHAR> _cariHarServsi;
         GenericWebServis<PocoDEPO> _depoServis;
         GenericWebServis<PocoFATURA> _faturaServis;
         GenericWebServis<PocoFATURADETAY> _faturadetayServis;
@@ -1064,10 +1067,24 @@ namespace MEYPAK.PRL.SIPARIS
                                 _stokKasaHarServis.Data(ServisList.StokKasaHarDeleteByIdServis, id: sss.id.ToString(), method: System.Net.Http.HttpMethod.Post);
                             }
                     }
-
+                 
 
                 }
+                _cariHarServsi.Data(ServisList.CariHarEkleServis, new PocoCARIHAR()
+                {
+                    aciklama = "Satış Faturası",
+                    belgE_NO = _faturaServis.obje2.belgeno,
+                    alacak = _faturaServis.obje2.geneltoplam,
+                    borc = 0,
+                    carialthesapid = _faturaServis.obje2.althesapid,
+                    cariid = _faturaServis.obje2.cariid,
+                    harekettarihi = _faturaServis.obje2.faturatarihi,
+                    harekettipi = 1,
+                    kur = 1,
+                    parabirimid = 11638,
+                    tutar = 0 - _faturaServis.obje2.geneltoplam,
 
+                });
                 if (_tempSilinenFaturaDetay.Count() > 0)
                 {
                     foreach (var item in _tempSilinenFaturaDetay)

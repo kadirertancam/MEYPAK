@@ -333,7 +333,7 @@ namespace MEYPAK.PRL.DEPO
             _depoEmirServis.Data(ServisList.DepoEmirListeServis);
             _stokServis.Data(ServisList.StokListeServis);
             _stokMalKabulListServis.Data(ServisList.StokMalKabulListListeServis);
-            _siparisMalKabulHarServis.Data(ServisList.SiparisSevkEmriHarListeServis);
+            _siparisMalKabulHarServis.Data(ServisList.SatinAlmaMalKabulHarListeServis);
 
             GCIsEmriPanel.DataSource = _depoEmirServis.obje.Select(x => new { ID = x.id, _siparisServis.obje.Where(z => x.siparisid == z.id).FirstOrDefault().belgeno, x.miktar, CARIADI = _siparisServis.obje.Where(z => z.id == x.siparisid).FirstOrDefault().cariadi, DEPO = _depoServis.obje.Where(v => v.id == _siparisServis.obje.Where(z => z.id == x.siparisid).FirstOrDefault().depoid).FirstOrDefault().depoadi, x.tip, x.durum }).ToList();
             GCIsEmriPanel.Refresh();
@@ -346,7 +346,7 @@ namespace MEYPAK.PRL.DEPO
             // if (Convert.ToInt32(dataGridView2.Rows[e.RowIndex].Cells["DURUM"].Value)==1)
             _stokMalKabulListServis.Data(ServisList.StokMalKabulListListeServis);
             _stokServis.Data(ServisList.StokListeServis);
-            _siparisMalKabulHarServis.Data(ServisList.StokMalKabulListListeServis);
+            _siparisMalKabulHarServis.Data(ServisList.SatinAlmaMalKabulHarListeServis);
             _siparisServis.Data(ServisList.SiparisListeServis);
             _siparisDetayServis.Data(ServisList.SiparisDetayListeServis);
             _olcuBrServis.Data(ServisList.OlcuBrListeServis);
