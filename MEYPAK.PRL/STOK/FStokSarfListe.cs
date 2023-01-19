@@ -57,7 +57,7 @@ namespace MEYPAK.PRL.STOK
             if (_islem=="FStokSarf")
             {
                 if (fstokSarf!=null)
-                    fstokSarf._tempSarf = _stokSarf.obje.Where(x=> x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+                    fstokSarf._tempSarf = _stokSarf.obje.Where(x=> x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()).FirstOrDefault();
 
             }
             this.Close();

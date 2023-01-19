@@ -7,12 +7,14 @@ using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraPdfViewer;
 using DevExpress.XtraRichEdit;
 using MEYPAK.BLL.Assets;
+using MEYPAK.Entity.Models.CARI;
 using MEYPAK.Entity.PocoModels;
 using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.DEPO;
 using MEYPAK.Entity.PocoModels.FATURA;
 using MEYPAK.Entity.PocoModels.PARAMETRE;
 using MEYPAK.Entity.PocoModels.STOK;
+using MEYPAK.Interfaces.Fatura;
 using MEYPAK.PRL.Assets;
 using MEYPAK.PRL.CARI;
 using MEYPAK.PRL.SIPARIS;
@@ -124,8 +126,8 @@ namespace MEYPAK.PRL.STOK
             _tempSarfDetay.Add(new PocoSarfKalem());
             GCIrsaliye.DataSource = _tempSarfDetay;
             //DGVOlcuBr.DataSource = _tempStok.MPSTOKOLCUBR.Select(x => x.MPOLCUBR.ADI).ToList();
-            gridView1.Columns["StokId"].Visible = false;
-            gridView1.Columns["KasaId"].Visible = false;
+            gridView1.Columns["STOKID"].Visible = false;
+            gridView1.Columns["STOKID"].Visible = false;
             TBAciklama.Text = "";
 
             TBFaturaNo.Text = "";
@@ -143,9 +145,6 @@ namespace MEYPAK.PRL.STOK
             _tempStok = new PocoSTOK();
             _tempSarfDetay.Add(new PocoSarfKalem() { TIP = "STOK" });
 
-
-
-
             repositoryItemButtonEdit = new RepositoryItemButtonEdit();
             repositoryItemButtonEdit.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             repositoryItemButtonEdit.NullText = "";
@@ -153,7 +152,6 @@ namespace MEYPAK.PRL.STOK
             repositoryItemButtonEdit.Buttons[0].Caption = "SEÇ";
             repositoryItemButtonEdit.Buttons[0].Kind = ButtonPredefines.Glyph;
             repositoryItemButtonEdit.Buttons[0].Shortcut = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.Enter);
-
 
             RepositoryItemButtonEdit repositoryItemButtonEdit4 = new RepositoryItemButtonEdit();
             repositoryItemButtonEdit4.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
@@ -221,9 +219,6 @@ namespace MEYPAK.PRL.STOK
             gridView1.Columns["KUNYE"].OptionsColumn.AllowEdit = true;
             gridView1.Columns["KUNYE"].ColumnEdit = repositoryItemButtonEdit4;
        
-            //repoGV.Columns.Add(colun2);
-            gridView1.Columns["KasaAdı"].ColumnEdit = riLookup3;
-
 
             DataTable dt = new DataTable();
             dt.Columns.Add("ID", typeof(int));
@@ -231,49 +226,7 @@ namespace MEYPAK.PRL.STOK
 
 
             gridView1.BestFitColumns();
-            RepositoryItemLookUpEdit riLookup2 = new RepositoryItemLookUpEdit();
-
-            riLookup2.DataSource = dt;
-            riLookup2.ValueMember = "ID";
-            riLookup2.DisplayMember = "ADI";
-            riLookup2.NullText = "Sec";
-            riLookup2.NullValuePrompt = "Seç";
-
-            riLookup2.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
-            riLookup2.DropDownRows = datatb.Rows.Count;
-
-            riLookup2.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete;
-            riLookup2.AutoSearchColumnIndex = 1;
-            riLookup2.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
-            gridView1.Columns["Doviz"].OptionsColumn.AllowEdit = true;
-            //repoGV.Columns.Add(colun2);
-            gridView1.Columns["Doviz"].ColumnEdit = riLookup2;
-            gridView1.Columns["Doviz"].ColumnEdit = riLookup2;
-
-            gridView1.BestFitColumns();
-
-            RepositoryItemLookUpEdit riLookup5 = new RepositoryItemLookUpEdit();
-            riLookup5.NullText = "Sec";
-
-            riLookup5.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
-            riLookup5.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete;
-            riLookup5.AutoSearchColumnIndex = 1;
-            riLookup5.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
-            gridView1.Columns["Tevkifatno"].OptionsColumn.AllowEdit = true;
-            gridView1.Columns["Tevkifatno"].ColumnEdit = riLookup5;
-
-
-
-            RepositoryItemLookUpEdit riLookup6 = new RepositoryItemLookUpEdit();
-            riLookup6.NullText = "Sec";
-
-            riLookup6.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
-            riLookup6.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete;
-            riLookup6.AutoSearchColumnIndex = 1;
-            riLookup6.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
-            gridView1.Columns["Istisnano"].OptionsColumn.AllowEdit = true;
-            gridView1.Columns["Istisnano"].ColumnEdit = riLookup6;
-
+     
 
            
             repositoryItemButtonEdit5.ButtonClick += RepositoryItemButtonEdit5_ButtonClick;
@@ -284,35 +237,22 @@ namespace MEYPAK.PRL.STOK
 
             GCIrsaliye.RepositoryItems.Add(repositoryItemButtonEdit4);
 
-            gridView1.Columns["Daralı"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            gridView1.Columns["Daralı"].DisplayFormat.FormatString = "n2";
+            gridView1.Columns["MIKTAR"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            gridView1.Columns["MIKTAR"].DisplayFormat.FormatString = "n2";
+         
+            gridView1.Columns["STOKID"].Visible = false;
+            gridView1.Columns["BIRIMID"].Visible = false;
 
-            gridView1.Columns["Safi"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            gridView1.Columns["Safi"].DisplayFormat.FormatString = "n2";
-            gridView1.Columns["Safi"].OptionsColumn.AllowEdit = false;
-
-            gridView1.Columns["KdvTutarı"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            gridView1.Columns["KdvTutarı"].DisplayFormat.FormatString = "n2";
-            gridView1.Columns["KdvTutarı"].OptionsColumn.AllowEdit = false;
-
-            gridView1.Columns["İskontoTutarı"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            gridView1.Columns["İskontoTutarı"].DisplayFormat.FormatString = "n2";
-            gridView1.Columns["İskontoTutarı"].OptionsColumn.AllowEdit = false;
-
-            gridView1.Columns["NetToplam"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            gridView1.Columns["NetToplam"].DisplayFormat.FormatString = "n2";
-            gridView1.Columns["NetToplam"].OptionsColumn.AllowEdit = false;
-
-            gridView1.Columns["BrütToplam"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            gridView1.Columns["BrütToplam"].DisplayFormat.FormatString = "n2";
-            gridView1.Columns["BrütToplam"].OptionsColumn.AllowEdit = false;
-
-
-            gridView1.Columns["StokId"].Visible = false;
-
-            gridView1.Columns["KasaId"].Visible = false;
+            gridView1.Columns["KASAID"].Visible = false;
             gridView1.Columns["id"].Visible = false;
-            gridView1.Columns["Tipi"].UnboundDataType = System.Type.GetType("System.String");
+            gridView1.Columns["TIP"].UnboundDataType = System.Type.GetType("System.String");
+            gridView1.Columns["TIP"].VisibleIndex = 0;
+            gridView1.Columns["STOK"].VisibleIndex = 1;
+            gridView1.Columns["BIRIM"].VisibleIndex = 2;
+            gridView1.Columns["MIKTAR"].VisibleIndex = 3;
+            gridView1.Columns["KUNYE"].VisibleIndex = 4;
+            gridView1.Columns["ACIKLAMA"].VisibleIndex = 5;
+
             GCIrsaliye.ForceInitialize();
         }
 
@@ -331,7 +271,20 @@ namespace MEYPAK.PRL.STOK
 
                 _sarfDetayServis.Data(ServisList.StokSarfDetayListeServis);
 
-                GCIrsaliye.DataSource = _sarfDetayServis.obje.Where(x=>x.SARFID==_tempSarf.id);
+                GCIrsaliye.DataSource = _sarfDetayServis.obje.Where(x => x.SARFID == _tempSarf.id).Select(x => new PocoSarfKalem()
+                {
+                    id = x.id,
+                    STOK = x.STOKID > 0 ? _stokServis.obje.Where(y => y.id == x.STOKID).FirstOrDefault().adi : _kasaServis.obje.Where(y => y.id == x.KASAID).FirstOrDefault().aciklama,
+                    STOKID = x.STOKID,
+                    KASAID = x.KASAID,
+                    MIKTAR = x.MIKTAR,
+                    ACIKLAMA = x.ACIKLAMA,
+                    BIRIM = x.BIRIMID > 0 ? _olcuBr.obje.Where(y => y.id == x.BIRIMID).FirstOrDefault().adi : "",
+                    BIRIMID = x.BIRIMID,
+                    KUNYE = x.KUNYE,
+                    TIP = x.TIP == 0 ? "STOK" : "KASA"
+
+                }) ;
             }
         }
 
@@ -342,10 +295,11 @@ namespace MEYPAK.PRL.STOK
         #region EVENTS
         private void RepositoryItemButtonEdit5_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
-            if (Convert.ToInt32(gridView1.GetFocusedRowCellValue("StokId")) > 0)
+            if (Convert.ToInt32(gridView1.GetFocusedRowCellValue("STOKID")) > 0)
             {
-                FStokOlcuBrList aa = new FStokOlcuBrList(this.Tag.ToString(), "FStokSarf", Convert.ToInt32(gridView1.GetFocusedRowCellValue("StokId")));
+                FStokOlcuBrList aa = new FStokOlcuBrList(this.Tag.ToString(), "FStokSarf", Convert.ToInt32(gridView1.GetFocusedRowCellValue("STOKID")));
                 aa.ShowDialog();
+             
             }
             else
             {
@@ -365,31 +319,7 @@ namespace MEYPAK.PRL.STOK
             riLookup.GetDataSourceRowByDisplayValue(riLookup.Name);
         }
 
-        private void RepositoryItemButtonEdit3_ButtonClick(object sender, ButtonPressedEventArgs e)
-        {
-            if (gridView1.GetFocusedRowCellValue("Tipi") == "STOK")
-            {
-                if (_kasaaa.Where(x => x.num.ToString() == gridView1.FocusedRowHandle.ToString()).Count() > 0)
-                {
-
-                    fKasaList = new FStokKasaList(this.Tag.ToString(), "FStokSarf", gridView1.FocusedRowHandle.ToString(), _kasaaa);
-                }
-                else
-                {
-                    fKasaList = new FStokKasaList(this.Tag.ToString(), "FStokSarf", gridView1.FocusedRowHandle.ToString());
-                }
-                fKasaList.ShowDialog();
-                if (_kasaaa.Where(x => x.num == gridView1.FocusedRowHandle).Count() > 0)
-                {
-                    riLookup3.DataSource = _kasaaa.Where(x => x.num == gridView1.FocusedRowHandle).FirstOrDefault().KasaList.Select(x => new { Marka = x.MARKA, Adı = x.KASAADI, Miktar = x.MIKTAR });
-
-                    gridView1.SetFocusedRowCellValue("KasaMiktar", _kasaaa.Where(x => x.num == gridView1.FocusedRowHandle).Select(x => x.KasaList.Sum(z => z.MIKTAR)).FirstOrDefault().ToString());
-                    //   _tempSarfDetay.Where(x => x.sıra == gridView1.FocusedRowHandle).FirstOrDefault().KasaMiktar = Convert.ToDecimal(_kasaaa.Where(x => x.num == gridView1.FocusedRowHandle).Select(x => x.KasaList.Sum(z => z.MIKTAR)));
-                }
-
-                GCIrsaliye.RefreshDataSource();
-            }
-        }
+       
 
         private void RepositoryItemButtonEdit_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
@@ -407,20 +337,18 @@ namespace MEYPAK.PRL.STOK
                 if (_tempStok.id != 0)
                 {
 
-                    gridView1.SetFocusedRowCellValue("TIP", "STOK");
-                    gridView1.SetFocusedRowCellValue("StokId", _tempStok.id);
-                    gridView1.SetFocusedRowCellValue("StokKodu", _tempStok.kod);
-                    gridView1.SetFocusedRowCellValue("StokAdı", _tempStok.adi);
-                    gridView1.SetFocusedRowCellValue("Kdv", _tempStok.satiskdv);
-                    gridView1.SetFocusedRowCellValue("Birim", _stokOlcuBr.obje.Where(x => x.stokid == _tempStok.id).Select(x => _olcuBr.obje.Where(z => z.id == x.olcubrid).FirstOrDefault().adi).FirstOrDefault().ToString());
-                    //}
+                    _tempPocokalem = new PocoSarfKalem()
+                    {
+                        TIP = "STOK",
+                        STOKID = _tempStok.id,
+                        STOK= _tempStok.adi,
+                        MIKTAR = 0,
+                        BIRIMID = 0,//_olcuBr.obje.Where(x => x.adi == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "DGVOlcuBr").ToString()).FirstOrDefault().adi,
+                                  //KasaAdı = "",
 
-
-                    //gridView1.SetFocusedRowCellValue("Birim", _olcuBr.obje.Where(y=>y.id == _stokOlcuBr.obje.Where(x => x.stokid == _tempStok.id).FirstOrDefault().olcubrid).FirstOrDefault().adi.ToString());
-
-
-                    //GCIrsaliye.DataSource = _tempSarfDetay;
-                    GCIrsaliye.RefreshDataSource();
+                    };
+                    _tempSarfDetay[gridView1.FocusedRowHandle] = _tempPocokalem;
+                    GCIrsaliye.DataSource = _tempSarfDetay;
 
                 }
 
@@ -436,8 +364,9 @@ namespace MEYPAK.PRL.STOK
                     {
                         TIP = "KASA",
                         KASAID = _tempKasa.id,
+                        STOK=_tempKasa.aciklama,
                         MIKTAR=0,
-                        BIRIM = 0,//_olcuBr.obje.Where(x => x.adi == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "DGVOlcuBr").ToString()).FirstOrDefault().adi,
+                        BIRIMID = 0,//_olcuBr.obje.Where(x => x.adi == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "DGVOlcuBr").ToString()).FirstOrDefault().adi,
                                    //KasaAdı = "",
                     
                     };
@@ -464,24 +393,6 @@ namespace MEYPAK.PRL.STOK
                 riLookup3.DataSource = "";
 
         }
-
-
-
-        private PrintPreviewDialog printPreviewDialog1 = new PrintPreviewDialog();
-
-        // Declare a string to hold the entire document contents.
-        private string documentContents;
-
-        // Declare a variable to hold the portion of the document that
-        // is not printed.
-        private string stringToPrint;
-        List<string> fileList = new List<string>();
-        RichEditDocumentServer server;
-        PerformanceCounter counter;
-        PrintPreviewDialog prv;
-        PrintDocument prndc;
-
-
 
 
 
@@ -518,7 +429,8 @@ namespace MEYPAK.PRL.STOK
                     id = item.id,
                     STOKID = item.STOKID,
                     ACIKLAMA = item.ACIKLAMA,
-                    BIRIMID = item.TIP == "STOK" ? _olcuBr.obje.Where(y => y.id == item.BIRIM).FirstOrDefault().id : 0,
+                    KASAID= item.KASAID,
+                    BIRIMID = item.TIP == "STOK" ? _olcuBr.obje.Where(y => y.id == item.BIRIMID).FirstOrDefault().id : 0,
                     MIKTAR = item.MIKTAR,
                     SARFID = _sarfServis.obje2.id, ///ID gelecek
                     KUNYE = item.KUNYE != null ? item.KUNYE : "",
@@ -537,7 +449,7 @@ namespace MEYPAK.PRL.STOK
                         aciklama = item.ACIKLAMA,
                         belgE_NO = _sarfServis.obje2.SARFNO,
                         hareketturu = 12,
-                        birim = _olcuBr.obje.Where(x => x.id == item.BIRIM).FirstOrDefault().id,
+                        birim = _olcuBr.obje.Where(x => x.id == item.BIRIMID).FirstOrDefault().id,
                      
                         depoid = _sarfServis.obje2.DEPOID,
                         io = 0,
@@ -547,8 +459,22 @@ namespace MEYPAK.PRL.STOK
                         kunye = item.KUNYE,
                     });
                 }
+                if (item.TIP=="KASA")
+                {
+                    _stokKasaHarServis.Data(ServisList.StokKasaHarEkleServis, new PocoSTOKKASAHAR()
+                    {
+                        id = _stokKasaHarServis.obje.Where(x => x.sarfdetayid == _sarfDetayServis.obje2.id).Count() > 0 ? _stokKasaHarServis.obje.Where(x => x.sarfdetayid == _sarfDetayServis.obje2.id).FirstOrDefault().id : 0,
+                        belge_no = TBFaturaNo.Text,
+                        sarfid = _sarfServis.obje2.id,
+                        io = 0,
+                        kayittipi = 0,
+                        kasaid = item.KASAID,
+                        miktar = item.MIKTAR, // _kasaaa.Where(x => x.num == test.num).Select(x => x.KasaList.Sum(t => t.MIKTAR)).FirstOrDefault()
+                        sarfdetayid = _sarfDetayServis.obje2.id
+                    });
+                }
                 i++;
-                //_kasaServis.Data(ServisList.StokKasaListeServis);
+             
             }
 
             if (_tempSilinenFaturaDetay.Count() > 0)
@@ -556,7 +482,8 @@ namespace MEYPAK.PRL.STOK
                 foreach (var item in _tempSilinenFaturaDetay)
                 {
                     _sarfDetayServis.Data(ServisList.StokSarfDetayDeleteByIdServis, id: item.id.ToString(), method: System.Net.Http.HttpMethod.Post);
-                    _stokHarServis.Data(ServisList.StokHarSilServis, modellist: _stokHarServis.obje.Where(x => x.faturadetayid == item.id).ToList());
+                    _stokHarServis.Data(ServisList.StokHarSilServis, modellist: _stokHarServis.obje.Where(x => x.sarfdetayid == item.id).ToList());
+                    _stokKasaHarServis.Data(ServisList.KasaHarSilServis, modellist: _stokKasaHarServis.obje.Where(x => x.sarfdetayid == item.id).ToList());
                 }
                 if (_silinenkasaaa.Count() > 0)
                 {
@@ -596,8 +523,6 @@ namespace MEYPAK.PRL.STOK
 
         void FFatura_Load(object sender, EventArgs e)
         {
-
-
 
             _olcuBr.Data(ServisList.OlcuBrListeServis);
             _stokOlcuBr.Data(ServisList.StokOlcuBrListeServis);

@@ -134,8 +134,7 @@
             // 
             // BTNSatirSil
             // 
-            this.BTNSatirSil.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BTNSatirSil.Location = new System.Drawing.Point(981, 41);
+            this.BTNSatirSil.Location = new System.Drawing.Point(898, 41);
             this.BTNSatirSil.Name = "BTNSatirSil";
             this.BTNSatirSil.Size = new System.Drawing.Size(94, 32);
             this.BTNSatirSil.TabIndex = 154;

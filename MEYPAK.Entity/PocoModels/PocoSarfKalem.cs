@@ -12,7 +12,8 @@ namespace MEYPAK.Entity.PocoModels
         public string STOK { get; set; }
         public int STOKID { get; set; }
         public int KASAID { get; set; }
-        public int BIRIM { get; set; }
+        public int BIRIMID { get; set; }
+        public string BIRIM { get; set; }
         public string ACIKLAMA { get; set; } = "";
         public decimal MIKTAR { get; set; } = 0;
         public string KUNYE { get; set; } = "";
