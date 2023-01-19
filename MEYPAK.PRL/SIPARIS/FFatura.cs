@@ -927,29 +927,7 @@ namespace MEYPAK.PRL.SIPARIS
             faturaBasim.TemelFaturaBasim(_tempFatura.id);
 
 
-            // Create a PDF Viewer instance and load a PDF into it.
-            PdfViewer pdfViewer = this.pdfViewer1;
-            pdfViewer.LoadDocument(Application.StartupPath+"output.pdf");
-
-            // If required, declare and specify the system printer settings.
-            PrinterSettings printerSettings = new PrinterSettings();
-            printerSettings.PrinterName = "Microsoft XPS Document Writer";
-            printerSettings.PrintToFile = false;
-            //printerSettings.PrintFileName = $"{Application.StartupPath}output.pdf";
-
-            // Declare the PDF printer settings.
-            // If required, pass the system settings to the PDF printer settings constructor.
-            PdfPrinterSettings pdfPrinterSettings = new PdfPrinterSettings(printerSettings);
-
-            // Specify the PDF printer settings.
-            pdfPrinterSettings.PageOrientation = PdfPrintPageOrientation.Auto;
-            pdfPrinterSettings.PageNumbers = new int[] { 1, 3, 4, 5 };
-            pdfPrinterSettings.ScaleMode = PdfPrintScaleMode.CustomScale;
-            pdfPrinterSettings.Scale = 90;
-
-            // Print the document using the specified printer settings.
-            pdfViewer.ShowPrintPageSetupDialog();
-
+            
 
 
 

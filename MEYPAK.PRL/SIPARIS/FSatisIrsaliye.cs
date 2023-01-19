@@ -64,6 +64,7 @@ namespace MEYPAK.PRL.IRSALIYE
             _seriServis = new GenericWebServis<PocoSERI>();
             _seriHarServis = new GenericWebServis<PocoSERIHAR>();
             _siparisServis = new GenericWebServis<PocoSIPARIS>();
+            ffaturaBasim = new FaturaBasim();
             _hizmetHarServis = new GenericWebServis<PocoHIZMETHAR>();
             _hizmetServis = new GenericWebServis<PocoHIZMET>();
             if (_tempIrsaliyes != null)
@@ -83,6 +84,7 @@ namespace MEYPAK.PRL.IRSALIYE
         int irstip;
         int siparisidd;
         FStokKasaList fKasaList;
+        FaturaBasim ffaturaBasim;
         List<PocoIrsaliyeKalem> _tempIrsaliyeDetay = new List<PocoIrsaliyeKalem>();
         List<PocoIrsaliyeKalem> _tempSilinenFaturaDetay = new List<PocoIrsaliyeKalem>();
         DataGridViewComboBoxColumn DGVOlcuBr = new DataGridViewComboBoxColumn();
@@ -886,6 +888,11 @@ namespace MEYPAK.PRL.IRSALIYE
         {
             if (DTPVadeTarihi.Text != DateTime.Now.AddDays((Convert.ToInt32(TBGun.Text))).ToString("dd.MM.yyyy"))
                 DTPVadeTarihi.EditValue = DateTime.Now.AddDays((Convert.ToInt32(TBGun.Text)));
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ffaturaBasim.IrsaliyeBasim(_tempIrsaliye.id);
         }
 
         private void DTPVadeTarihi_EditValueChanged(object sender, EventArgs e)

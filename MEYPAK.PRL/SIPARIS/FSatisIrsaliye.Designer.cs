@@ -91,6 +91,11 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.TBGenelToplam = new DevExpress.XtraEditors.TextEdit();
+            this.TBKdvTutari = new DevExpress.XtraEditors.TextEdit();
+            this.TBAraToplam = new DevExpress.XtraEditors.TextEdit();
+            this.TBIskontoToplam = new DevExpress.XtraEditors.TextEdit();
+            this.TBBrutToplam = new DevExpress.XtraEditors.TextEdit();
             this.LBGenelToplam = new System.Windows.Forms.Label();
             this.LBKdvTutari = new System.Windows.Forms.Label();
             this.LBAraToplam = new System.Windows.Forms.Label();
@@ -100,11 +105,7 @@
             this.BTKaydet = new System.Windows.Forms.Button();
             this.BTNSil = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.TBGenelToplam = new DevExpress.XtraEditors.TextEdit();
-            this.TBKdvTutari = new DevExpress.XtraEditors.TextEdit();
-            this.TBAraToplam = new DevExpress.XtraEditors.TextEdit();
-            this.TBIskontoToplam = new DevExpress.XtraEditors.TextEdit();
-            this.TBBrutToplam = new DevExpress.XtraEditors.TextEdit();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DTSiparisTarih.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTSiparisTarih.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CHBKdvDahil.Properties)).BeginInit();
@@ -140,13 +141,13 @@
             this.panel5.SuspendLayout();
             this.panel7.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TBGenelToplam.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBKdvTutari.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBAraToplam.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBIskontoToplam.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBBrutToplam.Properties)).BeginInit();
+            this.panel6.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // DTSiparisTarih
@@ -316,7 +317,7 @@
             this.groupBox1.Size = new System.Drawing.Size(1884, 213);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Satış Fatura";
+            this.groupBox1.Text = "Satış Irsaliye";
             // 
             // comboBoxEdit1
             // 
@@ -729,102 +730,6 @@
             this.groupBox2.TabIndex = 18;
             this.groupBox2.TabStop = false;
             // 
-            // LBGenelToplam
-            // 
-            this.LBGenelToplam.AutoSize = true;
-            this.LBGenelToplam.Location = new System.Drawing.Point(16, 142);
-            this.LBGenelToplam.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.LBGenelToplam.Name = "LBGenelToplam";
-            this.LBGenelToplam.Size = new System.Drawing.Size(79, 15);
-            this.LBGenelToplam.TabIndex = 9;
-            this.LBGenelToplam.Text = "Genel Toplam";
-            // 
-            // LBKdvTutari
-            // 
-            this.LBKdvTutari.AutoSize = true;
-            this.LBKdvTutari.Location = new System.Drawing.Point(16, 113);
-            this.LBKdvTutari.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.LBKdvTutari.Name = "LBKdvTutari";
-            this.LBKdvTutari.Size = new System.Drawing.Size(62, 15);
-            this.LBKdvTutari.TabIndex = 7;
-            this.LBKdvTutari.Text = "KDV Tutarı";
-            // 
-            // LBAraToplam
-            // 
-            this.LBAraToplam.AutoSize = true;
-            this.LBAraToplam.Location = new System.Drawing.Point(16, 84);
-            this.LBAraToplam.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.LBAraToplam.Name = "LBAraToplam";
-            this.LBAraToplam.Size = new System.Drawing.Size(64, 15);
-            this.LBAraToplam.TabIndex = 6;
-            this.LBAraToplam.Text = "AraToplam";
-            // 
-            // LBIskontoTutari
-            // 
-            this.LBIskontoTutari.AutoSize = true;
-            this.LBIskontoTutari.Location = new System.Drawing.Point(16, 55);
-            this.LBIskontoTutari.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.LBIskontoTutari.Name = "LBIskontoTutari";
-            this.LBIskontoTutari.Size = new System.Drawing.Size(79, 15);
-            this.LBIskontoTutari.TabIndex = 5;
-            this.LBIskontoTutari.Text = "İskonto Tutarı";
-            // 
-            // LBBrutToplam
-            // 
-            this.LBBrutToplam.AutoSize = true;
-            this.LBBrutToplam.Location = new System.Drawing.Point(16, 27);
-            this.LBBrutToplam.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.LBBrutToplam.Name = "LBBrutToplam";
-            this.LBBrutToplam.Size = new System.Drawing.Size(71, 15);
-            this.LBBrutToplam.TabIndex = 4;
-            this.LBBrutToplam.Text = "Brüt Toplam";
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.BTKaydet);
-            this.panel6.Controls.Add(this.BTNSil);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel6.Location = new System.Drawing.Point(0, 158);
-            this.panel6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(377, 72);
-            this.panel6.TabIndex = 27;
-            // 
-            // BTKaydet
-            // 
-            this.BTKaydet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BTKaydet.Location = new System.Drawing.Point(102, 8);
-            this.BTKaydet.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.BTKaydet.Name = "BTKaydet";
-            this.BTKaydet.Size = new System.Drawing.Size(196, 50);
-            this.BTKaydet.TabIndex = 16;
-            this.BTKaydet.TabStop = false;
-            this.BTKaydet.Text = "Kaydet";
-            this.BTKaydet.UseVisualStyleBackColor = true;
-            this.BTKaydet.Click += new System.EventHandler(this.BTKaydet_Click_1);
-            // 
-            // BTNSil
-            // 
-            this.BTNSil.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BTNSil.Location = new System.Drawing.Point(416, -27);
-            this.BTNSil.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.BTNSil.Name = "BTNSil";
-            this.BTNSil.Size = new System.Drawing.Size(94, 50);
-            this.BTNSil.TabIndex = 18;
-            this.BTNSil.TabStop = false;
-            this.BTNSil.Text = "Sil";
-            this.BTNSil.UseVisualStyleBackColor = true;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.GCIrsaliye);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 213);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1884, 488);
-            this.panel3.TabIndex = 1;
-            // 
             // TBGenelToplam
             // 
             this.TBGenelToplam.Enabled = false;
@@ -915,6 +820,116 @@
             this.TBBrutToplam.Size = new System.Drawing.Size(168, 22);
             this.TBBrutToplam.TabIndex = 39;
             // 
+            // LBGenelToplam
+            // 
+            this.LBGenelToplam.AutoSize = true;
+            this.LBGenelToplam.Location = new System.Drawing.Point(16, 142);
+            this.LBGenelToplam.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LBGenelToplam.Name = "LBGenelToplam";
+            this.LBGenelToplam.Size = new System.Drawing.Size(79, 15);
+            this.LBGenelToplam.TabIndex = 9;
+            this.LBGenelToplam.Text = "Genel Toplam";
+            // 
+            // LBKdvTutari
+            // 
+            this.LBKdvTutari.AutoSize = true;
+            this.LBKdvTutari.Location = new System.Drawing.Point(16, 113);
+            this.LBKdvTutari.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LBKdvTutari.Name = "LBKdvTutari";
+            this.LBKdvTutari.Size = new System.Drawing.Size(62, 15);
+            this.LBKdvTutari.TabIndex = 7;
+            this.LBKdvTutari.Text = "KDV Tutarı";
+            // 
+            // LBAraToplam
+            // 
+            this.LBAraToplam.AutoSize = true;
+            this.LBAraToplam.Location = new System.Drawing.Point(16, 84);
+            this.LBAraToplam.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LBAraToplam.Name = "LBAraToplam";
+            this.LBAraToplam.Size = new System.Drawing.Size(64, 15);
+            this.LBAraToplam.TabIndex = 6;
+            this.LBAraToplam.Text = "AraToplam";
+            // 
+            // LBIskontoTutari
+            // 
+            this.LBIskontoTutari.AutoSize = true;
+            this.LBIskontoTutari.Location = new System.Drawing.Point(16, 55);
+            this.LBIskontoTutari.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LBIskontoTutari.Name = "LBIskontoTutari";
+            this.LBIskontoTutari.Size = new System.Drawing.Size(79, 15);
+            this.LBIskontoTutari.TabIndex = 5;
+            this.LBIskontoTutari.Text = "İskonto Tutarı";
+            // 
+            // LBBrutToplam
+            // 
+            this.LBBrutToplam.AutoSize = true;
+            this.LBBrutToplam.Location = new System.Drawing.Point(16, 27);
+            this.LBBrutToplam.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LBBrutToplam.Name = "LBBrutToplam";
+            this.LBBrutToplam.Size = new System.Drawing.Size(71, 15);
+            this.LBBrutToplam.TabIndex = 4;
+            this.LBBrutToplam.Text = "Brüt Toplam";
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.button1);
+            this.panel6.Controls.Add(this.BTKaydet);
+            this.panel6.Controls.Add(this.BTNSil);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel6.Location = new System.Drawing.Point(0, 158);
+            this.panel6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(377, 72);
+            this.panel6.TabIndex = 27;
+            // 
+            // BTKaydet
+            // 
+            this.BTKaydet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BTKaydet.Location = new System.Drawing.Point(199, 6);
+            this.BTKaydet.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.BTKaydet.Name = "BTKaydet";
+            this.BTKaydet.Size = new System.Drawing.Size(165, 50);
+            this.BTKaydet.TabIndex = 16;
+            this.BTKaydet.TabStop = false;
+            this.BTKaydet.Text = "Kaydet";
+            this.BTKaydet.UseVisualStyleBackColor = true;
+            this.BTKaydet.Click += new System.EventHandler(this.BTKaydet_Click_1);
+            // 
+            // BTNSil
+            // 
+            this.BTNSil.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BTNSil.Location = new System.Drawing.Point(416, -27);
+            this.BTNSil.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.BTNSil.Name = "BTNSil";
+            this.BTNSil.Size = new System.Drawing.Size(94, 50);
+            this.BTNSil.TabIndex = 18;
+            this.BTNSil.TabStop = false;
+            this.BTNSil.Text = "Sil";
+            this.BTNSil.UseVisualStyleBackColor = true;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.GCIrsaliye);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 213);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1884, 488);
+            this.panel3.TabIndex = 1;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Location = new System.Drawing.Point(26, 6);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(165, 50);
+            this.button1.TabIndex = 19;
+            this.button1.TabStop = false;
+            this.button1.Text = "Basım";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FSatisIrsaliye
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -965,13 +980,13 @@
             this.panel7.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.TBGenelToplam.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBKdvTutari.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBAraToplam.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBIskontoToplam.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBBrutToplam.Properties)).EndInit();
+            this.panel6.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1040,5 +1055,6 @@
         private DevExpress.XtraEditors.TextEdit TBAraToplam;
         private DevExpress.XtraEditors.TextEdit TBIskontoToplam;
         private DevExpress.XtraEditors.TextEdit TBBrutToplam;
+        private Button button1;
     }
 }

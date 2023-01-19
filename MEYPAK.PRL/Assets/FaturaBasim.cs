@@ -20,6 +20,7 @@ using static MEYPAK.PRL.EFatura.TemelFaturaXML;
 using System.Xml.Serialization.Extensions;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Kasa;
+using MEYPAK.Entity.PocoModels.IRSALIYE;
 
 namespace MEYPAK.PRL.Assets
 {
@@ -32,11 +33,15 @@ namespace MEYPAK.PRL.Assets
             _faturaDetayServis = new GenericWebServis<PocoFATURADETAY>();
             _stokKasaHarServis = new GenericWebServis<PocoSTOKKASAHAR>();
             _stokKasaServis = new GenericWebServis<PocoSTOKKASA>();
+            _irsaliyeServis = new GenericWebServis<PocoIRSALIYE>();
+            _irsaliyeDetayServis = new GenericWebServis<PocoIRSALIYEDETAY>();
         }
 
         GenericWebServis<PocoFATURA> _faturaServis;
+        GenericWebServis<PocoIRSALIYE> _irsaliyeServis;
         GenericWebServis<PocoCARIKART> _cariServis;
         GenericWebServis<PocoFATURADETAY> _faturaDetayServis;
+        GenericWebServis<PocoIRSALIYEDETAY> _irsaliyeDetayServis;
         GenericWebServis<PocoSTOKKASAHAR> _stokKasaHarServis;
         GenericWebServis<PocoSTOKKASA> _stokKasaServis;
 
@@ -366,14 +371,372 @@ namespace MEYPAK.PRL.Assets
                 server = new RichEditDocumentServer();
                 var ss = temelfatura.SerializeToXml<TemelFaturaXML.Invoice>();
 
-                //File.WriteAllText("Employee.xml", ss.ToString(),Encoding.UTF8);
+               // File.WriteAllText("Employee.xml", ss.ToString(),Encoding.UTF8);
 
                 //Create the DataSet from the XML file
                 XslCompiledTransform proc = new XslCompiledTransform();
                 proc.Load("Employee.xslt");
-                proc.Transform(Application.StartupPath + "Employee.xml", Application.StartupPath + "output.html");
-                PrintToPDF(Application.StartupPath + "output.html");
-                MessageBox.Show("Document created successfully.....");
+                proc.Transform(Application.StartupPath + "Employee.xml", Application.StartupPath + "output.html"); 
+                var p = new Process();
+                p.StartInfo = new ProcessStartInfo(Application.StartupPath + "output.html")
+                {
+                    UseShellExecute = true
+                };
+                p.Start(); 
+                MessageBox.Show("Belge Oluşturuldu..");
+
+            }
+            catch (Exception ex)
+            {
+                writer = null;
+                nav = null;
+                root = null;
+                xmlDoc = null;
+                ds = null;
+                MessageBox.Show(ex.StackTrace);
+            }
+        }
+
+        public void IrsaliyeBasim(int irsaliyeid)
+        {
+            _stokKasaHarServis.Data(ServisList.StokKasaHarListeServis);
+            _stokKasaServis.Data(ServisList.StokKasaListeServis);
+            _irsaliyeServis.Data(ServisList.IrsaliyeListeServis);
+            _cariServis.Data(ServisList.CariListeServis);
+            _irsaliyeDetayServis.Data(ServisList.IrsaliyeDetayListeServis);
+            var irsaliye = _irsaliyeServis.obje.Where(x => x.id == irsaliyeid).FirstOrDefault();
+            var cari = _cariServis.obje.Where(x => x.id == irsaliye.cariid).FirstOrDefault();
+            var irsaliyedetay = _irsaliyeDetayServis.obje.Where(x => x.irsaliyeid == irsaliye.id);
+            DataSet ds;
+            XmlDataDocument xmlDoc;
+            XslCompiledTransform xslTran;
+            XmlElement root;
+            XPathNavigator nav;
+            XmlTextWriter writer;
+            try
+            {
+                var rsa = RSA.Create();
+                var t1 = new AccountingCustomerParty()
+                {
+                    Party = new AccountingCustomerPartyParty()
+                    {
+                        Contact = new AccountingCustomerPartyPartyContact()
+                        {
+                            ElectronicMail = cari.eposta,
+                            Telefax = cari.fax.ToString(),
+                            Telephone = cari.telefon.ToString()
+                        },
+                        PartyIdentification = new AccountingCustomerPartyPartyPartyIdentification()
+                        {
+                            ID = new ID()
+                            {
+                                schemeID = "VKN",
+                                Value = cari.vergino.ToString()
+                            }
+                        },
+                        PartyName = new AccountingCustomerPartyPartyPartyName()
+                        {
+                            Name = cari.unvan.ToString(),
+                        },
+                        PartyTaxScheme = new AccountingCustomerPartyPartyPartyTaxScheme()
+                        {
+                            TaxScheme = new AccountingCustomerPartyPartyPartyTaxSchemeTaxScheme()
+                            {
+                                Name = cari.vergidairesi.ToString()
+                            }
+                        },
+                        PostalAddress = new AccountingCustomerPartyPartyPostalAddress()
+                        {
+
+
+                            CityName = cari.il.ToString(),
+                            CitySubdivisionName = cari.ilce.ToString(),
+                            Country = new AccountingCustomerPartyPartyPostalAddressCountry() { Name = cari.ulke },
+                            StreetName = cari.sokak.ToString(),
+
+                        }
+                    }
+                };
+                var t2 = new AccountingSupplierParty()
+                {
+                    Party = new AccountingSupplierPartyParty()
+                    {
+                        Contact = new AccountingSupplierPartyPartyContact()
+                        {
+                            ElectronicMail = "gunduzmeypak@gmail.com",
+                            Telefax = "000000000",
+                            Telephone = "000",
+
+                        },
+
+                        PartyName = new AccountingSupplierPartyPartyPartyName()
+                        {
+                            Name = "Gündüz Meypak A.Ş."
+                        },
+                        PartyTaxScheme = new AccountingSupplierPartyPartyPartyTaxScheme()
+                        {
+                            TaxScheme = new AccountingSupplierPartyPartyPartyTaxSchemeTaxScheme()
+                            {
+                                Name = "Başkent"
+                            }
+                        },
+                        PostalAddress = new AccountingSupplierPartyPartyPostalAddress()
+                        {
+                            BuildingName = "",
+                            BuildingNumber = "0",
+                            CityName = "Ankara",
+                            CitySubdivisionName = "Çankaya",
+                            Country = new AccountingSupplierPartyPartyPostalAddressCountry() { Name = "Türkiye" },
+                            PostalZone = "0",
+                            Region = "Kızılırmak",
+                            Room = "0",
+                            StreetName = "DumluPınar"
+
+
+                        }
+
+                    }
+                };
+                List<InvoiceLine> fatSatir = new List<InvoiceLine>();
+                foreach (var item in irsaliyedetay)
+                {
+                    fatSatir.Add(new InvoiceLine()
+                    {
+
+                        ID = new ID()
+                        {
+                            schemeID = "",
+                            Value = item.stokid.ToString()
+                        },
+                        InvoicedQuantity = new InvoicedQuantity()
+                        {
+                            unitCode = "NIU",
+                            Value = item.safi
+                        },
+                        Item = new InvoiceLineItem()
+                        {
+                            Name = item.stokadi
+
+                        },
+                        LineExtensionAmount = new LineExtensionAmount()
+                        {
+                            currencyID = "TRL",
+                            Value = item.nettoplam
+                        },
+                        Price = new InvoiceLinePrice()
+                        {
+                            PriceAmount = new PriceAmount()
+                            {
+                                currencyID = "TRL",
+                                Value = Convert.ToByte(item.birimfiyat)
+
+
+                            }
+                        },
+                        TaxTotal = new InvoiceLineTaxTotal()
+                        {
+                            TaxAmount = new TaxAmount()
+                            {
+                                currencyID = "TRL",
+                                Value = item.kdvtutari
+                            },
+                            TaxSubtotal = new InvoiceLineTaxTotalTaxSubtotal()
+                            {
+                                TaxAmount = new TaxAmount()
+                                {
+                                    currencyID = "TRL",
+                                    Value = item.kdvtutari
+                                },
+                                Percent = item.kdv,
+                                TaxableAmount = new TaxableAmount() { currencyID = "TRL", Value = item.nettoplam },
+                                TaxCategory = new InvoiceLineTaxTotalTaxSubtotalTaxCategory()
+                                {
+                                    TaxScheme = new InvoiceLineTaxTotalTaxSubtotalTaxCategoryTaxScheme()
+                                    {
+                                        TaxTypeCode = "0015",
+                                        Name = "KDV"
+                                    }
+                                }
+                            }
+                        }
+                    });
+                }
+                List<KasaListeItems> tkasa = new List<KasaListeItems>();
+                foreach (var item in _stokKasaHarServis.obje.Where(x => x.faturaid == irsaliyeid))
+                {
+
+                    tkasa.Add(
+                        new KasaListeItems()
+                        {
+                            KasaAdı = _stokKasaServis.obje.Where(x => x.id == item.kasaid).FirstOrDefault().kasaadi,
+                            KasaId = item.kasaid,
+                            KasaMiktar = item.miktar
+                        });
+
+
+                }
+
+                var t3 = new AdditionalDocumentReference[]
+                {
+                    new AdditionalDocumentReference()
+                    {
+
+
+                    }
+                };
+                var t5 = fatSatir;
+                var t6 = new LegalMonetaryTotal()
+                {
+                    AllowanceTotalAmount = new AllowanceTotalAmount()
+                    {
+                        currencyID = "TRL",
+                        Value = irsaliye.iskontotoplam
+                    },
+                    LineExtensionAmount = new LineExtensionAmount()
+                    {
+                        currencyID = "TRL",
+                        Value = irsaliye.nettoplam
+                    },
+                    PayableAmount = new PayableAmount()
+                    {
+                        currencyID = "TRL",
+                        Value = irsaliye.geneltoplam
+                    },
+                    TaxExclusiveAmount = new TaxExclusiveAmount()
+                    {
+                        currencyID = "TRL",
+                        Value = irsaliye.bruttoplam
+                    },
+                    TaxInclusiveAmount = new TaxInclusiveAmount()
+                    {
+                        currencyID = "TRL",
+                        Value = irsaliye.bruttoplam + irsaliye.kdvtoplam
+                    },
+
+                };
+                var t8 = new TaxTotal()
+                {
+                    TaxAmount = new TaxAmount()
+                    {
+                        currencyID = "TRL",
+                        Value = irsaliye.kdvtoplam
+                    },
+                    TaxSubtotal = new TaxTotalTaxSubtotal()
+                    {
+                        CalculationSequenceNumeric = 1,
+                        Percent = irsaliyedetay.FirstOrDefault().kdv,
+                        TaxableAmount = new TaxableAmount()
+                        {
+                            currencyID = "TRL",
+                            Value = irsaliye.kdvtoplam
+                        },
+                        TaxAmount = new TaxAmount()
+                        {
+                            currencyID = "TRL",
+                            Value = irsaliye.kdvtoplam
+                        },
+                        TaxCategory = new TaxTotalTaxSubtotalTaxCategory()
+                        {
+                            TaxScheme = new TaxTotalTaxSubtotalTaxCategoryTaxScheme()
+                            {
+                                Name = "KDV",
+                                TaxTypeCode = "0015"
+                            }
+                        }
+                    }
+                };
+                TemelFaturaXML.Invoice temelfatura = new Invoice()
+                {
+                    AccountingCustomerParty = t1,
+                    AccountingSupplierParty = t2,
+                    AdditionalDocumentReference = t3,
+                    CopyIndicator = false,
+                    CustomizationID = "TR1.0",
+                    UBLVersionID = decimal.Parse("2.1"),
+                    InvoiceLine = t5,
+                    InvoiceTypeCode = "SATIS",
+                    IssueDate = irsaliye.vadetarihi,
+                    LegalMonetaryTotal = t6,
+                    LineCountNumeric = 1,
+                    Note = new string[]
+                    {
+                        ""
+                    },
+                    ProfileID = "TEMELFATURA",
+                    TaxTotal = t8,
+                    ID = new ID()
+                    {
+                        schemeID = "",
+                        Value = irsaliye.belgeno,
+                    },
+
+                    UBLExtensions = new UBLExtensions()
+                    {
+                        UBLExtension = new UBLExtensionsUBLExtension()
+                        {
+                            ExtensionContent = new UBLExtensionsUBLExtensionExtensionContent()
+                            {
+                                autogeneratedwildcard = new object()
+                            }
+                        }
+                    },
+                    DocumentCurrencyCode = "TRY",
+                    Signature = new Signature()
+                    {
+
+                        ID = new ID()
+                        {
+                            schemeID = "VKN_TCKN",
+                            Value = cari.vergino
+                        },
+                        SignatoryParty = new SignatureSignatoryParty()
+                        {
+                            PartyIdentification = new SignatureSignatoryPartyPartyIdentification()
+                            {
+                                ID = new ID()
+                                {
+                                    schemeID = "VKN",
+                                    Value = cari.vergino
+                                }
+                            },
+                            PostalAddress = new SignatureSignatoryPartyPostalAddress()
+                            {
+                                Room = "340",
+                                BuildingName = "YDA CENTER",
+                                BuildingNumber = cari.apt,
+                                CityName = cari.il,
+                                Country = new SignatureSignatoryPartyPostalAddressCountry() { Name = cari.ulke },
+                                CitySubdivisionName = cari.ilce,
+                                PostalZone = cari.postakod,
+                                Region = cari.ilce,
+                                StreetName = cari.adres,
+
+
+                            }
+                        }
+                    },
+                    KasaListe = tkasa
+
+                };
+
+
+
+                server = new RichEditDocumentServer();
+                var ss = temelfatura.SerializeToXml<TemelFaturaXML.Invoice>();
+
+                //File.WriteAllText("Employeeirs.xml", ss.ToString(),Encoding.UTF8);
+
+                //Create the DataSet from the XML file
+                XslCompiledTransform proc = new XslCompiledTransform();
+                proc.Load("Employeeirs.xslt");
+                proc.Transform(Application.StartupPath + "Employeeirs.xml", Application.StartupPath + "output.html");
+                var p = new Process();
+                p.StartInfo = new ProcessStartInfo(Application.StartupPath + "output.html")
+                {
+                    UseShellExecute = true
+                };
+                p.Start();
+                MessageBox.Show("Belge Oluşturuldu..");
 
             }
             catch (Exception ex)
@@ -697,8 +1060,8 @@ namespace MEYPAK.PRL.Assets
                 //Create the DataSet from the XML file
                 XslCompiledTransform proc = new XslCompiledTransform();
                 proc.Load("Employee.xslt");
-                proc.Transform(Application.StartupPath + "Employee.xml", Application.StartupPath + "output.html");
-                PrintToPDF(Application.StartupPath + "output.html");
+                proc.Transform(Application.StartupPath + "Employee.xml", Application.StartupPath + "output.html"); 
+
                 MessageBox.Show("Document created successfully.....");
 
             }
