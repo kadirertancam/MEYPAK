@@ -303,6 +303,9 @@ builder.Services.AddScoped<ISiparisDetayServis, SiparisDetayManager>();
 builder.Services.AddScoped<ISiparisSevkEmriHarDal, EFSiparisSevkEmriHarRepo>();
 builder.Services.AddScoped<ISiparisSevkEmriHarServis, SiparisSevkEmriHarManager>();
 
+builder.Services.AddScoped<ISatinAlmaMalKabulEmriHarDal, EFSatýnAlmaMalKabulEmriHarRepo>();
+builder.Services.AddScoped<ISatinAlmaMalKabulEmriHarServis, SatýnAlmaMalKabulHarManager>();
+
 builder.Services.AddScoped<ISiparisKasaHarDal, EFSiparisKasaHarRepo>();
 builder.Services.AddScoped<ISiparisKasaHarServis, SiparisKasaHarManager>();
 
@@ -352,6 +355,15 @@ builder.Services.AddScoped<IFaturaDetayServis, FaturaDetayManager>();
 
 builder.Services.AddScoped<ISeriDal, EFSeriRepo>();
 builder.Services.AddScoped<ISeriServis, SeriManager>();
+#endregion
+#region STOKSARF_Scoped_Islemleri
+
+builder.Services.AddScoped<IStokSarfDal, EFStokSarfRepo>();
+builder.Services.AddScoped<IStokSarfServis, StokSarfManager>();
+
+builder.Services.AddScoped<IStokSarfDetayDal, EFStokSarfDetayRepo>();
+builder.Services.AddScoped<IStokSarfDetayServis, StokSarfDetayManager>();
+
 #endregion
 
 

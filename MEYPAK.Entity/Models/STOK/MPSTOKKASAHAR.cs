@@ -15,6 +15,8 @@ namespace MEYPAK.Entity.Models.STOK
         public int CARIID { get; set; }
         public int FATURAID { get; set; }
         public int FATURADETAYID { get; set; }
+        public int SARFID { get; set; }
+        public int SARFDETAYID { get; set; }
         public int IO { get; set; }
         public decimal MIKTAR { get; set; }
         public string BELGE_NO { get; set; }

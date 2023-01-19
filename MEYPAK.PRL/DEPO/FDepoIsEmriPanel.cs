@@ -3,6 +3,7 @@ using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraVerticalGrid.Native;
 using MEYPAK.BLL.Assets;
+using MEYPAK.DAL.Concrete.EntityFramework.Repository;
 using MEYPAK.Entity.Models.DEPO;
 using MEYPAK.Entity.Models.SIPARIS;
 using MEYPAK.Entity.PocoModels.ARAC;
@@ -31,7 +32,7 @@ namespace MEYPAK.PRL.DEPO
 {
     public partial class FDepoIsEmriPanel : XtraForm
     {
-        public FDepoIsEmriPanel(string sipid="",string emirid="")
+        public FDepoIsEmriPanel(string sipid="",string emirid="",int ms=0)
         {
             InitializeComponent();
             _sipid= sipid;
@@ -43,50 +44,84 @@ namespace MEYPAK.PRL.DEPO
             _siparisServis = new GenericWebServis<PocoSIPARIS>();
             _aracServis = new GenericWebServis<PocoARAC>();
             _personelServis= new GenericWebServis<PocoPERSONEL>();
+            _satinAlmaMalKabulEmriHarServis = new GenericWebServis<PocoSATINALMAMALKABULEMRIHAR>();
+            _stokMalKabulList = new GenericWebServis<PocoSTOKMALKABULLIST>();
             _emirid = emirid;
+            this.ms = ms;
         }
         GenericWebServis<PocoSIPARISDETAY> _siparisDetayServis;
         GenericWebServis<PocoSTOK> _stokServis;
         GenericWebServis<PocoDEPOEMIR> _depoEmirServis;
         GenericWebServis<PocoSIPARIS> _siparisServis;
         GenericWebServis<PocoSIPARISSEVKEMIRHAR> _siparisSevkEmriHarServis;
+        GenericWebServis<PocoSATINALMAMALKABULEMRIHAR> _satinAlmaMalKabulEmriHarServis;
+
+        GenericWebServis<PocoSTOKMALKABULLIST> _stokMalKabulList;
         GenericWebServis<PocoSTOKSEVKIYATLIST> _stokSevkiyatList;
         GenericWebServis<PocoARAC> _aracServis;
         GenericWebServis<PocoPERSONEL> _personelServis;
         List<PocoSIPARISDETAY> _tempSiparisDetay;
+        int ms;
      
         string _emirid;
         string _sipid;
         private void FDepoIsEmriPanel_Load(object sender, EventArgs e)
         {
+            _satinAlmaMalKabulEmriHarServis.Data(ServisList.SatinAlmaMalKabulHarListeServis);
             _siparisDetayServis.Data(ServisList.SiparisDetayListeServis);
             _stokServis.Data(ServisList.StokListeServis);
             _depoEmirServis.Data(ServisList.DepoEmirListeServis);
             _siparisSevkEmriHarServis.Data(ServisList.SiparisSevkEmriHarListeServis);
-            if (_depoEmirServis.obje.Where(x => x.id.ToString() == _emirid).Count() > 0)
+            if (ms == 0)
             {
-                tempp = _siparisSevkEmriHarServis.obje.Where(x => x.emirid.ToString() == _emirid && x.kayittipi==0).Select(x => new DepoIsEmriList()
+                if (_depoEmirServis.obje.Where(x => x.id.ToString() == _emirid).Count() > 0)
                 {
-                    Miktar = x.siparismiktari,
-                    SevkMiktarı = x.emirmiktari,
-                    StokAdı = _stokServis.obje.Where(c => c.id == (_siparisDetayServis.obje.Where(z => x.sipariskalemid == z.id).Select(z => z.stokid).FirstOrDefault())).FirstOrDefault().adi,
-                    StokKodu = _stokServis.obje.Where(c => c.id == (_siparisDetayServis.obje.Where(z => x.sipariskalemid == z.id).Select(z => z.stokid).FirstOrDefault())).FirstOrDefault().kod
-                });
+                    tempp = _siparisSevkEmriHarServis.obje.Where(x => x.emirid.ToString() == _emirid && x.kayittipi == 0).Select(x => new DepoIsEmriList()
+                    {
+                        Miktar = x.siparismiktari,
+                        SevkMiktarı = x.emirmiktari,
+                        StokAdı = _stokServis.obje.Where(c => c.id == (_siparisDetayServis.obje.Where(z => x.sipariskalemid == z.id).Select(z => z.stokid).FirstOrDefault())).FirstOrDefault().adi,
+                        StokKodu = _stokServis.obje.Where(c => c.id == (_siparisDetayServis.obje.Where(z => x.sipariskalemid == z.id).Select(z => z.stokid).FirstOrDefault())).FirstOrDefault().kod
+                    });
+                }
+                else
+                {
+                    tempp = _siparisDetayServis.obje.Where(x => x.siparisid.ToString() == _sipid && x.kayittipi == 0).Select(x => new DepoIsEmriList
+                    {
+                        StokAdı = x.stokadi,
+                        StokKodu = _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().kod,
+                        Miktar = x.safi,
+                        SevkMiktarı = 0,
+                    });
 
+                }
             }
             else
             {
-                tempp = _siparisDetayServis.obje.Where(x => x.siparisid.ToString() == _sipid && x.kayittipi == 0).Select(x => new DepoIsEmriList
+                  if (_depoEmirServis.obje.Where(x => x.id.ToString() == _emirid).Count() > 0)
                 {
-                    StokAdı = x.stokadi,
-                    StokKodu = _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().kod,
-                    Miktar = x.safi,
-                    SevkMiktarı = 0,
+                    tempp = _satinAlmaMalKabulEmriHarServis.obje.Where(x => x.emirid.ToString() == _emirid && x.kayittipi == 0).Select(x => new DepoIsEmriList()
+                    {
+                        Miktar = x.siparismiktari,
+                        SevkMiktarı = x.emirmiktari,
+                        StokAdı = _stokServis.obje.Where(c => c.id == (_siparisDetayServis.obje.Where(z => x.sipariskalemid == z.id).Select(z => z.stokid).FirstOrDefault())).FirstOrDefault().adi,
+                        StokKodu = _stokServis.obje.Where(c => c.id == (_siparisDetayServis.obje.Where(z => x.sipariskalemid == z.id).Select(z => z.stokid).FirstOrDefault())).FirstOrDefault().kod
+                    });
+                }
+                else
+                {
+                    tempp = _siparisDetayServis.obje.Where(x => x.siparisid.ToString() == _sipid && x.kayittipi == 0).Select(x => new DepoIsEmriList
+                    {
+                        StokAdı = x.stokadi,
+                        StokKodu = _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().kod,
+                        Miktar = x.safi,
+                        SevkMiktarı = 0,
+                    });
 
-                });
-                
+                }
             }
             gridControl1.DataSource = tempp;
+
 
 
             _aracServis.Data(ServisList.AracListeServis);
@@ -104,7 +139,7 @@ namespace MEYPAK.PRL.DEPO
            CBArac.Properties.DisplayMember= "aracplaka";
            CBArac.Properties.ValueMember= "aracid";
            
-
+                
 
         }
         bool check=false;
@@ -122,45 +157,91 @@ namespace MEYPAK.PRL.DEPO
             if (_emirid != "")
             {
                 _siparisSevkEmriHarServis.Data(ServisList.SiparisSevkEmriHarListeServis);
-
-                for (int j = 0; j < gridView1.RowCount; j++)
+                _satinAlmaMalKabulEmriHarServis.Data(ServisList.SatinAlmaMalKabulHarListeServis);
+                if (ms == 0)
                 {
-
-                    if (Convert.ToDecimal(gridView1.GetRowCellValue(j, "SevkMiktarı").ToString()) > 0)
+                    for (int j = 0; j < gridView1.RowCount; j++)
                     {
-                        var _tempSipDetay = _siparisDetayServis.obje.Where(x => x.siparisid.ToString() == _sipid.ToString() && x.stokid == _stokServis.obje.Where(z => z.kod == gridView1.GetRowCellValue(j, "StokKodu").ToString() && z.kayittipi == 0).Select(z => z.id).FirstOrDefault()).FirstOrDefault();
-                        _tempSipDetay.hareketdurumu = 1;
-                        _siparisDetayServis.Data(ServisList.SiparisDetayEkleServis, _tempSipDetay);
-                        _siparisSevkEmriHarServis.Data(ServisList.SiparisSevkEmriHarEkleServis, new PocoSIPARISSEVKEMIRHAR()
+
+                        if (Convert.ToDecimal(gridView1.GetRowCellValue(j, "SevkMiktarı").ToString()) > 0)
                         {
-                            id= _siparisSevkEmriHarServis.obje.Where(z=>z.emirid.ToString()==_emirid).FirstOrDefault().id,
-                            emirmiktari = Convert.ToDecimal(gridView1.GetRowCellValue(j, "SevkMiktarı").ToString()),
-                            siparisid = _tempSipDetay.siparisid,
-                            sipariskalemid = _tempSipDetay.id,
-                            emirid = int.Parse(_emirid),
-                            siparismiktari = _tempSipDetay.safi,
-                            kullaniciid = 0,
-                            tarih = DateTime.Now,
-                            tip = 0,
+                            var _tempSipDetay = _siparisDetayServis.obje.Where(x => x.siparisid.ToString() == _sipid.ToString() && x.stokid == _stokServis.obje.Where(z => z.kod == gridView1.GetRowCellValue(j, "StokKodu").ToString() && z.kayittipi == 0).Select(z => z.id).FirstOrDefault()).FirstOrDefault();
+                            _tempSipDetay.hareketdurumu = 1;
+                            _siparisDetayServis.Data(ServisList.SiparisDetayEkleServis, _tempSipDetay);
+                            _siparisSevkEmriHarServis.Data(ServisList.SiparisSevkEmriHarEkleServis, new PocoSIPARISSEVKEMIRHAR()
+                            {
+                                id = _siparisSevkEmriHarServis.obje.Where(z => z.emirid.ToString() == _emirid).FirstOrDefault().id,
+                                emirmiktari = Convert.ToDecimal(gridView1.GetRowCellValue(j, "SevkMiktarı").ToString()),
+                                siparisid = _tempSipDetay.siparisid,
+                                sipariskalemid = _tempSipDetay.id,
+                                emirid = int.Parse(_emirid),
+                                siparismiktari = _tempSipDetay.safi,
+                                kullaniciid = 0,
+                                tarih = DateTime.Now,
+                                tip = ms,
 
-                        });
-                        _stokSevkiyatList.Data(ServisList.StokSevkiyatListEkleServis, new PocoSTOKSEVKIYATLIST()
+                            });
+                            _stokSevkiyatList.Data(ServisList.StokSevkiyatListEkleServis, new PocoSTOKSEVKIYATLIST()
+                            {
+                                id = _stokSevkiyatList.obje.Where(z => z.emirid.ToString() == _emirid).FirstOrDefault().id,
+                                birimid = _tempSipDetay.birimid,
+                                siparismiktari = _tempSipDetay.safi,
+                                depoid = _siparisServis.obje.Where(x => x.id == _tempSipDetay.siparisid).FirstOrDefault().depoid,
+                                emirid = int.Parse(_emirid),
+                                miktar = Convert.ToDecimal(gridView1.GetRowCellValue(j, "SevkMiktarı").ToString()),
+                                kalanmiktar = Convert.ToDecimal(gridView1.GetRowCellValue(j, "SevkMiktarı").ToString()),
+                                stokid = _tempSipDetay.stokid,
+                                sevkemriharid = _siparisSevkEmriHarServis.obje2.id,
+                                siparisdetayid = _tempSipDetay.id,
+
+
+                            });
+
+                            i++;
+                        }
+                    }
+                }
+                else
+                {
+                    for (int j = 0; j < gridView1.RowCount; j++)
+                    {
+
+                        if (Convert.ToDecimal(gridView1.GetRowCellValue(j, "SevkMiktarı").ToString()) > 0)
                         {
-                            id= _stokSevkiyatList.obje.Where(z=>z.emirid.ToString()==_emirid).FirstOrDefault().id,
-                            birimid = _tempSipDetay.birimid,
-                            siparismiktari = _tempSipDetay.safi,
-                            depoid = _siparisServis.obje.Where(x => x.id == _tempSipDetay.siparisid).FirstOrDefault().depoid,
-                            emirid = int.Parse(_emirid),
-                            miktar = Convert.ToDecimal(gridView1.GetRowCellValue(j, "SevkMiktarı").ToString()),
-                            kalanmiktar = Convert.ToDecimal(gridView1.GetRowCellValue(j, "SevkMiktarı").ToString()),
-                            stokid = _tempSipDetay.stokid,
-                            sevkemriharid = _siparisSevkEmriHarServis.obje2.id,
-                            siparisdetayid = _tempSipDetay.id,
+                            var _tempSipDetay = _siparisDetayServis.obje.Where(x => x.siparisid.ToString() == _sipid.ToString() && x.stokid == _stokServis.obje.Where(z => z.kod == gridView1.GetRowCellValue(j, "StokKodu").ToString() && z.kayittipi == 0).Select(z => z.id).FirstOrDefault()).FirstOrDefault();
+                            _tempSipDetay.hareketdurumu = 1;
+                            _siparisDetayServis.Data(ServisList.SiparisDetayEkleServis, _tempSipDetay);
+                            _satinAlmaMalKabulEmriHarServis.Data(ServisList.SatinAlmaMalKabulHarEkleServis, new PocoSATINALMAMALKABULEMRIHAR()
+                            {
+                                id = _satinAlmaMalKabulEmriHarServis.obje.Where(z => z.emirid.ToString() == _emirid).FirstOrDefault().id,
+                                emirmiktari = Convert.ToDecimal(gridView1.GetRowCellValue(j, "SevkMiktarı").ToString()),
+                                siparisid = _tempSipDetay.siparisid,
+                                sipariskalemid = _tempSipDetay.id,
+                                emirid = int.Parse(_emirid),
+                                siparismiktari = _tempSipDetay.safi,
+                                kullaniciid = 0,
+                                tarih = DateTime.Now,
+                                tip = ms,
+
+                            });
+                            _stokMalKabulList.Data(ServisList.StokMalKabulListEkleServis, new PocoSTOKMALKABULLIST()
+                            {
+                                id = _satinAlmaMalKabulEmriHarServis.obje.Where(z => z.emirid.ToString() == _emirid).FirstOrDefault().id,
+                                birimid = _tempSipDetay.birimid,
+                                siparismiktari = _tempSipDetay.safi,
+                                depoid = _siparisServis.obje.Where(x => x.id == _tempSipDetay.siparisid).FirstOrDefault().depoid,
+                                emirid = int.Parse(_emirid),
+                                miktar = Convert.ToDecimal(gridView1.GetRowCellValue(j, "SevkMiktarı").ToString()),
+                                kalanmiktar = Convert.ToDecimal(gridView1.GetRowCellValue(j, "SevkMiktarı").ToString()),
+                                stokid = _tempSipDetay.stokid,
+                                malkabulharemriid = _satinAlmaMalKabulEmriHarServis.obje2.id,
+                                siparisdetayid = _tempSipDetay.id,
 
 
-                        });
+                            });
 
-                        i++;
+                            i++;
+                        }
                     }
                 }
             }
@@ -172,51 +253,94 @@ namespace MEYPAK.PRL.DEPO
                     miktar = _tempSiparisDetay.Sum(x => x.safi),
                     sira = i,
                     tarih = DateTime.Now,
-                    tip = 0,   /// TOPLAMA EMRİ TIPI OUTPUT =0 INPUT=1
+                    tip = ms,   /// TOPLAMA EMRİ TIPI OUTPUT =0 INPUT=1
                     durum = 1,
                     depoid = _siparisServis.obje.Where(x => x.id.ToString() == _sipid).FirstOrDefault().depoid,
                     aciklama = "",
                 });
                 _depoEmirServis.Data(ServisList.DepoEmirListeServis);
 
-
-
-                for (int j = 0; j < gridView1.RowCount; j++)
+                if (ms == 0)
                 {
 
-                    if (Convert.ToDecimal(gridView1.GetRowCellValue(j, "SevkMiktarı").ToString()) > 0)
+                    for (int j = 0; j < gridView1.RowCount; j++)
                     {
-                        var _tempSipDetay = _siparisDetayServis.obje.Where(x => x.siparisid.ToString() == _sipid.ToString() && x.stokid == _stokServis.obje.Where(z => z.kod == gridView1.GetRowCellValue(j, "StokKodu").ToString() && z.kayittipi == 0).Select(z => z.id).FirstOrDefault()).FirstOrDefault();
-                        _tempSipDetay.hareketdurumu = 1;
-                        _siparisDetayServis.Data(ServisList.SiparisDetayEkleServis, _tempSipDetay);
-                        _siparisSevkEmriHarServis.Data(ServisList.SiparisSevkEmriHarEkleServis, new PocoSIPARISSEVKEMIRHAR()
+
+                        if (Convert.ToDecimal(gridView1.GetRowCellValue(j, "SevkMiktarı").ToString()) > 0)
                         {
-                            emirmiktari = Convert.ToDecimal(gridView1.GetRowCellValue(j, "SevkMiktarı").ToString()),
-                            siparisid = _tempSipDetay.siparisid,
-                            sipariskalemid = _tempSipDetay.id,
-                            emirid = _depoEmirServis.obje2.id,
-                            siparismiktari = _tempSipDetay.safi,
-                            kullaniciid = 0,
-                            tarih = DateTime.Now,
-                            tip = 0,
+                            var _tempSipDetay = _siparisDetayServis.obje.Where(x => x.siparisid.ToString() == _sipid.ToString() && x.stokid == _stokServis.obje.Where(z => z.kod == gridView1.GetRowCellValue(j, "StokKodu").ToString() && z.kayittipi == 0).Select(z => z.id).FirstOrDefault()).FirstOrDefault();
+                            _tempSipDetay.hareketdurumu = 1;
+                            _siparisDetayServis.Data(ServisList.SiparisDetayEkleServis, _tempSipDetay);
+                            _siparisSevkEmriHarServis.Data(ServisList.SiparisSevkEmriHarEkleServis, new PocoSIPARISSEVKEMIRHAR()
+                            {
+                                emirmiktari = Convert.ToDecimal(gridView1.GetRowCellValue(j, "SevkMiktarı").ToString()),
+                                siparisid = _tempSipDetay.siparisid,
+                                sipariskalemid = _tempSipDetay.id,
+                                emirid = _depoEmirServis.obje2.id,
+                                siparismiktari = _tempSipDetay.safi,
+                                kullaniciid = 0,
+                                tarih = DateTime.Now,
+                                tip = ms,
 
-                        });
-                        _stokSevkiyatList.Data(ServisList.StokSevkiyatListEkleServis, new PocoSTOKSEVKIYATLIST()
+                            });
+                            _stokSevkiyatList.Data(ServisList.StokSevkiyatListEkleServis, new PocoSTOKSEVKIYATLIST()
+                            {
+                                birimid = _tempSipDetay.birimid,
+                                siparismiktari = _tempSipDetay.safi,
+                                depoid = _siparisServis.obje.Where(x => x.id == _tempSipDetay.siparisid).FirstOrDefault().depoid,
+                                emirid = _depoEmirServis.obje2.id,
+                                miktar = Convert.ToDecimal(gridView1.GetRowCellValue(j, "SevkMiktarı").ToString()),
+                                kalanmiktar = Convert.ToDecimal(gridView1.GetRowCellValue(j, "SevkMiktarı").ToString()),
+                                stokid = _tempSipDetay.stokid,
+                                sevkemriharid = _siparisSevkEmriHarServis.obje2.id,
+                                siparisdetayid = _tempSipDetay.id,
+
+
+                            });
+
+                            i++;
+                        }
+                    }
+                }
+                else
+                {
+                    for (int j = 0; j < gridView1.RowCount; j++)
+                    {
+
+                        if (Convert.ToDecimal(gridView1.GetRowCellValue(j, "SevkMiktarı").ToString()) > 0)
                         {
-                            birimid = _tempSipDetay.birimid,
-                            siparismiktari = _tempSipDetay.safi,
-                            depoid = _siparisServis.obje.Where(x => x.id == _tempSipDetay.siparisid).FirstOrDefault().depoid,
-                            emirid = _depoEmirServis.obje2.id,
-                            miktar = Convert.ToDecimal(gridView1.GetRowCellValue(j, "SevkMiktarı").ToString()),
-                            kalanmiktar = Convert.ToDecimal(gridView1.GetRowCellValue(j, "SevkMiktarı").ToString()),
-                            stokid = _tempSipDetay.stokid,
-                            sevkemriharid = _siparisSevkEmriHarServis.obje2.id,
-                            siparisdetayid = _tempSipDetay.id,
+                            var _tempSipDetay = _siparisDetayServis.obje.Where(x => x.siparisid.ToString() == _sipid.ToString() && x.stokid == _stokServis.obje.Where(z => z.kod == gridView1.GetRowCellValue(j, "StokKodu").ToString() && z.kayittipi == 0).Select(z => z.id).FirstOrDefault()).FirstOrDefault();
+                            _tempSipDetay.hareketdurumu = 1;
+                            _siparisDetayServis.Data(ServisList.SiparisDetayEkleServis, _tempSipDetay);
+                            _satinAlmaMalKabulEmriHarServis.Data(ServisList.SatinAlmaMalKabulHarEkleServis, new PocoSATINALMAMALKABULEMRIHAR()
+                            {
+                                emirmiktari = Convert.ToDecimal(gridView1.GetRowCellValue(j, "SevkMiktarı").ToString()),
+                                siparisid = _tempSipDetay.siparisid,
+                                sipariskalemid = _tempSipDetay.id,
+                                emirid = _depoEmirServis.obje2.id,
+                                siparismiktari = _tempSipDetay.safi,
+                                kullaniciid = 0,
+                                tarih = DateTime.Now,
+                                tip = ms,
+
+                            });
+                            _stokMalKabulList.Data(ServisList.StokMalKabulListEkleServis, new PocoSTOKMALKABULLIST()
+                            {
+                                birimid = _tempSipDetay.birimid,
+                                siparismiktari = _tempSipDetay.safi,
+                                depoid = _siparisServis.obje.Where(x => x.id == _tempSipDetay.siparisid).FirstOrDefault().depoid,
+                                emirid = _depoEmirServis.obje2.id,
+                                miktar = Convert.ToDecimal(gridView1.GetRowCellValue(j, "SevkMiktarı").ToString()),
+                                kalanmiktar = Convert.ToDecimal(gridView1.GetRowCellValue(j, "SevkMiktarı").ToString()),
+                                stokid = _tempSipDetay.stokid,
+                                malkabulharemriid = _satinAlmaMalKabulEmriHarServis.obje2.id,
+                                siparisdetayid = _tempSipDetay.id,
 
 
-                        });
+                            });
 
-                        i++;
+                            i++;
+                        }
                     }
                 }
             }

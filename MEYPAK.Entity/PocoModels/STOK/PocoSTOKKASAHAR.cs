@@ -15,6 +15,8 @@ namespace MEYPAK.Entity.PocoModels.STOK
         public int cariid { get; set; }
         public int faturaid { get; set; }
         public int faturadetayid { get; set; }
+        public int sarfid { get; set; }
+        public int sarfdetayid { get; set; }
         public int io { get; set; }
         public decimal miktar { get; set; }
         public string belge_no { get; set; }

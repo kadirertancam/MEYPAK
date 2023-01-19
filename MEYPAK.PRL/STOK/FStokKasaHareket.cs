@@ -144,13 +144,14 @@ namespace MEYPAK.PRL.STOK
                 kasaid = tileView2.GetFocusedRowCellValue("ID").ToString();
                 gridControl1.DataSource = _stokKasaHarServis.obje.Where(x => x.cariid.ToString() == cariid  && x.kasaid.ToString() == kasaid).Select(x => new
                 {
+                    ID=x.id,
                     TARIH = x.olusturmatarihi,
                     BELGENO = x.belge_no,
                     CIKISMIKTARI = _stokKasaHarServis.obje.Where(z => z.cariid.ToString() == cariid.ToString() && z.kasaid.ToString() == kasaid.ToString() && z.belge_no == x.belge_no).Sum(z => z.io == 0 ? z.miktar : 0),
                     GIRISMIKTARI = _stokKasaHarServis.obje.Where(z => z.cariid.ToString() == cariid.ToString() && z.kasaid.ToString() == kasaid.ToString() && z.belge_no == x.belge_no).Sum(z => z.io == 1 ? z.miktar : 0)
                 });
                 //gridControl1.DataSource = temp.GroupBy(x => new { x.TARIH, x.BELGENO, x.CIKISMIKTARI, x.GIRISMIKTARI }).Select(x => x.Select(z => new { z.TARIH, z.BELGENO, z.CIKISMIKTARI, z.GIRISMIKTARI }).ToList()).FirstOrDefault();
-
+                gridView1.Columns["ID"].Visible = false;
                 gridControl1.RefreshDataSource();
             }
             catch (Exception)
@@ -179,6 +180,7 @@ namespace MEYPAK.PRL.STOK
         }
         private void gridView1_DoubleClick(object sender, EventArgs e)
         {
+           
             _tempSTOKKASAHAR = _stokKasaHarServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
             Doldur(_tempSTOKKASAHAR);
         }
@@ -201,6 +203,7 @@ namespace MEYPAK.PRL.STOK
                 CIKISMIKTARI = _stokKasaHarServis.obje.Where(z => z.cariid.ToString() == cariid.ToString() && z.kasaid.ToString() == kasaid.ToString() && z.belge_no == x.belge_no).Sum(z => z.io == 0 ? z.miktar : 0),
                 GIRISMIKTARI = _stokKasaHarServis.obje.Where(z => z.cariid.ToString() == cariid.ToString() && z.kasaid.ToString() == kasaid.ToString() && z.belge_no == x.belge_no).Sum(z => z.io == 1 ? z.miktar : 0)
             });
+            gridView1.Columns["ID"].Visible= false;
             gridControl1.RefreshDataSource();
             temizle();
         }

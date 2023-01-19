@@ -213,6 +213,7 @@
             this.accordionControlSeparator2 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
             this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
             this.applicationMenu1 = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
+            this.ACEStokSarf = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -920,6 +921,7 @@
             this.accordionControlElement2,
             this.accordionControlElement3,
             this.accordionControlElement4});
+            this.accordionControlElement1.Expanded = true;
             this.accordionControlElement1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement1.ImageOptions.SvgImage")));
             this.accordionControlElement1.ImageOptions.SvgImageSize = new System.Drawing.Size(32, 32);
             this.accordionControlElement1.Name = "accordionControlElement1";
@@ -1026,7 +1028,8 @@
             this.accordionControlElement16,
             this.accordionControlElement17,
             this.accordionControlElement29,
-            this.accordionControlElement46});
+            this.accordionControlElement46,
+            this.ACEStokSarf});
             this.accordionControlElement3.Expanded = true;
             this.accordionControlElement3.Name = "accordionControlElement3";
             this.accordionControlElement3.Text = "Hareketler";
@@ -1056,7 +1059,6 @@
             this.accordionControlElement17.Name = "accordionControlElement17";
             this.accordionControlElement17.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement17.Text = "MalKabul";
-            this.accordionControlElement17.Visible = false;
             this.accordionControlElement17.Click += new System.EventHandler(this.accordionControlElement17_Click);
             // 
             // accordionControlElement29
@@ -1751,6 +1753,13 @@
             // 
             this.applicationMenu1.Name = "applicationMenu1";
             // 
+            // ACEStokSarf
+            // 
+            this.ACEStokSarf.Name = "ACEStokSarf";
+            this.ACEStokSarf.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ACEStokSarf.Text = "Stok Sarfiyat";
+            this.ACEStokSarf.Click += new System.EventHandler(this.ACEStokSarf_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1963,5 +1972,6 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEFCekTanim;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEFSenetTanim;
         private DevExpress.XtraBars.Navigation.AccordionControlSeparator accordionControlSeparator2;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACEStokSarf;
     }
 }

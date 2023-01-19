@@ -1195,7 +1195,7 @@ namespace MEYPAK.PRL.SIPARIS
                 }
                 _cariHarServsi.Data(ServisList.CariHarEkleServis, new PocoCARIHAR()
                 {
-                    aciklama = "",
+                    aciklama = "Satış Faturası",
                     belgE_NO = _faturaServis.obje2.belgeno,
                     alacak = _faturaServis.obje2.geneltoplam,
                     borc = 0,

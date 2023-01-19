@@ -3,6 +3,7 @@ using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.PRL.Assets;
 using MEYPAK.PRL.IRSALIYE;
 using MEYPAK.PRL.SIPARIS;
+using MEYPAK.PRL.STOK;
 using System.Data;
 using System.Net.Http;
 using System.Text;
@@ -27,6 +28,7 @@ namespace MEYPAK.PRL
         FSatisIrsaliye fSatisIrsaliye;
         FAlisFatura fAlisFatura;
         FFatura ffatura;
+        FStokSarf fStokSarf;
         GenericWebServis<PocoSTOKHAR> _stokHarServis;
         List<AlisKunyeleri> _alisKunyeleris;
         List<AlisKunyeleriV2> _alisKunyelerisv2;
@@ -133,6 +135,25 @@ namespace MEYPAK.PRL
                 }
                 gridControl1.DataSource = _alisKunyelerisv2;
             }
+            else if (_islem == "FStokSarf")
+            {
+                foreach (var item in _stokHarServis.obje.Where(x => x.faturadetayid > 0||x.irsaliyedetayid>0))
+                {
+                    foreach (var item2 in _alisKunyeleris)
+                    {
+                        if (item2.KunyeNo == item.kunye)
+                            item.kunye = "";
+                    }
+                    if (item.kunye != "")
+                        _alisKunyeleris.Add(new AlisKunyeleri()
+                        {
+                            Bakiye = deserializedObject.Body.BaseResponseMessageOf_BildirimSorguCevap.Sonuc.Bildirimler.Where(x => x.KunyeNo.ToString() == item.kunye.ToString()).Select(x => x.KalanMiktar).FirstOrDefault(),
+                            KunyeNo = item.kunye
+                        });
+                }
+
+                gridControl1.DataSource = _alisKunyeleris.Where(x => x.Bakiye >= 1);
+            }
 
 
             //var testt= aaaa.DeserializeXml<Envelope>();
@@ -160,6 +181,8 @@ namespace MEYPAK.PRL
                         fAlisFatura = (FAlisFatura)frm;
                     if (frm.Name.Contains("FFatura"))
                         ffatura = (FFatura)frm;
+                    if (frm.Name.Contains("FStokSarf"))
+                        fStokSarf = (FStokSarf)frm;
                 }
             }
 
@@ -195,6 +218,13 @@ namespace MEYPAK.PRL
                     if (ffatura != null)
                     {
                         ffatura.gridView1.SetFocusedRowCellValue("Kunye", gridView1.GetFocusedRowCellValue("KunyeNo").ToString());
+                    }
+                }
+                if (_islem == "FStokSarf")
+                {
+                    if (fStokSarf != null)
+                    {
+                        fStokSarf.gridView1.SetFocusedRowCellValue("KUNYE", gridView1.GetFocusedRowCellValue("KunyeNo").ToString());
                     }
                 }
                 this.Close();
@@ -233,6 +263,13 @@ namespace MEYPAK.PRL
                 if (ffatura != null)
                 {
                     ffatura.gridView1.SetFocusedRowCellValue("Kunye", gridView1.GetFocusedRowCellValue("KunyeNo").ToString());
+                }
+            }
+            if (_islem == "FStokSarf")
+            {
+                if (fStokSarf != null)
+                {
+                    fStokSarf.gridView1.SetFocusedRowCellValue("KUNYE", gridView1.GetFocusedRowCellValue("KunyeNo").ToString());
                 }
             }
             this.Close();
