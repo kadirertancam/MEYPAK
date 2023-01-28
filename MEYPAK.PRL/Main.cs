@@ -2,6 +2,8 @@
 using DevExpress.XtraTab;
 using DevExpress.XtraTab.ViewInfo;
 using MEYPAK.BLL.Assets;
+using MEYPAK.BLL.KULLANICI;
+using MEYPAK.Entity.IdentityModels;
 using MEYPAK.Entity.PocoModels.PARAMETRE;
 using MEYPAK.PRL.ARACLAR;
 using MEYPAK.PRL.ARAÇLAR;
@@ -24,6 +26,7 @@ using MEYPAK.PRL.STOK;
 using MEYPAK.PRL.STOK.FiyatListesi;
 using MEYPAK.PRL.STOK.Raporlar;
 using MEYPAK.PRL.STOK.StokKasa;
+using Microsoft.AspNetCore.Identity;
 using System.Data;
 using System.Net.Http;
 using System.Reflection;
@@ -33,7 +36,7 @@ namespace MEYPAK.PRL
 {
     public partial class Main : XtraForm
     {
-        public Main()
+        public Main(MPUSER kullanici)
         {
             InitializeComponent();
             foreach (var type in Assembly.GetExecutingAssembly().GetTypes())
@@ -52,6 +55,7 @@ namespace MEYPAK.PRL
                 }
             }
             _parabirimServis = new GenericWebServis<PocoPARABIRIM>();
+            Kullanici = kullanici;
         }
         #region TANIMLAR
         FStokList fstokList;
@@ -126,7 +130,10 @@ namespace MEYPAK.PRL
         public Tarih_Date _tarih_Date;
         public DataTable guncelkur;
         GenericWebServis<PocoPARABIRIM> _parabirimServis;
+        public MPUSER Kullanici;
         #endregion
+
+
 
         public void GuncelKur()
         {
@@ -186,6 +193,7 @@ namespace MEYPAK.PRL
         {
             //guncelkur = CurrenciesExchange.GetDataTableAllCurrenciesTodaysExchangeRates();
             //GuncelKur();
+            ACEKullanici.Text= Kullanici.AD+" "+Kullanici.SOYAD;
         }
 
         public int i = 0;
