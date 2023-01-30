@@ -1005,7 +1005,7 @@ section {
 }
 
 .counts .image {
-    background: url("../img/erisim.png") center center no-repeat;
+    background: url("../img/multi.png") center center no-repeat;
     background-size: cover;
     min-height: 400px;
 }
