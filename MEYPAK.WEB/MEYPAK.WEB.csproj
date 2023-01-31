@@ -7,22 +7,27 @@
   <ItemGroup>
     <Compile Remove="bin\**" />
     <Compile Remove="obj\**" />
+    <Compile Remove="Views\Shared\Partials\UnderPartials\NewFolder\**" />
     <Compile Remove="wwwroot\Sufee-Admin\**" />
     <Compile Remove="wwwroot\Template_Ven\**" />
     <Content Remove="bin\**" />
     <Content Remove="obj\**" />
+    <Content Remove="Views\Shared\Partials\UnderPartials\NewFolder\**" />
     <Content Remove="wwwroot\Sufee-Admin\**" />
     <Content Remove="wwwroot\Template_Ven\**" />
     <EmbeddedResource Remove="bin\**" />
     <EmbeddedResource Remove="obj\**" />
+    <EmbeddedResource Remove="Views\Shared\Partials\UnderPartials\NewFolder\**" />
     <EmbeddedResource Remove="wwwroot\Sufee-Admin\**" />
     <EmbeddedResource Remove="wwwroot\Template_Ven\**" />
     <None Remove="bin\**" />
     <None Remove="obj\**" />
+    <None Remove="Views\Shared\Partials\UnderPartials\NewFolder\**" />
     <None Remove="wwwroot\Sufee-Admin\**" />
     <None Remove="wwwroot\Template_Ven\**" />
     <TypeScriptCompile Remove="bin\**" />
     <TypeScriptCompile Remove="obj\**" />
+    <TypeScriptCompile Remove="Views\Shared\Partials\UnderPartials\NewFolder\**" />
     <TypeScriptCompile Remove="wwwroot\Sufee-Admin\**" />
   </ItemGroup>
   <ItemGroup>
@@ -202,6 +207,5 @@
   <ItemGroup>
     <Folder Include="Views\CEKSENET\SENET\" />
     <Folder Include="Views\Home\" />
-    <Folder Include="Views\Shared\Partials\UnderPartials\NewFolder\" />
   </ItemGroup>
 </Project>
