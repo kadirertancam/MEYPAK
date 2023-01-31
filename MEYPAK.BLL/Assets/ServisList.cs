@@ -8,7 +8,8 @@ namespace MEYPAK.BLL.Assets
 {
     public static class ServisList
     {
-        #region
+        #region Cookie
+        public static string Cookie = "";
 
         #endregion
 
@@ -623,6 +624,7 @@ namespace MEYPAK.BLL.Assets
 
         #region USER-IDENTITY
         public const string UserLoginServis =        "http://213.238.167.117:8080/KULLANICI/Login";
+        public const string UserLogoutServis =        "http://213.238.167.117:8080/KULLANICI/Logout";
         public const string UserEkleServis =         "http://213.238.167.117:8080/KULLANICI/Register";
 
 

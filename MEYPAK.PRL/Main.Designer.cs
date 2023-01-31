@@ -107,6 +107,7 @@
             this.barButtonItem18 = new DevExpress.XtraBars.BarButtonItem();
             this.accordionControl1 = new DevExpress.XtraBars.Navigation.AccordionControl();
             this.accordionControlElement19 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACEKullanici = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlSeparator1 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
             this.accordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement2 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -127,6 +128,7 @@
             this.accordionControlElement17 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement29 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement46 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACEStokSarf = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement4 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement54 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement55 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -213,7 +215,6 @@
             this.accordionControlSeparator2 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
             this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
             this.applicationMenu1 = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
-            this.ACEStokSarf = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -873,6 +874,7 @@
             this.accordionControl1.Dock = System.Windows.Forms.DockStyle.Left;
             this.accordionControl1.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.accordionControlElement19,
+            this.ACEKullanici,
             this.accordionControlSeparator1,
             this.accordionControlElement1,
             this.accordionControlElement5,
@@ -908,6 +910,13 @@
             this.accordionControlElement19.Name = "accordionControlElement19";
             this.accordionControlElement19.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement19.Text = "Eliz Meypak";
+            // 
+            // ACEKullanici
+            // 
+            this.ACEKullanici.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("ACEKullanici.ImageOptions.SvgImage")));
+            this.ACEKullanici.Name = "ACEKullanici";
+            this.ACEKullanici.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ACEKullanici.Text = "Kullanici";
             // 
             // accordionControlSeparator1
             // 
@@ -1030,7 +1039,6 @@
             this.accordionControlElement29,
             this.accordionControlElement46,
             this.ACEStokSarf});
-            this.accordionControlElement3.Expanded = true;
             this.accordionControlElement3.Name = "accordionControlElement3";
             this.accordionControlElement3.Text = "Hareketler";
             // 
@@ -1075,6 +1083,13 @@
             this.accordionControlElement46.Text = "Stok Kasa Hareket";
             this.accordionControlElement46.Click += new System.EventHandler(this.accordionControlElement46_Click);
             // 
+            // ACEStokSarf
+            // 
+            this.ACEStokSarf.Name = "ACEStokSarf";
+            this.ACEStokSarf.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ACEStokSarf.Text = "Stok Sarfiyat";
+            this.ACEStokSarf.Click += new System.EventHandler(this.ACEStokSarf_Click);
+            // 
             // accordionControlElement4
             // 
             this.accordionControlElement4.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
@@ -1086,7 +1101,6 @@
             this.accordionControlElement60,
             this.ACEDepoRaporu,
             this.ACEStokSevkiyatRaporu});
-            this.accordionControlElement4.Expanded = true;
             this.accordionControlElement4.Name = "accordionControlElement4";
             this.accordionControlElement4.Text = "Raporlar";
             // 
@@ -1753,13 +1767,6 @@
             // 
             this.applicationMenu1.Name = "applicationMenu1";
             // 
-            // ACEStokSarf
-            // 
-            this.ACEStokSarf.Name = "ACEStokSarf";
-            this.ACEStokSarf.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.ACEStokSarf.Text = "Stok Sarfiyat";
-            this.ACEStokSarf.Click += new System.EventHandler(this.ACEStokSarf_Click);
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1973,5 +1980,6 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEFSenetTanim;
         private DevExpress.XtraBars.Navigation.AccordionControlSeparator accordionControlSeparator2;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEStokSarf;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACEKullanici;
     }
 }

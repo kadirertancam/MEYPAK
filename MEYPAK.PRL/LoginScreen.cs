@@ -1,4 +1,7 @@
-﻿using System;
+﻿using MEYPAK.BLL.Assets;
+using MEYPAK.Entity.IdentityModels;
+using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,21 +18,38 @@ namespace MEYPAK.PRL
         public LoginScreen()
         {
             InitializeComponent();
-            
+            _loginService = new GenericWebServis<LoginModel>();
         }
         Main fMain;
+        GenericWebServis<LoginModel> _loginService;
+      
+
         private void BTNGiris_Click(object sender, EventArgs e)
         {
-            if (textEdit1.Text=="Admin")
+            try
             {
-                fMain = new Main();
-                fMain.Show();
-                this.Hide();
+                _loginService.Data(ServisList.UserLoginServis, new LoginModel()
+                {
+                    Email = TBEmail.Text,
+                    Password = TBSifre.Text,
+                    RememberMe = true,
+                });
+
+                if (_loginService.kullanici!=null)
+                {
+                    fMain = new Main(_loginService.kullanici);
+                    fMain.Show();
+                    this.Hide();
+                }
+                else
+                    MessageBox.Show("Giriş Yapılamadı Tekrar Deneyin!");
+
             }
-            else
+            catch (Exception)
             {
-                MessageBox.Show("Hatalı Kullanıcı Adı veya Parola!");
+                MessageBox.Show("Giriş Yapılamadı Tekrar Deneyin!");
             }
+
         }
     }
 }

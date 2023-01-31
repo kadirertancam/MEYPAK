@@ -5,17 +5,15 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MEYPAK.API.Controllers.KULLANICIControllers
 {
-    [ApiController]
-    [Route("[controller]")]
-    public class KULLANICIController : Controller
+    public class AccountController : Controller
     {
         private readonly UserManager<MPUSER> _userManager;
         private readonly RoleManager<MPROLE> _roleManager;
         private readonly SignInManager<MPUSER> _signManager;
-        
-        
 
-        public KULLANICIController(UserManager<MPUSER> userManager, RoleManager<MPROLE> roleManager, SignInManager<MPUSER> signManager)
+
+
+        public AccountController(UserManager<MPUSER> userManager, RoleManager<MPROLE> roleManager, SignInManager<MPUSER> signManager)
         {
             _userManager = userManager;
             _roleManager = roleManager;
@@ -82,18 +80,18 @@ namespace MEYPAK.API.Controllers.KULLANICIControllers
                 }
                 MPUSER user = new MPUSER()
                 {
-                    Id= Guid.NewGuid().ToString(),
+                    Id = Guid.NewGuid().ToString(),
                     Email = model.Email,
                     EmailConfirmed = true,
-                    TwoFactorEnabled= false,
+                    TwoFactorEnabled = false,
                     UserName = model.Email,
-                    AD=model.Ad,
-                    SOYAD=model.Soyad,
+                    AD = model.Ad,
+                    SOYAD = model.Soyad,
                     PhoneNumber = model.Telefon
                 };
                 var result = _userManager.CreateAsync(user, model.Password).Result;
 
-                return Ok(result.Succeeded?"Başarıyla Kayıt Oluşturuldu":"Kayıt Edilemedi");
+                return Ok(result.Succeeded ? "Başarıyla Kayıt Oluşturuldu" : "Kayıt Edilemedi");
 
             }
             catch (Exception ex)
@@ -102,6 +100,5 @@ namespace MEYPAK.API.Controllers.KULLANICIControllers
                 return View(model);
             }
         }
-
     }
 }
