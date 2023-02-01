@@ -4,6 +4,7 @@ using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MEYPAK.DAL.Migrations
 {
     [DbContext(typeof(MEYPAKContext))]
-    partial class MEYPAKContextModelSnapshot : ModelSnapshot
+    [Migration("20230131091200_MPPERSONELIZIN")]
+    partial class MPPERSONELIZIN
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -3423,9 +3425,6 @@ namespace MEYPAK.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("AKTIF")
-                        .HasColumnType("bit");
-
                     b.Property<string>("ANNEADI")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -3515,9 +3514,6 @@ namespace MEYPAK.DAL.Migrations
 
                     b.Property<byte>("KAYITTIPI")
                         .HasColumnType("tinyint");
-
-                    b.Property<int>("MAAS")
-                        .HasColumnType("int");
 
                     b.Property<string>("MEDENIDURUM")
                         .IsRequired()
@@ -3644,44 +3640,6 @@ namespace MEYPAK.DAL.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("MPPERSONEL");
-                });
-
-            modelBuilder.Entity("MEYPAK.Entity.Models.PERSONEL.MPPERSONELAVANS", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
-
-                    b.Property<string>("ACIKLAMA")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ESKIID")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("GUNCELLEMETARIHI")
-                        .HasColumnType("datetime2");
-
-                    b.Property<byte>("KAYITTIPI")
-                        .HasColumnType("tinyint");
-
-                    b.Property<int>("MIKTAR")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("OLUSTURMATARIHI")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("PERSONELID")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("TARIH")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("MPPERSONELAVANS");
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.PERSONEL.MPPERSONELBANKA", b =>
@@ -3813,14 +3771,11 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<DateTime>("IZINBITIS")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("IZINGUN")
-                        .HasColumnType("int");
-
-                    b.Property<string>("IZINNEDENI")
+                    b.Property<string>("IZINDURUMU")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("IZINTURU")
+                    b.Property<string>("IZINNEDENI")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

@@ -36,7 +36,7 @@ namespace MEYPAK.PRL
 {
     public partial class Main : XtraForm
     {
-        public Main(MPUSER kullanici)
+        public Main(MPUSER kullanici, List<string> roller)
         {
             InitializeComponent();
             foreach (var type in Assembly.GetExecutingAssembly().GetTypes())
@@ -56,6 +56,7 @@ namespace MEYPAK.PRL
             }
             _parabirimServis = new GenericWebServis<PocoPARABIRIM>();
             Kullanici = kullanici;
+            Roller = roller;
         }
         #region TANIMLAR
         FStokList fstokList;
@@ -127,10 +128,11 @@ namespace MEYPAK.PRL
         FStokSarf fStokSarf;
 
 
-        public Tarih_Date _tarih_Date;
+        public Tarih_Date _tarih_Date= new Tarih_Date();
         public DataTable guncelkur;
         GenericWebServis<PocoPARABIRIM> _parabirimServis;
         public MPUSER Kullanici;
+        List<string> Roller;
         #endregion
 
 
@@ -191,9 +193,29 @@ namespace MEYPAK.PRL
         }
         private void Main_Load(object sender, EventArgs e)
         {
-            //guncelkur = CurrenciesExchange.GetDataTableAllCurrenciesTodaysExchangeRates();
-            //GuncelKur();
-            ACEKullanici.Text= Kullanici.AD+" "+Kullanici.SOYAD;
+            foreach (var item in Roller)
+            {
+                if (item=="ADMIN")
+                {
+
+                }
+                else if (item=="INSANK")
+                {
+                    ACESTOK.Visible = false;
+                    ACECARI.Visible = false;
+                    ACEFATURA.Visible = false;
+                    ACECEKSENET.Visible= false;
+                    ACEKASA.Visible = false;
+                    ACEBANKA.Visible=false;
+                    ACEARAC.Visible= false;
+                    ACEBANKA.Visible= false;
+                    ACEPARAMETRELER.Visible=false;
+                    
+                 
+                }
+                
+            }
+            ACEKullanici.Text = Kullanici.AD + " " + Kullanici.SOYAD;
         }
 
         public int i = 0;
@@ -1488,7 +1510,7 @@ namespace MEYPAK.PRL
         private void ACEMCekTeminat_Click(object sender, EventArgs e)
         {
             XtraTabPage page = new XtraTabPage();
-            fMusteriCekTeminat= new FMusteriCekTeminat();
+            fMusteriCekTeminat = new FMusteriCekTeminat();
             page.Name = "TPMusteriCekTeminat" + i;
             page.Text = "Müşteri Çek Teminat";
             page.Tag = "TPMusteriCekTeminat" + i;

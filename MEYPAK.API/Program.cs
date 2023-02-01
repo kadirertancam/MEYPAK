@@ -65,6 +65,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<MEYPAKContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("MyCon"));
+    
 });
 
 builder.Services.AddIdentity<MPUSER, MPROLE>(options =>
@@ -284,14 +285,23 @@ builder.Services.AddScoped<IHizmetKategoriServis, HizmetKategoriManager>();
 builder.Services.AddScoped<IPersonelDal, EFPersonelRepo>();
 builder.Services.AddScoped<IPersonelServis, PersonelManager>();
 
+builder.Services.AddScoped<IPersonelIzinDal, EFPersonelIzinRepo>();
+builder.Services.AddScoped<IPersonelIzinServis, PersonelIzinManager>();
+
 builder.Services.AddScoped<IPersonelDepartmanDal, EFPersonelDepartmanRepo>();
 builder.Services.AddScoped<IPersonelDepartmanServis, PersonelDepartmanManager>();
 
 builder.Services.AddScoped<IPersonelGorevDal, EFPersonelGorevRepo>();
 builder.Services.AddScoped<IPersonelGorevServis, PersonelGorevManager>();
 
+builder.Services.AddScoped<IPersonelBankaDal, EFPersonelBanka>();
+builder.Services.AddScoped<IPersonelBankaServis, PersonelBankaManager>();
+
 builder.Services.AddScoped<IPersonelZimmetDal, EFPersonelZimmetRepo>();
 builder.Services.AddScoped<IPersonelZimmetServis, PersonelZimmetManager>();
+
+builder.Services.AddScoped<IPersonelAvansDal, EFPersonelAvansRepo>();
+builder.Services.AddScoped<IPersonelAvansServis, PersonelAvansManager>();
 #endregion
 #region SIPARIS_Scoped_Islemleri
 builder.Services.AddScoped<ISiparisDal, EFSiparisRepo>();

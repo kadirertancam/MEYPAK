@@ -5,12 +5,14 @@ using DevExpress.Pdf.Native.BouncyCastle.Ocsp;
 using DevExpress.Text.Interop;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
+using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraScheduler.iCalendar.Native;
 using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.Models.PARAMETRE;
 using MEYPAK.Entity.PocoModels.PERSONEL;
 using MEYPAK.Interfaces.Personel;
 using MEYPAK.Interfaces.Siparis;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -34,6 +36,8 @@ namespace MEYPAK.PRL.PERSONEL
         GenericWebServis<PocoPERSONELGOREV> _personelGorevServis;
         GenericWebServis<PocoPERSONELBANKA> _personelBankaServis;
         GenericWebServis<PocoPERSONELZIMMET> _personelZimmetServis;
+        GenericWebServis<PocoPERSONELIZIN> _personelIzinServis;
+        GenericWebServis<PocoPERSONELAVANS> _personelAvansServis;
 
 
         public FPersonelKart()
@@ -43,15 +47,17 @@ namespace MEYPAK.PRL.PERSONEL
             _personelDepartmanServis = new GenericWebServis<PocoPERSONELDEPARTMAN>();
             _personelBankaServis = new GenericWebServis<PocoPERSONELBANKA>();
             _personelZimmetServis = new GenericWebServis<PocoPERSONELZIMMET>();
+            _personelIzinServis = new GenericWebServis<PocoPERSONELIZIN>();
+            _personelAvansServis = new GenericWebServis<PocoPERSONELAVANS>();
             InitializeComponent();
             PersonelleriGetir();
             CombolarıDoldur();
-
+            CBIzinTur.SelectedIndex = 0;
         }
         //TODO RESİM EKLENECEK - (STOKTAN-CARİDEN RESİM ALINACAK)
 
         ADRESOBJECT.Root _adresObje;
-        public  PocoPERSONEL _tempPocoPERSONEL;
+        public PocoPERSONEL _tempPocoPERSONEL;
         string base64 = "";
 
 
@@ -59,80 +65,84 @@ namespace MEYPAK.PRL.PERSONEL
         {
             if (TBTCNO.EditValue != null && TBAdi.EditValue != null && TBSoyadi.EditValue != null && DTPIseGirisTar.EditValue != null && CBCinsiyet.EditValue != null && DTPDogumTar.EditValue != null && CBDepartman.EditValue != null && CBGorev.EditValue != null)
             {
-      
-                    _personelServis.Data(ServisList.PersonelEkleServis, new PocoPERSONEL()
-                    {
-                        id = _tempPocoPERSONEL!=null?_tempPocoPERSONEL.id:0,
-                        //TODO Şube Şirket seçme ekranı yapılacak
-                        subeid = 0,
-                        sirketid = 0,
-                        img = base64,
-                        tc = TBTCNO.Text,
-                        adi = TBAdi.Text,
-                        soyadi = TBSoyadi.Text,
-                        adisoyadi = TBAdi.Text + " " + TBSoyadi.Text,
-                        dogumtar = (DateTime)DTPDogumTar.EditValue,
-                        cinsiyet = Convert.ToByte(CBCinsiyet.SelectedIndex),
-                        personeldepartmanid = CBDepartman.EditValue != null ? (int)CBDepartman.EditValue : 0,
-                        personelgorevid = CBGorev.EditValue != null ? (int)CBGorev.EditValue : 0,
-                        sgksicilno = TBSGKSICILNO.Text,
-                        isbastar = DTPIseGirisTar.EditValue != null ? (DateTime)DTPIseGirisTar.EditValue : Convert.ToDateTime("01.01.1990"),
-                        isbittar = Convert.ToDateTime("01.01.1990"),
-                        //TODO RESİM
-                        resim = " ",
-                        sgk = TBSGK.Text,
-                        bagkur = TBBagkur.Text,
-                        emeklisandigi = TBEmekliSan.Text,
-                        g506MADSAN = TB506G.Text,
-                        ogrenimdurumu = CBOgrenimDurum.EditValue != null ? CBOgrenimDurum.EditValue.ToString() : "BILINMIYOR",
-                        mezuniyetyili = TBMezuniyetYil.Text,
-                        mezunbolum = TBMezunBolum.Text,
-                        askerlikdurum = CBAskerlikDurum.EditValue != null ? CBOgrenimDurum.EditValue.ToString() : "BILINMIYOR",
-                        askerlikbaslangictar = DTPAskerBasTar.EditValue != null ? (DateTime)DTPAskerBasTar.EditValue : Convert.ToDateTime("01.01.1990"),
-                        askerlikbitistar = DTPAskerBitTar.EditValue != null ? (DateTime)DTPAskerBitTar.EditValue : Convert.ToDateTime("01.01.1990"),
-                        sigortaturkod = CBSigortalilikTur.EditValue != null ? CBSigortalilikTur.EditValue.ToString() : "BILINMIYOR",
-                        yaslilikayligi = CBYaslilikAylik.EditValue != null ? CBYaslilikAylik.EditValue.ToString() : "BILINMIYOR",
-                        istihdamdurumu = CBIstihtamTuru.EditValue != null ? CBIstihtamTuru.EditValue.ToString() : "BILINMIYOR",
-                        meslekkodu = CBMeslekKodu.EditValue != null ? CBMeslekKodu.EditValue.ToString() : "BILINMIYOR",
-                        sosyalguvenlikkodu = CBSGKKodu.EditValue != null ? CBSGKKodu.EditValue.ToString() : "BILINMIYOR",
-                        babaadi = TBBabaAdi.Text,
-                        anneadi = TBAnneAdi.Text,
-                        dogumyeri = TBDogumYer.Text,
-                        medenidurum = TBMedeniDurum.Text,
-                        uyruk = CBUyrugu.EditValue != null ? CBUyrugu.EditValue.ToString() : "BILINMIYOR",
-                        ilksoyad = TBIlkSoyad.Text,
-                        nufusakayitliil = CBNufIl.EditValue != null ? CBNufIl.EditValue.ToString() : "BILINMIYOR",
-                        nufusakayitliilce = CBNufIlce.EditValue != null ? CBNufIlce.EditValue.ToString() : "BILINMIYOR",
-                        nufusakayitlimah = TBNufKayitMah.Text,
-                        ulke = TBUlke.Text,
-                        kangrubu = CBKanGrubu.EditValue != null ? CBKanGrubu.EditValue.ToString() : "BILINMIYOR",
-                        ciltno = TBCiltNo.Text,
-                        ailesirano = TBAileSıraNo.Text,
-                        sirano = TBSiraNo.Text,
-                        nufuscuzdanverilistarih = DTPNufVerTar.EditValue != null ? (DateTime)DTPNufVerTar.EditValue : Convert.ToDateTime("01.01.1990"),
-                        nufuscuzdanserino = TBNufSeriNo.Text,
-                        nufuscuzdankayitno = TBNufKayıtNo.Text,
-                        adres = TBAdres.Text,
-                        adresmah = TBAdresMahalle.Text,
-                        adresil = CBAdresIL.EditValue != null ? CBAdresIL.EditValue.ToString() : "BILINMIYOR",
-                        adresilce = CBAdresIlce.EditValue != null ? CBAdresIlce.EditValue.ToString() : "BILINMIYOR",
-                        adrespostakodu = TBAdresPostaKodu.Text,
-                        vergidairesi = TBVergiDaire.Text,
-                        vergino = TBVergiNo.Text,
-                        telefon = TBTelefon.Text,
-                        cepno = TBCepNo.Text,
-                        eposta = TBEposta.Text,
-                        bedenolcusu = CBUstBeden.EditValue != null ? Convert.ToByte(CBUstBeden.SelectedIndex) : (byte)0,
-                        pantolonolcusu = CBAltBeden.EditValue != null ? Convert.ToByte(CBAltBeden.EditValue) : (byte)0,
-                        ayakkabino = CBAyakkabıNo.EditValue != null ? Convert.ToByte(CBAyakkabıNo.EditValue) : (byte)0,
 
-                    });
-                    string message = _tempPocoPERSONEL!=null? _tempPocoPERSONEL.adi+"'e ait bilgiler başarıyla güncellendi.":"Kayıt Başarıyla Eklendi";
-                    _tempPocoPERSONEL = _personelServis.obje2;
-                    MessageBox.Show(message);
-                    PersonelleriGetir();
+                _personelServis.Data(ServisList.PersonelEkleServis, new PocoPERSONEL()
+                {
+                    id = _tempPocoPERSONEL != null ? _tempPocoPERSONEL.id : 0,
+                    //TODO Şube Şirket seçme ekranı yapılacak
+                    subeid = 0,
+                    sirketid = 0,
+                    img = base64,
+                    tc = TBTCNO.Text,
+                    adi = TBAdi.Text,
+                    soyadi = TBSoyadi.Text,
+                    adisoyadi = TBAdi.Text + " " + TBSoyadi.Text,
+                    dogumtar = (DateTime)DTPDogumTar.EditValue,
+                    cinsiyet = Convert.ToByte(CBCinsiyet.SelectedIndex),
+                    personeldepartmanid = CBDepartman.EditValue != null ? (int)CBDepartman.EditValue : 0,
+                    personelgorevid = CBGorev.EditValue != null ? (int)CBGorev.EditValue : 0,
+                    sgksicilno = TBSGKSICILNO.Text,
+                    isbastar = DTPIseGirisTar.EditValue != null ? (DateTime)DTPIseGirisTar.EditValue : Convert.ToDateTime("01.01.1990"),
+                    isbittar = Convert.ToDateTime("01.01.1990"),
+                    //TODO RESİM
+                    resim = " ",
+                    sgk = TBSGK.Text,
+                    bagkur = TBBagkur.Text,
+                    emeklisandigi = TBEmekliSan.Text,
+                    g506MADSAN = TB506G.Text,
+                    ogrenimdurumu = CBOgrenimDurum.EditValue != null ? CBOgrenimDurum.EditValue.ToString() : "BILINMIYOR",
+                    mezuniyetyili = TBMezuniyetYil.Text,
+                    mezunbolum = TBMezunBolum.Text,
+                    askerlikdurum = CBAskerlikDurum.EditValue != null ? CBOgrenimDurum.EditValue.ToString() : "BILINMIYOR",
+                    askerlikbaslangictar = DTPAskerBasTar.EditValue != null ? (DateTime)DTPAskerBasTar.EditValue : Convert.ToDateTime("01.01.1990"),
+                    askerlikbitistar = DTPAskerBitTar.EditValue != null ? (DateTime)DTPAskerBitTar.EditValue : Convert.ToDateTime("01.01.1990"),
+                    sigortaturkod = CBSigortalilikTur.EditValue != null ? CBSigortalilikTur.EditValue.ToString() : "BILINMIYOR",
+                    yaslilikayligi = CBYaslilikAylik.EditValue != null ? CBYaslilikAylik.EditValue.ToString() : "BILINMIYOR",
+                    istihdamdurumu = CBIstihtamTuru.EditValue != null ? CBIstihtamTuru.EditValue.ToString() : "BILINMIYOR",
+                    meslekkodu = CBMeslekKodu.EditValue != null ? CBMeslekKodu.EditValue.ToString() : "BILINMIYOR",
+                    sosyalguvenlikkodu = CBSGKKodu.EditValue != null ? CBSGKKodu.EditValue.ToString() : "BILINMIYOR",
+                    babaadi = TBBabaAdi.Text,
+                    anneadi = TBAnneAdi.Text,
+                    dogumyeri = TBDogumYer.Text,
+                    medenidurum = TBMedeniDurum.Text,
+                    uyruk = CBUyrugu.EditValue != null ? CBUyrugu.EditValue.ToString() : "BILINMIYOR",
+                    ilksoyad = TBIlkSoyad.Text,
+                    nufusakayitliil = CBNufIl.EditValue != null ? CBNufIl.EditValue.ToString() : "BILINMIYOR",
+                    nufusakayitliilce = CBNufIlce.EditValue != null ? CBNufIlce.EditValue.ToString() : "BILINMIYOR",
+                    nufusakayitlimah = TBNufKayitMah.Text,
+                    ulke = TBUlke.Text,
+                    kangrubu = CBKanGrubu.EditValue != null ? CBKanGrubu.EditValue.ToString() : "BILINMIYOR",
+                    ciltno = TBCiltNo.Text,
+                    ailesirano = TBAileSıraNo.Text,
+                    sirano = TBSiraNo.Text,
+                    nufuscuzdanverilistarih = DTPNufVerTar.EditValue != null ? (DateTime)DTPNufVerTar.EditValue : Convert.ToDateTime("01.01.1990"),
+                    nufuscuzdanserino = TBNufSeriNo.Text,
+                    nufuscuzdankayitno = TBNufKayıtNo.Text,
+                    adres = TBAdres.Text,
+                    adresmah = TBAdresMahalle.Text,
+                    adresil = CBAdresIL.EditValue != null ? CBAdresIL.EditValue.ToString() : "BILINMIYOR",
+                    adresilce = CBAdresIlce.EditValue != null ? CBAdresIlce.EditValue.ToString() : "BILINMIYOR",
+                    adrespostakodu = TBAdresPostaKodu.Text,
+                    vergidairesi = TBVergiDaire.Text,
+                    vergino = TBVergiNo.Text,
+                    telefon = TBTelefon.Text,
+                    cepno = TBCepNo.Text,
+                    eposta = TBEposta.Text,
+                    bedenolcusu = CBUstBeden.EditValue != null ? Convert.ToByte(CBUstBeden.SelectedIndex) : (byte)0,
+                    pantolonolcusu = CBAltBeden.EditValue != null ? Convert.ToByte(CBAltBeden.EditValue) : (byte)0,
+                    ayakkabino = CBAyakkabıNo.EditValue != null ? Convert.ToByte(CBAyakkabıNo.EditValue) : (byte)0,
+                    notlar = TBNotlar.Text,
+                    maas = (int)TBMaas.EditValue,
+                    aktif = true,
+                    sube = TBSube.Text,
 
-             
+                }) ;
+                string message = _tempPocoPERSONEL != null ? _tempPocoPERSONEL.adi + "'e ait bilgiler başarıyla güncellendi." : "Kayıt Başarıyla Eklendi";
+                _tempPocoPERSONEL = _personelServis.obje2;
+                MessageBox.Show(message);
+                PersonelleriGetir();
+
+
                 base64 = "";
             }
             else
@@ -180,28 +190,109 @@ namespace MEYPAK.PRL.PERSONEL
             if (e.Button.Caption == "Ekle")
             {
                 var A = _personelDepartmanServis.obje.Where(x => x.id.ToString() == CBDepartman.EditValue.ToString()).Count();
-                if (_personelDepartmanServis.obje.Where(x=> x.id.ToString() == CBDepartman.EditValue.ToString()).Count()<=0)
+                if (_personelDepartmanServis.obje.Where(x => x.id.ToString() == CBDepartman.EditValue.ToString()).Count() <= 0)
                 {
-                _personelDepartmanServis.Data(ServisList.PersonelDepartmanEkleServis, new PocoPERSONELDEPARTMAN()
-                {
-                    adi = sender.GetType().GetProperty("AutoSearchText").GetValue(sender).ToString()
-                });
-                CombolarıDoldur();
-                MessageBox.Show(sender.GetType().GetProperty("AutoSearchText").GetValue(sender).ToString() + " Başarıyla Eklendi");
+                    _personelDepartmanServis.Data(ServisList.PersonelDepartmanEkleServis, new PocoPERSONELDEPARTMAN()
+                    {
+                        adi = sender.GetType().GetProperty("AutoSearchText").GetValue(sender).ToString()
+                    });
+                    CombolarıDoldur();
+                    MessageBox.Show(sender.GetType().GetProperty("AutoSearchText").GetValue(sender).ToString() + " Başarıyla Eklendi");
                 }
                 else
                 {
                     MessageBox.Show("Eklemeye Çalıştığınız Departman zaten mevcut!");
                 }
             }
-          
-        }
 
+        }
+        private void BTIzin_Click(object sender, EventArgs e)
+        {
+            if (_tempPocoPERSONEL != null && _tempPocoPERSONEL.id > 0)
+            {
+                if (TBIzınNeden.Text != "" && DTPIzinBas.EditValue != null && DTPIzinBit.EditValue != null)
+                {
+                    _personelIzinServis.Data(ServisList.PersonelIzinEkleServis, new PocoPERSONELIZIN()
+                    {
+                        IZINTURU = CBIzinTur.SelectedText,
+                        IZINNEDENI = TBIzınNeden.Text,
+                        IZINBASLANGIC = (DateTime)DTPIzinBas.EditValue,
+                        DEVREDILECEKPERSONEL = TBIzinDevirPers.Text,
+                        IZINBITIS = (DateTime)DTPIzinBit.EditValue,
+                        PERSONELID = _tempPocoPERSONEL.id,
+                        IZINGUN = (int)TBIzinGun.EditValue,
+                    });
+
+                    PersonelIzinGridDoldur();
+                }
+                else
+                {
+                    MessageBox.Show("Gerekli Alanları Girmeden Izin Tanımlayamazsınız!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Izin Bilgisi Eklenecek Personel Bulunamadı!");
+            }
+        }
+        private void BTAvansKaydet_Click(object sender, EventArgs e)
+        {
+            if (TBAvansMiktar.EditValue != null && DTPAvansTar.EditValue != null)
+            {
+                if (_tempPocoPERSONEL != null && _tempPocoPERSONEL.id > 0)
+                {
+                    _personelAvansServis.Data(ServisList.PersonelAvansEkleServis, new PocoPERSONELAVANS()
+                    {
+                        MIKTAR = (int)TBAvansMiktar.EditValue,
+                        ACIKLAMA = TBAvansAciklama.Text,
+                        TARIH = (DateTime)DTPAvansTar.EditValue,
+                    });
+                    PersonelAvansGridDoldur();
+                }
+                else
+                    MessageBox.Show("Avans Bilgisi Eklenecek Personel Bulunamadı!");
+            }
+            else
+                MessageBox.Show("Gerekli Alanları Doldurmadan Personele Avans Bilgisi Kaydedemezsiniz!");
+        }
+        private void BTNZimKaydet_Click(object sender, EventArgs e)
+        {
+            if (TBZimMarka.EditValue != null && TBZimMiktar.EditValue != null && DTPZimBasTar.EditValue != null && TBZimSeriNo.EditValue != null && TBZimAciklama.EditValue != null)
+            {
+                if (_tempPocoPERSONEL != null && _tempPocoPERSONEL.id > 0)
+                {
+                    _personelZimmetServis.Data(ServisList.PersonelZimmetlEkleServis, new PocoPERSONELZIMMET()
+                    {
+                        serino = TBZimSeriNo.Text,
+                        zimmettarihi = (DateTime)DTPZimBasTar.EditValue,
+                        markamodel = TBZimMarka.Text,
+                        miktar = Convert.ToInt32(TBZimMiktar.Text),
+                        personelid = _tempPocoPERSONEL.id,
+                        aciklama = TBZimAciklama.Text
+
+                    });
+                    TBZimAciklama.Text = "";
+                    TBZimMarka.Text = "";
+                    TBZimSeriNo.Text = "";
+                    TBZimMiktar.Text = "";
+                    MessageBox.Show($"{_tempPocoPERSONEL.adisoyadi}'adlı personele zimmet eklendi.");
+                    PersonelZimmetGridDoldur();
+                }
+                else
+                {
+                    MessageBox.Show("Zimmet Bilgisi Eklenecek Personel Bulunamadı!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Tüm Alanları Doldurmadan Personele Zimmet Tanımlayamazsınız!");
+            }
+        }
         private void BTSPersonelBanka_Click(object sender, EventArgs e)
         {
             if (TBBankaAdi.EditValue != null && TBBankaSubeAdi.EditValue != null && TBBankaSubeKod.EditValue != null && TBBankaIban.EditValue != null)
             {
-                if (_tempPocoPERSONEL.id > 0)
+                if (_tempPocoPERSONEL != null && _tempPocoPERSONEL.id > 0)
                 {
                     _personelBankaServis.Data(ServisList.PersonelBankaEkleServis, new PocoPERSONELBANKA()
                     {
@@ -211,9 +302,12 @@ namespace MEYPAK.PRL.PERSONEL
                         ibanno = TBBankaIban.Text,
                         personelid = _tempPocoPERSONEL.id
                     });
-                    _personelBankaServis.Data(ServisList.PersonelBankaListeServis);
-                    //Todo personel id
-                    gridControl2.DataSource = _personelBankaServis.obje.Where(x => x.personelid == _tempPocoPERSONEL.id);
+                    TBBankaIban.Text = "";
+                    TBBankaSubeKod.Text = "";
+                    TBBankaSubeAdi.Text = "";
+                    TBBankaAdi.Text = "";
+                    MessageBox.Show($"{_tempPocoPERSONEL.adisoyadi}'adlı personele banka bilgileri eklendi.");
+                    PersonelBankaGridDoldur();
                 }
                 else
                 {
@@ -227,39 +321,14 @@ namespace MEYPAK.PRL.PERSONEL
         }
         private void lookUpEdit2_Properties_EditValueChanged(object sender, EventArgs e)
         { //ADRESIL EDIT VALUE CHANGED
-            
+
             CBAdresIlce.Properties.DataSource = _adresObje.data.Where(x => x.il_adi == CBAdresIL.EditValue.ToString()).Select(x => x.ilceler.Select(z => z.ilce_adi).ToList()).FirstOrDefault();
         }
         private void CBNufIl_EditValueChanged(object sender, EventArgs e)
         {
             CBNufIlce.Properties.DataSource = _adresObje.data.Where(x => x.il_adi == CBNufIl.EditValue).Select(x => x.ilceler.Select(z => z.ilce_adi).ToList()).FirstOrDefault();
         }
-        private void BTNZimKaydet_Click(object sender, EventArgs e)
-        {
-            if (TBZimMarka.EditValue != null && TBZimMiktar.EditValue != null && DTPZimBasTar.EditValue != null && TBZimSeriNo.EditValue != null && TBZimAciklama.EditValue != null)
-            {
-                if (_tempPocoPERSONEL.id > 0)
-                {
-                    _personelZimmetServis.Data(ServisList.PersonelZimmetlEkleServis, new PocoPERSONELZIMMET()
-                    {
-                        serino = TBZimSeriNo.Text,
-                        zimmettarihi = (DateTime)DTPZimBasTar.EditValue,
-                        markamodel = TBZimMarka.Text,
-                        miktar = Convert.ToInt32(TBZimMiktar.Text),
-                        personelid = _tempPocoPERSONEL.id
-                    });
-                    gridControl3.DataSource = _personelZimmetServis.obje.Where(x => x.personelid == _tempPocoPERSONEL.id);
-                }
-                else
-                {
-                    MessageBox.Show("Zimmet Bilgisi Eklenecek Personel Bulunamadı!");
-                }
-            }
-            else
-            {
-                MessageBox.Show("Tüm Alanları Doldurmadan Personele Zimmet Tanımlayamazsınız!");
-            }
-        }
+
 
         private void gridControl1_DoubleClick(object sender, EventArgs e)
         {
@@ -269,7 +338,6 @@ namespace MEYPAK.PRL.PERSONEL
 
         private void CBDepartman_EditValueChanged(object sender, EventArgs e)
         {
-
             CBGorevDoldur();
         }
         void CBGorevDoldur()
@@ -319,7 +387,25 @@ namespace MEYPAK.PRL.PERSONEL
                 if (editor != null)
                     editor.EditValue = null;
             }
+            foreach (var ctrl in panelControl14.Controls)
+            {
+                BaseEdit editor = ctrl as BaseEdit;
+                if (editor != null)
+                    editor.EditValue = null;
+            }
+            foreach (var ctrl in panelControl12.Controls)
+            {
+                BaseEdit editor = ctrl as BaseEdit;
+                if (editor != null)
+                    editor.EditValue = null;
+            }
+            GCPersonelBanka.DataSource = "";
+            GCPersonelIzın.DataSource = "";
+            GCPersonelZimmet.DataSource = "";
+            GCAvans.DataSource = "";
+            TBNotlar.Text = "";
             PBPersonelResim.Image = null;
+            _tempPocoPERSONEL = null;
             base64 = "";
         }
         private static Stream GetStreamFromUrl(string url)
@@ -340,7 +426,7 @@ namespace MEYPAK.PRL.PERSONEL
             CBDepartman.Properties.DataSource = _personelDepartmanServis.obje.Select(x => new { ADI = x.adi, ID = x.id });
 
             string url = @"http://213.238.167.117:8081/il-ilce.json";
-           
+
 
             using (Stream s = GetStreamFromUrl(url))
             using (StreamReader sr = new StreamReader(s))
@@ -348,19 +434,22 @@ namespace MEYPAK.PRL.PERSONEL
                 {
                     _adresObje = JsonConvert.DeserializeObject<ADRESOBJECT.Root>(sr.ReadToEnd());
                 }
-
-
             CBAdresIL.Properties.DataSource = _adresObje.data.Select(x => x.il_adi);
-                    CBNufIl.Properties.DataSource = _adresObje.data.Select(x => x.il_adi);
-
-                
+            CBNufIl.Properties.DataSource = _adresObje.data.Select(x => x.il_adi);
         }
         void PersonelleriGetir()
         {
             _personelServis.Data(ServisList.PersonelListeServis);
-            gridControl1.DataSource = _personelServis.obje.Where(x => x.kayittipi == 0).Select(x => new { ID = x.id, ADI = x.adisoyadi });
+            _personelDepartmanServis.Data(ServisList.PersonelDepartmanListeServis);
+            gridControl1.DataSource = _personelServis.obje.Where(x => x.aktif == true).Select(x => new { ID = x.id, ADI = x.adisoyadi, DEPARTMAN = _personelDepartmanServis.obje.Where(y => y.id == x.personeldepartmanid).FirstOrDefault().adi ,SUBE=x.sube});
             gridView1.Columns["ID"].Visible = false;
-            gridControl2.DataSource = _personelServis.obje.Where(x => x.kayittipi == 0).Select(x => new { ID = x.id, ADI = x.adisoyadi });
+            GridColumn SUBE = gridView1.Columns["SUBE"];
+            gridView1.SortInfo.ClearAndAddRange(new[] {
+                new GridColumnSortInfo(SUBE , DevExpress.Data.ColumnSortOrder.Ascending)
+            }, 1);
+            gridView1.ExpandAllGroups();
+            gridControl2.DataSource = _personelServis.obje.Where(x => x.aktif == false).Select(x => new { ID = x.id, ADI = x.adisoyadi, DEPARTMAN = _personelDepartmanServis.obje.Where(y => y.id == x.personeldepartmanid).FirstOrDefault().adi, SUBE = x.sube });
+            gridView2.Columns["ID"].Visible = false;
         }
         void PersonelBilgileriniDoldur()
         {
@@ -434,6 +523,99 @@ namespace MEYPAK.PRL.PERSONEL
                 CBUstBeden.SelectedIndex = _tempPocoPERSONEL.bedenolcusu;
                 CBAltBeden.EditValue = _tempPocoPERSONEL.pantolonolcusu;
                 CBAyakkabıNo.EditValue = _tempPocoPERSONEL.ayakkabino;
+                TBNotlar.Text = _tempPocoPERSONEL.notlar;
+                PersonelIzinGridDoldur();
+                PersonelBankaGridDoldur();
+                PersonelZimmetGridDoldur();
+                PersonelAvansGridDoldur();
+                LBIzinMiktari.Text = IzinHesapla().ToString();
+            }
+        }
+        int IzinHesapla()
+        {
+            if (_tempPocoPERSONEL != null)
+            {
+                DateTime IzinTarih;
+                int izinGun = 0;
+                IzinTarih = new DateTime(2022, _tempPocoPERSONEL.isbastar.Month, _tempPocoPERSONEL.isbastar.Day);
+                TimeSpan fark = DateTime.Now - IzinTarih;
+                TimeSpan Yasfark = DateTime.Now - _tempPocoPERSONEL.dogumtar;
+                byte yas = (byte)(Yasfark.Days / 365);
+                byte calistigiyıl = (byte)(fark.Days / 365);
+                for (int i = 0; i < (fark.Days / 365); i++)
+                {
+                    izinGun += calistigiyıl >= 15 ? 26 : calistigiyıl > 5 ? 20 : yas > 50 ? 20 : yas < 18 ? 20 : 14;
+                }
+                if (_personelIzinServis.obje != null && _personelIzinServis.obje.Where(x => x.PERSONELID == _tempPocoPERSONEL.id && x.IZINTURU == "YILLIK ÜCRETLİ İZİN").Count() > 0)
+                {
+                    foreach (var item in _personelIzinServis.obje.Where(x => x.PERSONELID == _tempPocoPERSONEL.id && x.IZINTURU == "YILLIK ÜCRETLİ İZİN"))
+                    {
+                        izinGun -= item.IZINGUN;
+                    }
+                }
+
+                return izinGun;
+            }
+            return 0;
+        }
+        void PersonelIzinGridDoldur()
+        {
+            if (_tempPocoPERSONEL != null)
+            {
+                _personelIzinServis.Data(ServisList.PersonelIzinListeServis);
+                GCPersonelIzın.DataSource = _personelIzinServis.obje.Where(x => x.PERSONELID == _tempPocoPERSONEL.id).Select(x => new
+                {
+                    x.IZINTURU,
+                    x.IZINNEDENI,
+                    x.IZINGUN,
+                    x.IZINBASLANGIC,
+                    x.IZINBITIS,
+                    x.DEVREDILECEKPERSONEL,
+                });
+            }
+        }
+
+        void PersonelAvansGridDoldur()
+        {
+            if (_tempPocoPERSONEL != null)
+            {
+                _personelAvansServis.Data(ServisList.PersonelAvansListeServis);
+                GCAvans.DataSource = _personelAvansServis.obje.Where(x => x.PERSONELID == _tempPocoPERSONEL.id).Select(x => new
+                {
+                    x.MIKTAR,
+                    x.TARIH,
+                    x.ACIKLAMA
+                });
+            }
+
+        }
+        void PersonelZimmetGridDoldur()
+        {
+            if (_tempPocoPERSONEL != null)
+            {
+                _personelZimmetServis.Data(ServisList.PersonelZimmetlListeServis);
+                GCPersonelZimmet.DataSource = _personelZimmetServis.obje.Where(x => x.personelid == _tempPocoPERSONEL.id).Select(x => new
+                {
+                    MARKAMODEL = x.markamodel,
+                    SERINO = x.serino,
+                    MIKTAR = x.miktar,
+                    ZIMMETTARIH = x.zimmettarihi,
+                    ACIKLAMA = x.aciklama
+                });
+            }
+        }
+        void PersonelBankaGridDoldur()
+        {
+            if (_tempPocoPERSONEL != null)
+            {
+                _personelBankaServis.Data(ServisList.PersonelBankaListeServis);
+                GCPersonelBanka.DataSource = _personelBankaServis.obje.Where(x => x.personelid == _tempPocoPERSONEL.id).Select(x => new
+                {
+                    BANKAADI = x.bankaadi,
+                    BANKASUBE = x.bankasubeadi,
+                    BANKASUBEKOD = x.bankasubekodu,
+                    IBANNO = x.ibanno
+                });
             }
         }
         public System.Drawing.Image Base64ToImage(string base64String)
@@ -476,8 +658,30 @@ namespace MEYPAK.PRL.PERSONEL
         }
 
 
+
+
+
+
+
         #endregion
 
-     
+        private void BTCIKIS_Click(object sender, EventArgs e)
+        {
+            if (_tempPocoPERSONEL!=null)
+            {
+                DialogResult dialogResult = MessageBox.Show($"{_tempPocoPERSONEL.adisoyadi}'adlı \nPersoneli işten çıkarmak istediğinize emin misiniz?", "Personel Çıkış", MessageBoxButtons.YesNo);
+                if (dialogResult==DialogResult.Yes)
+                {
+                    _tempPocoPERSONEL.aktif = false;
+                    _tempPocoPERSONEL.isbittar = DateTime.Now;
+                    _personelServis.Data(ServisList.PersonelEkleServis, _tempPocoPERSONEL);
+                    PersonelleriGetir();
+                    FormuTemizle();
+                }
+              
+            }
+            else
+                MessageBox.Show("Çıkış Verilecek Personel Bulunamadı!");
+        }
     }
 }

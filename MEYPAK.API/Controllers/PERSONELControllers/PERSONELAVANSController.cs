@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using MEYPAK.DAL.Concrete.ADONET;
-using MEYPAK.Entity.Models.PERSONEL;
 using MEYPAK.Entity.PocoModels.PERSONEL;
 using MEYPAK.Interfaces.Personel;
 using Microsoft.AspNetCore.Mvc;
@@ -9,26 +8,25 @@ namespace MEYPAK.API.Controllers.PERSONELControllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class PERSONELZIMMETController : Controller
+    public class PERSONELAVANSController : Controller
     {
-        private readonly IPersonelZimmetServis _personelZimmetServis;
         private readonly IMapper _mapper;
-        private MPAdoContext<MPPERSONELZIMMET> _adopersonelZimmetServis = new MPAdoContext<MPPERSONELZIMMET>();
-
-        public PERSONELZIMMETController(IPersonelZimmetServis personelZimmetServis, IMapper mapper)
+        private readonly IPersonelAvansServis _personelIzinServis;
+        private MPAdoContext<PocoPERSONELAVANS> _adobankaServis = new MPAdoContext<PocoPERSONELAVANS>();
+        public PERSONELAVANSController(IMapper mapper, IPersonelAvansServis bankaServis)
         {
-            _personelZimmetServis = personelZimmetServis;
             _mapper = mapper;
+            _personelIzinServis = bankaServis;
         }
-
 
         [HttpGet]
         [Route("/[controller]/[action]")]
-        public IActionResult PERSONELZIMMETListe()
+
+        public IActionResult Liste()
         {
             try
             {
-                var data = _personelZimmetServis.Listele();
+                var data = _personelIzinServis.Listele();
                 return Ok(data);
             }
             catch (Exception ex)
@@ -38,12 +36,12 @@ namespace MEYPAK.API.Controllers.PERSONELControllers
         }
         [HttpGet]
         [Route("/[controller]/[action]")]
-        public IActionResult PERSONELZIMMETListe2([FromQuery] string query)
+        public IActionResult Liste2([FromQuery] string query)
         {
             try
             {
-                _adopersonelZimmetServis.HepsiniGetir(query);
-                return Ok(_adopersonelZimmetServis.GenericList);
+                _adobankaServis.HepsiniGetir(query);
+                return Ok(_adobankaServis.GenericList);
             }
             catch (Exception ex)
             {
@@ -52,11 +50,25 @@ namespace MEYPAK.API.Controllers.PERSONELControllers
         }
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult PERSONELZIMMETEkleyadaGuncelle([FromBody]PocoPERSONELZIMMET pModel)
+        public IActionResult EkleyadaGuncelle([FromBody] PocoPERSONELAVANS pModel)
         {
             try
             {
-                var data = _personelZimmetServis.EkleyadaGuncelle(pModel);
+                var data = _personelIzinServis.EkleyadaGuncelle(pModel);
+                return Ok(data);
+            }
+            catch (Exception ex)
+            {
+                return Problem("Belirsiz bir hata oluştu! " + ex.Message);
+            }
+        }
+        [HttpPost]
+        [Route("/[controller]/[action]")]
+        public IActionResult Sil(List<PocoPERSONELAVANS> pModel)
+        {
+            try
+            {
+                var data = _personelIzinServis.Sil(pModel);
                 return Ok(data);
             }
             catch (Exception ex)
@@ -64,29 +76,13 @@ namespace MEYPAK.API.Controllers.PERSONELControllers
                 return Problem("Belirsiz bir hata oluştu!" + ex.Message);
             }
         }
-
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult PERSONELZIMMETSil(List<PocoPERSONELZIMMET> pModel)
+        public IActionResult Guncelle(PocoPERSONELAVANS pModel)
         {
             try
             {
-                var data = _personelZimmetServis.Sil(pModel);
-                return Ok(data);
-            }
-            catch (Exception ex)
-            {
-                return Problem("Belirsiz bir hata oluştu!" + ex.Message);
-            }
-        }
-
-        [HttpPost]
-        [Route("/[controller]/[action]")]
-        public IActionResult PERSONELZIMMETGuncelle(PocoPERSONELZIMMET pModel)
-        {
-            try
-            {
-                var data = _personelZimmetServis.Guncelle(pModel);
+                var data = _personelIzinServis.Guncelle(pModel);
                 return Ok(data);
             }
             catch (Exception ex)
@@ -100,7 +96,7 @@ namespace MEYPAK.API.Controllers.PERSONELControllers
         {
             try
             {
-                bool succes = _personelZimmetServis.DeleteById(id);
+                bool succes = _personelIzinServis.DeleteById(id);
                 if (succes)
                     return Ok(id + " Başarıyla Silindi");
                 else

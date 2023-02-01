@@ -71,11 +71,14 @@ namespace MEYPAK.Entity.PocoModels.PERSONEL
         public string adrespostakodu { get; set; } = "";
         public string vergidairesi { get; set; } = "";
         public string vergino { get; set; } = "";
-     
         public byte bedenolcusu { get; set; } = 0;
         public byte pantolonolcusu { get; set; } = 0;
         public byte ayakkabino { get; set; } = 0;
         public int sirketid { get; set; } = 0;
         public int subeid { get; set; } = 0;
+        public string notlar { get; set; } = "";
+        public int maas { get; set; } = 0;
+        public bool aktif { get; set; }
+        public string sube { get; set; } = "";
     }
 }

@@ -41,7 +41,7 @@ namespace MEYPAK.BLL.Assets
         public List<T> obje;
         public T obje2;
         public string Content="";
-        public MPUSER kullanici;
+        public LoginResultModel loginResult;
         HttpClient httpClient;
 
         public void Data(string servis,T model=null,string parameters=null,List<T> modellist=null,string id=null, HttpMethod method =null)
@@ -97,7 +97,7 @@ namespace MEYPAK.BLL.Assets
                         if (resp.ToString().Contains("StatusCode: 200"))
                         {
                             ServisList.Cookie = Regex.Match(resp.Headers.ToString(), ".AspNetCore.Identity.Application=" + ".*?" + ";").Value.Replace(".AspNetCore.Identity.Application=", "").Replace(";", "");
-                            kullanici = JsonConvert.DeserializeObject<LoginResultModel>(Content);
+                            loginResult = JsonConvert.DeserializeObject<LoginResultModel>(Content);
                         }
                     }
                     else

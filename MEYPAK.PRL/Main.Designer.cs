@@ -109,7 +109,7 @@
             this.accordionControlElement19 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEKullanici = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlSeparator1 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
-            this.accordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACESTOK = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement2 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement9 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement12 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -138,7 +138,7 @@
             this.accordionControlElement60 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEDepoRaporu = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEStokSevkiyatRaporu = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement5 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACECARI = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement6 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement18 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement35 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -149,7 +149,7 @@
             this.accordionControlElement8 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement58 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACECariRapor = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement20 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACEFATURA = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement31 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement45 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement49 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -164,7 +164,7 @@
             this.accordionControlElement33 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEFaturaRaporu = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEMusteriSiparisRaporu = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.ACECekSenet = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACECEKSENET = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEMusteriCek = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEMusteriCekTanim = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEMCekCariCiro = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -182,13 +182,13 @@
             this.ACEFirmaSenet = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEFSenetTanim = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACECekSenetRapor = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.ACEKasa = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACEKASA = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEKasaTanim = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEKasaKart = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEKasaHareket = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEKasaHar = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEKasaRapor = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.ACEBanka = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACEBANKA = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEBankaTanim = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEBankaKart = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACESubeKart = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -196,20 +196,20 @@
             this.ACEBankaHareket = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEHesapHar = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEBankaRapor = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement21 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACEPERSONEL = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement38 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement41 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEPersonelListe = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement39 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement40 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEPersonelRaporu = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement61 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACEARAC = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement23 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEAracTanim = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEAracRotaTanim = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement24 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement25 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement22 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACEPARAMETRELER = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement44 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACESeriTanim = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlSeparator2 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
@@ -876,15 +876,15 @@
             this.accordionControlElement19,
             this.ACEKullanici,
             this.accordionControlSeparator1,
-            this.accordionControlElement1,
-            this.accordionControlElement5,
-            this.accordionControlElement20,
-            this.ACECekSenet,
-            this.ACEKasa,
-            this.ACEBanka,
-            this.accordionControlElement21,
-            this.accordionControlElement61,
-            this.accordionControlElement22,
+            this.ACESTOK,
+            this.ACECARI,
+            this.ACEFATURA,
+            this.ACECEKSENET,
+            this.ACEKASA,
+            this.ACEBANKA,
+            this.ACEPERSONEL,
+            this.ACEARAC,
+            this.ACEPARAMETRELER,
             this.accordionControlSeparator2});
             this.accordionControl1.Location = new System.Drawing.Point(0, 0);
             this.accordionControl1.LookAndFeel.SkinName = "Visual Studio 2013 Dark";
@@ -922,19 +922,18 @@
             // 
             this.accordionControlSeparator1.Name = "accordionControlSeparator1";
             // 
-            // accordionControlElement1
+            // ACESTOK
             // 
-            this.accordionControlElement1.Appearance.Default.ForeColor = System.Drawing.Color.Silver;
-            this.accordionControlElement1.Appearance.Default.Options.UseForeColor = true;
-            this.accordionControlElement1.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.ACESTOK.Appearance.Default.ForeColor = System.Drawing.Color.Silver;
+            this.ACESTOK.Appearance.Default.Options.UseForeColor = true;
+            this.ACESTOK.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.accordionControlElement2,
             this.accordionControlElement3,
             this.accordionControlElement4});
-            this.accordionControlElement1.Expanded = true;
-            this.accordionControlElement1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement1.ImageOptions.SvgImage")));
-            this.accordionControlElement1.ImageOptions.SvgImageSize = new System.Drawing.Size(32, 32);
-            this.accordionControlElement1.Name = "accordionControlElement1";
-            this.accordionControlElement1.Text = "Stok";
+            this.ACESTOK.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement1.ImageOptions.SvgImage")));
+            this.ACESTOK.ImageOptions.SvgImageSize = new System.Drawing.Size(32, 32);
+            this.ACESTOK.Name = "ACESTOK";
+            this.ACESTOK.Text = "Stok";
             // 
             // accordionControlElement2
             // 
@@ -949,7 +948,6 @@
             this.accordionControlElement47,
             this.accordionControlElement50,
             this.accordionControlElement48});
-            this.accordionControlElement2.Expanded = true;
             this.accordionControlElement2.HeaderTemplate.AddRange(new DevExpress.XtraBars.Navigation.HeaderElementInfo[] {
             new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.Text),
             new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.Image),
@@ -1160,17 +1158,17 @@
             this.ACEStokSevkiyatRaporu.Text = "Stok Sevkiyat Raporu";
             this.ACEStokSevkiyatRaporu.Click += new System.EventHandler(this.ACEStokSevkiyatRaporu_Click);
             // 
-            // accordionControlElement5
+            // ACECARI
             // 
-            this.accordionControlElement5.Appearance.Default.ForeColor = System.Drawing.Color.Silver;
-            this.accordionControlElement5.Appearance.Default.Options.UseForeColor = true;
-            this.accordionControlElement5.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.ACECARI.Appearance.Default.ForeColor = System.Drawing.Color.Silver;
+            this.ACECARI.Appearance.Default.Options.UseForeColor = true;
+            this.ACECARI.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.accordionControlElement6,
             this.accordionControlElement7,
             this.accordionControlElement8});
-            this.accordionControlElement5.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement5.ImageOptions.SvgImage")));
-            this.accordionControlElement5.Name = "accordionControlElement5";
-            this.accordionControlElement5.Text = "Cari";
+            this.ACECARI.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement5.ImageOptions.SvgImage")));
+            this.ACECARI.Name = "ACECARI";
+            this.ACECARI.Text = "Cari";
             // 
             // accordionControlElement6
             // 
@@ -1233,7 +1231,6 @@
             this.accordionControlElement8.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.accordionControlElement58,
             this.ACECariRapor});
-            this.accordionControlElement8.Expanded = true;
             this.accordionControlElement8.Name = "accordionControlElement8";
             this.accordionControlElement8.Text = "Raporlar";
             // 
@@ -1251,17 +1248,17 @@
             this.ACECariRapor.Text = "Cari Raporu";
             this.ACECariRapor.Click += new System.EventHandler(this.ACECariRapor_Click);
             // 
-            // accordionControlElement20
+            // ACEFATURA
             // 
-            this.accordionControlElement20.Appearance.Default.ForeColor = System.Drawing.Color.Silver;
-            this.accordionControlElement20.Appearance.Default.Options.UseForeColor = true;
-            this.accordionControlElement20.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.ACEFATURA.Appearance.Default.ForeColor = System.Drawing.Color.Silver;
+            this.ACEFATURA.Appearance.Default.Options.UseForeColor = true;
+            this.ACEFATURA.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.accordionControlElement31,
             this.accordionControlElement32,
             this.accordionControlElement33});
-            this.accordionControlElement20.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement20.ImageOptions.Image")));
-            this.accordionControlElement20.Name = "accordionControlElement20";
-            this.accordionControlElement20.Text = "Fatura";
+            this.ACEFATURA.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement20.ImageOptions.Image")));
+            this.ACEFATURA.Name = "ACEFATURA";
+            this.ACEFATURA.Text = "Fatura";
             // 
             // accordionControlElement31
             // 
@@ -1370,19 +1367,19 @@
             this.ACEMusteriSiparisRaporu.Text = "Müşteri Sipariş Raporu";
             this.ACEMusteriSiparisRaporu.Click += new System.EventHandler(this.ACEMusteriSiparisRaporu_Click);
             // 
-            // ACECekSenet
+            // ACECEKSENET
             // 
-            this.ACECekSenet.Appearance.Default.ForeColor = System.Drawing.Color.Silver;
-            this.ACECekSenet.Appearance.Default.Options.UseForeColor = true;
-            this.ACECekSenet.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.ACECEKSENET.Appearance.Default.ForeColor = System.Drawing.Color.Silver;
+            this.ACECEKSENET.Appearance.Default.Options.UseForeColor = true;
+            this.ACECEKSENET.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.ACEMusteriCek,
             this.ACEMusteriSenet,
             this.ACEFirmaCek,
             this.ACEFirmaSenet,
             this.ACECekSenetRapor});
-            this.ACECekSenet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ACECekSenet.ImageOptions.Image")));
-            this.ACECekSenet.Name = "ACECekSenet";
-            this.ACECekSenet.Text = "Çek/Senet";
+            this.ACECEKSENET.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ACECekSenet.ImageOptions.Image")));
+            this.ACECEKSENET.Name = "ACECEKSENET";
+            this.ACECEKSENET.Text = "Çek/Senet";
             // 
             // ACEMusteriCek
             // 
@@ -1510,17 +1507,17 @@
             this.ACECekSenetRapor.Name = "ACECekSenetRapor";
             this.ACECekSenetRapor.Text = "Raporlar";
             // 
-            // ACEKasa
+            // ACEKASA
             // 
-            this.ACEKasa.Appearance.Default.ForeColor = System.Drawing.Color.Silver;
-            this.ACEKasa.Appearance.Default.Options.UseForeColor = true;
-            this.ACEKasa.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.ACEKASA.Appearance.Default.ForeColor = System.Drawing.Color.Silver;
+            this.ACEKASA.Appearance.Default.Options.UseForeColor = true;
+            this.ACEKASA.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.ACEKasaTanim,
             this.ACEKasaHareket,
             this.ACEKasaRapor});
-            this.ACEKasa.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ACEKasa.ImageOptions.Image")));
-            this.ACEKasa.Name = "ACEKasa";
-            this.ACEKasa.Text = "Kasa";
+            this.ACEKASA.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ACEKasa.ImageOptions.Image")));
+            this.ACEKASA.Name = "ACEKASA";
+            this.ACEKASA.Text = "Kasa";
             // 
             // ACEKasaTanim
             // 
@@ -1556,17 +1553,17 @@
             this.ACEKasaRapor.Name = "ACEKasaRapor";
             this.ACEKasaRapor.Text = "Rapor";
             // 
-            // ACEBanka
+            // ACEBANKA
             // 
-            this.ACEBanka.Appearance.Default.ForeColor = System.Drawing.Color.Silver;
-            this.ACEBanka.Appearance.Default.Options.UseForeColor = true;
-            this.ACEBanka.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.ACEBANKA.Appearance.Default.ForeColor = System.Drawing.Color.Silver;
+            this.ACEBANKA.Appearance.Default.Options.UseForeColor = true;
+            this.ACEBANKA.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.ACEBankaTanim,
             this.ACEBankaHareket,
             this.ACEBankaRapor});
-            this.ACEBanka.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ACEBanka.ImageOptions.Image")));
-            this.ACEBanka.Name = "ACEBanka";
-            this.ACEBanka.Text = "Banka";
+            this.ACEBANKA.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ACEBanka.ImageOptions.Image")));
+            this.ACEBANKA.Name = "ACEBANKA";
+            this.ACEBANKA.Text = "Banka";
             // 
             // ACEBankaTanim
             // 
@@ -1617,24 +1614,23 @@
             this.ACEBankaRapor.Name = "ACEBankaRapor";
             this.ACEBankaRapor.Text = "Rapor";
             // 
-            // accordionControlElement21
+            // ACEPERSONEL
             // 
-            this.accordionControlElement21.Appearance.Default.ForeColor = System.Drawing.Color.Silver;
-            this.accordionControlElement21.Appearance.Default.Options.UseForeColor = true;
-            this.accordionControlElement21.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.ACEPERSONEL.Appearance.Default.ForeColor = System.Drawing.Color.Silver;
+            this.ACEPERSONEL.Appearance.Default.Options.UseForeColor = true;
+            this.ACEPERSONEL.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.accordionControlElement38,
             this.accordionControlElement39,
             this.accordionControlElement40});
-            this.accordionControlElement21.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement21.ImageOptions.Image")));
-            this.accordionControlElement21.Name = "accordionControlElement21";
-            this.accordionControlElement21.Text = "Personel";
+            this.ACEPERSONEL.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement21.ImageOptions.Image")));
+            this.ACEPERSONEL.Name = "ACEPERSONEL";
+            this.ACEPERSONEL.Text = "Personel";
             // 
             // accordionControlElement38
             // 
             this.accordionControlElement38.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.accordionControlElement41,
             this.ACEPersonelListe});
-            this.accordionControlElement38.Expanded = true;
             this.accordionControlElement38.Name = "accordionControlElement38";
             this.accordionControlElement38.Text = "Tanımlar";
             // 
@@ -1661,7 +1657,6 @@
             // 
             this.accordionControlElement40.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.ACEPersonelRaporu});
-            this.accordionControlElement40.Expanded = true;
             this.accordionControlElement40.Name = "accordionControlElement40";
             this.accordionControlElement40.Text = "Raporlar";
             // 
@@ -1672,17 +1667,17 @@
             this.ACEPersonelRaporu.Text = "Personel Raporu";
             this.ACEPersonelRaporu.Click += new System.EventHandler(this.ACEPersonelRaporu_Click);
             // 
-            // accordionControlElement61
+            // ACEARAC
             // 
-            this.accordionControlElement61.Appearance.Default.ForeColor = System.Drawing.Color.Silver;
-            this.accordionControlElement61.Appearance.Default.Options.UseForeColor = true;
-            this.accordionControlElement61.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.ACEARAC.Appearance.Default.ForeColor = System.Drawing.Color.Silver;
+            this.ACEARAC.Appearance.Default.Options.UseForeColor = true;
+            this.ACEARAC.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.accordionControlElement23,
             this.accordionControlElement24,
             this.accordionControlElement25});
-            this.accordionControlElement61.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement61.ImageOptions.Image")));
-            this.accordionControlElement61.Name = "accordionControlElement61";
-            this.accordionControlElement61.Text = "Araç";
+            this.ACEARAC.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement61.ImageOptions.Image")));
+            this.ACEARAC.Name = "ACEARAC";
+            this.ACEARAC.Text = "Araç";
             // 
             // accordionControlElement23
             // 
@@ -1716,16 +1711,16 @@
             this.accordionControlElement25.Name = "accordionControlElement25";
             this.accordionControlElement25.Text = "Rapor";
             // 
-            // accordionControlElement22
+            // ACEPARAMETRELER
             // 
-            this.accordionControlElement22.Appearance.Default.ForeColor = System.Drawing.Color.Silver;
-            this.accordionControlElement22.Appearance.Default.Options.UseForeColor = true;
-            this.accordionControlElement22.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.ACEPARAMETRELER.Appearance.Default.ForeColor = System.Drawing.Color.Silver;
+            this.ACEPARAMETRELER.Appearance.Default.Options.UseForeColor = true;
+            this.ACEPARAMETRELER.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.accordionControlElement44,
             this.ACESeriTanim});
-            this.accordionControlElement22.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement22.ImageOptions.Image")));
-            this.accordionControlElement22.Name = "accordionControlElement22";
-            this.accordionControlElement22.Text = "Parametreler";
+            this.ACEPARAMETRELER.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement22.ImageOptions.Image")));
+            this.ACEPARAMETRELER.Name = "ACEPARAMETRELER";
+            this.ACEPARAMETRELER.Text = "Parametreler";
             // 
             // accordionControlElement44
             // 
@@ -1800,7 +1795,7 @@
         private Panel panel3;
         private Panel panel1;
         private DevExpress.XtraBars.Navigation.AccordionControl accordionControl1;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement1;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACESTOK;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement2;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement9;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement12;
@@ -1812,14 +1807,14 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement16;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement17;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement4;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement5;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACECARI;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement6;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement18;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement7;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement8;
         private DevExpress.XtraBars.Ribbon.ApplicationMenu applicationMenu1;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement19;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement21;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACEPERSONEL;
         private Panel panel2;
         private DevExpress.XtraBars.Navigation.AccordionControlSeparator accordionControlSeparator1;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement28;
@@ -1879,7 +1874,7 @@
         private DevExpress.XtraBars.BarHeaderItem barHeaderItem1;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
         private Panel panel6;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement20;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACEFATURA;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement31;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement34;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement32;
@@ -1907,7 +1902,7 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement40;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement42;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement43;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement22;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACEPARAMETRELER;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement44;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement45;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement46;
@@ -1932,7 +1927,7 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACECariRapor;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEMusteriSiparisRaporu;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEDepoRaporu;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement61;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACEARAC;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement23;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEAracTanim;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEAracRotaTanim;
@@ -1941,13 +1936,13 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEPersonelListe;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEPersonelRaporu;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEStokSevkiyatRaporu;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement ACEKasa;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACEKASA;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEKasaTanim;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEKasaHareket;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEKasaRapor;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEKasaKart;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEKasaHar;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement ACEBanka;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACEBANKA;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEBankaTanim;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEBankaKart;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACESubeKart;
@@ -1955,7 +1950,7 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEBankaHareket;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEBankaRapor;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEHesapHar;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement ACECekSenet;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACECEKSENET;
         private DevExpress.XtraBars.BarSubItem barSubItem20;
         private DevExpress.XtraBars.BarSubItem barSubItem21;
         private DevExpress.XtraBars.BarSubItem barSubItem22;
