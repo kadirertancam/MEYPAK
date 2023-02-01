@@ -97,7 +97,7 @@ namespace MEYPAK.BLL.Assets
                         if (resp.ToString().Contains("StatusCode: 200"))
                         {
                             ServisList.Cookie = Regex.Match(resp.Headers.ToString(), ".AspNetCore.Identity.Application=" + ".*?" + ";").Value.Replace(".AspNetCore.Identity.Application=", "").Replace(";", "");
-                            kullanici = JsonConvert.DeserializeObject<MPUSER>(Content);
+                            kullanici = JsonConvert.DeserializeObject<LoginResultModel>(Content);
                         }
                     }
                     else
