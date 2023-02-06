@@ -12652,6 +12652,21 @@
         /9k=
 </value>
   </data>
+  <data name="accordionControlElement27.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAh1JREFUWEdj
+        GLTAzT9C1sUnONXFO6SDNBycBNTOCDGFTODiFeLv6hv6DWjgf3Kwq0/IRKAx5DnC09OT3d037F1eSfXf
+        V6/f/CcFLFy6Eu4IZ6/gCUDjSHeEi2ewIciA4ydPQ40lHsAcMGveIphD+oFGkuYIF58QB5DmC5euQI0l
+        HsAcAAILFq+AhIRPyOyGhgYmqPGEASUO2LxtF9hSWNRNn70AFhJ9UOMJA0ocALLYNzjmf15xFTAKz/w/
+        c+4imA0yz9UruBdqBX5AiQNAAGRxaHQyzOco2Mk3yAhqDW5AqQNA4M+fP/8fPHz8/9btu2C8ZftuiCOA
+        ZkOtwQ2o4QB0ADJr1AEUOeDzt5//l+y99n/ezsv/l+y7BuT/QhFDxzA1MECxA/78/ff/6sM3/y/dewWm
+        QXxkMXQMUwMDFDuAUkCxA0ajgFJAsQNGo4BSQB8HvAC2AS7dguC7T/7//0fvEEhr/v8/tAyBn72GStDL
+        Aa/eQXwOwo9eDEAI4AEUOeDK1esYjjl/8TJJYiBMtgOq6lquufmG/Tt45DiYf/Dwsf8gPrFi7n5h/6bO
+        nEe6A4ANSlDT1sXNLZbbxSf0ENCgvzOArVwQDeK7+oQeJlYMbDmxDnD2DrEFKS6tbgyGCjE4hIbyAH1z
+        DCTu5hN6FMQnRwxkNtRI3MDBIYHD2SskHdRFgwqBgbWfHy9IHERDhUgSc/UJzkA3cxAABgYAi6Y3o8Nr
+        xcoAAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="accordionControlElement21.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABh0RVh0VGl0
@@ -12792,7 +12807,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAEZTeXN0ZW0uV2luZG93cy5Gb3JtcywgQ3VsdHVyZT1uZXV0cmFs
         LCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAmU3lzdGVtLldpbmRvd3MuRm9ybXMu
         SW1hZ2VMaXN0U3RyZWFtZXIBAAAABERhdGEHAgIAAAAJAwAAAA8DAAAAYHIAAAJNU0Z0AUkBTAIBAQwB
-        AAFAAQUBQAEFASABAAEgAQAE/wEhAQAI/wFCAU0BNgcAATYDAAEoAwABgAMAAYADAAEBAQABIAcAAQH/
+        AAFgAQUBYAEFASABAAEgAQAE/wEhAQAI/wFCAU0BNgcAATYDAAEoAwABgAMAAYADAAEBAQABIAcAAQH/
         AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/
         AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/
         AP8A/wD/AP8AQgADKQE+A10B6gM+AWloAAQBBAIDIQEwAzkBXwMxAUwDJgE4AxUBHHAAAykBPgNdAeoD

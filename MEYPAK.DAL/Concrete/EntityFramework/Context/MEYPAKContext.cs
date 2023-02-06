@@ -5,6 +5,7 @@ using MEYPAK.Entity.Models.BANKA;
 using MEYPAK.Entity.Models.CARI;
 using MEYPAK.Entity.Models.CEKSENET;
 using MEYPAK.Entity.Models.DEPO;
+using MEYPAK.Entity.Models.EISLEMLER;
 using MEYPAK.Entity.Models.FATURA;
 using MEYPAK.Entity.Models.IRSALIYE;
 using MEYPAK.Entity.Models.KASA;
@@ -110,7 +111,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
         public DbSet<MPFATURADETAY> MPFATURADETAY { get; set; }
         public DbSet<MPSTOKKASAMARKA> MPSTOKKASAMARKA { get; set; }
         public DbSet<MPSERI> MPSERI { get; set; }
-
+        public DbSet<MPGELENEFATURA> MPGELENEFATURA { get; set; }
 
 
 

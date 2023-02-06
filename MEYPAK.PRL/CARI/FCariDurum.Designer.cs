@@ -172,7 +172,7 @@
             this.labelControl2.Appearance.ForeColor = System.Drawing.Color.White;
             this.labelControl2.Appearance.Options.UseFont = true;
             this.labelControl2.Appearance.Options.UseForeColor = true;
-            this.labelControl2.Location = new System.Drawing.Point(109, 40);
+            this.labelControl2.Location = new System.Drawing.Point(85, 40);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(31, 17);
             this.labelControl2.TabIndex = 1;
@@ -263,7 +263,7 @@
             this.LBBekleyenSiparis.Appearance.ForeColor = System.Drawing.Color.White;
             this.LBBekleyenSiparis.Appearance.Options.UseFont = true;
             this.LBBekleyenSiparis.Appearance.Options.UseForeColor = true;
-            this.LBBekleyenSiparis.Location = new System.Drawing.Point(98, 40);
+            this.LBBekleyenSiparis.Location = new System.Drawing.Point(70, 40);
             this.LBBekleyenSiparis.Name = "LBBekleyenSiparis";
             this.LBBekleyenSiparis.Size = new System.Drawing.Size(31, 17);
             this.LBBekleyenSiparis.TabIndex = 3;

@@ -13,6 +13,7 @@ using MEYPAK.PRL.CEKSENET.Müşteri.Çek;
 using MEYPAK.PRL.CEKSENET.Müşteri.Senet;
 using MEYPAK.PRL.DEPO;
 using MEYPAK.PRL.DEPO.Raporlar;
+using MEYPAK.PRL.E_ISLEMLER;
 using MEYPAK.PRL.IRSALIYE;
 using MEYPAK.PRL.KASA;
 using MEYPAK.PRL.PARAMETRELER;
@@ -121,7 +122,7 @@ namespace MEYPAK.PRL
         FMusteriSenetTeminat fMusteriSenetTeminat;
         FMusteriSenetProtesto fMusteriSenetProtesto;
         FStokSarf fStokSarf;
-
+        EFATURA fefatura;
 
         public Tarih_Date _tarih_Date;
         public DataTable guncelkur;
@@ -1601,6 +1602,49 @@ namespace MEYPAK.PRL
             page.Controls.Add(fStokSarf);
             fStokSarf.Show();
             i++;
+        }
+
+        private void accordionControlElement26_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fStokSarf = new FStokSarf();
+            page.Name = "StokKasaGirisPanel" + i;
+            page.Text = "Stok Kasa Girişi";
+            page.Tag = "StokKasaGirisPanel" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fStokSarf.FormBorderStyle = FormBorderStyle.None;
+            fStokSarf.TopLevel = false;
+            fStokSarf.AutoScroll = true; 
+            fStokSarf.Dock = DockStyle.Fill;
+            fStokSarf.Tag = "StokKasaGirisPanel" + i;
+            page.Controls.Add(fStokSarf);
+            fStokSarf.Show();
+            i++;
+        }
+
+        private void accordionControlElement64_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fefatura = new EFATURA();
+            page.Name = "EfaturaPanel" + i;
+            page.Text = "Gelen Kutusu";
+            page.Tag = "EfaturaPanel" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fefatura.FormBorderStyle = FormBorderStyle.None;
+            fefatura.TopLevel = false;
+            fefatura.AutoScroll = true;
+            fefatura.Dock = DockStyle.Fill;
+            fefatura.Tag = "EfaturaPanel" + i;
+            page.Controls.Add(fefatura);
+            fefatura.Show();
+            i++;
+
         }
     }
 }

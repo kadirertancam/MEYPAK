@@ -23,8 +23,7 @@ namespace MEYPAK.BLL.CARI
         }
         public PocoCARIALTHESCARI EkleyadaGuncelle(PocoCARIALTHESCARI entity)
         {
-            return _mapper.Map<MPCARIALTHESCARI, PocoCARIALTHESCARI>(_cariAltHesCariDal.EkleyadaGuncelle(_mapper.Map<PocoCARIALTHESCARI, MPCARIALTHESCARI>(entity)));
-
+            return _mapper.Map<MPCARIALTHESCARI, PocoCARIALTHESCARI>(_cariAltHesCariDal.EkleyadaGuncelle(_mapper.Map<PocoCARIALTHESCARI, MPCARIALTHESCARI>(entity))); 
         }
     }
 }
