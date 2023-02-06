@@ -201,8 +201,7 @@
             this.accordionControlElement62 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement64 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement65 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement63 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement21 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement63 = new DevExpress.XtraBars.Navigation.AccordionControlElement(); 
             this.ACEPERSONEL = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement38 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement41 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -884,16 +883,16 @@
             this.accordionControlElement19,
             this.ACEKullanici,
             this.accordionControlSeparator1,
-            this.accordionControlElement1,
-            this.accordionControlElement5,
-            this.accordionControlElement20,
-            this.ACECekSenet,
-            this.ACEKasa,
-            this.ACEBanka,
+            this.ACESTOK,
+            this.ACECARI,
+            this.ACEFATURA,
+            this.ACECEKSENET,
+            this.ACEKASA,
+            this.ACEBANKA,
             this.accordionControlElement27,
-            this.accordionControlElement21,
-            this.accordionControlElement61,
-            this.accordionControlElement22,
+            this.ACEPERSONEL,
+            this.ACEARAC,
+            this.ACEPARAMETRELER,
             this.accordionControlSeparator2});
             this.accordionControl1.Location = new System.Drawing.Point(0, 0);
             this.accordionControl1.LookAndFeel.SkinName = "Visual Studio 2013 Dark";
@@ -939,10 +938,10 @@
             this.accordionControlElement2,
             this.accordionControlElement3,
             this.accordionControlElement4});
-            this.accordionControlElement1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement1.ImageOptions.SvgImage")));
-            this.accordionControlElement1.ImageOptions.SvgImageSize = new System.Drawing.Size(32, 32);
-            this.accordionControlElement1.Name = "accordionControlElement1";
-            this.accordionControlElement1.Text = "Stok";
+            this.ACESTOK.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement1.ImageOptions.SvgImage")));
+            this.ACESTOK.ImageOptions.SvgImageSize = new System.Drawing.Size(32, 32);
+            this.ACESTOK.Name = "accordionControlElement1";
+            this.ACESTOK.Text = "Stok";
             this.ACESTOK.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement1.ImageOptions.SvgImage")));
             this.ACESTOK.ImageOptions.SvgImageSize = new System.Drawing.Size(32, 32);
             this.ACESTOK.Name = "ACESTOK";
@@ -1050,9 +1049,18 @@
             this.accordionControlElement29,
             this.accordionControlElement46,
             this.ACEStokSarf,
-            this.accordionControlElement26});
-            this.accordionControlElement3.Expanded = true;
-            this.ACEStokSarf});
+            this.accordionControlElement26}); 
+
+
+
+
+
+
+
+
+
+
+
             this.accordionControlElement3.Name = "accordionControlElement3";
             this.accordionControlElement3.Text = "Hareketler";
             // 

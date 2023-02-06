@@ -38,7 +38,7 @@ namespace MEYPAK.PRL
             NinjectFactory.CompositionRoot.Initialize(a);
             ApplicationConfiguration.Initialize();
             Application.EnableVisualStyles();
-            Application.Run(new Form2());
+            Application.Run(new LoginScreen());
         }
         
 

@@ -43,8 +43,8 @@ namespace MEYPAK.API.Controllers.EISLEMLER
         {
             try
             {
-                _adoFaturaServis.HepsiniGetir(query);
-                return Ok(_adoFaturaServis.GenericList);
+                _adoGelenEFaturaServis.HepsiniGetir(query);
+                return Ok(_adoGelenEFaturaServis.GenericList);
             }
             catch (Exception ex)
             {
