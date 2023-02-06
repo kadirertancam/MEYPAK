@@ -122,7 +122,7 @@ namespace MEYPAK.PRL.ARACLAR
 
             foreach (var item in _tempAracRota)
             {
-
+                item.userid = MPKullanici.ID;
                 _aracRotaServis.Data(ServisList.AracRotaEkleServis,item);
 
             }

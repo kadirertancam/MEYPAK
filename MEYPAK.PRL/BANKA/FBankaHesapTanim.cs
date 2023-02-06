@@ -65,6 +65,7 @@ namespace MEYPAK.PRL.BANKA
                     ADI = TBAdi.Text,
                     NO = TBNo.Text,
                     IBAN = TBIban.Text,
+                    userid = MPKullanici.ID
                 });
 
                 GridiDoldur();

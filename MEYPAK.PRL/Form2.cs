@@ -39,7 +39,7 @@ namespace MEYPAK.PRL
 
 
             client.Content = new StringContent(xml,
-                                        Encoding.UTF8,
+                                        Encoding.UTF8, 
                                         "text/xml");
 
 
@@ -61,7 +61,7 @@ namespace MEYPAK.PRL
 
         private void Form2_Load(object sender, EventArgs e)
         {
-
+            isyerigetir("6200585694");
         }
     }
 }

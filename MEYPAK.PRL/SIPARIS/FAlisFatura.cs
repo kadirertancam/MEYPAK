@@ -899,10 +899,10 @@ namespace MEYPAK.PRL.SIPARIS
         {
             //if (_tempFatura != null && TBFaturaNo.Text != _tempFatura.belgeno)
             //    _tempFatura = null;
-
+         
             _cariKart.Data(ServisList.CariListeServis);
             if (_cariKart.obje.Where(x => x.kod == TBCariKodu.Text).Count() > 0)
-            { 
+            {
                 _faturaServis.Data(ServisList.FaturaEkleServis, new PocoFATURA()
                 {
                     id = _tempFatura != null ? _tempFatura.id : 0,
@@ -928,7 +928,8 @@ namespace MEYPAK.PRL.SIPARIS
                     geneltoplam = _tempFaturaDetay.Sum(x => x.KdvTutarı) + _tempFaturaDetay.Sum(x => x.NetToplam),
                     kdvdahil = CHBKdvDahil.Checked,
                     tip = 1,
-                });
+                    userid = MPKullanici.ID
+                }) ;
 
                 _stokOlcuBr.Data(ServisList.StokOlcuBrListeServis);
                 _olcuBr.Data(ServisList.OlcuBrListeServis);
@@ -968,7 +969,8 @@ namespace MEYPAK.PRL.SIPARIS
                         hareketdurumu = 0,
                         listefiyatid = 0,
                         tip = item.Tipi == "STOK" ? Convert.ToByte(0) : item.Tipi == "HIZMET" ? Convert.ToByte(1) : item.Tipi == "KASA" ? Convert.ToByte(2) : item.Tipi == "DEMIRBAS" ? Convert.ToByte(3) : Convert.ToByte(4),
-                        kdvtutari = item.KdvTutarı
+                        kdvtutari = item.KdvTutarı,
+                        userid = MPKullanici.ID
                     });
                     if (item.Tipi == "STOK")
                     {
@@ -1004,7 +1006,8 @@ namespace MEYPAK.PRL.SIPARIS
                             miktar = item.Safi,  
                             belge_no=_faturaServis.obje2.belgeno,
                             cariid=_faturaServis.obje2.cariid,
-                            kasaid=item.StokId
+                            kasaid=item.StokId,
+                            userid = MPKullanici.ID
 
                         });
                     }
@@ -1028,7 +1031,7 @@ namespace MEYPAK.PRL.SIPARIS
                             netfiyat = item.NetFiyat,
                             nettoplam = item.NetToplam,
                             hizmetid = item.StokId,
-
+                            userid = MPKullanici.ID
                         });
                     }
 

@@ -14,5 +14,6 @@ namespace MEYPAK.Entity.PocoModels
         public DateTime guncellemetarihi { get; set; } = DateTime.Now;
         public byte kayittipi { get; set; } = 0;
         public int eskiid { get; set; } = 0;
+        public string userid { get; set; }
     }
 }

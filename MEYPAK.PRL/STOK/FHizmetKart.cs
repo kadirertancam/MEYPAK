@@ -64,7 +64,7 @@ namespace MEYPAK.PRL.STOK
                     muhalis = TBAlısKod.Text,
                     muhsatis = TBSatisKod.Text,
                     muhiade = TBIadeKod.Text,
-                   
+                    userid = MPKullanici.ID
                 });
                 }
                 else

@@ -206,6 +206,7 @@ namespace MEYPAK.PRL.KASA
                                 PARABIRIMID = Convert.ToInt32(CBParaBirim.EditValue),
                                 KUR = Convert.ToDecimal(TBKur.EditValue),
                                 TUTAR = Convert.ToDecimal(TBTutar.EditValue),
+                                userid = MPKullanici.ID
                             });
                             MessageBox.Show("Hareket Başarıyla Eklendi.");
                             FormuTemizle();
@@ -227,6 +228,7 @@ namespace MEYPAK.PRL.KASA
                                 PARABIRIMID = Convert.ToInt32(CBParaBirim.EditValue),
                                 KUR = Convert.ToDecimal(TBKur.EditValue),
                                 TUTAR = Convert.ToDecimal(TBTutar.EditValue),
+                                userid = MPKullanici.ID
                             });
                             MessageBox.Show("Hareket Başarıyla Eklendi.");
                             FormuTemizle();
@@ -246,6 +248,7 @@ namespace MEYPAK.PRL.KASA
                                 PARABIRIMID = Convert.ToInt32(CBParaBirim.EditValue),
                                 KUR = Convert.ToDecimal(TBKur.EditValue),
                                 TUTAR = Convert.ToDecimal(TBTutar.EditValue),
+                                userid = MPKullanici.ID
                             });
                             MessageBox.Show("Hareket Başarıyla Eklendi.");
                             FormuTemizle();
@@ -266,6 +269,7 @@ namespace MEYPAK.PRL.KASA
                                 PARABIRIMID = Convert.ToInt32(CBParaBirim.EditValue),
                                 KUR = Convert.ToDecimal(TBKur.EditValue),
                                 TUTAR = Convert.ToDecimal(TBTutar.EditValue),
+                                userid = MPKullanici.ID
                             });
                             MessageBox.Show("Hareket Başarıyla Eklendi.");
                             FormuTemizle();
@@ -287,6 +291,7 @@ namespace MEYPAK.PRL.KASA
                                 PARABIRIMID = Convert.ToInt32(CBParaBirim.EditValue),
                                 KUR = Convert.ToDecimal(TBKur.EditValue),
                                 TUTAR = Convert.ToDecimal(TBTutar.EditValue),
+                                userid = MPKullanici.ID
                             });
                             MessageBox.Show("Hareket Başarıyla Eklendi.");
                             FormuTemizle();
