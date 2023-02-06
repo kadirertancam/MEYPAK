@@ -46,7 +46,8 @@ namespace MEYPAK.PRL.KASA
                 tarih = (DateTime)DTPTarih.EditValue,
                 userid = MPKullanici.ID,
                 durum = Convert.ToByte(CEAktif.EditValue),
-                
+          
+
             });
             MessageBox.Show("Kasa Başarıyla Eklendi.");
             KasalariGetir();

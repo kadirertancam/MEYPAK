@@ -133,6 +133,7 @@ namespace MEYPAK.PRL.SIPARIS
                     StokId = item.stokid,
                     Tipi = item.tip == 0 ? "STOK" : item.tip == 1 ? "HIZMET" : item.tip == 2 ? "KASA" : item.tip == 3 ? "DEMIRBAS" : "MUHASEBE",
                     Kunye = "",
+                    
                 });
                 kasalist = new List<KasaList>();
                 _stokKasaHarServis.Data(ServisList.StokKasaHarListeServis);

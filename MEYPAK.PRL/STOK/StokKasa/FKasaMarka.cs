@@ -27,7 +27,8 @@ namespace MEYPAK.PRL.STOK.StokKasa
             {
                 adi=textEdit2.Text,
                 kod=textEdit1.Text,
-                aktif=1
+                aktif=1,
+                userid = MPKullanici.ID,
             });
             _stokKasaMarakServis.Data(ServisList.StokKasaMarkaListeServis);
 
