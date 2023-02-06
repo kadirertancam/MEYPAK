@@ -35,6 +35,7 @@ namespace MEYPAK.PRL.BANKA
                     ADI = TBSubeAdi.Text,
                     KODU = TBSubeKodu.Text,
                     BANKAID = Convert.ToInt32(CBBanka.EditValue),
+                    userid = MPKullanici.ID
                 });
 
                 GridiDoldur();

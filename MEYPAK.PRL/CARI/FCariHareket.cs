@@ -102,7 +102,7 @@ namespace MEYPAK.PRL.CARI
                 parabirimid = _parabirIMServis.obje.Where(x => x.adi.ToString() == CBParaBrm.EditValue.ToString()).FirstOrDefault().id,
                 id = _tempAltHesap.id,
                 harekettarihi = DateTime.Now,
-
+                userid = MPKullanici.ID,
 
 
             });

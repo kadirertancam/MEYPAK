@@ -44,8 +44,9 @@ namespace MEYPAK.PRL.KASA
                 kod = TBKod.Text,
                 parabirimid = _parabirimServis.obje.Where(x => x.id == Convert.ToInt32(CBParaBirim.EditValue)).FirstOrDefault().id,
                 tarih = (DateTime)DTPTarih.EditValue,
-              
-                durum = Convert.ToByte(CEAktif.EditValue)
+                userid = MPKullanici.ID,
+                durum = Convert.ToByte(CEAktif.EditValue),
+                
             });
             MessageBox.Show("Kasa Başarıyla Eklendi.");
             KasalariGetir();

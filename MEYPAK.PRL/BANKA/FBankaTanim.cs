@@ -1,5 +1,6 @@
 ﻿using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.Models.BANKA;
+using MEYPAK.Entity.PocoModels.BANKA;
 
 namespace MEYPAK.PRL.BANKA
 {
@@ -8,18 +9,19 @@ namespace MEYPAK.PRL.BANKA
         public FBankaTanim()
         {
             InitializeComponent();
-            _bankaServis = new GenericWebServis<MPBANKA>();
+            _bankaServis = new GenericWebServis<PocoBANKA>();
         }
-        GenericWebServis<MPBANKA> _bankaServis;
+        GenericWebServis<PocoBANKA> _bankaServis;
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            _bankaServis.Data(ServisList.BANKAEkleServis, new MPBANKA()
+            _bankaServis.Data(ServisList.BANKAEkleServis, new PocoBANKA()
             {
-                KOD = TBBankaKod.Text,
-                ADI = TBBankaAdi.Text,
-                IL = TBIlce.Text,
-                ILCE = TBIl.Text,
-                AKTIF=1
+                kod = TBBankaKod.Text,
+                adi = TBBankaAdi.Text,
+                il = TBIlce.Text,
+                ilce = TBIl.Text,
+                aktif=1,
+                userid = MPKullanici.ID
             });
             MessageBox.Show("Banka Başarıyla Eklendi");
             GridiDoldur();

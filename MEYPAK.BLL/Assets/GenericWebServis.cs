@@ -1,8 +1,13 @@
-﻿using Newtonsoft.Json;
+﻿using MEYPAK.DAL.Migrations;
+using MEYPAK.Entity.IdentityModels;
+using Microsoft.EntityFrameworkCore.Diagnostics;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Net;
+using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -25,12 +30,20 @@ namespace MEYPAK.BLL.Assets
     /// <typeparam name="T"></typeparam>
     #endregion
 
+    
+
     public class GenericWebServis<T> where T : class, new()
     {
+        public GenericWebServis() {
+            httpClient = new HttpClient();
+        }
         string serialize;
         public List<T> obje;
         public T obje2;
-     
+        public string Content="";
+        public LoginResultModel loginResult;
+        HttpClient httpClient;
+
         public void Data(string servis,T model=null,string parameters=null,List<T> modellist=null,string id=null, HttpMethod method =null)
         {
             if(modellist!=null)
@@ -42,7 +55,7 @@ namespace MEYPAK.BLL.Assets
             servis= parameters != null ? servis + "?" + parameters : servis;
             servis = id != null ? servis + "?id=" + id : servis;
             HttpRequestMessage client;
-            HttpClient httpClient = new HttpClient();
+            
             if (method != null)
                 client = new HttpRequestMessage(method,servis);
             else if (model == null && modellist == null)
@@ -56,6 +69,8 @@ namespace MEYPAK.BLL.Assets
             client.Headers.Add("sec-ch-ua", "\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"");
             client.Headers.Add("sec-ch-ua-mobile", "?0");
             client.Headers.Add("sec-ch-ua-paltform", "\"Windows\"");
+            if (ServisList.Cookie!="")
+            client.Headers.Add("Cookie", ".AspNetCore.Identity.Application="+ ServisList.Cookie);
             client.Headers.Add("Sec-Fetch-Dest", "empty");
             client.Headers.Add("Sec-Fetch-Mode", "cors");
             client.Headers.Add("Sec-Fetch-Site", "same-origin");
@@ -67,22 +82,38 @@ namespace MEYPAK.BLL.Assets
                                         "application/json");
 
             HttpResponseMessage resp =   httpClient.Send(client);
-            var a = resp.Content.ReadAsStringAsync().Result;
+            Content = resp.Content.ReadAsStringAsync().Result;
             try
             {
-
+                obje2 = new T();
+               
                 if (model == null&&modellist==null && method==null)
-                    obje = JsonConvert.DeserializeObject<List<T>>(a);
-                if (model != null) 
-                    obje2 = JsonConvert.DeserializeObject<T>(a);
+                    obje = JsonConvert.DeserializeObject<List<T>>(Content);
+                if (model != null)
+                {
+                    obje2 = new T();
+                    if (obje2.GetType().Name == "LoginModel" )
+                    {
+                        if (resp.ToString().Contains("StatusCode: 200"))
+                        {
+                            ServisList.Cookie = Regex.Match(resp.Headers.ToString(), ".AspNetCore.Identity.Application=" + ".*?" + ";").Value.Replace(".AspNetCore.Identity.Application=", "").Replace(";", "");
+                            loginResult = JsonConvert.DeserializeObject<LoginResultModel>(Content);
+                        }
+                    }
+                    else
+                    obje2 = JsonConvert.DeserializeObject<T>(Content);
+                }
+                   
 
             }
             catch  
             {
-
-               throw new Exception(a.ToString());
+           
+                throw new Exception(Content.ToString());
             }
 
         }
+
+        
     }
 }

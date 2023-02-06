@@ -28,18 +28,8 @@
                 .ColSpan(2)
                 .Items(groupItems =>
                 {
-                    groupItems.AddSimpleFor(m => m.adi);
-                    groupItems.AddSimpleFor(m => m.kategoriid);
-                    groupItems.AddSimpleFor(m => m.kod);
-
-
-
-                    groupItems.AddSimpleFor(m => m.sfiyaT1);
-                    groupItems.AddSimpleFor(m => m.sfiyaT2);
-                    groupItems.AddSimpleFor(m => m.donem);
-
-                    groupItems.AddSimpleFor(m => m.aciklama);
-                    groupItems.AddSimpleFor(m => m.aciklamA5)
+                    
+                    groupItems.AddSimpleFor(m => m.adi)
                 .ColSpan(2)
                 .Editor(editor => editor.TextArea().Height(100));
                 });
@@ -65,17 +55,14 @@
 
 
 
-                columns.AddFor(m => m.sfiyaT1);
+                columns.AddFor(m => m.afiyaT1);
 
-                columns.AddFor(m => m.sfiyaT2);
+                columns.AddFor(m => m.sfiyaT1);
 
                 columns.AddFor(m => m.donem)
                 .Width(65);
 
                 columns.AddFor(m => m.aciklama);
-
-                columns.AddFor(m => m.aciklamA5)
-                .Visible(false);
 
                 columns.Add()
                 .Type(GridCommandColumnType.Buttons)
@@ -92,9 +79,6 @@
 
             )
          )
-
-
-
     </div>
 
 

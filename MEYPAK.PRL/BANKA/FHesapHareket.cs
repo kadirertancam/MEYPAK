@@ -45,14 +45,16 @@ namespace MEYPAK.PRL.BANKA
                     ACIKLAMA = TBAciklama.Text,
                     CARIID = _tempCari.id,
                     ALTHESCARIID = Convert.ToInt32(lookUpEdit1.EditValue),
-                    
+                    userid = MPKullanici.ID
+
                 });
                 _cariHarServis.Data(ServisList.CariHarEkleServis, new PocoCARIHAR()
                 {
                     carialthesapid = Convert.ToInt32(lookUpEdit1.EditValue),
                     cariid = _tempCari.id,
                     tutar = Convert.ToDecimal(TBTutar.Text),
-                    harekettipi = 0
+                    harekettipi = 0,
+                    userid = MPKullanici.ID
                 });
                 MessageBox.Show("Hareket Başarıyla Eklendi.");
                 GridiDoldur();

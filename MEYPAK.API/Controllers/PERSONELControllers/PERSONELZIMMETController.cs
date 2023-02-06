@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MEYPAK.API.Controllers.PERSONELControllers
 {
+    [ApiController]
+    [Route("[controller]")]
     public class PERSONELZIMMETController : Controller
     {
         private readonly IPersonelZimmetServis _personelZimmetServis;
@@ -50,7 +52,7 @@ namespace MEYPAK.API.Controllers.PERSONELControllers
         }
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult PERSONELZIMMETEkleyadaGuncelle(PocoPERSONELZIMMET pModel)
+        public IActionResult PERSONELZIMMETEkleyadaGuncelle([FromBody]PocoPERSONELZIMMET pModel)
         {
             try
             {

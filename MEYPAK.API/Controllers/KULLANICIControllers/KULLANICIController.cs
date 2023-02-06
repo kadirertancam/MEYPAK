@@ -43,10 +43,20 @@ namespace MEYPAK.API.Controllers.KULLANICIControllers
 
                 if (user == null)
                 {
-                    throw new Exception("Sistemde kullanıcı bilgisi bulunamadı.");
+                    return Problem("Sistemde kullanıcı bilgisi bulunamadı.");
                 }
                 var result = _signManager.PasswordSignInAsync(user, model.Password, model.RememberMe, false).Result;
-                return Ok("Giriş Başarılı");
+                if (result.Succeeded)
+                {
+                    LoginResultModel resultModel = new LoginResultModel() { 
+                    MPUSER=user,
+                    userRoles = _userManager.GetRolesAsync(user).Result as List<string>
+                    };
+                 
+                    return Ok(resultModel);
+                }
+                return Problem("Giriş Yapılamadı!");
+               
             }
             catch (Exception ex)
             {
@@ -66,7 +76,7 @@ namespace MEYPAK.API.Controllers.KULLANICIControllers
 
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult Register(LoginModel model)
+        public IActionResult Register(RegisterModel model)
         {
             try
             {
@@ -78,16 +88,21 @@ namespace MEYPAK.API.Controllers.KULLANICIControllers
                 var checkEmail = _userManager.FindByEmailAsync(model.Email).Result;
                 if (checkEmail != null)
                 {
-                    throw new Exception("HATA! Bu email sisteme zaten kayıtlıdır!");
+                    return Ok("HATA! Bu email sisteme zaten kayıtlıdır!");
                 }
                 MPUSER user = new MPUSER()
                 {
+                    Id= Guid.NewGuid().ToString(),
                     Email = model.Email,
-                    EmailConfirmed = true 
+                    EmailConfirmed = true,
+                    TwoFactorEnabled= false,
+                    UserName = model.Email,
+                    AD=model.Ad,
+                    SOYAD=model.Soyad,
+                    PhoneNumber = model.Telefon
                 };
                 var result = _userManager.CreateAsync(user, model.Password).Result;
-
-                return View(model);
+                return Ok(result.Succeeded?"Başarıyla Kayıt Oluşturuldu":"Kayıt Edilemedi");
 
             }
             catch (Exception ex)
@@ -95,6 +110,44 @@ namespace MEYPAK.API.Controllers.KULLANICIControllers
                 ViewBag.RegisterFailedMessage = "Beklenmedik bir hata oluştu! " + ex.Message;
                 return View(model);
             }
+        }
+
+
+        [HttpPost]
+        [Route("/[controller]/[action]")]
+        public async Task<IActionResult> RolVer(LoginResultModel result)
+        {
+           
+            foreach (string role in result.userRoles)
+            {
+                if (_roleManager.RoleExistsAsync(role).Result)
+                 await _userManager.AddToRoleAsync(_userManager.FindByEmailAsync(result.MPUSER.Email).Result, role);
+            }
+            return Ok();
+        }
+
+        [HttpPost]
+        [Route("/[controller]/[action]")]
+        public IActionResult RolleriOlustur()
+        {
+            string[] allRoles = Enum.GetNames(typeof(AllRoles));
+            foreach (string role in allRoles)
+            {
+                if (!_roleManager.RoleExistsAsync(role).Result)
+                {
+                    //eğer o rol yoksa ekle
+                    MPROLE r = new MPROLE()
+                    {
+                        Id= Guid.NewGuid().ToString(),
+                        Name = role,
+                        ACIKLAMA="Otomatik Olusturma",
+                        OLUSTURMATARIHI = DateTime.Now,
+                        GUNCELLEMETARIHI = DateTime.Now,
+                    };
+                    var result = _roleManager.CreateAsync(r).Result;
+                }
+            }
+            return Ok();
         }
 
     }

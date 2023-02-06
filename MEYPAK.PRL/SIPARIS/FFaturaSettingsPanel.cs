@@ -91,6 +91,7 @@ namespace MEYPAK.PRL.SIPARIS
 
             };
             tempirs.durum = true;
+            tempirs.userid = MPKullanici.ID;
             _irsaliyeServis.Data(ServisList.IrsaliyeEkleServis, tempirs);
 
             foreach (var item in fSatisIrsaliyeFaturalastir.gridView1.GetSelectedRows())

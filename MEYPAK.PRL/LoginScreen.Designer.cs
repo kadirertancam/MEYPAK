@@ -28,47 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
+            this.TBEmail = new DevExpress.XtraEditors.TextEdit();
+            this.TBSifre = new DevExpress.XtraEditors.TextEdit();
             this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.comboBoxEdit2 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.BTNGiris = new DevExpress.XtraEditors.SimpleButton();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBEmail.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBSifre.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).BeginInit();
             this.SuspendLayout();
             // 
-            // textEdit1
+            // TBEmail
             // 
-            this.textEdit1.Location = new System.Drawing.Point(650, 284);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.textEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textEdit1.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.textEdit1.Properties.Appearance.Options.UseBackColor = true;
-            this.textEdit1.Properties.Appearance.Options.UseFont = true;
-            this.textEdit1.Properties.Appearance.Options.UseForeColor = true;
-            this.textEdit1.Properties.NullText = "Kullanıcı Adı";
-            this.textEdit1.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.textEdit1.Size = new System.Drawing.Size(209, 36);
-            this.textEdit1.TabIndex = 0;
+            this.TBEmail.Location = new System.Drawing.Point(650, 284);
+            this.TBEmail.Name = "TBEmail";
+            this.TBEmail.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.TBEmail.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TBEmail.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.TBEmail.Properties.Appearance.Options.UseBackColor = true;
+            this.TBEmail.Properties.Appearance.Options.UseFont = true;
+            this.TBEmail.Properties.Appearance.Options.UseForeColor = true;
+            this.TBEmail.Properties.NullText = "Kullanıcı Adı";
+            this.TBEmail.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.TBEmail.Size = new System.Drawing.Size(209, 36);
+            this.TBEmail.TabIndex = 0;
             // 
-            // textEdit2
+            // TBSifre
             // 
-            this.textEdit2.Location = new System.Drawing.Point(650, 326);
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.textEdit2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textEdit2.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.textEdit2.Properties.Appearance.Options.UseBackColor = true;
-            this.textEdit2.Properties.Appearance.Options.UseFont = true;
-            this.textEdit2.Properties.Appearance.Options.UseForeColor = true;
-            this.textEdit2.Properties.NullText = "Şifre";
-            this.textEdit2.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.textEdit2.Properties.PasswordChar = '*';
-            this.textEdit2.Size = new System.Drawing.Size(209, 36);
-            this.textEdit2.TabIndex = 1;
+            this.TBSifre.Location = new System.Drawing.Point(650, 326);
+            this.TBSifre.Name = "TBSifre";
+            this.TBSifre.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.TBSifre.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TBSifre.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.TBSifre.Properties.Appearance.Options.UseBackColor = true;
+            this.TBSifre.Properties.Appearance.Options.UseFont = true;
+            this.TBSifre.Properties.Appearance.Options.UseForeColor = true;
+            this.TBSifre.Properties.NullText = "Şifre";
+            this.TBSifre.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.TBSifre.Properties.PasswordChar = '*';
+            this.TBSifre.Size = new System.Drawing.Size(209, 36);
+            this.TBSifre.TabIndex = 1;
             // 
             // comboBoxEdit1
             // 
@@ -139,15 +139,15 @@
             this.Controls.Add(this.BTNGiris);
             this.Controls.Add(this.comboBoxEdit2);
             this.Controls.Add(this.comboBoxEdit1);
-            this.Controls.Add(this.textEdit2);
-            this.Controls.Add(this.textEdit1);
+            this.Controls.Add(this.TBSifre);
+            this.Controls.Add(this.TBEmail);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "LoginScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Giriş";
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBEmail.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBSifre.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).EndInit();
             this.ResumeLayout(false);
@@ -156,8 +156,8 @@
 
         #endregion
 
-        private DevExpress.XtraEditors.TextEdit textEdit1;
-        private DevExpress.XtraEditors.TextEdit textEdit2;
+        private DevExpress.XtraEditors.TextEdit TBEmail;
+        private DevExpress.XtraEditors.TextEdit TBSifre;
         private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
         private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit2;
         private DevExpress.XtraEditors.SimpleButton BTNGiris;

@@ -147,6 +147,7 @@ namespace MEYPAK.PRL.ARAÇLAR
                         yakitturu = TBPlaka.Text,
                         soforid = CBSofor1.EditValue != null ? (int)CBSofor1.EditValue : 0,
                         sofor2id = CBSofor2.EditValue != null ? (int)CBSofor2.EditValue : 0,
+                        userid = MPKullanici.ID
                     });
                     _tempArac = _aracServis.obje2;
                     MessageBox.Show($"{_tempArac.plaka} plakalı araç başarıyla güncellendi");
@@ -163,6 +164,7 @@ namespace MEYPAK.PRL.ARAÇLAR
                         yakitturu = TBPlaka.Text,
                         soforid = CBSofor1.EditValue != null ? (int)CBSofor1.EditValue : 0,
                         sofor2id = CBSofor2.EditValue != null ? (int)CBSofor2.EditValue : 0,
+                        userid = MPKullanici.ID
                     });
                     _tempArac = _aracServis.obje2;
                     MessageBox.Show($"{_tempArac.plaka} plakalı araç başarıyla eklendi");
@@ -189,6 +191,7 @@ namespace MEYPAK.PRL.ARAÇLAR
                         sigpoliceno = TBSigPoliceNo.Text,
                         sigbastar = (DateTime)DTPSigPolBasTar.EditValue,
                         sigbittar = (DateTime)DTPSigPolBitTar.EditValue,
+                        userid = MPKullanici.ID
                     });
                     MessageBox.Show($"{_tempArac.plaka} plakalı araca sigorta bilgileri eklenmiştir.");
                 }
@@ -216,6 +219,7 @@ namespace MEYPAK.PRL.ARAÇLAR
                         kaspoliceno = TBKasPoliceNo.Text,
                         kasbastar = (DateTime)DTPKasPolBasTar.EditValue,
                         kasbittar = (DateTime)DTPKasPolBitTar.EditValue,
+                        userid = MPKullanici.ID
                     });
                     MessageBox.Show($"{_tempArac.plaka} plakalı araca sigorta bilgileri eklenmiştir.");
                 }
@@ -243,6 +247,7 @@ namespace MEYPAK.PRL.ARAÇLAR
                     aracid = _tempArac.id,
                     num = 0,
                     img = base64,
+                    userid = MPKullanici.ID
                 });
             }
             else
@@ -252,6 +257,7 @@ namespace MEYPAK.PRL.ARAÇLAR
                     aracid = _tempArac.id,
                     num = _aracServisRUHSATRESIMServis.obje.Where(x => x.aracid == _tempArac.id).Last().num + 1,
                     img = base64,
+                    userid = MPKullanici.ID
                 });
             }
             ResimleriGetir();

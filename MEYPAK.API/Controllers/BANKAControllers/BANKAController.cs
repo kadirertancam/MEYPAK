@@ -4,11 +4,13 @@ using MEYPAK.Entity.Models.BANKA;
 using MEYPAK.Entity.PocoModels.BANKA;
 using MEYPAK.Interfaces.Banka;
 using MEYPAK.Interfaces.Cari;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MEYPAK.API.Controllers.BANKAControllers
 {
     [ApiController]
+    [Authorize]
     [Route("[controller]")]
     public class BANKAController : Controller
     {
