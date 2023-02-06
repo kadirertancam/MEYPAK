@@ -694,6 +694,7 @@ namespace MEYPAK.PRL.CARI
                     carialthesid = _tempCARIALTHES.id,
                     cariid = _tempCariKart.id,
                     aktif = 1,
+                    userid = MPKullanici.ID
                 });
                 _cariAltHesCariServis.obje.Add(_cariAltHesCariServis.obje2);
                 DGAltHesap.DataSource = _cariAltHesCariServis.obje.Where(x => x.cariid == _tempCariKart.id).Select(x => new { ALTHESAPADI = _cariAltHesapServis.obje.Where(z => z.id == x.carialthesid).FirstOrDefault().adi, PARABIRIMI = _cariParABIRIM.obje.Where(z => z.id == _cariAltHesapServis.obje.Where(y => y.id == x.carialthesid).FirstOrDefault().dovizid).FirstOrDefault().kisaadi, AKTIF = x.aktif });
@@ -745,6 +746,7 @@ namespace MEYPAK.PRL.CARI
                     cariid = _tempCariKart.id,
                     adi = TBDokumanAdi.Text,
                     dokuman = base64,
+                    userid = MPKullanici.ID
                 });
                 MessageBox.Show("Kayıt Başarıyla Eklendi!");
                 FormuTemizle();

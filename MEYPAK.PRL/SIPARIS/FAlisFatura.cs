@@ -993,6 +993,7 @@ namespace MEYPAK.PRL.SIPARIS
                             stokid = item.StokId,
                             sayimid = 0,
                             kunye = item.Kunye,
+                            userid = MPKullanici.ID
                         });
                     }
                     if (item.Tipi == "KASA")
@@ -1058,7 +1059,8 @@ namespace MEYPAK.PRL.SIPARIS
                                 kasaid = item2.KASAID,
                                 miktar = item2.MIKTAR, // _kasaaa.Where(x => x.num == test.num).Select(x => x.KasaList.Sum(t => t.MIKTAR)).FirstOrDefault()
                                 irsaliyedetayid = 0,
-                                faturadetayid = _faturadetayServis.obje2.id
+                                faturadetayid = _faturadetayServis.obje2.id,
+                                userid = MPKullanici.ID
                             });
                             if (item2.ID > 0)
                                 except.AddRange(_stokKasaHarServis.obje.Where(x => x.id == item2.ID));
@@ -1086,6 +1088,7 @@ namespace MEYPAK.PRL.SIPARIS
                     kur = 1,
                     parabirimid = 11638,
                     tutar = 0 - _faturaServis.obje2.geneltoplam,
+                    userid = MPKullanici.ID,
 
                 });
                 if (_tempSilinenFaturaDetay.Count() > 0)
