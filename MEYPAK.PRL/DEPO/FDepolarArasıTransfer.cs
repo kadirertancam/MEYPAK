@@ -61,7 +61,8 @@ namespace MEYPAK.PRL.DEPO
                     ciktidepoid = _CıktıDepo.id,
                     hedefdepoid = _HedefDepo.id,
                     donem = DateTime.Now.ToString("yyyy"),
-                    durum = 1
+                    durum = 1,
+                    userid = MPKullanici.ID,
                 });
                 FDepolarArasıTransferHar arasıTransferBilgi = new FDepolarArasıTransferHar(_tempDepoTransfer) ;
                 DataGridDoldur();

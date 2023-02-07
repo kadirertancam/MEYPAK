@@ -82,6 +82,7 @@ namespace MEYPAK.PRL.DEPO
                     miktar = Convert.ToInt32(TBMiktar.Text),
                     donem = DateTime.Now.ToString("yyyy"),
                     // ACIKLAMA = TBAciklama.Text
+                    userid = MPKullanici.ID,
 
                 });
             }

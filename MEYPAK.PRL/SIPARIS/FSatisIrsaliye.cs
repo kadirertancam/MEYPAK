@@ -954,10 +954,12 @@ namespace MEYPAK.PRL.IRSALIYE
                     geneltoplam = _tempIrsaliyeDetay.Sum(x => x.KdvTutarı) + _tempIrsaliyeDetay.Sum(x => x.NetToplam),
                     kdvdahil = CHBKdvDahil.Checked,
                     tip = 0,
+                    userid = MPKullanici.ID,
                 });
                 _siparisServis.Data(ServisList.SiparisListeServis);
                 var tempsip = _siparisServis.obje.Where(x => x.id == siparisidd).FirstOrDefault();
                 tempsip.durum = true;
+                tempsip.userid = MPKullanici.ID;
                 _siparisServis.Data(ServisList.SiparisEkleServis, tempsip);
                 _stokOlcuBr.Data(ServisList.StokOlcuBrListeServis);
                 _olcuBr.Data(ServisList.OlcuBrListeServis);
@@ -969,6 +971,7 @@ namespace MEYPAK.PRL.IRSALIYE
                     _seriHarServis.Data(ServisList.SeriHarListeServis);
                     var tempserihar = _seriHarServis.obje.Where(x => x.seriid == _seriServis.obje.Where(z => z.SERINO.ToString() == comboBoxEdit1.Text).FirstOrDefault().id).LastOrDefault();
                     tempserihar.serino = tempserihar.serino + 1;
+                    tempserihar.userid = MPKullanici.ID;
                     _seriHarServis.Data(ServisList.SeriHarEkleServis, tempserihar);
                 }
                 foreach (var item in _tempIrsaliyeDetay.Where(x => x.StokKodu != "" && x.StokKodu != null).ToList())
@@ -1004,7 +1007,8 @@ namespace MEYPAK.PRL.IRSALIYE
                         hareketdurumu = 0,
                         listefiyatid = 0,
                         tip = item.Tipi == "STOK" ? Convert.ToByte(0) : item.Tipi == "HIZMET" ? Convert.ToByte(1) : item.Tipi == "KASA" ? Convert.ToByte(2) : item.Tipi == "DEMIRBAS" ? Convert.ToByte(3) : Convert.ToByte(4),
-                        kdvtutari = item.KdvTutarı
+                        kdvtutari = item.KdvTutarı,
+                        userid = MPKullanici.ID,
                     });
                   
                     if (item.Tipi == "STOK")
@@ -1028,6 +1032,7 @@ namespace MEYPAK.PRL.IRSALIYE
                             stokid = item.StokId,
                             sayimid = 0,
                             kunye = item.Kunye,
+                            userid = MPKullanici.ID,
                         });
                     }
                     else if (item.Tipi == "HIZMET")
@@ -1049,7 +1054,7 @@ namespace MEYPAK.PRL.IRSALIYE
                             netfiyat = item.NetFiyat,
                             nettoplam = item.NetToplam,
                             hizmetid = item.StokId,
-
+                            userid = MPKullanici.ID,
                         });
                     }
 
@@ -1077,6 +1082,7 @@ namespace MEYPAK.PRL.IRSALIYE
                                 miktar = item2.MIKTAR, // _kasaaa.Where(x => x.num == test.num).Select(x => x.KasaList.Sum(t => t.MIKTAR)).FirstOrDefault()
                                 irsaliyedetayid = _irsaliyeDetayServis.obje2.id,
                                 faturadetayid = 0,
+                                userid = MPKullanici.ID,
                             });
                             if (item2.ID > 0)
                                 except.AddRange(_stokKasaHarServis.obje.Where(x => x.id == item2.ID));

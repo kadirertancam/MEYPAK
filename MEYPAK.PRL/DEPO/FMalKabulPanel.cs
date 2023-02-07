@@ -463,6 +463,7 @@ namespace MEYPAK.PRL.DEPO
                         miktar = 0,
                         stokid = item.stokid,
                         depoid = item.depoid,
+                        userid = MPKullanici.ID,
                     });
                 }
             }

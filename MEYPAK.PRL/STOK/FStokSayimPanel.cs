@@ -74,7 +74,7 @@ namespace MEYPAK.PRL.STOK
                                 miktar = Convert.ToInt32(row.Row.ItemArray[4]),
                                 stokid = Convert.ToInt32(row.Row.ItemArray[0]),
                                 birimid = Convert.ToInt32(row.Row.ItemArray[5]),
-
+                                userid = MPKullanici.ID,
                             });
                         }
                     }
@@ -90,6 +90,7 @@ namespace MEYPAK.PRL.STOK
                                 miktar = Convert.ToInt32(row.Row.ItemArray[4]),
                                 stokid = Convert.ToInt32(row.Row.ItemArray[0]),
                                 birimid = Convert.ToInt32(row.Row.ItemArray[5]),
+                                userid = MPKullanici.ID,
                             });
                         }
                         else

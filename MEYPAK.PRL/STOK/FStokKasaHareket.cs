@@ -190,6 +190,7 @@ namespace MEYPAK.PRL.STOK
             _tempSTOKKASAHAR.io = 1;
             _tempSTOKKASAHAR.miktar = Convert.ToDecimal(TBMiktar.Text);
             _tempSTOKKASAHAR.id = 0;
+            _tempSTOKKASAHAR.userid = MPKullanici.ID;
             _stokKasaHarServis.Data(ServisList.StokKasaHarEkleServis, _tempSTOKKASAHAR);
             _stokKasaHarServis.Data(ServisList.StokKasaHarListeServis);
 

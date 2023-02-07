@@ -880,6 +880,7 @@ namespace MEYPAK.PRL.SIPARIS
                     geneltoplam = _tempSiparisDetay.Sum(x => x.KdvTutarı) + _tempSiparisDetay.Sum(x => x.NetToplam),
                     kdvdahil = CHBKdvDahil.Checked,
                     tip = 0,
+                    userid = MPKullanici.ID,
                 });
 
                 _stokOlcuBr.Data(ServisList.StokOlcuBrListeServis);
@@ -921,7 +922,8 @@ namespace MEYPAK.PRL.SIPARIS
                         hareketdurumu = 0,
                         listefiyatid = 0,
                         tip = item.Tipi == "STOK" ? Convert.ToByte(0) : item.Tipi == "HIZMET" ? Convert.ToByte(1) : item.Tipi == "KASA" ? Convert.ToByte(2) : item.Tipi == "DEMIRBAS" ? Convert.ToByte(3) : Convert.ToByte(4),
-                        kdvtutari = item.KdvTutarı
+                        kdvtutari = item.KdvTutarı,
+                        userid = MPKullanici.ID,
                     });
              
 
@@ -944,7 +946,8 @@ namespace MEYPAK.PRL.SIPARIS
                                 kayittipi = 0,
                                 kasaid = item2.KASAID,
                                 miktar = item2.MIKTAR, // _kasaaa.Where(x => x.num == test.num).Select(x => x.KasaList.Sum(t => t.MIKTAR)).FirstOrDefault()
-                                siparisdetayid = _siparisDetayServis.obje2.id
+                                siparisdetayid = _siparisDetayServis.obje2.id,
+                                userid = MPKullanici.ID,
                             });
                             if (item2.ID > 0)
                                 except.AddRange(_siparisKasaHarServis.obje.Where(x => x.id == item2.ID));

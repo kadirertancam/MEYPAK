@@ -169,7 +169,7 @@ namespace MEYPAK.PRL
                             dovizalis = item.ForexBuying,
                             dovizefektifalis = Convert.ToDecimal(item.BanknoteBuying == "" ? "0" : item.BanknoteBuying),
                             dovizefektifsatis = Convert.ToDecimal(item.BanknoteSelling == "" ? "0" : item.BanknoteSelling),
-
+                            userid=MPKullanici.ID,
 
                         });
                     else
@@ -182,7 +182,7 @@ namespace MEYPAK.PRL
                             dovizalis = item.ForexBuying,
                             dovizefektifalis = Convert.ToDecimal(item.BanknoteBuying == "" ? "0" : item.BanknoteBuying),
                             dovizefektifsatis = Convert.ToDecimal(item.BanknoteSelling == "" ? "0" : item.BanknoteSelling),
-
+                            userid = MPKullanici.ID,
 
                         });
                 }
@@ -217,6 +217,7 @@ namespace MEYPAK.PRL
                 
             }
             ACEKullanici.Text = Kullanici.AD + " " + Kullanici.SOYAD;
+           
         }
 
         public int i = 0;
