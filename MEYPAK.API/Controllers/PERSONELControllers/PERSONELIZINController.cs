@@ -4,12 +4,14 @@ using MEYPAK.Entity.PocoModels.BANKA;
 using MEYPAK.Entity.PocoModels.PERSONEL;
 using MEYPAK.Interfaces.Banka;
 using MEYPAK.Interfaces.Personel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MEYPAK.API.Controllers.PERSONELControllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
     public class PERSONELIZINController : Controller
     {
         private readonly IMapper _mapper;

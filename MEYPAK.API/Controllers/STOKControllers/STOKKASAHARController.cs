@@ -5,12 +5,14 @@ using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Entity.PocoModels.KASA;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Kasa;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MEYPAK.API.Controllers.STOKControllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
     public class STOKKASAHARController : Controller
     {
         private readonly IMapper _mapper;

@@ -5,12 +5,14 @@ using MEYPAK.Entity.Models.IRSALIYE;
 using MEYPAK.Entity.PocoModels.FATURA;
 using MEYPAK.Interfaces.Fatura;
 using MEYPAK.Interfaces.IRSALIYE;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MEYPAK.API.Controllers.FATURAController
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
     public class FATURAController : Controller
     {
         private readonly IMapper _mapper;

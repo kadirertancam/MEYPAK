@@ -6,12 +6,14 @@ using MEYPAK.Entity.PocoModels.SIPARIS;
 using MEYPAK.Interfaces.Personel;
 using MEYPAK.Interfaces.Siparis;
 using MEYPAK.Interfaces.Stok;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MEYPAK.API.Controllers.PERSONELControllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
     public class PERSONELController : Controller
     {
         private readonly IPersonelServis _personelServis;

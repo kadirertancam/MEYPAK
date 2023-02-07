@@ -7,6 +7,7 @@ namespace MEYPAK.API.Controllers.KULLANICIControllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
     public class KULLANICIController : Controller
     {
         private readonly UserManager<MPUSER> _userManager;

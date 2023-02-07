@@ -3,12 +3,14 @@ using MEYPAK.DAL.Concrete.ADONET;
 using MEYPAK.Entity.Models.BANKA;
 using MEYPAK.Entity.PocoModels.BANKA;
 using MEYPAK.Interfaces.Banka;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MEYPAK.API.Controllers.BANKAControllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
     public class BANKASUBEController : Controller
     {
         private readonly IMapper _mapper;

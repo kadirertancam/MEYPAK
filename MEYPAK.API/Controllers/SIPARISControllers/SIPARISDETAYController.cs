@@ -4,12 +4,14 @@ using MEYPAK.Entity.Models.SIPARIS;
 using MEYPAK.Entity.PocoModels.SIPARIS;
 using MEYPAK.Interfaces.Siparis;
 using MEYPAK.Interfaces.Stok;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MEYPAK.API.Controllers.SIPARISControllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
     public class SIPARISDETAYController : Controller
     {
         private readonly ISiparisDetayServis _siparisDetayServis;

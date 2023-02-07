@@ -3,12 +3,14 @@ using MEYPAK.DAL.Concrete.ADONET;
 using MEYPAK.Entity.Models.FATURA;
 using MEYPAK.Entity.PocoModels.FATURA;
 using MEYPAK.Interfaces.Fatura;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MEYPAK.API.Controllers.FATURAController
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
     public class FATURADETAYController : Controller
     {
         private readonly IMapper _mapper;
