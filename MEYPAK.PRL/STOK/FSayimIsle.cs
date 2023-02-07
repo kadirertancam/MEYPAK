@@ -82,9 +82,11 @@ namespace MEYPAK.PRL.STOK
                         sayimid = item.stoksayimid,
                         miktar = a <0 ? a*-1: a,
                         io = a >0 ? 1 : 0,
+                        userid = MPKullanici.ID,
                     });
                 }
                 _tempSayim.durum = 1;
+                _tempSayim.userid = MPKullanici.ID;
                 _stokSayimServis.Data(ServisList.StokSayimEkleServis,_tempSayim);
                 TBDurum.Text = "Onaylandı";
                 MessageBox.Show("Sayım başarıyla işlendi.");
@@ -135,6 +137,7 @@ namespace MEYPAK.PRL.STOK
                     _stokHarServis.Data(ServisList.StokHarDeleteByIdServis, id: item.id.ToString(),method: HttpMethod.Post); 
                 }
                 _tempSayim.durum = 0;
+                _tempSayim.userid = MPKullanici.ID;
                 _stokSayimServis.Data(ServisList.StokSayimEkleServis,_tempSayim);
                 TBDurum.Text = "Onaylanmadı";
                 MessageBox.Show("Sayım İşlemi Başarıyla Kaldırıldı!");

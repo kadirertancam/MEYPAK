@@ -1030,7 +1030,8 @@ namespace MEYPAK.PRL.IRSALIYE
                                 kasaid = item2.KASAID,
                                 miktar = item2.MIKTAR, // _kasaaa.Where(x => x.num == test.num).Select(x => x.KasaList.Sum(t => t.MIKTAR)).FirstOrDefault()
                                
-                                irsaliyedetayid = _irsaliyeDetayServis.obje2.id
+                                irsaliyedetayid = _irsaliyeDetayServis.obje2.id,
+                                userid = MPKullanici.ID,
                             });
                             if (item2.ID > 0)
                                 except.AddRange(_stokKasaHarServis.obje.Where(x => x.id == item2.ID));

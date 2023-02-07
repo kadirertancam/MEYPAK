@@ -68,6 +68,7 @@ namespace MEYPAK.PRL.STOK
                 {
                     adi = TBAdi.Text,
                     birim = TBOlcuBirim.Text,
+                    userid = MPKullanici.ID,
                 }));
                 }
                 else
@@ -82,6 +83,7 @@ namespace MEYPAK.PRL.STOK
                     id = id,
                     adi = TBAdi.Text,
                     birim = TBOlcuBirim.Text,
+                    userid = MPKullanici.ID,
                 }));
             MessageBox.Show("Kayıt Başarılı.");
             id = 0;

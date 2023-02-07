@@ -128,6 +128,7 @@ namespace MEYPAK.PRL.STOK.FiyatListesi
                         stokfiyatid = _tempStokFiyat.id,
                         stokid = Convert.ToInt32(row.Row.ItemArray[0]),
                         fiyat = Convert.ToDecimal(row.Row.ItemArray[4]),
+                        userid = MPKullanici.ID,
                     });
                 }
             }

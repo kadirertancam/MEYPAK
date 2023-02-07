@@ -98,7 +98,8 @@ namespace MEYPAK.PRL.STOK
                 id = id,
                 adi = TBMarkaAdi.Text,
                 aciklama = TBAciklama.Text,
-                kayittipi = 0
+                kayittipi = 0,
+                userid = MPKullanici.ID,
             }));
 
             MessageBox.Show("Kayıt işlemi Başarılı!");

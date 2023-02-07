@@ -73,6 +73,7 @@ namespace MEYPAK.PRL.STOK
                 markaid = _tempStokMarka.id,
                 aktif = 1,
                 olusturmatarihi = DateTime.Now,
+                userid = MPKullanici.ID,
             });
             MessageBox.Show("Kasa Başarıyla Eklendi.");
             DataGridDoldur();

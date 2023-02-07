@@ -33,6 +33,7 @@ namespace MEYPAK.PRL.BANKA
                 KARTNO = TBKartNo.Text,
                 ACIKLAMA = TBAciklama.Text,
                 AKTIFMI = true,
+                userid = MPKullanici.ID,
             }) ;
             GridiDoldur();
         }

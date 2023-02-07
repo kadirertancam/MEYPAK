@@ -135,6 +135,7 @@ namespace MEYPAK.PRL.PERSONEL
                     maas = (int)TBMaas.EditValue,
                     aktif = true,
                     sube = TBSube.Text,
+                    userid = MPKullanici.ID,
 
                 }) ;
                 string message = _tempPocoPERSONEL != null ? _tempPocoPERSONEL.adi + "'e ait bilgiler başarıyla güncellendi." : "Kayıt Başarıyla Eklendi";
@@ -173,7 +174,8 @@ namespace MEYPAK.PRL.PERSONEL
                     _personelGorevServis.Data(ServisList.PersonelGorevEkleServis, new PocoPERSONELGOREV()
                     {
                         departmanid = Convert.ToInt32(CBDepartman.EditValue),
-                        adi = sender.GetType().GetProperty("AutoSearchText").GetValue(sender).ToString()
+                        adi = sender.GetType().GetProperty("AutoSearchText").GetValue(sender).ToString(),
+                        userid = MPKullanici.ID,
                     });
                     CBGorevDoldur();
                     MessageBox.Show(sender.GetType().GetProperty("AutoSearchText").GetValue(sender).ToString() + " Başarıyla Eklendi");
@@ -194,7 +196,8 @@ namespace MEYPAK.PRL.PERSONEL
                 {
                     _personelDepartmanServis.Data(ServisList.PersonelDepartmanEkleServis, new PocoPERSONELDEPARTMAN()
                     {
-                        adi = sender.GetType().GetProperty("AutoSearchText").GetValue(sender).ToString()
+                        adi = sender.GetType().GetProperty("AutoSearchText").GetValue(sender).ToString(),
+                        userid = MPKullanici.ID,
                     });
                     CombolarıDoldur();
                     MessageBox.Show(sender.GetType().GetProperty("AutoSearchText").GetValue(sender).ToString() + " Başarıyla Eklendi");
@@ -221,6 +224,7 @@ namespace MEYPAK.PRL.PERSONEL
                         IZINBITIS = (DateTime)DTPIzinBit.EditValue,
                         PERSONELID = _tempPocoPERSONEL.id,
                         IZINGUN = (int)TBIzinGun.EditValue,
+                        userid = MPKullanici.ID,
                     });
 
                     PersonelIzinGridDoldur();
@@ -246,6 +250,7 @@ namespace MEYPAK.PRL.PERSONEL
                         MIKTAR = (int)TBAvansMiktar.EditValue,
                         ACIKLAMA = TBAvansAciklama.Text,
                         TARIH = (DateTime)DTPAvansTar.EditValue,
+                        userid = MPKullanici.ID,
                     });
                     PersonelAvansGridDoldur();
                 }
@@ -268,7 +273,8 @@ namespace MEYPAK.PRL.PERSONEL
                         markamodel = TBZimMarka.Text,
                         miktar = Convert.ToInt32(TBZimMiktar.Text),
                         personelid = _tempPocoPERSONEL.id,
-                        aciklama = TBZimAciklama.Text
+                        aciklama = TBZimAciklama.Text,
+                        userid = MPKullanici.ID,
 
                     });
                     TBZimAciklama.Text = "";
@@ -300,7 +306,8 @@ namespace MEYPAK.PRL.PERSONEL
                         bankasubeadi = TBBankaSubeAdi.Text,
                         bankasubekodu = TBBankaSubeKod.Text,
                         ibanno = TBBankaIban.Text,
-                        personelid = _tempPocoPERSONEL.id
+                        personelid = _tempPocoPERSONEL.id,
+                        userid = MPKullanici.ID,
                     });
                     TBBankaIban.Text = "";
                     TBBankaSubeKod.Text = "";
@@ -674,6 +681,7 @@ namespace MEYPAK.PRL.PERSONEL
                 {
                     _tempPocoPERSONEL.aktif = false;
                     _tempPocoPERSONEL.isbittar = DateTime.Now;
+                    _tempPocoPERSONEL.userid = MPKullanici.ID;
                     _personelServis.Data(ServisList.PersonelEkleServis, _tempPocoPERSONEL);
                     PersonelleriGetir();
                     FormuTemizle();

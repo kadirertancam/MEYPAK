@@ -62,7 +62,8 @@ namespace MEYPAK.PRL
                         kategoriid = _stokKategoriServis.obje.Where(x => x.acıklama == tesst[3].ToString()).FirstOrDefault().id,
                         olcubR1 = _olcuBrServis.obje.Where(x => x.birim == tesst[4].ToString()).FirstOrDefault().id,
                         aliskdv = 1,
-                        satiskdv = 1
+                        satiskdv = 1,
+                        userid = MPKullanici.ID,
                     });
                     _stokOlcuBrServis.Data(ServisList.StokOlcuBrEkleServis, new PocoSTOKOLCUBR()
                     {
@@ -70,7 +71,7 @@ namespace MEYPAK.PRL
                         num = 1,
                         olcubrid = _olcuBrServis.obje.Where(x => x.birim == tesst[4].ToString()).FirstOrDefault().id,
                         stokid = _stokServis.obje2.id,
-
+                        userid = MPKullanici.ID,
                     });
                 }
             }

@@ -35,13 +35,15 @@ namespace MEYPAK.PRL.PARAMETRELER
             _seriServis.Data(ServisList.SeriEkleServis, new PocoSERI()
             {
                 SERINO = TBSeri.Text,
-                TIP = CBTip.SelectedIndex
+                TIP = CBTip.SelectedIndex,
+                userid = MPKullanici.ID,
             });
             _seriHarServis.Data(ServisList.SeriHarEkleServis, new PocoSERIHAR()
             {
                 durum=0,
                 seriid=_seriServis.obje2.id,
-                serino=2022000000000
+                serino=2022000000000,
+                userid = MPKullanici.ID,
             });
             gridControl1.DataSource = _seriServis.obje.Select(x => new { SeriNo = x.SERINO, Tip = x.TIP == 0 ? "E-Fatura" : x.TIP == 1 ? "E-Arşiv" : x.TIP == 2 ? "E-Irsaliye" : "E-Müstahsil" });
             gridControl1.RefreshDataSource(); 
