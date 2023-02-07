@@ -1,4 +1,5 @@
-﻿using MEYPAK.DAL.Concrete.EntityFramework.Context;
+﻿using MEYPAK.DAL.Abstract.EIslemlerDal;
+using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.Entity.Models.EISLEMLER;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.DAL.Concrete.EntityFramework.Repository.EIslemlerRepo
 {
-    public class EFGelenEFaturaRepo : EFBaseRepo<MPGELENEFATURA>
+    public class EFGelenEFaturaRepo : EFBaseRepo<MPGELENEFATURA>,IGelenEFaturaDal
     {
         MEYPAKContext context;
         public EFGelenEFaturaRepo(MEYPAKContext _context) : base(_context)

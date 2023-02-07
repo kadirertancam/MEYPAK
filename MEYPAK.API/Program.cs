@@ -54,6 +54,10 @@ using MEYPAK.DAL.Abstract.CekSenetDal;
 using MEYPAK.Interfaces.CekSenet;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository.CekSenetRepo;
 using MEYPAK.BLL.CEKSENET;
+using MEYPAK.DAL.Abstract.EIslemlerDal;
+using MEYPAK.DAL.Concrete.EntityFramework.Repository.EIslemlerRepo;
+using MEYPAK.Interfaces.EIslemler;
+using MEYPAK.BLL.EISLEMLER;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -95,7 +99,11 @@ builder.Services.AddAutoMapper(x =>
     x.AddProfile(typeof(Maps));
 });
 
+#region EISLEMLER
 
+builder.Services.AddScoped<IGelenEFaturaDal, EFGelenEFaturaRepo>();
+builder.Services.AddScoped<IGelenFaturaServis, GelenEFaturaManager>();
+#endregion
 #region CekSenet_Scoped_Islemleri
 builder.Services.AddScoped<ICekSenetUstSBDal, EFCekSenetUstSBRepo>();
 builder.Services.AddScoped<ICekSenetUstSBServis, CekSenetUstSBManager>();

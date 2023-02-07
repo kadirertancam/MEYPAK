@@ -4,6 +4,7 @@ using MEYPAK.Entity.Models.BANKA;
 using MEYPAK.Entity.Models.CARI;
 using MEYPAK.Entity.Models.CEKSENET;
 using MEYPAK.Entity.Models.DEPO;
+using MEYPAK.Entity.Models.EISLEMLER;
 using MEYPAK.Entity.Models.FATURA;
 using MEYPAK.Entity.Models.IRSALIYE;
 using MEYPAK.Entity.Models.KASA;
@@ -16,6 +17,7 @@ using MEYPAK.Entity.PocoModels.BANKA;
 using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.CEKSENET;
 using MEYPAK.Entity.PocoModels.DEPO;
+using MEYPAK.Entity.PocoModels.EISLEMLER;
 using MEYPAK.Entity.PocoModels.FATURA;
 using MEYPAK.Entity.PocoModels.IRSALIYE;
 using MEYPAK.Entity.PocoModels.KASA;
@@ -35,6 +37,10 @@ namespace MEYPAK.Entity.Mappings
     {
         public Maps()
         {
+            //EISLEMLER
+
+            CreateMap<MPGELENEFATURA, PocoGELENEFATURA>().ReverseMap();
+
             //SARF
             CreateMap<MPSTOKSARF, PocoSTOKSARF>().ReverseMap();
             CreateMap<MPSTOKSARFDETAY, PocoSTOKSARFDETAY>().ReverseMap();
