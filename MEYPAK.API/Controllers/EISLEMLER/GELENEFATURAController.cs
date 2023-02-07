@@ -6,11 +6,13 @@ using MEYPAK.Entity.PocoModels.EISLEMLER;
 using MEYPAK.Entity.PocoModels.FATURA;
 using MEYPAK.Interfaces.EIslemler;
 using MEYPAK.Interfaces.Fatura;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MEYPAK.API.Controllers.EISLEMLER
 {
     [ApiController]
+    [Authorize]
     [Route("[controller]")]
     public class GELENEFATURAController : Controller
     {

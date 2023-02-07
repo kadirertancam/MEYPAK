@@ -31,8 +31,8 @@ namespace MEYPAK.PRL.E_ISLEMLER
             {
                 PageIndex = 0,
                 PageSize = 9999999,
-                CreateStartDate = DateTime.Now.AddDays(-1),
-                CreateEndDate = DateTime.Now,
+                CreateStartDate = DateTime.Now.AddMonths(-1),
+                CreateEndDate = DateTime.Now.AddMonths(-1).AddDays(20),
             }).Result;
             RepositoryItemButtonEdit repositoryItemButtonEdit = new RepositoryItemButtonEdit();
             repositoryItemButtonEdit.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
