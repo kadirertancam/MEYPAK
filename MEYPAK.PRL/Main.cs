@@ -211,7 +211,7 @@ namespace MEYPAK.PRL
                     ACEARAC.Visible= false;
                     ACEBANKA.Visible= false;
                     ACEPARAMETRELER.Visible=false;
-                    
+                    accordionControlElement27.Visible=false;
                  
                 }
                 

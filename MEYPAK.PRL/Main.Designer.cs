@@ -1675,6 +1675,12 @@
             // 
             // ACEPERSONEL
             // 
+            this.accordionControlElement66.Name = "accordionControlElement66";
+            this.accordionControlElement66.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement66.Text = "Giden Kutusu";
+            // 
+            // ACEPERSONEL
+            // 
             this.ACEPERSONEL.Appearance.Default.ForeColor = System.Drawing.Color.Silver;
             this.ACEPERSONEL.Appearance.Default.Options.UseForeColor = true;
             this.ACEPERSONEL.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
@@ -1848,6 +1854,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1054, 593);
             this.Controls.Add(this.panel3);
+            this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("Main.IconOptions.Icon")));
             this.IsMdiContainer = true;
             this.Name = "Main";
             this.Text = "Eliz Meypak Bilişim";

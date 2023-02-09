@@ -29,16 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FPersonelKart));
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
             this.xtraTabControl2 = new DevExpress.XtraTab.XtraTabControl();
@@ -205,12 +195,14 @@
             this.XTPNot = new DevExpress.XtraTab.XtraTabPage();
             this.TBNotlar = new DevExpress.XtraRichEdit.RichEditControl();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.BTDepGorevEkle = new DevExpress.XtraEditors.SimpleButton();
+            this.CBGorev = new DevExpress.XtraEditors.LookUpEdit();
+            this.CBDepartman = new DevExpress.XtraEditors.LookUpEdit();
             this.TBSube = new DevExpress.XtraEditors.TextEdit();
             this.label5 = new System.Windows.Forms.Label();
             this.BTCIKIS = new DevExpress.XtraEditors.SimpleButton();
             this.TBMaas = new DevExpress.XtraEditors.TextEdit();
             this.label1 = new System.Windows.Forms.Label();
-            this.CBGorev = new DevExpress.XtraEditors.LookUpEdit();
             this.BTNPersonelFoto = new DevExpress.XtraEditors.ButtonEdit();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
@@ -223,7 +215,6 @@
             this.DTPDogumTar = new DevExpress.XtraEditors.DateEdit();
             this.DTPIseGirisTar = new DevExpress.XtraEditors.DateEdit();
             this.BTNPersonelKaydet = new DevExpress.XtraEditors.SimpleButton();
-            this.CBDepartman = new DevExpress.XtraEditors.LookUpEdit();
             this.CBCinsiyet = new DevExpress.XtraEditors.ComboBoxEdit();
             this.TBSGKSICILNO = new DevExpress.XtraEditors.TextEdit();
             this.TBSoyadi = new DevExpress.XtraEditors.TextEdit();
@@ -359,15 +350,15 @@
             this.XTPNot.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CBGorev.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CBDepartman.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBSube.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBMaas.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CBGorev.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTNPersonelFoto.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPDogumTar.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPDogumTar.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPIseGirisTar.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPIseGirisTar.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CBDepartman.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBCinsiyet.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBSGKSICILNO.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBSoyadi.Properties)).BeginInit();
@@ -2012,12 +2003,14 @@
             // 
             // panelControl3
             // 
+            this.panelControl3.Controls.Add(this.BTDepGorevEkle);
+            this.panelControl3.Controls.Add(this.CBGorev);
+            this.panelControl3.Controls.Add(this.CBDepartman);
             this.panelControl3.Controls.Add(this.TBSube);
             this.panelControl3.Controls.Add(this.label5);
             this.panelControl3.Controls.Add(this.BTCIKIS);
             this.panelControl3.Controls.Add(this.TBMaas);
             this.panelControl3.Controls.Add(this.label1);
-            this.panelControl3.Controls.Add(this.CBGorev);
             this.panelControl3.Controls.Add(this.BTNPersonelFoto);
             this.panelControl3.Controls.Add(this.labelControl10);
             this.panelControl3.Controls.Add(this.labelControl9);
@@ -2030,7 +2023,6 @@
             this.panelControl3.Controls.Add(this.DTPDogumTar);
             this.panelControl3.Controls.Add(this.DTPIseGirisTar);
             this.panelControl3.Controls.Add(this.BTNPersonelKaydet);
-            this.panelControl3.Controls.Add(this.CBDepartman);
             this.panelControl3.Controls.Add(this.CBCinsiyet);
             this.panelControl3.Controls.Add(this.TBSGKSICILNO);
             this.panelControl3.Controls.Add(this.TBSoyadi);
@@ -2051,6 +2043,36 @@
             this.panelControl3.Name = "panelControl3";
             this.panelControl3.Size = new System.Drawing.Size(1077, 225);
             this.panelControl3.TabIndex = 1;
+            // 
+            // BTDepGorevEkle
+            // 
+            this.BTDepGorevEkle.Location = new System.Drawing.Point(531, 116);
+            this.BTDepGorevEkle.Name = "BTDepGorevEkle";
+            this.BTDepGorevEkle.Size = new System.Drawing.Size(188, 21);
+            this.BTDepGorevEkle.TabIndex = 82;
+            this.BTDepGorevEkle.Text = "Yeni Departman veya Gorev Ekle";
+            this.BTDepGorevEkle.Click += new System.EventHandler(this.BTDepGorevEkle_Click);
+            // 
+            // CBGorev
+            // 
+            this.CBGorev.Location = new System.Drawing.Point(571, 87);
+            this.CBGorev.Name = "CBGorev";
+            this.CBGorev.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CBGorev.Properties.NullText = "";
+            this.CBGorev.Size = new System.Drawing.Size(146, 20);
+            this.CBGorev.TabIndex = 81;
+            // 
+            // CBDepartman
+            // 
+            this.CBDepartman.Location = new System.Drawing.Point(571, 52);
+            this.CBDepartman.Name = "CBDepartman";
+            this.CBDepartman.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CBDepartman.Properties.NullText = "";
+            this.CBDepartman.Size = new System.Drawing.Size(146, 20);
+            this.CBDepartman.TabIndex = 80;
+            this.CBDepartman.EditValueChanged += new System.EventHandler(this.CBDepartman_EditValueChanged);
             // 
             // TBSube
             // 
@@ -2097,19 +2119,6 @@
             this.label1.TabIndex = 75;
             this.label1.Text = "MAAŞ";
             // 
-            // CBGorev
-            // 
-            this.CBGorev.Location = new System.Drawing.Point(571, 86);
-            this.CBGorev.Name = "CBGorev";
-            this.CBGorev.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Ekle", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.CBGorev.Properties.NullText = "Seçiniz..";
-            this.CBGorev.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.CBGorev.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.lookUpEdit2_Properties_ButtonClick);
-            this.CBGorev.Size = new System.Drawing.Size(146, 22);
-            this.CBGorev.TabIndex = 74;
-            // 
             // BTNPersonelFoto
             // 
             this.BTNPersonelFoto.EditValue = "Fotoğrafı Değistir";
@@ -2123,7 +2132,7 @@
             // 
             // labelControl10
             // 
-            this.labelControl10.Location = new System.Drawing.Point(482, 124);
+            this.labelControl10.Location = new System.Drawing.Point(482, 157);
             this.labelControl10.Name = "labelControl10";
             this.labelControl10.Size = new System.Drawing.Size(6, 13);
             this.labelControl10.TabIndex = 72;
@@ -2200,7 +2209,7 @@
             // DTPIseGirisTar
             // 
             this.DTPIseGirisTar.EditValue = null;
-            this.DTPIseGirisTar.Location = new System.Drawing.Point(571, 123);
+            this.DTPIseGirisTar.Location = new System.Drawing.Point(571, 161);
             this.DTPIseGirisTar.Name = "DTPIseGirisTar";
             this.DTPIseGirisTar.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -2214,26 +2223,12 @@
             this.BTNPersonelKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
             this.BTNPersonelKaydet.Appearance.Options.UseBackColor = true;
             this.BTNPersonelKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTNPersonelKaydet.ImageOptions.Image")));
-            this.BTNPersonelKaydet.Location = new System.Drawing.Point(571, 161);
+            this.BTNPersonelKaydet.Location = new System.Drawing.Point(829, 148);
             this.BTNPersonelKaydet.Name = "BTNPersonelKaydet";
             this.BTNPersonelKaydet.Size = new System.Drawing.Size(146, 46);
             this.BTNPersonelKaydet.TabIndex = 62;
             this.BTNPersonelKaydet.Text = "&Kaydet/Güncelle";
             this.BTNPersonelKaydet.Click += new System.EventHandler(this.BTNPersonelKaydet_Click);
-            // 
-            // CBDepartman
-            // 
-            this.CBDepartman.Location = new System.Drawing.Point(571, 51);
-            this.CBDepartman.Name = "CBDepartman";
-            this.CBDepartman.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Ekle", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.CBDepartman.Properties.NullText = "Seçiniz..";
-            this.CBDepartman.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.CBDepartman.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.lookUpEdit1_Properties_ButtonClick);
-            this.CBDepartman.Size = new System.Drawing.Size(146, 22);
-            this.CBDepartman.TabIndex = 25;
-            this.CBDepartman.EditValueChanged += new System.EventHandler(this.CBDepartman_EditValueChanged);
             // 
             // CBCinsiyet
             // 
@@ -2277,6 +2272,7 @@
             this.TBTCNO.Name = "TBTCNO";
             this.TBTCNO.Size = new System.Drawing.Size(146, 20);
             this.TBTCNO.TabIndex = 11;
+            this.TBTCNO.EditValueChanged += new System.EventHandler(this.TBTCNO_EditValueChanged);
             // 
             // LBSGKSicilNo
             // 
@@ -2288,7 +2284,7 @@
             // 
             // LBIseGirTar
             // 
-            this.LBIseGirTar.Location = new System.Drawing.Point(491, 126);
+            this.LBIseGirTar.Location = new System.Drawing.Point(491, 164);
             this.LBIseGirTar.Name = "LBIseGirTar";
             this.LBIseGirTar.Size = new System.Drawing.Size(74, 13);
             this.LBIseGirTar.TabIndex = 7;
@@ -2559,15 +2555,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
             this.panelControl3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CBGorev.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CBDepartman.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBSube.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBMaas.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CBGorev.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTNPersonelFoto.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPDogumTar.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPDogumTar.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPIseGirisTar.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPIseGirisTar.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CBDepartman.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBCinsiyet.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBSGKSICILNO.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBSoyadi.Properties)).EndInit();
@@ -2650,7 +2646,6 @@
         private DevExpress.XtraEditors.ComboBoxEdit CBUyrugu;
         private DevExpress.XtraEditors.ComboBoxEdit CBKanGrubu;
         private DevExpress.XtraEditors.ComboBoxEdit CBCinsiyet;
-        private DevExpress.XtraEditors.LookUpEdit CBDepartman;
         private DevExpress.XtraEditors.ComboBoxEdit CBIstihtamTuru;
         private DevExpress.XtraEditors.ComboBoxEdit CBSigortalilikTur;
         private DevExpress.XtraEditors.ComboBoxEdit CBAskerlikDurum;
@@ -2774,7 +2769,6 @@
         private DevExpress.XtraEditors.LabelControl LBIzinDurum;
         private DevExpress.XtraEditors.ButtonEdit BTNPersonelFoto;
         private DevExpress.XtraEditors.TextEdit TBMezuniyetYil;
-        private DevExpress.XtraEditors.LookUpEdit CBGorev;
         private DevExpress.XtraTab.XtraTabPage XTPNot;
         private DevExpress.XtraRichEdit.RichEditControl TBNotlar;
         private DevExpress.XtraTab.XtraTabPage XTPAvans;
@@ -2798,5 +2792,8 @@
         private DevExpress.XtraEditors.SimpleButton BTCIKIS;
         private DevExpress.XtraEditors.TextEdit TBSube;
         private Label label5;
+        private DevExpress.XtraEditors.SimpleButton BTDepGorevEkle;
+        private DevExpress.XtraEditors.LookUpEdit CBGorev;
+        private DevExpress.XtraEditors.LookUpEdit CBDepartman;
     }
 }

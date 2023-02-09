@@ -132,7 +132,7 @@ namespace MEYPAK.PRL.PERSONEL
                     pantolonolcusu = CBAltBeden.EditValue != null ? Convert.ToByte(CBAltBeden.EditValue) : (byte)0,
                     ayakkabino = CBAyakkabıNo.EditValue != null ? Convert.ToByte(CBAyakkabıNo.EditValue) : (byte)0,
                     notlar = TBNotlar.Text,
-                    maas = (int)TBMaas.EditValue,
+                    maas = Convert.ToInt32(TBMaas.EditValue),
                     aktif = true,
                     sube = TBSube.Text,
                     userid = MPKullanici.ID,
@@ -143,8 +143,7 @@ namespace MEYPAK.PRL.PERSONEL
                 MessageBox.Show(message);
                 PersonelleriGetir();
 
-
-                base64 = "";
+                FormuTemizle(this.Controls);
             }
             else
             {
@@ -165,50 +164,7 @@ namespace MEYPAK.PRL.PERSONEL
                 base64 = ImageToBase64(DosyaYolu);
             }
         }
-        private void lookUpEdit2_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
-        {//GOREV
-            if (e.Button.Caption == "Ekle")
-            {
-                if (CBDepartman.EditValue != null)
-                {
-                    _personelGorevServis.Data(ServisList.PersonelGorevEkleServis, new PocoPERSONELGOREV()
-                    {
-                        departmanid = Convert.ToInt32(CBDepartman.EditValue),
-                        adi = sender.GetType().GetProperty("AutoSearchText").GetValue(sender).ToString(),
-                        userid = MPKullanici.ID,
-                    });
-                    CBGorevDoldur();
-                    MessageBox.Show(sender.GetType().GetProperty("AutoSearchText").GetValue(sender).ToString() + " Başarıyla Eklendi");
-                }
-                else
-                {
-                    MessageBox.Show("Önce Departman Seçmelisiniz!");
-                }
-
-            }
-        }
-        private void lookUpEdit1_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
-        {//DEPARTMAN
-            if (e.Button.Caption == "Ekle")
-            {
-                var A = _personelDepartmanServis.obje.Where(x => x.id.ToString() == CBDepartman.EditValue.ToString()).Count();
-                if (_personelDepartmanServis.obje.Where(x => x.id.ToString() == CBDepartman.EditValue.ToString()).Count() <= 0)
-                {
-                    _personelDepartmanServis.Data(ServisList.PersonelDepartmanEkleServis, new PocoPERSONELDEPARTMAN()
-                    {
-                        adi = sender.GetType().GetProperty("AutoSearchText").GetValue(sender).ToString(),
-                        userid = MPKullanici.ID,
-                    });
-                    CombolarıDoldur();
-                    MessageBox.Show(sender.GetType().GetProperty("AutoSearchText").GetValue(sender).ToString() + " Başarıyla Eklendi");
-                }
-                else
-                {
-                    MessageBox.Show("Eklemeye Çalıştığınız Departman zaten mevcut!");
-                }
-            }
-
-        }
+       
         private void BTIzin_Click(object sender, EventArgs e)
         {
             if (_tempPocoPERSONEL != null && _tempPocoPERSONEL.id > 0)
@@ -223,7 +179,7 @@ namespace MEYPAK.PRL.PERSONEL
                         DEVREDILECEKPERSONEL = TBIzinDevirPers.Text,
                         IZINBITIS = (DateTime)DTPIzinBit.EditValue,
                         PERSONELID = _tempPocoPERSONEL.id,
-                        IZINGUN = (int)TBIzinGun.EditValue,
+                        IZINGUN = Convert.ToInt32(TBIzinGun.EditValue),
                         userid = MPKullanici.ID,
                     });
 
@@ -247,7 +203,7 @@ namespace MEYPAK.PRL.PERSONEL
                 {
                     _personelAvansServis.Data(ServisList.PersonelAvansEkleServis, new PocoPERSONELAVANS()
                     {
-                        MIKTAR = (int)TBAvansMiktar.EditValue,
+                        MIKTAR = Convert.ToInt32(TBAvansMiktar.EditValue),
                         ACIKLAMA = TBAvansAciklama.Text,
                         TARIH = (DateTime)DTPAvansTar.EditValue,
                         userid = MPKullanici.ID,
@@ -350,62 +306,29 @@ namespace MEYPAK.PRL.PERSONEL
         void CBGorevDoldur()
         {
             CBGorev.Properties.DataSource = "";
-            CBGorev.Properties.DataSource = _personelGorevServis.obje.Where(x => x.departmanid == Convert.ToInt32(CBDepartman.EditValue)).Select(x => new { ID = x.id, ADI = x.adi });
+            CBGorev.Properties.DataSource = _personelGorevServis.obje.Where(x => x.departmanid == Convert.ToInt32(CBDepartman.EditValue)).Select(x => new { ID = x.id, GOREV = x.adi });
             CBGorev.Properties.ValueMember = "ID";
-            CBGorev.Properties.DisplayMember = "ADI";
+            CBGorev.Properties.DisplayMember = "GOREV";
+            CBGorev.Properties.PopulateColumns();
+            CBGorev.Properties.Columns["ID"].Visible = false;
         }
 
         #region Methods
-        void FormuTemizle()
+        void FormuTemizle(System.Windows.Forms.Control.ControlCollection ctrlCollection)
         {
-            foreach (var ctrl in panelControl3.Controls)
+            foreach (System.Windows.Forms.Control ctrl in ctrlCollection)
             {
-                BaseEdit editor = ctrl as BaseEdit;
-                if (editor != null)
-                    editor.EditValue = null;
+                if (ctrl is TextEdit)
+                {
+                    if (ctrl.Name != "BTStokKodu")
+                        ctrl.Text = String.Empty;
+                }
+                else
+                {
+                    FormuTemizle(ctrl.Controls);
+                }
             }
-            foreach (var ctrl in panelControl5.Controls)
-            {
-                BaseEdit editor = ctrl as BaseEdit;
-                if (editor != null)
-                    editor.EditValue = null;
-            }
-            foreach (var ctrl in panelControl7.Controls)
-            {
-                BaseEdit editor = ctrl as BaseEdit;
-                if (editor != null)
-                    editor.EditValue = null;
-            }
-            foreach (var ctrl in panelControl9.Controls)
-            {
-                BaseEdit editor = ctrl as BaseEdit;
-                if (editor != null)
-                    editor.EditValue = null;
-            }
-            foreach (var ctrl in panelControl10.Controls)
-            {
-                BaseEdit editor = ctrl as BaseEdit;
-                if (editor != null)
-                    editor.EditValue = null;
-            }
-            foreach (var ctrl in panelControl11.Controls)
-            {
-                BaseEdit editor = ctrl as BaseEdit;
-                if (editor != null)
-                    editor.EditValue = null;
-            }
-            foreach (var ctrl in panelControl14.Controls)
-            {
-                BaseEdit editor = ctrl as BaseEdit;
-                if (editor != null)
-                    editor.EditValue = null;
-            }
-            foreach (var ctrl in panelControl12.Controls)
-            {
-                BaseEdit editor = ctrl as BaseEdit;
-                if (editor != null)
-                    editor.EditValue = null;
-            }
+            _tempPocoPERSONEL = null;
             GCPersonelBanka.DataSource = "";
             GCPersonelIzın.DataSource = "";
             GCPersonelZimmet.DataSource = "";
@@ -424,13 +347,18 @@ namespace MEYPAK.PRL.PERSONEL
 
             return new MemoryStream(imageData);
         }
-        void CombolarıDoldur()
+        void PersonelDepartmanComboDoldur()
         {
             _personelGorevServis.Data(ServisList.PersonelGorevListeServis);
             _personelDepartmanServis.Data(ServisList.PersonelDepartmanListeServis);
+            CBDepartman.Properties.DataSource = _personelDepartmanServis.obje.Where(x=>x.kayittipi==0).Select(x => new { DEPARTMAN = x.adi, ID = x.id });
             CBDepartman.Properties.ValueMember = "ID";
-            CBDepartman.Properties.DisplayMember = "ADI";
-            CBDepartman.Properties.DataSource = _personelDepartmanServis.obje.Select(x => new { ADI = x.adi, ID = x.id });
+            CBDepartman.Properties.DisplayMember = "DEPARTMAN";
+        }
+        void CombolarıDoldur()
+        {
+           
+           PersonelDepartmanComboDoldur();
 
             string url = @"http://213.238.167.117:8081/il-ilce.json";
 
@@ -684,12 +612,36 @@ namespace MEYPAK.PRL.PERSONEL
                     _tempPocoPERSONEL.userid = MPKullanici.ID;
                     _personelServis.Data(ServisList.PersonelEkleServis, _tempPocoPERSONEL);
                     PersonelleriGetir();
-                    FormuTemizle();
+                    FormuTemizle(this.Controls);
                 }
               
             }
             else
                 MessageBox.Show("Çıkış Verilecek Personel Bulunamadı!");
+        }
+
+        private void BTDepGorevEkle_Click(object sender, EventArgs e)
+        {
+            FPersonelGorevKart fPersonelGorevKart = new FPersonelGorevKart();
+            fPersonelGorevKart.ShowDialog();
+
+            PersonelDepartmanComboDoldur();
+        }
+
+        private void TBTCNO_EditValueChanged(object sender, EventArgs e)
+        {
+            if (_personelServis.obje.Where(x=> x.tc== TBTCNO.Text).Count()>0 )
+            {
+                _tempPocoPERSONEL = _personelServis.obje.Where(x => x.tc == TBTCNO.Text).FirstOrDefault();
+                PersonelBilgileriniDoldur();
+            }
+            else if (_tempPocoPERSONEL != null)
+            {
+                string a = TBTCNO.Text;
+                FormuTemizle(this.Controls);
+                TBTCNO.Text = a;
+            }
+                
         }
     }
 }
