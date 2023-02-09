@@ -7,29 +7,29 @@ using DevExtreme.AspNet.Data;
 using DevExtreme.AspNet.Mvc;
 using DevExpress.Pdf;
 
-namespace MEYPAK.WEB.Controllers.STOKController
+namespace MEYPAK.WEB.Controllers
 {
     public class StokController : Controller
     {
-
 
         private readonly ILogger<StokController> _logger;
         GenericWebServis<PocoSTOK> _tempPocoStok = new GenericWebServis<PocoSTOK>();
         GenericWebServis<PocoSTOKFIYAT> _tempStokFiyat = new GenericWebServis<PocoSTOKFIYAT>();
         GenericWebServis<PocoSTOKHAR> _tempStokHar = new GenericWebServis<PocoSTOKHAR>();
         GenericWebServis<PocoSTOKSAYIMHAR> _tempStokSayimHar = new GenericWebServis<PocoSTOKSAYIMHAR>();
+        GenericWebServis<PocoSTOKKASAHAR> _tempStokKasaHar = new GenericWebServis<PocoSTOKKASAHAR>();
+
 
 
 
 
         GenericWebServis<PocoHIZMET> _tempPocoHizmet = new GenericWebServis<PocoHIZMET>();
         GenericWebServis<PocoOLCUBR> _tempPocoOlcuBr = new GenericWebServis<PocoOLCUBR>();
-        GenericWebServis<PocoSTOKKASA> _tempPocoStokKasa = new GenericWebServis<PocoSTOKKASA>();
         GenericWebServis<PocoSTOKKATEGORI> _tempPocoStokKategori = new GenericWebServis<PocoSTOKKATEGORI>();
         GenericWebServis<PocoSTOKMARKA> _tempPocoStokMarka = new GenericWebServis<PocoSTOKMARKA>();
         GenericWebServis<PocoSTOKOLCUBR> _tempPocoStokOlcuBr = new GenericWebServis<PocoSTOKOLCUBR>();
         GenericWebServis<PocoSTOKSAYIM> _tempPocoStokSayim = new GenericWebServis<PocoSTOKSAYIM>();
-      
+
 
 
 
@@ -55,7 +55,7 @@ namespace MEYPAK.WEB.Controllers.STOKController
         #region STOK
 
         [HttpGet]
-        public IActionResult StokRapor()
+        public IActionResult Stok()
         {
             return View();
         }
@@ -70,41 +70,14 @@ namespace MEYPAK.WEB.Controllers.STOKController
             _tempPocoStok.Data(ServisList.StokListeServis);
             return DataSourceLoader.Load(_tempPocoStok.obje.Where(x => x.kayittipi == 0).Reverse().AsEnumerable(), loadOptions);
         }
-        [HttpPut]
-        public async Task<IActionResult> StokPut(int key, string values)
-        { //güncellenecek
-            _tempPocoStok.Data(ServisList.StokListeServis);
-            var employee = _tempPocoStok.obje.First(a => a.id == key);
-            JsonConvert.PopulateObject(values, employee);
-
-            //_tempPocoStok.Data(ServisList.StokEkleServis, id);
-
-            _tempPocoStok.Data(ServisList.StokEkleServis, employee);
-
-            ViewBag.Durum = "Başarıyla Güncellendi.";
-            return Ok();
-        }
-        [HttpPost]
-        public async Task<IActionResult> StokPost(string values)
-        {
-            PocoSTOK newPoco = new PocoSTOK();
-            JsonConvert.PopulateObject(values, newPoco);
-            _tempPocoStok.Data(ServisList.StokEkleServis, newPoco);
-
-            ViewBag.Durum = "Başarıyla eklendi.";
-            return Ok();
-        }
-        [HttpDelete]
-        public void StokDelete(int key)
-        {
-            string url = ServisList.StokDeleteByIdServis;
-            url += "?id=";
-            url += key;
-            _tempPocoStok.Data(url, method: HttpMethod.Post);
-            ViewBag.Durum = "Başarıyla silindi.";
-        }
-
+      
+       
+       
         #endregion
+
+
+
+
 
         #region STOKFIYAT
 
@@ -178,7 +151,7 @@ namespace MEYPAK.WEB.Controllers.STOKController
             var employee = _tempStokHar.obje.First(a => a.id == key);
             JsonConvert.PopulateObject(values, employee);
 
-      
+
             _tempStokHar.Data(ServisList.StokHarEkleServis, employee);
             ViewBag.Durum = "Başarıyla Güncellendi.";
             return Ok();
@@ -216,7 +189,7 @@ namespace MEYPAK.WEB.Controllers.STOKController
         [HttpGet]
         public object StokSayimHarGet(DataSourceLoadOptions loadOptions)
         {
-            
+
             _tempStokSayimHar.Data(ServisList.StokSayimHarListeServis);
             return DataSourceLoader.Load(_tempStokSayimHar.obje.Where(x => x.kayittipi == 0).Reverse().AsEnumerable(), loadOptions);
         }
@@ -227,7 +200,7 @@ namespace MEYPAK.WEB.Controllers.STOKController
             var employee = _tempStokSayimHar.obje.First(a => a.id == key);
             JsonConvert.PopulateObject(values, employee);
 
-         
+
             _tempStokSayimHar.Data(ServisList.StokSayimHarEkleServis, employee);
 
             ViewBag.Durum = "Başarıyla Güncellendi.";
@@ -254,6 +227,59 @@ namespace MEYPAK.WEB.Controllers.STOKController
         }
 
         #endregion
+
+        #region STOKKASAHAR
+
+        [HttpGet]
+        public async Task<IActionResult> StokKasaHarRapor()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public object StokKasaHarGet(DataSourceLoadOptions loadOptions)
+        {
+
+            _tempStokKasaHar.Data(ServisList.StokKasaHarListeServis);
+            return DataSourceLoader.Load(_tempStokKasaHar.obje.Where(x => x.kayittipi == 0).Reverse().AsEnumerable(), loadOptions);
+        }
+        [HttpPut]
+        public async Task<IActionResult> StokKasaHarPut(int key, string values)
+        { //güncellenecek
+            _tempStokKasaHar.Data(ServisList.StokKasaHarListeServis);
+            var employee = _tempStokKasaHar.obje.First(a => a.id == key);
+            JsonConvert.PopulateObject(values, employee);
+
+
+            _tempStokKasaHar.Data(ServisList.StokKasaHarEkleServis, employee);
+
+            ViewBag.Durum = "Başarıyla Güncellendi.";
+            return Ok();
+        }
+        [HttpPost]
+        public async Task<IActionResult> StokKasaHarPost(string values)
+        {
+            PocoSTOKKASAHAR newPoco = new PocoSTOKKASAHAR();
+            JsonConvert.PopulateObject(values, newPoco);
+            _tempStokKasaHar.Data(ServisList.StokKasaHarEkleServis, newPoco);
+
+            ViewBag.Durum = "Başarıyla eklendi.";
+            return Ok();
+        }
+        [HttpDelete]
+        public void StokKasaHarDelete(int key)
+        {
+            string url = ServisList.StokKasaHarDeleteByIdServis;
+            url += "?id=";
+            url += key;
+            _tempStokKasaHar.Data(url, method: HttpMethod.Post);
+            ViewBag.Durum = "Başarıyla silindi.";
+        }
+
+        #endregion
+
+
+
 
 
 
@@ -364,58 +390,9 @@ namespace MEYPAK.WEB.Controllers.STOKController
 
         #endregion
 
-   
 
-        #region STOKKASA
 
-        [HttpGet]
-        public async Task<IActionResult> StokKasaKart(int id)
-        {
-            return View();
-        }
 
-        [HttpGet]
-        public object StokKasaGet(DataSourceLoadOptions loadOptions)
-        {
-            _tempPocoStokKasa.Data(ServisList.StokKasaListeServis);
-            return DataSourceLoader.Load(_tempPocoStokKasa.obje.Where(x => x.kayittipi == 0).Reverse().AsEnumerable(), loadOptions);
-
-        }
-        [HttpPut]
-        public async Task<IActionResult> StokKasaPut(int key, string values)
-        { //güncellenecek
-            _tempPocoStokKasa.Data(ServisList.StokKasaListeServis);
-            var employee = _tempPocoStokKasa.obje.First(a => a.id == key);
-            JsonConvert.PopulateObject(values, employee);
-
-            //_tempPocoStok.Data(ServisList.StokEkleServis, id);
-
-            _tempPocoStokKasa.Data(ServisList.StokKasaEkleServis, employee);
-
-            ViewBag.Durum = "Başarıyla Güncellendi.";
-            return Ok();
-        }
-        [HttpPost]
-        public async Task<IActionResult> StokKasaPost(string values)
-        {
-            PocoSTOKKASA newPoco = new PocoSTOKKASA();
-            JsonConvert.PopulateObject(values, newPoco);
-            _tempPocoStokKasa.Data(ServisList.StokKasaEkleServis, newPoco);
-
-            ViewBag.Durum = "Başarıyla eklendi.";
-            return Ok();
-        }
-        [HttpDelete]
-        public void StokKasaDelete(int key)
-        {
-            string url = ServisList.StokKasaDeleteByIdServis;
-            url += "?id=";
-            url += key;
-            _tempPocoStokKasa.Data(url, method: HttpMethod.Post);
-            ViewBag.Durum = "Başarıyla silindi.";
-        }
-
-        #endregion
 
         #region STOKKATEGORI
 
@@ -525,7 +502,7 @@ namespace MEYPAK.WEB.Controllers.STOKController
 
         #endregion
 
-   
+
 
         #region STOKOLCUBR
 
