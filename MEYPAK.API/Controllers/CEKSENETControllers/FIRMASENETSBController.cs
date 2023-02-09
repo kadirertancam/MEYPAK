@@ -3,12 +3,14 @@ using MEYPAK.DAL.Concrete.ADONET;
 using MEYPAK.Entity.Models.CEKSENET;
 using MEYPAK.Entity.PocoModels.CEKSENET;
 using MEYPAK.Interfaces.CekSenet;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MEYPAK.API.Controllers.CEKSENETControllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
     public class FIRMASENETSBController : Controller
     {
         private readonly IMapper _mapper;

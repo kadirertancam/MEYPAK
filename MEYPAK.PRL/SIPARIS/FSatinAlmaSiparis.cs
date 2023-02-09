@@ -875,6 +875,7 @@ namespace MEYPAK.PRL.SIPARIS
                     geneltoplam = _tempIrsaliyeDetay.Sum(x => x.KdvTutarı) + _tempIrsaliyeDetay.Sum(x => x.NetToplam),
                     kdvdahil = CHBKdvDahil.Checked,
                     tip = 1,
+                    userid = MPKullanici.ID,
                 });
 
                 _stokOlcuBr.Data(ServisList.StokOlcuBrListeServis);

@@ -61,6 +61,7 @@ namespace MEYPAK.PRL.STOK
                 sayimtarihi = Convert.ToDateTime(DTSayimTar.EditValue.ToString()),
                 aciklama = TBAciklama.Text,
                 depoid = Convert.ToInt32(CBDepo.EditValue),
+                userid = MPKullanici.ID,
             }));
             _tempStokSayim = _stokSayimServis.obje2;
 

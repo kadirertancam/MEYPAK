@@ -3,10 +3,14 @@ using MEYPAK.DAL.Concrete.ADONET;
 using MEYPAK.Entity.Models.SIPARIS;
 using MEYPAK.Entity.PocoModels.SIPARIS;
 using MEYPAK.Interfaces.Siparis;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MEYPAK.API.Controllers.SIPARISControllers
 {
+    [ApiController]
+    [Route("[controller]")]
+    [Authorize]
     public class SIPARISKASAHARController : Controller
     {
         private readonly ISiparisKasaHarServis _siparisKasaHarServis;

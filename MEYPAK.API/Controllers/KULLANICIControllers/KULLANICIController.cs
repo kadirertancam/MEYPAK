@@ -46,7 +46,17 @@ namespace MEYPAK.API.Controllers.KULLANICIControllers
                     return Problem("Sistemde kullanıcı bilgisi bulunamadı.");
                 }
                 var result = _signManager.PasswordSignInAsync(user, model.Password, model.RememberMe, false).Result;
-                return Ok(user);
+                if (result.Succeeded)
+                {
+                    LoginResultModel resultModel = new LoginResultModel() { 
+                    MPUSER=user,
+                    userRoles = _userManager.GetRolesAsync(user).Result as List<string>
+                    };
+                 
+                    return Ok(resultModel);
+                }
+                return Problem("Giriş Yapılamadı!");
+               
             }
             catch (Exception ex)
             {
@@ -55,8 +65,8 @@ namespace MEYPAK.API.Controllers.KULLANICIControllers
         }
 
         [HttpGet]
-
         [Route("/[controller]/[action]")]
+        [Authorize]
         public IActionResult Logout()
         {
             _signManager.SignOutAsync();
@@ -66,6 +76,7 @@ namespace MEYPAK.API.Controllers.KULLANICIControllers
 
         [HttpPost]
         [Route("/[controller]/[action]")]
+        [Authorize]
         public IActionResult Register(RegisterModel model)
         {
             try
@@ -92,7 +103,6 @@ namespace MEYPAK.API.Controllers.KULLANICIControllers
                     PhoneNumber = model.Telefon
                 };
                 var result = _userManager.CreateAsync(user, model.Password).Result;
-
                 return Ok(result.Succeeded?"Başarıyla Kayıt Oluşturuldu":"Kayıt Edilemedi");
 
             }
@@ -101,6 +111,46 @@ namespace MEYPAK.API.Controllers.KULLANICIControllers
                 ViewBag.RegisterFailedMessage = "Beklenmedik bir hata oluştu! " + ex.Message;
                 return View(model);
             }
+        }
+
+
+        [HttpPost]
+        [Route("/[controller]/[action]")]
+        [Authorize]
+        public async Task<IActionResult> RolVer(LoginResultModel result)
+        {
+           
+            foreach (string role in result.userRoles)
+            {
+                if (_roleManager.RoleExistsAsync(role).Result)
+                 await _userManager.AddToRoleAsync(_userManager.FindByEmailAsync(result.MPUSER.Email).Result, role);
+            }
+            return Ok();
+        }
+
+        [HttpPost]
+        [Route("/[controller]/[action]")]
+        [Authorize]
+        public IActionResult RolleriOlustur()
+        {
+            string[] allRoles = Enum.GetNames(typeof(AllRoles));
+            foreach (string role in allRoles)
+            {
+                if (!_roleManager.RoleExistsAsync(role).Result)
+                {
+                    //eğer o rol yoksa ekle
+                    MPROLE r = new MPROLE()
+                    {
+                        Id= Guid.NewGuid().ToString(),
+                        Name = role,
+                        ACIKLAMA="Otomatik Olusturma",
+                        OLUSTURMATARIHI = DateTime.Now,
+                        GUNCELLEMETARIHI = DateTime.Now,
+                    };
+                    var result = _roleManager.CreateAsync(r).Result;
+                }
+            }
+            return Ok();
         }
 
     }

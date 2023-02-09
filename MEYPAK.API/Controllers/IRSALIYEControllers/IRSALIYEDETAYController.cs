@@ -4,12 +4,14 @@ using MEYPAK.Entity.Models.IRSALIYE;
 using MEYPAK.Entity.PocoModels.IRSALIYE;
 using MEYPAK.Interfaces.IRSALIYE;
 using MEYPAK.Interfaces.Stok;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MEYPAK.API.Controllers.IRSALIYEControllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
     public class IRSALIYEDETAYController : Controller
     {
         private readonly IMapper _mapper;

@@ -220,6 +220,10 @@ namespace MEYPAK.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("YAKITTURU")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -258,6 +262,10 @@ namespace MEYPAK.DAL.Migrations
 
                     b.Property<DateTime>("OLUSTURMATARIHI")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 
@@ -366,6 +374,10 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<DateTime>("OLUSTURMATARIHI")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("ID");
 
                     b.ToTable("MPARACMODEL");
@@ -400,6 +412,10 @@ namespace MEYPAK.DAL.Migrations
 
                     b.Property<DateTime>("OLUSTURMATARIHI")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 
@@ -442,6 +458,10 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<DateTime>("TARIH")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("ID");
 
                     b.ToTable("MPARACROTA");
@@ -477,6 +497,10 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<DateTime>("OLUSTURMATARIHI")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("ID");
 
                     b.ToTable("MPARACRUHSATRESIM");
@@ -511,6 +535,10 @@ namespace MEYPAK.DAL.Migrations
 
                     b.Property<DateTime>("OLUSTURMATARIHI")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 
@@ -555,6 +583,10 @@ namespace MEYPAK.DAL.Migrations
 
                     b.Property<DateTime>("OLUSTURMATARIHI")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 
@@ -609,6 +641,10 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<byte>("TIP")
                         .HasColumnType("tinyint");
 
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("ID");
 
                     b.ToTable("MPBANKAHESAP");
@@ -644,6 +680,10 @@ namespace MEYPAK.DAL.Migrations
 
                     b.Property<DateTime>("OLUSTURMATARIHI")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 
@@ -693,6 +733,10 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<DateTime>("OLUSTURMATARIHI")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("ID");
 
                     b.ToTable("MPHESAPHAREKET");
@@ -730,6 +774,10 @@ namespace MEYPAK.DAL.Migrations
 
                     b.Property<DateTime>("OLUSTURMATARIHI")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 
@@ -770,6 +818,10 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<DateTime>("OLUSTURMATARIHI")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("ID");
 
                     b.ToTable("MPCARIALTHES");
@@ -803,6 +855,10 @@ namespace MEYPAK.DAL.Migrations
 
                     b.Property<DateTime>("OLUSTURMATARIHI")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 
@@ -839,6 +895,10 @@ namespace MEYPAK.DAL.Migrations
 
                     b.Property<DateTime>("OLUSTURMATARIHI")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 
@@ -899,6 +959,10 @@ namespace MEYPAK.DAL.Migrations
 
                     b.Property<decimal>("TUTAR")
                         .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 
@@ -1130,6 +1194,10 @@ namespace MEYPAK.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("VADEGUNU")
                         .HasColumnType("int");
 
@@ -1180,6 +1248,10 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<DateTime>("OLUSTURMATARIHI")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("ID");
 
                     b.ToTable("MPCARIRESIM");
@@ -1213,6 +1285,10 @@ namespace MEYPAK.DAL.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("POZISYON")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("USERID")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -1273,6 +1349,10 @@ namespace MEYPAK.DAL.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("SOKAK")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("USERID")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -1346,6 +1426,10 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<decimal>("TOPLAM")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("ID");
 
                     b.ToTable("MPCEKSENETUSTSB");
@@ -1401,6 +1485,10 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<DateTime>("TARIH")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("USTID")
                         .HasColumnType("int");
 
@@ -1434,6 +1522,10 @@ namespace MEYPAK.DAL.Migrations
 
                     b.Property<int>("SERINO")
                         .HasColumnType("int");
+
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("VERBORDRONO")
                         .HasColumnType("int");
@@ -1541,6 +1633,10 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<decimal>("TUTAR")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("USTID")
                         .HasColumnType("int");
 
@@ -1602,6 +1698,10 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<DateTime>("TARIH")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("USTID")
                         .HasColumnType("int");
 
@@ -1635,6 +1735,10 @@ namespace MEYPAK.DAL.Migrations
 
                     b.Property<int>("SERINO")
                         .HasColumnType("int");
+
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("VERBORDRONO")
                         .HasColumnType("int");
@@ -1719,6 +1823,10 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<decimal>("TUTAR")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("USTID")
                         .HasColumnType("int");
 
@@ -1789,6 +1897,10 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<DateTime>("TARIH")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("USID")
                         .HasColumnType("int");
 
@@ -1825,6 +1937,10 @@ namespace MEYPAK.DAL.Migrations
 
                     b.Property<int>("SERINO")
                         .HasColumnType("int");
+
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("VERBORDONO")
                         .HasColumnType("int");
@@ -1950,6 +2066,10 @@ namespace MEYPAK.DAL.Migrations
 
                     b.Property<decimal>("TUTAR")
                         .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("USTID")
                         .HasColumnType("int");
@@ -2079,6 +2199,10 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<int>("TOPLAM")
                         .HasColumnType("int");
 
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("ID");
 
                     b.ToTable("MPMUSTERICEKSENET");
@@ -2146,6 +2270,10 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<DateTime>("TARIH")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("USTID")
                         .HasColumnType("int");
 
@@ -2182,6 +2310,10 @@ namespace MEYPAK.DAL.Migrations
 
                     b.Property<int>("SERINO")
                         .HasColumnType("int");
+
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("VERBORDRONO")
                         .HasColumnType("int");
@@ -2281,6 +2413,10 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<int>("TUTAR")
                         .HasColumnType("int");
 
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("USTID")
                         .HasColumnType("int");
 
@@ -2342,6 +2478,10 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<int>("SIRKETID")
                         .HasColumnType("int");
 
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("ID");
 
                     b.ToTable("MPDEPO");
@@ -2381,6 +2521,10 @@ namespace MEYPAK.DAL.Migrations
 
                     b.Property<int>("STOKID")
                         .HasColumnType("int");
+
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 
@@ -2432,6 +2576,10 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<int>("TIP")
                         .HasColumnType("int");
 
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("ID");
 
                     b.ToTable("MPDEPOEMIR");
@@ -2469,6 +2617,10 @@ namespace MEYPAK.DAL.Migrations
 
                     b.Property<DateTime>("OLUSTURMATARIHI")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 
@@ -2515,6 +2667,10 @@ namespace MEYPAK.DAL.Migrations
 
                     b.Property<int>("STOKID")
                         .HasColumnType("int");
+
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 
@@ -2573,6 +2729,10 @@ namespace MEYPAK.DAL.Migrations
 
                     b.Property<int>("SUBEID")
                         .HasColumnType("int");
+
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 
@@ -2635,9 +2795,81 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<int>("SUBEID")
                         .HasColumnType("int");
 
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("ID");
 
                     b.ToTable("MPSTOKSEVKİYATLİST");
+                });
+
+            modelBuilder.Entity("MEYPAK.Entity.Models.EISLEMLER.MPGELENEFATURA", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+
+                    b.Property<string>("BELGENO")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CARIADI")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("DURUM")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ESKIID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ETTNO")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FATURATIP")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("GUNCELLEMETARIHI")
+                        .HasColumnType("datetime2");
+
+                    b.Property<byte>("KAYITTIPI")
+                        .HasColumnType("tinyint");
+
+                    b.Property<decimal>("KDV")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime>("OLUSTURMATARIHI")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("TARIH")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("TIP")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("TUTAR")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("VADETARIHI")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("VKNTC")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("MPGELENEFATURA");
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.FATURA.MPFATURA", b =>
@@ -2759,6 +2991,10 @@ namespace MEYPAK.DAL.Migrations
 
                     b.Property<int>("TIP")
                         .HasColumnType("int");
+
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("VADEGUNU")
                         .HasColumnType("int");
@@ -2885,6 +3121,10 @@ namespace MEYPAK.DAL.Migrations
 
                     b.Property<byte>("TIP")
                         .HasColumnType("tinyint");
+
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 
@@ -3014,6 +3254,10 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<int>("TIP")
                         .HasColumnType("int");
 
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("VADEGUNU")
                         .HasColumnType("int");
 
@@ -3137,6 +3381,10 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<byte>("TIP")
                         .HasColumnType("tinyint");
 
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("ID");
 
                     b.ToTable("MPIRSALIYEDETAY");
@@ -3182,6 +3430,10 @@ namespace MEYPAK.DAL.Migrations
 
                     b.Property<DateTime>("TARIH")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 
@@ -3247,6 +3499,10 @@ namespace MEYPAK.DAL.Migrations
 
                     b.Property<decimal>("TUTAR")
                         .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 
@@ -3315,6 +3571,10 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<DateTime>("OLUSTURMATARIHI")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("ID");
 
                     b.ToTable("MPPARABIRIM");
@@ -3346,6 +3606,10 @@ namespace MEYPAK.DAL.Migrations
 
                     b.Property<int>("TIP")
                         .HasColumnType("int");
+
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 
@@ -3380,6 +3644,10 @@ namespace MEYPAK.DAL.Migrations
 
                     b.Property<long>("SERINO")
                         .HasColumnType("bigint");
+
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 
@@ -3422,6 +3690,9 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<string>("AILESIRANO")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("AKTIF")
+                        .HasColumnType("bit");
 
                     b.Property<string>("ANNEADI")
                         .IsRequired()
@@ -3513,6 +3784,9 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<byte>("KAYITTIPI")
                         .HasColumnType("tinyint");
 
+                    b.Property<int>("MAAS")
+                        .HasColumnType("int");
+
                     b.Property<string>("MEDENIDURUM")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -3526,6 +3800,10 @@ namespace MEYPAK.DAL.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MEZUNIYETYILI")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NOTLAR")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -3600,6 +3878,10 @@ namespace MEYPAK.DAL.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<string>("SUBE")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("SUBEID")
                         .HasColumnType("int");
 
@@ -3612,6 +3894,10 @@ namespace MEYPAK.DAL.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ULKE")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("USERID")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -3634,6 +3920,48 @@ namespace MEYPAK.DAL.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("MPPERSONEL");
+                });
+
+            modelBuilder.Entity("MEYPAK.Entity.Models.PERSONEL.MPPERSONELAVANS", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+
+                    b.Property<string>("ACIKLAMA")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ESKIID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("GUNCELLEMETARIHI")
+                        .HasColumnType("datetime2");
+
+                    b.Property<byte>("KAYITTIPI")
+                        .HasColumnType("tinyint");
+
+                    b.Property<int>("MIKTAR")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("OLUSTURMATARIHI")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("PERSONELID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("TARIH")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("MPPERSONELAVANS");
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.PERSONEL.MPPERSONELBANKA", b =>
@@ -3675,6 +4003,10 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<int>("PERSONELID")
                         .HasColumnType("int");
 
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("ID");
 
                     b.ToTable("MPPERSONELBANKA");
@@ -3703,6 +4035,10 @@ namespace MEYPAK.DAL.Migrations
 
                     b.Property<DateTime>("OLUSTURMATARIHI")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 
@@ -3736,9 +4072,66 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<DateTime>("OLUSTURMATARIHI")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("ID");
 
                     b.ToTable("MPPERSONELGOREV");
+                });
+
+            modelBuilder.Entity("MEYPAK.Entity.Models.PERSONEL.MPPERSONELIZIN", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+
+                    b.Property<string>("DEVREDILECEKPERSONEL")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ESKIID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("GUNCELLEMETARIHI")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("IZINBASLANGIC")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("IZINBITIS")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("IZINGUN")
+                        .HasColumnType("int");
+
+                    b.Property<string>("IZINNEDENI")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("IZINTURU")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte>("KAYITTIPI")
+                        .HasColumnType("tinyint");
+
+                    b.Property<DateTime>("OLUSTURMATARIHI")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("PERSONELID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("MPPERSONELIZIN");
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.PERSONEL.MPPERSONELZIMMET", b =>
@@ -3781,6 +4174,10 @@ namespace MEYPAK.DAL.Migrations
 
                     b.Property<DateTime>("TESLIMTARIHI")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("ZIMMETTARIHI")
                         .HasColumnType("datetime2");
@@ -3833,6 +4230,10 @@ namespace MEYPAK.DAL.Migrations
 
                     b.Property<int>("TIP")
                         .HasColumnType("int");
+
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 
@@ -3952,6 +4353,10 @@ namespace MEYPAK.DAL.Migrations
 
                     b.Property<int>("TIP")
                         .HasColumnType("int");
+
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("VADEGUNU")
                         .HasColumnType("int");
@@ -4078,6 +4483,10 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<int>("T_FLAG")
                         .HasColumnType("int");
 
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("ID");
 
                     b.ToTable("MPSIPARISDETAY");
@@ -4114,6 +4523,10 @@ namespace MEYPAK.DAL.Migrations
 
                     b.Property<int>("SIPARISID")
                         .HasColumnType("int");
+
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 
@@ -4163,6 +4576,10 @@ namespace MEYPAK.DAL.Migrations
 
                     b.Property<int>("TIP")
                         .HasColumnType("int");
+
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 
@@ -4324,6 +4741,10 @@ namespace MEYPAK.DAL.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("ID");
 
                     b.ToTable("MPHIZMET");
@@ -4407,6 +4828,10 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<int>("SUBEID")
                         .HasColumnType("int");
 
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("ID");
 
                     b.ToTable("MPHIZMETHAR");
@@ -4436,6 +4861,10 @@ namespace MEYPAK.DAL.Migrations
 
                     b.Property<DateTime>("OLUSTURMATARIHI")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("USTID")
                         .HasColumnType("int");
@@ -4477,6 +4906,10 @@ namespace MEYPAK.DAL.Migrations
 
                     b.Property<DateTime>("OLUSTURMATARIHI")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 
@@ -4688,6 +5121,10 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<int>("SUBEID")
                         .HasColumnType("int");
 
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("ID");
 
                     b.ToTable("MPSTOK");
@@ -4739,6 +5176,10 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<int>("SUBEID")
                         .HasColumnType("int");
 
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("ID");
 
                     b.ToTable("MPSTOKFIYAT");
@@ -4787,6 +5228,10 @@ namespace MEYPAK.DAL.Migrations
 
                     b.Property<int>("SUBEID")
                         .HasColumnType("int");
+
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 
@@ -4887,6 +5332,10 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<int>("SUBEID")
                         .HasColumnType("int");
 
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("ID");
 
                     b.ToTable("MPSTOKHAR");
@@ -4938,6 +5387,10 @@ namespace MEYPAK.DAL.Migrations
 
                     b.Property<int>("SUBEID")
                         .HasColumnType("int");
+
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 
@@ -5001,6 +5454,10 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<int>("STOKID")
                         .HasColumnType("int");
 
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("ID");
 
                     b.ToTable("MPSTOKKASAHAR");
@@ -5036,6 +5493,10 @@ namespace MEYPAK.DAL.Migrations
 
                     b.Property<DateTime>("OLUSTURMATARIHI")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 
@@ -5074,6 +5535,10 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<DateTime>("OLUSTURMATARIHI")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("UstId")
                         .HasColumnType("int");
 
@@ -5111,6 +5576,10 @@ namespace MEYPAK.DAL.Migrations
 
                     b.Property<DateTime>("OLUSTURMATARIHI")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 
@@ -5152,6 +5621,10 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<int>("STOKID")
                         .HasColumnType("int");
 
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("ID");
 
                     b.ToTable("MPSTOKOLCUBR");
@@ -5186,6 +5659,10 @@ namespace MEYPAK.DAL.Migrations
 
                     b.Property<int>("STOKID")
                         .HasColumnType("int");
+
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 
@@ -5225,6 +5702,10 @@ namespace MEYPAK.DAL.Migrations
 
                     b.Property<DateTime>("TARIH")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 
@@ -5277,6 +5758,10 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<int>("TIP")
                         .HasColumnType("int");
 
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("ID");
 
                     b.ToTable("MPSTOKSARFDETAY");
@@ -5320,6 +5805,10 @@ namespace MEYPAK.DAL.Migrations
 
                     b.Property<int>("SUBEID")
                         .HasColumnType("int");
+
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 
@@ -5375,6 +5864,10 @@ namespace MEYPAK.DAL.Migrations
 
                     b.Property<int>("SUBEID")
                         .HasColumnType("int");
+
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 

@@ -13,16 +13,38 @@ namespace MEYPAK.BLL.Assets
 
         #endregion
 
+        #region PERSONELIZIN
+        public const string PersonelAvansListeServis =       "http://213.238.167.117:8080/PERSONELAVANS/Liste";
+        public const string PersonelAvansEkleServis =        "http://213.238.167.117:8080/PERSONELAVANS/EkleyadaGuncelle";
+        public const string PersonelAvansSilServis =         "http://213.238.167.117:8080/PERSONELAVANS/Sil";
+        public const string PersonelAvansGuncelleServis =    "http://213.238.167.117:8080/PERSONELAVANS/Guncelle";
+        public const string PersonelAvansDeleteByIdServis =  "http://213.238.167.117:8080/PERSONELAVANS/DeleteById";
+        public const string PersonelAvansListeFiltreServis = "http://213.238.167.117:8080/PERSONELAVANS/Liste2?query=";
+
+
+        #endregion
+        #region PERSONELIZIN
+        public const string PersonelIzinListeServis = "http://213.238.167.117:8080/PERSONELIZIN/Liste";
+        public const string PersonelIzinEkleServis = "http://213.238.167.117:8080/PERSONELIZIN/EkleyadaGuncelle";
+        public const string PersonelIzinSilServis = "http://213.238.167.117:8080/PERSONELIZIN/Sil";
+        public const string PersonelIzinGuncelleServis = "http://213.238.167.117:8080/PERSONELIZIN/Guncelle";
+        public const string PersonelIzinDeleteByIdServis = "http://213.238.167.117:8080/PERSONELIZIN/DeleteById";
+        public const string PersonelIzinListeFiltreServis = "http://213.238.167.117:8080/PERSONELIZIN/Liste2?query=";
+
+
+        #endregion
+
         #region STOKSARFDETAY
-        public const string StokSarfDetayListeServis =       "http://213.238.167.117:8080/STOKSARFDETAY/Liste";
-        public const string StokSarfDetayEkleServis =        "http://213.238.167.117:8080/STOKSARFDETAY/EkleyadaGuncelle";
-        public const string StokSarfDetaySilServis =         "http://213.238.167.117:8080/STOKSARFDETAY/Sil";
-        public const string StokSarfDetayGuncelleServis =    "http://213.238.167.117:8080/STOKSARFDETAY/Guncelle";
-        public const string StokSarfDetayDeleteByIdServis =  "http://213.238.167.117:8080/STOKSARFDETAY/DeleteById";
+        public const string StokSarfDetayListeServis = "http://213.238.167.117:8080/STOKSARFDETAY/Liste";
+        public const string StokSarfDetayEkleServis = "http://213.238.167.117:8080/STOKSARFDETAY/EkleyadaGuncelle";
+        public const string StokSarfDetaySilServis = "http://213.238.167.117:8080/STOKSARFDETAY/Sil";
+        public const string StokSarfDetayGuncelleServis = "http://213.238.167.117:8080/STOKSARFDETAY/Guncelle";
+        public const string StokSarfDetayDeleteByIdServis = "http://213.238.167.117:8080/STOKSARFDETAY/DeleteById";
         public const string StokSarfDetayListeFiltreServis = "http://213.238.167.117:8080/STOKSARFDETAY/Liste2?query=";
 
 
         #endregion
+
         #region STOKSARF
         public const string StokSarfListeServis = "http://213.238.167.117:8080/STOKSARF/Liste";
         public const string StokSarfEkleServis = "http://213.238.167.117:8080/STOKSARF/EkleyadaGuncelle";

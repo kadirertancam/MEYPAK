@@ -87,7 +87,8 @@ namespace MEYPAK.PRL.DEPO
                 depokodu = TBKod.Text,
                 depoadi = TBAdi.Text,
                 aciklama = TBAciklama.Text,
-                aktif = CBAktif.CheckedItems.Count
+                aktif = CBAktif.CheckedItems.Count,
+                userid = MPKullanici.ID
 
             }));
                 gridiDoldur();
@@ -103,7 +104,9 @@ namespace MEYPAK.PRL.DEPO
                     depokodu = TBKod.Text,
                     depoadi = TBAdi.Text,
                     aciklama = TBAciklama.Text,
-                    aktif = CBAktif.CheckedItems.Count
+                    aktif = CBAktif.CheckedItems.Count,
+                    userid = MPKullanici.ID
+
 
                 }));
                 gridiDoldur();

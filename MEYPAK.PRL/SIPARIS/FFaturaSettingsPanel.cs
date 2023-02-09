@@ -91,6 +91,7 @@ namespace MEYPAK.PRL.SIPARIS
 
             };
             tempirs.durum = true;
+            tempirs.userid = MPKullanici.ID;
             _irsaliyeServis.Data(ServisList.IrsaliyeEkleServis, tempirs);
 
             foreach (var item in fSatisIrsaliyeFaturalastir.gridView1.GetSelectedRows())
@@ -132,6 +133,7 @@ namespace MEYPAK.PRL.SIPARIS
                     StokId = item.stokid,
                     Tipi = item.tip == 0 ? "STOK" : item.tip == 1 ? "HIZMET" : item.tip == 2 ? "KASA" : item.tip == 3 ? "DEMIRBAS" : "MUHASEBE",
                     Kunye = "",
+                    
                 });
                 kasalist = new List<KasaList>();
                 _stokKasaHarServis.Data(ServisList.StokKasaHarListeServis);

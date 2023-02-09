@@ -29,16 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FPersonelKart));
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
             this.xtraTabControl2 = new DevExpress.XtraTab.XtraTabControl();
@@ -106,7 +96,7 @@
             this.LBTelefon = new DevExpress.XtraEditors.LabelControl();
             this.TBVergiDaire = new DevExpress.XtraEditors.TextEdit();
             this.TBEposta = new DevExpress.XtraEditors.TextEdit();
-            this.xtraTabPage3 = new DevExpress.XtraTab.XtraTabPage();
+            this.XTPOgrenim = new DevExpress.XtraTab.XtraTabPage();
             this.panelControl11 = new DevExpress.XtraEditors.PanelControl();
             this.TBMezuniyetYil = new DevExpress.XtraEditors.TextEdit();
             this.TB506G = new DevExpress.XtraEditors.TextEdit();
@@ -142,7 +132,7 @@
             this.LBSosyalGuvKodu = new DevExpress.XtraEditors.LabelControl();
             this.XTPBanka = new DevExpress.XtraTab.XtraTabPage();
             this.panelControl6 = new DevExpress.XtraEditors.PanelControl();
-            this.gridControl4 = new DevExpress.XtraGrid.GridControl();
+            this.GCPersonelBanka = new DevExpress.XtraGrid.GridControl();
             this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
             this.BTSPersonelBanka = new DevExpress.XtraEditors.SimpleButton();
@@ -154,9 +144,41 @@
             this.LBBankaSubeKodu = new DevExpress.XtraEditors.LabelControl();
             this.LBBankaSubeAdi = new DevExpress.XtraEditors.LabelControl();
             this.LBBankaAdi = new DevExpress.XtraEditors.LabelControl();
+            this.XTPAvans = new DevExpress.XtraTab.XtraTabPage();
+            this.panelControl15 = new DevExpress.XtraEditors.PanelControl();
+            this.GCAvans = new DevExpress.XtraGrid.GridControl();
+            this.gridView6 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.panelControl14 = new DevExpress.XtraEditors.PanelControl();
+            this.DTPAvansTar = new DevExpress.XtraEditors.DateEdit();
+            this.BTAvansKaydet = new DevExpress.XtraEditors.SimpleButton();
+            this.TBAvansAciklama = new System.Windows.Forms.RichTextBox();
+            this.TBAvansMiktar = new DevExpress.XtraEditors.TextEdit();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.XTPIzin = new DevExpress.XtraTab.XtraTabPage();
+            this.panelControl13 = new DevExpress.XtraEditors.PanelControl();
+            this.GCPersonelIzın = new DevExpress.XtraGrid.GridControl();
+            this.gridView5 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.panelControl12 = new DevExpress.XtraEditors.PanelControl();
+            this.CBIzinTur = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.LBIzinTur = new System.Windows.Forms.Label();
+            this.LBIzinMiktari = new System.Windows.Forms.Label();
+            this.LBIzınHak = new System.Windows.Forms.Label();
+            this.BTIzin = new DevExpress.XtraEditors.SimpleButton();
+            this.TBIzinDevirPers = new DevExpress.XtraEditors.TextEdit();
+            this.DTPIzinBit = new DevExpress.XtraEditors.DateEdit();
+            this.DTPIzinBas = new DevExpress.XtraEditors.DateEdit();
+            this.TBIzinGun = new DevExpress.XtraEditors.TextEdit();
+            this.TBIzınNeden = new DevExpress.XtraEditors.TextEdit();
+            this.LBIzinGorevPersonel = new DevExpress.XtraEditors.LabelControl();
+            this.LBIzinDurum = new DevExpress.XtraEditors.LabelControl();
+            this.LBIzinNedeni = new DevExpress.XtraEditors.LabelControl();
+            this.LBIzinBitTar = new DevExpress.XtraEditors.LabelControl();
+            this.LBIzinBasTar = new DevExpress.XtraEditors.LabelControl();
             this.XTPZimmet = new DevExpress.XtraTab.XtraTabPage();
             this.panelControl8 = new DevExpress.XtraEditors.PanelControl();
-            this.gridControl3 = new DevExpress.XtraGrid.GridControl();
+            this.GCPersonelZimmet = new DevExpress.XtraGrid.GridControl();
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panelControl7 = new DevExpress.XtraEditors.PanelControl();
             this.DTPZimBasTar = new DevExpress.XtraEditors.DateEdit();
@@ -170,24 +192,17 @@
             this.LBZimSeriNo = new DevExpress.XtraEditors.LabelControl();
             this.LBZimTar = new DevExpress.XtraEditors.LabelControl();
             this.LBZimMarkaModel = new DevExpress.XtraEditors.LabelControl();
-            this.XTPIzin = new DevExpress.XtraTab.XtraTabPage();
-            this.panelControl13 = new DevExpress.XtraEditors.PanelControl();
-            this.gridControl5 = new DevExpress.XtraGrid.GridControl();
-            this.gridView5 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.panelControl12 = new DevExpress.XtraEditors.PanelControl();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
-            this.dateEdit2 = new DevExpress.XtraEditors.DateEdit();
-            this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
-            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.LBIzinGorevPersonel = new DevExpress.XtraEditors.LabelControl();
-            this.LBIzinDurum = new DevExpress.XtraEditors.LabelControl();
-            this.LBIzinNedeni = new DevExpress.XtraEditors.LabelControl();
-            this.LBIzinBitTar = new DevExpress.XtraEditors.LabelControl();
-            this.LBIzinBasTar = new DevExpress.XtraEditors.LabelControl();
+            this.XTPNot = new DevExpress.XtraTab.XtraTabPage();
+            this.TBNotlar = new DevExpress.XtraRichEdit.RichEditControl();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.BTDepGorevEkle = new DevExpress.XtraEditors.SimpleButton();
             this.CBGorev = new DevExpress.XtraEditors.LookUpEdit();
+            this.CBDepartman = new DevExpress.XtraEditors.LookUpEdit();
+            this.TBSube = new DevExpress.XtraEditors.TextEdit();
+            this.label5 = new System.Windows.Forms.Label();
+            this.BTCIKIS = new DevExpress.XtraEditors.SimpleButton();
+            this.TBMaas = new DevExpress.XtraEditors.TextEdit();
+            this.label1 = new System.Windows.Forms.Label();
             this.BTNPersonelFoto = new DevExpress.XtraEditors.ButtonEdit();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
@@ -200,7 +215,6 @@
             this.DTPDogumTar = new DevExpress.XtraEditors.DateEdit();
             this.DTPIseGirisTar = new DevExpress.XtraEditors.DateEdit();
             this.BTNPersonelKaydet = new DevExpress.XtraEditors.SimpleButton();
-            this.CBDepartman = new DevExpress.XtraEditors.LookUpEdit();
             this.CBCinsiyet = new DevExpress.XtraEditors.ComboBoxEdit();
             this.TBSGKSICILNO = new DevExpress.XtraEditors.TextEdit();
             this.TBSoyadi = new DevExpress.XtraEditors.TextEdit();
@@ -264,7 +278,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.CBAdresIL.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBVergiDaire.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBEposta.Properties)).BeginInit();
-            this.xtraTabPage3.SuspendLayout();
+            this.XTPOgrenim.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl11)).BeginInit();
             this.panelControl11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TBMezuniyetYil.Properties)).BeginInit();
@@ -287,7 +301,7 @@
             this.XTPBanka.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).BeginInit();
             this.panelControl6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GCPersonelBanka)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
             this.panelControl5.SuspendLayout();
@@ -295,10 +309,35 @@
             ((System.ComponentModel.ISupportInitialize)(this.TBBankaSubeKod.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBBankaIban.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBBankaAdi.Properties)).BeginInit();
+            this.XTPAvans.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl15)).BeginInit();
+            this.panelControl15.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GCAvans)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl14)).BeginInit();
+            this.panelControl14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DTPAvansTar.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DTPAvansTar.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBAvansMiktar.Properties)).BeginInit();
+            this.XTPIzin.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl13)).BeginInit();
+            this.panelControl13.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GCPersonelIzın)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl12)).BeginInit();
+            this.panelControl12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CBIzinTur.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBIzinDevirPers.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DTPIzinBit.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DTPIzinBit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DTPIzinBas.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DTPIzinBas.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBIzinGun.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBIzınNeden.Properties)).BeginInit();
             this.XTPZimmet.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl8)).BeginInit();
             this.panelControl8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GCPersonelZimmet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl7)).BeginInit();
             this.panelControl7.SuspendLayout();
@@ -308,29 +347,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.TBZimMarka.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBZimSeriNo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBZimMiktar.Properties)).BeginInit();
-            this.XTPIzin.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl13)).BeginInit();
-            this.panelControl13.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl12)).BeginInit();
-            this.panelControl12.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            this.XTPNot.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CBGorev.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CBDepartman.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBSube.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBMaas.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTNPersonelFoto.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPDogumTar.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPDogumTar.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPIseGirisTar.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPIseGirisTar.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CBDepartman.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBCinsiyet.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBSGKSICILNO.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBSoyadi.Properties)).BeginInit();
@@ -380,10 +408,12 @@
             this.xtraTabControl2.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.XTPKisisel,
             this.XTPKimlik,
-            this.xtraTabPage3,
+            this.XTPOgrenim,
             this.XTPBanka,
+            this.XTPAvans,
+            this.XTPIzin,
             this.XTPZimmet,
-            this.XTPIzin});
+            this.XTPNot});
             // 
             // XTPKimlik
             // 
@@ -792,7 +822,7 @@
             // 
             // TBAdres
             // 
-            this.TBAdres.Location = new System.Drawing.Point(120, 160);
+            this.TBAdres.Location = new System.Drawing.Point(120, 157);
             this.TBAdres.Name = "TBAdres";
             this.TBAdres.Size = new System.Drawing.Size(146, 117);
             this.TBAdres.TabIndex = 15;
@@ -924,7 +954,7 @@
             // 
             // LBAdres
             // 
-            this.LBAdres.Location = new System.Drawing.Point(81, 164);
+            this.LBAdres.Location = new System.Drawing.Point(81, 161);
             this.LBAdres.Name = "LBAdres";
             this.LBAdres.Size = new System.Drawing.Size(33, 13);
             this.LBAdres.TabIndex = 4;
@@ -1016,13 +1046,13 @@
             this.TBEposta.Size = new System.Drawing.Size(146, 20);
             this.TBEposta.TabIndex = 16;
             // 
-            // xtraTabPage3
+            // XTPOgrenim
             // 
-            this.xtraTabPage3.Controls.Add(this.panelControl11);
-            this.xtraTabPage3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("xtraTabPage3.ImageOptions.Image")));
-            this.xtraTabPage3.Name = "xtraTabPage3";
-            this.xtraTabPage3.Size = new System.Drawing.Size(1071, 557);
-            this.xtraTabPage3.Text = "Öğrenim ve Diğer B.";
+            this.XTPOgrenim.Controls.Add(this.panelControl11);
+            this.XTPOgrenim.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("XTPOgrenim.ImageOptions.Image")));
+            this.XTPOgrenim.Name = "XTPOgrenim";
+            this.XTPOgrenim.Size = new System.Drawing.Size(1071, 557);
+            this.XTPOgrenim.Text = "Öğrenim ve Diğer B.";
             // 
             // panelControl11
             // 
@@ -1382,27 +1412,27 @@
             // 
             // panelControl6
             // 
-            this.panelControl6.Controls.Add(this.gridControl4);
+            this.panelControl6.Controls.Add(this.GCPersonelBanka);
             this.panelControl6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl6.Location = new System.Drawing.Point(0, 119);
             this.panelControl6.Name = "panelControl6";
             this.panelControl6.Size = new System.Drawing.Size(1071, 438);
             this.panelControl6.TabIndex = 1;
             // 
-            // gridControl4
+            // GCPersonelBanka
             // 
-            this.gridControl4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl4.Location = new System.Drawing.Point(2, 2);
-            this.gridControl4.MainView = this.gridView4;
-            this.gridControl4.Name = "gridControl4";
-            this.gridControl4.Size = new System.Drawing.Size(1067, 434);
-            this.gridControl4.TabIndex = 0;
-            this.gridControl4.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.GCPersonelBanka.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GCPersonelBanka.Location = new System.Drawing.Point(2, 2);
+            this.GCPersonelBanka.MainView = this.gridView4;
+            this.GCPersonelBanka.Name = "GCPersonelBanka";
+            this.GCPersonelBanka.Size = new System.Drawing.Size(1067, 434);
+            this.GCPersonelBanka.TabIndex = 0;
+            this.GCPersonelBanka.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView4});
             // 
             // gridView4
             // 
-            this.gridView4.GridControl = this.gridControl4;
+            this.gridView4.GridControl = this.GCPersonelBanka;
             this.gridView4.Name = "gridView4";
             // 
             // panelControl5
@@ -1494,6 +1524,319 @@
             this.LBBankaAdi.TabIndex = 0;
             this.LBBankaAdi.Text = "BANKA ADI";
             // 
+            // XTPAvans
+            // 
+            this.XTPAvans.Controls.Add(this.panelControl15);
+            this.XTPAvans.Controls.Add(this.panelControl14);
+            this.XTPAvans.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("XTPAvans.ImageOptions.Image")));
+            this.XTPAvans.Name = "XTPAvans";
+            this.XTPAvans.Size = new System.Drawing.Size(1071, 557);
+            this.XTPAvans.Text = "Avans İşlemleri";
+            // 
+            // panelControl15
+            // 
+            this.panelControl15.Controls.Add(this.GCAvans);
+            this.panelControl15.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl15.Location = new System.Drawing.Point(0, 109);
+            this.panelControl15.Name = "panelControl15";
+            this.panelControl15.Size = new System.Drawing.Size(1071, 448);
+            this.panelControl15.TabIndex = 1;
+            // 
+            // GCAvans
+            // 
+            this.GCAvans.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GCAvans.Location = new System.Drawing.Point(2, 2);
+            this.GCAvans.MainView = this.gridView6;
+            this.GCAvans.Name = "GCAvans";
+            this.GCAvans.Size = new System.Drawing.Size(1067, 444);
+            this.GCAvans.TabIndex = 0;
+            this.GCAvans.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView6});
+            // 
+            // gridView6
+            // 
+            this.gridView6.GridControl = this.GCAvans;
+            this.gridView6.Name = "gridView6";
+            // 
+            // panelControl14
+            // 
+            this.panelControl14.Controls.Add(this.DTPAvansTar);
+            this.panelControl14.Controls.Add(this.BTAvansKaydet);
+            this.panelControl14.Controls.Add(this.TBAvansAciklama);
+            this.panelControl14.Controls.Add(this.TBAvansMiktar);
+            this.panelControl14.Controls.Add(this.label4);
+            this.panelControl14.Controls.Add(this.label3);
+            this.panelControl14.Controls.Add(this.label2);
+            this.panelControl14.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl14.Location = new System.Drawing.Point(0, 0);
+            this.panelControl14.Name = "panelControl14";
+            this.panelControl14.Size = new System.Drawing.Size(1071, 109);
+            this.panelControl14.TabIndex = 0;
+            // 
+            // DTPAvansTar
+            // 
+            this.DTPAvansTar.EditValue = null;
+            this.DTPAvansTar.Location = new System.Drawing.Point(136, 70);
+            this.DTPAvansTar.Name = "DTPAvansTar";
+            this.DTPAvansTar.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.DTPAvansTar.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.DTPAvansTar.Size = new System.Drawing.Size(146, 20);
+            this.DTPAvansTar.TabIndex = 65;
+            // 
+            // BTAvansKaydet
+            // 
+            this.BTAvansKaydet.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.BTAvansKaydet.Appearance.Options.UseBackColor = true;
+            this.BTAvansKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTAvansKaydet.ImageOptions.Image")));
+            this.BTAvansKaydet.Location = new System.Drawing.Point(605, 35);
+            this.BTAvansKaydet.Name = "BTAvansKaydet";
+            this.BTAvansKaydet.Size = new System.Drawing.Size(95, 40);
+            this.BTAvansKaydet.TabIndex = 63;
+            this.BTAvansKaydet.Text = "&KAYDET";
+            this.BTAvansKaydet.Click += new System.EventHandler(this.BTAvansKaydet_Click);
+            // 
+            // TBAvansAciklama
+            // 
+            this.TBAvansAciklama.Location = new System.Drawing.Point(372, 32);
+            this.TBAvansAciklama.Name = "TBAvansAciklama";
+            this.TBAvansAciklama.Size = new System.Drawing.Size(154, 58);
+            this.TBAvansAciklama.TabIndex = 6;
+            this.TBAvansAciklama.Text = "";
+            // 
+            // TBAvansMiktar
+            // 
+            this.TBAvansMiktar.EditValue = 0;
+            this.TBAvansMiktar.Location = new System.Drawing.Point(136, 32);
+            this.TBAvansMiktar.Name = "TBAvansMiktar";
+            this.TBAvansMiktar.Size = new System.Drawing.Size(146, 20);
+            this.TBAvansMiktar.TabIndex = 3;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(308, 35);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(58, 13);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "ACIKLAMA";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(52, 73);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(78, 13);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "AVANS TARIHI";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(45, 35);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(85, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "AVANS MIKTARI";
+            // 
+            // XTPIzin
+            // 
+            this.XTPIzin.Controls.Add(this.panelControl13);
+            this.XTPIzin.Controls.Add(this.panelControl12);
+            this.XTPIzin.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("XTPIzin.ImageOptions.Image")));
+            this.XTPIzin.Name = "XTPIzin";
+            this.XTPIzin.Size = new System.Drawing.Size(1071, 557);
+            this.XTPIzin.Text = "İzin İşlemleri";
+            // 
+            // panelControl13
+            // 
+            this.panelControl13.Controls.Add(this.GCPersonelIzın);
+            this.panelControl13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl13.Location = new System.Drawing.Point(0, 113);
+            this.panelControl13.Name = "panelControl13";
+            this.panelControl13.Size = new System.Drawing.Size(1071, 444);
+            this.panelControl13.TabIndex = 1;
+            // 
+            // GCPersonelIzın
+            // 
+            this.GCPersonelIzın.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GCPersonelIzın.Location = new System.Drawing.Point(2, 2);
+            this.GCPersonelIzın.MainView = this.gridView5;
+            this.GCPersonelIzın.Name = "GCPersonelIzın";
+            this.GCPersonelIzın.Size = new System.Drawing.Size(1067, 440);
+            this.GCPersonelIzın.TabIndex = 0;
+            this.GCPersonelIzın.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView5});
+            // 
+            // gridView5
+            // 
+            this.gridView5.GridControl = this.GCPersonelIzın;
+            this.gridView5.Name = "gridView5";
+            // 
+            // panelControl12
+            // 
+            this.panelControl12.Controls.Add(this.CBIzinTur);
+            this.panelControl12.Controls.Add(this.LBIzinTur);
+            this.panelControl12.Controls.Add(this.LBIzinMiktari);
+            this.panelControl12.Controls.Add(this.LBIzınHak);
+            this.panelControl12.Controls.Add(this.BTIzin);
+            this.panelControl12.Controls.Add(this.TBIzinDevirPers);
+            this.panelControl12.Controls.Add(this.DTPIzinBit);
+            this.panelControl12.Controls.Add(this.DTPIzinBas);
+            this.panelControl12.Controls.Add(this.TBIzinGun);
+            this.panelControl12.Controls.Add(this.TBIzınNeden);
+            this.panelControl12.Controls.Add(this.LBIzinGorevPersonel);
+            this.panelControl12.Controls.Add(this.LBIzinDurum);
+            this.panelControl12.Controls.Add(this.LBIzinNedeni);
+            this.panelControl12.Controls.Add(this.LBIzinBitTar);
+            this.panelControl12.Controls.Add(this.LBIzinBasTar);
+            this.panelControl12.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl12.Location = new System.Drawing.Point(0, 0);
+            this.panelControl12.Name = "panelControl12";
+            this.panelControl12.Size = new System.Drawing.Size(1071, 113);
+            this.panelControl12.TabIndex = 0;
+            // 
+            // CBIzinTur
+            // 
+            this.CBIzinTur.Location = new System.Drawing.Point(83, 25);
+            this.CBIzinTur.Name = "CBIzinTur";
+            this.CBIzinTur.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CBIzinTur.Properties.Items.AddRange(new object[] {
+            "YILLIK ÜCRETLİ İZİN",
+            "ÜCRETSİZ İZİN",
+            "MAZERET İZNİ",
+            "DİĞER İZİNLER"});
+            this.CBIzinTur.Size = new System.Drawing.Size(146, 20);
+            this.CBIzinTur.TabIndex = 66;
+            // 
+            // LBIzinTur
+            // 
+            this.LBIzinTur.AutoSize = true;
+            this.LBIzinTur.Location = new System.Drawing.Point(19, 28);
+            this.LBIzinTur.Name = "LBIzinTur";
+            this.LBIzinTur.Size = new System.Drawing.Size(58, 13);
+            this.LBIzinTur.TabIndex = 65;
+            this.LBIzinTur.Text = "İZİN TÜRÜ";
+            // 
+            // LBIzinMiktari
+            // 
+            this.LBIzinMiktari.AutoSize = true;
+            this.LBIzinMiktari.ForeColor = System.Drawing.Color.Red;
+            this.LBIzinMiktari.Location = new System.Drawing.Point(949, 24);
+            this.LBIzinMiktari.Name = "LBIzinMiktari";
+            this.LBIzinMiktari.Size = new System.Drawing.Size(13, 13);
+            this.LBIzinMiktari.TabIndex = 64;
+            this.LBIzinMiktari.Text = "0";
+            // 
+            // LBIzınHak
+            // 
+            this.LBIzınHak.AutoSize = true;
+            this.LBIzınHak.Location = new System.Drawing.Point(838, 24);
+            this.LBIzınHak.Name = "LBIzınHak";
+            this.LBIzınHak.Size = new System.Drawing.Size(103, 13);
+            this.LBIzınHak.TabIndex = 63;
+            this.LBIzınHak.Text = "Personel İzin Hakkı :";
+            // 
+            // BTIzin
+            // 
+            this.BTIzin.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.BTIzin.Appearance.Options.UseBackColor = true;
+            this.BTIzin.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTIzin.ImageOptions.Image")));
+            this.BTIzin.Location = new System.Drawing.Point(858, 48);
+            this.BTIzin.Name = "BTIzin";
+            this.BTIzin.Size = new System.Drawing.Size(95, 40);
+            this.BTIzin.TabIndex = 62;
+            this.BTIzin.Text = "&KAYDET";
+            this.BTIzin.Click += new System.EventHandler(this.BTIzin_Click);
+            // 
+            // TBIzinDevirPers
+            // 
+            this.TBIzinDevirPers.Location = new System.Drawing.Point(640, 68);
+            this.TBIzinDevirPers.Name = "TBIzinDevirPers";
+            this.TBIzinDevirPers.Size = new System.Drawing.Size(148, 20);
+            this.TBIzinDevirPers.TabIndex = 9;
+            // 
+            // DTPIzinBit
+            // 
+            this.DTPIzinBit.EditValue = null;
+            this.DTPIzinBit.Location = new System.Drawing.Point(349, 72);
+            this.DTPIzinBit.Name = "DTPIzinBit";
+            this.DTPIzinBit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.DTPIzinBit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.DTPIzinBit.Size = new System.Drawing.Size(146, 20);
+            this.DTPIzinBit.TabIndex = 8;
+            // 
+            // DTPIzinBas
+            // 
+            this.DTPIzinBas.EditValue = null;
+            this.DTPIzinBas.Location = new System.Drawing.Point(349, 24);
+            this.DTPIzinBas.Name = "DTPIzinBas";
+            this.DTPIzinBas.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.DTPIzinBas.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.DTPIzinBas.Size = new System.Drawing.Size(146, 20);
+            this.DTPIzinBas.TabIndex = 7;
+            // 
+            // TBIzinGun
+            // 
+            this.TBIzinGun.EditValue = 0;
+            this.TBIzinGun.Location = new System.Drawing.Point(640, 25);
+            this.TBIzinGun.Name = "TBIzinGun";
+            this.TBIzinGun.Size = new System.Drawing.Size(148, 20);
+            this.TBIzinGun.TabIndex = 6;
+            // 
+            // TBIzınNeden
+            // 
+            this.TBIzınNeden.Location = new System.Drawing.Point(83, 72);
+            this.TBIzınNeden.Name = "TBIzınNeden";
+            this.TBIzınNeden.Size = new System.Drawing.Size(146, 20);
+            this.TBIzınNeden.TabIndex = 5;
+            // 
+            // LBIzinGorevPersonel
+            // 
+            this.LBIzinGorevPersonel.Location = new System.Drawing.Point(518, 62);
+            this.LBIzinGorevPersonel.Name = "LBIzinGorevPersonel";
+            this.LBIzinGorevPersonel.Size = new System.Drawing.Size(110, 26);
+            this.LBIzinGorevPersonel.TabIndex = 4;
+            this.LBIzinGorevPersonel.Text = "GÖREV DEVREDİLECEK \r\n PERSONEL";
+            // 
+            // LBIzinDurum
+            // 
+            this.LBIzinDurum.Location = new System.Drawing.Point(547, 28);
+            this.LBIzinDurum.Name = "LBIzinDurum";
+            this.LBIzinDurum.Size = new System.Drawing.Size(81, 13);
+            this.LBIzinDurum.TabIndex = 3;
+            this.LBIzinDurum.Text = "İZİN GÜN SAYISI";
+            // 
+            // LBIzinNedeni
+            // 
+            this.LBIzinNedeni.Location = new System.Drawing.Point(16, 75);
+            this.LBIzinNedeni.Name = "LBIzinNedeni";
+            this.LBIzinNedeni.Size = new System.Drawing.Size(61, 13);
+            this.LBIzinNedeni.TabIndex = 2;
+            this.LBIzinNedeni.Text = "İZİN NEDENİ";
+            // 
+            // LBIzinBitTar
+            // 
+            this.LBIzinBitTar.Location = new System.Drawing.Point(293, 75);
+            this.LBIzinBitTar.Name = "LBIzinBitTar";
+            this.LBIzinBitTar.Size = new System.Drawing.Size(50, 13);
+            this.LBIzinBitTar.TabIndex = 1;
+            this.LBIzinBitTar.Text = "İZİN BİTİŞ";
+            // 
+            // LBIzinBasTar
+            // 
+            this.LBIzinBasTar.Location = new System.Drawing.Point(263, 27);
+            this.LBIzinBasTar.Name = "LBIzinBasTar";
+            this.LBIzinBasTar.Size = new System.Drawing.Size(80, 13);
+            this.LBIzinBasTar.TabIndex = 0;
+            this.LBIzinBasTar.Text = "İZİN BAŞLANGIÇ";
+            // 
             // XTPZimmet
             // 
             this.XTPZimmet.Controls.Add(this.panelControl8);
@@ -1505,27 +1848,27 @@
             // 
             // panelControl8
             // 
-            this.panelControl8.Controls.Add(this.gridControl3);
+            this.panelControl8.Controls.Add(this.GCPersonelZimmet);
             this.panelControl8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl8.Location = new System.Drawing.Point(0, 119);
             this.panelControl8.Name = "panelControl8";
             this.panelControl8.Size = new System.Drawing.Size(1071, 438);
             this.panelControl8.TabIndex = 1;
             // 
-            // gridControl3
+            // GCPersonelZimmet
             // 
-            this.gridControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl3.Location = new System.Drawing.Point(2, 2);
-            this.gridControl3.MainView = this.gridView3;
-            this.gridControl3.Name = "gridControl3";
-            this.gridControl3.Size = new System.Drawing.Size(1067, 434);
-            this.gridControl3.TabIndex = 0;
-            this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.GCPersonelZimmet.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GCPersonelZimmet.Location = new System.Drawing.Point(2, 2);
+            this.GCPersonelZimmet.MainView = this.gridView3;
+            this.GCPersonelZimmet.Name = "GCPersonelZimmet";
+            this.GCPersonelZimmet.Size = new System.Drawing.Size(1067, 434);
+            this.GCPersonelZimmet.TabIndex = 0;
+            this.GCPersonelZimmet.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView3});
             // 
             // gridView3
             // 
-            this.gridView3.GridControl = this.gridControl3;
+            this.gridView3.GridControl = this.GCPersonelZimmet;
             this.gridView3.Name = "gridView3";
             // 
             // panelControl7
@@ -1642,158 +1985,32 @@
             this.LBZimMarkaModel.TabIndex = 0;
             this.LBZimMarkaModel.Text = "MARKA/MODEL";
             // 
-            // XTPIzin
+            // XTPNot
             // 
-            this.XTPIzin.Controls.Add(this.panelControl13);
-            this.XTPIzin.Controls.Add(this.panelControl12);
-            this.XTPIzin.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("XTPIzin.ImageOptions.Image")));
-            this.XTPIzin.Name = "XTPIzin";
-            this.XTPIzin.Size = new System.Drawing.Size(1071, 557);
-            this.XTPIzin.Text = "İzin İşlemleri";
+            this.XTPNot.Controls.Add(this.TBNotlar);
+            this.XTPNot.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("XTPNot.ImageOptions.Image")));
+            this.XTPNot.Name = "XTPNot";
+            this.XTPNot.Size = new System.Drawing.Size(1071, 557);
+            this.XTPNot.Text = "Notlar";
             // 
-            // panelControl13
+            // TBNotlar
             // 
-            this.panelControl13.Controls.Add(this.gridControl5);
-            this.panelControl13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl13.Location = new System.Drawing.Point(0, 146);
-            this.panelControl13.Name = "panelControl13";
-            this.panelControl13.Size = new System.Drawing.Size(1071, 411);
-            this.panelControl13.TabIndex = 1;
-            // 
-            // gridControl5
-            // 
-            this.gridControl5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl5.Location = new System.Drawing.Point(2, 2);
-            this.gridControl5.MainView = this.gridView5;
-            this.gridControl5.Name = "gridControl5";
-            this.gridControl5.Size = new System.Drawing.Size(1067, 407);
-            this.gridControl5.TabIndex = 0;
-            this.gridControl5.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView5});
-            // 
-            // gridView5
-            // 
-            this.gridView5.GridControl = this.gridControl5;
-            this.gridView5.Name = "gridView5";
-            // 
-            // panelControl12
-            // 
-            this.panelControl12.Controls.Add(this.simpleButton1);
-            this.panelControl12.Controls.Add(this.textEdit3);
-            this.panelControl12.Controls.Add(this.dateEdit2);
-            this.panelControl12.Controls.Add(this.dateEdit1);
-            this.panelControl12.Controls.Add(this.textEdit2);
-            this.panelControl12.Controls.Add(this.textEdit1);
-            this.panelControl12.Controls.Add(this.LBIzinGorevPersonel);
-            this.panelControl12.Controls.Add(this.LBIzinDurum);
-            this.panelControl12.Controls.Add(this.LBIzinNedeni);
-            this.panelControl12.Controls.Add(this.LBIzinBitTar);
-            this.panelControl12.Controls.Add(this.LBIzinBasTar);
-            this.panelControl12.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl12.Location = new System.Drawing.Point(0, 0);
-            this.panelControl12.Name = "panelControl12";
-            this.panelControl12.Size = new System.Drawing.Size(1071, 146);
-            this.panelControl12.TabIndex = 0;
-            // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.simpleButton1.Appearance.Options.UseBackColor = true;
-            this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(528, 61);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(95, 40);
-            this.simpleButton1.TabIndex = 62;
-            this.simpleButton1.Text = "&KAYDET";
-            // 
-            // textEdit3
-            // 
-            this.textEdit3.Location = new System.Drawing.Point(349, 109);
-            this.textEdit3.Name = "textEdit3";
-            this.textEdit3.Size = new System.Drawing.Size(148, 20);
-            this.textEdit3.TabIndex = 9;
-            // 
-            // dateEdit2
-            // 
-            this.dateEdit2.EditValue = null;
-            this.dateEdit2.Location = new System.Drawing.Point(349, 72);
-            this.dateEdit2.Name = "dateEdit2";
-            this.dateEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit2.Size = new System.Drawing.Size(146, 20);
-            this.dateEdit2.TabIndex = 8;
-            // 
-            // dateEdit1
-            // 
-            this.dateEdit1.EditValue = null;
-            this.dateEdit1.Location = new System.Drawing.Point(349, 29);
-            this.dateEdit1.Name = "dateEdit1";
-            this.dateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit1.Size = new System.Drawing.Size(146, 20);
-            this.dateEdit1.TabIndex = 7;
-            // 
-            // textEdit2
-            // 
-            this.textEdit2.Location = new System.Drawing.Point(86, 69);
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Size = new System.Drawing.Size(146, 20);
-            this.textEdit2.TabIndex = 6;
-            // 
-            // textEdit1
-            // 
-            this.textEdit1.Location = new System.Drawing.Point(86, 30);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(146, 20);
-            this.textEdit1.TabIndex = 5;
-            // 
-            // LBIzinGorevPersonel
-            // 
-            this.LBIzinGorevPersonel.Location = new System.Drawing.Point(179, 112);
-            this.LBIzinGorevPersonel.Name = "LBIzinGorevPersonel";
-            this.LBIzinGorevPersonel.Size = new System.Drawing.Size(164, 13);
-            this.LBIzinGorevPersonel.TabIndex = 4;
-            this.LBIzinGorevPersonel.Text = "GÖREV DEVREDİLECEK PERSONEL";
-            // 
-            // LBIzinDurum
-            // 
-            this.LBIzinDurum.Location = new System.Drawing.Point(13, 76);
-            this.LBIzinDurum.Name = "LBIzinDurum";
-            this.LBIzinDurum.Size = new System.Drawing.Size(67, 13);
-            this.LBIzinDurum.TabIndex = 3;
-            this.LBIzinDurum.Text = "İZİN DURUMU";
-            // 
-            // LBIzinNedeni
-            // 
-            this.LBIzinNedeni.Location = new System.Drawing.Point(19, 33);
-            this.LBIzinNedeni.Name = "LBIzinNedeni";
-            this.LBIzinNedeni.Size = new System.Drawing.Size(61, 13);
-            this.LBIzinNedeni.TabIndex = 2;
-            this.LBIzinNedeni.Text = "İZİN NEDENİ";
-            // 
-            // LBIzinBitTar
-            // 
-            this.LBIzinBitTar.Location = new System.Drawing.Point(293, 75);
-            this.LBIzinBitTar.Name = "LBIzinBitTar";
-            this.LBIzinBitTar.Size = new System.Drawing.Size(50, 13);
-            this.LBIzinBitTar.TabIndex = 1;
-            this.LBIzinBitTar.Text = "İZİN BİTİŞ";
-            // 
-            // LBIzinBasTar
-            // 
-            this.LBIzinBasTar.Location = new System.Drawing.Point(263, 32);
-            this.LBIzinBasTar.Name = "LBIzinBasTar";
-            this.LBIzinBasTar.Size = new System.Drawing.Size(80, 13);
-            this.LBIzinBasTar.TabIndex = 0;
-            this.LBIzinBasTar.Text = "İZİN BAŞLANGIÇ";
+            this.TBNotlar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TBNotlar.Location = new System.Drawing.Point(0, 0);
+            this.TBNotlar.Name = "TBNotlar";
+            this.TBNotlar.Size = new System.Drawing.Size(1071, 557);
+            this.TBNotlar.TabIndex = 7;
             // 
             // panelControl3
             // 
+            this.panelControl3.Controls.Add(this.BTDepGorevEkle);
             this.panelControl3.Controls.Add(this.CBGorev);
+            this.panelControl3.Controls.Add(this.CBDepartman);
+            this.panelControl3.Controls.Add(this.TBSube);
+            this.panelControl3.Controls.Add(this.label5);
+            this.panelControl3.Controls.Add(this.BTCIKIS);
+            this.panelControl3.Controls.Add(this.TBMaas);
+            this.panelControl3.Controls.Add(this.label1);
             this.panelControl3.Controls.Add(this.BTNPersonelFoto);
             this.panelControl3.Controls.Add(this.labelControl10);
             this.panelControl3.Controls.Add(this.labelControl9);
@@ -1806,7 +2023,6 @@
             this.panelControl3.Controls.Add(this.DTPDogumTar);
             this.panelControl3.Controls.Add(this.DTPIseGirisTar);
             this.panelControl3.Controls.Add(this.BTNPersonelKaydet);
-            this.panelControl3.Controls.Add(this.CBDepartman);
             this.panelControl3.Controls.Add(this.CBCinsiyet);
             this.panelControl3.Controls.Add(this.TBSGKSICILNO);
             this.panelControl3.Controls.Add(this.TBSoyadi);
@@ -1828,18 +2044,80 @@
             this.panelControl3.Size = new System.Drawing.Size(1077, 225);
             this.panelControl3.TabIndex = 1;
             // 
+            // BTDepGorevEkle
+            // 
+            this.BTDepGorevEkle.Location = new System.Drawing.Point(531, 116);
+            this.BTDepGorevEkle.Name = "BTDepGorevEkle";
+            this.BTDepGorevEkle.Size = new System.Drawing.Size(188, 21);
+            this.BTDepGorevEkle.TabIndex = 82;
+            this.BTDepGorevEkle.Text = "Yeni Departman veya Gorev Ekle";
+            this.BTDepGorevEkle.Click += new System.EventHandler(this.BTDepGorevEkle_Click);
+            // 
             // CBGorev
             // 
-            this.CBGorev.Location = new System.Drawing.Point(571, 93);
+            this.CBGorev.Location = new System.Drawing.Point(571, 87);
             this.CBGorev.Name = "CBGorev";
             this.CBGorev.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Ekle", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.CBGorev.Properties.NullText = "Seçiniz..";
-            this.CBGorev.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.CBGorev.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.lookUpEdit2_Properties_ButtonClick);
-            this.CBGorev.Size = new System.Drawing.Size(146, 22);
-            this.CBGorev.TabIndex = 74;
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CBGorev.Properties.NullText = "";
+            this.CBGorev.Size = new System.Drawing.Size(146, 20);
+            this.CBGorev.TabIndex = 81;
+            // 
+            // CBDepartman
+            // 
+            this.CBDepartman.Location = new System.Drawing.Point(571, 52);
+            this.CBDepartman.Name = "CBDepartman";
+            this.CBDepartman.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CBDepartman.Properties.NullText = "";
+            this.CBDepartman.Size = new System.Drawing.Size(146, 20);
+            this.CBDepartman.TabIndex = 80;
+            this.CBDepartman.EditValueChanged += new System.EventHandler(this.CBDepartman_EditValueChanged);
+            // 
+            // TBSube
+            // 
+            this.TBSube.Location = new System.Drawing.Point(246, 161);
+            this.TBSube.Name = "TBSube";
+            this.TBSube.Size = new System.Drawing.Size(146, 20);
+            this.TBSube.TabIndex = 79;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(205, 165);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(32, 13);
+            this.label5.TabIndex = 78;
+            this.label5.Text = "ŞUBE";
+            // 
+            // BTCIKIS
+            // 
+            this.BTCIKIS.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTCIKIS.Appearance.Options.UseBackColor = true;
+            this.BTCIKIS.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTCIKIS.ImageOptions.Image")));
+            this.BTCIKIS.Location = new System.Drawing.Point(875, 14);
+            this.BTCIKIS.Name = "BTCIKIS";
+            this.BTCIKIS.Size = new System.Drawing.Size(100, 25);
+            this.BTCIKIS.TabIndex = 77;
+            this.BTCIKIS.Text = "İŞ ÇIKIŞ VER";
+            this.BTCIKIS.Click += new System.EventHandler(this.BTCIKIS_Click);
+            // 
+            // TBMaas
+            // 
+            this.TBMaas.EditValue = 0;
+            this.TBMaas.Location = new System.Drawing.Point(246, 187);
+            this.TBMaas.Name = "TBMaas";
+            this.TBMaas.Size = new System.Drawing.Size(146, 20);
+            this.TBMaas.TabIndex = 76;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(205, 190);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 75;
+            this.label1.Text = "MAAŞ";
             // 
             // BTNPersonelFoto
             // 
@@ -1854,7 +2132,7 @@
             // 
             // labelControl10
             // 
-            this.labelControl10.Location = new System.Drawing.Point(482, 131);
+            this.labelControl10.Location = new System.Drawing.Point(482, 157);
             this.labelControl10.Name = "labelControl10";
             this.labelControl10.Size = new System.Drawing.Size(6, 13);
             this.labelControl10.TabIndex = 72;
@@ -1862,7 +2140,7 @@
             // 
             // labelControl9
             // 
-            this.labelControl9.Location = new System.Drawing.Point(494, 61);
+            this.labelControl9.Location = new System.Drawing.Point(494, 54);
             this.labelControl9.Name = "labelControl9";
             this.labelControl9.Size = new System.Drawing.Size(6, 13);
             this.labelControl9.TabIndex = 71;
@@ -1870,7 +2148,7 @@
             // 
             // labelControl8
             // 
-            this.labelControl8.Location = new System.Drawing.Point(523, 97);
+            this.labelControl8.Location = new System.Drawing.Point(523, 90);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(6, 13);
             this.labelControl8.TabIndex = 70;
@@ -1878,7 +2156,7 @@
             // 
             // labelControl7
             // 
-            this.labelControl7.Location = new System.Drawing.Point(167, 164);
+            this.labelControl7.Location = new System.Drawing.Point(167, 146);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(6, 13);
             this.labelControl7.TabIndex = 69;
@@ -1886,7 +2164,7 @@
             // 
             // labelControl6
             // 
-            this.labelControl6.Location = new System.Drawing.Point(182, 131);
+            this.labelControl6.Location = new System.Drawing.Point(182, 120);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(6, 13);
             this.labelControl6.TabIndex = 68;
@@ -1894,7 +2172,7 @@
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(191, 98);
+            this.labelControl4.Location = new System.Drawing.Point(191, 85);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(6, 13);
             this.labelControl4.TabIndex = 67;
@@ -1902,7 +2180,7 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(209, 60);
+            this.labelControl1.Location = new System.Drawing.Point(209, 46);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(6, 13);
             this.labelControl1.TabIndex = 66;
@@ -1910,7 +2188,7 @@
             // 
             // LBRequired
             // 
-            this.LBRequired.Location = new System.Drawing.Point(209, 23);
+            this.LBRequired.Location = new System.Drawing.Point(209, 16);
             this.LBRequired.Name = "LBRequired";
             this.LBRequired.Size = new System.Drawing.Size(6, 13);
             this.LBRequired.TabIndex = 65;
@@ -1919,7 +2197,7 @@
             // DTPDogumTar
             // 
             this.DTPDogumTar.EditValue = null;
-            this.DTPDogumTar.Location = new System.Drawing.Point(246, 158);
+            this.DTPDogumTar.Location = new System.Drawing.Point(246, 134);
             this.DTPDogumTar.Name = "DTPDogumTar";
             this.DTPDogumTar.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -1931,7 +2209,7 @@
             // DTPIseGirisTar
             // 
             this.DTPIseGirisTar.EditValue = null;
-            this.DTPIseGirisTar.Location = new System.Drawing.Point(571, 130);
+            this.DTPIseGirisTar.Location = new System.Drawing.Point(571, 161);
             this.DTPIseGirisTar.Name = "DTPIseGirisTar";
             this.DTPIseGirisTar.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -1945,31 +2223,17 @@
             this.BTNPersonelKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
             this.BTNPersonelKaydet.Appearance.Options.UseBackColor = true;
             this.BTNPersonelKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTNPersonelKaydet.ImageOptions.Image")));
-            this.BTNPersonelKaydet.Location = new System.Drawing.Point(571, 161);
+            this.BTNPersonelKaydet.Location = new System.Drawing.Point(829, 148);
             this.BTNPersonelKaydet.Name = "BTNPersonelKaydet";
             this.BTNPersonelKaydet.Size = new System.Drawing.Size(146, 46);
             this.BTNPersonelKaydet.TabIndex = 62;
             this.BTNPersonelKaydet.Text = "&Kaydet/Güncelle";
             this.BTNPersonelKaydet.Click += new System.EventHandler(this.BTNPersonelKaydet_Click);
             // 
-            // CBDepartman
-            // 
-            this.CBDepartman.Location = new System.Drawing.Point(571, 58);
-            this.CBDepartman.Name = "CBDepartman";
-            this.CBDepartman.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Ekle", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.CBDepartman.Properties.NullText = "Seçiniz..";
-            this.CBDepartman.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.CBDepartman.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.lookUpEdit1_Properties_ButtonClick);
-            this.CBDepartman.Size = new System.Drawing.Size(146, 22);
-            this.CBDepartman.TabIndex = 25;
-            this.CBDepartman.EditValueChanged += new System.EventHandler(this.CBDepartman_EditValueChanged);
-            // 
             // CBCinsiyet
             // 
             this.CBCinsiyet.EditValue = "ERKEK";
-            this.CBCinsiyet.Location = new System.Drawing.Point(246, 130);
+            this.CBCinsiyet.Location = new System.Drawing.Point(246, 106);
             this.CBCinsiyet.Name = "CBCinsiyet";
             this.CBCinsiyet.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -1983,35 +2247,36 @@
             // 
             // TBSGKSICILNO
             // 
-            this.TBSGKSICILNO.Location = new System.Drawing.Point(571, 23);
+            this.TBSGKSICILNO.Location = new System.Drawing.Point(571, 16);
             this.TBSGKSICILNO.Name = "TBSGKSICILNO";
             this.TBSGKSICILNO.Size = new System.Drawing.Size(146, 20);
             this.TBSGKSICILNO.TabIndex = 15;
             // 
             // TBSoyadi
             // 
-            this.TBSoyadi.Location = new System.Drawing.Point(246, 95);
+            this.TBSoyadi.Location = new System.Drawing.Point(246, 75);
             this.TBSoyadi.Name = "TBSoyadi";
             this.TBSoyadi.Size = new System.Drawing.Size(146, 20);
             this.TBSoyadi.TabIndex = 13;
             // 
             // TBAdi
             // 
-            this.TBAdi.Location = new System.Drawing.Point(246, 59);
+            this.TBAdi.Location = new System.Drawing.Point(246, 45);
             this.TBAdi.Name = "TBAdi";
             this.TBAdi.Size = new System.Drawing.Size(146, 20);
             this.TBAdi.TabIndex = 12;
             // 
             // TBTCNO
             // 
-            this.TBTCNO.Location = new System.Drawing.Point(246, 23);
+            this.TBTCNO.Location = new System.Drawing.Point(246, 16);
             this.TBTCNO.Name = "TBTCNO";
             this.TBTCNO.Size = new System.Drawing.Size(146, 20);
             this.TBTCNO.TabIndex = 11;
+            this.TBTCNO.EditValueChanged += new System.EventHandler(this.TBTCNO_EditValueChanged);
             // 
             // LBSGKSicilNo
             // 
-            this.LBSGKSicilNo.Location = new System.Drawing.Point(499, 26);
+            this.LBSGKSicilNo.Location = new System.Drawing.Point(499, 19);
             this.LBSGKSicilNo.Name = "LBSGKSicilNo";
             this.LBSGKSicilNo.Size = new System.Drawing.Size(66, 13);
             this.LBSGKSicilNo.TabIndex = 10;
@@ -2019,7 +2284,7 @@
             // 
             // LBIseGirTar
             // 
-            this.LBIseGirTar.Location = new System.Drawing.Point(491, 133);
+            this.LBIseGirTar.Location = new System.Drawing.Point(491, 164);
             this.LBIseGirTar.Name = "LBIseGirTar";
             this.LBIseGirTar.Size = new System.Drawing.Size(74, 13);
             this.LBIseGirTar.TabIndex = 7;
@@ -2027,7 +2292,7 @@
             // 
             // LBGOREV
             // 
-            this.LBGOREV.Location = new System.Drawing.Point(531, 98);
+            this.LBGOREV.Location = new System.Drawing.Point(531, 91);
             this.LBGOREV.Name = "LBGOREV";
             this.LBGOREV.Size = new System.Drawing.Size(34, 13);
             this.LBGOREV.TabIndex = 6;
@@ -2035,7 +2300,7 @@
             // 
             // LBDepartman
             // 
-            this.LBDepartman.Location = new System.Drawing.Point(501, 62);
+            this.LBDepartman.Location = new System.Drawing.Point(501, 55);
             this.LBDepartman.Name = "LBDepartman";
             this.LBDepartman.Size = new System.Drawing.Size(64, 13);
             this.LBDepartman.TabIndex = 5;
@@ -2043,7 +2308,7 @@
             // 
             // LBCinsiyet
             // 
-            this.LBCinsiyet.Location = new System.Drawing.Point(191, 133);
+            this.LBCinsiyet.Location = new System.Drawing.Point(191, 109);
             this.LBCinsiyet.Name = "LBCinsiyet";
             this.LBCinsiyet.Size = new System.Drawing.Size(49, 13);
             this.LBCinsiyet.TabIndex = 4;
@@ -2051,7 +2316,7 @@
             // 
             // LBTC
             // 
-            this.LBTC.Location = new System.Drawing.Point(219, 26);
+            this.LBTC.Location = new System.Drawing.Point(219, 19);
             this.LBTC.Name = "LBTC";
             this.LBTC.Size = new System.Drawing.Size(21, 13);
             this.LBTC.TabIndex = 3;
@@ -2059,7 +2324,7 @@
             // 
             // LBSoyad
             // 
-            this.LBSoyad.Location = new System.Drawing.Point(199, 98);
+            this.LBSoyad.Location = new System.Drawing.Point(199, 78);
             this.LBSoyad.Name = "LBSoyad";
             this.LBSoyad.Size = new System.Drawing.Size(41, 13);
             this.LBSoyad.TabIndex = 2;
@@ -2067,7 +2332,7 @@
             // 
             // LBAd
             // 
-            this.LBAd.Location = new System.Drawing.Point(219, 62);
+            this.LBAd.Location = new System.Drawing.Point(219, 48);
             this.LBAd.Name = "LBAd";
             this.LBAd.Size = new System.Drawing.Size(21, 13);
             this.LBAd.TabIndex = 1;
@@ -2083,7 +2348,7 @@
             // 
             // LBDogumTar
             // 
-            this.LBDogumTar.Location = new System.Drawing.Point(176, 165);
+            this.LBDogumTar.Location = new System.Drawing.Point(176, 141);
             this.LBDogumTar.Name = "LBDogumTar";
             this.LBDogumTar.Size = new System.Drawing.Size(64, 13);
             this.LBDogumTar.TabIndex = 6;
@@ -2212,7 +2477,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.CBAdresIL.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBVergiDaire.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBEposta.Properties)).EndInit();
-            this.xtraTabPage3.ResumeLayout(false);
+            this.XTPOgrenim.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl11)).EndInit();
             this.panelControl11.ResumeLayout(false);
             this.panelControl11.PerformLayout();
@@ -2236,7 +2501,7 @@
             this.XTPBanka.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).EndInit();
             this.panelControl6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GCPersonelBanka)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).EndInit();
             this.panelControl5.ResumeLayout(false);
@@ -2245,10 +2510,37 @@
             ((System.ComponentModel.ISupportInitialize)(this.TBBankaSubeKod.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBBankaIban.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBBankaAdi.Properties)).EndInit();
+            this.XTPAvans.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl15)).EndInit();
+            this.panelControl15.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.GCAvans)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl14)).EndInit();
+            this.panelControl14.ResumeLayout(false);
+            this.panelControl14.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DTPAvansTar.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DTPAvansTar.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBAvansMiktar.Properties)).EndInit();
+            this.XTPIzin.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl13)).EndInit();
+            this.panelControl13.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.GCPersonelIzın)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl12)).EndInit();
+            this.panelControl12.ResumeLayout(false);
+            this.panelControl12.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CBIzinTur.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBIzinDevirPers.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DTPIzinBit.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DTPIzinBit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DTPIzinBas.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DTPIzinBas.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBIzinGun.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBIzınNeden.Properties)).EndInit();
             this.XTPZimmet.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl8)).EndInit();
             this.panelControl8.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GCPersonelZimmet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl7)).EndInit();
             this.panelControl7.ResumeLayout(false);
@@ -2259,31 +2551,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.TBZimMarka.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBZimSeriNo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBZimMiktar.Properties)).EndInit();
-            this.XTPIzin.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl13)).EndInit();
-            this.panelControl13.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl12)).EndInit();
-            this.panelControl12.ResumeLayout(false);
-            this.panelControl12.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            this.XTPNot.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
             this.panelControl3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CBGorev.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CBDepartman.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBSube.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBMaas.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTNPersonelFoto.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPDogumTar.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPDogumTar.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPIseGirisTar.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPIseGirisTar.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CBDepartman.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBCinsiyet.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBSGKSICILNO.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBSoyadi.Properties)).EndInit();
@@ -2336,7 +2616,7 @@
         private DevExpress.XtraEditors.LabelControl LBAnneAdi;
         private DevExpress.XtraTab.XtraTabPage XTPKisisel;
         private DevExpress.XtraTab.XtraTabPage XTPBanka;
-        private DevExpress.XtraTab.XtraTabPage xtraTabPage3;
+        private DevExpress.XtraTab.XtraTabPage XTPOgrenim;
         private DevExpress.XtraEditors.TextEdit TBCiltNo;
         private DevExpress.XtraEditors.TextEdit TBNufKayitMah;
         private DevExpress.XtraEditors.TextEdit TBAileSıraNo;
@@ -2366,7 +2646,6 @@
         private DevExpress.XtraEditors.ComboBoxEdit CBUyrugu;
         private DevExpress.XtraEditors.ComboBoxEdit CBKanGrubu;
         private DevExpress.XtraEditors.ComboBoxEdit CBCinsiyet;
-        private DevExpress.XtraEditors.LookUpEdit CBDepartman;
         private DevExpress.XtraEditors.ComboBoxEdit CBIstihtamTuru;
         private DevExpress.XtraEditors.ComboBoxEdit CBSigortalilikTur;
         private DevExpress.XtraEditors.ComboBoxEdit CBAskerlikDurum;
@@ -2437,7 +2716,7 @@
         private DevExpress.XtraEditors.ComboBoxEdit CBUstBeden;
         private DevExpress.XtraTab.XtraTabPage XTPZimmet;
         private DevExpress.XtraEditors.PanelControl panelControl8;
-        private DevExpress.XtraGrid.GridControl gridControl3;
+        private DevExpress.XtraGrid.GridControl GCPersonelZimmet;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView3;
         private DevExpress.XtraEditors.PanelControl panelControl7;
         private DevExpress.XtraEditors.SimpleButton BTNPersonelKaydet;
@@ -2470,26 +2749,51 @@
         private DevExpress.XtraEditors.PanelControl panelControl9;
         private DevExpress.XtraEditors.PanelControl panelControl10;
         private DevExpress.XtraEditors.PanelControl panelControl11;
-        private DevExpress.XtraGrid.GridControl gridControl4;
+        private DevExpress.XtraGrid.GridControl GCPersonelBanka;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView4;
         private DevExpress.XtraTab.XtraTabPage XTPIzin;
         private DevExpress.XtraEditors.PanelControl panelControl13;
-        private DevExpress.XtraGrid.GridControl gridControl5;
+        private DevExpress.XtraGrid.GridControl GCPersonelIzın;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView5;
         private DevExpress.XtraEditors.PanelControl panelControl12;
         private DevExpress.XtraEditors.LabelControl LBIzinNedeni;
         private DevExpress.XtraEditors.LabelControl LBIzinBitTar;
         private DevExpress.XtraEditors.LabelControl LBIzinBasTar;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraEditors.TextEdit textEdit3;
-        private DevExpress.XtraEditors.DateEdit dateEdit2;
-        private DevExpress.XtraEditors.DateEdit dateEdit1;
-        private DevExpress.XtraEditors.TextEdit textEdit2;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.SimpleButton BTIzin;
+        private DevExpress.XtraEditors.TextEdit TBIzinDevirPers;
+        private DevExpress.XtraEditors.DateEdit DTPIzinBit;
+        private DevExpress.XtraEditors.DateEdit DTPIzinBas;
+        private DevExpress.XtraEditors.TextEdit TBIzinGun;
+        private DevExpress.XtraEditors.TextEdit TBIzınNeden;
         private DevExpress.XtraEditors.LabelControl LBIzinGorevPersonel;
         private DevExpress.XtraEditors.LabelControl LBIzinDurum;
         private DevExpress.XtraEditors.ButtonEdit BTNPersonelFoto;
         private DevExpress.XtraEditors.TextEdit TBMezuniyetYil;
+        private DevExpress.XtraTab.XtraTabPage XTPNot;
+        private DevExpress.XtraRichEdit.RichEditControl TBNotlar;
+        private DevExpress.XtraTab.XtraTabPage XTPAvans;
+        private Label LBIzinMiktari;
+        private Label LBIzınHak;
+        private DevExpress.XtraEditors.ComboBoxEdit CBIzinTur;
+        private Label LBIzinTur;
+        private DevExpress.XtraEditors.TextEdit TBMaas;
+        private Label label1;
+        private DevExpress.XtraEditors.PanelControl panelControl15;
+        private DevExpress.XtraGrid.GridControl GCAvans;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView6;
+        private DevExpress.XtraEditors.PanelControl panelControl14;
+        private DevExpress.XtraEditors.DateEdit DTPAvansTar;
+        private DevExpress.XtraEditors.SimpleButton BTAvansKaydet;
+        private RichTextBox TBAvansAciklama;
+        private DevExpress.XtraEditors.TextEdit TBAvansMiktar;
+        private Label label4;
+        private Label label3;
+        private Label label2;
+        private DevExpress.XtraEditors.SimpleButton BTCIKIS;
+        private DevExpress.XtraEditors.TextEdit TBSube;
+        private Label label5;
+        private DevExpress.XtraEditors.SimpleButton BTDepGorevEkle;
         private DevExpress.XtraEditors.LookUpEdit CBGorev;
+        private DevExpress.XtraEditors.LookUpEdit CBDepartman;
     }
 }

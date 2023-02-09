@@ -154,7 +154,8 @@ namespace MEYPAK.PRL.STOK
                     PocoHIZMETKATEGORI mPKATEGORI = new PocoHIZMETKATEGORI()
                     {
                         adi = TBKategoriAdi.Text,
-                        ustid = 0
+                        ustid = 0,
+                        userid = MPKullanici.ID
                     };
                     _kategoriServis.Data(ServisList.HizmetKategoriEkleServis, mPKATEGORI);
                     MessageBox.Show("Yeni Kategori Başarıyla Eklendi");
@@ -182,7 +183,8 @@ namespace MEYPAK.PRL.STOK
                     PocoHIZMETKATEGORI mPKATEGORI = new PocoHIZMETKATEGORI()
                     {
                         adi = TBKategoriAdi.Text,
-                        ustid = _kategoriServis.obje.Where(x => x.kayittipi == 0 && x.adi == selectedNodes[0].GetValue(treeView.Columns[0]).ToString()).FirstOrDefault().id
+                        ustid = _kategoriServis.obje.Where(x => x.kayittipi == 0 && x.adi == selectedNodes[0].GetValue(treeView.Columns[0]).ToString()).FirstOrDefault().id,
+                        userid = MPKullanici.ID
 
                     };
                     _kategoriServis.Data(ServisList.HizmetKategoriEkleServis, mPKATEGORI);

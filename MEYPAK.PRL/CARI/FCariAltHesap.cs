@@ -119,9 +119,9 @@ namespace MEYPAK.PRL.CARI
                     adi = TBAdi.Text,
                     kod = TBKodu.Text,
                     dovizid = _parabirIMServis.obje.Where(x => x.adi.ToString() == CBDoviz.Text.ToString()).FirstOrDefault().id,
-                    aktif = CHBAktif.Checked ? 1 : 0
-
-                })) ;
+                    aktif = CHBAktif.Checked ? 1 : 0,
+                    userid = MPKullanici.ID
+            })) ;
 
 
             MessageBox.Show("Kayıt işlemi Başarılı!");

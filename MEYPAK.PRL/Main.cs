@@ -15,6 +15,7 @@ using MEYPAK.PRL.CEKSENET.Müşteri.Çek;
 using MEYPAK.PRL.CEKSENET.Müşteri.Senet;
 using MEYPAK.PRL.DEPO;
 using MEYPAK.PRL.DEPO.Raporlar;
+using MEYPAK.PRL.E_ISLEMLER;
 using MEYPAK.PRL.IRSALIYE;
 using MEYPAK.PRL.KASA;
 using MEYPAK.PRL.PARAMETRELER;
@@ -36,7 +37,7 @@ namespace MEYPAK.PRL
 {
     public partial class Main : XtraForm
     {
-        public Main(MPUSER kullanici)
+        public Main(MPUSER kullanici, List<string> roller)
         {
             InitializeComponent();
             foreach (var type in Assembly.GetExecutingAssembly().GetTypes())
@@ -56,6 +57,7 @@ namespace MEYPAK.PRL
             }
             _parabirimServis = new GenericWebServis<PocoPARABIRIM>();
             Kullanici = kullanici;
+            Roller = roller;
         }
         #region TANIMLAR
         FStokList fstokList;
@@ -125,12 +127,13 @@ namespace MEYPAK.PRL
         FMusteriSenetTeminat fMusteriSenetTeminat;
         FMusteriSenetProtesto fMusteriSenetProtesto;
         FStokSarf fStokSarf;
+        EFATURA fefatura;
 
-
-        public Tarih_Date _tarih_Date;
+        public Tarih_Date _tarih_Date= new Tarih_Date();
         public DataTable guncelkur;
         GenericWebServis<PocoPARABIRIM> _parabirimServis;
         public MPUSER Kullanici;
+        List<string> Roller;
         #endregion
 
 
@@ -166,7 +169,7 @@ namespace MEYPAK.PRL
                             dovizalis = item.ForexBuying,
                             dovizefektifalis = Convert.ToDecimal(item.BanknoteBuying == "" ? "0" : item.BanknoteBuying),
                             dovizefektifsatis = Convert.ToDecimal(item.BanknoteSelling == "" ? "0" : item.BanknoteSelling),
-
+                            userid=MPKullanici.ID,
 
                         });
                     else
@@ -179,7 +182,7 @@ namespace MEYPAK.PRL
                             dovizalis = item.ForexBuying,
                             dovizefektifalis = Convert.ToDecimal(item.BanknoteBuying == "" ? "0" : item.BanknoteBuying),
                             dovizefektifsatis = Convert.ToDecimal(item.BanknoteSelling == "" ? "0" : item.BanknoteSelling),
-
+                            userid = MPKullanici.ID,
 
                         });
                 }
@@ -191,9 +194,30 @@ namespace MEYPAK.PRL
         }
         private void Main_Load(object sender, EventArgs e)
         {
-            //guncelkur = CurrenciesExchange.GetDataTableAllCurrenciesTodaysExchangeRates();
-            //GuncelKur();
-            ACEKullanici.Text= Kullanici.AD+" "+Kullanici.SOYAD;
+            foreach (var item in Roller)
+            {
+                if (item=="ADMIN")
+                {
+
+                }
+                else if (item=="INSANK")
+                {
+                    ACESTOK.Visible = false;
+                    ACECARI.Visible = false;
+                    ACEFATURA.Visible = false;
+                    ACECEKSENET.Visible= false;
+                    ACEKASA.Visible = false;
+                    ACEBANKA.Visible=false;
+                    ACEARAC.Visible= false;
+                    ACEBANKA.Visible= false;
+                    ACEPARAMETRELER.Visible=false;
+                    accordionControlElement27.Visible=false;
+                 
+                }
+                
+            }
+            ACEKullanici.Text = Kullanici.AD + " " + Kullanici.SOYAD;
+           
         }
 
         public int i = 0;
@@ -1488,7 +1512,7 @@ namespace MEYPAK.PRL
         private void ACEMCekTeminat_Click(object sender, EventArgs e)
         {
             XtraTabPage page = new XtraTabPage();
-            fMusteriCekTeminat= new FMusteriCekTeminat();
+            fMusteriCekTeminat = new FMusteriCekTeminat();
             page.Name = "TPMusteriCekTeminat" + i;
             page.Text = "Müşteri Çek Teminat";
             page.Tag = "TPMusteriCekTeminat" + i;
@@ -1608,6 +1632,54 @@ namespace MEYPAK.PRL
             fStokSarf.Tag = "TPStokSarf" + i;
             page.Controls.Add(fStokSarf);
             fStokSarf.Show();
+            i++;
+        }
+
+        private void accordionControlElement26_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fStokSarf = new FStokSarf();
+            page.Name = "StokKasaGirisPanel" + i;
+            page.Text = "Stok Kasa Girişi";
+            page.Tag = "StokKasaGirisPanel" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fStokSarf.FormBorderStyle = FormBorderStyle.None;
+            fStokSarf.TopLevel = false;
+            fStokSarf.AutoScroll = true; 
+            fStokSarf.Dock = DockStyle.Fill;
+            fStokSarf.Tag = "StokKasaGirisPanel" + i;
+            page.Controls.Add(fStokSarf);
+            fStokSarf.Show();
+            i++;
+        }
+
+        private void accordionControlElement64_Click(object sender, EventArgs e)
+        {
+          
+
+        }
+
+        private void accordionControlElement1_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fefatura = new EFATURA();
+            page.Name = "EfaturaPanel" + i;
+            page.Text = "Gelen Kutusu";
+            page.Tag = "EfaturaPanel" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fefatura.FormBorderStyle = FormBorderStyle.None;
+            fefatura.TopLevel = false;
+            fefatura.AutoScroll = true;
+            fefatura.Dock = DockStyle.Fill;
+            fefatura.Tag = "EfaturaPanel" + i;
+            page.Controls.Add(fefatura);
+            fefatura.Show();
             i++;
         }
     }

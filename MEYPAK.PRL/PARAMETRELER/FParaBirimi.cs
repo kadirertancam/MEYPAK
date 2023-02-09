@@ -67,7 +67,8 @@ namespace MEYPAK.PRL.PARAMETRELER
                 {
                     adi = TBParaBrm.Text,
                     kisaadi = TBKisaltma.Text,
-                    aktif=1
+                    aktif=1,
+                    userid = MPKullanici.ID,
                 }));
 
             }
@@ -77,7 +78,8 @@ namespace MEYPAK.PRL.PARAMETRELER
                     id = id,
                     adi = TBParaBrm.Text,
                     kisaadi = TBKisaltma.Text,
-                    aktif=1
+                    aktif=1,
+                    userid = MPKullanici.ID,
                 }));
             MessageBox.Show("Kayıt Başarılı.");
             id = 0;

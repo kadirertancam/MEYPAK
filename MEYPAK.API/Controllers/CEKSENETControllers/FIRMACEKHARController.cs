@@ -6,12 +6,14 @@ using MEYPAK.Entity.PocoModels.BANKA;
 using MEYPAK.Entity.PocoModels.CEKSENET;
 using MEYPAK.Interfaces.Banka;
 using MEYPAK.Interfaces.CekSenet;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MEYPAK.API.Controllers.CEKSENETControllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
     public class FIRMACEKHARController : Controller
     {
         private readonly IMapper _mapper;

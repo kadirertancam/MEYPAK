@@ -5,6 +5,7 @@ using MEYPAK.Entity.Models.BANKA;
 using MEYPAK.Entity.Models.CARI;
 using MEYPAK.Entity.Models.CEKSENET;
 using MEYPAK.Entity.Models.DEPO;
+using MEYPAK.Entity.Models.EISLEMLER;
 using MEYPAK.Entity.Models.FATURA;
 using MEYPAK.Entity.Models.IRSALIYE;
 using MEYPAK.Entity.Models.KASA;
@@ -26,7 +27,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
         public MEYPAKContext(DbContextOptions<MEYPAKContext> options)
            : base(options)
         {
-            
+           
 
         }
         public DbSet<MPSTOKSARF> MPSTOKSARF { get; set; }
@@ -85,9 +86,11 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
         public DbSet<MPARACRUHSATRESIM> MPARACRUHSATRESIM { get; set; }
         public DbSet<MPPERSONEL> MPPERSONEL { get; set; }
         public DbSet<MPPERSONELBANKA> MPPERSONELBANKA { get; set; }
+        public DbSet<MPPERSONELAVANS> MPPERSONELAVANS { get; set; }
         public DbSet<MPPERSONELDEPARTMAN> MPPERSONELDEPARTMAN { get; set; }
         public DbSet<MPPERSONELGOREV> MPPERSONELGOREV { get; set; }
         public DbSet<MPPERSONELZIMMET> MPPERSONELZIMMET { get; set; }
+        public DbSet<MPPERSONELIZIN> MPPERSONELIZIN { get; set; }
         public DbSet<MPSTOKSAYIM> MPSTOKSAYIM { get; set; }
         public DbSet<MPSTOKSAYIMHAR> MPSTOKSAYIMHAR { get; set; }
         public DbSet<MPOLCUBR> MPOLCUBR { get; set; }
@@ -110,7 +113,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
         public DbSet<MPFATURADETAY> MPFATURADETAY { get; set; }
         public DbSet<MPSTOKKASAMARKA> MPSTOKKASAMARKA { get; set; }
         public DbSet<MPSERI> MPSERI { get; set; }
-
+        public DbSet<MPGELENEFATURA> MPGELENEFATURA { get; set; }
 
 
 

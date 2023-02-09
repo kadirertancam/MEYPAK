@@ -4,12 +4,14 @@ using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Hizmet;
 using MEYPAK.Interfaces.Stok;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MEYPAK.API.Controllers.STOKControllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
     public class HIZMETController : Controller
     {
         private readonly IHizmetServis _hizmetServis; 

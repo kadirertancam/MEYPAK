@@ -306,7 +306,8 @@ namespace MEYPAK.PRL.CARI
                     mahalle = TBSevkMahalle.Text,
                     sokak = TBSevkSokak.Text,
                     apartman = TBSevkApt.Text,
-                    daire = TBSevkDaire.Text
+                    daire = TBSevkDaire.Text,
+                    userid = MPKullanici.ID
                 });
                 MessageBox.Show("Sevk Adres Başarıyla Eklendi!");
                 SevkAdresDoldur();
@@ -332,7 +333,8 @@ namespace MEYPAK.PRL.CARI
                     cariid = _tempCariKart.id,
                     adi = TBYetkiliAdi.Text,
                     yetkilitelefon = TBYetkiliTel.Text,
-                    pozisyon = TBPozisyon.Text
+                    pozisyon = TBPozisyon.Text,
+                    userid = MPKullanici.ID
                 });
                 MessageBox.Show("Yetkili Başarıyla Eklendi!");
                 YetkiliBilgileriDoldur();
@@ -398,6 +400,7 @@ namespace MEYPAK.PRL.CARI
                     CARIID = _cariServis.obje.Where(z => z.kod == BTCariSec.Text).FirstOrDefault().id,
                     NUM = 0,
                     IMG = base64,
+                    userid = MPKullanici.ID
                 });
                 base64 = "";
             }
@@ -408,6 +411,7 @@ namespace MEYPAK.PRL.CARI
                     CARIID = _cariServis.obje.Where(z => z.kod == BTCariSec.Text).FirstOrDefault().id,
                     NUM = 0,
                     IMG = base64,
+                    userid = MPKullanici.ID
                 });
             }
             _cariResimServis.Data(ServisList.StokResimListeServis);
@@ -532,7 +536,7 @@ namespace MEYPAK.PRL.CARI
                 raporkoD7 = BTRprSec7.Text,
                 raporkoD8 = BTRprSec8.Text,
                 raporkoD9 = BTRprSec9.Text,
-
+                userid = MPKullanici.ID,
 
             });
             foreach (var item in _cariAltHesList)
@@ -542,7 +546,7 @@ namespace MEYPAK.PRL.CARI
                 {
                     carialthesid = item.id,
                     cariid = _cariServis.obje2.id,
-
+                    userid = MPKullanici.ID,
                 });
             }
         }
@@ -642,7 +646,8 @@ namespace MEYPAK.PRL.CARI
                 _tempCariKart = _cariServis.obje2;
                 foreach (var item in resimList)
                 { 
-                    item.CARIID = _tempCariKart.id;  // _cariServis.obje.Where(x => x.kod == BTCariSec.Text).FirstOrDefault().id;
+                    item.CARIID = _tempCariKart.id;
+                    item.userid = MPKullanici.ID;// _cariServis.obje.Where(x => x.kod == BTCariSec.Text).FirstOrDefault().id;
                     _cariResimServis.Data(ServisList.CariResimEkleServis, item);
                 }
 
@@ -663,6 +668,7 @@ namespace MEYPAK.PRL.CARI
                             foreach (var item in resimList)
                             {
                                 item.CARIID = _cariServis.obje.Where(x => x.kod == BTCariSec.Text).FirstOrDefault().id;
+                                item.userid =MPKullanici.ID;
                                 _cariResimServis.Data(ServisList.CariResimEkleServis, item);
                             }
                         }
@@ -688,6 +694,7 @@ namespace MEYPAK.PRL.CARI
                     carialthesid = _tempCARIALTHES.id,
                     cariid = _tempCariKart.id,
                     aktif = 1,
+                    userid = MPKullanici.ID
                 });
                 _cariAltHesCariServis.obje.Add(_cariAltHesCariServis.obje2);
                 DGAltHesap.DataSource = _cariAltHesCariServis.obje.Where(x => x.cariid == _tempCariKart.id).Select(x => new { ALTHESAPADI = _cariAltHesapServis.obje.Where(z => z.id == x.carialthesid).FirstOrDefault().adi, PARABIRIMI = _cariParABIRIM.obje.Where(z => z.id == _cariAltHesapServis.obje.Where(y => y.id == x.carialthesid).FirstOrDefault().dovizid).FirstOrDefault().kisaadi, AKTIF = x.aktif });
@@ -739,6 +746,7 @@ namespace MEYPAK.PRL.CARI
                     cariid = _tempCariKart.id,
                     adi = TBDokumanAdi.Text,
                     dokuman = base64,
+                    userid = MPKullanici.ID
                 });
                 MessageBox.Show("Kayıt Başarıyla Eklendi!");
                 FormuTemizle();

@@ -751,6 +751,7 @@ namespace MEYPAK.PRL.Assets
         }
 
 
+
         public void HKSBasim(int faturaid)
         {
             _faturaServis.Data(ServisList.FaturaListeServis);

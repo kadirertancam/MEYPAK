@@ -5,12 +5,14 @@ using MEYPAK.Entity.PocoModels.CEKSENET;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.CekSenet;
 using MEYPAK.Interfaces.Stok;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MEYPAK.API.Controllers.STOKControllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
     public class STOKSARFController : Controller
     {
         private readonly IMapper _mapper;

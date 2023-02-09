@@ -3,10 +3,14 @@ using MEYPAK.DAL.Concrete.ADONET;
 using MEYPAK.Entity.Models.PERSONEL;
 using MEYPAK.Entity.PocoModels.PERSONEL;
 using MEYPAK.Interfaces.Personel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MEYPAK.API.Controllers.PERSONELControllers
 {
+    [ApiController]
+    [Route("[controller]")]
+    [Authorize]
     public class PERSONELZIMMETController : Controller
     {
         private readonly IPersonelZimmetServis _personelZimmetServis;
@@ -50,7 +54,7 @@ namespace MEYPAK.API.Controllers.PERSONELControllers
         }
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult PERSONELZIMMETEkleyadaGuncelle(PocoPERSONELZIMMET pModel)
+        public IActionResult PERSONELZIMMETEkleyadaGuncelle([FromBody]PocoPERSONELZIMMET pModel)
         {
             try
             {

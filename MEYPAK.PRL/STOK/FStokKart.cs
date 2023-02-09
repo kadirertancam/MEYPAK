@@ -465,6 +465,7 @@ namespace MEYPAK.PRL
                 };
                 
                 var snc = _PocoStokServis.obje;
+                _tempStok.userid = MPKullanici.ID;
                 _PocoStokServis.Data(ServisList.StokEkleServis, _tempStok);
                 _PocoStokServis.Data(ServisList.StokListeServis);
                 _tempStok = _PocoStokServis.obje.Where(x => x.kayittipi == 0 && x.kod == _tempStok.kod).FirstOrDefault();
@@ -483,7 +484,8 @@ namespace MEYPAK.PRL
                                 stokid = _tempStok.id,
                                 olcubrid = Convert.ToInt32(row.Row.ItemArray[1]),
                                 katsayi = Convert.ToDecimal(row.Row.ItemArray[2]),
-                                id = Convert.ToInt32(row.Row.ItemArray[3])
+                                id = Convert.ToInt32(row.Row.ItemArray[3]),
+                                userid = MPKullanici.ID,
                             });
                         }
                     }
@@ -496,6 +498,7 @@ namespace MEYPAK.PRL
                         stokid = _tempStok.id,
                         olcubrid = _tempStok.olcubR1,
                         katsayi = 1,
+                        userid = MPKullanici.ID,
                     });
                 }
                 
@@ -505,6 +508,7 @@ namespace MEYPAK.PRL
                     if (!_silinenResimler.Contains(item))
                     {
                         item.STOKID = _tempStok.id;
+                        item.userid = MPKullanici.ID;
                         _stokResimServis.Data(ServisList.StokResimEkleServis, item);
                     }
                 }

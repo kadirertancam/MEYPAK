@@ -57,7 +57,7 @@ namespace MEYPAK.PRL.CEKSENET
                 ALTHESAPID = int.Parse(CBAltHesap.EditValue.ToString()),
                 CARIID = _cariKartServis.obje.Where(x => x.kod == BTCariSec.Text).FirstOrDefault().id,
                 TOPLAM = firmaCekKalem.Sum(x => x.TUTAR),
-
+                userid = MPKullanici.ID
             });
 
 
@@ -79,7 +79,7 @@ namespace MEYPAK.PRL.CEKSENET
                     CIKISTARIH = item.TARIH,
                     TUTAR = item.TUTAR,
                     KUR = 0,
-
+                    userid = MPKullanici.ID
                 });
             }
         }

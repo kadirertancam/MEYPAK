@@ -70,7 +70,8 @@ namespace MEYPAK.PRL.STOK.FiyatListesi
                     aciklama = TBAciklama.Text,
                     baslangictarihi = Convert.ToDateTime(DTBaslangicTar.Text.ToString()),
                     bitistarihi = Convert.ToDateTime(DTBitisTar.Text.ToString()),
-                
+                    userid = MPKullanici.ID,
+
                 }));
                 _tempStokFiyat = _stokFiyatServis.obje2;
 

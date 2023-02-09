@@ -79,6 +79,10 @@ namespace MEYPAK.Entity.Models.PERSONEL
         public byte AYAKKABINO { get; set; }
         public int SIRKETID { get; set; }
         public int SUBEID { get; set; }
-       
+        public string NOTLAR { get; set; } 
+        public int MAAS { get; set; } 
+        public bool AKTIF { get; set; }
+        public string SUBE { get; set; }
+
     }
 }

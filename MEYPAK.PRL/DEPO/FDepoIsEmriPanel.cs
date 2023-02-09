@@ -167,6 +167,7 @@ namespace MEYPAK.PRL.DEPO
                         {
                             var _tempSipDetay = _siparisDetayServis.obje.Where(x => x.siparisid.ToString() == _sipid.ToString() && x.stokid == _stokServis.obje.Where(z => z.kod == gridView1.GetRowCellValue(j, "StokKodu").ToString() && z.kayittipi == 0).Select(z => z.id).FirstOrDefault()).FirstOrDefault();
                             _tempSipDetay.hareketdurumu = 1;
+                            _tempSipDetay.userid = MPKullanici.ID;
                             _siparisDetayServis.Data(ServisList.SiparisDetayEkleServis, _tempSipDetay);
                             _siparisSevkEmriHarServis.Data(ServisList.SiparisSevkEmriHarEkleServis, new PocoSIPARISSEVKEMIRHAR()
                             {
@@ -179,6 +180,7 @@ namespace MEYPAK.PRL.DEPO
                                 kullaniciid = 0,
                                 tarih = DateTime.Now,
                                 tip = ms,
+                                userid = MPKullanici.ID
 
                             });
                             _stokSevkiyatList.Data(ServisList.StokSevkiyatListEkleServis, new PocoSTOKSEVKIYATLIST()
@@ -193,7 +195,7 @@ namespace MEYPAK.PRL.DEPO
                                 stokid = _tempSipDetay.stokid,
                                 sevkemriharid = _siparisSevkEmriHarServis.obje2.id,
                                 siparisdetayid = _tempSipDetay.id,
-
+                                userid = MPKullanici.ID
 
                             });
 
@@ -210,6 +212,7 @@ namespace MEYPAK.PRL.DEPO
                         {
                             var _tempSipDetay = _siparisDetayServis.obje.Where(x => x.siparisid.ToString() == _sipid.ToString() && x.stokid == _stokServis.obje.Where(z => z.kod == gridView1.GetRowCellValue(j, "StokKodu").ToString() && z.kayittipi == 0).Select(z => z.id).FirstOrDefault()).FirstOrDefault();
                             _tempSipDetay.hareketdurumu = 1;
+                            _tempSipDetay.userid = MPKullanici.ID;
                             _siparisDetayServis.Data(ServisList.SiparisDetayEkleServis, _tempSipDetay);
                             _satinAlmaMalKabulEmriHarServis.Data(ServisList.SatinAlmaMalKabulHarEkleServis, new PocoSATINALMAMALKABULEMRIHAR()
                             {
@@ -222,6 +225,7 @@ namespace MEYPAK.PRL.DEPO
                                 kullaniciid = 0,
                                 tarih = DateTime.Now,
                                 tip = ms,
+                                userid = MPKullanici.ID
 
                             });
                             _stokMalKabulList.Data(ServisList.StokMalKabulListEkleServis, new PocoSTOKMALKABULLIST()
@@ -236,7 +240,7 @@ namespace MEYPAK.PRL.DEPO
                                 stokid = _tempSipDetay.stokid,
                                 malkabulharemriid = _satinAlmaMalKabulEmriHarServis.obje2.id,
                                 siparisdetayid = _tempSipDetay.id,
-
+                                userid = MPKullanici.ID
 
                             });
 
@@ -257,6 +261,7 @@ namespace MEYPAK.PRL.DEPO
                     durum = 1,
                     depoid = _siparisServis.obje.Where(x => x.id.ToString() == _sipid).FirstOrDefault().depoid,
                     aciklama = "",
+                    userid = MPKullanici.ID
                 });
                 _depoEmirServis.Data(ServisList.DepoEmirListeServis);
 
@@ -270,6 +275,7 @@ namespace MEYPAK.PRL.DEPO
                         {
                             var _tempSipDetay = _siparisDetayServis.obje.Where(x => x.siparisid.ToString() == _sipid.ToString() && x.stokid == _stokServis.obje.Where(z => z.kod == gridView1.GetRowCellValue(j, "StokKodu").ToString() && z.kayittipi == 0).Select(z => z.id).FirstOrDefault()).FirstOrDefault();
                             _tempSipDetay.hareketdurumu = 1;
+                            _tempSipDetay.userid = MPKullanici.ID;
                             _siparisDetayServis.Data(ServisList.SiparisDetayEkleServis, _tempSipDetay);
                             _siparisSevkEmriHarServis.Data(ServisList.SiparisSevkEmriHarEkleServis, new PocoSIPARISSEVKEMIRHAR()
                             {
@@ -281,7 +287,7 @@ namespace MEYPAK.PRL.DEPO
                                 kullaniciid = 0,
                                 tarih = DateTime.Now,
                                 tip = ms,
-
+                                userid = MPKullanici.ID
                             });
                             _stokSevkiyatList.Data(ServisList.StokSevkiyatListEkleServis, new PocoSTOKSEVKIYATLIST()
                             {
@@ -294,7 +300,7 @@ namespace MEYPAK.PRL.DEPO
                                 stokid = _tempSipDetay.stokid,
                                 sevkemriharid = _siparisSevkEmriHarServis.obje2.id,
                                 siparisdetayid = _tempSipDetay.id,
-
+                                userid = MPKullanici.ID
 
                             });
 
@@ -311,6 +317,7 @@ namespace MEYPAK.PRL.DEPO
                         {
                             var _tempSipDetay = _siparisDetayServis.obje.Where(x => x.siparisid.ToString() == _sipid.ToString() && x.stokid == _stokServis.obje.Where(z => z.kod == gridView1.GetRowCellValue(j, "StokKodu").ToString() && z.kayittipi == 0).Select(z => z.id).FirstOrDefault()).FirstOrDefault();
                             _tempSipDetay.hareketdurumu = 1;
+                            _tempSipDetay.userid = MPKullanici.ID;
                             _siparisDetayServis.Data(ServisList.SiparisDetayEkleServis, _tempSipDetay);
                             _satinAlmaMalKabulEmriHarServis.Data(ServisList.SatinAlmaMalKabulHarEkleServis, new PocoSATINALMAMALKABULEMRIHAR()
                             {
@@ -322,6 +329,7 @@ namespace MEYPAK.PRL.DEPO
                                 kullaniciid = 0,
                                 tarih = DateTime.Now,
                                 tip = ms,
+                                userid = MPKullanici.ID
 
                             });
                             _stokMalKabulList.Data(ServisList.StokMalKabulListEkleServis, new PocoSTOKMALKABULLIST()
@@ -335,7 +343,7 @@ namespace MEYPAK.PRL.DEPO
                                 stokid = _tempSipDetay.stokid,
                                 malkabulharemriid = _satinAlmaMalKabulEmriHarServis.obje2.id,
                                 siparisdetayid = _tempSipDetay.id,
-
+                                userid = MPKullanici.ID
 
                             });
 

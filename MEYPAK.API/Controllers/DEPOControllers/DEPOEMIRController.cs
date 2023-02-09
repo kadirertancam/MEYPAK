@@ -6,12 +6,14 @@ using MEYPAK.Entity.PocoModels.DEPO;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Depo;
 using MEYPAK.Interfaces.Stok;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MEYPAK.API.Controllers.DEPOControllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
     public class DEPOEMIRController : Controller
     {
         private readonly IMapper _mapper;

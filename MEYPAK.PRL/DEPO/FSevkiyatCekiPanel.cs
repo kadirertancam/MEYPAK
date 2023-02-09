@@ -154,9 +154,10 @@ namespace MEYPAK.PRL.DEPO
                     stokid = _id, 
                     birimid = _siparisDetayServis.obje.Where(x => x.siparisid == _tempEmir.siparisid && x.stokid == _id).FirstOrDefault().birimid,
                     miktar = Convert.ToDecimal(gridView1.GetRowCellValue(i, "Miktar")),
-                    isemriid=_tempEmir.id,depoid=_tempEmir.depoid
+                    isemriid=_tempEmir.id,depoid=_tempEmir.depoid,
+                    userid = MPKullanici.ID,
 
-                    
+
                 });
             }
             _depoCekiListServis.Data(ServisList.DepoCekiListListeServis);
@@ -183,7 +184,8 @@ namespace MEYPAK.PRL.DEPO
                         sirketid = item.sirketid,
                         stokid = item.stokid,
                         subeid = item.subeid,
-                        kalanmiktar = item.miktar - _depoCekiListServis.obje.Where(x => x.stokid == item.stokid && x.isemriid == item.emirid).FirstOrDefault().miktar
+                        kalanmiktar = item.miktar - _depoCekiListServis.obje.Where(x => x.stokid == item.stokid && x.isemriid == item.emirid).FirstOrDefault().miktar,
+                        userid = MPKullanici.ID,
                     });
             }
             this.Close();

@@ -19,6 +19,7 @@ namespace MEYPAK.PRL
         {
             InitializeComponent();
             _loginService = new GenericWebServis<LoginModel>();
+            
         }
         Main fMain;
         GenericWebServis<LoginModel> _loginService;
@@ -35,9 +36,9 @@ namespace MEYPAK.PRL
                     RememberMe = true,
                 });
 
-                if (_loginService.kullanici!=null)
+                if (_loginService.loginResult !=null)
                 {
-                    fMain = new Main(_loginService.kullanici);
+                    fMain = new Main(_loginService.loginResult.MPUSER,_loginService.loginResult.userRoles);
                     fMain.Show();
                     this.Hide();
                 }

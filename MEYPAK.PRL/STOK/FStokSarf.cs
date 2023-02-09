@@ -413,7 +413,7 @@ namespace MEYPAK.PRL.STOK
                 TARIH = (DateTime)DTSiparisTarih.EditValue,
                 guncellemetarihi = DateTime.Now,
                 DEPOID = _depoServis.obje.Where(x => x.depoadi == CBDepo.EditValue).FirstOrDefault().id,
-
+                userid = MPKullanici.ID,
             });
 
             _stokOlcuBr.Data(ServisList.StokOlcuBrListeServis);
@@ -434,7 +434,8 @@ namespace MEYPAK.PRL.STOK
                     MIKTAR = item.MIKTAR,
                     SARFID = _sarfServis.obje2.id, ///ID gelecek
                     KUNYE = item.KUNYE != null ? item.KUNYE : "",
-                    TIP = item.TIP == "STOK" ? Convert.ToByte(0) : Convert.ToByte(1)
+                    TIP = item.TIP == "STOK" ? Convert.ToByte(0) : Convert.ToByte(1),
+                    userid = MPKullanici.ID,
 
                 }) ;
 
@@ -457,6 +458,7 @@ namespace MEYPAK.PRL.STOK
                         stokid = item.STOKID,
                         sayimid = 0,
                         kunye = item.KUNYE,
+                        userid = MPKullanici.ID,
                     });
                 }
                 if (item.TIP=="KASA")
@@ -470,7 +472,8 @@ namespace MEYPAK.PRL.STOK
                         kayittipi = 0,
                         kasaid = item.KASAID,
                         miktar = item.MIKTAR, // _kasaaa.Where(x => x.num == test.num).Select(x => x.KasaList.Sum(t => t.MIKTAR)).FirstOrDefault()
-                        sarfdetayid = _sarfDetayServis.obje2.id
+                        sarfdetayid = _sarfDetayServis.obje2.id,
+                        userid = MPKullanici.ID,
                     });
                 }
                 i++;
