@@ -3,10 +3,14 @@ using MEYPAK.DAL.Concrete.ADONET;
 using MEYPAK.Entity.Models.PARAMETRE;
 using MEYPAK.Entity.PocoModels.PARAMETRE;
 using MEYPAK.Interfaces.Parametre;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MEYPAK.API.Controllers.PARAMETREControllers
 {
+    [ApiController]
+    [Route("[controller]")]
+    [Authorize]
     public class SeriHarController : Controller
     {
         private readonly IMapper _mapper;

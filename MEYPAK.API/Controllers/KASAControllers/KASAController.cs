@@ -6,12 +6,14 @@ using MEYPAK.Entity.PocoModels.KASA;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Kasa;
 using MEYPAK.Interfaces.Stok;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MEYPAK.API.Controllers.KASAControllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
     public class KASAController : Controller
     {
 

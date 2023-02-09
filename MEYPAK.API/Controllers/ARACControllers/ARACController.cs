@@ -5,12 +5,14 @@ using MEYPAK.Entity.PocoModels.ARAC;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Arac;
 using MEYPAK.Interfaces.Stok;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MEYPAK.API.Controllers.ARAC
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
     public class ARACController : Controller
     {
         private readonly IMapper _mapper;

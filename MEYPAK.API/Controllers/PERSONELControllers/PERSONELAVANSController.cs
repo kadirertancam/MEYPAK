@@ -2,12 +2,14 @@
 using MEYPAK.DAL.Concrete.ADONET;
 using MEYPAK.Entity.PocoModels.PERSONEL;
 using MEYPAK.Interfaces.Personel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MEYPAK.API.Controllers.PERSONELControllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
     public class PERSONELAVANSController : Controller
     {
         private readonly IMapper _mapper;

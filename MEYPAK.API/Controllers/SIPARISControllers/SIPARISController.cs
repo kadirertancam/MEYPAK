@@ -6,12 +6,14 @@ using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Hizmet;
 using MEYPAK.Interfaces.Siparis;
 using MEYPAK.Interfaces.Stok;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MEYPAK.API.Controllers.SIPARISControllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
     public class SIPARISController : Controller
     {
         private readonly ISiparisServis _siparisServis;

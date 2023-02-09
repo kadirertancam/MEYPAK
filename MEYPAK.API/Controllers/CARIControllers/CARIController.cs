@@ -6,6 +6,7 @@ using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Cari;
 using MEYPAK.Interfaces.Depo;
 using MEYPAK.Interfaces.Stok;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -13,6 +14,7 @@ namespace MEYPAK.API.Controllers.CARIControllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
     public class CARIController : Controller
     {
         private readonly IMapper _mapper;

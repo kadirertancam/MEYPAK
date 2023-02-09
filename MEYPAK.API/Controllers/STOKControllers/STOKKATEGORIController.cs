@@ -3,12 +3,14 @@ using MEYPAK.DAL.Concrete.ADONET;
 using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Stok;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MEYPAK.API.Controllers.STOKControllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
     public class STOKKATEGORIController : Controller
     {
         private readonly IMapper _mapper;

@@ -3,10 +3,14 @@ using MEYPAK.DAL.Concrete.ADONET;
 using MEYPAK.Entity.Models.CARI;
 using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Interfaces.Cari;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MEYPAK.API.Controllers.CARIControllers
 {
+    [ApiController]
+    [Route("[controller]")]
+    [Authorize]
     public class CARIYETKILIController : Controller
     {
         private readonly IMapper _mapper;

@@ -5,12 +5,14 @@ using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.PARAMETRE;
 using MEYPAK.Interfaces.Cari;
 using MEYPAK.Interfaces.Parametre;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MEYPAK.API.Controllers.PARAMETREControllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
     public class PARABIRIMCONTROLLER : Controller
     {
         private readonly IMapper _mapper;

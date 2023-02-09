@@ -3,10 +3,14 @@ using MEYPAK.DAL.Concrete.ADONET;
 using MEYPAK.Entity.Models.ARAC;
 using MEYPAK.Entity.PocoModels.ARAC;
 using MEYPAK.Interfaces.Arac;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MEYPAK.API.Controllers.ARACControllers
 {
+    [ApiController]
+    [Route("[controller]")]
+    [Authorize]
     public class ARACROTAController : Controller
     {
         private readonly IMapper _mapper;
