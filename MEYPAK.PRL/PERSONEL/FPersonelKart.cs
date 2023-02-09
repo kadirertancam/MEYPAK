@@ -21,11 +21,16 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Security.Policy;
+using System.ServiceModel.Channels;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Forms;
+using MEYPAK.PRL.Assets;
+using OPTYPE.HizliTeknoloji;
 
 namespace MEYPAK.PRL.PERSONEL
 {
@@ -137,7 +142,7 @@ namespace MEYPAK.PRL.PERSONEL
                     sube = TBSube.Text,
                     userid = MPKullanici.ID,
 
-                }) ;
+                });
                 string message = _tempPocoPERSONEL != null ? _tempPocoPERSONEL.adi + "'e ait bilgiler başarıyla güncellendi." : "Kayıt Başarıyla Eklendi";
                 _tempPocoPERSONEL = _personelServis.obje2;
                 MessageBox.Show(message);
@@ -164,7 +169,7 @@ namespace MEYPAK.PRL.PERSONEL
                 base64 = ImageToBase64(DosyaYolu);
             }
         }
-       
+
         private void BTIzin_Click(object sender, EventArgs e)
         {
             if (_tempPocoPERSONEL != null && _tempPocoPERSONEL.id > 0)
@@ -351,14 +356,14 @@ namespace MEYPAK.PRL.PERSONEL
         {
             _personelGorevServis.Data(ServisList.PersonelGorevListeServis);
             _personelDepartmanServis.Data(ServisList.PersonelDepartmanListeServis);
-            CBDepartman.Properties.DataSource = _personelDepartmanServis.obje.Where(x=>x.kayittipi==0).Select(x => new { DEPARTMAN = x.adi, ID = x.id });
+            CBDepartman.Properties.DataSource = _personelDepartmanServis.obje.Where(x => x.kayittipi == 0).Select(x => new { DEPARTMAN = x.adi, ID = x.id });
             CBDepartman.Properties.ValueMember = "ID";
             CBDepartman.Properties.DisplayMember = "DEPARTMAN";
         }
         void CombolarıDoldur()
         {
-           
-           PersonelDepartmanComboDoldur();
+
+            PersonelDepartmanComboDoldur();
 
             string url = @"http://213.238.167.117:8081/il-ilce.json";
 
@@ -376,7 +381,7 @@ namespace MEYPAK.PRL.PERSONEL
         {
             _personelServis.Data(ServisList.PersonelListeServis);
             _personelDepartmanServis.Data(ServisList.PersonelDepartmanListeServis);
-            gridControl1.DataSource = _personelServis.obje.Where(x => x.aktif == true).Select(x => new { ID = x.id, ADI = x.adisoyadi, DEPARTMAN = _personelDepartmanServis.obje.Where(y => y.id == x.personeldepartmanid).FirstOrDefault().adi ,SUBE=x.sube});
+            gridControl1.DataSource = _personelServis.obje.Where(x => x.aktif == true).Select(x => new { ID = x.id, ADI = x.adisoyadi, DEPARTMAN = _personelDepartmanServis.obje.Where(y => y.id == x.personeldepartmanid).FirstOrDefault().adi, SUBE = x.sube });
             gridView1.Columns["ID"].Visible = false;
             GridColumn SUBE = gridView1.Columns["SUBE"];
             gridView1.SortInfo.ClearAndAddRange(new[] {
@@ -602,10 +607,10 @@ namespace MEYPAK.PRL.PERSONEL
 
         private void BTCIKIS_Click(object sender, EventArgs e)
         {
-            if (_tempPocoPERSONEL!=null)
+            if (_tempPocoPERSONEL != null)
             {
                 DialogResult dialogResult = MessageBox.Show($"{_tempPocoPERSONEL.adisoyadi}'adlı \nPersoneli işten çıkarmak istediğinize emin misiniz?", "Personel Çıkış", MessageBoxButtons.YesNo);
-                if (dialogResult==DialogResult.Yes)
+                if (dialogResult == DialogResult.Yes)
                 {
                     _tempPocoPERSONEL.aktif = false;
                     _tempPocoPERSONEL.isbittar = DateTime.Now;
@@ -614,7 +619,7 @@ namespace MEYPAK.PRL.PERSONEL
                     PersonelleriGetir();
                     FormuTemizle(this.Controls);
                 }
-              
+
             }
             else
                 MessageBox.Show("Çıkış Verilecek Personel Bulunamadı!");
@@ -630,7 +635,7 @@ namespace MEYPAK.PRL.PERSONEL
 
         private void TBTCNO_EditValueChanged(object sender, EventArgs e)
         {
-            if (_personelServis.obje.Where(x=> x.tc== TBTCNO.Text).Count()>0 )
+            if (_personelServis.obje.Where(x => x.tc == TBTCNO.Text).Count() > 0)
             {
                 _tempPocoPERSONEL = _personelServis.obje.Where(x => x.tc == TBTCNO.Text).FirstOrDefault();
                 PersonelBilgileriniDoldur();
@@ -641,7 +646,26 @@ namespace MEYPAK.PRL.PERSONEL
                 FormuTemizle(this.Controls);
                 TBTCNO.Text = a;
             }
-                
+
+        }
+
+        private void BTSorgula_Click(object sender, EventArgs e)
+        {
+            mukellefsorgula sorgulama = new mukellefsorgula();
+            MukellefOutput resp= sorgulama.sorgu(TBTCNO.Text == "" ? TBVergiNo.Text : TBTCNO.Text);
+            TBAdi.Text = resp.mukellef.ad;
+            TBSoyadi.Text = resp.mukellef.soyad;
+            //TBDogumYer.Text = resp.mukellef.dogumYeri;
+            //string yil = resp.mukellef.iseBaslamaTarihi.Substring(0, 4);
+            //string ay = resp.mukellef.iseBaslamaTarihi.Substring(4, 2); 
+            //string gun = resp.mukellef.iseBaslamaTarihi.Substring(6,2); 
+            //DTPIseGirisTar.EditValue = Convert.ToDateTime(gun+"."+ay+"."+yil);
+            TBVergiDaire.Text = resp.mukellef.vergiDairesiAdi;
+            TBVergiNo.Text = resp.mukellef.vergiDairesiKodu;
+
+
         }
     }
 }
+
+

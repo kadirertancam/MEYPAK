@@ -195,6 +195,7 @@
             this.XTPNot = new DevExpress.XtraTab.XtraTabPage();
             this.TBNotlar = new DevExpress.XtraRichEdit.RichEditControl();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.BTSorgula = new DevExpress.XtraEditors.SimpleButton();
             this.BTDepGorevEkle = new DevExpress.XtraEditors.SimpleButton();
             this.CBGorev = new DevExpress.XtraEditors.LookUpEdit();
             this.CBDepartman = new DevExpress.XtraEditors.LookUpEdit();
@@ -633,7 +634,7 @@
             // 
             // CBKanGrubu
             // 
-            this.CBKanGrubu.EditValue = "O Rh-pozitif";
+            this.CBKanGrubu.EditValue = "0 Rh-Pozitif";
             this.CBKanGrubu.Location = new System.Drawing.Point(145, 252);
             this.CBKanGrubu.Name = "CBKanGrubu";
             this.CBKanGrubu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -2003,6 +2004,7 @@
             // 
             // panelControl3
             // 
+            this.panelControl3.Controls.Add(this.BTSorgula);
             this.panelControl3.Controls.Add(this.BTDepGorevEkle);
             this.panelControl3.Controls.Add(this.CBGorev);
             this.panelControl3.Controls.Add(this.CBDepartman);
@@ -2044,18 +2046,33 @@
             this.panelControl3.Size = new System.Drawing.Size(1077, 225);
             this.panelControl3.TabIndex = 1;
             // 
+            // BTSorgula
+            // 
+            this.BTSorgula.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.BTSorgula.Appearance.Options.UseBackColor = true;
+            this.BTSorgula.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTSorgula.ImageOptions.Image")));
+            this.BTSorgula.Location = new System.Drawing.Point(396, 16);
+            this.BTSorgula.Name = "BTSorgula";
+            this.BTSorgula.Size = new System.Drawing.Size(75, 20);
+            this.BTSorgula.TabIndex = 83;
+            this.BTSorgula.Text = "Sorgula";
+            this.BTSorgula.Click += new System.EventHandler(this.BTSorgula_Click);
+            // 
             // BTDepGorevEkle
             // 
-            this.BTDepGorevEkle.Location = new System.Drawing.Point(531, 116);
+            this.BTDepGorevEkle.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.BTDepGorevEkle.Appearance.Options.UseBackColor = true;
+            this.BTDepGorevEkle.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTDepGorevEkle.ImageOptions.Image")));
+            this.BTDepGorevEkle.Location = new System.Drawing.Point(561, 105);
             this.BTDepGorevEkle.Name = "BTDepGorevEkle";
             this.BTDepGorevEkle.Size = new System.Drawing.Size(188, 21);
             this.BTDepGorevEkle.TabIndex = 82;
-            this.BTDepGorevEkle.Text = "Yeni Departman veya Gorev Ekle";
+            this.BTDepGorevEkle.Text = "Yeni Departman veya Görev Ekle";
             this.BTDepGorevEkle.Click += new System.EventHandler(this.BTDepGorevEkle_Click);
             // 
             // CBGorev
             // 
-            this.CBGorev.Location = new System.Drawing.Point(571, 87);
+            this.CBGorev.Location = new System.Drawing.Point(602, 69);
             this.CBGorev.Name = "CBGorev";
             this.CBGorev.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -2065,7 +2082,7 @@
             // 
             // CBDepartman
             // 
-            this.CBDepartman.Location = new System.Drawing.Point(571, 52);
+            this.CBDepartman.Location = new System.Drawing.Point(602, 43);
             this.CBDepartman.Name = "CBDepartman";
             this.CBDepartman.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -2095,16 +2112,16 @@
             this.BTCIKIS.Appearance.BackColor = System.Drawing.Color.Gainsboro;
             this.BTCIKIS.Appearance.Options.UseBackColor = true;
             this.BTCIKIS.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTCIKIS.ImageOptions.Image")));
-            this.BTCIKIS.Location = new System.Drawing.Point(875, 14);
+            this.BTCIKIS.Location = new System.Drawing.Point(967, 12);
             this.BTCIKIS.Name = "BTCIKIS";
             this.BTCIKIS.Size = new System.Drawing.Size(100, 25);
             this.BTCIKIS.TabIndex = 77;
-            this.BTCIKIS.Text = "İŞ ÇIKIŞ VER";
+            this.BTCIKIS.Text = "İŞ ÇIKIŞI YAP";
             this.BTCIKIS.Click += new System.EventHandler(this.BTCIKIS_Click);
             // 
             // TBMaas
             // 
-            this.TBMaas.EditValue = 0;
+            this.TBMaas.EditValue = "0";
             this.TBMaas.Location = new System.Drawing.Point(246, 187);
             this.TBMaas.Name = "TBMaas";
             this.TBMaas.Size = new System.Drawing.Size(146, 20);
@@ -2121,9 +2138,11 @@
             // 
             // BTNPersonelFoto
             // 
-            this.BTNPersonelFoto.EditValue = "Fotoğrafı Değistir";
+            this.BTNPersonelFoto.EditValue = "Fotoğrafı Değiştir";
             this.BTNPersonelFoto.Location = new System.Drawing.Point(22, 162);
             this.BTNPersonelFoto.Name = "BTNPersonelFoto";
+            this.BTNPersonelFoto.Properties.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.BTNPersonelFoto.Properties.Appearance.Options.UseBackColor = true;
             this.BTNPersonelFoto.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.BTNPersonelFoto.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTNPersonelFoto_Properties_ButtonClick);
@@ -2132,7 +2151,7 @@
             // 
             // labelControl10
             // 
-            this.labelControl10.Location = new System.Drawing.Point(482, 157);
+            this.labelControl10.Location = new System.Drawing.Point(511, 140);
             this.labelControl10.Name = "labelControl10";
             this.labelControl10.Size = new System.Drawing.Size(6, 13);
             this.labelControl10.TabIndex = 72;
@@ -2140,7 +2159,7 @@
             // 
             // labelControl9
             // 
-            this.labelControl9.Location = new System.Drawing.Point(494, 54);
+            this.labelControl9.Location = new System.Drawing.Point(522, 55);
             this.labelControl9.Name = "labelControl9";
             this.labelControl9.Size = new System.Drawing.Size(6, 13);
             this.labelControl9.TabIndex = 71;
@@ -2148,7 +2167,7 @@
             // 
             // labelControl8
             // 
-            this.labelControl8.Location = new System.Drawing.Point(523, 90);
+            this.labelControl8.Location = new System.Drawing.Point(552, 72);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(6, 13);
             this.labelControl8.TabIndex = 70;
@@ -2156,7 +2175,7 @@
             // 
             // labelControl7
             // 
-            this.labelControl7.Location = new System.Drawing.Point(167, 146);
+            this.labelControl7.Location = new System.Drawing.Point(167, 140);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(6, 13);
             this.labelControl7.TabIndex = 69;
@@ -2164,7 +2183,7 @@
             // 
             // labelControl6
             // 
-            this.labelControl6.Location = new System.Drawing.Point(182, 120);
+            this.labelControl6.Location = new System.Drawing.Point(182, 109);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(6, 13);
             this.labelControl6.TabIndex = 68;
@@ -2172,7 +2191,7 @@
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(191, 85);
+            this.labelControl4.Location = new System.Drawing.Point(191, 78);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(6, 13);
             this.labelControl4.TabIndex = 67;
@@ -2180,7 +2199,7 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(209, 46);
+            this.labelControl1.Location = new System.Drawing.Point(210, 48);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(6, 13);
             this.labelControl1.TabIndex = 66;
@@ -2188,7 +2207,7 @@
             // 
             // LBRequired
             // 
-            this.LBRequired.Location = new System.Drawing.Point(209, 16);
+            this.LBRequired.Location = new System.Drawing.Point(210, 19);
             this.LBRequired.Name = "LBRequired";
             this.LBRequired.Size = new System.Drawing.Size(6, 13);
             this.LBRequired.TabIndex = 65;
@@ -2209,7 +2228,7 @@
             // DTPIseGirisTar
             // 
             this.DTPIseGirisTar.EditValue = null;
-            this.DTPIseGirisTar.Location = new System.Drawing.Point(571, 161);
+            this.DTPIseGirisTar.Location = new System.Drawing.Point(602, 137);
             this.DTPIseGirisTar.Name = "DTPIseGirisTar";
             this.DTPIseGirisTar.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -2223,7 +2242,7 @@
             this.BTNPersonelKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
             this.BTNPersonelKaydet.Appearance.Options.UseBackColor = true;
             this.BTNPersonelKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTNPersonelKaydet.ImageOptions.Image")));
-            this.BTNPersonelKaydet.Location = new System.Drawing.Point(829, 148);
+            this.BTNPersonelKaydet.Location = new System.Drawing.Point(926, 161);
             this.BTNPersonelKaydet.Name = "BTNPersonelKaydet";
             this.BTNPersonelKaydet.Size = new System.Drawing.Size(146, 46);
             this.BTNPersonelKaydet.TabIndex = 62;
@@ -2247,7 +2266,7 @@
             // 
             // TBSGKSICILNO
             // 
-            this.TBSGKSICILNO.Location = new System.Drawing.Point(571, 16);
+            this.TBSGKSICILNO.Location = new System.Drawing.Point(602, 17);
             this.TBSGKSICILNO.Name = "TBSGKSICILNO";
             this.TBSGKSICILNO.Size = new System.Drawing.Size(146, 20);
             this.TBSGKSICILNO.TabIndex = 15;
@@ -2270,13 +2289,14 @@
             // 
             this.TBTCNO.Location = new System.Drawing.Point(246, 16);
             this.TBTCNO.Name = "TBTCNO";
+            this.TBTCNO.Properties.UseMaskAsDisplayFormat = true;
             this.TBTCNO.Size = new System.Drawing.Size(146, 20);
             this.TBTCNO.TabIndex = 11;
             this.TBTCNO.EditValueChanged += new System.EventHandler(this.TBTCNO_EditValueChanged);
             // 
             // LBSGKSicilNo
             // 
-            this.LBSGKSicilNo.Location = new System.Drawing.Point(499, 19);
+            this.LBSGKSicilNo.Location = new System.Drawing.Point(530, 20);
             this.LBSGKSicilNo.Name = "LBSGKSicilNo";
             this.LBSGKSicilNo.Size = new System.Drawing.Size(66, 13);
             this.LBSGKSicilNo.TabIndex = 10;
@@ -2284,7 +2304,7 @@
             // 
             // LBIseGirTar
             // 
-            this.LBIseGirTar.Location = new System.Drawing.Point(491, 164);
+            this.LBIseGirTar.Location = new System.Drawing.Point(522, 141);
             this.LBIseGirTar.Name = "LBIseGirTar";
             this.LBIseGirTar.Size = new System.Drawing.Size(74, 13);
             this.LBIseGirTar.TabIndex = 7;
@@ -2292,15 +2312,15 @@
             // 
             // LBGOREV
             // 
-            this.LBGOREV.Location = new System.Drawing.Point(531, 91);
+            this.LBGOREV.Location = new System.Drawing.Point(562, 72);
             this.LBGOREV.Name = "LBGOREV";
             this.LBGOREV.Size = new System.Drawing.Size(34, 13);
             this.LBGOREV.TabIndex = 6;
-            this.LBGOREV.Text = "GOREV";
+            this.LBGOREV.Text = "GÖREV";
             // 
             // LBDepartman
             // 
-            this.LBDepartman.Location = new System.Drawing.Point(501, 55);
+            this.LBDepartman.Location = new System.Drawing.Point(532, 48);
             this.LBDepartman.Name = "LBDepartman";
             this.LBDepartman.Size = new System.Drawing.Size(64, 13);
             this.LBDepartman.TabIndex = 5;
@@ -2795,5 +2815,6 @@
         private DevExpress.XtraEditors.SimpleButton BTDepGorevEkle;
         private DevExpress.XtraEditors.LookUpEdit CBGorev;
         private DevExpress.XtraEditors.LookUpEdit CBDepartman;
+        private DevExpress.XtraEditors.SimpleButton BTSorgula;
     }
 }
