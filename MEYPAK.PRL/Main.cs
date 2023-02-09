@@ -1658,6 +1658,12 @@ namespace MEYPAK.PRL
 
         private void accordionControlElement64_Click(object sender, EventArgs e)
         {
+          
+
+        }
+
+        private void accordionControlElement1_Click(object sender, EventArgs e)
+        {
             XtraTabPage page = new XtraTabPage();
             fefatura = new EFATURA();
             page.Name = "EfaturaPanel" + i;
@@ -1675,7 +1681,6 @@ namespace MEYPAK.PRL
             page.Controls.Add(fefatura);
             fefatura.Show();
             i++;
-
         }
     }
 }

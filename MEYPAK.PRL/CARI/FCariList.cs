@@ -9,6 +9,7 @@ using MEYPAK.Interfaces.Stok;
 using MEYPAK.PRL.BANKA;
 using MEYPAK.PRL.CARI.Raporlar;
 using MEYPAK.PRL.CEKSENET;
+using MEYPAK.PRL.E_ISLEMLER;
 using MEYPAK.PRL.IRSALIYE;
 using MEYPAK.PRL.KASA;
 using MEYPAK.PRL.SIPARIS;
@@ -30,6 +31,20 @@ namespace MEYPAK.PRL.CARI
 {
     public partial class FCariList : XtraForm
     {
+      
+       
+        public FCariList(string form = "", string islem = "")
+        {
+            InitializeComponent();
+            _islem = islem;
+            _form = form;
+            _cariServis = new GenericWebServis<PocoCARIKART>();
+
+        }
+
+        #region Tanımlar
+        GenericWebServis<PocoCARIKART> _cariServis;
+        Form tempForm;
         string _islem;
         string _form;
         FFirmaCekTanim _firmaCekTanim;
@@ -53,22 +68,9 @@ namespace MEYPAK.PRL.CARI
         FFirmaSenetTanim fFirmaSenet;
         FMusteriCekTanim fMusteriCekTanim;
         FHesapHareket fHesapHareket;
+        EFATURA fefatura;
         Main main;
         int i = 0;
-       
-        public FCariList(string form = "", string islem = "")
-        {
-            InitializeComponent();
-            _islem = islem;
-            _form = form;
-            _cariServis = new GenericWebServis<PocoCARIKART>();
-
-        }
-
-        #region Tanımlar
-        GenericWebServis<PocoCARIKART> _cariServis;
-        Form tempForm;
-
         #endregion
 
         #region Metotlar
@@ -119,6 +121,8 @@ namespace MEYPAK.PRL.CARI
                     fFirmaSenet.tempCari = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
                 if(_islem== "FHesapHareket")
                     fHesapHareket._tempCari = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+                 if(_islem== "EFaturaGelenKutu")
+                    fefatura._tempCari = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
 
             }
             else
@@ -195,6 +199,8 @@ namespace MEYPAK.PRL.CARI
                             _firmaCekTanim = (FFirmaCekTanim)frm;
                         if (frm.Name.Contains("FMusteriCekTanim"))
                             fMusteriCekTanim = (FMusteriCekTanim)frm;
+                        if (frm.Name.Contains("EFATURA"))
+                            fefatura = (EFATURA)frm;
                     }
                 }
             }

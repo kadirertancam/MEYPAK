@@ -199,9 +199,9 @@
             this.ACEBankaRapor = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement27 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement62 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement64 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement65 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement63 = new DevExpress.XtraBars.Navigation.AccordionControlElement(); 
+            this.accordionControlElement63 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement66 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEPERSONEL = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement38 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement41 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -221,7 +221,9 @@
             this.accordionControlSeparator2 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
             this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
             this.applicationMenu1 = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
-            this.accordionControlElement66 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionContentContainer1 = new DevExpress.XtraBars.Navigation.AccordionContentContainer();
+            this.accordionControlElement64 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -938,11 +940,7 @@
             this.accordionControlElement2,
             this.accordionControlElement3,
             this.accordionControlElement4});
-            this.ACESTOK.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement1.ImageOptions.SvgImage")));
-            this.ACESTOK.ImageOptions.SvgImageSize = new System.Drawing.Size(32, 32);
-            this.ACESTOK.Name = "accordionControlElement1";
-            this.ACESTOK.Text = "Stok";
-            this.ACESTOK.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement1.ImageOptions.SvgImage")));
+            this.ACESTOK.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("ACESTOK.ImageOptions.SvgImage")));
             this.ACESTOK.ImageOptions.SvgImageSize = new System.Drawing.Size(32, 32);
             this.ACESTOK.Name = "ACESTOK";
             this.ACESTOK.Text = "Stok";
@@ -1049,18 +1047,7 @@
             this.accordionControlElement29,
             this.accordionControlElement46,
             this.ACEStokSarf,
-            this.accordionControlElement26}); 
-
-
-
-
-
-
-
-
-
-
-
+            this.accordionControlElement26});
             this.accordionControlElement3.Name = "accordionControlElement3";
             this.accordionControlElement3.Text = "Hareketler";
             // 
@@ -1197,7 +1184,7 @@
             this.accordionControlElement6,
             this.accordionControlElement7,
             this.accordionControlElement8});
-            this.ACECARI.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement5.ImageOptions.SvgImage")));
+            this.ACECARI.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("ACECARI.ImageOptions.SvgImage")));
             this.ACECARI.Name = "ACECARI";
             this.ACECARI.Text = "Cari";
             // 
@@ -1287,7 +1274,7 @@
             this.accordionControlElement31,
             this.accordionControlElement32,
             this.accordionControlElement33});
-            this.ACEFATURA.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement20.ImageOptions.Image")));
+            this.ACEFATURA.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ACEFATURA.ImageOptions.Image")));
             this.ACEFATURA.Name = "ACEFATURA";
             this.ACEFATURA.Text = "Fatura";
             // 
@@ -1408,7 +1395,7 @@
             this.ACEFirmaCek,
             this.ACEFirmaSenet,
             this.ACECekSenetRapor});
-            this.ACECEKSENET.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ACECekSenet.ImageOptions.Image")));
+            this.ACECEKSENET.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ACECEKSENET.ImageOptions.Image")));
             this.ACECEKSENET.Name = "ACECEKSENET";
             this.ACECEKSENET.Text = "Çek/Senet";
             // 
@@ -1546,7 +1533,7 @@
             this.ACEKasaTanim,
             this.ACEKasaHareket,
             this.ACEKasaRapor});
-            this.ACEKASA.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ACEKasa.ImageOptions.Image")));
+            this.ACEKASA.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ACEKASA.ImageOptions.Image")));
             this.ACEKASA.Name = "ACEKASA";
             this.ACEKASA.Text = "Kasa";
             // 
@@ -1592,7 +1579,7 @@
             this.ACEBankaTanim,
             this.ACEBankaHareket,
             this.ACEBankaRapor});
-            this.ACEBANKA.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ACEBanka.ImageOptions.Image")));
+            this.ACEBANKA.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ACEBANKA.ImageOptions.Image")));
             this.ACEBANKA.Name = "ACEBANKA";
             this.ACEBANKA.Text = "Banka";
             // 
@@ -1660,18 +1647,11 @@
             // accordionControlElement62
             // 
             this.accordionControlElement62.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
-            this.accordionControlElement64,
+            this.accordionControlElement1,
             this.accordionControlElement65});
             this.accordionControlElement62.Expanded = true;
             this.accordionControlElement62.Name = "accordionControlElement62";
             this.accordionControlElement62.Text = "EFatura";
-            // 
-            // accordionControlElement64
-            // 
-            this.accordionControlElement64.Name = "accordionControlElement64";
-            this.accordionControlElement64.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement64.Text = "Gelen Kutusu";
-            this.accordionControlElement64.Click += new System.EventHandler(this.accordionControlElement64_Click);
             // 
             // accordionControlElement65
             // 
@@ -1687,7 +1667,13 @@
             this.accordionControlElement63.Name = "accordionControlElement63";
             this.accordionControlElement63.Text = "EArşiv";
             // 
-            // accordionControlElement21
+            // accordionControlElement66
+            // 
+            this.accordionControlElement66.Name = "accordionControlElement66";
+            this.accordionControlElement66.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement66.Text = "Giden Kutusu";
+            // 
+            // ACEPERSONEL
             // 
             this.ACEPERSONEL.Appearance.Default.ForeColor = System.Drawing.Color.Silver;
             this.ACEPERSONEL.Appearance.Default.Options.UseForeColor = true;
@@ -1695,7 +1681,7 @@
             this.accordionControlElement38,
             this.accordionControlElement39,
             this.accordionControlElement40});
-            this.ACEPERSONEL.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement21.ImageOptions.Image")));
+            this.ACEPERSONEL.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ACEPERSONEL.ImageOptions.Image")));
             this.ACEPERSONEL.Name = "ACEPERSONEL";
             this.ACEPERSONEL.Text = "Personel";
             // 
@@ -1748,7 +1734,7 @@
             this.accordionControlElement23,
             this.accordionControlElement24,
             this.accordionControlElement25});
-            this.ACEARAC.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement61.ImageOptions.Image")));
+            this.ACEARAC.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ACEARAC.ImageOptions.Image")));
             this.ACEARAC.Name = "ACEARAC";
             this.ACEARAC.Text = "Araç";
             // 
@@ -1791,7 +1777,7 @@
             this.ACEPARAMETRELER.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.accordionControlElement44,
             this.ACESeriTanim});
-            this.ACEPARAMETRELER.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement22.ImageOptions.Image")));
+            this.ACEPARAMETRELER.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ACEPARAMETRELER.ImageOptions.Image")));
             this.ACEPARAMETRELER.Name = "ACEPARAMETRELER";
             this.ACEPARAMETRELER.Text = "Parametreler";
             // 
@@ -1835,11 +1821,26 @@
             // 
             this.applicationMenu1.Name = "applicationMenu1";
             // 
-            // accordionControlElement66
+            // accordionContentContainer1
             // 
-            this.accordionControlElement66.Name = "accordionControlElement66";
-            this.accordionControlElement66.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement66.Text = "Giden Kutusu";
+            this.accordionContentContainer1.Name = "accordionContentContainer1";
+            this.accordionContentContainer1.Size = new System.Drawing.Size(220, 76);
+            this.accordionContentContainer1.TabIndex = 3;
+            // 
+            // accordionControlElement64
+            // 
+            this.accordionControlElement64.ContentContainer = this.accordionContentContainer1;
+            this.accordionControlElement64.Name = "accordionControlElement64";
+            this.accordionControlElement64.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement64.Text = "Gelen Kutusu";
+            this.accordionControlElement64.Click += new System.EventHandler(this.accordionControlElement64_Click);
+            // 
+            // accordionControlElement1
+            // 
+            this.accordionControlElement1.Name = "accordionControlElement1";
+            this.accordionControlElement1.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement1.Text = "Giden Kutusu";
+            this.accordionControlElement1.Click += new System.EventHandler(this.accordionControlElement1_Click);
             // 
             // Main
             // 
@@ -2057,10 +2058,12 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement26;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement27;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement62;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement64;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement65;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement63;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement66;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEKullanici;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement1;
+        private DevExpress.XtraBars.Navigation.AccordionContentContainer accordionContentContainer1;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement64;
     }
 }
