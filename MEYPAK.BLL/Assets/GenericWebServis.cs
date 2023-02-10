@@ -65,7 +65,7 @@ namespace MEYPAK.BLL.Assets
             client.Headers.Add("Connection", "keep-alive");
             client.Headers.Add("accept", "*/*");  
             client.Headers.Add("Referer", servis);
-            client.Headers.Add("Origin", "http://213.238.167.117:8080");
+            client.Headers.Add("Origin", "http://78.135.80.41:8080");
             client.Headers.Add("sec-ch-ua", "\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"");
             client.Headers.Add("sec-ch-ua-mobile", "?0");
             client.Headers.Add("sec-ch-ua-paltform", "\"Windows\"");

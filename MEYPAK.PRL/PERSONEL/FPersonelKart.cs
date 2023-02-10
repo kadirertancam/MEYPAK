@@ -137,7 +137,7 @@ namespace MEYPAK.PRL.PERSONEL
                     pantolonolcusu = CBAltBeden.EditValue != null ? Convert.ToByte(CBAltBeden.EditValue) : (byte)0,
                     ayakkabino = CBAyakkabıNo.EditValue != null ? Convert.ToByte(CBAyakkabıNo.EditValue) : (byte)0,
                     notlar = TBNotlar.Text,
-                    maas = Convert.ToInt32(TBMaas.EditValue),
+                    maas = Convert.ToInt32(TBMaas.Text),
                     aktif = true,
                     sube = TBSube.Text,
                     userid = MPKullanici.ID,
@@ -439,6 +439,8 @@ namespace MEYPAK.PRL.PERSONEL
                 TBMedeniDurum.Text = _tempPocoPERSONEL.medenidurum;
                 CBUyrugu.EditValue = _tempPocoPERSONEL.uyruk;
                 TBIlkSoyad.Text = _tempPocoPERSONEL.ilksoyad;
+                TBMaas.EditValue = _tempPocoPERSONEL.maas;
+                TBSube.Text = _tempPocoPERSONEL.sube;
                 /*EditValue yerine CanFocus denenecek.*/
                 CBNufIl.EditValue = _tempPocoPERSONEL.nufusakayitliil;
                 CBNufIlce.EditValue = _tempPocoPERSONEL.nufusakayitliilce;
