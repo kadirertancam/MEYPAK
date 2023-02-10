@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace MEYPAK.WEB.Controllers
+namespace MEYPAK.WEB.Controllers.DefaultController
 {
     public class DefaultController : Controller
     {

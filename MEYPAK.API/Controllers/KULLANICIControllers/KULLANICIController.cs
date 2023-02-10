@@ -7,7 +7,6 @@ namespace MEYPAK.API.Controllers.KULLANICIControllers
 {
     [ApiController]
     [Route("[controller]")]
-    [Authorize]
     public class KULLANICIController : Controller
     {
         private readonly UserManager<MPUSER> _userManager;
@@ -66,8 +65,8 @@ namespace MEYPAK.API.Controllers.KULLANICIControllers
         }
 
         [HttpGet]
-
         [Route("/[controller]/[action]")]
+        [Authorize]
         public IActionResult Logout()
         {
             _signManager.SignOutAsync();
@@ -77,6 +76,7 @@ namespace MEYPAK.API.Controllers.KULLANICIControllers
 
         [HttpPost]
         [Route("/[controller]/[action]")]
+        [Authorize]
         public IActionResult Register(RegisterModel model)
         {
             try
@@ -116,6 +116,7 @@ namespace MEYPAK.API.Controllers.KULLANICIControllers
 
         [HttpPost]
         [Route("/[controller]/[action]")]
+        [Authorize]
         public async Task<IActionResult> RolVer(LoginResultModel result)
         {
            
@@ -129,6 +130,7 @@ namespace MEYPAK.API.Controllers.KULLANICIControllers
 
         [HttpPost]
         [Route("/[controller]/[action]")]
+        [Authorize]
         public IActionResult RolleriOlustur()
         {
             string[] allRoles = Enum.GetNames(typeof(AllRoles));

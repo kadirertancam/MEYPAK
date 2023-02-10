@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MEYPAK.DAL.Concrete.ADONET;
+using MEYPAK.DAL.Migrations;
 using MEYPAK.Entity.PocoModels.BANKA;
 using MEYPAK.Entity.PocoModels.PERSONEL;
 using MEYPAK.Interfaces.Banka;
@@ -16,7 +17,7 @@ namespace MEYPAK.API.Controllers.PERSONELControllers
     {
         private readonly IMapper _mapper;
         private readonly IPersonelIzinServis _personelIzinServis;
-        private MPAdoContext<PocoPERSONELIZIN> _adobankaServis = new MPAdoContext<PocoPERSONELIZIN>();
+        private MPAdoContext<MPPERSONELIZIN> _adobankaServis = new MPAdoContext<MPPERSONELIZIN>();
         public PERSONELIZINController(IMapper mapper, IPersonelIzinServis bankaServis)
         {
             _mapper = mapper;
