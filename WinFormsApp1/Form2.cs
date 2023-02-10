@@ -32,8 +32,35 @@ namespace WinFormsApp1
                            {
                                 PaymentDate=DateTime.UtcNow,
                                  PaymentMidierName= "NAKIT",
-                                 
-                           }
+                                 PaymentType="NAKIT",
+                                 ShipmentInfo= new ServiceReference2.ShipmentInformation()
+                                 {
+                                      Carier= new ServiceReference2.ShipmentCarier()
+                                      {
+                                           SenderName="",
+                                           SenderTcknVkn="",
+                                      },
+                                      SendDate=DateTime.Now
+                                 },
+                                  WebAddress="",
+                           },
+                           NewGenerationPamentRecorderInfo= new ServiceReference2.NewGenerationPaymentRecorderInformation()
+                           {
+                                
+                           },
+                           WithHoldings= new ServiceReference2.EArchiveWithHoldingInformation[]
+                           {
+                                new ServiceReference2.EArchiveWithHoldingInformation()
+                                {
+                                      
+                                }
+                           },
+
+                     },
+                     ExtraInformation= "",
+                     Invoice= new ServiceReference2.InvoiceType()
+                     {
+                           
                      }
                 }
             });

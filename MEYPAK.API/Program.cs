@@ -103,6 +103,9 @@ builder.Services.AddAutoMapper(x =>
 
 builder.Services.AddScoped<IGelenEFaturaDal, EFGelenEFaturaRepo>();
 builder.Services.AddScoped<IGelenFaturaServis, GelenEFaturaManager>();
+
+builder.Services.AddScoped<IMukellefListDal, EFMukellefListRepo>();
+builder.Services.AddScoped<IMukellefListesiServis, MukellefListesiManager>();
 #endregion
 #region CekSenet_Scoped_Islemleri
 builder.Services.AddScoped<ICekSenetUstSBDal, EFCekSenetUstSBRepo>();

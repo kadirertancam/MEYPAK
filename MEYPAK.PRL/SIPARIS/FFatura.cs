@@ -1161,7 +1161,8 @@ namespace MEYPAK.PRL.SIPARIS
                                 miktar = item2.MIKTAR, // _kasaaa.Where(x => x.num == test.num).Select(x => x.KasaList.Sum(t => t.MIKTAR)).FirstOrDefault()
                                 irsaliyedetayid = 0,
                                 faturadetayid = _faturadetayServis.obje2.id,
-                                userid = MPKullanici.ID
+                                userid = MPKullanici.ID,
+                                depoid= _depoServis.obje.Where(x => x.depoadi == CBDepo.Text).FirstOrDefault().id
                             });
                             if (item2.ID > 0)
                                 except.AddRange(_stokKasaHarServis.obje.Where(x => x.id == item2.ID));

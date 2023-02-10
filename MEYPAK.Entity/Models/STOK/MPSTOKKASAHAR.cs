@@ -10,6 +10,7 @@ namespace MEYPAK.Entity.Models.STOK
     {
         public int STOKID { get; set; }
         public int KASAID { get; set; }
+        public int DEPOID { get; set; }
         public int IRSALIYEID { get; set; } 
         public int IRSALIYEDETAYID { get; set; }
         public int CARIID { get; set; }
