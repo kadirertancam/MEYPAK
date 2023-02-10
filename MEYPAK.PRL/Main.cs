@@ -4,9 +4,10 @@ using DevExpress.XtraTab.ViewInfo;
 using MEYPAK.BLL.Assets;
 using MEYPAK.BLL.KULLANICI;
 using MEYPAK.Entity.IdentityModels;
+using MEYPAK.Entity.PocoModels.EISLEMLER;
 using MEYPAK.Entity.PocoModels.PARAMETRE;
-using MEYPAK.PRL.ARACLAR;
 using MEYPAK.PRL.ARAÇLAR;
+using MEYPAK.PRL.ARACLAR;
 using MEYPAK.PRL.BANKA;
 using MEYPAK.PRL.CARI;
 using MEYPAK.PRL.CARI.Raporlar;
@@ -28,6 +29,7 @@ using MEYPAK.PRL.STOK.FiyatListesi;
 using MEYPAK.PRL.STOK.Raporlar;
 using MEYPAK.PRL.STOK.StokKasa;
 using Microsoft.AspNetCore.Identity;
+using ServiceReference1;
 using System.Data;
 using System.Net.Http;
 using System.Reflection;
@@ -58,6 +60,7 @@ namespace MEYPAK.PRL
             _parabirimServis = new GenericWebServis<PocoPARABIRIM>();
             Kullanici = kullanici;
             Roller = roller;
+            _mükellefListesi = new GenericWebServis<PocoMUKELLEFLISTESI>();
         }
         #region TANIMLAR
         FStokList fstokList;
@@ -132,6 +135,7 @@ namespace MEYPAK.PRL
         public Tarih_Date _tarih_Date= new Tarih_Date();
         public DataTable guncelkur;
         GenericWebServis<PocoPARABIRIM> _parabirimServis;
+        GenericWebServis<PocoMUKELLEFLISTESI> _mükellefListesi;
         public MPUSER Kullanici;
         List<string> Roller;
         #endregion
@@ -1681,6 +1685,34 @@ namespace MEYPAK.PRL
             page.Controls.Add(fefatura);
             fefatura.Show();
             i++;
+        }
+
+        private void barButtonItem40_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if(MessageBox.Show("Mükellef listesi güncellenecektir, devam etmek istermisiniz?(Biraz zaman alabilir)","Mükellef Listesi Güncelle", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                ServiceReference1.IntegrationClient ıntegrationClient = new ServiceReference1.IntegrationClient();
+                ıntegrationClient.ClientCredentials.UserName.UserName = "Gunduz";
+                ıntegrationClient.ClientCredentials.UserName.Password = "iJAfhKSU";
+                ServiceReference1.WhoAmIInfo bb = new WhoAmIInfo();
+
+                SystemUsersResponse res = ıntegrationClient.GetEInvoiceUsersAsync(new PagedQueryContext()
+                {
+                    PageIndex = 0,
+                    PageSize = 999999,
+                }).Result;
+                foreach (var item in res.Value.Items)
+                {
+
+
+                    _mükellefListesi.Data(ServisList.MUKELLEFLISTESIEkleServis, new PocoMUKELLEFLISTESI()
+                    {
+                        cariadi = item.Title,
+                        vkn = item.Identifier,
+                        urn = item.PostboxAlias
+                    });
+                }
+            }
         }
     }
 }

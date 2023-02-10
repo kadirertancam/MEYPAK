@@ -9,6 +9,6 @@ namespace MEYPAK.Interfaces.EIslemler
 {
     public interface IMukellefListesiServis:IGenericServis<PocoMUKELLEFLISTESI>
     {
-
+        public PocoMUKELLEFLISTESI EkleyadaGuncelle(PocoMUKELLEFLISTESI entity);
     }
 }

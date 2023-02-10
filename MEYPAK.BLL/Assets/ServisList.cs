@@ -10,7 +10,17 @@ namespace MEYPAK.BLL.Assets
     {
         #region Cookie
         public static string Cookie = "";
-        
+
+
+        #endregion
+
+        #region EISLEMLER
+        public const string MUKELLEFLISTESIListeServis =        "http://78.135.80.41:8081/MUKELLEFLISTESI/MUKELLEFLISTESIListe";
+        public const string MUKELLEFLISTESIEkleServis =         "http://78.135.80.41:8081/MUKELLEFLISTESI/MUKELLEFLISTESIEkleyadaGuncelle";
+        public const string MUKELLEFLISTESISilServis =          "http://78.135.80.41:8081/MUKELLEFLISTESI/MUKELLEFLISTESISil";
+        public const string MUKELLEFLISTESIGuncelleServis =     "http://78.135.80.41:8081/MUKELLEFLISTESI/MUKELLEFLISTESIGuncelle";
+        public const string MUKELLEFLISTESIDeleteByIdServis =   "http://78.135.80.41:8081/MUKELLEFLISTESI/DeleteById";
+        public const string MUKELLEFLISTESIListeFiltreServis =  "http://78.135.80.41:8081/MUKELLEFLISTESI/Liste2?query=";
 
         #endregion
 

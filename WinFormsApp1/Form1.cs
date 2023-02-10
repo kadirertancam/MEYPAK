@@ -17,16 +17,7 @@ namespace WinFormsApp1
         private void Form1_Load(object sender, EventArgs e)
         {
 
-            ServiceReference1.IntegrationClient ýntegrationClient = new ServiceReference1.IntegrationClient();
-            ýntegrationClient.ClientCredentials.UserName.UserName = "Gunduz";
-            ýntegrationClient.ClientCredentials.UserName.Password = "iJAfhKSU";
-            ServiceReference1.WhoAmIInfo bb = new WhoAmIInfo();
-
-            SystemUsersResponse res = ýntegrationClient.GetEInvoiceUsersAsync(new PagedQueryContext()
-            {
-                PageIndex = 0,
-                PageSize = 999999,
-            }).Result;
+            
             
         }
     }
