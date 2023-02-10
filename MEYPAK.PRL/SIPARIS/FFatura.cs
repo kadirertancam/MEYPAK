@@ -815,7 +815,7 @@ namespace MEYPAK.PRL.SIPARIS
             else if (gridView1.GetFocusedRowCellValue("Tipi") == "KASA")
             {
 
-                _fStokKasaList = new FStokKasaList(this.Tag.ToString(), "FFatura");
+                _fStokKasaList = new FStokKasaList(this.Tag.ToString(), "FFatura", gridView1.FocusedRowHandle.ToString());
                 _fStokKasaList.ShowDialog();
                 if (_tempKasa != null)
                 {
