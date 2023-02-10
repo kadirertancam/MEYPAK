@@ -8,7 +8,7 @@ namespace MEYPAK.Entity.Models.EISLEMLER
 {
     public class MPMUKELLEFLISTESI:SUPERMODEL
     { 
-        public int VKN { get; set; }
+        public string VKN { get; set; }
         public string CARIADI { get; set; }
         public string URN { get; set; }
     }

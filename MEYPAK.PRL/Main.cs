@@ -1709,7 +1709,8 @@ namespace MEYPAK.PRL
                     {
                         cariadi = item.Title,
                         vkn = item.Identifier,
-                        urn = item.PostboxAlias
+                        urn = item.PostboxAlias,
+                        userid = MPKullanici.ID
                     });
                 }
             }
