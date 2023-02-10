@@ -38,6 +38,7 @@ namespace MEYPAK.PRL.STOK
         FAlisIrsaliye FAlisIrsaliye;
         FStokSarf fStokSarf;
         StokKasaGirisPanel fstokKasaGirisPanel;
+        FFatura fFatura;
         #endregion
 
         private void FStokKasaList2_Load(object sender, EventArgs e)
@@ -59,6 +60,8 @@ namespace MEYPAK.PRL.STOK
                         fStokSarf = (FStokSarf)frm; 
                     if (frm.Name.Contains("FStokKasaGirisPanel"))
                         fstokKasaGirisPanel = (StokKasaGirisPanel)frm;
+                    if (frm.Name.Contains("FFatura"))
+                        fFatura = (FFatura)frm;
                 }
             }
             
@@ -85,7 +88,10 @@ namespace MEYPAK.PRL.STOK
             if(_islem== "StokKasaGirisPanel")
             {
                 fstokKasaGirisPanel._tempKasa = _stokKasaServis.obje.Where(x => x.kayittipi == 0 && x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()).FirstOrDefault();
-
+            }
+            if (_islem == "FFatura")
+            {
+                fFatura._tempKasa = _stokKasaServis.obje.Where(x => x.kayittipi == 0 && x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()).FirstOrDefault();
             }
             this.Close();
         }
