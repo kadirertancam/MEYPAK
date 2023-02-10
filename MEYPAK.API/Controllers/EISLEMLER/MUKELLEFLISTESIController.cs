@@ -1,37 +1,34 @@
 ﻿using AutoMapper;
 using MEYPAK.DAL.Concrete.ADONET;
-using MEYPAK.DAL.Migrations;
-using MEYPAK.Entity.PocoModels.BANKA;
-using MEYPAK.Entity.PocoModels.PERSONEL;
-using MEYPAK.Interfaces.Banka;
-using MEYPAK.Interfaces.Personel;
+using MEYPAK.Entity.Models.EISLEMLER;
+using MEYPAK.Entity.PocoModels.EISLEMLER;
+using MEYPAK.Interfaces.EIslemler;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace MEYPAK.API.Controllers.PERSONELControllers
+namespace MEYPAK.API.Controllers.EISLEMLER
 {
     [ApiController]
-    [Route("[controller]")]
     [Authorize]
-    public class PERSONELIZINController : Controller
+    [Route("[controller]")]
+    public class MUKELLEFLISTESIController : Controller
     {
         private readonly IMapper _mapper;
-        private readonly IPersonelIzinServis _personelIzinServis;
-        private MPAdoContext<MPPERSONELIZIN> _adobankaServis = new MPAdoContext<MPPERSONELIZIN>();
-        public PERSONELIZINController(IMapper mapper, IPersonelIzinServis bankaServis)
+        private readonly IMukellefListesiServis _MUKELLEFLISTESIServis;
+        private MPAdoContext<MPMUKELLEFLISTESI> _adoMUKELLEFLISTESIServis = new MPAdoContext<MPMUKELLEFLISTESI>();
+        public MUKELLEFLISTESIController(IMapper mapper, IMukellefListesiServis mukellefListesiServis)
         {
             _mapper = mapper;
-            _personelIzinServis = bankaServis;
+            _MUKELLEFLISTESIServis = mukellefListesiServis;
         }
 
         [HttpGet]
         [Route("/[controller]/[action]")]
-
-        public IActionResult Liste()
+        public IActionResult MUKELLEFLISTESIListe()
         {
             try
             {
-                var data = _personelIzinServis.Listele();
+                var data = _MUKELLEFLISTESIServis.Listele();
                 return Ok(data);
             }
             catch (Exception ex)
@@ -41,39 +38,26 @@ namespace MEYPAK.API.Controllers.PERSONELControllers
         }
         [HttpGet]
         [Route("/[controller]/[action]")]
-        public IActionResult Liste2([FromQuery] string query)
+        public IActionResult MUKELLEFLISTESIListe2([FromQuery] string query)
         {
             try
             {
-                _adobankaServis.HepsiniGetir(query);
-                return Ok(_adobankaServis.GenericList);
+                _adoMUKELLEFLISTESIServis.HepsiniGetir(query);
+                return Ok(_adoMUKELLEFLISTESIServis.GenericList);
             }
             catch (Exception ex)
             {
                 return Problem("Belirsiz bir hata oluştu!" + ex.Message);
             }
         }
+
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult EkleyadaGuncelle([FromBody] PocoPERSONELIZIN pModel)
+        public IActionResult MUKELLEFLISTESIEKleyadaGuncelle(PocoMUKELLEFLISTESI pModel)
         {
             try
             {
-                var data = _personelIzinServis.EkleyadaGuncelle(pModel);
-                return Ok(data);
-            }
-            catch (Exception ex)
-            {
-                return Problem("Belirsiz bir hata oluştu! " + ex.Message);
-            }
-        }
-        [HttpPost]
-        [Route("/[controller]/[action]")]
-        public IActionResult Sil(List<PocoPERSONELIZIN> pModel)
-        {
-            try
-            {
-                var data = _personelIzinServis.Sil(pModel);
+                var data = _MUKELLEFLISTESIServis.EkleyadaGuncelle(pModel);
                 return Ok(data);
             }
             catch (Exception ex)
@@ -83,11 +67,25 @@ namespace MEYPAK.API.Controllers.PERSONELControllers
         }
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult Guncelle(PocoPERSONELIZIN pModel)
+        public IActionResult MUKELLEFLISTESISil(List<PocoMUKELLEFLISTESI> pModel)
         {
             try
             {
-                var data = _personelIzinServis.Guncelle(pModel);
+                var data = _MUKELLEFLISTESIServis.Sil(pModel);
+                return Ok(data);
+            }
+            catch (Exception ex)
+            {
+                return Problem("Belirsiz bir hata oluştu!" + ex.Message);
+            }
+        }
+        [HttpPost]
+        [Route("/[controller]/[action]")]
+        public IActionResult MUKELLEFLISTESIGuncelle(PocoMUKELLEFLISTESI pModel)
+        {
+            try
+            {
+                var data = _MUKELLEFLISTESIServis.Guncelle(pModel);
                 return Ok(data);
             }
             catch (Exception ex)
@@ -101,7 +99,7 @@ namespace MEYPAK.API.Controllers.PERSONELControllers
         {
             try
             {
-                bool succes = _personelIzinServis.DeleteById(id);
+                bool succes = _MUKELLEFLISTESIServis.DeleteById(id);
                 if (succes)
                     return Ok(id + " Başarıyla Silindi");
                 else

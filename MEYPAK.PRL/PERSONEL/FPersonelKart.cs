@@ -395,7 +395,6 @@ namespace MEYPAK.PRL.PERSONEL
         {
             if (_tempPocoPERSONEL != null)
             {
-
                 base64 = _tempPocoPERSONEL.img;
                 TBTCNO.Text = _tempPocoPERSONEL.tc;
                 TBAdi.Text = _tempPocoPERSONEL.adi;
@@ -439,7 +438,7 @@ namespace MEYPAK.PRL.PERSONEL
                 TBMedeniDurum.Text = _tempPocoPERSONEL.medenidurum;
                 CBUyrugu.EditValue = _tempPocoPERSONEL.uyruk;
                 TBIlkSoyad.Text = _tempPocoPERSONEL.ilksoyad;
-                TBMaas.EditValue = _tempPocoPERSONEL.maas;
+                TBMaas.Text = _tempPocoPERSONEL.maas.ToString();
                 TBSube.Text = _tempPocoPERSONEL.sube;
                 /*EditValue yerine CanFocus denenecek.*/
                 CBNufIl.EditValue = _tempPocoPERSONEL.nufusakayitliil;

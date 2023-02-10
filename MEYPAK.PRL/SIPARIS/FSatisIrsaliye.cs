@@ -1083,6 +1083,7 @@ namespace MEYPAK.PRL.IRSALIYE
                                 irsaliyedetayid = _irsaliyeDetayServis.obje2.id,
                                 faturadetayid = 0,
                                 userid = MPKullanici.ID,
+                                depoid= _depoServis.obje.Where(x => x.depoadi == CBDepo.Text).FirstOrDefault().id
                             });
                             if (item2.ID > 0)
                                 except.AddRange(_stokKasaHarServis.obje.Where(x => x.id == item2.ID));

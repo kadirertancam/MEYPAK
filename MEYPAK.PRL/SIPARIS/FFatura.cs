@@ -815,7 +815,7 @@ namespace MEYPAK.PRL.SIPARIS
             else if (gridView1.GetFocusedRowCellValue("Tipi") == "KASA")
             {
 
-                _fStokKasaList = new FStokKasaList(this.Tag.ToString(), "FFatura");
+                _fStokKasaList = new FStokKasaList(this.Tag.ToString(), "FFatura", gridView1.FocusedRowHandle.ToString());
                 _fStokKasaList.ShowDialog();
                 if (_tempKasa != null)
                 {
@@ -1161,7 +1161,8 @@ namespace MEYPAK.PRL.SIPARIS
                                 miktar = item2.MIKTAR, // _kasaaa.Where(x => x.num == test.num).Select(x => x.KasaList.Sum(t => t.MIKTAR)).FirstOrDefault()
                                 irsaliyedetayid = 0,
                                 faturadetayid = _faturadetayServis.obje2.id,
-                                userid = MPKullanici.ID
+                                userid = MPKullanici.ID,
+                                depoid= _depoServis.obje.Where(x => x.depoadi == CBDepo.Text).FirstOrDefault().id
                             });
                             if (item2.ID > 0)
                                 except.AddRange(_stokKasaHarServis.obje.Where(x => x.id == item2.ID));

@@ -40,6 +40,7 @@ namespace MEYPAK.Entity.Mappings
             //EISLEMLER
 
             CreateMap<MPGELENEFATURA, PocoGELENEFATURA>().ReverseMap();
+            CreateMap<MPMUKELLEFLISTESI, PocoMUKELLEFLISTESI>().ReverseMap();
 
             //SARF
             CreateMap<MPSTOKSARF, PocoSTOKSARF>().ReverseMap();
