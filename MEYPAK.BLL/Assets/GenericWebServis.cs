@@ -52,10 +52,11 @@ namespace MEYPAK.BLL.Assets
             serialize = JsonConvert.SerializeObject(model);
             //string empty = "\" \"";
             //serialize = Regex.Replace(serialize, @"\bnull\b", $"{empty}");
-            servis= parameters != null ? servis + "?" + parameters : servis;
-            servis = id != null ? servis + "?id=" + id : servis;
+           // servis= parameters != null ? servis + "?" + parameters : servis;
+           // servis = id != null ? servis + "?id=" + id : servis;
             HttpRequestMessage client;
             
+                
             if (method != null)
                 client = new HttpRequestMessage(method,servis);
             else if (model == null && modellist == null)
@@ -80,6 +81,10 @@ namespace MEYPAK.BLL.Assets
                 client.Content = new StringContent(serialize,
                                         Encoding.UTF8,
                                         "application/json");
+            if(parameters!= null)
+                client.Content = new StringContent(parameters,
+                                       Encoding.UTF8,
+                                       "application/json");
 
             HttpResponseMessage resp =   httpClient.Send(client);
             Content = resp.Content.ReadAsStringAsync().Result;
