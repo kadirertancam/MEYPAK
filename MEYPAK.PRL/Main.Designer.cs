@@ -80,6 +80,8 @@
             this.barSubItem20 = new DevExpress.XtraBars.BarSubItem();
             this.barSubItem21 = new DevExpress.XtraBars.BarSubItem();
             this.barSubItem22 = new DevExpress.XtraBars.BarSubItem();
+            this.barSubItem25 = new DevExpress.XtraBars.BarSubItem();
+            this.barButtonItem40 = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItem23 = new DevExpress.XtraBars.BarSubItem();
             this.barSubItem24 = new DevExpress.XtraBars.BarSubItem();
             this.barSubItem16 = new DevExpress.XtraBars.BarSubItem();
@@ -94,8 +96,6 @@
             this.barButtonItem36 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem30 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem37 = new DevExpress.XtraBars.BarButtonItem();
-            this.barSubItem25 = new DevExpress.XtraBars.BarSubItem();
-            this.barButtonItem40 = new DevExpress.XtraBars.BarButtonItem();
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.barHeaderItem1 = new DevExpress.XtraBars.BarHeaderItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
@@ -698,6 +698,21 @@
             this.barSubItem22.Id = 69;
             this.barSubItem22.Name = "barSubItem22";
             // 
+            // barSubItem25
+            // 
+            this.barSubItem25.Caption = "E-İşlemler";
+            this.barSubItem25.Id = 75;
+            this.barSubItem25.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem40)});
+            this.barSubItem25.Name = "barSubItem25";
+            // 
+            // barButtonItem40
+            // 
+            this.barButtonItem40.Caption = "Mükellef Listesi Güncelle";
+            this.barButtonItem40.Id = 76;
+            this.barButtonItem40.Name = "barButtonItem40";
+            this.barButtonItem40.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem40_ItemClick);
+            // 
             // barSubItem23
             // 
             this.barSubItem23.Caption = "Personel";
@@ -796,21 +811,6 @@
             this.barButtonItem37.Id = 66;
             this.barButtonItem37.Name = "barButtonItem37";
             this.barButtonItem37.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem37_ItemClick);
-            // 
-            // barSubItem25
-            // 
-            this.barSubItem25.Caption = "barSubItem25";
-            this.barSubItem25.Id = 75;
-            this.barSubItem25.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem40)});
-            this.barSubItem25.Name = "barSubItem25";
-            // 
-            // barButtonItem40
-            // 
-            this.barButtonItem40.Caption = "Mükellef Listesi Güncelle";
-            this.barButtonItem40.Id = 76;
-            this.barButtonItem40.Name = "barButtonItem40";
-            this.barButtonItem40.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem40_ItemClick);
             // 
             // bar2
             // 
