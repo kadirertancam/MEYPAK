@@ -115,6 +115,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
         public DbSet<MPSERI> MPSERI { get; set; }
         public DbSet<MPGELENEFATURA> MPGELENEFATURA { get; set; }
         public DbSet<MPMUKELLEFLISTESI> MPMUKELLEFLISTESI { get; set; }
+        public DbSet<MPKASAPARAMS> MPKASAPARAMS { get; set; }
 
 
 
