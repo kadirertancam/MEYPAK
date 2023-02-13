@@ -27,7 +27,7 @@ namespace MEYPAK.Entity.PocoModels.CEKSENET
         public int SERINO { get; set; }
         public string IBANNO { get; set; }
         public int MUHASEBEID { get; set; }
-        public int ISLEM { get; set; }
+        public int ISLEM { get; set; } //1 -CIRO 2- PROTESTO 3- TAHSÝLAT 4-TEMÝNAT
         public int DURUM { get; set; }
         public string ACIKLAMA1 { get; set; }
         public string ACIKLAMA2 { get; set; }

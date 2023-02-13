@@ -14,9 +14,9 @@ using System.Windows.Forms;
 
 namespace MEYPAK.PRL.CEKSENET.Firma.Çek
 {
-    public partial class FirmaCekListe : XtraForm
+    public partial class FFirmaCekListe : XtraForm
     {
-        public FirmaCekListe()
+        public FFirmaCekListe()
         {
             InitializeComponent();
             _cekFirmaServis = new GenericWebServis<PocoFIRMACEKSB>();
@@ -29,11 +29,20 @@ namespace MEYPAK.PRL.CEKSENET.Firma.Çek
         {
             _cekFirmaServis.Data(ServisList.FirmaCekSBListeServis);
             _cariServis.Data(ServisList.CariListeServis);
-            gridControl1.DataSource = _cekFirmaServis.obje.Select(x=> new
+            gridControl1.DataSource = _cekFirmaServis.obje.Where(x=> x.ODEMETARIH>DateTime.Now.AddDays(-1)).Select(x=> new
             {
                 CekNo=x.CEKNO,
                 CekTarih=x.ODEMETARIH,
                 CariAdi= _cariServis.obje.Where(y=>y.id== x.CARIID).FirstOrDefault().unvan ,
+                Tutar = x.TUTAR
+            });
+        
+            gridControl2.DataSource = _cekFirmaServis.obje.OrderBy(x=> x.ODEMETARIH).Select(x => new
+            {
+                CekNo = x.CEKNO,
+                CekTarih = x.ODEMETARIH,
+                CariAdi = _cariServis.obje.Where(y => y.id == x.CARIID).FirstOrDefault().unvan,
+                Tutar = x.TUTAR
             });
         }
     }

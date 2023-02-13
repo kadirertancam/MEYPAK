@@ -154,6 +154,7 @@
             this.BTKaldir.Size = new System.Drawing.Size(75, 23);
             this.BTKaldir.TabIndex = 2;
             this.BTKaldir.Text = "Kaldır";
+            this.BTKaldir.Click += new System.EventHandler(this.BTKaldir_Click);
             // 
             // BTCekSec
             // 
@@ -161,6 +162,7 @@
             this.BTCekSec.Name = "BTCekSec";
             this.BTCekSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.BTCekSec.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTCekSec_Properties_ButtonClick);
             this.BTCekSec.Size = new System.Drawing.Size(193, 22);
             this.BTCekSec.TabIndex = 1;
             // 
@@ -235,6 +237,7 @@
             this.BTKaydet.Size = new System.Drawing.Size(95, 40);
             this.BTKaydet.TabIndex = 0;
             this.BTKaydet.Text = "&KAYDET";
+            this.BTKaydet.Click += new System.EventHandler(this.BTKaydet_Click);
             // 
             // TBCariAdi
             // 
@@ -250,6 +253,7 @@
             this.BTCariSec.Name = "BTCariSec";
             this.BTCariSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.BTCariSec.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTCariSec_Properties_ButtonClick);
             this.BTCariSec.Size = new System.Drawing.Size(193, 22);
             this.BTCariSec.TabIndex = 6;
             // 

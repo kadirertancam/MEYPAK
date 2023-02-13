@@ -12,6 +12,7 @@ using MEYPAK.PRL.BANKA;
 using MEYPAK.PRL.CARI;
 using MEYPAK.PRL.CARI.Raporlar;
 using MEYPAK.PRL.CEKSENET;
+using MEYPAK.PRL.CEKSENET.Firma.Çek;
 using MEYPAK.PRL.CEKSENET.Müşteri.Çek;
 using MEYPAK.PRL.CEKSENET.Müşteri.Senet;
 using MEYPAK.PRL.DEPO;
@@ -131,6 +132,7 @@ namespace MEYPAK.PRL
         FMusteriSenetProtesto fMusteriSenetProtesto;
         FStokSarf fStokSarf;
         EFATURA fefatura;
+        FFirmaCekListe fFirmaCekListe;
 
         public Tarih_Date _tarih_Date = new Tarih_Date();
         public DataTable guncelkur;
@@ -1719,6 +1721,27 @@ namespace MEYPAK.PRL
                     }
                 }
             }
+        }
+
+        private void ACECekListe_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fFirmaCekListe = new FFirmaCekListe();
+            page.Name = "FFirmaCekListe" + i;
+            page.Text = "Firma Çek Liste";
+            page.Tag = "FFirmaCekListe" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fFirmaCekListe.FormBorderStyle = FormBorderStyle.None;
+            fFirmaCekListe.TopLevel = false;
+            fFirmaCekListe.AutoScroll = true;
+            fFirmaCekListe.Dock = DockStyle.Fill;
+            fFirmaCekListe.Tag = "FFirmaCekListe" + i;
+            page.Controls.Add(fFirmaCekListe);
+            fFirmaCekListe.Show();
+            i++;
         }
     }
 }

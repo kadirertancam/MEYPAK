@@ -11,7 +11,7 @@ namespace MEYPAK.Entity.Models.CEKSENET
         public int CEKID { get; set; }
         public DateTime TARIH { get; set; }
         public int CARID { get; set; }
-        public int ISLEM { get; set; }
+        public int ISLEM { get; set; }// 1- CİRO 2- PROTESTO 3-TAHSİLAT 4-TEMİNAT
         public int BANKAID { get; set; }
         public int KASAID { get; set; }
         public int MASRAFID { get; set; }
