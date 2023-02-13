@@ -8,9 +8,9 @@ namespace MEYPAK.BLL.Assets
 {
     public static class ServisList
     {
-        #region Cookie
+        #region ASSETS
         public static string Cookie = "";
-
+        public static string URL = "http://78.135.80.41:8081";
 
         #endregion
 

@@ -31,9 +31,10 @@ namespace MEYPAK.BLL.Assets
     #endregion
 
     
-
+    
     public class GenericWebServis<T> where T : class, new()
     {
+        
         public GenericWebServis() {
             httpClient = new HttpClient();
         }
@@ -46,6 +47,7 @@ namespace MEYPAK.BLL.Assets
 
         public void Data(string servis,T model=null,string parameters=null,List<T> modellist=null,string id=null, HttpMethod method =null)
         {
+           
             if(modellist!=null)
                 serialize = JsonConvert.SerializeObject(modellist);
             if(model!=null)
@@ -66,7 +68,7 @@ namespace MEYPAK.BLL.Assets
             client.Headers.Add("Connection", "keep-alive");
             client.Headers.Add("accept", "*/*");  
             client.Headers.Add("Referer", servis);
-            client.Headers.Add("Origin", "http://78.135.80.41:8081");
+            client.Headers.Add("Origin", ServisList.URL);
             client.Headers.Add("sec-ch-ua", "\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"");
             client.Headers.Add("sec-ch-ua-mobile", "?0");
             client.Headers.Add("sec-ch-ua-paltform", "\"Windows\"");
@@ -116,7 +118,7 @@ namespace MEYPAK.BLL.Assets
            
                 throw new Exception(Content.ToString());
             }
-
+            
         }
 
         
