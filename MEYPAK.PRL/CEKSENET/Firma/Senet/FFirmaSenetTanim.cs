@@ -29,6 +29,7 @@ namespace MEYPAK.PRL.CEKSENET
             _cekSenetUstSbServis = new GenericWebServis<PocoCEKSENETUSTSB>();
             _cariAltHesServis = new GenericWebServis<PocoCARIALTHES>();
             _cariAltHesCariServis = new GenericWebServis<PocoCARIALTHESCARI>();
+            _cariHarServis= new GenericWebServis<PocoCARIHAR>();
             _cekSenetUstSbServis.Data(ServisList.CekSenetUstSBListeServis);
             _cariKartServis.Data(ServisList.CariListeServis);
             _firmaSenetServis.Data(ServisList.FirmaSenetSBListeServis);
@@ -38,6 +39,7 @@ namespace MEYPAK.PRL.CEKSENET
         GenericWebServis<PocoCARIALTHES> _cariAltHesServis;
         GenericWebServis<PocoCARIALTHESCARI> _cariAltHesCariServis;
         GenericWebServis<PocoCEKSENETUSTSB> _cekSenetUstSbServis;
+        GenericWebServis<PocoCARIHAR> _cariHarServis;
         PocoFIRMACEKSB _tempFirmaCek;
         List<firmaSenetKalem> firmaCekKalem;
         FCariList _cariListe;
@@ -82,7 +84,27 @@ namespace MEYPAK.PRL.CEKSENET
                     userid = MPKullanici.ID
                 });
             }
+            MessageBox.Show($"Senetleriniz {_cekSenetUstSbServis.obje2.BORDRONO} bordro numarası ile kaydedilmiştir.");
+            FormuTemizle();
         }
+
+        void FormuTemizle()
+        {
+            tempCari = null;
+            tempCekSenetUstSb = null;
+            _tempFirmaCek = null;
+            firmaCekKalem.Clear();
+            firmaCekKalem.Add(new firmaSenetKalem());
+            DGFirmaSenet.RefreshDataSource();
+            TBCariAdi.Text = "";
+            BTCariSec.Text = "";
+            CBAltHesap.Properties.DataSource = "";
+            BTBordroSec.Text = "";
+            LBAlacakDeger.Text = "...";
+            LBBakiyeDeger.Text = "...";
+            LBBorcDeger.Text = "...";
+        }
+
 
         void gridYapilandir()
         {
@@ -172,6 +194,12 @@ namespace MEYPAK.PRL.CEKSENET
             CBAltHesap.Properties.DisplayMember = "adi";
             CBAltHesap.Properties.ValueMember = "id";
 
+            _cariHarServis.Data(ServisList.CariHarListeServis);
+            var tempps = _cariHarServis.obje.Where(x => x.cariid == tempCari.id);
+
+            LBAlacakDeger.Text = tempps.Sum(x => x.alacak).ToString();
+            LBBorcDeger.Text = tempps.Sum(x => x.borc).ToString();
+            LBBakiyeDeger.Text = tempps.Sum(x => x.tutar).ToString();
         }
 
         private void FFirmaSenetTanim_Load(object sender, EventArgs e)

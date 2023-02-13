@@ -132,7 +132,7 @@ namespace MEYPAK.PRL
         FStokSarf fStokSarf;
         EFATURA fefatura;
 
-        public Tarih_Date _tarih_Date= new Tarih_Date();
+        public Tarih_Date _tarih_Date = new Tarih_Date();
         public DataTable guncelkur;
         GenericWebServis<PocoPARABIRIM> _parabirimServis;
         GenericWebServis<PocoMUKELLEFLISTESI> _mükellefListesi;
@@ -173,7 +173,7 @@ namespace MEYPAK.PRL
                             dovizalis = item.ForexBuying,
                             dovizefektifalis = Convert.ToDecimal(item.BanknoteBuying == "" ? "0" : item.BanknoteBuying),
                             dovizefektifsatis = Convert.ToDecimal(item.BanknoteSelling == "" ? "0" : item.BanknoteSelling),
-                            userid=MPKullanici.ID,
+                            userid = MPKullanici.ID,
 
                         });
                     else
@@ -200,28 +200,28 @@ namespace MEYPAK.PRL
         {
             foreach (var item in Roller)
             {
-                if (item=="ADMIN")
+                if (item == "ADMIN")
                 {
 
                 }
-                else if (item=="INSANK")
+                else if (item == "INSANK")
                 {
                     ACESTOK.Visible = false;
                     ACECARI.Visible = false;
                     ACEFATURA.Visible = false;
-                    ACECEKSENET.Visible= false;
+                    ACECEKSENET.Visible = false;
                     ACEKASA.Visible = false;
-                    ACEBANKA.Visible=false;
-                    ACEARAC.Visible= false;
-                    ACEBANKA.Visible= false;
-                    ACEPARAMETRELER.Visible=false;
-                    accordionControlElement27.Visible=false;
-                 
+                    ACEBANKA.Visible = false;
+                    ACEARAC.Visible = false;
+                    ACEBANKA.Visible = false;
+                    ACEPARAMETRELER.Visible = false;
+                    accordionControlElement27.Visible = false;
+
                 }
-                
+
             }
             ACEKullanici.Text = Kullanici.AD + " " + Kullanici.SOYAD;
-           
+
         }
 
         public int i = 0;
@@ -1652,7 +1652,7 @@ namespace MEYPAK.PRL
 
             fStokSarf.FormBorderStyle = FormBorderStyle.None;
             fStokSarf.TopLevel = false;
-            fStokSarf.AutoScroll = true; 
+            fStokSarf.AutoScroll = true;
             fStokSarf.Dock = DockStyle.Fill;
             fStokSarf.Tag = "StokKasaGirisPanel" + i;
             page.Controls.Add(fStokSarf);
@@ -1662,7 +1662,7 @@ namespace MEYPAK.PRL
 
         private void accordionControlElement64_Click(object sender, EventArgs e)
         {
-          
+
 
         }
 
@@ -1689,7 +1689,7 @@ namespace MEYPAK.PRL
 
         private void barButtonItem40_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if(MessageBox.Show("Mükellef listesi güncellenecektir, devam etmek istermisiniz?(Biraz zaman alabilir)","Mükellef Listesi Güncelle", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Mükellef listesi güncellenecektir, devam etmek istermisiniz?(Biraz zaman alabilir)", "Mükellef Listesi Güncelle", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 ServiceReference1.IntegrationClient ıntegrationClient = new ServiceReference1.IntegrationClient();
                 ıntegrationClient.ClientCredentials.UserName.UserName = "Gunduz";
@@ -1701,16 +1701,22 @@ namespace MEYPAK.PRL
                     PageIndex = 0,
                     PageSize = 999999,
                 }).Result;
-                foreach (var item in res.Value.Items)
+                if (res.Value.Items != null)
                 {
+                    _mükellefListesi.Data(ServisList.MUKELLEFLISTESIListeFiltreServis, null);
 
-
-                    _mükellefListesi.Data(ServisList.MUKELLEFLISTESIEkleServis, new PocoMUKELLEFLISTESI()
+                    foreach (var item in res.Value.Items)
                     {
-                        cariadi = item.Title,
-                        vkn = item.Identifier,
-                        urn = item.PostboxAlias
-                    });
+
+
+                        _mükellefListesi.Data(ServisList.MUKELLEFLISTESIEkleServis, new PocoMUKELLEFLISTESI()
+                        {
+                            cariadi = item.Title,
+                            vkn = item.Identifier,
+                            urn = item.PostboxAlias,
+                            userid = MPKullanici.ID
+                        });
+                    }
                 }
             }
         }

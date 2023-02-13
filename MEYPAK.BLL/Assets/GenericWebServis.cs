@@ -31,9 +31,10 @@ namespace MEYPAK.BLL.Assets
     #endregion
 
     
-
+    
     public class GenericWebServis<T> where T : class, new()
     {
+        
         public GenericWebServis() {
             httpClient = new HttpClient();
         }
@@ -46,16 +47,18 @@ namespace MEYPAK.BLL.Assets
 
         public void Data(string servis,T model=null,string parameters=null,List<T> modellist=null,string id=null, HttpMethod method =null)
         {
+           
             if(modellist!=null)
                 serialize = JsonConvert.SerializeObject(modellist);
             if(model!=null)
             serialize = JsonConvert.SerializeObject(model);
             //string empty = "\" \"";
             //serialize = Regex.Replace(serialize, @"\bnull\b", $"{empty}");
-            servis= parameters != null ? servis + "?" + parameters : servis;
-            servis = id != null ? servis + "?id=" + id : servis;
+           // servis= parameters != null ? servis + "?" + parameters : servis;
+           // servis = id != null ? servis + "?id=" + id : servis;
             HttpRequestMessage client;
             
+                
             if (method != null)
                 client = new HttpRequestMessage(method,servis);
             else if (model == null && modellist == null)
@@ -65,7 +68,7 @@ namespace MEYPAK.BLL.Assets
             client.Headers.Add("Connection", "keep-alive");
             client.Headers.Add("accept", "*/*");  
             client.Headers.Add("Referer", servis);
-            client.Headers.Add("Origin", "http://78.135.80.41:8080");
+            client.Headers.Add("Origin", ServisList.URL);
             client.Headers.Add("sec-ch-ua", "\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"");
             client.Headers.Add("sec-ch-ua-mobile", "?0");
             client.Headers.Add("sec-ch-ua-paltform", "\"Windows\"");
@@ -80,6 +83,10 @@ namespace MEYPAK.BLL.Assets
                 client.Content = new StringContent(serialize,
                                         Encoding.UTF8,
                                         "application/json");
+            if(parameters!= null)
+                client.Content = new StringContent(parameters,
+                                       Encoding.UTF8,
+                                       "application/json");
 
             HttpResponseMessage resp =   httpClient.Send(client);
             Content = resp.Content.ReadAsStringAsync().Result;
@@ -111,7 +118,7 @@ namespace MEYPAK.BLL.Assets
            
                 throw new Exception(Content.ToString());
             }
-
+            
         }
 
         

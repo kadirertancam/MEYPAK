@@ -8,19 +8,19 @@ namespace MEYPAK.BLL.Assets
 {
     public static class ServisList
     {
-        #region Cookie
+        #region ASSETS
         public static string Cookie = "";
-
+        public static string URL = "http://78.135.80.41:8081";
 
         #endregion
 
         #region EISLEMLER
         public const string MUKELLEFLISTESIListeServis =        "http://78.135.80.41:8081/MUKELLEFLISTESI/MUKELLEFLISTESIListe";
-        public const string MUKELLEFLISTESIEkleServis =         "http://78.135.80.41:8081/MUKELLEFLISTESI/MUKELLEFLISTESIEkleyadaGuncelle";
+        public const string MUKELLEFLISTESIEkleServis =         "http://78.135.80.41:8081/MUKELLEFLISTESI/MUKELLEFLISTESIEkle";
         public const string MUKELLEFLISTESISilServis =          "http://78.135.80.41:8081/MUKELLEFLISTESI/MUKELLEFLISTESISil";
         public const string MUKELLEFLISTESIGuncelleServis =     "http://78.135.80.41:8081/MUKELLEFLISTESI/MUKELLEFLISTESIGuncelle";
         public const string MUKELLEFLISTESIDeleteByIdServis =   "http://78.135.80.41:8081/MUKELLEFLISTESI/DeleteById";
-        public const string MUKELLEFLISTESIListeFiltreServis =  "http://78.135.80.41:8081/MUKELLEFLISTESI/Liste2?query=";
+        public const string MUKELLEFLISTESIListeFiltreServis = "http://78.135.80.41:8081/MUKELLEFLISTESI/MUKELLEFLISTESIListe2";
 
         #endregion
 
@@ -33,7 +33,8 @@ namespace MEYPAK.BLL.Assets
         public const string PersonelAvansListeFiltreServis = "http://78.135.80.41:8081/PERSONELAVANS/Liste2?query=";
 
 
-        #endregion
+        #endregion 
+
         #region PERSONELIZIN
         public const string PersonelIzinListeServis = "http://78.135.80.41:8081/PERSONELIZIN/Liste";
         public const string PersonelIzinEkleServis = "http://78.135.80.41:8081/PERSONELIZIN/EkleyadaGuncelle";
@@ -66,6 +67,7 @@ namespace MEYPAK.BLL.Assets
 
 
         #endregion
+
         #region Arac
         public const string AracListeServis =    "http://78.135.80.41:8081/ARAC/ARACListe";
         public const string AracEkleServis = "http://78.135.80.41:8081/ARAC/ARACEkleyadaGuncelle";
@@ -802,9 +804,6 @@ namespace MEYPAK.BLL.Assets
         public const string MusteriCekSenetFiltreServis =     "http://78.135.80.41:8081/MUSTERICEKSENET/Liste2?query=";
 
         #endregion
-
-
-
 
     }
 }
