@@ -174,6 +174,9 @@ builder.Services.AddScoped<IParaBirimServis, ParaBirimManager>();
 
 builder.Services.AddScoped<ISeriHarDal, EFSeriHarRepo>();
 builder.Services.AddScoped<ISeriHarServis, SeriHarManager>();
+
+builder.Services.AddScoped<IKasaParamsDal, EFKasaParamsRepo>();
+builder.Services.AddScoped<IKasaParamServis, KasaParamsManager>();
 #endregion
 #region Cari_Scoped_Islemleri
 builder.Services.AddScoped<ICariResimDal, EFCariResimRepo>();

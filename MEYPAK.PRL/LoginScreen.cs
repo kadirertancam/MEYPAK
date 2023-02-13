@@ -1,5 +1,6 @@
 ﻿using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.IdentityModels;
+using MEYPAK.PRL.CEKSENET.Firma.Çek;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
@@ -38,8 +39,10 @@ namespace MEYPAK.PRL
 
                 if (_loginService.loginResult !=null)
                 {
-                    fMain = new Main(_loginService.loginResult.MPUSER,_loginService.loginResult.userRoles);
+                    fMain = new Main(_loginService.loginResult.MPUSER, _loginService.loginResult.userRoles);
                     fMain.Show();
+                    //FirmaCekListe firmaCekListe = new FirmaCekListe();
+                    //firmaCekListe.ShowDialog();
                     this.Hide();
                 }
                 else

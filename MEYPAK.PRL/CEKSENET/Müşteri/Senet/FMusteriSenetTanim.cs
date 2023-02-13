@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraEditors;
 using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.PocoModels.CARI;
+using MEYPAK.Entity.PocoModels.CEKSENET;
 using MEYPAK.PRL.CARI;
 using MEYPAK.PRL.STOK;
 using System;
@@ -27,7 +28,7 @@ namespace MEYPAK.PRL.CEKSENET
         #region Tanımlar
         GenericWebServis<PocoCARIKART> _cariServis;
         PocoCARIKART _tempCariKart;
-
+        public PocoCEKSENETUSTSB tempCekSenetUstSb;
 
         #endregion
 

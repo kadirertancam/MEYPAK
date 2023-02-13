@@ -1679,7 +1679,6 @@
             this.accordionControlElement27.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.accordionControlElement62,
             this.accordionControlElement63});
-            this.accordionControlElement27.Expanded = true;
             this.accordionControlElement27.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement27.ImageOptions.Image")));
             this.accordionControlElement27.Name = "accordionControlElement27";
             this.accordionControlElement27.Text = "E-İşlemler";
