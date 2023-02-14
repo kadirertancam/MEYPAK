@@ -232,6 +232,7 @@
             this.applicationMenu1 = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
             this.accordionContentContainer1 = new DevExpress.XtraBars.Navigation.AccordionContentContainer();
             this.accordionControlElement64 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACECekSenetDurum = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -1537,7 +1538,8 @@
             // 
             this.ACEFirmaCek.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.ACEFCekTanim,
-            this.ACECekListe});
+            this.ACECekListe,
+            this.ACECekSenetDurum});
             this.ACEFirmaCek.Expanded = true;
             this.ACEFirmaCek.Name = "ACEFirmaCek";
             this.ACEFirmaCek.Text = "Firma Çek";
@@ -1906,6 +1908,13 @@
             this.accordionControlElement64.Text = "Gelen Kutusu";
             this.accordionControlElement64.Click += new System.EventHandler(this.accordionControlElement64_Click);
             // 
+            // ACECekSenetDurum
+            // 
+            this.ACECekSenetDurum.Name = "ACECekSenetDurum";
+            this.ACECekSenetDurum.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ACECekSenetDurum.Text = "Cek Senet Durum";
+            this.ACECekSenetDurum.Click += new System.EventHandler(this.ACECekSenetDurum_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2137,5 +2146,6 @@
         private DevExpress.XtraBars.BarSubItem barSubItem25;
         private DevExpress.XtraBars.BarButtonItem barButtonItem40;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACECekListe;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACECekSenetDurum;
     }
 }

@@ -1611,6 +1611,8 @@
             this.TBAvansMiktar.EditValue = 0;
             this.TBAvansMiktar.Location = new System.Drawing.Point(136, 32);
             this.TBAvansMiktar.Name = "TBAvansMiktar";
+            this.TBAvansMiktar.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
+            this.TBAvansMiktar.Properties.MaskSettings.Set("mask", "f");
             this.TBAvansMiktar.Size = new System.Drawing.Size(146, 20);
             this.TBAvansMiktar.TabIndex = 3;
             // 

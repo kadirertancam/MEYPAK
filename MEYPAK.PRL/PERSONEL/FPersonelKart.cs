@@ -65,10 +65,9 @@ namespace MEYPAK.PRL.PERSONEL
         public PocoPERSONEL _tempPocoPERSONEL;
         string base64 = "";
 
-
         private void BTNPersonelKaydet_Click(object sender, EventArgs e)
         {
-            if (TBTCNO.EditValue != null && TBAdi.EditValue != null && TBSoyadi.EditValue != null && DTPIseGirisTar.EditValue != null && CBCinsiyet.EditValue != null && DTPDogumTar.EditValue != null && CBDepartman.EditValue != null && CBGorev.EditValue != null)
+            if (TBTCNO.EditValue != null && TBAdi.EditValue != null && TBSoyadi.EditValue != null && DTPIseGirisTar.EditValue != null && CBCinsiyet.EditValue != null && DTPDogumTar.EditValue != null && CBDepartman.EditValue != null && CBGorev.EditValue != null && TBTCNO.EditValue != "" && TBAdi.EditValue != "" && TBSoyadi.EditValue != "" && DTPIseGirisTar.EditValue != "" && CBCinsiyet.EditValue != "" && DTPDogumTar.EditValue != "" && CBDepartman.EditValue != "" && CBGorev.EditValue != ""&&DTPIseGirisTar.EditValue!=""&&DTPDogumTar.EditValue!="")
             {
                 _personelServis.Data(ServisList.PersonelEkleServis, new PocoPERSONEL()
                 {
@@ -99,7 +98,7 @@ namespace MEYPAK.PRL.PERSONEL
                     mezunbolum = TBMezunBolum.Text,
                     askerlikdurum = CBAskerlikDurum.EditValue != null ? CBAskerlikDurum.EditValue.ToString() : "BILINMIYOR",
                     askerlikbaslangictar = DTPAskerBasTar.EditValue != null && DTPAskerBasTar.Text != "" ? Convert.ToDateTime(DTPAskerBasTar.EditValue) : Convert.ToDateTime("01.01.1990"),
-                    askerlikbitistar = DTPAskerBitTar.EditValue != null ? Convert.ToDateTime(DTPAskerBitTar.EditValue) : Convert.ToDateTime("01.01.1990"),
+                    askerlikbitistar = DTPAskerBitTar.EditValue != null && DTPAskerBitTar.Text!="" ? Convert.ToDateTime(DTPAskerBitTar.EditValue) : Convert.ToDateTime("01.01.1990"),
                     sigortaturkod = CBSigortalilikTur.EditValue != null && CBSigortalilikTur.Text != "" ? CBSigortalilikTur.EditValue.ToString() : "BILINMIYOR",
                     yaslilikayligi = CBYaslilikAylik.EditValue != null && CBYaslilikAylik.Text != "" ? CBYaslilikAylik.EditValue.ToString() : "BILINMIYOR",
                     istihdamdurumu = CBIstihtamTuru.EditValue != null && CBIstihtamTuru.Text != "" ? CBIstihtamTuru.EditValue.ToString() : "BILINMIYOR",
@@ -140,6 +139,7 @@ namespace MEYPAK.PRL.PERSONEL
                     aktif = true,
                     sube = TBSube.Text,
                     userid = MPKullanici.ID,
+                    
 
                 }) ;
                 string message = _tempPocoPERSONEL != null ? _tempPocoPERSONEL.adi + "'e ait bilgiler başarıyla güncellendi." : "Kayıt Başarıyla Eklendi";
@@ -207,12 +207,13 @@ namespace MEYPAK.PRL.PERSONEL
                 {
                     _personelAvansServis.Data(ServisList.PersonelAvansEkleServis, new PocoPERSONELAVANS()
                     {
-                        MIKTAR = Convert.ToInt32(TBAvansMiktar.EditValue),
+                        MIKTAR = Convert.ToDecimal(TBAvansMiktar.EditValue),
                         ACIKLAMA = TBAvansAciklama.Text,
                         TARIH = (DateTime)DTPAvansTar.EditValue,
                         userid = MPKullanici.ID,
                     });
                     PersonelAvansGridDoldur();
+                    MessageBox.Show($"{_tempPocoPERSONEL.adisoyadi} adlı personele avans eklenmiştir.");
                 }
                 else
                     MessageBox.Show("Avans Bilgisi Eklenecek Personel Bulunamadı!");
@@ -299,6 +300,7 @@ namespace MEYPAK.PRL.PERSONEL
 
         private void gridControl1_DoubleClick(object sender, EventArgs e)
         {
+            FormuTemizle();
             _tempPocoPERSONEL = _personelServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
             PersonelBilgileriniDoldur();
         }
@@ -317,6 +319,71 @@ namespace MEYPAK.PRL.PERSONEL
             CBGorev.Properties.Columns["ID"].Visible = false;
         }
 
+        void FormuTemizle()
+        {
+            foreach (var ctrl in panelControl3.Controls)
+            {
+                BaseEdit editor = ctrl as BaseEdit;
+                if (editor != null)
+                    editor.EditValue = null;
+            }
+            foreach (var ctrl in panelControl5.Controls)
+            {
+                BaseEdit editor = ctrl as BaseEdit;
+                if (editor != null)
+                    editor.EditValue = null;
+            }
+            foreach (var ctrl in panelControl7.Controls)
+            {
+                BaseEdit editor = ctrl as BaseEdit;
+                if (editor != null)
+                    editor.EditValue = null;
+            }
+            foreach (var ctrl in panelControl9.Controls)
+            {
+                BaseEdit editor = ctrl as BaseEdit;
+                if (editor != null)
+                    editor.EditValue = null;
+            }
+            foreach (var ctrl in panelControl10.Controls)
+            {
+                BaseEdit editor = ctrl as BaseEdit;
+                if (editor != null)
+                    editor.EditValue = null;
+            }
+            foreach (var ctrl in panelControl11.Controls)
+            {
+                BaseEdit editor = ctrl as BaseEdit;
+                if (editor != null)
+                    editor.EditValue = null;
+            }
+            foreach (var ctrl in panelControl12.Controls)
+            {
+                BaseEdit editor = ctrl as BaseEdit;
+                if (editor != null)
+                    editor.EditValue = null;
+            }
+            foreach (var ctrl in panelControl14.Controls)
+            {
+                BaseEdit editor = ctrl as BaseEdit;
+                if (editor != null)
+                    editor.EditValue = null;
+            }
+            PBPersonelResim.Image = null;
+            base64 = "";
+            GCPersonelBanka.DataSource = "";
+            GCPersonelIzın.DataSource = "";
+            GCPersonelZimmet.DataSource = "";
+            GCAvans.DataSource = "";
+            DTPIseGirisTar.EditValue = DateTime.Now;
+            TBNotlar.Text = "";
+            PBPersonelResim.Image = null;
+            _tempPocoPERSONEL = null;
+            base64 = "";
+            CBGorev.EditValue = 0;
+            CBDepartman.EditValue = 0;
+        }
+
         #region Methods
         void FormuTemizle(System.Windows.Forms.Control.ControlCollection ctrlCollection)
         {
@@ -331,18 +398,19 @@ namespace MEYPAK.PRL.PERSONEL
                     FormuTemizle(ctrl.Controls);
                 }
             }
+
             GCPersonelBanka.DataSource = "";
             GCPersonelIzın.DataSource = "";
             GCPersonelZimmet.DataSource = "";
             GCAvans.DataSource = "";
-            DTPAskerBasTar.EditValue = DateTime.Now;
-            DTPAskerBitTar.EditValue = DateTime.Now;
-            DTPDogumTar.EditValue = DateTime.Now;
             DTPIseGirisTar.EditValue = DateTime.Now;
             TBNotlar.Text = "";
             PBPersonelResim.Image = null;
             _tempPocoPERSONEL = null;
             base64 = "";
+            CBGorev.EditValue = 0;
+            CBDepartman.EditValue = 0;
+            
         }
         private static Stream GetStreamFromUrl(string url)
         {
@@ -461,6 +529,7 @@ namespace MEYPAK.PRL.PERSONEL
                 TBVergiNo.Text = _tempPocoPERSONEL.vergino;
                 TBTelefon.Text = _tempPocoPERSONEL.telefon;
                 TBCepNo.Text = _tempPocoPERSONEL.cepno;
+                TBCiltNo.Text = _tempPocoPERSONEL.ciltno;
                 TBEposta.Text = _tempPocoPERSONEL.eposta;
                 CBUstBeden.SelectedIndex = _tempPocoPERSONEL.bedenolcusu;
                 CBAltBeden.EditValue = _tempPocoPERSONEL.pantolonolcusu;

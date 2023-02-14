@@ -12,6 +12,7 @@ using MEYPAK.PRL.BANKA;
 using MEYPAK.PRL.CARI;
 using MEYPAK.PRL.CARI.Raporlar;
 using MEYPAK.PRL.CEKSENET;
+using MEYPAK.PRL.CEKSENET.Firma;
 using MEYPAK.PRL.CEKSENET.Firma.Çek;
 using MEYPAK.PRL.CEKSENET.Müşteri.Çek;
 using MEYPAK.PRL.CEKSENET.Müşteri.Senet;
@@ -133,6 +134,7 @@ namespace MEYPAK.PRL
         FStokSarf fStokSarf;
         EFATURA fefatura;
         FFirmaCekListe fFirmaCekListe;
+        FCekSenetDurum fCekSenetDurum;
 
         public Tarih_Date _tarih_Date = new Tarih_Date();
         public DataTable guncelkur;
@@ -1741,6 +1743,27 @@ namespace MEYPAK.PRL
             fFirmaCekListe.Tag = "FFirmaCekListe" + i;
             page.Controls.Add(fFirmaCekListe);
             fFirmaCekListe.Show();
+            i++;
+        }
+
+        private void ACECekSenetDurum_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fCekSenetDurum = new FCekSenetDurum();
+            page.Name = "FCekSenetDurum" + i;
+            page.Text = "Çek Senet Durum";
+            page.Tag = "FCekSenetDurum" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fCekSenetDurum.FormBorderStyle = FormBorderStyle.None;
+            fCekSenetDurum.TopLevel = false;
+            fCekSenetDurum.AutoScroll = true;
+            fCekSenetDurum.Dock = DockStyle.Fill;
+            fCekSenetDurum.Tag = "FCekSenetDurum" + i;
+            page.Controls.Add(fCekSenetDurum);
+            fCekSenetDurum.Show();
             i++;
         }
     }
