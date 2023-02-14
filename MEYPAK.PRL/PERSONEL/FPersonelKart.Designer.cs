@@ -186,7 +186,6 @@
             this.TBZimAciklama = new DevExpress.XtraEditors.MemoEdit();
             this.TBZimMarka = new DevExpress.XtraEditors.TextEdit();
             this.TBZimSeriNo = new DevExpress.XtraEditors.TextEdit();
-            this.TBZimMiktar = new DevExpress.XtraEditors.TextEdit();
             this.LBZimAciklama = new DevExpress.XtraEditors.LabelControl();
             this.LBZimMiktar = new DevExpress.XtraEditors.LabelControl();
             this.LBZimSeriNo = new DevExpress.XtraEditors.LabelControl();
@@ -239,6 +238,7 @@
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
             this.gridControl2 = new DevExpress.XtraGrid.GridControl();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.TBZimMiktar = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
@@ -347,7 +347,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.TBZimAciklama.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBZimMarka.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBZimSeriNo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TBZimMiktar.Properties)).BeginInit();
             this.XTPNot.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
@@ -376,6 +375,7 @@
             this.xtraTabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBZimMiktar.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -527,9 +527,9 @@
             this.CBNufIl.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.CBNufIl.Properties.NullText = "";
+            this.CBNufIl.Properties.EditValueChanged += new System.EventHandler(this.CBNufIl_Properties_EditValueChanged);
             this.CBNufIl.Size = new System.Drawing.Size(146, 20);
             this.CBNufIl.TabIndex = 42;
-            this.CBNufIl.EditValueChanged += new System.EventHandler(this.CBNufIl_EditValueChanged);
             // 
             // LBUyruk
             // 
@@ -1435,6 +1435,7 @@
             // 
             this.gridView4.GridControl = this.GCPersonelBanka;
             this.gridView4.Name = "gridView4";
+            this.gridView4.OptionsBehavior.Editable = false;
             // 
             // panelControl5
             // 
@@ -1558,6 +1559,7 @@
             // 
             this.gridView6.GridControl = this.GCAvans;
             this.gridView6.Name = "gridView6";
+            this.gridView6.OptionsBehavior.Editable = false;
             // 
             // panelControl14
             // 
@@ -1676,6 +1678,7 @@
             // 
             this.gridView5.GridControl = this.GCPersonelIzın;
             this.gridView5.Name = "gridView5";
+            this.gridView5.OptionsBehavior.Editable = false;
             // 
             // panelControl12
             // 
@@ -1873,15 +1876,16 @@
             // 
             this.gridView3.GridControl = this.GCPersonelZimmet;
             this.gridView3.Name = "gridView3";
+            this.gridView3.OptionsBehavior.Editable = false;
             // 
             // panelControl7
             // 
+            this.panelControl7.Controls.Add(this.TBZimMiktar);
             this.panelControl7.Controls.Add(this.DTPZimBasTar);
             this.panelControl7.Controls.Add(this.BTNZimKaydet);
             this.panelControl7.Controls.Add(this.TBZimAciklama);
             this.panelControl7.Controls.Add(this.TBZimMarka);
             this.panelControl7.Controls.Add(this.TBZimSeriNo);
-            this.panelControl7.Controls.Add(this.TBZimMiktar);
             this.panelControl7.Controls.Add(this.LBZimAciklama);
             this.panelControl7.Controls.Add(this.LBZimMiktar);
             this.panelControl7.Controls.Add(this.LBZimSeriNo);
@@ -1937,16 +1941,6 @@
             this.TBZimSeriNo.Name = "TBZimSeriNo";
             this.TBZimSeriNo.Size = new System.Drawing.Size(130, 20);
             this.TBZimSeriNo.TabIndex = 7;
-            // 
-            // TBZimMiktar
-            // 
-            this.TBZimMiktar.Location = new System.Drawing.Point(329, 75);
-            this.TBZimMiktar.Name = "TBZimMiktar";
-            this.TBZimMiktar.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.TBZimMiktar.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.TBZimMiktar.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
-            this.TBZimMiktar.Size = new System.Drawing.Size(130, 20);
-            this.TBZimMiktar.TabIndex = 5;
             // 
             // LBZimAciklama
             // 
@@ -2448,6 +2442,18 @@
             this.gridView2.GridControl = this.gridControl2;
             this.gridView2.Name = "gridView2";
             // 
+            // TBZimMiktar
+            // 
+            this.TBZimMiktar.Location = new System.Drawing.Point(329, 71);
+            this.TBZimMiktar.Name = "TBZimMiktar";
+            this.TBZimMiktar.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
+            this.TBZimMiktar.Properties.MaskSettings.Set("MaskManagerSignature", "allowNull=False");
+            this.TBZimMiktar.Properties.MaskSettings.Set("mask", "d");
+            this.TBZimMiktar.Properties.MaskSettings.Set("valueType", typeof(ulong));
+            this.TBZimMiktar.Properties.UseMaskAsDisplayFormat = true;
+            this.TBZimMiktar.Size = new System.Drawing.Size(130, 20);
+            this.TBZimMiktar.TabIndex = 65;
+            // 
             // FPersonelKart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2572,7 +2578,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.TBZimAciklama.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBZimMarka.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBZimSeriNo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TBZimMiktar.Properties)).EndInit();
             this.XTPNot.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
@@ -2602,6 +2607,7 @@
             this.xtraTabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBZimMiktar.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2746,7 +2752,6 @@
         private DevExpress.XtraEditors.MemoEdit TBZimAciklama;
         private DevExpress.XtraEditors.TextEdit TBZimMarka;
         private DevExpress.XtraEditors.TextEdit TBZimSeriNo;
-        private DevExpress.XtraEditors.TextEdit TBZimMiktar;
         private DevExpress.XtraEditors.LabelControl LBZimAciklama;
         private DevExpress.XtraEditors.LabelControl LBZimMiktar;
         private DevExpress.XtraEditors.LabelControl LBZimSeriNo;
@@ -2818,5 +2823,6 @@
         private DevExpress.XtraEditors.LookUpEdit CBGorev;
         private DevExpress.XtraEditors.LookUpEdit CBDepartman;
         private DevExpress.XtraEditors.SimpleButton BTSorgula;
+        private DevExpress.XtraEditors.TextEdit TBZimMiktar;
     }
 }
