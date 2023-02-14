@@ -186,6 +186,7 @@
             this.ACEMSenetProtesto = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEFirmaCek = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEFCekTanim = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACECekListe = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEFirmaSenet = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEFSenetTanim = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACECekSenetRapor = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -231,6 +232,7 @@
             this.applicationMenu1 = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
             this.accordionContentContainer1 = new DevExpress.XtraBars.Navigation.AccordionContentContainer();
             this.accordionControlElement64 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACECekSenetDurum = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -1435,6 +1437,7 @@
             this.ACEFirmaCek,
             this.ACEFirmaSenet,
             this.ACECekSenetRapor});
+            this.ACECEKSENET.Expanded = true;
             this.ACECEKSENET.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ACECEKSENET.ImageOptions.Image")));
             this.ACECEKSENET.Name = "ACECEKSENET";
             this.ACECEKSENET.Text = "Çek/Senet";
@@ -1534,7 +1537,10 @@
             // ACEFirmaCek
             // 
             this.ACEFirmaCek.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
-            this.ACEFCekTanim});
+            this.ACEFCekTanim,
+            this.ACECekListe,
+            this.ACECekSenetDurum});
+            this.ACEFirmaCek.Expanded = true;
             this.ACEFirmaCek.Name = "ACEFirmaCek";
             this.ACEFirmaCek.Text = "Firma Çek";
             // 
@@ -1544,6 +1550,13 @@
             this.ACEFCekTanim.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.ACEFCekTanim.Text = "Firma Çek Tanım";
             this.ACEFCekTanim.Click += new System.EventHandler(this.ACEFCekTanim_Click);
+            // 
+            // ACECekListe
+            // 
+            this.ACECekListe.Name = "ACECekListe";
+            this.ACECekListe.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ACECekListe.Text = "Firma Çek Liste";
+            this.ACECekListe.Click += new System.EventHandler(this.ACECekListe_Click);
             // 
             // ACEFirmaSenet
             // 
@@ -1895,6 +1908,13 @@
             this.accordionControlElement64.Text = "Gelen Kutusu";
             this.accordionControlElement64.Click += new System.EventHandler(this.accordionControlElement64_Click);
             // 
+            // ACECekSenetDurum
+            // 
+            this.ACECekSenetDurum.Name = "ACECekSenetDurum";
+            this.ACECekSenetDurum.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ACECekSenetDurum.Text = "Cek Senet Durum";
+            this.ACECekSenetDurum.Click += new System.EventHandler(this.ACECekSenetDurum_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2125,5 +2145,7 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem38;
         private DevExpress.XtraBars.BarSubItem barSubItem25;
         private DevExpress.XtraBars.BarButtonItem barButtonItem40;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACECekListe;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACECekSenetDurum;
     }
 }

@@ -10,7 +10,7 @@ namespace MEYPAK.Entity.Models.CEKSENET
     {
         public int CEKID { get; set; }
         public DateTime TARIH { get; set; }
-        public int ISLEM { get; set; }
+        public int ISLEM { get; set; }  
         public int CARIID { get; set; }
         public int BANKAID { get; set; }
         public int KASAID { get; set; }
@@ -18,6 +18,6 @@ namespace MEYPAK.Entity.Models.CEKSENET
         public int MUHASEBEID { get; set; }
         public int ALTHESAPID { get; set; }
         public int USTID { get; set; }
-        public int DURUM { get; set; }
+        public int DURUM { get; set; } 
     }
 }

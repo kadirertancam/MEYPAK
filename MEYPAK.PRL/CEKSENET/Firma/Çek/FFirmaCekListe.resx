@@ -68,7 +68,12 @@
 }
 .efe{
 	color:white;
-	padding-left:250px;
+	
+  text-align:right;
+}
+
+.efe2{
+	color:white;
 }
 .card {
 	font: 13px 'Segoe UI';
@@ -110,7 +115,7 @@
 	color:White;
 }
 .description2 {
-	;
+	
 }
 
 
@@ -183,9 +188,9 @@
 			
 		&lt;div class="content"&gt;
 			&lt;div class="top-block"&gt;
-				&lt;div class="caption"&gt;&lt;b style="color:white"&gt;Cari : &lt;/b&gt;&lt;b style="color:white"&gt;${CariAdi}&lt;/b&gt;&lt;/div&gt;
+				&lt;div class="caption"&gt;&lt;b style="color:white"&gt;Cari : &lt;/b&gt;&lt;b style="color:white"&gt;${CariAdi}&lt;/b&gt;&lt;div class="efe"&gt;&lt;span&gt;Tutar : &lt;/span&gt;&lt;span style="efe2"&gt;${Tutar}&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
 			&lt;/div&gt;
-			&lt;div class="description"&gt; &lt;b style="color:white"&gt;Çek No : &lt;/b&gt;&lt;b style="color:white"&gt;${CekNo}&lt;/b&gt; &lt;span class="efe"&gt;Çek Tarihi : &lt;/span&gt;&lt;span style="color:white"&gt;${CekTarih}&lt;/span&gt;
+			&lt;div class="description"&gt; &lt;b style="color:white"&gt;Çek No : &lt;/b&gt;&lt;b style="color:white"&gt;${CekNo}&lt;/b&gt; &lt;div class="efe"&gt;&lt;span class="efe"&gt;Çek Tarihi : &lt;/span&gt;&lt;span style="color:white"&gt;${CekTarih}&lt;/span&gt;&lt;/div&gt;
 				
 			&lt;/div&gt;
 		&lt;/div&gt;

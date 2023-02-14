@@ -14,9 +14,9 @@ using System.Windows.Forms;
 
 namespace MEYPAK.PRL.CEKSENET.Firma.Çek
 {
-    public partial class FirmaCekListe : XtraForm
+    public partial class FFirmaCekListe : XtraForm
     {
-        public FirmaCekListe()
+        public FFirmaCekListe()
         {
             InitializeComponent();
             _cekFirmaServis = new GenericWebServis<PocoFIRMACEKSB>();
@@ -34,7 +34,9 @@ namespace MEYPAK.PRL.CEKSENET.Firma.Çek
                 CekNo=x.CEKNO,
                 CekTarih=x.ODEMETARIH,
                 CariAdi= _cariServis.obje.Where(y=>y.id== x.CARIID).FirstOrDefault().unvan ,
+                Tutar = x.TUTAR
             });
+        
         }
     }
 }
