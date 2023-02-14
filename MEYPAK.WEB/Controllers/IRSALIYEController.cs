@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using DevExtreme.AspNet.Data;
+using DevExtreme.AspNet.Mvc;
 using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.Models.IRSALIYE;
 using MEYPAK.Entity.PocoModels.IRSALIYE;
@@ -10,96 +12,41 @@ namespace MEYPAK.WEB.Controllers
     public class IRSALIYEController : Controller
     {
         private readonly ILogger<IRSALIYEController> _logger;
-        GenericWebServis<PocoIRSALIYE> _tempPocoIrsaliye = new GenericWebServis<PocoIRSALIYE>();
-        GenericWebServis<PocoIRSALIYEDETAY> _tempPocoIrsaliyeDetay = new GenericWebServis<PocoIRSALIYEDETAY>();
+
+        GenericWebServis<PocoIRSALIYE> _tempIrsaliye = new GenericWebServis<PocoIRSALIYE>();
+
+
+        #region Tanımlar
+        static List<PocoIRSALIYE> PocoIrsaliyes = new List<PocoIRSALIYE>();
+        static int tempirsaliyeid = 0;
+
+        #endregion
 
         public IRSALIYEController(ILogger<IRSALIYEController> logger)
         {
             _logger = logger;
         }
 
-        #region IRSALIYE
+        #region IRSALİYE
+
         [HttpGet]
-
-        public async Task<IActionResult> IrsaliyeKart()
+        public IActionResult IrsaliyeRapor()
         {
-            _tempPocoIrsaliye.Data(ServisList.IrsaliyeListeServis);
-
-            return View(_tempPocoIrsaliye.obje);
+            return View();
         }
 
         [HttpGet]
-        public IActionResult IrsaliyeEkle()
+        public object IrsaliyeGet(DataSourceLoadOptions loadOptions)
         {
-            return View();
+            //var a = loadOptions.Take;
+            //var b = loadOptions.Skip;
+            //string url = "http://213.238.167.117:8080/Stok/PagingList?skip="+b+"&take="+a+"&requireTotalCount=true";
+            //_tempPocoStok.Data(url);
+            _tempIrsaliye.Data(ServisList.IrsaliyeListeServis);
+            return DataSourceLoader.Load(_tempIrsaliye.obje.Where(x => x.kayittipi == 0).Reverse().AsEnumerable(), loadOptions);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> IrsaliyeEkle(PocoIRSALIYE pModel)
-        {
-
-            _tempPocoIrsaliye.Data(ServisList.IrsaliyeEkleServis, pModel);
-
-            ViewBag.Durum = "Başarıyla eklendi.";
-            return View();
-        }
-        [HttpGet]
-        public IActionResult IrsaliyeSil()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> IrsaliyeSil(List<PocoIRSALIYE> pModel)
-        {
-
-            _tempPocoIrsaliye.Data(ServisList.IrsaliyeSilServis,modellist: pModel);
-
-            ViewBag.Durum = "Başarıyla silindi.";
-            return View();
-        }
         #endregion
 
-        #region IRSALIYEDETAY
-        [HttpGet]
-
-        public async Task<IActionResult> IrsaliyeDetayKart()
-        {
-            _tempPocoIrsaliyeDetay.Data(ServisList.IrsaliyeDetayListeServis);
-
-            return View(_tempPocoIrsaliye.obje);
-        }
-
-        [HttpGet]
-        public IActionResult IrsaliyeDetayEkle()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> IrsaliyeDetayEkle(PocoIRSALIYEDETAY pModel)
-        {
-
-            _tempPocoIrsaliyeDetay.Data(ServisList.IrsaliyeDetayEkleServis, pModel);
-
-            ViewBag.Durum = "Başarıyla eklendi.";
-            return View();
-        }
-        [HttpGet]
-        public IActionResult IrsaliyeDetaySil()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> IrsaliyeDetaySil(List<PocoIRSALIYEDETAY> pModel)
-        {
-
-            _tempPocoIrsaliyeDetay.Data(ServisList.IrsaliyeDetayEkleServis,modellist: pModel);
-
-            ViewBag.Durum = "Başarıyla silindi.";
-            return View();
-        }
-        #endregion
     }
 }

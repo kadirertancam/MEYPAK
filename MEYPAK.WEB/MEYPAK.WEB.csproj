@@ -7,27 +7,22 @@
   <ItemGroup>
     <Compile Remove="bin\**" />
     <Compile Remove="obj\**" />
-    <Compile Remove="Views\Shared\Partials\UnderPartials\NewFolder\**" />
     <Compile Remove="wwwroot\Sufee-Admin\**" />
     <Compile Remove="wwwroot\Template_Ven\**" />
     <Content Remove="bin\**" />
     <Content Remove="obj\**" />
-    <Content Remove="Views\Shared\Partials\UnderPartials\NewFolder\**" />
     <Content Remove="wwwroot\Sufee-Admin\**" />
     <Content Remove="wwwroot\Template_Ven\**" />
     <EmbeddedResource Remove="bin\**" />
     <EmbeddedResource Remove="obj\**" />
-    <EmbeddedResource Remove="Views\Shared\Partials\UnderPartials\NewFolder\**" />
     <EmbeddedResource Remove="wwwroot\Sufee-Admin\**" />
     <EmbeddedResource Remove="wwwroot\Template_Ven\**" />
     <None Remove="bin\**" />
     <None Remove="obj\**" />
-    <None Remove="Views\Shared\Partials\UnderPartials\NewFolder\**" />
     <None Remove="wwwroot\Sufee-Admin\**" />
     <None Remove="wwwroot\Template_Ven\**" />
     <TypeScriptCompile Remove="bin\**" />
     <TypeScriptCompile Remove="obj\**" />
-    <TypeScriptCompile Remove="Views\Shared\Partials\UnderPartials\NewFolder\**" />
     <TypeScriptCompile Remove="wwwroot\Sufee-Admin\**" />
   </ItemGroup>
   <ItemGroup>
@@ -203,10 +198,6 @@
     <ProjectReference Include="..\MEYPAK.DAL\MEYPAK.DAL.csproj" />
     <PackageReference Include="DevExtreme.AspNet.Core" Version="22.1.3" />
     <PackageReference Include="DevExtreme.AspNet.Data" Version="2.8.6" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\CEKSENET\SENET\" />
-    <Folder Include="Views\Home\" />
   </ItemGroup>
   <ProjectExtensions><VisualStudio><UserProperties wwwroot_4adminlte_4dist_4css_4alt_4adminlte_1components_1css_1map__JsonSchema="" /></VisualStudio></ProjectExtensions>
 </Project>

@@ -1,1 +1,75 @@
-﻿
+﻿@using DevExtreme.AspNet.Mvc
+@using MEYPAK.Entity.PocoModels.FATURA
+<main role="main" class="container">
+    <div class="menu-container dx-swatch-additional" style="width:min-content">
+
+        <h2> Fatura Raporu </h2>
+
+
+        <div id="data-grid-demo" style="padding-top:20px; width:min-content">
+            @(
+                Html.DevExtreme().DataGrid<PocoFATURA>()
+                .ID("gridContainer")
+                .FilterPanel(f => f.Visible(false))
+                .HeaderFilter(h => h.Visible(true))
+                .Paging(p => p.Enabled(true))
+                .Scrolling(scrolling => scrolling.ColumnRenderingMode(GridColumnRenderingMode.Virtual))
+
+                .Columns(columns =>
+                {
+                    columns.AddFor(m => m.olusturmatarihi).Caption("KAYIT TARİHİ").Width(100);
+                    columns.AddFor(m => m.faturatarihi).Caption("FATURA TARİHİ")
+                    .Width(160);
+                    columns.AddFor(m => m.belgeno).Caption("FATURA").Width(200);
+
+                  
+                    columns.AddFor(m => m.cariid)
+                    .Width(150)
+                    .Visible(true)
+                    .Lookup(lookup => lookup
+                    .DataSource(ds => ds.Mvc().Controller("CARI").LoadAction("CariGet").Key("id"))
+                    .DataSourceOptions(dso => dso.Sort(sort => sort.AddSorting("unvan")))
+                    .ValueExpr("id")
+                    .DisplayExpr("unvan")).Caption("CARİ UNVAN");
+
+                    columns.AddFor(m => m.depoid)
+                    .Width(150)
+                    .Visible(true)
+                    .Lookup(lookup => lookup
+                    .DataSource(ds => ds.Mvc().Controller("DEPO").LoadAction("DepoGet").Key("id"))
+                    .DataSourceOptions(dso => dso.Sort(sort => sort.AddSorting("aciklama")))
+                    .ValueExpr("id")
+                    .DisplayExpr("aciklama")).Caption("DEPO");
+
+                    
+
+                    columns.AddFor(m => m.vadetarihi).Caption("VADE TARİHİ");
+                    columns.AddFor(m => m.vadegunu).Caption("VADE GÜNÜ");
+                    columns.AddFor(m => m.aciklama).Caption("AÇIKLAMA");
+                    columns.AddFor(m => m.kdvdahil).Caption("KDV DAHİL?");
+                    columns.AddFor(m => m.nettoplam).Caption("NET TOPLAM").Width(120);
+                    columns.AddFor(m => m.kdvtoplam).Caption("KDV TOPLAM").Width(120);
+                    columns.AddFor(m => m.iskontotoplam).Caption("İSKONTO TOPLAM").Width(120);
+                    columns.AddFor(m => m.bruttoplam).Caption("BRÜT TOPLAM").Width(120);
+                    columns.AddFor(m => m.geneltoplam).Caption("GENEL TOPLAM").Width(120);
+                    columns.AddFor(m => m.donem).Caption("DÖNEM").Width(120);
+                    columns.AddFor(m => m.durum).Caption("FATURA DURUMU").Width(120);
+                })
+                .DataSource(d => d.Mvc()
+                .Controller("FATURA")
+                .LoadAction("FaturaGet").Key("id")
+
+                )
+                )
+        </div>
+
+        <script>
+            function changeTheme(e) {
+                var selectedTheme = e.component.option("value");
+                document.cookie = "currentTheme=" + selectedTheme + ";path=/";
+                window.location.reload();
+            }
+        </script>
+
+    </div>
+</main>
