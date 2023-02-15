@@ -11,19 +11,26 @@ namespace MEYPAK.WEB.Controllers
     public class CARIController : Controller
     {
         private readonly ILogger<CARIController> _logger;
-        GenericWebServis<PocoCARIKART> _tempPocoCariKart = new GenericWebServis<PocoCARIKART>();
-        GenericWebServis<PocoCARIHAR> _tempPocoCariHar = new GenericWebServis<PocoCARIHAR>();
 
-        static List<PocoCARIKART> pocoCARIKARTs = new List<PocoCARIKART>();
-        static int tempcarikartid = 0;
+        GenericWebServis<PocoCARIKART> _tempCari = new GenericWebServis<PocoCARIKART>();
+        GenericWebServis<PocoCARIALTHES> _tempAltHesap = new GenericWebServis<PocoCARIALTHES>();
+        GenericWebServis<PocoCARIHAR> _tempCariHar = new GenericWebServis<PocoCARIHAR>();
+
+        static List<PocoCARIKART> pocoCaris = new List<PocoCARIKART>();
+        static int tempcariid = 0;
+        static List<PocoCARIHAR> pocoCariHars = new List<PocoCARIHAR>();
+        static int tempcariharid = 0;
+        static List<PocoCARIALTHES> pocoAltHess = new List<PocoCARIALTHES>();
+        static int tempalthesid = 0;
         public CARIController(ILogger<CARIController> logger)
         {
             _logger = logger;
         }
+
         #region CARI
 
         [HttpGet]
-        public IActionResult CariKart()
+        public IActionResult CariRapor()
         {
             return View();
         }
@@ -32,45 +39,47 @@ namespace MEYPAK.WEB.Controllers
         public object CariGet(DataSourceLoadOptions loadOptions)
         {
             
-            _tempPocoCariKart.Data(ServisList.CariListeServis);
-            return DataSourceLoader.Load(_tempPocoCariKart.obje.Where(x => x.kayittipi == 0).Reverse().AsEnumerable(), loadOptions);
-        }
-        [HttpPut]
-        public async Task<IActionResult> CariPut(int key, string values)
-        { //güncellenecek
-            _tempPocoCariKart.Data(ServisList.CariListeServis);
-            var employee = _tempPocoCariKart.obje.First(a => a.id == key);
-            JsonConvert.PopulateObject(values, employee);
-
-
-
-            _tempPocoCariKart.Data(ServisList.CariEkleServis, employee);
-
-            ViewBag.Durum = "Başarıyla Güncellendi.";
-            return Ok();
-        }
-        [HttpPost]
-        public async Task<IActionResult> CariPost(string values)
-        {
-            PocoCARIKART newPoco = new PocoCARIKART();
-            JsonConvert.PopulateObject(values, newPoco);
-            _tempPocoCariKart.Data(ServisList.CariEkleServis, newPoco);
-
-            ViewBag.Durum = "Başarıyla eklendi.";
-            return Ok();
-        }
-        [HttpDelete]
-        public void CariDelete(int key)
-        {
-            string url = ServisList.CariDeleteByIdServis;
-            url += "?id=";
-            url += key;
-            _tempPocoCariKart.Data(url, method: HttpMethod.Post);
-            ViewBag.Durum = "Başarıyla silindi.";
+            _tempCari.Data(ServisList.CariListeServis);
+            return DataSourceLoader.Load(_tempCari.obje.Where(x => x.kayittipi == 0).Reverse().AsEnumerable(), loadOptions);
         }
 
         #endregion
 
+        #region ALTHESAP
+
+        [HttpGet]
+        public IActionResult AltHesapRapor()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public object AltHesapGet(DataSourceLoadOptions loadOptions)
+        {
+
+            _tempAltHesap.Data(ServisList.CariAltHesListeServis);
+            return DataSourceLoader.Load(_tempAltHesap.obje.Where(x => x.kayittipi == 0).Reverse().AsEnumerable(), loadOptions);
+        }
+
+        #endregion
+
+        #region CARIHAR
+
+        [HttpGet]
+        public IActionResult CariHareketRapor()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public object CariHarGet(DataSourceLoadOptions loadOptions)
+        {
+
+            _tempCariHar.Data(ServisList.CariHarListeServis);
+            return DataSourceLoader.Load(_tempCariHar.obje.Where(x => x.kayittipi == 0).Reverse().AsEnumerable(), loadOptions);
+        }
+
+        #endregion
 
     }
 }

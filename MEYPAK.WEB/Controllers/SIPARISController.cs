@@ -12,23 +12,26 @@ namespace MEYPAK.WEB.Controllers
     public class SIPARISController : Controller
     {
         private readonly ILogger<SIPARISController> _logger;
-        GenericWebServis<PocoSIPARIS> _tempPocoSiparis = new GenericWebServis<PocoSIPARIS>();
-        GenericWebServis<PocoSIPARISDETAY> _tempPocoSiparisDetay = new GenericWebServis<PocoSIPARISDETAY>();
-        GenericWebServis<PocoSIPARISSEVKEMIRHAR> _tempPocoSiparisSevkEmriHar = new GenericWebServis<PocoSIPARISSEVKEMIRHAR>();
+
+        GenericWebServis<PocoSIPARIS> _tempSiparis = new GenericWebServis<PocoSIPARIS>();
+        GenericWebServis<PocoSIPARISDETAY> _tempSiparisDetay = new GenericWebServis<PocoSIPARISDETAY>();
+        GenericWebServis<PocoSIPARISSEVKEMIRHAR> _tempSiparisSevkEmriHar = new GenericWebServis<PocoSIPARISSEVKEMIRHAR>();
+
+        #region Tanımlar
+
+        static List<PocoSIPARIS> PocoSipariss = new List<PocoSIPARIS>();
+        static int tempsiparisid = 0;
+        #endregion
 
         public SIPARISController(ILogger<SIPARISController> logger)
         {
             _logger = logger;
         }
 
-
-
-
         #region SIPARIS
         
-
         [HttpGet]
-        public async Task<IActionResult> SiparisKart()
+        public IActionResult SiparisRapor()
         {
             return View();
         }
@@ -36,40 +39,17 @@ namespace MEYPAK.WEB.Controllers
         [HttpGet]
         public object SiparisGet(DataSourceLoadOptions loadOptions)
         {
-            _tempPocoSiparis.Data(ServisList.SiparisListeServis);
-            return DataSourceLoader.Load(_tempPocoSiparis.obje.Where(x => x.kayittipi == 0).Reverse().AsEnumerable(), loadOptions);
+            _tempSiparis.Data(ServisList.SiparisListeServis);
+            return DataSourceLoader.Load(_tempSiparis.obje.Where(x => x.kayittipi == 0).Reverse().AsEnumerable(), loadOptions);
         }
-        [HttpPut]
-        public async Task<IActionResult> SiparisPut(int key, string values)
-        { //güncellenecek
-            _tempPocoSiparis.Data(ServisList.SiparisListeServis);
-            var employee = _tempPocoSiparis.obje.First(a => a.id == key);
-            JsonConvert.PopulateObject(values, employee);
-            _tempPocoSiparis.Data(ServisList.SiparisEkleServis, employee);
-            return Ok();
-        }
-        [HttpPost]
-        public async Task<IActionResult> SiparisPost(string values)
-        {
-            PocoSIPARIS newPoco = new PocoSIPARIS();
-            JsonConvert.PopulateObject(values, newPoco);
-            _tempPocoSiparis.Data(ServisList.SiparisEkleServis, newPoco);
-            return Ok();
-        }
-        [HttpDelete]
-        public void SiparisDelete(int key)
-        {
-            string url = ServisList.SiparisDeleteByIdServis + "?id=" + key;
-            _tempPocoSiparis.Data(url, method: HttpMethod.Post);
-        }
-
+       
         #endregion
 
         #region SIPARISDETAY
 
 
         [HttpGet]
-        public async Task<IActionResult> SiparisDetayKart()
+        public async Task<IActionResult> SiparisDetayRapor()
         {
             return View();
         }
@@ -77,32 +57,10 @@ namespace MEYPAK.WEB.Controllers
         [HttpGet]
         public object SiparisDetayGet(DataSourceLoadOptions loadOptions)
         {
-            _tempPocoSiparisDetay.Data(ServisList.SiparisDetayListeServis);
-            return DataSourceLoader.Load(_tempPocoSiparisDetay.obje.Where(x => x.kayittipi == 0).Reverse().AsEnumerable(), loadOptions);
+            _tempSiparisDetay.Data(ServisList.SiparisDetayListeServis);
+            return DataSourceLoader.Load(_tempSiparisDetay.obje.Where(x => x.kayittipi == 0).Reverse().AsEnumerable(), loadOptions);
         }
-        [HttpPut]
-        public async Task<IActionResult> SiparisDetayPut(int key, string values)
-        { //güncellenecek
-            _tempPocoSiparisDetay.Data(ServisList.SiparisDetayListeServis);
-            var employee = _tempPocoSiparisDetay.obje.First(a => a.id == key);
-            JsonConvert.PopulateObject(values, employee);
-            _tempPocoSiparisDetay.Data(ServisList.SiparisDetayEkleServis, employee);
-            return Ok();
-        }
-        [HttpPost]
-        public async Task<IActionResult> SiparisDetayPost(string values)
-        {
-            PocoSIPARISDETAY newPoco = new PocoSIPARISDETAY();
-            JsonConvert.PopulateObject(values, newPoco);
-            _tempPocoSiparisDetay.Data(ServisList.SiparisDetayEkleServis, newPoco);
-            return Ok();
-        }
-        [HttpDelete]
-        public void SiparisDetayDelete(int key)
-        {
-            string url = ServisList.SiparisDetayDeleteByIdServis + "?id=" + key;
-            _tempPocoSiparisDetay.Data(url, method: HttpMethod.Post);
-        }
+        
 
         #endregion
 
@@ -110,154 +68,20 @@ namespace MEYPAK.WEB.Controllers
 
 
         [HttpGet]
-        public async Task<IActionResult> SiparisSevkEmriKart()
+        public async Task<IActionResult> SiparisSevkEmriHareketRapor()
         {
             return View();
         }
 
         [HttpGet]
-        public object SiparisSevkEmriGet(DataSourceLoadOptions loadOptions)
+        public object SiparisSevkEmriHarGet(DataSourceLoadOptions loadOptions)
         {
-            _tempPocoSiparisSevkEmriHar.Data(ServisList.SiparisListeServis);
-            return DataSourceLoader.Load(_tempPocoSiparisSevkEmriHar.obje.Where(x => x.kayittipi == 0).Reverse().AsEnumerable(), loadOptions);
+            _tempSiparisSevkEmriHar.Data(ServisList.SiparisListeServis);
+            return DataSourceLoader.Load(_tempSiparisSevkEmriHar.obje.Where(x => x.kayittipi == 0).Reverse().AsEnumerable(), loadOptions);
         }
-        [HttpPut]
-        public async Task<IActionResult> SiparisSevkEmriPut(int key, string values)
-        { //güncellenecek
-            _tempPocoSiparisSevkEmriHar.Data(ServisList.SiparisListeServis);
-            var employee = _tempPocoSiparisSevkEmriHar.obje.First(a => a.id == key);
-            JsonConvert.PopulateObject(values, employee);
-            _tempPocoSiparisSevkEmriHar.Data(ServisList.SiparisSevkEmriHarEkleServis, employee);
-            return Ok();
-        }
-        [HttpPost]
-        public async Task<IActionResult> SiparisSevkEmriPost(string values)
-        {
-            PocoSIPARISSEVKEMIRHAR newPoco = new PocoSIPARISSEVKEMIRHAR();
-            JsonConvert.PopulateObject(values, newPoco);
-            _tempPocoSiparisSevkEmriHar.Data(ServisList.SiparisSevkEmriHarEkleServis, newPoco);
-            return Ok();
-        }
-        [HttpDelete]
-        public void SiparisSevkEmriDelete(int key)
-        {
-            string url = ServisList.SiparisDeleteByIdServis + "?id=" + key;
-            _tempPocoSiparisSevkEmriHar.Data(url, method: HttpMethod.Post);
-        }
+    
 
         #endregion
-
-
-
-
-        #region old_Controllers
-        #region SIPARIS
-
-        //[HttpGet]
-
-        //public async Task<IActionResult> SiparisKart()
-        //{
-        //    _tempPocoSiparis.Data(ServisList.SiparisListeServis);
-
-        //    return View(_tempPocoSiparis.obje);
-        //}
-
-        //[HttpGet]
-        //public IActionResult SiparisEkle()
-        //{
-        //    return View();
-        //}
-
-        //[HttpPost]
-        //public async Task<IActionResult> SiparisEkle(List<PocoSIPARIS> pModel)
-        //{
-
-        //    _tempPocoSiparis.Data(ServisList.SiparisSilServis,modellist: pModel);
-
-        //    ViewBag.Durum = "Başarıyla silindi.";
-        //    return View();
-        //}
-
-
-        #endregion
-
-        #region SIPARISDETAY
-
-        //[HttpGet]
-
-        //public async Task<IActionResult> SiparisDetayKart()
-        //{
-        //    _tempPocoSiparisDetay.Data(ServisList.SiparisDetayListeServis);
-
-        //    return View(_tempPocoSiparisDetay.obje);
-        //}
-
-        //[HttpGet]
-        //public IActionResult SiparisDetayEkle()
-        //{
-        //    return View();
-        //}
-
-        //[HttpPost]
-        //public async Task<IActionResult> SiparisDetayEkle(List<PocoSIPARISDETAY> pModel)
-        //{
-
-        //    _tempPocoSiparisDetay.Data(ServisList.SiparisDetaySilServis,modellist: pModel);
-
-        //    ViewBag.Durum = "Başarıyla silindi.";
-        //    return View();
-        //}
-
-
-        #endregion
-
-        #region SIPARISSEVKEMRIHAR
-
-        //[HttpGet]
-
-        //public async Task<IActionResult> SiparisSevkEmriKart()
-        //{
-        //    _tempPocoSiparisSevkEmriHar.Data(ServisList.SiparisSevkEmriHarListeServis);
-
-        //    return View(_tempPocoSiparisSevkEmriHar.obje);
-        //}
-
-        //[HttpGet]
-        //public IActionResult SiparisSevkEmriEkle()
-        //{
-        //    return View();
-        //}
-
-        //[HttpPost]
-        //public async Task<IActionResult> SiparisSevkEmriEkle(PocoSIPARISSEVKEMIRHAR pModel)
-        //{
-
-        //    _tempPocoSiparisSevkEmriHar.Data(ServisList.SiparisSevkEmriHarEkleServis, pModel);
-
-        //    ViewBag.Durum = "Başarıyla eklendi.";
-        //    return View();
-        //}
-        //[HttpGet]
-        //public IActionResult SiparisSevkEmriSil()
-        //{
-        //    return View();
-        //}
-
-        //[HttpPost]
-        //public async Task<IActionResult> SiparisSevkEmriSil(List<PocoSIPARISSEVKEMIRHAR> pModel)
-        //{
-
-        //    _tempPocoSiparisSevkEmriHar.Data(ServisList.SiparisSevkEmriHarEkleServis,modellist: pModel);
-
-        //    ViewBag.Durum = "Başarıyla silindi.";
-        //    return View();
-        //}
-
-
-        #endregion
-
-        #endregion
-
 
     }
 }

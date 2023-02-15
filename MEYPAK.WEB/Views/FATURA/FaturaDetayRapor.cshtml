@@ -1,0 +1,78 @@
+﻿@using DevExtreme.AspNet.Mvc
+@using MEYPAK.Entity.PocoModels.FATURA
+<main role="main" class="container">
+    <div class="menu-container dx-swatch-additional" style="width:min-content">
+
+        <h2> Fatura Detay Raporu </h2>
+
+
+        <div id="data-grid-demo" style="padding-top:20px; width:min-content">
+            @(
+                Html.DevExtreme().DataGrid<PocoFATURADETAY>()
+                .ID("gridContainer")
+                .FilterPanel(f => f.Visible(false))
+                .HeaderFilter(h => h.Visible(true))
+                .Paging(p => p.Enabled(true))
+                .Scrolling(scrolling => scrolling.ColumnRenderingMode(GridColumnRenderingMode.Virtual))
+
+                .Columns(columns =>
+                {
+                    columns.AddFor(m => m.olusturmatarihi).Caption("KAYIT TARİHİ").Width(100);
+                    
+                    columns.AddFor(m => m.faturaid)
+                    .Width(150)
+                    .Visible(true)
+                    .Lookup(lookup => lookup
+                    .DataSource(ds => ds.Mvc().Controller("FATURA").LoadAction("FaturaGet").Key("id"))
+                    .DataSourceOptions(dso => dso.Sort(sort => sort.AddSorting("belgeno")))
+                    .ValueExpr("id")
+                    .DisplayExpr("belgeno")).Caption("FATURA");
+
+                    columns.AddFor(m => m.stokid)
+                    .Width(150)
+                    .Visible(true)
+                    .Lookup(lookup => lookup
+                    .DataSource(ds => ds.Mvc().Controller("STOK").LoadAction("StokGet").Key("id"))
+                    .DataSourceOptions(dso => dso.Sort(sort => sort.AddSorting("kod")))
+                    .ValueExpr("id")
+                    .DisplayExpr("kod")).Caption("STOK");
+
+                    columns.AddFor(m => m.stokid)
+                    .Width(150)
+                    .Visible(true)
+                    .Lookup(lookup => lookup
+                    .DataSource(ds => ds.Mvc().Controller("STOK").LoadAction("StokGet").Key("id"))
+                    .DataSourceOptions(dso => dso.Sort(sort => sort.AddSorting("adi")))
+                    .ValueExpr("id")
+                    .DisplayExpr("adi")).Caption("STOK");
+                     
+
+                    columns.AddFor(m => m.aciklama).Caption("AÇIKLAMA");
+                    columns.AddFor(m => m.kasamiktar).Caption("KASA MİKTAR(Adet)");
+                    columns.AddFor(m => m.isktoplam).Caption("İSKONTO TOPLAM");
+                    columns.AddFor(m => m.netfiyat).Caption("NET FİYAT").Width(120);
+                    columns.AddFor(m => m.brutfiyat).Caption("BRÜT FİYAT").Width(120);
+                    columns.AddFor(m => m.nettoplam).Caption("NET TOPLAM").Width(120);
+                    columns.AddFor(m => m.bruttoplam).Caption("BRÜT TOPLAM").Width(120);
+                    columns.AddFor(m => m.bekleyenmiktar).Caption("BEKLEYEN MİKTAR").Width(120);
+                    columns.AddFor(m => m.guncellemetarihi).Caption("GÜNCELLEME TARİHİ").Width(120);
+                    
+                })
+                .DataSource(d => d.Mvc()
+                .Controller("FATURA")
+                .LoadAction("FaturaDetayGet").Key("id")
+
+                )
+                )
+        </div>
+
+        <script>
+            function changeTheme(e) {
+                var selectedTheme = e.component.option("value");
+                document.cookie = "currentTheme=" + selectedTheme + ";path=/";
+                window.location.reload();
+            }
+        </script>
+
+    </div>
+</main>

@@ -1,0 +1,52 @@
+﻿@using DevExtreme.AspNet.Mvc
+@using MEYPAK.Entity.PocoModels.CARI
+<main role="main" class="container">
+    <div class="menu-container dx-swatch-additional" style="width:fit-content">
+
+        <h2> Cari Raporu </h2>
+
+
+        <div id="data-grid-demo" style="padding-top:20px; width:fit-content">
+            @(
+                Html.DevExtreme().DataGrid<PocoCARIKART>()
+                    .ID("gridContainer")
+                    .FilterPanel(f => f.Visible(false))
+                    .HeaderFilter(h => h.Visible(true))
+                    .Paging(p => p.Enabled(true))
+                    .Scrolling(scrolling => scrolling.ColumnRenderingMode(GridColumnRenderingMode.Virtual))
+
+                    .Columns(columns =>
+                    {
+                        columns.AddFor(m => m.kod).Caption("CARİ KODU").Width(100);
+                        columns.AddFor(m => m.unvan).Caption("UNVANI ").Width(100);
+
+                        columns.AddFor(m => m.adi).Caption("CARİ ADI").Width(100);
+                        columns.AddFor(m => m.soyadi).Caption("CARİ SOYADI").Width(100);
+                        columns.AddFor(m => m.vergidairesi).Caption("VERGİ DAİRESİ").Width(100);
+                        columns.AddFor(m => m.vergino).Caption("VERGİ NO").Width(100);
+                        columns.AddFor(m => m.telefon).Caption("TELEFON").Width(100);
+                        columns.AddFor(m => m.il).Caption("İL").Width(100);
+                        columns.AddFor(m => m.ilce).Caption("İLÇE").Width(100);
+
+                        columns.AddFor(m => m.vadegunu).Caption("VADE GÜNÜ").Width(100);
+                        columns.AddFor(m => m.aciklama).Caption("AÇIKLAMA").Width(100);
+
+                })
+                .DataSource(d => d.Mvc()
+                .Controller("CARI")
+                .LoadAction("CariGet").Key("id")
+
+                )
+                )
+        </div>
+
+        <script>
+            function changeTheme(e) {
+                var selectedTheme = e.component.option("value");
+                document.cookie = "currentTheme=" + selectedTheme + ";path=/";
+                window.location.reload();
+            }
+        </script>
+
+    </div>
+</main>

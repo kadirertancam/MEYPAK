@@ -1,0 +1,75 @@
+﻿@using DevExtreme.AspNet.Mvc
+@using MEYPAK.Entity.PocoModels.CARI
+<main role="main" class="container">
+    <div class="menu-container dx-swatch-additional" style="width:fit-content">
+
+        <h2>Cari Hareket Raporu</h2>
+
+
+        <div id="data-grid-demo" style="padding-top:20px; width:fit-content">
+            @(
+                Html.DevExtreme().DataGrid<PocoCARIHAR>()
+                .ID("gridContainer")
+                .FilterPanel(f => f.Visible(false))
+                .HeaderFilter(h => h.Visible(true))
+                .Paging(p => p.Enabled(true))
+                .Scrolling(scrolling => scrolling.ColumnRenderingMode(GridColumnRenderingMode.Virtual))
+
+                .Columns(columns =>
+                {
+                    columns.AddFor(m => m.olusturmatarihi).Caption("KAYIT TARİHİ").Width(100);
+                    columns.AddFor(m => m.cariid)
+                    .Width(150)
+                    .Visible(true)
+                    .Lookup(lookup => lookup
+                    .DataSource(ds => ds.Mvc().Controller("CARI").LoadAction("CariGet").Key("id"))
+                    .DataSourceOptions(dso => dso.Sort(sort => sort.AddSorting("kod")))
+                    .ValueExpr("id")
+                    .DisplayExpr("kod")).Caption("CARİ KODU");
+
+                    columns.AddFor(m => m.cariid)
+                    .Width(150)
+                    .Visible(true)
+                    .Lookup(lookup => lookup
+                    .DataSource(ds => ds.Mvc().Controller("CARI").LoadAction("CariGet").Key("id"))
+                    .DataSourceOptions(dso => dso.Sort(sort => sort.AddSorting("unvan")))
+                    .ValueExpr("id")
+                    .DisplayExpr("unvan")).Caption("CARİ UNVAN");
+
+                    columns.AddFor(m => m.carialthesapid)
+                    .Width(150)
+                    .Visible(true)
+                    .Lookup(lookup => lookup
+                    .DataSource(ds => ds.Mvc().Controller("CARI").LoadAction("CariGet").Key("id"))
+                    .DataSourceOptions(dso => dso.Sort(sort => sort.AddSorting("ADI")))
+                    .ValueExpr("id")
+                    .DisplayExpr("ADI")).Caption("ALT HESAP");
+                    columns.AddFor(m => m.belgE_NO).Caption("BELGE NO").Width(100);
+                    columns.AddFor(m => m.harekettarihi).Caption("HAREKET TARİHİ").Width(100);
+
+                    
+                    columns.AddFor(m => m.borc).Caption("BORÇ").Width(100);
+                    columns.AddFor(m => m.alacak).Caption("ALACAK").Width(100);
+                    columns.AddFor(m => m.tutar).Caption("TUTAR").Width(100);
+                   
+                    columns.AddFor(m => m.aciklama).Caption("AÇIKLAMA").Width(100);
+
+                })
+                .DataSource(d => d.Mvc()
+                .Controller("CARI")
+                .LoadAction("CariHarGet").Key("id")
+
+                )
+                )
+        </div>
+
+        <script>
+            function changeTheme(e) {
+                var selectedTheme = e.component.option("value");
+                document.cookie = "currentTheme=" + selectedTheme + ";path=/";
+                window.location.reload();
+            }
+        </script>
+
+    </div>
+</main>
