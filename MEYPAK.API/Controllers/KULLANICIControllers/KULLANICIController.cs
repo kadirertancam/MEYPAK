@@ -152,6 +152,14 @@ namespace MEYPAK.API.Controllers.KULLANICIControllers
             }
             return Ok();
         }
+        [HttpPost]
+        [Route("/[controller]/[action]")]
+        [Authorize(Roles = "ADMIN")]
+        public IActionResult USERGET()
+        {
+            var a = _userManager.Users;
+            return Ok(a);
+        }
 
     }
 }
