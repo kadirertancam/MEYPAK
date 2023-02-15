@@ -30,7 +30,7 @@ namespace MEYPAK.WEB.Controllers
         #region FATURA
 
         [HttpGet]
-        public IActionResult FaturaRapor()
+        public IActionResult FaturaListesi()
         {
             return View();
         }
@@ -50,7 +50,7 @@ namespace MEYPAK.WEB.Controllers
         #region FATURADETAY
 
         [HttpGet]
-        public IActionResult FaturaDetayRapor()
+        public IActionResult FaturaDetay()
         {
             return View();
         }

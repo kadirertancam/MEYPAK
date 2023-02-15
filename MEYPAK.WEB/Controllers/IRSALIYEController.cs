@@ -30,7 +30,7 @@ namespace MEYPAK.WEB.Controllers
         #region IRSALİYE
 
         [HttpGet]
-        public IActionResult IrsaliyeRapor()
+        public IActionResult IrsaliyeListesi()
         {
             return View();
         }

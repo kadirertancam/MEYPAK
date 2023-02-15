@@ -63,7 +63,7 @@ namespace MEYPAK.WEB.Controllerss
         #region STOK
 
         [HttpGet]
-        public IActionResult StokRapor()
+        public IActionResult StokListesi()
         {
             return View();
         }
@@ -105,7 +105,7 @@ namespace MEYPAK.WEB.Controllerss
         #region STOKHAR
 
         [HttpGet]
-        public async Task<IActionResult> StokHareketRapor(int id)
+        public async Task<IActionResult> StokHareketListesi(int id)
         {
             return View();
         }
@@ -123,7 +123,7 @@ namespace MEYPAK.WEB.Controllerss
         #region STOKSAYIMHAR
 
         [HttpGet]
-        public async Task<IActionResult> StokSayimHarRapor()
+        public async Task<IActionResult> StokSayimHareket()
         {
             return View();
         }

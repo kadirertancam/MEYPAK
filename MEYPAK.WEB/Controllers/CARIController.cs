@@ -30,7 +30,7 @@ namespace MEYPAK.WEB.Controllers
         #region CARI
 
         [HttpGet]
-        public IActionResult CariRapor()
+        public IActionResult CariListesi()
         {
             return View();
         }
@@ -66,7 +66,7 @@ namespace MEYPAK.WEB.Controllers
         #region CARIHAR
 
         [HttpGet]
-        public IActionResult CariHareketRapor()
+        public IActionResult CariHareket()
         {
             return View();
         }

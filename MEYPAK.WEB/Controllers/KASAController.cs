@@ -27,7 +27,7 @@ namespace MEYPAK.WEB.Controllers
         #region KASA
 
         [HttpGet]
-        public IActionResult KasaRapor()
+        public IActionResult KasaListesi()
         {
             return View();
         }
@@ -45,7 +45,7 @@ namespace MEYPAK.WEB.Controllers
         #region KASAHAR
 
         [HttpGet]
-        public IActionResult KasaHareketRapor()
+        public IActionResult KasaHareket()
         {
             return View();
         }
@@ -59,6 +59,7 @@ namespace MEYPAK.WEB.Controllers
         }
 
         #endregion
+
     }
 }
  
