@@ -30,13 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FPersonelParametre));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.TBAvans = new DevExpress.XtraEditors.TextEdit();
             this.BTNPersonelKaydet = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.TSAvans = new DevExpress.XtraEditors.ToggleSwitch();
-            this.TBAvans = new DevExpress.XtraEditors.TextEdit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TSAvans.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBAvans.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TSAvans.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -50,6 +50,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(885, 515);
             this.panel1.TabIndex = 0;
+            // 
+            // TBAvans
+            // 
+            this.TBAvans.Location = new System.Drawing.Point(109, 39);
+            this.TBAvans.Name = "TBAvans";
+            this.TBAvans.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
+            this.TBAvans.Properties.MaskSettings.Set("MaskManagerSignature", "allowNull=False");
+            this.TBAvans.Properties.MaskSettings.Set("mask", "d");
+            this.TBAvans.Properties.MaskSettings.Set("valueType", typeof(ulong));
+            this.TBAvans.Properties.UseMaskAsDisplayFormat = true;
+            this.TBAvans.Size = new System.Drawing.Size(100, 20);
+            this.TBAvans.TabIndex = 64;
             // 
             // BTNPersonelKaydet
             // 
@@ -82,18 +94,6 @@
             this.TSAvans.Size = new System.Drawing.Size(81, 18);
             this.TSAvans.TabIndex = 0;
             // 
-            // TBAvans
-            // 
-            this.TBAvans.Location = new System.Drawing.Point(109, 39);
-            this.TBAvans.Name = "TBAvans";
-            this.TBAvans.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
-            this.TBAvans.Properties.MaskSettings.Set("MaskManagerSignature", "allowNull=False");
-            this.TBAvans.Properties.MaskSettings.Set("mask", "d");
-            this.TBAvans.Properties.MaskSettings.Set("valueType", typeof(ulong));
-            this.TBAvans.Properties.UseMaskAsDisplayFormat = true;
-            this.TBAvans.Size = new System.Drawing.Size(100, 20);
-            this.TBAvans.TabIndex = 64;
-            // 
             // FPersonelParametre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -102,10 +102,11 @@
             this.Controls.Add(this.panel1);
             this.Name = "FPersonelParametre";
             this.Text = "FPersonelParametre";
+            this.Load += new System.EventHandler(this.FPersonelParametre_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TSAvans.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBAvans.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TSAvans.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

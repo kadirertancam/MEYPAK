@@ -28,15 +28,23 @@ namespace MEYPAK.PRL.PERSONEL
             if (int.TryParse(TBAvans.EditValue.ToString(),out a) && a!=0)
             {
                 personelParServis.Data(ServisList.AdresListServis, new PocoPERSONELPARAMETRE()
-                {
+                {   
+                    id = personelParServis.obje.FirstOrDefault().id,
                     AVANSKATI = (!(bool)TSAvans.EditValue) ? Convert.ToInt32(TBAvans.EditValue) : personelParServis.obje.FirstOrDefault().AVANSKATI,
                     AVANSKATIrequired = !(bool)TSAvans.EditValue,
-                    AVANSMIKTAR= (bool)TSAvans.EditValue? Convert.ToInt32(TBAvans.EditValue):personelParServis.obje.FirstOrDefault().AVANSMIKTAR,
-                    AVANSMIKTARrequired= (bool)TSAvans.EditValue,
-                });
+                    AVANSMIKTAR = (bool)TSAvans.EditValue ? Convert.ToInt32(TBAvans.EditValue) : personelParServis.obje.FirstOrDefault().AVANSMIKTAR,
+                    AVANSMIKTARrequired = (bool)TSAvans.EditValue,
+                }) ;
             }
             else
                 MessageBox.Show("Geçerli bir avans parametresi giriniz!");
+        }
+
+        private void FPersonelParametre_Load(object sender, EventArgs e)
+        {
+            personelParServis.Data(ServisList.AdresListServis);
+            TSAvans.EditValue = personelParServis.obje.FirstOrDefault().AVANSMIKTARrequired;
+            TBAvans.EditValue = personelParServis.obje.FirstOrDefault().AVANSMIKTARrequired ? personelParServis.obje.FirstOrDefault().AVANSMIKTAR : personelParServis.obje.FirstOrDefault().AVANSKATI;
         }
     }
 }

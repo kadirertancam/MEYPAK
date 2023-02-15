@@ -175,6 +175,9 @@ builder.Services.AddScoped<IParaBirimServis, ParaBirimManager>();
 builder.Services.AddScoped<ISeriHarDal, EFSeriHarRepo>();
 builder.Services.AddScoped<ISeriHarServis, SeriHarManager>();
 
+builder.Services.AddScoped<IPersonelParametreDal, EFPersonelParametreRepo>();
+builder.Services.AddScoped<IPersonelParametreServis, PersonelParametreManager>();
+
 builder.Services.AddScoped<IKasaParamsDal, EFKasaParamsRepo>();
 builder.Services.AddScoped<IKasaParamServis, KasaParamsManager>();
 #endregion
