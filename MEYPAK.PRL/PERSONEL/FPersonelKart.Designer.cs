@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FPersonelKart));
+            DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition1 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
+            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition1 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement1 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
             this.xtraTabControl2 = new DevExpress.XtraTab.XtraTabControl();
@@ -181,6 +184,7 @@
             this.GCPersonelZimmet = new DevExpress.XtraGrid.GridControl();
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panelControl7 = new DevExpress.XtraEditors.PanelControl();
+            this.TBZimMiktar = new DevExpress.XtraEditors.TextEdit();
             this.DTPZimBasTar = new DevExpress.XtraEditors.DateEdit();
             this.BTNZimKaydet = new DevExpress.XtraEditors.SimpleButton();
             this.TBZimAciklama = new DevExpress.XtraEditors.MemoEdit();
@@ -238,7 +242,12 @@
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
             this.gridControl2 = new DevExpress.XtraGrid.GridControl();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.TBZimMiktar = new DevExpress.XtraEditors.TextEdit();
+            this.XTPBelgeler = new DevExpress.XtraTab.XtraTabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.gridControl3 = new DevExpress.XtraGrid.GridControl();
+            this.tileView1 = new DevExpress.XtraGrid.Views.Tile.TileView();
+            this.Resim = new DevExpress.XtraGrid.Columns.TileViewColumn();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
@@ -342,6 +351,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl7)).BeginInit();
             this.panelControl7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TBZimMiktar.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPZimBasTar.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPZimBasTar.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBZimAciklama.Properties)).BeginInit();
@@ -375,7 +385,10 @@
             this.xtraTabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TBZimMiktar.Properties)).BeginInit();
+            this.XTPBelgeler.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tileView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -414,6 +427,7 @@
             this.XTPAvans,
             this.XTPIzin,
             this.XTPZimmet,
+            this.XTPBelgeler,
             this.XTPNot});
             // 
             // XTPKimlik
@@ -1897,6 +1911,18 @@
             this.panelControl7.Size = new System.Drawing.Size(1071, 119);
             this.panelControl7.TabIndex = 0;
             // 
+            // TBZimMiktar
+            // 
+            this.TBZimMiktar.Location = new System.Drawing.Point(329, 71);
+            this.TBZimMiktar.Name = "TBZimMiktar";
+            this.TBZimMiktar.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
+            this.TBZimMiktar.Properties.MaskSettings.Set("MaskManagerSignature", "allowNull=False");
+            this.TBZimMiktar.Properties.MaskSettings.Set("mask", "d");
+            this.TBZimMiktar.Properties.MaskSettings.Set("valueType", typeof(ulong));
+            this.TBZimMiktar.Properties.UseMaskAsDisplayFormat = true;
+            this.TBZimMiktar.Size = new System.Drawing.Size(130, 20);
+            this.TBZimMiktar.TabIndex = 65;
+            // 
             // DTPZimBasTar
             // 
             this.DTPZimBasTar.EditValue = null;
@@ -2442,17 +2468,69 @@
             this.gridView2.GridControl = this.gridControl2;
             this.gridView2.Name = "gridView2";
             // 
-            // TBZimMiktar
+            // XTPBelgeler
             // 
-            this.TBZimMiktar.Location = new System.Drawing.Point(329, 71);
-            this.TBZimMiktar.Name = "TBZimMiktar";
-            this.TBZimMiktar.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
-            this.TBZimMiktar.Properties.MaskSettings.Set("MaskManagerSignature", "allowNull=False");
-            this.TBZimMiktar.Properties.MaskSettings.Set("mask", "d");
-            this.TBZimMiktar.Properties.MaskSettings.Set("valueType", typeof(ulong));
-            this.TBZimMiktar.Properties.UseMaskAsDisplayFormat = true;
-            this.TBZimMiktar.Size = new System.Drawing.Size(130, 20);
-            this.TBZimMiktar.TabIndex = 65;
+            this.XTPBelgeler.Controls.Add(this.panel2);
+            this.XTPBelgeler.Controls.Add(this.panel1);
+            this.XTPBelgeler.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("XTPBelgeler.ImageOptions.Image")));
+            this.XTPBelgeler.Name = "XTPBelgeler";
+            this.XTPBelgeler.Size = new System.Drawing.Size(1071, 557);
+            this.XTPBelgeler.Text = "Belgeler";
+            // 
+            // panel1
+            // 
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1071, 145);
+            this.panel1.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.gridControl3);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 145);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1071, 412);
+            this.panel2.TabIndex = 1;
+            // 
+            // gridControl3
+            // 
+            this.gridControl3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl3.Location = new System.Drawing.Point(0, 0);
+            this.gridControl3.MainView = this.tileView1;
+            this.gridControl3.Name = "gridControl3";
+            this.gridControl3.Size = new System.Drawing.Size(1071, 412);
+            this.gridControl3.TabIndex = 1;
+            this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.tileView1});
+            // 
+            // tileView1
+            // 
+            this.tileView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.Resim});
+            this.tileView1.GridControl = this.gridControl3;
+            this.tileView1.Name = "tileView1";
+            this.tileView1.OptionsTiles.ColumnCount = 4;
+            this.tileView1.OptionsTiles.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.tileView1.OptionsTiles.RowCount = 0;
+            this.tileView1.TileColumns.Add(tableColumnDefinition1);
+            this.tileView1.TileRows.Add(tableRowDefinition1);
+            tileViewItemElement1.Column = this.Resim;
+            tileViewItemElement1.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileViewItemElement1.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Squeeze;
+            tileViewItemElement1.Text = "Resim";
+            tileViewItemElement1.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileView1.TileTemplate.Add(tileViewItemElement1);
+            // 
+            // Resim
+            // 
+            this.Resim.AccessibleName = "Resim";
+            this.Resim.Caption = "Resim";
+            this.Resim.FieldName = "Resim";
+            this.Resim.Name = "Resim";
+            this.Resim.Visible = true;
+            this.Resim.VisibleIndex = 0;
             // 
             // FPersonelKart
             // 
@@ -2573,6 +2651,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl7)).EndInit();
             this.panelControl7.ResumeLayout(false);
             this.panelControl7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TBZimMiktar.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPZimBasTar.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPZimBasTar.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBZimAciklama.Properties)).EndInit();
@@ -2607,7 +2686,10 @@
             this.xtraTabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TBZimMiktar.Properties)).EndInit();
+            this.XTPBelgeler.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tileView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2824,5 +2906,11 @@
         private DevExpress.XtraEditors.LookUpEdit CBDepartman;
         private DevExpress.XtraEditors.SimpleButton BTSorgula;
         private DevExpress.XtraEditors.TextEdit TBZimMiktar;
+        private DevExpress.XtraTab.XtraTabPage XTPBelgeler;
+        private Panel panel2;
+        private Panel panel1;
+        private DevExpress.XtraGrid.GridControl gridControl3;
+        private DevExpress.XtraGrid.Views.Tile.TileView tileView1;
+        private DevExpress.XtraGrid.Columns.TileViewColumn Resim;
     }
 }
