@@ -68,6 +68,8 @@ namespace MEYPAK.PRL.CARI
         FFirmaSenetTanim fFirmaSenet;
         FMusteriCekTanim fMusteriCekTanim;
         FHesapHareket fHesapHareket;
+        FMusteriCekCariCiro FMusteriCekCariCiro;
+        FMusteriSenetCariCiro FMusteriSenetCariCiro;
         EFATURA fefatura;
         Main main;
         int i = 0;
@@ -123,7 +125,10 @@ namespace MEYPAK.PRL.CARI
                     fHesapHareket._tempCari = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
                  if(_islem== "EFaturaGelenKutu")
                     fefatura._tempCari = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
-
+                if (_islem == "FMusteriCekCariCiro")
+                    FMusteriCekCariCiro._tempCari = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+                if (_islem == "FMusteriSenetCariCiro")
+                    FMusteriSenetCariCiro._tempCari = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
             }
             else
             {
@@ -201,6 +206,10 @@ namespace MEYPAK.PRL.CARI
                             fMusteriCekTanim = (FMusteriCekTanim)frm;
                         if (frm.Name.Contains("EFATURA"))
                             fefatura = (EFATURA)frm;
+                        if (frm.Name.Contains("FMusteriCekCariCiro"))
+                            FMusteriCekCariCiro = (FMusteriCekCariCiro)frm;
+                        if (frm.Name.Contains("FMusteriSenetCariCiro"))
+                            FMusteriSenetCariCiro = (FMusteriSenetCariCiro)frm;
                     }
                 }
             }

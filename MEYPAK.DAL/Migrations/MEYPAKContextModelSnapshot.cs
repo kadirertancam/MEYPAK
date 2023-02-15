@@ -2872,6 +2872,47 @@ namespace MEYPAK.DAL.Migrations
                     b.ToTable("MPGELENEFATURA");
                 });
 
+            modelBuilder.Entity("MEYPAK.Entity.Models.EISLEMLER.MPMUKELLEFLISTESI", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+
+                    b.Property<string>("CARIADI")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ESKIID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("GUNCELLEMETARIHI")
+                        .HasColumnType("datetime2");
+
+                    b.Property<byte>("KAYITTIPI")
+                        .HasColumnType("tinyint");
+
+                    b.Property<DateTime>("OLUSTURMATARIHI")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("URN")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("VKN")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("MPMUKELLEFLISTESI");
+                });
+
             modelBuilder.Entity("MEYPAK.Entity.Models.FATURA.MPFATURA", b =>
                 {
                     b.Property<int>("ID")
@@ -3528,6 +3569,38 @@ namespace MEYPAK.DAL.Migrations
                     b.ToTable("MPIRSALIYESIPARISDETAYILISKI");
                 });
 
+            modelBuilder.Entity("MEYPAK.Entity.Models.PARAMETRE.MPKASAPARAMS", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+
+                    b.Property<long>("BELGENO")
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("ESKIID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("GUNCELLEMETARIHI")
+                        .HasColumnType("datetime2");
+
+                    b.Property<byte>("KAYITTIPI")
+                        .HasColumnType("tinyint");
+
+                    b.Property<DateTime>("OLUSTURMATARIHI")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("MPKASAPARAMS");
+                });
+
             modelBuilder.Entity("MEYPAK.Entity.Models.PARAMETRE.MPPARABIRIM", b =>
                 {
                     b.Property<int>("ID")
@@ -3943,8 +4016,8 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<byte>("KAYITTIPI")
                         .HasColumnType("tinyint");
 
-                    b.Property<int>("MIKTAR")
-                        .HasColumnType("int");
+                    b.Property<decimal>("MIKTAR")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<DateTime>("OLUSTURMATARIHI")
                         .HasColumnType("datetime2");
@@ -4132,6 +4205,47 @@ namespace MEYPAK.DAL.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("MPPERSONELIZIN");
+                });
+
+            modelBuilder.Entity("MEYPAK.Entity.Models.PERSONEL.MPPERSONELPARAMETRE", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+
+                    b.Property<int>("AVANSKATI")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("AVANSKATIrequired")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("AVANSMIKTAR")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("AVANSMIKTARrequired")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("ESKIID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("GUNCELLEMETARIHI")
+                        .HasColumnType("datetime2");
+
+                    b.Property<byte>("KAYITTIPI")
+                        .HasColumnType("tinyint");
+
+                    b.Property<DateTime>("OLUSTURMATARIHI")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("MPPERSONELPARAMETRE");
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.PERSONEL.MPPERSONELZIMMET", b =>
@@ -5410,6 +5524,9 @@ namespace MEYPAK.DAL.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("CARIID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("DEPOID")
                         .HasColumnType("int");
 
                     b.Property<int>("ESKIID")

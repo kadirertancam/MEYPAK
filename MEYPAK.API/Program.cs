@@ -103,6 +103,9 @@ builder.Services.AddAutoMapper(x =>
 
 builder.Services.AddScoped<IGelenEFaturaDal, EFGelenEFaturaRepo>();
 builder.Services.AddScoped<IGelenFaturaServis, GelenEFaturaManager>();
+
+builder.Services.AddScoped<IMukellefListDal, EFMukellefListRepo>();
+builder.Services.AddScoped<IMukellefListesiServis, MukellefListesiManager>();
 #endregion
 #region CekSenet_Scoped_Islemleri
 builder.Services.AddScoped<ICekSenetUstSBDal, EFCekSenetUstSBRepo>();
@@ -171,6 +174,12 @@ builder.Services.AddScoped<IParaBirimServis, ParaBirimManager>();
 
 builder.Services.AddScoped<ISeriHarDal, EFSeriHarRepo>();
 builder.Services.AddScoped<ISeriHarServis, SeriHarManager>();
+
+builder.Services.AddScoped<IPersonelParametreDal, EFPersonelParametreRepo>();
+builder.Services.AddScoped<IPersonelParametreServis, PersonelParametreManager>();
+
+builder.Services.AddScoped<IKasaParamsDal, EFKasaParamsRepo>();
+builder.Services.AddScoped<IKasaParamServis, KasaParamsManager>();
 #endregion
 #region Cari_Scoped_Islemleri
 builder.Services.AddScoped<ICariResimDal, EFCariResimRepo>();

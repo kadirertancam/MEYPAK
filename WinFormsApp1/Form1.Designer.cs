@@ -28,7 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // gridControl1
+            // 
+            this.gridControl1.Location = new System.Drawing.Point(0, 0);
+            this.gridControl1.Name = "gridControl1";
+            this.gridControl1.TabIndex = 0;
             // 
             // Form1
             // 
@@ -37,10 +45,14 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private DevExpress.XtraGrid.GridControl gridControl1;
     }
 }

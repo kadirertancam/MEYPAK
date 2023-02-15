@@ -4,13 +4,16 @@ using DevExpress.XtraTab.ViewInfo;
 using MEYPAK.BLL.Assets;
 using MEYPAK.BLL.KULLANICI;
 using MEYPAK.Entity.IdentityModels;
+using MEYPAK.Entity.PocoModels.EISLEMLER;
 using MEYPAK.Entity.PocoModels.PARAMETRE;
-using MEYPAK.PRL.ARACLAR;
 using MEYPAK.PRL.ARAÇLAR;
+using MEYPAK.PRL.ARACLAR;
 using MEYPAK.PRL.BANKA;
 using MEYPAK.PRL.CARI;
 using MEYPAK.PRL.CARI.Raporlar;
 using MEYPAK.PRL.CEKSENET;
+using MEYPAK.PRL.CEKSENET.Firma;
+using MEYPAK.PRL.CEKSENET.Firma.Çek;
 using MEYPAK.PRL.CEKSENET.Müşteri.Çek;
 using MEYPAK.PRL.CEKSENET.Müşteri.Senet;
 using MEYPAK.PRL.DEPO;
@@ -28,6 +31,7 @@ using MEYPAK.PRL.STOK.FiyatListesi;
 using MEYPAK.PRL.STOK.Raporlar;
 using MEYPAK.PRL.STOK.StokKasa;
 using Microsoft.AspNetCore.Identity;
+using ServiceReference1;
 using System.Data;
 using System.Net.Http;
 using System.Reflection;
@@ -58,6 +62,7 @@ namespace MEYPAK.PRL
             _parabirimServis = new GenericWebServis<PocoPARABIRIM>();
             Kullanici = kullanici;
             Roller = roller;
+            _mükellefListesi = new GenericWebServis<PocoMUKELLEFLISTESI>();
         }
         #region TANIMLAR
         FStokList fstokList;
@@ -128,10 +133,13 @@ namespace MEYPAK.PRL
         FMusteriSenetProtesto fMusteriSenetProtesto;
         FStokSarf fStokSarf;
         EFATURA fefatura;
+        FFirmaCekListe fFirmaCekListe;
+        FCekSenetDurum fCekSenetDurum;
 
-        public Tarih_Date _tarih_Date= new Tarih_Date();
+        public Tarih_Date _tarih_Date = new Tarih_Date();
         public DataTable guncelkur;
         GenericWebServis<PocoPARABIRIM> _parabirimServis;
+        GenericWebServis<PocoMUKELLEFLISTESI> _mükellefListesi;
         public MPUSER Kullanici;
         List<string> Roller;
         #endregion
@@ -169,7 +177,7 @@ namespace MEYPAK.PRL
                             dovizalis = item.ForexBuying,
                             dovizefektifalis = Convert.ToDecimal(item.BanknoteBuying == "" ? "0" : item.BanknoteBuying),
                             dovizefektifsatis = Convert.ToDecimal(item.BanknoteSelling == "" ? "0" : item.BanknoteSelling),
-                            userid=MPKullanici.ID,
+                            userid = MPKullanici.ID,
 
                         });
                     else
@@ -196,28 +204,28 @@ namespace MEYPAK.PRL
         {
             foreach (var item in Roller)
             {
-                if (item=="ADMIN")
+                if (item == "ADMIN")
                 {
 
                 }
-                else if (item=="INSANK")
+                else if (item == "INSANK")
                 {
                     ACESTOK.Visible = false;
                     ACECARI.Visible = false;
                     ACEFATURA.Visible = false;
-                    ACECEKSENET.Visible= false;
+                    ACECEKSENET.Visible = false;
                     ACEKASA.Visible = false;
-                    ACEBANKA.Visible=false;
-                    ACEARAC.Visible= false;
-                    ACEBANKA.Visible= false;
-                    ACEPARAMETRELER.Visible=false;
-                    accordionControlElement27.Visible=false;
-                 
+                    ACEBANKA.Visible = false;
+                    ACEARAC.Visible = false;
+                    ACEBANKA.Visible = false;
+                    ACEPARAMETRELER.Visible = false;
+                    accordionControlElement27.Visible = false;
+
                 }
-                
+
             }
             ACEKullanici.Text = Kullanici.AD + " " + Kullanici.SOYAD;
-           
+
         }
 
         public int i = 0;
@@ -1648,7 +1656,7 @@ namespace MEYPAK.PRL
 
             fStokSarf.FormBorderStyle = FormBorderStyle.None;
             fStokSarf.TopLevel = false;
-            fStokSarf.AutoScroll = true; 
+            fStokSarf.AutoScroll = true;
             fStokSarf.Dock = DockStyle.Fill;
             fStokSarf.Tag = "StokKasaGirisPanel" + i;
             page.Controls.Add(fStokSarf);
@@ -1658,7 +1666,7 @@ namespace MEYPAK.PRL
 
         private void accordionControlElement64_Click(object sender, EventArgs e)
         {
-          
+
 
         }
 
@@ -1680,6 +1688,82 @@ namespace MEYPAK.PRL
             fefatura.Tag = "EfaturaPanel" + i;
             page.Controls.Add(fefatura);
             fefatura.Show();
+            i++;
+        }
+
+        private void barButtonItem40_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (MessageBox.Show("Mükellef listesi güncellenecektir, devam etmek istermisiniz?(Biraz zaman alabilir)", "Mükellef Listesi Güncelle", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                ServiceReference1.IntegrationClient ıntegrationClient = new ServiceReference1.IntegrationClient();
+                ıntegrationClient.ClientCredentials.UserName.UserName = "Gunduz";
+                ıntegrationClient.ClientCredentials.UserName.Password = "iJAfhKSU";
+                ServiceReference1.WhoAmIInfo bb = new WhoAmIInfo();
+
+                SystemUsersResponse res = ıntegrationClient.GetEInvoiceUsersAsync(new PagedQueryContext()
+                {
+                    PageIndex = 0,
+                    PageSize = 999999,
+                }).Result;
+                if (res.Value.Items != null)
+                {
+                    _mükellefListesi.Data(ServisList.MUKELLEFLISTESIListeFiltreServis, null);
+
+                    foreach (var item in res.Value.Items)
+                    {
+
+
+                        _mükellefListesi.Data(ServisList.MUKELLEFLISTESIEkleServis, new PocoMUKELLEFLISTESI()
+                        {
+                            cariadi = item.Title,
+                            vkn = item.Identifier,
+                            urn = item.PostboxAlias,
+                            userid = MPKullanici.ID
+                        });
+                    }
+                }
+            }
+        }
+
+        private void ACECekListe_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fFirmaCekListe = new FFirmaCekListe();
+            page.Name = "FFirmaCekListe" + i;
+            page.Text = "Firma Çek Liste";
+            page.Tag = "FFirmaCekListe" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fFirmaCekListe.FormBorderStyle = FormBorderStyle.None;
+            fFirmaCekListe.TopLevel = false;
+            fFirmaCekListe.AutoScroll = true;
+            fFirmaCekListe.Dock = DockStyle.Fill;
+            fFirmaCekListe.Tag = "FFirmaCekListe" + i;
+            page.Controls.Add(fFirmaCekListe);
+            fFirmaCekListe.Show();
+            i++;
+        }
+
+        private void ACECekSenetDurum_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fCekSenetDurum = new FCekSenetDurum();
+            page.Name = "FCekSenetDurum" + i;
+            page.Text = "Çek Senet Durum";
+            page.Tag = "FCekSenetDurum" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fCekSenetDurum.FormBorderStyle = FormBorderStyle.None;
+            fCekSenetDurum.TopLevel = false;
+            fCekSenetDurum.AutoScroll = true;
+            fCekSenetDurum.Dock = DockStyle.Fill;
+            fCekSenetDurum.Tag = "FCekSenetDurum" + i;
+            page.Controls.Add(fCekSenetDurum);
+            fCekSenetDurum.Show();
             i++;
         }
     }

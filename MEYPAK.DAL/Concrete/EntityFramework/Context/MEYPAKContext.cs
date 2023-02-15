@@ -31,6 +31,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
 
         }
         public DbSet<MPSTOKSARF> MPSTOKSARF { get; set; }
+        public DbSet<MPPERSONELPARAMETRE> MPPERSONELPARAMETRE { get; set; }
         public DbSet<MPSTOKSARFDETAY> MPSTOKSARFDETAY { get; set; }
         public DbSet<MPMUSTERICEKSENET> MPMUSTERICEKSENET { get; set; }
         public DbSet<MPCEKSENETUSTSB> MPCEKSENETUSTSB { get; set; }
@@ -114,6 +115,8 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
         public DbSet<MPSTOKKASAMARKA> MPSTOKKASAMARKA { get; set; }
         public DbSet<MPSERI> MPSERI { get; set; }
         public DbSet<MPGELENEFATURA> MPGELENEFATURA { get; set; }
+        public DbSet<MPMUKELLEFLISTESI> MPMUKELLEFLISTESI { get; set; }
+        public DbSet<MPKASAPARAMS> MPKASAPARAMS { get; set; }
 
 
 

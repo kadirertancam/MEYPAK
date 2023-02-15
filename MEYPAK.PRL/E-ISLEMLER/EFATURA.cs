@@ -139,7 +139,10 @@ namespace MEYPAK.PRL.E_ISLEMLER
         {
             FCariList carilist = new FCariList(this.Tag.ToString(), "EFaturaGelenKutu");
             carilist.ShowDialog(); 
+            if(_tempCari != null)
             gridView1.SetFocusedRowCellValue("CARISEC", _tempCari.kod); 
+
+
         }
 
         private void RepositoryItemButtonEdit2_ButtonClick(object sender, ButtonPressedEventArgs e)
@@ -213,6 +216,11 @@ namespace MEYPAK.PRL.E_ISLEMLER
             else
             { 
             }
+        }
+
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

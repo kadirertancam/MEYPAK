@@ -194,7 +194,7 @@ namespace MEYPAK.PRL.STOK
             _stokKasaHarServis.Data(ServisList.StokKasaHarEkleServis, _tempSTOKKASAHAR);
             _stokKasaHarServis.Data(ServisList.StokKasaHarListeServis);
 
-            cariid = tileView3.GetFocusedRowCellValue("ID").ToString();
+             cariid = tileView3.GetFocusedRowCellValue("ID").ToString();
             kasaid = tileView2.GetFocusedRowCellValue("ID").ToString();
             gridControl1.DataSource = _stokKasaHarServis.obje.Where(x => x.cariid.ToString() == cariid && x.io == 0 && x.kasaid.ToString() == kasaid).Select(x => new
             {

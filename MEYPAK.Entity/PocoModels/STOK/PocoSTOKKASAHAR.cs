@@ -9,6 +9,7 @@ namespace MEYPAK.Entity.PocoModels.STOK
     public class PocoSTOKKASAHAR : SUPERPOCOMODEL
     {
         public int stokid { get; set; }
+        public int depoid { get; set; }
         public int kasaid { get; set; }
         public int irsaliyeid { get; set; }
         public int irsaliyedetayid { get; set; }

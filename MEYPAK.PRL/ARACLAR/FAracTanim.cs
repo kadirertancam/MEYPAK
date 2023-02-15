@@ -221,6 +221,7 @@ namespace MEYPAK.PRL.ARAÇLAR
                         kasbittar = (DateTime)DTPKasPolBitTar.EditValue,
                         userid = MPKullanici.ID
                     });
+
                     MessageBox.Show($"{_tempArac.plaka} plakalı araca sigorta bilgileri eklenmiştir.");
                 }
                 else

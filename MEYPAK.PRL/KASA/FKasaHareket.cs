@@ -41,6 +41,7 @@ namespace MEYPAK.PRL.KASA
         GenericWebServis<PocoPARABIRIM> parabirimServis;
         GenericWebServis<PocoCARIKART> _cariKartServis;
         GenericWebServis<PocoPERSONEL> _personelServis;
+        GenericWebServis<PocoCARIHAR> _cariHarServis;
 
         public PocoKASA _tempKasa;
         public PocoCARIKART _tempCari;
@@ -207,6 +208,13 @@ namespace MEYPAK.PRL.KASA
                                 KUR = Convert.ToDecimal(TBKur.EditValue),
                                 TUTAR = Convert.ToDecimal(TBTutar.EditValue),
                                 userid = MPKullanici.ID
+                            });
+                            _cariHarServis.Data(ServisList.CariHarEkleServis, new PocoCARIHAR()
+                            {
+                                aciklama = Convert.ToByte(radioGroup2.SelectedIndex) == 0 ? "Kasa Tediye" : "Kasa Tahsilat",
+                                alacak = Convert.ToByte(radioGroup2.SelectedIndex) == 0 ? Convert.ToDecimal(TBTutar.EditValue) : 0,
+                                borc = Convert.ToByte(radioGroup2.SelectedIndex) == 1 ? Convert.ToDecimal(TBTutar.EditValue) : 0,
+                                belgE_NO = ""
                             });
                             MessageBox.Show("Hareket Başarıyla Eklendi.");
                             FormuTemizle();

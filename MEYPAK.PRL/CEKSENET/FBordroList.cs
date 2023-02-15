@@ -31,6 +31,7 @@ namespace MEYPAK.PRL.CEKSENET
         FFirmaCekTanim fFirmaCekTanim;
         FFirmaSenetTanim fFirmaSenetTanim;
         FMusteriCekTanim fMusteriCekTanim;
+        FMusteriSenetTanim fMusteriSenetTanim;
 
         string _islem;
         string _form;
@@ -48,7 +49,9 @@ namespace MEYPAK.PRL.CEKSENET
                         fFirmaSenetTanim = (FFirmaSenetTanim)frm;
                     if (frm.Name.Contains("FMusteriCekTanim"))
                         fMusteriCekTanim = (FMusteriCekTanim)frm;
-                   
+                    if (frm.Name.Contains("FMusteriSenetTanim"))
+                        fMusteriSenetTanim = (FMusteriSenetTanim)frm;
+
                 }
             }
 
@@ -88,7 +91,18 @@ namespace MEYPAK.PRL.CEKSENET
 
                 });
             }
-          
+            if (_islem == "FMusteriSenetTanim")
+            {
+                gridControl1.DataSource = _ceksenetustsbServis.obje.Where(x => x.BORDROTIP == 4).Select(x => new
+                {
+                    x.BORDRONO,
+                    CARI = _cariSevis.obje.Where(y => y.id == x.CARIID).FirstOrDefault().unvan,
+                    x.TARIH,
+                    x.TOPLAM,
+
+                });
+            }
+
 
         }
 
@@ -100,6 +114,8 @@ namespace MEYPAK.PRL.CEKSENET
             fMusteriCekTanim.tempCekSenetUstSb = _ceksenetustsbServis.obje.Where(x => x.BORDRONO == gridView1.GetFocusedRowCellValue("BORDRONO").ToString()).FirstOrDefault();
             if (_islem == "FFirmaSenetTanim")
                 fFirmaSenetTanim.tempCekSenetUstSb = _ceksenetustsbServis.obje.Where(x => x.BORDRONO == gridView1.GetFocusedRowCellValue("BORDRONO").ToString()).FirstOrDefault();
+            if (_islem == "FMusteriSenetTanim")
+                fMusteriSenetTanim.tempCekSenetUstSb = _ceksenetustsbServis.obje.Where(x => x.BORDRONO == gridView1.GetFocusedRowCellValue("BORDRONO").ToString()).FirstOrDefault();
             this.Close();
 
         }
