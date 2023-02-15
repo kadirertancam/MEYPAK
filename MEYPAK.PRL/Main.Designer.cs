@@ -233,6 +233,8 @@
             this.applicationMenu1 = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
             this.accordionContentContainer1 = new DevExpress.XtraBars.Navigation.AccordionContentContainer();
             this.accordionControlElement64 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACEKullaniciYönetim = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACEKullaniciTanim = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -937,6 +939,7 @@
             this.ACEPERSONEL,
             this.ACEARAC,
             this.ACEPARAMETRELER,
+            this.ACEKullaniciYönetim,
             this.accordionControlSeparator2});
             this.accordionControl1.Location = new System.Drawing.Point(0, 0);
             this.accordionControl1.LookAndFeel.SkinName = "Visual Studio 2013 Dark";
@@ -1745,6 +1748,7 @@
             this.accordionControlElement38,
             this.accordionControlElement39,
             this.accordionControlElement40});
+            this.ACEPERSONEL.Expanded = true;
             this.ACEPERSONEL.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ACEPERSONEL.ImageOptions.Image")));
             this.ACEPERSONEL.Name = "ACEPERSONEL";
             this.ACEPERSONEL.Text = "Personel";
@@ -1912,6 +1916,22 @@
             this.accordionControlElement64.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement64.Text = "Gelen Kutusu";
             this.accordionControlElement64.Click += new System.EventHandler(this.accordionControlElement64_Click);
+            // 
+            // ACEKullaniciYönetim
+            // 
+            this.ACEKullaniciYönetim.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.ACEKullaniciTanim});
+            this.ACEKullaniciYönetim.Expanded = true;
+            this.ACEKullaniciYönetim.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("ACEKullaniciYönetim.ImageOptions.SvgImage")));
+            this.ACEKullaniciYönetim.Name = "ACEKullaniciYönetim";
+            this.ACEKullaniciYönetim.Text = "Kullanıcı Yönetimi";
+            // 
+            // ACEKullaniciTanim
+            // 
+            this.ACEKullaniciTanim.Name = "ACEKullaniciTanim";
+            this.ACEKullaniciTanim.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ACEKullaniciTanim.Text = "Kullanıcı Tanım";
+            this.ACEKullaniciTanim.Click += new System.EventHandler(this.ACEKullaniciTanim_Click);
             // 
             // Main
             // 
@@ -2145,5 +2165,7 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem40;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACECekListe;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACECekSenetDurum;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACEKullaniciYönetim;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACEKullaniciTanim;
     }
 }

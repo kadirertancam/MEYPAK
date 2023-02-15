@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MEYPAK.Entity.IdentityModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,20 @@ namespace MEYPAK.PRL
             get
             {
                return ((Main)Application.OpenForms["Main"]).Kullanici.Id;
+            }
+        }
+        public static MPUSER USER
+        {
+            get
+            {
+                return ((Main)Application.OpenForms["Main"]).Kullanici;
+            }
+        }
+        public static List<string> Roller
+        {
+            get
+            {
+                return ((Main)Application.OpenForms["Main"]).Roller;
             }
         }
     }
