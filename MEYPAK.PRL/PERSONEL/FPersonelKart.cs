@@ -155,6 +155,7 @@ namespace MEYPAK.PRL.PERSONEL
             {
                 MessageBox.Show("Gerekli Alanları Doldurmadan Personel Ekleyemezsiniz!");
             }
+
         }
         private void BTNPersonelFoto_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
@@ -527,7 +528,11 @@ namespace MEYPAK.PRL.PERSONEL
             {
                 DateTime IzinTarih;
                 int izinGun = 0;
-                IzinTarih = new DateTime(2022, _tempPocoPERSONEL.isbastar.Month, _tempPocoPERSONEL.isbastar.Day);
+                if (_tempPocoPERSONEL.isbastar.Year<2022)
+                    IzinTarih = new DateTime(2022, _tempPocoPERSONEL.isbastar.Month, _tempPocoPERSONEL.isbastar.Day);
+                else
+                    IzinTarih = new DateTime(_tempPocoPERSONEL.isbastar.Year, _tempPocoPERSONEL.isbastar.Month, _tempPocoPERSONEL.isbastar.Day);
+
                 TimeSpan fark = DateTime.Now - IzinTarih;
                 TimeSpan Yasfark = DateTime.Now - _tempPocoPERSONEL.dogumtar;
                 byte yas = (byte)(Yasfark.Days / 365);

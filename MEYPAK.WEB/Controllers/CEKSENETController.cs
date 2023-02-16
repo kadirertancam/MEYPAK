@@ -32,7 +32,7 @@ namespace MEYPAK.WEB.Controllers
         #region MUSTERİCEKHAR
 
         [HttpGet]
-        public IActionResult MusteriCekHareketRapor()
+        public IActionResult MusteriCekHareket()
         {
             return View();
         }
@@ -52,7 +52,7 @@ namespace MEYPAK.WEB.Controllers
         #region MUSTERİSENETHAR
 
         [HttpGet]
-        public IActionResult MusteriSenetHareketRapor()
+        public IActionResult MusteriSenetHareket()
         {
             return View();
         }

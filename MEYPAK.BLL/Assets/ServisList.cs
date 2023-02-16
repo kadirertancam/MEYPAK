@@ -671,6 +671,7 @@ namespace MEYPAK.BLL.Assets
         public const string UserLoginServis =        "http://78.135.80.41:8081/KULLANICI/Login";
         public const string UserLogoutServis =        "http://78.135.80.41:8081/KULLANICI/Logout";
         public const string UserEkleServis =         "http://78.135.80.41:8081/KULLANICI/Register";
+        public const string UserGetServis =         "http://78.135.80.41:8081/KULLANICI/USERGET";
 
 
         #endregion

@@ -31,7 +31,7 @@ namespace MEYPAK.WEB.Controllers
         #region SIPARIS
         
         [HttpGet]
-        public IActionResult SiparisRapor()
+        public IActionResult SiparisListesi()
         {
             return View();
         }
@@ -49,7 +49,7 @@ namespace MEYPAK.WEB.Controllers
 
 
         [HttpGet]
-        public async Task<IActionResult> SiparisDetayRapor()
+        public async Task<IActionResult> SiparisDetay()
         {
             return View();
         }
@@ -68,7 +68,7 @@ namespace MEYPAK.WEB.Controllers
 
 
         [HttpGet]
-        public async Task<IActionResult> SiparisSevkEmriHareketRapor()
+        public async Task<IActionResult> SiparisSevkEmriHareket()
         {
             return View();
         }
