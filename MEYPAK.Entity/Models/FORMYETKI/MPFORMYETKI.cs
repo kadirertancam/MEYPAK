@@ -1,0 +1,18 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace MEYPAK.Entity.Models.FORMYETKI
+{
+    public class MPFORMYETKI:SUPERMODEL
+    {
+        public int FORMID { get; set; }
+        public bool GORUNTULE { get; set; }
+        public bool EKLE { get; set; }
+        public bool GUNCELLE { get; set; }
+        public bool SIL { get; set; }
+        public string USERID { get; set; }
+    }
+}

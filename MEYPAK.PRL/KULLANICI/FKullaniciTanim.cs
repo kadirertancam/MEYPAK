@@ -30,8 +30,14 @@ namespace MEYPAK.PRL.KULLANICI
             } 
 
             userServis.Data(ServisList.UserGetServis);
-            userServis.Data("http://78.135.80.41:8081/KULLANICI/Index");
-            gridControl1.DataSource = userServis.obje;
+           
+            gridControl1.DataSource = userServis.obje.Select(x=> new
+            {
+                x.AD,
+                x.SOYAD,
+               KULLANICIADI=x.UserName,
+               EMAIL=x.Email,
+            });
         }
     }
 }

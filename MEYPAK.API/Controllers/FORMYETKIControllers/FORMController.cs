@@ -1,34 +1,39 @@
 ﻿using AutoMapper;
+using MEYPAK.BLL.FORMYETKI;
 using MEYPAK.DAL.Concrete.ADONET;
+using MEYPAK.Entity.Models.FORMYETKI;
+using MEYPAK.Entity.Models.PERSONEL;
+using MEYPAK.Entity.PocoModels.FORMYETKI;
 using MEYPAK.Entity.PocoModels.PERSONEL;
-using MEYPAK.Interfaces.Personel;
+using MEYPAK.Interfaces.FormYetki;
+using MEYPAK.Interfaces.Parametre;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace MEYPAK.API.Controllers.PERSONELControllers
+namespace MEYPAK.API.Controllers.FORMYETKIControllers
 {
     [ApiController]
     [Route("[controller]")]
     [Authorize]
-    public class PERSONELAVANSController : Controller
+    public class FORMController : Controller
     {
         private readonly IMapper _mapper;
-        private readonly IPersonelAvansServis _personelIzinServis;
-        private MPAdoContext<PocoPERSONELAVANS> _adobankaServis = new MPAdoContext<PocoPERSONELAVANS>();
-        public PERSONELAVANSController(IMapper mapper, IPersonelAvansServis bankaServis)
+        private readonly IFormServis _kasaServis;
+        private MPAdoContext<MPFORM> _adokasaservis = new MPAdoContext<MPFORM>();
+        public FORMController(IMapper mapper, IFormServis kasaServis)
         {
             _mapper = mapper;
-            _personelIzinServis = bankaServis;
+            _kasaServis = kasaServis;
         }
+
 
         [HttpGet]
         [Route("/[controller]/[action]")]
-
         public IActionResult Liste()
         {
             try
             {
-                var data = _personelIzinServis.Listele();
+                var data = _kasaServis.Listele();
                 return Ok(data);
             }
             catch (Exception ex)
@@ -36,27 +41,31 @@ namespace MEYPAK.API.Controllers.PERSONELControllers
                 return Problem("Belirsiz bir hata oluştu!" + ex.Message);
             }
         }
+
         [HttpGet]
         [Route("/[controller]/[action]")]
         public IActionResult Liste2([FromQuery] string query)
         {
             try
             {
-                _adobankaServis.HepsiniGetir(query);
-                return Ok(_adobankaServis.GenericList);
+                _adokasaservis.HepsiniGetir(query);
+
+                return Ok(_adokasaservis.GenericList);
             }
             catch (Exception ex)
             {
                 return Problem("Belirsiz bir hata oluştu!" + ex.Message);
             }
         }
+
+
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult EkleyadaGuncelle([FromQuery] PocoPERSONELAVANS pModel)
+        public IActionResult EkleyadaGuncelle(PocoFORM pModel)
         {
             try
             {
-                var data = _personelIzinServis.EkleyadaGuncelle(pModel);
+                var data = _kasaServis.EkleyadaGuncelle(pModel);
                 return Ok(data);
             }
             catch (Exception ex)
@@ -66,11 +75,11 @@ namespace MEYPAK.API.Controllers.PERSONELControllers
         }
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult Sil(List<PocoPERSONELAVANS> pModel)
+        public IActionResult Sil(List<PocoFORM> pModel)
         {
             try
             {
-                var data = _personelIzinServis.Sil(pModel);
+                var data = _kasaServis.Sil(pModel);
                 return Ok(data);
             }
             catch (Exception ex)
@@ -80,11 +89,11 @@ namespace MEYPAK.API.Controllers.PERSONELControllers
         }
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult Guncelle(PocoPERSONELAVANS pModel)
+        public IActionResult Guncelle(PocoFORM pModel)
         {
             try
             {
-                var data = _personelIzinServis.Guncelle(pModel);
+                var data = _kasaServis.Guncelle(pModel);
                 return Ok(data);
             }
             catch (Exception ex)
@@ -92,13 +101,14 @@ namespace MEYPAK.API.Controllers.PERSONELControllers
                 return Problem("Belirsiz bir hata oluştu!" + ex.Message);
             }
         }
+
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult DeleteById([FromQuery] int id)
+        public IActionResult DeleteById([FromQuery] string id)
         {
             try
             {
-                bool succes = _personelIzinServis.DeleteById(id);
+                bool succes = _kasaServis.DeleteById(Convert.ToInt32(id));
                 if (succes)
                     return Ok(id + " Başarıyla Silindi");
                 else

@@ -4,12 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MEYPAK.Entity.IdentityModels
+namespace MEYPAK.Entity.Models.FORMYETKI
 {
-  
-    public enum AllRoles
+    public class MPFORM:SUPERMODEL
     {
-        USER = 10,
-        ADMIN = 11,
+        public string FORMADI { get; set; }
     }
 }

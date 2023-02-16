@@ -4,12 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MEYPAK.Entity.IdentityModels
+namespace MEYPAK.Entity.PocoModels.FORMYETKI
 {
-  
-    public enum AllRoles
+    public class PocoFORM:SUPERPOCOMODEL
     {
-        USER = 10,
-        ADMIN = 11,
+        public string FORMADI { get; set; }
     }
 }

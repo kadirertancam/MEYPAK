@@ -58,6 +58,7 @@ using MEYPAK.DAL.Abstract.EIslemlerDal;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository.EIslemlerRepo;
 using MEYPAK.Interfaces.EIslemler;
 using MEYPAK.BLL.EISLEMLER;
+using MEYPAK.API.Assets.StartingOperations;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -418,6 +419,7 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+app.PrepareData();
 app.Run();
 
 
