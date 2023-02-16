@@ -1,0 +1,44 @@
+﻿@using DevExtreme.AspNet.Mvc
+@using MEYPAK.Entity.PocoModels.BANKA
+<main role="main" class="container">
+    <div class="menu-container dx-swatch-additional" style="width:min-content">
+
+        <h2>Banka Şube Listesi</h2>
+
+
+        <div id="data-grid-demo" style="padding-top:20px; width:min-content">
+            @(
+                Html.DevExtreme().DataGrid<PocoBANKASUBE>()
+                .ID("gridContainer")
+                .FilterPanel(f => f.Visible(false))
+                .HeaderFilter(h => h.Visible(true))
+                .Paging(p => p.Enabled(true))
+                .Scrolling(scrolling => scrolling.ColumnRenderingMode(GridColumnRenderingMode.Virtual))
+
+                .Columns(columns =>
+                {
+                    columns.AddFor(m => m.olusturmatarihi).Caption("KAYIT TARİHİ").Width(100);
+                    columns.AddFor(m => m.KODU).Caption("ŞUBE KODU").Width(100);
+                    columns.AddFor(m => m.ADI).Caption("ŞUBE ADI").Width(100);
+
+                    columns.AddFor(m => m.guncellemetarihi).Caption("GÜNCELLEME TARİHİ").Width(100);
+
+                })
+                .DataSource(d => d.Mvc()
+                .Controller("BANKA")
+                .LoadAction("BankaSubeGet").Key("id")
+
+                )
+                )
+        </div>
+
+        <script>
+            function changeTheme(e) {
+                var selectedTheme = e.component.option("value");
+                document.cookie = "currentTheme=" + selectedTheme + ";path=/";
+                window.location.reload();
+            }
+        </script>
+
+    </div>
+</main>

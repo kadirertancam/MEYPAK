@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using DevExtreme.AspNet.Data;
+using DevExtreme.AspNet.Mvc;
 using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.PocoModels.PERSONEL;
 using MEYPAK.Entity.PocoModels.STOK;
@@ -9,8 +11,14 @@ namespace MEYPAK.WEB.Controllers
     public class PERSONELController : Controller
     {
         private readonly ILogger<PERSONELController> _logger;
-        GenericWebServis<PocoPERSONEL> _tempPocoPersonel = new GenericWebServis<PocoPERSONEL>();
+        GenericWebServis<PocoPERSONEL> _tempPersonel = new GenericWebServis<PocoPERSONEL>();
 
+        #region Tanımlar
+
+        static List<PocoPERSONEL> PocoPERSONELs = new List<PocoPERSONEL>();
+        static int temppersonelid = 0;
+
+        #endregion
         public PERSONELController(ILogger<PERSONELController> logger)
         {
             _logger = logger;
@@ -18,44 +26,23 @@ namespace MEYPAK.WEB.Controllers
 
 
         #region PERSONEL
-        [HttpGet]
 
-        public async Task<IActionResult> PersonelKart()
-        {
-            _tempPocoPersonel.Data(ServisList.PersonelListeServis);
-
-            return View(_tempPocoPersonel.obje);
-        }
 
         [HttpGet]
-        public IActionResult PersonelEkle()
+        public IActionResult PersonelListesi()
         {
             return View();
         }
 
-        [HttpPost]
-        public async Task<IActionResult> PersonelEkle(PocoPERSONEL pModel)
-        {
-
-            _tempPocoPersonel.Data(ServisList.PersonelEkleServis, pModel);
-
-            ViewBag.Durum = "Başarıyla eklendi.";
-            return View();
-        }
         [HttpGet]
-        public IActionResult PersonelSil()
+        public object PersonelGet(DataSourceLoadOptions loadOptions)
         {
-            return View();
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> PersonelSil(List<PocoPERSONEL> pModel)
-        {
-
-            _tempPocoPersonel.Data(ServisList.PersonelSilServis,modellist: pModel);
-
-            ViewBag.Durum = "Başarıyla silindi.";
-            return View();
+            //var a = loadOptions.Take;
+            //var b = loadOptions.Skip;
+            //string url = "http://213.238.167.117:8080/Stok/PagingList?skip="+b+"&take="+a+"&requireTotalCount=true";
+            //_tempPocoStok.Data(url);
+            _tempPersonel.Data(ServisList.PersonelListeServis);
+            return DataSourceLoader.Load(_tempPersonel.obje.Where(x => x.kayittipi == 0).Reverse().AsEnumerable(), loadOptions);
         }
         #endregion
 
