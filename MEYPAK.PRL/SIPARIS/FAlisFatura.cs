@@ -61,6 +61,7 @@ namespace MEYPAK.PRL.SIPARIS
             _hizmetHarServis= new GenericWebServis<PocoHIZMETHAR>();
             _hizmetServis= new GenericWebServis<PocoHIZMET>();
             _cariHarServsi = new GenericWebServis<PocoCARIHAR>();
+            comboBox1.SelectedIndex = 0;
         }
 
         #region TANIMLAR
@@ -927,7 +928,7 @@ namespace MEYPAK.PRL.SIPARIS
                     nettoplam = _tempFaturaDetay.Sum(x => x.NetToplam),
                     geneltoplam = _tempFaturaDetay.Sum(x => x.KdvTutarı) + _tempFaturaDetay.Sum(x => x.NetToplam),
                     kdvdahil = CHBKdvDahil.Checked,
-                    tip = 1,
+                    tip = comboBox1.SelectedIndex==0? 1:3,
                     userid = MPKullanici.ID
                 }) ;
 
@@ -985,7 +986,7 @@ namespace MEYPAK.PRL.SIPARIS
                             birim = _olcuBr.obje.Where(x => x.adi.ToString() == item.Birim).FirstOrDefault().id,
                             bruttoplam = item.BrütToplam,
                             depoid = _faturaServis.obje2.depoid,
-                            io = 1,
+                            io = comboBox1.SelectedIndex == 0 ? 1 : 0,
                             kdv = item.Kdv,
                             miktar = item.Safi,
                             netfiyat = item.NetFiyat,
@@ -1003,7 +1004,7 @@ namespace MEYPAK.PRL.SIPARIS
                             id = _stokHarServis.obje.Where(x => x.faturadetayid == _faturadetayServis.obje2.id).Count() > 0 ? _stokHarServis.obje.Where(x => x.faturadetayid == _faturadetayServis.obje2.id).FirstOrDefault().id : 0,
                             faturadetayid = _faturadetayServis.obje2.id,
                             faturaid = _faturaServis.obje2.id, 
-                            io = 1, 
+                            io = comboBox1.SelectedIndex == 0 ? 1 : 0, 
                             miktar = item.Safi,  
                             belge_no=_faturaServis.obje2.belgeno,
                             cariid=_faturaServis.obje2.cariid,

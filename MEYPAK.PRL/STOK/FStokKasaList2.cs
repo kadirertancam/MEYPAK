@@ -58,7 +58,7 @@ namespace MEYPAK.PRL.STOK
                         FAlisIrsaliye = (FAlisIrsaliye)frm;
                     if (frm.Name.Contains("FStokSarf"))
                         fStokSarf = (FStokSarf)frm; 
-                    if (frm.Name.Contains("FStokKasaGirisPanel"))
+                    if (frm.Name.Contains("StokKasaGirisPanel"))
                         fstokKasaGirisPanel = (StokKasaGirisPanel)frm;
                     if (frm.Name.Contains("FFatura"))
                         fFatura = (FFatura)frm;

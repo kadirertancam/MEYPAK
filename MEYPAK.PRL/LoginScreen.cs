@@ -1,6 +1,7 @@
 ﻿using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.IdentityModels;
 using MEYPAK.PRL.CEKSENET.Firma.Çek;
+using MEYPAK.PRL.PERSONEL;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
@@ -24,7 +25,7 @@ namespace MEYPAK.PRL
         }
         Main fMain;
         GenericWebServis<LoginModel> _loginService;
-      
+        FPersonelMaas maas;
 
         private void BTNGiris_Click(object sender, EventArgs e)
         {
@@ -43,6 +44,8 @@ namespace MEYPAK.PRL
                     fMain.Show();
                     //FirmaCekListe firmaCekListe = new FirmaCekListe();
                     //firmaCekListe.ShowDialog();
+                    //maas = new FPersonelMaas();
+                    //maas.ShowDialog();
                     this.Hide();
                 }
                 else

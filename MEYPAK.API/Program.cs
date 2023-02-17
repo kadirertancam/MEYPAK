@@ -58,6 +58,10 @@ using MEYPAK.DAL.Abstract.EIslemlerDal;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository.EIslemlerRepo;
 using MEYPAK.Interfaces.EIslemler;
 using MEYPAK.BLL.EISLEMLER;
+using MEYPAK.DAL.Abstract.DekontDal;
+using MEYPAK.DAL.Concrete.EntityFramework.Repository.DekontRepo;
+using MEYPAK.BLL.DEKONT;
+using MEYPAK.Interfaces.Dekont;
 using MEYPAK.API.Assets.StartingOperations;
 using MEYPAK.Interfaces.FormYetki;
 using MEYPAK.BLL.FORMYETKI;
@@ -104,6 +108,11 @@ builder.Services.AddAutoMapper(x =>
     x.AddProfile(typeof(Maps));
 });
 
+#region DEKONT
+
+builder.Services.AddScoped<IDekontDal, EFDekontRepo>();
+builder.Services.AddScoped<IDekontServis, DekontManager>();
+#endregion
 #region EISLEMLER
 
 builder.Services.AddScoped<IGelenEFaturaDal, EFGelenEFaturaRepo>();

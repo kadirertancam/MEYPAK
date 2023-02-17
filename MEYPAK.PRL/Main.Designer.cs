@@ -985,6 +985,7 @@
             this.accordionControlElement2,
             this.accordionControlElement3,
             this.accordionControlElement4});
+            this.ACESTOK.Expanded = true;
             this.ACESTOK.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("ACESTOK.ImageOptions.SvgImage")));
             this.ACESTOK.ImageOptions.SvgImageSize = new System.Drawing.Size(32, 32);
             this.ACESTOK.Name = "ACESTOK";
@@ -1093,6 +1094,7 @@
             this.accordionControlElement46,
             this.ACEStokSarf,
             this.accordionControlElement26});
+            this.accordionControlElement3.Expanded = true;
             this.accordionControlElement3.Name = "accordionControlElement3";
             this.accordionControlElement3.Text = "Hareketler";
             // 

@@ -21,6 +21,8 @@ using System.Xml.Serialization.Extensions;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Kasa;
 using MEYPAK.Entity.PocoModels.IRSALIYE;
+using Syncfusion.XlsIO.Implementation.XmlSerialization;
+using System.Xml.Linq;
 
 namespace MEYPAK.PRL.Assets
 {
@@ -370,8 +372,8 @@ namespace MEYPAK.PRL.Assets
 
                 server = new RichEditDocumentServer();
                 var ss = temelfatura.SerializeToXml<TemelFaturaXML.Invoice>();
-
-               // File.WriteAllText("Employee.xml", ss.ToString(),Encoding.UTF8);
+                XDocument doc = XDocument.Parse(ss);
+                File.WriteAllText("Employee.xml", doc.ToString(),Encoding.UTF8);
 
                 //Create the DataSet from the XML file
                 XslCompiledTransform proc = new XslCompiledTransform();
@@ -1056,7 +1058,7 @@ namespace MEYPAK.PRL.Assets
                 server = new RichEditDocumentServer();
                 var ss = hksFatura.SerializeToXml<HKSFaturaXML.Invoice>();
 
-                //File.WriteAllText("Employee.xml", ss.ToString(),Encoding.UTF8);
+                File.WriteAllText("Employee.xml", ss.ToString(),Encoding.UTF8);
 
                 //Create the DataSet from the XML file
                 XslCompiledTransform proc = new XslCompiledTransform();

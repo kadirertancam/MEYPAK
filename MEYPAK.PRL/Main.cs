@@ -133,6 +133,7 @@ namespace MEYPAK.PRL
         FMusteriSenetTeminat fMusteriSenetTeminat;
         FMusteriSenetProtesto fMusteriSenetProtesto;
         FStokSarf fStokSarf;
+        StokKasaGirisPanel stokkasa;
         EFATURA fefatura;
         FFirmaCekListe fFirmaCekListe;
         FCekSenetDurum fCekSenetDurum;
@@ -1648,7 +1649,7 @@ namespace MEYPAK.PRL
         private void accordionControlElement26_Click(object sender, EventArgs e)
         {
             XtraTabPage page = new XtraTabPage();
-            fStokSarf = new FStokSarf();
+            stokkasa = new StokKasaGirisPanel();
             page.Name = "StokKasaGirisPanel" + i;
             page.Text = "Stok Kasa Girişi";
             page.Tag = "StokKasaGirisPanel" + i;
@@ -1656,13 +1657,13 @@ namespace MEYPAK.PRL
             xtraTabControl1.TabPages.Add(page);
             xtraTabControl1.SelectedTabPage = page;
 
-            fStokSarf.FormBorderStyle = FormBorderStyle.None;
-            fStokSarf.TopLevel = false;
-            fStokSarf.AutoScroll = true;
-            fStokSarf.Dock = DockStyle.Fill;
-            fStokSarf.Tag = "StokKasaGirisPanel" + i;
-            page.Controls.Add(fStokSarf);
-            fStokSarf.Show();
+            stokkasa.FormBorderStyle = FormBorderStyle.None;
+            stokkasa.TopLevel = false;
+            stokkasa.AutoScroll = true;
+            stokkasa.Dock = DockStyle.Fill;
+            stokkasa.Tag = "StokKasaGirisPanel" + i;
+            page.Controls.Add(stokkasa);
+            stokkasa.Show();
             i++;
         }
 

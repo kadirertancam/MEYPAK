@@ -1079,6 +1079,7 @@ namespace MEYPAK.PRL.IRSALIYE
                                 cariid = _cariKart.obje.Where(x => x.kod == TBCariKodu.Text).FirstOrDefault().id,
                                 kayittipi = 0,
                                 kasaid = item2.KASAID,
+                                
                                 miktar = item2.MIKTAR, // _kasaaa.Where(x => x.num == test.num).Select(x => x.KasaList.Sum(t => t.MIKTAR)).FirstOrDefault()
                                 irsaliyedetayid = _irsaliyeDetayServis.obje2.id,
                                 faturadetayid = 0,

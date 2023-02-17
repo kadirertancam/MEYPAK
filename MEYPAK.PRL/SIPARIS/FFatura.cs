@@ -99,6 +99,7 @@ namespace MEYPAK.PRL.SIPARIS
             else
                 _tempFaturaDetay = new List<PocoFaturaKalem>();
             fattip = tip;
+            comboBox1.SelectedIndex = 0;
         }
 
         #region TANIMLAR
@@ -924,6 +925,7 @@ namespace MEYPAK.PRL.SIPARIS
         private void button1_Click(object sender, EventArgs e)
         {
             string html = "";
+            if(_tempFatura!=null)
             faturaBasim.TemelFaturaBasim(_tempFatura.id);
 
 
@@ -1031,7 +1033,7 @@ namespace MEYPAK.PRL.SIPARIS
                     nettoplam = _tempFaturaDetay.Sum(x => x.NetToplam),
                     geneltoplam = _tempFaturaDetay.Sum(x => x.KdvTutarı) + _tempFaturaDetay.Sum(x => x.NetToplam),
                     kdvdahil = CHBKdvDahil.Checked,
-                    tip = 0,
+                    tip = comboBox1.SelectedIndex==0?0:2,
                     userid = MPKullanici.ID
                 });
 
@@ -1103,7 +1105,7 @@ namespace MEYPAK.PRL.SIPARIS
                             birim = _olcuBr.obje.Where(x => x.adi.ToString() == item.Birim).FirstOrDefault().id,
                             bruttoplam = item.BrütToplam,
                             depoid = _faturaServis.obje2.depoid,
-                            io = 0,
+                            io = comboBox1.SelectedIndex==0?0:1,
                             kdv = item.Kdv,
                             miktar = item.Safi,
                             netfiyat = item.NetFiyat,
@@ -1154,13 +1156,14 @@ namespace MEYPAK.PRL.SIPARIS
                                 id = _stokKasaHarServis.obje.Where(x => x.id == item2.ID).Count() > 0 ? item.id : 0,
                                 belge_no = TBFaturaNo.Text,
                                 faturaid = _faturaServis.obje2.id,
-                                io = 0,
+                                io = comboBox1.SelectedIndex==0?0:1,
                                 cariid = _cariKart.obje.Where(x => x.kod == TBCariKodu.Text).FirstOrDefault().id,
                                 kayittipi = 0,
                                 kasaid = item2.KASAID,
                                 miktar = item2.MIKTAR, // _kasaaa.Where(x => x.num == test.num).Select(x => x.KasaList.Sum(t => t.MIKTAR)).FirstOrDefault()
                                 irsaliyedetayid = 0,
                                 faturadetayid = _faturadetayServis.obje2.id,
+                                 depoid= _depoServis.obje.Where(x => x.depoadi == CBDepo.Text).FirstOrDefault().id,
                                 userid = MPKullanici.ID, 
                             });
                             if (item2.ID > 0)
@@ -1178,10 +1181,10 @@ namespace MEYPAK.PRL.SIPARIS
                 }
                 _cariHarServsi.Data(ServisList.CariHarEkleServis, new PocoCARIHAR()
                 {
-                    aciklama = "Satış Faturası",
+                    aciklama = comboBox1.SelectedIndex==0?"Satış Faturası":"Satış İade Faturası",
                     belgE_NO = _faturaServis.obje2.belgeno,
-                    alacak = _faturaServis.obje2.geneltoplam,
-                    borc = 0,
+                    alacak = comboBox1.SelectedIndex == 0 ? _faturaServis.obje2.geneltoplam:0,
+                    borc = comboBox1.SelectedIndex==0?0: _faturaServis.obje2.geneltoplam,
                     carialthesapid = _faturaServis.obje2.althesapid,
                     cariid = _faturaServis.obje2.cariid,
                     harekettarihi = _faturaServis.obje2.faturatarihi,

@@ -3,6 +3,7 @@ using MEYPAK.Entity.Models.ARAC;
 using MEYPAK.Entity.Models.BANKA;
 using MEYPAK.Entity.Models.CARI;
 using MEYPAK.Entity.Models.CEKSENET;
+using MEYPAK.Entity.Models.DEKONT;
 using MEYPAK.Entity.Models.DEPO;
 using MEYPAK.Entity.Models.EISLEMLER;
 using MEYPAK.Entity.Models.FATURA;
@@ -17,6 +18,7 @@ using MEYPAK.Entity.PocoModels.ARAC;
 using MEYPAK.Entity.PocoModels.BANKA;
 using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.CEKSENET;
+using MEYPAK.Entity.PocoModels.DEKONT;
 using MEYPAK.Entity.PocoModels.DEPO;
 using MEYPAK.Entity.PocoModels.EISLEMLER;
 using MEYPAK.Entity.PocoModels.FATURA;
@@ -39,6 +41,10 @@ namespace MEYPAK.Entity.Mappings
     {
         public Maps()
         {
+
+            //DEKONT
+            CreateMap<MPDEKONT, PocoDEKONT>().ReverseMap(); 
+
             //FORM-YETKI
             CreateMap<MPFORM, PocoFORM>().ReverseMap();
             CreateMap<MPFORMYETKI, PocoFORMYETKI>().ReverseMap();

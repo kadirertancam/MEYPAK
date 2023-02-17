@@ -99,13 +99,16 @@ namespace MEYPAK.PRL.STOK
             test = tileView2.GetFocusedRowCellValue("ID").ToString();
             foreach (var item in _stokKasaHarServis.obje.Where(x => x.kasaid.ToString() == test).Select(x => x.cariid).GroupBy(x => x))
             {
-                _stokKasaHarCariLists.Add(new StokKasaHarCariList()
+                if (item.Key>0)
                 {
-                    CARIID = item.FirstOrDefault(),
-                    DEPOID = 0,
-                    ADI = _cariServis.obje.Where(x => x.id == item.FirstOrDefault()).FirstOrDefault().unvan,
+                    _stokKasaHarCariLists.Add(new StokKasaHarCariList()
+                    {
+                        CARIID = item.FirstOrDefault(),
+                        DEPOID = 0,
+                        ADI = _cariServis.obje.Where(x => x.id == item.FirstOrDefault()).FirstOrDefault().unvan,
 
-                });
+                    });
+                }
             }
             _depoServis.Data(ServisList.DepoListeServis);
             foreach (var item in _depoServis.obje)
@@ -114,9 +117,7 @@ namespace MEYPAK.PRL.STOK
                 {
                     ADI = item.depoadi,
                     CARIID = 0,
-                    DEPOID = item.id,
-
-
+                    DEPOID = item.id, 
                 });
             }
 
@@ -126,8 +127,9 @@ namespace MEYPAK.PRL.STOK
                 CARIID = x.CARIID,
                 DEPOID = x.DEPOID,
                 FIRMA = x.ADI,
-                MMMIKTAR = (_stokKasaHarServis.obje.Where(c => c.cariid == x.CARIID && c.io == 1 && c.kasaid.ToString()==test).Sum(x => x.miktar) - _stokKasaHarServis.obje.Where(c => c.cariid == x.CARIID && c.io == 0&&c.kasaid.ToString() == test).Sum(x => x.miktar))
-
+                MMMIKTAR = x.DEPOID==0? (_stokKasaHarServis.obje.Where(c => c.cariid == x.CARIID && c.io == 1 && c.kasaid.ToString() == test).Sum(x => x.miktar) - _stokKasaHarServis.obje.Where(c => c.cariid == x.CARIID && c.io == 0 && c.kasaid.ToString() == test).Sum(x => x.miktar)) :
+                (_stokKasaHarServis.obje.Where(c => c.depoid == x.DEPOID && c.io == 1 && c.kasaid.ToString() == test).Sum(x => x.miktar) - _stokKasaHarServis.obje.Where(c => c.depoid == x.DEPOID && c.io == 0 && c.kasaid.ToString() == test).Sum(x => x.miktar))
+                
             });
             gridControl4.RefreshDataSource();
         }
