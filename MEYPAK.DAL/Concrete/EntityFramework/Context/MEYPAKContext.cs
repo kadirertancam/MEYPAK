@@ -4,6 +4,7 @@ using MEYPAK.Entity.Models.ARAC;
 using MEYPAK.Entity.Models.BANKA;
 using MEYPAK.Entity.Models.CARI;
 using MEYPAK.Entity.Models.CEKSENET;
+using MEYPAK.Entity.Models.DEKONT;
 using MEYPAK.Entity.Models.DEPO;
 using MEYPAK.Entity.Models.EISLEMLER;
 using MEYPAK.Entity.Models.FATURA;
@@ -31,6 +32,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
            
 
         }
+        public DbSet<MPDEKONT> MPDEKONT { get; set; }
         public DbSet<MPFORM> MPFORM { get; set; }
         public DbSet<MPFORMYETKI> MPFORMYETKI { get; set; }
         public DbSet<MPSTOKSARF> MPSTOKSARF { get; set; }

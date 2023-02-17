@@ -52,7 +52,7 @@ namespace MEYPAK.API.Controllers.PERSONELControllers
         }
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult EkleyadaGuncelle([FromQuery] PocoPERSONELAVANS pModel)
+        public IActionResult EkleyadaGuncelle([FromBody] PocoPERSONELAVANS pModel)
         {
             try
             {

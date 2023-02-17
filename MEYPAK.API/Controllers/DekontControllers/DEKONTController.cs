@@ -55,7 +55,7 @@ namespace MEYPAK.API.Controllers.DekontControllers
 
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult DEKONTEKleyadaGuncelle(PocoDEKONT pModel)
+        public IActionResult DEKONTEKleyadaGuncelle([FromBody]PocoDEKONT pModel)
         {
             try
             {
