@@ -59,6 +59,10 @@ using MEYPAK.DAL.Concrete.EntityFramework.Repository.EIslemlerRepo;
 using MEYPAK.Interfaces.EIslemler;
 using MEYPAK.BLL.EISLEMLER;
 using MEYPAK.API.Assets.StartingOperations;
+using MEYPAK.Interfaces.FormYetki;
+using MEYPAK.BLL.FORMYETKI;
+using MEYPAK.DAL.Abstract.FormYetkiDal;
+using MEYPAK.DAL.Concrete.EntityFramework.Repository.FormYetkiRepo;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -107,6 +111,14 @@ builder.Services.AddScoped<IGelenFaturaServis, GelenEFaturaManager>();
 
 builder.Services.AddScoped<IMukellefListDal, EFMukellefListRepo>();
 builder.Services.AddScoped<IMukellefListesiServis, MukellefListesiManager>();
+#endregion
+#region FORMYETKI
+
+builder.Services.AddScoped<IFormDal, EFFormRepo>();
+builder.Services.AddScoped<IFormServis, FormManager>();
+
+builder.Services.AddScoped<IFormYetkiDal, EFFormYetkiRepo>();
+builder.Services.AddScoped<IFormServis, FormManager>();
 #endregion
 #region CekSenet_Scoped_Islemleri
 builder.Services.AddScoped<ICekSenetUstSBDal, EFCekSenetUstSBRepo>();

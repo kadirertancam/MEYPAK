@@ -3,6 +3,7 @@ using MEYPAK.BLL.FORMYETKI;
 using MEYPAK.Entity.IdentityModels;
 using MEYPAK.Entity.Models.FORMYETKI;
 using MEYPAK.Entity.PocoModels.FORMYETKI;
+using MEYPAK.Interfaces.FormYetki;
 using Microsoft.AspNetCore.Identity;
 
 namespace MEYPAK.API.Assets.StartingOperations
@@ -16,7 +17,7 @@ namespace MEYPAK.API.Assets.StartingOperations
 
             
             var roleManager = serviceProvider.GetRequiredService<RoleManager<MPROLE>>();
-            var formManager = serviceProvider.GetRequiredService<FormManager>();
+            var formManager = serviceProvider.GetRequiredService<IFormServis>();
             CreateAllRoles(roleManager);
             CreatAllForms(formManager);
 
@@ -50,7 +51,7 @@ namespace MEYPAK.API.Assets.StartingOperations
 
             }
         }
-        public static void CreatAllForms(FormManager formManager)
+        public static void CreatAllForms(IFormServis formManager)
         {
             try
             {
@@ -58,12 +59,13 @@ namespace MEYPAK.API.Assets.StartingOperations
                 var formListe = formManager.Listele().Where(x => x.kayittipi == 0).Select(x => x.FORMADI);
                 foreach (string form in allForms)
                 {
-                    if (formListe.Contains(form))
+                    if (!formListe.Contains(form))
                     {
                         //eğer o rol yoksa ekle
                         PocoFORM f = new PocoFORM()
                         {
-                            FORMADI= form,
+                            FORMADI = form,
+                            userid = "API CREATE",
                         };
                         formManager.Ekle(f);
                     }
