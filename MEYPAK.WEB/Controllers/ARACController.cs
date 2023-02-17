@@ -27,7 +27,7 @@ namespace MEYPAK.WEB.Controllers
             _logger = logger;
 
         }
-
+        //denemeem
         #region ARAC
 
         [HttpGet]
