@@ -19,8 +19,7 @@ namespace MEYPAK.API.Assets.StartingOperations
             var roleManager = serviceProvider.GetRequiredService<RoleManager<MPROLE>>();
             var formManager = serviceProvider.GetRequiredService<IFormServis>();
             CreateAllRoles(roleManager);
-            CreatAllForms(formManager);
-
+            //CreatAllForms(formManager); 
             return app;
         }
         public static void CreateAllRoles(RoleManager<MPROLE> roleManager)
