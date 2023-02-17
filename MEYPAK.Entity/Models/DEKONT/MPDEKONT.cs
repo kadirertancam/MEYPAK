@@ -13,12 +13,15 @@ namespace MEYPAK.Entity.Models.DEKONT
         public int PERSONELID { get; set; }
         public int KASAID { get; set; }
         public int MUHASEBEID { get; set; } 
-        public int BELGENO { get; set; }
-        public int TUTAR { get; set; }
-        public int IO { get; set; }
-        public int KDV { get; set; }
-        public int ISKONTO1 { get; set; }
-        public int ISKONTO2 { get; set; }
-        public int ISKONTO3 { get; set; }
+        public string BELGENO { get; set; }
+        public int ALTHESAPID { get; set; }
+        public decimal BORC { get; set; }
+        public decimal ALACAK { get; set; }
+        public decimal KDV { get; set; }
+        public bool KDVDAHILEDILSIN { get; set; }
+        public int DEPO { get; set; }
+
+
+       
     }
 }
