@@ -112,6 +112,26 @@ namespace MEYPAK.Entity.Models.FORMYETKI
         #endregion
         #region PERSONEL
         //TANIM
+        PERSONELTANIM,
+        PERSONELLISTE,
+        //HAREKET
+
+        //RAPOR
+        PERSONELRAPORU,
+        #endregion
+        #region ARAC
+        //TANIM
+        ARACTANIM,
+        ARACROTATANIM,
+        //HAREKET
+
+        #endregion
+        #region PARAMETRELER
+        PARABIRIMLERI,
+        SERITANIM,
+        #endregion
+        #region KULLANICIYONETIMI
+        KULLANICITANIM,
         #endregion
     }
 }
