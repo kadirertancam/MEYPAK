@@ -7,6 +7,7 @@ using MEYPAK.Entity.Models.DEKONT;
 using MEYPAK.Entity.Models.DEPO;
 using MEYPAK.Entity.Models.EISLEMLER;
 using MEYPAK.Entity.Models.FATURA;
+using MEYPAK.Entity.Models.FORMYETKI;
 using MEYPAK.Entity.Models.IRSALIYE;
 using MEYPAK.Entity.Models.KASA;
 using MEYPAK.Entity.Models.PARAMETRE;
@@ -21,6 +22,7 @@ using MEYPAK.Entity.PocoModels.DEKONT;
 using MEYPAK.Entity.PocoModels.DEPO;
 using MEYPAK.Entity.PocoModels.EISLEMLER;
 using MEYPAK.Entity.PocoModels.FATURA;
+using MEYPAK.Entity.PocoModels.FORMYETKI;
 using MEYPAK.Entity.PocoModels.IRSALIYE;
 using MEYPAK.Entity.PocoModels.KASA;
 using MEYPAK.Entity.PocoModels.PARAMETRE;
@@ -43,8 +45,11 @@ namespace MEYPAK.Entity.Mappings
             //DEKONT
             CreateMap<MPDEKONT, PocoDEKONT>().ReverseMap(); 
 
-            //EISLEMLER
+            //FORM-YETKI
+            CreateMap<MPFORM, PocoFORM>().ReverseMap();
+            CreateMap<MPFORMYETKI, PocoFORMYETKI>().ReverseMap();
 
+            //EISLEMLER
             CreateMap<MPGELENEFATURA, PocoGELENEFATURA>().ReverseMap();
             CreateMap<MPMUKELLEFLISTESI, PocoMUKELLEFLISTESI>().ReverseMap();
 
@@ -85,6 +90,7 @@ namespace MEYPAK.Entity.Mappings
             //PARAMETRE
 
             CreateMap<MPPARABIRIM, PocoPARABIRIM>().ReverseMap();
+            CreateMap<MPPERSONELPARAMETRE, PocoPERSONELPARAMETRE>().ReverseMap();
             CreateMap<MPSERIHAR, PocoSERIHAR>().ReverseMap(); 
             CreateMap<MPKASAPARAMS, PocoKASAPARAMS>().ReverseMap();
             //CARI

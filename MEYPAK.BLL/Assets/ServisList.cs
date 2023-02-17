@@ -14,12 +14,22 @@ namespace MEYPAK.BLL.Assets
 
         #endregion
 
+        #region PERSONELPARAMETRE
+        public const string PersonelParametreListeServis =        "http://78.135.80.41:8081/PERSONELPARAMETRE/Liste";
+        public const string PersonelParametreEkleServis =         "http://78.135.80.41:8081/PERSONELPARAMETRE/Ekle";
+        public const string PersonelParametreSilServis =          "http://78.135.80.41:8081/PERSONELPARAMETRE/Sil";
+        public const string PersonelParametreGuncelleServis =     "http://78.135.80.41:8081/PERSONELPARAMETRE/Guncelle";
+        public const string PersonelParametreDeleteByIdServis =   "http://78.135.80.41:8081/PERSONELPARAMETRE/DeleteById";
+        public const string PersonelParametreListeFiltreServis =  "http://78.135.80.41:8081/PERSONELPARAMETRE/Liste2";
+
+        #endregion
+
         #region EISLEMLER
-        public const string MUKELLEFLISTESIListeServis =        "http://78.135.80.41:8081/MUKELLEFLISTESI/MUKELLEFLISTESIListe";
-        public const string MUKELLEFLISTESIEkleServis =         "http://78.135.80.41:8081/MUKELLEFLISTESI/MUKELLEFLISTESIEkle";
-        public const string MUKELLEFLISTESISilServis =          "http://78.135.80.41:8081/MUKELLEFLISTESI/MUKELLEFLISTESISil";
-        public const string MUKELLEFLISTESIGuncelleServis =     "http://78.135.80.41:8081/MUKELLEFLISTESI/MUKELLEFLISTESIGuncelle";
-        public const string MUKELLEFLISTESIDeleteByIdServis =   "http://78.135.80.41:8081/MUKELLEFLISTESI/DeleteById";
+        public const string MUKELLEFLISTESIListeServis = "http://78.135.80.41:8081/MUKELLEFLISTESI/MUKELLEFLISTESIListe";
+        public const string MUKELLEFLISTESIEkleServis = "http://78.135.80.41:8081/MUKELLEFLISTESI/MUKELLEFLISTESIEkle";
+        public const string MUKELLEFLISTESISilServis = "http://78.135.80.41:8081/MUKELLEFLISTESI/MUKELLEFLISTESISil";
+        public const string MUKELLEFLISTESIGuncelleServis = "http://78.135.80.41:8081/MUKELLEFLISTESI/MUKELLEFLISTESIGuncelle";
+        public const string MUKELLEFLISTESIDeleteByIdServis = "http://78.135.80.41:8081/MUKELLEFLISTESI/DeleteById";
         public const string MUKELLEFLISTESIListeFiltreServis = "http://78.135.80.41:8081/MUKELLEFLISTESI/MUKELLEFLISTESIListe2";
 
         #endregion
@@ -661,6 +671,7 @@ namespace MEYPAK.BLL.Assets
         public const string UserLoginServis =        "http://78.135.80.41:8081/KULLANICI/Login";
         public const string UserLogoutServis =        "http://78.135.80.41:8081/KULLANICI/Logout";
         public const string UserEkleServis =         "http://78.135.80.41:8081/KULLANICI/Register";
+        public const string UserGetServis =         "http://78.135.80.41:8081/KULLANICI/USERGET";
 
 
         #endregion

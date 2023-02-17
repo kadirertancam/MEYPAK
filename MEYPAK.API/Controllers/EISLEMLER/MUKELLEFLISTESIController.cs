@@ -5,6 +5,7 @@ using MEYPAK.Entity.PocoModels.EISLEMLER;
 using MEYPAK.Interfaces.EIslemler;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace MEYPAK.API.Controllers.EISLEMLER
 {
@@ -16,6 +17,7 @@ namespace MEYPAK.API.Controllers.EISLEMLER
         private readonly IMapper _mapper;
         private readonly IMukellefListesiServis _MUKELLEFLISTESIServis;
         private MPAdoContext<MPMUKELLEFLISTESI> _adoMUKELLEFLISTESIServis = new MPAdoContext<MPMUKELLEFLISTESI>();
+        private AdoConnect con = new AdoConnect();
         public MUKELLEFLISTESIController(IMapper mapper, IMukellefListesiServis mukellefListesiServis)
         {
             _mapper = mapper;
@@ -36,13 +38,14 @@ namespace MEYPAK.API.Controllers.EISLEMLER
                 return Problem("Belirsiz bir hata oluştu!" + ex.Message);
             }
         }
-        [HttpGet]
+        [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult MUKELLEFLISTESIListe2([FromQuery] string query)
+        public IActionResult MUKELLEFLISTESIListe2()
         {
             try
             {
-                _adoMUKELLEFLISTESIServis.HepsiniGetir(query);
+                con.komutgonder("TRUNCATE TABLE MPMUKELLEFLISTESI");
+                _adoMUKELLEFLISTESIServis.HepsiniGetir();
                 return Ok(_adoMUKELLEFLISTESIServis.GenericList);
             }
             catch (Exception ex)
@@ -53,11 +56,12 @@ namespace MEYPAK.API.Controllers.EISLEMLER
 
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult MUKELLEFLISTESIEKleyadaGuncelle(PocoMUKELLEFLISTESI pModel)
+        public IActionResult MUKELLEFLISTESIEKle(PocoMUKELLEFLISTESI pModel)
         {
             try
             {
-                var data = _MUKELLEFLISTESIServis.EkleyadaGuncelle(pModel);
+               
+                var data = _MUKELLEFLISTESIServis.Ekle(pModel);
                 return Ok(data);
             }
             catch (Exception ex)

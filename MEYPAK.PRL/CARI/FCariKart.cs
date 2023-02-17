@@ -1,5 +1,6 @@
 ﻿using DevExpress.CodeParser;
 using DevExpress.Mvvm.POCO;
+using DevExpress.Text.Interop;
 using DevExpress.Utils;
 using DevExpress.XtraEditors;
 using DevExpress.XtraSpreadsheet.Import.OpenXml;
@@ -15,8 +16,10 @@ using MEYPAK.Interfaces.Cari;
 using MEYPAK.Interfaces.Parametre;
 using MEYPAK.Interfaces.Personel;
 using MEYPAK.Interfaces.Stok;
+using MEYPAK.PRL.Assets;
 using MEYPAK.PRL.STOK;
 using Newtonsoft.Json;
+using OPTYPE.HizliTeknoloji;
 using System;
 using System.Data;
 using System.IO;
@@ -114,7 +117,7 @@ namespace MEYPAK.PRL.CARI
                 if (editor != null)
                     editor.EditValue = null;
             }
-            foreach (var ctrl in groupControl4.Controls)
+            foreach (var ctrl in s.Controls)
             {
                 BaseEdit editor = ctrl as BaseEdit;
                 if (editor != null)
@@ -849,7 +852,19 @@ namespace MEYPAK.PRL.CARI
                 MessageBox.Show("Silmek İstediğiniz Alt Hesabı Seçiniz!");
         }
 
+        private void BTSorgula_Click(object sender, EventArgs e)
+        {
+            mukellefsorgula sorgulama = new mukellefsorgula();
+            MukellefOutput resp = sorgulama.sorgu(TBTcNo.Text == "" ? TBVergiNo.Text : TBTcNo.Text);
+            TBVergiNo.Text = resp.mukellef.vergiDairesiKodu;
+            CBVDaire.EditValue = resp.mukellef.vergiDairesiAdi;
+            TBUnvan.Text = resp.mukellef.unvan;
+            TBCariAdi.Text = resp.mukellef.ad;
+            TBCariSoyad.Text = resp.mukellef.soyad;
+                      
 
+         
+        }
     }
 }
 #endregion

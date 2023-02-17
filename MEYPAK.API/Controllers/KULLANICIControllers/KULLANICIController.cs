@@ -42,9 +42,10 @@ namespace MEYPAK.API.Controllers.KULLANICIControllers
                 var user = _userManager.FindByEmailAsync(model.Email).Result;
 
                 if (user == null)
-                {
+                    user = _userManager.FindByNameAsync(model.Email).Result;
+                if (user == null)
                     return Problem("Sistemde kullanıcı bilgisi bulunamadı.");
-                }
+           
                 var result = _signManager.PasswordSignInAsync(user, model.Password, model.RememberMe, false).Result;
                 if (result.Succeeded)
                 {
@@ -88,9 +89,8 @@ namespace MEYPAK.API.Controllers.KULLANICIControllers
 
                 var checkEmail = _userManager.FindByEmailAsync(model.Email).Result;
                 if (checkEmail != null)
-                {
                     return Ok("HATA! Bu email sisteme zaten kayıtlıdır!");
-                }
+
                 MPUSER user = new MPUSER()
                 {
                     Id= Guid.NewGuid().ToString(),
@@ -102,7 +102,9 @@ namespace MEYPAK.API.Controllers.KULLANICIControllers
                     SOYAD=model.Soyad,
                     PhoneNumber = model.Telefon
                 };
+
                 var result = _userManager.CreateAsync(user, model.Password).Result;
+                _userManager.AddToRoleAsync(user, AllRoles.USER.ToString());
                 return Ok(result.Succeeded?"Başarıyla Kayıt Oluşturuldu":"Kayıt Edilemedi");
 
             }
@@ -151,6 +153,17 @@ namespace MEYPAK.API.Controllers.KULLANICIControllers
                 }
             }
             return Ok();
+        }
+
+
+        [HttpGet]
+        [Authorize(Roles = "ADMIN")]
+        [Authorize(Roles = "ADMIN")]
+        [Route("/[controller]/[action]")]
+        public IActionResult USERGET()
+        {
+            var a = _userManager.Users;
+            return Ok(a);
         }
 
     }

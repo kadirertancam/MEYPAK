@@ -1,0 +1,75 @@
+﻿@using DevExtreme.AspNet.Mvc
+@using MEYPAK.Entity.PocoModels.KASA
+<main role="main" class="container">
+    <div class="menu-container dx-swatch-additional" style="width:fit-content">
+
+        <h2>Kasa Hareket Raporu</h2>
+
+
+        <div id="data-grid-demo" style="padding-top:20px; max-width:max-content">
+            @(
+                Html.DevExtreme().DataGrid<PocoKASAHAR>()
+                .ID("gridContainer")
+                .FilterPanel(f => f.Visible(false))
+                .HeaderFilter(h => h.Visible(true))
+                .Paging(p => p.Enabled(true))
+                .Scrolling(scrolling => scrolling.ColumnRenderingMode(GridColumnRenderingMode.Virtual))
+
+                .Columns(columns =>
+                {
+                    columns.AddFor(m => m.olusturmatarihi).Caption("KAYIT TARİHİ").Width(100);
+                    columns.AddFor(m => m.TARIH).Caption("TARİH")
+                    .Width(160);
+                    columns.AddFor(m => m.BELGENO).Caption("BELGE NO").Width(200);
+
+                    columns.AddFor(m => m.KASAID)
+                    .Width(160)
+                    .Visible(true)
+                    .Lookup(lookup => lookup
+                    .DataSource(ds => ds.Mvc().Controller("KASA").LoadAction("KasaGet").Key("id"))
+                    .DataSourceOptions(dso => dso.Sort(sort => sort.AddSorting("adi")))
+                    .ValueExpr("id")
+                    .DisplayExpr("adi")).Caption("KASA ADI");
+
+                  @*  columns.AddFor(m => m.olcubR1)
+                    .Width(150)
+                    .Visible(true)
+                    .Lookup(lookup => lookup
+                    .DataSource(ds => ds.Mvc().Controller("STOK").LoadAction("OlcuBrGet").Key("id"))
+                    .DataSourceOptions(dso => dso.Sort(sort => sort.AddSorting("adi")))
+                    .ValueExpr("id")
+                    .DisplayExpr("adi")).Caption("ÖLÇÜ BİRİM");
+
+                    columns.AddFor(m => m.markaid)
+                    .Width(150)
+                    .Visible(true)
+                    .Lookup(lookup => lookup
+                    .DataSource(ds => ds.Mvc().Controller("STOK").LoadAction("StokMarkaGet").Key("id"))
+                    .DataSourceOptions(dso => dso.Sort(sort => sort.AddSorting("aciklama")))
+                    .ValueExpr("id")
+                    .DisplayExpr("aciklama")).Caption("MARKA");
+                    columns.AddFor(m => m.afiyaT1).Caption("ALIŞ FİYATI");
+                    columns.AddFor(m => m.sfiyaT1).Caption("SATIŞ FİYATI");
+                    columns.AddFor(m => m.aliskdv).Caption("ALIŞ KDV");
+                    columns.AddFor(m => m.satiskdv).Caption("SATIŞ KDV");
+                    columns.AddFor(m => m.guncellemetarihi).Caption("GÜNCELLEME TARİHİ").Width(120);
+*@
+                })
+                .DataSource(d => d.Mvc()
+                .Controller("KASA")
+                .LoadAction("KasaHarGet").Key("id")
+
+                )
+                )
+
+        </div>
+        <script>
+            function changeTheme(e) {
+                var selectedTheme = e.component.option("value");
+                document.cookie = "currentTheme=" + selectedTheme + ";path=/";
+                window.location.reload();
+            }
+        </script>
+
+    </div>
+</main>

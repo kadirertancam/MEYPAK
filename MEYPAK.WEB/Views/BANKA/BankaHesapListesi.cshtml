@@ -1,0 +1,48 @@
+﻿@using DevExtreme.AspNet.Mvc
+@using MEYPAK.Entity.PocoModels.BANKA
+<main role="main" class="container">
+    <div class="menu-container dx-swatch-additional" style="width:fit-content">
+
+        <h2>Banka Hesap Listesi</h2>
+
+        <div id="data-grid-demo" style="padding-top:20px; max-width:max-content">
+            @(
+                Html.DevExtreme().DataGrid<PocoBANKAHESAP>()
+                .ID("gridContainer")
+                .FilterPanel(f => f.Visible(false))
+                .HeaderFilter(h => h.Visible(true))
+                .Paging(p => p.Enabled(true))
+                .Scrolling(scrolling => scrolling.ColumnRenderingMode(GridColumnRenderingMode.Virtual))
+
+                .Columns(columns =>
+                {
+                    columns.AddFor(m => m.olusturmatarihi).Caption("KAYIT TARİHİ").Width(100);
+                    columns.AddFor(m => m.KOD).Caption("KOD")
+                    .Width(160);
+                    columns.AddFor(m => m.NO).Caption("HESAP NO").Width(200);
+
+                    columns.AddFor(m => m.ADI).Caption("HESAP ADI");
+                    columns.AddFor(m => m.IBAN).Caption("İBAN");
+                    columns.AddFor(m => m.TIP).Caption("TİPİ");
+                    columns.AddFor(m => m.guncellemetarihi).Caption("GÜNCELLEME TARİHİ");
+
+
+                })
+                .DataSource(d => d.Mvc()
+                .Controller("BANKA")
+                .LoadAction("BankaHesapGet").Key("id")
+
+                )
+                )
+
+        </div>
+        <script>
+            function changeTheme(e) {
+                var selectedTheme = e.component.option("value");
+                document.cookie = "currentTheme=" + selectedTheme + ";path=/";
+                window.location.reload();
+            }
+        </script>
+
+    </div>
+</main>

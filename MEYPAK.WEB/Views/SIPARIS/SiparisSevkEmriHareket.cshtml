@@ -1,0 +1,54 @@
+﻿@using DevExtreme.AspNet.Mvc
+@using MEYPAK.Entity.PocoModels.SIPARIS
+<main role="main" class="container">
+    <div class="menu-container dx-swatch-additional" style="width:fit-content">
+
+        <h2>Sevk Emri Hareket Raporu</h2>
+
+
+        <div id="data-grid-demo" style="padding-top:20px; width:fit-content">
+            @(
+                Html.DevExtreme().DataGrid<PocoSIPARISSEVKEMIRHAR>()
+                .ID("gridContainer")
+                .FilterPanel(f => f.Visible(false))
+                .HeaderFilter(h => h.Visible(true))
+                .Paging(p => p.Enabled(true))
+                .Scrolling(scrolling => scrolling.ColumnRenderingMode(GridColumnRenderingMode.Virtual))
+
+                .Columns(columns =>
+                {
+                    columns.AddFor(m => m.olusturmatarihi).Caption("KAYIT TARİHİ").Width(100);
+                    columns.AddFor(m => m.tarih).Caption("HAREKET TARİHİ").Width(100);
+                    columns.AddFor(m => m.tip).Caption("TİP").Width(100);
+                    columns.AddFor(m => m.siparisid)
+                    .Width(150)
+                    .Visible(true)
+                    .Lookup(lookup => lookup
+                    .DataSource(ds => ds.Mvc().Controller("SIPARIS").LoadAction("SiparisGet").Key("id"))
+                    .DataSourceOptions(dso => dso.Sort(sort => sort.AddSorting("belgeno")))
+                    .ValueExpr("id")
+                    .DisplayExpr("belgeno")).Caption("SİPARİŞ");
+
+                    columns.AddFor(m => m.siparismiktari).Caption("SİPARİŞ MİKTARI").Width(120);
+
+                    columns.AddFor(m => m.guncellemetarihi).Caption("GÜNCELLEME TARİHİ").Width(120);
+
+                })
+                .DataSource(d => d.Mvc()
+                .Controller("SIPARIS")
+                .LoadAction("SiparisSevkEmriHarGet").Key("id")
+
+                )
+                )
+        </div>
+
+        <script>
+            function changeTheme(e) {
+                var selectedTheme = e.component.option("value");
+                document.cookie = "currentTheme=" + selectedTheme + ";path=/";
+                window.location.reload();
+            }
+        </script>
+
+    </div>
+</main>

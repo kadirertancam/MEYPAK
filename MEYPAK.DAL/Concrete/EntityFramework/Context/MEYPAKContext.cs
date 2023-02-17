@@ -7,6 +7,7 @@ using MEYPAK.Entity.Models.CEKSENET;
 using MEYPAK.Entity.Models.DEPO;
 using MEYPAK.Entity.Models.EISLEMLER;
 using MEYPAK.Entity.Models.FATURA;
+using MEYPAK.Entity.Models.FORMYETKI;
 using MEYPAK.Entity.Models.IRSALIYE;
 using MEYPAK.Entity.Models.KASA;
 using MEYPAK.Entity.Models.PARAMETRE;
@@ -30,7 +31,10 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
            
 
         }
+        public DbSet<MPFORM> MPFORM { get; set; }
+        public DbSet<MPFORMYETKI> MPFORMYETKI { get; set; }
         public DbSet<MPSTOKSARF> MPSTOKSARF { get; set; }
+        public DbSet<MPPERSONELPARAMETRE> MPPERSONELPARAMETRE { get; set; }
         public DbSet<MPSTOKSARFDETAY> MPSTOKSARFDETAY { get; set; }
         public DbSet<MPMUSTERICEKSENET> MPMUSTERICEKSENET { get; set; }
         public DbSet<MPCEKSENETUSTSB> MPCEKSENETUSTSB { get; set; }

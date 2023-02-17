@@ -9,7 +9,7 @@ namespace MEYPAK.Entity.IdentityModels
   
     public enum AllRoles
     {
-        INSANK = 10,
+        USER = 10,
         ADMIN = 11,
     }
 }

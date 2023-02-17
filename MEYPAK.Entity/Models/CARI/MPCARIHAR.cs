@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.Entity.Models.CARI
 {
-    //1-Satış Fatura, 2-Alış Fatura, 3-Kasa, 4-Eft, 5-Havale 
+    //1-Satış Fatura, 2-Alış Fatura, 3-Kasa, 4-Eft, 5-Havale 6-Cek Ciro
     public class MPCARIHAR:SUPERMODEL
     {
         public int CARIID { get; set; }

@@ -4016,8 +4016,8 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<byte>("KAYITTIPI")
                         .HasColumnType("tinyint");
 
-                    b.Property<int>("MIKTAR")
-                        .HasColumnType("int");
+                    b.Property<decimal>("MIKTAR")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<DateTime>("OLUSTURMATARIHI")
                         .HasColumnType("datetime2");
@@ -4205,6 +4205,47 @@ namespace MEYPAK.DAL.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("MPPERSONELIZIN");
+                });
+
+            modelBuilder.Entity("MEYPAK.Entity.Models.PERSONEL.MPPERSONELPARAMETRE", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+
+                    b.Property<int>("AVANSKATI")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("AVANSKATIrequired")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("AVANSMIKTAR")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("AVANSMIKTARrequired")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("ESKIID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("GUNCELLEMETARIHI")
+                        .HasColumnType("datetime2");
+
+                    b.Property<byte>("KAYITTIPI")
+                        .HasColumnType("tinyint");
+
+                    b.Property<DateTime>("OLUSTURMATARIHI")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("MPPERSONELPARAMETRE");
                 });
 
             modelBuilder.Entity("MEYPAK.Entity.Models.PERSONEL.MPPERSONELZIMMET", b =>

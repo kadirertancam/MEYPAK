@@ -62,6 +62,7 @@ using MEYPAK.DAL.Abstract.DekontDal;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository.DekontRepo;
 using MEYPAK.BLL.DEKONT;
 using MEYPAK.Interfaces.Dekont;
+using MEYPAK.API.Assets.StartingOperations;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -183,6 +184,9 @@ builder.Services.AddScoped<IParaBirimServis, ParaBirimManager>();
 
 builder.Services.AddScoped<ISeriHarDal, EFSeriHarRepo>();
 builder.Services.AddScoped<ISeriHarServis, SeriHarManager>();
+
+builder.Services.AddScoped<IPersonelParametreDal, EFPersonelParametreRepo>();
+builder.Services.AddScoped<IPersonelParametreServis, PersonelParametreManager>();
 
 builder.Services.AddScoped<IKasaParamsDal, EFKasaParamsRepo>();
 builder.Services.AddScoped<IKasaParamServis, KasaParamsManager>();
@@ -424,6 +428,7 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+app.PrepareData();
 app.Run();
 
 

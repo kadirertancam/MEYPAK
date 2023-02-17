@@ -6,12 +6,14 @@ using MEYPAK.BLL.KULLANICI;
 using MEYPAK.Entity.IdentityModels;
 using MEYPAK.Entity.PocoModels.EISLEMLER;
 using MEYPAK.Entity.PocoModels.PARAMETRE;
-using MEYPAK.PRL.ARAÇLAR;
 using MEYPAK.PRL.ARACLAR;
+using MEYPAK.PRL.ARAÇLAR;
 using MEYPAK.PRL.BANKA;
 using MEYPAK.PRL.CARI;
 using MEYPAK.PRL.CARI.Raporlar;
 using MEYPAK.PRL.CEKSENET;
+using MEYPAK.PRL.CEKSENET.Firma;
+using MEYPAK.PRL.CEKSENET.Firma.Çek;
 using MEYPAK.PRL.CEKSENET.Müşteri.Çek;
 using MEYPAK.PRL.CEKSENET.Müşteri.Senet;
 using MEYPAK.PRL.DEPO;
@@ -19,6 +21,7 @@ using MEYPAK.PRL.DEPO.Raporlar;
 using MEYPAK.PRL.E_ISLEMLER;
 using MEYPAK.PRL.IRSALIYE;
 using MEYPAK.PRL.KASA;
+using MEYPAK.PRL.KULLANICI;
 using MEYPAK.PRL.PARAMETRELER;
 using MEYPAK.PRL.PERSONEL;
 using MEYPAK.PRL.PERSONEL.Raporlar;
@@ -132,13 +135,16 @@ namespace MEYPAK.PRL
         FStokSarf fStokSarf;
         StokKasaGirisPanel stokkasa;
         EFATURA fefatura;
+        FFirmaCekListe fFirmaCekListe;
+        FCekSenetDurum fCekSenetDurum;
+        FKullaniciTanim fKullaniciTanim;
 
         public Tarih_Date _tarih_Date = new Tarih_Date();
         public DataTable guncelkur;
         GenericWebServis<PocoPARABIRIM> _parabirimServis;
         GenericWebServis<PocoMUKELLEFLISTESI> _mükellefListesi;
         public MPUSER Kullanici;
-        List<string> Roller;
+        public List<string> Roller;
         #endregion
 
 
@@ -1721,5 +1727,71 @@ namespace MEYPAK.PRL
                 }
             }
         }
+
+        private void ACECekListe_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fFirmaCekListe = new FFirmaCekListe();
+            page.Name = "FFirmaCekListe" + i;
+            page.Text = "Firma Çek Liste";
+            page.Tag = "FFirmaCekListe" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fFirmaCekListe.FormBorderStyle = FormBorderStyle.None;
+            fFirmaCekListe.TopLevel = false;
+            fFirmaCekListe.AutoScroll = true;
+            fFirmaCekListe.Dock = DockStyle.Fill;
+            fFirmaCekListe.Tag = "FFirmaCekListe" + i;
+            page.Controls.Add(fFirmaCekListe);
+            fFirmaCekListe.Show();
+            i++;
+        }
+       
+        private void ACECekSenetDurum_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fCekSenetDurum = new FCekSenetDurum();
+            page.Name = "FCekSenetDurum" + i;
+            page.Text = "Çek Senet Durum";
+            page.Tag = "FCekSenetDurum" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fCekSenetDurum.FormBorderStyle = FormBorderStyle.None;
+            fCekSenetDurum.TopLevel = false;
+            fCekSenetDurum.AutoScroll = true;
+            fCekSenetDurum.Dock = DockStyle.Fill;
+            fCekSenetDurum.Tag = "FCekSenetDurum" + i;
+            page.Controls.Add(fCekSenetDurum);
+            fCekSenetDurum.Show();
+            i++;
+        }
+
+        private void ACEKullaniciTanim_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fKullaniciTanim = new FKullaniciTanim();
+            page.Name = "FKullaniciTanim" + i;
+            page.Text = "Kullanıcı Tanım";
+            page.Tag = "FKullaniciTanim" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fKullaniciTanim.FormBorderStyle = FormBorderStyle.None;
+            fKullaniciTanim.TopLevel = false;
+            fKullaniciTanim.AutoScroll = true;
+            fKullaniciTanim.Dock = DockStyle.Fill;
+            fKullaniciTanim.Tag = "FKullaniciTanim" + i;
+            page.Controls.Add(fKullaniciTanim);
+            fKullaniciTanim.Show();
+            i++;
+        }
+        
+
+
     }
 }
