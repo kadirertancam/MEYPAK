@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using MEYPAK.DAL.Concrete.ADONET;
-using MEYPAK.DAL.Migrations;
+using MEYPAK.Entity.Models.PERSONEL;
 using MEYPAK.Entity.PocoModels.BANKA;
 using MEYPAK.Entity.PocoModels.PERSONEL;
 using MEYPAK.Interfaces.Banka;
