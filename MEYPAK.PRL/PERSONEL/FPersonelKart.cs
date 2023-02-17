@@ -300,7 +300,8 @@ namespace MEYPAK.PRL.PERSONEL
 
         private void gridControl1_DoubleClick(object sender, EventArgs e)
         {
-            _tempPocoPERSONEL = _personelServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+            FormuTemizle(this.Controls);
+            _tempPocoPERSONEL = _personelServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault(); 
             PersonelBilgileriniDoldur();
         }
 

@@ -21,6 +21,9 @@ namespace MEYPAK.PRL.STOK
             InitializeComponent();
             _stokKasaServis = new GenericWebServis<PocoSTOKKASA>();
             DTPTarih.Text = DateTime.Now.ToString();
+            _depoServis = new GenericWebServis<PocoDEPO>();
+            _depoServis.Data(ServisList.DepoListeServis);
+            _stokKasaHarServis = new GenericWebServis<PocoSTOKKASAHAR>();
             CBDepo.Properties.DataSource = _depoServis.obje.Where(x => x.kayittipi == 0).Select(x => x.depoadi).ToList();
         }
 
@@ -41,7 +44,8 @@ namespace MEYPAK.PRL.STOK
                 sarfdetayid = 0,
                 sarfid = 0,
                 stokid = 0,
-                depoid= _depoServis.obje.Where(x=>x.depoadi==CBDepo.Text).FirstOrDefault().id
+                depoid= _depoServis.obje.Where(x=>x.depoadi==CBDepo.Text).FirstOrDefault().id,
+                userid = MPKullanici.ID
             });
 
         }

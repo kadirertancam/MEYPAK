@@ -4,6 +4,7 @@ using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.PocoModels;
 using MEYPAK.Entity.PocoModels.FATURA;
 using MEYPAK.Entity.PocoModels.IRSALIYE;
+using MEYPAK.Interfaces;
 using MEYPAK.Interfaces.IRSALIYE;
 using MEYPAK.Interfaces.Stok;
 using MEYPAK.PRL.IRSALIYE;
@@ -24,7 +25,7 @@ namespace MEYPAK.PRL.SIPARIS
 {
     public partial class FFaturaList : XtraForm
     {
-        public FFaturaList(string tag = "",string islem = "")
+        public FFaturaList(string tag = "", string islem = "")
         {
             InitializeComponent();
             _form = tag;
@@ -56,7 +57,7 @@ namespace MEYPAK.PRL.SIPARIS
                 {
                     if (_form == frm.Tag)
                     {
-                        
+
                         if (frm.Name.Contains("FStokKasaHareketRaporu"))
                             fStokKasaHareketRaporu = (FStokKasaHareketRaporu)frm;
                         if (frm.Name.Contains("FFaturaRaporu"))
@@ -67,8 +68,8 @@ namespace MEYPAK.PRL.SIPARIS
                             fStokHareketRaporu = (FStokHareketRaporu)frm;
                         if (frm.Name.Contains("FAlisFatura"))
                             falisFatura = (FAlisFatura)frm;
-                       
-                        
+
+
                     }
                 }
             }
@@ -80,12 +81,13 @@ namespace MEYPAK.PRL.SIPARIS
                         main = (Main)frm;
                 }
             }
-         
+
             _faturaServis.Data(ServisList.FaturaListeServis);
-            if (_islem == "FFatura" || _islem== "FFaturaRaporu" || _islem == "FStokHareketRaporu" || _islem == "FStokKasaHareketRaporu")
-                gridControl1.DataSource = _faturaServis.obje.Where(x => x.tip == 0).Select(x => new
+            if (_islem == "FFatura" || _islem == "FFaturaRaporu" || _islem == "FStokHareketRaporu" || _islem == "FStokKasaHareketRaporu")
+                gridControl1.DataSource = _faturaServis.obje.Where(x => x.tip == 0 || x.tip == 1).Select(x => new
                 {
                     ID = x.id,
+                    TIP= x.tip == 0 ? "Satış" : x.tip==2? "Satıştan İade":x.tip==1?"Alış":x.tip==3?"Alış İade":"",
                     x.faturatarihi,
                     x.belgeno,
                     x.cariadi,
@@ -94,9 +96,10 @@ namespace MEYPAK.PRL.SIPARIS
                     x.geneltoplam
                 });
             if (_islem == "FAlisFatura")
-                gridControl1.DataSource = _faturaServis.obje.Where(x => x.tip == 1).Select(x => new
+                gridControl1.DataSource = _faturaServis.obje.Where(x => x.tip == 1 || x.tip == 3).Select(x => new
                 {
                     ID = x.id,
+                    TIP = x.tip == 0 ? "Satış" : x.tip == 2 ? "Satıştan İade" : x.tip == 1 ? "Alış" : x.tip == 3 ? "Alış İade" : "",
                     x.faturatarihi,
                     x.belgeno,
                     x.cariadi,
@@ -117,7 +120,7 @@ namespace MEYPAK.PRL.SIPARIS
                 {
                     if (ffatura != null)
                         ffatura._tempFatura = _faturaServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
-                    
+
                 }
                 if (_islem == "FAlisFatura")
                 {
@@ -129,7 +132,7 @@ namespace MEYPAK.PRL.SIPARIS
                 {
                     if (fFaturaRaporu != null)
                         fFaturaRaporu._tempFatura = _faturaServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
-                    
+
                 }
                 else if (_islem == "FStokHareketRaporu")
                 {

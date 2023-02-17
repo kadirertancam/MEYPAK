@@ -57,8 +57,9 @@ namespace MEYPAK.BLL.Assets
            // servis= parameters != null ? servis + "?" + parameters : servis;
            // servis = id != null ? servis + "?id=" + id : servis;
             HttpRequestMessage client;
-            
-                
+            servis = parameters != null ? servis + "?" + parameters : servis;
+            servis = id != null ? servis + "?id=" + id : servis;
+
             if (method != null)
                 client = new HttpRequestMessage(method,servis);
             else if (model == null && modellist == null)
