@@ -372,6 +372,8 @@ builder.Services.AddScoped<IAracKaskoResimServis, AracKaskoResimManager>();
 builder.Services.AddScoped<IAracRotaDal, EFAracRotaRepo>();
 builder.Services.AddScoped<IAracRotaServis, AracRotaManager>();
 
+builder.Services.AddScoped<ISoforDal, EFSoforRepo>();
+builder.Services.AddScoped<ISoforServis, SoforManager>();
 #endregion
 #region KASA_Scoped_Islemleri
 builder.Services.AddScoped<IKasaDal, EFKasaRepo>();

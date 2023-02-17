@@ -86,13 +86,13 @@ namespace MEYPAK.Entity.Mappings
             CreateMap<MPHESAPHAREKET, PocoHESAPHAREKET>().ReverseMap();
             CreateMap<MPKREDIKART, PocoKREDIKART>().ReverseMap();
            
-
             //PARAMETRE
 
             CreateMap<MPPARABIRIM, PocoPARABIRIM>().ReverseMap();
             CreateMap<MPPERSONELPARAMETRE, PocoPERSONELPARAMETRE>().ReverseMap();
             CreateMap<MPSERIHAR, PocoSERIHAR>().ReverseMap(); 
             CreateMap<MPKASAPARAMS, PocoKASAPARAMS>().ReverseMap();
+
             //CARI
             CreateMap<ADRESLIST, PocoAdresList>().ReverseMap();
             CreateMap<MPCARIKART, PocoCARIKART>().ReverseMap();
@@ -157,6 +157,7 @@ namespace MEYPAK.Entity.Mappings
             //ARAC
             CreateMap<MPARACLAR, PocoARACLAR>().ReverseMap();
             CreateMap<MPARAC, PocoARAC>().ReverseMap();
+            CreateMap<MPSOFOR, PocoSOFOR>().ReverseMap();
             CreateMap<MPARACMODEL, PocoARACMODEL>().ReverseMap();
             CreateMap<MPARACRESIM, PocoARACRESIM>().ReverseMap();
             CreateMap<MPARACRUHSATRESIM, PocoARACRUHSATRESIM>().ReverseMap();

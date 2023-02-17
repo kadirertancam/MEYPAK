@@ -19,6 +19,7 @@ namespace MEYPAK.WEB.Controllers
         static int temppersonelid = 0;
 
         #endregion
+
         public PERSONELController(ILogger<PERSONELController> logger)
         {
             _logger = logger;
@@ -26,7 +27,6 @@ namespace MEYPAK.WEB.Controllers
 
 
         #region PERSONEL
-
 
         [HttpGet]
         public IActionResult PersonelListesi()

@@ -221,7 +221,7 @@ namespace MEYPAK.PRL.PERSONEL
                         _personelAvansServis.Data(ServisList.PersonelAvansEkleServis, new PocoPERSONELAVANS()
                         {
                             PERSONELID= _tempPocoPERSONEL.id,
-                            MIKTAR = Convert.ToDecimal(TBAvansMiktar.EditValue),
+                          //  MIKTAR = Convert.ToDecimal(TBAvansMiktar.EditValue),
                             ACIKLAMA = TBAvansAciklama.Text,
                             TARIH = (DateTime)DTPAvansTar.EditValue,
                             userid = MPKullanici.ID,
