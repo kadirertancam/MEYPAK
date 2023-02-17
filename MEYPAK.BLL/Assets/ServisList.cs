@@ -87,6 +87,15 @@ namespace MEYPAK.BLL.Assets
         public const string AracListeFiltreServis = "http://78.135.80.41:8081/ARAC/ARACListe2?query=";
         #endregion
 
+        #region Sofor
+        public const string SoforListeServis = "http://78.135.80.41:8081/SOFOR/SOFORListe";
+        public const string SoforEkleServis = "http://78.135.80.41:8081/SOFOR/SOFOREkleyadaGuncelle";
+        public const string SoforSilServis = "http://78.135.80.41:8081/SOFOR/SOFORSil";
+        public const string SoforGuncelleServis = "http://78.135.80.41:8081/SOFOR/SOFORGuncelle";
+        public const string SoforDeleteByIdServis = "http://78.135.80.41:8081/SOFOR/DeleteById";
+        public const string SoforListeFiltreServis = "http://78.135.80.41:8081/SOFOR/SOFORListe2?query=";
+        #endregion
+
         #region AracRota
         public const string AracRotaListeServis =        "http://78.135.80.41:8081/ARACROTA/ARACROTAListe";
         public const string AracRotaEkleServis =         "http://78.135.80.41:8081/ARACROTA/ARACROTAEkleyadaGuncelle";

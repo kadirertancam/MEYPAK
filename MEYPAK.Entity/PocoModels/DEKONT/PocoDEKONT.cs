@@ -13,12 +13,12 @@ namespace MEYPAK.Entity.PocoModels.DEKONT
         public int personelid { get; set; }
         public int kasaid { get; set; }
         public int muhasebeid { get; set; }
-        public int belgeno { get; set; }
-        public int tutar { get; set; }
-        public int io { get; set; }
-        public int kdv { get; set; }
-        public int iskonto1 { get; set; }
-        public int iskonto2 { get; set; }
-        public int iskonto3 { get; set; }
+        public string belgeno { get; set; }
+        public int althesapid { get; set; }
+        public decimal borc { get; set; }
+        public decimal alacak { get; set; }
+        public decimal kdv { get; set; }
+        public bool kdvdahiledilsin { get; set; }
+        public int depo { get; set; }
     }
 }
