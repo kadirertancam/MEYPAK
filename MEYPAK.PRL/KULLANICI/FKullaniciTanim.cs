@@ -34,10 +34,18 @@ namespace MEYPAK.PRL.KULLANICI
         #region EVENTS
         void YETKIGRIDDOLDUR()
         {
+            _formYetkiServis.Data(ServisList.FormYetkiListeServis);
             pocoFORMYETKIs.Clear();
             foreach (var item in _formServis.obje)
             {
+                if(_formYetkiServis.obje.Where(x=> x.FORMID == item.id && x.USERID==tempuser.Id).Count()==0)
                 pocoFORMYETKIs.Add(new FormYetkiKalem() { FORMADI = item.FORMADI, KULLANICI = tempuser.AD + " " + tempuser.SOYAD });
+                else
+                {
+                    PocoFORMYETKI formYetki = _formYetkiServis.obje.Where(x => x.FORMID == item.id && x.USERID == tempuser.Id).FirstOrDefault();
+                    pocoFORMYETKIs.Add(new FormYetkiKalem() { FORMADI = item.FORMADI,GORUNTULE=formYetki.GORUNTULE,EKLE=formYetki.EKLE,SIL=formYetki.SIL,GUNCELLE=formYetki.GUNCELLE, KULLANICI = tempuser.AD + " " + tempuser.SOYAD });
+                }
+               
             }
 
             GCKullaniciYetki.RefreshDataSource();
@@ -51,6 +59,7 @@ namespace MEYPAK.PRL.KULLANICI
                 TBSOYAD.Text = tempuser.SOYAD;
                 TBUSERNAME.Text = tempuser.UserName;
                 TBEPOSTA.Text = tempuser.Email;
+                TBTelefon.Text = tempuser.PhoneNumber;
                 YETKIGRIDDOLDUR();
             }
         }
@@ -187,7 +196,6 @@ namespace MEYPAK.PRL.KULLANICI
                                 SIL = item.SIL,
                                 USERID = tempuser.Id,
                                 userid = MPKullanici.ID
-
                             });
                         }
                     }
