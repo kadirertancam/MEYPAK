@@ -1,19 +1,28 @@
 ﻿@using DevExtreme.AspNet.Mvc
 @using MEYPAK.Entity.PocoModels.PERSONEL
-<main role="main" class="container">
+<main role="main" class="container" style="margin-left:250px;">
     <div class="menu-container dx-swatch-additional" style="width:fit-content">
 
         <h2>Personel Listesi</h2>
-
 
         <div id="data-grid-demo" style="padding-top:20px; max-width:max-content">
             @(
                 Html.DevExtreme().DataGrid<PocoPERSONEL>()
                 .ID("gridContainer")
                 .FilterPanel(f => f.Visible(false))
-                .HeaderFilter(h => h.Visible(true))
+                .HeaderFilter(h => h.Visible(true)).ColumnAutoWidth(true).Pager(x =>
+                {
+                    x.ShowPageSizeSelector(true);
+                    x.ShowPageSizeSelector(true);
+                })
                 .Paging(p => p.Enabled(true))
-                .Scrolling(scrolling => scrolling.ColumnRenderingMode(GridColumnRenderingMode.Virtual))
+                .Scrolling(scrolling =>
+                {
+                    scrolling.ColumnRenderingMode(GridColumnRenderingMode.Standard);
+                    scrolling.ShowScrollbar(ShowScrollbarMode.Always);
+                    scrolling.Mode(GridScrollingMode.Standard);
+                    scrolling.ScrollByContent(true);
+                })
 
                 .Columns(columns =>
                 {
@@ -26,18 +35,18 @@
                     columns.AddFor(m => m.soyadi).Caption("SOYADI");
                     columns.AddFor(m => m.cepno).Caption("TELEFON");
                     columns.AddFor(m => m.sube).Caption("ŞUBE");
-                   @* columns.AddFor(m => m.personeldepartmanid)
-                    .Width(160)
-                    .Visible(true)
-                    .Lookup(lookup => lookup
-                    .DataSource(ds => ds.Mvc().Controller("PERSONEL").LoadAction("StokHarGet").Key("hareketturu"))
-                    .DataSourceOptions(dso => dso.Sort(sort => sort.AddSorting("aciklama")))
-                    .ValueExpr("hareketturu")
-                    .DisplayExpr("aciklama")).Caption("HAREKET TÜRÜ");*@
+                    @* columns.AddFor(m => m.personeldepartmanid)
+            .Width(160)
+            .Visible(true)
+            .Lookup(lookup => lookup
+            .DataSource(ds => ds.Mvc().Controller("PERSONEL").LoadAction("StokHarGet").Key("hareketturu"))
+            .DataSourceOptions(dso => dso.Sort(sort => sort.AddSorting("aciklama")))
+            .ValueExpr("hareketturu")
+            .DisplayExpr("aciklama")).Caption("HAREKET TÜRÜ");*@
                     columns.AddFor(m => m.dogumtar).Caption("DOĞUM TARİHİ");
                     columns.AddFor(m => m.dogumyeri).Caption("DOĞUM YERİ");
                     columns.AddFor(m => m.babaadi).Caption("BABA ADI");
-                    columns.AddFor(m => m.anneadi).Caption("ANNE ADI");  
+                    columns.AddFor(m => m.anneadi).Caption("ANNE ADI");
                     columns.AddFor(m => m.adres).Caption("ADRES");
                     columns.AddFor(m => m.medenidurum).Caption("MEDENİ DURUM");
                     columns.AddFor(m => m.cinsiyet).Caption("CİNSİYET");
@@ -50,7 +59,7 @@
                 .DataSource(d => d.Mvc()
                 .Controller("PERSONEL")
                 .LoadAction("PersonelGet").Key("id")
-                
+
                 )
                 )
 

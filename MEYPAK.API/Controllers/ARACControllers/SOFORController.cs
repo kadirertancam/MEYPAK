@@ -1,36 +1,35 @@
 ﻿using AutoMapper;
 using MEYPAK.DAL.Concrete.ADONET;
-using MEYPAK.Entity.Models.DEKONT;
-using MEYPAK.Entity.Models.DEKONT;
-using MEYPAK.Entity.PocoModels.DEKONT;
-using MEYPAK.Interfaces.Dekont;
-using MEYPAK.Interfaces.Fatura;
+using MEYPAK.Entity.Models.ARAC;
+using MEYPAK.Entity.PocoModels.ARAC;
+using MEYPAK.Interfaces.Arac;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace MEYPAK.API.Controllers.DekontControllers
+namespace MEYPAK.API.Controllers.ARACControllers
 {
+
     [ApiController]
     [Route("[controller]")]
     [Authorize]
-    public class DEKONTController : Controller
+    public class SOFORController : Controller
     {
         private readonly IMapper _mapper;
-        private readonly IDekontServis _dekontServis;
-        private MPAdoContext<MPDEKONT> _adoDekontServis = new MPAdoContext<MPDEKONT>();
-        public DEKONTController(IMapper mapper, IDekontServis dekontServis)
+        private readonly ISoforServis _soforServis;
+        private MPAdoContext<MPSOFOR> _adosoforServis = new MPAdoContext<MPSOFOR>();
+        public SOFORController(IMapper mapper, ISoforServis soforServis)
         {
             _mapper = mapper;
-            _dekontServis = dekontServis;
+            _soforServis = soforServis;
         }
 
         [HttpGet]
         [Route("/[controller]/[action]")]
-        public IActionResult DEKONTListe()
+        public IActionResult SOFORListe()
         {
             try
             {
-                var data = _dekontServis.Listele();
+                var data = _soforServis.Listele();
                 return Ok(data);
             }
             catch (Exception ex)
@@ -40,26 +39,25 @@ namespace MEYPAK.API.Controllers.DekontControllers
         }
         [HttpGet]
         [Route("/[controller]/[action]")]
-        public IActionResult DEKONTListe2([FromQuery] string query)
+        public IActionResult SOFORListe2([FromQuery] string query)
         {
             try
             {
-                _adoDekontServis.HepsiniGetir(query);
-                return Ok(_adoDekontServis.GenericList);
+                _adosoforServis.HepsiniGetir(query);
+                return Ok(_adosoforServis.GenericList);
             }
             catch (Exception ex)
             {
                 return Problem("Belirsiz bir hata oluştu!" + ex.Message);
             }
         }
-
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult DEKONTEKleyadaGuncelle([FromBody]PocoDEKONT pModel)
+        public IActionResult SOFOREkleyadaGuncelle(PocoSOFOR pModel)
         {
             try
             {
-                var data = _dekontServis.EkleyadaGuncelle(pModel);
+                var data = _soforServis.EkleyadaGuncelle(pModel);
                 return Ok(data);
             }
             catch (Exception ex)
@@ -69,11 +67,11 @@ namespace MEYPAK.API.Controllers.DekontControllers
         }
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult DEKONTSil(List<PocoDEKONT> pModel)
+        public IActionResult SOFORSil(List<PocoSOFOR> pModel)
         {
             try
             {
-                var data = _dekontServis.Sil(pModel);
+                var data = _soforServis.Sil(pModel);
                 return Ok(data);
             }
             catch (Exception ex)
@@ -83,11 +81,11 @@ namespace MEYPAK.API.Controllers.DekontControllers
         }
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult DEKONTGuncelle(PocoDEKONT pModel)
+        public IActionResult SOFORGuncelle(PocoSOFOR pModel)
         {
             try
             {
-                var data = _dekontServis.Guncelle(pModel);
+                var data = _soforServis.Guncelle(pModel);
                 return Ok(data);
             }
             catch (Exception ex)
@@ -95,13 +93,13 @@ namespace MEYPAK.API.Controllers.DekontControllers
                 return Problem("Belirsiz bir hata oluştu!" + ex.Message);
             }
         }
-        [HttpPost]
+        [HttpDelete]
         [Route("/[controller]/[action]")]
         public IActionResult DeleteById([FromQuery] int id)
         {
             try
             {
-                bool succes = _dekontServis.DeleteById(id);
+                bool succes = _soforServis.DeleteById(id);
                 if (succes)
                     return Ok(id + " Başarıyla Silindi");
                 else

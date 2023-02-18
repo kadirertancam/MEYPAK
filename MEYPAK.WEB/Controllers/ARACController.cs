@@ -1,5 +1,8 @@
-﻿using MEYPAK.BLL.Assets;
+﻿using DevExtreme.AspNet.Data;
+using DevExtreme.AspNet.Mvc;
+using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.PocoModels.ARAC;
+using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.STOK;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,52 +11,56 @@ namespace MEYPAK.WEB.Controllers
     public class ARACController : Controller
     {
         private readonly ILogger<ARACController> _logger;
-        GenericWebServis<PocoARACLAR> _tempPocoArac = new GenericWebServis<PocoARACLAR>();
+        GenericWebServis<PocoARAC> _tempArac = new GenericWebServis<PocoARAC>();
+        GenericWebServis<PocoSOFOR> _tempSofor = new GenericWebServis<PocoSOFOR>();
+
+        #region Tanımlar
+
+        static List<PocoSOFOR> pocoSofors = new List<PocoSOFOR>();
+        static int tempsoforid = 0;
+        static List<PocoARAC> pocoAracs = new List<PocoARAC>();
+        static int temparacid = 0;
+
+        #endregion
         public ARACController(ILogger<ARACController> logger)
         {
             _logger = logger;
 
         }
-            #region ARAC
-            [HttpGet] 
-            public async Task<IActionResult> AracKart()
-            {
-                _tempPocoArac.Data(ServisList.AracListeServis);
+        //denemeem
+        #region ARAC
 
-                return View(_tempPocoArac.obje);
-            }
-
-            [HttpGet]
-            public IActionResult AracEkle()
-            {
-                return View();
-            }
-
-            [HttpPost]
-            public async Task<IActionResult> AracEkle(PocoARACLAR pModel)
-            {
-
-                _tempPocoArac.Data(ServisList.AracEkleServis, pModel);
-
-                ViewBag.Durum = "Başarıyla eklendi.";
-                return View();
-            }
         [HttpGet]
-        public IActionResult AracSil()
+        public IActionResult AracListesi()
         {
             return View();
         }
 
-        [HttpPost]
-        public async Task<IActionResult> AracSil(List<PocoARACLAR> pModel)
+        [HttpGet]
+        public object AracGet(DataSourceLoadOptions loadOptions)
         {
 
-            _tempPocoArac.Data(ServisList.AracSilServis,modellist: pModel);
+            _tempArac.Data(ServisList.AracListeServis);
+            return DataSourceLoader.Load(_tempArac.obje.Where(x => x.kayittipi == 0).Reverse().AsEnumerable(), loadOptions);
+        }
 
-            ViewBag.Durum = "Başarıyla eklendi.";
+        #endregion
+
+        #region ŞOFÖR
+
+        [HttpGet]
+        public IActionResult SoförListesi()
+        {
             return View();
         }
+        [HttpGet]
+        public object SoforGet(DataSourceLoadOptions loadOptions)
+        {
+            _tempSofor.Data(ServisList.SoforListeServis);
+            return DataSourceLoader.Load(_tempSofor.obje.Where(x => x.kayittipi == 0).Reverse().AsEnumerable(), loadOptions);
+        }
+
         #endregion
     }
-    }
+}
 
