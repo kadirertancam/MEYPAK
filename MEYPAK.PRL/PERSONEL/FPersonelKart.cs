@@ -217,16 +217,15 @@ namespace MEYPAK.PRL.PERSONEL
                 {
                     if (decimal.TryParse(TBAvansMiktar.EditValue.ToString(), out a))
                     {
-                        var dsadsa = Convert.ToDecimal(TBAvansMiktar.EditValue);
                         _personelAvansServis.Data(ServisList.PersonelAvansEkleServis, new PocoPERSONELAVANS()
                         {
-                            PERSONELID= _tempPocoPERSONEL.id,
-                            MIKTAR = Convert.ToDecimal(TBAvansMiktar.EditValue),
+                            PERSONELID = _tempPocoPERSONEL.id,
+                            MIKTAR = Convert.ToDecimal(TBAvansMiktar.EditValue.ToString().Replace(".", ",")),
                             ACIKLAMA = TBAvansAciklama.Text,
                             TARIH = (DateTime)DTPAvansTar.EditValue,
                             userid = MPKullanici.ID,
                         });
-                      
+
                         MessageBox.Show($"{_tempPocoPERSONEL.adisoyadi} adlı personele avans eklenmiştir.");
                         PersonelAvansGridDoldur();
                     }

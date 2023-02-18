@@ -84,7 +84,7 @@ namespace MEYPAK.API.Controllers.KULLANICIControllers
                     Email = model.Email,
                     EmailConfirmed = true,
                     TwoFactorEnabled = false,
-                    UserName = model.Email,
+                    UserName = model.UserName,
                     AD = model.Ad,
                     SOYAD = model.Soyad,
                     PhoneNumber = model.Telefon

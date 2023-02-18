@@ -97,7 +97,7 @@ namespace MEYPAK.API.Controllers.KULLANICIControllers
                     Email = model.Email,
                     EmailConfirmed = true,
                     TwoFactorEnabled= false,
-                    UserName = model.Email,
+                    UserName = model.UserName,
                     AD=model.Ad,
                     SOYAD=model.Soyad,
                     PhoneNumber = model.Telefon
@@ -118,7 +118,7 @@ namespace MEYPAK.API.Controllers.KULLANICIControllers
 
         [HttpPost]
         [Route("/[controller]/[action]")]
-        [Authorize]
+        [Authorize(Roles = "ADMIN")]
         public async Task<IActionResult> RolVer(LoginResultModel result)
         {
            
@@ -158,7 +158,6 @@ namespace MEYPAK.API.Controllers.KULLANICIControllers
 
         [HttpGet]
         [Authorize(Roles = "ADMIN")]
-        [Authorize(Roles = "ADMIN")]
         [Route("/[controller]/[action]")]
         public IActionResult USERGET()
         {
@@ -166,5 +165,40 @@ namespace MEYPAK.API.Controllers.KULLANICIControllers
             return Ok(a);
         }
 
+
+        [HttpPost]
+        [Route("/[controller]/[action]")]
+        [Authorize(Roles = "ADMIN")]
+        public async Task<IActionResult> USERUPDATE(MPUSER user)
+        {
+            var result=  _userManager.UpdateAsync(user);
+            if (result.IsCompletedSuccessfully)
+            return Ok();
+
+            return Problem();
+        }
+
+        [HttpPost]
+        [Route("/[controller]/[action]")]
+        [Authorize(Roles = "ADMIN")]
+        public async Task<IActionResult> USERPASSWORDREMOVE(MPUSER user)
+        {
+            var result = _userManager.RemovePasswordAsync(user);
+            if (result.IsCompletedSuccessfully)
+                return Ok();
+
+            return Problem();
+        }
+        [HttpPost]
+        [Route("/[controller]/[action]")]
+        [Authorize(Roles = "ADMIN")]
+        public async Task<IActionResult> USERPASSWORDADD(MPUSER user,string password)
+        {
+            var result = _userManager.AddPasswordAsync(user,password);
+            if (result.IsCompletedSuccessfully)
+                return Ok();
+
+            return Problem();
+        }
     }
 }
