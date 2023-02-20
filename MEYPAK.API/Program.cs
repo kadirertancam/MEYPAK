@@ -127,7 +127,7 @@ builder.Services.AddScoped<IFormDal, EFFormRepo>();
 builder.Services.AddScoped<IFormServis, FormManager>();
 
 builder.Services.AddScoped<IFormYetkiDal, EFFormYetkiRepo>();
-builder.Services.AddScoped<IFormServis, FormManager>();
+builder.Services.AddScoped<IFormYetkiServis, FormYetkiManager>();
 #endregion
 #region CekSenet_Scoped_Islemleri
 builder.Services.AddScoped<ICekSenetUstSBDal, EFCekSenetUstSBRepo>();

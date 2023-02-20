@@ -14,14 +14,34 @@ namespace MEYPAK.BLL.Assets
 
         #endregion
 
-        #region PERSONELPARAMETRE
-        public const string PersonelParametreListeServis =        "http://78.135.80.41:8081/PERSONELPARAMETRE/Liste";
-        public const string PersonelParametreEkleServis =         "http://78.135.80.41:8081/PERSONELPARAMETRE/Ekle";
-        public const string PersonelParametreSilServis =          "http://78.135.80.41:8081/PERSONELPARAMETRE/Sil";
-        public const string PersonelParametreGuncelleServis =     "http://78.135.80.41:8081/PERSONELPARAMETRE/Guncelle";
-        public const string PersonelParametreDeleteByIdServis =   "http://78.135.80.41:8081/PERSONELPARAMETRE/DeleteById";
-        public const string PersonelParametreListeFiltreServis =  "http://78.135.80.41:8081/PERSONELPARAMETRE/Liste2";
 
+        #region FORM
+        public const string FormListeServis = "http://78.135.80.41:8081/FORM/Liste";
+        public const string FormEkleServis = "http://78.135.80.41:8081/FORM/Ekle";
+        public const string FormSilServis = "http://78.135.80.41:8081/FORM/Sil";
+        public const string FormGuncelleServis = "http://78.135.80.41:8081/FORM/Guncelle";
+        public const string FormDeleteByIdServis = "http://78.135.80.41:8081/FORM/DeleteById";
+        public const string FormListeFiltreServis = "http://78.135.80.41:8081/FORM/Liste2";
+
+        #endregion
+
+        #region FORMYETKI
+        public const string FormYetkiListeServis = "http://78.135.80.41:8081/FORMYETKI/Liste";
+        public const string FormYetkiEkleServis = "http://78.135.80.41:8081/FORMYETKI/Ekle";
+        public const string FormYetkiSilServis = "http://78.135.80.41:8081/FORMYETKI/Sil";
+        public const string FormYetkiGuncelleServis = "http://78.135.80.41:8081/FORMYETKI/Guncelle";
+        public const string FormYetkiDeleteByIdServis = "http://78.135.80.41:8081/FORMYETKI/DeleteById";
+        public const string FormYetkiListeFiltreServis = "http://78.135.80.41:8081/FORMYETKI/Liste2";
+        #endregion
+
+        #region PERSONELPARAMETRE
+
+        public const string PersonelParametreListeServis = "http://78.135.80.41:8081/PERSONELPARAMETRE/Liste";
+        public const string PersonelParametreEkleServis = "http://78.135.80.41:8081/PERSONELPARAMETRE/Ekle";
+        public const string PersonelParametreSilServis = "http://78.135.80.41:8081/PERSONELPARAMETRE/Sil";
+        public const string PersonelParametreGuncelleServis = "http://78.135.80.41:8081/PERSONELPARAMETRE/Guncelle";
+        public const string PersonelParametreDeleteByIdServis = "http://78.135.80.41:8081/PERSONELPARAMETRE/DeleteById";
+        public const string PersonelParametreListeFiltreServis = "http://78.135.80.41:8081/PERSONELPARAMETRE/Liste2";
         #endregion
 
         #region EISLEMLER
@@ -681,6 +701,9 @@ namespace MEYPAK.BLL.Assets
         public const string UserLogoutServis =        "http://78.135.80.41:8081/KULLANICI/Logout";
         public const string UserEkleServis =         "http://78.135.80.41:8081/KULLANICI/Register";
         public const string UserGetServis =         "http://78.135.80.41:8081/KULLANICI/USERGET";
+        public const string UserUpdateServis =         "http://78.135.80.41:8081/KULLANICI/USERUPDATE";
+        public const string UserPasswordRemoveServis = "http://78.135.80.41:8081/KULLANICI/USERPASSWORDREMOVE";
+        public const string UserPasswordAddServis = "http://78.135.80.41:8081/KULLANICI/USERPASSWORDADD";
 
 
         #endregion

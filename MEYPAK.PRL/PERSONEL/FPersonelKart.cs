@@ -217,16 +217,15 @@ namespace MEYPAK.PRL.PERSONEL
                 {
                     if (decimal.TryParse(TBAvansMiktar.EditValue.ToString(), out a))
                     {
-                        var dsadsa = Convert.ToDecimal(TBAvansMiktar.EditValue);
                         _personelAvansServis.Data(ServisList.PersonelAvansEkleServis, new PocoPERSONELAVANS()
                         {
-                            PERSONELID= _tempPocoPERSONEL.id,
-                          //  MIKTAR = Convert.ToDecimal(TBAvansMiktar.EditValue),
+                            PERSONELID = _tempPocoPERSONEL.id,
+                            MIKTAR = Convert.ToDecimal(TBAvansMiktar.EditValue.ToString().Replace(".", ",")),
                             ACIKLAMA = TBAvansAciklama.Text,
                             TARIH = (DateTime)DTPAvansTar.EditValue,
                             userid = MPKullanici.ID,
                         });
-                      
+
                         MessageBox.Show($"{_tempPocoPERSONEL.adisoyadi} adlı personele avans eklenmiştir.");
                         PersonelAvansGridDoldur();
                     }
@@ -714,6 +713,7 @@ namespace MEYPAK.PRL.PERSONEL
             MukellefOutput resp = sorgulama.sorgu(TBTCNO.Text == "" ? TBVergiNo.Text : TBTCNO.Text);
             TBAdi.Text = resp.mukellef.ad;
             TBSoyadi.Text = resp.mukellef.soyad;
+            TBBabaAdi.Text = resp.mukellef.babaAdi;
             //TBDogumYer.Text = resp.mukellef.dogumYeri;
             //string yil = resp.mukellef.iseBaslamaTarihi.Substring(0, 4);
             //string ay = resp.mukellef.iseBaslamaTarihi.Substring(4, 2); 

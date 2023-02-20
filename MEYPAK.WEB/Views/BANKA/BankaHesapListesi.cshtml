@@ -1,6 +1,6 @@
 ﻿@using DevExtreme.AspNet.Mvc
 @using MEYPAK.Entity.PocoModels.BANKA
-<main role="main" class="container">
+<main role="main" class="container" style="margin-left:250px;">
     <div class="menu-container dx-swatch-additional" style="width:fit-content">
 
         <h2>Banka Hesap Listesi</h2>
@@ -10,9 +10,20 @@
                 Html.DevExtreme().DataGrid<PocoBANKAHESAP>()
                 .ID("gridContainer")
                 .FilterPanel(f => f.Visible(false))
-                .HeaderFilter(h => h.Visible(true))
+                .HeaderFilter(h => h.Visible(true)).ColumnAutoWidth(true).Pager(x =>
+                {
+                    x.ShowPageSizeSelector(true);
+                    x.ShowPageSizeSelector(true);
+                })
                 .Paging(p => p.Enabled(true))
-                .Scrolling(scrolling => scrolling.ColumnRenderingMode(GridColumnRenderingMode.Virtual))
+                .Scrolling(scrolling =>
+                {
+                    scrolling.ColumnRenderingMode(GridColumnRenderingMode.Standard);
+                    scrolling.ShowScrollbar(ShowScrollbarMode.Always);
+                    scrolling.Mode(GridScrollingMode.Standard);
+                    scrolling.ScrollByContent(true);
+                })
+
 
                 .Columns(columns =>
                 {
