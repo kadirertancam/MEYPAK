@@ -6,6 +6,7 @@ using MEYPAK.BLL.Assets;
 using DevExtreme.AspNet.Data;
 using DevExtreme.AspNet.Mvc;
 using DevExpress.Pdf;
+using MEYPAK.Entity.PocoModels.DEPO;
 
 namespace MEYPAK.WEB.Controllerss
 {
@@ -23,6 +24,9 @@ namespace MEYPAK.WEB.Controllerss
         GenericWebServis<PocoSTOKSAYIM> _tempStokSayim = new GenericWebServis<PocoSTOKSAYIM>();
         GenericWebServis<PocoSTOKFIYATHAR> _tempStokFiyatHar = new GenericWebServis<PocoSTOKFIYATHAR>();
         GenericWebServis<PocoSTOKFIYAT> _tempStokFiyat = new GenericWebServis<PocoSTOKFIYAT>();
+        GenericWebServis<PocoSTOKKASA> _tempStokKasa = new GenericWebServis<PocoSTOKKASA>();
+        GenericWebServis<PocoSTOKKASAHAR> _tempStokKasaHar = new GenericWebServis<PocoSTOKKASAHAR>();
+        GenericWebServis<PocoSTOKSEVKIYATLIST> _tempStokSevkiyatList = new GenericWebServis<PocoSTOKSEVKIYATLIST>();  
 
         #region Tanımlar
 
@@ -44,6 +48,14 @@ namespace MEYPAK.WEB.Controllerss
         static int tempstokfiyatharid = 0;
         static List<PocoSTOKFIYAT> PocoStokFiyats = new List<PocoSTOKFIYAT>();
         static int tempstokfiyatid = 0;
+        static List<PocoSTOKKASA> PocoStokKasas = new List<PocoSTOKKASA>();
+        static int tempstokkasaid = 0;
+        static List<PocoSTOKKASAHAR> PocoStokKasaHars = new List<PocoSTOKKASAHAR>();
+        static int tempstokkasaharid = 0;
+        static List<PocoSTOKSEVKIYATLIST> PocoStokSevkiyatLists = new List<PocoSTOKSEVKIYATLIST>();
+        static int tempstoksevkiyatlistid = 0;
+
+
 
 
         #endregion
@@ -235,6 +247,49 @@ namespace MEYPAK.WEB.Controllerss
         }
 
         #endregion
+
+        #region STOKKASA
+
+        [HttpGet]
+        public IActionResult StokKasaListesi()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public object StokKasaGet(DataSourceLoadOptions loadOptions)
+        {
+            //var a = loadOptions.Take;
+            //var b = loadOptions.Skip;
+            //string url = "http://213.238.167.117:8080/Stok/PagingList?skip="+b+"&take="+a+"&requireTotalCount=true";
+            //_tempPocoStok.Data(url);
+            _tempStokKasa.Data(ServisList.StokKasaListeServis);
+            return DataSourceLoader.Load(_tempStokKasa.obje.Where(x => x.kayittipi == 0).Reverse().AsEnumerable(), loadOptions);
+        }
+
+        #endregion
+
+        #region STOKKASAHAR
+
+        [HttpGet]
+        public IActionResult StokKasaHareket()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public object StokKasaHarGet(DataSourceLoadOptions loadOptions)
+        {
+            //var a = loadOptions.Take;
+            //var b = loadOptions.Skip;
+            //string url = "http://213.238.167.117:8080/Stok/PagingList?skip="+b+"&take="+a+"&requireTotalCount=true";
+            //_tempPocoStok.Data(url);
+            _tempStokKasaHar.Data(ServisList.StokKasaHarListeServis);
+            return DataSourceLoader.Load(_tempStokKasaHar.obje.Where(x => x.kayittipi == 0).Reverse().AsEnumerable(), loadOptions);
+        }
+        #endregion
+
+
     }
 }
 
