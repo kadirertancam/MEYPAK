@@ -219,7 +219,7 @@ namespace MEYPAK.PRL
                 _formServis.Data(ServisList.FormListeServis);
                 formListe = _formServis.obje;
                 _formYetkiServis.Data(ServisList.FormYetkiListeServis);
-                yetkiListe = _formYetkiServis.obje.Where(x => x.USERID == Kullanici.Id).ToList();
+                yetkiListe = _formYetkiServis.obje.Where(x => x.KULLANICIID == Kullanici.Id).ToList();
                 foreach (var yetki in yetkiListe)
                 {
                     foreach (AccordionControlElement Menus in accordionControl1.Elements)

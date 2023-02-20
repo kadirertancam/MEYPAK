@@ -22,5 +22,10 @@ namespace MEYPAK.PRL.DEKONT
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
