@@ -38,11 +38,11 @@ namespace MEYPAK.PRL.KULLANICI
             pocoFORMYETKIs.Clear();
             foreach (var item in _formServis.obje)
             {
-                if(_formYetkiServis.obje.Where(x=> x.FORMID == item.id && x.USERID==tempuser.Id).Count()==0)
+                if(_formYetkiServis.obje.Where(x=> x.FORMID == item.id && x.KULLANICIID==tempuser.Id).Count()==0)
                 pocoFORMYETKIs.Add(new FormYetkiKalem() { FORMADI = item.FORMADI, KULLANICI = tempuser.AD + " " + tempuser.SOYAD });
                 else
                 {
-                    PocoFORMYETKI formYetki = _formYetkiServis.obje.Where(x => x.FORMID == item.id && x.USERID == tempuser.Id).FirstOrDefault();
+                    PocoFORMYETKI formYetki = _formYetkiServis.obje.Where(x => x.FORMID == item.id && x.KULLANICIID == tempuser.Id).FirstOrDefault();
                     pocoFORMYETKIs.Add(new FormYetkiKalem() { FORMADI = item.FORMADI,GORUNTULE=formYetki.GORUNTULE,EKLE=formYetki.EKLE,SIL=formYetki.SIL,GUNCELLE=formYetki.GUNCELLE, KULLANICI = tempuser.AD + " " + tempuser.SOYAD });
                 }
                
@@ -148,19 +148,19 @@ namespace MEYPAK.PRL.KULLANICI
                         {
                             _formYetkiServis.Data(ServisList.FormYetkiEkleServis, new PocoFORMYETKI()
                             {
-                                id = _formYetkiServis.obje.Where(x => x.FORMID == (_formServis.obje.Where(x => x.FORMADI == item.FORMADI).FirstOrDefault().id) && x.USERID == tempuser.Id).Count() > 0 ? _formYetkiServis.obje.Where(x => x.FORMID == (_formServis.obje.Where(x => x.FORMADI == item.FORMADI).FirstOrDefault().id) && x.USERID == tempuser.Id).FirstOrDefault().id : 0,
+                                id = _formYetkiServis.obje.Where(x => x.FORMID == (_formServis.obje.Where(x => x.FORMADI == item.FORMADI).FirstOrDefault().id) && x.KULLANICIID == tempuser.Id).Count() > 0 ? _formYetkiServis.obje.Where(x => x.FORMID == (_formServis.obje.Where(x => x.FORMADI == item.FORMADI).FirstOrDefault().id) && x.KULLANICIID == tempuser.Id).FirstOrDefault().id : 0,
                                 FORMID = _formServis.obje.Where(x => x.FORMADI == item.FORMADI).FirstOrDefault().id,
                                 GORUNTULE = item.GORUNTULE,
                                 EKLE = item.EKLE,
                                 GUNCELLE = item.GUNCELLE,
                                 SIL = item.SIL,
-                                USERID = tempuser.Id,
+                                KULLANICIID = tempuser.Id,
                                 userid = MPKullanici.ID
 
                             });
                         }
-                        else if (_formYetkiServis.obje.Where(x => x.FORMID == (_formServis.obje.Where(x => x.FORMADI == item.FORMADI).FirstOrDefault().id) && x.USERID == tempuser.Id).Count() > 0)
-                            _formYetkiServis.Data(ServisList.FormYetkiDeleteByIdServis, id: _formYetkiServis.obje.Where(x => x.FORMID == (_formServis.obje.Where(x => x.FORMADI == item.FORMADI).FirstOrDefault().id) && x.USERID == tempuser.Id).FirstOrDefault().id.ToString());
+                        else if (_formYetkiServis.obje.Where(x => x.FORMID == (_formServis.obje.Where(x => x.FORMADI == item.FORMADI).FirstOrDefault().id) && x.KULLANICIID == tempuser.Id).Count() > 0)
+                            _formYetkiServis.Data(ServisList.FormYetkiDeleteByIdServis, id: _formYetkiServis.obje.Where(x => x.FORMID == (_formServis.obje.Where(x => x.FORMADI == item.FORMADI).FirstOrDefault().id) && x.KULLANICIID == tempuser.Id).FirstOrDefault().id.ToString());
 
                     }
                 }
@@ -194,7 +194,7 @@ namespace MEYPAK.PRL.KULLANICI
                                 EKLE = item.EKLE,
                                 GUNCELLE = item.GUNCELLE,
                                 SIL = item.SIL,
-                                USERID = tempuser.Id,
+                                KULLANICIID = tempuser.Id,
                                 userid = MPKullanici.ID
                             });
                         }
