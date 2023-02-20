@@ -12,8 +12,8 @@ namespace MEYPAK.API.Controllers.KULLANICIControllers
         private readonly UserManager<MPUSER> _userManager;
         private readonly RoleManager<MPROLE> _roleManager;
         private readonly SignInManager<MPUSER> _signManager;
-        
-        
+
+
 
         public KULLANICIController(UserManager<MPUSER> userManager, RoleManager<MPROLE> roleManager, SignInManager<MPUSER> signManager)
         {
@@ -45,19 +45,20 @@ namespace MEYPAK.API.Controllers.KULLANICIControllers
                     user = _userManager.FindByNameAsync(model.Email).Result;
                 if (user == null)
                     return Problem("Sistemde kullanıcı bilgisi bulunamadı.");
-           
+
                 var result = _signManager.PasswordSignInAsync(user, model.Password, model.RememberMe, false).Result;
                 if (result.Succeeded)
                 {
-                    LoginResultModel resultModel = new LoginResultModel() { 
-                    MPUSER=user,
-                    userRoles = _userManager.GetRolesAsync(user).Result as List<string>
+                    LoginResultModel resultModel = new LoginResultModel()
+                    {
+                        MPUSER = user,
+                        userRoles = _userManager.GetRolesAsync(user).Result as List<string>
                     };
-                 
+
                     return Ok(resultModel);
                 }
                 return Problem("Giriş Yapılamadı!");
-               
+
             }
             catch (Exception ex)
             {
@@ -93,19 +94,19 @@ namespace MEYPAK.API.Controllers.KULLANICIControllers
 
                 MPUSER user = new MPUSER()
                 {
-                    Id= Guid.NewGuid().ToString(),
+                    Id = Guid.NewGuid().ToString(),
                     Email = model.Email,
                     EmailConfirmed = true,
-                    TwoFactorEnabled= false,
+                    TwoFactorEnabled = false,
                     UserName = model.UserName,
-                    AD=model.Ad,
-                    SOYAD=model.Soyad,
+                    AD = model.Ad,
+                    SOYAD = model.Soyad,
                     PhoneNumber = model.Telefon
                 };
 
                 var result = _userManager.CreateAsync(user, model.Password).Result;
                 _userManager.AddToRoleAsync(user, AllRoles.USER.ToString());
-                return Ok(result.Succeeded?"Başarıyla Kayıt Oluşturuldu":"Kayıt Edilemedi");
+                return Ok(result.Succeeded ? "Başarıyla Kayıt Oluşturuldu" : "Kayıt Edilemedi");
 
             }
             catch (Exception ex)
@@ -121,11 +122,11 @@ namespace MEYPAK.API.Controllers.KULLANICIControllers
         [Authorize(Roles = "ADMIN")]
         public async Task<IActionResult> RolVer(LoginResultModel result)
         {
-           
+
             foreach (string role in result.userRoles)
             {
                 if (_roleManager.RoleExistsAsync(role).Result)
-                 await _userManager.AddToRoleAsync(_userManager.FindByEmailAsync(result.MPUSER.Email).Result, role);
+                    await _userManager.AddToRoleAsync(_userManager.FindByEmailAsync(result.MPUSER.Email).Result, role);
             }
             return Ok();
         }
@@ -143,9 +144,9 @@ namespace MEYPAK.API.Controllers.KULLANICIControllers
                     //eğer o rol yoksa ekle
                     MPROLE r = new MPROLE()
                     {
-                        Id= Guid.NewGuid().ToString(),
+                        Id = Guid.NewGuid().ToString(),
                         Name = role,
-                        ACIKLAMA="Otomatik Olusturma",
+                        ACIKLAMA = "Otomatik Olusturma",
                         OLUSTURMATARIHI = DateTime.Now,
                         GUNCELLEMETARIHI = DateTime.Now,
                     };
@@ -171,30 +172,22 @@ namespace MEYPAK.API.Controllers.KULLANICIControllers
         [Authorize(Roles = "ADMIN")]
         public async Task<IActionResult> USERUPDATE(MPUSER user)
         {
-            var result=  _userManager.UpdateAsync(user);
-            if (result.IsCompletedSuccessfully)
-            return Ok();
-
-            return Problem();
-        }
-
-        [HttpPost]
-        [Route("/[controller]/[action]")]
-        [Authorize(Roles = "ADMIN")]
-        public async Task<IActionResult> USERPASSWORDREMOVE(MPUSER user)
-        {
-            var result = _userManager.RemovePasswordAsync(user);
+            var result = _userManager.UpdateAsync(user);
             if (result.IsCompletedSuccessfully)
                 return Ok();
 
             return Problem();
         }
+
         [HttpPost]
         [Route("/[controller]/[action]")]
         [Authorize(Roles = "ADMIN")]
-        public async Task<IActionResult> USERPASSWORDADD(MPUSER user,string password)
+        public async Task<IActionResult> USERPASSWORDADD(MPUSER user, string password)
         {
-            var result = _userManager.AddPasswordAsync(user,password);
+            MPUSER mUSER = _userManager.FindByIdAsync(user.Id).Result;
+            string token = _userManager.GeneratePasswordResetTokenAsync(mUSER).Result;
+            var result = _userManager.ResetPasswordAsync(mUSER, token, password);
+
             if (result.IsCompletedSuccessfully)
                 return Ok();
 

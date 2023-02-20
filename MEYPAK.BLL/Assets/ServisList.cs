@@ -17,7 +17,7 @@ namespace MEYPAK.BLL.Assets
 
         #region FORM
         public const string FormListeServis = "http://78.135.80.41:8081/FORM/Liste";
-        public const string FormEkleServis = "http://78.135.80.41:8081/FORM/Ekle";
+        public const string FormEkleServis = "http://78.135.80.41:8081/FORM/EkleyadaGuncelle";
         public const string FormSilServis = "http://78.135.80.41:8081/FORM/Sil";
         public const string FormGuncelleServis = "http://78.135.80.41:8081/FORM/Guncelle";
         public const string FormDeleteByIdServis = "http://78.135.80.41:8081/FORM/DeleteById";
@@ -27,7 +27,7 @@ namespace MEYPAK.BLL.Assets
 
         #region FORMYETKI
         public const string FormYetkiListeServis = "http://78.135.80.41:8081/FORMYETKI/Liste";
-        public const string FormYetkiEkleServis = "http://78.135.80.41:8081/FORMYETKI/Ekle";
+        public const string FormYetkiEkleServis = "http://78.135.80.41:8081/FORMYETKI/EkleyadaGuncelle";
         public const string FormYetkiSilServis = "http://78.135.80.41:8081/FORMYETKI/Sil";
         public const string FormYetkiGuncelleServis = "http://78.135.80.41:8081/FORMYETKI/Guncelle";
         public const string FormYetkiDeleteByIdServis = "http://78.135.80.41:8081/FORMYETKI/DeleteById";
