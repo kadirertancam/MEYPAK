@@ -1,10 +1,12 @@
-﻿using DevExpress.XtraEditors;
+﻿using DevExpress.XtraBars.Navigation;
+using DevExpress.XtraEditors;
 using DevExpress.XtraTab;
 using DevExpress.XtraTab.ViewInfo;
 using MEYPAK.BLL.Assets;
 using MEYPAK.BLL.KULLANICI;
 using MEYPAK.Entity.IdentityModels;
 using MEYPAK.Entity.PocoModels.EISLEMLER;
+using MEYPAK.Entity.PocoModels.FORMYETKI;
 using MEYPAK.Entity.PocoModels.PARAMETRE;
 using MEYPAK.PRL.ARACLAR;
 using MEYPAK.PRL.ARAÇLAR;
@@ -34,6 +36,7 @@ using MEYPAK.PRL.STOK.StokKasa;
 using Microsoft.AspNetCore.Identity;
 using ServiceReference1;
 using System.Data;
+using System.Linq;
 using System.Net.Http;
 using System.Reflection;
 using System.Xml.Serialization;
@@ -64,6 +67,8 @@ namespace MEYPAK.PRL
             Kullanici = kullanici;
             Roller = roller;
             _mükellefListesi = new GenericWebServis<PocoMUKELLEFLISTESI>();
+            _formYetkiServis = new GenericWebServis<PocoFORMYETKI>();
+            _formServis = new GenericWebServis<PocoFORM>();
         }
         #region TANIMLAR
         FStokList fstokList;
@@ -143,8 +148,12 @@ namespace MEYPAK.PRL
         public DataTable guncelkur;
         GenericWebServis<PocoPARABIRIM> _parabirimServis;
         GenericWebServis<PocoMUKELLEFLISTESI> _mükellefListesi;
+        GenericWebServis<PocoFORMYETKI> _formYetkiServis;
+        GenericWebServis<PocoFORM> _formServis;
         public MPUSER Kullanici;
         public List<string> Roller;
+        public List<PocoFORMYETKI> yetkiListe;
+        public List<PocoFORM> formListe;
         #endregion
 
 
@@ -205,31 +214,81 @@ namespace MEYPAK.PRL
         }
         private void Main_Load(object sender, EventArgs e)
         {
-            foreach (var item in Roller)
+            if (!Roller.Contains("ADMIN"))
             {
-                if (item == "ADMIN")
+                _formServis.Data(ServisList.FormListeServis);
+                formListe = _formServis.obje;
+                _formYetkiServis.Data(ServisList.FormYetkiListeServis);
+                yetkiListe = _formYetkiServis.obje.Where(x => x.USERID == Kullanici.Id).ToList();
+                foreach (var yetki in yetkiListe)
                 {
+                    foreach (AccordionControlElement Menus in accordionControl1.Elements)
+                    {
+                        int menu = 0;
+                        foreach (AccordionControlElement Categorys in Menus.Elements)
+                        {
+                            int category = 0;
+                            if (Categorys.Elements.Count() > 0)
+                            {
+                                foreach (AccordionControlElement Element in Categorys.Elements)
+                                {
+                                    if (Element.Tag != null && formListe.Where(x => x.id == yetki.FORMID).Count() > 0 && formListe.Where(x => x.id == yetki.FORMID).FirstOrDefault().FORMADI == Element.Tag)
+                                    {
+                                        category++;
+                                        Element.Visible = true;
+                                        Element.Enabled = true;
+                                    }
+                                }
+                                if (category > 0)
+                                {
+                                    menu++;
+                                    Categorys.Visible = true;
+                                    Categorys.Enabled = true;
+                                }
+                            }
+                            else
+                            {
+                                if (Categorys.Tag != null && formListe.Where(x => x.id == yetki.FORMID).Count() > 0 && formListe.Where(x => x.id == yetki.FORMID).FirstOrDefault().FORMADI == Categorys.Tag)
+                                {
+                                    menu++;
+                                    Categorys.Visible = true;
+                                    Categorys.Enabled = true;
+                                }
+                            }
 
+                        }
+                        if (menu > 0)
+                        {
+                            Menus.Visible = true;
+                            Menus.Enabled = true;
+                        }
+                    }
                 }
-                else if (item == "INSANK")
-                {
-                    ACESTOK.Visible = false;
-                    ACECARI.Visible = false;
-                    ACEFATURA.Visible = false;
-                    ACECEKSENET.Visible = false;
-                    ACEKASA.Visible = false;
-                    ACEBANKA.Visible = false;
-                    ACEARAC.Visible = false;
-                    ACEBANKA.Visible = false;
-                    ACEPARAMETRELER.Visible = false;
-                    accordionControlElement27.Visible = false;
-
-                }
-
             }
-            ACEKullanici.Text = Kullanici.AD + " " + Kullanici.SOYAD;
+            else
+            {
+                foreach (AccordionControlElement Menus in accordionControl1.Elements)
+                {
+                    foreach (AccordionControlElement Categorys in Menus.Elements)
+                    {
+                        foreach (AccordionControlElement Element in Categorys.Elements)
+                        {
+                            Element.Visible = true;
+                            Element.Enabled = true;
+                        }
+                        Categorys.Visible = true;
+                        Categorys.Enabled = true;
+                    }
+                    Menus.Visible = true;
+                    Menus.Enabled = true;
+                }
+            }
 
-        }
+            ACEKullanici.Text = Kullanici.AD + " " + Kullanici.SOYAD;
+        } 
+
+
+
 
         public int i = 0;
         private void accordionControlElement9_Click(object sender, EventArgs e)
@@ -1748,7 +1807,7 @@ namespace MEYPAK.PRL
             fFirmaCekListe.Show();
             i++;
         }
-       
+
         private void ACECekSenetDurum_Click(object sender, EventArgs e)
         {
             XtraTabPage page = new XtraTabPage();
@@ -1790,7 +1849,7 @@ namespace MEYPAK.PRL
             fKullaniciTanim.Show();
             i++;
         }
-        
+
 
 
     }

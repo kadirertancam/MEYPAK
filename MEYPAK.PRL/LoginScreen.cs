@@ -40,6 +40,7 @@ namespace MEYPAK.PRL
 
                 if (_loginService.loginResult !=null)
                 {
+                    
                     fMain = new Main(_loginService.loginResult.MPUSER, _loginService.loginResult.userRoles);
                     fMain.Show();
                     //FirmaCekListe firmaCekListe = new FirmaCekListe();
