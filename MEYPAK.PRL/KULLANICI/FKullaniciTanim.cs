@@ -31,7 +31,7 @@ namespace MEYPAK.PRL.KULLANICI
         GenericWebServis<PocoFORMYETKI> _formYetkiServis;
         List<FormYetkiKalem> pocoFORMYETKIs = new List<FormYetkiKalem>();
         MPUSER tempuser;
-        #region EVENTS
+        #region METHODS
         void YETKIGRIDDOLDUR()
         {
             _formYetkiServis.Data(ServisList.FormYetkiListeServis);

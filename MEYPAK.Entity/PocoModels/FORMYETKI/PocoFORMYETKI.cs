@@ -13,6 +13,6 @@ namespace MEYPAK.Entity.PocoModels.FORMYETKI
         public bool EKLE { get; set; }
         public bool GUNCELLE { get; set; }
         public bool SIL { get; set; }
-        public string USERID { get; set; }
+        public string KULLANICIID { get; set; }
     }
 }
