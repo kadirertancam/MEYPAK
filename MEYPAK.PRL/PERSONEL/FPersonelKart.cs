@@ -713,6 +713,7 @@ namespace MEYPAK.PRL.PERSONEL
             MukellefOutput resp = sorgulama.sorgu(TBTCNO.Text == "" ? TBVergiNo.Text : TBTCNO.Text);
             TBAdi.Text = resp.mukellef.ad;
             TBSoyadi.Text = resp.mukellef.soyad;
+            TBBabaAdi.Text = resp.mukellef.babaAdi;
             //TBDogumYer.Text = resp.mukellef.dogumYeri;
             //string yil = resp.mukellef.iseBaslamaTarihi.Substring(0, 4);
             //string ay = resp.mukellef.iseBaslamaTarihi.Substring(4, 2); 
