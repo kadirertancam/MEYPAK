@@ -21,16 +21,16 @@ namespace MEYPAK.Entity.PocoModels.CEKSENET
         public int DOVIZID { get; set; }
         public decimal KUR   { get; set; }
         public decimal DOVTUTAR { get; set; }
-        public string BANKA { get; set; }
-        public string SUBE { get; set; }
-        public string HESAPNO { get; set; }
-        public int SERINO { get; set; }
-        public string IBANNO { get; set; }
+        public string BANKA { get; set; } = "";
+        public string SUBE { get; set; } = "";
+        public string HESAPNO { get; set; } = "";
+        public int SERINO { get; set; } 
+        public string IBANNO { get; set; } =  "";
         public int MUHASEBEID { get; set; }
         public int ISLEM { get; set; } //1 -CIRO 2- PROTESTO 3- TAHSÝLAT 4-TEMÝNAT
         public int DURUM { get; set; }
-        public string ACIKLAMA1 { get; set; }
-        public string ACIKLAMA2 { get; set; }
+        public string ACIKLAMA1 { get; set; } = "";
+        public string ACIKLAMA2 { get; set; } = "";
         public int AKTIF { get; set; }
         public string IL { get; set; } = "";
         public string ILCE { get; set; } = "";
