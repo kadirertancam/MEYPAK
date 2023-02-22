@@ -704,8 +704,7 @@ namespace MEYPAK.BLL.Assets
         public const string UserUpdateServis =         "http://78.135.80.41:8081/KULLANICI/USERUPDATE";
         public const string UserPasswordRemoveServis = "http://78.135.80.41:8081/KULLANICI/USERPASSWORDREMOVE";
         public const string UserPasswordAddServis = "http://78.135.80.41:8081/KULLANICI/USERPASSWORDADD";
-
-
+        public const string UserPasswordChangeServis = "http://78.135.80.41:8081/KULLANICI/CHANGEPASSWORD";
         #endregion
 
         #region CEKSENETUSTSB

@@ -24,11 +24,13 @@ namespace MEYPAK.PRL.KULLANICI
             _formServis = new GenericWebServis<PocoFORM>();
             _formYetkiServis = new GenericWebServis<PocoFORMYETKI>();
             registerModel = new GenericWebServis<RegisterModel>();
+            _passwordServis = new GenericWebServis<PasswordChangeModel>();
         }
         GenericWebServis<MPUSER> userServis;
         GenericWebServis<PocoFORM> _formServis;
         GenericWebServis<RegisterModel> registerModel;
         GenericWebServis<PocoFORMYETKI> _formYetkiServis;
+        GenericWebServis<PasswordChangeModel> _passwordServis;
         List<FormYetkiKalem> pocoFORMYETKIs = new List<FormYetkiKalem>();
         MPUSER tempuser;
         #region METHODS
@@ -38,14 +40,14 @@ namespace MEYPAK.PRL.KULLANICI
             pocoFORMYETKIs.Clear();
             foreach (var item in _formServis.obje)
             {
-                if(_formYetkiServis.obje.Where(x=> x.FORMID == item.id && x.KULLANICIID==tempuser.Id).Count()==0)
-                pocoFORMYETKIs.Add(new FormYetkiKalem() { FORMADI = item.FORMADI, KULLANICI = tempuser.AD + " " + tempuser.SOYAD });
+                if (_formYetkiServis.obje.Where(x => x.FORMID == item.id && x.KULLANICIID == tempuser.Id).Count() == 0)
+                    pocoFORMYETKIs.Add(new FormYetkiKalem() { FORMADI = item.FORMADI, KULLANICI = tempuser.AD + " " + tempuser.SOYAD });
                 else
                 {
                     PocoFORMYETKI formYetki = _formYetkiServis.obje.Where(x => x.FORMID == item.id && x.KULLANICIID == tempuser.Id).FirstOrDefault();
-                    pocoFORMYETKIs.Add(new FormYetkiKalem() { FORMADI = item.FORMADI,GORUNTULE=formYetki.GORUNTULE,EKLE=formYetki.EKLE,SIL=formYetki.SIL,GUNCELLE=formYetki.GUNCELLE, KULLANICI = tempuser.AD + " " + tempuser.SOYAD });
+                    pocoFORMYETKIs.Add(new FormYetkiKalem() { FORMADI = item.FORMADI, GORUNTULE = formYetki.GORUNTULE, EKLE = formYetki.EKLE, SIL = formYetki.SIL, GUNCELLE = formYetki.GUNCELLE, KULLANICI = tempuser.AD + " " + tempuser.SOYAD });
                 }
-               
+
             }
 
             GCKullaniciYetki.RefreshDataSource();
@@ -121,85 +123,124 @@ namespace MEYPAK.PRL.KULLANICI
 
         private void BTNPersonelKaydet_Click(object sender, EventArgs e)
         {
-            if (tempuser != null && tempuser.Id!="")
+            if (tempuser != null && tempuser.Id != "")
             {
-                DialogResult dialogResult = new DialogResult();
-                dialogResult = MessageBox.Show($"{tempuser.AD + " " + tempuser.SOYAD} isimli kullanıcının bilgilerini güncellemek istediğinize emin misiniz?", "Kullanıcı Bilgilerini Güncelleme", MessageBoxButtons.YesNo);
-
-                if (dialogResult == DialogResult.Yes)
+                userServis.Data(ServisList.UserGetServis);
+                if (userServis.obje.Where(x => x.UserName == TBUSERNAME.Text && x.Id == tempuser.Id).Count() == 0 && userServis.obje.Where(x => x.Email == TBEPOSTA.Text && x.Id == tempuser.Id).Count() == 0)
                 {
 
-                    tempuser.AD = TBAD.Text;
-                    tempuser.SOYAD = TBSOYAD.Text;
-                    tempuser.UserName = TBUSERNAME.Text;
-                    tempuser.Email = TBEPOSTA.Text;
-                    tempuser.PhoneNumber = TBTelefon.Text;
-                    userServis.Data(ServisList.UserUpdateServis, tempuser);
-                    userServis.Data(ServisList.UserPasswordRemoveServis, tempuser);
-                    userServis.Data(ServisList.UserGetServis);
-                    tempuser =userServis.obje.Where(x => x.Id == tempuser.Id).FirstOrDefault();
-                    userServis.Data(ServisList.UserPasswordAddServis,tempuser,parameters: $"password={TBPAROLA.Text}");
+                    DialogResult dialogResult = new DialogResult();
+                    dialogResult = MessageBox.Show($"{tempuser.AD + " " + tempuser.SOYAD} isimli kullanıcının bilgilerini güncellemek istediğinize emin misiniz?", "Kullanıcı Bilgilerini Güncelleme", MessageBoxButtons.YesNo);
 
-                    _formYetkiServis.Data(ServisList.FormYetkiListeServis);
-
-                    foreach (FormYetkiKalem item in pocoFORMYETKIs)
+                    if (dialogResult == DialogResult.Yes)
                     {
-                        if (item.GORUNTULE || item.EKLE || item.SIL || item.GUNCELLE)
+                        if (TBAD.Text != tempuser.AD || TBSOYAD.Text != tempuser.SOYAD || TBTelefon.Text != tempuser.PhoneNumber || TBUSERNAME.Text != tempuser.UserName || TBEPOSTA.Text != tempuser.Email)
                         {
-                            _formYetkiServis.Data(ServisList.FormYetkiEkleServis, new PocoFORMYETKI()
-                            {
-                                id = _formYetkiServis.obje.Where(x => x.FORMID == (_formServis.obje.Where(x => x.FORMADI == item.FORMADI).FirstOrDefault().id) && x.KULLANICIID == tempuser.Id).Count() > 0 ? _formYetkiServis.obje.Where(x => x.FORMID == (_formServis.obje.Where(x => x.FORMADI == item.FORMADI).FirstOrDefault().id) && x.KULLANICIID == tempuser.Id).FirstOrDefault().id : 0,
-                                FORMID = _formServis.obje.Where(x => x.FORMADI == item.FORMADI).FirstOrDefault().id,
-                                GORUNTULE = item.GORUNTULE,
-                                EKLE = item.EKLE,
-                                GUNCELLE = item.GUNCELLE,
-                                SIL = item.SIL,
-                                KULLANICIID = tempuser.Id,
-                                userid = MPKullanici.ID
+                            tempuser.AD = TBAD.Text;
+                            tempuser.SOYAD = TBSOYAD.Text;
+                            tempuser.UserName = TBUSERNAME.Text;
+                            tempuser.Email = TBEPOSTA.Text;
+                            tempuser.PhoneNumber = TBTelefon.Text;
 
-                            });
+                            userServis.Data(ServisList.UserUpdateServis, tempuser);
                         }
-                        else if (_formYetkiServis.obje.Where(x => x.FORMID == (_formServis.obje.Where(x => x.FORMADI == item.FORMADI).FirstOrDefault().id) && x.KULLANICIID == tempuser.Id).Count() > 0)
-                            _formYetkiServis.Data(ServisList.FormYetkiDeleteByIdServis, id: _formYetkiServis.obje.Where(x => x.FORMID == (_formServis.obje.Where(x => x.FORMADI == item.FORMADI).FirstOrDefault().id) && x.KULLANICIID == tempuser.Id).FirstOrDefault().id.ToString());
+                        if (TBPAROLA.Text != "")
+                            if (TBPAROLA.Text.Length > 5 && TBPAROLA.Text == TBPARALOTKR.Text)
+                            {
+                                _passwordServis.Data(ServisList.UserPasswordAddServis, new PasswordChangeModel()
+                                {
+                                    user = tempuser,
+                                    password = TBPAROLA.Text
+                                });
+                            }
+                            else
+                                MessageBox.Show("Parola uzunluğu 5 karakterden fazla ve tekrarıyla eşleşmelidir!");
 
+
+
+                        _formYetkiServis.Data(ServisList.FormYetkiListeServis);
+
+                        foreach (FormYetkiKalem item in pocoFORMYETKIs)
+                        {
+                            if (item.GORUNTULE || item.EKLE || item.SIL || item.GUNCELLE)
+                            {
+                                _formYetkiServis.Data(ServisList.FormYetkiEkleServis, new PocoFORMYETKI()
+                                {
+                                    id = _formYetkiServis.obje.Where(x => x.FORMID == (_formServis.obje.Where(x => x.FORMADI == item.FORMADI).FirstOrDefault().id) && x.KULLANICIID == tempuser.Id).Count() > 0 ? _formYetkiServis.obje.Where(x => x.FORMID == (_formServis.obje.Where(x => x.FORMADI == item.FORMADI).FirstOrDefault().id) && x.KULLANICIID == tempuser.Id).FirstOrDefault().id : 0,
+                                    FORMID = _formServis.obje.Where(x => x.FORMADI == item.FORMADI).FirstOrDefault().id,
+                                    GORUNTULE = item.GORUNTULE,
+                                    EKLE = item.EKLE,
+                                    GUNCELLE = item.GUNCELLE,
+                                    SIL = item.SIL,
+                                    KULLANICIID = tempuser.Id,
+                                    userid = MPKullanici.ID
+
+                                });
+                            }
+                            else if (_formYetkiServis.obje.Where(x => x.FORMID == _formServis.obje.Where(y => y.FORMADI == item.FORMADI).FirstOrDefault().id && x.KULLANICIID == tempuser.Id).Count() > 0)
+                                _formYetkiServis.Data(ServisList.FormYetkiSilServis, modellist: _formYetkiServis.obje.Where(x => x.FORMID == _formServis.obje.Where(y => y.FORMADI == item.FORMADI).FirstOrDefault().id && x.KULLANICIID == tempuser.Id).ToList());
+
+                        }
+                        MessageBox.Show($"{tempuser.AD + " " + tempuser.SOYAD} isimli kullanıcının bilgileri Başarıyla Güncellendi");
+                        KullaniciTemizle();
                     }
                 }
+                else
+                    MessageBox.Show("Kullanıcı adı veya eposta zaten kullanılıyor!");
             }
             else
             {
-                DialogResult dialogResult = new DialogResult();
-                dialogResult = MessageBox.Show($"{TBAD.Text + " " + TBSOYAD} isimli yeni bir kullanıcı eklemek istediğinize emin misiniz?", "Yeni Kullanıcı Ekleme", MessageBoxButtons.YesNo);
-
-                if (dialogResult == DialogResult.Yes)
+                if (TBAD.Text != "" && TBSOYAD.Text != "" && TBEPOSTA.Text != "" && TBUSERNAME.Text != "" && TBPAROLA.Text != "" && TBPARALOTKR.Text != "")
                 {
-                    registerModel.Data(ServisList.UserEkleServis, new RegisterModel()
-                    {
-                        Ad = TBAD.Text,
-                        Soyad = TBSOYAD.Text,
-                        Email = TBEPOSTA.Text,
-                        Password = TBPAROLA.Text,
-                        UserName = TBUSERNAME.Text,
-                        Telefon = TBTelefon.Text
-                    });
                     userServis.Data(ServisList.UserGetServis);
-                      tempuser = userServis.obje.Where(x=>x.AD==TBAD.Text&&x.SOYAD==TBSOYAD.Text&&x.Email==TBEPOSTA.Text&& x.PhoneNumber ==TBTelefon.Text).FirstOrDefault();
-                    foreach (FormYetkiKalem item in pocoFORMYETKIs)
+                    if (userServis.obje.Where(x => x.UserName == TBUSERNAME.Text).Count() == 0 && userServis.obje.Where(x => x.Email == TBEPOSTA.Text).Count() == 0)
                     {
-                        if (item.GORUNTULE || item.EKLE || item.SIL || item.GUNCELLE)
+                        if (TBPAROLA.Text.Length > 5 && TBPAROLA.Text == TBPARALOTKR.Text)
                         {
-                            _formYetkiServis.Data(ServisList.FormYetkiEkleServis, new PocoFORMYETKI()
+                            DialogResult dialogResult = new DialogResult();
+                            dialogResult = MessageBox.Show($"{TBAD.Text + " " + TBSOYAD} isimli yeni bir kullanıcı eklemek istediğinize emin misiniz?", "Yeni Kullanıcı Ekleme", MessageBoxButtons.YesNo);
+
+                            if (dialogResult == DialogResult.Yes)
                             {
-                                FORMID = _formServis.obje.Where(x => x.FORMADI == item.FORMADI).FirstOrDefault().id,
-                                GORUNTULE = item.GORUNTULE,
-                                EKLE = item.EKLE,
-                                GUNCELLE = item.GUNCELLE,
-                                SIL = item.SIL,
-                                KULLANICIID = tempuser.Id,
-                                userid = MPKullanici.ID
-                            });
+                                registerModel.Data(ServisList.UserEkleServis, new RegisterModel()
+                                {
+                                    Ad = TBAD.Text,
+                                    Soyad = TBSOYAD.Text,
+                                    Email = TBEPOSTA.Text,
+                                    Password = TBPAROLA.Text,
+                                    UserName = TBUSERNAME.Text,
+                                    Telefon = TBTelefon.Text
+                                });
+                                userServis.Data(ServisList.UserGetServis);
+                                tempuser = userServis.obje.Where(x => x.AD == TBAD.Text && x.SOYAD == TBSOYAD.Text && x.Email == TBEPOSTA.Text && x.PhoneNumber == TBTelefon.Text).FirstOrDefault();
+                                foreach (FormYetkiKalem item in pocoFORMYETKIs)
+                                {
+                                    if (item.GORUNTULE || item.EKLE || item.SIL || item.GUNCELLE)
+                                    {
+                                        _formYetkiServis.Data(ServisList.FormYetkiEkleServis, new PocoFORMYETKI()
+                                        {
+                                            FORMID = _formServis.obje.Where(x => x.FORMADI == item.FORMADI).FirstOrDefault().id,
+                                            GORUNTULE = item.GORUNTULE,
+                                            EKLE = item.EKLE,
+                                            GUNCELLE = item.GUNCELLE,
+                                            SIL = item.SIL,
+                                            KULLANICIID = tempuser.Id,
+                                            userid = MPKullanici.ID
+                                        });
+                                    }
+                                }
+                                MessageBox.Show($"{tempuser.AD + " " + tempuser.SOYAD} isimli kullanıcının bilgileri Başarıyla Güncellendi");
+                                KullaniciTemizle();
+                            }
                         }
+                        else
+                            MessageBox.Show("Parola uzunluğu 5 karakterden fazla ve tekrarıyla eşleşmelidir!");
                     }
+                    else
+                        MessageBox.Show("Kullanıcı adı veya eposta zaten kullanılıyor!");
                 }
+                else
+                    MessageBox.Show("Gerekli alanları doldurmanız gerekmelidir!");
             }
         }
 

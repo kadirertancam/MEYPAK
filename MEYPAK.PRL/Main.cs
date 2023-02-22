@@ -143,6 +143,7 @@ namespace MEYPAK.PRL
         FFirmaCekListe fFirmaCekListe;
         FCekSenetDurum fCekSenetDurum;
         FKullaniciTanim fKullaniciTanim;
+        FKullaniciYonetim fKullaniciYonetim;
 
         public Tarih_Date _tarih_Date = new Tarih_Date();
         public DataTable guncelkur;
@@ -222,6 +223,7 @@ namespace MEYPAK.PRL
                 yetkiListe = _formYetkiServis.obje.Where(x => x.KULLANICIID == Kullanici.Id).ToList();
                 foreach (var yetki in yetkiListe)
                 {
+                    string FormAdi = formListe.Where(x => x.id == yetki.FORMID).Count() > 0 ? formListe.Where(x => x.id == yetki.FORMID).FirstOrDefault().FORMADI : "";
                     foreach (AccordionControlElement Menus in accordionControl1.Elements)
                     {
                         int menu = 0;
@@ -232,7 +234,9 @@ namespace MEYPAK.PRL
                             {
                                 foreach (AccordionControlElement Element in Categorys.Elements)
                                 {
-                                    if (Element.Tag != null && formListe.Where(x => x.id == yetki.FORMID).Count() > 0 && formListe.Where(x => x.id == yetki.FORMID).FirstOrDefault().FORMADI == Element.Tag)
+                                   
+                                    string Tag = Element.Tag != null ? Element.Tag.ToString() : "";
+                                    if (Tag!=""&&FormAdi!=""&& Tag==FormAdi)
                                     {
                                         category++;
                                         Element.Visible = true;
@@ -248,7 +252,8 @@ namespace MEYPAK.PRL
                             }
                             else
                             {
-                                if (Categorys.Tag != null && formListe.Where(x => x.id == yetki.FORMID).Count() > 0 && formListe.Where(x => x.id == yetki.FORMID).FirstOrDefault().FORMADI == Categorys.Tag)
+                                string Tag = Categorys.Tag != null ? Categorys.Tag.ToString() : "";
+                                if (Tag!=""&&FormAdi!=""&& Tag==FormAdi)
                                 {
                                     menu++;
                                     Categorys.Visible = true;
@@ -1850,7 +1855,25 @@ namespace MEYPAK.PRL
             i++;
         }
 
+        private void ACEKullanici_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fKullaniciYonetim = new FKullaniciYonetim();
+            page.Name = "FKullaniciYonetim" + i;
+            page.Text = "Kullanıcı Yönetim";
+            page.Tag = "FKullaniciYonetim" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
 
-
+            fKullaniciYonetim.FormBorderStyle = FormBorderStyle.None;
+            fKullaniciYonetim.TopLevel = false;
+            fKullaniciYonetim.AutoScroll = true;
+            fKullaniciYonetim.Dock = DockStyle.Fill;
+            fKullaniciYonetim.Tag = "FKullaniciYonetim" + i;
+            page.Controls.Add(fKullaniciYonetim);
+            fKullaniciYonetim.Show();
+            i++;
+        }
     }
 }
