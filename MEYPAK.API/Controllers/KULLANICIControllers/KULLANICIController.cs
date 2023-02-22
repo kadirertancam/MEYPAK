@@ -1,4 +1,5 @@
-﻿using MEYPAK.Entity.IdentityModels;
+﻿using MEYPAK.DAL.Concrete.EntityFramework.Context;
+using MEYPAK.Entity.IdentityModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -20,6 +21,7 @@ namespace MEYPAK.API.Controllers.KULLANICIControllers
             _userManager = userManager;
             _roleManager = roleManager;
             _signManager = signManager;
+
         }
 
         [HttpGet]
@@ -172,8 +174,16 @@ namespace MEYPAK.API.Controllers.KULLANICIControllers
         [Authorize(Roles = "ADMIN")]
         public async Task<IActionResult> USERUPDATE(MPUSER user)
         {
-            var result = _userManager.UpdateAsync(user);
-            if (result.IsCompletedSuccessfully)
+            MPUSER mUSER = await _userManager.FindByIdAsync(user.Id);
+            mUSER.PhoneNumber = user.PhoneNumber;
+            mUSER.UserName = user.UserName;
+            mUSER.NormalizedUserName = user.UserName.ToUpper();
+            mUSER.AD = user.AD;
+            mUSER.SOYAD = user.SOYAD;
+            mUSER.Email = user.Email;
+            mUSER.NormalizedEmail = user.Email.ToUpper();
+            var result = await _userManager.UpdateAsync(mUSER);
+            if (result.Succeeded)
                 return Ok();
 
             return Problem();
@@ -182,13 +192,27 @@ namespace MEYPAK.API.Controllers.KULLANICIControllers
         [HttpPost]
         [Route("/[controller]/[action]")]
         [Authorize(Roles = "ADMIN")]
-        public async Task<IActionResult> USERPASSWORDADD(MPUSER user, string password)
+        public async Task<IActionResult> USERPASSWORDADD(PasswordChangeModel passwordChangeModel)
         {
-            MPUSER mUSER = _userManager.FindByIdAsync(user.Id).Result;
-            string token = _userManager.GeneratePasswordResetTokenAsync(mUSER).Result;
-            var result = _userManager.ResetPasswordAsync(mUSER, token, password);
+            MPUSER mUSER = await _userManager.FindByIdAsync(passwordChangeModel.user.Id);
+            string token = await _userManager.GeneratePasswordResetTokenAsync(mUSER);
+            var result = await _userManager.ResetPasswordAsync(mUSER, token, passwordChangeModel.password);
 
-            if (result.IsCompletedSuccessfully)
+            if (result.Succeeded)
+                return Ok();
+
+            return Problem();
+        }
+
+        [HttpPost]
+        [Route("/[controller]/[action]")]
+        public async Task<IActionResult> CHANGEPASSWORD(PasswordChangeModel passwordChangeModel)
+        {
+          
+            MPUSER mUSER = await _userManager.FindByEmailAsync(User.Identity.Name);
+            var result = await _userManager.ChangePasswordAsync(mUSER,passwordChangeModel.oldPassword,passwordChangeModel.password);
+
+            if (result.Succeeded)
                 return Ok();
 
             return Problem();

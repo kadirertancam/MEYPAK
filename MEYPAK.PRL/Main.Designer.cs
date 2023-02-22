@@ -972,6 +972,7 @@
             this.ACEKullanici.Name = "ACEKullanici";
             this.ACEKullanici.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.ACEKullanici.Text = "Kullanici";
+            this.ACEKullanici.Click += new System.EventHandler(this.ACEKullanici_Click);
             // 
             // accordionControlSeparator1
             // 
@@ -1048,7 +1049,6 @@
             // accordionControlElement11
             // 
             this.accordionControlElement11.Enabled = false;
-            this.accordionControlElement11.Expanded = true;
             this.accordionControlElement11.Name = "accordionControlElement11";
             this.accordionControlElement11.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement11.Tag = "MARKATANIM";
@@ -2011,15 +2011,19 @@
             // 
             this.accordionControlElement40.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.ACEPersonelRaporu});
+            this.accordionControlElement40.Enabled = false;
             this.accordionControlElement40.Name = "accordionControlElement40";
             this.accordionControlElement40.Text = "Raporlar";
+            this.accordionControlElement40.Visible = false;
             // 
             // ACEPersonelRaporu
             // 
+            this.ACEPersonelRaporu.Enabled = false;
             this.ACEPersonelRaporu.Name = "ACEPersonelRaporu";
             this.ACEPersonelRaporu.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.ACEPersonelRaporu.Tag = "PERSONELRAPORU";
             this.ACEPersonelRaporu.Text = "Personel Raporu";
+            this.ACEPersonelRaporu.Visible = false;
             this.ACEPersonelRaporu.Click += new System.EventHandler(this.ACEPersonelRaporu_Click);
             // 
             // ACEARAC
@@ -2118,7 +2122,6 @@
             this.ACEKullaniciYönetim.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.ACEKullaniciTanim});
             this.ACEKullaniciYönetim.Enabled = false;
-            this.ACEKullaniciYönetim.Expanded = true;
             this.ACEKullaniciYönetim.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("ACEKullaniciYönetim.ImageOptions.SvgImage")));
             this.ACEKullaniciYönetim.Name = "ACEKullaniciYönetim";
             this.ACEKullaniciYönetim.Text = "Kullanıcı Yönetimi";
