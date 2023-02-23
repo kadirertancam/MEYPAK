@@ -14,6 +14,15 @@ namespace MEYPAK.BLL.Assets
 
         #endregion
 
+        #region PERSONELBELGE
+        public const string PersonelBelgeListeServis =       "http://78.135.80.41:8081/PERSONELBELGE/Liste";
+        public const string PersonelBelgeEkleServis =        "http://78.135.80.41:8081/PERSONELBELGE/EkleyadaGuncelle";
+        public const string PersonelBelgeSilServis =         "http://78.135.80.41:8081/PERSONELBELGE/Sil";
+        public const string PersonelBelgeGuncelleServis =    "http://78.135.80.41:8081/PERSONELBELGE/Guncelle";
+        public const string PersonelBelgeDeleteByIdServis =  "http://78.135.80.41:8081/PERSONELBELGE/DeleteById";
+        public const string PersonelBelgeListeFiltreServis = "http://78.135.80.41:8081/PERSONELBELGE/Liste2";
+
+        #endregion
 
         #region FORM
         public const string FormListeServis = "http://78.135.80.41:8081/FORM/Liste";

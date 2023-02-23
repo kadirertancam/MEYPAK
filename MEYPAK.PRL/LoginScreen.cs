@@ -21,7 +21,7 @@ namespace MEYPAK.PRL
         {
             InitializeComponent();
             _loginService = new GenericWebServis<LoginModel>();
-            
+           
         }
         Main fMain;
         GenericWebServis<LoginModel> _loginService;

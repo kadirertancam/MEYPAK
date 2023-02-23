@@ -32,6 +32,9 @@ using System.Windows.Forms;
 using MEYPAK.PRL.Assets;
 using OPTYPE.HizliTeknoloji;
 using DevExpress.XtraSpreadsheet.Model;
+using DevExpress.Office.Utils;
+using System.Diagnostics;
+using System.Xml.Serialization.Extensions;
 
 namespace MEYPAK.PRL.PERSONEL
 {
@@ -44,6 +47,7 @@ namespace MEYPAK.PRL.PERSONEL
         GenericWebServis<PocoPERSONELZIMMET> _personelZimmetServis;
         GenericWebServis<PocoPERSONELIZIN> _personelIzinServis;
         GenericWebServis<PocoPERSONELAVANS> _personelAvansServis;
+        GenericWebServis<PocoPERSONELBELGE> _personelBelgeServis;
 
 
         public FPersonelKart()
@@ -55,6 +59,8 @@ namespace MEYPAK.PRL.PERSONEL
             _personelZimmetServis = new GenericWebServis<PocoPERSONELZIMMET>();
             _personelIzinServis = new GenericWebServis<PocoPERSONELIZIN>();
             _personelAvansServis = new GenericWebServis<PocoPERSONELAVANS>();
+            _personelBelgeServis = new GenericWebServis<PocoPERSONELBELGE>();
+
             InitializeComponent();
             PersonelleriGetir();
             CombolarıDoldur();
@@ -65,7 +71,10 @@ namespace MEYPAK.PRL.PERSONEL
 
         ADRESOBJECT.Root _adresObje;
         public PocoPERSONEL _tempPocoPERSONEL;
+
         string base64 = "";
+        string belgebase64 = "";
+        string belgetip = "";
 
         private void BTNPersonelKaydet_Click(object sender, EventArgs e)
         {
@@ -178,21 +187,21 @@ namespace MEYPAK.PRL.PERSONEL
             {
                 if (TBIzınNeden.Text != "" && DTPIzinBas.EditValue != null && DTPIzinBit.EditValue != null)
                 {
-                    if (CBIzinTur.SelectedText!="YILLIK ÜCRETLİ İZİN" &&Convert.ToInt32(TBIzinGun.EditValue)>=IzinHesapla())
+                    if (CBIzinTur.SelectedText != "YILLIK ÜCRETLİ İZİN" && Convert.ToInt32(TBIzinGun.EditValue) >= IzinHesapla())
                     {
-                    _personelIzinServis.Data(ServisList.PersonelIzinEkleServis, new PocoPERSONELIZIN()
-                    {
-                        IZINTURU = CBIzinTur.SelectedText,
-                        IZINNEDENI = TBIzınNeden.Text,
-                        IZINBASLANGIC = (DateTime)DTPIzinBas.EditValue,
-                        DEVREDILECEKPERSONEL = TBIzinDevirPers.Text,
-                        IZINBITIS = (DateTime)DTPIzinBit.EditValue,
-                        PERSONELID = _tempPocoPERSONEL.id,
-                        IZINGUN = Convert.ToInt32(TBIzinGun.EditValue),
-                        userid = MPKullanici.ID,
-                    });
+                        _personelIzinServis.Data(ServisList.PersonelIzinEkleServis, new PocoPERSONELIZIN()
+                        {
+                            IZINTURU = CBIzinTur.SelectedText,
+                            IZINNEDENI = TBIzınNeden.Text,
+                            IZINBASLANGIC = (DateTime)DTPIzinBas.EditValue,
+                            DEVREDILECEKPERSONEL = TBIzinDevirPers.Text,
+                            IZINBITIS = (DateTime)DTPIzinBit.EditValue,
+                            PERSONELID = _tempPocoPERSONEL.id,
+                            IZINGUN = Convert.ToInt32(TBIzinGun.EditValue),
+                            userid = MPKullanici.ID,
+                        });
 
-                    PersonelIzinGridDoldur();
+                        PersonelIzinGridDoldur();
                     }
                     else
                         MessageBox.Show("YILLIK ÜCRETLİ İZİN KULLANILIRKEN, İZİN KULLANILACAK GÜN SAYISI HAKEDİLEN İZİN MİKTARINDAN FAZLA OLAMAZ!");
@@ -306,9 +315,9 @@ namespace MEYPAK.PRL.PERSONEL
         }
         private void lookUpEdit2_Properties_EditValueChanged(object sender, EventArgs e)
         { //ADRESIL EDIT VALUE CHANGED
-            if (CBAdresIL.EditValue!=null)
+            if (CBAdresIL.EditValue != null)
                 CBAdresIlce.Properties.DataSource = _adresObje.data.Where(x => x.il_adi == CBAdresIL.EditValue.ToString()).Select(x => x.ilceler.Select(z => z.ilce_adi).ToList()).FirstOrDefault();
-           
+
         }
         private void CBNufIl_EditValueChanged(object sender, EventArgs e)
         {
@@ -323,13 +332,16 @@ namespace MEYPAK.PRL.PERSONEL
         }
         private void gridControl1_DoubleClick(object sender, EventArgs e)
         {
-            FormuTemizle(this.Controls);
-            _tempPocoPERSONEL = _personelServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault(); 
-            _personelServis.Data(ServisList.PersonelListeServis);
-            FormuTemizle(this.Controls);
-            var asda = gridView1.GetFocusedRowCellValue("ID");
-            _tempPocoPERSONEL = _personelServis.obje.Where(x => x.id.ToString() == (gridView1.GetFocusedRowCellValue("ID")!=null ? gridView1.GetFocusedRowCellValue("ID").ToString():"0")).FirstOrDefault();
-            PersonelBilgileriniDoldur();
+            if (gridView1.GetFocusedRowCellValue("ID") != null)
+            {
+                FormuTemizle(this.Controls);
+                _tempPocoPERSONEL = _personelServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+                _personelServis.Data(ServisList.PersonelListeServis);
+                FormuTemizle(this.Controls);
+                var asda = gridView1.GetFocusedRowCellValue("ID");
+                _tempPocoPERSONEL = _personelServis.obje.Where(x => x.id.ToString() == (gridView1.GetFocusedRowCellValue("ID") != null ? gridView1.GetFocusedRowCellValue("ID").ToString() : "0")).FirstOrDefault();
+                PersonelBilgileriniDoldur();
+            }
         }
 
         private void CBDepartman_EditValueChanged(object sender, EventArgs e)
@@ -346,7 +358,7 @@ namespace MEYPAK.PRL.PERSONEL
             CBGorev.Properties.Columns["ID"].Visible = false;
         }
 
-      
+
 
         #region Methods
         void ComponentTemizle(System.Windows.Forms.Control.ControlCollection ctrlCollection)
@@ -376,6 +388,8 @@ namespace MEYPAK.PRL.PERSONEL
             PBPersonelResim.Image = null;
             _tempPocoPERSONEL = null;
             base64 = "";
+            belgebase64 = "";
+            belgetip = "";
             CBGorev.EditValue = 0;
             CBDepartman.EditValue = 0;
 
@@ -496,11 +510,11 @@ namespace MEYPAK.PRL.PERSONEL
                 if (_tempPocoPERSONEL.adresilce != "" && _tempPocoPERSONEL.adresilce != "BILINMIYOR")
                     CBAdresIlce.EditValue = _tempPocoPERSONEL.adresilce;
                 else
-                CBAdresIlce.EditValue = 0;
-                if(_tempPocoPERSONEL.nufusakayitliil!=""&& _tempPocoPERSONEL.nufusakayitliil!="BILINMIYOR")
-                CBNufIl.EditValue = _tempPocoPERSONEL.nufusakayitliil;
+                    CBAdresIlce.EditValue = 0;
+                if (_tempPocoPERSONEL.nufusakayitliil != "" && _tempPocoPERSONEL.nufusakayitliil != "BILINMIYOR")
+                    CBNufIl.EditValue = _tempPocoPERSONEL.nufusakayitliil;
                 else
-                CBNufIl.EditValue= 0;
+                    CBNufIl.EditValue = 0;
                 if (_tempPocoPERSONEL.nufusakayitliilce != "" && _tempPocoPERSONEL.nufusakayitliilce != "BILINMIYOR")
                     CBNufIlce.EditValue = _tempPocoPERSONEL.nufusakayitliilce;
                 else
@@ -520,6 +534,7 @@ namespace MEYPAK.PRL.PERSONEL
                 PersonelBankaGridDoldur();
                 PersonelZimmetGridDoldur();
                 PersonelAvansGridDoldur();
+                PersonelBelgeGridDoldur();
                 LBIzinMiktari.Text = IzinHesapla().ToString();
             }
         }
@@ -529,7 +544,7 @@ namespace MEYPAK.PRL.PERSONEL
             {
                 DateTime IzinTarih;
                 int izinGun = 0;
-                if (_tempPocoPERSONEL.isbastar.Year<2022)
+                if (_tempPocoPERSONEL.isbastar.Year < 2022)
                     IzinTarih = new DateTime(2022, _tempPocoPERSONEL.isbastar.Month, _tempPocoPERSONEL.isbastar.Day);
                 else
                     IzinTarih = new DateTime(_tempPocoPERSONEL.isbastar.Year, _tempPocoPERSONEL.isbastar.Month, _tempPocoPERSONEL.isbastar.Day);
@@ -561,12 +576,12 @@ namespace MEYPAK.PRL.PERSONEL
                 _personelIzinServis.Data(ServisList.PersonelIzinListeServis);
                 GCPersonelIzın.DataSource = _personelIzinServis.obje.Where(x => x.PERSONELID == _tempPocoPERSONEL.id).Select(x => new PersonelIzinListe()
                 {
-                  IZINTURU=  x.IZINTURU,
-                  IZINNEDENI=  x.IZINNEDENI,
-                  IZINGUN=  x.IZINGUN,
-                  IZINBASLANGIC=  x.IZINBASLANGIC,
-                  IZINBITIS=  x.IZINBITIS,
-                  DEVREDILECEKPERSONEL=  x.DEVREDILECEKPERSONEL,
+                    IZINTURU = x.IZINTURU,
+                    IZINNEDENI = x.IZINNEDENI,
+                    IZINGUN = x.IZINGUN,
+                    IZINBASLANGIC = x.IZINBASLANGIC,
+                    IZINBITIS = x.IZINBITIS,
+                    DEVREDILECEKPERSONEL = x.DEVREDILECEKPERSONEL,
                 });
             }
         }
@@ -575,14 +590,14 @@ namespace MEYPAK.PRL.PERSONEL
         {
             if (_tempPocoPERSONEL != null)
             {
-                _personelAvansServis.Data(ServisList.PersonelAvansListeServis); 
+                _personelAvansServis.Data(ServisList.PersonelAvansListeServis);
                 GCAvans.DataSource = _personelAvansServis.obje.Where(x => x.PERSONELID == _tempPocoPERSONEL.id).Select(x => new AvansList()
                 {
-                     MIKTAR= x.MIKTAR,
-                     TARIH= x.TARIH,
-                     ACIKLAMA= x.ACIKLAMA
+                    MIKTAR = x.MIKTAR,
+                    TARIH = x.TARIH,
+                    ACIKLAMA = x.ACIKLAMA
                 });
-                GCAvans.RefreshDataSource(); 
+                GCAvans.RefreshDataSource();
             }
 
         }
@@ -599,7 +614,7 @@ namespace MEYPAK.PRL.PERSONEL
                     ZIMMETTARIH = x.zimmettarihi,
                     ACIKLAMA = x.aciklama
                 });
-                
+
             }
         }
         void PersonelBankaGridDoldur()
@@ -614,6 +629,23 @@ namespace MEYPAK.PRL.PERSONEL
                     BANKASUBEKOD = x.bankasubekodu,
                     IBANNO = x.ibanno
                 });
+            }
+        }
+
+        void PersonelBelgeGridDoldur()
+        {
+            if (_tempPocoPERSONEL != null)
+            {
+                _personelBelgeServis.Data(ServisList.PersonelBelgeListeFiltreServis,parameters:$"query=PERSONELID={_tempPocoPERSONEL.id}");
+                GCPersonelBelge.DataSource = _personelBelgeServis.obje.Where(x => x.PERSONELID == _tempPocoPERSONEL.id).Select(x => new
+                {
+                    ID = x.id,
+                    BELGE = "",
+                    ACIKLAMA = x.ACIKLAMA,
+                    TARIH = x.olusturmatarihi,
+                   
+                });
+                gridView7.Columns["ID"].Visible = false;
             }
         }
         public System.Drawing.Image Base64ToImage(string base64String)
@@ -725,7 +757,96 @@ namespace MEYPAK.PRL.PERSONEL
 
         }
 
-    
+        private void BTNBelgeKaydet_Click(object sender, EventArgs e)
+        {
+            if (_tempPocoPERSONEL != null && _tempPocoPERSONEL.id > 0)
+            {
+                if (BTNBelgeSec.Text != "" && belgebase64 != "")
+                {
+                    _personelBelgeServis.Data(ServisList.PersonelBelgeEkleServis, new PocoPERSONELBELGE()
+                    {
+                        PERSONELID = _tempPocoPERSONEL.id,
+                        BELGETIP = belgetip,
+                        ACIKLAMA = TBBelgeAciklama.Text,
+                        IMG = belgebase64,
+                        userid = MPKullanici.ID,
+                    });
+                    MessageBox.Show($"{_tempPocoPERSONEL.adisoyadi}'adlı personele belge başarıyla eklendi!");
+                    PersonelBelgeGridDoldur();
+                }
+                else
+                    MessageBox.Show("Belge Eklenirken bir hata oluştu!");
+            }
+            else
+                MessageBox.Show("Personel Seçmeden Belge Ekleyemezsiniz!");
+        }
+
+        private void BTNBelgeSec_Properties_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "PDF Dosyası |*.pdf| Jpeg Dosyası |*.jpeg| Jpg Dosyası |*.jpg| PNG Dosyası |*.png;";
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                string DosyaYolu = ofd.FileName;
+                string DosyaAdi = ofd.SafeFileName;
+                BTNBelgeSec.Text = DosyaYolu;
+                if (DosyaYolu.Substring(DosyaYolu.Length - 3, 3) != "pdf")
+                    belgebase64 = ImageToBase64(DosyaYolu);
+                else
+                {
+                    Byte[] fileBytes = File.ReadAllBytes(DosyaYolu);
+                    belgebase64 = Convert.ToBase64String(fileBytes);
+                    belgetip = "pdf";
+                }
+            }
+        }
+
+        private void GCPersonelBelge_DoubleClick(object sender, EventArgs e)
+        {
+            if (gridView1.GetFocusedRowCellValue("ID") != null)
+            {
+                SaveFileDialog sv = new SaveFileDialog();
+            sv.Title = "Personel Belge Kaydet";
+            if (_personelBelgeServis.obje.Where(x => x.id.ToString() == gridView7.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault().BELGETIP == "pdf")
+                sv.Filter = "PDF Dosyası|*.pdf;";
+            else
+                sv.Filter = "RESIM Dosyası|*.jpeg||*.png;";
+
+
+                if (sv.ShowDialog() == DialogResult.OK)
+                {
+                    if (_personelBelgeServis.obje.Where(x => x.id.ToString() == gridView7.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault().BELGETIP == "pdf")
+                    {
+                        byte[] bytedecode = Convert.FromBase64String(_personelBelgeServis.obje.Where(x => x.id.ToString() == gridView7.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault().IMG);
+                        File.WriteAllBytes(sv.FileName, bytedecode);
+
+                        var p = new Process();
+                        p.StartInfo = new ProcessStartInfo(sv.FileName)
+                        {
+                            UseShellExecute = true
+                        };
+                        p.Start();
+                    }
+                    else
+                    {
+                        byte[] bytedecode = Convert.FromBase64String(_personelBelgeServis.obje.Where(x => x.id.ToString() == gridView7.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault().IMG);
+                        File.WriteAllBytes(sv.FileName, bytedecode);
+                        var p = new Process();
+                        p.StartInfo = new ProcessStartInfo(sv.FileName)
+                        {
+                            UseShellExecute = true
+                        };
+                        p.Start();
+                    }
+                }
+            }
+
+
+
+            //FileStream fs = new FileStream(Application.StartupPath+$"PersonelBelge\\{gridView7.GetFocusedRowCellValue("ID")}", FileMode.OpenOrCreate,FileAccess.ReadWrite);
+
+            //fs.Write(_personelBelgeServis.obje.Where(x=> x.id.ToString()== gridView7.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault().IMG,);
+        }
     }
 }
 

@@ -20,7 +20,7 @@ namespace MEYPAK.DAL.Concrete.ADONET
 
         public AdoConnect()
         {
-            string aaa = "Server=213.238.167.117;Database=MEYPAK;User Id=sa;Password=sapass_1;";
+            string aaa = "Server=78.135.80.41;Database=MEYPAKTEST;User Id=sa;Password=sapass_1;";
             con = new SqlConnection(aaa);
         }
  
