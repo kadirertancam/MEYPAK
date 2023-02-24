@@ -17,6 +17,8 @@ using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.Models.STOK;
 using DevExpress.XtraEditors;
+using MEYPAK.Entity.PocoModels.FORMYETKI;
+using MEYPAK.Entity.Models.FORMYETKI;
 
 namespace MEYPAK.PRL.STOK
 {
@@ -31,6 +33,7 @@ namespace MEYPAK.PRL.STOK
         }
         GenericWebServis<PocoOLCUBR> _OlcuBrServis ;
         GenericWebServis<PocoSTOKOLCUBR> _StokOlcuBrServis ;
+        PocoFORMYETKI formyetki = MPKullanici.YetkiGetir(AllForms.OLCUBIRIMTANIM.ToString());
         private void FStokOlcuBrKart_Load(object sender, EventArgs e)
         {
             DataGridDoldur();
@@ -60,6 +63,10 @@ namespace MEYPAK.PRL.STOK
 
         private void BTKaydet_Click(object sender, EventArgs e)
         {
+            if (formyetki.EKLE==true)
+            {
+
+          
             if (islemtipi == "Kayıt")
             {
                 if (_OlcuBrServis.obje.Where(x=>x.kayittipi==0 && x.adi == TBAdi.Text).Count()==0)
@@ -88,10 +95,16 @@ namespace MEYPAK.PRL.STOK
             MessageBox.Show("Kayıt Başarılı.");
             id = 0;
             DataGridDoldur();
+            }
+            MessageBox.Show("Kayıt Eklemek için yetkiniz bulunmamaktadır! Lütfen Yöneticinize başvurunuz.");
         }
          
         private void BTSil_Click(object sender, EventArgs e)
         {
+            if (formyetki.SIL==true)
+            {
+
+           
             _OlcuBrServis.Data(ServisList.OlcuBrListeServis);
             _StokOlcuBrServis.Data(ServisList.StokOlcuBrListeServis);
             if (_StokOlcuBrServis.obje.Where(x=> x.olcubrid.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).Count()==0)
@@ -105,7 +118,10 @@ namespace MEYPAK.PRL.STOK
             {
                 MessageBox.Show("Stok ile bağlantılı olan ölçü birim silinemez! ");
             }
-           
+            }
+            else
+                MessageBox.Show("Test");
+
         }
 
        

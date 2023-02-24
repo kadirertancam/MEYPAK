@@ -42,7 +42,7 @@ namespace MEYPAK.PRL
         public PocoSTOK _tempStok;
         public PocoSTOKKATEGORI _tempKategori;
         public PocoSTOKMARKA _tempMarka;
-        PocoFORMYETKI formyetki = MPKullanici.Yetkiler.Where(x => x.FORMID == MPKullanici.Formlar.Where(x => x.FORMADI == AllForms.STOKTANIM.ToString()).FirstOrDefault().id).FirstOrDefault();
+        PocoFORMYETKI formyetki = MPKullanici.YetkiGetir(AllForms.STOKHAREKET.ToString());
         List<PocoSTOKRESIM> resimList;
 
         GenericWebServis<PocoSTOKRESIM> _stokResimServis;

@@ -21,7 +21,7 @@ namespace MEYPAK.PRL.STOK
         public PocoHIZMETKATEGORI _tempHizmetKategori;
         GenericWebServis<PocoHIZMET> _hizmetServis;
         GenericWebServis<PocoHIZMETKATEGORI> _hizmetKategoriServis;
-        PocoFORMYETKI formyetki = MPKullanici.Yetkiler.Where(x => x.FORMID == MPKullanici.Formlar.Where(x => x.FORMADI == AllForms.HIZMETTANIM.ToString()).FirstOrDefault().id).FirstOrDefault();
+        PocoFORMYETKI formyetki = MPKullanici.YetkiGetir(AllForms.HIZMETTANIM.ToString());
         public FHizmetKart()
         {
             InitializeComponent();
@@ -54,7 +54,10 @@ namespace MEYPAK.PRL.STOK
 
         private void BTStokKartiKaydet_Click(object sender, EventArgs e)
         {
-            
+            if (formyetki.EKLE==true)
+            {
+
+          
             if (BTHizmetSec.Text != "")
             {
                 if (_tempHizmetKategori!=null && BTKategoriSec.Text!="")
@@ -80,6 +83,9 @@ namespace MEYPAK.PRL.STOK
             {
                 MessageBox.Show("Hizmet Kodu Girmeden Hizmet Ekleyemezsiniz!");
             }
+            }
+            else
+            MessageBox.Show("Kayıt Eklemek için yetkiniz bulunmamaktadır! Lütfen Yöneticinize başvurunuz.");
         }
 
         private void BTKategoriSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)

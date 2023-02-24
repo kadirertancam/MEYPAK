@@ -12,6 +12,7 @@ using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.CEKSENET;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Cari;
+using MEYPAK.Interfaces.CekSenet;
 using MEYPAK.Interfaces.Parametre;
 using MEYPAK.PRL.Assets;
 using MEYPAK.PRL.CARI;
@@ -42,12 +43,15 @@ namespace MEYPAK.PRL.CEKSENET
             _cekSenetUstSbServis = new GenericWebServis<PocoCEKSENETUSTSB>();
             _cariAltHesServis = new GenericWebServis<PocoCARIALTHES>();
             _cariAltHesCariServis = new GenericWebServis<PocoCARIALTHESCARI>();
+            _musteriCekHARServis = new GenericWebServis<PocoMUSTERICEKHAR>();
             _cekSenetUstSbServis.Data(ServisList.CekSenetUstSBListeServis);
             _cariKartServis.Data(ServisList.CariListeServis);
             _musteriCekServis.Data(ServisList.MusteriCekSBListeServis);
 
         }
         #region Tanımlar
+        GenericWebServis<PocoMUSTERICEKHAR> _musteriCekHARServis;
+
         GenericWebServis<PocoMUSTERICEKSB> _musteriCekServis;
         GenericWebServis<PocoCARIKART> _cariKartServis;
         GenericWebServis<PocoCARIALTHES> _cariAltHesServis;
@@ -78,6 +82,7 @@ namespace MEYPAK.PRL.CEKSENET
                 TOPLAM = firmaCekKalem.Sum(x => x.TUTAR),
                 userid = MPKullanici.ID,
             });
+          
 
 
             foreach (var item in firmaCekKalem)
@@ -105,6 +110,15 @@ namespace MEYPAK.PRL.CEKSENET
                     KUR = 0,
                     userid = MPKullanici.ID,
 
+                });
+
+                _musteriCekHARServis.Data(ServisList.MusteriCekHarEkleServis, new PocoMUSTERICEKHAR()
+                {
+                    CEKID = _musteriCekServis.obje2.id,
+                    TARIH = Convert.ToDateTime(DTTarih.Text),
+                    CARID = _musteriCekServis.obje2.CARIID,
+                    ISLEM = 0,
+                    userid = MPKullanici.ID
                 });
             }
         }

@@ -1,5 +1,6 @@
 ﻿using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.IdentityModels;
+using MEYPAK.Entity.Models.FORMYETKI;
 using MEYPAK.PRL.CEKSENET.Firma.Çek;
 using MEYPAK.PRL.DEKONT;
 using MEYPAK.PRL.PERSONEL;
