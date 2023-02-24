@@ -6,6 +6,7 @@ using MEYPAK.BLL.Assets;
 using DevExtreme.AspNet.Data;
 using DevExtreme.AspNet.Mvc;
 using DevExpress.Pdf;
+using MEYPAK.Entity.PocoModels.DEPO;
 
 namespace MEYPAK.WEB.Controllerss
 {
@@ -15,45 +16,59 @@ namespace MEYPAK.WEB.Controllerss
         private readonly ILogger<StokController> _logger;
 
         GenericWebServis<PocoSTOK> _tempStok = new GenericWebServis<PocoSTOK>();
-        GenericWebServis<PocoSTOKKATEGORI> _tempStokKategori = new GenericWebServis<PocoSTOKKATEGORI>();
         GenericWebServis<PocoSTOKHAR> _tempStokHar = new GenericWebServis<PocoSTOKHAR>();
         GenericWebServis<PocoSTOKSAYIMHAR> _tempStokSayimHar = new GenericWebServis<PocoSTOKSAYIMHAR>();
-        GenericWebServis<PocoSTOKSAYIM> _tempStokSayim = new GenericWebServis<PocoSTOKSAYIM>();
+        GenericWebServis<PocoSTOKKATEGORI> _tempStokKategori = new GenericWebServis<PocoSTOKKATEGORI>();
         GenericWebServis<PocoSTOKMARKA> _tempStokMarka = new GenericWebServis<PocoSTOKMARKA>();
-        GenericWebServis<PocoSTOKKASAHAR> _tempStokKasaHar = new GenericWebServis<PocoSTOKKASAHAR>();
         GenericWebServis<PocoOLCUBR> _tempOlcuBr = new GenericWebServis<PocoOLCUBR>();
-        GenericWebServis<PocoHIZMET> _tempHizmet = new GenericWebServis<PocoHIZMET>();
-        GenericWebServis<PocoSTOKOLCUBR> _tempStokOlcuBr = new GenericWebServis<PocoSTOKOLCUBR>();
-        GenericWebServis<PocoSTOKFIYAT> _tempStokFiyat = new GenericWebServis<PocoSTOKFIYAT>();
+        GenericWebServis<PocoSTOKSAYIM> _tempStokSayim = new GenericWebServis<PocoSTOKSAYIM>();
         GenericWebServis<PocoSTOKFIYATHAR> _tempStokFiyatHar = new GenericWebServis<PocoSTOKFIYATHAR>();
+        GenericWebServis<PocoSTOKFIYAT> _tempStokFiyat = new GenericWebServis<PocoSTOKFIYAT>();
+        GenericWebServis<PocoSTOKKASA> _tempStokKasa = new GenericWebServis<PocoSTOKKASA>();
+        GenericWebServis<PocoSTOKKASAHAR> _tempStokKasaHar = new GenericWebServis<PocoSTOKKASAHAR>();
+        GenericWebServis<PocoSTOKSEVKIYATLIST> _tempStokSevkiyatList = new GenericWebServis<PocoSTOKSEVKIYATLIST>();
+        GenericWebServis<PocoHIZMET> _tempHizmet = new GenericWebServis<PocoHIZMET>();
+        GenericWebServis<PocoHIZMETKATEGORI> _tempHizmetKategori = new GenericWebServis<PocoHIZMETKATEGORI>();
+        GenericWebServis<PocoHIZMETHAR> _tempHizmetHar = new GenericWebServis<PocoHIZMETHAR>();
 
         #region Tanımlar
+
         static List<PocoSTOK> PocoSTOKs = new List<PocoSTOK>();
         static int tempstokkartid = 0;
-        static List<PocoSTOKKATEGORI> PocoStokKategoris = new List<PocoSTOKKATEGORI>(); 
-        static int tempstokkategoriid = 0;
         static List<PocoSTOKHAR> PocoStokHars = new List<PocoSTOKHAR>();
         static int tempstokharid = 0;
         static List<PocoSTOKSAYIMHAR> PocoStokSayimHars = new List<PocoSTOKSAYIMHAR>();
         static int tempstoksayimharid = 0;
-        static List<PocoSTOKSAYIM> PocoStokSayims = new List<PocoSTOKSAYIM>();
-        static int tempstoksayimid = 0;
-        static List<PocoSTOKFIYAT> PocoStokFiyats = new List<PocoSTOKFIYAT>();
-        static int tempstokfiyatid = 0;
-        static List<PocoSTOKFIYATHAR> PocoStokFiyatHars = new List<PocoSTOKFIYATHAR>();
-        static int tempstokfiyatharid = 0;
-        static List<PocoSTOKKASAHAR> PocoStokKasaHars = new List<PocoSTOKKASAHAR>();
-        static int tempstokkasaharid = 0;
-        static List<PocoSTOKOLCUBR> PocoStokOlcuBrs = new List<PocoSTOKOLCUBR>();
-        static int tempstokolcubrid = 0;
+        static List<PocoSTOKKATEGORI> PocoStokKategoris = new List<PocoSTOKKATEGORI>();
+        static int tempstokkategoriid = 0;
         static List<PocoSTOKMARKA> PocoStokMarkas = new List<PocoSTOKMARKA>();
         static int tempstokmarkaid = 0;
         static List<PocoOLCUBR> PocoOlcuBrs = new List<PocoOLCUBR>();
         static int tempolcubrid = 0;
+        static List<PocoSTOKSAYIM> PocoStokSayims = new List<PocoSTOKSAYIM>();
+        static int tempstoksayimid = 0;
+        static List<PocoSTOKFIYATHAR> PocoStokFiyatHars = new List<PocoSTOKFIYATHAR>();
+        static int tempstokfiyatharid = 0;
+        static List<PocoSTOKFIYAT> PocoStokFiyats = new List<PocoSTOKFIYAT>();
+        static int tempstokfiyatid = 0;
+        static List<PocoSTOKKASA> PocoStokKasas = new List<PocoSTOKKASA>();
+        static int tempstokkasaid = 0;
+        static List<PocoSTOKKASAHAR> PocoStokKasaHars = new List<PocoSTOKKASAHAR>();
+        static int tempstokkasaharid = 0;
+        static List<PocoSTOKSEVKIYATLIST> PocoStokSevkiyatLists = new List<PocoSTOKSEVKIYATLIST>();
+        static int tempstoksevkiyatlistid = 0;
         static List<PocoHIZMET> PocoHizmets = new List<PocoHIZMET>();
         static int temphizmetid = 0;
+        static List<PocoHIZMETKATEGORI> PocoHizmetKategoris = new List<PocoHIZMETKATEGORI>();
+        static int temphizmetkategoriid = 0;
+        static List<PocoHIZMETHAR> PocoHizmetHars = new List<PocoHIZMETHAR>();
+        static int temphizmetharid = 0;
+
+
+
 
         #endregion
+
         public StokController(ILogger<StokController> logger)
         {
             _logger = logger;
@@ -81,31 +96,10 @@ namespace MEYPAK.WEB.Controllerss
 
         #endregion
 
-        #region STOKKATEGORI
-
-        [HttpGet]
-        public async Task<IActionResult> StokKategoriKart()
-        {
-            return View();
-        }
-
-        [HttpGet]
-        public object StokKategoriGet(DataSourceLoadOptions loadOptions)
-        {
-            //var a = loadOptions.Take;
-            //var b = loadOptions.Skip;
-            //string url = "http://213.238.167.117:8080/Stok/PagingList?skip="+b+"&take="+a+"&requireTotalCount=true";
-            //_tempPocoStok.Data(url);
-            _tempStokKategori.Data(ServisList.StokKategoriListeServis);
-            return DataSourceLoader.Load(_tempStokKategori.obje.Where(x => x.kayittipi == 0).Reverse().AsEnumerable(), loadOptions);
-        }
-
-        #endregion
-
         #region STOKHAR
 
         [HttpGet]
-        public async Task<IActionResult> StokHareketListesi(int id)
+        public async Task<IActionResult> StokHareket(int id)
         {
             return View();
         }
@@ -138,20 +132,23 @@ namespace MEYPAK.WEB.Controllerss
 
         #endregion
 
-        #region STOKSAYIM
+        #region STOKKATEGORİ
 
         [HttpGet]
-        public async Task<IActionResult> StokSayimRapor()
+        public IActionResult StokKategoriListesi()
         {
             return View();
         }
 
         [HttpGet]
-        public object StokSayimGet(DataSourceLoadOptions loadOptions)
+        public object StokKategoriGet(DataSourceLoadOptions loadOptions)
         {
-
-            _tempStokSayim.Data(ServisList.StokSayimListeServis);
-            return DataSourceLoader.Load(_tempStokSayim.obje.Where(x => x.kayittipi == 0).Reverse().AsEnumerable(), loadOptions);
+            //var a = loadOptions.Take;
+            //var b = loadOptions.Skip;
+            //string url = "http://213.238.167.117:8080/Stok/PagingList?skip="+b+"&take="+a+"&requireTotalCount=true";
+            //_tempPocoStok.Data(url);
+            _tempStokKategori.Data(ServisList.StokKategoriListeServis);
+            return DataSourceLoader.Load(_tempStokKategori.obje.Where(x => x.kayittipi == 0).Reverse().AsEnumerable(), loadOptions);
         }
 
         #endregion
@@ -159,7 +156,7 @@ namespace MEYPAK.WEB.Controllerss
         #region STOKMARKA
 
         [HttpGet]
-        public async Task<IActionResult> StokMarka()
+        public IActionResult StokMarkaListesi()
         {
             return View();
         }
@@ -177,28 +174,10 @@ namespace MEYPAK.WEB.Controllerss
 
         #endregion
 
-        #region STOKKASAHAR
-
-        [HttpGet]
-        public async Task<IActionResult> StokKasaHarRapor()
-        {
-            return View();
-        }
-
-        [HttpGet]
-        public object StokKasaHarGet(DataSourceLoadOptions loadOptions)
-        {
-
-            _tempStokKasaHar.Data(ServisList.StokKasaHarListeServis);
-            return DataSourceLoader.Load(_tempStokKasaHar.obje.Where(x => x.kayittipi == 0).Reverse().AsEnumerable(), loadOptions);
-        }
-
-        #endregion
-
         #region OLCUBR
 
         [HttpGet]
-        public IActionResult OlcuBrKart()
+        public IActionResult OlcuBirimListesi()
         {
             return View();
         }
@@ -213,21 +192,122 @@ namespace MEYPAK.WEB.Controllerss
             _tempOlcuBr.Data(ServisList.OlcuBrListeServis);
             return DataSourceLoader.Load(_tempOlcuBr.obje.Where(x => x.kayittipi == 0).Reverse().AsEnumerable(), loadOptions);
         }
-        [HttpPut]
-
 
         #endregion
 
-        #region HİZMET
+        #region STOKSAYIM
 
         [HttpGet]
-        public IActionResult HizmetRapor()
+        public IActionResult StokSayimListesi()
         {
             return View();
         }
 
         [HttpGet]
-        public object HizmetGet(DataSourceLoadOptions loadOptions)
+        public object StokSayimGet(DataSourceLoadOptions loadOptions)
+        {
+            //var a = loadOptions.Take;
+            //var b = loadOptions.Skip;
+            //string url = "http://213.238.167.117:8080/Stok/PagingList?skip="+b+"&take="+a+"&requireTotalCount=true";
+            //_tempPocoStok.Data(url);
+            _tempStokSayim.Data(ServisList.StokSayimListeServis);
+            return DataSourceLoader.Load(_tempStokSayim.obje.Where(x => x.kayittipi == 0).Reverse().AsEnumerable(), loadOptions);
+        }
+
+        #endregion
+
+        #region STOKFİYATHAR
+
+        [HttpGet]
+        public IActionResult StokFiyatHareket() { 
+            return View();
+        }
+
+        [HttpGet]
+        public object StokFiyatHarGet(DataSourceLoadOptions loadOptions)
+        {
+            //var a = loadOptions.Take;
+            //var b = loadOptions.Skip;
+            //string url = "http://213.238.167.117:8080/Stok/PagingList?skip="+b+"&take="+a+"&requireTotalCount=true";
+            //_tempPocoStok.Data(url);
+            _tempStokFiyatHar.Data(ServisList.StokFiyatHarListeServis);
+            return DataSourceLoader.Load(_tempStokFiyatHar.obje.Where(x => x.kayittipi == 0).Reverse().AsEnumerable(), loadOptions);
+        }
+
+        #endregion
+
+        #region STOKFİYAT
+
+        [HttpGet]
+        public IActionResult StokFiyatListesi()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public object StokFiyatGet(DataSourceLoadOptions loadOptions)
+        {
+            //var a = loadOptions.Take;
+            //var b = loadOptions.Skip;
+            //string url = "http://213.238.167.117:8080/Stok/PagingList?skip="+b+"&take="+a+"&requireTotalCount=true";
+            //_tempPocoStok.Data(url);
+            _tempStokFiyat.Data(ServisList.StokFiyatListeServis);
+            return DataSourceLoader.Load(_tempStokFiyat.obje.Where(x => x.kayittipi == 0).Reverse().AsEnumerable(), loadOptions);
+        }
+
+        #endregion
+
+        #region STOKKASA
+
+        [HttpGet]
+        public IActionResult StokKasaListesi()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public object StokKasaGet(DataSourceLoadOptions loadOptions)
+        {
+            //var a = loadOptions.Take;
+            //var b = loadOptions.Skip;
+            //string url = "http://213.238.167.117:8080/Stok/PagingList?skip="+b+"&take="+a+"&requireTotalCount=true";
+            //_tempPocoStok.Data(url);
+            _tempStokKasa.Data(ServisList.StokKasaListeServis);
+            return DataSourceLoader.Load(_tempStokKasa.obje.Where(x => x.kayittipi == 0).Reverse().AsEnumerable(), loadOptions);
+        }
+
+        #endregion
+
+        #region STOKKASAHAR
+
+        [HttpGet]
+        public IActionResult StokKasaHareket()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public object StokKasaHarGet(DataSourceLoadOptions loadOptions)
+        {
+            //var a = loadOptions.Take;
+            //var b = loadOptions.Skip;
+            //string url = "http://213.238.167.117:8080/Stok/PagingList?skip="+b+"&take="+a+"&requireTotalCount=true";
+            //_tempPocoStok.Data(url);
+            _tempStokKasaHar.Data(ServisList.StokKasaHarListeServis);
+            return DataSourceLoader.Load(_tempStokKasaHar.obje.Where(x => x.kayittipi == 0).Reverse().AsEnumerable(), loadOptions);
+        }
+        #endregion
+
+        #region STOKHİZMET
+
+        [HttpGet]
+        public IActionResult StokHizmetListesi()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public object StokHizmetGet(DataSourceLoadOptions loadOptions)
         {
             //var a = loadOptions.Take;
             //var b = loadOptions.Skip;
@@ -236,60 +316,47 @@ namespace MEYPAK.WEB.Controllerss
             _tempHizmet.Data(ServisList.HizmetListeServis);
             return DataSourceLoader.Load(_tempHizmet.obje.Where(x => x.kayittipi == 0).Reverse().AsEnumerable(), loadOptions);
         }
-     
         #endregion
 
-        #region STOKOLCUBR
+        #region STOKHİZMETKATEGORİ
 
         [HttpGet]
-        public IActionResult StokOlcuBrRapor()
+        public IActionResult StokHizmetKategori()
         {
             return View();
         }
 
         [HttpGet]
-        public object StokOlcuBrGet(DataSourceLoadOptions loadOptions)
+        public object HizmetKategoriGet(DataSourceLoadOptions loadOptions)
         {
-            _tempStokOlcuBr.Data(ServisList.StokOlcuBrListeServis);
-            return DataSourceLoader.Load(_tempStokOlcuBr.obje.Where(x => x.kayittipi == 0).Reverse().AsEnumerable(), loadOptions);
+            //var a = loadOptions.Take;
+            //var b = loadOptions.Skip;
+            //string url = "http://213.238.167.117:8080/Stok/PagingList?skip="+b+"&take="+a+"&requireTotalCount=true";
+            //_tempPocoStok.Data(url);
+            _tempHizmetKategori.Data(ServisList.HizmetKategoriListeServis);
+            return DataSourceLoader.Load(_tempHizmetKategori.obje.Where(x => x.kayittipi == 0).Reverse().AsEnumerable(), loadOptions);
         }
-      
         #endregion
 
-        #region STOKFİYAT
+        #region STOKHİZMETHAR
 
         [HttpGet]
-        public IActionResult StokFiyatRapor()
+        public IActionResult StokHizmetHareket()
         {
             return View();
         }
 
         [HttpGet]
-        public object StokFiyatGet(DataSourceLoadOptions loadOptions)
+        public object StokHizmetHarGet(DataSourceLoadOptions loadOptions)
         {
-            _tempStokFiyat.Data(ServisList.StokFiyatListeServis);
-            return DataSourceLoader.Load(_tempStokFiyat.obje.Where(x => x.kayittipi == 0).Reverse().AsEnumerable(), loadOptions);
+            //var a = loadOptions.Take;
+            //var b = loadOptions.Skip;
+            //string url = "http://213.238.167.117:8080/Stok/PagingList?skip="+b+"&take="+a+"&requireTotalCount=true";
+            //_tempPocoStok.Data(url);
+            _tempHizmetHar.Data(ServisList.HizmetHarListeServis);
+            return DataSourceLoader.Load(_tempHizmetHar.obje.Where(x => x.kayittipi == 0).Reverse().AsEnumerable(), loadOptions);
         }
-
         #endregion
-
-        #region STOKFİYATHAR
-
-        [HttpGet]
-        public IActionResult StokFiyatHarRapor()
-        {
-            return View();
-        }
-
-        [HttpGet]
-        public object StokFiyatHarGet(DataSourceLoadOptions loadOptions)
-        {
-            _tempStokFiyatHar.Data(ServisList.StokFiyatHarListeServis);
-            return DataSourceLoader.Load(_tempStokFiyatHar.obje.Where(x => x.kayittipi == 0).Reverse().AsEnumerable(), loadOptions);
-        }
-
-        #endregion
-
     }
 }
 

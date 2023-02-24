@@ -1,19 +1,29 @@
 ﻿@using DevExtreme.AspNet.Mvc
 @using MEYPAK.Entity.PocoModels.STOK
-<main role="main" class="container">
+<main role="main" class="container" style="margin-left:250px;">
     <div class="menu-container dx-swatch-additional" style="width:fit-content">
 
-        <h2> Stok Hareket Raporu </h2>
-
+        <h2>Stok Hareket Listesi</h2>
 
         <div id="data-grid-demo" style="padding-top:20px; max-width:max-content">
             @(
                 Html.DevExtreme().DataGrid<PocoSTOKHAR>()
                 .ID("gridContainer")
-                .ShowBorders(true)
                 .FilterPanel(f => f.Visible(false))
-                .HeaderFilter(h => h.Visible(true))
+                .HeaderFilter(h => h.Visible(true)).ColumnAutoWidth(true).Pager(x =>
+                {
+                    x.ShowPageSizeSelector(true);
+                    x.ShowPageSizeSelector(true);
+                })
                 .Paging(p => p.Enabled(true))
+                .Scrolling(scrolling =>
+                {
+                    scrolling.ColumnRenderingMode(GridColumnRenderingMode.Standard);
+                    scrolling.ShowScrollbar(ShowScrollbarMode.Always);
+                    scrolling.Mode(GridScrollingMode.Standard);
+                    scrolling.ScrollByContent(true);
+                })
+
 
                 .Columns(columns =>
                 {
@@ -38,6 +48,8 @@
                     .ValueExpr("id")
                     .DisplayExpr("adi")).Caption("STOK ADI");
 
+                    columns.AddFor(m => m.io).Caption("GİRİŞ/ÇIKIŞ").Width(120);
+
                     columns.AddFor(m => m.kunye).Caption("KÜNYE").Width(200);
                     columns.AddFor(m => m.depoid)
                     .Width(150)
@@ -48,13 +60,22 @@
                     .ValueExpr("id")
                     .DisplayExpr("aciklama")).Caption("DEPO");
 
-                 
                     columns.AddFor(m => m.birim).Caption("BİRİM");
                     columns.AddFor(m => m.miktar).Caption("MİKTAR");
-                    columns.AddFor(m => m.bruttoplam).Caption("BRÜT TOPLAM");
-                    columns.AddFor(m => m.kdv).Caption("KDV");
                     columns.AddFor(m => m.netfiyat).Caption("NET FİYAT");
                     columns.AddFor(m => m.nettoplam).Caption("NET TOPLAM");
+                    columns.AddFor(m => m.bruttoplam).Caption("BRÜT TOPLAM");
+                    columns.AddFor(m => m.kdv).Caption("KDV");
+                   
+                    columns.AddFor(m => m.faturaid)
+                    .Width(150)
+                    .Visible(true)
+                    .Lookup(lookup => lookup
+                    .DataSource(ds => ds.Mvc().Controller("FATURA").LoadAction("FaturaGet").Key("id"))
+                    .DataSourceOptions(dso => dso.Sort(sort => sort.AddSorting("belgeno")))
+                    .ValueExpr("id")
+                    .DisplayExpr("belgeno")).Caption("FATURA");
+                 
                     columns.AddFor(m => m.guncellemetarihi).Caption("GÜNCELLEME TARİHİ").Width(120);
 
                 })

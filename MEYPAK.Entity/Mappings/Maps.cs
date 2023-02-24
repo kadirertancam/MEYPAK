@@ -141,6 +141,7 @@ namespace MEYPAK.Entity.Mappings
             CreateMap<MPPERSONELZIMMET, PocoPERSONELZIMMET>().ReverseMap();
             CreateMap<MPPERSONELIZIN, PocoPERSONELIZIN>().ReverseMap();
             CreateMap<MPPERSONELAVANS, PocoPERSONELAVANS>().ReverseMap();
+            CreateMap<MPPERSONELBELGE, PocoPERSONELBELGE>().ReverseMap();
 
             //IRSALIYE
             CreateMap<MPIRSALIYE, PocoIRSALIYE>().ReverseMap();
@@ -164,6 +165,7 @@ namespace MEYPAK.Entity.Mappings
             CreateMap<MPARACSIGORTARESIM, PocoARACSIGORTARESIM>().ReverseMap();
             CreateMap<MPARACKASKORESIM, PocoARACKASKORESIM>().ReverseMap();
             CreateMap<MPARACROTA, PocoARACROTA>().ReverseMap();
+
 
             //KASA
             CreateMap<MPKASA, PocoKASA>().ReverseMap();

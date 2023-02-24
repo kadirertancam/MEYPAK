@@ -1,4 +1,5 @@
-﻿using MEYPAK.Entity.IdentityModels;
+﻿using MEYPAK.DAL.Concrete.EntityFramework.Context;
+using MEYPAK.Entity.IdentityModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -12,14 +13,15 @@ namespace MEYPAK.API.Controllers.KULLANICIControllers
         private readonly UserManager<MPUSER> _userManager;
         private readonly RoleManager<MPROLE> _roleManager;
         private readonly SignInManager<MPUSER> _signManager;
-        
-        
+
+
 
         public KULLANICIController(UserManager<MPUSER> userManager, RoleManager<MPROLE> roleManager, SignInManager<MPUSER> signManager)
         {
             _userManager = userManager;
             _roleManager = roleManager;
             _signManager = signManager;
+
         }
 
         [HttpGet]
@@ -45,19 +47,20 @@ namespace MEYPAK.API.Controllers.KULLANICIControllers
                     user = _userManager.FindByNameAsync(model.Email).Result;
                 if (user == null)
                     return Problem("Sistemde kullanıcı bilgisi bulunamadı.");
-           
+
                 var result = _signManager.PasswordSignInAsync(user, model.Password, model.RememberMe, false).Result;
                 if (result.Succeeded)
                 {
-                    LoginResultModel resultModel = new LoginResultModel() { 
-                    MPUSER=user,
-                    userRoles = _userManager.GetRolesAsync(user).Result as List<string>
+                    LoginResultModel resultModel = new LoginResultModel()
+                    {
+                        MPUSER = user,
+                        userRoles = _userManager.GetRolesAsync(user).Result as List<string>
                     };
-                 
+
                     return Ok(resultModel);
                 }
                 return Problem("Giriş Yapılamadı!");
-               
+
             }
             catch (Exception ex)
             {
@@ -93,19 +96,19 @@ namespace MEYPAK.API.Controllers.KULLANICIControllers
 
                 MPUSER user = new MPUSER()
                 {
-                    Id= Guid.NewGuid().ToString(),
+                    Id = Guid.NewGuid().ToString(),
                     Email = model.Email,
                     EmailConfirmed = true,
-                    TwoFactorEnabled= false,
+                    TwoFactorEnabled = false,
                     UserName = model.UserName,
-                    AD=model.Ad,
-                    SOYAD=model.Soyad,
+                    AD = model.Ad,
+                    SOYAD = model.Soyad,
                     PhoneNumber = model.Telefon
                 };
 
                 var result = _userManager.CreateAsync(user, model.Password).Result;
                 _userManager.AddToRoleAsync(user, AllRoles.USER.ToString());
-                return Ok(result.Succeeded?"Başarıyla Kayıt Oluşturuldu":"Kayıt Edilemedi");
+                return Ok(result.Succeeded ? "Başarıyla Kayıt Oluşturuldu" : "Kayıt Edilemedi");
 
             }
             catch (Exception ex)
@@ -121,11 +124,11 @@ namespace MEYPAK.API.Controllers.KULLANICIControllers
         [Authorize(Roles = "ADMIN")]
         public async Task<IActionResult> RolVer(LoginResultModel result)
         {
-           
+
             foreach (string role in result.userRoles)
             {
                 if (_roleManager.RoleExistsAsync(role).Result)
-                 await _userManager.AddToRoleAsync(_userManager.FindByEmailAsync(result.MPUSER.Email).Result, role);
+                    await _userManager.AddToRoleAsync(_userManager.FindByEmailAsync(result.MPUSER.Email).Result, role);
             }
             return Ok();
         }
@@ -143,9 +146,9 @@ namespace MEYPAK.API.Controllers.KULLANICIControllers
                     //eğer o rol yoksa ekle
                     MPROLE r = new MPROLE()
                     {
-                        Id= Guid.NewGuid().ToString(),
+                        Id = Guid.NewGuid().ToString(),
                         Name = role,
-                        ACIKLAMA="Otomatik Olusturma",
+                        ACIKLAMA = "Otomatik Olusturma",
                         OLUSTURMATARIHI = DateTime.Now,
                         GUNCELLEMETARIHI = DateTime.Now,
                     };
@@ -171,31 +174,45 @@ namespace MEYPAK.API.Controllers.KULLANICIControllers
         [Authorize(Roles = "ADMIN")]
         public async Task<IActionResult> USERUPDATE(MPUSER user)
         {
-            var result=  _userManager.UpdateAsync(user);
-            if (result.IsCompletedSuccessfully)
-            return Ok();
-
-            return Problem();
-        }
-
-        [HttpPost]
-        [Route("/[controller]/[action]")]
-        [Authorize(Roles = "ADMIN")]
-        public async Task<IActionResult> USERPASSWORDREMOVE(MPUSER user)
-        {
-            var result = _userManager.RemovePasswordAsync(user);
-            if (result.IsCompletedSuccessfully)
+            MPUSER mUSER = await _userManager.FindByIdAsync(user.Id);
+            mUSER.PhoneNumber = user.PhoneNumber;
+            mUSER.UserName = user.UserName;
+            mUSER.NormalizedUserName = user.UserName.ToUpper();
+            mUSER.AD = user.AD;
+            mUSER.SOYAD = user.SOYAD;
+            mUSER.Email = user.Email;
+            mUSER.NormalizedEmail = user.Email.ToUpper();
+            var result = await _userManager.UpdateAsync(mUSER);
+            if (result.Succeeded)
                 return Ok();
 
             return Problem();
         }
+
         [HttpPost]
         [Route("/[controller]/[action]")]
         [Authorize(Roles = "ADMIN")]
-        public async Task<IActionResult> USERPASSWORDADD(MPUSER user,string password)
+        public async Task<IActionResult> USERPASSWORDADD(PasswordChangeModel passwordChangeModel)
         {
-            var result = _userManager.AddPasswordAsync(user,password);
-            if (result.IsCompletedSuccessfully)
+            MPUSER mUSER = await _userManager.FindByIdAsync(passwordChangeModel.user.Id);
+            string token = await _userManager.GeneratePasswordResetTokenAsync(mUSER);
+            var result = await _userManager.ResetPasswordAsync(mUSER, token, passwordChangeModel.password);
+
+            if (result.Succeeded)
+                return Ok();
+
+            return Problem();
+        }
+
+        [HttpPost]
+        [Route("/[controller]/[action]")]
+        public async Task<IActionResult> CHANGEPASSWORD(PasswordChangeModel passwordChangeModel)
+        {
+          
+            MPUSER mUSER = await _userManager.FindByEmailAsync(User.Identity.Name);
+            var result = await _userManager.ChangePasswordAsync(mUSER,passwordChangeModel.oldPassword,passwordChangeModel.password);
+
+            if (result.Succeeded)
                 return Ok();
 
             return Problem();

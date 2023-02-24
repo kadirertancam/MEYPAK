@@ -12,14 +12,15 @@ namespace MEYPAK.PRL.Assets
         private decimal name;
         private decimal age;
         private decimal title;
+        private decimal price;
 
-        public CekDurum(string x,decimal name, decimal age, decimal title)
+        public CekDurum(string x,decimal bugun, decimal buhafta, decimal buay, decimal sONRAKİAY)
         {
             this.x = x;
-            this.name = name;
-            this.age = age;
-            this.title = title;
-     
+            this.name = bugun;
+            this.age = buhafta;
+            this.title = buay;
+            this.price = sONRAKİAY;
         }
         public string X
         {
@@ -41,6 +42,12 @@ namespace MEYPAK.PRL.Assets
         {
             get { return title; }
             set { title = value; }
+        }
+
+        public decimal SONRAKİAY
+        {
+            get { return price; }
+            set { price = value; }
         }
     }
 }

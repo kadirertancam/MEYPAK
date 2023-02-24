@@ -22,7 +22,7 @@ namespace MEYPAK.PRL
         {
             InitializeComponent();
             _loginService = new GenericWebServis<LoginModel>();
-            
+           
         }
         Main fMain;
         GenericWebServis<LoginModel> _loginService;
@@ -61,6 +61,14 @@ namespace MEYPAK.PRL
                 MessageBox.Show("Giriş Yapılamadı Tekrar Deneyin!");
             }
 
+        }
+
+        private void TBSifre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar==(char)Keys.Enter)
+            {
+                BTNGiris_Click(sender, e);
+            }
         }
     }
 }

@@ -1,5 +1,7 @@
 ﻿using DevExpress.XtraEditors;
 using MEYPAK.BLL.Assets;
+using MEYPAK.Entity.Models.FORMYETKI;
+using MEYPAK.Entity.PocoModels.FORMYETKI;
 using MEYPAK.Entity.PocoModels.STOK;
 using System;
 using System.Collections.Generic;
@@ -19,6 +21,7 @@ namespace MEYPAK.PRL.STOK
         public PocoHIZMETKATEGORI _tempHizmetKategori;
         GenericWebServis<PocoHIZMET> _hizmetServis;
         GenericWebServis<PocoHIZMETKATEGORI> _hizmetKategoriServis;
+        PocoFORMYETKI formyetki = MPKullanici.Yetkiler.Where(x => x.FORMID == MPKullanici.Formlar.Where(x => x.FORMADI == AllForms.HIZMETTANIM.ToString()).FirstOrDefault().id).FirstOrDefault();
         public FHizmetKart()
         {
             InitializeComponent();
@@ -51,6 +54,7 @@ namespace MEYPAK.PRL.STOK
 
         private void BTStokKartiKaydet_Click(object sender, EventArgs e)
         {
+            
             if (BTHizmetSec.Text != "")
             {
                 if (_tempHizmetKategori!=null && BTKategoriSec.Text!="")

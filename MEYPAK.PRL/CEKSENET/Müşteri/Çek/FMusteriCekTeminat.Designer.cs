@@ -54,9 +54,6 @@
             this.BTCekSec = new DevExpress.XtraEditors.ButtonEdit();
             this.LBCekNo = new DevExpress.XtraEditors.LabelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
-            this.BTSil = new DevExpress.XtraEditors.SimpleButton();
-            this.BTKaydet = new DevExpress.XtraEditors.SimpleButton();
             this.TBCariAdi = new DevExpress.XtraEditors.TextEdit();
             this.DTTarih = new DevExpress.XtraEditors.DateEdit();
             this.BTCariSec = new DevExpress.XtraEditors.ButtonEdit();
@@ -65,6 +62,9 @@
             this.LBCariKodu = new DevExpress.XtraEditors.LabelControl();
             this.LBTarih = new DevExpress.XtraEditors.LabelControl();
             this.LBBordro = new DevExpress.XtraEditors.LabelControl();
+            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.BTSil = new DevExpress.XtraEditors.SimpleButton();
+            this.BTKaydet = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
@@ -78,13 +78,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.BTCekSec.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
-            this.panelControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TBCariAdi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTTarih.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTTarih.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTCariSec.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTBordroSec.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
+            this.panelControl3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -155,6 +155,7 @@
             this.BTKaldir.Size = new System.Drawing.Size(75, 23);
             this.BTKaldir.TabIndex = 2;
             this.BTKaldir.Text = "Kaldır";
+            this.BTKaldir.Click += new System.EventHandler(this.BTKaldir_Click);
             // 
             // BTCekSec
             // 
@@ -162,6 +163,7 @@
             this.BTCekSec.Name = "BTCekSec";
             this.BTCekSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.BTCekSec.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTCekSec_Properties_ButtonClick);
             this.BTCekSec.Size = new System.Drawing.Size(193, 22);
             this.BTCekSec.TabIndex = 1;
             // 
@@ -192,39 +194,6 @@
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Müşteri Çek Teminat";
             // 
-            // panelControl3
-            // 
-            this.panelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl3.Controls.Add(this.BTSil);
-            this.panelControl3.Controls.Add(this.BTKaydet);
-            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelControl3.Location = new System.Drawing.Point(964, 23);
-            this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(203, 138);
-            this.panelControl3.TabIndex = 8;
-            // 
-            // BTSil
-            // 
-            this.BTSil.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.BTSil.Appearance.Options.UseBackColor = true;
-            this.BTSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTSil.ImageOptions.Image")));
-            this.BTSil.Location = new System.Drawing.Point(104, 3);
-            this.BTSil.Name = "BTSil";
-            this.BTSil.Size = new System.Drawing.Size(95, 40);
-            this.BTSil.TabIndex = 1;
-            this.BTSil.Text = "Sil";
-            // 
-            // BTKaydet
-            // 
-            this.BTKaydet.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.BTKaydet.Appearance.Options.UseBackColor = true;
-            this.BTKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTKaydet.ImageOptions.Image")));
-            this.BTKaydet.Location = new System.Drawing.Point(3, 3);
-            this.BTKaydet.Name = "BTKaydet";
-            this.BTKaydet.Size = new System.Drawing.Size(95, 40);
-            this.BTKaydet.TabIndex = 0;
-            this.BTKaydet.Text = "&KAYDET";
-            // 
             // TBCariAdi
             // 
             this.TBCariAdi.Enabled = false;
@@ -249,6 +218,7 @@
             this.BTCariSec.Name = "BTCariSec";
             this.BTCariSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.BTCariSec.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTCariSec_Properties_ButtonClick);
             this.BTCariSec.Size = new System.Drawing.Size(193, 22);
             this.BTCariSec.TabIndex = 14;
             // 
@@ -293,6 +263,40 @@
             this.LBBordro.TabIndex = 9;
             this.LBBordro.Text = "Bordro";
             // 
+            // panelControl3
+            // 
+            this.panelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl3.Controls.Add(this.BTSil);
+            this.panelControl3.Controls.Add(this.BTKaydet);
+            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelControl3.Location = new System.Drawing.Point(964, 23);
+            this.panelControl3.Name = "panelControl3";
+            this.panelControl3.Size = new System.Drawing.Size(203, 138);
+            this.panelControl3.TabIndex = 8;
+            // 
+            // BTSil
+            // 
+            this.BTSil.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.BTSil.Appearance.Options.UseBackColor = true;
+            this.BTSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTSil.ImageOptions.Image")));
+            this.BTSil.Location = new System.Drawing.Point(104, 3);
+            this.BTSil.Name = "BTSil";
+            this.BTSil.Size = new System.Drawing.Size(95, 40);
+            this.BTSil.TabIndex = 1;
+            this.BTSil.Text = "Sil";
+            // 
+            // BTKaydet
+            // 
+            this.BTKaydet.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.BTKaydet.Appearance.Options.UseBackColor = true;
+            this.BTKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTKaydet.ImageOptions.Image")));
+            this.BTKaydet.Location = new System.Drawing.Point(3, 3);
+            this.BTKaydet.Name = "BTKaydet";
+            this.BTKaydet.Size = new System.Drawing.Size(95, 40);
+            this.BTKaydet.TabIndex = 0;
+            this.BTKaydet.Text = "&KAYDET";
+            this.BTKaydet.Click += new System.EventHandler(this.BTKaydet_Click);
+            // 
             // FMusteriCekTeminat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -317,13 +321,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
-            this.panelControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.TBCariAdi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTTarih.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTTarih.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTCariSec.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTBordroSec.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
+            this.panelControl3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

@@ -32,15 +32,6 @@
                     columns.AddFor(m => m.marka).Caption("MARKA");
                     columns.AddFor(m => m.model).Caption("ARAÇ MODEL");
 
-                    columns.AddFor(m => m.soforid)
-                    .Width(160)
-                    .Visible(true)
-                    .Lookup(lookup => lookup
-                    .DataSource(ds => ds.Mvc().Controller("ARAC").LoadAction("SoforGet").Key("id"))
-                    .DataSourceOptions(dso => dso.Sort(sort => sort.AddSorting("adi")))
-                    .ValueExpr("id")
-                    .DisplayExpr("adi")).Caption("ŞOFÖR ADI");
-
                     columns.AddFor(m => m.tip).Caption("ARAÇ TİPİ");
                     columns.AddFor(m => m.yakitturu).Caption("YAKIT TÜRÜ");
                     columns.AddFor(m => m.sigbastar).Caption("SİGORTA BAŞLANGIÇ").Width(200);

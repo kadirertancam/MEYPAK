@@ -37,6 +37,8 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.BTNPersonelKaydet = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.TBTelefon = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.BTNTemizle = new DevExpress.XtraEditors.SimpleButton();
             this.TBAD = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -53,8 +55,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.GCKullanici = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
-            this.TBTelefon = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
@@ -64,6 +65,7 @@
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TBTelefon.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBAD.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBPARALOTKR.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBSOYAD.Properties)).BeginInit();
@@ -73,7 +75,6 @@
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GCKullanici)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TBTelefon.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -148,6 +149,7 @@
             // groupControl1
             // 
             this.groupControl1.CaptionImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("groupControl1.CaptionImageOptions.Image")));
+            this.groupControl1.Controls.Add(this.labelControl8);
             this.groupControl1.Controls.Add(this.TBTelefon);
             this.groupControl1.Controls.Add(this.labelControl7);
             this.groupControl1.Controls.Add(this.BTNTemizle);
@@ -169,6 +171,21 @@
             this.groupControl1.Size = new System.Drawing.Size(855, 117);
             this.groupControl1.TabIndex = 65;
             this.groupControl1.Text = "Kullanıcı Giriş Bilgileri";
+            // 
+            // TBTelefon
+            // 
+            this.TBTelefon.Location = new System.Drawing.Point(718, 75);
+            this.TBTelefon.Name = "TBTelefon";
+            this.TBTelefon.Size = new System.Drawing.Size(134, 20);
+            this.TBTelefon.TabIndex = 14;
+            // 
+            // labelControl7
+            // 
+            this.labelControl7.Location = new System.Drawing.Point(676, 78);
+            this.labelControl7.Name = "labelControl7";
+            this.labelControl7.Size = new System.Drawing.Size(36, 13);
+            this.labelControl7.TabIndex = 13;
+            this.labelControl7.Text = "Telefon";
             // 
             // BTNTemizle
             // 
@@ -298,20 +315,17 @@
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
             // 
-            // labelControl7
+            // labelControl8
             // 
-            this.labelControl7.Location = new System.Drawing.Point(676, 78);
-            this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(36, 13);
-            this.labelControl7.TabIndex = 13;
-            this.labelControl7.Text = "Telefon";
-            // 
-            // TBTelefon
-            // 
-            this.TBTelefon.Location = new System.Drawing.Point(718, 75);
-            this.TBTelefon.Name = "TBTelefon";
-            this.TBTelefon.Size = new System.Drawing.Size(134, 20);
-            this.TBTelefon.TabIndex = 14;
+            this.labelControl8.Appearance.Font = new System.Drawing.Font("Tahoma", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelControl8.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControl8.Appearance.Options.UseFont = true;
+            this.labelControl8.Appearance.Options.UseForeColor = true;
+            this.labelControl8.Location = new System.Drawing.Point(515, 100);
+            this.labelControl8.Name = "labelControl8";
+            this.labelControl8.Size = new System.Drawing.Size(107, 11);
+            this.labelControl8.TabIndex = 15;
+            this.labelControl8.Text = "5 Karakterden az olamaz !";
             // 
             // FKullaniciTanim
             // 
@@ -332,6 +346,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TBTelefon.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBAD.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBPARALOTKR.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBSOYAD.Properties)).EndInit();
@@ -341,7 +356,6 @@
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.GCKullanici)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TBTelefon.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -380,5 +394,6 @@
         private DevExpress.XtraEditors.TextEdit TBEPOSTA;
         private DevExpress.XtraEditors.TextEdit TBTelefon;
         private DevExpress.XtraEditors.LabelControl labelControl7;
+        private DevExpress.XtraEditors.LabelControl labelControl8;
     }
 }
