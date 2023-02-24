@@ -27,58 +27,62 @@ namespace MEYPAK.PRL.PERSONEL
         {
             int counter = 0;
             //Veriler okunmaya başlıyor.
-            while (MaasexcelReader.Read())
+            //while (MaasexcelReader.Read())
+            //{
+            //    counter++;
+
+            //    if (counter > 1)
+            //    {
+            //        try
+            //        {
+
+            //            if (MaasexcelReader[1] != null || MaasexcelReader[6] != null)
+            //            {
+            //                temp.Add(new PersonelMaasTemp()
+            //                {
+            //                    TC = MaasexcelReader[1] == null ? "" : MaasexcelReader.GetValue(1).ToString(),
+            //                    MAAS = MaasexcelReader[6] == null ? 0 : MaasexcelReader.GetDouble(6)
+            //                });
+            //            }
+            //        }
+            //        catch (Exception)
+            //        {
+
+
+            //        }
+
+            //    }
+            //}
+            //counter = 0;
+            //while (BesexcelReader.Read())
+            //{
+            //    counter++;
+
+            //    if (counter > 1)
+            //    {
+            //        try
+            //        {
+
+            //            if (BesexcelReader[1] != null || BesexcelReader[6] != null)
+            //            {
+            //                temp.Add(new PersonelMaasTemp()
+            //                {
+            //                    TC = BesexcelReader[1] == null ? "" : MaasexcelReader.GetValue(1).ToString(),
+            //                    MAAS = BesexcelReader[6] == null ? 0 : MaasexcelReader.GetDouble(6)
+            //                });
+            //            }
+            //        }
+            //        catch (Exception)
+            //        {
+
+
+            //        }
+
+            //    }
+            //}
+            foreach (var item in temp)
             {
-                counter++;
-
-                if (counter > 1)
-                {
-                    try
-                    {
-
-                        if (MaasexcelReader[1] != null || MaasexcelReader[6] != null)
-                        {
-                            temp.Add(new PersonelMaasTemp()
-                            {
-                                TC = MaasexcelReader[1] == null ? "" : MaasexcelReader.GetValue(1).ToString(),
-                                MAAS = MaasexcelReader[6] == null ? 0 : MaasexcelReader.GetDouble(6)
-                            });
-                        }
-                    }
-                    catch (Exception)
-                    {
-
-
-                    }
-
-                }
-            }
-            counter = 0;
-            while (BesexcelReader.Read())
-            {
-                counter++;
-
-                if (counter > 1)
-                {
-                    try
-                    {
-
-                        if (BesexcelReader[1] != null || BesexcelReader[6] != null)
-                        {
-                            temp.Add(new PersonelMaasTemp()
-                            {
-                                TC = BesexcelReader[1] == null ? "" : MaasexcelReader.GetValue(1).ToString(),
-                                MAAS = BesexcelReader[6] == null ? 0 : MaasexcelReader.GetDouble(6)
-                            });
-                        }
-                    }
-                    catch (Exception)
-                    {
-
-
-                    }
-
-                }
+                var sonuc = (item.KARTAYATAN + item.BES ) - item.MESAI - item.TRAFIKCEZASI - item.AVANS - item.HACIZ - item.MAAS-item.GELMEDIGIGUN;
             }
 
         }
@@ -128,7 +132,7 @@ namespace MEYPAK.PRL.PERSONEL
                                 temp.Add(new PersonelMaasTemp()
                                 {
                                     TC = MaasexcelReader[1] == null ? "" : MaasexcelReader.GetValue(1).ToString(),
-                                    MAAS = MaasexcelReader[6] == null ? 0 : MaasexcelReader.GetDouble(6)
+                                    KARTAYATAN = MaasexcelReader[6] == null ? 0 : MaasexcelReader.GetDouble(6)
                                 });
                             }
                         }
@@ -182,7 +186,8 @@ namespace MEYPAK.PRL.PERSONEL
                             {
 
                                 if (BesexcelReader[7] != null)
-                                {
+                                { 
+
                                     temp.Where(x=>x.TC==BesexcelReader[8].ToString()).FirstOrDefault().BES=BesexcelReader.GetDouble(7);
                                 }
                             }
@@ -195,6 +200,8 @@ namespace MEYPAK.PRL.PERSONEL
                         } 
                 }
             }
+            gridControl1.DataSource = temp;
+            gridControl1.RefreshDataSource();
         }
 
         private void buttonEdit3_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -229,23 +236,77 @@ namespace MEYPAK.PRL.PERSONEL
 
                     if (counter > 1)
                     {
-                        try
+                      
+                        if (DagitilanMaasexcelReader[7] != null)
                         {
-
-                            if (DagitilanMaasexcelReader[7] != null)
+                            try
                             {
-                                temp.Where(x => x.TC == DagitilanMaasexcelReader[8].ToString()).FirstOrDefault().SIGORTADAKIMAAS = DagitilanMaasexcelReader.GetDouble(8);
-                                temp.Where(x => x.TC == DagitilanMaasexcelReader[8].ToString()).FirstOrDefault().GELMEDIGIGUN = DagitilanMaasexcelReader.GetDouble(10);
-                            }
-                        }
-                        catch (Exception)
-                        {
 
-                            
+                                temp.Where(x => x.TC == DagitilanMaasexcelReader[8].ToString()).FirstOrDefault().SIGORTADAKIMAAS = DagitilanMaasexcelReader.GetDouble(9);
+                            }
+                            catch (Exception)
+                            {
+
+
+                            }
+                            try
+                            {
+                                temp.Where(x => x.TC == DagitilanMaasexcelReader[8].ToString()).FirstOrDefault().MAAS = DagitilanMaasexcelReader.GetDouble(10);
+                            }
+                            catch (Exception)
+                            {
+
+
+                            }
+                            try
+                            {
+                                temp.Where(x => x.TC == DagitilanMaasexcelReader[8].ToString()).FirstOrDefault().GELMEDIGIGUN = DagitilanMaasexcelReader.GetDouble(11);
+                            }
+                            catch (Exception)
+                            {
+
+
+                            }  try
+                            {
+                                temp.Where(x => x.TC == DagitilanMaasexcelReader[8].ToString()).FirstOrDefault().MESAI = DagitilanMaasexcelReader.GetDouble(18);
+                            }
+                            catch (Exception)
+                            {
+
+
+                            } try
+                            {
+                                temp.Where(x => x.TC == DagitilanMaasexcelReader[8].ToString()).FirstOrDefault().TRAFIKCEZASI = DagitilanMaasexcelReader.GetDouble(20);
+                            }
+                            catch (Exception)
+                            {
+
+
+                            }try
+                            {
+                                temp.Where(x => x.TC == DagitilanMaasexcelReader[8].ToString()).FirstOrDefault().AVANS = DagitilanMaasexcelReader.GetDouble(21);
+                            }
+                            catch (Exception)
+                            {
+
+
+                            }try
+                            {
+                                temp.Where(x => x.TC == DagitilanMaasexcelReader[8].ToString()).FirstOrDefault().HACIZ = DagitilanMaasexcelReader.GetDouble(22);
+                            }
+                            catch (Exception)
+                            {
+
+
+                            }
+
                         }
+                       
 
                     }
                 }
+                gridControl1.DataSource = temp;
+                gridControl1.RefreshDataSource();
             }
         }
     }

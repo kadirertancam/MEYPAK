@@ -98,6 +98,15 @@ namespace MEYPAK.BLL.Assets
 
         #endregion
 
+        #region Dekont
+        public const string DekontListeServis =             "http://78.135.80.41:8081/DEKONT/DEKONTListe";
+        public const string DekontEkleServis =              "http://78.135.80.41:8081/DEKONT/DEKONTEkleyadaGuncelle";
+        public const string DekontSilServis =               "http://78.135.80.41:8081/DEKONT/DEKONTSil";
+        public const string DekontGuncelleServis =          "http://78.135.80.41:8081/DEKONT/DEKONTGuncelle";
+        public const string DekontDeleteByIdServis =        "http://78.135.80.41:8081/DEKONT/DeleteById";
+        public const string DekontListeFiltreServis =       "http://78.135.80.41:8081/DEKONT/DEKONTListe2?query=";
+        #endregion
+
         #region Arac
         public const string AracListeServis =    "http://78.135.80.41:8081/ARAC/ARACListe";
         public const string AracEkleServis = "http://78.135.80.41:8081/ARAC/ARACEkleyadaGuncelle";
