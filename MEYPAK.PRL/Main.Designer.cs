@@ -987,6 +987,7 @@
             this.accordionControlElement3,
             this.accordionControlElement4});
             this.ACESTOK.Enabled = false;
+            this.ACESTOK.Expanded = true;
             this.ACESTOK.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("ACESTOK.ImageOptions.SvgImage")));
             this.ACESTOK.ImageOptions.SvgImageSize = new System.Drawing.Size(32, 32);
             this.ACESTOK.Name = "ACESTOK";
@@ -1007,6 +1008,7 @@
             this.accordionControlElement50,
             this.accordionControlElement48});
             this.accordionControlElement2.Enabled = false;
+            this.accordionControlElement2.Expanded = true;
             this.accordionControlElement2.HeaderTemplate.AddRange(new DevExpress.XtraBars.Navigation.HeaderElementInfo[] {
             new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.Text),
             new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.Image),

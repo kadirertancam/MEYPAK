@@ -90,6 +90,8 @@
             this.gridControl2 = new DevExpress.XtraGrid.GridControl();
             this.tileView1 = new DevExpress.XtraGrid.Views.Tile.TileView();
             this.treeListBand1 = new DevExpress.XtraTreeList.Columns.TreeListBand();
+            this.lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
@@ -123,6 +125,7 @@
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tileView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // FIRMA
@@ -247,6 +250,8 @@
             // groupControl1
             // 
             this.groupControl1.CaptionImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("groupControl1.CaptionImageOptions.Image")));
+            this.groupControl1.Controls.Add(this.label5);
+            this.groupControl1.Controls.Add(this.lookUpEdit1);
             this.groupControl1.Controls.Add(this.panelControl8);
             this.groupControl1.Controls.Add(this.label4);
             this.groupControl1.Controls.Add(this.DTPTarih);
@@ -326,7 +331,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(51, 123);
+            this.label2.Location = new System.Drawing.Point(51, 148);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(36, 13);
             this.label2.TabIndex = 3;
@@ -334,7 +339,7 @@
             // 
             // TBMiktar
             // 
-            this.TBMiktar.Location = new System.Drawing.Point(103, 119);
+            this.TBMiktar.Location = new System.Drawing.Point(103, 144);
             this.TBMiktar.Name = "TBMiktar";
             this.TBMiktar.Size = new System.Drawing.Size(190, 20);
             this.TBMiktar.TabIndex = 2;
@@ -342,7 +347,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(38, 100);
+            this.label1.Location = new System.Drawing.Point(38, 125);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 13);
             this.label1.TabIndex = 1;
@@ -350,7 +355,7 @@
             // 
             // TBBelgeNo
             // 
-            this.TBBelgeNo.Location = new System.Drawing.Point(103, 93);
+            this.TBBelgeNo.Location = new System.Drawing.Point(103, 118);
             this.TBBelgeNo.Name = "TBBelgeNo";
             this.TBBelgeNo.Size = new System.Drawing.Size(190, 20);
             this.TBBelgeNo.TabIndex = 0;
@@ -555,6 +560,25 @@
             this.treeListBand1.Caption = "ADI";
             this.treeListBand1.Name = "treeListBand1";
             // 
+            // lookUpEdit1
+            // 
+            this.lookUpEdit1.Location = new System.Drawing.Point(103, 92);
+            this.lookUpEdit1.Name = "lookUpEdit1";
+            this.lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpEdit1.Properties.NullText = "";
+            this.lookUpEdit1.Size = new System.Drawing.Size(190, 20);
+            this.lookUpEdit1.TabIndex = 10;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(56, 95);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(32, 13);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Depo";
+            // 
             // FStokKasaHareket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -599,6 +623,7 @@
             this.panelControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tileView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -640,5 +665,7 @@
         private DevExpress.XtraGrid.Columns.TileViewColumn MMIKTAR;
         private DevExpress.XtraEditors.PanelControl panelControl8;
         private DevExpress.XtraGrid.Columns.TileViewColumn MMMIKTAR;
+        private Label label5;
+        private DevExpress.XtraEditors.LookUpEdit lookUpEdit1;
     }
 }

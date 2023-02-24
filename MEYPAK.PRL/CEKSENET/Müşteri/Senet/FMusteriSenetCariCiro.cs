@@ -134,7 +134,7 @@ namespace MEYPAK.PRL.CEKSENET
                     _cariHarServis.Data(ServisList.CariHarEkleServis, new PocoCARIHAR()
                     {
                         cariid = _tempCari.id,
-                        harekettipi = 6,
+                        harekettipi = 9,
                         tutar = _tempCariListe.Sum(x => x.TUTAR),
                         belgE_NO = _cekSenetUstSBServis.obje2.BORDRONO,
                         harekettarihi = Convert.ToDateTime(DTTarih.Text),

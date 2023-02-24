@@ -1,4 +1,6 @@
 ﻿using MEYPAK.Entity.IdentityModels;
+using MEYPAK.Entity.Models.FORMYETKI;
+using MEYPAK.Entity.PocoModels.FORMYETKI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +16,7 @@ namespace MEYPAK.PRL
         {
             get
             {
-               return ((Main)Application.OpenForms["Main"]).Kullanici.Id;
+                return ((Main)Application.OpenForms["Main"]).Kullanici.Id;
             }
         }
         public static MPUSER USER
@@ -30,6 +32,24 @@ namespace MEYPAK.PRL
             {
                 return ((Main)Application.OpenForms["Main"]).Roller;
             }
+        }
+        public static List<PocoFORMYETKI> Yetkiler
+        {
+            get
+            {
+                return ((Main)Application.OpenForms["Main"]).yetkiListe;
+            }
+        }
+        public static List<PocoFORM> Formlar
+        {
+            get
+            {
+                return ((Main)Application.OpenForms["Main"]).formListe;
+            }
+        }
+        public static PocoFORMYETKI yetki(string form)
+        {
+            return  Yetkiler.Where(x => x.FORMID == Formlar.Where(x => x.FORMADI == form).FirstOrDefault().id).FirstOrDefault();
         }
     }
 }

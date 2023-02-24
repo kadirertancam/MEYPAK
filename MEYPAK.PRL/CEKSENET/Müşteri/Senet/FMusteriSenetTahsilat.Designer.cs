@@ -28,6 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FMusteriSenetTahsilat));
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -38,18 +44,13 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FMusteriSenetTahsilat));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.DGMSenetTahsilat = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
+            this.BTKaldir = new DevExpress.XtraEditors.SimpleButton();
             this.BTCekSec = new DevExpress.XtraEditors.ButtonEdit();
             this.LBCekNo = new DevExpress.XtraEditors.LabelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
@@ -64,7 +65,6 @@
             this.LBCariKodu = new DevExpress.XtraEditors.LabelControl();
             this.LBTarih = new DevExpress.XtraEditors.LabelControl();
             this.LBBordro = new DevExpress.XtraEditors.LabelControl();
-            this.BTKaldir = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
@@ -145,12 +145,25 @@
             this.panelControl4.Size = new System.Drawing.Size(1169, 62);
             this.panelControl4.TabIndex = 1;
             // 
+            // BTKaldir
+            // 
+            this.BTKaldir.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.BTKaldir.Appearance.Options.UseBackColor = true;
+            this.BTKaldir.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTKaldir.ImageOptions.Image")));
+            this.BTKaldir.Location = new System.Drawing.Point(322, 16);
+            this.BTKaldir.Name = "BTKaldir";
+            this.BTKaldir.Size = new System.Drawing.Size(75, 23);
+            this.BTKaldir.TabIndex = 2;
+            this.BTKaldir.Text = "Kaldır";
+            this.BTKaldir.Click += new System.EventHandler(this.BTKaldir_Click);
+            // 
             // BTCekSec
             // 
             this.BTCekSec.Location = new System.Drawing.Point(123, 17);
             this.BTCekSec.Name = "BTCekSec";
             this.BTCekSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.BTCekSec.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTCekSec_Properties_ButtonClick);
             this.BTCekSec.Size = new System.Drawing.Size(193, 22);
             this.BTCekSec.TabIndex = 1;
             // 
@@ -213,6 +226,7 @@
             this.BTKaydet.Size = new System.Drawing.Size(95, 40);
             this.BTKaydet.TabIndex = 0;
             this.BTKaydet.Text = "&KAYDET";
+            this.BTKaydet.Click += new System.EventHandler(this.BTKaydet_Click);
             // 
             // TBCariAdi
             // 
@@ -239,7 +253,8 @@
             this.BTCariSec.Location = new System.Drawing.Point(123, 95);
             this.BTCariSec.Name = "BTCariSec";
             this.BTCariSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.BTCariSec.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTCariSec_Properties_ButtonClick);
             this.BTCariSec.Size = new System.Drawing.Size(193, 22);
             this.BTCariSec.TabIndex = 5;
             // 
@@ -248,7 +263,7 @@
             this.BTBordroSec.Location = new System.Drawing.Point(123, 45);
             this.BTBordroSec.Name = "BTBordroSec";
             this.BTBordroSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "SEÇ", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTBordroSec.Size = new System.Drawing.Size(193, 22);
             this.BTBordroSec.TabIndex = 4;
             // 
@@ -267,7 +282,6 @@
             this.LBCariKodu.Size = new System.Drawing.Size(46, 13);
             this.LBCariKodu.TabIndex = 2;
             this.LBCariKodu.Text = "Cari Kodu";
-            this.LBCariKodu.Click += new System.EventHandler(this.LBCariKodu_Click);
             // 
             // LBTarih
             // 
@@ -284,17 +298,6 @@
             this.LBBordro.Size = new System.Drawing.Size(32, 13);
             this.LBBordro.TabIndex = 0;
             this.LBBordro.Text = "Bordro";
-            // 
-            // BTKaldir
-            // 
-            this.BTKaldir.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.BTKaldir.Appearance.Options.UseBackColor = true;
-            this.BTKaldir.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTKaldir.ImageOptions.Image")));
-            this.BTKaldir.Location = new System.Drawing.Point(322, 16);
-            this.BTKaldir.Name = "BTKaldir";
-            this.BTKaldir.Size = new System.Drawing.Size(75, 23);
-            this.BTKaldir.TabIndex = 2;
-            this.BTKaldir.Text = "Kaldır";
             // 
             // FMusteriSenetTahsilat
             // 

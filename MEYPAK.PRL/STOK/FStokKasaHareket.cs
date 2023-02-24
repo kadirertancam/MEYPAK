@@ -37,7 +37,8 @@ namespace MEYPAK.PRL.STOK
             _stokKasaMarkaServis.Data(ServisList.StokKasaMarkaListeServis);
             _stokKasaServis.Data(ServisList.StokKasaListeServis);
             _stokKasaHarServis.Data(ServisList.StokKasaHarListeServis);
-
+            _depoServis.Data(ServisList.DepoListeServis);
+            lookUpEdit1.Properties.DataSource = _depoServis.obje.Select(x => x.id);
             gridControl2.DataSource = _stokKasaMarkaServis.obje.Select(x => new
             {
                 ID = x.id,
@@ -106,7 +107,7 @@ namespace MEYPAK.PRL.STOK
                         CARIID = item.FirstOrDefault(),
                         DEPOID = 0,
                         ADI = _cariServis.obje.Where(x => x.id == item.FirstOrDefault()).FirstOrDefault().unvan,
-
+                        
                     });
                 }
             }
@@ -131,7 +132,7 @@ namespace MEYPAK.PRL.STOK
                 (_stokKasaHarServis.obje.Where(c => c.depoid == x.DEPOID && c.io == 1 && c.kasaid.ToString() == test).Sum(x => x.miktar) - _stokKasaHarServis.obje.Where(c => c.depoid == x.DEPOID && c.io == 0 && c.kasaid.ToString() == test).Sum(x => x.miktar))
                 
             });
-            gridControl4.RefreshDataSource();
+            gridControl4.RefreshDataSource();   
         }
 
         private void tileView3_Click(object sender, EventArgs e)
@@ -142,18 +143,36 @@ namespace MEYPAK.PRL.STOK
             {
                 _stokKasaHarServis.Data(ServisList.StokKasaHarListeServis);
                 cariid = tileView3.GetFocusedRowCellValue("CARIID").ToString();
-                
-                kasaid = tileView2.GetFocusedRowCellValue("ID").ToString();
-                gridControl1.DataSource = _stokKasaHarServis.obje.Where(x => x.cariid.ToString() == cariid  && x.kasaid.ToString() == kasaid).Select(x => new
+                if (cariid != "0")
                 {
-                    ID=x.id,
-                    TARIH = x.olusturmatarihi,
-                    BELGENO = x.belge_no,
-                    CIKISMIKTARI = _stokKasaHarServis.obje.Where(z => z.cariid.ToString() == cariid.ToString() && z.kasaid.ToString() == kasaid.ToString() && z.belge_no == x.belge_no).Sum(z => z.io == 0 ? z.miktar : 0),
-                    GIRISMIKTARI = _stokKasaHarServis.obje.Where(z => z.cariid.ToString() == cariid.ToString() && z.kasaid.ToString() == kasaid.ToString() && z.belge_no == x.belge_no).Sum(z => z.io == 1 ? z.miktar : 0)
-                });
+
+              
+                kasaid = tileView2.GetFocusedRowCellValue("ID").ToString();
+                    gridControl1.DataSource = _stokKasaHarServis.obje.Where(x => x.cariid.ToString() == cariid && x.kasaid.ToString() == kasaid).Select(x => new
+                    {
+                        ID = x.id,
+                        TARIH = x.olusturmatarihi,
+                        BELGENO = x.belge_no,
+                        CIKISMIKTARI = x.io==0?x.miktar:0,
+                        GIRISMIKTARI = x.io==1?x.miktar:0,
+                    });
+                }
+                else
+                { 
+                    kasaid = tileView2.GetFocusedRowCellValue("ID").ToString();
+                    cariid = tileView3.GetFocusedRowCellValue("FIRMA").ToString();
+                    string depo = _depoServis.obje.Where(x => x.depoadi == cariid).FirstOrDefault().id.ToString();
+                    gridControl1.DataSource = _stokKasaHarServis.obje.Where(x => x.depoid.ToString() == depo && x.kasaid.ToString() == kasaid).Select(x => new
+                    {
+                        ID = x.id,
+                        TARIH = x.olusturmatarihi,
+                        BELGENO = x.belge_no,
+                        CIKISMIKTARI = x.io == 0 ? x.miktar : 0,
+                        GIRISMIKTARI = x.io == 1 ? x.miktar : 0,
+                    });
+                }
                 //gridControl1.DataSource = temp.GroupBy(x => new { x.TARIH, x.BELGENO, x.CIKISMIKTARI, x.GIRISMIKTARI }).Select(x => x.Select(z => new { z.TARIH, z.BELGENO, z.CIKISMIKTARI, z.GIRISMIKTARI }).ToList()).FirstOrDefault();
-                gridView1.Columns["ID"].Visible = false;
+           //     gridView1.Columns["ID"].Visible = false;
                 gridControl1.RefreshDataSource();
             }
             catch (Exception)
@@ -196,15 +215,16 @@ namespace MEYPAK.PRL.STOK
             _stokKasaHarServis.Data(ServisList.StokKasaHarEkleServis, _tempSTOKKASAHAR);
             _stokKasaHarServis.Data(ServisList.StokKasaHarListeServis);
 
-             cariid = tileView3.GetFocusedRowCellValue("ID").ToString();
+             cariid = tileView3.GetFocusedRowCellValue("FIRMA").ToString();
+           string carii= _cariServis.obje.Where(x=>x.unvan==cariid).FirstOrDefault().id.ToString();
             kasaid = tileView2.GetFocusedRowCellValue("ID").ToString();
-            gridControl1.DataSource = _stokKasaHarServis.obje.Where(x => x.cariid.ToString() == cariid && x.io == 0 && x.kasaid.ToString() == kasaid).Select(x => new
+            gridControl1.DataSource = _stokKasaHarServis.obje.Where(x => x.cariid.ToString() == carii && x.io == 0 && x.kasaid.ToString() == kasaid).Select(x => new
             {
                 ID = x.id,
                 TARIH = x.olusturmatarihi,
                 BELGENO = x.belge_no,
-                CIKISMIKTARI = _stokKasaHarServis.obje.Where(z => z.cariid.ToString() == cariid.ToString() && z.kasaid.ToString() == kasaid.ToString() && z.belge_no == x.belge_no).Sum(z => z.io == 0 ? z.miktar : 0),
-                GIRISMIKTARI = _stokKasaHarServis.obje.Where(z => z.cariid.ToString() == cariid.ToString() && z.kasaid.ToString() == kasaid.ToString() && z.belge_no == x.belge_no).Sum(z => z.io == 1 ? z.miktar : 0)
+                CIKISMIKTARI = _stokKasaHarServis.obje.Where(z => z.cariid.ToString() == carii.ToString() && z.kasaid.ToString() == kasaid.ToString() && z.belge_no == x.belge_no).Sum(z => z.io == 0 ? z.miktar : 0),
+                GIRISMIKTARI = _stokKasaHarServis.obje.Where(z => z.cariid.ToString() == carii.ToString() && z.kasaid.ToString() == kasaid.ToString() && z.belge_no == x.belge_no).Sum(z => z.io == 1 ? z.miktar : 0)
             });
             gridView1.Columns["ID"].Visible= false;
             gridControl1.RefreshDataSource();

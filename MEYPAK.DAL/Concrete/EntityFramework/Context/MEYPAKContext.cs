@@ -33,6 +33,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
 
         }
         public DbSet<MPDEKONT> MPDEKONT { get; set; }
+   
         public DbSet<MPFORM> MPFORM { get; set; }
         public DbSet<MPFORMYETKI> MPFORMYETKI { get; set; }
         public DbSet<MPSTOKSARF> MPSTOKSARF { get; set; }
@@ -98,6 +99,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
         public DbSet<MPPERSONELGOREV> MPPERSONELGOREV { get; set; }
         public DbSet<MPPERSONELZIMMET> MPPERSONELZIMMET { get; set; }
         public DbSet<MPPERSONELIZIN> MPPERSONELIZIN { get; set; }
+        public DbSet<MPPERSONELBELGE> MPPERSONELBELGE { get; set; }
         public DbSet<MPSTOKSAYIM> MPSTOKSAYIM { get; set; }
         public DbSet<MPSTOKSAYIMHAR> MPSTOKSAYIMHAR { get; set; }
         public DbSet<MPOLCUBR> MPOLCUBR { get; set; }

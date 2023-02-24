@@ -79,7 +79,7 @@ namespace MEYPAK.PRL.DEPO
                     tempp = _siparisSevkEmriHarServis.obje.Where(x => x.emirid.ToString() == _emirid && x.kayittipi == 0).Select(x => new DepoIsEmriList()
                     {
                         Miktar = x.siparismiktari,
-                        SevkMiktarı = x.emirmiktari,
+                        SevkMiktarı = x.emirmiktari,  
                         StokAdı = _stokServis.obje.Where(c => c.id == (_siparisDetayServis.obje.Where(z => x.sipariskalemid == z.id).Select(z => z.stokid).FirstOrDefault())).FirstOrDefault().adi,
                         StokKodu = _stokServis.obje.Where(c => c.id == (_siparisDetayServis.obje.Where(z => x.sipariskalemid == z.id).Select(z => z.stokid).FirstOrDefault())).FirstOrDefault().kod
                     });
@@ -88,7 +88,7 @@ namespace MEYPAK.PRL.DEPO
                 {
                     tempp = _siparisDetayServis.obje.Where(x => x.siparisid.ToString() == _sipid && x.kayittipi == 0).Select(x => new DepoIsEmriList
                     {
-                        StokAdı = x.stokadi,
+                        StokAdı = x.stokadi, 
                         StokKodu = _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().kod,
                         Miktar = x.safi,
                         SevkMiktarı = 0,
@@ -101,7 +101,7 @@ namespace MEYPAK.PRL.DEPO
                   if (_depoEmirServis.obje.Where(x => x.id.ToString() == _emirid).Count() > 0)
                 {
                     tempp = _satinAlmaMalKabulEmriHarServis.obje.Where(x => x.emirid.ToString() == _emirid && x.kayittipi == 0).Select(x => new DepoIsEmriList()
-                    {
+                    { 
                         Miktar = x.siparismiktari,
                         SevkMiktarı = x.emirmiktari,
                         StokAdı = _stokServis.obje.Where(c => c.id == (_siparisDetayServis.obje.Where(z => x.sipariskalemid == z.id).Select(z => z.stokid).FirstOrDefault())).FirstOrDefault().adi,
@@ -262,8 +262,7 @@ namespace MEYPAK.PRL.DEPO
                     depoid = _siparisServis.obje.Where(x => x.id.ToString() == _sipid).FirstOrDefault().depoid,
                     aciklama = "",
                     userid = MPKullanici.ID
-                });
-                _depoEmirServis.Data(ServisList.DepoEmirListeServis);
+                }); 
 
                 if (ms == 0)
                 {

@@ -1,6 +1,7 @@
 ﻿using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.IdentityModels;
 using MEYPAK.PRL.CEKSENET.Firma.Çek;
+using MEYPAK.PRL.DEKONT;
 using MEYPAK.PRL.PERSONEL;
 using Microsoft.AspNetCore.Identity;
 using System;
@@ -21,7 +22,7 @@ namespace MEYPAK.PRL
         {
             InitializeComponent();
             _loginService = new GenericWebServis<LoginModel>();
-            
+           
         }
         Main fMain;
         GenericWebServis<LoginModel> _loginService;
@@ -40,7 +41,9 @@ namespace MEYPAK.PRL
 
                 if (_loginService.loginResult !=null)
                 {
-                    
+                    //FPersonelMaas dd = new FPersonelMaas();
+                    //dd.Show();
+
                     fMain = new Main(_loginService.loginResult.MPUSER, _loginService.loginResult.userRoles);
                     fMain.Show();
                     //FirmaCekListe firmaCekListe = new FirmaCekListe();
@@ -58,6 +61,14 @@ namespace MEYPAK.PRL
                 MessageBox.Show("Giriş Yapılamadı Tekrar Deneyin!");
             }
 
+        }
+
+        private void TBSifre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar==(char)Keys.Enter)
+            {
+                BTNGiris_Click(sender, e);
+            }
         }
     }
 }

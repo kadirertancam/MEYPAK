@@ -104,6 +104,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
             repositoryItemButtonEdit.Buttons[0].Caption = "Faturalaştır";
             repositoryItemButtonEdit.Buttons[0].Kind = ButtonPredefines.Glyph;
             repositoryItemButtonEdit.Buttons[0].Shortcut = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.Enter);
+            repositoryItemButtonEdit.ButtonClick += RepositoryItemButtonEdit_ButtonClick1;
 
             RepositoryItemButtonEdit repositoryItemButtonEdit2 = new RepositoryItemButtonEdit();
             repositoryItemButtonEdit2.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
@@ -135,6 +136,11 @@ namespace MEYPAK.PRL.E_ISLEMLER
             
         }
 
+        private void RepositoryItemButtonEdit_ButtonClick1(object sender, ButtonPressedEventArgs e)
+        {
+            //FATURALAŞTIR
+        }
+
         private void RepositoryItemButtonEdit3_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
             FCariList carilist = new FCariList(this.Tag.ToString(), "EFaturaGelenKutu");
@@ -163,6 +169,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
             FStokList stoklist = new FStokList(this.Tag.ToString(),"EFaturaGelenKutu");
             stoklist.ShowDialog();
             gridView2.SetFocusedRowCellValue("KOD", _tempStok.kod);
+
         }
 
         private void gridView2_MasterRowEmpty(object sender, DevExpress.XtraGrid.Views.Grid.MasterRowEmptyEventArgs e)
