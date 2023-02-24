@@ -70,6 +70,7 @@
             this.TBSifre.Properties.PasswordChar = '*';
             this.TBSifre.Size = new System.Drawing.Size(209, 36);
             this.TBSifre.TabIndex = 1;
+            this.TBSifre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBSifre_KeyPress);
             // 
             // comboBoxEdit1
             // 

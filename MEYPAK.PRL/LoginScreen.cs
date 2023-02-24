@@ -59,5 +59,13 @@ namespace MEYPAK.PRL
             }
 
         }
+
+        private void TBSifre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar==(char)Keys.Enter)
+            {
+                BTNGiris_Click(sender, e);
+            }
+        }
     }
 }

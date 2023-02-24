@@ -5,6 +5,7 @@ using DevExpress.XtraTab.ViewInfo;
 using MEYPAK.BLL.Assets;
 using MEYPAK.BLL.KULLANICI;
 using MEYPAK.Entity.IdentityModels;
+using MEYPAK.Entity.Models.FORMYETKI;
 using MEYPAK.Entity.PocoModels.EISLEMLER;
 using MEYPAK.Entity.PocoModels.FORMYETKI;
 using MEYPAK.Entity.PocoModels.PARAMETRE;
@@ -290,6 +291,7 @@ namespace MEYPAK.PRL
             }
 
             ACEKullanici.Text = Kullanici.AD + " " + Kullanici.SOYAD;
+            MessageBox.Show(MPKullanici.yetki(AllForms.HIZMETTANIM));
         } 
 
 
