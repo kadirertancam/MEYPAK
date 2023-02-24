@@ -9,7 +9,7 @@ namespace MEYPAK.PRL
 {
     public static class MPKullanici
     {
-        
+        //Kapsülleme
         public static string ID
         {
             get
