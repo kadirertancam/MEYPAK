@@ -101,6 +101,10 @@ namespace MEYPAK.PRL.STOK
          
         private void BTSil_Click(object sender, EventArgs e)
         {
+            if (formyetki.SIL==true)
+            {
+
+           
             _OlcuBrServis.Data(ServisList.OlcuBrListeServis);
             _StokOlcuBrServis.Data(ServisList.StokOlcuBrListeServis);
             if (_StokOlcuBrServis.obje.Where(x=> x.olcubrid.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).Count()==0)
@@ -114,7 +118,10 @@ namespace MEYPAK.PRL.STOK
             {
                 MessageBox.Show("Stok ile bağlantılı olan ölçü birim silinemez! ");
             }
-           
+            }
+            else
+                MessageBox.Show("Test");
+
         }
 
        
