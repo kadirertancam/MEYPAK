@@ -33,7 +33,7 @@ namespace MEYPAK.PRL.STOK
         }
         GenericWebServis<PocoOLCUBR> _OlcuBrServis ;
         GenericWebServis<PocoSTOKOLCUBR> _StokOlcuBrServis ;
-        PocoFORMYETKI formyetki = MPKullanici.YetkiGetir(AllForms.OLCUBIRIMTANIM.ToString());
+        
         private void FStokOlcuBrKart_Load(object sender, EventArgs e)
         {
             DataGridDoldur();
@@ -63,8 +63,6 @@ namespace MEYPAK.PRL.STOK
 
         private void BTKaydet_Click(object sender, EventArgs e)
         {
-            if (formyetki.EKLE==true)
-            {
 
           
             if (islemtipi == "Kayıt")
@@ -95,14 +93,12 @@ namespace MEYPAK.PRL.STOK
             MessageBox.Show("Kayıt Başarılı.");
             id = 0;
             DataGridDoldur();
-            }
-            MessageBox.Show("Kayıt Eklemek için yetkiniz bulunmamaktadır! Lütfen Yöneticinize başvurunuz.");
+          
         }
          
         private void BTSil_Click(object sender, EventArgs e)
         {
-            if (formyetki.SIL==true)
-            {
+          
 
            
             _OlcuBrServis.Data(ServisList.OlcuBrListeServis);
@@ -118,9 +114,8 @@ namespace MEYPAK.PRL.STOK
             {
                 MessageBox.Show("Stok ile bağlantılı olan ölçü birim silinemez! ");
             }
-            }
-            else
-                MessageBox.Show("Test");
+            
+   
 
         }
 
