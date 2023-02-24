@@ -291,7 +291,7 @@ namespace MEYPAK.PRL
             }
 
             ACEKullanici.Text = Kullanici.AD + " " + Kullanici.SOYAD;
-            MessageBox.Show(MPKullanici.yetki(AllForms.HIZMETTANIM));
+            
         } 
 
 

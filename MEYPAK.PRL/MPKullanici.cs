@@ -47,7 +47,7 @@ namespace MEYPAK.PRL
                 return ((Main)Application.OpenForms["Main"]).formListe;
             }
         }
-        public static PocoFORMYETKI yetki(string form)
+        public static PocoFORMYETKI YetkiGetir(string form)
         {
             return  Yetkiler.Where(x => x.FORMID == Formlar.Where(x => x.FORMADI == form).FirstOrDefault().id).FirstOrDefault();
         }
