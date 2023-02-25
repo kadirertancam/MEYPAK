@@ -987,7 +987,6 @@
             this.accordionControlElement3,
             this.accordionControlElement4});
             this.ACESTOK.Enabled = false;
-            this.ACESTOK.Expanded = true;
             this.ACESTOK.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("ACESTOK.ImageOptions.SvgImage")));
             this.ACESTOK.ImageOptions.SvgImageSize = new System.Drawing.Size(32, 32);
             this.ACESTOK.Name = "ACESTOK";
@@ -1008,7 +1007,6 @@
             this.accordionControlElement50,
             this.accordionControlElement48});
             this.accordionControlElement2.Enabled = false;
-            this.accordionControlElement2.Expanded = true;
             this.accordionControlElement2.HeaderTemplate.AddRange(new DevExpress.XtraBars.Navigation.HeaderElementInfo[] {
             new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.Text),
             new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.Image),
@@ -1906,6 +1904,7 @@
             this.accordionControlElement62,
             this.accordionControlElement63});
             this.accordionControlElement27.Enabled = false;
+            this.accordionControlElement27.Expanded = true;
             this.accordionControlElement27.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement27.ImageOptions.Image")));
             this.accordionControlElement27.Name = "accordionControlElement27";
             this.accordionControlElement27.Text = "E-İşlemler";
@@ -1917,6 +1916,7 @@
             this.accordionControlElement1,
             this.accordionControlElement65});
             this.accordionControlElement62.Enabled = false;
+            this.accordionControlElement62.Expanded = true;
             this.accordionControlElement62.Name = "accordionControlElement62";
             this.accordionControlElement62.Text = "EFatura";
             this.accordionControlElement62.Visible = false;
@@ -1927,7 +1927,7 @@
             this.accordionControlElement1.Name = "accordionControlElement1";
             this.accordionControlElement1.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement1.Tag = "EFATURAGIDENKUTUSU";
-            this.accordionControlElement1.Text = "Giden Kutusu";
+            this.accordionControlElement1.Text = "Gelen Kutusu";
             this.accordionControlElement1.Visible = false;
             this.accordionControlElement1.Click += new System.EventHandler(this.accordionControlElement1_Click);
             // 

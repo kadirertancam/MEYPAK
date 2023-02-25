@@ -11,8 +11,10 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Repository
 {
     public class EFGelenEFaturaStokEslemeRepo : EFBaseRepo<MPGELENFATURASTOKESLEME>, IGelenEFaturaStokEslemeDal
     {
+        MEYPAKContext context;
         public EFGelenEFaturaStokEslemeRepo(MEYPAKContext _context) : base(_context)
         {
+            this.context = _context;
         }
     }
 }
