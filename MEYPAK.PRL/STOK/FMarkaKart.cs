@@ -43,6 +43,11 @@ namespace MEYPAK.PRL.STOK
         #endregion
         private void FMarkaKart_Load(object sender, EventArgs e)
         {
+            if (this.Tag==null)
+            {
+                this.FormBorderStyle= FormBorderStyle.Fixed3D;
+            }
+
             MarkalarıGetir();
         }
 
