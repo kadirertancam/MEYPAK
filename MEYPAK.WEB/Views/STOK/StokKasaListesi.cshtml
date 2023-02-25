@@ -1,11 +1,10 @@
 ﻿@using DevExtreme.AspNet.Mvc
 @using MEYPAK.Entity.PocoModels.STOK
-<main role="main" class="container" style="margin-left:250px;">
+<main role="main" class="container" style="margin-left:250px; margin-top :55px">
     <div class="menu-container dx-swatch-additional" style="width:fit-content">
 
         <h2>Stok Kasa Listesi</h2>
-
-        <div id="data-grid-demo" style="padding-top:20px; max-width:max-content">
+        <div id="data-grid-demo" style="max-width:max-content">
             @(
                 Html.DevExtreme().DataGrid<PocoSTOKKASA>()
                 .ID("gridContainer")
