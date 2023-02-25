@@ -42,7 +42,7 @@ namespace MEYPAK.PRL
         public PocoSTOK _tempStok;
         public PocoSTOKKATEGORI _tempKategori;
         public PocoSTOKMARKA _tempMarka;
-        PocoFORMYETKI formyetki = MPKullanici.YetkiGetir(AllForms.STOKHAREKET.ToString());
+       
         List<PocoSTOKRESIM> resimList;
 
         GenericWebServis<PocoSTOKRESIM> _stokResimServis;
@@ -432,8 +432,7 @@ namespace MEYPAK.PRL
 
         private void BTStokKartiKaydet_Click(object sender, EventArgs e)
         {
-            if (formyetki.EKLE==true) 
-            { 
+          
             _StokKategoriervis.Data(ServisList.StokKategoriListeServis);
             if (_StokKategoriervis.obje.Where(x => x.acıklama == BTKategori.Text).Count() > 0 && CBOlcuBr.EditValue != null && Convert.ToInt32(CBOlcuBr.EditValue)>0)
             {
@@ -534,9 +533,8 @@ namespace MEYPAK.PRL
                 MessageBox.Show("Kategori veya Olcu Birim Seçmeden Stok Ekleyemezsiniz!");
             }
 
-            }
-            else
-                MessageBox.Show("Kayıt Eklemek için yetkiniz bulunmamaktadır! Lütfen Yöneticinize başvurunuz.");
+          
+            
 
         }
 
@@ -604,7 +602,7 @@ namespace MEYPAK.PRL
         //RESİM Kaydet
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            if(formyetki.EKLE==true)
+            
             if (_PocoStokServis.obje.Where(z => z.kod == BTStokKodu.Text).Count() != 0)
             {
                 _stokResimServis.Data(ServisList.StokResimListeServis);
@@ -634,8 +632,7 @@ namespace MEYPAK.PRL
             {
                 MessageBox.Show("Stok Seçmeden veya Stok Eklemeden Stok Resmi Ekleyemezsiniz!");
             }
-            else
-                MessageBox.Show("Kayıt Eklemek için yetkiniz bulunmamaktadır! Lütfen Yöneticinize başvurunuz.");
+          
         }
 
 

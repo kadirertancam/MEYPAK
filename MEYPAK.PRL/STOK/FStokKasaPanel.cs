@@ -66,7 +66,7 @@ namespace MEYPAK.PRL.STOK
 
             _kasaServis.Data(ServisList.StokKasaEkleServis, new PocoSTOKKASA
             {
-                id = _tempStokKasaPanel.id,
+                id = _tempStokKasaPanel!=null? _tempStokKasaPanel.id:0,
                 kasakodu = TBKod.Text,
                 kasaadi = TBAdi.Text,
                 aciklama = TBAciklama.Text,

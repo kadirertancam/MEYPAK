@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.Entity.PocoModels.EISLEMLER
 {
-    internal class PocoGELENFATURASTOKESLEME:SUPERPOCOMODEL
+    public class PocoGELENFATURASTOKESLEME:SUPERPOCOMODEL
     { 
         public int faturaid { get; set; }
         public int faturakalemid { get; set; }

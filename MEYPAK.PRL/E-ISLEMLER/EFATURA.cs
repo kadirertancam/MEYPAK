@@ -45,7 +45,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
         private void gridView1_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
         {
            
-
+            
         }
 
         private void gridView1_Click(object sender, EventArgs e)
