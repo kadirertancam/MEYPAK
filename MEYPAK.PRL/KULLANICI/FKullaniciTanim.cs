@@ -125,10 +125,6 @@ namespace MEYPAK.PRL.KULLANICI
         {
             if (tempuser != null && tempuser.Id != "")
             {
-                userServis.Data(ServisList.UserGetServis);
-                if (userServis.obje.Where(x => x.UserName == TBUSERNAME.Text && x.Id == tempuser.Id).Count() == 0 && userServis.obje.Where(x => x.Email == TBEPOSTA.Text && x.Id == tempuser.Id).Count() == 0)
-                {
-
                     DialogResult dialogResult = new DialogResult();
                     dialogResult = MessageBox.Show($"{tempuser.AD + " " + tempuser.SOYAD} isimli kullanıcının bilgilerini güncellemek istediğinize emin misiniz?", "Kullanıcı Bilgilerini Güncelleme", MessageBoxButtons.YesNo);
 
@@ -184,9 +180,7 @@ namespace MEYPAK.PRL.KULLANICI
                         MessageBox.Show($"{tempuser.AD + " " + tempuser.SOYAD} isimli kullanıcının bilgileri Başarıyla Güncellendi");
                         KullaniciTemizle();
                     }
-                }
-                else
-                    MessageBox.Show("Kullanıcı adı veya eposta zaten kullanılıyor!");
+               
             }
             else
             {

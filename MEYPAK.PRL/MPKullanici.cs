@@ -49,7 +49,7 @@ namespace MEYPAK.PRL
         }
         public static PocoFORMYETKI YetkiGetir(string form)
         {
-            return  Yetkiler.Where(x => x.FORMID == Formlar.Where(x => x.FORMADI == form).FirstOrDefault().id).FirstOrDefault();
+            return  Roller.Contains("ADMIN")? Yetkiler.Where(x => x.FORMID == Formlar.Where(x => x.FORMADI == form).FirstOrDefault().id).FirstOrDefault(): new PocoFORMYETKI() {EKLE=true,SIL=true,GORUNTULE=true,GUNCELLE=true };
         }
     }
 }
