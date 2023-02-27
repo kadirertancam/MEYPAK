@@ -19,5 +19,6 @@ namespace MEYPAK.PRL.Assets
         public double BES { get; set; }
         public double KESİLDİKTENSONRA { get; set; }
         public double KARTAYATAN { get; set; }
+        public double SONUC { get; set; }
     }
 }

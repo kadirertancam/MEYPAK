@@ -82,8 +82,10 @@ namespace MEYPAK.PRL.PERSONEL
             //}
             foreach (var item in temp)
             {
-                var sonuc = (item.KARTAYATAN + item.BES ) - item.MESAI - item.TRAFIKCEZASI - item.AVANS - item.HACIZ - item.MAAS-item.GELMEDIGIGUN;
+                item.SONUC = (item.KARTAYATAN + item.BES ) - item.MESAI - item.TRAFIKCEZASI - item.AVANS - item.HACIZ - item.MAAS-item.GELMEDIGIGUN;
             }
+            gridControl1.RefreshDataSource();
+            
 
         }
         List<PersonelMaasTemp> temp;
