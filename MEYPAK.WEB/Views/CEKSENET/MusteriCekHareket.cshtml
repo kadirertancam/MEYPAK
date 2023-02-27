@@ -1,11 +1,11 @@
 ﻿@using DevExtreme.AspNet.Mvc
 @using MEYPAK.Entity.PocoModels.CEKSENET
-<main role="main" class="container" style="margin-left:250px;">
+<main role="main" class="container" style="margin-left:250px; margin-top:55px;">
     <div class="menu-container dx-swatch-additional" style="width:fit-content">
 
-        <h2>Müşteri Çek Hareket Listesi</h2>
+        <h4>Müşteri Çek Hareket Listesi</h4>
 
-        <div id="data-grid-demo" style="padding-top:20px; max-width:max-content">
+        <div id="data-grid-demo">
             @(
                 Html.DevExtreme().DataGrid<PocoMUSTERICEKHAR>()
                 .ID("gridContainer")
