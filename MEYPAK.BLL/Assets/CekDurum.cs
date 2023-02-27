@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MEYPAK.PRL.Assets
+namespace MEYPAK.BLL.Assets
 {
     public class CekDurum
     {

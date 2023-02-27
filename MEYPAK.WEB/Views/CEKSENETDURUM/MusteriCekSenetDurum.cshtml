@@ -1,0 +1,51 @@
+﻿@using DevExtreme.AspNet.Mvc
+@using MEYPAK.BLL.Assets
+
+<main role="main" class="container" style="margin-left:250px;">
+    <div class="menu-container dx-swatch-additional" style="width:fit-content">
+
+        <h2>Müşteri Çek/Senet Durum</h2>
+
+        <div id="data-grid-demo" style="padding-top:20px; max-width:max-content">
+            @(
+                Html.DevExtreme().DataGrid<CekDurum>()
+                .ID("gridContainer")
+                .FilterPanel(f => f.Visible(false))
+                .HeaderFilter(h => h.Visible(true)).ColumnAutoWidth(true).Pager(x =>
+                {
+                    x.ShowPageSizeSelector(true);
+                    x.ShowPageSizeSelector(true);
+                })
+                .Paging(p => p.Enabled(true))
+                .Scrolling(scrolling =>
+                {
+                    scrolling.ColumnRenderingMode(GridColumnRenderingMode.Standard);
+                    scrolling.ShowScrollbar(ShowScrollbarMode.Always);
+                    scrolling.Mode(GridScrollingMode.Standard);
+                    scrolling.ScrollByContent(true);
+                })
+
+
+                .Columns(columns =>
+                {
+
+
+                })
+                .DataSource(d => d.Mvc()
+                .Controller("CEKSENETDURUM")
+                .LoadAction("MusteriCekSenetDurumRaporla")
+
+                )
+                )
+        </div>
+
+        <script>
+            function changeTheme(e) {
+                var selectedTheme = e.component.option("value");
+                document.cookie = "currentTheme=" + selectedTheme + ";path=/";
+                window.location.reload();
+            }
+        </script>
+
+    </div>
+</main>
