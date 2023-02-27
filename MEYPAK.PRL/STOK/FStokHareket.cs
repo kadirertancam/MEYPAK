@@ -70,26 +70,9 @@ namespace MEYPAK.PRL.STOK
                 //CBBirim.EditValue = adi.FirstOrDefault();
                 //TBFiyat.Text = IO == 1 ? _tempStok.AFIYAT1.ToString() : _tempStok.SATISKDV.ToString();
                 BakiyeGuncelle();
-                GCStokHareket.DataSource = _stokHarServis.obje.Where(x => x.kayittipi == 0 && x.stokid == _tempStok.id).Select(x => new PocoStokHareketListesi()
-                {
-                    STOKID = x.stokid,
-                    Acıklama = x.aciklama,
-                    BelgeNo = x.belgE_NO,
-                    Birim = _olcuBrServis.obje.Where(z => z.id == x.birim).FirstOrDefault().adi,
-                    BrutToplam = x.bruttoplam,
-                    Cikis = x.io == 0 ? x.miktar : 0,
-                    Giris = x.io == 1 ? x.miktar : 0,
-                    Depo = _depoServis.obje.Where(z => z.id == x.depoid).FirstOrDefault().depoadi,
-                    HareketTuru = x.hareketturu == 1 ? "Satış Fatura" : x.hareketturu == 2 ? "Alış Fatura" : x.hareketturu == 3 ? "Satış Irsaliye" : x.hareketturu == 4 ? "Alış Irsaliye" : x.hareketturu == 5 ? "Satış Fatura Iade" : x.hareketturu == 6 ? "Alış Fatura Iade" : x.hareketturu == 7 ? "Satış Irsalye Iade" : x.hareketturu == 8 ? "Alış Irsaliye Iade" : x.hareketturu == 9 ? "Muhtelif" : x.hareketturu == 10 ? "DAT" : x.hareketturu == 11 ? "Sayim" : "Sarf",
-                    NetFiyat = x.netfiyat,
-                    NetToplam = x.nettoplam,
-                    Tarih = x.olusturmatarihi
-                });
-                gridView1.Columns["STOKID"].Visible = false;
-                gridView1.RefreshData();
+                GridiDoldur(_stokHarServis.obje.Where(x => x.kayittipi == 0 && x.stokid == _tempStok.id).ToList());
                 // _tempStok = null;
-
-
+               
             }
         }
         public void Temizle(Control.ControlCollection ctrlCollection)           //Formdaki Textboxları temizle
@@ -254,26 +237,10 @@ namespace MEYPAK.PRL.STOK
                     {
                         datasource.AddRange(_stokHarServis.obje.Where(x => x.kayittipi == 0 && x.stokid == _tempStok.id && x.depoid == _depoServis.obje.Where(x => x.kayittipi == 0 && x.depoadi == item.ToString()).FirstOrDefault().id));
                     }
-                    GCStokHareket.DataSource = datasource.Select(x => new PocoStokHareketListesi()
-                    {
-                        STOKID = x.stokid,
-                        Acıklama = x.aciklama,
-                        BelgeNo = x.belgE_NO,
-                        Birim = _olcuBrServis.obje.Where(z => z.id == x.birim).FirstOrDefault().adi,
-                        BrutToplam = x.bruttoplam,
-                        Cikis = x.io == 0 ? x.miktar : 0,
-                        Giris = x.io == 1 ? x.miktar : 0,
-                        Depo = _depoServis.obje.Where(z => z.id == x.depoid).FirstOrDefault().depoadi,
-                        HareketTuru = x.hareketturu == 5 ? "Muhtelif" : x.hareketturu == 1 ? "Satış Fatura" : x.hareketturu == 2 ? "Alış Faturası" : x.hareketturu == 3 ? "Satış İade" : x.hareketturu == 4 ? "Alış İade" : x.hareketturu == 6 ? "DAT" : x.hareketturu == 0 ? "Muhtelif" : x.hareketturu == 7 ? "Sayım" : "",
-                        NetFiyat = x.netfiyat,
-                        NetToplam = x.nettoplam,
-                        Tarih = x.olusturmatarihi
-                    });
-                    gridView1.Columns["STOKID"].Visible = false;
-                    gridView1.RefreshData();
+                    GridiDoldur(datasource);
                     LBStokHarToplamGirisDeger.Text = datasource.Where(x => x.io == 1 && x.stokid == _id).Sum(x => x.miktar).ToString();
                     LBStokHarToplamCikisDeger.Text = datasource.Where(x => x.io == 0 && x.stokid == _id).Sum(x => x.miktar).ToString();
-                    LBStokHarBakiyeDeger.Text = (datasource.Where(x => x.io == 1 && x.stokid == _id).Sum(x => x.miktar) - datasource.Where(x => x.io == 0 && x.stokid == _id).Sum(x => x.miktar)).ToString();
+                    LBStokHarBakiyeDeger.Text      =(datasource.Where(x => x.io == 1 && x.stokid == _id).Sum(x => x.miktar) - datasource.Where(x => x.io == 0 && x.stokid == _id).Sum(x => x.miktar)).ToString();
                 }
             }
             else
@@ -282,6 +249,27 @@ namespace MEYPAK.PRL.STOK
             }
 
 
+        }
+
+        void GridiDoldur(List<PocoSTOKHAR> datasource)
+        {
+            GCStokHareket.DataSource = datasource.Select(x => new PocoStokHareketListesi()
+            {
+                STOKID = x.stokid,
+                Acıklama = x.aciklama,
+                BelgeNo = x.belgE_NO,
+                Birim = _olcuBrServis.obje.Where(z => z.id == x.birim).FirstOrDefault().adi,
+                BrutToplam = x.bruttoplam,
+                Cikis = x.io == 0 ? x.miktar : 0,
+                Giris = x.io == 1 ? x.miktar : 0,
+                Depo = _depoServis.obje.Where(z => z.id == x.depoid).FirstOrDefault().depoadi,
+                HareketTuru = x.hareketturu == 1 ? "Satış Fatura" : x.hareketturu == 2 ? "Alış Fatura" : x.hareketturu == 3 ? "Satış Irsaliye" : x.hareketturu == 4 ? "Alış Irsaliye" : x.hareketturu == 5 ? "Satış Fatura Iade" : x.hareketturu == 6 ? "Alış Fatura Iade" : x.hareketturu == 7 ? "Satış Irsalye Iade" : x.hareketturu == 8 ? "Alış Irsaliye Iade" : x.hareketturu == 9 ? "Muhtelif" : x.hareketturu == 10 ? "DAT" : x.hareketturu == 11 ? "Sayim" : "Sarf",
+                NetFiyat = x.netfiyat,
+                NetToplam = x.nettoplam,
+                Tarih = x.olusturmatarihi
+            });
+            gridView1.Columns["STOKID"].Visible = false;
+            gridView1.RefreshData();
         }
 
         private void BTStokKoduSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
