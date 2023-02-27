@@ -57,7 +57,7 @@ namespace MEYPAK.PRL
         List<PocoSTOKRESIM> _silinenResimler;
 
         int stokid = 0, markaid = 0, num = 0;
-
+        PocoFORMYETKI formYetki= MPKullanici.YetkiGetir(AllForms.STOKTANIM.ToString());
         #endregion 
 
         #region Methods
@@ -432,7 +432,9 @@ namespace MEYPAK.PRL
 
         private void BTStokKartiKaydet_Click(object sender, EventArgs e)
         {
-          
+            if (formYetki.EKLE==true)
+            {
+
             _StokKategoriervis.Data(ServisList.StokKategoriListeServis);
             if (_StokKategoriervis.obje.Where(x => x.acıklama == BTKategori.Text).Count() > 0 && CBOlcuBr.EditValue != null && Convert.ToInt32(CBOlcuBr.EditValue)>0)
             {
@@ -533,8 +535,11 @@ namespace MEYPAK.PRL
                 MessageBox.Show("Kategori veya Olcu Birim Seçmeden Stok Ekleyemezsiniz!");
             }
 
-          
-            
+
+            }
+            else
+                MessageBox.Show("Bu işlemi yapmak için yetkiniz bulunmamaktadır! Lütfen Yönetinizle iletişime geçin.");
+
 
         }
 

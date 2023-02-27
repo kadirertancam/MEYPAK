@@ -80,10 +80,13 @@ namespace MEYPAK.PRL.PERSONEL
 
             //    }
             //}
-            foreach (var item in temp)
+            var temp2 = gridControl1.DataSource;
+            foreach (var item in (List<PersonelMaasTemp>)temp2)
             {
-                var sonuc = (item.KARTAYATAN + item.BES ) - item.MESAI - item.TRAFIKCEZASI - item.AVANS - item.HACIZ - item.MAAS-item.GELMEDIGIGUN;
+                item.SONUC = (item.KARTAYATAN + item.BES ) - item.MESAI - item.TRAFIKCEZASI - item.AVANS - item.HACIZ - item.MAAS-item.GELMEDIGIGUN;
             }
+            gridControl1.RefreshDataSource();
+            
 
         }
         List<PersonelMaasTemp> temp;
@@ -132,6 +135,7 @@ namespace MEYPAK.PRL.PERSONEL
                                 temp.Add(new PersonelMaasTemp()
                                 {
                                     TC = MaasexcelReader[1] == null ? "" : MaasexcelReader.GetValue(1).ToString(),
+                                    ADISOYADI= MaasexcelReader[0] == null ? "" : MaasexcelReader.GetValue(0).ToString(),
                                     KARTAYATAN = MaasexcelReader[6] == null ? 0 : MaasexcelReader.GetDouble(6)
                                 });
                             }

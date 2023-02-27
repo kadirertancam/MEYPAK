@@ -413,10 +413,8 @@ namespace MEYPAK.PRL.PERSONEL
         }
         void CombolarıDoldur()
         {
-
             PersonelDepartmanComboDoldur();
-
-            string url = @"http://213.238.167.117:8081/il-ilce.json";
+            string url = @"https://elizmeypak.com.tr/il-ilce.json";
 
 
             using (Stream s = GetStreamFromUrl(url))
