@@ -9,6 +9,7 @@ namespace MEYPAK.PRL.Assets
     internal class PersonelMaasTemp
     {
         public string TC { get; set; }
+        public string ADISOYADI { get; set; }
         public double SIGORTADAKIMAAS { get; set; }
         public double MAAS { get; set; }
         public double GELMEDIGIGUN { get; set; }

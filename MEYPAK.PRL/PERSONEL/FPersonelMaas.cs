@@ -134,6 +134,7 @@ namespace MEYPAK.PRL.PERSONEL
                                 temp.Add(new PersonelMaasTemp()
                                 {
                                     TC = MaasexcelReader[1] == null ? "" : MaasexcelReader.GetValue(1).ToString(),
+                                    ADISOYADI= MaasexcelReader[0] == null ? "" : MaasexcelReader.GetValue(0).ToString(),
                                     KARTAYATAN = MaasexcelReader[6] == null ? 0 : MaasexcelReader.GetDouble(6)
                                 });
                             }
