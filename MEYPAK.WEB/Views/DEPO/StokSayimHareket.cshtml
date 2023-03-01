@@ -1,12 +1,12 @@
 ﻿@using DevExtreme.AspNet.Mvc
 @using MEYPAK.Entity.PocoModels.STOK
-<main role="main" class="container" style="margin-left:250px; margin-top :55px">
+<main role="main" class="container" style="margin-left:250px; margin-top :50px">
     <div class="menu-container dx-swatch-additional" style="width:fit-content">
 
-        <h4>Stok Hareket</h4>
-        <div id="data-grid-demo">
+        <h4>Stok Sayım Hareket</h4>
+        <div id="data-grid-demo" >
             @(
-                Html.DevExtreme().DataGrid<PocoSTOKHAR>()
+                Html.DevExtreme().DataGrid<PocoSTOKSAYIMHAR>()
                 .ID("gridContainer")
                 .FilterPanel(f => f.Visible(false))
                 .HeaderFilter(h => h.Visible(true)).ColumnAutoWidth(true).Pager(x =>
@@ -23,64 +23,64 @@
                     scrolling.ScrollByContent(true);
                 })
 
-
                 .Columns(columns =>
                 {
                     columns.AddFor(m => m.olusturmatarihi).Caption("KAYIT TARİHİ").Width(100);
-                    columns.AddFor(m => m.belgE_NO).Caption("BELGE NO")
-                    .Width(160);
-                    columns.AddFor(m => m.aciklama).Caption("AÇIKLAMA").Width(120);
-                    columns.AddFor(m => m.hareketturu)
+                   
+                    columns.AddFor(m => m.stoksayimid)
                     .Width(160)
                     .Visible(true)
                     .Lookup(lookup => lookup
-                    .DataSource(ds => ds.Mvc().Controller("STOK").LoadAction("StokHarGet").Key("hareketturu"))
+                    .DataSource(ds => ds.Mvc().Controller("STOK").LoadAction("StokSayimGet").Key("id"))
                     .DataSourceOptions(dso => dso.Sort(sort => sort.AddSorting("aciklama")))
-                    .ValueExpr("hareketturu")
-                    .DisplayExpr("aciklama")).Caption("HAREKET TÜRÜ");
+                    .ValueExpr("id")
+                    .DisplayExpr("aciklama")).Caption("SAYIM");
+
                     columns.AddFor(m => m.stokid)
                     .Width(160)
                     .Visible(true)
                     .Lookup(lookup => lookup
                     .DataSource(ds => ds.Mvc().Controller("STOK").LoadAction("StokGet").Key("id"))
-                    .DataSourceOptions(dso => dso.Sort(sort => sort.AddSorting("adi")))
+                    .DataSourceOptions(dso => dso.Sort(sort => sort.AddSorting("kod")))
                     .ValueExpr("id")
-                    .DisplayExpr("adi")).Caption("STOK ADI");
+                    .DisplayExpr("kod")).Caption("STOK KODU");
 
-                    columns.AddFor(m => m.io).Caption("GİRİŞ/ÇIKIŞ").Width(120);
+                    columns.AddFor(m => m.stokid)
+                    .Width(160)
+                    .Visible(true)
+                    .Lookup(lookup => lookup
+                    .DataSource(ds => ds.Mvc().Controller("STOK").LoadAction("StokGet").Key("id"))
+                    .DataSourceOptions(dso => dso.Sort(sort => sort.AddSorting("aciklama")))
+                    .ValueExpr("id")
+                    .DisplayExpr("aciklama")).Caption("STOK ADI");
 
-                    columns.AddFor(m => m.kunye).Caption("KÜNYE").Width(200);
                     columns.AddFor(m => m.depoid)
-                    .Width(150)
+                    .Width(160)
                     .Visible(true)
                     .Lookup(lookup => lookup
                     .DataSource(ds => ds.Mvc().Controller("DEPO").LoadAction("DepoGet").Key("id"))
-                    .DataSourceOptions(dso => dso.Sort(sort => sort.AddSorting("aciklama")))
+                    .DataSourceOptions(dso => dso.Sort(sort => sort.AddSorting("depoadi")))
                     .ValueExpr("id")
-                    .DisplayExpr("aciklama")).Caption("DEPO");
+                    .DisplayExpr("depoadi")).Caption("DEPO ADI");
 
-                    columns.AddFor(m => m.birim).Caption("BİRİM");
-                    columns.AddFor(m => m.miktar).Caption("MİKTAR");
-                    columns.AddFor(m => m.netfiyat).Caption("NET FİYAT");
-                    columns.AddFor(m => m.nettoplam).Caption("NET TOPLAM");
-                    columns.AddFor(m => m.bruttoplam).Caption("BRÜT TOPLAM");
-                    columns.AddFor(m => m.kdv).Caption("KDV");
-                   
-                    columns.AddFor(m => m.faturaid)
-                    .Width(150)
+                    columns.AddFor(m => m.miktar).Caption("MİKTAR").Width(100);
+
+                    columns.AddFor(m => m.fiyat).Caption("FİYAT").Width(100);
+
+                    columns.AddFor(m => m.parabr)
+                    .Width(160)
                     .Visible(true)
                     .Lookup(lookup => lookup
-                    .DataSource(ds => ds.Mvc().Controller("FATURA").LoadAction("FaturaGet").Key("id"))
-                    .DataSourceOptions(dso => dso.Sort(sort => sort.AddSorting("belgeno")))
+                    .DataSource(ds => ds.Mvc().Controller("PARAMETRE").LoadAction("ParaBirimGet").Key("id"))
+                    .DataSourceOptions(dso => dso.Sort(sort => sort.AddSorting("adi")))
                     .ValueExpr("id")
-                    .DisplayExpr("belgeno")).Caption("FATURA");
-                 
-                    columns.AddFor(m => m.guncellemetarihi).Caption("GÜNCELLEME TARİHİ").Width(120);
+                    .DisplayExpr("adi")).Caption("PARABİRİM");
+
 
                 })
                 .DataSource(d => d.Mvc()
-                .Controller("STOK")
-                .LoadAction("StokHarGet").Key("id")
+                .Controller("DEPO")
+                .LoadAction("StokSayimHarGet").Key("id")
 
                 )
                 )

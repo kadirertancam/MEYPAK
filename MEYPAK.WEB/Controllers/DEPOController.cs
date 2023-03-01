@@ -19,6 +19,7 @@ namespace MEYPAK.WEB.Controllers
         GenericWebServis<PocoSTOKMALKABULLIST> _tempStokMalKabul = new GenericWebServis<PocoSTOKMALKABULLIST>();
         GenericWebServis<PocoDEPOCEKILIST> _tempDepoCekiList = new GenericWebServis<PocoDEPOCEKILIST>();
         GenericWebServis<PocoSTOKSEVKIYATLIST> _tempStokSevkiyatList = new GenericWebServis<PocoSTOKSEVKIYATLIST>();
+
         public DEPOController(ILogger<DEPOController> logger)
         {
             _logger = logger;
@@ -32,7 +33,7 @@ namespace MEYPAK.WEB.Controllers
         static int tempdepotransferharid = 0;
         static List<PocoSTOKSEVKIYATLIST> PocoStokSevkiyats = new List<PocoSTOKSEVKIYATLIST>();
         static int tempstoksevkiyatid = 0;
-
+       
 
 
         #region DEPO
@@ -141,7 +142,6 @@ namespace MEYPAK.WEB.Controllers
 
         #endregion
 
-
         #region STOKSEVKIYAT
 
         [HttpGet]
@@ -162,5 +162,6 @@ namespace MEYPAK.WEB.Controllers
         }
         #endregion
 
+    
     }
 }
