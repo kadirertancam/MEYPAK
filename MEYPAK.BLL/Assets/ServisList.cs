@@ -42,6 +42,14 @@ namespace MEYPAK.BLL.Assets
         public const string FormYetkiDeleteByIdServis = "http://78.135.80.41:8081/FORMYETKI/DeleteById";
         public const string FormYetkiListeFiltreServis = "http://78.135.80.41:8081/FORMYETKI/Liste2";
         #endregion
+        #region EFaturaParams
+        public const string EFaturaParamsListeServis =              "http://78.135.80.41:8081/EFaturaParams/Liste";
+        public const string EFaturaParamsEkleServis =               "http://78.135.80.41:8081/EFaturaParams/EkleyadaGuncelle";
+        public const string EFaturaParamsSilServis =                "http://78.135.80.41:8081/EFaturaParams/Sil";
+        public const string EFaturaParamsGuncelleServis =           "http://78.135.80.41:8081/EFaturaParams/Guncelle";
+        public const string EFaturaParamsDeleteByIdServis =         "http://78.135.80.41:8081/EFaturaParams/DeleteById";
+        public const string EFaturaParamsListeFiltreServis =        "http://78.135.80.41:8081/EFaturaParams/Liste2";
+        #endregion
 
         #region PERSONELPARAMETRE
 

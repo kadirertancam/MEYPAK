@@ -92,6 +92,7 @@ namespace MEYPAK.Entity.Mappings
             CreateMap<MPPERSONELPARAMETRE, PocoPERSONELPARAMETRE>().ReverseMap();
             CreateMap<MPSERIHAR, PocoSERIHAR>().ReverseMap(); 
             CreateMap<MPKASAPARAMS, PocoKASAPARAMS>().ReverseMap();
+            CreateMap<MPEFATURAPARAMS, PocoEFATURAPARAMS>().ReverseMap();
 
             //CARI
             CreateMap<ADRESLIST, PocoAdresList>().ReverseMap();
