@@ -1,9 +1,136 @@
 ﻿@using DevExtreme.AspNet.Mvc
 @using MEYPAK.BLL.Assets
 
-<main role="main" class="container" style="margin-left:250px; margin-top:55px ">
+
+@section ExternalDependencies {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.10.1/polyfill.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/3.8.0/exceljs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+}
+
+    <div id="exportContainer">
+        @(Html.DevExtreme().Button()
+        .Text("Export multiple grids")
+        .Icon("xlsxfile")
+        .OnClick("exportGrids"))
+</div>
+@(Html.DevExtreme().TabPanel()
+    .ID("tabPanel")
+    .DataSource(new[] {
+        new { text = "Price" },
+        new { text = "Rating" }
+    })
+    .ItemTemplate(new JS("tabPanelTemplate"))
+    .ItemTitleTemplate(@<text><span class="dx-tab-text"><%- text %></span></text>)
+    .DeferRendering(false))
+
+<script>
+    var priceCaption = "Price";
+    var ratingCaption = "Rating";
+
+    function tabPanelTemplate(itemData, itemIndex, itemElement) {
+        if (itemData.text === priceCaption) {
+            var $gridContainer = $("<div id='priceDataGrid'>");
+
+            itemElement.append($gridContainer);
+
+            $gridContainer.dxDataGrid({
+                width: "100%",
+                columns: [
+                    { dataField: "bugun", caption: "BUGÜN", width: 50 },
+                    { dataField: "buhafta", caption: "BU HAFTA" },
+                    { dataField: "buay", caption: "BU AY" },
+                    { dataField: "sONRAKİAY", caption: "SONRAKİ AY" }
+                ],
+                showBorders: true,
+                rowAlternationEnabled: true,
+                dataSource: {
+                    store: {
+                        type: "odata",
+                        url: "https://js.devexpress.com/Demos/DevAV/odata/Products"
+                    },
+                    select: ["bugun", "buhafta", "buay", "sONRAKİAY"],
+
+                }
+            });
+        }
+
+        if (itemData.text === "Rating") {
+            var $gridContainer = $("<div id='ratingDataGrid'>");
+
+            itemElement.append($gridContainer);
+
+            $gridContainer.dxDataGrid({
+                width: "100%",
+                columns: [
+                    { dataField: "bugun", caption: "BUGÜN", width: 50 },
+                    { dataField: "buhafta", caption: "BU HAFTA" },
+                    { dataField: "buay", caption: "BU AY" },
+                    { dataField: "sONRAKİAY", caption: "SONRAKİ AY" }
+                ],
+                showBorders: true,
+                rowAlternationEnabled: true,
+                dataSource: {
+                    store: {
+                        type: "odata",
+                        url: "https://js.devexpress.com/Demos/DevAV/odata/Products"
+                    },
+                    select: ["bugun", "buhafta", "buay", "sONRAKİAY"],
+                   
+                }
+            });
+        }
+    }
+
+    function exportGrids() {
+        var dataGrid1 = $("#priceDataGrid").dxDataGrid("instance");
+        var dataGrid2 = $("#ratingDataGrid").dxDataGrid("instance");
+
+        var workbook = new ExcelJS.Workbook();
+        var priceSheet = workbook.addWorksheet(priceCaption);
+        var ratingSheet = workbook.addWorksheet(ratingCaption);
+
+        priceSheet.getRow(2).getCell(2).value = "Price";
+        priceSheet.getRow(2).getCell(2).font = { bold: true, size: 16, underline: "double" };
+
+        ratingSheet.getRow(2).getCell(2).value = "Rating";
+        ratingSheet.getRow(2).getCell(2).font = { bold: true, size: 16, underline: "double" };
+
+        function setAlternatingRowsBackground(gridCell, excelCell) {
+            if (gridCell.rowType === "header" || gridCell.rowType === "data") {
+                if (excelCell.fullAddress.row % 2 === 0) {
+                    excelCell.fill = { type: "pattern", pattern: "solid", fgColor: { argb: "D3D3D3" }, bgColor: { argb: "D3D3D3" } };
+                }
+            }
+        }
+
+        DevExpress.excelExporter.exportDataGrid({
+            worksheet: priceSheet,
+            component: dataGrid1,
+            topLeftCell: { row: 4, column: 2 },
+            customizeCell: function (options) {
+                setAlternatingRowsBackground(options.gridCell, options.excelCell)
+            }
+        }).then(function () {
+            return DevExpress.excelExporter.exportDataGrid({
+                worksheet: ratingSheet,
+                component: dataGrid2,
+                topLeftCell: { row: 4, column: 2 },
+                customizeCell: function (options) {
+                    setAlternatingRowsBackground(options.gridCell, options.excelCell)
+                }
+            });
+        }).then(function () {
+            workbook.xlsx.writeBuffer().then(function (buffer) {
+                saveAs(new Blob([buffer], { type: "application/octet-stream" }), "MultipleGrids.xlsx");
+            });
+        });
+    }
+</script>
+
+@*<main role="main" class="container">
     <h4>Çek/Senet Durum</h4>
-    <div class="menu-container dx-swatch-additional" >
+    <div>
 
         <div id="data-grid-demo">
             @(
@@ -40,6 +167,40 @@
     
         </div>
 
+        <div id="data-grid-demo" style="margin-top:200px;">
+            @(
+                Html.DevExtreme().DataGrid<CekDurum>()
+                .ID("gridContainer")
+                .FilterPanel(f => f.Visible(false))
+                .HeaderFilter(h => h.Visible(true)).ColumnAutoWidth(true).Pager(x =>
+                {
+                    x.ShowPageSizeSelector(true);
+                    x.ShowPageSizeSelector(true);
+                })
+                .Paging(p => p.Enabled(true))
+                .Scrolling(scrolling =>
+                {
+                    scrolling.ColumnRenderingMode(GridColumnRenderingMode.Standard);
+                    scrolling.ShowScrollbar(ShowScrollbarMode.Always);
+                    scrolling.Mode(GridScrollingMode.Standard);
+                    scrolling.ScrollByContent(true);
+                })
+
+
+                .Columns(columns =>
+                {
+
+
+                })
+                .DataSource(d => d.Mvc()
+                .Controller("CEKSENETDURUM")
+                .LoadAction("FirmaCekSenetDurumRaporla")
+
+                )
+                )
+
+
+        </div>
 
         <script>
             function changeTheme(e) {
@@ -51,4 +212,4 @@
 
     </div>
  
-</main>
+@*</main>*@

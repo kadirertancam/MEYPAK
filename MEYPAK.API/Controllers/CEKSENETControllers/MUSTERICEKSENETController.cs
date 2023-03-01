@@ -21,10 +21,8 @@ namespace MEYPAK.API.Controllers.CEKSENETControllers
             _mapper = mapper;
             _FCekHarServis = FCekHarServis;
         }
-
         [HttpGet]
         [Route("/[controller]/[action]")]
-
         public IActionResult Liste()
         {
             try
@@ -108,7 +106,7 @@ namespace MEYPAK.API.Controllers.CEKSENETControllers
             catch (Exception ex)
             {
                 return Problem("Belirsiz bir hata oluştu!" + ex.Message);
-            }
+            }  
         }
     }
 }
