@@ -235,6 +235,7 @@
             this.applicationMenu1 = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
             this.accordionContentContainer1 = new DevExpress.XtraBars.Navigation.AccordionContentContainer();
             this.accordionControlElement64 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement5 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -1904,7 +1905,6 @@
             this.accordionControlElement62,
             this.accordionControlElement63});
             this.accordionControlElement27.Enabled = false;
-            this.accordionControlElement27.Expanded = true;
             this.accordionControlElement27.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement27.ImageOptions.Image")));
             this.accordionControlElement27.Name = "accordionControlElement27";
             this.accordionControlElement27.Text = "E-İşlemler";
@@ -1916,7 +1916,6 @@
             this.accordionControlElement1,
             this.accordionControlElement65});
             this.accordionControlElement62.Enabled = false;
-            this.accordionControlElement62.Expanded = true;
             this.accordionControlElement62.Name = "accordionControlElement62";
             this.accordionControlElement62.Text = "EFatura";
             this.accordionControlElement62.Visible = false;
@@ -1939,6 +1938,7 @@
             this.accordionControlElement65.Tag = "EFATURAGELENKUTUSU";
             this.accordionControlElement65.Text = "Giden Kutusu";
             this.accordionControlElement65.Visible = false;
+            this.accordionControlElement65.Click += new System.EventHandler(this.accordionControlElement65_Click);
             // 
             // accordionControlElement63
             // 
@@ -2092,8 +2092,10 @@
             this.ACEPARAMETRELER.Appearance.Default.Options.UseForeColor = true;
             this.ACEPARAMETRELER.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.accordionControlElement44,
-            this.ACESeriTanim});
+            this.ACESeriTanim,
+            this.accordionControlElement5});
             this.ACEPARAMETRELER.Enabled = false;
+            this.ACEPARAMETRELER.Expanded = true;
             this.ACEPARAMETRELER.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ACEPARAMETRELER.ImageOptions.Image")));
             this.ACEPARAMETRELER.Name = "ACEPARAMETRELER";
             this.ACEPARAMETRELER.Text = "Parametreler";
@@ -2192,6 +2194,13 @@
             this.accordionControlElement64.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement64.Text = "Gelen Kutusu";
             this.accordionControlElement64.Click += new System.EventHandler(this.accordionControlElement64_Click);
+            // 
+            // accordionControlElement5
+            // 
+            this.accordionControlElement5.Name = "accordionControlElement5";
+            this.accordionControlElement5.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement5.Text = "EFatura Parametre";
+            this.accordionControlElement5.Click += new System.EventHandler(this.accordionControlElement5_Click);
             // 
             // Main
             // 
@@ -2427,5 +2436,6 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACECekSenetDurum;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEKullaniciYönetim;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEKullaniciTanim;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement5;
     }
 }

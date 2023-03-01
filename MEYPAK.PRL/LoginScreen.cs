@@ -41,10 +41,10 @@ namespace MEYPAK.PRL
 
                 if (_loginService.loginResult !=null)
                 {
-                    FPersonelMaas pp = new FPersonelMaas();
-                    pp.Show();
-                    //fMain = new Main(_loginService.loginResult.MPUSER, _loginService.loginResult.userRoles);
-                    //fMain.Show();
+                    //FPersonelMaas pp = new FPersonelMaas();
+                    //pp.Show();
+                    fMain = new Main(_loginService.loginResult.MPUSER, _loginService.loginResult.userRoles);
+                    fMain.Show();
                     //FirmaCekListe firmaCekListe = new FirmaCekListe();
                     //firmaCekListe.ShowDialog();
                     //maas = new FPersonelMaas();

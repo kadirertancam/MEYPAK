@@ -145,6 +145,8 @@ namespace MEYPAK.PRL
         FCekSenetDurum fCekSenetDurum;
         FKullaniciTanim fKullaniciTanim;
         FKullaniciYonetim fKullaniciYonetim;
+        FGidenEFatura fGidenEFatura;
+        EFaturaParams eFaturaParams;
 
         public Tarih_Date _tarih_Date = new Tarih_Date();
         public DataTable guncelkur;
@@ -1875,6 +1877,48 @@ namespace MEYPAK.PRL
             fKullaniciYonetim.Tag = "FKullaniciYonetim" + i;
             page.Controls.Add(fKullaniciYonetim);
             fKullaniciYonetim.Show();
+            i++;
+        }
+
+        private void accordionControlElement65_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fGidenEFatura = new FGidenEFatura();
+            page.Name = "FGidenEFatura" + i;
+            page.Text = "Giden Fatura";
+            page.Tag = "FGidenEFatura" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fGidenEFatura.FormBorderStyle = FormBorderStyle.None;
+            fGidenEFatura.TopLevel = false;
+            fGidenEFatura.AutoScroll = true;
+            fGidenEFatura.Dock = DockStyle.Fill;
+            fGidenEFatura.Tag = "FGidenEFatura" + i;
+            page.Controls.Add(fGidenEFatura);
+            fGidenEFatura.Show();
+            i++;
+        }
+
+        private void accordionControlElement5_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            eFaturaParams = new EFaturaParams();
+            page.Name = "EFaturaParams" + i;
+            page.Text = "EFatura Parametre";
+            page.Tag = "EFaturaParams" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            eFaturaParams.FormBorderStyle = FormBorderStyle.None;
+            eFaturaParams.TopLevel = false;
+            eFaturaParams.AutoScroll = true;
+            eFaturaParams.Dock = DockStyle.Fill;
+            eFaturaParams.Tag = "EFaturaParams" + i;
+            page.Controls.Add(eFaturaParams);
+            eFaturaParams.Show();
             i++;
         }
     }

@@ -108,6 +108,11 @@ builder.Services.AddAutoMapper(x =>
     x.AddProfile(typeof(Maps));
 });
 
+#region
+
+builder.Services.AddScoped<IEFaturaParamsDal, EFEFaturaParamsRepo>();
+builder.Services.AddScoped<IEFaturaParamServis, EFaturaParamsManager>();
+#endregion
 #region DEKONT
 
 builder.Services.AddScoped<IDekontDal, EFDekontRepo>();
