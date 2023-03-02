@@ -43,6 +43,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.gridControl2 = new DevExpress.XtraGrid.GridControl();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -62,6 +63,7 @@
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.textBox1);
             this.groupControl1.Controls.Add(this.panel5);
             this.groupControl1.Controls.Add(this.simpleButton1);
             this.groupControl1.Controls.Add(this.DTPBittar);
@@ -199,6 +201,13 @@
             this.gridView2.GridControl = this.gridControl2;
             this.gridView2.Name = "gridView2";
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(624, 34);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(362, 21);
+            this.textBox1.TabIndex = 7;
+            // 
             // FGidenEFatura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -246,5 +255,6 @@
         private Panel panel2;
         private DevExpress.XtraGrid.GridControl gridControl2;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+        private TextBox textBox1;
     }
 }
