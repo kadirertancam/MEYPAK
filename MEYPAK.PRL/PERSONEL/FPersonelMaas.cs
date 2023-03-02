@@ -83,7 +83,7 @@ namespace MEYPAK.PRL.PERSONEL
             var temp2 = gridControl1.DataSource;
             foreach (var item in (List<PersonelMaasTemp>)temp2)
             {
-                item.SONUC = (item.KARTAYATAN + item.BES ) - item.MESAI - item.TRAFIKCEZASI - item.AVANS - item.HACIZ - item.MAAS-item.GELMEDIGIGUN;
+                item.SONUC = Math.Round( (item.KARTAYATAN + item.BES ) - item.MESAI - item.TRAFIKCEZASI - item.AVANS - item.HACIZ - item.MAAS-item.GELMEDIGIGUN,2);
             }
             gridControl1.RefreshDataSource();
             
@@ -309,6 +309,9 @@ namespace MEYPAK.PRL.PERSONEL
 
                     }
                 }
+
+              
+
                 gridControl1.DataSource = temp;
                 gridControl1.RefreshDataSource();
             }
