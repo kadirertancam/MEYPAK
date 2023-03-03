@@ -209,22 +209,30 @@ namespace MEYPAK.PRL.E_ISLEMLER
                     Description = new DescriptionType { Value = fatDetaytemp[i].aciklama },
                     ManufacturersItemIdentification = new ItemIdentificationType { ID = new IDType { Value = "" } },
                     SellersItemIdentification = new ItemIdentificationType { ID = new IDType { Value = caritemp.vergino } },
-
+                    
 
                 };
-                ınvoiceLineType[i].AllowanceCharge = new AllowanceChargeType[] { new AllowanceChargeType { Amount = new AmountType2 { Value = 100, currencyID = "TRY" }, ChargeIndicator = new ChargeIndicatorType { Value = false }, PerUnitAmount = new PerUnitAmountType { currencyID = "TRY", Value = 100 } } };
+                ınvoiceLineType[i].AllowanceCharge = new AllowanceChargeType[]
+                {
+                    new AllowanceChargeType { ChargeIndicator= new ChargeIndicatorType { Value=true }, Amount = new AmountType2 { currencyID="TRY",Value=100 }, AllowanceChargeReason = new AllowanceChargeReasonType { Value= "Bayi İskontosu" },   }
+                };
                 ınvoiceLineType[i].Price = new PriceType { PriceAmount = new PriceAmountType { Value = Convert.ToDecimal(fatDetaytemp[i].netfiyat), currencyID = "TRY" } };
                 ınvoiceLineType[i].InvoicedQuantity = new InvoicedQuantityType { unitCode = "NIU", Value = Math.Round(Convert.ToDecimal(fatDetaytemp[i].safi), 2) };
-                ınvoiceLineType[i].Note = new NoteType[] { new NoteType { Value = fatDetaytemp[i].aciklama } };
+                ınvoiceLineType[i].Note = new NoteType[] {  new NoteType {  Value = fatDetaytemp[i].aciklama }  };
+                ınvoiceLineType[i].ID = new IDType { Value = (i+1).ToString() };
+                ınvoiceLineType[i].LineExtensionAmount = new LineExtensionAmountType { Value = Math.Round(Convert.ToDecimal(fatDetaytemp[i].nettoplam), 2), currencyID = "TRY" };
                 ınvoiceLineType[i].TaxTotal = new TaxTotalType
                 {
                     TaxSubtotal = new TaxSubtotalType[]{ 
                       //Vergi 1 KDV
                       new TaxSubtotalType{
-                          Percent = new PercentType1 { Value=Convert.ToDecimal(fatDetaytemp[i].kdv) }  ,             
-                           //Percent =   //new PercentType{ Value=Math.Round(Convert.ToDecimal(txtKdvOrani1.Text),2)},
-                           //TaxCategory = new TaxCategoryType{TaxScheme = new TaxSchemeType{ TaxTypeCode = new TaxTypeCodeType{  Value = "0015"}, Name =new NameType1{ Value="KDV"} }, TaxExemptionReason=new TaxExemptionReasonType{ Value="12345 sayılı kanuna istinaden" }},
-                           TaxAmount = new TaxAmountType{ Value = Math.Round(Convert.ToDecimal(fatDetaytemp[i].kdvtutari),2), currencyID= "TRY" }, 
+                      
+                                 Percent = new PercentType1 { Value=Convert.ToDecimal(fatDetaytemp[i].kdv) } ,             
+                                                                                                    //Percent =   //new PercentType{ Value=Math.Round(Convert.ToDecimal(txtKdvOrani1.Text),2)},
+                              TaxCategory = new TaxCategoryType{TaxScheme = new TaxSchemeType{ TaxTypeCode = new TaxTypeCodeType{  Value = "0015"}, Name =new NameType1{ Value="KDV"} }, TaxExemptionReason=new TaxExemptionReasonType{ Value="12345 sayılı kanuna istinaden" }},
+                              TaxAmount = new TaxAmountType{ Value = Math.Round(Convert.ToDecimal(fatDetaytemp[i].kdvtutari),2), currencyID= "TRY" },
+
+
                    }
                    },
                     TaxAmount = new TaxAmountType { Value = Math.Round(Convert.ToDecimal(fatDetaytemp[i].kdvtutari), 2), currencyID = "TRY" }
@@ -233,34 +241,53 @@ namespace MEYPAK.PRL.E_ISLEMLER
                 ınvoiceLineType[i].Note = new NoteType[]{ new NoteType() { Value = "" } };
             }
             var ttt = fatDetaytemp.GroupBy(x => new { x.kdv, x.kdvtutari });
-            TaxTotalType[] taxTotalTypes = new TaxTotalType[1];
+            TaxTotalType[] taxTotalTypes;
             decimal kdv1=0, kdv8=0, kdv18 = 0;
+            int kdvorani = 0;
             for (int i = 0; i <fatDetaytemp.Count(); i++)
             {
                 if (fatDetaytemp[i].kdv == 1)
                 {
                     kdv1+=fatDetaytemp[i].kdvtutari;
+                    kdvorani = 1;
                 }
                 if (fatDetaytemp[i].kdv == 8)
                 {
                     kdv8 += fatDetaytemp[i].kdvtutari;
+                    kdvorani = 8;
                 } if (fatDetaytemp[i].kdv == 18)
                 {
                     kdv18 += fatDetaytemp[i].kdvtutari;
+                    kdvorani = 18;
                 }
-            }
-            taxTotalTypes[0] = new TaxTotalType();
-            taxTotalTypes[0].TaxSubtotal = new TaxSubtotalType[]{  new  TaxSubtotalType{
-                           Percent = new PercentType1{ Value=Math.Round(Convert.ToDecimal(1),2)},
-                           TaxCategory = new TaxCategoryType{
+            }  
+            taxTotalTypes = new TaxTotalType[]{
+                    new  TaxTotalType{
+                                                                     TaxSubtotal = new TaxSubtotalType[]{  new  TaxSubtotalType{
+                      Percent = new PercentType1{ Value=Math.Round(Convert.ToDecimal(kdvorani),2)},
+                       TaxCategory = new TaxCategoryType{
                            TaxScheme = new TaxSchemeType{
-                           TaxTypeCode = new TaxTypeCodeType{  Value = "0015"},
-                           Name =new NameType1{ Value="KDV"}},
-                           //TaxExemptionReason = new TaxExemptionReasonType { Value="11/1-a Mal ihracatı" },
-                           // TaxExemptionReasonCode= new TaxExemptionReasonCodeType { Value= "301" }
-                            },TaxAmount=new TaxAmountType{ Value =Math.Round(Convert.ToDecimal(kdv1+kdv8+kdv18),2), currencyID= "TRY" },  } };
-         
-         
+                               TaxTypeCode = new TaxTypeCodeType{  Value = "0015"},
+                               Name =new NameType1{ Value="KDV"} },
+                              //TaxExemptionReason = new TaxExemptionReasonType { Value="11/1-a Mal ihracatı" },
+                              // TaxExemptionReasonCode= new TaxExemptionReasonCodeType { Value= "301" }
+                               
+                       },
+
+                        TaxAmount = new TaxAmountType{ Value =Math.Round(Convert.ToDecimal(kdv1+kdv8+kdv18),2), currencyID= "TRY" },
+
+
+                      },
+
+
+
+                                                                                                            },
+
+                                                                             TaxAmount = new TaxAmountType{ Value =Math.Round(Convert.ToDecimal(kdv1+kdv8+kdv18),2), currencyID= "TRY" },
+
+                                                                    }
+
+                };
 
             var invoice = new InvoiceType
             {
@@ -268,25 +295,25 @@ namespace MEYPAK.PRL.E_ISLEMLER
                 ProfileID = new ProfileIDType { Value = eFaturaGidenTask.FATURATIP },
                 CopyIndicator = new CopyIndicatorType { Value = false },
                 UUID = new UUIDType { Value = Guid.NewGuid().ToString() }, //Set edilmediğinde sistem tarafından otomatik verilir. 
-                IssueDate = new IssueDateType { Value = eFaturaGidenTask.VADETARIHI },
-                IssueTime = new IssueTimeType { Value = eFaturaGidenTask.VADETARIHI },
+                IssueDate = new IssueDateType { Value = DateTime.Now },
+                IssueTime = new IssueTimeType { Value = DateTime.Now  },
                 InvoiceTypeCode = new InvoiceTypeCodeType { Value = eFaturaGidenTask.TIP },
                 Note = new NoteType[] { new NoteType { Value = fattemp.aciklama }, new NoteType { Value = fattemp.aciklama }, new NoteType { Value = " " }, new NoteType { Value = "Test Not alanı 3" } },
                 DocumentCurrencyCode = new DocumentCurrencyCodeType { Value = "TRY" },
                 PricingCurrencyCode = new PricingCurrencyCodeType { Value = "TRY" },
                 LineCountNumeric = new LineCountNumericType { Value = 2 },
                 //PaymentTerms = new PaymentTermsType { Note = new NoteType { Value = "30 gün vadeli" }, Amount = new AmountType1 { Value = 100, currencyID = "TRY" } },
-                //PaymentMeans = new PaymentMeansType[] { new PaymentMeansType { PaymentDueDate = new PaymentDueDateType { Value = DateTime.Now.AddDays(15) }, PaymentMeansCode = new PaymentMeansCodeType1 { Value = "42" } } },
+                PaymentMeans = new PaymentMeansType[] { new PaymentMeansType { PaymentDueDate = new PaymentDueDateType { Value = DateTime.Now }, PaymentMeansCode = new  PaymentMeansCodeType { Value = "42" } } },
                 //Delivery = new DeliveryType { DeliveryParty = new PartyType { };
                 // PricingExchangeRate = new ExchangeRateType{ SourceCurrencyCode= "TRY",}
                 #endregion
 
-                //#region SGK fatura alanları
-                //AccountingCost = cmbInvoicetypeCode.Text == "SGK" ? new AccountingCostType { Value = cmbSgkInvoicetype.Text } : null,
-                //InvoicePeriod = new PeriodType { StartDate = new StartDateType { Value = dpInvoicePeriodStart.Value }, EndDate = new EndDateType { Value = dpInvoicePeriodEnd.Value } },
-                //#endregion
+                #region SGK fatura alanları
+                AccountingCost =   null,
+                InvoicePeriod = new PeriodType { StartDate = new StartDateType { Value = DateTime.Now }, EndDate = new EndDateType { Value = DateTime.Now } },
+                #endregion
 
-                
+
 
                 ////AllowanceCharge = new AllowanceChargeType[]
                 ////{
@@ -304,12 +331,12 @@ namespace MEYPAK.PRL.E_ISLEMLER
 
                 ////#endregion
 
-                //#region Xslt ve Ek belgeler
-                ////Fatura içerisinde görünüm dosyasını set etme. Değer geçilmediğinde varsayılan xslt kullanılır. 
-                //AdditionalDocumentReference = GetXsltAndDocuments(),
+                #region Xslt ve Ek belgeler
+               // Fatura içerisinde görünüm dosyasını set etme.Değer geçilmediğinde varsayılan xslt kullanılır.
+                
 
-                //////               AdditionalDocumentReference = new DocumentReferenceType { DocumentType= new DocumentTypeType{ Value="SATINALAMA BELGESİ"}, IssueDate=new IssueDateType{ Value= DateTime.Now},ID= new IDType{ Value="12345"}};
-                ////#endregion
+              //AdditionalDocumentReference = new DocumentReferenceType[] { new DocumentReferenceType { DocumentType = new DocumentTypeType { Value = "SATINALAMA BELGESİ" }, IssueDate = new IssueDateType { Value = DateTime.Now }, ID = new IDType { Value = "12345" } } },
+                #endregion
 
 
                 //#region Additional Document Reference
@@ -335,7 +362,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
                 //#endregion
 
                 #region Fatura Seri ve numarası
-                ID = new IDType { Value = fattemp.belgeno }, //Set edilmediğinde sistem tarafından otomatik verilir. 
+                ID = new IDType { Value = fattemp.serino+fattemp.belgeno }, //Set edilmediğinde sistem tarafından otomatik verilir. 
                 #endregion
 
                 #region Gönderici Bilgileri - AccountingSupplierParty
@@ -369,7 +396,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
                 },
                 #endregion
 
-
+                 
                 AccountingCustomerParty = GetAccountingCustomerParty(),
                 BuyerCustomerParty = GetBuyerCustomerParty(),
                 TaxRepresentativeParty = GetTaxRepresantiveParty(),
@@ -445,6 +472,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
             };
 
         }
+ 
 
         #region Muhasebe Müşteri Tarafı Alın
         public CustomerPartyType GetAccountingCustomerParty()
@@ -576,7 +604,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
                             FirstName = new FirstNameType { Value = "JOHN" },
                             FamilyName = new FamilyNameType { Value = "DOE" },
                             NationalityID = new NationalityIDType { Value = "TR" },
-                            IdentityDocumentReference = new DocumentReferenceType { ID = new IDType { Value = "PSPTNO1234567" }, IssueDate = new IssueDateType { Value = new DateTime(2005, 1, 2) } }
+                            IdentityDocumentReference = new DocumentReferenceType { ID = new IDType { Value = "PSPTNO1234567" }, IssueDate = new IssueDateType { Value = fattemp.vadetarihi} }
 
                         },
                         PartyIdentification = new PartyIdentificationType[1] { new PartyIdentificationType() { ID = new IDType { Value = caritemp.vergino, schemeID = "PARTYTYPE" } } },
