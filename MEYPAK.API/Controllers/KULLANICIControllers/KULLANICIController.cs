@@ -108,7 +108,7 @@ namespace MEYPAK.API.Controllers.KULLANICIControllers
 
                 var result = _userManager.CreateAsync(user, model.Password).Result;
                 _userManager.AddToRoleAsync(user, AllRoles.USER.ToString());
-                return Ok(result.Succeeded ? "Başarıyla Kayıt Oluşturuldu" : "Kayıt Edilemedi");
+                return Ok(result.Succeeded ? model : new RegisterModel());
 
             }
             catch (Exception ex)
