@@ -224,16 +224,16 @@ namespace MEYPAK.PRL.E_ISLEMLER
                           Percent = new PercentType1 { Value=Convert.ToDecimal(fatDetaytemp[i].kdv) }  ,             
                            //Percent =   //new PercentType{ Value=Math.Round(Convert.ToDecimal(txtKdvOrani1.Text),2)},
                            //TaxCategory = new TaxCategoryType{TaxScheme = new TaxSchemeType{ TaxTypeCode = new TaxTypeCodeType{  Value = "0015"}, Name =new NameType1{ Value="KDV"} }, TaxExemptionReason=new TaxExemptionReasonType{ Value="12345 sayılı kanuna istinaden" }},
-                           TaxAmount = new TaxAmountType{ Value = Math.Round(Convert.ToDecimal(fatDetaytemp[i].kdvtutari),2), currencyID= "TRY" },
+                           TaxAmount = new TaxAmountType{ Value = Math.Round(Convert.ToDecimal(fatDetaytemp[i].kdvtutari),2), currencyID= "TRY" }, 
                    }
                    },
                     TaxAmount = new TaxAmountType { Value = Math.Round(Convert.ToDecimal(fatDetaytemp[i].kdvtutari), 2), currencyID = "TRY" }
 
                 };
-                   
+                ınvoiceLineType[i].Note = new NoteType[]{ new NoteType() { Value = "" } };
             }
             var ttt = fatDetaytemp.GroupBy(x => new { x.kdv, x.kdvtutari });
-            TaxTotalType[] taxTotalTypes = new TaxTotalType[3];
+            TaxTotalType[] taxTotalTypes = new TaxTotalType[1];
             decimal kdv1=0, kdv8=0, kdv18 = 0;
             for (int i = 0; i <fatDetaytemp.Count(); i++)
             {
@@ -255,30 +255,11 @@ namespace MEYPAK.PRL.E_ISLEMLER
                            TaxCategory = new TaxCategoryType{
                            TaxScheme = new TaxSchemeType{
                            TaxTypeCode = new TaxTypeCodeType{  Value = "0015"},
-                           Name =new NameType1{ Value="KDV"} },
+                           Name =new NameType1{ Value="KDV"}},
                            //TaxExemptionReason = new TaxExemptionReasonType { Value="11/1-a Mal ihracatı" },
                            // TaxExemptionReasonCode= new TaxExemptionReasonCodeType { Value= "301" }
-                            },TaxAmount=new TaxAmountType{ Value =Math.Round(Convert.ToDecimal(kdv1),2), currencyID= "TRY" }, } };
-            taxTotalTypes[1] = new TaxTotalType();
-            taxTotalTypes[1].TaxSubtotal = new TaxSubtotalType[]{  new  TaxSubtotalType{
-                           Percent = new PercentType1{ Value=Math.Round(Convert.ToDecimal(8),2)},
-                           TaxCategory = new TaxCategoryType{
-                           TaxScheme = new TaxSchemeType{
-                           TaxTypeCode = new TaxTypeCodeType{  Value = "0015"},
-                           Name =new NameType1{ Value="KDV"} },
-                           //TaxExemptionReason = new TaxExemptionReasonType { Value="11/1-a Mal ihracatı" },
-                           // TaxExemptionReasonCode= new TaxExemptionReasonCodeType { Value= "301" }
-                            },TaxAmount=new TaxAmountType{ Value =Math.Round(Convert.ToDecimal(kdv8),2), currencyID= "TRY" }, } };
-            taxTotalTypes[2] = new TaxTotalType();
-            taxTotalTypes[2].TaxSubtotal = new TaxSubtotalType[]{  new  TaxSubtotalType{
-                           Percent = new PercentType1{ Value=Math.Round(Convert.ToDecimal(18),2)},
-                           TaxCategory = new TaxCategoryType{
-                           TaxScheme = new TaxSchemeType{
-                           TaxTypeCode = new TaxTypeCodeType{  Value = "0015"},
-                           Name =new NameType1{ Value="KDV"} },
-                           //TaxExemptionReason = new TaxExemptionReasonType { Value="11/1-a Mal ihracatı" },
-                           // TaxExemptionReasonCode= new TaxExemptionReasonCodeType { Value= "301" }
-                        },TaxAmount=new TaxAmountType{ Value =Math.Round(Convert.ToDecimal(kdv18),2), currencyID= "TRY" }, } };
+                            },TaxAmount=new TaxAmountType{ Value =Math.Round(Convert.ToDecimal(kdv1+kdv8+kdv18),2), currencyID= "TRY" },  } };
+         
          
 
             var invoice = new InvoiceType
@@ -365,7 +346,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
                     Party = new PartyType
                     {
                         PartyName = new PartyNameType { Name = new NameType1 { Value = "Gündüz Meypak" } },
-                        PartyIdentification = new PartyIdentificationType[] { new PartyIdentificationType() { ID = new IDType { Value = caritemp.vergino, schemeID = "VKN" } }, new PartyIdentificationType() { ID = new IDType { Value = "12345669-111", schemeID = "MERSISNO" } }, new PartyIdentificationType() { ID = new IDType { Value = "12345669-111", schemeID = "TICARETSICILNO" } } },
+                        PartyIdentification = new PartyIdentificationType[] { new PartyIdentificationType() { ID = new IDType { Value = "9000068418", schemeID = "VKN" } }, new PartyIdentificationType() { ID = new IDType { Value = "12345669-111", schemeID = "MERSISNO" } }, new PartyIdentificationType() { ID = new IDType { Value = "12345669-111", schemeID = "TICARETSICILNO" } } },
 
                         PostalAddress = new AddressType
                         {
