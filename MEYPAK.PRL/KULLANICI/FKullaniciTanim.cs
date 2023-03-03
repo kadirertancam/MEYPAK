@@ -192,7 +192,7 @@ namespace MEYPAK.PRL.KULLANICI
                         if (TBPAROLA.Text.Length > 5 && TBPAROLA.Text == TBPARALOTKR.Text)
                         {
                             DialogResult dialogResult = new DialogResult();
-                            dialogResult = MessageBox.Show($"{TBAD.Text + " " + TBSOYAD} isimli yeni bir kullanıcı eklemek istediğinize emin misiniz?", "Yeni Kullanıcı Ekleme", MessageBoxButtons.YesNo);
+                            dialogResult = MessageBox.Show($"{TBAD.Text + " " + TBSOYAD.Text} isimli yeni bir kullanıcı eklemek istediğinize emin misiniz?", "Yeni Kullanıcı Ekleme", MessageBoxButtons.YesNo);
 
                             if (dialogResult == DialogResult.Yes)
                             {

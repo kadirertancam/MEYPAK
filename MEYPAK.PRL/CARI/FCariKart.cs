@@ -264,8 +264,8 @@ namespace MEYPAK.PRL.CARI
         {
             //Il combosu
 
-            string url = @"http://213.238.167.117:8081/il-ilce.json";
-            string url2 = @"http://213.238.167.117:8081/ulkeler.json";
+            string url = @"http://elizmeypak.com.tr/il-ilce.json";
+            string url2 = @"http://elizmeypak.com.tr/ulkeler.json";
 
             using (Stream s = GetStreamFromUrl(url))
             using (StreamReader sr = new StreamReader(s))
