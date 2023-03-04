@@ -1033,7 +1033,7 @@ namespace MEYPAK.PRL.SIPARIS
                     nettoplam = _tempFaturaDetay.Sum(x => x.NetToplam),
                     geneltoplam = _tempFaturaDetay.Sum(x => x.KdvTutarı) + _tempFaturaDetay.Sum(x => x.NetToplam),
                     kdvdahil = CHBKdvDahil.Checked,
-                    tip = comboBox1.SelectedIndex==0?0:2,
+                    tip = comboBox1.SelectedIndex==0?0:2, serino=comboBoxEdit1.SelectedItem.ToString(),
                     userid = MPKullanici.ID
                 });
 
