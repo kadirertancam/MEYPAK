@@ -42,21 +42,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
         PocoSTOK tempStok;
         PocoSTOKMARKA tempStokMarka;
         RepositoryItemLookUpEdit riLookup, riLookup2;
-        public IntegrationClient CreateClient()
-        {
-            var username = "Uyumsoft";
-            var password = "Uyumsoft";
-            var serviceuri = "https://efatura-test.uyumsoft.com.tr/services/Integration";
-
-
-            var client = new IntegrationClient();
-            client.Endpoint.Address = new System.ServiceModel.EndpointAddress(serviceuri);
-            //  var client = new IntegrationClient();
-            client.ClientCredentials.UserName.UserName = username;
-            client.ClientCredentials.UserName.Password = password;
-            //var response = client.IsEInvoiceUser("9000068418",string.Empty);
-            return client;
-        }
+    
 
         private void FGidenEArsiv_Load(object sender, EventArgs e)
         {

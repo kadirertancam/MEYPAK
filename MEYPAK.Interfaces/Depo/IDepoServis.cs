@@ -13,3 +13,4 @@ namespace MEYPAK.Interfaces.Depo
         public PocoDEPO EkleyadaGuncelle(PocoDEPO entity);
     }
 }
+ 
