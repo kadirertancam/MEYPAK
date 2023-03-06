@@ -103,7 +103,7 @@ namespace MEYPAK.API.Assets.StartingOperations
                
                 foreach (var item in _tarih_Date.Currency)
                 {
-                    if (paraBirimServis.Listele().Where(x => x.adi == item.Isim).Count() < 0)
+                    if (paraBirimServis.Listele().Where(x => x.adi == item.Isim).Count() == 0)
                         paraBirimServis.EkleyadaGuncelle( new PocoPARABIRIM()
                         {
                             adi = item.Isim,
@@ -113,6 +113,8 @@ namespace MEYPAK.API.Assets.StartingOperations
                             dovizefektifalis = Convert.ToDecimal(item.BanknoteBuying == "" ? "0" : item.BanknoteBuying),
                             dovizefektifsatis = Convert.ToDecimal(item.BanknoteSelling == "" ? "0" : item.BanknoteSelling),
                             userid = "APICREATE",
+                            aktif=1,
+
                         });
                   
                 }

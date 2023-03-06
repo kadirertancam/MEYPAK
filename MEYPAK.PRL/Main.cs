@@ -1928,16 +1928,16 @@ namespace MEYPAK.PRL
             XtraTabPage page = new XtraTabPage();
             fGidenEArsiv = new FGidenEArsiv();
             page.Name = "FGidenEArsiv" + i;
-            page.Text = "GidenEArsiv";
+            page.Text = "Giden EArşiv";
             page.Tag = "FGidenEArsiv" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
             xtraTabControl1.TabPages.Add(page);
             xtraTabControl1.SelectedTabPage = page;
 
-            fGidenEArsiv.FormBorderStyle = FormBorderStyle.None;
-            fGidenEArsiv.TopLevel = false;
-            fGidenEArsiv.AutoScroll = true;
-            fGidenEArsiv.Dock = DockStyle.Fill;
+           fGidenEArsiv.FormBorderStyle = FormBorderStyle.None;
+           fGidenEArsiv.TopLevel = false;
+           fGidenEArsiv.AutoScroll = true;
+           fGidenEArsiv.Dock = DockStyle.Fill;
             fGidenEArsiv.Tag = "FGidenEArsiv" + i;
             page.Controls.Add(fGidenEArsiv);
             fGidenEArsiv.Show();
