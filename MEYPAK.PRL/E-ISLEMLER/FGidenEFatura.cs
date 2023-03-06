@@ -70,7 +70,19 @@ namespace MEYPAK.PRL.E_ISLEMLER
             faturaServis.Data(ServisList.FaturaListeServis);
             cariServis.Data(ServisList.CariListeServis);
             faturaDetayServis.Data(ServisList.FaturaDetayListeServis);
-            tempFatura = faturaServis.obje.Where(x => x.durum == false).Select(x => new EFaturaGidenTask { SEC = false, ID = x.id.ToString(), FATURALASTIR = "", BASIM = "", VKNTCK = cariServis.obje.Where(z => z.id == x.cariid).FirstOrDefault().vergino, CARIADI = cariServis.obje.Where(z => z.id == x.cariid).FirstOrDefault().unvan, BELGENO = x.belgeno, TARIH = x.faturatarihi, VADETARIHI = x.vadetarihi, TUTAR = x.geneltoplam, KDV = x.kdvtoplam, FATURATIP = "TEMELFATURA", TIP = "SATIS", DURUM = x.durum == true ? "ONAYLANDI" : "BEKLEMEDE" }).ToList();
+            var client = CreateClient();
+
+            List<EFaturaGidenTask> ffg = new List<EFaturaGidenTask>();
+            var tf = faturaServis.obje.Where(x => x.durum == false).Select(x => new EFaturaGidenTask { SEC = false, ID = x.id.ToString(), FATURALASTIR = "", BASIM = "", VKNTCK = cariServis.obje.Where(z => z.id == x.cariid).FirstOrDefault().vergino, CARIADI = cariServis.obje.Where(z => z.id == x.cariid).FirstOrDefault().unvan, BELGENO = x.belgeno, TARIH = x.faturatarihi, VADETARIHI = x.vadetarihi, TUTAR = x.geneltoplam, KDV = x.kdvtoplam, FATURATIP = "TEMELFATURA", TIP = "SATIS", DURUM = x.durum == true ? "ONAYLANDI" : "BEKLEMEDE" }).ToList();
+            foreach (var item in tf)
+            {
+                var response = client.IsEInvoiceUserAsync(item.VKNTCK, "").Result;
+                if (response.Value)
+                {
+                    ffg.Add(item);
+                }
+            }
+            tempFatura = ffg;
             gridControl1.DataSource = tempFatura;
             RepositoryItemButtonEdit repositoryItemButtonEdit = new RepositoryItemButtonEdit();
             repositoryItemButtonEdit.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;

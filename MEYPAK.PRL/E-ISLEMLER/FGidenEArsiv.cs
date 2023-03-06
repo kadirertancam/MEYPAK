@@ -6,6 +6,7 @@ using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.FATURA;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.PRL.Assets;
+using ServiceReference1;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,6 +24,11 @@ namespace MEYPAK.PRL.E_ISLEMLER
         public FGidenEArsiv()
         {
             InitializeComponent();
+            faturaServis = new GenericWebServis<PocoFATURA>();
+            cariServis = new GenericWebServis<PocoCARIKART>();
+            faturaDetayServis = new GenericWebServis<PocoFATURADETAY>();
+            stokServis = new GenericWebServis<PocoSTOK>();
+            stokMarkaServis = new GenericWebServis<PocoSTOKMARKA>();
         }
         GenericWebServis<PocoCARIKART> cariServis;
         GenericWebServis<PocoFATURA> faturaServis;
@@ -36,6 +42,22 @@ namespace MEYPAK.PRL.E_ISLEMLER
         PocoSTOK tempStok;
         PocoSTOKMARKA tempStokMarka;
         RepositoryItemLookUpEdit riLookup, riLookup2;
+        public IntegrationClient CreateClient()
+        {
+            var username = "Uyumsoft";
+            var password = "Uyumsoft";
+            var serviceuri = "https://efatura-test.uyumsoft.com.tr/services/Integration";
+
+
+            var client = new IntegrationClient();
+            client.Endpoint.Address = new System.ServiceModel.EndpointAddress(serviceuri);
+            //  var client = new IntegrationClient();
+            client.ClientCredentials.UserName.UserName = username;
+            client.ClientCredentials.UserName.Password = password;
+            //var response = client.IsEInvoiceUser("9000068418",string.Empty);
+            return client;
+        }
+
         private void FGidenEArsiv_Load(object sender, EventArgs e)
         {
             stokMarkaServis.Data(ServisList.StokMarkaListeServis);
@@ -43,7 +65,18 @@ namespace MEYPAK.PRL.E_ISLEMLER
             faturaServis.Data(ServisList.FaturaListeServis);
             cariServis.Data(ServisList.CariListeServis);
             faturaDetayServis.Data(ServisList.FaturaDetayListeServis);
-            tempFatura = faturaServis.obje.Where(x => x.durum == false).Select(x => new EFaturaGidenTask { SEC = false, ID = x.id.ToString(), FATURALASTIR = "", BASIM = "", VKNTCK = cariServis.obje.Where(z => z.id == x.cariid).FirstOrDefault().vergino, CARIADI = cariServis.obje.Where(z => z.id == x.cariid).FirstOrDefault().unvan, BELGENO = x.belgeno, TARIH = x.faturatarihi, VADETARIHI = x.vadetarihi, TUTAR = x.geneltoplam, KDV = x.kdvtoplam, FATURATIP = "TEMELFATURA", TIP = "SATIS", DURUM = x.durum == true ? "ONAYLANDI" : "BEKLEMEDE" }).ToList();
+            var client = CreateClient();
+            List<EFaturaGidenTask> ffg=new List<EFaturaGidenTask>(); 
+            var tf= faturaServis.obje.Where(x => x.durum == false).Select(x => new EFaturaGidenTask { SEC = false, ID = x.id.ToString(), FATURALASTIR = "", BASIM = "", VKNTCK = cariServis.obje.Where(z => z.id == x.cariid).FirstOrDefault().vergino, CARIADI = cariServis.obje.Where(z => z.id == x.cariid).FirstOrDefault().unvan, BELGENO = x.belgeno, TARIH = x.faturatarihi, VADETARIHI = x.vadetarihi, TUTAR = x.geneltoplam, KDV = x.kdvtoplam, FATURATIP = "TEMELFATURA", TIP = "SATIS", DURUM = x.durum == true ? "ONAYLANDI" : "BEKLEMEDE" }).ToList();
+            foreach (var item in tf)
+            {
+                var response = client.IsEInvoiceUserAsync(item.VKNTCK, "").Result;
+                if (!response.Value)
+                {
+                    ffg.Add(item);
+                }
+            }
+            tempFatura = ffg;
             gridControl1.DataSource = tempFatura;
             RepositoryItemButtonEdit repositoryItemButtonEdit = new RepositoryItemButtonEdit();
             repositoryItemButtonEdit.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
