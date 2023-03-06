@@ -353,8 +353,6 @@ namespace MEYPAK.PRL.CARI
 
         }
 
-
-
         //Cari Alt Hesap
         public void BTAltHesSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
@@ -657,7 +655,7 @@ namespace MEYPAK.PRL.CARI
             }
             else
             {
-                if (_cariServis.obje.Where(x => x.vergino == TBVergiNo.Text).Count() == 0)
+                if (TBVergiNo.Text == "" ||  _cariServis.obje.Where(x => x.vergino == TBVergiNo.Text).Count() == 0)
                 {
                     if (_cariServis.obje.Where(x => x.kod == BTCariSec.Text).Count() == 0)
                     {
@@ -858,6 +856,7 @@ namespace MEYPAK.PRL.CARI
             MukellefOutput resp = sorgulama.sorgu(TBTcNo.Text == "" ? TBVergiNo.Text : TBTcNo.Text);
             TBVergiNo.Text = resp.mukellef.vergiDairesiKodu;
             CBVDaire.EditValue = resp.mukellef.vergiDairesiAdi;
+            TBTcNo.Text = resp.mukellef.tckn;
             TBUnvan.Text = resp.mukellef.unvan;
             TBCariAdi.Text = resp.mukellef.ad;
             TBCariSoyad.Text = resp.mukellef.soyad;

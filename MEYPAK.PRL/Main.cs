@@ -147,6 +147,7 @@ namespace MEYPAK.PRL
         FKullaniciYonetim fKullaniciYonetim;
         FGidenEFatura fGidenEFatura;
         EFaturaParams eFaturaParams;
+        FGidenEArsiv fGidenEArsiv;
 
         public Tarih_Date _tarih_Date = new Tarih_Date();
         public DataTable guncelkur;
@@ -1919,6 +1920,27 @@ namespace MEYPAK.PRL
             eFaturaParams.Tag = "EFaturaParams" + i;
             page.Controls.Add(eFaturaParams);
             eFaturaParams.Show();
+            i++;
+        }
+
+        private void accordionControlElement66_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fGidenEArsiv = new FGidenEArsiv();
+            page.Name = "FGidenEArsiv" + i;
+            page.Text = "Giden EArşiv";
+            page.Tag = "FGidenEArsiv" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+           fGidenEArsiv.FormBorderStyle = FormBorderStyle.None;
+           fGidenEArsiv.TopLevel = false;
+           fGidenEArsiv.AutoScroll = true;
+           fGidenEArsiv.Dock = DockStyle.Fill;
+            fGidenEArsiv.Tag = "FGidenEArsiv" + i;
+            page.Controls.Add(fGidenEArsiv);
+            fGidenEArsiv.Show();
             i++;
         }
     }

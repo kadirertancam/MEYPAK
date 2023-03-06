@@ -108,7 +108,12 @@ builder.Services.AddAutoMapper(x =>
     x.AddProfile(typeof(Maps));
 });
 
-#region
+#region GIDEN FATURALAR
+
+builder.Services.AddScoped<IGidenFaturalarDal, EFGidenFaturalarRepo>();
+builder.Services.AddScoped<IGidenFaturalarServis, GidenFaturalarManager>();
+#endregion
+#region FATURA PARAMETRE
 
 builder.Services.AddScoped<IEFaturaParamsDal, EFEFaturaParamsRepo>();
 builder.Services.AddScoped<IEFaturaParamServis, EFaturaParamsManager>();

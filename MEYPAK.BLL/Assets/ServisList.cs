@@ -35,6 +35,14 @@ namespace MEYPAK.BLL.Assets
         #endregion
 
         #region FORMYETKI
+        public const string GidenFaturalarListeServis =         "http://78.135.80.41:8081/GIDENFATURALAR/Liste";
+        public const string GidenFaturalarEkleServis =          "http://78.135.80.41:8081/GIDENFATURALAR/EkleyadaGuncelle";
+        public const string GidenFaturalarSilServis =           "http://78.135.80.41:8081/GIDENFATURALAR/Sil";
+        public const string GidenFaturalarGuncelleServis =      "http://78.135.80.41:8081/GIDENFATURALAR/Guncelle";
+        public const string GidenFaturalarDeleteByIdServis =    "http://78.135.80.41:8081/GIDENFATURALAR/DeleteById";
+        public const string GidenFaturalarListeFiltreServis =   "http://78.135.80.41:8081/GIDENFATURALAR/Liste2";
+        #endregion
+        #region FORMYETKI
         public const string FormYetkiListeServis = "http://78.135.80.41:8081/FORMYETKI/Liste";
         public const string FormYetkiEkleServis = "http://78.135.80.41:8081/FORMYETKI/EkleyadaGuncelle";
         public const string FormYetkiSilServis = "http://78.135.80.41:8081/FORMYETKI/Sil";

@@ -8,9 +8,11 @@ using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraLayout.Customization.Templates;
 using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.PocoModels.CARI;
+using MEYPAK.Entity.PocoModels.EISLEMLER;
 using MEYPAK.Entity.PocoModels.FATURA;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces;
+using MEYPAK.Interfaces.EIslemler;
 using MEYPAK.Interfaces.Stok;
 using MEYPAK.PRL.Assets;
 using Newtonsoft.Json;
@@ -40,6 +42,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
             faturaDetayServis = new GenericWebServis<PocoFATURADETAY>();
             stokServis = new GenericWebServis<PocoSTOK>();
             stokMarkaServis = new GenericWebServis<PocoSTOKMARKA>();
+            gidenFaturalarServis = new GenericWebServis<PocoGIDENFATURALAR>();
 
         }
         GenericWebServis<PocoCARIKART> cariServis;
@@ -47,6 +50,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
         GenericWebServis<PocoFATURADETAY> faturaDetayServis;
         GenericWebServis<PocoSTOK> stokServis;
         GenericWebServis<PocoSTOKMARKA> stokMarkaServis;
+        GenericWebServis<PocoGIDENFATURALAR> gidenFaturalarServis;
         List<EFaturaGidenTask> tempFatura;
         PocoFATURA fattemp;
         PocoCARIKART caritemp;
@@ -56,7 +60,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
         RepositoryItemLookUpEdit riLookup, riLookup2;
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-
+            gidenFaturalarServis.Data(ServisList.GidenFaturalarListeServis);
             faturaServis.Data(ServisList.FaturaListeServis);
             cariServis.Data(ServisList.CariListeServis);
             tempFatura = faturaServis.obje.Where(x => x.durum == false).Select(x => new EFaturaGidenTask { SEC = false, ID = x.id.ToString(), FATURALASTIR = "", BASIM = "", VKNTCK = cariServis.obje.Where(z => z.id == x.cariid).FirstOrDefault().vergino, CARIADI = cariServis.obje.Where(z => z.id == x.cariid).FirstOrDefault().unvan, BELGENO = x.belgeno, TARIH = x.faturatarihi, VADETARIHI = x.vadetarihi, TUTAR = x.geneltoplam, KDV = x.kdvtoplam, FATURATIP = "TEMELFATURA", TIP = "SATIS", DURUM = x.durum == true ? "ONAYLANDI" : "BEKLEMEDE" }).ToList();
@@ -70,8 +74,27 @@ namespace MEYPAK.PRL.E_ISLEMLER
             faturaServis.Data(ServisList.FaturaListeServis);
             cariServis.Data(ServisList.CariListeServis);
             faturaDetayServis.Data(ServisList.FaturaDetayListeServis);
-            tempFatura = faturaServis.obje.Where(x => x.durum == false).Select(x => new EFaturaGidenTask { SEC = false, ID = x.id.ToString(), FATURALASTIR = "", BASIM = "", VKNTCK = cariServis.obje.Where(z => z.id == x.cariid).FirstOrDefault().vergino, CARIADI = cariServis.obje.Where(z => z.id == x.cariid).FirstOrDefault().unvan, BELGENO = x.belgeno, TARIH = x.faturatarihi, VADETARIHI = x.vadetarihi, TUTAR = x.geneltoplam, KDV = x.kdvtoplam, FATURATIP = "TEMELFATURA", TIP = "SATIS", DURUM = x.durum == true ? "ONAYLANDI" : "BEKLEMEDE" }).ToList();
-            gridControl1.DataSource = tempFatura;
+            var client = CreateClient();
+            List<EFaturaGidenTask> eFaturaList = new List<EFaturaGidenTask>();
+            var ccf = faturaServis.obje.Where(x => x.durum == false).Select(x => new EFaturaGidenTask { SEC = false, ID = x.id.ToString(), FATURALASTIR = "", BASIM = "", VKNTCK = cariServis.obje.Where(z => z.id == x.cariid).FirstOrDefault().vergino, CARIADI = cariServis.obje.Where(z => z.id == x.cariid).FirstOrDefault().unvan, BELGENO = x.belgeno, TARIH = x.faturatarihi, VADETARIHI = x.vadetarihi, TUTAR = x.geneltoplam, KDV = x.kdvtoplam, FATURATIP = "TEMELFATURA", TIP = "SATIS", DURUM = x.durum == true ? "ONAYLANDI" : "BEKLEMEDE" }).ToList();
+            foreach (var item in ccf)
+            {
+
+                try
+                {
+                    var response = client.IsEInvoiceUserAsync(item.VKNTCK, "").Result;
+                    if (response.Value)
+                    {
+                        eFaturaList.Add(item);
+                    }
+
+                }
+                catch (Exception ex)
+                {
+
+                }
+            }
+            gridControl1.DataSource = eFaturaList;
             RepositoryItemButtonEdit repositoryItemButtonEdit = new RepositoryItemButtonEdit();
             repositoryItemButtonEdit.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             repositoryItemButtonEdit.NullText = "";
@@ -479,7 +502,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
         {
             CustomerPartyType customer;
 
-            PersonType person = new PersonType { FamilyName = new FamilyNameType { Value = caritemp.soyadi }, FirstName = new FirstNameType { Value = caritemp.unvan } };
+            PersonType person = new PersonType { FamilyName = new FamilyNameType { Value = caritemp.soyadi }, FirstName = new FirstNameType { Value = caritemp.unvan.Length > 0 ? caritemp.unvan : caritemp.adi } };
 
             if (gridView1.GetFocusedRowCellValue("FATURATIP") == "IHRACAT" || gridView1.GetFocusedRowCellValue("FATURATIP") == "YOLCUBERABERFATURA")
             {
@@ -521,8 +544,8 @@ namespace MEYPAK.PRL.E_ISLEMLER
                     Party = new PartyType
                     {
 
-                        PartyName = new PartyNameType { Name = new NameType1 { Value = caritemp.unvan } },
-                        PartyIdentification = new PartyIdentificationType[1] { new PartyIdentificationType() { ID = new IDType { Value = caritemp.vergino, schemeID = caritemp.vergino.Length == 10 ? "VKN" : "TCKN" } } },
+                        PartyName = new PartyNameType { Name = new NameType1 { Value = caritemp.unvan.Length>0? caritemp.unvan:caritemp.adi+" "+ caritemp.soyadi } },
+                        PartyIdentification = new PartyIdentificationType[1] { new PartyIdentificationType() { ID = new IDType { Value = caritemp.vergino.Length>0? caritemp.vergino: caritemp.tcno, schemeID = caritemp.vergino.Length >0 ? "VKN" : "TCKN" } } },
                         PostalAddress = new AddressType
                         {
                             CityName = new CityNameType { Value = caritemp.il },
@@ -563,7 +586,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
                     Party = new PartyType
                     {
 
-                        PartyName = new PartyNameType { Name = new NameType1 { Value = caritemp.unvan } },
+                        PartyName = new PartyNameType { Name = new NameType1 { Value = caritemp.unvan.Length > 0 ? caritemp.unvan : caritemp.adi + " " + caritemp.soyadi } },
                         PartyIdentification = new PartyIdentificationType[1] { new PartyIdentificationType() { ID = new IDType { Value = caritemp.vergino, schemeID = "PARTYTYPE" } } },
                         PostalAddress = new AddressType
                         {
@@ -619,7 +642,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
 
                         },
 
-                        PartyLegalEntity = new PartyLegalEntityType[] { new PartyLegalEntityType { RegistrationName = new RegistrationNameType { Value = caritemp.unvan }, CompanyID = new CompanyIDType { Value = caritemp.vergino } } },
+                        PartyLegalEntity = new PartyLegalEntityType[] { new PartyLegalEntityType { RegistrationName = new RegistrationNameType { Value = caritemp.unvan.Length > 0 ? caritemp.unvan : caritemp.adi + " " + caritemp.soyadi }, CompanyID = new CompanyIDType { Value = caritemp.vergino.Length>0?caritemp.vergino:caritemp.tcno } } },
                         //Contact = new ContactType { Telefax = new TelefaxType { Value = "22111222" }, ElectronicMail = new ElectronicMailType { Value = "test@crssoft.com" }, Telephone = new TelephoneType { Value = "0212200022" } },
                         //WebsiteURI = new WebsiteURIType { Value = "Web Sitesi" },
 
@@ -716,9 +739,31 @@ namespace MEYPAK.PRL.E_ISLEMLER
                 // txtSampleOutboxGuid.Text = response.Value[0].Id.ToString();
                 textBox1.Text = response.Value[0].Id.ToString();
                 // Clipboard.SetText(response.Value[0].Id.ToString());
+                gidenFaturalarServis.Data(ServisList.GidenFaturalarEkleServis, new PocoGIDENFATURALAR()
+                {
+                    belgeno = fattemp.belgeno,
+                    durum = 2,
+                    ettno = response.Value[0].Id.ToString(),
+                    tip = 1,
+                    tarih = DateTime.Now,
+                    userid = MPKullanici.ID,
+
+                });
+
             }
             else
             {
+                gidenFaturalarServis.Data(ServisList.GidenFaturalarEkleServis, new PocoGIDENFATURALAR()
+                {
+                    belgeno = fattemp.belgeno,
+                    durum = 1,
+                    ettno = "",
+                    tip = 1,
+                    tarih = DateTime.Now,
+                    userid = MPKullanici.ID,
+                    hatakodu=response.Message
+
+                });
                 MessageBox.Show(response.Message);
             }
         }

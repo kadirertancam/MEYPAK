@@ -45,6 +45,9 @@ namespace MEYPAK.Entity.Mappings
             //DEKONT
             CreateMap<MPDEKONT, PocoDEKONT>().ReverseMap(); 
 
+            //GIDENFATURA
+            CreateMap<MPGIDENFATURALAR, PocoGIDENFATURALAR>().ReverseMap(); 
+
             //FORM-YETKI
             CreateMap<MPFORM, PocoFORM>().ReverseMap();
             CreateMap<MPFORMYETKI, PocoFORMYETKI>().ReverseMap();
