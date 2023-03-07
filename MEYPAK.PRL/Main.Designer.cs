@@ -255,7 +255,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1054, 593);
+            this.panel3.Size = new System.Drawing.Size(1054, 607);
             this.panel3.TabIndex = 2;
             // 
             // panel1
@@ -268,7 +268,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(250, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(804, 593);
+            this.panel1.Size = new System.Drawing.Size(804, 607);
             this.panel1.TabIndex = 2;
             // 
             // panel2
@@ -278,7 +278,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 20);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(804, 551);
+            this.panel2.Size = new System.Drawing.Size(804, 565);
             this.panel2.TabIndex = 4;
             // 
             // xtraTabControl1
@@ -288,7 +288,7 @@
             this.xtraTabControl1.Location = new System.Drawing.Point(0, 0);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
-            this.xtraTabControl1.Size = new System.Drawing.Size(804, 551);
+            this.xtraTabControl1.Size = new System.Drawing.Size(804, 565);
             this.xtraTabControl1.TabIndex = 1;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage1});
@@ -299,7 +299,7 @@
             this.xtraTabPage1.Controls.Add(this.panel6);
             this.xtraTabPage1.Name = "xtraTabPage1";
             this.xtraTabPage1.ShowCloseButton = DevExpress.Utils.DefaultBoolean.False;
-            this.xtraTabPage1.Size = new System.Drawing.Size(802, 526);
+            this.xtraTabPage1.Size = new System.Drawing.Size(802, 540);
             this.xtraTabPage1.Text = "AnaSayfa";
             // 
             // panel6
@@ -309,8 +309,9 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(802, 526);
+            this.panel6.Size = new System.Drawing.Size(802, 540);
             this.panel6.TabIndex = 1;
+            this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
             // 
             // barDockControlLeft
             // 
@@ -318,7 +319,7 @@
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 20);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 551);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 565);
             // 
             // barManager1
             // 
@@ -833,7 +834,7 @@
             // 
             // barHeaderItem1
             // 
-            this.barHeaderItem1.Caption = "Eliz Meypak Bilişim Teknoloji";
+            this.barHeaderItem1.Caption = "Gündüz Meypak Gıda TİC. LTD. ŞTİ.";
             this.barHeaderItem1.Id = 54;
             this.barHeaderItem1.Name = "barHeaderItem1";
             // 
@@ -851,7 +852,7 @@
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 571);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 585);
             this.barDockControlBottom.Manager = this.barManager1;
             this.barDockControlBottom.Size = new System.Drawing.Size(804, 22);
             // 
@@ -861,7 +862,7 @@
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(804, 20);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 551);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 565);
             // 
             // barButtonItem1
             // 
@@ -947,7 +948,7 @@
             this.accordionControl1.LookAndFeel.UseDefaultLookAndFeel = false;
             this.accordionControl1.Name = "accordionControl1";
             this.accordionControl1.ShowFilterControl = DevExpress.XtraBars.Navigation.ShowFilterControl.Always;
-            this.accordionControl1.Size = new System.Drawing.Size(250, 593);
+            this.accordionControl1.Size = new System.Drawing.Size(250, 607);
             this.accordionControl1.TabIndex = 1;
             this.accordionControl1.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             // 
@@ -955,24 +956,27 @@
             // 
             this.accordionControlElement19.Appearance.Default.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.accordionControlElement19.Appearance.Default.Options.UseFont = true;
-            this.accordionControlElement19.Expanded = true;
             this.accordionControlElement19.HeaderTemplate.AddRange(new DevExpress.XtraBars.Navigation.HeaderElementInfo[] {
             new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.Image),
-            new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.HeaderControl),
             new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.ContextButtons),
-            new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.Text)});
+            new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.Text, DevExpress.XtraBars.Navigation.HeaderElementAlignment.Right),
+            new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.HeaderControl)});
             this.accordionControlElement19.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
             this.accordionControlElement19.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement19.ImageOptions.Image")));
             this.accordionControlElement19.Name = "accordionControlElement19";
             this.accordionControlElement19.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement19.Text = "Eliz Meypak";
             // 
             // ACEKullanici
             // 
-            this.ACEKullanici.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("ACEKullanici.ImageOptions.SvgImage")));
+            this.ACEKullanici.Appearance.Default.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ACEKullanici.Appearance.Default.FontStyleDelta = System.Drawing.FontStyle.Bold;
+            this.ACEKullanici.Appearance.Default.ForeColor = System.Drawing.Color.Silver;
+            this.ACEKullanici.Appearance.Default.Options.UseFont = true;
+            this.ACEKullanici.Appearance.Default.Options.UseForeColor = true;
+            this.ACEKullanici.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ACEKullanici.ImageOptions.Image")));
             this.ACEKullanici.Name = "ACEKullanici";
             this.ACEKullanici.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.ACEKullanici.Text = "Kullanici";
+            this.ACEKullanici.Text = "Kullanıcı";
             this.ACEKullanici.Click += new System.EventHandler(this.ACEKullanici_Click);
             // 
             // accordionControlSeparator1
@@ -1905,7 +1909,6 @@
             this.accordionControlElement62,
             this.accordionControlElement63});
             this.accordionControlElement27.Enabled = false;
-            this.accordionControlElement27.Expanded = true;
             this.accordionControlElement27.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement27.ImageOptions.Image")));
             this.accordionControlElement27.Name = "accordionControlElement27";
             this.accordionControlElement27.Text = "E-İşlemler";
@@ -1946,7 +1949,6 @@
             this.accordionControlElement63.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.accordionControlElement66});
             this.accordionControlElement63.Enabled = false;
-            this.accordionControlElement63.Expanded = true;
             this.accordionControlElement63.Name = "accordionControlElement63";
             this.accordionControlElement63.Text = "EArşiv";
             this.accordionControlElement63.Visible = false;
@@ -2208,12 +2210,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1054, 593);
+            this.ClientSize = new System.Drawing.Size(1054, 607);
             this.Controls.Add(this.panel3);
             this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("Main.IconOptions.Icon")));
+            this.IconOptions.Image = ((System.Drawing.Image)(resources.GetObject("Main.IconOptions.Image")));
             this.IsMdiContainer = true;
             this.Name = "Main";
-            this.Text = "Eliz Meypak Bilişim";
+            this.Text = "Gündüz Meypak";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Main_FormClosed);
             this.Load += new System.EventHandler(this.Main_Load);
