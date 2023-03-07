@@ -20,6 +20,7 @@ using DevExpress.Utils;
 using MEYPAK.Interfaces.Parametre;
 using DevExpress.Text.Interop;
 using MEYPAK.Entity.PocoModels.DEPO;
+using MEYPAK.Entity.Models.FORMYETKI;
 
 namespace MEYPAK.PRL.STOK
 {
@@ -51,6 +52,8 @@ namespace MEYPAK.PRL.STOK
         int _tempId = 0;
         private void BTKaydet_Click(object sender, EventArgs e)
         {
+            if (MPKullanici.YetkiGetir(AllForms.SAYIMTANIM.ToString()).EKLE==true)
+            {
             int a = 0;
             int.TryParse(CBDepo.EditValue!=null?CBDepo.EditValue.ToString():"0", out a);
 
@@ -77,16 +80,24 @@ namespace MEYPAK.PRL.STOK
             else
             {
                 MessageBox.Show("Lütfen Geçerli bir depo seçiniz!");
+                }
             }
+            else
+                MessageBox.Show(MPKullanici.hata);
 
         }
 
         private void BTSil_Click(object sender, EventArgs e)
         {
+            if (MPKullanici.YetkiGetir(AllForms.SAYIMTANIM.ToString()).SIL==true)
+            {
             _stokSayimServis.Data(ServisList.StokSayimListeServis);
             _stokSayimServis.Data(ServisList.StokSayimSilServis, null, null, _stokSayimServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).ToList());
             MessageBox.Show("Silme işlemi Başarılı");
             DataGridDoldur();
+            }
+            else
+                MessageBox.Show(MPKullanici.hata);
         }
 
         //private void BTDuzenle_Click(object sender, EventArgs e)

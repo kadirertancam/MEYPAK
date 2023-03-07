@@ -57,7 +57,7 @@ namespace MEYPAK.PRL
         List<PocoSTOKRESIM> _silinenResimler;
 
         int stokid = 0, markaid = 0, num = 0;
-        PocoFORMYETKI formYetki= MPKullanici.YetkiGetir(AllForms.STOKTANIM.ToString());
+     
         #endregion 
 
         #region Methods
@@ -291,8 +291,14 @@ namespace MEYPAK.PRL
         }
         private void BTSil_Click(object sender, EventArgs e)                  // Stok Sil
         {
-            _PocoStokServis.Data(ServisList.StokSilServis, null, null, _PocoStokServis.obje.Where(x => x.id == stokid).ToList());
-            Temizle(this.Controls);
+            if (MPKullanici.YetkiGetir(AllForms.STOKTANIM.ToString()).SIL==true)
+            {
+                _PocoStokServis.Data(ServisList.StokSilServis, null, null, _PocoStokServis.obje.Where(x => x.id == stokid).ToList());
+                Temizle(this.Controls);
+            }
+            else
+                MessageBox.Show(MPKullanici.hata);
+
         }
 
 
@@ -432,9 +438,8 @@ namespace MEYPAK.PRL
 
         private void BTStokKartiKaydet_Click(object sender, EventArgs e)
         {
-            if (formYetki.EKLE==true)
+            if (MPKullanici.YetkiGetir(AllForms.STOKTANIM.ToString()).EKLE==true)
             {
-
             _StokKategoriervis.Data(ServisList.StokKategoriListeServis);
             if (_StokKategoriervis.obje.Where(x => x.acıklama == BTKategori.Text).Count() > 0 && CBOlcuBr.EditValue != null && Convert.ToInt32(CBOlcuBr.EditValue)>0)
             {
@@ -538,7 +543,7 @@ namespace MEYPAK.PRL
 
             }
             else
-                MessageBox.Show("Bu işlemi yapmak için yetkiniz bulunmamaktadır! Lütfen Yönetinizle iletişime geçin.");
+                MessageBox.Show(MPKullanici.hata);
 
 
         }
@@ -607,7 +612,7 @@ namespace MEYPAK.PRL
         //RESİM Kaydet
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            
+            if (MPKullanici.YetkiGetir(AllForms.STOKTANIM.ToString()).EKLE==true)
             if (_PocoStokServis.obje.Where(z => z.kod == BTStokKodu.Text).Count() != 0)
             {
                 _stokResimServis.Data(ServisList.StokResimListeServis);
@@ -634,10 +639,10 @@ namespace MEYPAK.PRL
                 gridControl2.DataSource = resimList.Select(x => new { Resim = Base64ToImage(x.IMG), NUM = x.NUM });
             }
             else
-            {
                 MessageBox.Show("Stok Seçmeden veya Stok Eklemeden Stok Resmi Ekleyemezsiniz!");
-            }
-          
+            else
+                MessageBox.Show(MPKullanici.hata);
+
         }
 
 
@@ -659,20 +664,7 @@ namespace MEYPAK.PRL
             }
         }
 
-        private void BTSil_Click_1(object sender, EventArgs e)
-        {
-            if (_tempStok != null)
-            {
-                _PocoStokServis.Data(ServisList.StokDeleteByIdServis, id: _tempStok.id.ToString(), method: HttpMethod.Post);
-                Temizle(this.Controls);
-                MessageBox.Show("Stok Başarıyla Silindi");
-            }
-            else
-            {
-                MessageBox.Show("Stok Seçmeden Stok Silme İşlemi Yapamazsınız!");
-            }
-
-        }
+ 
 
        
 
@@ -683,10 +675,16 @@ namespace MEYPAK.PRL
 
         private void BTResimSil_Click(object sender, EventArgs e)
         {
-            _silinenResimler.Add(resimList.Where(x => x.NUM.ToString() == tileView1.GetFocusedRowCellValue("NUM").ToString()).FirstOrDefault());
-            resimList.Remove(resimList.Where(x => x.NUM.ToString() == tileView1.GetFocusedRowCellValue("NUM")).FirstOrDefault());
-            gridControl2.DataSource = resimList;
-            gridControl2.RefreshDataSource();
+            if (MPKullanici.YetkiGetir(AllForms.STOKTANIM.ToString()).SIL==true)
+            {
+                _silinenResimler.Add(resimList.Where(x => x.NUM.ToString() == tileView1.GetFocusedRowCellValue("NUM").ToString()).FirstOrDefault());
+                resimList.Remove(resimList.Where(x => x.NUM.ToString() == tileView1.GetFocusedRowCellValue("NUM")).FirstOrDefault());
+                gridControl2.DataSource = resimList;
+                gridControl2.RefreshDataSource();
+            }
+            else
+                MessageBox.Show(MPKullanici.hata);
+
         }
 
         private void GBStokKartiKdvOtv_Enter(object sender, EventArgs e)

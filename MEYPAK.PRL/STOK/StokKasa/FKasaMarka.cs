@@ -1,4 +1,5 @@
 ﻿using MEYPAK.BLL.Assets;
+using MEYPAK.Entity.Models.FORMYETKI;
 using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Entity.PocoModels.STOK;
 using System;
@@ -23,6 +24,8 @@ namespace MEYPAK.PRL.STOK.StokKasa
         GenericWebServis<PocoSTOKKASAMARKA> _stokKasaMarakServis;
         private void simpleButton1_Click(object sender, EventArgs e)
         {
+            if (MPKullanici.YetkiGetir(AllForms.STOKKASAMARKATANIM.ToString()).EKLE==true)
+            {
             _stokKasaMarakServis.Data(ServisList.StokKasaMarkaEkleServis,new PocoSTOKKASAMARKA()
             {
                 adi=textEdit2.Text,
@@ -34,7 +37,9 @@ namespace MEYPAK.PRL.STOK.StokKasa
 
             gridControl1.DataSource = _stokKasaMarakServis.obje;
             gridControl1.RefreshDataSource();
-
+            }
+            else
+                MessageBox.Show(MPKullanici.hata);
         }
 
         private void FKasaMarka_Load(object sender, EventArgs e)

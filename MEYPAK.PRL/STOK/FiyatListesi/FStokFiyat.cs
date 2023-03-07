@@ -3,6 +3,7 @@ using DevExpress.XtraEditors.ViewInfo;
 using DevExpress.XtraSpreadsheet.Import.OpenXml;
 using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.Models.DEPO;
+using MEYPAK.Entity.Models.FORMYETKI;
 using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.STOK;
@@ -59,7 +60,8 @@ namespace MEYPAK.PRL.STOK.FiyatListesi
         int _tempId = 0;
         private void BTKaydet_Click(object sender, EventArgs e)
         {
-            
+            if (MPKullanici.YetkiGetir(AllForms.STOKFIYATTANIM.ToString()).EKLE==true)
+            {
             if (_cariServis.obje.Where(x => x.id == _tempCariKart.id && x.kayittipi == 0).Count() > 0)
             {
                 _stokFiyatServis.Data(ServisList.StokFiyatEkleServis, (new Entity.PocoModels.STOK.PocoSTOKFIYAT()
@@ -81,9 +83,10 @@ namespace MEYPAK.PRL.STOK.FiyatListesi
                 DataGridDoldur();
             }
             else
-            {
                 MessageBox.Show("Kayıt Başarısız!");
             }
+            else
+                MessageBox.Show(MPKullanici.hata);
         }
         void DataGridDoldur()
         {
@@ -149,6 +152,10 @@ namespace MEYPAK.PRL.STOK.FiyatListesi
   
         private void BTSil_Click(object sender, EventArgs e)
         {
+            if (MPKullanici.YetkiGetir(AllForms.STOKFIYATTANIM.ToString()).SIL==true)
+            {
+
+           
             if (gridView1.FocusedRowHandle>0)
             {
                 DialogResult Secim = new DialogResult();
@@ -167,11 +174,12 @@ namespace MEYPAK.PRL.STOK.FiyatListesi
                
             }
             else
-            {
                 MessageBox.Show("Fiyat Listesi Seçmeden Silme işlemi yapamazsınız!");
             }
+            else
+                MessageBox.Show(MPKullanici.hata);
 
-          
+
         }
         public void Temizle(Control.ControlCollection ctrlCollection)           //Formdaki Textboxları temizle
         {

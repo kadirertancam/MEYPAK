@@ -51,7 +51,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
             faturaServis.Data(ServisList.FaturaListeServis);
             cariServis.Data(ServisList.CariListeServis);
             faturaDetayServis.Data(ServisList.FaturaDetayListeServis);
-            var client = CreateClient();
+            //var client = CreateClient();
             List<EFaturaGidenTask> eArsivList=new List<EFaturaGidenTask>();
             var ccf= faturaServis.obje.Where(x => x.durum == false).Select(x => new EFaturaGidenTask { SEC = false, ID = x.id.ToString(), FATURALASTIR = "", BASIM = "", VKNTCK = cariServis.obje.Where(z => z.id == x.cariid).FirstOrDefault().vergino, CARIADI = cariServis.obje.Where(z => z.id == x.cariid).FirstOrDefault().unvan, BELGENO = x.belgeno, TARIH = x.faturatarihi, VADETARIHI = x.vadetarihi, TUTAR = x.geneltoplam, KDV = x.kdvtoplam, FATURATIP = "TEMELFATURA", TIP = "SATIS", DURUM = x.durum == true ? "ONAYLANDI" : "BEKLEMEDE" }).ToList();
             foreach (var item in ccf)
@@ -59,11 +59,11 @@ namespace MEYPAK.PRL.E_ISLEMLER
               
                 try
                 {
-                    var response = client.IsEInvoiceUserAsync(item.VKNTCK, "").Result;
-                    if (!response.Value)
-                    {
-                        eArsivList.Add(item);
-                    }
+                    //var response = client.IsEInvoiceUserAsync(item.VKNTCK, "").Result;
+                    //if (!response.Value)
+                    //{
+                    //    eArsivList.Add(item);
+                    //}
                    
                 }
                 catch(Exception ex)
@@ -639,21 +639,21 @@ namespace MEYPAK.PRL.E_ISLEMLER
             }
 
         }
-        public IntegrationClient CreateClient()
-        {
-            var username = "Uyumsoft";
-            var password = "Uyumsoft";
-            var serviceuri = "https://efatura-test.uyumsoft.com.tr/services/Integration";
+        //public IntegrationClient CreateClient()
+        //{
+        //    var username = "Uyumsoft";
+        //    var password = "Uyumsoft";
+        //    var serviceuri = "https://efatura-test.uyumsoft.com.tr/services/Integration";
 
 
-            var client = new IntegrationClient();
-            client.Endpoint.Address = new System.ServiceModel.EndpointAddress(serviceuri);
-            //  var client = new IntegrationClient();
-            client.ClientCredentials.UserName.UserName = username;
-            client.ClientCredentials.UserName.Password = password;
-            //var response = client.IsEInvoiceUser("9000068418",string.Empty);
-            return client;
-        }
+        //    var client = new IntegrationClient();
+        //    client.Endpoint.Address = new System.ServiceModel.EndpointAddress(serviceuri);
+        //    //  var client = new IntegrationClient();
+        //    client.ClientCredentials.UserName.UserName = username;
+        //    client.ClientCredentials.UserName.Password = password;
+        //    //var response = client.IsEInvoiceUser("9000068418",string.Empty);
+        //    return client;
+        //}
         #endregion
 
 

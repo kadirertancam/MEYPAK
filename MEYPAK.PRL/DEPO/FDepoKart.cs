@@ -17,6 +17,7 @@ using MEYPAK.Entity.PocoModels.DEPO;
 using MEYPAK.BLL.Assets;
 using System.Net.Http;
 using DevExpress.XtraEditors;
+using MEYPAK.Entity.Models.FORMYETKI;
 
 namespace MEYPAK.PRL.DEPO
 {
@@ -77,6 +78,10 @@ namespace MEYPAK.PRL.DEPO
 
         private void BTDepoKartEkle_Click(object sender, EventArgs e)
         {
+            if (MPKullanici.YetkiGetir(AllForms.DEPOTANIM.ToString()).EKLE==true)
+            {
+
+           
             var a = CBAktif.CheckedItems;
 
             if (_tempDepo!=null && _tempDepo.id>0)
@@ -115,7 +120,9 @@ namespace MEYPAK.PRL.DEPO
                 _tempDepo = null;
                 
             }
-
+            }
+            else
+            MessageBox.Show(MPKullanici.hata);
         }
 
         private void BTDepoKartSec_Click(object sender, EventArgs e)
@@ -128,6 +135,8 @@ namespace MEYPAK.PRL.DEPO
 
         private void BTDepoKartSil_Click(object sender, EventArgs e)
         {
+            if (MPKullanici.YetkiGetir(AllForms.DEPOTANIM.ToString()).SIL==true)
+            {
             if (_tempDepo != null && _tempDepo.id > 0)
             {
                 _depoServis.Data(ServisList.DepoDeleteByIdServis,id: _tempDepo.id.ToString(), method: HttpMethod.Post);
@@ -141,6 +150,9 @@ namespace MEYPAK.PRL.DEPO
                 MessageBox.Show("Silinecek depo bulunamadı!");
                 Temizle(this.Controls);
             }
+            }
+            else
+                MessageBox.Show(MPKullanici.hata);
         }
 
         private void GCDepoKart_DoubleClick(object sender, EventArgs e)

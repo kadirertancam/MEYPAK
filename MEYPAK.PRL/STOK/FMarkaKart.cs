@@ -3,6 +3,7 @@ using MEYPAK.BLL.Assets;
 using MEYPAK.BLL.STOK;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository;
+using MEYPAK.Entity.Models.FORMYETKI;
 using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Depo;
@@ -29,47 +30,51 @@ namespace MEYPAK.PRL.STOK
             _markaServis = new GenericWebServis<PocoSTOKMARKA>();
         }
         #region Tanımlar
-        GenericWebServis<PocoSTOKMARKA> _markaServis ;
+        GenericWebServis<PocoSTOKMARKA> _markaServis;
         PocoSTOKMARKA _tempMarka;
         int id = 0;
         #endregion
 
         #region Methodlar
-  void MarkalarıGetir()
+        void MarkalarıGetir()
         {
             _markaServis.Data(ServisList.StokMarkaListeServis);
-            gridControl1.DataSource = _markaServis.obje.Where(x=>x.kayittipi==0);
+            gridControl1.DataSource = _markaServis.obje.Where(x => x.kayittipi == 0);
         }
         #endregion
         private void FMarkaKart_Load(object sender, EventArgs e)
         {
-            if (this.Tag==null)
+            if (this.Tag == null)
             {
-                this.FormBorderStyle= FormBorderStyle.Fixed3D;
+                this.FormBorderStyle = FormBorderStyle.Fixed3D;
             }
 
             MarkalarıGetir();
         }
 
-   
+
 
         private void BTSil_Click(object sender, EventArgs e)
         {
-            if (_tempMarka != null && _tempMarka.id > 0)
+            if (MPKullanici.YetkiGetir(AllForms.MARKATANIM.ToString()).SIL == true)
             {
-                _markaServis.Data(ServisList.StokMarkaDeleteByIdServis, id: _tempMarka.id.ToString(), method: HttpMethod.Post);
-                Temizle(this.Controls);
-                MessageBox.Show($"{_tempMarka.adi} adlı marka başarıyla silindi!");
-                _tempMarka = null;
-                MarkalarıGetir();
+                if (_tempMarka != null && _tempMarka.id > 0)
+                {
+                    _markaServis.Data(ServisList.StokMarkaDeleteByIdServis, id: _tempMarka.id.ToString(), method: HttpMethod.Post);
+                    Temizle(this.Controls);
+                    MessageBox.Show($"{_tempMarka.adi} adlı marka başarıyla silindi!");
+                    _tempMarka = null;
+                    MarkalarıGetir();
+                }
+                else
+                {
+                    MessageBox.Show("Silinecek marka bulunamadı!");
+                    Temizle(this.Controls);
+                }
+
             }
             else
-            {
-                MessageBox.Show("Silinecek marka bulunamadı!");
-                Temizle(this.Controls);
-            }
-
-
+                MessageBox.Show(MPKullanici.hata);
 
 
 
@@ -79,7 +84,7 @@ namespace MEYPAK.PRL.STOK
             //MarkalarıGetir();
 
         }
-        
+
 
         public void Temizle(Control.ControlCollection ctrlCollection)           //Formdaki Textboxları temizle
         {
@@ -98,20 +103,25 @@ namespace MEYPAK.PRL.STOK
 
         private void BTMarkaKartKaydet_Click(object sender, EventArgs e)
         {
-            _markaServis.Data(ServisList.StokMarkaEkleServis, (new PocoSTOKMARKA()
+            if (MPKullanici.YetkiGetir(AllForms.MARKATANIM.ToString()).EKLE == true)
             {
-                id = id,
-                adi = TBMarkaAdi.Text,
-                aciklama = TBAciklama.Text,
-                kayittipi = 0,
-                userid = MPKullanici.ID,
-            }));
+                _markaServis.Data(ServisList.StokMarkaEkleServis, (new PocoSTOKMARKA()
+                {
+                    id = id,
+                    adi = TBMarkaAdi.Text,
+                    aciklama = TBAciklama.Text,
+                    kayittipi = 0,
+                    userid = MPKullanici.ID,
+                }));
 
-            MessageBox.Show("Kayıt işlemi Başarılı!");
-            id = 0;
-            _tempMarka = null;
-            Temizle(this.Controls);
-            MarkalarıGetir();
+                MessageBox.Show("Kayıt işlemi Başarılı!");
+                id = 0;
+                _tempMarka = null;
+                Temizle(this.Controls);
+                MarkalarıGetir();
+            }
+            else
+                MessageBox.Show(MPKullanici.hata);
         }
 
         private void gridView1_DoubleClick(object sender, EventArgs e)

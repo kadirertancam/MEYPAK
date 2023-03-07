@@ -54,7 +54,7 @@ namespace MEYPAK.PRL.STOK
 
         private void BTStokKartiKaydet_Click(object sender, EventArgs e)
         {
-          
+            if (MPKullanici.YetkiGetir(AllForms.HIZMETTANIM.ToString()).EKLE==true)
             if (BTHizmetSec.Text != "")
             {
                 if (_tempHizmetKategori!=null && BTKategoriSec.Text!="")
@@ -77,11 +77,11 @@ namespace MEYPAK.PRL.STOK
                 }
             }
             else 
-            {
                 MessageBox.Show("Hizmet Kodu Girmeden Hizmet Ekleyemezsiniz!");
-            }
-            
-         
+            else
+                MessageBox.Show(MPKullanici.hata);
+
+
         }
 
         private void BTKategoriSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
