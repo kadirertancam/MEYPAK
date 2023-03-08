@@ -15,6 +15,7 @@ using MEYPAK.Interfaces;
 using MEYPAK.Interfaces.EIslemler;
 using MEYPAK.Interfaces.Stok;
 using MEYPAK.PRL.Assets;
+using MEYPAK.PRL.SIPARIS;
 using Newtonsoft.Json;
 using RestSharp;
 using ServiceReference1;
@@ -63,20 +64,9 @@ namespace MEYPAK.PRL.E_ISLEMLER
             gidenFaturalarServis.Data(ServisList.GidenFaturalarListeServis);
             faturaServis.Data(ServisList.FaturaListeServis);
             cariServis.Data(ServisList.CariListeServis);
-            tempFatura = faturaServis.obje.Where(x => x.durum == false).Select(x => new EFaturaGidenTask { SEC = false, ID = x.id.ToString(), FATURALASTIR = "", BASIM = "", VKNTCK = cariServis.obje.Where(z => z.id == x.cariid).FirstOrDefault().vergino, CARIADI = cariServis.obje.Where(z => z.id == x.cariid).FirstOrDefault().unvan, BELGENO = x.belgeno, TARIH = x.faturatarihi, VADETARIHI = x.vadetarihi, TUTAR = x.geneltoplam, KDV = x.kdvtoplam, FATURATIP = "TEMELFATURA", TIP = "SATIS", DURUM = x.durum == true ? "ONAYLANDI" : "BEKLEMEDE" }).ToList();
-            gridControl1.RefreshDataSource();
-        }
-      
-        private void FGidenEFatura_Load(object sender, EventArgs e)
-        {
-            stokMarkaServis.Data(ServisList.StokMarkaListeServis);
-            stokServis.Data(ServisList.StokListeServis);
-            faturaServis.Data(ServisList.FaturaListeServis);
-            cariServis.Data(ServisList.CariListeServis);
-            faturaDetayServis.Data(ServisList.FaturaDetayListeServis);
             var client = CreateClient();
             List<EFaturaGidenTask> eFaturaList = new List<EFaturaGidenTask>();
-            var ccf = faturaServis.obje.Where(x => x.durum == false).Select(x => new EFaturaGidenTask { SEC = false, ID = x.id.ToString(), FATURALASTIR = "", BASIM = "", VKNTCK = cariServis.obje.Where(z => z.id == x.cariid).FirstOrDefault().vergino, CARIADI = cariServis.obje.Where(z => z.id == x.cariid).FirstOrDefault().unvan, BELGENO = x.belgeno, TARIH = x.faturatarihi, VADETARIHI = x.vadetarihi, TUTAR = x.geneltoplam, KDV = x.kdvtoplam, FATURATIP = "TEMELFATURA", TIP = "SATIS", DURUM = x.durum == true ? "ONAYLANDI" : "BEKLEMEDE" }).ToList();
+            var ccf = faturaServis.obje.Select(x => new EFaturaGidenTask { SEC = false, ID = x.id.ToString(), FATURALASTIR = "", BASIM = "", VKNTCK = cariServis.obje.Where(z => z.id == x.cariid).FirstOrDefault().vergino, CARIADI = cariServis.obje.Where(z => z.id == x.cariid).FirstOrDefault().unvan, BELGENO = x.belgeno, TARIH = x.faturatarihi, VADETARIHI = x.vadetarihi, TUTAR = x.geneltoplam, KDV = x.kdvtoplam, FATURATIP = "TEMELFATURA", TIP = "SATIS", DURUM = x.durum == true ? "GÖNDERİLDİ" : "BEKLEMEDE", ETTNO = gidenFaturalarServis.obje.Where(z => z.faturaid == x.id).Count() > 0 ? gidenFaturalarServis.obje.Where(z => z.faturaid == x.id).FirstOrDefault().ettno : "" }).ToList();
             foreach (var item in ccf)
             {
 
@@ -95,6 +85,69 @@ namespace MEYPAK.PRL.E_ISLEMLER
                 }
             }
             gridControl1.DataSource = eFaturaList;
+            gridControl1.RefreshDataSource();
+        }
+      
+        private void FGidenEFatura_Load(object sender, EventArgs e)
+        {
+            stokMarkaServis.Data(ServisList.StokMarkaListeServis);
+            stokServis.Data(ServisList.StokListeServis);
+            faturaServis.Data(ServisList.FaturaListeServis);
+            cariServis.Data(ServisList.CariListeServis);
+            faturaDetayServis.Data(ServisList.FaturaDetayListeServis);
+            gidenFaturalarServis.Data(ServisList.GidenFaturalarListeServis); 
+            var client = CreateClient();
+            var response2 = new InvoiceStatusResponse();
+            var status = new InvoiceStatus();
+            List<EFaturaGidenTask> eFaturaList = new List<EFaturaGidenTask>();
+            var ccf = faturaServis.obje.Select(x => new EFaturaGidenTask { SEC = false, ID = x.id.ToString(), FATURALASTIR = "", BASIM = "", VKNTCK = cariServis.obje.Where(z => z.id == x.cariid).FirstOrDefault().vergino, CARIADI = cariServis.obje.Where(z => z.id == x.cariid).FirstOrDefault().unvan, BELGENO = x.belgeno, TARIH = x.faturatarihi, VADETARIHI = x.vadetarihi, TUTAR = x.geneltoplam, KDV = x.kdvtoplam, FATURATIP = "TEMELFATURA", TIP = "SATIS", DURUM = x.durum == true ? "GÖNDERİLDİ" : "BEKLEMEDE",ETTNO= gidenFaturalarServis.obje.Where(z => z.faturaid == x.id).Count() > 0 ? gidenFaturalarServis.obje.Where(z => z.faturaid == x.id).FirstOrDefault().ettno : "" }).ToList();
+            foreach (var item in ccf)
+            {
+
+                try
+                {
+                    var response = client.IsEInvoiceUserAsync(item.VKNTCK, "").Result;
+                    if (response.Value)
+                    {
+                        eFaturaList.Add(item);
+
+                       
+
+                        var statusCode = 0;
+
+                        //var res1 = client.GetInboxInvoiceList(new InboxInvoiceListQueryModel { InvoiceIds = new string[] { txtSampleGuid.Text } });
+
+                        var guid = new String[] {item.ETTNO };
+                        try
+                        {
+                            //response = client.QueryInboxInvoiceStatus(guid);
+                            //response.Value[0].
+
+                             response2 = client.QueryOutboxInvoiceStatusAsync(guid).Result;
+
+                            status = response2.Value[0].Status;
+                            statusCode = response2.Value[0].StatusCode;
+                            item.DURUM = status.ToString();
+                            MessageBox.Show(string.Format("Fatura Durumu : {0} : Durum Kodu : {1}  ", status.ToString(), statusCode.ToString()));
+                        }
+                        catch (Exception ex)
+                        {
+                          //  MessageBox.Show(ex.Message, "Hata"); 
+                        }
+                    }
+
+
+
+
+                }
+                catch (Exception ex)
+                {
+
+                }
+            }
+
+            gridControl1.DataSource = eFaturaList;
+           
             RepositoryItemButtonEdit repositoryItemButtonEdit = new RepositoryItemButtonEdit();
             repositoryItemButtonEdit.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             repositoryItemButtonEdit.NullText = "";
@@ -714,6 +767,46 @@ namespace MEYPAK.PRL.E_ISLEMLER
             return client;
         }
         #endregion
+        private void gridView1_RowStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowStyleEventArgs e)
+        {
+            string quantity = Convert.ToString(gridView1.GetRowCellValue(e.RowHandle, "DURUM"));
+
+            if (quantity != "BEKLEMEDE")
+            {
+                e.Appearance.BackColor = Color.LightGreen;
+            } 
+        }
+
+        private void loglarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var client = CreateClient();
+            StringBuilder sb = new StringBuilder();
+            InvoiceStatusWithLogResponse response = null;
+
+            try
+            {
+                response = client.GetOutboxInvoiceStatusWithLogsAsync(new string[] { gridView1.GetFocusedRowCellValue("ETTNO").ToString() }).Result;
+                if (response.IsSucceded && response.Value != null && response.Value[0].Logs != null && response.Value[0].Logs.Length > 0)
+                {
+                    for (int i = 0; i < response.Value[0].Logs.Length; i++)
+                    {
+                        var log = response.Value[0].Logs[i].Message;
+                        sb.AppendLine(string.Format("{0} - {1}", i.ToString(), log));
+
+                    }
+
+
+                    MessageBox.Show(sb.ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(string.Format("Hata : {0}", ex.Message));
+            }
+
+        }
+
         private async void RepositoryItemButtonEdit_ButtonClick1(object sender, ButtonPressedEventArgs e)
         {
             var client = CreateClient();
@@ -743,12 +836,39 @@ namespace MEYPAK.PRL.E_ISLEMLER
                 {
                     belgeno = fattemp.belgeno,
                     durum = 2,
-                    ettno = response.Value[0].Id.ToString(),
+                    ettno = response.Value[0].Id.ToString(),hatakodu="",
                     tip = 1,
                     tarih = DateTime.Now,
-                    userid = MPKullanici.ID,
+                    userid = MPKullanici.ID, faturaid=fattemp.id
 
                 });
+                fattemp.durum = true;
+                faturaServis.Data(ServisList.FaturaEkleServis, fattemp);
+                faturaServis.Data(ServisList.FaturaListeServis);
+
+                List<EFaturaGidenTask> eFaturaList = new List<EFaturaGidenTask>();
+                var ccf = faturaServis.obje.Select(x => new EFaturaGidenTask { SEC = false, ID = x.id.ToString(), FATURALASTIR = "", BASIM = "", VKNTCK = cariServis.obje.Where(z => z.id == x.cariid).FirstOrDefault().vergino, CARIADI = cariServis.obje.Where(z => z.id == x.cariid).FirstOrDefault().unvan, BELGENO = x.belgeno, TARIH = x.faturatarihi, VADETARIHI = x.vadetarihi, TUTAR = x.geneltoplam, KDV = x.kdvtoplam, FATURATIP = "TEMELFATURA", TIP = "SATIS", DURUM = x.durum == true ? "ONAYLANDI" : "BEKLEMEDE", ETTNO = gidenFaturalarServis.obje.Where(z => z.faturaid == x.id).Count()>0? gidenFaturalarServis.obje.Where(z => z.faturaid == x.id).FirstOrDefault().ettno:"" }).ToList();
+                foreach (var item in ccf)
+                {
+
+                    try
+                    {
+                        var respons = client.IsEInvoiceUserAsync(item.VKNTCK, "").Result;
+                        if (respons.Value)
+                        {
+
+                            
+                            eFaturaList.Add(item);
+                        }
+
+                    }
+                    catch (Exception ex)
+                    {
+
+                    }
+                }
+                gridControl1.DataSource = eFaturaList;
+                gridControl1.RefreshDataSource();
 
             }
             else
@@ -761,7 +881,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
                     tip = 1,
                     tarih = DateTime.Now,
                     userid = MPKullanici.ID,
-                    hatakodu=response.Message
+                    hatakodu=response.Message,
 
                 });
                 MessageBox.Show(response.Message);

@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.Entity.PocoModels.EISLEMLER
 {
-    public class PocoGIDENFATURALAR:SUPERPOCOMODEL
+    internal class PocoGIDENIRSALIYELER:SUPERPOCOMODEL
     {
         public DateTime tarih { get; set; }
-        public int faturaid { get; set; }
+        public int irsaliyeid { get; set; }
         public string belgeno { get; set; }
         public int tip { get; set; }
         public string hatakodu { get; set; }

@@ -86,7 +86,11 @@ namespace MEYPAK.PRL.PERSONEL
                 item.SONUC = Math.Round( (item.KARTAYATAN + item.BES ) - item.MESAI - item.TRAFIKCEZASI - item.AVANS - item.HACIZ - item.MAAS-item.GELMEDIGIGUN,2);
             }
             gridControl1.RefreshDataSource();
-            
+            SaveFileDialog ffw = new SaveFileDialog();
+
+            ffw.Filter = "Excel Dosyası|*.xls";
+            if (ffw.ShowDialog() == DialogResult.OK)
+                gridControl1.ExportToXls(ffw.FileName);
 
         }
         List<PersonelMaasTemp> temp;
@@ -240,71 +244,17 @@ namespace MEYPAK.PRL.PERSONEL
 
                     if (counter > 1)
                     {
-                      
-                        if (DagitilanMaasexcelReader[7] != null)
-                        {
+                       
                             try
                             {
 
-                                temp.Where(x => x.TC == DagitilanMaasexcelReader[8].ToString()).FirstOrDefault().SIGORTADAKIMAAS = DagitilanMaasexcelReader.GetDouble(9);
+                                temp.Where(x => x.TC == DagitilanMaasexcelReader[0].ToString()).FirstOrDefault().MAAS = DagitilanMaasexcelReader.GetDouble(3);
                             }
                             catch (Exception)
                             {
 
 
-                            }
-                            try
-                            {
-                                temp.Where(x => x.TC == DagitilanMaasexcelReader[8].ToString()).FirstOrDefault().MAAS = DagitilanMaasexcelReader.GetDouble(10);
-                            }
-                            catch (Exception)
-                            {
-
-
-                            }
-                            try
-                            {
-                                temp.Where(x => x.TC == DagitilanMaasexcelReader[8].ToString()).FirstOrDefault().GELMEDIGIGUN = DagitilanMaasexcelReader.GetDouble(11);
-                            }
-                            catch (Exception)
-                            {
-
-
-                            }  try
-                            {
-                                temp.Where(x => x.TC == DagitilanMaasexcelReader[8].ToString()).FirstOrDefault().MESAI = DagitilanMaasexcelReader.GetDouble(18);
-                            }
-                            catch (Exception)
-                            {
-
-
-                            } try
-                            {
-                                temp.Where(x => x.TC == DagitilanMaasexcelReader[8].ToString()).FirstOrDefault().TRAFIKCEZASI = DagitilanMaasexcelReader.GetDouble(20);
-                            }
-                            catch (Exception)
-                            {
-
-
-                            }try
-                            {
-                                temp.Where(x => x.TC == DagitilanMaasexcelReader[8].ToString()).FirstOrDefault().AVANS = DagitilanMaasexcelReader.GetDouble(21);
-                            }
-                            catch (Exception)
-                            {
-
-
-                            }try
-                            {
-                                temp.Where(x => x.TC == DagitilanMaasexcelReader[8].ToString()).FirstOrDefault().HACIZ = DagitilanMaasexcelReader.GetDouble(22);
-                            }
-                            catch (Exception)
-                            {
-
-
-                            }
-
-                        }
+                            }  
                        
 
                     }
