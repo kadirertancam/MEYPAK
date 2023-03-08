@@ -114,6 +114,12 @@ builder.Services.AddAutoMapper(x =>
 
 #region GIDEN FATURALAR
 
+builder.Services.AddScoped<IGidenIrsaliyeDal, EFGidenEIrsaliyeRepo>();
+builder.Services.AddScoped<IGidenIrsaliyeServis, GidenIrsaliyeManager>();
+#endregion
+
+#region GIDEN FATURALAR
+
 builder.Services.AddScoped<IGidenFaturalarDal, EFGidenFaturalarRepo>();
 builder.Services.AddScoped<IGidenFaturalarServis, GidenFaturalarManager>();
 #endregion

@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.Interfaces.EIslemler
 {
-    public interface IGidenFaturalarServis:IGenericServis<PocoGIDENFATURA>
+    public interface IGidenIrsaliyeServis:IGenericServis<PocoGIDENIRSALIYELER>
     {
+
     }
 }

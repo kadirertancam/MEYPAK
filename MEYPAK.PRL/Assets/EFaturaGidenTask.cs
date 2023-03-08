@@ -22,5 +22,6 @@ namespace MEYPAK.PRL.Assets
         public string FATURATIP { get; set; } 
         public string TIP { get; set; } 
         public string DURUM { get; set; }
+        public string ETTNO { get; set; }
     }
 }

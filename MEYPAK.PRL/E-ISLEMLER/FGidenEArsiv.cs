@@ -669,34 +669,34 @@ namespace MEYPAK.PRL.E_ISLEMLER
 
         private void RepositoryItemButtonEdit_ButtonClick1Async(object sender, ButtonPressedEventArgs e)
         {
-            var client = CreateClient();
+            //var client = CreateClient();
 
-            var invoiceInfo = CreateInvoice();
+            //var invoiceInfo = CreateInvoice();
 
-            InvoiceInfo[] invoices = new InvoiceInfo[1];
-            invoices[0] = invoiceInfo;
+            //InvoiceInfo[] invoices = new InvoiceInfo[1];
+            //invoices[0] = invoiceInfo;
 
-            var response = client.SendInvoiceAsync(invoices).Result;
-            //InvoiceIdentitiesResponse response = client.SendInvoice(invoices);
+            //var response = client.SendInvoiceAsync(invoices).Result;
+            ////InvoiceIdentitiesResponse response = client.SendInvoice(invoices);
 
-            if (response.IsSucceded)
-            {
+            //if (response.IsSucceded)
+            //{
 
-                MessageBox.Show(
-                    string.Format("EArsiv Fatura Gönderildi\n UUID:{0} \n ID:{1} \n Fatura Tipi:{2} ",
-                            response.Value[0].Id.ToString(),
-                            response.Value[0].Number.ToString(),
-                            response.Value[0].InvoiceScenario.ToString()
-                            )
-                            );
-                // txtSampleOutboxGuid.Text = response.Value[0].Id.ToString();
-                textBox1.Text = response.Value[0].Id.ToString();
-                // Clipboard.SetText(response.Value[0].Id.ToString());
-            }
-            else
-            {
-                MessageBox.Show(response.Message);
-            }
+            //    MessageBox.Show(
+            //        string.Format("EArsiv Fatura Gönderildi\n UUID:{0} \n ID:{1} \n Fatura Tipi:{2} ",
+            //                response.Value[0].Id.ToString(),
+            //                response.Value[0].Number.ToString(),
+            //                response.Value[0].InvoiceScenario.ToString()
+            //                )
+            //                );
+            //    // txtSampleOutboxGuid.Text = response.Value[0].Id.ToString();
+            //    textBox1.Text = response.Value[0].Id.ToString();
+            //    // Clipboard.SetText(response.Value[0].Id.ToString());
+            //}
+            //else
+            //{
+            //    MessageBox.Show(response.Message);
+            //}
         }
     }
 }

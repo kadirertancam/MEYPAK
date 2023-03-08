@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.Entity.Models.EISLEMLER
 {
-    public class MPGIDENFATURALAR:SUPERMODEL
+    public class MPGIDENIRSALIYELER:SUPERMODEL
     {
         public DateTime TARIH { get; set; }
-        public int FATURAID { get; set; }
+        public int IRSALIYEID { get; set; }
         public string BELGENO { get; set; }
         public int TIP { get; set; }
         public string HATAKODU { get; set; }

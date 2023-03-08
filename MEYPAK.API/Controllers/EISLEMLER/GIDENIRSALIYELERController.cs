@@ -11,15 +11,15 @@ namespace MEYPAK.API.Controllers.EISLEMLER
     [ApiController]
     [Authorize]
     [Route("[controller]")]
-    public class GIDENFATURALARController : Controller
+    public class GIDENIRSALIYELERController : Controller
     {
         private readonly IMapper _mapper;
-        private readonly IGidenFaturalarServis _gidenFaturalarServis;
-        private MPAdoContext<MPGIDENFATURALAR> _adoGIDENFATURALARServis = new MPAdoContext<MPGIDENFATURALAR>();
-        public GIDENFATURALARController(IMapper mapper, IGidenFaturalarServis faturaServis)
+        private readonly IGidenIrsaliyeServis _gidenIrsaliyeServis;
+        private MPAdoContext<MPGIDENIRSALIYELER> _adoGIDENIRSALIYELERServis = new MPAdoContext<MPGIDENIRSALIYELER>();
+        public GIDENIRSALIYELERController(IMapper mapper, IGidenIrsaliyeServis irsaliyeServis)
         {
             _mapper = mapper;
-            _gidenFaturalarServis = faturaServis;
+            _gidenIrsaliyeServis = irsaliyeServis;
         }
 
         [HttpGet]
@@ -28,7 +28,7 @@ namespace MEYPAK.API.Controllers.EISLEMLER
         {
             try
             {
-                var data = _gidenFaturalarServis.Listele();
+                var data = _gidenIrsaliyeServis.Listele();
                 return Ok(data);
             }
             catch (Exception ex)
@@ -42,8 +42,8 @@ namespace MEYPAK.API.Controllers.EISLEMLER
         {
             try
             {
-                _adoGIDENFATURALARServis.HepsiniGetir(query);
-                return Ok(_adoGIDENFATURALARServis.GenericList);
+                _adoGIDENIRSALIYELERServis.HepsiniGetir(query);
+                return Ok(_adoGIDENIRSALIYELERServis.GenericList);
             }
             catch (Exception ex)
             {
@@ -53,11 +53,11 @@ namespace MEYPAK.API.Controllers.EISLEMLER
 
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult EKleyadaGuncelle(PocoGIDENFATURA pModel)
+        public IActionResult EKleyadaGuncelle(PocoGIDENIRSALIYELER pModel)
         {
             try
             {
-                var data = _gidenFaturalarServis.EkleyadaGuncelle(pModel);
+                var data = _gidenIrsaliyeServis.EkleyadaGuncelle(pModel);
                 return Ok(data);
             }
             catch (Exception ex)
@@ -67,11 +67,11 @@ namespace MEYPAK.API.Controllers.EISLEMLER
         }
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult GIDENFATURALARSil(List<PocoGIDENFATURA> pModel)
+        public IActionResult GIDENIRSALIYELERSil(List<PocoGIDENIRSALIYELER> pModel)
         {
             try
             {
-                var data = _gidenFaturalarServis.Sil(pModel);
+                var data = _gidenIrsaliyeServis.Sil(pModel);
                 return Ok(data);
             }
             catch (Exception ex)
@@ -81,11 +81,11 @@ namespace MEYPAK.API.Controllers.EISLEMLER
         }
         [HttpPost]
         [Route("/[controller]/[action]")]
-        public IActionResult  Guncelle(PocoGIDENFATURA pModel)
+        public IActionResult Guncelle(PocoGIDENIRSALIYELER pModel)
         {
             try
             {
-                var data = _gidenFaturalarServis.Guncelle(pModel);
+                var data = _gidenIrsaliyeServis.Guncelle(pModel);
                 return Ok(data);
             }
             catch (Exception ex)
@@ -99,7 +99,7 @@ namespace MEYPAK.API.Controllers.EISLEMLER
         {
             try
             {
-                bool succes = _gidenFaturalarServis.DeleteById(id);
+                bool succes = _gidenIrsaliyeServis.DeleteById(id);
                 if (succes)
                     return Ok(id + " Başarıyla Silindi");
                 else

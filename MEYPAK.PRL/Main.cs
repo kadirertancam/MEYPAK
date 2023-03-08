@@ -1944,9 +1944,25 @@ namespace MEYPAK.PRL
             i++;
         }
 
-        private void panel6_Paint(object sender, PaintEventArgs e)
+        private void accordionControlElement21_Click(object sender, EventArgs e)
         {
+            XtraTabPage page = new XtraTabPage();
+            fGidenEArsiv = new FGidenEArsiv();
+            page.Name = "FGidenEArsiv" + i;
+            page.Text = "Giden EArşiv";
+            page.Tag = "FGidenEArsiv" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
 
+            fGidenEArsiv.FormBorderStyle = FormBorderStyle.None;
+            fGidenEArsiv.TopLevel = false;
+            fGidenEArsiv.AutoScroll = true;
+            fGidenEArsiv.Dock = DockStyle.Fill;
+            fGidenEArsiv.Tag = "FGidenEArsiv" + i;
+            page.Controls.Add(fGidenEArsiv);
+            fGidenEArsiv.Show();
+            i++;
         }
     }
 }
