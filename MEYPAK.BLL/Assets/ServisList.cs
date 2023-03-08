@@ -34,7 +34,15 @@ namespace MEYPAK.BLL.Assets
 
         #endregion
 
-        #region FORMYETKI
+        #region GIDENFATURALAR
+        public const string GidenIrsaliyelerListeServis =         "http://78.135.80.41:8081/GIDENIRSALIYELER/Liste";
+        public const string GidenIrsaliyelerEkleServis =          "http://78.135.80.41:8081/GIDENIRSALIYELER/EkleyadaGuncelle";
+        public const string GidenIrsaliyelerSilServis =           "http://78.135.80.41:8081/GIDENIRSALIYELER/Sil";
+        public const string GidenIrsaliyelerGuncelleServis =      "http://78.135.80.41:8081/GIDENIRSALIYELER/Guncelle";
+        public const string GidenIrsaliyelerDeleteByIdServis =    "http://78.135.80.41:8081/GIDENIRSALIYELER/DeleteById";
+        public const string GidenIrsaliyelerListeFiltreServis =   "http://78.135.80.41:8081/GIDENIRSALIYELER/Liste2";
+        #endregion
+             #region GIDENFATURALAR
         public const string GidenFaturalarListeServis =         "http://78.135.80.41:8081/GIDENFATURALAR/Liste";
         public const string GidenFaturalarEkleServis =          "http://78.135.80.41:8081/GIDENFATURALAR/EkleyadaGuncelle";
         public const string GidenFaturalarSilServis =           "http://78.135.80.41:8081/GIDENFATURALAR/Sil";

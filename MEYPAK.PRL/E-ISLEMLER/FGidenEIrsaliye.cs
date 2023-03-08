@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraEditors.Controls;
+﻿using DevExpress.Utils;
+using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.Repository;
 using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.PocoModels.CARI;
@@ -31,7 +32,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
         GenericWebServis<PocoIRSALIYEDETAY> irsaliyeDetayServis;
         GenericWebServis<PocoSTOK> stokServis;
         GenericWebServis<PocoSTOKMARKA> stokMarkaServis;
-        GenericWebServis<PocoGIDENFATURA> gidenFaturalarServis;
+        GenericWebServis<PocoGIDENIRSALIYELER> gidenIrsaliyelerServis;
         List<EFaturaGidenTask> tempIRSALIYE;
         PocoIRSALIYE irstemp;
         PocoCARIKART caritemp;
@@ -46,12 +47,12 @@ namespace MEYPAK.PRL.E_ISLEMLER
             irsaliyeServis.Data(ServisList.FaturaListeServis);
             cariServis.Data(ServisList.CariListeServis);
             irsaliyeDetayServis.Data(ServisList.FaturaDetayListeServis);
-            gidenFaturalarServis.Data(ServisList.GidenFaturalarListeServis);
+            gidenIrsaliyelerServis.Data(ServisList.GidenFaturalarListeServis);
             var client = CreateClient();
             var response2 = new InvoiceStatusResponse();
             var status = new InvoiceStatus();
             List<EFaturaGidenTask> eFaturaList = new List<EFaturaGidenTask>();
-            var ccf = irsaliyeServis.obje.Select(x => new EFaturaGidenTask { SEC = false, ID = x.id.ToString(), FATURALASTIR = "", BASIM = "", VKNTCK = cariServis.obje.Where(z => z.id == x.cariid).FirstOrDefault().vergino, CARIADI = cariServis.obje.Where(z => z.id == x.cariid).FirstOrDefault().unvan, BELGENO = x.belgeno, TARIH = x.faturatarihi, VADETARIHI = x.vadetarihi, TUTAR = x.geneltoplam, KDV = x.kdvtoplam, FATURATIP = "TEMELFATURA", TIP = "SATIS", DURUM = x.durum == true ? "GÖNDERİLDİ" : "BEKLEMEDE", ETTNO = gidenFaturalarServis.obje.Where(z => z.faturaid == x.id).Count() > 0 ? gidenFaturalarServis.obje.Where(z => z.faturaid == x.id).FirstOrDefault().ettno : "" }).ToList();
+            var ccf = irsaliyeServis.obje.Select(x => new EFaturaGidenTask { SEC = false, ID = x.id.ToString(), FATURALASTIR = "", BASIM = "", VKNTCK = cariServis.obje.Where(z => z.id == x.cariid).FirstOrDefault().vergino, CARIADI = cariServis.obje.Where(z => z.id == x.cariid).FirstOrDefault().unvan, BELGENO = x.belgeno, TARIH = x.irsaliyetarihi, VADETARIHI = x.vadetarihi, TUTAR = x.geneltoplam, KDV = x.kdvtoplam, FATURATIP = "TEMELFATURA", TIP = "SATIS", DURUM = x.durum == true ? "GÖNDERİLDİ" : "BEKLEMEDE", ETTNO = gidenIrsaliyelerServis.obje.Where(z => z.irsaliyeid == x.id).Count() > 0 ? gidenIrsaliyelerServis.obje.Where(z => z.irsaliyeid == x.id).FirstOrDefault().ettno : "" }).ToList();
             foreach (var item in ccf)
             {
 
@@ -199,14 +200,14 @@ namespace MEYPAK.PRL.E_ISLEMLER
             EFaturaGidenTask eFaturaGidenTask = (EFaturaGidenTask)gridView1.GetFocusedRow();
             irstemp = irsaliyeServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
             caritemp = cariServis.obje.Where(x => x.id == irstemp.cariid).FirstOrDefault();
-            irsDetaytemp = irsaliyeDetayServis.obje.Where(x => x.faturaid == irstemp.id).ToArray();
-            var ccc = irsaliyeDetayServis.obje.Where(x => x.faturaid == irstemp.id);
+            irsDetaytemp = irsaliyeDetayServis.obje.Where(x => x.irsaliyeid == irstemp.id).ToArray();
+            var ccc = irsaliyeDetayServis.obje.Where(x => x.irsaliyeid == irstemp.id);
             InvoiceLineType[] ınvoiceLineType = new InvoiceLineType[ccc.Count()];
             //Fatura Satır 1
             //},
 
 
-            for (int i = 0; i < irsaliyeDetayServis.obje.Where(x => x.faturaid == irstemp.id).Count(); i++)
+            for (int i = 0; i < irsaliyeDetayServis.obje.Where(x => x.irsaliyeid == irstemp.id).Count(); i++)
             {
                 tempStok = stokServis.obje.Where(x => x.id == irsDetaytemp[i].stokid).FirstOrDefault();
                 tempStokMarka = stokMarkaServis.obje.Where(x => x.id == tempStok.markaid).FirstOrDefault();
@@ -729,7 +730,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
                 // txtSampleOutboxGuid.Text = response.Value[0].Id.ToString();
                 textBox1.Text = response.Value[0].Id.ToString();
                 // Clipboard.SetText(response.Value[0].Id.ToString());
-                gidenFaturalarServis.Data(ServisList.GidenFaturalarEkleServis, new PocoGIDENFATURALAR()
+                gidenIrsaliyelerServis.Data(ServisList.GidenIrsaliyelerEkleServis, new PocoGIDENIRSALIYELER()
                 {
                     belgeno = irstemp.belgeno,
                     durum = 2,
@@ -738,7 +739,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
                     tip = 1,
                     tarih = DateTime.Now,
                     userid = MPKullanici.ID,
-                    faturaid = irstemp.id
+                    irsaliyeid = irstemp.id
 
                 });
                 irstemp.durum = true;
@@ -746,7 +747,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
                 irsaliyeServis.Data(ServisList.FaturaListeServis);
 
                 List<EFaturaGidenTask> eFaturaList = new List<EFaturaGidenTask>();
-                var ccf = irsaliyeServis.obje.Select(x => new EFaturaGidenTask { SEC = false, ID = x.id.ToString(), FATURALASTIR = "", BASIM = "", VKNTCK = cariServis.obje.Where(z => z.id == x.cariid).FirstOrDefault().vergino, CARIADI = cariServis.obje.Where(z => z.id == x.cariid).FirstOrDefault().unvan, BELGENO = x.belgeno, TARIH = x.faturatarihi, VADETARIHI = x.vadetarihi, TUTAR = x.geneltoplam, KDV = x.kdvtoplam, FATURATIP = "TEMELFATURA", TIP = "SATIS", DURUM = x.durum == true ? "ONAYLANDI" : "BEKLEMEDE", ETTNO = gidenFaturalarServis.obje.Where(z => z.faturaid == x.id).Count() > 0 ? gidenFaturalarServis.obje.Where(z => z.faturaid == x.id).FirstOrDefault().ettno : "" }).ToList();
+                var ccf = irsaliyeServis.obje.Select(x => new EFaturaGidenTask { SEC = false, ID = x.id.ToString(), FATURALASTIR = "", BASIM = "", VKNTCK = cariServis.obje.Where(z => z.id == x.cariid).FirstOrDefault().vergino, CARIADI = cariServis.obje.Where(z => z.id == x.cariid).FirstOrDefault().unvan, BELGENO = x.belgeno, TARIH = x.irsaliyetarihi, VADETARIHI = x.vadetarihi, TUTAR = x.geneltoplam, KDV = x.kdvtoplam, FATURATIP = "TEMELFATURA", TIP = "SATIS", DURUM = x.durum == true ? "ONAYLANDI" : "BEKLEMEDE", ETTNO = gidenIrsaliyelerServis.obje.Where(z => z.irsaliyeid == x.id).Count() > 0 ? gidenIrsaliyelerServis.obje.Where(z => z.irsaliyeid == x.id).FirstOrDefault().ettno : "" }).ToList();
                 foreach (var item in ccf)
                 {
 
@@ -772,7 +773,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
             }
             else
             {
-                gidenFaturalarServis.Data(ServisList.GidenFaturalarEkleServis, new PocoGIDENFATURALAR()
+                gidenIrsaliyelerServis.Data(ServisList.GidenIrsaliyelerEkleServis, new PocoGIDENIRSALIYELER()
                 {
                     belgeno = irstemp.belgeno,
                     durum = 1,
