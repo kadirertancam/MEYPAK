@@ -3,6 +3,7 @@ using MEYPAK.BLL.STOK;
 using MEYPAK.DAL.Abstract.StokDal;
 using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository;
+using MEYPAK.Entity.Models.FORMYETKI;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Depo;
 using MEYPAK.Interfaces.Kasa;
@@ -63,7 +64,8 @@ namespace MEYPAK.PRL.STOK
 
         private void BTKaydet_Click(object sender, EventArgs e)
         {
-
+            if (MPKullanici.YetkiGetir(AllForms.STOKKASATANIM.ToString()).EKLE==true)
+            {
             _kasaServis.Data(ServisList.StokKasaEkleServis, new PocoSTOKKASA
             {
                 id = _tempStokKasaPanel!=null? _tempStokKasaPanel.id:0,
@@ -77,6 +79,9 @@ namespace MEYPAK.PRL.STOK
             });
             MessageBox.Show("Kasa Başarıyla Eklendi.");
             DataGridDoldur();
+            }
+            else
+                MessageBox.Show(MPKullanici.hata);
         }
 
         private void FKasaPanel_Load(object sender, EventArgs e)
@@ -132,6 +137,8 @@ namespace MEYPAK.PRL.STOK
 
         private void BTSil_Click(object sender, EventArgs e)
         {
+            if (MPKullanici.YetkiGetir(AllForms.STOKKASATANIM.ToString()).SIL==true)
+            {
             if (_tempStokKasaPanel != null && _tempStokKasaPanel.id > 0)
             {
                 _kasaServis.Data(ServisList.StokKasaDeleteByIdServis, id: _tempStokKasaPanel.id.ToString(), method: HttpMethod.Post);
@@ -145,6 +152,9 @@ namespace MEYPAK.PRL.STOK
                 MessageBox.Show("Silinecek kasa bulunamadı!");
                 Temizle(this.Controls);
             }
+            }
+            else
+                MessageBox.Show(MPKullanici.hata);
 
 
             //_kasaServis.Data(ServisList.StokKasaListeServis);

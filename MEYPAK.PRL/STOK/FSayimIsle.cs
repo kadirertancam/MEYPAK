@@ -21,6 +21,7 @@ using MEYPAK.Interfaces;
 using Newtonsoft.Json;
 using System.IO;
 using System.Net.Http;
+using MEYPAK.Entity.Models.FORMYETKI;
 
 namespace MEYPAK.PRL.STOK
 {
@@ -64,38 +65,42 @@ namespace MEYPAK.PRL.STOK
 
         private void BTSayimIsle_Click(object sender, EventArgs e)
         {
-            if (_tempSayim != null)
+            if (MPKullanici.YetkiGetir(AllForms.SAYIMISLEME.ToString()).EKLE == true)
             {
-                _stokSayimHarServis.Data(ServisList.StokSayimHarListeServis);
-                _stokHarServis.Data(ServisList.StokHarListeServis);
-                foreach (var item in _stokSayimHarServis.obje.Where(x => x.stoksayimid == _tempSayim.id))
+                if (_tempSayim != null)
                 {
-                    
-                    List < PocoSTOKHAR > stokharlist = _stokHarServis.obje.Where(x => x.kayittipi == 0&&x.stokid == item.stokid&&x.depoid==_tempSayim.depoid).ToList();
-                    decimal a =  item.miktar - (stokharlist.Where(x => x.io == 1 && x.depoid == item.depoid && x.kayittipi==0).Sum(x => x.miktar) - stokharlist.Where(x => x.io == 0 && x.depoid == item.depoid && x.kayittipi == 0).Sum(x => x.miktar)) ;
-                    _stokHarServis.Data(ServisList.StokHarEkleServis,new PocoSTOKHAR()
-                    {    
-                        hareketturu = 11,
-                        birim = item.birimid,
-                        stokid = item.stokid,
-                        depoid = item.depoid,
-                        sayimid = item.stoksayimid,
-                        miktar = a <0 ? a*-1: a,
-                        io = a >0 ? 1 : 0,
-                        userid = MPKullanici.ID,
-                    });
+                    _stokSayimHarServis.Data(ServisList.StokSayimHarListeServis);
+                    _stokHarServis.Data(ServisList.StokHarListeServis);
+                    foreach (var item in _stokSayimHarServis.obje.Where(x => x.stoksayimid == _tempSayim.id))
+                    {
+
+                        List<PocoSTOKHAR> stokharlist = _stokHarServis.obje.Where(x => x.kayittipi == 0 && x.stokid == item.stokid && x.depoid == _tempSayim.depoid).ToList();
+                        decimal a = item.miktar - (stokharlist.Where(x => x.io == 1 && x.depoid == item.depoid && x.kayittipi == 0).Sum(x => x.miktar) - stokharlist.Where(x => x.io == 0 && x.depoid == item.depoid && x.kayittipi == 0).Sum(x => x.miktar));
+                        _stokHarServis.Data(ServisList.StokHarEkleServis, new PocoSTOKHAR()
+                        {
+                            hareketturu = 11,
+                            birim = item.birimid,
+                            stokid = item.stokid,
+                            depoid = item.depoid,
+                            sayimid = item.stoksayimid,
+                            miktar = a < 0 ? a * -1 : a,
+                            io = a > 0 ? 1 : 0,
+                            userid = MPKullanici.ID,
+                        });
+                    }
+                    _tempSayim.durum = 1;
+                    _tempSayim.userid = MPKullanici.ID;
+                    _stokSayimServis.Data(ServisList.StokSayimEkleServis, _tempSayim);
+                    TBDurum.Text = "Onaylandı";
+                    MessageBox.Show("Sayım başarıyla işlendi.");
                 }
-                _tempSayim.durum = 1;
-                _tempSayim.userid = MPKullanici.ID;
-                _stokSayimServis.Data(ServisList.StokSayimEkleServis,_tempSayim);
-                TBDurum.Text = "Onaylandı";
-                MessageBox.Show("Sayım başarıyla işlendi.");
+                else
+                {
+                    MessageBox.Show("İşlenecek Sayım bulunamadı. Lütfen bir cari seçiniz!");
+                }
             }
             else
-            {
-                MessageBox.Show("İşlenecek Sayım bulunamadı. Lütfen bir cari seçiniz!");
-            }
-
+                MessageBox.Show(MPKullanici.hata);
 
 
             //_stokServis.Data(ServisList.StokListeServis);
@@ -127,21 +132,26 @@ namespace MEYPAK.PRL.STOK
 
         private void BTKaldir_Click(object sender, EventArgs e)
         {
+            if (MPKullanici.YetkiGetir(AllForms.SAYIMISLEME.ToString()).SIL==true)
+            {
             if (_tempSayim != null)
             {
                 _stokSayimServis.Data(ServisList.StokSayimListeServis);
                 _stokHarServis.Data(ServisList.StokHarListeServis);
 
-                foreach (var item in _stokHarServis.obje.Where(z => z.kayittipi==0 && z.sayimid == _tempSayim.id))
+                foreach (var item in _stokHarServis.obje.Where(z => z.kayittipi == 0 && z.sayimid == _tempSayim.id))
                 {
-                    _stokHarServis.Data(ServisList.StokHarDeleteByIdServis, id: item.id.ToString(),method: HttpMethod.Post); 
+                    _stokHarServis.Data(ServisList.StokHarDeleteByIdServis, id: item.id.ToString(), method: HttpMethod.Post);
                 }
                 _tempSayim.durum = 0;
                 _tempSayim.userid = MPKullanici.ID;
-                _stokSayimServis.Data(ServisList.StokSayimEkleServis,_tempSayim);
+                _stokSayimServis.Data(ServisList.StokSayimEkleServis, _tempSayim);
                 TBDurum.Text = "Onaylanmadı";
                 MessageBox.Show("Sayım İşlemi Başarıyla Kaldırıldı!");
             }
+            }
+            else
+                MessageBox.Show(MPKullanici.hata);
         }
 
 

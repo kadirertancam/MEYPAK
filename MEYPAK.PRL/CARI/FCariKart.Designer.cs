@@ -2383,6 +2383,7 @@
             this.s.Size = new System.Drawing.Size(407, 379);
             this.s.TabIndex = 50;
             this.s.Text = "Genel Bilgi";
+            this.s.Paint += new System.Windows.Forms.PaintEventHandler(this.s_Paint);
             // 
             // BTSorgula
             // 

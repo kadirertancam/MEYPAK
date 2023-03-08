@@ -864,6 +864,11 @@ namespace MEYPAK.PRL.CARI
 
          
         }
+
+        private void s_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
 #endregion

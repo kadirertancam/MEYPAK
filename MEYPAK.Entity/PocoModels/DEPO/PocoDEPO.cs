@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.Entity.PocoModels.DEPO
 {
-    public class PocoDEPO:SUPERPOCOMODEL
+    public class PocoDEPO : SUPERPOCOMODEL
     {
-        public int sirketid { get; set; }=0;
+        public int sirketid { get; set; }
         public string depokodu { get; set; }
-        public string depoadi { get; set; } = "";
-        public string aciklama { get; set; } = "";
-        public int aktif { get; set; } = 0;
+        public string depoadi { get; set; }
+        public string aciklama { get; set; }
+        public int aktif { get; set; }
     }
 }

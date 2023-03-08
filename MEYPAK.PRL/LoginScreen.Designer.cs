@@ -46,7 +46,7 @@
             this.TBEmail.Name = "TBEmail";
             this.TBEmail.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.TBEmail.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TBEmail.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.TBEmail.Properties.Appearance.ForeColor = System.Drawing.Color.Silver;
             this.TBEmail.Properties.Appearance.Options.UseBackColor = true;
             this.TBEmail.Properties.Appearance.Options.UseFont = true;
             this.TBEmail.Properties.Appearance.Options.UseForeColor = true;
@@ -61,7 +61,7 @@
             this.TBSifre.Name = "TBSifre";
             this.TBSifre.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.TBSifre.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TBSifre.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.TBSifre.Properties.Appearance.ForeColor = System.Drawing.Color.Silver;
             this.TBSifre.Properties.Appearance.Options.UseBackColor = true;
             this.TBSifre.Properties.Appearance.Options.UseFont = true;
             this.TBSifre.Properties.Appearance.Options.UseForeColor = true;
@@ -74,12 +74,12 @@
             // 
             // comboBoxEdit1
             // 
-            this.comboBoxEdit1.EditValue = "ElizMeypak";
+            this.comboBoxEdit1.EditValue = "GÜNDÜZ MEY-PAK";
             this.comboBoxEdit1.Location = new System.Drawing.Point(650, 200);
             this.comboBoxEdit1.Name = "comboBoxEdit1";
             this.comboBoxEdit1.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.comboBoxEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBoxEdit1.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.comboBoxEdit1.Properties.Appearance.ForeColor = System.Drawing.Color.Silver;
             this.comboBoxEdit1.Properties.Appearance.Options.UseBackColor = true;
             this.comboBoxEdit1.Properties.Appearance.Options.UseFont = true;
             this.comboBoxEdit1.Properties.Appearance.Options.UseForeColor = true;
@@ -100,7 +100,7 @@
             this.comboBoxEdit2.Name = "comboBoxEdit2";
             this.comboBoxEdit2.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.comboBoxEdit2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBoxEdit2.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.comboBoxEdit2.Properties.Appearance.ForeColor = System.Drawing.Color.Silver;
             this.comboBoxEdit2.Properties.Appearance.Options.UseBackColor = true;
             this.comboBoxEdit2.Properties.Appearance.Options.UseFont = true;
             this.comboBoxEdit2.Properties.Appearance.Options.UseForeColor = true;
@@ -118,8 +118,10 @@
             // BTNGiris
             // 
             this.BTNGiris.Appearance.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.BTNGiris.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.BTNGiris.Appearance.ForeColor = System.Drawing.Color.Black;
             this.BTNGiris.Appearance.Options.UseBackColor = true;
+            this.BTNGiris.Appearance.Options.UseFont = true;
             this.BTNGiris.Appearance.Options.UseForeColor = true;
             this.BTNGiris.AppearanceDisabled.BackColor = System.Drawing.Color.Lime;
             this.BTNGiris.AppearanceDisabled.Options.UseBackColor = true;
@@ -135,7 +137,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Teal;
-            this.BackgroundImage = global::MEYPAK.PRL.Properties.Resources.giris;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(909, 561);
             this.Controls.Add(this.BTNGiris);
@@ -145,7 +147,6 @@
             this.Controls.Add(this.TBEmail);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LoginScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Giriş";

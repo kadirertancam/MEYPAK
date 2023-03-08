@@ -12,6 +12,7 @@ namespace MEYPAK.PRL
     public static class MPKullanici
     {
         //Kapsülleme
+        public const string  hata = "Bu işlemi yapmak için yetkiniz bulunmamaktadır! Lütfen Yönetinizle iletişime geçin.";
         public static string ID
         {
             get

@@ -64,7 +64,9 @@ namespace MEYPAK.PRL.STOK
         private void BTKaydet_Click(object sender, EventArgs e)
         {
 
-          
+            if (MPKullanici.YetkiGetir(AllForms.OLCUBIRIMTANIM.ToString()).EKLE==true)
+            {
+
             if (islemtipi == "Kayıt")
             {
                 if (_OlcuBrServis.obje.Where(x=>x.kayittipi==0 && x.adi == TBAdi.Text).Count()==0)
@@ -93,14 +95,17 @@ namespace MEYPAK.PRL.STOK
             MessageBox.Show("Kayıt Başarılı.");
             id = 0;
             DataGridDoldur();
-          
+
+            }
+            else
+                MessageBox.Show(MPKullanici.hata);
         }
          
         private void BTSil_Click(object sender, EventArgs e)
         {
-          
 
-           
+            if (MPKullanici.YetkiGetir(AllForms.OLCUBIRIMTANIM.ToString()).SIL==true)
+            {
             _OlcuBrServis.Data(ServisList.OlcuBrListeServis);
             _StokOlcuBrServis.Data(ServisList.StokOlcuBrListeServis);
             if (_StokOlcuBrServis.obje.Where(x=> x.olcubrid.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).Count()==0)
@@ -111,11 +116,12 @@ namespace MEYPAK.PRL.STOK
                 DataGridDoldur();
             }
             else
-            {
                 MessageBox.Show("Stok ile bağlantılı olan ölçü birim silinemez! ");
+
             }
-            
-   
+            else
+                MessageBox.Show(MPKullanici.hata);
+
 
         }
 
