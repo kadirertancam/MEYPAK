@@ -5,6 +5,7 @@ using MEYPAK.Entity.Models.CARI;
 using MEYPAK.Entity.Models.CEKSENET;
 using MEYPAK.Entity.Models.DEKONT;
 using MEYPAK.Entity.Models.DEPO;
+using MEYPAK.Entity.Models.DESTEKSERVİS;
 using MEYPAK.Entity.Models.EISLEMLER;
 using MEYPAK.Entity.Models.FATURA;
 using MEYPAK.Entity.Models.FORMYETKI;
@@ -20,6 +21,7 @@ using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.CEKSENET;
 using MEYPAK.Entity.PocoModels.DEKONT;
 using MEYPAK.Entity.PocoModels.DEPO;
+using MEYPAK.Entity.PocoModels.DESTEKSERVIS;
 using MEYPAK.Entity.PocoModels.EISLEMLER;
 using MEYPAK.Entity.PocoModels.FATURA;
 using MEYPAK.Entity.PocoModels.FORMYETKI;
@@ -182,6 +184,9 @@ namespace MEYPAK.Entity.Mappings
             CreateMap<MPSERI, PocoSERI>().ReverseMap();
 
 
+            //DESTEKSERVIS
+            CreateMap<MPDESTEKSERVİS, PocoDestekServis>().ReverseMap();
+            
 
 
         }

@@ -676,7 +676,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
             InvoiceInfo[] invoices = new InvoiceInfo[1];
             invoices[0] = invoiceInfo;
 
-            var response =   client.SendInvoiceAsync(invoices).Result;
+            var response = client.SendInvoiceAsync(invoices).Result;
             //InvoiceIdentitiesResponse response = client.SendInvoice(invoices);
 
             if (response.IsSucceded)
@@ -700,3 +700,5 @@ namespace MEYPAK.PRL.E_ISLEMLER
         }
     }
 }
+
+

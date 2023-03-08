@@ -42,6 +42,7 @@ namespace MEYPAK.BLL.Assets
         public const string GidenFaturalarDeleteByIdServis =    "http://78.135.80.41:8081/GIDENFATURALAR/DeleteById";
         public const string GidenFaturalarListeFiltreServis =   "http://78.135.80.41:8081/GIDENFATURALAR/Liste2";
         #endregion
+
         #region FORMYETKI
         public const string FormYetkiListeServis = "http://78.135.80.41:8081/FORMYETKI/Liste";
         public const string FormYetkiEkleServis = "http://78.135.80.41:8081/FORMYETKI/EkleyadaGuncelle";
@@ -50,6 +51,7 @@ namespace MEYPAK.BLL.Assets
         public const string FormYetkiDeleteByIdServis = "http://78.135.80.41:8081/FORMYETKI/DeleteById";
         public const string FormYetkiListeFiltreServis = "http://78.135.80.41:8081/FORMYETKI/Liste2";
         #endregion
+
         #region EFaturaParams
         public const string EFaturaParamsListeServis =              "http://78.135.80.41:8081/EFaturaParams/Liste";
         public const string EFaturaParamsEkleServis =               "http://78.135.80.41:8081/EFaturaParams/EkleyadaGuncelle";
@@ -880,6 +882,18 @@ namespace MEYPAK.BLL.Assets
         public const string MusteriCekSenetFiltreServis =     "http://78.135.80.41:8081/MUSTERICEKSENET/Liste2?query=";
 
         #endregion
+
+        #region DESTEKSERVIS
+        public const string DestekServisListeServis = "http://78.135.80.41:8081/DESTEKSERVIS/Liste";
+        public const string DestekServisEkleServis = "http://78.135.80.41:8081/DESTEKSERVIS/EkleyadaGuncelle";
+        public const string DestekServisSilServis = "http://78.135.80.41:8081/DESTEKSERVIS/Sil";
+        public const string DestekServisGuncelleServis = "http://78.135.80.41:8081/DESTEKSERVIS/Guncelle";
+        public const string DestekServisDeleteByIdServis = "http://78.135.80.41:8081/DESTEKSERVIS/DeleteById";
+        public const string DestekServisFiltreServis = "http://78.135.80.41:8081/DESTEKSERVIS/Liste2?query=";
+
+        #endregion
+
+
 
     }
 }

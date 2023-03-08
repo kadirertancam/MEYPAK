@@ -67,6 +67,10 @@ using MEYPAK.Interfaces.FormYetki;
 using MEYPAK.BLL.FORMYETKI;
 using MEYPAK.DAL.Abstract.FormYetkiDal;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository.FormYetkiRepo;
+using MEYPAK.DAL.Abstract.DestekServisDal;
+using MEYPAK.DAL.Concrete.EntityFramework.Repository.DestekServisRepo;
+using MEYPAK.Interfaces.DestekServis;
+using MEYPAK.BLL.DESTEKSERVIS;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -113,16 +117,19 @@ builder.Services.AddAutoMapper(x =>
 builder.Services.AddScoped<IGidenFaturalarDal, EFGidenFaturalarRepo>();
 builder.Services.AddScoped<IGidenFaturalarServis, GidenFaturalarManager>();
 #endregion
+
 #region FATURA PARAMETRE
 
 builder.Services.AddScoped<IEFaturaParamsDal, EFEFaturaParamsRepo>();
 builder.Services.AddScoped<IEFaturaParamServis, EFaturaParamsManager>();
 #endregion
+
 #region DEKONT
 
 builder.Services.AddScoped<IDekontDal, EFDekontRepo>();
 builder.Services.AddScoped<IDekontServis, DekontManager>();
 #endregion
+
 #region EISLEMLER
 
 builder.Services.AddScoped<IGelenEFaturaDal, EFGelenEFaturaRepo>();
@@ -131,6 +138,7 @@ builder.Services.AddScoped<IGelenFaturaServis, GelenEFaturaManager>();
 builder.Services.AddScoped<IMukellefListDal, EFMukellefListRepo>();
 builder.Services.AddScoped<IMukellefListesiServis, MukellefListesiManager>();
 #endregion
+
 #region FORMYETKI
 
 builder.Services.AddScoped<IFormDal, EFFormRepo>();
@@ -139,6 +147,7 @@ builder.Services.AddScoped<IFormServis, FormManager>();
 builder.Services.AddScoped<IFormYetkiDal, EFFormYetkiRepo>();
 builder.Services.AddScoped<IFormYetkiServis, FormYetkiManager>();
 #endregion
+
 #region CekSenet_Scoped_Islemleri
 builder.Services.AddScoped<ICekSenetUstSBDal, EFCekSenetUstSBRepo>();
 builder.Services.AddScoped<ICekSenetUstSBServis, CekSenetUstSBManager>();
@@ -184,6 +193,7 @@ builder.Services.AddScoped<IMusteriCekSenetServis, MusteriCekSenetManager>();
 
 
 #endregion
+
 #region Banka_Scoped_Islemleri
 builder.Services.AddScoped<IBankaDal, EFBankaRepo>();
 builder.Services.AddScoped<IBankaServis, BankaManager>();
@@ -200,6 +210,7 @@ builder.Services.AddScoped<IHesapHarServis, HesapHarManager>();
 builder.Services.AddScoped<IKrediKartiDal, EFKrediKartRepo>();
 builder.Services.AddScoped<IKrediKartServis, KrediKartManager>();
 #endregion
+
 #region Parametre_Scoped_Islemleri
 builder.Services.AddScoped<IParaBirimDal, EFParaBirimRepo>();
 builder.Services.AddScoped<IParaBirimServis, ParaBirimManager>();
@@ -213,6 +224,7 @@ builder.Services.AddScoped<IPersonelParametreServis, PersonelParametreManager>()
 builder.Services.AddScoped<IKasaParamsDal, EFKasaParamsRepo>();
 builder.Services.AddScoped<IKasaParamServis, KasaParamsManager>();
 #endregion
+
 #region Cari_Scoped_Islemleri
 builder.Services.AddScoped<ICariResimDal, EFCariResimRepo>();
 builder.Services.AddScoped<ICariResimServis, CariResimManager>();
@@ -242,6 +254,7 @@ builder.Services.AddScoped<ICariDokumanDal,EFCariDokumanRepo>();
 builder.Services.AddScoped<ICariDokumanServis, CariDokumanManager>();
 
 #endregion
+
 #region STOK_Scoped_Islemleri
 builder.Services.AddScoped<IStokKasaMarkaDal, EFStokKasaMarkaRepo>();
 builder.Services.AddScoped<IStokKasaMarkaServis, StokKasaMarkaManager>();
@@ -284,6 +297,7 @@ builder.Services.AddScoped<IStokFiyatHarDal, EFStokFiyatHarRepo>();
 builder.Services.AddScoped<IStokFiyatHarServis, StokFiyatHarManager>();
 
 #endregion
+
 #region DEPO_Scoped_Islemleri
 builder.Services.AddScoped<IDepoDal, EFDepoRepo>();
 builder.Services.AddScoped<IDepoServis, DepoManager>();
@@ -310,6 +324,7 @@ builder.Services.AddScoped<IStokMalKKabulListDal, EFStokMalKabulList>();
 builder.Services.AddScoped<IStokMalKabulListServis, StokMalKabulListManager>();
 
 #endregion
+
 #region IRSALIYE_Scoped_Islemleri
 
 builder.Services.AddScoped<IIrsaliyeDal, EFIrsaliyeRepo>();
@@ -319,6 +334,7 @@ builder.Services.AddScoped<IIrsaliyeDetayDal, EFIrsaliyeDetayRepo>();
 builder.Services.AddScoped<IIrsaliyeDetayServis, IrsaliyeDetayManager>();
 
 #endregion
+
 #region HIZMET_Scoped_Islemleri
 builder.Services.AddScoped<IHizmetDal, EFHizmetRepo>();
 builder.Services.AddScoped<IHizmetServis, HizmetManager>();
@@ -329,6 +345,7 @@ builder.Services.AddScoped<IHizmetHarServis, HizmetHarManager>();
 builder.Services.AddScoped<IHizmetKategoriDal, EFHizmetKategoriRepo>();
 builder.Services.AddScoped<IHizmetKategoriServis, HizmetKategoriManager>();
 #endregion
+
 #region PERSONEL_Scoped_Islemleri
 
 builder.Services.AddScoped<IPersonelDal, EFPersonelRepo>();
@@ -355,6 +372,7 @@ builder.Services.AddScoped<IPersonelAvansServis, PersonelAvansManager>();
 builder.Services.AddScoped<IPersonelBelgeDal,  EFPersonelBelgeRepo>();
 builder.Services.AddScoped<IPersonelBelgeServis, PersonelBelgeManager>();
 #endregion
+
 #region SIPARIS_Scoped_Islemleri
 builder.Services.AddScoped<ISiparisDal, EFSiparisRepo>();
 builder.Services.AddScoped<ISiparisServis, SiparisManager>();
@@ -372,6 +390,7 @@ builder.Services.AddScoped<ISiparisKasaHarDal, EFSiparisKasaHarRepo>();
 builder.Services.AddScoped<ISiparisKasaHarServis, SiparisKasaHarManager>();
 
 #endregion
+
 #region ARAC_Scoped_Islemleri
 builder.Services.AddScoped<IAracDal, EFAracRepo>();
 builder.Services.AddScoped<IAracServis, AracManager>();
@@ -400,6 +419,7 @@ builder.Services.AddScoped<IAracRotaServis, AracRotaManager>();
 builder.Services.AddScoped<ISoforDal, EFSoforRepo>();
 builder.Services.AddScoped<ISoforServis, SoforManager>();
 #endregion
+
 #region KASA_Scoped_Islemleri
 builder.Services.AddScoped<IKasaDal, EFKasaRepo>();
 builder.Services.AddScoped<IKasaServis, KasaManager>();
@@ -410,6 +430,7 @@ builder.Services.AddScoped<IKasaHarServis, KasaHarManager>();
 builder.Services.AddScoped<IStokKasaHarDal, EFStokKasaHarRepo>();
 builder.Services.AddScoped<IStokKasaHarServis, StokKasaHarManager>();
 #endregion
+
 #region Fatura_Scoped_Islemleri
 builder.Services.AddScoped<IFaturaDal, EFFaturaRepo>();
 builder.Services.AddScoped<IFaturaServis, FaturaManager>();
@@ -420,6 +441,7 @@ builder.Services.AddScoped<IFaturaDetayServis, FaturaDetayManager>();
 builder.Services.AddScoped<ISeriDal, EFSeriRepo>();
 builder.Services.AddScoped<ISeriServis, SeriManager>();
 #endregion
+
 #region STOKSARF_Scoped_Islemleri
 
 builder.Services.AddScoped<IStokSarfDal, EFStokSarfRepo>();
@@ -430,9 +452,11 @@ builder.Services.AddScoped<IStokSarfDetayServis, StokSarfDetayManager>();
 
 #endregion
 
+#region DestekServis_Scoped_Islemleri
+builder.Services.AddScoped<IDestekServisDal, EFDestekServisRepo>();
+builder.Services.AddScoped<IDestekServis, DestekServisManager>();
 
-
-
+#endregion
 
 
 builder.Services.AddControllers();
