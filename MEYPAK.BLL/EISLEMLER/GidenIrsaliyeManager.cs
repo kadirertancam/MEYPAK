@@ -12,14 +12,15 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.BLL.EISLEMLER
 {
-    public class GidenFaturalarManager : BaseManager<PocoGIDENFATURA, MPGIDENFATURALAR>, IGidenFaturalarServis
+    public class GidenIrsaliyeManager : BaseManager<PocoGIDENIRSALIYELER, MPGIDENIRSALIYELER>,IGidenIrsaliyeServis
     {
+        IGidenIrsaliyeDal gidenIrsaliyeDal;
         IMapper _mapper;
-        IGidenFaturalarDal gidenFaturalarDal;
-        public GidenFaturalarManager(IMapper mapper, IGidenFaturalarDal repo) : base(mapper, repo)
+
+        public GidenIrsaliyeManager(IMapper mapper, IGidenIrsaliyeDal repo) : base(mapper, repo)
         {
             _mapper = mapper;
-            gidenFaturalarDal = repo;
+            gidenIrsaliyeDal = repo;
         }
     }
 }

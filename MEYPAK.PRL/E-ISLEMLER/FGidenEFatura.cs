@@ -43,7 +43,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
             faturaDetayServis = new GenericWebServis<PocoFATURADETAY>();
             stokServis = new GenericWebServis<PocoSTOK>();
             stokMarkaServis = new GenericWebServis<PocoSTOKMARKA>();
-            gidenFaturalarServis = new GenericWebServis<PocoGIDENFATURALAR>();
+            gidenFaturalarServis = new GenericWebServis<PocoGIDENFATURA>();
 
         }
         GenericWebServis<PocoCARIKART> cariServis;
@@ -51,7 +51,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
         GenericWebServis<PocoFATURADETAY> faturaDetayServis;
         GenericWebServis<PocoSTOK> stokServis;
         GenericWebServis<PocoSTOKMARKA> stokMarkaServis;
-        GenericWebServis<PocoGIDENFATURALAR> gidenFaturalarServis;
+        GenericWebServis<PocoGIDENFATURA> gidenFaturalarServis;
         List<EFaturaGidenTask> tempFatura;
         PocoFATURA fattemp;
         PocoCARIKART caritemp;
@@ -832,7 +832,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
                 // txtSampleOutboxGuid.Text = response.Value[0].Id.ToString();
                 textBox1.Text = response.Value[0].Id.ToString();
                 // Clipboard.SetText(response.Value[0].Id.ToString());
-                gidenFaturalarServis.Data(ServisList.GidenFaturalarEkleServis, new PocoGIDENFATURALAR()
+                gidenFaturalarServis.Data(ServisList.GidenFaturalarEkleServis, new PocoGIDENFATURA()
                 {
                     belgeno = fattemp.belgeno,
                     durum = 2,
@@ -873,7 +873,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
             }
             else
             {
-                gidenFaturalarServis.Data(ServisList.GidenFaturalarEkleServis, new PocoGIDENFATURALAR()
+                gidenFaturalarServis.Data(ServisList.GidenFaturalarEkleServis, new PocoGIDENFATURA()
                 {
                     belgeno = fattemp.belgeno,
                     durum = 1,

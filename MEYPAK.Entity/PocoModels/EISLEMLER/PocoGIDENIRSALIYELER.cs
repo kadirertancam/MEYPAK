@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.Entity.PocoModels.EISLEMLER
 {
-    internal class PocoGIDENIRSALIYELER:SUPERPOCOMODEL
+    public class PocoGIDENIRSALIYELER:SUPERPOCOMODEL
     {
         public DateTime tarih { get; set; }
         public int irsaliyeid { get; set; }

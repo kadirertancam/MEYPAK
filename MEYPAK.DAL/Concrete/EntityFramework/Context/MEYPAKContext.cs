@@ -33,6 +33,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
            
 
         }
+        public DbSet<MPGIDENIRSALIYELER> MPGIDENIRSALIYELER { get; set; }
         public DbSet<MPGIDENFATURALAR> MPGIDENFATURALAR { get; set; }
         public DbSet<MPDEKONT> MPDEKONT { get; set; }
         public DbSet<MPEFATURAPARAMS> MPEFATURAPARAM { get; set; }

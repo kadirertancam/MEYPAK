@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.Entity.PocoModels.EISLEMLER
 {
-    public class PocoGIDENFATURALAR:SUPERPOCOMODEL
+    public class PocoGIDENFATURA:SUPERPOCOMODEL
     {
         public DateTime tarih { get; set; }
         public int faturaid { get; set; }
