@@ -31,9 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FDestekServis));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.LBBaslik = new DevExpress.XtraEditors.LabelControl();
-            this.LBDepartman = new DevExpress.XtraEditors.LabelControl();
             this.LBMesaj = new DevExpress.XtraEditors.LabelControl();
+            this.LBDepartman = new DevExpress.XtraEditors.LabelControl();
+            this.LBBaslik = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
@@ -62,13 +62,13 @@
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Destek Servis";
             // 
-            // LBBaslik
+            // LBMesaj
             // 
-            this.LBBaslik.Location = new System.Drawing.Point(79, 57);
-            this.LBBaslik.Name = "LBBaslik";
-            this.LBBaslik.Size = new System.Drawing.Size(26, 13);
-            this.LBBaslik.TabIndex = 43;
-            this.LBBaslik.Text = "Başlık";
+            this.LBMesaj.Location = new System.Drawing.Point(55, 90);
+            this.LBMesaj.Name = "LBMesaj";
+            this.LBMesaj.Size = new System.Drawing.Size(28, 13);
+            this.LBMesaj.TabIndex = 45;
+            this.LBMesaj.Text = "Mesaj";
             // 
             // LBDepartman
             // 
@@ -78,13 +78,13 @@
             this.LBDepartman.TabIndex = 44;
             this.LBDepartman.Text = "Departman";
             // 
-            // LBMesaj
+            // LBBaslik
             // 
-            this.LBMesaj.Location = new System.Drawing.Point(77, 90);
-            this.LBMesaj.Name = "LBMesaj";
-            this.LBMesaj.Size = new System.Drawing.Size(28, 13);
-            this.LBMesaj.TabIndex = 45;
-            this.LBMesaj.Text = "Mesaj";
+            this.LBBaslik.Location = new System.Drawing.Point(57, 57);
+            this.LBBaslik.Name = "LBBaslik";
+            this.LBBaslik.Size = new System.Drawing.Size(26, 13);
+            this.LBBaslik.TabIndex = 43;
+            this.LBBaslik.Text = "Başlık";
             // 
             // FDestekServis
             // 
