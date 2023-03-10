@@ -83,7 +83,7 @@ namespace MEYPAK.PRL.PERSONEL
             var temp2 = gridControl1.DataSource;
             foreach (var item in (List<PersonelMaasTemp>)temp2)
             {
-                item.SONUC = Math.Round( (item.KARTAYATAN + item.BES ) - item.MESAI - item.TRAFIKCEZASI - item.AVANS - item.HACIZ - item.MAAS-item.GELMEDIGIGUN,2);
+                item.SONUC = Math.Round((item.MAAS + item.MESAI) - item.BES - item.TRAFIKCEZASI - item.AVANS - item.HACIZ - item.KARTAYATAN - item.GELMEDIGIGUN, 2);
             }
             gridControl1.RefreshDataSource();
             SaveFileDialog ffw = new SaveFileDialog();
@@ -247,7 +247,6 @@ namespace MEYPAK.PRL.PERSONEL
                        
                             try
                             {
-
                                 temp.Where(x => x.TC == DagitilanMaasexcelReader[0].ToString()).FirstOrDefault().MAAS = DagitilanMaasexcelReader.GetDouble(3);
                             }
                             catch (Exception)
@@ -265,6 +264,16 @@ namespace MEYPAK.PRL.PERSONEL
                 gridControl1.DataSource = temp;
                 gridControl1.RefreshDataSource();
             }
+        }
+
+        private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            var temp2 = gridControl1.DataSource;
+            foreach (var item in (List<PersonelMaasTemp>)temp2)
+            {
+                item.SONUC = Math.Round((item.MAAS + item.MESAI) - item.BES - item.TRAFIKCEZASI - item.AVANS - item.HACIZ - item.KARTAYATAN - item.GELMEDIGIGUN, 2);
+            }
+            gridControl1.RefreshDataSource();
         }
     }
 }

@@ -7,7 +7,7 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
-    <Platforms>AnyCPU;x64</Platforms>
+    <Platforms>AnyCPU;x64;x86</Platforms>
   </PropertyGroup>
   <PropertyGroup>
     <PublishReadyToRun>true</PublishReadyToRun>
@@ -19,7 +19,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <PublishReadyToRun>true</PublishReadyToRun>
-    <PlatformTarget>x64</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <ApplicationIcon>icon.ico</ApplicationIcon>
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
@@ -44,6 +44,7 @@
     <Content Include="icon.ico" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="AForge.Video" Version="2.2.5" />
     <PackageReference Include="DevExpress.Win.Design" Version="22.1.3" />
     <PackageReference Include="devexpress.win.navigation" Version="22.1.3" />
     <PackageReference Include="ExcelDataReader" Version="3.6.0" />
@@ -66,6 +67,8 @@
     <PackageReference Include="System.ServiceModel.Http" Version="4.8.*" />
     <PackageReference Include="System.ServiceModel.NetTcp" Version="4.8.*" />
     <PackageReference Include="System.ServiceModel.Security" Version="4.8.*" />
+    <PackageReference Include="System.Windows.Extensions" Version="6.0.0" />
+    <PackageReference Include="VideoLAN.LibVLC.iOS" Version="3.3.18" />
     <PackageReference Include="XmlSerializerHelper" Version="4.0.19096.1" />
   </ItemGroup>
 
@@ -100,6 +103,12 @@
 
   <ItemGroup>
     <Folder Include="CEKSENET\Raporlar\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Mpv.NET">
+      <HintPath>..\..\..\..\..\Desktop\Yeni klasör (14)\Mpv.NET-lib--master\src\Mpv.NET.WinFormsExample\bin\Debug\Mpv.NET.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

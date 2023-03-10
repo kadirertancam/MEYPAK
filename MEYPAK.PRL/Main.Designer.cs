@@ -1912,6 +1912,7 @@
             this.accordionControlElement63,
             this.accordionControlElement20});
             this.accordionControlElement27.Enabled = false;
+            this.accordionControlElement27.Expanded = true;
             this.accordionControlElement27.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement27.ImageOptions.Image")));
             this.accordionControlElement27.Name = "accordionControlElement27";
             this.accordionControlElement27.Text = "E-İşlemler";

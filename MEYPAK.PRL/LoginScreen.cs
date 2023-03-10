@@ -4,15 +4,18 @@ using MEYPAK.PRL.CEKSENET.Firma.Çek;
 using MEYPAK.PRL.DEKONT;
 using MEYPAK.PRL.PERSONEL;
 using Microsoft.AspNetCore.Identity;
+using Mpv.NET.Player;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Media;
 
 namespace MEYPAK.PRL
 {
@@ -27,6 +30,7 @@ namespace MEYPAK.PRL
         Main fMain;
         GenericWebServis<LoginModel> _loginService;
         FPersonelMaas maas;
+        
 
         private void BTNGiris_Click(object sender, EventArgs e)
         {
@@ -41,6 +45,8 @@ namespace MEYPAK.PRL
 
                 if (_loginService.loginResult !=null)
                 {
+                    //FPersonelMaas maas = new FPersonelMaas();
+                    //maas.Show();
                     fMain = new Main(_loginService.loginResult.MPUSER, _loginService.loginResult.userRoles);
                     fMain.Show();
                     this.Hide();
@@ -62,6 +68,17 @@ namespace MEYPAK.PRL
             {
                 BTNGiris_Click(sender, e);
             }
+        }
+        private MpvPlayer player;
+        private void LoginScreen_Load(object sender, EventArgs e)
+        {
+            //player = new MpvPlayer(this.Handle)
+            //{
+            //    Loop = false,
+            //    Volume = 50
+            //};
+            //player.Load(@"C:\Users\User\Desktop\Yeni klasör (14)\shutterstock_1063987486.mov");
+            //player.Resume();
         }
     }
 }

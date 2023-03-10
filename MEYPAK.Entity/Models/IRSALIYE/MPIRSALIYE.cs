@@ -57,6 +57,7 @@ namespace MEYPAK.Entity.Models.IRSALIYE
         public decimal BRUTTOPLAM { get; set; } = 0;
         public decimal GENELTOPLAM { get; set; } = 0;
         public int ARACID { get; set; }
+        public int DORSEID { get; set; } = 0;
         public int PERSONELID { get; set; }
         public int TIP { get; set; }
         public bool DURUM { get; set; }

@@ -42,8 +42,22 @@ namespace MEYPAK.PRL.E_ISLEMLER
         PocoSTOK tempStok;
         PocoSTOKMARKA tempStokMarka;
         RepositoryItemLookUpEdit riLookup, riLookup2;
-    
 
+        public IntegrationClient CreateClient()
+        {
+            var username = "Uyumsoft";
+            var password = "Uyumsoft";
+            var serviceuri = "https://efatura-test.uyumsoft.com.tr/services/Integration";
+
+
+            var client = new IntegrationClient();
+            client.Endpoint.Address = new System.ServiceModel.EndpointAddress(serviceuri);
+            //  var client = new IntegrationClient();
+            client.ClientCredentials.UserName.UserName = username;
+            client.ClientCredentials.UserName.Password = password;
+            //var response = client.IsEInvoiceUser("9000068418",string.Empty);
+            return client;
+        }
         private void FGidenEArsiv_Load(object sender, EventArgs e)
         {
             stokMarkaServis.Data(ServisList.StokMarkaListeServis);
@@ -51,7 +65,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
             faturaServis.Data(ServisList.FaturaListeServis);
             cariServis.Data(ServisList.CariListeServis);
             faturaDetayServis.Data(ServisList.FaturaDetayListeServis);
-            //var client = CreateClient();
+            var client = CreateClient();
             List<EFaturaGidenTask> eArsivList=new List<EFaturaGidenTask>();
             var ccf= faturaServis.obje.Where(x => x.durum == false).Select(x => new EFaturaGidenTask { SEC = false, ID = x.id.ToString(), FATURALASTIR = "", BASIM = "", VKNTCK = cariServis.obje.Where(z => z.id == x.cariid).FirstOrDefault().vergino, CARIADI = cariServis.obje.Where(z => z.id == x.cariid).FirstOrDefault().unvan, BELGENO = x.belgeno, TARIH = x.faturatarihi, VADETARIHI = x.vadetarihi, TUTAR = x.geneltoplam, KDV = x.kdvtoplam, FATURATIP = "TEMELFATURA", TIP = "SATIS", DURUM = x.durum == true ? "ONAYLANDI" : "BEKLEMEDE" }).ToList();
             foreach (var item in ccf)
@@ -59,14 +73,14 @@ namespace MEYPAK.PRL.E_ISLEMLER
               
                 try
                 {
-                    //var response = client.IsEInvoiceUserAsync(item.VKNTCK, "").Result;
-                    //if (!response.Value)
-                    //{
-                    //    eArsivList.Add(item);
-                    //}
-                   
+                    var response = client.IsEInvoiceUserAsync(item.VKNTCK, "").Result;
+                    if (!response.Value)
+                    {
+                        eArsivList.Add(item);
+                    }
+
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
 
                 }       
@@ -669,34 +683,34 @@ namespace MEYPAK.PRL.E_ISLEMLER
 
         private void RepositoryItemButtonEdit_ButtonClick1Async(object sender, ButtonPressedEventArgs e)
         {
-            //var client = CreateClient();
+            var client = CreateClient();
 
-            //var invoiceInfo = CreateInvoice();
+            var invoiceInfo = CreateInvoice();
 
-            //InvoiceInfo[] invoices = new InvoiceInfo[1];
-            //invoices[0] = invoiceInfo;
+            InvoiceInfo[] invoices = new InvoiceInfo[1];
+            invoices[0] = invoiceInfo;
 
-            //var response = client.SendInvoiceAsync(invoices).Result;
-            ////InvoiceIdentitiesResponse response = client.SendInvoice(invoices);
+            var response = client.SendInvoiceAsync(invoices).Result;
+            //InvoiceIdentitiesResponse response = client.SendInvoice(invoices);
 
-            //if (response.IsSucceded)
-            //{
+            if (response.IsSucceded)
+            {
 
-            //    MessageBox.Show(
-            //        string.Format("EArsiv Fatura Gönderildi\n UUID:{0} \n ID:{1} \n Fatura Tipi:{2} ",
-            //                response.Value[0].Id.ToString(),
-            //                response.Value[0].Number.ToString(),
-            //                response.Value[0].InvoiceScenario.ToString()
-            //                )
-            //                );
-            //    // txtSampleOutboxGuid.Text = response.Value[0].Id.ToString();
-            //    textBox1.Text = response.Value[0].Id.ToString();
-            //    // Clipboard.SetText(response.Value[0].Id.ToString());
-            //}
-            //else
-            //{
-            //    MessageBox.Show(response.Message);
-            //}
+                MessageBox.Show(
+                    string.Format("EArsiv Fatura Gönderildi\n UUID:{0} \n ID:{1} \n Fatura Tipi:{2} ",
+                            response.Value[0].Id.ToString(),
+                            response.Value[0].Number.ToString(),
+                            response.Value[0].InvoiceScenario.ToString()
+                            )
+                            );
+                // txtSampleOutboxGuid.Text = response.Value[0].Id.ToString();
+                textBox1.Text = response.Value[0].Id.ToString();
+                // Clipboard.SetText(response.Value[0].Id.ToString());
+            }
+            else
+            {
+                MessageBox.Show(response.Message);
+            }
         }
     }
 }

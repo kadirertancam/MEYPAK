@@ -148,6 +148,7 @@ namespace MEYPAK.PRL
         FGidenEFatura fGidenEFatura;
         EFaturaParams eFaturaParams;
         FGidenEArsiv fGidenEArsiv;
+        FGidenEIrsaliye fGidenEIrsaliye;
 
         public Tarih_Date _tarih_Date = new Tarih_Date();
         public DataTable guncelkur;
@@ -1947,21 +1948,21 @@ namespace MEYPAK.PRL
         private void accordionControlElement21_Click(object sender, EventArgs e)
         {
             XtraTabPage page = new XtraTabPage();
-            fGidenEArsiv = new FGidenEArsiv();
-            page.Name = "FGidenEArsiv" + i;
-            page.Text = "Giden EArşiv";
-            page.Tag = "FGidenEArsiv" + i;
+            fGidenEIrsaliye = new FGidenEIrsaliye();
+            page.Name = "FGidenEIrsaliye" + i;
+            page.Text = "Giden EIrsaliye";
+            page.Tag = "FGidenEIrsaliye" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
             xtraTabControl1.TabPages.Add(page);
             xtraTabControl1.SelectedTabPage = page;
 
-            fGidenEArsiv.FormBorderStyle = FormBorderStyle.None;
-            fGidenEArsiv.TopLevel = false;
-            fGidenEArsiv.AutoScroll = true;
-            fGidenEArsiv.Dock = DockStyle.Fill;
-            fGidenEArsiv.Tag = "FGidenEArsiv" + i;
-            page.Controls.Add(fGidenEArsiv);
-            fGidenEArsiv.Show();
+            fGidenEIrsaliye.FormBorderStyle = FormBorderStyle.None;
+            fGidenEIrsaliye.TopLevel = false;
+            fGidenEIrsaliye.AutoScroll = true;
+            fGidenEIrsaliye.Dock = DockStyle.Fill;
+            fGidenEIrsaliye.Tag = "FGidenEIrsaliye" + i;
+            page.Controls.Add(fGidenEIrsaliye);
+            fGidenEIrsaliye.Show();
             i++;
         }
     }

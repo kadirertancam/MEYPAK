@@ -46,6 +46,7 @@ namespace MEYPAK.Entity.PocoModels.IRSALIYE
         public decimal bruttoplam { get; set; } = 0;
         public decimal geneltoplam { get; set; } = 0;
         public int aracid { get; set; }
+        public int dorseid { get; set; } = 0;
         public int personelid { get; set; }
         public int tip { get; set; }
         public bool durum { get; set; }

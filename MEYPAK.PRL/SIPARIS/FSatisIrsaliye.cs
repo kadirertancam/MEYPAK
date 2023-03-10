@@ -3,6 +3,8 @@ using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid.Columns;
 using MEYPAK.BLL.Assets;
+using MEYPAK.Entity.Models.ARAC;
+using MEYPAK.Entity.Models.PERSONEL;
 using MEYPAK.Entity.PocoModels;
 using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.DEPO;
@@ -43,7 +45,8 @@ namespace MEYPAK.PRL.IRSALIYE
             CBParaBirimi.Properties.DataSource = _paraBirimServis.obje.Where(x => x.kayittipi == 0).Select(x => x.adi).ToList();
             CBDepo.Properties.DataSource = _depoServis.obje.Where(x => x.kayittipi == 0).Select(x => x.depoadi).ToList();
             CBDepo.Text = _depoServis.obje.Where(x => x.kayittipi == 0).Select(x => x.depoadi).FirstOrDefault();
-
+            _personelServis = new GenericWebServis<MPPERSONEL>();
+            _araclarServis = new GenericWebServis<MPARAC>();
             CBParaBirimi.Text = _paraBirimServis.obje.Where(x => x.kayittipi == 0 && x.adi == "TÜRK LİRASI").Select(x => x.adi).FirstOrDefault();
             _irsaliyeServis = new GenericWebServis<PocoIRSALIYE>();
             _irsaliyeDetayServis = new GenericWebServis<PocoIRSALIYEDETAY>();
@@ -97,6 +100,8 @@ namespace MEYPAK.PRL.IRSALIYE
         public PocoIRSALIYE _tempIrsaliye;
         public PocoCARIKART _tempCariKart;
         public PocoHIZMET _tempHizmet;
+        GenericWebServis<MPPERSONEL> _personelServis;
+        GenericWebServis<MPARAC> _araclarServis;
         DataGridViewButtonColumn DGVStokSec;
         DataGridViewButtonColumn DGVKasaSec;
         DataGridViewComboBoxColumn DGVFiyatList;
@@ -895,6 +900,11 @@ namespace MEYPAK.PRL.IRSALIYE
             ffaturaBasim.IrsaliyeBasim(_tempIrsaliye.id);
         }
 
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
         private void DTPVadeTarihi_EditValueChanged(object sender, EventArgs e)
         {
             TimeSpan a = Convert.ToDateTime(((DateTime)DTPVadeTarihi.EditValue).ToString("dd.MM.yyyy")) - Convert.ToDateTime(DateTime.Now.ToString("dd.MM.yyyy"));
@@ -953,6 +963,9 @@ namespace MEYPAK.PRL.IRSALIYE
                     nettoplam = _tempIrsaliyeDetay.Sum(x => x.NetToplam),
                     geneltoplam = _tempIrsaliyeDetay.Sum(x => x.KdvTutarı) + _tempIrsaliyeDetay.Sum(x => x.NetToplam),
                     kdvdahil = CHBKdvDahil.Checked,
+                     aracid= _araclarServis.obje.Where(x=>x.PLAKA== CBAracListesi.Text).FirstOrDefault().ID,
+                     dorseid= _araclarServis.obje.Where(x => x.PLAKA == CBDorseListesi.Text).FirstOrDefault().ID,
+                      personelid=_personelServis.obje.Where(x=>x.ADISOYADI==CBSoforListesi.Text).FirstOrDefault().ID,
                     tip = 0,
                     userid = MPKullanici.ID,
                 });
@@ -1181,6 +1194,14 @@ namespace MEYPAK.PRL.IRSALIYE
             TBGun.Properties.MaxLength = 4;
             DTPVadeTarihi.EditValue = DateTime.Now;
             DTSiparisTarih.EditValue = DateTime.Now;
+            _personelServis.Data(ServisList.PersonelListeServis);
+            _araclarServis.Data(ServisList.AracListeServis);
+            var soforlist = _personelServis.obje.Where(x => x.PERSONELGOREVID == 6).Select(x => x.ADISOYADI);
+            var araclist = _araclarServis.obje.Where(x => x.TIP == "TIR").Select(x => x.PLAKA);
+            var dorselist = _araclarServis.obje.Where(x => x.TIP == "DORSE").Select(x => x.PLAKA);
+            CBSoforListesi.Properties.DataSource = soforlist;
+            CBAracListesi.Properties.DataSource = araclist;
+            CBDorseListesi.Properties.DataSource = dorselist;
             Doldur();
         }
 

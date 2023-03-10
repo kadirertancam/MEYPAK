@@ -3582,6 +3582,9 @@ namespace MEYPAK.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("DORSEID")
+                        .HasColumnType("int");
+
                     b.Property<int>("DOVIZID")
                         .HasColumnType("int");
 
