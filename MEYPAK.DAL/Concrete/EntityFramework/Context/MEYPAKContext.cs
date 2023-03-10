@@ -12,6 +12,7 @@ using MEYPAK.Entity.Models.FATURA;
 using MEYPAK.Entity.Models.FORMYETKI;
 using MEYPAK.Entity.Models.IRSALIYE;
 using MEYPAK.Entity.Models.KASA;
+using MEYPAK.Entity.Models.MUSTAHSIL;
 using MEYPAK.Entity.Models.PARAMETRE;
 using MEYPAK.Entity.Models.PERSONEL;
 using MEYPAK.Entity.Models.SIPARIS;
@@ -33,6 +34,10 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
            
 
         }
+        public DbSet<MPMUSTAHSIL> MPMUSTAHSIL { get; set; }
+        public DbSet<MPMUSTAHSILDETAY> MPMUSTAHSILDETAY { get; set; }
+        public DbSet<MPMUSTAHSILCARI> MPMUSTAHSILCARI { get; set; }
+        public DbSet<MPMUSTAHSILCARIHAR> MPMUSTAHSILCARIHAR { get; set; }
         public DbSet<MPGIDENIRSALIYELER> MPGIDENIRSALIYELER { get; set; }
         public DbSet<MPGIDENFATURALAR> MPGIDENFATURALAR { get; set; }
         public DbSet<MPDEKONT> MPDEKONT { get; set; }

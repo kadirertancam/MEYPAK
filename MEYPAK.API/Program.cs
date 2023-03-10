@@ -71,6 +71,11 @@ using MEYPAK.DAL.Abstract.DestekServisDal;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository.DestekServisRepo;
 using MEYPAK.Interfaces.DestekServis;
 using MEYPAK.BLL.DESTEKSERVIS;
+using MEYPAK.DAL.Abstract.MüstahsilDal;
+using MEYPAK.DAL.Concrete.EntityFramework.Repository.MustahsilRepo;
+using MEYPAK.BLL.MUSTAHSIL;
+using MEYPAK.Interfaces.Mustahsil;
+using MEYPAK.DAL.Abstract.MustahsilDal;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -111,6 +116,20 @@ builder.Services.AddAutoMapper(x =>
     x.AddExpressionMapping(); //expressionlari maplemek içindir
     x.AddProfile(typeof(Maps));
 });
+
+#region MUSTAHSIL
+builder.Services.AddScoped<IMustahsilDal, EFMustahsilRepo>();
+builder.Services.AddScoped<IMustahsilServis, MustahsilManager>();
+
+builder.Services.AddScoped<IMustahsilDetayDal,  EFMustahsilDetayRepo>();
+builder.Services.AddScoped<IMustahsilDetayServis, MustahsilDetayManager>();
+
+builder.Services.AddScoped<IMustahsilCariDal, EFMustahsilCariRepo>();
+builder.Services.AddScoped<IMustahsilCariServis, MustahsilCariManager>();
+
+builder.Services.AddScoped<IMustahsilCariHarDal,  EFMustahsilCariHarRepo>();
+builder.Services.AddScoped<IMustahsilCariHarServis, MustahsilCariHarManager>();
+#endregion
 
 #region GIDEN FATURALAR
 
