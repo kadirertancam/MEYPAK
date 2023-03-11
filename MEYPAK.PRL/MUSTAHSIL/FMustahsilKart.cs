@@ -18,9 +18,9 @@ namespace MEYPAK.PRL.MUSTAHSIL
         public FMustahsilKart()
         {
             InitializeComponent();
-            mustahsilServis = new GenericWebServis<PocoMUSTAHSIL>();
+            mustahsilServis = new GenericWebServis<PocoMUSTAHSILCARI>();
         }
-        GenericWebServis<PocoMUSTAHSIL> mustahsilServis;
+        GenericWebServis<PocoMUSTAHSILCARI> mustahsilServis;
         public PocoMUSTAHSIL tempMustahsil;
         private void BTKaydet_Click(object sender, EventArgs e)
         {
@@ -33,9 +33,13 @@ namespace MEYPAK.PRL.MUSTAHSIL
 
                     if (dialogResult == DialogResult.Yes)
                     {
-                        mustahsilServis.Data(ServisList.MustahsilEkleServis, new PocoMUSTAHSIL()
+                        mustahsilServis.Data(ServisList.MustahsilCariEkleServis, new PocoMUSTAHSILCARI()
                         {
-                            
+                            KOD = BTCariSec.Text,
+                            ADI=TBMustahsilAdi.Text,
+                            SOYADI=TBMustahsilSoyad.Text,
+                            TCNO=TBTcNo.Text,
+                            userid=MPKullanici.ID,
                         });
                         MessageBox.Show($"{TBTcNo.Text}'kimlik numaralı müstahsil başarıyla eklendi!");
                     }

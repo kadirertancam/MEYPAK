@@ -17,6 +17,7 @@ using MEYPAK.PRL.Assets;
 using MEYPAK.PRL.DEPO;
 using MEYPAK.PRL.IRSALIYE;
 using MEYPAK.PRL.SIPARIS;
+using MEYPAK.PRL.SIPARIS.Raporlar;
 using MEYPAK.PRL.STOK.Raporlar;
 using System;
 using System.Collections.Generic;
@@ -41,6 +42,7 @@ namespace MEYPAK.PRL.STOK
         FStokKasaHareketRaporu fStokKasaHareketRaporu;
         GenericWebServis<PocoSTOKKASA> _kasaServis;
         GenericWebServis<PocoSTOKKASAMARKA> _stokKasaMarka;
+        FMustahsil fMustahsil;
         string _islem;
         string _form, num;
         List<ListKasaList> _temp;
@@ -75,6 +77,8 @@ namespace MEYPAK.PRL.STOK
                         fAlisFatura = (FAlisFatura)frm;
                     if (frm.Name.Contains("FStokKasaHareketRaporu"))
                         fStokKasaHareketRaporu = (FStokKasaHareketRaporu)frm;
+                    if (frm.Name.Contains("FMustahsil"))
+                        fMustahsil = (FMustahsil)frm;
                 }
             }
 
@@ -380,6 +384,49 @@ namespace MEYPAK.PRL.STOK
                             }
                         }
                         fAlisFatura._kasaaa.Where(x => x.num.ToString() == this.num).FirstOrDefault().KasaList = ttt;
+                    }
+
+                }
+            }
+            else if (_islem == "FMustahsil")
+            {
+
+                if (fMustahsil != null)
+                {
+                    ttt.Clear();
+                    fMustahsil._tempKasaList.Clear();
+                    foreach (var item in gridView1.GetSelectedRows())
+                    {
+                        if (item != -1)
+                        {
+                            ttt.Add(new KasaList()
+                            {
+
+                                MARKA = gridView1.GetRowCellValue(item, "MARKA").ToString(),
+                                KASAADI = gridView1.GetRowCellValue(item, "KASAADI").ToString(),
+                                MIKTAR = decimal.Parse(gridView1.GetRowCellValue(item, "MIKTAR").ToString()),
+                                KASAID = int.Parse(gridView1.GetRowCellValue(item, "KASAID").ToString()),
+                            });
+                        }
+                        //temp += gridView1.GetRowCellValue(item, "KASAADI").ToString() + "=>" + gridView1.GetRowCellValue(item, "MIKTAR").ToString() + ";";
+                    }
+                    if (fMustahsil._kasaaa.Where(x => x.num.ToString() == this.num).Count() == 0)
+                        fMustahsil._kasaaa.Add(new ListKasaList()
+                        {
+                            num = int.Parse(num),
+                            KasaList = ttt
+                        });
+                    else
+                    {
+                        //_kasaa.kasalist ile ttt den kasaid si eşleşen var ise onun idsini alacak. yoksa 0 olarak gönderecek.
+                        foreach (var item in ttt)
+                        {
+                            if (fMustahsil._kasaaa.Where(x => x.num.ToString() == this.num).FirstOrDefault().KasaList.Where(x => x.KASAID == item.KASAID).Count() > 0)
+                            {
+                                item.ID = fMustahsil._kasaaa.Where(x => x.num.ToString() == this.num).FirstOrDefault().KasaList.Where(x => x.KASAID == item.KASAID).FirstOrDefault().ID;
+                            }
+                        }
+                        fMustahsil._kasaaa.Where(x => x.num.ToString() == this.num).FirstOrDefault().KasaList = ttt;
                     }
 
                 }

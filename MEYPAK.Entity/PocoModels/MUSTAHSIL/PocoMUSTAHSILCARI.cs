@@ -12,6 +12,14 @@ namespace MEYPAK.Entity.PocoModels.MUSTAHSIL
         public string TCNO { get; set; }
         public string ADI { get; set; }
         public string SOYADI { get; set; }
+
+        public string ADISOYADI
+        {
+            get
+            {
+                return ADI +" "+ SOYADI;
+            }
+        }
         public string IL { get; set; } = "";
         public string ILCE { get; set; } = "";
         public string POSTAKODU { get; set; } = "";

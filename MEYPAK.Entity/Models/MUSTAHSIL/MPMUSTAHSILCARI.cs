@@ -8,10 +8,10 @@ namespace MEYPAK.Entity.Models.MUSTAHSIL
 {
     public class MPMUSTAHSILCARI:SUPERMODEL
     {
-        public string KOD { get; set; }
-        public string TCNO { get; set; }
+        public string KOD { get; set; } = "";
+        public string TCNO { get; set; } = "";
         public string ADI { get; set; }
-        public string SOYADI { get; set; }
+        public string SOYADI { get; set; } = "";
         public string IL { get; set; } = "";
         public string ILCE { get; set; } = "";
         public string POSTAKODU { get; set; } = "";

@@ -33,6 +33,7 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FMustahsil));
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -48,10 +49,8 @@
             this.CBParaBirimi = new DevExpress.XtraEditors.GridLookUpEdit();
             this.CBParaBirimiView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBoxEdit2 = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.label1 = new System.Windows.Forms.Label();
+            this.BTMustahsilCariEkle = new DevExpress.XtraEditors.SimpleButton();
+            this.CBMustahsilCari = new DevExpress.XtraEditors.LookUpEdit();
             this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.BTNSatirSil = new System.Windows.Forms.Button();
             this.DTPVadeTarihi = new DevExpress.XtraEditors.DateEdit();
@@ -101,7 +100,6 @@
             this.BTKaydet = new System.Windows.Forms.Button();
             this.BTNSil = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.CBMustahsilCari = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.DTSiparisTarih.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTSiparisTarih.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CHBKdvDahil.Properties)).BeginInit();
@@ -111,7 +109,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.CBParaBirimi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBParaBirimiView)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CBMustahsilCari.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPVadeTarihi.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPVadeTarihi.Properties)).BeginInit();
@@ -142,7 +140,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.TBBrutToplam.Properties)).BeginInit();
             this.panel6.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CBMustahsilCari.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // DTSiparisTarih
@@ -167,7 +164,7 @@
             // TBGun
             // 
             this.TBGun.EditValue = "0";
-            this.TBGun.Location = new System.Drawing.Point(282, 130);
+            this.TBGun.Location = new System.Drawing.Point(297, 121);
             this.TBGun.Name = "TBGun";
             this.TBGun.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.TBGun.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
@@ -187,7 +184,7 @@
             // 
             // TBFaturaNo
             // 
-            this.TBFaturaNo.Location = new System.Drawing.Point(151, 46);
+            this.TBFaturaNo.Location = new System.Drawing.Point(166, 37);
             this.TBFaturaNo.Name = "TBFaturaNo";
             this.TBFaturaNo.Properties.Appearance.Options.UseFont = true;
             this.TBFaturaNo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -199,7 +196,7 @@
             // LBGun
             // 
             this.LBGun.Appearance.Options.UseFont = true;
-            this.LBGun.Location = new System.Drawing.Point(257, 132);
+            this.LBGun.Location = new System.Drawing.Point(272, 123);
             this.LBGun.Name = "LBGun";
             this.LBGun.Size = new System.Drawing.Size(19, 13);
             this.LBGun.TabIndex = 145;
@@ -238,11 +235,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.BTMustahsilCariEkle);
             this.groupBox1.Controls.Add(this.CBMustahsilCari);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.comboBoxEdit2);
-            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.comboBoxEdit1);
             this.groupBox1.Controls.Add(this.BTNSatirSil);
             this.groupBox1.Controls.Add(this.DTSiparisTarih);
@@ -271,54 +265,33 @@
             this.groupBox1.Size = new System.Drawing.Size(1615, 185);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Satış Fatura";
+            this.groupBox1.Text = "Müstahsil Makbuzu";
             // 
-            // label2
+            // BTMustahsilCariEkle
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(42, 21);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(21, 13);
-            this.label2.TabIndex = 160;
-            this.label2.Text = "Tip";
+            this.BTMustahsilCariEkle.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.BTMustahsilCariEkle.Appearance.Options.UseBackColor = true;
+            this.BTMustahsilCariEkle.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTMustahsilCariEkle.ImageOptions.Image")));
+            this.BTMustahsilCariEkle.Location = new System.Drawing.Point(150, 91);
+            this.BTMustahsilCariEkle.Name = "BTMustahsilCariEkle";
+            this.BTMustahsilCariEkle.Size = new System.Drawing.Size(141, 21);
+            this.BTMustahsilCariEkle.TabIndex = 163;
+            this.BTMustahsilCariEkle.Text = "Yeni Müstahsil Cari Ekle";
+            this.BTMustahsilCariEkle.Click += new System.EventHandler(this.BTMustahsilCariEkle_Click);
             // 
-            // comboBox1
+            // CBMustahsilCari
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Normal",
-            "İade"});
-            this.comboBox1.Location = new System.Drawing.Point(84, 18);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(119, 21);
-            this.comboBox1.TabIndex = 159;
-            // 
-            // comboBoxEdit2
-            // 
-            this.comboBoxEdit2.Location = new System.Drawing.Point(1233, 39);
-            this.comboBoxEdit2.Name = "comboBoxEdit2";
-            this.comboBoxEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.CBMustahsilCari.Location = new System.Drawing.Point(99, 65);
+            this.CBMustahsilCari.Name = "CBMustahsilCari";
+            this.CBMustahsilCari.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit2.Properties.Items.AddRange(new object[] {
-            "TEMELFATURA",
-            "TICARIFATURA",
-            "HKS",
-            "IHRACAT"});
-            this.comboBoxEdit2.Size = new System.Drawing.Size(100, 20);
-            this.comboBoxEdit2.TabIndex = 158;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1180, 42);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 13);
-            this.label1.TabIndex = 157;
-            this.label1.Text = "Senaryo";
+            this.CBMustahsilCari.Properties.NullText = "";
+            this.CBMustahsilCari.Size = new System.Drawing.Size(249, 20);
+            this.CBMustahsilCari.TabIndex = 162;
             // 
             // comboBoxEdit1
             // 
-            this.comboBoxEdit1.Location = new System.Drawing.Point(84, 46);
+            this.comboBoxEdit1.Location = new System.Drawing.Point(99, 37);
             this.comboBoxEdit1.Name = "comboBoxEdit1";
             this.comboBoxEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBoxEdit1.Properties.Appearance.Options.UseFont = true;
@@ -343,7 +316,7 @@
             // DTPVadeTarihi
             // 
             this.DTPVadeTarihi.EditValue = new System.DateTime(2022, 12, 5, 17, 30, 23, 0);
-            this.DTPVadeTarihi.Location = new System.Drawing.Point(84, 129);
+            this.DTPVadeTarihi.Location = new System.Drawing.Point(99, 120);
             this.DTPVadeTarihi.Name = "DTPVadeTarihi";
             this.DTPVadeTarihi.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -396,7 +369,7 @@
             // 
             // LBVadeTar
             // 
-            this.LBVadeTar.Location = new System.Drawing.Point(10, 133);
+            this.LBVadeTar.Location = new System.Drawing.Point(25, 124);
             this.LBVadeTar.Name = "LBVadeTar";
             this.LBVadeTar.Size = new System.Drawing.Size(53, 13);
             this.LBVadeTar.TabIndex = 127;
@@ -412,11 +385,11 @@
             // 
             // LBSiparisTar
             // 
-            this.LBSiparisTar.Location = new System.Drawing.Point(503, 39);
+            this.LBSiparisTar.Location = new System.Drawing.Point(491, 39);
             this.LBSiparisTar.Name = "LBSiparisTar";
-            this.LBSiparisTar.Size = new System.Drawing.Size(61, 13);
+            this.LBSiparisTar.Size = new System.Drawing.Size(73, 13);
             this.LBSiparisTar.TabIndex = 124;
-            this.LBSiparisTar.Text = "Fatura Tarihi";
+            this.LBSiparisTar.Text = "Mustahsil Tarihi";
             // 
             // LBDepo
             // 
@@ -428,7 +401,7 @@
             // 
             // LBCariKodu
             // 
-            this.LBCariKodu.Location = new System.Drawing.Point(10, 94);
+            this.LBCariKodu.Location = new System.Drawing.Point(22, 68);
             this.LBCariKodu.Name = "LBCariKodu";
             this.LBCariKodu.Size = new System.Drawing.Size(66, 13);
             this.LBCariKodu.TabIndex = 151;
@@ -436,11 +409,11 @@
             // 
             // LBSsiparisNo
             // 
-            this.LBSsiparisNo.Location = new System.Drawing.Point(13, 50);
+            this.LBSsiparisNo.Location = new System.Drawing.Point(28, 41);
             this.LBSsiparisNo.Name = "LBSsiparisNo";
-            this.LBSsiparisNo.Size = new System.Drawing.Size(48, 13);
+            this.LBSsiparisNo.Size = new System.Drawing.Size(60, 13);
             this.LBSsiparisNo.TabIndex = 118;
-            this.LBSsiparisNo.Text = "Fatura No";
+            this.LBSsiparisNo.Text = "Müstahsil No";
             // 
             // panel2
             // 
@@ -866,16 +839,6 @@
             this.panel3.Size = new System.Drawing.Size(1615, 423);
             this.panel3.TabIndex = 1;
             // 
-            // CBMustahsilCari
-            // 
-            this.CBMustahsilCari.Location = new System.Drawing.Point(84, 91);
-            this.CBMustahsilCari.Name = "CBMustahsilCari";
-            this.CBMustahsilCari.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.CBMustahsilCari.Properties.NullText = "";
-            this.CBMustahsilCari.Size = new System.Drawing.Size(249, 20);
-            this.CBMustahsilCari.TabIndex = 162;
-            // 
             // FMustahsil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -896,7 +859,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.CBParaBirimiView)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CBMustahsilCari.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPVadeTarihi.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPVadeTarihi.Properties)).EndInit();
@@ -930,7 +893,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.TBBrutToplam.Properties)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.CBMustahsilCari.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -995,10 +957,7 @@
         private DevExpress.XtraEditors.TextEdit TBIskontoToplam;
         private DevExpress.XtraEditors.TextEdit TBBrutToplam;
         private Button button1;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit2;
-        private Label label1;
-        private Label label2;
-        private ComboBox comboBox1;
         private DevExpress.XtraEditors.LookUpEdit CBMustahsilCari;
+        private DevExpress.XtraEditors.SimpleButton BTMustahsilCariEkle;
     }
 }

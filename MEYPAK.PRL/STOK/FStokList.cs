@@ -30,6 +30,7 @@ using MEYPAK.PRL.STOK.Raporlar;
 using MEYPAK.PRL.DEPO.Raporlar;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 using MEYPAK.PRL.E_ISLEMLER;
+using MEYPAK.PRL.SIPARIS.Raporlar;
 
 namespace MEYPAK.PRL.STOK
 {
@@ -51,6 +52,7 @@ namespace MEYPAK.PRL.STOK
         FStokSevkiyatRaporu fStokSevkiyatRaporu;
         FStokSarf fStokSarf;
         EFATURA fefatura;
+        FMustahsil fMustahsil;
         Main main;
         int id;
         string _islem;
@@ -115,7 +117,8 @@ namespace MEYPAK.PRL.STOK
                         fStokSevkiyatRaporu = (FStokSevkiyatRaporu)frm;
                     if (frm.Name.Contains("FStokSarf"))
                         fStokSarf = (FStokSarf)frm;
-
+                    if (frm.Name.Contains("FMustahsil"))
+                        fMustahsil = (FMustahsil)frm;
                 }
             }
             _stokMarka.Data(ServisList.StokMarkaListeServis);
@@ -219,6 +222,11 @@ namespace MEYPAK.PRL.STOK
                 {
                     if (fefatura != null)
                         fefatura._tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+                }
+                else if (_islem == "FMustahsil")
+                {
+                    if (fMustahsil != null)
+                        fMustahsil._tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
                 }
 
                 this.Close();

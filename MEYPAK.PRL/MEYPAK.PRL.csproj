@@ -19,7 +19,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <PublishReadyToRun>true</PublishReadyToRun>
-    <PlatformTarget>x86</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <ApplicationIcon>icon.ico</ApplicationIcon>
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>

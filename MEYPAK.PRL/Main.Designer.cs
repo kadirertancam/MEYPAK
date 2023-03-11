@@ -165,6 +165,7 @@
             this.accordionControlElement34 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement37 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement53 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACEMustahsilMakbuz = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement32 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEMusteriSiparisIrsaliyelestir = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACESatisIrsaliyeFaturalastir = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -214,6 +215,8 @@
             this.accordionControlElement20 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement22 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement21 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACEEMustahsilM = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACEEMustahsilGiden = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEPERSONEL = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement38 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement41 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -1455,7 +1458,8 @@
             this.accordionControlElement51,
             this.accordionControlElement34,
             this.accordionControlElement37,
-            this.accordionControlElement53});
+            this.accordionControlElement53,
+            this.ACEMustahsilMakbuz});
             this.accordionControlElement31.Enabled = false;
             this.accordionControlElement31.Name = "accordionControlElement31";
             this.accordionControlElement31.Text = "Tanımlar";
@@ -1530,6 +1534,13 @@
             this.accordionControlElement53.Text = "Fatura Liste";
             this.accordionControlElement53.Visible = false;
             this.accordionControlElement53.Click += new System.EventHandler(this.accordionControlElement53_Click);
+            // 
+            // ACEMustahsilMakbuz
+            // 
+            this.ACEMustahsilMakbuz.Name = "ACEMustahsilMakbuz";
+            this.ACEMustahsilMakbuz.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ACEMustahsilMakbuz.Text = "Müstahsil Makbuz Tanım";
+            this.ACEMustahsilMakbuz.Click += new System.EventHandler(this.ACEMustahsilMakbuz_Click);
             // 
             // accordionControlElement32
             // 
@@ -1910,9 +1921,9 @@
             this.accordionControlElement27.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.accordionControlElement62,
             this.accordionControlElement63,
-            this.accordionControlElement20});
+            this.accordionControlElement20,
+            this.ACEEMustahsilM});
             this.accordionControlElement27.Enabled = false;
-            this.accordionControlElement27.Expanded = true;
             this.accordionControlElement27.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement27.ImageOptions.Image")));
             this.accordionControlElement27.Name = "accordionControlElement27";
             this.accordionControlElement27.Text = "E-İşlemler";
@@ -1988,6 +1999,21 @@
             this.accordionControlElement21.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement21.Text = "Giden Kutusu";
             this.accordionControlElement21.Click += new System.EventHandler(this.accordionControlElement21_Click);
+            // 
+            // ACEEMustahsilM
+            // 
+            this.ACEEMustahsilM.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.ACEEMustahsilGiden});
+            this.ACEEMustahsilM.Expanded = true;
+            this.ACEEMustahsilM.Name = "ACEEMustahsilM";
+            this.ACEEMustahsilM.Text = "EMustahsilMakbuzu";
+            // 
+            // ACEEMustahsilGiden
+            // 
+            this.ACEEMustahsilGiden.Name = "ACEEMustahsilGiden";
+            this.ACEEMustahsilGiden.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ACEEMustahsilGiden.Text = "Giden Kutusu";
+            this.ACEEMustahsilGiden.Click += new System.EventHandler(this.ACEEMustahsilGiden_Click);
             // 
             // ACEPERSONEL
             // 
@@ -2471,5 +2497,8 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement20;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement22;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement21;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACEMustahsilMakbuz;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACEEMustahsilM;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACEEMustahsilGiden;
     }
 }

@@ -28,13 +28,15 @@ using DevExpress.XtraRichEdit;
 using System.Diagnostics;
 using System.Drawing.Printing;
 using MEYPAK.Entity.Models.PARAMETRE;
+using MEYPAK.PRL.MUSTAHSIL;
+using MEYPAK.Interfaces.Cari;
 
 namespace MEYPAK.PRL.SIPARIS.Raporlar
 {
     public partial class FMustahsil : XtraForm
     {
 
-        public FMustahsil(PocoMUSTAHSIL _tempFaturas = null, List<PocoFaturaKalem> _tempFaturaDetays = null, List<ListKasaList> _tempkasa = null, int tip = 0)
+        public FMustahsil(PocoMUSTAHSIL _tempFaturas = null, List<PocoMustahsilKalem> _tempFaturaDetays = null, List<ListKasaList> _tempkasa = null, int tip = 0)
         {
             InitializeComponent();
             DGVStokSec = new DataGridViewButtonColumn();
@@ -69,6 +71,7 @@ namespace MEYPAK.PRL.SIPARIS.Raporlar
             _hizmetHarServis = new GenericWebServis<PocoHIZMETHAR>();
             _hizmetServis = new GenericWebServis<PocoHIZMET>();
             _mustahsilCariServis = new GenericWebServis<PocoMUSTAHSILCARI>();
+            _cariHarServsi = new GenericWebServis<PocoMUSTAHSILCARIHAR>();
             faturaBasim = new FaturaBasim();
             if (_tempFaturas != null)
                 _tempFatura = _tempFaturas;
@@ -78,25 +81,20 @@ namespace MEYPAK.PRL.SIPARIS.Raporlar
             if (_tempFaturaDetays != null)
                 _tempFaturaDetay = _tempFaturaDetays;
             else
-                _tempFaturaDetay = new List<PocoFaturaKalem>();
+                _tempFaturaDetay = new List<PocoMustahsilKalem>();
             fattip = tip;
-            comboBox1.SelectedIndex = 0;
-            _mustahsilCariServis.Data(ServisList.MustahsilCariListeServis);
-            CBMustahsilCari.Properties.DataSource = _mustahsilCariServis.obje.Select(x=> new {ID=x.id , ADI = x.ADI+x.SOYADI});
-            CBMustahsilCari.Properties.DisplayMember="ADI";
-            CBMustahsilCari.Properties.ValueMember = "ID";
-            CBMustahsilCari.Properties.PopulateColumns();
-            CBMustahsilCari.Properties.Columns["ID"].Visible= false;
+           
+         
         }
 
         #region TANIMLAR
         int fattip;
         FaturaBasim faturaBasim;
         FStokKasaList fKasaList;
-        List<PocoFaturaKalem> _tempFaturaDetay;
-        List<PocoFaturaKalem> _tempSilinenFaturaDetay = new List<PocoFaturaKalem>();
+        List<PocoMustahsilKalem> _tempFaturaDetay;
+        List<PocoMustahsilKalem> _tempSilinenFaturaDetay = new List<PocoMustahsilKalem>();
         DataGridViewComboBoxColumn DGVOlcuBr = new DataGridViewComboBoxColumn();
-        PocoFaturaKalem _tempPocokalem;
+        PocoMustahsilKalem _tempPocokalem;
         FStokList _fStokList;
         FCariList _fCariList;
         PdfViewer pdfViewer1 = new PdfViewer();
@@ -150,13 +148,23 @@ namespace MEYPAK.PRL.SIPARIS.Raporlar
         #endregion
 
         #region METHOD
+
+        void MustahsilCariDoldur()
+        {
+            _mustahsilCariServis.Data(ServisList.MustahsilCariListeServis);
+            CBMustahsilCari.Properties.DataSource = _mustahsilCariServis.obje.Select(x => new { ID = x.id, ADI = x.ADI + " "+x.SOYADI });
+            CBMustahsilCari.Properties.DisplayMember = "ADI";
+            CBMustahsilCari.Properties.ValueMember = "ID";
+            CBMustahsilCari.Properties.PopulateColumns();
+            CBMustahsilCari.Properties.Columns["ID"].Visible = false;
+        }
         void temizle()
         {
             num = 0;
             GCIrsaliye.DataSource = "";
             _tempFaturaDetay.Clear();
             _kasaaa.Clear();
-            _tempFaturaDetay.Add(new PocoFaturaKalem());
+            _tempFaturaDetay.Add(new PocoMustahsilKalem());
             GCIrsaliye.DataSource = _tempFaturaDetay;
             //DGVOlcuBr.DataSource = _tempStok.MPSTOKOLCUBR.Select(x => x.MPOLCUBR.ADI).ToList();
             gridView1.Columns["StokId"].Visible = false;
@@ -186,7 +194,7 @@ namespace MEYPAK.PRL.SIPARIS.Raporlar
         void DataGridYapilandir()
         {
             _tempStok = new PocoSTOK();
-            _tempFaturaDetay.Add(new PocoFaturaKalem() { Tipi = "STOK" });
+            _tempFaturaDetay.Add(new PocoMustahsilKalem() { Tipi = "STOK" });
 
 
 
@@ -314,27 +322,7 @@ namespace MEYPAK.PRL.SIPARIS.Raporlar
 
             gridView1.BestFitColumns();
 
-            RepositoryItemLookUpEdit riLookup5 = new RepositoryItemLookUpEdit();
-            riLookup5.NullText = "Sec";
-
-            riLookup5.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
-            riLookup5.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete;
-            riLookup5.AutoSearchColumnIndex = 1;
-            riLookup5.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
-            gridView1.Columns["Tevkifatno"].OptionsColumn.AllowEdit = true;
-            gridView1.Columns["Tevkifatno"].ColumnEdit = riLookup5;
-
-
-
-            RepositoryItemLookUpEdit riLookup6 = new RepositoryItemLookUpEdit();
-            riLookup6.NullText = "Sec";
-
-            riLookup6.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
-            riLookup6.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete;
-            riLookup6.AutoSearchColumnIndex = 1;
-            riLookup6.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
-            gridView1.Columns["Istisnano"].OptionsColumn.AllowEdit = true;
-            gridView1.Columns["Istisnano"].ColumnEdit = riLookup6;
+           
 
 
             repositoryItemButtonEdit3.ButtonClick += RepositoryItemButtonEdit3_ButtonClick;
@@ -614,7 +602,7 @@ namespace MEYPAK.PRL.SIPARIS.Raporlar
                 else
                 {
                     gridControl1.DataSource = "";
-                    _tempFaturaDetay.Add(new PocoFaturaKalem() { Tipi = "STOK" });
+                    _tempFaturaDetay.Add(new PocoMustahsilKalem() { Tipi = "STOK" });
                 }
                 riLookup3.DataSource = "";
                 riLookup3.DataSource = _kasaaa.Where(x => x.num == gridView1.FocusedRowHandle).Count() > 0 ? _kasaaa.Where(x => x.num == gridView1.FocusedRowHandle).FirstOrDefault().KasaList.Select(x => new { Marka = x.MARKA, Adı = x.KASAADI, Miktar = x.MIKTAR }) : "";
@@ -623,7 +611,7 @@ namespace MEYPAK.PRL.SIPARIS.Raporlar
                 _olcuBr.Data(ServisList.OlcuBrListeServis);
 
                 if (fattip == 0)
-                    _tempFaturaDetay.AddRange(_faturadetayServis.obje.Select(x => new PocoFaturaKalem()
+                    _tempFaturaDetay.AddRange(_faturadetayServis.obje.Select(x => new PocoMustahsilKalem()
                     {
 
                         id = x.id,
@@ -682,7 +670,7 @@ namespace MEYPAK.PRL.SIPARIS.Raporlar
         {
             if (Convert.ToInt32(gridView1.GetFocusedRowCellValue("StokId")) > 0)
             {
-                FStokOlcuBrList aa = new FStokOlcuBrList(this.Tag.ToString(), "FFatura", Convert.ToInt32(gridView1.GetFocusedRowCellValue("StokId")));
+                FStokOlcuBrList aa = new FStokOlcuBrList(this.Tag.ToString(), "FMustahsil", Convert.ToInt32(gridView1.GetFocusedRowCellValue("StokId")));
                 aa.ShowDialog();
             }
             else
@@ -693,7 +681,7 @@ namespace MEYPAK.PRL.SIPARIS.Raporlar
 
         private void RepositoryItemButtonEdit4_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
-            _fGetKunye = new FGetKunye(this.Tag.ToString(), "FFatura");
+            _fGetKunye = new FGetKunye(this.Tag.ToString(), "FMustahsil");
             _fGetKunye.ShowDialog();
 
         }
@@ -710,11 +698,11 @@ namespace MEYPAK.PRL.SIPARIS.Raporlar
                 if (_kasaaa.Where(x => x.num.ToString() == gridView1.FocusedRowHandle.ToString()).Count() > 0)
                 {
 
-                    fKasaList = new FStokKasaList(this.Tag.ToString(), "FFatura", gridView1.FocusedRowHandle.ToString(), _kasaaa);
+                    fKasaList = new FStokKasaList(this.Tag.ToString(), "FMustahsil", gridView1.FocusedRowHandle.ToString(), _kasaaa);
                 }
                 else
                 {
-                    fKasaList = new FStokKasaList(this.Tag.ToString(), "FFatura", gridView1.FocusedRowHandle.ToString());
+                    fKasaList = new FStokKasaList(this.Tag.ToString(), "FMustahsil", gridView1.FocusedRowHandle.ToString());
                 }
                 fKasaList.ShowDialog();
                 if (_kasaaa.Where(x => x.num == gridView1.FocusedRowHandle).Count() > 0)
@@ -739,12 +727,12 @@ namespace MEYPAK.PRL.SIPARIS.Raporlar
                 OlcuBrlist temppp = new OlcuBrlist();
 
 
-                _fStokList = new FStokList(this.Tag.ToString(), "FFatura");
+                _fStokList = new FStokList(this.Tag.ToString(), "FMustahsil");
                 _fStokList.ShowDialog();
                 if (_tempStok.id != 0)
                 {
                     //if (Convert.ToInt32(gridView1.GetFocusedRowCellValue("id")) == 0) { 
-                    //_tempPocokalem = new PocoFaturaKalem()
+                    //_tempPocokalem = new PocoMustahsilKalem()
                     //{
                     //    Tipi = "STOK",
                     //    StokId = _tempStok.id,
@@ -783,11 +771,11 @@ namespace MEYPAK.PRL.SIPARIS.Raporlar
             else if (gridView1.GetFocusedRowCellValue("Tipi") == "KASA")
             {
 
-                FStokKasaList2 _fStokKasaList2 = new FStokKasaList2(this.Tag.ToString(), "FFatura");
+                FStokKasaList2 _fStokKasaList2 = new FStokKasaList2(this.Tag.ToString(), "FMustahsil");
                 _fStokKasaList2.ShowDialog();
                 if (_tempKasa != null)
                 {
-                    _tempPocokalem = new PocoFaturaKalem()
+                    _tempPocokalem = new PocoMustahsilKalem()
                     {
                         Tipi = "KASA",
                         StokId = _tempKasa.id,
@@ -805,11 +793,11 @@ namespace MEYPAK.PRL.SIPARIS.Raporlar
             }
             else if (gridView1.GetFocusedRowCellValue("Tipi") == "HIZMET")
             {
-                _fHizmetList = new FHizmetList(this.Tag.ToString(), "FFatura");
+                _fHizmetList = new FHizmetList(this.Tag.ToString(), "FMustahsil");
                 _fHizmetList.ShowDialog();
                 if (_tempHizmet != null)
                 {
-                    _tempPocokalem = new PocoFaturaKalem()
+                    _tempPocokalem = new PocoMustahsilKalem()
                     {
                         Tipi = "HIZMET",
                         StokId = _tempHizmet.id,
@@ -931,6 +919,13 @@ namespace MEYPAK.PRL.SIPARIS.Raporlar
 
         }
 
+        private void BTMustahsilCariEkle_Click(object sender, EventArgs e)
+        {
+            FMustahsilKart fmustahsilkart = new FMustahsilKart();
+            fmustahsilkart.ShowDialog();
+            MustahsilCariDoldur();
+        }
+
         private void Prndc_PrintPage(object sender, PrintPageEventArgs e)
         {
 
@@ -970,11 +965,21 @@ namespace MEYPAK.PRL.SIPARIS.Raporlar
             if (_tempFatura != null && TBFaturaNo.Text != _tempFatura.belgeno)
                 _tempFatura = null;
 
+            //if (_mustahsilCariServis.obje.Where(x=> x.ADISOYADI==CBMustahsilCari.Text).Count()==0)
+            //{
+            //    _mustahsilCariServis.Data(ServisList.MustahsilCariEkleServis, new PocoMUSTAHSILCARI()
+            //    {
+            //        ADI = CBMustahsilCari.Text
+            //    });
+            //    MustahsilCariDoldur();
+            //    CBMustahsilCari.EditValue = _mustahsilCariServis.obje2.id;
+            //}
             
             if (CBMustahsilCari.EditValue!=null&& _mustahsilCariServis.obje.Where(x=> x.id==Convert.ToInt32(CBMustahsilCari.EditValue)).Count()>0)
             {
                 if (_tempFatura == null)
                     faturaNoGuncelle();
+     
 
                 _faturaServis.Data(ServisList.MustahsilEkleServis, new PocoMUSTAHSIL()
                 {
@@ -999,7 +1004,7 @@ namespace MEYPAK.PRL.SIPARIS.Raporlar
                     nettoplam = _tempFaturaDetay.Sum(x => x.NetToplam),
                     geneltoplam = _tempFaturaDetay.Sum(x => x.KdvTutarı) + _tempFaturaDetay.Sum(x => x.NetToplam),
                     kdvdahil = CHBKdvDahil.Checked,
-                    tip = comboBox1.SelectedIndex == 0 ? 0 : 2,
+                    tip = 1,
                     serino = comboBoxEdit1.SelectedItem.ToString(),
                     userid = MPKullanici.ID
                 });
@@ -1072,14 +1077,14 @@ namespace MEYPAK.PRL.SIPARIS.Raporlar
                             birim = _olcuBr.obje.Where(x => x.adi.ToString() == item.Birim).FirstOrDefault().id,
                             bruttoplam = item.BrütToplam,
                             depoid = _faturaServis.obje2.depoid,
-                            io = comboBox1.SelectedIndex == 0 ? 0 : 1,
+                            io = 1,
                             kdv = item.Kdv,
                             miktar = item.Safi,
                             netfiyat = item.NetFiyat,
                             nettoplam = item.NetToplam,
                             stokid = item.StokId,
                             sayimid = 0,
-                            kunye = item.Kunye,
+                            kunye = item.Kunye==null?"":item.Kunye,
                             userid = MPKullanici.ID
                         });
                     }
@@ -1123,12 +1128,14 @@ namespace MEYPAK.PRL.SIPARIS.Raporlar
                                 id = _stokKasaHarServis.obje.Where(x => x.id == item2.ID).Count() > 0 ? item.id : 0,
                                 belge_no = TBFaturaNo.Text,
                                 mustahsilid = _faturaServis.obje2.id,
-                                io = comboBox1.SelectedIndex == 0 ? 0 : 1,
+                                io =  1,
                                 mustahsilcariid = Convert.ToInt32( CBMustahsilCari.EditValue),
                                 kayittipi = 0,
                                 kasaid = item2.KASAID,
                                 miktar = item2.MIKTAR, // _kasaaa.Where(x => x.num == test.num).Select(x => x.KasaList.Sum(t => t.MIKTAR)).FirstOrDefault()
                                 irsaliyedetayid = 0,
+                                faturadetayid=0,
+                                faturaid=0,
                                 mustahsildetayid = _faturadetayServis.obje2.id,
                                 depoid = _depoServis.obje.Where(x => x.depoadi == CBDepo.Text).FirstOrDefault().id,
                                 userid = MPKullanici.ID,
@@ -1148,10 +1155,10 @@ namespace MEYPAK.PRL.SIPARIS.Raporlar
                 }
                 _cariHarServsi.Data(ServisList.MustahsilCariHarEkleServis, new PocoMUSTAHSILCARIHAR()
                 {
-                    aciklama = comboBox1.SelectedIndex == 0 ? "Satış Faturası" : "Satış İade Faturası",
+                    aciklama = "Müstahsil Makbuzu",
                     belgE_NO = _faturaServis.obje2.belgeno,
-                    alacak = comboBox1.SelectedIndex == 0 ? _faturaServis.obje2.geneltoplam : 0,
-                    borc = comboBox1.SelectedIndex == 0 ? 0 : _faturaServis.obje2.geneltoplam,
+                    alacak =  0,
+                    borc =  _faturaServis.obje2.geneltoplam,
                     MUSTAHSILID = _faturaServis.obje2.mustahsilcariid,
                     harekettarihi = _faturaServis.obje2.faturatarihi,
                     harekettipi = 1,
@@ -1212,7 +1219,7 @@ namespace MEYPAK.PRL.SIPARIS.Raporlar
             if (e.KeyChar == (char)Keys.Enter || e.KeyChar == (char)Keys.Down)
             {
                 num++;
-                _tempFaturaDetay.Add(new PocoFaturaKalem() { sıra = num });
+                _tempFaturaDetay.Add(new PocoMustahsilKalem() { sıra = num });
                 GCIrsaliye.DataSource = _tempFaturaDetay;
 
                 gridView1.FocusedRowHandle = gridView1.RowCount - 1;
@@ -1244,13 +1251,14 @@ namespace MEYPAK.PRL.SIPARIS.Raporlar
             DTPVadeTarihi.EditValue = DateTime.Now;
             DTSiparisTarih.EditValue = DateTime.Now;
             Doldur();
+            MustahsilCariDoldur();
         }
 
         private void BTNSatirSil_Click(object sender, EventArgs e)
         {
             if (gridView1.FocusedRowHandle > -1)
             {
-                _tempSilinenFaturaDetay.Add(new PocoFaturaKalem()
+                _tempSilinenFaturaDetay.Add(new PocoMustahsilKalem()
                 {
                     id = _tempFaturaDetay[gridView1.FocusedRowHandle].id
                 }
@@ -1313,7 +1321,7 @@ namespace MEYPAK.PRL.SIPARIS.Raporlar
 
         private void TBSiparisNo_Properties_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
-            FFaturaList ffaturalist = new FFaturaList(this.Tag.ToString(), "FFatura");
+            FMustahsilList ffaturalist = new FMustahsilList(this.Tag.ToString(), "FMustahsil");
             ffaturalist.ShowDialog();
             Doldur();
 

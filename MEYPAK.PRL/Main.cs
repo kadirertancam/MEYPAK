@@ -149,6 +149,8 @@ namespace MEYPAK.PRL
         EFaturaParams eFaturaParams;
         FGidenEArsiv fGidenEArsiv;
         FGidenEIrsaliye fGidenEIrsaliye;
+        FMustahsil fMustahsilMakbuz;
+        FGidenEMustahsil fGidenEMustahsil;
 
         public Tarih_Date _tarih_Date = new Tarih_Date();
         public DataTable guncelkur;
@@ -1963,6 +1965,48 @@ namespace MEYPAK.PRL
             fGidenEIrsaliye.Tag = "FGidenEIrsaliye" + i;
             page.Controls.Add(fGidenEIrsaliye);
             fGidenEIrsaliye.Show();
+            i++;
+        }
+
+        private void ACEMustahsilMakbuz_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fMustahsilMakbuz = new FMustahsil();
+            page.Name = "FMustahsil" + i;
+            page.Text = "Müstahsil Makbuzu";
+            page.Tag = "FMustahsil" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fMustahsilMakbuz.FormBorderStyle = FormBorderStyle.None;
+            fMustahsilMakbuz.TopLevel = false;
+            fMustahsilMakbuz.AutoScroll = true;
+            fMustahsilMakbuz.Dock = DockStyle.Fill;
+            fMustahsilMakbuz.Tag = "FMustahsil" + i;
+            page.Controls.Add(fMustahsilMakbuz);
+            fMustahsilMakbuz.Show();
+            i++;
+        }
+
+        private void ACEEMustahsilGiden_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fGidenEMustahsil = new FGidenEMustahsil();
+            page.Name = "FGidenEMustahsil" + i;
+            page.Text = "Giden Müstahsil Makbuzu";
+            page.Tag = "FGidenEMustahsil" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fGidenEMustahsil.FormBorderStyle = FormBorderStyle.None;
+            fGidenEMustahsil.TopLevel = false;
+            fGidenEMustahsil.AutoScroll = true;
+            fGidenEMustahsil.Dock = DockStyle.Fill;
+            fGidenEMustahsil.Tag = "FGidenEMustahsil" + i;
+            page.Controls.Add(fGidenEMustahsil);
+            fGidenEMustahsil.Show();
             i++;
         }
     }
