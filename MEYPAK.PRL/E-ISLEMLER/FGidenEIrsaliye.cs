@@ -176,7 +176,8 @@ namespace MEYPAK.PRL.E_ISLEMLER
             var tempirsdetay = irsaliyeDetayServis.obje.Where(x => x.irsaliyeid == tempirs.id).ToList();
             #region İrsaliye Genel Bilgileri
             //İrsaliye Numarası
-
+            cariServis.Data(ServisList.CariListeServis);
+            caritemp = cariServis.obje.Where(x => x.id == tempirs.cariid).FirstOrDefault();
             siparisServis.Data(ServisList.SiparisListeServis);
 
             var tempsip= siparisServis.obje.Where(x => x.id == tempirs.siparisid).FirstOrDefault();
@@ -208,7 +209,22 @@ namespace MEYPAK.PRL.E_ISLEMLER
                                                 },
                         Item = new ItemType
                         {
-                            Name = new NameType1 { Value = tempirsdetay[i].stokadi }
+                            Name = new NameType1 { Value = tempirsdetay[i].stokadi },
+                          
+                            ManufacturersItemIdentification=new ItemIdentificationType()
+                            {
+                                 ID=new IDType()
+                                 {
+                                     Value= stokServis.obje.Where(x => x.id == tempirsdetay[i].stokid).FirstOrDefault().kod
+                                 }
+                            },
+                            SellersItemIdentification=new ItemIdentificationType()
+                            {
+                                 ID=new IDType()
+                                 {
+                                      Value= stokServis.obje.Where(x => x.id == tempirsdetay[i].stokid).FirstOrDefault().kod
+                                 }
+                            }
                         },
                         DeliveredQuantity = new DeliveredQuantityType { Value = tempirsdetay[i].safi, unitCode = "NIU" },
                         OversupplyQuantity = new OversupplyQuantityType { Value = 0, unitCode = "NIU" },
@@ -278,7 +294,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
                                                TransportEquipment = new TransportEquipmentType[]{
                                                                         new TransportEquipmentType
                                                                         {
-                                                                          ID = new IDType {Value =aracServis.obje.Where(x=>x.id== irstemp.dorseid).FirstOrDefault().plaka, schemeID="DORSEPLAKA"}
+                                                                          ID = new IDType {Value =aracServis.obje.Where(x=>x.id== tempirs.dorseid).FirstOrDefault().plaka, schemeID="DORSEPLAKA"}
                                                                         }
 
                                                }
