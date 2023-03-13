@@ -2009,5 +2009,10 @@ namespace MEYPAK.PRL
             fGidenEMustahsil.Show();
             i++;
         }
+
+        private void accordionControl1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
