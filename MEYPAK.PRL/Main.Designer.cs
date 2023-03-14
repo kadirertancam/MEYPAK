@@ -239,6 +239,7 @@
             this.applicationMenu1 = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
             this.accordionContentContainer1 = new DevExpress.XtraBars.Navigation.AccordionContentContainer();
             this.accordionControlElement64 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement61 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -994,6 +995,7 @@
             this.accordionControlElement3,
             this.accordionControlElement4});
             this.ACESTOK.Enabled = false;
+            this.ACESTOK.Expanded = true;
             this.ACESTOK.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("ACESTOK.ImageOptions.SvgImage")));
             this.ACESTOK.ImageOptions.SvgImageSize = new System.Drawing.Size(32, 32);
             this.ACESTOK.Name = "ACESTOK";
@@ -1012,8 +1014,10 @@
             this.accordionControlElement42,
             this.accordionControlElement47,
             this.accordionControlElement50,
-            this.accordionControlElement48});
+            this.accordionControlElement48,
+            this.accordionControlElement61});
             this.accordionControlElement2.Enabled = false;
+            this.accordionControlElement2.Expanded = true;
             this.accordionControlElement2.HeaderTemplate.AddRange(new DevExpress.XtraBars.Navigation.HeaderElementInfo[] {
             new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.Text),
             new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.Image),
@@ -1912,7 +1916,6 @@
             this.accordionControlElement63,
             this.accordionControlElement20});
             this.accordionControlElement27.Enabled = false;
-            this.accordionControlElement27.Expanded = true;
             this.accordionControlElement27.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement27.ImageOptions.Image")));
             this.accordionControlElement27.Name = "accordionControlElement27";
             this.accordionControlElement27.Text = "E-İşlemler";
@@ -2232,6 +2235,13 @@
             this.accordionControlElement64.Text = "Gelen Kutusu";
             this.accordionControlElement64.Click += new System.EventHandler(this.accordionControlElement64_Click);
             // 
+            // accordionControlElement61
+            // 
+            this.accordionControlElement61.Name = "accordionControlElement61";
+            this.accordionControlElement61.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement61.Text = "Stok Ölçü Birim Eşleme";
+            this.accordionControlElement61.Click += new System.EventHandler(this.accordionControlElement61_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2471,5 +2481,6 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement20;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement22;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement21;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement61;
     }
 }

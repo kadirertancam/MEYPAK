@@ -135,6 +135,11 @@ builder.Services.AddScoped<IEFaturaParamServis, EFaturaParamsManager>();
 builder.Services.AddScoped<IDekontDal, EFDekontRepo>();
 builder.Services.AddScoped<IDekontServis, DekontManager>();
 #endregion
+#region FaturaStokOlcuBr
+
+builder.Services.AddScoped<IFaturaStokOlcuBrDal, EFFaturaStokOlcuBrRepo>();
+builder.Services.AddScoped<IFaturaStokOlcuBrServis, FaturaStokOlcuBrManager>();
+#endregion
 
 #region EISLEMLER
 

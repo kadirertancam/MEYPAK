@@ -149,6 +149,7 @@ namespace MEYPAK.PRL
         EFaturaParams eFaturaParams;
         FGidenEArsiv fGidenEArsiv;
         FGidenEIrsaliye fGidenEIrsaliye;
+        FFATURASTOKOLCUESLE fFATURASTOKOLCUESLE;
 
         public Tarih_Date _tarih_Date = new Tarih_Date();
         public DataTable guncelkur;
@@ -1963,6 +1964,27 @@ namespace MEYPAK.PRL
             fGidenEIrsaliye.Tag = "FGidenEIrsaliye" + i;
             page.Controls.Add(fGidenEIrsaliye);
             fGidenEIrsaliye.Show();
+            i++;
+        }
+
+        private void accordionControlElement61_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fFATURASTOKOLCUESLE = new FFATURASTOKOLCUESLE();
+            page.Name = "FFATURASTOKOLCUESLE" + i;
+            page.Text = "STOK OLCU BIRIM ESLE";
+            page.Tag = "FFATURASTOKOLCUESLE" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fFATURASTOKOLCUESLE.FormBorderStyle = FormBorderStyle.None;
+            fFATURASTOKOLCUESLE.TopLevel = false;
+            fFATURASTOKOLCUESLE.AutoScroll = true;
+            fFATURASTOKOLCUESLE.Dock = DockStyle.Fill;
+            fFATURASTOKOLCUESLE.Tag = "FFATURASTOKOLCUESLE" + i;
+            page.Controls.Add(fFATURASTOKOLCUESLE);
+            fFATURASTOKOLCUESLE.Show();
             i++;
         }
     }

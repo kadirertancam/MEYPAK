@@ -44,6 +44,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
             stokServis = new GenericWebServis<PocoSTOK>();
             stokMarkaServis = new GenericWebServis<PocoSTOKMARKA>();
             gidenFaturalarServis = new GenericWebServis<PocoGIDENFATURA>();
+            faturaStokOlcuBrServis = new GenericWebServis<PocoFATURASTOKOLCUBR>();
 
         }
         GenericWebServis<PocoCARIKART> cariServis;
@@ -125,10 +126,12 @@ namespace MEYPAK.PRL.E_ISLEMLER
 
                              response2 = client.QueryOutboxInvoiceStatusAsync(guid).Result;
 
-                            status = response2.Value[0].Status;
-                            statusCode = response2.Value[0].StatusCode;
-                            item.DURUM = status.ToString();
-                            MessageBox.Show(string.Format("Fatura Durumu : {0} : Durum Kodu : {1}  ", status.ToString(), statusCode.ToString()));
+                            if (response2.Value != null)
+                            {
+                                status = response2.Value[0].Status;
+                                statusCode = response2.Value[0].StatusCode;
+                                item.DURUM = status.ToString();
+                            }
                         }
                         catch (Exception ex)
                         {
@@ -257,15 +260,17 @@ namespace MEYPAK.PRL.E_ISLEMLER
         {
             throw new NotImplementedException();
         }
-
+        GenericWebServis<PocoFATURASTOKOLCUBR> faturaStokOlcuBrServis;
         #region Metotlar
         public InvoiceInfo CreateInvoice()
         {
+            faturaStokOlcuBrServis.Data(ServisList.FATURASTOKOLCUBRListeServis);
             EFaturaGidenTask eFaturaGidenTask = (EFaturaGidenTask)gridView1.GetFocusedRow();
             fattemp = faturaServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
             caritemp = cariServis.obje.Where(x => x.id == fattemp.cariid).FirstOrDefault();
             fatDetaytemp = faturaDetayServis.obje.Where(x => x.faturaid == fattemp.id).ToArray();
             var ccc = faturaDetayServis.obje.Where(x => x.faturaid == fattemp.id);
+            
             InvoiceLineType[] ınvoiceLineType = new InvoiceLineType[ccc.Count()];
             //Fatura Satır 1
             //},
@@ -293,7 +298,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
                     new AllowanceChargeType { ChargeIndicator= new ChargeIndicatorType { Value=true }, Amount = new AmountType2 { currencyID="TRY",Value=100 }, AllowanceChargeReason = new AllowanceChargeReasonType { Value= "Bayi İskontosu" },   }
                 };
                 ınvoiceLineType[i].Price = new PriceType { PriceAmount = new PriceAmountType { Value = Convert.ToDecimal(fatDetaytemp[i].netfiyat), currencyID = "TRY" } };
-                ınvoiceLineType[i].InvoicedQuantity = new InvoicedQuantityType { unitCode = "NIU", Value = Math.Round(Convert.ToDecimal(fatDetaytemp[i].safi), 2) };
+                ınvoiceLineType[i].InvoicedQuantity = new InvoicedQuantityType { unitCode = faturaStokOlcuBrServis.obje.Where(x => x.olcubrid == fatDetaytemp[i].birimid).FirstOrDefault().kisa, Value = Math.Round(Convert.ToDecimal(fatDetaytemp[i].safi), 2) };
                 ınvoiceLineType[i].Note = new NoteType[] {  new NoteType {  Value = fatDetaytemp[i].aciklama }  };
                 ınvoiceLineType[i].ID = new IDType { Value = (i+1).ToString() };
                 ınvoiceLineType[i].LineExtensionAmount = new LineExtensionAmountType { Value = Math.Round(Convert.ToDecimal(fatDetaytemp[i].nettoplam), 2), currencyID = "TRY" };
@@ -313,7 +318,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
                    },
                     TaxAmount = new TaxAmountType { Value = Math.Round(Convert.ToDecimal(fatDetaytemp[i].kdvtutari), 2), currencyID = "TRY" }
 
-                };
+                }; 
                 ınvoiceLineType[i].Note = new NoteType[]{ new NoteType() { Value = "" } };
             }
             var ttt = fatDetaytemp.GroupBy(x => new { x.kdv, x.kdvtutari });
@@ -458,10 +463,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
                             Country = new CountryType { Name = new NameType1 { Value = caritemp.ulke } },
                             Room = new RoomType { Value = caritemp.daire },
                             BuildingNumber = new BuildingNumberType { Value = caritemp.apt },
-                            CitySubdivisionName = new CitySubdivisionNameType { Value = caritemp.ilce },
-
-
-
+                            CitySubdivisionName = new CitySubdivisionNameType { Value = caritemp.ilce }, 
                         },
                         //PartyIdentification = new PartyIdentificationType[] { new PartyIdentificationType() { ID = new IDType { Value = "77777777701", schemeID = "TCKN" } } },
                         // Person = new PersonType{ FirstName= new FirstNameType{ Value="Ahmet"}, FamilyName= new FamilyNameType{ Value="Altınordu"} },
@@ -805,6 +807,11 @@ namespace MEYPAK.PRL.E_ISLEMLER
                 MessageBox.Show(string.Format("Hata : {0}", ex.Message));
             }
 
+        }
+
+        private void gridView1_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
+        {
+          gridControl2.DataSource=  faturaDetayServis.obje.Where(x => x.faturaid.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString());
         }
 
         private async void RepositoryItemButtonEdit_ButtonClick1(object sender, ButtonPressedEventArgs e)

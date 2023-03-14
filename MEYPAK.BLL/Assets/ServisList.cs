@@ -61,6 +61,14 @@ namespace MEYPAK.BLL.Assets
         #endregion
 
         #region EFaturaParams
+        public const string FATURASTOKOLCUBRListeServis =              "http://78.135.80.41:8081/FATURASTOKOLCUBR/Liste";
+        public const string FATURASTOKOLCUBREkleServis =               "http://78.135.80.41:8081/FATURASTOKOLCUBR/EkleyadaGuncelle";
+        public const string FATURASTOKOLCUBRSilServis =                "http://78.135.80.41:8081/FATURASTOKOLCUBR/Sil";
+        public const string FATURASTOKOLCUBRGuncelleServis =           "http://78.135.80.41:8081/FATURASTOKOLCUBR/Guncelle";
+        public const string FATURASTOKOLCUBRDeleteByIdServis =         "http://78.135.80.41:8081/FATURASTOKOLCUBR/DeleteById";
+        public const string FATURASTOKOLCUBRListeFiltreServis =        "http://78.135.80.41:8081/FATURASTOKOLCUBR/Liste2";
+        #endregion
+        #region EFaturaParams
         public const string EFaturaParamsListeServis =              "http://78.135.80.41:8081/EFaturaParams/Liste";
         public const string EFaturaParamsEkleServis =               "http://78.135.80.41:8081/EFaturaParams/EkleyadaGuncelle";
         public const string EFaturaParamsSilServis =                "http://78.135.80.41:8081/EFaturaParams/Sil";
