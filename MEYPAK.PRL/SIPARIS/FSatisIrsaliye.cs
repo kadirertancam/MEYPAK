@@ -941,7 +941,7 @@ namespace MEYPAK.PRL.IRSALIYE
 
                 _irsaliyeServis.Data(ServisList.IrsaliyeEkleServis, new PocoIRSALIYE()
                 {
-                    id = _tempIrsaliye != null ? _tempIrsaliye.id : 0,
+                    id =  0,
                     aciklama = TBAciklama.Text,
                     kur = Convert.ToDecimal(TBKur.Text),
                     belgeno = TBFaturaNo.Text,
@@ -951,28 +951,28 @@ namespace MEYPAK.PRL.IRSALIYE
                     cariadi = TBCariAdi.Text,
                     irsaliyetarihi = (DateTime)DTSiparisTarih.EditValue,
                     cariid = _cariKart.obje.Where(x => x.kod == TBCariKodu.Text).FirstOrDefault().id,
-                    depoid = _depoServis.obje.Where(x => x.depoadi == CBDepo.EditValue).FirstOrDefault().id,
+                    depoid = _depoServis.obje.Where(x => x.depoadi == CBDepo.EditValue.ToString()).FirstOrDefault().id,
                     althesapid = int.Parse(CBAltHesap.EditValue.ToString()),
                     dovizid = _paraBirimServis.obje.Where(x => x.adi == CBParaBirimi.Text).FirstOrDefault().id,
                     altiskonto1 = Convert.ToDecimal(TBAIskonto1.Text),
                     altiskonto2 = Convert.ToDecimal(TBAIskonto2.Text),
                     altiskonto3 = Convert.ToDecimal(TBAIskonto3.Text),
-                    iskontotoplam = Convert.ToDecimal(TBIskontoToplam.EditValue), //_tempIrsaliyeDetay.Sum(x => x.İskontoTutarı),
+                    iskontotoplam = Convert.ToDecimal(TBIskontoToplam.EditValue.ToString()), //_tempIrsaliyeDetay.Sum(x => x.İskontoTutarı),
                     kdvtoplam = _tempIrsaliyeDetay.Sum(x => x.KdvTutarı),
                     bruttoplam = _tempIrsaliyeDetay.Sum(x => x.BrütToplam),
                     nettoplam = _tempIrsaliyeDetay.Sum(x => x.NetToplam),
                     geneltoplam = _tempIrsaliyeDetay.Sum(x => x.KdvTutarı) + _tempIrsaliyeDetay.Sum(x => x.NetToplam),
                     kdvdahil = CHBKdvDahil.Checked,
-                     aracid= _araclarServis.obje.Where(x=>x.PLAKA== CBAracListesi.Text).FirstOrDefault().ID,
-                     dorseid= _araclarServis.obje.Where(x => x.PLAKA == CBDorseListesi.Text).FirstOrDefault().ID,
-                      personelid=_personelServis.obje.Where(x=>x.ADISOYADI==CBSoforListesi.Text).FirstOrDefault().ID,
+                     aracid= _araclarServis.obje.Where(x=>x.PLAKA== CBAracListesi.EditValue.ToString()).FirstOrDefault().ID,
+                     dorseid= _araclarServis.obje.Where(x => x.PLAKA == CBDorseListesi.EditValue.ToString()).FirstOrDefault().ID,
+                      personelid=_personelServis.obje.Where(x=>x.ADISOYADI==CBSoforListesi.EditValue.ToString()).FirstOrDefault().ID, serino=comboBoxEdit1.EditValue.ToString(),
                     tip = 0,
                     userid = MPKullanici.ID,
                 });
                 _siparisServis.Data(ServisList.SiparisListeServis);
                 var tempsip = _siparisServis.obje.Where(x => x.id == siparisidd).FirstOrDefault();
+                if(tempsip!=null)
                 tempsip.durum = true;
-                tempsip.userid = MPKullanici.ID;
                 _siparisServis.Data(ServisList.SiparisEkleServis, tempsip);
                 _stokOlcuBr.Data(ServisList.StokOlcuBrListeServis);
                 _olcuBr.Data(ServisList.OlcuBrListeServis);

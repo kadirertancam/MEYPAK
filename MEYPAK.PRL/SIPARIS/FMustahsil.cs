@@ -151,12 +151,12 @@ namespace MEYPAK.PRL.SIPARIS.Raporlar
 
         void MustahsilCariDoldur()
         {
-            _mustahsilCariServis.Data(ServisList.MustahsilCariListeServis);
-            CBMustahsilCari.Properties.DataSource = _mustahsilCariServis.obje.Select(x => new { ID = x.id, ADI = x.ADI + " "+x.SOYADI });
-            CBMustahsilCari.Properties.DisplayMember = "ADI";
-            CBMustahsilCari.Properties.ValueMember = "ID";
-            CBMustahsilCari.Properties.PopulateColumns();
-            CBMustahsilCari.Properties.Columns["ID"].Visible = false;
+            //_mustahsilCariServis.Data(ServisList.MustahsilCariListeServis);
+            //CBMustahsilCari.Properties.DataSource = _mustahsilCariServis.obje.Count()>0? _mustahsilCariServis.obje.Select(x => new { ID = x.id, ADI = x.ADI + " "+x.SOYADI }):"";
+            //CBMustahsilCari.Properties.DisplayMember = "ADI";
+            //CBMustahsilCari.Properties.ValueMember = "ID";
+            //CBMustahsilCari.Properties.PopulateColumns();
+            //CBMustahsilCari.Properties.Columns["ID"].Visible = false;
         }
         void temizle()
         {

@@ -149,6 +149,7 @@ namespace MEYPAK.PRL
         EFaturaParams eFaturaParams;
         FGidenEArsiv fGidenEArsiv;
         FGidenEIrsaliye fGidenEIrsaliye;
+        FFATURASTOKOLCUESLE fFATURASTOKOLCUESLE;
         FMustahsil fMustahsilMakbuz;
         FGidenEMustahsil fGidenEMustahsil;
 
@@ -2013,6 +2014,27 @@ namespace MEYPAK.PRL
         private void accordionControl1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void accordionControlElement61_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fFATURASTOKOLCUESLE = new FFATURASTOKOLCUESLE();
+            page.Name = "FFATURASTOKOLCUESLE" + i;
+            page.Text = "STOK OLCU BIRIM ESLE";
+            page.Tag = "FFATURASTOKOLCUESLE" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabControl1.TabPages.Add(page);
+            xtraTabControl1.SelectedTabPage = page;
+
+            fFATURASTOKOLCUESLE.FormBorderStyle = FormBorderStyle.None;
+            fFATURASTOKOLCUESLE.TopLevel = false;
+            fFATURASTOKOLCUESLE.AutoScroll = true;
+            fFATURASTOKOLCUESLE.Dock = DockStyle.Fill;
+            fFATURASTOKOLCUESLE.Tag = "FFATURASTOKOLCUESLE" + i;
+            page.Controls.Add(fFATURASTOKOLCUESLE);
+            fFATURASTOKOLCUESLE.Show();
+            i++;
         }
     }
 }

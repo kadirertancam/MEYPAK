@@ -4,6 +4,7 @@ using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MEYPAK.DAL.Migrations
 {
     [DbContext(typeof(MEYPAKContext))]
-    partial class MEYPAKContextModelSnapshot : ModelSnapshot
+    [Migration("20230313062251_faturastokolcubr")]
+    partial class faturastokolcubr
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -3932,382 +3934,6 @@ namespace MEYPAK.DAL.Migrations
                     b.ToTable("MPIRSALIYESIPARISDETAYILISKI");
                 });
 
-            modelBuilder.Entity("MEYPAK.Entity.Models.MUSTAHSIL.MPMUSTAHSIL", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
-
-                    b.Property<string>("ACIKLAMA")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
-                    b.Property<decimal>("ALTISKONTO1")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("ALTISKONTO2")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("ALTISKONTO3")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("ARACID")
-                        .HasColumnType("int");
-
-                    b.Property<string>("BELGENO")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal>("BRUTTOPLAM")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("CARIADI")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<int>("DEPOID")
-                        .HasColumnType("int");
-
-                    b.Property<string>("DONEM")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("DOVIZID")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("DURUM")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("EKACIKLAMA")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
-                    b.Property<int>("ESKIID")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("FATURATARIHI")
-                        .HasColumnType("datetime2");
-
-                    b.Property<decimal>("GENELTOPLAM")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<DateTime>("GUNCELLEMETARIHI")
-                        .HasColumnType("datetime2");
-
-                    b.Property<decimal>("ISKONTOTOPLAM")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<byte>("KAYITTIPI")
-                        .HasColumnType("tinyint");
-
-                    b.Property<bool>("KDVDAHIL")
-                        .HasColumnType("bit");
-
-                    b.Property<decimal>("KDVTOPLAM")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("KULLANICIID")
-                        .HasColumnType("int");
-
-                    b.Property<byte>("KULLANICITIPI")
-                        .HasColumnType("tinyint");
-
-                    b.Property<decimal>("KUR")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("MUSTAHSILCARIID")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("NETTOPLAM")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<DateTime>("OLUSTURMATARIHI")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("PERSONELID")
-                        .HasColumnType("int");
-
-                    b.Property<string>("SERINO")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<int>("SIRKETID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SUBEID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TIP")
-                        .HasColumnType("int");
-
-                    b.Property<string>("USERID")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("VADEGUNU")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("VADETARIHI")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("MPMUSTAHSIL");
-                });
-
-            modelBuilder.Entity("MEYPAK.Entity.Models.MUSTAHSIL.MPMUSTAHSILCARI", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
-
-                    b.Property<string>("ADI")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ESKIID")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("GUNCELLEMETARIHI")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("IL")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ILCE")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<byte>("KAYITTIPI")
-                        .HasColumnType("tinyint");
-
-                    b.Property<string>("KOD")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("OLUSTURMATARIHI")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("POSTAKODU")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SOYADI")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TCNO")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TELEFON1")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TELEFON2")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("USERID")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("MPMUSTAHSILCARI");
-                });
-
-            modelBuilder.Entity("MEYPAK.Entity.Models.MUSTAHSIL.MPMUSTAHSILCARIHAR", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
-
-                    b.Property<string>("ACIKLAMA")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal>("ALACAK")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("BELGE_NO")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal>("BORC")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("ESKIID")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("GUNCELLEMETARIHI")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("HAREKETTARIHI")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("HAREKETTIPI")
-                        .HasColumnType("int");
-
-                    b.Property<byte>("KAYITTIPI")
-                        .HasColumnType("tinyint");
-
-                    b.Property<decimal>("KUR")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("MUSTAHSILID")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("OLUSTURMATARIHI")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("PARABIRIMID")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("TUTAR")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("USERID")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("MPMUSTAHSILCARIHAR");
-                });
-
-            modelBuilder.Entity("MEYPAK.Entity.Models.MUSTAHSIL.MPMUSTAHSILDETAY", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
-
-                    b.Property<string>("ACIKLAMA")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
-                    b.Property<int>("BEKLEYENMIKTAR")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("BIRIMFIYAT")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("BIRIMID")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("BRUTFIYAT")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("BRUTTOPLAM")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("DARA")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("DARALI")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("DOVIZID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ESKIID")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("GUNCELLEMETARIHI")
-                        .HasColumnType("datetime2");
-
-                    b.Property<byte>("HAREKETDURUMU")
-                        .HasColumnType("tinyint");
-
-                    b.Property<decimal>("ISKONTO1")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("ISKONTO2")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("ISKONTO3")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("ISKTOPLAM")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("KASAID")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("KASAMIKTAR")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<byte>("KAYITTIPI")
-                        .HasColumnType("tinyint");
-
-                    b.Property<decimal>("KDV")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("KDVTUTARI")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("KULLANICIID")
-                        .HasColumnType("int");
-
-                    b.Property<string>("KUNYE")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("LISTEFIYATID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MUSTAHSILID")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("NETFIYAT")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("NETTOPLAM")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("NUM")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("OLUSTURMATARIHI")
-                        .HasColumnType("datetime2");
-
-                    b.Property<decimal>("SAFI")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("STOKADI")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<int>("STOKID")
-                        .HasColumnType("int");
-
-                    b.Property<byte>("TIP")
-                        .HasColumnType("tinyint");
-
-                    b.Property<string>("USERID")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("MPMUSTAHSILDETAY");
-                });
-
             modelBuilder.Entity("MEYPAK.Entity.Models.PARAMETRE.MPEFATURAPARAMS", b =>
                 {
                     b.Property<int>("ID")
@@ -5786,12 +5412,6 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<decimal>("MIKTAR")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("MUSTAHSILDETAYID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MUSTAHSILID")
-                        .HasColumnType("int");
-
                     b.Property<decimal>("NETFIYAT")
                         .HasColumnType("decimal(18,2)");
 
@@ -6284,12 +5904,6 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<decimal>("MIKTAR")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("MUSTAHSILDETAYID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MUSTAHSILID")
-                        .HasColumnType("int");
-
                     b.Property<decimal>("NETFIYAT")
                         .HasColumnType("decimal(18,2)");
 
@@ -6429,15 +6043,6 @@ namespace MEYPAK.DAL.Migrations
 
                     b.Property<decimal>("MIKTAR")
                         .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("MUSTAHSILCARIID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MUSTAHSILDETAYID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MUSTAHSILID")
-                        .HasColumnType("int");
 
                     b.Property<DateTime>("OLUSTURMATARIHI")
                         .HasColumnType("datetime2");

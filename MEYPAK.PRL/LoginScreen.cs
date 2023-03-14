@@ -3,6 +3,7 @@ using MEYPAK.Entity.IdentityModels;
 using MEYPAK.PRL.CEKSENET.Firma.Çek;
 using MEYPAK.PRL.DEKONT;
 using MEYPAK.PRL.PERSONEL;
+using MEYPAK.PRL.STOK;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
@@ -45,7 +46,9 @@ namespace MEYPAK.PRL
                 if (_loginService.loginResult !=null)
                 {
                     //FPersonelMaas maas = new FPersonelMaas();
-                    //maas.Show();
+                    ////maas.Show();
+                    //FFATURASTOKOLCUESLE ff = new FFATURASTOKOLCUESLE();
+                    //ff.Show();
                     fMain = new Main(_loginService.loginResult.MPUSER, _loginService.loginResult.userRoles);
                     fMain.Show();
                     this.Hide();

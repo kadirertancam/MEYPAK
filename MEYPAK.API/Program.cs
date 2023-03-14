@@ -154,11 +154,19 @@ builder.Services.AddScoped<IEFaturaParamServis, EFaturaParamsManager>();
 builder.Services.AddScoped<IDekontDal, EFDekontRepo>();
 builder.Services.AddScoped<IDekontServis, DekontManager>();
 #endregion
+#region FaturaStokOlcuBr
+
+builder.Services.AddScoped<IFaturaStokOlcuBrDal, EFFaturaStokOlcuBrRepo>();
+builder.Services.AddScoped<IFaturaStokOlcuBrServis, FaturaStokOlcuBrManager>();
+#endregion
 
 #region EISLEMLER
 
 builder.Services.AddScoped<IGelenEFaturaDal, EFGelenEFaturaRepo>();
 builder.Services.AddScoped<IGelenFaturaServis, GelenEFaturaManager>();
+
+builder.Services.AddScoped<IGidenMustahsilMakbuzlariDal, EFGidenMustahsilMakbuzlariRepo>();
+builder.Services.AddScoped<IGidenMustahsilMakbuzlariServis, GidenMustahsilMakbuzlariManager>();
 
 builder.Services.AddScoped<IMukellefListDal, EFMukellefListRepo>();
 builder.Services.AddScoped<IMukellefListesiServis, MukellefListesiManager>();

@@ -34,6 +34,7 @@ namespace MEYPAK.PRL.KASA
             parabirimServis = new GenericWebServis<PocoPARABIRIM>();
             _cariKartServis = new GenericWebServis<PocoCARIKART>();
             _personelServis = new GenericWebServis<PocoPERSONEL>();
+            _cariHarServis = new GenericWebServis<PocoCARIHAR>();
             this.gridView1.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(100,((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
            
         }

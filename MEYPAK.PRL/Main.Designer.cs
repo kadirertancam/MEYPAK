@@ -1000,8 +1000,10 @@
             this.accordionControlElement42,
             this.accordionControlElement47,
             this.accordionControlElement50,
-            this.accordionControlElement48});
+            this.accordionControlElement48,
+            this.accordionControlElement61});
             this.accordionControlElement2.Enabled = false;
+            this.accordionControlElement2.Expanded = true;
             this.accordionControlElement2.HeaderTemplate.AddRange(new DevExpress.XtraBars.Navigation.HeaderElementInfo[] {
             new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.Text),
             new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.Image),
@@ -2241,6 +2243,13 @@
             this.accordionControlElement64.Text = "Gelen Kutusu";
             this.accordionControlElement64.Click += new System.EventHandler(this.accordionControlElement64_Click);
             // 
+            // accordionControlElement61
+            // 
+            this.accordionControlElement61.Name = "accordionControlElement61";
+            this.accordionControlElement61.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement61.Text = "Stok Ölçü Birim Eşleme";
+            this.accordionControlElement61.Click += new System.EventHandler(this.accordionControlElement61_Click);
+            // 
             // İnstagr
             // 
             this.İnstagr.Expanded = true;
@@ -2514,6 +2523,7 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement20;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement22;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement21;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement61;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEMustahsilMakbuz;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEEMustahsilM;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEEMustahsilGiden;
