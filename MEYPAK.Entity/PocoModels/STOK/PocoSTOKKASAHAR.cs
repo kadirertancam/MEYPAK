@@ -14,8 +14,11 @@ namespace MEYPAK.Entity.PocoModels.STOK
         public int irsaliyeid { get; set; }
         public int irsaliyedetayid { get; set; }
         public int cariid { get; set; }
+        public int mustahsilcariid { get; set; }
         public int faturaid { get; set; }
         public int faturadetayid { get; set; }
+        public int mustahsilid { get; set; }
+        public int mustahsildetayid { get; set; }
         public int sarfid { get; set; }
         public int sarfdetayid { get; set; }
         public int io { get; set; }

@@ -14,8 +14,11 @@ namespace MEYPAK.Entity.Models.STOK
         public int IRSALIYEID { get; set; } 
         public int IRSALIYEDETAYID { get; set; }
         public int CARIID { get; set; }
+        public int MUSTAHSILCARIID { get; set; }
         public int FATURAID { get; set; }
         public int FATURADETAYID { get; set; }
+        public int MUSTAHSILID { get; set; }
+        public int MUSTAHSILDETAYID { get; set; }
         public int SARFID { get; set; }
         public int SARFDETAYID { get; set; }
         public int IO { get; set; }

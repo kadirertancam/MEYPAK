@@ -14,6 +14,46 @@ namespace MEYPAK.BLL.Assets
 
         #endregion
 
+        #region MUSTAHSILDETAY
+        public const string MustahsilDetayListeServis =       "http://78.135.80.41:8081/MUSTAHSILDETAY/Liste";
+        public const string MustahsilDetayEkleServis =        "http://78.135.80.41:8081/MUSTAHSILDETAY/EkleyadaGuncelle";
+        public const string MustahsilDetaySilServis =         "http://78.135.80.41:8081/MUSTAHSILDETAY/Sil";
+        public const string MustahsilDetayGuncelleServis =    "http://78.135.80.41:8081/MUSTAHSILDETAY/Guncelle";
+        public const string MustahsilDetayDeleteByIdServis =  "http://78.135.80.41:8081/MUSTAHSILDETAY/DeleteById";
+        public const string MustahsilDetayListeFiltreServis = "http://78.135.80.41:8081/MUSTAHSILDETAY/Liste2";
+
+        #endregion
+
+        #region MUSTAHSILCARI
+        public const string MustahsilCariListeServis = "http://78.135.80.41:8081/MUSTAHSILCARI/Liste";
+        public const string MustahsilCariEkleServis = "http://78.135.80.41:8081/MUSTAHSILCARI/EkleyadaGuncelle";
+        public const string MustahsilCariSilServis = "http://78.135.80.41:8081/MUSTAHSILCARI/Sil";
+        public const string MustahsilCariGuncelleServis = "http://78.135.80.41:8081/MUSTAHSILCARI/Guncelle";
+        public const string MustahsilCariDeleteByIdServis = "http://78.135.80.41:8081/MUSTAHSILCARI/DeleteById";
+        public const string MustahsilCariListeFiltreServis = "http://78.135.80.41:8081/MUSTAHSILCARI/Liste2";
+
+        #endregion
+
+        #region MUSTAHSILCARIHAR
+        public const string MustahsilCariHarListeServis = "http://78.135.80.41:8081/MUSTAHSILCARIHAR/Liste";
+        public const string MustahsilCariHarEkleServis = "http://78.135.80.41:8081/MUSTAHSILCARIHAR/EkleyadaGuncelle";
+        public const string MustahsilCariHarSilServis = "http://78.135.80.41:8081/MUSTAHSILCARIHAR/Sil";
+        public const string MustahsilCariHarGuncelleServis = "http://78.135.80.41:8081/MUSTAHSILCARIHAR/Guncelle";
+        public const string MustahsilCariHarDeleteByIdServis = "http://78.135.80.41:8081/MUSTAHSILCARIHAR/DeleteById";
+        public const string MustahsilCariHarListeFiltreServis = "http://78.135.80.41:8081/MUSTAHSILCARIHAR/Liste2";
+
+        #endregion
+
+        #region MUSTAHSIL
+        public const string MustahsilListeServis = "http://78.135.80.41:8081/MUSTAHSIL/Liste";
+        public const string MustahsilEkleServis = "http://78.135.80.41:8081/MUSTAHSIL/EkleyadaGuncelle";
+        public const string MustahsilSilServis = "http://78.135.80.41:8081/MUSTAHSIL/Sil";
+        public const string MustahsilGuncelleServis = "http://78.135.80.41:8081/MUSTAHSIL/Guncelle";
+        public const string MustahsilDeleteByIdServis = "http://78.135.80.41:8081/MUSTAHSIL/DeleteById";
+        public const string MustahsilListeFiltreServis = "http://78.135.80.41:8081/MUSTAHSIL/Liste2";
+
+        #endregion
+
         #region PERSONELBELGE
         public const string PersonelBelgeListeServis =       "http://78.135.80.41:8081/PERSONELBELGE/Liste";
         public const string PersonelBelgeEkleServis =        "http://78.135.80.41:8081/PERSONELBELGE/EkleyadaGuncelle";
@@ -42,7 +82,8 @@ namespace MEYPAK.BLL.Assets
         public const string GidenIrsaliyelerDeleteByIdServis =    "http://78.135.80.41:8081/GIDENIRSALIYELER/DeleteById";
         public const string GidenIrsaliyelerListeFiltreServis =   "http://78.135.80.41:8081/GIDENIRSALIYELER/Liste2";
         #endregion
-             #region GIDENFATURALAR
+
+        #region GIDENFATURALAR
         public const string GidenFaturalarListeServis =         "http://78.135.80.41:8081/GIDENFATURALAR/Liste";
         public const string GidenFaturalarEkleServis =          "http://78.135.80.41:8081/GIDENFATURALAR/EkleyadaGuncelle";
         public const string GidenFaturalarSilServis =           "http://78.135.80.41:8081/GIDENFATURALAR/Sil";

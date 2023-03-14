@@ -21,6 +21,8 @@ namespace MEYPAK.Entity.Models.STOK
         public string BELGE_NO { get; set; } = "";
         public int FATURAID { get; set; } = 0;
         public int FATURADETAYID { get; set; } = 0;
+        public int MUSTAHSILID { get; set; } = 0;
+        public int MUSTAHSILDETAYID { get; set; } = 0;
         public int IRSALIYEID { get; set; } = 0;
         public int IRSALIYEDETAYID { get; set; } = 0;
         public decimal KDV { get; set; } = 0;

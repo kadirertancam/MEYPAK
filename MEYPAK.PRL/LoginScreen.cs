@@ -5,7 +5,6 @@ using MEYPAK.PRL.DEKONT;
 using MEYPAK.PRL.PERSONEL;
 using MEYPAK.PRL.STOK;
 using Microsoft.AspNetCore.Identity;
-using Mpv.NET.Player;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -72,7 +71,7 @@ namespace MEYPAK.PRL
                 BTNGiris_Click(sender, e);
             }
         }
-        private MpvPlayer player;
+     
         private void LoginScreen_Load(object sender, EventArgs e)
         {
             //player = new MpvPlayer(this.Handle)
