@@ -35,6 +35,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
 
         }
         public DbSet<MPMUSTAHSIL> MPMUSTAHSIL { get; set; }
+        public DbSet<MPGIDENMUSTAHSILMAKBUZLARI> MPGIDENMUSTAHSILMAKBUZLARI { get; set; }
         public DbSet<MPMUSTAHSILDETAY> MPMUSTAHSILDETAY { get; set; }
         public DbSet<MPMUSTAHSILCARI> MPMUSTAHSILCARI { get; set; }
         public DbSet<MPMUSTAHSILCARIHAR> MPMUSTAHSILCARIHAR { get; set; }

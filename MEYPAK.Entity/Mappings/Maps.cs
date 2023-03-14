@@ -50,6 +50,8 @@ namespace MEYPAK.Entity.Mappings
             CreateMap<MPMUSTAHSILDETAY, PocoMUSTAHSILDETAY>().ReverseMap();
             CreateMap<MPMUSTAHSILCARI, PocoMUSTAHSILCARI>().ReverseMap();
             CreateMap<MPMUSTAHSILCARIHAR, PocoMUSTAHSILCARIHAR>().ReverseMap();
+            CreateMap<MPGIDENMUSTAHSILMAKBUZLARI, PocoGIDENMUSTAHSILMAKBUZLARI>().ReverseMap();
+
 
             //DEKONT
             CreateMap<MPDEKONT, PocoDEKONT>().ReverseMap(); 

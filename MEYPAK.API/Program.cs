@@ -165,6 +165,9 @@ builder.Services.AddScoped<IFaturaStokOlcuBrServis, FaturaStokOlcuBrManager>();
 builder.Services.AddScoped<IGelenEFaturaDal, EFGelenEFaturaRepo>();
 builder.Services.AddScoped<IGelenFaturaServis, GelenEFaturaManager>();
 
+builder.Services.AddScoped<IGidenMustahsilMakbuzlariDal, EFGidenMustahsilMakbuzlariRepo>();
+builder.Services.AddScoped<IGidenMustahsilMakbuzlariServis, GidenMustahsilMakbuzlariManager>();
+
 builder.Services.AddScoped<IMukellefListDal, EFMukellefListRepo>();
 builder.Services.AddScoped<IMukellefListesiServis, MukellefListesiManager>();
 #endregion
