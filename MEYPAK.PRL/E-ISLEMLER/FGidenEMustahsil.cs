@@ -183,28 +183,28 @@ namespace MEYPAK.PRL.E_ISLEMLER
         {
             DialogResult dialogResult = MessageBox.Show("Devam etmek istiyormusunuz ?", "Uyarı", MessageBoxButtons.YesNo); ;
 
-            if (dialogResult == DialogResult.OK)
-            {
-                var client = CreateClient();
-                var makbuz = CreateCreditNote();
-                var response = client.SendProducerReceiptAsync(
-                    new ProducerReceiptInfo[] {
-                new ProducerReceiptInfo {
-                                        Receipt = makbuz
-                                        }
-                    }
-                    ).Result; ;
+            //if (dialogResult == DialogResult.OK)
+            //{
+            //    var client = CreateClient();
+            //    //var makbuz = CreateCreditNote();
+            //    var response = client.SendProducerReceiptAsync(
+            //        new ProducerReceiptInfo[] {
+            //    new ProducerReceiptInfo {
+            //                            Receipt = makbuz
+            //                            }
+            //        }
+            //        ).Result; ;
 
-                if (response.IsSucceded)
-                {
-                    MessageBox.Show(string.Format("Request Başarıyla işlendi. UUID:{0} ID:{1}", response.Value[0].DocumentId, response.Value[0].ReceiptNumber));
+            //    if (response.IsSucceded)
+            //    {
+            //        MessageBox.Show(string.Format("Request Başarıyla işlendi. UUID:{0} ID:{1}", response.Value[0].DocumentId, response.Value[0].ReceiptNumber));
 
-                }
-                else
-                {
-                    MessageBox.Show(string.Format("Hata: {0}", response.Message));
-                }
-            }
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show(string.Format("Hata: {0}", response.Message));
+            //    }
+            //}
         }
 
 
