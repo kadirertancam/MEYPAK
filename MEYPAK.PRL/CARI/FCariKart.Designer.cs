@@ -1908,7 +1908,7 @@
             // 
             // BTResimKaydet
             // 
-            this.BTResimKaydet.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+            this.BTResimKaydet.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
             this.BTResimKaydet.Appearance.Options.UseBackColor = true;
             this.BTResimKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTResimKaydet.ImageOptions.Image")));
             this.BTResimKaydet.Location = new System.Drawing.Point(5, 5);

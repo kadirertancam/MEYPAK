@@ -29,15 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup1 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
             DevExpress.XtraBars.Ribbon.GalleryItem galleryItem1 = new DevExpress.XtraBars.Ribbon.GalleryItem();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
-            this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
-            this.panel6 = new System.Windows.Forms.Panel();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
@@ -242,16 +240,20 @@
             this.accordionContentContainer1 = new DevExpress.XtraBars.Navigation.AccordionContentContainer();
             this.accordionControlElement64 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.İnstagr = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
+            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
+            this.ACEDestekServis = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
-            this.xtraTabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.galleryDropDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.applicationMenu1)).BeginInit();
+            this.xtraTabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panel3
@@ -299,24 +301,6 @@
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage1});
             this.xtraTabControl1.CloseButtonClick += new System.EventHandler(this.xtraTabControl1_CloseButtonClick);
-            // 
-            // xtraTabPage1
-            // 
-            this.xtraTabPage1.Controls.Add(this.panel6);
-            this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.ShowCloseButton = DevExpress.Utils.DefaultBoolean.False;
-            this.xtraTabPage1.Size = new System.Drawing.Size(846, 540);
-            this.xtraTabPage1.Text = "AnaSayfa";
-            // 
-            // panel6
-            // 
-            this.panel6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel6.BackgroundImage")));
-            this.panel6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(0, 0);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(846, 540);
-            this.panel6.TabIndex = 1;
             // 
             // barDockControlLeft
             // 
@@ -946,6 +930,7 @@
             this.ACEPERSONEL,
             this.ACEARAC,
             this.ACEPARAMETRELER,
+            this.ACEDestekServis,
             this.ACEKullaniciYönetim});
             this.accordionControl1.Location = new System.Drawing.Point(0, 0);
             this.accordionControl1.LookAndFeel.SkinName = "Visual Studio 2013 Dark";
@@ -997,7 +982,7 @@
             this.accordionControlElement3,
             this.accordionControlElement4});
             this.ACESTOK.Enabled = false;
-            this.ACESTOK.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("ACESTOK.ImageOptions.SvgImage")));
+            this.ACESTOK.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ACESTOK.ImageOptions.Image")));
             this.ACESTOK.ImageOptions.SvgImageSize = new System.Drawing.Size(32, 32);
             this.ACESTOK.Name = "ACESTOK";
             this.ACESTOK.Text = "Stok";
@@ -1325,7 +1310,7 @@
             this.accordionControlElement7,
             this.accordionControlElement8});
             this.ACECARI.Enabled = false;
-            this.ACECARI.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("ACECARI.ImageOptions.SvgImage")));
+            this.ACECARI.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ACECARI.ImageOptions.Image")));
             this.ACECARI.Name = "ACECARI";
             this.ACECARI.Text = "Cari";
             this.ACECARI.Visible = false;
@@ -2186,10 +2171,12 @@
             // 
             // ACEKullaniciYönetim
             // 
+            this.ACEKullaniciYönetim.Appearance.Default.ForeColor = System.Drawing.Color.Silver;
+            this.ACEKullaniciYönetim.Appearance.Default.Options.UseForeColor = true;
             this.ACEKullaniciYönetim.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.ACEKullaniciTanim});
             this.ACEKullaniciYönetim.Enabled = false;
-            this.ACEKullaniciYönetim.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("ACEKullaniciYönetim.ImageOptions.SvgImage")));
+            this.ACEKullaniciYönetim.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ACEKullaniciYönetim.ImageOptions.Image")));
             this.ACEKullaniciYönetim.Name = "ACEKullaniciYönetim";
             this.ACEKullaniciYönetim.Text = "Kullanıcı Yönetimi";
             this.ACEKullaniciYönetim.Visible = false;
@@ -2262,6 +2249,34 @@
             this.İnstagr.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.İnstagr.Text = "Instagram : gunduzmeypak";
             // 
+            // xtraTabPage1
+            // 
+            this.xtraTabPage1.Controls.Add(this.pictureEdit1);
+            this.xtraTabPage1.Name = "xtraTabPage1";
+            this.xtraTabPage1.ShowCloseButton = DevExpress.Utils.DefaultBoolean.False;
+            this.xtraTabPage1.Size = new System.Drawing.Size(846, 540);
+            this.xtraTabPage1.Text = "AnaSayfa";
+            // 
+            // pictureEdit1
+            // 
+            this.pictureEdit1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureEdit1.EditValue = ((object)(resources.GetObject("pictureEdit1.EditValue")));
+            this.pictureEdit1.Location = new System.Drawing.Point(0, 0);
+            this.pictureEdit1.MenuManager = this.barManager1;
+            this.pictureEdit1.Name = "pictureEdit1";
+            this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
+            this.pictureEdit1.Size = new System.Drawing.Size(846, 540);
+            this.pictureEdit1.TabIndex = 0;
+            // 
+            // ACEDestekServis
+            // 
+            this.ACEDestekServis.Appearance.Default.ForeColor = System.Drawing.Color.Silver;
+            this.ACEDestekServis.Appearance.Default.Options.UseForeColor = true;
+            this.ACEDestekServis.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ACEDestekServis.ImageOptions.Image")));
+            this.ACEDestekServis.Name = "ACEDestekServis";
+            this.ACEDestekServis.Text = "Destek Servis";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2282,11 +2297,12 @@
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);
-            this.xtraTabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.galleryDropDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.applicationMenu1)).EndInit();
+            this.xtraTabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2375,7 +2391,6 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem18;
         private DevExpress.XtraBars.Bar bar2;
         private DevExpress.XtraBars.BarHeaderItem barHeaderItem1;
-        private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEFATURA;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement31;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement34;
@@ -2502,7 +2517,9 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEMustahsilMakbuz;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEEMustahsilM;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEEMustahsilGiden;
-        private Panel panel6;
         private DevExpress.XtraBars.Navigation.AccordionControlElement İnstagr;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
+        private DevExpress.XtraEditors.PictureEdit pictureEdit1;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACEDestekServis;
     }
 }
