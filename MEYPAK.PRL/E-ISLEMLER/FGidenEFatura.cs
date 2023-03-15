@@ -10,6 +10,7 @@ using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.EISLEMLER;
 using MEYPAK.Entity.PocoModels.FATURA;
+using MEYPAK.Entity.PocoModels.IRSALIYE;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces;
 using MEYPAK.Interfaces.EIslemler;
@@ -25,11 +26,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 
 namespace MEYPAK.PRL.E_ISLEMLER
 {
@@ -45,6 +48,8 @@ namespace MEYPAK.PRL.E_ISLEMLER
             stokMarkaServis = new GenericWebServis<PocoSTOKMARKA>();
             gidenFaturalarServis = new GenericWebServis<PocoGIDENFATURA>();
             faturaStokOlcuBrServis = new GenericWebServis<PocoFATURASTOKOLCUBR>();
+            olcuBrServis=new GenericWebServis<PocoOLCUBR>();
+            irsaliyeServis=new GenericWebServis<PocoIRSALIYE>();
 
         }
         GenericWebServis<PocoCARIKART> cariServis;
@@ -53,6 +58,8 @@ namespace MEYPAK.PRL.E_ISLEMLER
         GenericWebServis<PocoSTOK> stokServis;
         GenericWebServis<PocoSTOKMARKA> stokMarkaServis;
         GenericWebServis<PocoGIDENFATURA> gidenFaturalarServis;
+        GenericWebServis<PocoOLCUBR> olcuBrServis;
+        GenericWebServis<PocoIRSALIYE> irsaliyeServis; 
         List<EFaturaGidenTask> tempFatura;
         PocoFATURA fattemp;
         PocoCARIKART caritemp;
@@ -96,7 +103,9 @@ namespace MEYPAK.PRL.E_ISLEMLER
             faturaServis.Data(ServisList.FaturaListeServis);
             cariServis.Data(ServisList.CariListeServis);
             faturaDetayServis.Data(ServisList.FaturaDetayListeServis);
-            gidenFaturalarServis.Data(ServisList.GidenFaturalarListeServis); 
+            gidenFaturalarServis.Data(ServisList.GidenFaturalarListeServis);
+            olcuBrServis.Data(ServisList.OlcuBrListeServis);
+
             var client = CreateClient();
             var response2 = new InvoiceStatusResponse();
             var status = new InvoiceStatus();
@@ -255,22 +264,87 @@ namespace MEYPAK.PRL.E_ISLEMLER
         {
             riLookup.GetDataSourceRowByDisplayValue(riLookup.Name);
         }
+        public String CreateXmlFromInvoice(InvoiceType invoice)
+        {
+            var rootAttribute = new XmlRootAttribute("Invoice")
+            {
+                Namespace = "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2",
+                IsNullable = false
+            };
+            XmlSerializer serializer = new XmlSerializer(typeof(InvoiceType), rootAttribute);
+            using (MemoryStream mstr = new MemoryStream())
+            {
+                serializer.Serialize(mstr, invoice, InvoiceNamespaces);
+                //serializer.Serialize(mstr, invoice);
+                return Encoding.UTF8.GetString(mstr.ToArray());
+            }
+        }
+        private static XmlSerializerNamespaces _InvoiceNamespaces;
+        public static XmlSerializerNamespaces InvoiceNamespaces
+        {
+            get
+            {
+                if (_InvoiceNamespaces == null)
+                {
+                    _InvoiceNamespaces = new XmlSerializerNamespaces();
+                    _InvoiceNamespaces.Add("", "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2");
+                    _InvoiceNamespaces.Add("ext", "urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2");
+                    _InvoiceNamespaces.Add("cac", "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2");
+                    _InvoiceNamespaces.Add("cbc", "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2");
+                    _InvoiceNamespaces.Add("cctc", "urn:un:unece:uncefact:documentation:2");
+                    _InvoiceNamespaces.Add("ds", "http://www.w3.org/2000/09/xmldsig#");
+                    _InvoiceNamespaces.Add("qdt", "urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2");
+                    _InvoiceNamespaces.Add("ubltr", "urn:oasis:names:specification:ubl:schema:xsd:TurkishCustomizationExtensionComponents");
+                    _InvoiceNamespaces.Add("udt", "urn:un:unece:uncefact:data:specification:UnqualifiedDataTypesSchemaModule:2");
+                    _InvoiceNamespaces.Add("xades", "http://uri.etsi.org/01903/v1.3.2#");
+                    _InvoiceNamespaces.Add("xsi", "http://www.w3.org/2001/XMLSchema-instance");
+                }
+                return _InvoiceNamespaces;
+            }
+        }
 
+        public void SaveXml(InvoiceType invoice)
+        {
+            string xml = CreateXmlFromInvoice(invoice);
+            using (FolderBrowserDialog sf = new FolderBrowserDialog())
+            {
+                sf.SelectedPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                if (sf.ShowDialog() != DialogResult.OK)
+                    return;
+
+                string path = sf.SelectedPath;
+
+                string fileName = string.Format("{0}.xml", invoice.UUID.Value.ToString());
+
+                string fullName = Path.Combine(path, fileName);
+
+                File.WriteAllText(fullName, xml);
+            }
+        }
         private void RepositoryItemButtonEdit2_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
-            throw new NotImplementedException();
+            var invoiceInfo = CreateInvoice();
+            var invoice = new InvoiceType[1];
+            invoice[0] = invoiceInfo.Invoice;
+            frmInvoiceViewer frm = new frmInvoiceViewer(invoice);
+            frm.Show();
         }
         GenericWebServis<PocoFATURASTOKOLCUBR> faturaStokOlcuBrServis;
         #region Metotlar
         public InvoiceInfo CreateInvoice()
         {
             faturaStokOlcuBrServis.Data(ServisList.FATURASTOKOLCUBRListeServis);
+            irsaliyeServis.Data(ServisList.IrsaliyeListeServis);
             EFaturaGidenTask eFaturaGidenTask = (EFaturaGidenTask)gridView1.GetFocusedRow();
             fattemp = faturaServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
             caritemp = cariServis.obje.Where(x => x.id == fattemp.cariid).FirstOrDefault();
             fatDetaytemp = faturaDetayServis.obje.Where(x => x.faturaid == fattemp.id).ToArray();
             var ccc = faturaDetayServis.obje.Where(x => x.faturaid == fattemp.id);
-            
+            var irstemp = irsaliyeServis.obje.Where(x => x.id == fattemp.irsaliyeid).FirstOrDefault();
+            DocumentReferenceType[] irsfat = new DocumentReferenceType[1];
+            if (irstemp != null)
+                irsfat = new DocumentReferenceType[] { new DocumentReferenceType() { IssueDate = new IssueDateType { Value = irstemp.vadetarihi }, DocumentType = new DocumentTypeType { Value = "Irsaliye" }, ID = new IDType { Value = irstemp.belgeno } } };
+
             InvoiceLineType[] ınvoiceLineType = new InvoiceLineType[ccc.Count()];
             //Fatura Satır 1
             //},
@@ -405,18 +479,19 @@ namespace MEYPAK.PRL.E_ISLEMLER
 
                 // AllowanceCharge = new AllowanceChargeType[] { new AllowanceChargeType { AllowanceChargeReason="Sigorta", ChargeIndicator = true },  }
 
-                ////#region İrsaliye Bilgileri
-                //////Irsaliye dosyasi               
-                ////DespatchDocumentReference = new DocumentReferenceType[]{ new DocumentReferenceType{IssueDate= new IssueDateType{ Value=DateTime.Now},  DocumentType= new DocumentTypeType{  Value = "Irsaliye" }, ID= new IDType{Value="IRS000000001"}},
-                ////                                                         new DocumentReferenceType{IssueDate= new IssueDateType{ Value=DateTime.Now},  DocumentType= new DocumentTypeType{  Value = "Irsaliye" }, ID= new IDType{Value="IRS000000002"}}},
+                #region İrsaliye Bilgileri
+                //Irsaliye dosyasi               
 
-                ////#endregion
+                //DespatchDocumentReference = new DocumentReferenceType[]{ new DocumentReferenceType{IssueDate= new IssueDateType{ Value=DateTime.Now},  DocumentType= new DocumentTypeType{  Value = "Irsaliye" }, ID= new IDType{Value="IRS000000001"}},
+                //                                                         new DocumentReferenceType{IssueDate= new IssueDateType{ Value=DateTime.Now},  DocumentType= new DocumentTypeType{  Value = "Irsaliye" }, ID= new IDType{Value="IRS000000002"}}},
+                DespatchDocumentReference = irsfat,
+                #endregion
 
                 #region Xslt ve Ek belgeler
-               // Fatura içerisinde görünüm dosyasını set etme.Değer geçilmediğinde varsayılan xslt kullanılır.
-                
+                // Fatura içerisinde görünüm dosyasını set etme.Değer geçilmediğinde varsayılan xslt kullanılır.
+                AdditionalDocumentReference = GetXsltAndDocuments(),
 
-              //AdditionalDocumentReference = new DocumentReferenceType[] { new DocumentReferenceType { DocumentType = new DocumentTypeType { Value = "SATINALAMA BELGESİ" }, IssueDate = new IssueDateType { Value = DateTime.Now }, ID = new IDType { Value = "12345" } } },
+                //AdditionalDocumentReference = new DocumentReferenceType[] { new DocumentReferenceType { DocumentType = new DocumentTypeType { Value = "SATINALAMA BELGESİ" }, IssueDate = new IssueDateType { Value = DateTime.Now }, ID = new IDType { Value = "12345" } } },
                 #endregion
 
 
@@ -550,7 +625,92 @@ namespace MEYPAK.PRL.E_ISLEMLER
             };
 
         }
- 
+        public DocumentReferenceType[] GetXsltAndDocuments()
+        {
+            DocumentReferenceType[] docs = new DocumentReferenceType[3];
+            //if (chkXsltSet.Checked)
+            //{
+
+
+            docs[0] = new DocumentReferenceType
+            {
+                ID = new IDType { Value = new Guid().ToString() },
+                IssueDate = new IssueDateType { Value = DateTime.Now },
+                DocumentType = new DocumentTypeType { Value = "123456" },
+                DocumentTypeCode = new DocumentTypeCodeType { Value = "MUKELLEF_KODU" },
+                DocumentDescription = new DocumentDescriptionType[] { new DocumentDescriptionType { Value = "Kurum Adı" } },
+            };
+
+            docs[1] = new DocumentReferenceType
+            {
+                ID = new IDType { Value = new Guid().ToString() },
+                IssueDate = new IssueDateType { Value = DateTime.Now },
+                DocumentType = new DocumentTypeType { Value = "123456" },
+                DocumentTypeCode = new DocumentTypeCodeType { Value = "MUKELLEF_ADI" },
+                DocumentDescription = new DocumentDescriptionType[] { new DocumentDescriptionType { Value = "Kurum Kodu" } },
+            };
+            docs[2] = new DocumentReferenceType
+            {
+                ID = new IDType { Value = new Guid().ToString() },
+                IssueDate = new IssueDateType { Value = DateTime.Now },
+                DocumentType = new DocumentTypeType { Value = "123456" },
+                DocumentTypeCode = new DocumentTypeCodeType { Value = "DOSYA_NO" },
+                DocumentDescription = new DocumentDescriptionType[] { new DocumentDescriptionType { Value = "DOSYA NO" } },
+            };
+
+            docs[0] = new DocumentReferenceType
+            {
+                ID = new IDType { Value = new Guid().ToString() },
+                IssueDate = new IssueDateType { Value = DateTime.Now },
+                DocumentType = new DocumentTypeType { Value = "xslt" },
+                Attachment = new AttachmentType
+                {
+                    EmbeddedDocumentBinaryObject = new EmbeddedDocumentBinaryObjectType
+                    {
+                        filename = "customxslt.xslt",
+                        encodingCode = "Base64",
+                        mimeCode = "applicationxml",
+                        format = "",
+                        characterSetCode = "UTF-8",
+                        Value = Encoding.UTF8.GetBytes(Properties.Resources.XSLTFile)
+                    }
+                }
+            };
+
+
+            return docs;
+            // };
+
+
+            //if (chkSetInvoiceXslt.Checked)
+            //{
+            //    DocumentReferenceType doc = new DocumentReferenceType();
+            //    //doc.ID = new IDType { Value = new Guid().ToString() };
+            //   // doc.IssueDate = new IssueDateType { Value = DateTime.Now };
+            //    AttachmentType atc = new AttachmentType { };
+            //    EmbeddedDocumentBinaryObjectType emb = new EmbeddedDocumentBinaryObjectType();
+            //    emb.filename = "customxslt.xslt";
+            //    emb.encodingCode = "Base64";
+            //    emb.mimeCode = "applicationxml";
+            //    emb.format = "";
+            //    emb.characterSetCode = "UTF-8";
+            //    emb.Value = Encoding.UTF8.GetBytes(txtInvoiceXslt.Text);
+
+            //    atc.EmbeddedDocumentBinaryObject = emb;
+            //    doc.Attachment = atc;
+            //    docs[0] = doc;
+
+            //    return docs;
+            //}
+            //else
+            //{
+            //    return null;
+            //}
+
+
+        }
+
+
 
         #region Muhasebe Müşteri Tarafı Alın
         public CustomerPartyType GetAccountingCustomerParty()
@@ -811,7 +971,33 @@ namespace MEYPAK.PRL.E_ISLEMLER
 
         private void gridView1_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
         {
-          gridControl2.DataSource=  faturaDetayServis.obje.Where(x => x.faturaid.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString());
+            
+        }
+
+        private void gridView1_Click(object sender, EventArgs e)
+        {
+            gridControl2.DataSource = faturaDetayServis.obje.Where(x => x.faturaid.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).Select(x => new FaturaDetailList()
+            {
+                ADI = x.stokadi,
+                BIRIM = olcuBrServis.obje.Where(z => z.id == x.birimid).FirstOrDefault().adi,
+                KOD = stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().kod,
+                MIKTAR = x.safi,
+                NETFIYAT = x.netfiyat,
+                SIRA = x.num,
+                TUTAR = x.nettoplam
+            }).ToList();
+            gridControl2.RefreshDataSource();
+
+        }
+
+        private void gridView1_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
+        {
+           
+        }
+
+        private void gridControl1_Click(object sender, EventArgs e)
+        {
+            
         }
 
         private async void RepositoryItemButtonEdit_ButtonClick1(object sender, ButtonPressedEventArgs e)
