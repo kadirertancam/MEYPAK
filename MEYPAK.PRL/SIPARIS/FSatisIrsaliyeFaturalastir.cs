@@ -4,6 +4,7 @@ using MEYPAK.Entity.PocoModels.IRSALIYE;
 using MEYPAK.Entity.PocoModels;
 using System.Data;
 using MEYPAK.Entity.PocoModels.FATURA;
+using MEYPAK.Entity.Models.FORMYETKI;
 
 namespace MEYPAK.PRL.SIPARIS
 {
@@ -36,8 +37,13 @@ namespace MEYPAK.PRL.SIPARIS
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
+            if (MPKullanici.YetkiGetir(AllForms.SATISIRSALIYESIFATURALASTIR.ToString()).EKLE == true)
+            {
             faturaSettingsPanel = new FFaturaSettingsPanel(this.Tag.ToString(), "FSatisIrsaliyeFaturalastir");
             faturaSettingsPanel.ShowDialog();
+            }
+            else
+                MessageBox.Show(MPKullanici.hata);
         }
 
         private void gridView2_RowStyle_1(object sender, DevExpress.XtraGrid.Views.Grid.RowStyleEventArgs e)

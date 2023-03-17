@@ -8,6 +8,7 @@ using DevExpress.XtraPdfViewer;
 using DevExpress.XtraRichEdit;
 using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.Models.CARI;
+using MEYPAK.Entity.Models.FORMYETKI;
 using MEYPAK.Entity.PocoModels;
 using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.DEPO;
@@ -405,6 +406,8 @@ namespace MEYPAK.PRL.STOK
 
         private void BTKaydet_Click_1(object sender, EventArgs e)
         {
+            if (MPKullanici.YetkiGetir(AllForms.STOKSARF.ToString()).EKLE == true)
+            {
             _sarfServis.Data(ServisList.StokSarfEkleServis, new PocoSTOKSARF()
             {
                 id = _tempSarf != null ? _tempSarf.id : 0,
@@ -429,7 +432,7 @@ namespace MEYPAK.PRL.STOK
                     id = item.id,
                     STOKID = item.STOKID,
                     ACIKLAMA = item.ACIKLAMA,
-                    KASAID= item.KASAID,
+                    KASAID = item.KASAID,
                     BIRIMID = item.TIP == "STOK" ? _olcuBr.obje.Where(y => y.id == item.BIRIMID).FirstOrDefault().id : 0,
                     MIKTAR = item.MIKTAR,
                     SARFID = _sarfServis.obje2.id, ///ID gelecek
@@ -437,7 +440,7 @@ namespace MEYPAK.PRL.STOK
                     TIP = item.TIP == "STOK" ? Convert.ToByte(0) : Convert.ToByte(1),
                     userid = MPKullanici.ID,
 
-                }) ;
+                });
 
                 if (item.TIP == "STOK")
                 {
@@ -451,7 +454,7 @@ namespace MEYPAK.PRL.STOK
                         belgE_NO = _sarfServis.obje2.SARFNO,
                         hareketturu = 12,
                         birim = _olcuBr.obje.Where(x => x.id == item.BIRIMID).FirstOrDefault().id,
-                    
+
                         depoid = _sarfServis.obje2.DEPOID,
                         io = 0,
                         miktar = item.MIKTAR,
@@ -461,7 +464,7 @@ namespace MEYPAK.PRL.STOK
                         userid = MPKullanici.ID,
                     });
                 }
-                if (item.TIP=="KASA")
+                if (item.TIP == "KASA")
                 {
                     _stokKasaHarServis.Data(ServisList.StokKasaHarEkleServis, new PocoSTOKKASAHAR()
                     {
@@ -477,7 +480,7 @@ namespace MEYPAK.PRL.STOK
                     });
                 }
                 i++;
-             
+
             }
 
             if (_tempSilinenFaturaDetay.Count() > 0)
@@ -502,6 +505,9 @@ namespace MEYPAK.PRL.STOK
 
             temizle();
 
+        }
+        else 
+        MessageBox.Show(MPKullanici.hata);
         }
 
 

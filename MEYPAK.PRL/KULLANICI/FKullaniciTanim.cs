@@ -47,7 +47,6 @@ namespace MEYPAK.PRL.KULLANICI
                     PocoFORMYETKI formYetki = _formYetkiServis.obje.Where(x => x.FORMID == item.id && x.KULLANICIID == tempuser.Id).FirstOrDefault();
                     pocoFORMYETKIs.Add(new FormYetkiKalem() { FORMADI = item.FORMADI, GORUNTULE = formYetki.GORUNTULE, EKLE = formYetki.EKLE, SIL = formYetki.SIL, GUNCELLE = formYetki.GUNCELLE, KULLANICI = tempuser.AD + " " + tempuser.SOYAD });
                 }
-
             }
 
             GCKullaniciYetki.RefreshDataSource();
@@ -103,11 +102,8 @@ namespace MEYPAK.PRL.KULLANICI
             }
             else
             {
-
                 _formServis.Data(ServisList.FormListeServis);
-
                 KullaniciGetir();
-
                 GCKullaniciYetki.DataSource = pocoFORMYETKIs;
             }
         }
@@ -170,7 +166,6 @@ namespace MEYPAK.PRL.KULLANICI
                                     SIL = item.SIL,
                                     KULLANICIID = tempuser.Id,
                                     userid = MPKullanici.ID
-
                                 });
                             }
                             else if (_formYetkiServis.obje.Where(x => x.FORMID == _formServis.obje.Where(y => y.FORMADI == item.FORMADI).FirstOrDefault().id && x.KULLANICIID == tempuser.Id).Count() > 0)

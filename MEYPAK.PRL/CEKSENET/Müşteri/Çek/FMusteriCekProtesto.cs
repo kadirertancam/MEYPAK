@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using MEYPAK.BLL.Assets;
+using MEYPAK.Entity.Models.FORMYETKI;
 using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.CEKSENET;
 using MEYPAK.Interfaces.Cari;
@@ -76,6 +77,10 @@ namespace MEYPAK.PRL.CEKSENET.Müşteri.Çek
 
         private void BTKaydet_Click(object sender, EventArgs e)
         {
+            if (MPKullanici.YetkiGetir(AllForms.MUSTERICEKPROTESTO.ToString()).EKLE==true)
+            {
+
+         
             if (_tempCariListe.Count() > 0)
             {
                 _cekSenetUstSBServis.Data(ServisList.CekSenetUstSBListeServis);
@@ -109,6 +114,9 @@ namespace MEYPAK.PRL.CEKSENET.Müşteri.Çek
             }
             else
                 MessageBox.Show("Çek eklemeden Ciro edemezsiniz!");
+            }
+            else
+                MessageBox.Show(MPKullanici.hata);
         }
     }
 }

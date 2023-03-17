@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraCharts.Designer.Native;
 using DevExpress.XtraEditors;
 using MEYPAK.BLL.Assets;
+using MEYPAK.Entity.Models.FORMYETKI;
 using MEYPAK.Entity.PocoModels.BANKA;
 using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Interfaces.Cari;
@@ -33,6 +34,10 @@ namespace MEYPAK.PRL.BANKA
 
         private void BTNKaydet_Click(object sender, EventArgs e)
         {
+            if (MPKullanici.YetkiGetir(AllForms.HESAPHAREKET.ToString()).EKLE==true)
+            {
+
+          
             if (CBBanka.EditValue!=null && CBSube.EditValue!=null&& CBHesap.EditValue!=null && decimal.TryParse(TBTutar.Text,out decimal a)&& CBIslemTur.SelectedText!=""&&_tempCari!=null&& lookUpEdit1.EditValue!="")
             {
                
@@ -64,6 +69,9 @@ namespace MEYPAK.PRL.BANKA
             {
                 MessageBox.Show("Gerekli Bilgileri Girmeden Hareket Ekleyemezsiniz!");
             }
+            }
+            else
+                MessageBox.Show(MPKullanici.hata);
         }
 
         private void CBBanka_EditValueChanged(object sender, EventArgs e)

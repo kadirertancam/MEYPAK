@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using MEYPAK.BLL.Assets;
+using MEYPAK.Entity.Models.FORMYETKI;
 using MEYPAK.Entity.PocoModels.BANKA;
 
 namespace MEYPAK.PRL.BANKA
@@ -28,6 +29,10 @@ namespace MEYPAK.PRL.BANKA
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
+            if (MPKullanici.YetkiGetir(AllForms.SUBETANIM.ToString()).EKLE==true)
+            {
+
+           
             if (CBBanka.EditValue != null )
             {
                 _bankaSubeServis.Data(ServisList.BANKASubeEkleServis, new PocoBANKASUBE()
@@ -44,6 +49,9 @@ namespace MEYPAK.PRL.BANKA
             {
                 MessageBox.Show("Banka Seçmeden Şube ekleyemezsin!");
             }
+            }
+            else
+                MessageBox.Show(MPKullanici.hata);
         }
 
         void GridiDoldur()

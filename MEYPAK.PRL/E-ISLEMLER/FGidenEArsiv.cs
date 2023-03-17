@@ -1,7 +1,9 @@
 ﻿using DevExpress.Utils;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.Repository;
+using EInvoiceDemoProject;
 using MEYPAK.BLL.Assets;
+using MEYPAK.Entity.Models.FORMYETKI;
 using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.FATURA;
 using MEYPAK.Entity.PocoModels.STOK;
@@ -12,10 +14,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
+using System.Xml.Serialization;
+using System.Xml.Xsl;
 
 namespace MEYPAK.PRL.E_ISLEMLER
 {
@@ -678,11 +684,20 @@ namespace MEYPAK.PRL.E_ISLEMLER
 
         private void RepositoryItemButtonEdit2_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
-            throw new NotImplementedException();
+            var invoiceInfo = CreateInvoice();
+            var invoice = new InvoiceType[1];
+            invoice[0] = invoiceInfo.Invoice;
+            frmInvoiceViewer frm = new frmInvoiceViewer(invoice);
+            frm.Show();
         }
+        
 
         private void RepositoryItemButtonEdit_ButtonClick1Async(object sender, ButtonPressedEventArgs e)
         {
+            if (MPKullanici.YetkiGetir(AllForms.EARSIVGIDENKUTUSU.ToString()).EKLE==true)
+            {
+
+     
             var client = CreateClient();
 
             var invoiceInfo = CreateInvoice();
@@ -711,6 +726,9 @@ namespace MEYPAK.PRL.E_ISLEMLER
             {
                 MessageBox.Show(response.Message);
             }
+            }
+            else
+                MessageBox.Show(MPKullanici.hata);
         }
     }
 }

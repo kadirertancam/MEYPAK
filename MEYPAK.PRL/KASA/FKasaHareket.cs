@@ -2,6 +2,7 @@
 using DevExpress.XtraCharts.Designer.Native;
 using DevExpress.XtraEditors;
 using MEYPAK.BLL.Assets;
+using MEYPAK.Entity.Models.FORMYETKI;
 using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.FATURA;
 using MEYPAK.Entity.PocoModels.KASA;
@@ -189,6 +190,7 @@ namespace MEYPAK.PRL.KASA
 
         private void BTNKaydet_Click(object sender, EventArgs e)
         {
+            if (MPKullanici.YetkiGetir(AllForms.KASAHAREKET.ToString()).EKLE == true)
             if (_tempKasa != null)
             {
                 switch (radioGroup1.SelectedIndex)

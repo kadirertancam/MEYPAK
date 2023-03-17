@@ -14,6 +14,16 @@ namespace MEYPAK.BLL.Assets
 
         #endregion
 
+        #region GIDENMUSTAHSILMAKBUZLARI
+
+        public const string GidenMustahsilMakbuzlariListeServis =       "http://78.135.80.41:8081/GIDENMUSTAHSILMAKBUZLARI/Liste";
+        public const string GidenMustahsilMakbuzlariEkleServis =        "http://78.135.80.41:8081/GIDENMUSTAHSILMAKBUZLARI/EkleyadaGuncelle";
+        public const string GidenMustahsilMakbuzlariSilServis =         "http://78.135.80.41:8081/GIDENMUSTAHSILMAKBUZLARI/Sil";
+        public const string GidenMustahsilMakbuzlariGuncelleServis =    "http://78.135.80.41:8081/GIDENMUSTAHSILMAKBUZLARI/Guncelle";
+        public const string GidenMustahsilMakbuzlariDeleteByIdServis =  "http://78.135.80.41:8081/GIDENMUSTAHSILMAKBUZLARI/DeleteById";
+        public const string GidenMustahsilMakbuzlariListeFiltreServis = "http://78.135.80.41:8081/GIDENMUSTAHSILMAKBUZLARI/Liste2";
+        #endregion
+
         #region MUSTAHSILDETAY
         public const string MustahsilDetayListeServis =       "http://78.135.80.41:8081/MUSTAHSILDETAY/Liste";
         public const string MustahsilDetayEkleServis =        "http://78.135.80.41:8081/MUSTAHSILDETAY/EkleyadaGuncelle";
@@ -109,6 +119,7 @@ namespace MEYPAK.BLL.Assets
         public const string FATURASTOKOLCUBRDeleteByIdServis =         "http://78.135.80.41:8081/FATURASTOKOLCUBR/DeleteById";
         public const string FATURASTOKOLCUBRListeFiltreServis =        "http://78.135.80.41:8081/FATURASTOKOLCUBR/Liste2";
         #endregion
+
         #region EFaturaParams
         public const string EFaturaParamsListeServis =              "http://78.135.80.41:8081/EFaturaParams/Liste";
         public const string EFaturaParamsEkleServis =               "http://78.135.80.41:8081/EFaturaParams/EkleyadaGuncelle";

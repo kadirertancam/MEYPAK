@@ -3,6 +3,7 @@ using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.Repository;
 using e_İrsaliyeDemo_v1._0._0;
 using MEYPAK.BLL.Assets;
+using MEYPAK.Entity.Models.FORMYETKI;
 using MEYPAK.Entity.PocoModels.ARAC;
 using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.EISLEMLER;
@@ -498,6 +499,8 @@ namespace MEYPAK.PRL.E_ISLEMLER
 
         private async void RepositoryItemButtonEdit_ButtonClick1(object sender, ButtonPressedEventArgs e)
         {
+            if (MPKullanici.YetkiGetir(AllForms.EIRSALIYEGIDENKUTUSU.ToString()).EKLE==true)
+            {
             try
             {
                 var client = DespatchTasks.Instance.CreateClient();
@@ -520,6 +523,9 @@ namespace MEYPAK.PRL.E_ISLEMLER
             {
                 MessageBox.Show(ex.Message);
             }
+            }
+            else
+                MessageBox.Show(MPKullanici.hata);
         }
 
         private void RiLookup2_EditValueChanged(object? sender, EventArgs e)

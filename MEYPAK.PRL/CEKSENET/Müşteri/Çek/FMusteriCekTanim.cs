@@ -6,6 +6,7 @@ using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraVerticalGrid.Native;
 using MEYPAK.BLL.Assets;
+using MEYPAK.Entity.Models.FORMYETKI;
 using MEYPAK.Entity.Models.IRSALIYE;
 using MEYPAK.Entity.PocoModels;
 using MEYPAK.Entity.PocoModels.CARI;
@@ -69,8 +70,11 @@ namespace MEYPAK.PRL.CEKSENET
 
         private void BTKaydet_Click(object sender, EventArgs e)
         {
+            if (MPKullanici.YetkiGetir(AllForms.MUSTERICEKTANIM.ToString()).EKLE == true)
+            {
 
-            _cekSenetUstSbServis.Data(ServisList.CekSenetUstSBListeServis);
+           
+                _cekSenetUstSbServis.Data(ServisList.CekSenetUstSBListeServis);
 
             _cekSenetUstSbServis.Data(ServisList.CekSenetUstSBEkleServis, new PocoCEKSENETUSTSB()
             {
@@ -121,6 +125,9 @@ namespace MEYPAK.PRL.CEKSENET
                     userid = MPKullanici.ID
                 });
             }
+            }
+            else
+                MessageBox.Show(MPKullanici.hata);
         }
 
         void gridYapilandir()
