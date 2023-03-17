@@ -442,6 +442,7 @@ namespace MEYPAK.PRL.DEPO
         private void tileView3_DoubleClick(object sender, EventArgs e)
         {
             if (tileView2.GetFocusedRowCellValue("ID")!=null)
+                if (MPKullanici.YetkiGetir(AllForms.OLCUBIRIMTANIM.ToString()).EKLE == true)
             {
             _siparisDetayServis.Data(ServisList.SiparisDetayListeServis);
             _depoEmirServis.Data(ServisList.DepoEmirListeServis);
