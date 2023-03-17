@@ -125,6 +125,7 @@
             this.accordionControlElement47 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement50 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement48 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement61 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement3 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement14 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement15 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -242,7 +243,6 @@
             this.İnstagr = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
-            this.ACEDestekServis = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -930,7 +930,6 @@
             this.ACEPERSONEL,
             this.ACEARAC,
             this.ACEPARAMETRELER,
-            this.ACEDestekServis,
             this.ACEKullaniciYönetim});
             this.accordionControl1.Location = new System.Drawing.Point(0, 0);
             this.accordionControl1.LookAndFeel.SkinName = "Visual Studio 2013 Dark";
@@ -982,7 +981,7 @@
             this.accordionControlElement3,
             this.accordionControlElement4});
             this.ACESTOK.Enabled = false;
-            this.ACESTOK.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ACESTOK.ImageOptions.Image")));
+            this.ACESTOK.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("ACESTOK.ImageOptions.SvgImage")));
             this.ACESTOK.ImageOptions.SvgImageSize = new System.Drawing.Size(32, 32);
             this.ACESTOK.Name = "ACESTOK";
             this.ACESTOK.Text = "Stok";
@@ -1003,7 +1002,6 @@
             this.accordionControlElement48,
             this.accordionControlElement61});
             this.accordionControlElement2.Enabled = false;
-            this.accordionControlElement2.Expanded = true;
             this.accordionControlElement2.HeaderTemplate.AddRange(new DevExpress.XtraBars.Navigation.HeaderElementInfo[] {
             new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.Text),
             new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.Image),
@@ -1112,6 +1110,13 @@
             this.accordionControlElement48.Text = "Stok Liste";
             this.accordionControlElement48.Visible = false;
             this.accordionControlElement48.Click += new System.EventHandler(this.accordionControlElement48_Click);
+            // 
+            // accordionControlElement61
+            // 
+            this.accordionControlElement61.Name = "accordionControlElement61";
+            this.accordionControlElement61.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement61.Text = "Stok Ölçü Birim Eşleme";
+            this.accordionControlElement61.Click += new System.EventHandler(this.accordionControlElement61_Click);
             // 
             // accordionControlElement3
             // 
@@ -1312,7 +1317,7 @@
             this.accordionControlElement7,
             this.accordionControlElement8});
             this.ACECARI.Enabled = false;
-            this.ACECARI.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ACECARI.ImageOptions.Image")));
+            this.ACECARI.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("ACECARI.ImageOptions.SvgImage")));
             this.ACECARI.Name = "ACECARI";
             this.ACECARI.Text = "Cari";
             this.ACECARI.Visible = false;
@@ -2173,12 +2178,10 @@
             // 
             // ACEKullaniciYönetim
             // 
-            this.ACEKullaniciYönetim.Appearance.Default.ForeColor = System.Drawing.Color.Silver;
-            this.ACEKullaniciYönetim.Appearance.Default.Options.UseForeColor = true;
             this.ACEKullaniciYönetim.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.ACEKullaniciTanim});
             this.ACEKullaniciYönetim.Enabled = false;
-            this.ACEKullaniciYönetim.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ACEKullaniciYönetim.ImageOptions.Image")));
+            this.ACEKullaniciYönetim.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("ACEKullaniciYönetim.ImageOptions.SvgImage")));
             this.ACEKullaniciYönetim.Name = "ACEKullaniciYönetim";
             this.ACEKullaniciYönetim.Text = "Kullanıcı Yönetimi";
             this.ACEKullaniciYönetim.Visible = false;
@@ -2243,13 +2246,6 @@
             this.accordionControlElement64.Text = "Gelen Kutusu";
             this.accordionControlElement64.Click += new System.EventHandler(this.accordionControlElement64_Click);
             // 
-            // accordionControlElement61
-            // 
-            this.accordionControlElement61.Name = "accordionControlElement61";
-            this.accordionControlElement61.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement61.Text = "Stok Ölçü Birim Eşleme";
-            this.accordionControlElement61.Click += new System.EventHandler(this.accordionControlElement61_Click);
-            // 
             // İnstagr
             // 
             this.İnstagr.Expanded = true;
@@ -2277,14 +2273,6 @@
             this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
             this.pictureEdit1.Size = new System.Drawing.Size(846, 540);
             this.pictureEdit1.TabIndex = 0;
-            // 
-            // ACEDestekServis
-            // 
-            this.ACEDestekServis.Appearance.Default.ForeColor = System.Drawing.Color.Silver;
-            this.ACEDestekServis.Appearance.Default.Options.UseForeColor = true;
-            this.ACEDestekServis.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ACEDestekServis.ImageOptions.Image")));
-            this.ACEDestekServis.Name = "ACEDestekServis";
-            this.ACEDestekServis.Text = "Destek Servis";
             // 
             // Main
             // 
@@ -2530,6 +2518,5 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement İnstagr;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
         private DevExpress.XtraEditors.PictureEdit pictureEdit1;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement ACEDestekServis;
     }
 }
