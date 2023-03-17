@@ -21,6 +21,7 @@ using MEYPAK.PRL.CEKSENET.Müşteri.Çek;
 using MEYPAK.PRL.CEKSENET.Müşteri.Senet;
 using MEYPAK.PRL.DEPO;
 using MEYPAK.PRL.DEPO.Raporlar;
+using MEYPAK.PRL.DESTEKSERVIS;
 using MEYPAK.PRL.E_ISLEMLER;
 using MEYPAK.PRL.IRSALIYE;
 using MEYPAK.PRL.KASA;
@@ -152,6 +153,7 @@ namespace MEYPAK.PRL
         FFATURASTOKOLCUESLE fFATURASTOKOLCUESLE;
         FMustahsil fMustahsilMakbuz;
         FGidenEMustahsil fGidenEMustahsil;
+        FDestekServis fDestekServis;
 
         public Tarih_Date _tarih_Date = new Tarih_Date();
         public DataTable guncelkur;
@@ -171,7 +173,6 @@ namespace MEYPAK.PRL
         {
             try
             {
-
 
                 HttpRequestMessage client;
                 HttpClient httpClient = new HttpClient();
@@ -313,8 +314,8 @@ namespace MEYPAK.PRL
             page.Text = "Stok Kart";
             page.Tag = "TPStokKart" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fSTOKKART.TopLevel = false;
             fSTOKKART.AutoScroll = true;
@@ -332,8 +333,8 @@ namespace MEYPAK.PRL
             page.Text = "Hizmet Kart";
             page.Tag = "TPHizmetKart" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fHizmetKart.FormBorderStyle = FormBorderStyle.None;
             fHizmetKart.TopLevel = false;
@@ -352,8 +353,8 @@ namespace MEYPAK.PRL
             page.Text = "Stok Hareket";
             page.Tag = "TPStokHareket" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fStokHareket.TopLevel = false;
             fStokHareket.AutoScroll = true;
@@ -371,8 +372,8 @@ namespace MEYPAK.PRL
             page.Text = "Stok Sayım";
             page.Tag = "TPStokSayim" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fStokSayim.TopLevel = false;
             fStokSayim.AutoScroll = true;
@@ -392,8 +393,8 @@ namespace MEYPAK.PRL
 
 
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
             fCariHareket.TopLevel = false;
             fCariHareket.AutoScroll = true;
             fCariHareket.Dock = DockStyle.Fill;
@@ -425,8 +426,8 @@ namespace MEYPAK.PRL
             page.Text = "Müşteri Sipariş";
             page.Tag = "TPMusteriSiparis" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fSiparis.TopLevel = false;
             fSiparis.AutoScroll = true;
@@ -446,8 +447,8 @@ namespace MEYPAK.PRL
             page.Text = "Müşteri Sipariş";
             page.Tag = "TPMusteriSiparis" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fSiparis.TopLevel = false;
             fSiparis.AutoScroll = true;
@@ -476,8 +477,8 @@ namespace MEYPAK.PRL
             page.Text = "Cari Durum";
             page.Tag = "TPCariDurum" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fCariDurum.TopLevel = false;
             fCariDurum.AutoScroll = true;
@@ -496,8 +497,8 @@ namespace MEYPAK.PRL
             page.Text = "SatınAlma Sipariş";
             page.Tag = "TPSatinAlmaSiparis" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fSatinAlmaSiparis.TopLevel = false;
             fSatinAlmaSiparis.AutoScroll = true;
@@ -516,8 +517,8 @@ namespace MEYPAK.PRL
             page.Text = "Sayım İşle";
             page.Tag = "TPSayimIsle" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fSayimIsle.TopLevel = false;
             fSayimIsle.AutoScroll = true;
@@ -536,8 +537,8 @@ namespace MEYPAK.PRL
             page.Text = "Sevkiyat Panel";
             page.Tag = "TPSevkiyatPanel" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fSevkiyatPanel.TopLevel = false;
             fSevkiyatPanel.AutoScroll = true;
@@ -556,8 +557,8 @@ namespace MEYPAK.PRL
             page.Text = "Cari Kart Panel";
             page.Tag = "TPCariKartPanel" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fCariKart.TopLevel = false;
             fCariKart.AutoScroll = true;
@@ -576,8 +577,8 @@ namespace MEYPAK.PRL
             page.Text = "Ölçü Birim Panel";
             page.Tag = "TPOlcuBrPanel" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fOlcuBrKart.TopLevel = false;
             fOlcuBrKart.AutoScroll = true;
@@ -596,8 +597,8 @@ namespace MEYPAK.PRL
             page.Text = "Depo Panel";
             page.Tag = "TPDepoKartPanel" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fDepoKart.TopLevel = false;
             fDepoKart.AutoScroll = true;
@@ -616,8 +617,8 @@ namespace MEYPAK.PRL
             page.Text = "Personel Kart Panel";
             page.Tag = "TPPersonelKartPanel" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fPersonelKart.TopLevel = false;
             fPersonelKart.AutoScroll = true;
@@ -636,8 +637,8 @@ namespace MEYPAK.PRL
             page.Text = "Kasa Kart Panel";
             page.Tag = "TPKasaPanel" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fKasaPanel.TopLevel = false;
             fKasaPanel.AutoScroll = true;
@@ -656,8 +657,8 @@ namespace MEYPAK.PRL
             page.Text = "Satis Irsaliye";
             page.Tag = "TPSatisIrsaliye" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fSatisIrsaliye.TopLevel = false;
             fSatisIrsaliye.AutoScroll = true;
@@ -676,8 +677,8 @@ namespace MEYPAK.PRL
             page.Text = "Para Birim Tanım";
             page.Tag = "TPParaBirimi" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fParaBirimi.TopLevel = false;
             fParaBirimi.AutoScroll = true;
@@ -696,8 +697,8 @@ namespace MEYPAK.PRL
             page.Text = "Fatura Tanım";
             page.Tag = "TPFatura" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             ffatura.TopLevel = false;
             ffatura.AutoScroll = true;
@@ -716,8 +717,8 @@ namespace MEYPAK.PRL
             page.Text = "Stok Kasa Hareket";
             page.Tag = "TPStokKasaHareket" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fStokKasaHareket.TopLevel = false;
             fStokKasaHareket.AutoScroll = true;
@@ -736,8 +737,8 @@ namespace MEYPAK.PRL
             page.Text = "Stok Kasa Marka";
             page.Tag = "TPStokKasaMarka" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fKasaMarka.TopLevel = false;
             fKasaMarka.AutoScroll = true;
@@ -756,8 +757,8 @@ namespace MEYPAK.PRL
             page.Text = "Marka Kart";
             page.Tag = "TPMarkaKart" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fMarkaKart.FormBorderStyle = FormBorderStyle.None;
             fMarkaKart.TopLevel = false;
@@ -778,8 +779,8 @@ namespace MEYPAK.PRL
             page.Text = "Alış Fatura";
             page.Tag = "TPAlisFatura" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fFAlisFatura.TopLevel = false;
             fFAlisFatura.AutoScroll = true;
@@ -797,8 +798,8 @@ namespace MEYPAK.PRL
             page.Text = "Stok Fiyat Tanım";
             page.Tag = "TPStokFiyat" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
             fStokFiyat.TopLevel = false;
             fStokFiyat.AutoScroll = true;
             fStokFiyat.Dock = DockStyle.Fill;
@@ -815,8 +816,8 @@ namespace MEYPAK.PRL
             page.Text = "Mal Kabul";
             page.Tag = "TPMalKabul" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fMalKabulPanel.TopLevel = false;
             fMalKabulPanel.AutoScroll = true;
@@ -835,8 +836,8 @@ namespace MEYPAK.PRL
             page.Text = "Alış Irsaliye";
             page.Tag = "TPAlisIrsaliye" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fFAlisIrsaliye.TopLevel = false;
             fFAlisIrsaliye.AutoScroll = true;
@@ -856,8 +857,8 @@ namespace MEYPAK.PRL
             page.Text = "Müşteri Siparişi İrsaliyeleştir";
             page.Tag = "TPMusteriSiparisIrsaliyelestir" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fMusteriSiparisIrsaliyelestir.TopLevel = false;
             fMusteriSiparisIrsaliyelestir.AutoScroll = true;
@@ -877,8 +878,8 @@ namespace MEYPAK.PRL
             page.Text = "Stok List";
             page.Tag = "TPStokList" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fstokList.FormBorderStyle = FormBorderStyle.None;
             fstokList.TopLevel = false;
@@ -898,8 +899,8 @@ namespace MEYPAK.PRL
             page.Text = "Cari List";
             page.Tag = "TPCariList" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fcariList.FormBorderStyle = FormBorderStyle.None;
             fcariList.TopLevel = false;
@@ -919,8 +920,8 @@ namespace MEYPAK.PRL
             page.Text = "Fatura List";
             page.Tag = "TPFaturaList" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             ffaturaList.FormBorderStyle = FormBorderStyle.None;
             ffaturaList.TopLevel = false;
@@ -940,8 +941,8 @@ namespace MEYPAK.PRL
             page.Text = "Stok Fiyat Raporu";
             page.Tag = "TPStokFiyatRaporu" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fStokFiyatRaporu.FormBorderStyle = FormBorderStyle.None;
             fStokFiyatRaporu.TopLevel = false;
@@ -961,8 +962,8 @@ namespace MEYPAK.PRL
             page.Text = "Stok Hareket Raporu";
             page.Tag = "TPStokHareketRaporu" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fStokHareketRaporu.FormBorderStyle = FormBorderStyle.None;
             fStokHareketRaporu.TopLevel = false;
@@ -982,8 +983,8 @@ namespace MEYPAK.PRL
             page.Text = "Stok Sayım Raporu";
             page.Tag = "TPStokSayimRaporu" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fStokSayimRaporu.FormBorderStyle = FormBorderStyle.None;
             fStokSayimRaporu.TopLevel = false;
@@ -1003,8 +1004,8 @@ namespace MEYPAK.PRL
             page.Text = "Stok Listesi Raporu";
             page.Tag = "TPStokListesiRaporu" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fStokListesiRaporu.FormBorderStyle = FormBorderStyle.None;
             fStokListesiRaporu.TopLevel = false;
@@ -1024,8 +1025,8 @@ namespace MEYPAK.PRL
             page.Text = "Cari Hareket Raporu";
             page.Tag = "TPCariHareketRaporu" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fCariHareketRaporu.FormBorderStyle = FormBorderStyle.None;
             fCariHareketRaporu.TopLevel = false;
@@ -1046,8 +1047,8 @@ namespace MEYPAK.PRL
             page.Text = "Stok Kategori Raporu";
             page.Tag = "TPStokKategoriRaporu" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fStokKategoriRaporu.FormBorderStyle = FormBorderStyle.None;
             fStokKategoriRaporu.TopLevel = false;
@@ -1067,8 +1068,8 @@ namespace MEYPAK.PRL
             page.Text = "Stok Kasa Hareket Raporu";
             page.Tag = "TPStokKasaHareketRaporu" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fStokKasaHarRaporu.FormBorderStyle = FormBorderStyle.None;
             fStokKasaHarRaporu.TopLevel = false;
@@ -1088,8 +1089,8 @@ namespace MEYPAK.PRL
             page.Text = "Seri Tanım";
             page.Tag = "TPSeriTanım" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fSeriTanim.FormBorderStyle = FormBorderStyle.None;
             fSeriTanim.TopLevel = false;
@@ -1109,8 +1110,8 @@ namespace MEYPAK.PRL
             page.Text = "Fatura Raporu";
             page.Tag = "TPFaturaRaporu" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fFaturaRaporu.FormBorderStyle = FormBorderStyle.None;
             fFaturaRaporu.TopLevel = false;
@@ -1130,8 +1131,8 @@ namespace MEYPAK.PRL
             page.Text = "Satış Irsaliyesi Faturalaştır";
             page.Tag = "TPSatisIrsaliyeFaturalastir" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fSatisIrsaliyeFaturalastir.FormBorderStyle = FormBorderStyle.None;
             fSatisIrsaliyeFaturalastir.TopLevel = false;
@@ -1151,8 +1152,8 @@ namespace MEYPAK.PRL
             page.Text = "Cari Raporu";
             page.Tag = "TPCariRaporu" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fCariRaporu.FormBorderStyle = FormBorderStyle.None;
             fCariRaporu.TopLevel = false;
@@ -1173,8 +1174,8 @@ namespace MEYPAK.PRL
             page.Text = "Müşteri Sipariş Raporu";
             page.Tag = "TPMusteriSiparisRaporu" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fMusteriSiparisRaporu.FormBorderStyle = FormBorderStyle.None;
             fMusteriSiparisRaporu.TopLevel = false;
@@ -1195,8 +1196,8 @@ namespace MEYPAK.PRL
             page.Text = "Depo Raporu";
             page.Tag = "TPDepoRaporu" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fDepoRaporu.FormBorderStyle = FormBorderStyle.None;
             fDepoRaporu.TopLevel = false;
@@ -1217,8 +1218,8 @@ namespace MEYPAK.PRL
             page.Text = "Araç Tanım";
             page.Tag = "TPAracTanim" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fAracTanim.FormBorderStyle = FormBorderStyle.None;
             fAracTanim.TopLevel = false;
@@ -1238,8 +1239,8 @@ namespace MEYPAK.PRL
             page.Text = "Araç Rota";
             page.Tag = "TPAracRota" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fAracRota.FormBorderStyle = FormBorderStyle.None;
             fAracRota.TopLevel = false;
@@ -1259,8 +1260,8 @@ namespace MEYPAK.PRL
             page.Text = "Personel Liste";
             page.Tag = "TPPersonelList" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fPersonelList.FormBorderStyle = FormBorderStyle.None;
             fPersonelList.TopLevel = false;
@@ -1280,8 +1281,8 @@ namespace MEYPAK.PRL
             page.Text = "Personel Raporu";
             page.Tag = "TPPersonelRaporu" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fPersonelRaporu.FormBorderStyle = FormBorderStyle.None;
             fPersonelRaporu.TopLevel = false;
@@ -1301,8 +1302,8 @@ namespace MEYPAK.PRL
             page.Text = "Stok Sevkiyat Raporu";
             page.Tag = "TPStokSevkiyatRaporu" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fStokSevkiyatRaporu.FormBorderStyle = FormBorderStyle.None;
             fStokSevkiyatRaporu.TopLevel = false;
@@ -1327,8 +1328,8 @@ namespace MEYPAK.PRL
             page.Text = "Kasa Kart";
             page.Tag = "TPKasaKart" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fKasaKart.FormBorderStyle = FormBorderStyle.None;
             fKasaKart.TopLevel = false;
@@ -1348,8 +1349,8 @@ namespace MEYPAK.PRL
             page.Text = "Kasa Hareket";
             page.Tag = "TPKasaHareket" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fKasaHareket.FormBorderStyle = FormBorderStyle.None;
             fKasaHareket.TopLevel = false;
@@ -1369,8 +1370,8 @@ namespace MEYPAK.PRL
             page.Text = "Banka Tanım";
             page.Tag = "TPBankaTanim" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fBankaTanim.FormBorderStyle = FormBorderStyle.None;
             fBankaTanim.TopLevel = false;
@@ -1390,8 +1391,8 @@ namespace MEYPAK.PRL
             page.Text = "Sube Tanım";
             page.Tag = "TPBankaSubeTanim" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fBankaSubeTanim.FormBorderStyle = FormBorderStyle.None;
             fBankaSubeTanim.TopLevel = false;
@@ -1411,8 +1412,8 @@ namespace MEYPAK.PRL
             page.Text = "Hesap Tanım";
             page.Tag = "TPBankaHesapTanim" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fBankaHesapTanim.FormBorderStyle = FormBorderStyle.None;
             fBankaHesapTanim.TopLevel = false;
@@ -1432,8 +1433,8 @@ namespace MEYPAK.PRL
             page.Text = "Hesap Hareket";
             page.Tag = "TPHesapHareket" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fHesapHareket.FormBorderStyle = FormBorderStyle.None;
             fHesapHareket.TopLevel = false;
@@ -1453,8 +1454,8 @@ namespace MEYPAK.PRL
             page.Text = "Müşteri Çek Tanım";
             page.Tag = "TPMusteriÇekTanım" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fMusteriCekTanim.FormBorderStyle = FormBorderStyle.None;
             fMusteriCekTanim.TopLevel = false;
@@ -1474,8 +1475,8 @@ namespace MEYPAK.PRL
             page.Text = "Müşteri Çek Cari Ciro";
             page.Tag = "TPMusteriÇekCariCiro" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fMusteriCekCariCiro.FormBorderStyle = FormBorderStyle.None;
             fMusteriCekCariCiro.TopLevel = false;
@@ -1495,8 +1496,8 @@ namespace MEYPAK.PRL
             page.Text = "Müşteri Senet Tanım";
             page.Tag = "TPMusteriSenetTanım" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fMusteriSenetTanim.FormBorderStyle = FormBorderStyle.None;
             fMusteriSenetTanim.TopLevel = false;
@@ -1517,8 +1518,8 @@ namespace MEYPAK.PRL
             page.Text = "Müşteri Senet Cari Ciro";
             page.Tag = "TPMusteriSenetCariCiro" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fMusteriSenetCariCiro.FormBorderStyle = FormBorderStyle.None;
             fMusteriSenetCariCiro.TopLevel = false;
@@ -1538,8 +1539,8 @@ namespace MEYPAK.PRL
             page.Text = "Firma Çek Tanım";
             page.Tag = "TPFirmaCekTanim" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fFirmaCekTanim.FormBorderStyle = FormBorderStyle.None;
             fFirmaCekTanim.TopLevel = false;
@@ -1559,8 +1560,8 @@ namespace MEYPAK.PRL
             page.Text = "Firma Senet Tanım";
             page.Tag = "TPFirmaSenetTanim" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fFirmaSenetTanim.FormBorderStyle = FormBorderStyle.None;
             fFirmaSenetTanim.TopLevel = false;
@@ -1580,8 +1581,8 @@ namespace MEYPAK.PRL
             page.Text = "Müşteri Çek Tahsilat";
             page.Tag = "TPMusteriCekTahsilat" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fMusteriCekTahsilat.FormBorderStyle = FormBorderStyle.None;
             fMusteriCekTahsilat.TopLevel = false;
@@ -1601,8 +1602,8 @@ namespace MEYPAK.PRL
             page.Text = "Müşteri Çek Teminat";
             page.Tag = "TPMusteriCekTeminat" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fMusteriCekTeminat.FormBorderStyle = FormBorderStyle.None;
             fMusteriCekTeminat.TopLevel = false;
@@ -1622,8 +1623,8 @@ namespace MEYPAK.PRL
             page.Text = "Müşteri Çek Protesto";
             page.Tag = "TPMusteriCekProtesto" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fMusteriCekProtesto.FormBorderStyle = FormBorderStyle.None;
             fMusteriCekProtesto.TopLevel = false;
@@ -1643,8 +1644,8 @@ namespace MEYPAK.PRL
             page.Text = "Müşteri Senet Tahsilat";
             page.Tag = "TPMusteriSenetTahsilat" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fMusteriSenetTahsilat.FormBorderStyle = FormBorderStyle.None;
             fMusteriSenetTahsilat.TopLevel = false;
@@ -1664,8 +1665,8 @@ namespace MEYPAK.PRL
             page.Text = "Müşteri Senet Teminat";
             page.Tag = "TPMusteriSenetTeminat" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fMusteriSenetTeminat.FormBorderStyle = FormBorderStyle.None;
             fMusteriSenetTeminat.TopLevel = false;
@@ -1685,8 +1686,8 @@ namespace MEYPAK.PRL
             page.Text = "Müşteri Senet Protesto";
             page.Tag = "TPMusteriSenetProtesto" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fMusteriSenetProtesto.FormBorderStyle = FormBorderStyle.None;
             fMusteriSenetProtesto.TopLevel = false;
@@ -1706,8 +1707,8 @@ namespace MEYPAK.PRL
             page.Text = "Stok Sarfiyat";
             page.Tag = "TPStokSarf" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fStokSarf.FormBorderStyle = FormBorderStyle.None;
             fStokSarf.TopLevel = false;
@@ -1727,8 +1728,8 @@ namespace MEYPAK.PRL
             page.Text = "Stok Kasa Girişi";
             page.Tag = "StokKasaGirisPanel" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             stokkasa.FormBorderStyle = FormBorderStyle.None;
             stokkasa.TopLevel = false;
@@ -1754,8 +1755,8 @@ namespace MEYPAK.PRL
             page.Text = "Gelen Kutusu";
             page.Tag = "EfaturaPanel" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fefatura.FormBorderStyle = FormBorderStyle.None;
             fefatura.TopLevel = false;
@@ -1809,8 +1810,8 @@ namespace MEYPAK.PRL
             page.Text = "Firma Çek Liste";
             page.Tag = "FFirmaCekListe" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fFirmaCekListe.FormBorderStyle = FormBorderStyle.None;
             fFirmaCekListe.TopLevel = false;
@@ -1830,8 +1831,8 @@ namespace MEYPAK.PRL
             page.Text = "Çek Senet Durum";
             page.Tag = "FCekSenetDurum" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fCekSenetDurum.FormBorderStyle = FormBorderStyle.None;
             fCekSenetDurum.TopLevel = false;
@@ -1851,8 +1852,8 @@ namespace MEYPAK.PRL
             page.Text = "Kullanıcı Tanım";
             page.Tag = "FKullaniciTanim" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fKullaniciTanim.FormBorderStyle = FormBorderStyle.None;
             fKullaniciTanim.TopLevel = false;
@@ -1872,8 +1873,8 @@ namespace MEYPAK.PRL
             page.Text = "Kullanıcı Yönetim";
             page.Tag = "FKullaniciYonetim" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fKullaniciYonetim.FormBorderStyle = FormBorderStyle.None;
             fKullaniciYonetim.TopLevel = false;
@@ -1893,8 +1894,8 @@ namespace MEYPAK.PRL
             page.Text = "Giden Fatura";
             page.Tag = "FGidenEFatura" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fGidenEFatura.FormBorderStyle = FormBorderStyle.None;
             fGidenEFatura.TopLevel = false;
@@ -1914,8 +1915,8 @@ namespace MEYPAK.PRL
             page.Text = "EFatura Parametre";
             page.Tag = "EFaturaParams" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             eFaturaParams.FormBorderStyle = FormBorderStyle.None;
             eFaturaParams.TopLevel = false;
@@ -1935,8 +1936,8 @@ namespace MEYPAK.PRL
             page.Text = "Giden EArşiv";
             page.Tag = "FGidenEArsiv" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
            fGidenEArsiv.FormBorderStyle = FormBorderStyle.None;
            fGidenEArsiv.TopLevel = false;
@@ -1956,8 +1957,8 @@ namespace MEYPAK.PRL
             page.Text = "Giden EIrsaliye";
             page.Tag = "FGidenEIrsaliye" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fGidenEIrsaliye.FormBorderStyle = FormBorderStyle.None;
             fGidenEIrsaliye.TopLevel = false;
@@ -1977,8 +1978,8 @@ namespace MEYPAK.PRL
             page.Text = "Müstahsil Makbuzu";
             page.Tag = "FMustahsil" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fMustahsilMakbuz.FormBorderStyle = FormBorderStyle.None;
             fMustahsilMakbuz.TopLevel = false;
@@ -1998,8 +1999,8 @@ namespace MEYPAK.PRL
             page.Text = "Giden Müstahsil Makbuzu";
             page.Tag = "FGidenEMustahsil" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fGidenEMustahsil.FormBorderStyle = FormBorderStyle.None;
             fGidenEMustahsil.TopLevel = false;
@@ -2024,8 +2025,8 @@ namespace MEYPAK.PRL
             page.Text = "STOK OLCU BIRIM ESLE";
             page.Tag = "FFATURASTOKOLCUESLE" + i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabControl1.TabPages.Add(page);
-            xtraTabControl1.SelectedTabPage = page;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
 
             fFATURASTOKOLCUESLE.FormBorderStyle = FormBorderStyle.None;
             fFATURASTOKOLCUESLE.TopLevel = false;
@@ -2034,6 +2035,28 @@ namespace MEYPAK.PRL
             fFATURASTOKOLCUESLE.Tag = "FFATURASTOKOLCUESLE" + i;
             page.Controls.Add(fFATURASTOKOLCUESLE);
             fFATURASTOKOLCUESLE.Show();
+            i++;
+        }
+
+   
+        private void ACEDestekServis1_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fDestekServis = new FDestekServis();
+            page.Name = "FDestekServis" + i;
+            page.Text = "Destek Servis";
+            page.Tag = "FDestekServis" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
+
+            fDestekServis.FormBorderStyle = FormBorderStyle.None;
+            fDestekServis.TopLevel = false;
+            fDestekServis.AutoScroll = true;
+            fDestekServis.Dock = DockStyle.Fill;
+            fDestekServis.Tag = "FDestekServis" + i;
+            page.Controls.Add(fDestekServis);
+            fDestekServis.Show();
             i++;
         }
     }
