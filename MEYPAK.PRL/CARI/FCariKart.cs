@@ -379,8 +379,8 @@ namespace MEYPAK.PRL.CARI
                 page.Tag = "TPAltHesapPanel";
 
                 page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-                main.xtraTabControl1.TabPages.Add(page);
-                main.xtraTabControl1.SelectedTabPage = page;
+                main.Anasayfa.TabPages.Add(page);
+                main.Anasayfa.SelectedTabPage = page;
 
                 fCariAltHesap.TopLevel = false;
                 fCariAltHesap.AutoScroll = true;

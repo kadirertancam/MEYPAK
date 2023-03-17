@@ -157,8 +157,8 @@ namespace MEYPAK.PRL.SIPARIS
                 page.Tag = "TPFatura2" + i;
                 page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
 
-                main.xtraTabControl1.TabPages.Add(page);
-                main.xtraTabControl1.SelectedTabPage = page;
+                main.Anasayfa.TabPages.Add(page);
+                main.Anasayfa.SelectedTabPage = page;
 
                 ffatura.TopLevel = false;
                 ffatura.AutoScroll = true;

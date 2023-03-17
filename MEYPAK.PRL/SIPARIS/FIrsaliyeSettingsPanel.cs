@@ -167,8 +167,8 @@ namespace MEYPAK.PRL.SIPARIS
             page.Text = "Satis Irsaliye";
             page.Tag = "TPSatisIrsaliye" + main.i;
             page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            main.xtraTabControl1.TabPages.Add(page);
-            main.xtraTabControl1.SelectedTabPage = page;
+            main.Anasayfa.TabPages.Add(page);
+            main.Anasayfa.SelectedTabPage = page;
 
             fSatisIrsaliye.TopLevel = false;
             fSatisIrsaliye.AutoScroll = true;
