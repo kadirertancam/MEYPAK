@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Repository;
 using MEYPAK.BLL.Assets;
+using MEYPAK.Entity.Models.FORMYETKI;
 using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.CEKSENET;
 using MEYPAK.Interfaces.Cari;
@@ -49,7 +50,10 @@ namespace MEYPAK.PRL.CEKSENET
         int i = 0;
         private void BTKaydet_Click(object sender, EventArgs e)
         {
+            if (MPKullanici.YetkiGetir(AllForms.FIRMACEKTANIM.ToString()).EKLE==true)
+            {
 
+         
             _cekSenetUstSbServis.Data(ServisList.CekSenetUstSBListeServis);
 
             _cekSenetUstSbServis.Data(ServisList.CekSenetUstSBEkleServis, new PocoCEKSENETUSTSB()
@@ -88,6 +92,9 @@ namespace MEYPAK.PRL.CEKSENET
             }
             MessageBox.Show($"Cekleriniz {_cekSenetUstSbServis.obje2.BORDRONO} bordro numarası ile kaydedilmiştir.");
             FormuTemizle();
+            }
+            else
+                MessageBox.Show(MPKullanici.hata);
         }
 
         void gridYapilandir()

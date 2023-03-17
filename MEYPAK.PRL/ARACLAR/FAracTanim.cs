@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using MEYPAK.BLL.Assets;
+using MEYPAK.Entity.Models.FORMYETKI;
 using MEYPAK.Entity.PocoModels.ARAC;
 using MEYPAK.Entity.PocoModels.PERSONEL;
 using MEYPAK.Entity.PocoModels.STOK;
@@ -20,7 +21,7 @@ using System.Windows.Forms;
 
 namespace MEYPAK.PRL.ARAÇLAR
 {
-    public partial class FAracTanim :   XtraForm
+    public partial class FAracTanim : XtraForm
     {
         GenericWebServis<PocoARAC> _aracServis;
         GenericWebServis<PocoARACRUHSATRESIM> _aracServisRUHSATRESIMServis;
@@ -76,17 +77,17 @@ namespace MEYPAK.PRL.ARAÇLAR
 
         void AracBilgileriniDoldur()
         {
-            if (_tempArac!=null && _tempArac.id!=0)
+            if (_tempArac != null && _tempArac.id != 0)
             {
                 TBPlaka.Text = _tempArac.plaka;
-                CBMarka.Text = _aracModelServis.obje.Where(x=> x.id ==Convert.ToInt32( _tempArac.marka)).FirstOrDefault().markaadi;
+                CBMarka.Text = _aracModelServis.obje.Where(x => x.id == Convert.ToInt32(_tempArac.marka)).FirstOrDefault().markaadi;
                 CBModel.EditValue = _tempArac.model;
                 CBYakitTuru.EditValue = _tempArac.yakitturu;
                 CBSofor1.EditValue = _tempArac.soforid;
                 CBSofor2.EditValue = _tempArac.sofor2id;
-                
+
             }
-            
+
             //plaka = TBPlaka.Text,
             //        tip = CBTip.EditValue != null ? CBTip.EditValue.ToString() : "BILINMIYOR",
             //        marka = CBMarka.EditValue != null ? CBMarka.EditValue.ToString() : "BILINMIYOR",
@@ -100,14 +101,14 @@ namespace MEYPAK.PRL.ARAÇLAR
             if (_tempArac != null)
             {
                 _aracServisRUHSATRESIMServis.Data(ServisList.AracRuhsatResimListeServis);
-                GridRuhsat.DataSource = _aracServisRUHSATRESIMServis.obje.Where(x=> x.aracid == _tempArac.id);
+                GridRuhsat.DataSource = _aracServisRUHSATRESIMServis.obje.Where(x => x.aracid == _tempArac.id);
             }
         }
 
         void CombolarıDoldur()
         {
             _aracModelServis.Data(ServisList.AracModelListeServis);
-            CBMarka.Properties.DataSource = (from temp in _aracModelServis.obje group temp by temp.markaadi into temp select new { ADI = temp.FirstOrDefault().markaadi, ID = temp.FirstOrDefault().id }).OrderBy(x=> x.ADI);
+            CBMarka.Properties.DataSource = (from temp in _aracModelServis.obje group temp by temp.markaadi into temp select new { ADI = temp.FirstOrDefault().markaadi, ID = temp.FirstOrDefault().id }).OrderBy(x => x.ADI);
             CBMarka.Properties.ValueMember = "ID";
             CBMarka.Properties.DisplayMember = "ADI";
 
@@ -133,140 +134,162 @@ namespace MEYPAK.PRL.ARAÇLAR
 
         private void BTNAracKaydet_Click(object sender, EventArgs e)
         {
-            if (TBPlaka.Text != null && CBTip.EditValue != null && CBMarka.EditValue != null && CBModel.EditValue != null && CBYakitTuru.EditValue != null && CBSofor1.EditValue != null)
+            if (MPKullanici.YetkiGetir(AllForms.ARACTANIM.ToString()).EKLE)
+
             {
-                if (_tempArac!=null && _tempArac.id!=0)
+                if (TBPlaka.Text != null && CBTip.EditValue != null && CBMarka.EditValue != null && CBModel.EditValue != null && CBYakitTuru.EditValue != null && CBSofor1.EditValue != null)
                 {
-                    _aracServis.Data(ServisList.AracEkleServis, new PocoARAC()
+                    if (_tempArac != null && _tempArac.id != 0)
                     {
-                        id = _tempArac.id,
-                        plaka = TBPlaka.Text,
-                        tip = CBTip.EditValue != null ? CBTip.EditValue.ToString() : "BILINMIYOR",
-                        marka = CBMarka.EditValue != null ? CBMarka.EditValue.ToString() : "BILINMIYOR",
-                        model = CBModel.EditValue != null ? CBModel.EditValue.ToString() : "BILINMIYOR",
-                        yakitturu = TBPlaka.Text,
-                        soforid = CBSofor1.EditValue != null ? (int)CBSofor1.EditValue : 0,
-                        sofor2id = CBSofor2.EditValue != null ? (int)CBSofor2.EditValue : 0,
-                        userid = MPKullanici.ID
-                    });
-                    _tempArac = _aracServis.obje2;
-                    MessageBox.Show($"{_tempArac.plaka} plakalı araç başarıyla güncellendi");
-                    AraclarıGetir();
+                        _aracServis.Data(ServisList.AracEkleServis, new PocoARAC()
+                        {
+                            id = _tempArac.id,
+                            plaka = TBPlaka.Text,
+                            tip = CBTip.EditValue != null ? CBTip.EditValue.ToString() : "BILINMIYOR",
+                            marka = CBMarka.EditValue != null ? CBMarka.EditValue.ToString() : "BILINMIYOR",
+                            model = CBModel.EditValue != null ? CBModel.EditValue.ToString() : "BILINMIYOR",
+                            yakitturu = TBPlaka.Text,
+                            soforid = CBSofor1.EditValue != null ? (int)CBSofor1.EditValue : 0,
+                            sofor2id = CBSofor2.EditValue != null ? (int)CBSofor2.EditValue : 0,
+                            userid = MPKullanici.ID
+                        });
+                        _tempArac = _aracServis.obje2;
+                        MessageBox.Show($"{_tempArac.plaka} plakalı araç başarıyla güncellendi");
+                        AraclarıGetir();
+                    }
+                    else
+                    {
+                        _aracServis.Data(ServisList.AracEkleServis, new PocoARAC()
+                        {
+                            plaka = TBPlaka.Text,
+                            tip = CBTip.EditValue != null ? CBTip.EditValue.ToString() : "BILINMIYOR",
+                            marka = CBMarka.EditValue != null ? CBMarka.EditValue.ToString() : "BILINMIYOR",
+                            model = CBModel.EditValue != null ? CBModel.EditValue.ToString() : "BILINMIYOR",
+                            yakitturu = TBPlaka.Text,
+                            soforid = CBSofor1.EditValue != null ? (int)CBSofor1.EditValue : 0,
+                            sofor2id = CBSofor2.EditValue != null ? (int)CBSofor2.EditValue : 0,
+                            userid = MPKullanici.ID
+                        });
+                        _tempArac = _aracServis.obje2;
+                        MessageBox.Show($"{_tempArac.plaka} plakalı araç başarıyla eklendi");
+                        AraclarıGetir();
+                    }
+
                 }
                 else
                 {
-                    _aracServis.Data(ServisList.AracEkleServis, new PocoARAC()
-                    {
-                        plaka = TBPlaka.Text,
-                        tip = CBTip.EditValue != null ? CBTip.EditValue.ToString() : "BILINMIYOR",
-                        marka = CBMarka.EditValue != null ? CBMarka.EditValue.ToString() : "BILINMIYOR",
-                        model = CBModel.EditValue != null ? CBModel.EditValue.ToString() : "BILINMIYOR",
-                        yakitturu = TBPlaka.Text,
-                        soforid = CBSofor1.EditValue != null ? (int)CBSofor1.EditValue : 0,
-                        sofor2id = CBSofor2.EditValue != null ? (int)CBSofor2.EditValue : 0,
-                        userid = MPKullanici.ID
-                    });
-                    _tempArac = _aracServis.obje2;
-                    MessageBox.Show($"{_tempArac.plaka} plakalı araç başarıyla eklendi");
-                    AraclarıGetir();
+                    MessageBox.Show("Araca ait zorunlu alanların tamamının doldurulması gerekir!");
                 }
-               
             }
             else
-            {
-                MessageBox.Show("Araca ait zorunlu alanların tamamının doldurulması gerekir!");
-            }
+                MessageBox.Show(MPKullanici.hata);
         }
 
         private void BTNSigortaKaydet_Click(object sender, EventArgs e)
         {
-            if (_tempArac != null && _tempArac.id != 0)
+            if (MPKullanici.YetkiGetir(AllForms.ARACTANIM.ToString()).GUNCELLE)
             {
-                if (TBSigAcenteAdi.Text != null && TBSigPoliceNo.Text != null && DTPKasPolBasTar.EditValue != null && DTPKasPolBitTar.EditValue != null)
+                if (_tempArac != null && _tempArac.id != 0)
                 {
-                    _aracServis.Data(ServisList.AracEkleServis, new PocoARAC()
+                    if (TBSigAcenteAdi.Text != null && TBSigPoliceNo.Text != null && DTPKasPolBasTar.EditValue != null && DTPKasPolBitTar.EditValue != null)
                     {
-                        id = _tempArac.id,
-                        sigacenteadi = TBSigAcenteAdi.Text,
-                        sigpoliceno = TBSigPoliceNo.Text,
-                        sigbastar = (DateTime)DTPSigPolBasTar.EditValue,
-                        sigbittar = (DateTime)DTPSigPolBitTar.EditValue,
-                        userid = MPKullanici.ID
-                    });
-                    MessageBox.Show($"{_tempArac.plaka} plakalı araca sigorta bilgileri eklenmiştir.");
+                        _aracServis.Data(ServisList.AracEkleServis, new PocoARAC()
+                        {
+                            id = _tempArac.id,
+                            sigacenteadi = TBSigAcenteAdi.Text,
+                            sigpoliceno = TBSigPoliceNo.Text,
+                            sigbastar = (DateTime)DTPSigPolBasTar.EditValue,
+                            sigbittar = (DateTime)DTPSigPolBitTar.EditValue,
+                            userid = MPKullanici.ID
+                        });
+                        MessageBox.Show($"{_tempArac.plaka} plakalı araca sigorta bilgileri eklenmiştir.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Sigorta eklemek için gerekli sigorta alanlarını doldurmanız gerekmektedir!");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Sigorta eklemek için gerekli sigorta alanlarını doldurmanız gerekmektedir!");
+                    MessageBox.Show("Sigorta bilgileri girilecek Araç seçilmedi!");
                 }
             }
             else
-            {
-                MessageBox.Show("Sigorta bilgileri girilecek Araç seçilmedi!");
-            }
+                MessageBox.Show(MPKullanici.hata);
         }
 
         private void BTNKaskoKaydet_Click(object sender, EventArgs e)
         {
-            if (_tempArac != null && _tempArac.id != 0)
+            if (MPKullanici.YetkiGetir(AllForms.ARACTANIM.ToString()).GUNCELLE)
             {
-                if (TBKasAcenteAdi.Text != null && TBKasPoliceNo.Text != null && DTPKasPolBasTar.EditValue != null && DTPKasPolBitTar != null)
-                {
-                    _aracServis.Data(ServisList.AracEkleServis, new PocoARAC()
-                    {
-                        id = _tempArac.id,
-                        kasacenteadi = TBKasAcenteAdi.Text,
-                        kaspoliceno = TBKasPoliceNo.Text,
-                        kasbastar = (DateTime)DTPKasPolBasTar.EditValue,
-                        kasbittar = (DateTime)DTPKasPolBitTar.EditValue,
-                        userid = MPKullanici.ID
-                    });
 
-                    MessageBox.Show($"{_tempArac.plaka} plakalı araca sigorta bilgileri eklenmiştir.");
+                if (_tempArac != null && _tempArac.id != 0)
+                {
+                    if (TBKasAcenteAdi.Text != null && TBKasPoliceNo.Text != null && DTPKasPolBasTar.EditValue != null && DTPKasPolBitTar != null)
+                    {
+                        _aracServis.Data(ServisList.AracEkleServis, new PocoARAC()
+                        {
+                            id = _tempArac.id,
+                            kasacenteadi = TBKasAcenteAdi.Text,
+                            kaspoliceno = TBKasPoliceNo.Text,
+                            kasbastar = (DateTime)DTPKasPolBasTar.EditValue,
+                            kasbittar = (DateTime)DTPKasPolBitTar.EditValue,
+                            userid = MPKullanici.ID
+                        });
+
+                        MessageBox.Show($"{_tempArac.plaka} plakalı araca sigorta bilgileri eklenmiştir.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Kasko eklemek için gerekli kasko alanlarını dolurmanız gerekmekte!");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Kasko eklemek için gerekli kasko alanlarını dolurmanız gerekmekte!");
+                    MessageBox.Show("Sigorta bilgileri girilecek Araç seçilmedi!");
                 }
             }
             else
-            {
-                MessageBox.Show("Sigorta bilgileri girilecek Araç seçilmedi!");
-            }
+                MessageBox.Show(MPKullanici.hata);
         }
 
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {//Ruhsat
-            if (_tempArac != null && _tempArac.id!=0)
+            if (MPKullanici.YetkiGetir(AllForms.ARACTANIM.ToString()).GUNCELLE)
             {
-            _aracServisRUHSATRESIMServis.Data(ServisList.AracRuhsatResimListeServis);
-            if (_aracServisRUHSATRESIMServis.obje.Where(x => x.aracid == _tempArac.id).Last().num != 0)
-            {
-                _aracServisRUHSATRESIMServis.Data(ServisList.AracRuhsatResimEkleServis, new PocoARACRUHSATRESIM()
+                if (_tempArac != null && _tempArac.id != 0)
                 {
-                    aracid = _tempArac.id,
-                    num = 0,
-                    img = base64,
-                    userid = MPKullanici.ID
-                });
+                    _aracServisRUHSATRESIMServis.Data(ServisList.AracRuhsatResimListeServis);
+                    if (_aracServisRUHSATRESIMServis.obje.Where(x => x.aracid == _tempArac.id).Last().num != 0)
+                    {
+                        _aracServisRUHSATRESIMServis.Data(ServisList.AracRuhsatResimEkleServis, new PocoARACRUHSATRESIM()
+                        {
+                            aracid = _tempArac.id,
+                            num = 0,
+                            img = base64,
+                            userid = MPKullanici.ID
+                        });
+                    }
+                    else
+                    {
+                        _aracServisRUHSATRESIMServis.Data(ServisList.AracRuhsatResimEkleServis, new PocoARACRUHSATRESIM()
+                        {
+                            aracid = _tempArac.id,
+                            num = _aracServisRUHSATRESIMServis.obje.Where(x => x.aracid == _tempArac.id).Last().num + 1,
+                            img = base64,
+                            userid = MPKullanici.ID
+                        });
+                    }
+                    ResimleriGetir();
+                }
+                else
+                {
+                    MessageBox.Show("Ruhsat bilgileri girilecek Araç seçilmedi!");
+                }
             }
             else
-            {
-                _aracServisRUHSATRESIMServis.Data(ServisList.AracRuhsatResimEkleServis, new PocoARACRUHSATRESIM()
-                {
-                    aracid = _tempArac.id,
-                    num = _aracServisRUHSATRESIMServis.obje.Where(x => x.aracid == _tempArac.id).Last().num + 1,
-                    img = base64,
-                    userid = MPKullanici.ID
-                });
-            }
-            ResimleriGetir();
-            }
-            else
-            {
-                MessageBox.Show("Ruhsat bilgileri girilecek Araç seçilmedi!");
-            }
+                MessageBox.Show(MPKullanici.hata);
         }
 
 
@@ -289,7 +312,7 @@ namespace MEYPAK.PRL.ARAÇLAR
 
         private void CBMarka_EditValueChanged(object sender, EventArgs e)
         {
-            CBModel.Properties.DataSource = _aracModelServis.obje.Where(x => x.markaadi == CBMarka.Text).OrderBy(x=> x.modeladi).Select(x => new { ADI=x.modeladi });
+            CBModel.Properties.DataSource = _aracModelServis.obje.Where(x => x.markaadi == CBMarka.Text).OrderBy(x => x.modeladi).Select(x => new { ADI = x.modeladi });
             CBModel.Properties.ValueMember = "ADI";
             CBModel.Properties.DisplayMember = "ADI";
         }
@@ -313,7 +336,7 @@ namespace MEYPAK.PRL.ARAÇLAR
         {
             _tempArac = _aracServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
             AracBilgileriniDoldur();
-            
+
         }
 
 

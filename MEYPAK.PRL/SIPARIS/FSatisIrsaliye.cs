@@ -4,6 +4,7 @@ using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid.Columns;
 using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.Models.ARAC;
+using MEYPAK.Entity.Models.FORMYETKI;
 using MEYPAK.Entity.Models.PERSONEL;
 using MEYPAK.Entity.PocoModels;
 using MEYPAK.Entity.PocoModels.CARI;
@@ -930,7 +931,11 @@ namespace MEYPAK.PRL.IRSALIYE
         }
         private void BTKaydet_Click_1(object sender, EventArgs e)
         {
-            if (_tempIrsaliye != null && TBFaturaNo.Text != _tempIrsaliye.belgeno)
+            if (MPKullanici.YetkiGetir(AllForms.SATISIRSALIYETANIM.ToString()).EKLE == true)
+            {
+
+            }
+                if (_tempIrsaliye != null && TBFaturaNo.Text != _tempIrsaliye.belgeno)
                 _tempIrsaliye = null;
 
             _cariKart.Data(ServisList.CariListeServis);

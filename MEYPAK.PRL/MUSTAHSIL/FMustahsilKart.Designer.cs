@@ -209,6 +209,7 @@
             this.CBIl.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.CBIl.Properties.NullText = "";
+            this.CBIl.Properties.EditValueChanged += new System.EventHandler(this.CBIl_Properties_EditValueChanged);
             this.CBIl.Size = new System.Drawing.Size(99, 20);
             this.CBIl.TabIndex = 50;
             // 
@@ -249,6 +250,7 @@
             this.BTSorgula.Size = new System.Drawing.Size(75, 47);
             this.BTSorgula.TabIndex = 75;
             this.BTSorgula.Text = "Sorgula";
+            this.BTSorgula.Click += new System.EventHandler(this.BTSorgula_Click);
             // 
             // LBCariAd
             // 
@@ -388,6 +390,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "FMustahsilKart";
             this.Text = "FMustahsilKart";
+            this.Load += new System.EventHandler(this.FMustahsilKart_Load);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();

@@ -1,5 +1,6 @@
 ﻿using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.Models.BANKA;
+using MEYPAK.Entity.Models.FORMYETKI;
 using MEYPAK.Entity.PocoModels.BANKA;
 
 namespace MEYPAK.PRL.BANKA
@@ -14,6 +15,8 @@ namespace MEYPAK.PRL.BANKA
         GenericWebServis<PocoBANKA> _bankaServis;
         private void simpleButton1_Click(object sender, EventArgs e)
         {
+            if (MPKullanici.YetkiGetir(AllForms.BANKATANIM.ToString()).EKLE==true)
+            {
             _bankaServis.Data(ServisList.BANKAEkleServis, new PocoBANKA()
             {
                 kod = TBBankaKod.Text,
@@ -25,6 +28,9 @@ namespace MEYPAK.PRL.BANKA
             });
             MessageBox.Show("Banka Başarıyla Eklendi");
             GridiDoldur();
+            }
+            else
+                MessageBox.Show(MPKullanici.hata);
         }
 
         private void FBankaTanim_Load(object sender, EventArgs e)

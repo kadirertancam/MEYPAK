@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using MEYPAK.BLL.Assets;
+using MEYPAK.Entity.Models.FORMYETKI;
 using MEYPAK.Entity.PocoModels.BANKA;
 using MEYPAK.Entity.PocoModels.PARAMETRE;
 
@@ -53,6 +54,10 @@ namespace MEYPAK.PRL.BANKA
 
         private void BTNBankaKaydet_Click(object sender, EventArgs e)
         {
+            if (MPKullanici.YetkiGetir(AllForms.HESAPTANIM.ToString()).EKLE==true)
+            {
+
+           
             if (CBBanka.EditValue != null && CBSube.EditValue != null && (int)CBBanka.EditValue>0&&(int)CBSube.EditValue>0)
             {
                 _hesapServis.Data(ServisList.BANKAHesapEkleServis, new PocoBANKAHESAP()
@@ -74,6 +79,9 @@ namespace MEYPAK.PRL.BANKA
             {
                 MessageBox.Show("Lütfen Gerekli Bilgileri Giriniz!");
             }
+            }
+            else
+                MessageBox.Show(MPKullanici.hata);
         }
 
         private void CBBanka_EditValueChanged(object sender, EventArgs e)

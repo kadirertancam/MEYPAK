@@ -2,6 +2,7 @@
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Repository;
 using MEYPAK.BLL.Assets;
+using MEYPAK.Entity.Models.FORMYETKI;
 using MEYPAK.Entity.PocoModels.ARAC;
 using MEYPAK.Entity.PocoModels.DEPO;
 using MEYPAK.Entity.PocoModels.PERSONEL;
@@ -119,7 +120,10 @@ namespace MEYPAK.PRL.ARACLAR
 
         private void BTNAracKaydet_Click(object sender, EventArgs e)
         {
+            if (MPKullanici.YetkiGetir(AllForms.ARACROTATANIM.ToString()).EKLE)
+            {
 
+         
             foreach (var item in _tempAracRota)
             {
                 item.userid = MPKullanici.ID;
@@ -127,7 +131,9 @@ namespace MEYPAK.PRL.ARACLAR
 
             }
             GridYapılandır(routezamani);
-
+            }
+            else
+                MessageBox.Show(MPKullanici.hata);
         }
 
         private void dateEdit1_DateTimeChanged(object sender, EventArgs e)

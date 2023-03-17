@@ -17,6 +17,7 @@ using MEYPAK.Entity.PocoModels.FATURA;
 using MEYPAK.PRL.Assets;
 using MEYPAK.Interfaces.Hizmet;
 using MEYPAK.Interfaces.Cari;
+using MEYPAK.Entity.Models.FORMYETKI;
 
 namespace MEYPAK.PRL.SIPARIS
 {
@@ -900,8 +901,9 @@ namespace MEYPAK.PRL.SIPARIS
         {
             //if (_tempFatura != null && TBFaturaNo.Text != _tempFatura.belgeno)
             //    _tempFatura = null;
-         
-            _cariKart.Data(ServisList.CariListeServis);
+            if (MPKullanici.YetkiGetir(AllForms.ALISFATURATANIM.ToString()).EKLE == true)
+            {
+                _cariKart.Data(ServisList.CariListeServis);
             if (_cariKart.obje.Where(x => x.kod == TBCariKodu.Text).Count() > 0)
             {
                 _faturaServis.Data(ServisList.FaturaEkleServis, new PocoFATURA()
@@ -1116,6 +1118,9 @@ namespace MEYPAK.PRL.SIPARIS
             }
             else
                 MessageBox.Show("Lütfen Cariyi Seçtiğinizden emin olunuz!");
+            }
+            else
+                MessageBox.Show(MPKullanici.hata);
 
         }
 
@@ -1245,6 +1250,7 @@ namespace MEYPAK.PRL.SIPARIS
 
         private void TBCariKodu_Properties_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
+
 
             _fCariList = new FCariList(this.Tag.ToString(), "FAlisFatura");
             _fCariList.ShowDialog();

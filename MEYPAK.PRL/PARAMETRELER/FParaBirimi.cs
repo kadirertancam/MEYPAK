@@ -1,6 +1,7 @@
 ﻿using DevExpress.Text.Interop;
 using DevExpress.XtraEditors;
 using MEYPAK.BLL.Assets;
+using MEYPAK.Entity.Models.FORMYETKI;
 using MEYPAK.Entity.PocoModels.PARAMETRE;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces.Parametre;
@@ -61,6 +62,8 @@ namespace MEYPAK.PRL.PARAMETRELER
 
         private void BTKaydet_Click(object sender, EventArgs e)
         {
+            if (MPKullanici.YetkiGetir(AllForms.PARABIRIMLERI.ToString()).EKLE)
+            {
             if (islemtipi == "Kayıt")
             {
                 _paraBirimServis.Data(ServisList.ParaBirimiEkleServis, (new PocoPARABIRIM()
@@ -84,15 +87,23 @@ namespace MEYPAK.PRL.PARAMETRELER
             MessageBox.Show("Kayıt Başarılı.");
             id = 0;
             DataGridDoldur();
+            }
+            else
+                MessageBox.Show(MPKullanici.hata);
         }
 
         private void BTSil_Click(object sender, EventArgs e)
         {
+            if (MPKullanici.YetkiGetir(AllForms.PARABIRIMLERI.ToString()).SIL)
+            {
             _paraBirimServis.Data(ServisList.ParaBirimiListeServis);
             _paraBirimServis.Data(ServisList.ParaBirimiSilServis, null, null, _paraBirimServis.obje.Where(x => x.adi.ToString() == gridView1.GetFocusedRowCellValue("adi").ToString()).ToList());
             MessageBox.Show("Silme Başarılı");
             DGParaBrm.DataSource = _paraBirimServis.obje.Where(x => x.kayittipi == 0);
             DataGridDoldur();
+            }
+            else
+                MessageBox.Show(MPKullanici.hata);
         }
 
         public void Temizle(Control.ControlCollection ctrlCollection) //Formdaki textboxları temizler
