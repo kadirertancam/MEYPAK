@@ -711,12 +711,6 @@ namespace MEYPAK.PRL.PERSONEL
             }
         }
 
-
-
-
-
-
-
         #endregion
 
         private void BTCIKIS_Click(object sender, EventArgs e)
