@@ -42,25 +42,25 @@
             // 
             // TBEmail
             // 
-            this.TBEmail.Location = new System.Drawing.Point(627, 232);
+            this.TBEmail.Location = new System.Drawing.Point(469, 239);
             this.TBEmail.Name = "TBEmail";
             this.TBEmail.Properties.Appearance.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.TBEmail.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TBEmail.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TBEmail.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
             this.TBEmail.Properties.Appearance.Options.UseBackColor = true;
             this.TBEmail.Properties.Appearance.Options.UseFont = true;
             this.TBEmail.Properties.Appearance.Options.UseForeColor = true;
             this.TBEmail.Properties.NullText = "Kullanıcı Adı";
             this.TBEmail.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.TBEmail.Size = new System.Drawing.Size(209, 36);
+            this.TBEmail.Size = new System.Drawing.Size(201, 30);
             this.TBEmail.TabIndex = 0;
             // 
             // TBSifre
             // 
-            this.TBSifre.Location = new System.Drawing.Point(627, 274);
+            this.TBSifre.Location = new System.Drawing.Point(469, 275);
             this.TBSifre.Name = "TBSifre";
             this.TBSifre.Properties.Appearance.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.TBSifre.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TBSifre.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TBSifre.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
             this.TBSifre.Properties.Appearance.Options.UseBackColor = true;
             this.TBSifre.Properties.Appearance.Options.UseFont = true;
@@ -68,17 +68,17 @@
             this.TBSifre.Properties.NullText = "Şifre";
             this.TBSifre.Properties.Padding = new System.Windows.Forms.Padding(3);
             this.TBSifre.Properties.PasswordChar = '*';
-            this.TBSifre.Size = new System.Drawing.Size(209, 36);
+            this.TBSifre.Size = new System.Drawing.Size(201, 30);
             this.TBSifre.TabIndex = 1;
             this.TBSifre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBSifre_KeyPress);
             // 
             // comboBoxEdit1
             // 
             this.comboBoxEdit1.EditValue = "GÜNDÜZ MEY-PAK";
-            this.comboBoxEdit1.Location = new System.Drawing.Point(627, 148);
+            this.comboBoxEdit1.Location = new System.Drawing.Point(469, 167);
             this.comboBoxEdit1.Name = "comboBoxEdit1";
             this.comboBoxEdit1.Properties.Appearance.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.comboBoxEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBoxEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBoxEdit1.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
             this.comboBoxEdit1.Properties.Appearance.Options.UseBackColor = true;
             this.comboBoxEdit1.Properties.Appearance.Options.UseFont = true;
@@ -90,16 +90,16 @@
             "GÜNDÜZ MEY-PAK"});
             this.comboBoxEdit1.Properties.NullText = "Firma";
             this.comboBoxEdit1.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.comboBoxEdit1.Size = new System.Drawing.Size(209, 36);
+            this.comboBoxEdit1.Size = new System.Drawing.Size(201, 30);
             this.comboBoxEdit1.TabIndex = 2;
             // 
             // comboBoxEdit2
             // 
             this.comboBoxEdit2.EditValue = "Merkez";
-            this.comboBoxEdit2.Location = new System.Drawing.Point(627, 190);
+            this.comboBoxEdit2.Location = new System.Drawing.Point(469, 203);
             this.comboBoxEdit2.Name = "comboBoxEdit2";
             this.comboBoxEdit2.Properties.Appearance.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.comboBoxEdit2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBoxEdit2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBoxEdit2.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
             this.comboBoxEdit2.Properties.Appearance.Options.UseBackColor = true;
             this.comboBoxEdit2.Properties.Appearance.Options.UseFont = true;
@@ -112,7 +112,7 @@
             "MERSİN DEPO"});
             this.comboBoxEdit2.Properties.NullText = "Şube";
             this.comboBoxEdit2.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.comboBoxEdit2.Size = new System.Drawing.Size(209, 36);
+            this.comboBoxEdit2.Size = new System.Drawing.Size(201, 30);
             this.comboBoxEdit2.TabIndex = 3;
             // 
             // BTNGiris
@@ -125,28 +125,27 @@
             this.BTNGiris.Appearance.Options.UseForeColor = true;
             this.BTNGiris.AppearanceDisabled.BackColor = System.Drawing.Color.Lime;
             this.BTNGiris.AppearanceDisabled.Options.UseBackColor = true;
-            this.BTNGiris.Location = new System.Drawing.Point(680, 332);
+            this.BTNGiris.Location = new System.Drawing.Point(525, 328);
             this.BTNGiris.Name = "BTNGiris";
-            this.BTNGiris.Size = new System.Drawing.Size(109, 35);
+            this.BTNGiris.Size = new System.Drawing.Size(93, 30);
             this.BTNGiris.TabIndex = 4;
             this.BTNGiris.Text = "GİRİŞ YAP";
             this.BTNGiris.Click += new System.EventHandler(this.BTNGiris_Click);
             // 
             // LoginScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Teal;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(913, 563);
+            this.BackgroundImageLayoutStore = System.Windows.Forms.ImageLayout.Stretch;
+            this.BackgroundImageStore = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImageStore")));
+            this.ClientSize = new System.Drawing.Size(801, 472);
             this.Controls.Add(this.BTNGiris);
             this.Controls.Add(this.comboBoxEdit2);
             this.Controls.Add(this.comboBoxEdit1);
             this.Controls.Add(this.TBSifre);
             this.Controls.Add(this.TBEmail);
             this.DoubleBuffered = true;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "LoginScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Giriş";

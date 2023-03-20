@@ -42,7 +42,7 @@ namespace MEYPAK.PRL.DESTEKSERVIS
         void PersonelDepartmanComboDoldur()
         {
             _personelDepartmanServis.Data(ServisList.PersonelDepartmanListeServis);
-            CBDepartman.Properties.DataSource = _personelDepartmanServis.obje.Where(x => x.kayittipi == 0).Select(x => new { DEPARTMAN = x.adi, ID = x.id });
+            CBDepartman.Properties.DataSource = _personelDepartmanServis.obje.Where(x => x.kayittipi == 0).Select(x => new { DEPARTMAN = x.adi});
             CBDepartman.Properties.ValueMember = "ID";
             CBDepartman.Properties.DisplayMember = "DEPARTMAN";
         }
