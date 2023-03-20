@@ -4,6 +4,7 @@ using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Entity.PocoModels.DESTEKSERVIS;
 using MEYPAK.Entity.PocoModels.PERSONEL;
 using MEYPAK.Interfaces.Personel;
+using MEYPAK.Interfaces.Stok;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -37,7 +38,7 @@ namespace MEYPAK.PRL.DESTEKSERVIS
         #region Metotlar
         private void FDestekServis_Load(object sender, EventArgs e)
         {
-
+            //DataGridDoldur();
         }
         void PersonelDepartmanComboDoldur()
         {
@@ -51,6 +52,20 @@ namespace MEYPAK.PRL.DESTEKSERVIS
             PersonelDepartmanComboDoldur();
         }
 
+
+        //void DataGridDoldur()
+        //{
+        //    _destekServis.Data(ServisList.DestekServisListeServis);
+        //    DGDestekServis.DataSource = _destekServis.obje.Where(x => x.kayittipi == 0).Select(x => new
+        //    {
+        //        ID = x.id,
+        //        //Ad = x,
+        //        //Birim = x.birim,
+        //        //OluşturmaTarihi = x.olusturmatarihi
+        //    });
+        //    DGDestekServis.Refresh();
+        //    DGDestekServis.RefreshDataSource();
+        //}
         #endregion
     }
 
