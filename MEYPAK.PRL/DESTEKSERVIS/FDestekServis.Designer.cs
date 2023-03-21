@@ -29,16 +29,20 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FDestekServis));
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.DGDestekServis = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.TBSoyad = new DevExpress.XtraEditors.TextEdit();
+            this.TBAd = new DevExpress.XtraEditors.TextEdit();
+            this.LBSoyad = new DevExpress.XtraEditors.LabelControl();
+            this.LBAd = new DevExpress.XtraEditors.LabelControl();
             this.CBOncelik = new DevExpress.XtraEditors.ComboBoxEdit();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.BTDestekTalebi = new DevExpress.XtraEditors.SimpleButton();
@@ -51,10 +55,6 @@
             this.LBMesaj = new DevExpress.XtraEditors.LabelControl();
             this.LBDepartman = new DevExpress.XtraEditors.LabelControl();
             this.LBBaslik = new DevExpress.XtraEditors.LabelControl();
-            this.LBAd = new DevExpress.XtraEditors.LabelControl();
-            this.LBSoyad = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
@@ -63,6 +63,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TBSoyad.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBAd.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBOncelik.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
@@ -70,8 +72,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.TBMesaj.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBDepartman.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBBaslik.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -112,8 +112,8 @@
             // groupControl1
             // 
             this.groupControl1.CaptionImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("groupControl1.CaptionImageOptions.Image")));
-            this.groupControl1.Controls.Add(this.textEdit2);
-            this.groupControl1.Controls.Add(this.textEdit1);
+            this.groupControl1.Controls.Add(this.TBSoyad);
+            this.groupControl1.Controls.Add(this.TBAd);
             this.groupControl1.Controls.Add(this.LBSoyad);
             this.groupControl1.Controls.Add(this.LBAd);
             this.groupControl1.Controls.Add(this.CBOncelik);
@@ -133,6 +133,36 @@
             this.groupControl1.Size = new System.Drawing.Size(1124, 318);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Destek Servis";
+            // 
+            // TBSoyad
+            // 
+            this.TBSoyad.Location = new System.Drawing.Point(128, 77);
+            this.TBSoyad.Name = "TBSoyad";
+            this.TBSoyad.Size = new System.Drawing.Size(317, 20);
+            this.TBSoyad.TabIndex = 59;
+            // 
+            // TBAd
+            // 
+            this.TBAd.Location = new System.Drawing.Point(128, 49);
+            this.TBAd.Name = "TBAd";
+            this.TBAd.Size = new System.Drawing.Size(317, 20);
+            this.TBAd.TabIndex = 58;
+            // 
+            // LBSoyad
+            // 
+            this.LBSoyad.Location = new System.Drawing.Point(78, 80);
+            this.LBSoyad.Name = "LBSoyad";
+            this.LBSoyad.Size = new System.Drawing.Size(30, 13);
+            this.LBSoyad.TabIndex = 57;
+            this.LBSoyad.Text = "Soyad";
+            // 
+            // LBAd
+            // 
+            this.LBAd.Location = new System.Drawing.Point(95, 52);
+            this.LBAd.Name = "LBAd";
+            this.LBAd.Size = new System.Drawing.Size(13, 13);
+            this.LBAd.TabIndex = 56;
+            this.LBAd.Text = "Ad";
             // 
             // CBOncelik
             // 
@@ -169,14 +199,15 @@
             this.BTDestekTalebi.Size = new System.Drawing.Size(156, 39);
             this.BTDestekTalebi.TabIndex = 53;
             this.BTDestekTalebi.Text = "Destek Talebi Oluştur";
+            this.BTDestekTalebi.Click += new System.EventHandler(this.BTDestekTalebi_Click);
             // 
             // BTDosyaYukle
             // 
             this.BTDosyaYukle.Location = new System.Drawing.Point(128, 263);
             this.BTDosyaYukle.Name = "BTDosyaYukle";
-            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
             this.BTDosyaYukle.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTDosyaYukle.Size = new System.Drawing.Size(317, 24);
             this.BTDosyaYukle.TabIndex = 52;
             // 
@@ -244,36 +275,6 @@
             this.LBBaslik.TabIndex = 43;
             this.LBBaslik.Text = "Başlık";
             // 
-            // LBAd
-            // 
-            this.LBAd.Location = new System.Drawing.Point(95, 52);
-            this.LBAd.Name = "LBAd";
-            this.LBAd.Size = new System.Drawing.Size(13, 13);
-            this.LBAd.TabIndex = 56;
-            this.LBAd.Text = "Ad";
-            // 
-            // LBSoyad
-            // 
-            this.LBSoyad.Location = new System.Drawing.Point(78, 80);
-            this.LBSoyad.Name = "LBSoyad";
-            this.LBSoyad.Size = new System.Drawing.Size(30, 13);
-            this.LBSoyad.TabIndex = 57;
-            this.LBSoyad.Text = "Soyad";
-            // 
-            // textEdit1
-            // 
-            this.textEdit1.Location = new System.Drawing.Point(128, 49);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(317, 20);
-            this.textEdit1.TabIndex = 58;
-            // 
-            // textEdit2
-            // 
-            this.textEdit2.Location = new System.Drawing.Point(128, 77);
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Size = new System.Drawing.Size(317, 20);
-            this.textEdit2.TabIndex = 59;
-            // 
             // FDestekServis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -293,6 +294,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TBSoyad.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBAd.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBOncelik.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
@@ -300,8 +303,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.TBMesaj.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBDepartman.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBBaslik.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -327,7 +328,7 @@
         private DevExpress.XtraEditors.ComboBoxEdit CBOncelik;
         private DevExpress.XtraEditors.LabelControl LBSoyad;
         private DevExpress.XtraEditors.LabelControl LBAd;
-        private DevExpress.XtraEditors.TextEdit textEdit2;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.TextEdit TBSoyad;
+        private DevExpress.XtraEditors.TextEdit TBAd;
     }
 }

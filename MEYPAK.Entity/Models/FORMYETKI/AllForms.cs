@@ -39,6 +39,7 @@ namespace MEYPAK.Entity.Models.FORMYETKI
         DEPORAPORU = 3,
         STOKSEVKIYATRAPORU = 3,
         #endregion
+
         #region CARI
         //CARITANIM
         CARIKART=4,
@@ -51,6 +52,7 @@ namespace MEYPAK.Entity.Models.FORMYETKI
         CARIHAREKETRAPORU=6,
         CARIRAPORU=6,
         #endregion
+
         #region FATURA
         //FATURATANIM
         FATURATANIM=7,
@@ -67,6 +69,7 @@ namespace MEYPAK.Entity.Models.FORMYETKI
         FATURARAPORU=9,
         MUSTERISIPARISRAPORU=9,
         #endregion
+
         #region CEK/SENET
         //MUSTERICEK
         MUSTERICEKTANIM=10,
@@ -87,6 +90,7 @@ namespace MEYPAK.Entity.Models.FORMYETKI
         //FIRMASENET
         FIRMASENETTANIM=13,
         #endregion
+
         #region KASA
         //KASATANIM
         KASAKART=15,
@@ -94,6 +98,7 @@ namespace MEYPAK.Entity.Models.FORMYETKI
         KASAHAREKET=16,
         //KASARAPOR
         #endregion
+
         #region BANKA
         //BANKATANIM
         BANKATANIM=18,
@@ -103,6 +108,7 @@ namespace MEYPAK.Entity.Models.FORMYETKI
         HESAPHAREKET=19,
         //BANKARAPOR
         #endregion
+
         #region E-ISLEMLER
         //EFATURA
         EFATURAGIDENKUTUSU=21,
@@ -114,6 +120,7 @@ namespace MEYPAK.Entity.Models.FORMYETKI
         EIRSALIYEGELENKUTUSU=23,
 
         #endregion
+
         #region PERSONEL
         //TANIM
         PERSONELTANIM=23,
@@ -123,6 +130,7 @@ namespace MEYPAK.Entity.Models.FORMYETKI
         //RAPOR
         PERSONELRAPORU=25,
         #endregion
+
         #region ARAC
         //TANIM
         ARACTANIM=26,
@@ -130,12 +138,18 @@ namespace MEYPAK.Entity.Models.FORMYETKI
         //HAREKET
 
         #endregion
+
         #region PARAMETRELER
         PARABIRIMLERI=29,
         SERITANIM=29,
         #endregion
+
         #region KULLANICIYONETIMI
         KULLANICITANIM=30,
+        #endregion
+
+        #region DESTEKSERVIS
+        DESTEKSERVIS =31,   
         #endregion
     }
 }

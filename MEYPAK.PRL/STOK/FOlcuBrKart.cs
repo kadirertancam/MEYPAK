@@ -40,7 +40,7 @@ namespace MEYPAK.PRL.STOK
         }
         int id;
       
-        void DataGridDoldur()
+        void DataGridDoldur() 
         {
             _OlcuBrServis.Data(ServisList.OlcuBrListeServis); 
             DGOlcuBirim.DataSource = _OlcuBrServis.obje.Where(x=>x.kayittipi==0).Select(x=> new 
