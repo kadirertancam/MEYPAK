@@ -312,7 +312,25 @@
             this.xtraTabPage1.Size = new System.Drawing.Size(846, 540);
             this.xtraTabPage1.Text = "AnaSayfa";
             // 
-            // pictureEdit1
+            // xtraTabPage1
+            // 
+            this.xtraTabPage1.Controls.Add(this.panel6);
+            this.xtraTabPage1.Name = "xtraTabPage1";
+            this.xtraTabPage1.ShowCloseButton = DevExpress.Utils.DefaultBoolean.False;
+            this.xtraTabPage1.Size = new System.Drawing.Size(846, 540);
+            this.xtraTabPage1.Text = "AnaSayfa";
+            // 
+            // panel6
+            // 
+            this.panel6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel6.BackgroundImage")));
+            this.panel6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(0, 0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(846, 540);
+            this.panel6.TabIndex = 1;
+            // 
+            // barDockControlLeft
             // 
             this.pictureEdit1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureEdit1.EditValue = ((object)(resources.GetObject("pictureEdit1.EditValue")));
@@ -2203,8 +2221,6 @@
             // 
             // ACEKullaniciYönetim
             // 
-            this.ACEKullaniciYönetim.Appearance.Default.ForeColor = System.Drawing.Color.Silver;
-            this.ACEKullaniciYönetim.Appearance.Default.Options.UseForeColor = true;
             this.ACEKullaniciYönetim.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.ACEKullaniciTanim});
             this.ACEKullaniciYönetim.Enabled = false;
@@ -2540,6 +2556,7 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEMustahsilMakbuz;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEEMustahsilM;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEEMustahsilGiden;
+        private Panel panel6;
         private DevExpress.XtraBars.Navigation.AccordionControlElement İnstagr;
        // private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
         private DevExpress.XtraEditors.PictureEdit pictureEdit1;
