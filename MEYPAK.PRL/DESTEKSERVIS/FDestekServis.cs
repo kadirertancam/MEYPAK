@@ -74,8 +74,9 @@ namespace MEYPAK.PRL.DESTEKSERVIS
                 BAŞLIK = x.baslik,
                 MESAJ = x.mesaj,
                 ÖNCELİK = x.oncelik,
+                // x.durum == false ? "Beklemede" : "Tamamlandı",
                 BELGE = x.belge
-                
+
             });
             DGDestekServis.Refresh();
             DGDestekServis.RefreshDataSource();
@@ -161,6 +162,28 @@ namespace MEYPAK.PRL.DESTEKSERVIS
                 return "";
             }
         }
+
+        private void gridView1_RowStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowStyleEventArgs e)
+        {
+            string quantity = Convert.ToString(gridView1.GetRowCellValue(e.RowHandle, "ÖNCELİK"));
+            //Öncelikli
+            //Orta
+            //Düşük
+            if (quantity == "Öncelikli")
+            {
+                e.Appearance.BackColor = Color.Red;
+            }
+            else if(quantity == "Orta")
+            {
+                e.Appearance.BackColor = Color.Yellow;
+            }
+            else
+            {
+                e.Appearance.BackColor = Color.Green;
+            }
+        }
+
+
     }
 
 }
