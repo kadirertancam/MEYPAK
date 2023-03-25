@@ -11,11 +11,11 @@ namespace MEYPAK.Entity.PocoModels.DESTEKSERVIS
     {
         public string ad { get; set; }
         public string soyad { get; set; }
-        public string baslik { get; set; }
+        public string baslik { get; set; } = "";
         public string departman { get; set; }
-        public string mesaj { get; set; }
+        public string mesaj { get; set; } = "";
         public string oncelik { get; set; }
-        public string belge { get; set; }
+        public string belge { get; set; } = "";
 
     }
 }

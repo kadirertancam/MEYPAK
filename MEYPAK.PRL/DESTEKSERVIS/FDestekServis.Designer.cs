@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FDestekServis));
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.DGDestekServis = new DevExpress.XtraGrid.GridControl();
@@ -183,9 +183,9 @@
             this.groupControl2.Controls.Add(this.BTDestekTalebi);
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Right;
             this.groupControl2.GroupStyle = DevExpress.Utils.GroupStyle.Light;
-            this.groupControl2.Location = new System.Drawing.Point(959, 23);
+            this.groupControl2.Location = new System.Drawing.Point(963, 23);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(163, 293);
+            this.groupControl2.Size = new System.Drawing.Size(159, 293);
             this.groupControl2.TabIndex = 54;
             // 
             // BTDestekTalebi
@@ -196,7 +196,7 @@
             this.BTDestekTalebi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTDestekTalebi.ImageOptions.Image")));
             this.BTDestekTalebi.Location = new System.Drawing.Point(3, 3);
             this.BTDestekTalebi.Name = "BTDestekTalebi";
-            this.BTDestekTalebi.Size = new System.Drawing.Size(156, 39);
+            this.BTDestekTalebi.Size = new System.Drawing.Size(153, 39);
             this.BTDestekTalebi.TabIndex = 53;
             this.BTDestekTalebi.Text = "Destek Talebi Oluştur";
             this.BTDestekTalebi.Click += new System.EventHandler(this.BTDestekTalebi_Click);
@@ -205,9 +205,10 @@
             // 
             this.BTDosyaYukle.Location = new System.Drawing.Point(128, 263);
             this.BTDosyaYukle.Name = "BTDosyaYukle";
-            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
+            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
             this.BTDosyaYukle.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.BTDosyaYukle.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTDosyaYukle_Properties_ButtonClick);
             this.BTDosyaYukle.Size = new System.Drawing.Size(317, 24);
             this.BTDosyaYukle.TabIndex = 52;
             // 
@@ -283,7 +284,7 @@
             this.Controls.Add(this.panelControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FDestekServis";
-            this.Text = "FDestekServis";
+            this.Text = "s";
             this.Load += new System.EventHandler(this.FDestekServis_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);

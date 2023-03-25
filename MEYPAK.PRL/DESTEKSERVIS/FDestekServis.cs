@@ -44,7 +44,7 @@ namespace MEYPAK.PRL.DESTEKSERVIS
 
         private void FDestekServis_Load(object sender, EventArgs e)
         {
-            // DataGridDoldur();
+            DataGridDoldur();
             main = (Main)Application.OpenForms["Main"];
         }
         int id;
@@ -63,17 +63,19 @@ namespace MEYPAK.PRL.DESTEKSERVIS
         void DataGridDoldur()
         {
             _destekServisServis.Data(ServisList.DestekServisListeServis);
-            DGDestekServis.DataSource = _destekServisServis.obje.Where(x => x.kayittipi == 0).Select(x => new 
-            { 
-               ID =  x.id, 
-               KAYITTARİHİ = x.olusturmatarihi,
-               AD = x.ad,
-               SOYAD = x.soyad,
-               DEPARTMAN = x.departman,
-               BAŞLIK = x.baslik,
-               MESAJ = x.mesaj,
-               ÖNCELİK = x.oncelik,
-
+            _personelDepartmanServis.Data(ServisList.PersonelDepartmanListeServis);
+            DGDestekServis.DataSource = _destekServisServis.obje.Where(x => x.kayittipi == 0).Select(x => new
+            {
+                ID = x.id,
+                KAYITTARİHİ = x.olusturmatarihi,
+                AD = x.ad,
+                SOYAD = x.soyad,
+                DEPARTMAN = x.departman,
+                BAŞLIK = x.baslik,
+                MESAJ = x.mesaj,
+                ÖNCELİK = x.oncelik,
+                BELGE = x.belge
+                
             });
             DGDestekServis.Refresh();
             DGDestekServis.RefreshDataSource();
@@ -93,7 +95,7 @@ namespace MEYPAK.PRL.DESTEKSERVIS
                         departman = CBDepartman.EditValue.ToString(),
                         oncelik = CBOncelik.EditValue.ToString(),
                         mesaj = TBMesaj.Text,
-                        belge = BTDestekTalebi.Text,
+                        belge = b64string,
                         userid = MPKullanici.ID,
                     })); ;
 
@@ -107,7 +109,7 @@ namespace MEYPAK.PRL.DESTEKSERVIS
                         departman = CBDepartman.EditValue.ToString(),
                         oncelik = CBOncelik.EditValue.ToString(),
                         mesaj = TBMesaj.Text,
-                        belge = BTDestekTalebi.Text,
+                        belge = b64string,
                         userid = MPKullanici.ID,
                     }));
                 MessageBox.Show("Kayıt Başarılı.");
@@ -120,6 +122,45 @@ namespace MEYPAK.PRL.DESTEKSERVIS
         }
 
         #endregion
+
+        string base64 = "";
+        private void BTDosyaYukle_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            if (e.Button.Caption == "Seç")
+            {
+                OpenFileDialog ofd = new OpenFileDialog();
+                ofd.Filter = "Jpeg Dosyası |*.jpeg| Jpg Dosyası|*.jpg| PNG Dosyası|*.png| ICO Dosyası|*.ico";
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    string DosyaYolu = ofd.FileName;
+                    string DosyaAdi = ofd.SafeFileName;
+                    BTDosyaYukle.Text = DosyaYolu;
+                    //  DosyaYolu.Doc = new Bitmap(DosyaYolu);
+                    base64 = ImageToBase64(DosyaYolu);
+                }
+            }
+        }
+        string b64string = "";
+        public string ImageToBase64(string path)
+        {
+            try
+            {
+                using (System.Drawing.Image image = System.Drawing.Image.FromFile(path))
+                {
+                    using (MemoryStream m = new MemoryStream())
+                    {
+                        image.Save(m, image.RawFormat);
+                        byte[] imageBytes = m.ToArray();
+                        b64string = Convert.ToBase64String(imageBytes);
+                        return b64string;
+                    }
+                }
+            }
+            catch
+            {
+                return "";
+            }
+        }
     }
 
 }

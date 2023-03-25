@@ -784,8 +784,6 @@ namespace MEYPAK.PRL.PERSONEL
         {
             if (MPKullanici.YetkiGetir(AllForms.PERSONELTANIM.ToString()).GUNCELLE)
             {
-
-         
             if (_tempPocoPERSONEL != null && _tempPocoPERSONEL.id > 0)
             {
                 if (BTNBelgeSec.Text != "" && belgebase64 != "")
