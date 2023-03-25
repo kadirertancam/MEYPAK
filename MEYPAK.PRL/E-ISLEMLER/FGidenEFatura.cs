@@ -25,6 +25,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -32,7 +33,9 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 using System.Xml.Serialization;
+using System.Xml.Xsl;
 
 namespace MEYPAK.PRL.E_ISLEMLER
 {
@@ -252,6 +255,15 @@ namespace MEYPAK.PRL.E_ISLEMLER
             gridView1.Columns["FATURATIP"].ColumnEdit = riLookup;
             gridView1.Columns["TIP"].ColumnEdit = riLookup2;
             gridView1.Columns["ID"].Visible = false;
+            gridView1.Columns["VKNTCK"].OptionsColumn.AllowEdit = false;
+            gridView1.Columns["CARIADI"].OptionsColumn.AllowEdit = false;
+            gridView1.Columns["BELGENO"].OptionsColumn.AllowEdit = false;
+            gridView1.Columns["TARIH"].OptionsColumn.AllowEdit = false; 
+            gridView1.Columns["VADETARIHI"].OptionsColumn.AllowEdit = false; 
+            gridView1.Columns["TUTAR"].OptionsColumn.AllowEdit = false; 
+            gridView1.Columns["KDV"].OptionsColumn.AllowEdit = false; 
+            gridView1.Columns["DURUM"].OptionsColumn.AllowEdit = false; 
+            gridView1.Columns["ETTNO"].OptionsColumn.AllowEdit = false; 
 
         }
 
@@ -324,11 +336,177 @@ namespace MEYPAK.PRL.E_ISLEMLER
         private void RepositoryItemButtonEdit2_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
             var invoiceInfo = CreateInvoice();
-            var invoice = new InvoiceType[1];
-            invoice[0] = invoiceInfo.Invoice;
-            frmInvoiceViewer frm = new frmInvoiceViewer(invoice);
-            frm.Show();
+            ShowInvoice(invoiceInfo.Invoice);
         }
+        public void ShowInvoice(InvoiceType invoice)
+        {
+            try
+            {
+
+
+                var xslt = string.Empty;
+
+                if (invoice.AdditionalDocumentReference != null)
+                {
+                    AttachmentType attachment = null;
+                    DocumentReferenceType doc;
+                    byte[] xsltObject = null;
+
+                    for (int i = 0; i < invoice.AdditionalDocumentReference.Length; i++)
+                    {
+                        doc = invoice.AdditionalDocumentReference[i];
+                        attachment = doc.Attachment;
+                        if (attachment != null && attachment.EmbeddedDocumentBinaryObject.filename != null)
+                        {
+                            string fileName = attachment.EmbeddedDocumentBinaryObject.filename;
+                            if (Path.GetExtension(fileName) == ".xslt" || Path.GetExtension(fileName) == ".XSLT")
+                            {
+                                xsltObject = attachment.EmbeddedDocumentBinaryObject.Value;
+                            }
+                        }
+
+                    }
+
+
+                    if (xsltObject != null)
+                    {
+                        //var fileStream = File.Create("");
+                        //fileStream.Write(xsltObject, 0, 0);
+                        //fileStream.
+
+                        //using (var stream = new FileStream(xsltObject))
+                        //{
+                        //    stream.Seek(0, SeekOrigin.Begin);
+
+                        //    using (var reader = new StreamReader(stream))
+                        //    {
+
+                        //        xslt = reader.ReadToEnd();
+
+                        //        //xslt = xslt.Replace("n1:Invoice", "Invoice");
+
+                        //        XmlSerializer serializer = new XmlSerializer(typeof(Invoice));
+                        //        using (MemoryStream mstr = new MemoryStream())
+                        //        {
+                        //            serializer.Serialize(mstr, invoice, InvoiceNamespaces);
+
+                        //            string xml = Encoding.UTF8.GetString(mstr.ToArray());
+                        //            webBrowser1.DocumentText = TransformXMLToHTML(xml, xslt);
+                        //        }
+                        //    }
+                        //}
+
+
+                        using (var stream = new MemoryStream(xsltObject))
+                        {
+                            stream.Seek(0, SeekOrigin.Begin);
+
+                            using (var reader = new StreamReader(stream))
+                            {
+
+                                xslt = reader.ReadToEnd();
+
+                                //xslt = xslt.Replace("n1:Invoice", "Invoice");
+                                var rootAttribute = new XmlRootAttribute("Invoice")
+                                {
+                                    Namespace = "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2",
+                                    IsNullable = false
+                                };
+
+                                XmlSerializer serializer = new XmlSerializer(typeof(InvoiceType), rootAttribute);
+                                using (MemoryStream mstr = new MemoryStream())
+                                {
+                                    serializer.Serialize(mstr, invoice, InvoiceNamespaces);
+                                    string _byteOrderMarkUtf8 = Encoding.UTF8.GetString(Encoding.UTF8.GetPreamble());
+                                    string xml = Encoding.UTF8.GetString(mstr.ToArray());
+                                    if (xml.StartsWith(_byteOrderMarkUtf8))
+                                    {
+                                        xml = xml.Remove(0, _byteOrderMarkUtf8.Length);
+                                    }
+                                    File.WriteAllText("Fatura.html", TransformXMLToHTML(xml, xslt), Encoding.UTF8);
+                                    var p = new Process();
+                                    p.StartInfo = new ProcessStartInfo(Application.StartupPath + "Fatura.html")
+                                    {
+                                        UseShellExecute = true
+                                    };
+                                    p.Start();
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xslt Dosyası Bulunamadı");
+                    }
+                }
+                else
+                {
+
+                    MessageBox.Show("Varsayılan Xslt üzerinden görüntüleme yapılacak");
+                    xslt = Properties.Resources.XSLTFile;
+                    var rootAttribute = new XmlRootAttribute("Invoice")
+                    {
+                        Namespace = "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2",
+                        IsNullable = false
+                    };
+
+                    XmlSerializer serializer = new XmlSerializer(typeof(InvoiceType), rootAttribute);
+                    using (MemoryStream mstr = new MemoryStream())
+                    {
+                        serializer.Serialize(mstr, invoice, InvoiceNamespaces);
+
+                        string xml = Encoding.UTF8.GetString(mstr.ToArray());
+                       
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Hata?" + ex.Message);
+            }
+        }
+        public static string TransformXMLToHTML(string inputXml, string xsltString)
+        {
+            StringWriter results = null;
+            XslCompiledTransform transform = new XslCompiledTransform();
+            using (XmlReader reader = XmlReader.Create(new StringReader(xsltString)))
+            {
+                try
+                {
+                    transform.Load(reader);
+                    results = new StringWriter();
+                    string _byteOrderMarkUtf8 = Encoding.UTF8.GetString(Encoding.UTF8.GetPreamble());
+
+                    using (XmlReader reader2 = XmlReader.Create(new StringReader(inputXml)))
+                    {
+                        transform.Transform(reader2, null, results);
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(string.Format(" HTML dönüşümü başarısız: {0}", ex.Message));
+
+                }
+
+            }
+            if (results != null)
+            {
+                return results.ToString();
+            }
+            else
+            {
+                return null;
+            }
+
+
+        }
+
+
+        //XML serialization sırasında namespace'lerin doğru yapılabilmesi için namespace tanımlamaları
+    
         GenericWebServis<PocoFATURASTOKOLCUBR> faturaStokOlcuBrServis;
         #region Metotlar
         public InvoiceInfo CreateInvoice()
@@ -579,7 +757,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
                     LineExtensionAmount = new LineExtensionAmountType { Value = fattemp.bruttoplam, currencyID = "TRY" },
                     TaxExclusiveAmount = new TaxExclusiveAmountType { Value = fattemp.nettoplam, currencyID = "TRY" },
                     TaxInclusiveAmount = new TaxInclusiveAmountType { Value = fattemp.geneltoplam, currencyID = "TRY" },
-                    AllowanceTotalAmount = new AllowanceTotalAmountType { Value = fattemp.geneltoplam, currencyID = "TRY" },
+                    AllowanceTotalAmount = new AllowanceTotalAmountType { Value = fattemp.iskontotoplam, currencyID = "TRY" },
                     //-+    ChargeTotalAmount = new ChargeTotalAmountType { Value = Convert.ToDecimal(txtIskontoTutar1.Text) + Convert.ToDecimal(txtIskontoTutar2.Text), currencyID = "TRY" },
                     PayableAmount = new PayableAmountType { Value = fattemp.geneltoplam, currencyID = "TRY" },
                     // PayableRoundingAmount = new PayableRoundingAmountType { Value = Convert.ToDecimal(txtToplamTutar1.Text) + Convert.ToDecimal(txtToplamTutar2.Text), currencyID = "TRY" }
@@ -976,17 +1154,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
 
         private void gridView1_Click(object sender, EventArgs e)
         {
-            gridControl2.DataSource = faturaDetayServis.obje.Where(x => x.faturaid.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).Select(x => new FaturaDetailList()
-            {
-                ADI = x.stokadi,
-                BIRIM = olcuBrServis.obje.Where(z => z.id == x.birimid).FirstOrDefault().adi,
-                KOD = stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().kod,
-                MIKTAR = x.safi,
-                NETFIYAT = x.netfiyat,
-                SIRA = x.num,
-                TUTAR = x.nettoplam
-            }).ToList();
-            gridControl2.RefreshDataSource();
+           
 
         }
 
@@ -998,6 +1166,21 @@ namespace MEYPAK.PRL.E_ISLEMLER
         private void gridControl1_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            gridControl2.DataSource = faturaDetayServis.obje.Where(x => x.faturaid.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).Select(x => new FaturaDetailList()
+            {
+                ADI = x.stokadi,
+                BIRIM = olcuBrServis.obje.Where(z => z.id == x.birimid).FirstOrDefault().adi,
+                KOD = stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().kod,
+                MIKTAR = x.safi,
+                NETFIYAT = x.netfiyat,
+                SIRA = x.num,
+                TUTAR = x.nettoplam
+            }).ToList();
+            gridControl2.RefreshDataSource();
         }
 
         private async void RepositoryItemButtonEdit_ButtonClick1(object sender, ButtonPressedEventArgs e)

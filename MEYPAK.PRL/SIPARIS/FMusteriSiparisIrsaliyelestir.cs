@@ -16,7 +16,7 @@ namespace MEYPAK.PRL.SIPARIS
             InitializeComponent();
             _siparisServis = new GenericWebServis<PocoSIPARIS>();
             _siparisDetayServis = new GenericWebServis<PocoSIPARISDETAY>();
-            _depoServis = new GenericWebServis<PocoDEPO>();
+            _depoServis = new GenericWebServis<PocoDEPO>();  
             tempSiparisKalem = new List<PocoSiparisKalem>();
             tempSipDetay = new List<PocoSIPARISDETAY>();
             _irsaliyeDetayServis = new GenericWebServis<PocoIRSALIYEDETAY>();
@@ -84,14 +84,18 @@ namespace MEYPAK.PRL.SIPARIS
                 SevkiyatTarihi = x.sevkiyattarihi,
                 Depo = _depoServis.obje.Where(z => z.id == x.depoid).FirstOrDefault().depoadi,
                 GENELTOPLAM = x.geneltoplam,
-                DURUM = x.durum == false ? "Beklemede" : "Tamamlandı",
-
+                DURUM = x.durum == false ? "Beklemede" : "Tamamlandı", 
             });
             gridView2.Columns["ID"].Visible = false;
         }
         private void simpleButton2_Click(object sender, EventArgs e)
         {
             siparislist();
+        }
+
+        private void simpleButton3_Click(object sender, EventArgs e)
+        {
+             
         }
     }
 }

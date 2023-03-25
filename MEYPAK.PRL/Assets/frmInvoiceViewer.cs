@@ -1,6 +1,7 @@
 ﻿
 using EInvoiceDemoProject;
 using ServiceReference1;
+using Syncfusion.XlsIO.Implementation.XmlSerialization;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -178,9 +179,13 @@ namespace MEYPAK.PRL.Assets
                             using (MemoryStream mstr = new MemoryStream())
                             {
                                 serializer.Serialize(mstr, invoice, InvoiceNamespaces);
-
+                                    string _byteOrderMarkUtf8 = Encoding.UTF8.GetString(Encoding.UTF8.GetPreamble());
                                 string xml = Encoding.UTF8.GetString(mstr.ToArray());
-                                webBrowser1.DocumentText = TransformXMLToHTML(xml, xslt);
+                                    if (xml.StartsWith(_byteOrderMarkUtf8))
+                                    {
+                                        xml = xml.Remove(0, _byteOrderMarkUtf8.Length);
+                                    }
+                                    webBrowser1.DocumentText = TransformXMLToHTML(xml, xslt);
                             }
                         }
                     }
@@ -250,7 +255,9 @@ namespace MEYPAK.PRL.Assets
                 {
                     transform.Load(reader);
                      results = new StringWriter();
-                     using (XmlReader reader2 = XmlReader.Create(new StringReader(inputXml)))
+                    string _byteOrderMarkUtf8 = Encoding.UTF8.GetString(Encoding.UTF8.GetPreamble());
+                   
+                    using (XmlReader reader2 = XmlReader.Create(new StringReader(inputXml)))
                     {
                         transform.Transform(reader2, null, results);
                     }

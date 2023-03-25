@@ -43,6 +43,7 @@
             this.yeniTextEdit1 = new MEYPAK.PRL.Assets.YeniTextEdit();
             this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
             this.label1 = new System.Windows.Forms.Label();
+            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
@@ -145,6 +146,7 @@
             // 
             // panelControl5
             // 
+            this.panelControl5.Controls.Add(this.simpleButton3);
             this.panelControl5.Controls.Add(this.simpleButton1);
             this.panelControl5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl5.Location = new System.Drawing.Point(2, 2);
@@ -213,6 +215,18 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Tarih";
             // 
+            // simpleButton3
+            // 
+            this.simpleButton3.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Success;
+            this.simpleButton3.Appearance.Options.UseBackColor = true;
+            this.simpleButton3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.simpleButton3.Location = new System.Drawing.Point(113, 2);
+            this.simpleButton3.Name = "simpleButton3";
+            this.simpleButton3.Size = new System.Drawing.Size(111, 56);
+            this.simpleButton3.TabIndex = 1;
+            this.simpleButton3.Text = "Künye Oluştur";
+            this.simpleButton3.Click += new System.EventHandler(this.simpleButton3_Click);
+            // 
             // FMusteriSiparisIrsaliyelestir
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -264,5 +278,6 @@
         private DevExpress.XtraGrid.GridControl DGSiparisList;
         public DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         public DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+        private DevExpress.XtraEditors.SimpleButton simpleButton3;
     }
 }
