@@ -11,8 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MEYPAK.API.Controllers.DESTEKSERVISController
 {
-    public class DestekServisController : Controller
-    {
+
         [ApiController]
         [Route("[controller]")]
         [Authorize]
@@ -30,7 +29,7 @@ namespace MEYPAK.API.Controllers.DESTEKSERVISController
 
             [HttpGet]
             [Route("/[controller]/[action]")]
-            public IActionResult DESTEKSERVISListe()
+            public IActionResult Liste()
             {
                 try
                 {
@@ -44,7 +43,7 @@ namespace MEYPAK.API.Controllers.DESTEKSERVISController
             }
             [HttpGet]
             [Route("/[controller]/[action]")]
-            public IActionResult DESTEKSERVISListe2([FromQuery] string query)
+            public IActionResult Liste2([FromQuery] string query)
             {
                 try
                 {
@@ -58,7 +57,7 @@ namespace MEYPAK.API.Controllers.DESTEKSERVISController
             }
             [HttpPost]
             [Route("/[controller]/[action]")]
-            public IActionResult DESTEKSERVISEkleyadaGuncelle(PocoDestekServis pModel)
+            public IActionResult EkleyadaGuncelle(PocoDestekServis pModel)
             {
                 try
                 {
@@ -72,7 +71,7 @@ namespace MEYPAK.API.Controllers.DESTEKSERVISController
             }
             [HttpPost]
             [Route("/[controller]/[action]")]
-            public IActionResult DESTEKSERVISSil(List<PocoDestekServis> pModel)
+            public IActionResult Sil(List<PocoDestekServis> pModel)
             {
                 try
                 {
@@ -86,7 +85,7 @@ namespace MEYPAK.API.Controllers.DESTEKSERVISController
             }
             [HttpPost]
             [Route("/[controller]/[action]")]
-            public IActionResult DESTEKSERVISGuncelle(PocoDestekServis pModel)
+            public IActionResult Guncelle(PocoDestekServis pModel)
             {
                 try
                 {
@@ -117,4 +116,4 @@ namespace MEYPAK.API.Controllers.DESTEKSERVISController
             }
         }
     }
-}
+

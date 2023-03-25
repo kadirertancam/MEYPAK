@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using MEYPAK.BLL.Assets;
+using MEYPAK.Entity.Models.FORMYETKI;
 using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.CEKSENET;
 using MEYPAK.PRL.CARI;
@@ -94,6 +95,10 @@ namespace MEYPAK.PRL.CEKSENET.Müşteri.Çek
 
         private void BTKaydet_Click(object sender, EventArgs e)
         {
+            if (MPKullanici.YetkiGetir(AllForms.MUSTERICEKTEMINAT.ToString()).EKLE==true)
+            {
+
+          
             if (_tempCari != null)
             {
                 if (_tempCariListe.Count() > 0)
@@ -142,6 +147,9 @@ namespace MEYPAK.PRL.CEKSENET.Müşteri.Çek
             }
             else
                 MessageBox.Show("Cari Seçmeden Teminat yapamazsınız!");
+            }
+            else
+                MessageBox.Show(MPKullanici.hata);
         }
 
         private void BTCariSec_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)

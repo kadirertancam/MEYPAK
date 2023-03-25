@@ -1,6 +1,7 @@
 ﻿using DevExpress.CodeParser;
 using DevExpress.XtraEditors;
 using MEYPAK.BLL.Assets;
+using MEYPAK.Entity.Models.FORMYETKI;
 using MEYPAK.Entity.PocoModels.KASA;
 using MEYPAK.Entity.PocoModels.PARAMETRE;
 using System;
@@ -37,6 +38,8 @@ namespace MEYPAK.PRL.KASA
        
         private void BTNKaydet_Click(object sender, EventArgs e)
         {
+            if (MPKullanici.YetkiGetir(AllForms.KASAKART.ToString()).EKLE==true)
+            {
             _kasaServis.Data(ServisList.KasaEkleServis, new PocoKASA()
             {
                 adi = TBAdi.Text,
@@ -46,11 +49,12 @@ namespace MEYPAK.PRL.KASA
                 tarih = (DateTime)DTPTarih.EditValue,
                 userid = MPKullanici.ID,
                 durum = Convert.ToByte(CEAktif.EditValue),
-          
-
             });
             MessageBox.Show("Kasa Başarıyla Eklendi.");
             KasalariGetir();
+            }
+            else
+                MessageBox.Show(MPKullanici.hata);
         }
 
         void KasalariGetir()

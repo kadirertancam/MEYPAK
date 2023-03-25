@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using MEYPAK.BLL.Assets;
+using MEYPAK.Entity.Models.FORMYETKI;
 using MEYPAK.Entity.Models.PARAMETRE;
 using MEYPAK.Entity.PocoModels.PARAMETRE;
 using MEYPAK.Interfaces.Parametre;
@@ -31,7 +32,8 @@ namespace MEYPAK.PRL.PARAMETRELER
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            
+            if (MPKullanici.YetkiGetir(AllForms.SERITANIM.ToString()).EKLE)
+            {
             _seriServis.Data(ServisList.SeriEkleServis, new PocoSERI()
             {
                 SERINO = TBSeri.Text,
@@ -46,7 +48,10 @@ namespace MEYPAK.PRL.PARAMETRELER
                 userid = MPKullanici.ID,
             });
             gridControl1.DataSource = _seriServis.obje.Select(x => new { SeriNo = x.SERINO, Tip = x.TIP == 0 ? "E-Fatura" : x.TIP == 1 ? "E-Arşiv" : x.TIP == 2 ? "E-Irsaliye" : "E-Müstahsil" });
-            gridControl1.RefreshDataSource(); 
+            gridControl1.RefreshDataSource();
+            }
+            else
+                MessageBox.Show(MPKullanici.hata);
         }
 
         private void FSeriTanim_Load(object sender, EventArgs e)

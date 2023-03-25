@@ -1,4 +1,5 @@
-﻿using MEYPAK.BLL.Assets;
+﻿using DevExpress.XtraEditors;
+using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.IdentityModels;
 using MEYPAK.PRL.CEKSENET.Firma.Çek;
 using MEYPAK.PRL.DEKONT;
@@ -19,7 +20,7 @@ using System.Windows.Media;
 
 namespace MEYPAK.PRL
 {
-    public partial class LoginScreen : Form
+    public partial class LoginScreen : XtraForm
     {
         public LoginScreen()
         {

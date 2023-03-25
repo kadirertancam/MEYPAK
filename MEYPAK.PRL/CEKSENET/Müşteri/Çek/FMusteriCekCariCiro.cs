@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using MEYPAK.BLL.Assets;
+using MEYPAK.Entity.Models.FORMYETKI;
 using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.CEKSENET;
 using MEYPAK.Interfaces.Cari;
@@ -101,6 +102,10 @@ namespace MEYPAK.PRL.CEKSENET
 
         private void BTKaydet_Click(object sender, EventArgs e)
         {
+            if (MPKullanici.YetkiGetir(AllForms.MUSTERICEKCARICIRO.ToString()).EKLE==true)
+            {
+
+          
             if (_tempCari!=null)
             {
             if (_tempCariListe.Count()>0)
@@ -149,6 +154,9 @@ namespace MEYPAK.PRL.CEKSENET
             }
             else
                 MessageBox.Show("Cari Seçmeden Ciro edemezsiniz!");
+            }
+            else
+                MessageBox.Show(MPKullanici.hata);
         }
     }
 }

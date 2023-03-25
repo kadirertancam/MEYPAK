@@ -3,6 +3,7 @@ using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid.Columns;
 using MEYPAK.BLL.Assets;
+using MEYPAK.Entity.Models.FORMYETKI;
 using MEYPAK.Entity.PocoModels;
 using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.DEPO;
@@ -871,6 +872,10 @@ namespace MEYPAK.PRL.IRSALIYE
             //if (_tempIrsaliye != null && TBFaturaNo.Text != _tempIrsaliye.belgeno)
             //    _tempIrsaliye = null;
 
+            if (MPKullanici.YetkiGetir(AllForms.ALISIRSALIYETANIM.ToString()).EKLE == true)
+            {
+
+          
             _cariKart.Data(ServisList.CariListeServis);
             if (_cariKart.obje.Where(x => x.kod == TBCariKodu.Text).Count() > 0)
             {
@@ -1071,7 +1076,9 @@ namespace MEYPAK.PRL.IRSALIYE
             }
             else
                 MessageBox.Show("Lütfen Cariyi Seçtiğinizden emin olunuz!");
-
+            }
+            else
+                MessageBox.Show(MPKullanici.hata);
         }
 
         private void CHBKdvDahil_CheckedChanged(object sender, EventArgs e)

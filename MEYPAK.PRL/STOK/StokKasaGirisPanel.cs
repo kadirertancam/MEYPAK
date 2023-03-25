@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using MEYPAK.BLL.Assets;
+using MEYPAK.Entity.Models.FORMYETKI;
 using MEYPAK.Entity.PocoModels.DEPO;
 using MEYPAK.Entity.PocoModels.STOK;
 using System;
@@ -29,6 +30,8 @@ namespace MEYPAK.PRL.STOK
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {
+            if (MPKullanici.YetkiGetir(AllForms.STOKKASAGIRISMANUEL.ToString()).EKLE == true)
+            {
             _stokKasaHarServis.Data(ServisList.StokKasaHarEkleServis, new PocoSTOKKASAHAR()
             {
                 belge_no = "",
@@ -47,6 +50,9 @@ namespace MEYPAK.PRL.STOK
                 depoid= _depoServis.obje.Where(x=>x.depoadi==CBDepo.Text).FirstOrDefault().id,
                 userid = MPKullanici.ID
             });
+            }
+            else
+                MessageBox.Show(MPKullanici.hata);
 
         }
         GenericWebServis<PocoSTOKKASA> _stokKasaServis;

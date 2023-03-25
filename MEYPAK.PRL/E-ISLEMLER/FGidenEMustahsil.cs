@@ -40,6 +40,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
             stokMarkaServis = new GenericWebServis<PocoSTOKMARKA>();
             personelServis = new GenericWebServis<PocoPERSONEL>();
             aracServis = new GenericWebServis<PocoARAC>();
+            faturaStokOlcuBr = new GenericWebServis<PocoFATURASTOKOLCUBR>();
         }
         GenericWebServis<PocoMUSTAHSIL> mustahsilServis;
         GenericWebServis<PocoMUSTAHSILDETAY> mustahsilDetayServis;
@@ -49,6 +50,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
         GenericWebServis<PocoPERSONEL> personelServis;
         GenericWebServis<PocoARAC> aracServis;
         GenericWebServis<PocoGIDENMUSTAHSILMAKBUZLARI> gidenMustahsilMakbuzlariServis;
+        GenericWebServis<PocoFATURASTOKOLCUBR> faturaStokOlcuBr;
         RepositoryItemLookUpEdit riLookup, riLookup2;
 
         private void FGidenEMustahsil_Load(object sender, EventArgs e)
@@ -63,6 +65,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
             mustahsilDetayServis.Data(ServisList.MustahsilDetayListeServis);
             //gidenIrsaliyelerServis.Data(ServisList.GidenIrsaliyelerListeServis);
             personelServis.Data(ServisList.PersonelListeServis);
+            faturaStokOlcuBr.Data(ServisList.FATURASTOKOLCUBRListeServis);
             aracServis.Data(ServisList.AracListeServis);
             gidenMustahsilMakbuzlariServis.Data(ServisList.GidenMustahsilMakbuzlariListeServis);
             List<EMustahsilGidenTask> eFaturaList = new List<EMustahsilGidenTask>();
@@ -184,330 +187,341 @@ namespace MEYPAK.PRL.E_ISLEMLER
         {
             DialogResult dialogResult = MessageBox.Show("Devam etmek istiyormusunuz ?", "Uyarı", MessageBoxButtons.YesNo); ;
 
-            if (dialogResult == DialogResult.OK)
+            if (dialogResult == DialogResult.Yes)
             {
-                //var client = CreateClient();
-                //var makbuz = CreateCreditNote();
-                //var response = client.SendProducerReceiptAsync(
-                //    new ProducerReceiptInfo[] {
-                //new ProducerReceiptInfo {
-                //                        Receipt = makbuz
-                //                        }
-                //    }
-                //    ).Result; ;
+                var client = CreateClient();
+                var makbuz = CreateCreditNote();
+                var response = client.SendProducerReceiptAsync(
+                    new ProducerReceiptInfo[] {
+                new ProducerReceiptInfo {
+                                        Receipt = makbuz
+                                        }
+                    }
+                    ).Result; ;
 
-                //if (response.IsSucceded)
-                //{
-                //    MessageBox.Show(string.Format("Request Başarıyla işlendi. UUID:{0} ID:{1}", response.Value[0].DocumentId, response.Value[0].ReceiptNumber));
+                if (response.IsSucceded)
+                {
+                    textBox1.Text = response.Value[0].DocumentId;
+                    MessageBox.Show(string.Format("Request Başarıyla işlendi. UUID:{0} ID:{1}", response.Value[0].DocumentId, response.Value[0].ReceiptNumber));
 
-                //}
-                //else
-                //{
-                //    MessageBox.Show(string.Format("Hata: {0}", response.Message));
-                //}
+                }
+                else
+                {
+                    MessageBox.Show(string.Format("Hata: {0}", response.Message));
+                }
             }
         }
 
 
-    //    #region methods
-    //    public CreditNoteType CreateCreditNote()
-    //    {
-    //        PocoMUSTAHSIL tempMustahsil = null;
-    //        if (gridView1.GetFocusedRowCellValue("ID") != null)
-    //            tempMustahsil = mustahsilServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID")).Count() > 0 ? mustahsilServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault() : null;
+        #region methods
+        public CreditNoteType CreateCreditNote()
+        {
+            PocoMUSTAHSIL tempMustahsil = null;
+            if (gridView1.GetFocusedRowCellValue("ID") != null)
+                tempMustahsil = mustahsilServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID")).Count() > 0 ? mustahsilServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault() : null;
 
-    //        mustahsilDetayServis.Data(ServisList.MustahsilDetayListeServis);
-    //        mustahsilCariServis.Data(ServisList.MustahsilCariListeServis);
+            mustahsilDetayServis.Data(ServisList.MustahsilDetayListeServis);
+            mustahsilCariServis.Data(ServisList.MustahsilCariListeServis);
+           var _tempkalem= mustahsilDetayServis.obje.Where(x => x.mustahsilid ==tempMustahsil.id).ToArray();
+            var tempkalem = new CreditNoteLineType[_tempkalem.Count()];
+            for (int i = 0; i < _tempkalem.Count(); i++)
+            {
 
 
-    //        var makbuz = new CreditNoteType
-    //        {
+                tempkalem[i] =
+                                      new CreditNoteLineType
+                                      {
+                                          ID = new IDType { Value = _tempkalem[i].num.ToString() }, //Sıra no
+                                          CreditedQuantity = new CreditedQuantityType { unitCode = faturaStokOlcuBr.obje.Where(x => x.olcubrid == _tempkalem[i].birimid).FirstOrDefault().kisa, Value = Convert.ToDecimal( _tempkalem[i].safi) }, //Mal Hizmet Miktarı, UnitCode C62=Adet, KGM= Kilogram, LTR = Litre, Diğerleri için bilgi alınız.  
+                                          Item = new ItemType { Name = new NameType1 { Value = _tempkalem[i].stokadi }, Description = new DescriptionType { Value = _tempkalem[i].aciklama } }, //Mal Hizmet adı ve diğer açıklamalr 
+                                          Price = new PriceType { PriceAmount = new PriceAmountType { currencyID = "TRY", Value = Convert.ToDecimal(_tempkalem[i].netfiyat) } },//Ürün birim fiyatı
+                                          LineExtensionAmount = new LineExtensionAmountType { currencyID = "TRY", Value = Convert.ToDecimal(_tempkalem[i].nettoplam) }, //Satır Toplam Tutarı
+                                          TaxTotal = new TaxTotalType[]{
+                                                                   new TaxTotalType
+                                                                   {
 
-    //            UBLVersionID = new UBLVersionIDType { Value = "2.1" }, //Sabit Değer
-    //            CustomizationID = new CustomizationIDType { Value = "TR1.2" },  //Sabit Değer
-    //            ProfileID = new ProfileIDType { Value = "e-Arşiv Belge" },   //Sabit Değer
-    //            ID = new IDType { Value = tempMustahsil.belgeno }, //BelgeNo 16 hane. 3 hane prefix, 4 hane belge tarihinin yılı. 9 hane 0000000001'den başlayarak sıralı numara. Boş bırakıldığında sistem varsayılan seriden sıradaki nuamrayı verir. 
-    //            CopyIndicator = new CopyIndicatorType { Value = false }, //Sabit değer
-    //            UUID = new UUIDType { Value = "" }, //Makbuza ait unique Id, boş bırakıldığında sistem üretir ve response'ta geri döner. Dolu olduğunda yazılımcınınki kullanılır.
-    //            IssueDate = new IssueDateType { Value = tempMustahsil.faturatarihi }, //Belge Tarihi
-    //            IssueTime = new IssueTimeType { Value = tempMustahsil.faturatarihi }, //Belge saati
-    //            LineCountNumeric = new LineCountNumericType { Value = Convert.ToDecimal(mustahsilDetayServis.obje.Where(x => x.mustahsilid == tempMustahsil.id).Count()) }, //Belgedeki Mal hizmet kalemi sayısı (CreditNoteLine sayısı)
-    //            Note = new NoteType[] { new NoteType { Value = tempMustahsil.aciklama } },
-    //            //Belgeyi oluşturan firma bilgileri
-    //            AccountingSupplierParty = new SupplierPartyType
-    //            {
-    //                Party = new PartyType
-    //                {
-    //                    PartyIdentification = new PartyIdentificationType[] {
-    //                        new PartyIdentificationType {
-    //                            ID = new IDType {
-    //                                schemeID = "TCKN", //Gönderici 11 haneli bir TCKN'ye sahipse bu alan "TCKN" olmalıdır ve bu eleman altındaki Person elemanında firstname ve FamiliyName dolu olmalıdır.
-    //                                Value = mustahsilCariServis.obje.Where(x=> x.id ==tempMustahsil.mustahsilcariid).FirstOrDefault().TCNO, //Gönderici VKN ya da TCKN numarası
+                                                                        TaxAmount = new TaxAmountType{ currencyID="TRY", Value= Convert.ToDecimal(0) +Convert.ToDecimal(0) +Convert.ToDecimal(0) +Convert.ToDecimal(0) },
+                                                                        TaxSubtotal = new TaxSubtotalType[]
+                                                                        {
+                                                                            new TaxSubtotalType
+                                                                            {
+                                                                                 TaxAmount =  new TaxAmountType{ currencyID="TRY", Value= Convert.ToDecimal(0)  },//stopaj
+                                                                                  Percent = new PercentType1{ Value= Convert.ToDecimal(0) },
+                                                                                   TaxableAmount = new TaxableAmountType{ currencyID="TRY", Value=Convert.ToDecimal(0)  },
+                                                                                    TaxCategory = new TaxCategoryType
+                                                                                    {
+                                                                                         TaxScheme = new TaxSchemeType
+                                                                                         {
+                                                                                              Name = new NameType1{ Value=  "G.V.Stopaj" },
+                                                                                               TaxTypeCode = new TaxTypeCodeType{ Value= "0003" }
+                                                                                         }
+                                                                                    }
+
+                                                                            },
+
+                                                                            new TaxSubtotalType
+                                                                            {
+                                                                                 TaxAmount =  new TaxAmountType{ currencyID="TRY", Value= Convert.ToDecimal(0)  },
+                                                                                  Percent = new PercentType1{ Value= Convert.ToDecimal(0) },
+                                                                                   TaxableAmount = new TaxableAmountType{ currencyID="TRY", Value=Convert.ToDecimal(0)  },
+                                                                                    TaxCategory = new TaxCategoryType
+                                                                                    {
+                                                                                         TaxScheme = new TaxSchemeType
+                                                                                         {
+                                                                                              Name = new NameType1{ Value=  "Mera Fonu" },
+                                                                                               TaxTypeCode = new TaxTypeCodeType{ Value= "9040" }
+                                                                                         }
+                                                                                    }
+
+                                                                            },
+
+                                                                             new TaxSubtotalType
+                                                                            {
+                                                                                 TaxAmount =  new TaxAmountType{ currencyID="TRY", Value= Convert.ToDecimal(0)  },
+                                                                                  Percent = new PercentType1{ Value= Convert.ToDecimal(0) },
+                                                                                   TaxableAmount = new TaxableAmountType{ currencyID="TRY", Value=Convert.ToDecimal(0)  },
+                                                                                    TaxCategory = new TaxCategoryType
+                                                                                    {
+                                                                                         TaxScheme = new TaxSchemeType
+                                                                                         {
+                                                                                              Name = new NameType1{ Value=  "Borsa Tescil Ücreti" },
+                                                                                               TaxTypeCode = new TaxTypeCodeType{ Value= "8001" }
+                                                                                         }
+                                                                                    }
+
+                                                                            },
+
+                                                                               new TaxSubtotalType
+                                                                            {
+                                                                                 TaxAmount =  new TaxAmountType{ currencyID="TRY", Value= Convert.ToDecimal(0)  },
+                                                                                  Percent = new PercentType1{ Value= Convert.ToDecimal(0) },
+                                                                                   TaxableAmount = new TaxableAmountType{ currencyID="TRY", Value=Convert.ToDecimal(0)  },
+                                                                                    TaxCategory = new TaxCategoryType
+                                                                                    {
+                                                                                         TaxScheme = new TaxSchemeType
+                                                                                         {
+                                                                                              Name = new NameType1{ Value=  "SGK Prim Kesintisi" },
+                                                                                               TaxTypeCode = new TaxTypeCodeType{ Value= "SGK_PRIM" }
+                                                                                         }
+                                                                                    }
+
+                                                                            },
+
+                                                                        }
+
+
+
+                                                                   }
+
+                                                               }
+
+                                      };
+                                       
+
+}
+            var makbuz = new CreditNoteType
+            {
+
+                UBLVersionID = new UBLVersionIDType { Value = "2.1" }, //Sabit Değer
+                CustomizationID = new CustomizationIDType { Value = "TR1.2" },  //Sabit Değer
+                ProfileID = new ProfileIDType { Value = "e-Arşiv Belge" },   //Sabit Değer
+                ID = new IDType { Value = tempMustahsil.serino+tempMustahsil.belgeno }, //BelgeNo 16 hane. 3 hane prefix, 4 hane belge tarihinin yılı. 9 hane 0000000001'den başlayarak sıralı numara. Boş bırakıldığında sistem varsayılan seriden sıradaki nuamrayı verir. 
+                CopyIndicator = new CopyIndicatorType { Value = false }, //Sabit değer
+                UUID = new UUIDType { Value = "" }, //Makbuza ait unique Id, boş bırakıldığında sistem üretir ve response'ta geri döner. Dolu olduğunda yazılımcınınki kullanılır.
+                IssueDate = new IssueDateType { Value = tempMustahsil.faturatarihi }, //Belge Tarihi
+                IssueTime = new IssueTimeType { Value = tempMustahsil.faturatarihi }, //Belge saati
+                LineCountNumeric = new LineCountNumericType { Value = Convert.ToDecimal(mustahsilDetayServis.obje.Where(x => x.mustahsilid == tempMustahsil.id).Count()) }, //Belgedeki Mal hizmet kalemi sayısı (CreditNoteLine sayısı)
+                Note = new NoteType[] { new NoteType { Value = tempMustahsil.aciklama } },
+                //Belgeyi oluşturan firma bilgileri
+                AccountingSupplierParty = new SupplierPartyType
+                {
+                    Party = new PartyType
+                    {
+                        PartyIdentification = new PartyIdentificationType[] {
+                            new PartyIdentificationType {
+                                ID = new IDType {
+                                    schemeID = "VKN", //Gönderici 11 haneli bir TCKN'ye sahipse bu alan "TCKN" olmalıdır ve bu eleman altındaki Person elemanında firstname ve FamiliyName dolu olmalıdır.
+                                    Value = "9000068418", //Gönderici VKN ya da TCKN numarası
                                     
 
-    //                            }
-    //                        },
-    //                        new PartyIdentificationType {
-    //                            ID = new IDType {
-    //                                schemeID = "MERSISNO", //Mersis no ve benzeri bazı değerler için bu alan kullanılabilir. Kod listelerinde hangi kodların kullanılabileceğine dair bir liste bulunmaktadır. 
-    //                                Value = "123456789", //İlgili numara
+                                }
+                            },
+                            new PartyIdentificationType {
+                                ID = new IDType {
+                                    schemeID = "MERSISNO", //Mersis no ve benzeri bazı değerler için bu alan kullanılabilir. Kod listelerinde hangi kodların kullanılabileceğine dair bir liste bulunmaktadır. 
+                                    Value = "", //İlgili numara
 
-    //                            }
-    //                        },
+                                }
+                            },
 
-    //                    },
-    //                    PartyName = new PartyNameType { Name = new NameType1 { Value = txtSenderName.Text } }, //Firma Ünvanı
-    //                    PostalAddress = new AddressType
-    //                    {
-    //                        Country = new CountryType { Name = new NameType1 { Value = "Türkiye" } }, //Ülke. Yurtdışına belge düzenlenme ihtimali yoksa sabit değer olarka kalabilir 
-    //                        CityName = new CityNameType { Value = mustahsilCariServis.obje.Where(x => x.id == tempMustahsil.mustahsilcariid).FirstOrDefault().IL },//Firma Şehir
-    //                        CitySubdivisionName = new CitySubdivisionNameType { Value = mustahsilCariServis.obje.Where(x => x.id == tempMustahsil.mustahsilcariid).FirstOrDefault().ILCE }, //Firma İlçe
-    //                        StreetName = new StreetNameType { Value = txtSenderAddress.Text }, //Gönderici firma adresi.
+                        },
+                        PartyName = new PartyNameType { Name = new NameType1 { Value = "Gündüz Meypak" } }, //Firma Ünvanı
+                        PostalAddress = new AddressType
+                        {
+                            Country = new CountryType { Name = new NameType1 { Value = "Türkiye" } }, //Ülke. Yurtdışına belge düzenlenme ihtimali yoksa sabit değer olarka kalabilir 
+                            CityName = new CityNameType { Value ="Ankara" },//Firma Şehir
+                            CitySubdivisionName = new CitySubdivisionNameType { Value ="Etimesgut" }, //Firma İlçe
+                            StreetName = new StreetNameType { Value = "Bahçekapı, Bahçekapı Mahallesi 2471. sokak, Şaşmaz Blv. no:1" }, //Gönderici firma adresi.
 
-    //                    },
+                        },
 
-    //                },
-    //            },
-
-
-    //            //Belgenin alıcısı firmaya(müşteriye) ait bilgileri
-    //            AccountingCustomerParty = new CustomerPartyType
-    //            {
-    //                Party = new PartyType
-    //                {
-    //                    PartyIdentification = new PartyIdentificationType[] {
-    //                        new PartyIdentificationType {
-    //                            ID = new IDType {
-    //                                schemeID = "VKN", //Alıcı 11 haneli bir TCKN'ye sahipse bu alan "TCKN" olmalıdır ve bu eleman altındaki Person elemanında firstname ve FamiliyName dolu olmalıdır.
-    //                                Value = txtCustomerVKN.Text, //Gönderici VKN ya da TCKN numarası
-
-    //                            }
-    //                        },
-
-    //                    },
-    //                    PartyName = new PartyNameType { Name = new NameType1 { Value = txtCustomerName.Text } }, //Alıcı Ünvanı
-    //                    PostalAddress = new AddressType
-    //                    {
-    //                        Country = new CountryType { Name = new NameType1 { Value = "Türkiye" } }, //Ülke. Yurtdışına belge düzenlenme ihtimali yoksa sabit değer olarka kalabilir 
-    //                        CityName = new CityNameType { Value = txtCustomerCity.Text },//Firma Şehir
-    //                        CitySubdivisionName = new CitySubdivisionNameType { Value = txtCustomerCitySubdivision.Text }, //Firma İlçe
-    //                        StreetName = new StreetNameType { Value = txtCustomerAddress.Text }, //Gönderici firma adresi.
-
-    //                    },
-
-    //                },
-    //            },
-
-    //            //Teslim Tarihi
-    //            Delivery = new DeliveryType[] { new DeliveryType { ActualDeliveryDate = new ActualDeliveryDateType { Value = dateTimePicker3.Value.Date } } },
+                    },
+                },
 
 
-    //            //Belge alt toplamları
-    //            LegalMonetaryTotal = new MonetaryTotalType
-    //            {
+                //Belgenin alıcısı firmaya(müşteriye) ait bilgileri
+                AccountingCustomerParty = new CustomerPartyType
+                {
+                    Party = new PartyType
+                    {
+                        PartyIdentification = new PartyIdentificationType[] {
+                            new PartyIdentificationType {
+                                ID = new IDType {
+                                    schemeID = "TCKN", //Alıcı 11 haneli bir TCKN'ye sahipse bu alan "TCKN" olmalıdır ve bu eleman altındaki Person elemanında firstname ve FamiliyName dolu olmalıdır.
+                                    Value = mustahsilCariServis.obje.Where(x=>x.id== tempMustahsil.mustahsilcariid).FirstOrDefault().TCNO, //Gönderici VKN ya da TCKN numarası
 
-    //                LineExtensionAmount = new LineExtensionAmountType { currencyID = "TRY", Value = Convert.ToDecimal(txtLine1SatirToplam.Text) }, //Vergiler ve İskonto Hariç toplam tutar, Virgülden sonra 2 haneden fazla olmamalı
-    //                TaxInclusiveAmount = new TaxInclusiveAmountType { currencyID = "TRY", Value = Convert.ToDecimal  (txtLine1SatirToplam.Text) - Convert.ToDecimal(txtLine1StopajTutar.Text) - Convert.ToDecimal(txtLine1SGKTutar.Text) - Convert.ToDecimal(txtLine1BorsaTutar.Text) }, //Vergiler Dahil Toplam Tutar, Virgülden sonra 2 haneden fazla olmamalı
-    //                TaxExclusiveAmount = new TaxExclusiveAmountType { currencyID = "TRY", Value = 8 }, //Vergiler Hariç iskontolu Toplam Tutar, Virgülden sonra 2 haneden fazla olmamalı
-    //                AllowanceTotalAmount = new AllowanceTotalAmountType { currencyID = "TRY", Value = 0 }, //İskonto Toplamı , Virgülden sonra 2 haneden fazla olmamalı
-    //                PayableAmount = new PayableAmountType { currencyID = "TRY", Value = Convert.ToDecimal(txtLine1SatirToplam.Text) - Convert.ToDecimal(txtLine1StopajTutar.Text) - Convert.ToDecimal(txtLine1SGKTutar.Text) - Convert.ToDecimal(txtLine1BorsaTutar.Text) }, //Ödenecek Toplam Tutar , Virgülden sonra 2 haneden fazla olmamalı
+                                }
+                            }, 
+                            
+                        }, Person = new PersonType()
+                        {
+                            FamilyName = new FamilyNameType() { Value = mustahsilCariServis.obje.Where(x => x.id == tempMustahsil.mustahsilcariid).FirstOrDefault().SOYADI },
+                             FirstName = new FirstNameType() { Value = mustahsilCariServis.obje.Where(x => x.id == tempMustahsil.mustahsilcariid).FirstOrDefault().ADI },
+                              NationalityID = new NationalityIDType() { Value = mustahsilCariServis.obje.Where(x => x.id == tempMustahsil.mustahsilcariid).FirstOrDefault().TCNO }
+                        },
+                        PartyName = new PartyNameType { Name = new NameType1 { Value = mustahsilCariServis.obje.Where(x => x.id == tempMustahsil.mustahsilcariid).FirstOrDefault().ADISOYADI } }, //Alıcı Ünvanı
+                        PostalAddress = new AddressType
+                        {
+                            Country = new CountryType { Name = new NameType1 { Value = "Türkiye" } }, //Ülke. Yurtdışına belge düzenlenme ihtimali yoksa sabit değer olarka kalabilir 
+                            CityName = new CityNameType { Value = mustahsilCariServis.obje.Where(x => x.id == tempMustahsil.mustahsilcariid).FirstOrDefault().IL },//Firma Şehir
+                            CitySubdivisionName = new CitySubdivisionNameType { Value = mustahsilCariServis.obje.Where(x => x.id == tempMustahsil.mustahsilcariid).FirstOrDefault().ILCE }, //Firma İlçe
+                            StreetName = new StreetNameType { Value = "" }, //Gönderici firma adresi.
 
-    //            },
+                        },
+
+                    },
+                },
+
+                //Teslim Tarihi
+                Delivery = new DeliveryType[] { new DeliveryType { ActualDeliveryDate = new ActualDeliveryDateType { Value = tempMustahsil.faturatarihi } } },
 
 
+                //Belge alt toplamları
+                LegalMonetaryTotal = new MonetaryTotalType
+                {
 
-    //            //Belgedeki mal / hizmet kalemleri
-    //            CreditNoteLine = new CreditNoteLineType[]{ // demoda 1 satır olarak varsayılmıştır. Bu arttırılabilir ya da azaltılabilir 
-    //                                  new CreditNoteLineType{
-    //                                                          ID= new IDType{ Value=txtLine1ID.Text }, //Sıra no
-    //                                                          CreditedQuantity = new CreditedQuantityType{ unitCode="KGM", Value= Convert.ToDecimal(mustahsilDetayServis.obje.Where(x=> x.mustahsilid==tempMustahsil.id).Sum(x=>x.safi)) }, //Mal Hizmet Miktarı, UnitCode C62=Adet, KGM= Kilogram, LTR = Litre, Diğerleri için bilgi alınız.  
-    //                                                          Item = new ItemType{ Name= new NameType1{ Value= txtLine1Name.Text }, Description = new DescriptionType{ Value=txtLine1Description.Text }  }, //Mal Hizmet adı ve diğer açıklamalr 
-    //                                                          Price = new PriceType{ PriceAmount= new PriceAmountType{ currencyID="TRY",Value= Convert.ToDecimal(txtLine1Price.Text)} },//Ürün birim fiyatı
-    //                                                          LineExtensionAmount = new LineExtensionAmountType{ currencyID="TRY", Value=Convert.ToDecimal(txtLine1SatirToplam.Text) }, //Satır Toplam Tutarı
-    //                                                           TaxTotal = new TaxTotalType[]{
-    //                                                               new TaxTotalType
-    //                                                               {
+                    LineExtensionAmount = new LineExtensionAmountType { currencyID = "TRY", Value = Convert.ToDecimal(tempMustahsil.bruttoplam) }, //Vergiler ve İskonto Hariç toplam tutar, Virgülden sonra 2 haneden fazla olmamalı
+                    TaxInclusiveAmount = new TaxInclusiveAmountType { currencyID = "TRY", Value = Convert.ToDecimal(tempMustahsil.geneltoplam) }, //Vergiler Dahil Toplam Tutar, Virgülden sonra 2 haneden fazla olmamalı
+                    TaxExclusiveAmount = new TaxExclusiveAmountType { currencyID = "TRY", Value = Convert.ToDecimal(tempMustahsil.nettoplam) }, //Vergiler Hariç iskontolu Toplam Tutar, Virgülden sonra 2 haneden fazla olmamalı
+                    AllowanceTotalAmount = new AllowanceTotalAmountType { currencyID = "TRY", Value = Convert.ToDecimal(tempMustahsil.iskontotoplam) }, //İskonto Toplamı , Virgülden sonra 2 haneden fazla olmamalı
+                    PayableAmount = new PayableAmountType { currencyID = "TRY", Value = Convert.ToDecimal(tempMustahsil.geneltoplam) }, //Ödenecek Toplam Tutar , Virgülden sonra 2 haneden fazla olmamalı
 
-    //                                                                    TaxAmount = new TaxAmountType{ currencyID="TRY", Value= Convert.ToDecimal(txtLine1StopajTutar.Text) +Convert.ToDecimal(txtLine1SGKTutar.Text) +Convert.ToDecimal(txtLine1MeraTutar.Text) +Convert.ToDecimal(txtLine1BorsaTutar.Text) },
-    //                                                                    TaxSubtotal = new TaxSubtotalType[]
-    //                                                                    {
-    //                                                                        new TaxSubtotalType
-    //                                                                        {
-    //                                                                             TaxAmount =  new TaxAmountType{ currencyID="TRY", Value= Convert.ToDecimal(txtLine1StopajTutar.Text)  },
-    //                                                                              Percent = new PercentType1{ Value= Convert.ToDecimal(txtLine1StopajOran.Text) },
-    //                                                                               TaxableAmount = new TaxableAmountType{ currencyID="TRY", Value=Convert.ToDecimal(txtLine1SatirToplam.Text)  },
-    //                                                                                TaxCategory = new TaxCategoryType
-    //                                                                                {
-    //                                                                                     TaxScheme = new TaxSchemeType
-    //                                                                                     {
-    //                                                                                          Name = new NameType1{ Value=  "G.V.Stopaj" },
-    //                                                                                           TaxTypeCode = new TaxTypeCodeType{ Value= "0003" }
-    //                                                                                     }
-    //                                                                                }
-
-    //                                                                        },
-
-    //                                                                        new TaxSubtotalType
-    //                                                                        {
-    //                                                                             TaxAmount =  new TaxAmountType{ currencyID="TRY", Value= Convert.ToDecimal(txtLine1MeraTutar.Text)  },
-    //                                                                              Percent = new PercentType1{ Value= Convert.ToDecimal(txtLine1MeraOran.Text) },
-    //                                                                               TaxableAmount = new TaxableAmountType{ currencyID="TRY", Value=Convert.ToDecimal(txtLine1SatirToplam.Text)  },
-    //                                                                                TaxCategory = new TaxCategoryType
-    //                                                                                {
-    //                                                                                     TaxScheme = new TaxSchemeType
-    //                                                                                     {
-    //                                                                                          Name = new NameType1{ Value=  "Mera Fonu" },
-    //                                                                                           TaxTypeCode = new TaxTypeCodeType{ Value= "9040" }
-    //                                                                                     }
-    //                                                                                }
-
-    //                                                                        },
-
-    //                                                                         new TaxSubtotalType
-    //                                                                        {
-    //                                                                             TaxAmount =  new TaxAmountType{ currencyID="TRY", Value= Convert.ToDecimal(txtLine1BorsaTutar.Text)  },
-    //                                                                              Percent = new PercentType1{ Value= Convert.ToDecimal(txtLine1BorsaOran.Text) },
-    //                                                                               TaxableAmount = new TaxableAmountType{ currencyID="TRY", Value=Convert.ToDecimal(txtLine1SatirToplam.Text)  },
-    //                                                                                TaxCategory = new TaxCategoryType
-    //                                                                                {
-    //                                                                                     TaxScheme = new TaxSchemeType
-    //                                                                                     {
-    //                                                                                          Name = new NameType1{ Value=  "Borsa Tescil Ücreti" },
-    //                                                                                           TaxTypeCode = new TaxTypeCodeType{ Value= "8001" }
-    //                                                                                     }
-    //                                                                                }
-
-    //                                                                        },
-
-    //                                                                           new TaxSubtotalType
-    //                                                                        {
-    //                                                                             TaxAmount =  new TaxAmountType{ currencyID="TRY", Value= Convert.ToDecimal(txtLine1SGKTutar.Text)  },
-    //                                                                              Percent = new PercentType1{ Value= Convert.ToDecimal(txtLine1SGKOran.Text) },
-    //                                                                               TaxableAmount = new TaxableAmountType{ currencyID="TRY", Value=Convert.ToDecimal(txtLine1SatirToplam.Text)  },
-    //                                                                                TaxCategory = new TaxCategoryType
-    //                                                                                {
-    //                                                                                     TaxScheme = new TaxSchemeType
-    //                                                                                     {
-    //                                                                                          Name = new NameType1{ Value=  "SGK Prim Kesintisi" },
-    //                                                                                           TaxTypeCode = new TaxTypeCodeType{ Value= "SGK_PRIM" }
-    //                                                                                     }
-    //                                                                                }
-
-    //                                                                        },
-
-    //                                                                    }
+                },
 
 
 
-    //                                                               }
+                //Belgedeki mal / hizmet kalemleri
+                CreditNoteLine = tempkalem,
 
-    //                                                           }
+                //Belgeye ait vergiler
+                TaxTotal = new TaxTotalType[]{
+                                                                   new TaxTotalType
+                                                                   {
 
-    //                                                     },
+                                                                        TaxAmount = new TaxAmountType{ currencyID="TRY", Value= Convert.ToDecimal(0) +Convert.ToDecimal(0) +Convert.ToDecimal(0) +Convert.ToDecimal(0) },
 
-    //                                                 },
+                                                                        //TaxSubtotal her farklı vergi kodu, oranı veya vergi muafiyet açıklaması için çoklanacaktır. Örneğin aynı belgede hem %18 hem %1 vergi olur ise 1 TaxTotal altında 2 TaxSubTotal olacaktır
+                                                                       TaxSubtotal = new TaxSubtotalType[]
+                                                                        {
+                                                                            new TaxSubtotalType
+                                                                            {
+                                                                                 TaxAmount =  new TaxAmountType{ currencyID="TRY", Value= Convert.ToDecimal(0)  },
+                                                                                  Percent = new PercentType1{ Value= Convert.ToDecimal(0) }, //Oranlar aynı olduğu için 1 tanesi baz alındı. Oranlar farklılaşırsa her oran için farklı bir subtotal oluşturulmalıdır. 
+                                                                                   TaxableAmount = new TaxableAmountType{ currencyID="TRY", Value=Convert.ToDecimal(0)   },
+                                                                                    TaxCategory = new TaxCategoryType
+                                                                                    {
+                                                                                         TaxScheme = new TaxSchemeType
+                                                                                         {
+                                                                                              Name = new NameType1{ Value=  "G.V.Stopaj" },
+                                                                                               TaxTypeCode = new TaxTypeCodeType{ Value= "0003" }
+                                                                                         }
+                                                                                    }
 
+                                                                            },
 
+                                                                            new TaxSubtotalType
+                                                                            {
+                                                                                 TaxAmount =  new TaxAmountType{ currencyID="TRY", Value= Convert.ToDecimal(0) },
+                                                                                  Percent = new PercentType1{ Value= Convert.ToDecimal(0) },
+                                                                                   TaxableAmount = new TaxableAmountType{ currencyID="TRY", Value=Convert.ToDecimal(0)   },
+                                                                                    TaxCategory = new TaxCategoryType
+                                                                                    {
+                                                                                         TaxScheme = new TaxSchemeType
+                                                                                         {
+                                                                                              Name = new NameType1{ Value=  "Mera Fonu" },
+                                                                                               TaxTypeCode = new TaxTypeCodeType{ Value= "9040" }
+                                                                                         }
+                                                                                    }
 
-    //            //Belgeye ait vergiler
-    //            TaxTotal = new TaxTotalType[]{
-    //                                                               new TaxTotalType
-    //                                                               {
+                                                                            },
 
-    //                                                                    TaxAmount = new TaxAmountType{ currencyID="TRY", Value= Convert.ToDecimal(txtLine1StopajTutar.Text) +Convert.ToDecimal(txtLine1SGKTutar.Text) +Convert.ToDecimal(txtLine1MeraTutar.Text) +Convert.ToDecimal(txtLine1BorsaTutar.Text) },
+                                                                             new TaxSubtotalType
+                                                                            {
+                                                                                 TaxAmount =  new TaxAmountType{ currencyID="TRY", Value=Convert.ToDecimal(0)  },
+                                                                                  Percent = new PercentType1{ Value= Convert.ToDecimal(0) },
+                                                                                   TaxableAmount = new TaxableAmountType{ currencyID="TRY", Value=Convert.ToDecimal(0) },
+                                                                                    TaxCategory = new TaxCategoryType
+                                                                                    {
+                                                                                         TaxScheme = new TaxSchemeType
+                                                                                         {
+                                                                                              Name = new NameType1{ Value=  "Borsa Tescil Ücreti" },
+                                                                                               TaxTypeCode = new TaxTypeCodeType{ Value= "8001" }
+                                                                                         }
+                                                                                    }
 
-    //                                                                    //TaxSubtotal her farklı vergi kodu, oranı veya vergi muafiyet açıklaması için çoklanacaktır. Örneğin aynı belgede hem %18 hem %1 vergi olur ise 1 TaxTotal altında 2 TaxSubTotal olacaktır
-    //                                                                   TaxSubtotal = new TaxSubtotalType[]
-    //                                                                    {
-    //                                                                        new TaxSubtotalType
-    //                                                                        {
-    //                                                                             TaxAmount =  new TaxAmountType{ currencyID="TRY", Value= Convert.ToDecimal(txtLine1StopajTutar.Text)  },
-    //                                                                              Percent = new PercentType1{ Value= Convert.ToDecimal(txtLine1StopajOran.Text) }, //Oranlar aynı olduğu için 1 tanesi baz alındı. Oranlar farklılaşırsa her oran için farklı bir subtotal oluşturulmalıdır. 
-    //                                                                               TaxableAmount = new TaxableAmountType{ currencyID="TRY", Value=Convert.ToDecimal(txtLine1SatirToplam.Text)   },
-    //                                                                                TaxCategory = new TaxCategoryType
-    //                                                                                {
-    //                                                                                     TaxScheme = new TaxSchemeType
-    //                                                                                     {
-    //                                                                                          Name = new NameType1{ Value=  "G.V.Stopaj" },
-    //                                                                                           TaxTypeCode = new TaxTypeCodeType{ Value= "0003" }
-    //                                                                                     }
-    //                                                                                }
+                                                                            },
 
-    //                                                                        },
+                                                                               new TaxSubtotalType
+                                                                            {
+                                                                                 TaxAmount =  new TaxAmountType{ currencyID="TRY", Value= Convert.ToDecimal(0)  },
+                                                                                  Percent = new PercentType1{ Value= Convert.ToDecimal(0) },
+                                                                                   TaxableAmount = new TaxableAmountType{ currencyID="TRY", Value=Convert.ToDecimal(0)   },
+                                                                                    TaxCategory = new TaxCategoryType
+                                                                                    {
+                                                                                         TaxScheme = new TaxSchemeType
+                                                                                         {
+                                                                                              Name = new NameType1{ Value=  "SGK Prim Kesintisi" },
+                                                                                               TaxTypeCode = new TaxTypeCodeType{ Value= "SGK_PRIM" }
+                                                                                         }
+                                                                                    }
 
-    //                                                                        new TaxSubtotalType
-    //                                                                        {
-    //                                                                             TaxAmount =  new TaxAmountType{ currencyID="TRY", Value= Convert.ToDecimal(txtLine1MeraTutar.Text) },
-    //                                                                              Percent = new PercentType1{ Value= Convert.ToDecimal(txtLine1MeraOran.Text) },
-    //                                                                               TaxableAmount = new TaxableAmountType{ currencyID="TRY", Value=Convert.ToDecimal(txtLine1SatirToplam.Text)   },
-    //                                                                                TaxCategory = new TaxCategoryType
-    //                                                                                {
-    //                                                                                     TaxScheme = new TaxSchemeType
-    //                                                                                     {
-    //                                                                                          Name = new NameType1{ Value=  "Mera Fonu" },
-    //                                                                                           TaxTypeCode = new TaxTypeCodeType{ Value= "9040" }
-    //                                                                                     }
-    //                                                                                }
+                                                                            },
 
-    //                                                                        },
-
-    //                                                                         new TaxSubtotalType
-    //                                                                        {
-    //                                                                             TaxAmount =  new TaxAmountType{ currencyID="TRY", Value=Convert.ToDecimal(txtLine1BorsaTutar.Text)  },
-    //                                                                              Percent = new PercentType1{ Value= Convert.ToDecimal(txtLine1BorsaOran.Text) },
-    //                                                                               TaxableAmount = new TaxableAmountType{ currencyID="TRY", Value=Convert.ToDecimal(txtLine1SatirToplam.Text) },
-    //                                                                                TaxCategory = new TaxCategoryType
-    //                                                                                {
-    //                                                                                     TaxScheme = new TaxSchemeType
-    //                                                                                     {
-    //                                                                                          Name = new NameType1{ Value=  "Borsa Tescil Ücreti" },
-    //                                                                                           TaxTypeCode = new TaxTypeCodeType{ Value= "8001" }
-    //                                                                                     }
-    //                                                                                }
-
-    //                                                                        },
-
-    //                                                                           new TaxSubtotalType
-    //                                                                        {
-    //                                                                             TaxAmount =  new TaxAmountType{ currencyID="TRY", Value= Convert.ToDecimal(txtLine1SGKTutar.Text)  },
-    //                                                                              Percent = new PercentType1{ Value= Convert.ToDecimal(txtLine1SGKOran.Text) },
-    //                                                                               TaxableAmount = new TaxableAmountType{ currencyID="TRY", Value=Convert.ToDecimal(txtLine1SatirToplam.Text)   },
-    //                                                                                TaxCategory = new TaxCategoryType
-    //                                                                                {
-    //                                                                                     TaxScheme = new TaxSchemeType
-    //                                                                                     {
-    //                                                                                          Name = new NameType1{ Value=  "SGK Prim Kesintisi" },
-    //                                                                                           TaxTypeCode = new TaxTypeCodeType{ Value= "SGK_PRIM" }
-    //                                                                                     }
-    //                                                                                }
-
-    //                                                                        },
-
-    //                                                                    }
+                                                                        }
 
 
 
-    //                                                               }
+                                                                   }
 
-    //                                                           }
-
-
-    //        };
-            
-
-    //        return makbuz;
+                                                               }
 
 
-    //    }
-    //    public ProducerReceiptIntegrationClient CreateClient()
-    //{
-    //    var client = new ProducerReceiptIntegrationClient();
-    //    client.ClientCredentials.UserName.UserName = "Uyumsoft";
-    //    client.ClientCredentials.UserName.Password = "Uyumsoft";
-    //    return client;
+            };
 
 
-    //}
-    //#endregion
-}
+            return makbuz;
+
+
+        }
+        public ProducerReceiptIntegrationClient CreateClient()
+        {
+            var client = new ProducerReceiptIntegrationClient();
+            client.ClientCredentials.UserName.UserName = "Uyumsoft";
+            client.ClientCredentials.UserName.Password = "Uyumsoft";
+            return client;
+
+
+        }
+        #endregion
+    }
 }

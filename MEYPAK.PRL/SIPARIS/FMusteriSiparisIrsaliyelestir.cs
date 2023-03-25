@@ -1,5 +1,6 @@
 ﻿using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.Models.DEPO;
+using MEYPAK.Entity.Models.FORMYETKI;
 using MEYPAK.Entity.PocoModels;
 using MEYPAK.Entity.PocoModels.DEPO;
 using MEYPAK.Entity.PocoModels.IRSALIYE;
@@ -43,8 +44,13 @@ namespace MEYPAK.PRL.SIPARIS
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
+            if (MPKullanici.YetkiGetir(AllForms.MUSTERISIPARISINIIRSALIYELESTIR.ToString()).EKLE == true)
+            {
             ırsaliyeSettingsPanel = new FIrsaliyeSettingsPanel(this.Tag.ToString(), "FMusteriSiparisIrsaliyelestir");
             ırsaliyeSettingsPanel.ShowDialog();
+            }
+            else
+                MessageBox.Show(MPKullanici.hata);
         }
 
         private void gridView2_RowStyle_1(object sender, DevExpress.XtraGrid.Views.Grid.RowStyleEventArgs e)

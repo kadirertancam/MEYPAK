@@ -3,6 +3,7 @@ using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.Repository;
 using EInvoiceDemoProject;
 using MEYPAK.BLL.Assets;
+using MEYPAK.Entity.Models.FORMYETKI;
 using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.FATURA;
 using MEYPAK.Entity.PocoModels.STOK;
@@ -881,6 +882,10 @@ namespace MEYPAK.PRL.E_ISLEMLER
 
         private void RepositoryItemButtonEdit_ButtonClick1Async(object sender, ButtonPressedEventArgs e)
         {
+            if (MPKullanici.YetkiGetir(AllForms.EARSIVGIDENKUTUSU.ToString()).EKLE==true)
+            {
+
+     
             var client = CreateClient();
 
             var invoiceInfo = CreateInvoice();
@@ -909,6 +914,9 @@ namespace MEYPAK.PRL.E_ISLEMLER
             {
                 MessageBox.Show(response.Message);
             }
+            }
+            else
+                MessageBox.Show(MPKullanici.hata);
         }
     }
 }

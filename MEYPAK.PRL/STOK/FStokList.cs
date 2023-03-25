@@ -240,8 +240,8 @@ namespace MEYPAK.PRL.STOK
                 page.Tag = "TPStokKart2" + i;
                 page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
 
-                main.xtraTabControl1.TabPages.Add(page);
-                main.xtraTabControl1.SelectedTabPage = page;
+                main.Anasayfa.TabPages.Add(page);
+                main.Anasayfa.SelectedTabPage = page;
 
                 fSTOKKART.TopLevel = false;
                 fSTOKKART.AutoScroll = true;

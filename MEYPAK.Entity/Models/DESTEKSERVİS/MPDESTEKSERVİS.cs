@@ -8,6 +8,8 @@ namespace MEYPAK.Entity.Models.DESTEKSERVİS
 {
     public class MPDESTEKSERVİS : SUPERMODEL
     {
+        public string AD { get; set; }
+        public string SOYAD { get; set; }
         public string BASLIK { get; set; } = "";
         public string DEPARTMAN { get; set; }
         public string MESAJ { get; set; } = "";

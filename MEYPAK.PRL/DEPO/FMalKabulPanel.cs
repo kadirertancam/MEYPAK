@@ -11,6 +11,7 @@ using MEYPAK.DAL.Concrete.EntityFramework.Context;
 using MEYPAK.DAL.Concrete.EntityFramework.Repository;
 using MEYPAK.Entity.Models;
 using MEYPAK.Entity.Models.DEPO;
+using MEYPAK.Entity.Models.FORMYETKI;
 using MEYPAK.Entity.Models.SIPARIS;
 using MEYPAK.Entity.Models.STOK;
 using MEYPAK.Entity.PocoModels;
@@ -441,6 +442,8 @@ namespace MEYPAK.PRL.DEPO
 
         private void tileView3_DoubleClick(object sender, EventArgs e)
         {
+            if(MPKullanici.YetkiGetir(AllForms.MALKABUL.ToString()).EKLE == true)
+            { 
             if (tileView2.GetFocusedRowCellValue("ID")!=null)
             {
             _siparisDetayServis.Data(ServisList.SiparisDetayListeServis);
@@ -493,6 +496,9 @@ namespace MEYPAK.PRL.DEPO
                   ,DepoButon= bt
               }).ToList();
             GCIsEmriDetayPanel.Refresh();
+                }
+                else
+                    MessageBox.Show(MPKullanici.hata);
             }
         }
     }
