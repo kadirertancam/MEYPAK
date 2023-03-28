@@ -30,13 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup2 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
-            DevExpress.XtraBars.Ribbon.GalleryItem galleryItem2 = new DevExpress.XtraBars.Ribbon.GalleryItem();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup1 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+            DevExpress.XtraBars.Ribbon.GalleryItem galleryItem1 = new DevExpress.XtraBars.Ribbon.GalleryItem();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.Anasayfa = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
@@ -251,6 +252,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.Anasayfa)).BeginInit();
             this.Anasayfa.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
@@ -306,40 +309,31 @@
             // 
             // xtraTabPage1
             // 
-            this.xtraTabPage1.Controls.Add(this.pictureEdit1);
+            this.xtraTabPage1.Controls.Add(this.panelControl1);
             this.xtraTabPage1.Name = "xtraTabPage1";
             this.xtraTabPage1.ShowCloseButton = DevExpress.Utils.DefaultBoolean.False;
             this.xtraTabPage1.Size = new System.Drawing.Size(846, 540);
             this.xtraTabPage1.Text = "AnaSayfa";
             // 
-            // xtraTabPage1
+            // panelControl1
             // 
-            this.xtraTabPage1.Controls.Add(this.panel6);
-            this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.ShowCloseButton = DevExpress.Utils.DefaultBoolean.False;
-            this.xtraTabPage1.Size = new System.Drawing.Size(846, 540);
-            this.xtraTabPage1.Text = "AnaSayfa";
+            this.panelControl1.Controls.Add(this.pictureEdit1);
+            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl1.Location = new System.Drawing.Point(0, 0);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(846, 540);
+            this.panelControl1.TabIndex = 0;
             // 
-            // panel6
-            // 
-            this.panel6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel6.BackgroundImage")));
-            this.panel6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(0, 0);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(846, 540);
-            this.panel6.TabIndex = 1;
-            // 
-            // barDockControlLeft
+            // pictureEdit1
             // 
             this.pictureEdit1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureEdit1.EditValue = ((object)(resources.GetObject("pictureEdit1.EditValue")));
-            this.pictureEdit1.Location = new System.Drawing.Point(0, 0);
+            this.pictureEdit1.Location = new System.Drawing.Point(2, 2);
             this.pictureEdit1.MenuManager = this.barManager1;
             this.pictureEdit1.Name = "pictureEdit1";
             this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
-            this.pictureEdit1.Size = new System.Drawing.Size(846, 540);
+            this.pictureEdit1.Size = new System.Drawing.Size(842, 536);
             this.pictureEdit1.TabIndex = 0;
             // 
             // barManager1
@@ -2221,6 +2215,8 @@
             // 
             // ACEKullaniciYönetim
             // 
+            this.ACEKullaniciYönetim.Appearance.Default.ForeColor = System.Drawing.Color.Silver;
+            this.ACEKullaniciYönetim.Appearance.Default.Options.UseForeColor = true;
             this.ACEKullaniciYönetim.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.ACEKullaniciTanim});
             this.ACEKullaniciYönetim.Enabled = false;
@@ -2261,12 +2257,12 @@
             // 
             // 
             // 
-            galleryItemGroup2.Caption = "Group1";
-            galleryItem2.Caption = "Item1";
-            galleryItemGroup2.Items.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItem[] {
-            galleryItem2});
+            galleryItemGroup1.Caption = "Group1";
+            galleryItem1.Caption = "Item1";
+            galleryItemGroup1.Items.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItem[] {
+            galleryItem1});
             this.galleryDropDown1.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
-            galleryItemGroup2});
+            galleryItemGroup1});
             this.galleryDropDown1.Manager = this.barManager1;
             this.galleryDropDown1.Name = "galleryDropDown1";
             // 
@@ -2309,7 +2305,6 @@
             // İnstagr
             // 
             this.İnstagr.Expanded = true;
-            this.İnstagr.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("İnstagr.ImageOptions.Image")));
             this.İnstagr.Name = "İnstagr";
             this.İnstagr.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.İnstagr.Text = "Instagram : gunduzmeypak";
@@ -2335,6 +2330,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.Anasayfa)).EndInit();
             this.Anasayfa.ResumeLayout(false);
             this.xtraTabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).EndInit();
@@ -2558,9 +2555,9 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEEMustahsilGiden;
         private Panel panel6;
         private DevExpress.XtraBars.Navigation.AccordionControlElement İnstagr;
-       // private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
-        private DevExpress.XtraEditors.PictureEdit pictureEdit1;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEDestekServis;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEDestekServis1;
+        private DevExpress.XtraEditors.PanelControl panelControl1;
+        private DevExpress.XtraEditors.PictureEdit pictureEdit1;
     }
 }
