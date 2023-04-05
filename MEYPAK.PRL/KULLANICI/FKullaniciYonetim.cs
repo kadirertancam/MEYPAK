@@ -71,5 +71,10 @@ namespace MEYPAK.PRL.KULLANICI
             else
                 MessageBox.Show("Lütfen Tüm Alanları Doldurunuz!");
         }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
