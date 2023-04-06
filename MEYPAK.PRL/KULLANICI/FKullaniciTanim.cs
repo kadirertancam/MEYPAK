@@ -237,5 +237,10 @@ namespace MEYPAK.PRL.KULLANICI
         {
             KullaniciTemizle();
         }
+
+        private void GCKullaniciYetki_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -16,7 +16,5 @@ namespace MEYPAK.Entity.Models.DESTEKSERVİS
         public string ONCELIK { get; set; }
         public string BELGE { get; set; } = ""; 
 
-        
-
     }
 }

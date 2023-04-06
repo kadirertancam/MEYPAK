@@ -37,6 +37,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.BTNPersonelKaydet = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.TBTelefon = new DevExpress.XtraEditors.TextEdit();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.BTNTemizle = new DevExpress.XtraEditors.SimpleButton();
@@ -55,7 +56,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.GCKullanici = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
@@ -119,6 +119,7 @@
             this.GCKullaniciYetki.TabIndex = 64;
             this.GCKullaniciYetki.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
+            this.GCKullaniciYetki.Click += new System.EventHandler(this.GCKullaniciYetki_Click);
             // 
             // gridView2
             // 
@@ -171,6 +172,18 @@
             this.groupControl1.Size = new System.Drawing.Size(855, 117);
             this.groupControl1.TabIndex = 65;
             this.groupControl1.Text = "Kullanıcı Giriş Bilgileri";
+            // 
+            // labelControl8
+            // 
+            this.labelControl8.Appearance.Font = new System.Drawing.Font("Tahoma", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelControl8.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControl8.Appearance.Options.UseFont = true;
+            this.labelControl8.Appearance.Options.UseForeColor = true;
+            this.labelControl8.Location = new System.Drawing.Point(525, 100);
+            this.labelControl8.Name = "labelControl8";
+            this.labelControl8.Size = new System.Drawing.Size(107, 11);
+            this.labelControl8.TabIndex = 15;
+            this.labelControl8.Text = "5 Karakterden az olamaz !";
             // 
             // TBTelefon
             // 
@@ -314,18 +327,6 @@
             this.gridView1.GridControl = this.GCKullanici;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
-            // 
-            // labelControl8
-            // 
-            this.labelControl8.Appearance.Font = new System.Drawing.Font("Tahoma", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelControl8.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.labelControl8.Appearance.Options.UseFont = true;
-            this.labelControl8.Appearance.Options.UseForeColor = true;
-            this.labelControl8.Location = new System.Drawing.Point(515, 100);
-            this.labelControl8.Name = "labelControl8";
-            this.labelControl8.Size = new System.Drawing.Size(107, 11);
-            this.labelControl8.TabIndex = 15;
-            this.labelControl8.Text = "5 Karakterden az olamaz !";
             // 
             // FKullaniciTanim
             // 

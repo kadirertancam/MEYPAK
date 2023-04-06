@@ -32,6 +32,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.XTPSifre = new DevExpress.XtraTab.XtraTabPage();
+            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.BTNPersonelKaydet = new DevExpress.XtraEditors.SimpleButton();
             this.TBParolaTekrar = new DevExpress.XtraEditors.TextEdit();
             this.TBYeniParola = new DevExpress.XtraEditors.TextEdit();
@@ -45,7 +46,6 @@
             this.hyperlinkLabelControl1 = new DevExpress.XtraEditors.HyperlinkLabelControl();
             this.LBUser = new DevExpress.XtraEditors.LabelControl();
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
-            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
@@ -93,6 +93,18 @@
             this.XTPSifre.PageVisible = false;
             this.XTPSifre.Size = new System.Drawing.Size(859, 513);
             this.XTPSifre.Text = "Şifre Değiştir";
+            // 
+            // labelControl8
+            // 
+            this.labelControl8.Appearance.Font = new System.Drawing.Font("Tahoma", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelControl8.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControl8.Appearance.Options.UseFont = true;
+            this.labelControl8.Appearance.Options.UseForeColor = true;
+            this.labelControl8.Location = new System.Drawing.Point(153, 106);
+            this.labelControl8.Name = "labelControl8";
+            this.labelControl8.Size = new System.Drawing.Size(107, 11);
+            this.labelControl8.TabIndex = 64;
+            this.labelControl8.Text = "5 Karakterden az olamaz !";
             // 
             // BTNPersonelKaydet
             // 
@@ -169,6 +181,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(214, 538);
             this.panel2.TabIndex = 0;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // LBUserAd
             // 
@@ -203,18 +216,6 @@
             this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.pictureEdit1.Size = new System.Drawing.Size(101, 131);
             this.pictureEdit1.TabIndex = 0;
-            // 
-            // labelControl8
-            // 
-            this.labelControl8.Appearance.Font = new System.Drawing.Font("Tahoma", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelControl8.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.labelControl8.Appearance.Options.UseFont = true;
-            this.labelControl8.Appearance.Options.UseForeColor = true;
-            this.labelControl8.Location = new System.Drawing.Point(153, 106);
-            this.labelControl8.Name = "labelControl8";
-            this.labelControl8.Size = new System.Drawing.Size(107, 11);
-            this.labelControl8.TabIndex = 64;
-            this.labelControl8.Text = "5 Karakterden az olamaz !";
             // 
             // FKullaniciYonetim
             // 
