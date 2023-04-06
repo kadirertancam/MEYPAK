@@ -36,6 +36,7 @@
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
+            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
@@ -144,12 +145,26 @@
             // 
             // panelControl5
             // 
+            this.panelControl5.Controls.Add(this.simpleButton3);
             this.panelControl5.Controls.Add(this.simpleButton1);
             this.panelControl5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl5.Location = new System.Drawing.Point(2, 2);
             this.panelControl5.Name = "panelControl5";
             this.panelControl5.Size = new System.Drawing.Size(851, 60);
             this.panelControl5.TabIndex = 1;
+            // 
+            // simpleButton3
+            // 
+            this.simpleButton3.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Success;
+            this.simpleButton3.Appearance.Options.UseBackColor = true;
+            this.simpleButton3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.simpleButton3.Enabled = false;
+            this.simpleButton3.Location = new System.Drawing.Point(113, 2);
+            this.simpleButton3.Name = "simpleButton3";
+            this.simpleButton3.Size = new System.Drawing.Size(111, 56);
+            this.simpleButton3.TabIndex = 2;
+            this.simpleButton3.Text = "Künye Oluştur";
+            this.simpleButton3.Click += new System.EventHandler(this.simpleButton3_Click);
             // 
             // simpleButton1
             // 
@@ -263,5 +278,6 @@
         private DevExpress.XtraGrid.GridControl DGSiparisList;
         public DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         public DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+        private DevExpress.XtraEditors.SimpleButton simpleButton3;
     }
 }

@@ -2,10 +2,12 @@
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid.Views.Grid;
+using MEYPAK.Entity.PocoModels;
 using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.PRL.Assets;
 using MEYPAK.PRL.CARI;
+using MEYPAK.PRL.SIPARIS;
 using MEYPAK.PRL.STOK;
 using ServiceReference1;
 using System;
@@ -52,6 +54,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
         {
         }
         InvoiceResponse tempp;
+        List<FaturaDetailList> tempdetay;
         private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
             
@@ -64,8 +67,8 @@ namespace MEYPAK.PRL.E_ISLEMLER
             repositoryItemButtonEdit.Buttons[0].Kind = ButtonPredefines.Glyph;
             repositoryItemButtonEdit.Buttons[0].Shortcut = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.Enter);
             repositoryItemButtonEdit.ButtonClick += RepositoryItemButtonEdit_ButtonClick;
-            gridControl2.DataSource = tempp.Value.Invoice.InvoiceLine.Select(x => new FaturaDetailList {SIRA=int.Parse(x.ID.Value) ,KOD = "", ADI = x.Item.Name.Value, MIKTAR = x.InvoicedQuantity.Value, BIRIM = x.InvoicedQuantity.unitCode, NETFIYAT = x.Price.PriceAmount.Value, TUTAR = x.Price.PriceAmount.Value * x.InvoicedQuantity.Value });
-            
+             tempdetay = tempp.Value.Invoice.InvoiceLine.Select(x => new FaturaDetailList {SIRA=int.Parse(x.ID.Value) ,KOD = "", ADI = x.Item.Name.Value, MIKTAR = x.InvoicedQuantity.Value, BIRIM = x.InvoicedQuantity.unitCode, NETFIYAT = x.Price.PriceAmount.Value, TUTAR = x.Price.PriceAmount.Value * x.InvoicedQuantity.Value }).ToList();
+            gridControl2.DataSource = tempdetay;
             gridView2.Columns["KOD"].ColumnEdit = repositoryItemButtonEdit; 
         }
         InboxInvoiceListResponse res;
@@ -139,6 +142,14 @@ namespace MEYPAK.PRL.E_ISLEMLER
         private void RepositoryItemButtonEdit_ButtonClick1(object sender, ButtonPressedEventArgs e)
         {
             //FATURALAŞTIR
+            List<PocoFaturaKalem> kalem = new List<PocoFaturaKalem>();
+            foreach (var item in tempdetay)
+            {
+                kalem.Add(new PocoFaturaKalem()
+                {
+                    StokAdı = item.KOD
+                });
+            } 
         }
 
         private void RepositoryItemButtonEdit3_ButtonClick(object sender, ButtonPressedEventArgs e)

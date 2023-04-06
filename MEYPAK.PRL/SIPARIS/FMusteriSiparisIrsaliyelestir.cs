@@ -1,4 +1,6 @@
-﻿using MEYPAK.BLL.Assets;
+﻿using DevExpress.XtraPrinting;
+using MEYPAK.BLL.Assets;
+using MEYPAK.DAL.Migrations;
 using MEYPAK.Entity.Models.DEPO;
 using MEYPAK.Entity.Models.FORMYETKI;
 using MEYPAK.Entity.PocoModels;
@@ -6,7 +8,11 @@ using MEYPAK.Entity.PocoModels.DEPO;
 using MEYPAK.Entity.PocoModels.IRSALIYE;
 using MEYPAK.Entity.PocoModels.SIPARIS;
 using MEYPAK.Interfaces.Depo;
+using MEYPAK.PRL.Assets;
+using Newtonsoft.Json;
+using ServiceReference10;
 using System.Data;
+using System.Net.Http;
 
 namespace MEYPAK.PRL.SIPARIS
 {
@@ -17,7 +23,7 @@ namespace MEYPAK.PRL.SIPARIS
             InitializeComponent();
             _siparisServis = new GenericWebServis<PocoSIPARIS>();
             _siparisDetayServis = new GenericWebServis<PocoSIPARISDETAY>();
-            _depoServis = new GenericWebServis<PocoDEPO>();  
+            _depoServis = new GenericWebServis<PocoDEPO>();
             tempSiparisKalem = new List<PocoSiparisKalem>();
             tempSipDetay = new List<PocoSIPARISDETAY>();
             _irsaliyeDetayServis = new GenericWebServis<PocoIRSALIYEDETAY>();
@@ -46,8 +52,8 @@ namespace MEYPAK.PRL.SIPARIS
         {
             if (MPKullanici.YetkiGetir(AllForms.MUSTERISIPARISINIIRSALIYELESTIR.ToString()).EKLE == true)
             {
-            ırsaliyeSettingsPanel = new FIrsaliyeSettingsPanel(this.Tag.ToString(), "FMusteriSiparisIrsaliyelestir");
-            ırsaliyeSettingsPanel.ShowDialog();
+                ırsaliyeSettingsPanel = new FIrsaliyeSettingsPanel(this.Tag.ToString(), "FMusteriSiparisIrsaliyelestir");
+                ırsaliyeSettingsPanel.ShowDialog();
             }
             else
                 MessageBox.Show(MPKullanici.hata);
@@ -90,7 +96,7 @@ namespace MEYPAK.PRL.SIPARIS
                 SevkiyatTarihi = x.sevkiyattarihi,
                 Depo = _depoServis.obje.Where(z => z.id == x.depoid).FirstOrDefault().depoadi,
                 GENELTOPLAM = x.geneltoplam,
-                DURUM = x.durum == false ? "Beklemede" : "Tamamlandı", 
+                DURUM = x.durum == false ? "Beklemede" : "Tamamlandı",
             });
             gridView2.Columns["ID"].Visible = false;
         }
@@ -98,10 +104,10 @@ namespace MEYPAK.PRL.SIPARIS
         {
             siparislist();
         }
-
+        
         private void simpleButton3_Click(object sender, EventArgs e)
         {
-             
+          
         }
     }
 }

@@ -3,6 +3,7 @@ using DevExpress.XtraCharts.Designer.Native;
 using DevExpress.XtraEditors;
 using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.Models.FORMYETKI;
+using MEYPAK.Entity.PocoModels.BANKA;
 using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.FATURA;
 using MEYPAK.Entity.PocoModels.KASA;
@@ -36,6 +37,10 @@ namespace MEYPAK.PRL.KASA
             _cariKartServis = new GenericWebServis<PocoCARIKART>();
             _personelServis = new GenericWebServis<PocoPERSONEL>();
             _cariHarServis = new GenericWebServis<PocoCARIHAR>();
+            _bankaServis = new GenericWebServis<PocoBANKA>();
+            _bankaSubeServis = new GenericWebServis<PocoBANKASUBE>();
+            _bankaHesapServis = new GenericWebServis<PocoBANKAHESAP>();
+            _bankaHesapHarServis = new GenericWebServis<PocoHESAPHAREKET>();
             this.gridView1.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(100,((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
            
         }
@@ -44,6 +49,11 @@ namespace MEYPAK.PRL.KASA
         GenericWebServis<PocoCARIKART> _cariKartServis;
         GenericWebServis<PocoPERSONEL> _personelServis;
         GenericWebServis<PocoCARIHAR> _cariHarServis;
+        GenericWebServis<PocoBANKA> _bankaServis;
+        GenericWebServis<PocoBANKASUBE> _bankaSubeServis;
+        GenericWebServis<PocoBANKAHESAP> _bankaHesapServis;
+        GenericWebServis<PocoHESAPHAREKET> _bankaHesapHarServis;
+
 
         public PocoKASA _tempKasa;
         public PocoCARIKART _tempCari;
@@ -52,11 +62,20 @@ namespace MEYPAK.PRL.KASA
 
         private void FKasaHareket_Load(object sender, EventArgs e)
         {
+            _bankaServis.Data(ServisList.BANKAListeServis);
+            _bankaSubeServis.Data(ServisList.BANKASubeListeServis);
+            _bankaHesapServis.Data(ServisList.BANKAHesapListeServis);
+
             parabirimServis.Data(ServisList.ParaBirimiListeServis);
             CBParaBirim.Properties.DataSource = parabirimServis.obje.Select(x => new { ADI = x.adi, ID = x.id });
             CBParaBirim.Properties.DisplayMember = "ADI";
             CBParaBirim.Properties.ValueMember = "ID";
             CBParaBirim.EditValue = 11638;
+            
+            CBBankaAdi.Properties.DataSource = _bankaServis.obje.Select(x => new { ID=x.id,ADI= x.adi });
+            CBBankaAdi.Properties.ValueMember = "ID";
+            CBBankaAdi.Properties.DisplayMember = "ADI";
+
             radioGroup2.SelectedIndex = 1;
             TBKur.EditValue = 0;
             TBTutar.EditValue = 0;
@@ -139,12 +158,11 @@ namespace MEYPAK.PRL.KASA
                 _cariKartServis.Data(ServisList.CariListeServis);
                 kasaHarServis.Data(ServisList.KasaHarListeServis);
                 GCKasaHareket.DataSource = kasaHarServis.obje.Where(x => x.KASAID == _tempKasa.id).Select(x=> new { Tarih=x.TARIH,CariKod= x.CARIID!=0?_cariKartServis.obje.Where(z=>z.id==x.CARIID).FirstOrDefault().kod: x.PERSONELID != 0 ? _personelServis.obje.Where(z => z.id == x.PERSONELID).FirstOrDefault().tc: "",  CariAdı = x.CARIID != 0 ? _cariKartServis.obje.Where(z => z.id == x.CARIID).FirstOrDefault().unvan:x.PERSONELID!=0? _personelServis.obje.Where(z=>z.id==x.PERSONELID).FirstOrDefault().adisoyadi:"", IslemTipi=x.TIP==0?"Cari":x.TIP==1?"Banka":x.TIP==2?"Personel":x.TIP==3?"Muhtelif":x.TIP==4?"Muhasebe":"",GC=x.IO==0?"Çıkış":"Giriş",TUTAR=x.TUTAR }).Reverse();
-           
+                GCKasaHareket.RefreshDataSource();
                 
             }
             else
-            {
-                GCKasaHareket.DataSource = "";
+            { 
             }
         }
 
@@ -230,8 +248,8 @@ namespace MEYPAK.PRL.KASA
                         {
                             kasaHarServis.Data(ServisList.KasaHarEkleServis, new PocoKASAHAR()
                             {
-                                //BANKAHESID = _tempBankaHesap.id,
-
+                                BANKAHESID = int.Parse(CBSubeAdi.EditValue.ToString()),
+                                
                                 TARIH = Convert.ToDateTime(DTPTarih.EditValue),
                                 KASAID = _tempKasa.id,
                                 IO = Convert.ToByte(radioGroup2.SelectedIndex),
@@ -241,6 +259,15 @@ namespace MEYPAK.PRL.KASA
                                 TUTAR = Convert.ToDecimal(TBTutar.EditValue),
                                 userid = MPKullanici.ID
                             });
+                                _bankaHesapHarServis.Data(ServisList.HesapHarEkleServis, new PocoHESAPHAREKET()
+                                {
+                                    IO = Convert.ToByte(radioGroup2.SelectedIndex),
+                                    MIKTAR = Convert.ToDecimal(TBTutar.EditValue),
+                                    ACIKLAMA = "Kasa Hareketi",
+                                    HESAPID = int.Parse(CBSubeAdi.EditValue.ToString()),
+                                    userid = MPKullanici.ID,
+
+                                });
                             MessageBox.Show("Hareket Başarıyla Eklendi.");
                             FormuTemizle();
                         }
@@ -328,6 +355,14 @@ namespace MEYPAK.PRL.KASA
             {
                 e.Appearance.BackColor = Color.LightGreen;
             }
+        }
+
+        private void CBBankaAdi_Properties_EditValueChanged(object sender, EventArgs e)
+        {
+            CBSubeAdi.Properties.DataSource = _bankaSubeServis.obje.Where(x => x.BANKAID.ToString() == CBBankaAdi.EditValue.ToString() ).Select(x=> new { ID = _bankaHesapServis.obje.Where(z => z.SUBEID == x.id).FirstOrDefault().id, ADI= x.ADI + " - " + _bankaHesapServis.obje.Where(z => z.SUBEID == x.id).FirstOrDefault().ADI });
+            CBSubeAdi.Properties.ValueMember = "ID";
+            CBSubeAdi.Properties.DisplayMember = "ADI";
+
         }
     }
 }

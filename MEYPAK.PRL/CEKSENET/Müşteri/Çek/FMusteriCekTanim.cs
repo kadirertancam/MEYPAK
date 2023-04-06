@@ -34,8 +34,8 @@ namespace MEYPAK.PRL.CEKSENET
         public FMusteriCekTanim()
         {
             InitializeComponent();
-            
-           
+
+
             _musteriCekServis = new GenericWebServis<PocoMUSTERICEKSB>();
             gridView1.OptionsNavigation.AutoMoveRowFocus = true;
             gridView1.OptionsNavigation.AutoFocusNewRow = true;
@@ -48,11 +48,12 @@ namespace MEYPAK.PRL.CEKSENET
             _cekSenetUstSbServis.Data(ServisList.CekSenetUstSBListeServis);
             _cariKartServis.Data(ServisList.CariListeServis);
             _musteriCekServis.Data(ServisList.MusteriCekSBListeServis);
+            _cariHarServis = new GenericWebServis<PocoCARIHAR>();
 
         }
         #region Tanımlar
         GenericWebServis<PocoMUSTERICEKHAR> _musteriCekHARServis;
-
+        GenericWebServis<PocoCARIHAR> _cariHarServis;
         GenericWebServis<PocoMUSTERICEKSB> _musteriCekServis;
         GenericWebServis<PocoCARIKART> _cariKartServis;
         GenericWebServis<PocoCARIALTHES> _cariAltHesServis;
@@ -73,57 +74,72 @@ namespace MEYPAK.PRL.CEKSENET
             if (MPKullanici.YetkiGetir(AllForms.MUSTERICEKTANIM.ToString()).EKLE == true)
             {
 
-           
+
                 _cekSenetUstSbServis.Data(ServisList.CekSenetUstSBListeServis);
 
-            _cekSenetUstSbServis.Data(ServisList.CekSenetUstSBEkleServis, new PocoCEKSENETUSTSB()
-            {
-                id = tempCekSenetUstSb != null ? tempCekSenetUstSb.id : 0,
-                BORDROTIP = 3,
-                BORDRONO = _cekSenetUstSbServis.obje.Count() > 0 ? (Convert.ToInt32(_cekSenetUstSbServis.obje.LastOrDefault().BORDRONO) + 1).ToString() : "10000000",
-                ALTHESAPID = int.Parse(CBAltHes.EditValue.ToString()),
-                CARIID = _cariKartServis.obje.Where(x => x.kod == BTCariSec.Text).FirstOrDefault().id,
-                TOPLAM = firmaCekKalem.Sum(x => x.TUTAR),
-                userid = MPKullanici.ID,
-            });
-          
-
-
-            foreach (var item in firmaCekKalem)
-            {
-
-
-                _musteriCekServis.Data(ServisList.MusteriCekSBEkleServis, new PocoMUSTERICEKSB()
+                _cekSenetUstSbServis.Data(ServisList.CekSenetUstSBEkleServis, new PocoCEKSENETUSTSB()
                 {
-
-                    USTID = _cekSenetUstSbServis.obje2.id,
-                    BORDRONO = _cekSenetUstSbServis.obje2.BORDRONO,
+                    id = tempCekSenetUstSb != null ? tempCekSenetUstSb.id : 0,
+                    BORDROTIP = 3,
+                    BORDRONO = _cekSenetUstSbServis.obje.Count() > 0 ? (Convert.ToInt32(_cekSenetUstSbServis.obje.LastOrDefault().BORDRONO) + 1).ToString() : "10000000",
+                    ALTHESAPID = int.Parse(CBAltHes.EditValue.ToString()),
                     CARIID = _cariKartServis.obje.Where(x => x.kod == BTCariSec.Text).FirstOrDefault().id,
-                    VADETARIH = item.VADETARIHI,
-                    BANKA = item.BANKA,
-                    SUBE = item.SUBE,
-                    ACIKLAMA1 = item.ACIKLAMA1,
-                    ACIKLAMA2 = item.ACIKLAMA2,
-                    CEKNO = item.CEKNO,
-                    HESAPNO = item.HESAPNO,
-                    IBANNO = item.IBAN,
-                    DOVIZID = item.DOVIZCINSI,
-                    DOVTUTAR = item.DOVIZTUTAR,
-                    ODEMETARIH = item.TARIH,
-                    TUTAR = item.TUTAR,
-                    KUR = 0,
+                    TOPLAM = firmaCekKalem.Sum(x => x.TUTAR),
                     userid = MPKullanici.ID,
-
                 });
 
-                _musteriCekHARServis.Data(ServisList.MusteriCekHarEkleServis, new PocoMUSTERICEKHAR()
+                _cariHarServis.Data(ServisList.CariHarEkleServis, new PocoCARIHAR()
                 {
-                    CEKID = _musteriCekServis.obje2.id,
-                    TARIH = Convert.ToDateTime(DTTarih.Text),
-                    CARID = _musteriCekServis.obje2.CARIID,
-                    ISLEM = 0,
-                    userid = MPKullanici.ID
+                    borc = firmaCekKalem.Sum(x => x.TUTAR),
+                    belgE_NO = _cekSenetUstSbServis.obje2.BORDRONO,
+                    carialthesapid = int.Parse(CBAltHes.EditValue.ToString()),
+                    alacak = 0,
+                    harekettarihi = Convert.ToDateTime(DTTarih.Text),
+                    cariid = tempCari.id,
+                    tutar = firmaCekKalem.Sum(x => x.TUTAR),
+                    kur = 0,
+                    parabirimid = 0,
+                    aciklama = "Müşteri Çek",
+                    userid = MPKullanici.ID,
                 });
+
+                foreach (var item in firmaCekKalem)
+                {
+
+
+                    _musteriCekServis.Data(ServisList.MusteriCekSBEkleServis, new PocoMUSTERICEKSB()
+                    {
+
+                        USTID = _cekSenetUstSbServis.obje2.id,
+                        BORDRONO = _cekSenetUstSbServis.obje2.BORDRONO,
+                        CARIID = _cariKartServis.obje.Where(x => x.kod == BTCariSec.Text).FirstOrDefault().id,
+                        VADETARIH = item.VADETARIHI,
+                        BANKA = item.BANKA,
+                        SUBE = item.SUBE,
+                        ACIKLAMA1 = item.ACIKLAMA1,
+                        ACIKLAMA2 = item.ACIKLAMA2,
+                        CEKNO = item.CEKNO,
+                        HESAPNO = item.HESAPNO,
+                        IBANNO = item.IBAN,
+                        DOVIZID = item.DOVIZCINSI,
+                        DOVTUTAR = item.DOVIZTUTAR,
+                        ODEMETARIH = item.TARIH,
+                        TUTAR = item.TUTAR,
+                        KUR = 0,
+                        userid = MPKullanici.ID,
+
+                    });
+
+                    _musteriCekHARServis.Data(ServisList.MusteriCekHarEkleServis, new PocoMUSTERICEKHAR()
+                    {
+                        CEKID = _musteriCekServis.obje2.id,
+                        TARIH = Convert.ToDateTime(DTTarih.Text),
+                        CARID = _musteriCekServis.obje2.CARIID,
+                        ISLEM = 0,
+                        userid = MPKullanici.ID
+                    });
+                
+    
             }
             }
             else

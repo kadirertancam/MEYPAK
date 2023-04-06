@@ -24,6 +24,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DevExtreme NuGet.config", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WinFormsApp1", "WinFormsApp1\WinFormsApp1.csproj", "{D7FF8F62-7879-4BB3-8015-970C914582D9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MEYPAK.UPDATE", "MEYPAK.UPDATE\MEYPAK.UPDATE.csproj", "{78A6A5F7-945B-4D54-B70D-C7C58EB9223D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -130,6 +132,18 @@ Global
 		{D7FF8F62-7879-4BB3-8015-970C914582D9}.Release|x64.Build.0 = Release|Any CPU
 		{D7FF8F62-7879-4BB3-8015-970C914582D9}.Release|x86.ActiveCfg = Release|Any CPU
 		{D7FF8F62-7879-4BB3-8015-970C914582D9}.Release|x86.Build.0 = Release|Any CPU
+		{78A6A5F7-945B-4D54-B70D-C7C58EB9223D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78A6A5F7-945B-4D54-B70D-C7C58EB9223D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78A6A5F7-945B-4D54-B70D-C7C58EB9223D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{78A6A5F7-945B-4D54-B70D-C7C58EB9223D}.Debug|x64.Build.0 = Debug|Any CPU
+		{78A6A5F7-945B-4D54-B70D-C7C58EB9223D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{78A6A5F7-945B-4D54-B70D-C7C58EB9223D}.Debug|x86.Build.0 = Debug|Any CPU
+		{78A6A5F7-945B-4D54-B70D-C7C58EB9223D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78A6A5F7-945B-4D54-B70D-C7C58EB9223D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78A6A5F7-945B-4D54-B70D-C7C58EB9223D}.Release|x64.ActiveCfg = Release|Any CPU
+		{78A6A5F7-945B-4D54-B70D-C7C58EB9223D}.Release|x64.Build.0 = Release|Any CPU
+		{78A6A5F7-945B-4D54-B70D-C7C58EB9223D}.Release|x86.ActiveCfg = Release|Any CPU
+		{78A6A5F7-945B-4D54-B70D-C7C58EB9223D}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
