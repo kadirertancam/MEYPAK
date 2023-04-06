@@ -32,11 +32,11 @@
             this.progressBarControl = new DevExpress.XtraEditors.MarqueeProgressBarControl();
             this.labelCopyright = new DevExpress.XtraEditors.LabelControl();
             this.labelStatus = new DevExpress.XtraEditors.LabelControl();
-            this.peImage = new DevExpress.XtraEditors.PictureEdit();
             this.peLogo = new DevExpress.XtraEditors.PictureEdit();
+            this.peImage = new DevExpress.XtraEditors.PictureEdit();
             ((System.ComponentModel.ISupportInitialize)(this.progressBarControl.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.peImage.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.peLogo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.peImage.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // progressBarControl
@@ -67,6 +67,22 @@
             this.labelStatus.TabIndex = 7;
             this.labelStatus.Text = "Starting...";
             // 
+            // peLogo
+            // 
+            this.peLogo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.peLogo.EditValue = ((object)(resources.GetObject("peLogo.EditValue")));
+            this.peLogo.Location = new System.Drawing.Point(300, 251);
+            this.peLogo.Name = "peLogo";
+            this.peLogo.Properties.AllowFocused = false;
+            this.peLogo.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.peLogo.Properties.Appearance.Options.UseBackColor = true;
+            this.peLogo.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.peLogo.Properties.ShowMenu = false;
+            this.peLogo.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze;
+            this.peLogo.Size = new System.Drawing.Size(126, 65);
+            this.peLogo.TabIndex = 8;
+            // 
             // peImage
             // 
             this.peImage.Dock = System.Windows.Forms.DockStyle.Top;
@@ -83,22 +99,6 @@
             this.peImage.Size = new System.Drawing.Size(448, 200);
             this.peImage.TabIndex = 9;
             // 
-            // peLogo
-            // 
-            this.peLogo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.peLogo.EditValue = ((object)(resources.GetObject("peLogo.EditValue")));
-            this.peLogo.Location = new System.Drawing.Point(279, 267);
-            this.peLogo.Name = "peLogo";
-            this.peLogo.Properties.AllowFocused = false;
-            this.peLogo.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.peLogo.Properties.Appearance.Options.UseBackColor = true;
-            this.peLogo.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.peLogo.Properties.ShowMenu = false;
-            this.peLogo.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze;
-            this.peLogo.Size = new System.Drawing.Size(158, 42);
-            this.peLogo.TabIndex = 8;
-            // 
             // FUpdate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -114,8 +114,8 @@
             this.Text = "FUpdate";
             this.Load += new System.EventHandler(this.FUpdate_Load);
             ((System.ComponentModel.ISupportInitialize)(this.progressBarControl.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.peImage.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.peLogo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.peImage.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
