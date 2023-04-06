@@ -25,6 +25,7 @@ namespace MEYPAK.UPDATE
         public FGuncelle()
         {
             InitializeComponent();
+            this.labelCopyright.Text = "Copyright © Eliz Meypak";
             httpClient = new HttpClient();
             clientt = new WebClient();
         }
