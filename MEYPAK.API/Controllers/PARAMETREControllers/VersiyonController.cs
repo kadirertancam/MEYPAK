@@ -2,6 +2,8 @@
 
 namespace MEYPAK.API.Controllers.PARAMETREControllers
 {
+    [ApiController]
+    [Route("[controller]")]
     public class VersiyonController : Controller
     {
         public IActionResult Index()
