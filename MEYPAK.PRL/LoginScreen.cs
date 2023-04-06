@@ -83,5 +83,14 @@ namespace MEYPAK.PRL
             //player.Load(@"C:\Users\User\Desktop\Yeni klasör (14)\shutterstock_1063987486.mov");
             //player.Resume();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            
+            if(MessageBox.Show("Çıkış yapmak istediğinize emin misiniz?", "Çıkış", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
     }
 }
