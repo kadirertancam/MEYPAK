@@ -110,6 +110,7 @@
             this.Controls.Add(this.labelCopyright);
             this.Controls.Add(this.progressBarControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.IconOptions.Image = ((System.Drawing.Image)(resources.GetObject("FGuncelle.IconOptions.Image")));
             this.Name = "FGuncelle";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FGuncelle";
