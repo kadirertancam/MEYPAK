@@ -52,7 +52,7 @@
             this.peImage.Properties.ShowMenu = false;
             this.peImage.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
             this.peImage.Properties.SvgImageColorizationMode = DevExpress.Utils.SvgImageColorizationMode.None;
-            this.peImage.Size = new System.Drawing.Size(448, 200);
+            this.peImage.Size = new System.Drawing.Size(523, 200);
             this.peImage.TabIndex = 14;
             // 
             // peLogo
@@ -60,7 +60,7 @@
             this.peLogo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.peLogo.EditValue = ((object)(resources.GetObject("peLogo.EditValue")));
-            this.peLogo.Location = new System.Drawing.Point(255, 250);
+            this.peLogo.Location = new System.Drawing.Point(256, 261);
             this.peLogo.Name = "peLogo";
             this.peLogo.Properties.AllowFocused = false;
             this.peLogo.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
@@ -68,7 +68,7 @@
             this.peLogo.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.peLogo.Properties.ShowMenu = false;
             this.peLogo.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze;
-            this.peLogo.Size = new System.Drawing.Size(181, 68);
+            this.peLogo.Size = new System.Drawing.Size(255, 101);
             this.peLogo.TabIndex = 13;
             // 
             // labelStatus
@@ -83,7 +83,7 @@
             // labelCopyright
             // 
             this.labelCopyright.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.labelCopyright.Location = new System.Drawing.Point(12, 302);
+            this.labelCopyright.Location = new System.Drawing.Point(12, 339);
             this.labelCopyright.Name = "labelCopyright";
             this.labelCopyright.Size = new System.Drawing.Size(47, 13);
             this.labelCopyright.TabIndex = 11;
@@ -96,14 +96,14 @@
             this.progressBarControl.EditValue = 0;
             this.progressBarControl.Location = new System.Drawing.Point(12, 227);
             this.progressBarControl.Name = "progressBarControl";
-            this.progressBarControl.Size = new System.Drawing.Size(424, 12);
+            this.progressBarControl.Size = new System.Drawing.Size(499, 12);
             this.progressBarControl.TabIndex = 10;
             // 
             // FGuncelle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(448, 330);
+            this.ClientSize = new System.Drawing.Size(523, 374);
             this.Controls.Add(this.peImage);
             this.Controls.Add(this.peLogo);
             this.Controls.Add(this.labelStatus);
