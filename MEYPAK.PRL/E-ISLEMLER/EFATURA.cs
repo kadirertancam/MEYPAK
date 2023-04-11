@@ -1,9 +1,12 @@
-﻿using DevExpress.XtraEditors;
+﻿using DevExpress.Mvvm.Native;
+using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid.Views.Grid;
+using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.PocoModels;
 using MEYPAK.Entity.PocoModels.CARI;
+using MEYPAK.Entity.PocoModels.FATURA;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.PRL.Assets;
 using MEYPAK.PRL.CARI;
@@ -29,8 +32,16 @@ namespace MEYPAK.PRL.E_ISLEMLER
         ServiceReference1.IntegrationClient ıntegrationClient = new ServiceReference1.IntegrationClient();
         ServiceReference2.BasicIntegrationClient basicIntegration = new ServiceReference2.BasicIntegrationClient();
         ServiceReference1.WhoAmIInfo bb;
+        List<InboxInvoiceListItem> gelenefaturatasktemp;
+        InvoiceResponse tempp;
+        List<FaturaDetailList> tempdetay; 
+        InboxInvoiceListResponse res;
+        RepositoryItemButtonEdit repositoryItemButtonEdit3;
         public PocoSTOK _tempStok;
         public PocoCARIKART _tempCari;
+        GenericWebServis<PocoSTOK> _stokServis;
+        GenericWebServis<PocoCARIKART> _cariServis;
+
         public EFATURA() 
         {
             InitializeComponent();
@@ -40,21 +51,22 @@ namespace MEYPAK.PRL.E_ISLEMLER
             bb = new WhoAmIInfo();
             DTPBastar.Text = DateTime.Now.AddDays(-1).ToString();
             DTPBittar.Text = DateTime.Now.ToString();
-
+            _stokServis = new GenericWebServis<PocoSTOK>();
+            _cariServis = new GenericWebServis<PocoCARIKART>();
 
         }
 
+        
+       
         private void gridView1_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
         {
-           
-            
+
+
         }
 
         private void gridView1_Click(object sender, EventArgs e)
         {
         }
-        InvoiceResponse tempp;
-        List<FaturaDetailList> tempdetay;
         private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
             
@@ -71,8 +83,6 @@ namespace MEYPAK.PRL.E_ISLEMLER
             gridControl2.DataSource = tempdetay;
             gridView2.Columns["KOD"].ColumnEdit = repositoryItemButtonEdit; 
         }
-        InboxInvoiceListResponse res;
-        RepositoryItemButtonEdit repositoryItemButtonEdit3;
         private void simpleButton1_Click(object sender, EventArgs e)
         {
            
@@ -127,7 +137,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
             repositoryItemButtonEdit3.Buttons[0].Shortcut = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.Enter);
             repositoryItemButtonEdit3.ButtonClick += RepositoryItemButtonEdit3_ButtonClick; ;
 
-
+            gelenefaturatasktemp = res.Value.Items.ToList();
             if (res.Value.Items != null)
                 gridControl1.DataSource = res.Value.Items.Select(x => new EFaturaGelenTask { SEC = false, ID = x.InvoiceId, CARISEC = "", FATURALASTIR = "", BASIM = "", VKNTCK = x.TargetTcknVkn, CARIADI = x.TargetTitle, BELGENO = x.InvoiceId, TARIH = x.CreateDateUtc, VADETARIHI = x.ExecutionDate, TUTAR = x.TaxExclusiveAmount, KDV = x.TaxTotal, FATURATIP = x.Type.ToString(), ARSIVLENMIS = x.IsArchived, TIP = x.InvoiceTipType.ToString(), ETTNO = x.DocumentId, DURUM = x.StatusCode == 1000 ? "ONAYLANDI" : "BEKLEMEDE" });
             else
@@ -142,14 +152,40 @@ namespace MEYPAK.PRL.E_ISLEMLER
         private void RepositoryItemButtonEdit_ButtonClick1(object sender, ButtonPressedEventArgs e)
         {
             //FATURALAŞTIR
-            List<PocoFaturaKalem> kalem = new List<PocoFaturaKalem>();
-            foreach (var item in tempdetay)
+            _stokServis.Data(ServisList.StokListeServis);
+            PocoFATURA fatura = new PocoFATURA();
+            List<PocoFATURADETAY> faturakalem = new List<PocoFATURADETAY>();
+            foreach (var item in (List<FaturaDetailList>)gridControl2.DataSource)
             {
-                kalem.Add(new PocoFaturaKalem()
+                var tempstok = _stokServis.obje.Where(x => x.kod == item.KOD).FirstOrDefault();
+                faturakalem.Add(new PocoFATURADETAY()
                 {
-                    StokAdı = item.KOD
+                    stokid = tempstok.id,
+                    stokadi= tempstok.adi,
+                     safi=item.MIKTAR,
+                    birimid=1,
+                     netfiyat=item.NETFIYAT,
+                      bruttoplam=item.TUTAR,
+                     userid=MPKullanici.ID,
+                       
+
                 });
-            } 
+            }
+            var faturaust = (EFaturaGelenTask)gridView1.GetFocusedRow();
+            _cariServis.Data(ServisList.CariListeServis);
+            var tmpcari=_cariServis.obje.Where(x => x.kod == faturaust.CARISEC).FirstOrDefault();
+            var secilitempfat = gelenefaturatasktemp.Where(x => x.DocumentId == faturaust.ETTNO).FirstOrDefault();
+            fatura.cariid = tmpcari.id;
+            fatura.belgeno = faturaust.BELGENO;    
+            if (faturaust.VADETARIHI.HasValue)   
+                fatura.vadetarihi = faturaust.VADETARIHI.Value;
+            fatura.kdvtoplam = faturaust.KDV;
+            fatura.geneltoplam = faturaust.TUTAR;
+            fatura.bruttoplam =  secilitempfat.TaxExclusiveAmount;
+            fatura.nettoplam = faturaust.TUTAR - faturaust.KDV;
+            fatura.iskontotoplam = fatura.bruttoplam - fatura.nettoplam;
+
+           FFatura f = new FFatura();
         }
 
         private void RepositoryItemButtonEdit3_ButtonClick(object sender, ButtonPressedEventArgs e)

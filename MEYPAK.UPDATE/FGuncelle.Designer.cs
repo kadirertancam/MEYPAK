@@ -124,7 +124,7 @@
         }
 
         #endregion
-
+        
         private DevExpress.XtraEditors.PictureEdit peImage;
         private DevExpress.XtraEditors.PictureEdit peLogo;
         private DevExpress.XtraEditors.LabelControl labelStatus;

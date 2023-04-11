@@ -15,7 +15,7 @@ namespace MEYPAK.PRL.Assets
         public string FATURALASTIR { get; set; }
         public string BASIM { get; set; }
         public string VKNTCK { get; set; }
-        public string CARIADI { get; set; }
+        public string CARIADI { get; set; } 
         public string BELGENO { get; set; }
         public DateTime? TARIH { get; set; }
         public DateTime? VADETARIHI { get; set; }
