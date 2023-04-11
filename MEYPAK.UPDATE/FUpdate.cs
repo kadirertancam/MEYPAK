@@ -174,5 +174,10 @@ namespace MEYPAK.UPDATE
                 labelStatus.Text = $"Yeni versiyon indiriliyor.. %{e.ProgressPercentage}";
             }));
         }
+
+        private void peLogo_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

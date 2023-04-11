@@ -27,9 +27,13 @@ namespace MEYPAK.PRL.ARAÇLAR
         GenericWebServis<PocoARACRUHSATRESIM> _aracServisRUHSATRESIMServis;
         GenericWebServis<PocoARACMODEL> _aracModelServis;
         GenericWebServis<PocoPERSONEL> _personelServis;
+        GenericWebServis<PocoPERSONELGOREV> _personelgorevServis;
+        GenericWebServis<PocoPERSONELDEPARTMAN> _personeldepartmanServis;
         public FAracTanim()
         {
+            _personeldepartmanServis = new GenericWebServis<PocoPERSONELDEPARTMAN>();
             _personelServis = new GenericWebServis<PocoPERSONEL>();
+            _personelgorevServis= new GenericWebServis<PocoPERSONELGOREV>();
             _aracServisRUHSATRESIMServis = new GenericWebServis<PocoARACRUHSATRESIM>();
             _aracModelServis = new GenericWebServis<PocoARACMODEL>();
             _aracServis = new GenericWebServis<PocoARAC>();
@@ -108,18 +112,35 @@ namespace MEYPAK.PRL.ARAÇLAR
         void CombolarıDoldur()
         {
             _aracModelServis.Data(ServisList.AracModelListeServis);
+            
+
             CBMarka.Properties.DataSource = (from temp in _aracModelServis.obje group temp by temp.markaadi into temp select new { ADI = temp.FirstOrDefault().markaadi, ID = temp.FirstOrDefault().id }).OrderBy(x => x.ADI);
             CBMarka.Properties.ValueMember = "ID";
             CBMarka.Properties.DisplayMember = "ADI";
+       
 
             _personelServis.Data(ServisList.PersonelListeServis);
-            CBSofor1.Properties.DataSource = _personelServis.obje.Where(x => x.kayittipi == 0).Select(x => new { ADI = x.adisoyadi, ID = x.id });
-            CBSofor1.Properties.ValueMember = "ID";
-            CBSofor1.Properties.DisplayMember = "ADI";
+            _personeldepartmanServis.Data(ServisList.PersonelDepartmanListeServis); //.Where(x => x.personeldepartmanid == _personeldepartmanServis.obje.Where(x => x.adi == "LOJİSTİK").FirstOrDefault().id)
 
-            CBSofor2.Properties.DataSource = _personelServis.obje.Where(x => x.kayittipi == 0).Select(x => new { ADI = x.adisoyadi, ID = x.id });
+            DataTable dt = new DataTable();
+            dt.Columns.Add("ID");
+            dt.Columns.Add("ADI");
+
+            foreach (var item in _personelServis.obje.Where(x => x.personeldepartmanid == _personeldepartmanServis.obje.Where(x => x.adi == "LOJİSTİK").FirstOrDefault().id))
+            {
+                dt.Rows.Add(item.id, item.adisoyadi);
+            } 
+
+            dt.Columns[0].ColumnMapping = MappingType.Hidden;
+
+            CBSofor1.Properties.DataSource = dt; 
+            CBSofor1.Properties.DisplayMember = "ADI";
+            CBSofor1.Properties.ValueMember = "ID";
+
+            CBSofor2.Properties.DataSource = dt;
             CBSofor2.Properties.ValueMember = "ID";
             CBSofor2.Properties.DisplayMember = "ADI";
+
         }
         #endregion
 

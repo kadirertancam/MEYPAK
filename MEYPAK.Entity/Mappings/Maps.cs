@@ -105,6 +105,7 @@ namespace MEYPAK.Entity.Mappings
            
             //PARAMETRE
 
+            CreateMap<MPVERSION, PocoVERSION>().ReverseMap();
             CreateMap<MPPARABIRIM, PocoPARABIRIM>().ReverseMap();
             CreateMap<MPPERSONELPARAMETRE, PocoPERSONELPARAMETRE>().ReverseMap();
             CreateMap<MPSERIHAR, PocoSERIHAR>().ReverseMap(); 
