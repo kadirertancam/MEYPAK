@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup1 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
-            DevExpress.XtraBars.Ribbon.GalleryItem galleryItem1 = new DevExpress.XtraBars.Ribbon.GalleryItem();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup2 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+            DevExpress.XtraBars.Ribbon.GalleryItem galleryItem2 = new DevExpress.XtraBars.Ribbon.GalleryItem();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -112,7 +112,6 @@
             this.barButtonItem18 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem39 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem38 = new DevExpress.XtraBars.BarButtonItem();
-            this.panel6 = new System.Windows.Forms.Panel();
             this.accordionControl1 = new DevExpress.XtraBars.Navigation.AccordionControl();
             this.accordionControlElement19 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEKullanici = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -241,6 +240,11 @@
             this.ACEKullaniciTanim = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEDestekServis = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEDestekServis1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACEFirmaBilgi = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement69 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement68 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement67 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.galleryDropDown1 = new DevExpress.XtraBars.Ribbon.GalleryDropDown(this.components);
             this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
             this.applicationMenu1 = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
@@ -948,16 +952,6 @@
             this.barButtonItem38.Id = 74;
             this.barButtonItem38.Name = "barButtonItem38";
             // 
-            // panel6
-            // 
-            this.panel6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel6.BackgroundImage")));
-            this.panel6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(0, 0);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(846, 540);
-            this.panel6.TabIndex = 1;
-            // 
             // accordionControl1
             // 
             this.accordionControl1.Dock = System.Windows.Forms.DockStyle.Left;
@@ -976,11 +970,13 @@
             this.ACEARAC,
             this.ACEPARAMETRELER,
             this.ACEKullaniciYönetim,
-            this.ACEDestekServis});
+            this.ACEDestekServis,
+            this.ACEFirmaBilgi});
             this.accordionControl1.Location = new System.Drawing.Point(0, 0);
             this.accordionControl1.LookAndFeel.SkinName = "Visual Studio 2013 Dark";
             this.accordionControl1.LookAndFeel.UseDefaultLookAndFeel = false;
             this.accordionControl1.Name = "accordionControl1";
+            this.accordionControl1.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Auto;
             this.accordionControl1.ShowFilterControl = DevExpress.XtraBars.Navigation.ShowFilterControl.Always;
             this.accordionControl1.Size = new System.Drawing.Size(250, 607);
             this.accordionControl1.TabIndex = 1;
@@ -2231,7 +2227,7 @@
             this.ACEKullaniciYönetim.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.ACEKullaniciTanim});
             this.ACEKullaniciYönetim.Enabled = false;
-            this.ACEKullaniciYönetim.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("ACEKullaniciYönetim.ImageOptions.SvgImage")));
+            this.ACEKullaniciYönetim.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ACEKullaniciYönetim.ImageOptions.Image")));
             this.ACEKullaniciYönetim.Name = "ACEKullaniciYönetim";
             this.ACEKullaniciYönetim.Text = "Kullanıcı Yönetimi";
             this.ACEKullaniciYönetim.Visible = false;
@@ -2252,6 +2248,7 @@
             this.ACEDestekServis.Appearance.Default.Options.UseForeColor = true;
             this.ACEDestekServis.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.ACEDestekServis1});
+            this.ACEDestekServis.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ACEDestekServis.ImageOptions.Image")));
             this.ACEDestekServis.Name = "ACEDestekServis";
             this.ACEDestekServis.Text = "Destek Servis";
             // 
@@ -2262,17 +2259,64 @@
             this.ACEDestekServis1.Text = "Destek Servis";
             this.ACEDestekServis1.Click += new System.EventHandler(this.ACEDestekServis1_Click);
             // 
+            // ACEFirmaBilgi
+            // 
+            this.ACEFirmaBilgi.Appearance.Default.ForeColor = System.Drawing.Color.Silver;
+            this.ACEFirmaBilgi.Appearance.Default.Options.UseForeColor = true;
+            this.ACEFirmaBilgi.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.accordionControlElement69,
+            this.accordionControlElement68,
+            this.accordionControlElement67});
+            this.ACEFirmaBilgi.Expanded = true;
+            this.ACEFirmaBilgi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ACEFirmaBilgi.ImageOptions.Image")));
+            this.ACEFirmaBilgi.Name = "ACEFirmaBilgi";
+            this.ACEFirmaBilgi.Text = "Gündüz MEY-PAK Gıda Tic.Ltd.Şti";
+            // 
+            // accordionControlElement69
+            // 
+            this.accordionControlElement69.Appearance.Default.ForeColor = System.Drawing.Color.Silver;
+            this.accordionControlElement69.Appearance.Default.Options.UseForeColor = true;
+            this.accordionControlElement69.Expanded = true;
+            this.accordionControlElement69.Name = "accordionControlElement69";
+            this.accordionControlElement69.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement69.Text = "VD Kızılbey 430 058 0693";
+            // 
+            // accordionControlElement68
+            // 
+            this.accordionControlElement68.Appearance.Default.ForeColor = System.Drawing.Color.Silver;
+            this.accordionControlElement68.Appearance.Default.Options.UseForeColor = true;
+            this.accordionControlElement68.Name = "accordionControlElement68";
+            this.accordionControlElement68.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement68.Text = "Bahçekapı Mah. 2471 Sokak No:1 Şaşmaz/Ankara";
+            // 
+            // accordionControlElement67
+            // 
+            this.accordionControlElement67.Appearance.Default.ForeColor = System.Drawing.Color.Silver;
+            this.accordionControlElement67.Appearance.Default.Options.UseForeColor = true;
+            this.accordionControlElement67.Name = "accordionControlElement67";
+            this.accordionControlElement67.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement67.Text = "Instagram: @gunduzmeypak";
+            // 
+            // panel6
+            // 
+            this.panel6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(0, 0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(846, 540);
+            this.panel6.TabIndex = 1;
+            // 
             // galleryDropDown1
             // 
             // 
             // 
             // 
-            galleryItemGroup1.Caption = "Group1";
-            galleryItem1.Caption = "Item1";
-            galleryItemGroup1.Items.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItem[] {
-            galleryItem1});
+            galleryItemGroup2.Caption = "Group1";
+            galleryItem2.Caption = "Item1";
+            galleryItemGroup2.Items.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItem[] {
+            galleryItem2});
             this.galleryDropDown1.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
-            galleryItemGroup1});
+            galleryItemGroup2});
             this.galleryDropDown1.Manager = this.barManager1;
             this.galleryDropDown1.Name = "galleryDropDown1";
             // 
@@ -2569,5 +2613,9 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEDestekServis1;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.PictureEdit pictureEdit1;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ACEFirmaBilgi;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement69;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement68;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement67;
     }
 }
