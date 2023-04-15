@@ -116,6 +116,10 @@ builder.Services.AddAutoMapper(x =>
     x.AddExpressionMapping(); //expressionlari maplemek içindir
     x.AddProfile(typeof(Maps));
 });
+#region VERSION
+builder.Services.AddScoped<IVersionDal, EFVersionRepo>();
+builder.Services.AddScoped<IVersionServis, VersionManager>();
+#endregion
 
 #region MUSTAHSIL
 builder.Services.AddScoped<IMustahsilDal, EFMustahsilRepo>();
@@ -154,6 +158,7 @@ builder.Services.AddScoped<IEFaturaParamServis, EFaturaParamsManager>();
 builder.Services.AddScoped<IDekontDal, EFDekontRepo>();
 builder.Services.AddScoped<IDekontServis, DekontManager>();
 #endregion
+
 #region FaturaStokOlcuBr
 
 builder.Services.AddScoped<IFaturaStokOlcuBrDal, EFFaturaStokOlcuBrRepo>();
