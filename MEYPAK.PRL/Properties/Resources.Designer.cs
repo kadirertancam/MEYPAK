@@ -121,6 +121,16 @@ namespace MEYPAK.PRL.Properties {
         }
         
         /// <summary>
+        ///   System.Byte[] türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static byte[] il_ilce {
+            get {
+                object obj = ResourceManager.GetObject("il-ilce", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
         internal static System.Drawing.Bitmap kategoriarti {
@@ -167,6 +177,16 @@ namespace MEYPAK.PRL.Properties {
             get {
                 object obj = ResourceManager.GetObject("StokNullResim", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Byte[] türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static byte[] ulkeler {
+            get {
+                object obj = ResourceManager.GetObject("ulkeler", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         

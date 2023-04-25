@@ -440,15 +440,31 @@ namespace MEYPAK.PRL.PERSONEL
         void CombolarıDoldur()
         {
             PersonelDepartmanComboDoldur();
-            string url = @"https://elizmeypak.com.tr/il-ilce.json";
+            //string url = @"https://elizmeypak.com.tr/il-ilce.json";
 
 
-            using (Stream s = GetStreamFromUrl(url))
-            using (StreamReader sr = new StreamReader(s))
-                while (!sr.EndOfStream)
-                {
-                    _adresObje = JsonConvert.DeserializeObject<ADRESOBJECT.Root>(sr.ReadToEnd());
-                }
+            //using (Stream s = GetStreamFromUrl(url))
+            //using (StreamReader sr = new StreamReader(s))
+            //    while (!sr.EndOfStream)
+            //    {
+            //        _adresObje = JsonConvert.DeserializeObject<ADRESOBJECT.Root>(sr.ReadToEnd());
+            //    }
+            var jsonBytes = Properties.Resources.il_ilce;
+            var jsonString = Encoding.UTF8.GetString(jsonBytes);
+
+            // Geçici bir dosya oluştur ve jsonString'i bu dosyaya yaz.
+            string tempDirPath = Path.GetTempPath();
+            string tempFilePath = Path.Combine(tempDirPath, "temp.json");
+            File.WriteAllText(tempFilePath, jsonString);
+
+            // Dosyayı oku ve kullan.
+            string jsonFromFile = File.ReadAllText(tempFilePath);
+
+            // Geçici dosyayı sil.
+            File.Delete(tempFilePath);
+
+            _adresObje = JsonConvert.DeserializeObject<ADRESOBJECT.Root>(jsonFromFile);
+
             CBAdresIL.Properties.DataSource = _adresObje.data.Select(x => x.il_adi);
             CBNufIl.Properties.DataSource = _adresObje.data.Select(x => x.il_adi);
 

@@ -3,6 +3,7 @@ using DevExpress.Mvvm.POCO;
 using DevExpress.Text.Interop;
 using DevExpress.Utils;
 using DevExpress.XtraEditors;
+using DevExpress.XtraPrinting;
 using DevExpress.XtraSpreadsheet.Import.OpenXml;
 using DevExpress.XtraTab;
 using MEYPAK.BLL.Assets;
@@ -25,6 +26,7 @@ using System;
 using System.Data;
 using System.IO;
 using System.Net.Http;
+using System.Text;
 
 namespace MEYPAK.PRL.CARI
 {
@@ -263,29 +265,64 @@ namespace MEYPAK.PRL.CARI
         }
         public void FCariKart_Load(object sender, EventArgs e)
         {
-            //Il combosu
+        
+            #region ILCombobox
+            //string url = @"http://elizmeypak.com.tr/il-ilce.json";
+            //string url2 = @"http://elizmeypak.com.tr/ulkeler.json";
 
-            string url = @"http://elizmeypak.com.tr/il-ilce.json";
-            string url2 = @"http://elizmeypak.com.tr/ulkeler.json";
+            //using (Stream s = GetStreamFromUrl(url))
+            //using (StreamReader sr = new StreamReader(s))
+            //    while (!sr.EndOfStream)
+            //    {
+            //        _adresObje = JsonConvert.DeserializeObject<ADRESOBJECT.Root>(sr.ReadToEnd());
+            //    }
 
-            using (Stream s = GetStreamFromUrl(url))
-            using (StreamReader sr = new StreamReader(s))
-                while (!sr.EndOfStream)
-                {
-                    _adresObje = JsonConvert.DeserializeObject<ADRESOBJECT.Root>(sr.ReadToEnd());
-                }
+
+            var jsonBytes = Properties.Resources.il_ilce;
+            var jsonString = Encoding.UTF8.GetString(jsonBytes);
+
+            // Geçici bir dosya oluştur ve jsonString'i bu dosyaya yaz.
+            string tempDirPath = Path.GetTempPath();
+            string tempFilePath = Path.Combine(tempDirPath, "temp.json");
+            File.WriteAllText(tempFilePath, jsonString);
+
+            // Dosyayı oku ve kullan.
+            string jsonFromFile = File.ReadAllText(tempFilePath);
+
+            // Geçici dosyayı sil.
+            File.Delete(tempFilePath);
+
+            _adresObje = JsonConvert.DeserializeObject<ADRESOBJECT.Root>(jsonFromFile);
+
             CBIl.Properties.DataSource = _adresObje.data.Select(x => x.il_adi);
             CBSevkIl.Properties.DataSource = _adresObje.data.Select(x => x.il_adi);
-            //Ulke Combosu
+            #endregion
+     
+            #region UlkeCombobox
+            //using (Stream s = GetStreamFromUrl(url2))
+            //using (StreamReader sr = new StreamReader(s))
+            //    while (!sr.EndOfStream)
+            //    {
+            //        _ulkeList = JsonConvert.DeserializeObject<UlkeList.Root>(sr.ReadToEnd());
+            //    }
 
-            using (Stream s = GetStreamFromUrl(url2))
-            using (StreamReader sr = new StreamReader(s))
-                while (!sr.EndOfStream)
-                {
-                    _ulkeList = JsonConvert.DeserializeObject<UlkeList.Root>(sr.ReadToEnd());
-                }
+            jsonBytes = Properties.Resources.ulkeler;
+             jsonString = Encoding.UTF8.GetString(jsonBytes);
+
+            // Geçici bir dosya oluştur ve jsonString'i bu dosyaya yaz.
+             tempDirPath = Path.GetTempPath();
+             tempFilePath = Path.Combine(tempDirPath, "temp.json");
+            File.WriteAllText(tempFilePath, jsonString);
+
+            // Dosyayı oku ve kullan.
+            jsonFromFile = File.ReadAllText(tempFilePath);
+
+            // Geçici dosyayı sil.
+            File.Delete(tempFilePath);
+            _ulkeList = JsonConvert.DeserializeObject<UlkeList.Root>(jsonFromFile);
+
             CBUlke.Properties.DataSource = _ulkeList.Ulke.Select(x => x.ulkeadi);
-
+            #endregion
             if (_tempCariKart != null)
             {
                 Doldur();
