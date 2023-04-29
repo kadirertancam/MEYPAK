@@ -4564,6 +4564,39 @@ namespace MEYPAK.DAL.Migrations
                     b.ToTable("MPSERIHAR");
                 });
 
+            modelBuilder.Entity("MEYPAK.Entity.Models.PARAMETRE.MPVERSION", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+
+                    b.Property<int>("ESKIID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("GUNCELLEMETARIHI")
+                        .HasColumnType("datetime2");
+
+                    b.Property<byte>("KAYITTIPI")
+                        .HasColumnType("tinyint");
+
+                    b.Property<DateTime>("OLUSTURMATARIHI")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("VERSION")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("MPVERSION");
+                });
+
             modelBuilder.Entity("MEYPAK.Entity.Models.PERSONEL.MPPERSONEL", b =>
                 {
                     b.Property<int>("ID")

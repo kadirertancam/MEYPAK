@@ -155,6 +155,7 @@ namespace MEYPAK.PRL
         FMustahsil fMustahsilMakbuz;
         FGidenEMustahsil fGidenEMustahsil;
         FDestekServis fDestekServis;
+       
 
         public Tarih_Date _tarih_Date = new Tarih_Date();
         public DataTable guncelkur;
@@ -245,9 +246,9 @@ namespace MEYPAK.PRL
                             {
                                 foreach (AccordionControlElement Element in Categorys.Elements)
                                 {
-                                   
+
                                     string Tag = Element.Tag != null ? Element.Tag.ToString() : "";
-                                    if (Tag!=""&&FormAdi!=""&& Tag==FormAdi)
+                                    if (Tag != "" && FormAdi != "" && Tag == FormAdi)
                                     {
                                         category++;
                                         Element.Visible = true;
@@ -264,7 +265,7 @@ namespace MEYPAK.PRL
                             else
                             {
                                 string Tag = Categorys.Tag != null ? Categorys.Tag.ToString() : "";
-                                if (Tag!=""&&FormAdi!=""&& Tag==FormAdi)
+                                if (Tag != "" && FormAdi != "" && Tag == FormAdi)
                                 {
                                     menu++;
                                     Categorys.Visible = true;
@@ -301,8 +302,8 @@ namespace MEYPAK.PRL
             }
 
             ACEKullanici.Text = Kullanici.AD + " " + Kullanici.SOYAD;
-            
-        } 
+
+        }
 
 
 
@@ -1941,10 +1942,10 @@ namespace MEYPAK.PRL
             Anasayfa.TabPages.Add(page);
             Anasayfa.SelectedTabPage = page;
 
-           fGidenEArsiv.FormBorderStyle = FormBorderStyle.None;
-           fGidenEArsiv.TopLevel = false;
-           fGidenEArsiv.AutoScroll = true;
-           fGidenEArsiv.Dock = DockStyle.Fill;
+            fGidenEArsiv.FormBorderStyle = FormBorderStyle.None;
+            fGidenEArsiv.TopLevel = false;
+            fGidenEArsiv.AutoScroll = true;
+            fGidenEArsiv.Dock = DockStyle.Fill;
             fGidenEArsiv.Tag = "FGidenEArsiv" + i;
             page.Controls.Add(fGidenEArsiv);
             fGidenEArsiv.Show();
@@ -2040,7 +2041,7 @@ namespace MEYPAK.PRL
             i++;
         }
 
-   
+
         private void ACEDestekServis1_Click(object sender, EventArgs e)
         {
             XtraTabPage page = new XtraTabPage();
@@ -2061,5 +2062,7 @@ namespace MEYPAK.PRL
             fDestekServis.Show();
             i++;
         }
+
     }
 }
+
