@@ -20,7 +20,7 @@ namespace MEYPAK.DAL.Concrete.ADONET
 
         public AdoConnect()
         {
-            string aaa = "Server=78.135.80.41;Database=MEYPAKTEST;User Id=sa;Password=sapass_1;";
+            string aaa = "Server=78.135.80.41;Database=MEYPAK;User Id=sa;Password=sapass_1;";
             con = new SqlConnection(aaa);
         }
  
@@ -71,6 +71,27 @@ namespace MEYPAK.DAL.Concrete.ADONET
             adapter.Fill(dt);
             Kapa();
             return dt;
+
+        }
+        public DataSet komutoku2(string deger)
+        {
+            Ac();
+            ////adapter = new MySqlDataAdapter(deger, con);
+            ////dt = new DataTable();
+
+
+            ////adapter.Fill(dt);
+            ////Kapa();
+            ////return dt;
+
+
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            adapter.SelectCommand = new SqlCommand(deger, con);
+            adapter.SelectCommand.CommandTimeout = 9999;
+            DataSet ds = new DataSet();
+            adapter.Fill(ds);
+
+            return ds;
 
         }
     }

@@ -112,7 +112,6 @@
             this.barButtonItem18 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem39 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem38 = new DevExpress.XtraBars.BarButtonItem();
-            this.panel6 = new System.Windows.Forms.Panel();
             this.accordionControl1 = new DevExpress.XtraBars.Navigation.AccordionControl();
             this.accordionControlElement19 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEKullanici = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -241,6 +240,7 @@
             this.ACEKullaniciTanim = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEDestekServis = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEDestekServis1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.galleryDropDown1 = new DevExpress.XtraBars.Ribbon.GalleryDropDown(this.components);
             this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
             this.applicationMenu1 = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
@@ -948,16 +948,6 @@
             this.barButtonItem38.Id = 74;
             this.barButtonItem38.Name = "barButtonItem38";
             // 
-            // panel6
-            // 
-            this.panel6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel6.BackgroundImage")));
-            this.panel6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(0, 0);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(846, 540);
-            this.panel6.TabIndex = 1;
-            // 
             // accordionControl1
             // 
             this.accordionControl1.Dock = System.Windows.Forms.DockStyle.Left;
@@ -1027,6 +1017,7 @@
             this.accordionControlElement3,
             this.accordionControlElement4});
             this.ACESTOK.Enabled = false;
+            this.ACESTOK.Expanded = true;
             this.ACESTOK.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("ACESTOK.ImageOptions.SvgImage")));
             this.ACESTOK.ImageOptions.SvgImageSize = new System.Drawing.Size(32, 32);
             this.ACESTOK.Name = "ACESTOK";
@@ -1048,6 +1039,7 @@
             this.accordionControlElement48,
             this.accordionControlElement61});
             this.accordionControlElement2.Enabled = false;
+            this.accordionControlElement2.Expanded = true;
             this.accordionControlElement2.HeaderTemplate.AddRange(new DevExpress.XtraBars.Navigation.HeaderElementInfo[] {
             new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.Text),
             new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.Image),
@@ -1809,6 +1801,7 @@
             // 
             // ACECekSenetRapor
             // 
+            this.ACECekSenetRapor.Expanded = true;
             this.ACECekSenetRapor.Name = "ACECekSenetRapor";
             this.ACECekSenetRapor.Text = "Raporlar";
             // 
@@ -2021,7 +2014,6 @@
             this.accordionControlElement20.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.accordionControlElement22,
             this.accordionControlElement21});
-            this.accordionControlElement20.Expanded = true;
             this.accordionControlElement20.Name = "accordionControlElement20";
             this.accordionControlElement20.Text = "EIrsaliye";
             // 
@@ -2044,7 +2036,6 @@
             // 
             this.ACEEMustahsilM.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.ACEEMustahsilGiden});
-            this.ACEEMustahsilM.Expanded = true;
             this.ACEEMustahsilM.Name = "ACEEMustahsilM";
             this.ACEEMustahsilM.Text = "EMustahsilMakbuzu";
             // 
@@ -2261,6 +2252,15 @@
             this.ACEDestekServis1.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.ACEDestekServis1.Text = "Destek Servis";
             this.ACEDestekServis1.Click += new System.EventHandler(this.ACEDestekServis1_Click);
+            // 
+            // panel6
+            // 
+            this.panel6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(0, 0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(846, 540);
+            this.panel6.TabIndex = 1;
             // 
             // galleryDropDown1
             // 

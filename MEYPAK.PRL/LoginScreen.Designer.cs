@@ -32,13 +32,13 @@
             this.TBEmail = new DevExpress.XtraEditors.TextEdit();
             this.TBSifre = new DevExpress.XtraEditors.TextEdit();
             this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.comboBoxEdit2 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.BTNGiris = new DevExpress.XtraEditors.SimpleButton();
             this.label1 = new System.Windows.Forms.Label();
+            this.lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.TBEmail.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBSifre.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // TBEmail
@@ -94,28 +94,6 @@
             this.comboBoxEdit1.Size = new System.Drawing.Size(201, 30);
             this.comboBoxEdit1.TabIndex = 2;
             // 
-            // comboBoxEdit2
-            // 
-            this.comboBoxEdit2.EditValue = "Merkez";
-            this.comboBoxEdit2.Location = new System.Drawing.Point(469, 203);
-            this.comboBoxEdit2.Name = "comboBoxEdit2";
-            this.comboBoxEdit2.Properties.Appearance.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.comboBoxEdit2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBoxEdit2.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.comboBoxEdit2.Properties.Appearance.Options.UseBackColor = true;
-            this.comboBoxEdit2.Properties.Appearance.Options.UseFont = true;
-            this.comboBoxEdit2.Properties.Appearance.Options.UseForeColor = true;
-            this.comboBoxEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit2.Properties.Items.AddRange(new object[] {
-            "ŞAŞMAZ DEPO",
-            "ANTALYA DEPO",
-            "MERSİN DEPO"});
-            this.comboBoxEdit2.Properties.NullText = "Şube";
-            this.comboBoxEdit2.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.comboBoxEdit2.Size = new System.Drawing.Size(201, 30);
-            this.comboBoxEdit2.TabIndex = 3;
-            // 
             // BTNGiris
             // 
             this.BTNGiris.Appearance.BackColor = System.Drawing.Color.MediumSeaGreen;
@@ -146,6 +124,18 @@
             this.label1.Text = "X";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
+            // lookUpEdit1
+            // 
+            this.lookUpEdit1.Location = new System.Drawing.Point(469, 203);
+            this.lookUpEdit1.Name = "lookUpEdit1";
+            this.lookUpEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lookUpEdit1.Properties.Appearance.Options.UseFont = true;
+            this.lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpEdit1.Properties.NullText = "";
+            this.lookUpEdit1.Size = new System.Drawing.Size(201, 28);
+            this.lookUpEdit1.TabIndex = 6;
+            // 
             // LoginScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -153,9 +143,9 @@
             this.BackgroundImageLayoutStore = System.Windows.Forms.ImageLayout.Stretch;
             this.BackgroundImageStore = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImageStore")));
             this.ClientSize = new System.Drawing.Size(801, 472);
+            this.Controls.Add(this.lookUpEdit1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BTNGiris);
-            this.Controls.Add(this.comboBoxEdit2);
             this.Controls.Add(this.comboBoxEdit1);
             this.Controls.Add(this.TBSifre);
             this.Controls.Add(this.TBEmail);
@@ -168,7 +158,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.TBEmail.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBSifre.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -179,8 +169,8 @@
         private DevExpress.XtraEditors.TextEdit TBEmail;
         private DevExpress.XtraEditors.TextEdit TBSifre;
         private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit2;
         private DevExpress.XtraEditors.SimpleButton BTNGiris;
         private Label label1;
+        private DevExpress.XtraEditors.LookUpEdit lookUpEdit1;
     }
 }

@@ -596,7 +596,7 @@ namespace MEYPAK.PRL.SIPARIS
                 List<KasaList> KasaList = new List<KasaList>();
                 KasaList kslt;
 
-                sy = -1;
+                sy = -1; 
 
                 List<PocoCARIALTHES> altcarilist = new List<PocoCARIALTHES>();
                 _cariAltHesapServis.Data(ServisList.CariAltHesListeServis);

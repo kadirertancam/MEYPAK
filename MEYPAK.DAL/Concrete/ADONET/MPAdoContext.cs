@@ -85,5 +85,29 @@ namespace MEYPAK.DAL.Concrete.ADONET
                 }
             }
         }
+
+        public bool Sil(List<T> nesne)
+        {
+            c = new AdoConnect();
+
+            try
+            {
+                foreach (var item in nesne)
+                {
+                     
+                    c.komutgonder("DELETE FROM " + typeof(T).Name + " WHERE ID =" + item.GetType().GetProperty("ID").GetValue(item).ToString());
+                    HepsiniGetir();
+                }
+                return true;
+            }
+            catch
+            {
+
+                return false;
+            }
+
+
+
+        }
     }
 }

@@ -1,6 +1,8 @@
 ﻿using DevExpress.XtraEditors;
 using MEYPAK.BLL.Assets;
+using MEYPAK.DAL.Concrete.ADONET;
 using MEYPAK.Entity.IdentityModels;
+using MEYPAK.Entity.Models.DEPO;
 using MEYPAK.PRL.CEKSENET.Firma.Çek;
 using MEYPAK.PRL.DEKONT;
 using MEYPAK.PRL.PERSONEL;
@@ -31,7 +33,7 @@ namespace MEYPAK.PRL
         Main fMain;
         GenericWebServis<LoginModel> _loginService;
         FPersonelMaas maas;
-        
+        KullaniciRapor rp;
 
         private void BTNGiris_Click(object sender, EventArgs e)
         {
@@ -50,8 +52,11 @@ namespace MEYPAK.PRL
                     ////maas.Show();
                     //FFATURASTOKOLCUESLE ff = new FFATURASTOKOLCUESLE();
                     //ff.Show();
-                    fMain = new Main(_loginService.loginResult.MPUSER, _loginService.loginResult.userRoles);
+                    //rp = new KullaniciRapor();
+                    //rp.Show();
+                    fMain = new Main(_loginService.loginResult.MPUSER, _loginService.loginResult.userRoles,(int)lookUpEdit1.EditValue);
                     fMain.Show();
+
                     this.Hide();
                 }
                 else
@@ -72,9 +77,16 @@ namespace MEYPAK.PRL
                 BTNGiris_Click(sender, e);
             }
         }
-     
+
         private void LoginScreen_Load(object sender, EventArgs e)
         {
+            MPAdoContext<MPDEPO> depo = new MPAdoContext<MPDEPO>();
+            depo.HepsiniGetir();
+
+            lookUpEdit1.Properties.DataSource = depo.GenericList.Where(x=>x.KAYITTIPI==0).Select(x => new { ID = x.ID, ADI = x.DEPOADI });
+            lookUpEdit1.Properties.DisplayMember = "ADI";
+            lookUpEdit1.Properties.ValueMember= "ID";
+            lookUpEdit1.EditValue= depo.GenericList.Where(x => x.KAYITTIPI == 0).Select(x => new { ID = x.ID, ADI = x.DEPOADI }).FirstOrDefault().ID;
             //player = new MpvPlayer(this.Handle)
             //{
             //    Loop = false,

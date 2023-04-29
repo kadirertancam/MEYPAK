@@ -19,7 +19,8 @@ namespace MEYPAK.PRL
             {
                 return ((Main)Application.OpenForms["Main"]).Kullanici.Id;
             }
-        }
+        } 
+      
         public static MPUSER USER
         {
             get
@@ -46,6 +47,13 @@ namespace MEYPAK.PRL
             get
             {
                 return ((Main)Application.OpenForms["Main"]).formListe;
+            }
+        }
+        public static int DEPOID
+        {
+            get
+            {
+                return ((Main)Application.OpenForms["Main"]).DEPOID;
             }
         }
         public static PocoFORMYETKI YetkiGetir(string form)

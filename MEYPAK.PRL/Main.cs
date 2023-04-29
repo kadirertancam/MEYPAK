@@ -47,7 +47,7 @@ namespace MEYPAK.PRL
 {
     public partial class Main : XtraForm
     {
-        public Main(MPUSER kullanici, List<string> roller)
+        public Main(MPUSER kullanici, List<string> roller, int depoid)
         {
             InitializeComponent();
             foreach (var type in Assembly.GetExecutingAssembly().GetTypes())
@@ -65,6 +65,7 @@ namespace MEYPAK.PRL
 
                 }
             }
+            this.DEPOID = depoid;
             _parabirimServis = new GenericWebServis<PocoPARABIRIM>();
             Kullanici = kullanici;
             Roller = roller;
@@ -165,6 +166,7 @@ namespace MEYPAK.PRL
         public List<string> Roller;
         public List<PocoFORMYETKI> yetkiListe;
         public List<PocoFORM> formListe;
+        public int DEPOID;
         #endregion
 
 

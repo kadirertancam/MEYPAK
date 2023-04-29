@@ -12,6 +12,7 @@ namespace MEYPAK.PRL.Assets
         public string KOD { get; set; }
         public string ADI { get; set; }
         public decimal MIKTAR { get; set; }
+        public string KUNYENO { get; set; }
         public string BIRIM { get; set; }
         public decimal NETFIYAT { get; set; }
         public decimal TUTAR { get; set; } 

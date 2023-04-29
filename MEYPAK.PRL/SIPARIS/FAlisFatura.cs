@@ -23,7 +23,7 @@ namespace MEYPAK.PRL.SIPARIS
 {
     public partial class FAlisFatura : XtraForm
     {
-        public FAlisFatura()
+        public FAlisFatura(PocoFATURA _tempFaturas = null, List<PocoFaturaKalem> _tempFaturaDetays = null, List<ListKasaList> _tempkasa = null, int tip = 0)
         {
             InitializeComponent();
             DGVStokSec = new DataGridViewButtonColumn();
@@ -63,9 +63,22 @@ namespace MEYPAK.PRL.SIPARIS
             _hizmetServis= new GenericWebServis<PocoHIZMET>();
             _cariHarServsi = new GenericWebServis<PocoCARIHAR>();
             comboBox1.SelectedIndex = 0;
+            if (_tempFaturas != null)
+                _tempFatura = _tempFaturas;
+            if (_tempkasa != null)
+                _kasaaa = _tempkasa;
+
+            if (_tempFaturaDetays != null)
+                _tempFaturaDetay = _tempFaturaDetays;
+            else
+                _tempFaturaDetay = new List<PocoFaturaKalem>();
+
+            fattip = tip;
+           
         }
 
         #region TANIMLAR
+        int fattip = 0;
         FStokKasaList fKasaList;
         List<PocoFaturaKalem> _tempFaturaDetay = new List<PocoFaturaKalem>();
         List<PocoFaturaKalem> _tempSilinenFaturaDetay = new List<PocoFaturaKalem>();
@@ -542,7 +555,8 @@ namespace MEYPAK.PRL.SIPARIS
                 _stokKasaHarServis.Data(ServisList.StokKasaHarListeServis);
                 _kasaaa.Clear();
                 _stokOlcuBrList.Clear();
-                _tempFaturaDetay.Clear();
+                if (fattip == 0)
+                    _tempFaturaDetay.Clear();
                 _cariKart.Data(ServisList.CariListeServis);
                 TBFaturaNo.Text = _tempFatura.belgeno;
                 CHBKdvDahil.Checked = _tempFatura.kdvdahil ? true : false;
@@ -611,8 +625,8 @@ namespace MEYPAK.PRL.SIPARIS
                 }
                 else
                 {
-                    gridControl1.DataSource = "";
-                    _tempFaturaDetay.Add(new PocoFaturaKalem() { Tipi = "STOK" });
+                    gridControl1.DataSource = ""; 
+
                 }
                 riLookup3.DataSource = "";
                 riLookup3.DataSource = _kasaaa.Where(x => x.num == gridView1.FocusedRowHandle).Count() > 0 ? _kasaaa.Where(x => x.num == gridView1.FocusedRowHandle).FirstOrDefault().KasaList.Select(x => new { Marka = x.MARKA, Adı = x.KASAADI, Miktar = x.MIKTAR }) : "";
@@ -649,8 +663,17 @@ namespace MEYPAK.PRL.SIPARIS
 
                 GCIrsaliye.DataSource = _tempFaturaDetay;
                 GCIrsaliye.RefreshDataSource();
-
-
+                if (fattip == 1)
+                {
+                    for (int i = 0; i < _tempFaturaDetay.Count; i++)
+                    {
+                        sy = 0;
+                        Hesapla(i);
+                    }
+                    
+                }
+                    
+                
                 TBAIskonto1.EditValue = _tempFatura.altiskonto1;
                 TBAIskonto2.EditValue = _tempFatura.altiskonto2;
                 TBAIskonto3.EditValue = _tempFatura.altiskonto3;

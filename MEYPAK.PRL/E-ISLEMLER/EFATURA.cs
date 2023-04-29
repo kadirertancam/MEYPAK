@@ -3,6 +3,7 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraTab;
 using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.PocoModels;
 using MEYPAK.Entity.PocoModels.CARI;
@@ -79,7 +80,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
             repositoryItemButtonEdit.Buttons[0].Kind = ButtonPredefines.Glyph;
             repositoryItemButtonEdit.Buttons[0].Shortcut = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.Enter);
             repositoryItemButtonEdit.ButtonClick += RepositoryItemButtonEdit_ButtonClick;
-             tempdetay = tempp.Value.Invoice.InvoiceLine.Select(x => new FaturaDetailList {SIRA=int.Parse(x.ID.Value) ,KOD = "", ADI = x.Item.Name.Value, MIKTAR = x.InvoicedQuantity.Value, BIRIM = x.InvoicedQuantity.unitCode, NETFIYAT = x.Price.PriceAmount.Value, TUTAR = x.Price.PriceAmount.Value * x.InvoicedQuantity.Value }).ToList();
+             tempdetay = tempp.Value.Invoice.InvoiceLine.Select(x => new FaturaDetailList {SIRA=int.Parse(x.ID.Value) ,KOD = "", ADI = x.Item.Name.Value,KUNYENO= x.Item.AdditionalItemIdentification!=null?x.Item.AdditionalItemIdentification.Where(x => x.ID.schemeID == "KUNYENO").Count()>0?x.Item.AdditionalItemIdentification.Where(x=>x.ID.schemeID=="KUNYENO").FirstOrDefault().ID.Value:"":"", MIKTAR = x.InvoicedQuantity.Value, BIRIM = x.InvoicedQuantity.unitCode, NETFIYAT = x.Price.PriceAmount.Value, TUTAR = x.Price.PriceAmount.Value * x.InvoicedQuantity.Value }).ToList();
             gridControl2.DataSource = tempdetay;
             gridView2.Columns["KOD"].ColumnEdit = repositoryItemButtonEdit; 
         }
@@ -154,21 +155,20 @@ namespace MEYPAK.PRL.E_ISLEMLER
             //FATURALAŞTIR
             _stokServis.Data(ServisList.StokListeServis);
             PocoFATURA fatura = new PocoFATURA();
-            List<PocoFATURADETAY> faturakalem = new List<PocoFATURADETAY>();
+            List<PocoFaturaKalem> faturakalem = new List<PocoFaturaKalem>();
             foreach (var item in (List<FaturaDetailList>)gridControl2.DataSource)
             {
                 var tempstok = _stokServis.obje.Where(x => x.kod == item.KOD).FirstOrDefault();
-                faturakalem.Add(new PocoFATURADETAY()
+                faturakalem.Add(new PocoFaturaKalem()
                 {
-                    stokid = tempstok.id,
-                    stokadi= tempstok.adi,
-                     safi=item.MIKTAR,
-                    birimid=1,
-                     netfiyat=item.NETFIYAT,
-                      bruttoplam=item.TUTAR,
-                     userid=MPKullanici.ID,
+                    StokId = tempstok.id,
+                    StokAdı= tempstok.adi,
+                     Daralı=item.MIKTAR,
+                    Birim="1",
+                     BirimFiyat=item.NETFIYAT,
+                      BrütToplam=item.TUTAR, 
                        
-
+                       
                 });
             }
             var faturaust = (EFaturaGelenTask)gridView1.GetFocusedRow();
@@ -184,8 +184,25 @@ namespace MEYPAK.PRL.E_ISLEMLER
             fatura.bruttoplam =  secilitempfat.TaxExclusiveAmount;
             fatura.nettoplam = faturaust.TUTAR - faturaust.KDV;
             fatura.iskontotoplam = fatura.bruttoplam - fatura.nettoplam;
+            fatura.depoid = MPKullanici.DEPOID;
+           var main = (Main)Application.OpenForms["Main"];
+            XtraTabPage page = new XtraTabPage();
+            FAlisFatura ffatura = new FAlisFatura(fatura, faturakalem, null, 1);
+            page.Name = "TPAlisFatura" + main.i;
+            page.Text = "Alış Fatura Tanım";
+            page.Tag = "TPAlisFatura" + main.i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            main.Anasayfa.TabPages.Add(page);
+            main.Anasayfa.SelectedTabPage = page;
 
-           FFatura f = new FFatura();
+            ffatura.TopLevel = false;
+            ffatura.AutoScroll = true;
+            ffatura.Dock = DockStyle.Fill;
+            ffatura.Tag = "TPAlisFatura" + main.i;
+            page.Controls.Add(ffatura);
+            ffatura.Show();
+            main.i++;
+            this.Close();
         }
 
         private void RepositoryItemButtonEdit3_ButtonClick(object sender, ButtonPressedEventArgs e)
