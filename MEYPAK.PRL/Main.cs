@@ -26,6 +26,7 @@ using MEYPAK.PRL.E_ISLEMLER;
 using MEYPAK.PRL.IRSALIYE;
 using MEYPAK.PRL.KASA;
 using MEYPAK.PRL.KULLANICI;
+using MEYPAK.PRL.MOBILIZ;
 using MEYPAK.PRL.PARAMETRELER;
 using MEYPAK.PRL.PERSONEL;
 using MEYPAK.PRL.PERSONEL.Raporlar;
@@ -155,7 +156,7 @@ namespace MEYPAK.PRL
         FMustahsil fMustahsilMakbuz;
         FGidenEMustahsil fGidenEMustahsil;
         FDestekServis fDestekServis;
-       
+        FMobilizWeb fMobilizWeb;
 
         public Tarih_Date _tarih_Date = new Tarih_Date();
         public DataTable guncelkur;
@@ -2063,6 +2064,26 @@ namespace MEYPAK.PRL
             i++;
         }
 
+        private void ACEMobilizWeb_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fMobilizWeb = new FMobilizWeb();
+            page.Name = "FMobilizWeb" + i;
+            page.Text = "Mobiliz Web";
+            page.Tag = "FMobilizWeb" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
+
+            fMobilizWeb.FormBorderStyle = FormBorderStyle.None;
+            fMobilizWeb.TopLevel = false;
+            fMobilizWeb.AutoScroll = true;
+            fMobilizWeb.Dock = DockStyle.Fill;
+            fMobilizWeb.Tag = "FMobilizWeb" + i;
+            page.Controls.Add(fMobilizWeb);
+            fMobilizWeb.Show();
+            i++;
+        }
     }
 }
 
