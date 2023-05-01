@@ -97,9 +97,10 @@ namespace MEYPAK.PRL.MOBILIZ
         public static extern short GetKeyState(int nVirtKey);
 
         private const int VK_CAPITAL = 0x14;
-
+        
         private bool IsCapsLockOn()
         {
+           
             return (GetKeyState(VK_CAPITAL) & 0x0001) != 0;
         }
     }
