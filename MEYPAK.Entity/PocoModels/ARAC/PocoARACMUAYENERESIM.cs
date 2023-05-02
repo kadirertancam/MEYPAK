@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.Entity.PocoModels.ARAC
 {
-    public class PocoARACSIGORTARESIM:SUPERPOCOMODEL
+    public class PocoARACMUAYENERESIM:SUPERPOCOMODEL
     {
         public int aracid { get; set; }
-        public string sigacenteadi { get; set; }
-        public string sigpoliceno { get; set; }
-        public DateTime sigbastar { get; set; }
-        public DateTime sigbittar { get; set; }
+        public DateTime muayenebastar { get; set; }
+        public DateTime muayenebittar { get; set; }
+        public DateTime egzozbastar { get; set; }
+        public DateTime egzozbittar { get; set; }
         public int num { get; set; }
         public string dosyatip { get; set; }
 

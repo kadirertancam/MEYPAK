@@ -9,9 +9,13 @@ using System.Threading.Tasks;
 
 namespace MEYPAK.Entity.Models.ARAC
 {
-    public class MPARACRUHSATRESIM:SUPERMODEL
+    public class MPARACMUAYENERESIM:SUPERMODEL
     {
         public int ARACID { get; set; }
+        public DateTime MUAYENEBASTAR { get; set; }
+        public DateTime MUAYENEBITTAR { get; set; }
+        public DateTime EGZOZBASTAR { get; set; }
+        public DateTime EGZOZBITTAR { get; set; }
         public int NUM { get; set; }
         public string DOSYATIP { get; set; }
 
