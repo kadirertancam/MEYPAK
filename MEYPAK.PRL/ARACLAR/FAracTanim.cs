@@ -1,7 +1,10 @@
-﻿using DevExpress.XtraEditors;
+﻿using DevExpress.DataProcessing;
+using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
+using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Views.Tile;
 using MEYPAK.BLL.Assets;
+using MEYPAK.Entity.Models.ARAC;
 using MEYPAK.Entity.Models.FORMYETKI;
 using MEYPAK.Entity.PocoModels.ARAC;
 using MEYPAK.Entity.PocoModels.PERSONEL;
@@ -13,12 +16,14 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static DevExpress.Skins.SolidColorHelper;
 
 namespace MEYPAK.PRL.ARAÇLAR
 {
@@ -33,6 +38,7 @@ namespace MEYPAK.PRL.ARAÇLAR
         GenericWebServis<PocoPERSONEL> _personelServis;
         GenericWebServis<PocoPERSONELGOREV> _personelgorevServis;
         GenericWebServis<PocoPERSONELDEPARTMAN> _personeldepartmanServis;
+        ContextMenuStrip contextMenuStrip ;
         public FAracTanim()
         {
             _personeldepartmanServis = new GenericWebServis<PocoPERSONELDEPARTMAN>();
@@ -47,6 +53,12 @@ namespace MEYPAK.PRL.ARAÇLAR
             InitializeComponent();
             AraclarıGetir();
             CombolarıDoldur();
+
+            contextMenuStrip = new ContextMenuStrip();
+            // Menü öğeleri ekleme
+            contextMenuStrip.Items.Add("Görüntüle");
+            contextMenuStrip.Items.Add("İndir");
+            contextMenuStrip.Items.Add("Sil");
         }
         PocoARAC _tempArac;
         string base64 = "";
@@ -280,13 +292,13 @@ namespace MEYPAK.PRL.ARAÇLAR
 
                 if (_tempArac != null && _tempArac.id != 0)
                 {
-                    if (TBKasAcenteAdi.Text != null && TBKasPoliceNo.Text != null && DTPKasPolBasTar.EditValue != null && DTPKasPolBitTar != null)
+                    if (TBKasAcenteAdi.Text != null && TBKasPoliNo.Text != null && DTPKasPolBasTar.EditValue != null && DTPKasPolBitTar != null)
                     {
                         _aracKaskoServis.Data(ServisList.AracKaskoResimEkleServis, new PocoARACKASKORESIM()
                         {
                             aracid = _tempArac.id,
                             kasacenteadi = TBKasAcenteAdi.Text,
-                            kaspoliceno = TBKasPoliceNo.Text,
+                            kaspoliceno = TBKasPoliNo.Text,
                             kasbastar = (DateTime)DTPKasPolBasTar.EditValue,
                             kasbittar = (DateTime)DTPKasPolBitTar.EditValue,
                             img = BTKaskoBelgeSec.Text != "" ? BTKaskoBelgeSec.Text.Substring(BTKaskoBelgeSec.Text.Length - 3, 3) != "pdf" ?
@@ -295,7 +307,7 @@ namespace MEYPAK.PRL.ARAÇLAR
                             userid = MPKullanici.ID,
                         });
                         TBKasAcenteAdi.Text = "";
-                        TBKasPoliceNo.Text = "";
+                        TBKasPoliNo.Text = "";
                         DTPKasPolBasTar.EditValue = null;
                         DTPKasPolBitTar.EditValue = null;
                         BTKaskoBelgeSec.Text = "";
@@ -476,9 +488,76 @@ namespace MEYPAK.PRL.ARAÇLAR
 
         private void GridSigorta_DoubleClick(object sender, EventArgs e)
         {
-            //_aracSigortaServis.obje.Where(x => x.id.ToString() == gridViewSigorta.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault().img;
+            if (gridViewSigorta.GetFocusedRowCellValue("ID") != null)
+            {
+
+                PocoARACSIGORTARESIM tempARACSIGORTARESIM = _aracSigortaServis.obje.Where(x => x.id.ToString() == gridViewSigorta.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+                ResimAc(tempARACSIGORTARESIM.img, "temp." + tempARACSIGORTARESIM.dosyatip);
+            }
         }
 
-      
+        void ResimAc(string base64, string dosyaadi)
+        {
+            if (base64 != "")
+            {
+                if (dosyaadi.Substring(dosyaadi.Length-3,3) != "pdf")
+                {
+                    var image = Base64ToImage(base64);
+                    image.Save(dosyaadi);
+                }
+                else
+                    System.IO.File.WriteAllBytes(dosyaadi, Convert.FromBase64String(base64));
+                Thread.Sleep(500);
+                var p = new Process();
+                p.StartInfo = new ProcessStartInfo(Application.StartupPath + dosyaadi)
+                {
+                    UseShellExecute = true
+                };
+                p.Start();
+            }
+        }
+
+
+        private void GridKasko_DoubleClick(object sender, EventArgs e)
+        {
+            if (gridViewKasko.GetFocusedRowCellValue("ID") != null)
+            {
+                PocoARACKASKORESIM tempARACKASKORESIM = _aracKaskoServis.obje.Where(x => x.id.ToString() == gridViewKasko.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+                ResimAc(tempARACKASKORESIM.img, "temp." + tempARACKASKORESIM.dosyatip);
+            }
+        }
+
+        private void GridMuayene_DoubleClick(object sender, EventArgs e)
+        {
+            if (gridViewMuayene.GetFocusedRowCellValue("ID") != null)
+            {
+                PocoARACMUAYENERESIM tempARACMUAYENE = _aracMuayeneServis.obje.Where(x => x.id.ToString() == gridViewMuayene.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+                ResimAc(tempARACMUAYENE.img, "temp." + tempARACMUAYENE.dosyatip);
+            }
+        }
+
+        private void GridSigorta_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right) // Sağ tıklandı mı kontrol etme
+            {
+                // Mouse pozisyonunu al ve GridView nesnesi oluştur
+                Point clickPoint = new Point(e.X, e.Y);
+                GridView gridView = GridSigorta.GetViewAt(clickPoint) as GridView;
+
+                // GridView nesnesi var mı kontrol et
+                if (gridView != null)
+                {
+                    // Seçili satırın indeksini al
+                    int rowHandle = gridView.FocusedRowHandle;
+
+                    // Seçili satırın indeksi geçerli mi kontrol et
+                    if (rowHandle >= 0)
+                    {
+                        // ContextMenuStrip'i göster
+                        contextMenuStrip.Show(GridSigorta, clickPoint);
+                    }
+                }
+            }
+        }
     }
 }
