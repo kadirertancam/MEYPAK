@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
+using DevExpress.XtraGrid.Views.Tile;
 using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.Models.FORMYETKI;
 using MEYPAK.Entity.PocoModels.ARAC;
@@ -37,6 +38,9 @@ namespace MEYPAK.PRL.ARAÇLAR
             _personeldepartmanServis = new GenericWebServis<PocoPERSONELDEPARTMAN>();
             _personelServis = new GenericWebServis<PocoPERSONEL>();
             _personelgorevServis = new GenericWebServis<PocoPERSONELGOREV>();
+            _aracSigortaServis = new GenericWebServis<PocoARACSIGORTARESIM>();
+            _aracKaskoServis = new GenericWebServis<PocoARACKASKORESIM>();
+            _aracMuayeneServis = new GenericWebServis<PocoARACMUAYENERESIM>();
             _aracServisRUHSATRESIMServis = new GenericWebServis<PocoARACRUHSATRESIM>();
             _aracModelServis = new GenericWebServis<PocoARACMODEL>();
             _aracServis = new GenericWebServis<PocoARAC>();
@@ -104,7 +108,8 @@ namespace MEYPAK.PRL.ARAÇLAR
             if (_tempArac != null && _tempArac.id != 0)
             {
                 TBPlaka.Text = _tempArac.plaka;
-                CBMarka.Text = _aracModelServis.obje.Where(x => x.id == Convert.ToInt32(_tempArac.marka)).FirstOrDefault().markaadi;
+                CBTip.EditValue = _tempArac.tip;
+                CBMarka.EditValue = _aracModelServis.obje.Where(x => x.id == Convert.ToInt32(_tempArac.marka)).FirstOrDefault().id;
                 CBModel.EditValue = _tempArac.model;
                 CBYakitTuru.EditValue = _tempArac.yakitturu;
                 CBSofor1.EditValue = _tempArac.soforid;
@@ -122,21 +127,22 @@ namespace MEYPAK.PRL.ARAÇLAR
         }
         void MuayeneGridDoldur()
         {
-            _aracMuayeneServis.Data(ServisList.AracMuayeneResimListeFiltreServis,parameters: $"query=ARACID={_tempArac.id}");
-            GridMuayene.DataSource = _aracMuayeneServis.obje.Select(x=> new {BAŞLANGIÇ=x.muayenebastar,BİTİŞ=x.muayenebittar,EGZOZBAŞLANGIÇ=x.egzozbastar,EGZOZBİTİŞ=x.egzozbittar});
+            _aracMuayeneServis.Data(ServisList.AracMuayeneResimListeFiltreServis, parameters: $"query=ARACID={_tempArac.id}");
+            GridMuayene.DataSource = _aracMuayeneServis.obje.Select(x => new { BAŞLANGIÇ = x.muayenebastar, BİTİŞ = x.muayenebittar, EGZOZBAŞLANGIÇ = x.egzozbastar, EGZOZBİTİŞ = x.egzozbittar, ID = x.id });
+            gridViewMuayene.Columns["ID"].Visible = false;
         }
         void KaskoGridDoldur()
         {
 
             _aracKaskoServis.Data(ServisList.AracKaskoResimListeFiltreServis, parameters: $"query=ARACID={_tempArac.id}");
-            GridKasko.DataSource = _aracKaskoServis.obje.Select(x => new { POLICENO = x.kaspoliceno, BAŞLANGIÇ = x.kasbastar, BİTİŞ = x.kasbittar });
-
+            GridKasko.DataSource = _aracKaskoServis.obje.Select(x => new { POLICENO = x.kaspoliceno, BAŞLANGIÇ = x.kasbastar, BİTİŞ = x.kasbittar, ID = x.id });
+            gridViewKasko.Columns["ID"].Visible = false;
         }
         void SigordaGridDoldur()
         {
             _aracSigortaServis.Data(ServisList.AracSigortaResimListeFiltreServis, parameters: $"query=ARACID={_tempArac.id}");
-            GridSigorta.DataSource = _aracSigortaServis.obje.Select(x => new { POLICENO = x.sigpoliceno, BAŞLANGIÇ = x.sigbastar, BİTİŞ = x.sigbittar });
-
+            GridSigorta.DataSource = _aracSigortaServis.obje.Select(x => new { POLICENO = x.sigpoliceno, BAŞLANGIÇ = x.sigbastar, BİTİŞ = x.sigbittar, ID = x.id });
+            gridViewSigorta.Columns["ID"].Visible = false;
         }
         void RuhsatResimleriGetir()
         {
@@ -204,8 +210,8 @@ namespace MEYPAK.PRL.ARAÇLAR
                         marka = CBMarka.EditValue != null ? CBMarka.EditValue.ToString() : "BILINMIYOR",
                         model = CBModel.EditValue != null ? CBModel.EditValue.ToString() : "BILINMIYOR",
                         yakitturu = TBPlaka.Text,
-                        soforid = CBSofor1.EditValue != null ? (int)CBSofor1.EditValue : 0,
-                        sofor2id = CBSofor2.EditValue != null ? (int)CBSofor2.EditValue : 0,
+                        soforid = CBSofor1.EditValue != null ? Convert.ToInt32(CBSofor1.EditValue) : 0,
+                        sofor2id = CBSofor2.EditValue != null ? Convert.ToInt32(CBSofor2.EditValue) : 0,
                         durum = (byte)RGAracDurum.SelectedIndex,
                         tekersayisi = (byte)NUDTekerSayisi.Value,
                         yedektekersayisi = (byte)NUDYedekTekerSayisi.Value,
@@ -230,7 +236,7 @@ namespace MEYPAK.PRL.ARAÇLAR
             {
                 if (_tempArac != null && _tempArac.id != 0)
                 {
-                    if (TBSigAcenteAdi.Text != null && TBSigPoliceNo.Text != null && DTPKasPolBasTar.EditValue != null && DTPKasPolBitTar.EditValue != null)
+                    if (TBSigAcenteAdi.Text != null && TBSigPoliceNo.Text != null && DTPSigPolBasTar.EditValue != null && DTPSigPolBitTar.EditValue != null)
                     {
                         _aracSigortaServis.Data(ServisList.AracSigortaResimEkleServis, new PocoARACSIGORTARESIM()
                         {
@@ -246,6 +252,12 @@ namespace MEYPAK.PRL.ARAÇLAR
                         });
 
                         MessageBox.Show($"{_tempArac.plaka} plakalı araca sigorta bilgileri eklenmiştir.");
+                        TBSigAcenteAdi.Text = "";
+                        TBSigPoliceNo.Text = "";
+                        DTPSigPolBasTar.EditValue = null;
+                        DTPSigPolBitTar.EditValue = null;
+                        BTSigortaBelgeSec.Text = "";
+                        SigordaGridDoldur();
                     }
                     else
                     {
@@ -282,8 +294,13 @@ namespace MEYPAK.PRL.ARAÇLAR
                             dosyatip = BTKaskoBelgeSec.Text.Substring(BTKaskoBelgeSec.Text.Length - 4, 4).Replace(".", ""),
                             userid = MPKullanici.ID,
                         });
-
+                        TBKasAcenteAdi.Text = "";
+                        TBKasPoliceNo.Text = "";
+                        DTPKasPolBasTar.EditValue = null;
+                        DTPKasPolBitTar.EditValue = null;
+                        BTKaskoBelgeSec.Text = "";
                         MessageBox.Show($"{_tempArac.plaka} plakalı araca sigorta bilgileri eklenmiştir.");
+                        KaskoGridDoldur();
                     }
                     else
                     {
@@ -310,16 +327,16 @@ namespace MEYPAK.PRL.ARAÇLAR
                     _aracServisRUHSATRESIMServis.Data(ServisList.AracRuhsatResimEkleServis, new PocoARACRUHSATRESIM()
                     {
                         aracid = _tempArac.id,
-                        num = _aracServisRUHSATRESIMServis.obje.Where(x => x.aracid == _tempArac.id).Last().num != 0 ? 0 : _aracServisRUHSATRESIMServis.obje.Where(x => x.aracid == _tempArac.id).Last().num + 1,
-                        img = BTKaskoBelgeSec.Text != "" ? BTKaskoBelgeSec.Text.Substring(BTKaskoBelgeSec.Text.Length - 3, 3) != "pdf" ?
-                            ImageToBase64(BTKaskoBelgeSec.Text) : Convert.ToBase64String(File.ReadAllBytes(BTKaskoBelgeSec.Text)) : "",
+                        num = _aracServisRUHSATRESIMServis.obje.Count == 0 ? 0 : _aracServisRUHSATRESIMServis.obje.Where(x => x.aracid == _tempArac.id).Last().num != 0 ? 0 : _aracServisRUHSATRESIMServis.obje.Where(x => x.aracid == _tempArac.id).Last().num + 1,
+                        img = BTNRuhsatSec.Text != "" ? BTNRuhsatSec.Text.Substring(BTNRuhsatSec.Text.Length - 3, 3) != "pdf" ?
+                            ImageToBase64(BTNRuhsatSec.Text) : Convert.ToBase64String(File.ReadAllBytes(BTNRuhsatSec.Text)) : "",
                         userid = MPKullanici.ID,
                         dosyatip = BTNRuhsatSec.Text.Length > 4 ? BTNRuhsatSec.Text.Substring(BTNRuhsatSec.Text.Length - 4, 4).Replace(".", "") : "",
 
                     });
-
-                    ResimleriGetir();
-
+                    MessageBox.Show($"{_tempArac.plaka} plakalı araca ait ruhsat bilgileri başarıyla eklenmiştir.");
+                    BTNRuhsatSec.Text = "";
+                    RuhsatResimleriGetir();
                 }
                 else
                 {
@@ -335,18 +352,30 @@ namespace MEYPAK.PRL.ARAÇLAR
             {
                 if (_tempArac != null && _tempArac.id != 0)
                 {
-                    _aracMuayeneServis.Data(ServisList.AracMuayeneResimEkleServis, new PocoARACMUAYENERESIM()
+                    if (DTPMuayeneBasTar.EditValue != null & DTPMuayeneBitTar.EditValue != null & DTPEgzozBitTar.EditValue != null & DTPEgzozBasTar.EditValue != null)
                     {
-                        aracid = _tempArac.id,
-                        muayenebastar = (DateTime)DTPMuayeneBasTar.EditValue,
-                        muayenebittar = (DateTime)DTPMuayeneBitTar.EditValue,
-                        egzozbastar = (DateTime)DTPEgzozBasTar.EditValue,
-                        egzozbittar = (DateTime)DTPEgzozBitTar.EditValue,
-                        img = BTMuayeneBelgeSec.Text != "" ? BTMuayeneBelgeSec.Text.Substring(BTMuayeneBelgeSec.Text.Length - 3, 3) != "pdf" ?
-                        ImageToBase64(BTMuayeneBelgeSec.Text) : Convert.ToBase64String(File.ReadAllBytes(BTMuayeneBelgeSec.Text)) : "",
-                        dosyatip = BTMuayeneBelgeSec.Text.Length > 4 ? BTMuayeneBelgeSec.Text.Substring(BTMuayeneBelgeSec.Text.Length - 4, 4).Replace(".", "") : "",
-                        userid = MPKullanici.ID,
-                    });
+                        _aracMuayeneServis.Data(ServisList.AracMuayeneResimEkleServis, new PocoARACMUAYENERESIM()
+                        {
+                            aracid = _tempArac.id,
+                            muayenebastar = (DateTime)DTPMuayeneBasTar.EditValue,
+                            muayenebittar = (DateTime)DTPMuayeneBitTar.EditValue,
+                            egzozbastar = (DateTime)DTPEgzozBasTar.EditValue,
+                            egzozbittar = (DateTime)DTPEgzozBitTar.EditValue,
+                            img = BTMuayeneBelgeSec.Text != "" ? BTMuayeneBelgeSec.Text.Substring(BTMuayeneBelgeSec.Text.Length - 3, 3) != "pdf" ?
+                            ImageToBase64(BTMuayeneBelgeSec.Text) : Convert.ToBase64String(File.ReadAllBytes(BTMuayeneBelgeSec.Text)) : "",
+                            dosyatip = BTMuayeneBelgeSec.Text.Length > 4 ? BTMuayeneBelgeSec.Text.Substring(BTMuayeneBelgeSec.Text.Length - 4, 4).Replace(".", "") : "",
+                            userid = MPKullanici.ID,
+                        });
+                        DTPMuayeneBasTar.EditValue = null;
+                        DTPMuayeneBitTar.EditValue = null;
+                        DTPEgzozBasTar.EditValue = null;
+                        DTPEgzozBitTar.EditValue = null;
+                        BTMuayeneBelgeSec.Text = "";
+                        MessageBox.Show($"{_tempArac.plaka} plakalı araca muayene bilgileri başarıyla eklenmiştir.");
+                        MuayeneGridDoldur();
+                    }
+                    else
+                        MessageBox.Show("Gerekli alanları lütfen doldurunuz!");
                 }
             }
             else
@@ -445,6 +474,11 @@ namespace MEYPAK.PRL.ARAÇLAR
             }
         }
 
+        private void GridSigorta_DoubleClick(object sender, EventArgs e)
+        {
+            //_aracSigortaServis.obje.Where(x => x.id.ToString() == gridViewSigorta.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault().img;
+        }
 
+      
     }
 }
