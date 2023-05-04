@@ -22,6 +22,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Forms;
 using static DevExpress.Skins.SolidColorHelper;
 
@@ -38,7 +39,7 @@ namespace MEYPAK.PRL.ARAÇLAR
         GenericWebServis<PocoPERSONEL> _personelServis;
         GenericWebServis<PocoPERSONELGOREV> _personelgorevServis;
         GenericWebServis<PocoPERSONELDEPARTMAN> _personeldepartmanServis;
-        ContextMenuStrip contextMenuStrip ;
+        ContextMenuStrip contextMenuStrip;
         public FAracTanim()
         {
             _personeldepartmanServis = new GenericWebServis<PocoPERSONELDEPARTMAN>();
@@ -59,7 +60,11 @@ namespace MEYPAK.PRL.ARAÇLAR
             contextMenuStrip.Items.Add("Görüntüle");
             contextMenuStrip.Items.Add("İndir");
             contextMenuStrip.Items.Add("Sil");
+
         }
+
+
+
         PocoARAC _tempArac;
         string base64 = "";
         string base64pdf = "";
@@ -500,7 +505,7 @@ namespace MEYPAK.PRL.ARAÇLAR
         {
             if (base64 != "")
             {
-                if (dosyaadi.Substring(dosyaadi.Length-3,3) != "pdf")
+                if (dosyaadi.Substring(dosyaadi.Length - 3, 3) != "pdf")
                 {
                     var image = Base64ToImage(base64);
                     image.Save(dosyaadi);
@@ -542,22 +547,28 @@ namespace MEYPAK.PRL.ARAÇLAR
             {
                 // Mouse pozisyonunu al ve GridView nesnesi oluştur
                 Point clickPoint = new Point(e.X, e.Y);
-                GridView gridView = GridSigorta.GetViewAt(clickPoint) as GridView;
 
-                // GridView nesnesi var mı kontrol et
-                if (gridView != null)
+                // Seçili satırın indeksini al
+                int rowHandle = gridViewSigorta.FocusedRowHandle;
+
+                // Seçili satırın indeksi geçerli mi kontrol et
+                if (rowHandle >= 0)
                 {
-                    // Seçili satırın indeksini al
-                    int rowHandle = gridView.FocusedRowHandle;
+                    // ContextMenuStrip'i göster
+                    contextMenuStrip.Show(GridSigorta, clickPoint);
+                    contextMenuStrip.Items[0].Click += (s, ev) =>
+                       {
+                           PocoARACMUAYENERESIM tempARACMUAYENE = _aracMuayeneServis.obje.Where(x => x.id.ToString() == gridViewMuayene.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+                           ResimAc(tempARACMUAYENE.img, "temp." + tempARACMUAYENE.dosyatip);
+                       };
 
-                    // Seçili satırın indeksi geçerli mi kontrol et
-                    if (rowHandle >= 0)
-                    {
-                        // ContextMenuStrip'i göster
-                        contextMenuStrip.Show(GridSigorta, clickPoint);
-                    }
                 }
+
             }
         }
+
+
+
+
     }
 }
