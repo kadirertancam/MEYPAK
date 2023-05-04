@@ -556,7 +556,7 @@ namespace MEYPAK.PRL.ARAÇLAR
                 {
                     // ContextMenuStrip'i göster
                     contextMenuStrip.Show(GridSigorta, clickPoint);
-                    contextMenuStrip.Items[0].Click += (s, ev) =>
+                    contextMenuStrip.Items[0].Click += (s, ev) =>   
                        {
                            PocoARACMUAYENERESIM tempARACMUAYENE = _aracMuayeneServis.obje.Where(x => x.id.ToString() == gridViewMuayene.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
                            ResimAc(tempARACMUAYENE.img, "temp." + tempARACMUAYENE.dosyatip);
