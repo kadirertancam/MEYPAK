@@ -514,8 +514,16 @@ namespace MEYPAK.PRL.IRSALIYE
                 }
             }
             gridControl1.DataSource = tempkasalist.OrderByDescending(x => x.MIKTAR);
-            gridView2.Columns["ID"].Visible = false;
-            gridView2.Columns["KASAID"].Visible = false;
+            try
+            {
+
+                gridView2.Columns["ID"].Visible = false;
+                gridView2.Columns["KASAID"].Visible = false;
+            }
+            catch (Exception)
+            { 
+            }
+           
 
         }
 

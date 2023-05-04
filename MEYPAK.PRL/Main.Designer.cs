@@ -231,6 +231,7 @@
             this.ACEAracTanim = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEAracRotaTanim = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement24 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ACEMobilizWeb = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement25 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ACEPARAMETRELER = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement44 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -251,7 +252,6 @@
             this.accordionContentContainer1 = new DevExpress.XtraBars.Navigation.AccordionContentContainer();
             this.accordionControlElement64 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.İnstagr = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.ACEMobilizWeb = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -1974,7 +1974,6 @@
             this.accordionControlElement1,
             this.accordionControlElement65});
             this.accordionControlElement62.Enabled = false;
-            this.accordionControlElement62.Expanded = true;
             this.accordionControlElement62.Name = "accordionControlElement62";
             this.accordionControlElement62.Text = "EFatura";
             this.accordionControlElement62.Visible = false;
@@ -2136,7 +2135,6 @@
             this.accordionControlElement24,
             this.accordionControlElement25});
             this.ACEARAC.Enabled = false;
-            this.ACEARAC.Expanded = true;
             this.ACEARAC.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ACEARAC.ImageOptions.Image")));
             this.ACEARAC.Name = "ACEARAC";
             this.ACEARAC.Text = "Araç";
@@ -2177,10 +2175,19 @@
             this.accordionControlElement24.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.ACEMobilizWeb});
             this.accordionControlElement24.Enabled = false;
-            this.accordionControlElement24.Expanded = true;
             this.accordionControlElement24.Name = "accordionControlElement24";
             this.accordionControlElement24.Text = "Hareket";
             this.accordionControlElement24.Visible = false;
+            // 
+            // ACEMobilizWeb
+            // 
+            this.ACEMobilizWeb.Enabled = false;
+            this.ACEMobilizWeb.Name = "ACEMobilizWeb";
+            this.ACEMobilizWeb.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ACEMobilizWeb.Tag = "MOBILIZWEB";
+            this.ACEMobilizWeb.Text = "Mobiliz Giriş";
+            this.ACEMobilizWeb.Visible = false;
+            this.ACEMobilizWeb.Click += new System.EventHandler(this.ACEMobilizWeb_Click);
             // 
             // accordionControlElement25
             // 
@@ -2372,16 +2379,6 @@
             this.İnstagr.Name = "İnstagr";
             this.İnstagr.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.İnstagr.Text = "Instagram : gunduzmeypak";
-            // 
-            // ACEMobilizWeb
-            // 
-            this.ACEMobilizWeb.Enabled = false;
-            this.ACEMobilizWeb.Name = "ACEMobilizWeb";
-            this.ACEMobilizWeb.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.ACEMobilizWeb.Tag = "MOBILIZWEB";
-            this.ACEMobilizWeb.Text = "Mobiliz Giriş";
-            this.ACEMobilizWeb.Visible = false;
-            this.ACEMobilizWeb.Click += new System.EventHandler(this.ACEMobilizWeb_Click);
             // 
             // Main
             // 

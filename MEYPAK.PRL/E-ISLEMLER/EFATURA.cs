@@ -9,6 +9,7 @@ using MEYPAK.Entity.PocoModels;
 using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.FATURA;
 using MEYPAK.Entity.PocoModels.STOK;
+using MEYPAK.Interfaces.Fatura;
 using MEYPAK.Interfaces.Stok;
 using MEYPAK.PRL.Assets;
 using MEYPAK.PRL.CARI;
@@ -60,7 +61,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
             _cariAltHesCariServis = new GenericWebServis<PocoCARIALTHESCARI>();
             _faturaStokOlcuBrServis = new GenericWebServis<PocoFATURASTOKOLCUBR>();
             olcuBrServis = new GenericWebServis<PocoOLCUBR>();
-
+            faturaStokEsleServis = new GenericWebServis<PocoFATURASTOKESLE>();
         }
 
 
@@ -74,9 +75,10 @@ namespace MEYPAK.PRL.E_ISLEMLER
         private void gridView1_Click(object sender, EventArgs e)
         {
         }
+        GenericWebServis<PocoFATURASTOKESLE> faturaStokEsleServis;
         private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-
+            faturaStokEsleServis.Data(ServisList.FATURASTOKESLEListeServis);
             tempp = ıntegrationClient.GetInboxInvoiceAsync(gridView1.GetFocusedRowCellValue("ETTNO").ToString()).Result;
             RepositoryItemButtonEdit repositoryItemButtonEdit = new RepositoryItemButtonEdit();
             repositoryItemButtonEdit.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
@@ -86,13 +88,13 @@ namespace MEYPAK.PRL.E_ISLEMLER
             repositoryItemButtonEdit.Buttons[0].Kind = ButtonPredefines.Glyph;
             repositoryItemButtonEdit.Buttons[0].Shortcut = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.Enter);
             repositoryItemButtonEdit.ButtonClick += RepositoryItemButtonEdit_ButtonClick;
-            tempdetay = tempp.Value.Invoice.InvoiceLine.Select(x => new FaturaDetailList { SIRA = int.Parse(x.ID.Value), KOD = "", ADI = x.Item.Name.Value, KUNYENO = x.Item.AdditionalItemIdentification != null ? x.Item.AdditionalItemIdentification.Where(x => x.ID.schemeID == "KUNYENO").Count() > 0 ? x.Item.AdditionalItemIdentification.Where(x => x.ID.schemeID == "KUNYENO").FirstOrDefault().ID.Value : "" : "", MIKTAR = x.InvoicedQuantity.Value, BIRIM = x.InvoicedQuantity.unitCode, NETFIYAT = x.Price.PriceAmount.Value, TUTAR = x.Price.PriceAmount.Value * x.InvoicedQuantity.Value }).ToList();
+            tempdetay = tempp.Value.Invoice.InvoiceLine.Select(x => new FaturaDetailList { SIRA = int.Parse(x.ID.Value), KOD = faturaStokEsleServis.obje.Where(y => y.stokadi == x.Item.SellersItemIdentification.ID.Value.ToString()).Count() > 0 ? faturaStokEsleServis.obje.Where(y => y.stokadi == x.Item.SellersItemIdentification.ID.Value.ToString()).Select(z => _stokServis.obje.Where(y => y.id == z.stokid).FirstOrDefault().kod).FirstOrDefault() : "", ADI = x.Item.Name.Value, KUNYENO = x.Item.AdditionalItemIdentification != null ? x.Item.AdditionalItemIdentification.Where(x => x.ID.schemeID == "KUNYENO").Count() > 0 ? x.Item.AdditionalItemIdentification.Where(x => x.ID.schemeID == "KUNYENO").FirstOrDefault().ID.Value : "" : "", MIKTAR = x.InvoicedQuantity.Value, BIRIM = x.InvoicedQuantity.unitCode, NETFIYAT = x.Price.PriceAmount.Value, TUTAR = x.Price.PriceAmount.Value * x.InvoicedQuantity.Value }).ToList();
             gridControl2.DataSource = tempdetay;
+            gridView2.Columns["S_KOD"].Visible = false;
             gridView2.Columns["KOD"].ColumnEdit = repositoryItemButtonEdit;
         }
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-
             if (CBArsiv.Checked)
             {
                 res = ıntegrationClient.GetInboxInvoiceListAsync(new InboxInvoiceListQueryModel
@@ -145,7 +147,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
             _cariServis.Data(ServisList.CariListeServis);
             gelenefaturatasktemp = res.Value.Items.ToList();
             if (res.Value.Items != null)
-                gridControl1.DataSource = res.Value.Items.Select(x => new EFaturaGelenTask { SEC = false, ID = x.InvoiceId, CARISEC = _cariServis.obje.Where(y=>y.vergino==x.TargetTcknVkn || y.tcno==x.TargetTcknVkn).FirstOrDefault().kod, FATURALASTIR = "", BASIM = "", VKNTCK = x.TargetTcknVkn, CARIADI = x.TargetTitle, BELGENO = x.InvoiceId, TARIH = x.CreateDateUtc, VADETARIHI = x.ExecutionDate, TUTAR = x.TaxExclusiveAmount, KDV = x.TaxTotal, FATURATIP = x.Type.ToString(), ARSIVLENMIS = x.IsArchived, TIP = x.InvoiceTipType.ToString(), ETTNO = x.DocumentId, DURUM = x.StatusCode == 1000 ? "ONAYLANDI" : "BEKLEMEDE" });
+                gridControl1.DataSource = res.Value.Items.Select(x => new EFaturaGelenTask { SEC = false, ID = x.InvoiceId, CARISEC = _cariServis.obje.Where(y => y.vergino == x.TargetTcknVkn || y.tcno == x.TargetTcknVkn).Count()>0? _cariServis.obje.Where(y=>y.vergino==x.TargetTcknVkn || y.tcno==x.TargetTcknVkn).FirstOrDefault().kod:"", FATURALASTIR = "", BASIM = "", VKNTCK = x.TargetTcknVkn, CARIADI = x.TargetTitle, BELGENO = x.InvoiceId, TARIH = x.CreateDateUtc, VADETARIHI = x.ExecutionDate, TUTAR = x.TaxExclusiveAmount, KDV = x.TaxTotal, FATURATIP = x.Type.ToString(), ARSIVLENMIS = x.IsArchived, TIP = x.InvoiceTipType.ToString(), ETTNO = x.DocumentId, DURUM = x.StatusCode == 1000 ? "ONAYLANDI" : "BEKLEMEDE" });
             else
                 gridControl1.DataSource = new List<EFaturaGelenTask>();
 
@@ -259,7 +261,26 @@ namespace MEYPAK.PRL.E_ISLEMLER
             FStokList stoklist = new FStokList(this.Tag.ToString(), "EFaturaGelenKutu");
             stoklist.ShowDialog();
             gridView2.SetFocusedRowCellValue("KOD", _tempStok.kod);
-
+            faturaStokEsleServis.Data(ServisList.FATURASTOKESLEListeServis);
+            if (faturaStokEsleServis.obje.Where(x => x.stokadi == gridView2.GetFocusedRowCellValue("S_KOD").ToString()).Count() > 0)
+            {
+                faturaStokEsleServis.Data(ServisList.FATURASTOKESLEEkleServis, new PocoFATURASTOKESLE()
+                {
+                    id = faturaStokEsleServis.obje.Where(x => x.stokadi == gridView2.GetFocusedRowCellValue("S_KOD").ToString()).FirstOrDefault().id,
+                    stokid = _tempStok.id,
+                    stokadi = gridView2.GetFocusedRowCellValue("S_KOD").ToString(),
+                    userid = MPKullanici.ID
+                });
+            }
+            else
+            {
+                faturaStokEsleServis.Data(ServisList.FATURASTOKESLEEkleServis, new PocoFATURASTOKESLE()
+                {
+                    stokid = _tempStok.id,
+                    stokadi = gridView2.GetFocusedRowCellValue("S_KOD").ToString(),
+                    userid = MPKullanici.ID
+                });
+            }
         }
 
         private void gridView2_MasterRowEmpty(object sender, DevExpress.XtraGrid.Views.Grid.MasterRowEmptyEventArgs e)

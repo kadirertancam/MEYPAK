@@ -41,6 +41,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
             olcuBrServis = new GenericWebServis<PocoOLCUBR>();
             _cariServis = new GenericWebServis<PocoCARIKART>();
             _cariAltHesCariServis = new GenericWebServis<PocoCARIALTHESCARI>();
+            faturaStokEsleServis = new GenericWebServis<PocoFATURASTOKESLE>();
         }
         ServiceReference1.IntegrationClient ıntegrationClient = new ServiceReference1.IntegrationClient();
         ServiceReference2.BasicIntegrationClient basicIntegration = new ServiceReference2.BasicIntegrationClient();
@@ -138,8 +139,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
                 ffatura.Dock = DockStyle.Fill;
                 ffatura.Tag = "TPAlisIrsaliye" + main.i;
                 page.Controls.Add(ffatura);
-                ffatura.Show();
-                main.i++;
+                ffatura.Show(); 
                 this.Close();
             }
             catch (Exception)
@@ -148,13 +148,34 @@ namespace MEYPAK.PRL.E_ISLEMLER
             }
         }
 
-      
-        GenericWebServis<>
+
+        GenericWebServis<PocoFATURASTOKESLE> faturaStokEsleServis;
         private void RepositoryItemButtonEdit_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
             FStokList stoklist = new FStokList(this.Tag.ToString(), "EIrsaliyeGelenKutu");
             stoklist.ShowDialog();
             gridView2.SetFocusedRowCellValue("KOD", _tempStok.kod);
+            faturaStokEsleServis.Data(ServisList.FATURASTOKESLEListeServis);
+            if (faturaStokEsleServis.obje.Where(x => x.stokadi == gridView2.GetFocusedRowCellValue("S_KOD").ToString()).Count() > 0)
+            {
+                faturaStokEsleServis.Data(ServisList.FATURASTOKESLEEkleServis, new PocoFATURASTOKESLE()
+                {
+                    id= faturaStokEsleServis.obje.Where(x => x.stokadi == gridView2.GetFocusedRowCellValue("S_KOD").ToString() ).FirstOrDefault().id,
+                    stokid = _tempStok.id,
+                    stokadi = gridView2.GetFocusedRowCellValue("S_KOD").ToString(),
+                    userid = MPKullanici.ID
+                });
+            }
+            else
+            {
+                faturaStokEsleServis.Data(ServisList.FATURASTOKESLEEkleServis, new PocoFATURASTOKESLE()
+                {
+                    stokid = _tempStok.id,
+                    stokadi = gridView2.GetFocusedRowCellValue("S_KOD").ToString(),
+                    userid = MPKullanici.ID
+                });
+            }
+
 
         }
 
@@ -214,7 +235,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
             _cariServis.Data(ServisList.CariListeServis);
             geleneirsaliyetasktemp = res.Value.Items.ToList();
             if (res.Value.Items != null)
-                gridControl1.DataSource = res.Value.Items.Select(x => new EFaturaGelenTask { SEC = false, ID = x.DespatchId, CARISEC = _cariServis.obje.Where(y => y.vergino == x.TargetTcknVkn || y.tcno == x.TargetTcknVkn).Count()>0? _cariServis.obje.Where(y => y.vergino == x.TargetTcknVkn || y.tcno == x.TargetTcknVkn).FirstOrDefault().kod:"", FATURALASTIR = "", BASIM = "", VKNTCK = x.TargetTcknVkn, CARIADI = x.TargetTitle, BELGENO = x.EnvelopeIdentifier, TARIH = x.CreateDateUtc, VADETARIHI = x.IssueDate, ARSIVLENMIS = x.IsArchived, ETTNO = x.DespatchId, DURUM = x.StatusCode == 1000 ? "ONAYLANDI" : "BEKLEMEDE" });
+                gridControl1.DataSource = res.Value.Items.Select(x => new EFaturaGelenTask { SEC = false, ID = x.DespatchId, CARISEC = _cariServis.obje.Where(y => y.vergino == x.TargetTcknVkn || y.tcno == x.TargetTcknVkn).Count()>0? _cariServis.obje.Where(y => y.vergino == x.TargetTcknVkn || y.tcno == x.TargetTcknVkn).FirstOrDefault().kod:"", FATURALASTIR = "", BASIM = "", VKNTCK = x.TargetTcknVkn, CARIADI = x.TargetTitle, BELGENO = x.DespatchNumber, TARIH = x.CreateDateUtc, VADETARIHI = x.IssueDate, ARSIVLENMIS = x.IsArchived, ETTNO = x.DespatchId, DURUM = x.StatusCode == 1000 ? "ONAYLANDI" : "BEKLEMEDE" });
             else
                 gridControl1.DataSource = new List<EFaturaGelenTask>();
 
@@ -222,9 +243,10 @@ namespace MEYPAK.PRL.E_ISLEMLER
             gridView1.Columns["BASIM"].ColumnEdit = repositoryItemButtonEdit2;
             gridView1.Columns["CARISEC"].ColumnEdit = repositoryItemButtonEdit3;
         }
-
+        
         private void gridView1_FocusedRowChanged_1(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
+            faturaStokEsleServis.Data(ServisList.FATURASTOKESLEListeServis);
             tempp = client.GetInboxDespatchAsync(gridView1.GetFocusedRowCellValue("ETTNO").ToString()).Result;
             RepositoryItemButtonEdit repositoryItemButtonEdit = new RepositoryItemButtonEdit();
             repositoryItemButtonEdit.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
@@ -234,8 +256,10 @@ namespace MEYPAK.PRL.E_ISLEMLER
             repositoryItemButtonEdit.Buttons[0].Kind = ButtonPredefines.Glyph;
             repositoryItemButtonEdit.Buttons[0].Shortcut = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.Enter);
             repositoryItemButtonEdit.ButtonClick += RepositoryItemButtonEdit_ButtonClick;
-            tempdetay = tempp.Value.DespatchAdvice.DespatchLine.Select(x => new FaturaDetailList { SIRA = int.Parse(x.ID.Value), KOD = "", ADI = x.Item.Name.Value, KUNYENO = x.Item.AdditionalItemIdentification != null ? x.Item.AdditionalItemIdentification.Where(x => x.ID.schemeID == "KUNYENO").Count() > 0 ? x.Item.AdditionalItemIdentification.Where(x => x.ID.schemeID == "KUNYENO").FirstOrDefault().ID.Value : "" : "", MIKTAR = x.DeliveredQuantity.Value, BIRIM = x.DeliveredQuantity.unitCode }).ToList();
+            _stokServis.Data(ServisList.StokListeServis);
+            tempdetay = tempp.Value.DespatchAdvice.DespatchLine.Select(x => new FaturaDetailList { SIRA = int.Parse(x.ID.Value),KOD =   faturaStokEsleServis.obje.Where(y=>y.stokadi==x.Item.SellersItemIdentification.ID.Value.ToString()).Count()>0? faturaStokEsleServis.obje.Where(y => y.stokadi == x.Item.SellersItemIdentification.ID.Value.ToString()).Select(z=> _stokServis.obje.Where(y=>y.id==z.stokid).FirstOrDefault().kod).FirstOrDefault():"", S_KOD = x.Item.SellersItemIdentification.ID.Value.ToString(), ADI = x.Item.Name.Value, KUNYENO = x.Item.AdditionalItemIdentification != null ? x.Item.AdditionalItemIdentification.Where(x => x.ID.schemeID == "KUNYENO").Count() > 0 ? x.Item.AdditionalItemIdentification.Where(x => x.ID.schemeID == "KUNYENO").FirstOrDefault().ID.Value : "" : "", MIKTAR = x.DeliveredQuantity.Value, BIRIM = x.DeliveredQuantity.unitCode }).ToList();
             gridControl2.DataSource = tempdetay;
+            gridView2.Columns["S_KOD"].Visible = false;
             gridView2.Columns["KOD"].ColumnEdit = repositoryItemButtonEdit;
             gridControl2.RefreshDataSource();
         }

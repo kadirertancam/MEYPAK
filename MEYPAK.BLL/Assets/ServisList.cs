@@ -13,6 +13,15 @@ namespace MEYPAK.BLL.Assets
         public static string URL = "http://78.135.80.41:8081";
 
         #endregion
+        #region FATURASTOKESLE
+        public const string FATURASTOKESLEListeServis = "http://78.135.80.41:8081/FATURASTOKESLE/FATURASTOKESLEListe";
+        public const string FATURASTOKESLEEkleServis = "http://78.135.80.41:8081/FATURASTOKESLE/FATURASTOKESLEEkleyadaGuncelle";
+        public const string FATURASTOKESLESilServis = "http://78.135.80.41:8081/FATURASTOKESLE/FATURASTOKESLESil";
+        public const string FATURASTOKESLEGuncelleServis = "http://78.135.80.41:8081/FATURASTOKESLE/FATURASTOKESLEGuncelle";
+        public const string FATURASTOKESLEDeleteByIdServis = "http://78.135.80.41:8081/FATURASTOKESLE/DeleteById";
+        public const string FATURASTOKESLEListeFiltreServis = "http://78.135.80.41:8081/FATURASTOKESLE/Liste2";
+
+        #endregion
 
         #region GIDENMUSTAHSILMAKBUZLARI
 
