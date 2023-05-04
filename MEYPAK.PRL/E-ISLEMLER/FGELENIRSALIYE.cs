@@ -148,8 +148,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
             }
         }
 
-      
-        GenericWebServis<>
+
         private void RepositoryItemButtonEdit_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
             FStokList stoklist = new FStokList(this.Tag.ToString(), "EIrsaliyeGelenKutu");
