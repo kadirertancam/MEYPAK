@@ -13,6 +13,8 @@ namespace MEYPAK.Entity.Models.ARAC
     {
         public int ARACID { get; set; }
         public int NUM { get; set; }
+        public string DOSYATIP { get; set; }
+
         [MaxLength, Column(TypeName = "ntext")]
         public string IMG { get; set; }
     }

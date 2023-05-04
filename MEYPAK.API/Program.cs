@@ -457,6 +457,10 @@ builder.Services.AddScoped<IAracSigortaResimServis, AracSigortaResimManager>();
 builder.Services.AddScoped<IAracKaskoResimDal, EFAracKaskoResimRepo>();
 builder.Services.AddScoped<IAracKaskoResimServis, AracKaskoResimManager>();
 
+
+builder.Services.AddScoped<IAracMuayeneResimDal,  EFAracMuayeneResimRepo>();
+builder.Services.AddScoped<IAracMuayeneResimServis, AracMuayeneResimManager>();
+
 builder.Services.AddScoped<IAracRotaDal, EFAracRotaRepo>();
 builder.Services.AddScoped<IAracRotaServis, AracRotaManager>();
 

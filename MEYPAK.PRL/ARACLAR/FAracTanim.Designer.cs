@@ -28,58 +28,64 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition1 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
-            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition1 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
-            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement1 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FAracTanim));
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions7 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject25 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject26 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject27 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject28 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition3 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
+            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition3 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement3 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition2 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
-            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition2 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
-            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement2 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition3 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
-            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition3 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
-            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement3 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition1 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
+            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition1 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement1 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
-            this.Resim = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions5 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject17 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject18 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject19 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject20 = new DevExpress.Utils.SerializableAppearanceObject();
             this.tileViewColumn2 = new DevExpress.XtraGrid.Columns.TileViewColumn();
-            this.tileViewColumn1 = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.tileViewColumn4 = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.XTPSigorta = new DevExpress.XtraTab.XtraTabPage();
             this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
             this.GridSigorta = new DevExpress.XtraGrid.GridControl();
-            this.tileView1 = new DevExpress.XtraGrid.Views.Tile.TileView();
+            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.Resim = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl6 = new DevExpress.XtraEditors.PanelControl();
             this.labelControl33 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl32 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl31 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl30 = new DevExpress.XtraEditors.LabelControl();
             this.BTNSigortaKaydet = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
             this.DTPSigPolBitTar = new DevExpress.XtraEditors.DateEdit();
-            this.buttonEdit1 = new DevExpress.XtraEditors.ButtonEdit();
+            this.BTSigortaBelgeSec = new DevExpress.XtraEditors.ButtonEdit();
             this.TBSigAcenteAdi = new DevExpress.XtraEditors.TextEdit();
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
             this.DTPSigPolBasTar = new DevExpress.XtraEditors.DateEdit();
@@ -92,23 +98,23 @@
             this.GridRuhsat = new DevExpress.XtraGrid.GridControl();
             this.tileView3 = new DevExpress.XtraGrid.Views.Tile.TileView();
             this.panelControl13 = new DevExpress.XtraEditors.PanelControl();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.BTRuhsatEkle = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
             this.BTNRuhsatSec = new DevExpress.XtraEditors.ButtonEdit();
             this.XTPKasko = new DevExpress.XtraTab.XtraTabPage();
             this.panelControl7 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl9 = new DevExpress.XtraEditors.PanelControl();
             this.GridKasko = new DevExpress.XtraGrid.GridControl();
-            this.tileView2 = new DevExpress.XtraGrid.Views.Tile.TileView();
+            this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.tileViewColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl8 = new DevExpress.XtraEditors.PanelControl();
             this.BTNKaskoKaydet = new DevExpress.XtraEditors.SimpleButton();
-            this.BTNKaskoEkle = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl20 = new DevExpress.XtraEditors.LabelControl();
             this.TBKasPoliceNo = new DevExpress.XtraEditors.LabelControl();
             this.DTPKasPolBitTar = new DevExpress.XtraEditors.DateEdit();
-            this.buttonEdit3 = new DevExpress.XtraEditors.ButtonEdit();
+            this.BTKaskoBelgeSec = new DevExpress.XtraEditors.ButtonEdit();
             this.TBKasAcenteAdi = new DevExpress.XtraEditors.TextEdit();
             this.labelControl22 = new DevExpress.XtraEditors.LabelControl();
             this.DTPKasPolBasTar = new DevExpress.XtraEditors.DateEdit();
@@ -117,19 +123,35 @@
             this.XTPMuayene = new DevExpress.XtraTab.XtraTabPage();
             this.panelControl11 = new DevExpress.XtraEditors.PanelControl();
             this.GridMuayene = new DevExpress.XtraGrid.GridControl();
-            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.tileViewColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl10 = new DevExpress.XtraEditors.PanelControl();
+            this.labelControl21 = new DevExpress.XtraEditors.LabelControl();
+            this.BTMuayeneBelgeSec = new DevExpress.XtraEditors.ButtonEdit();
             this.BTNMuayeneKaydet = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
-            this.dateEdit8 = new DevExpress.XtraEditors.DateEdit();
+            this.DTPEgzozBitTar = new DevExpress.XtraEditors.DateEdit();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
-            this.dateEdit7 = new DevExpress.XtraEditors.DateEdit();
+            this.DTPEgzozBasTar = new DevExpress.XtraEditors.DateEdit();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
-            this.dateEdit4 = new DevExpress.XtraEditors.DateEdit();
+            this.DTPMuayeneBitTar = new DevExpress.XtraEditors.DateEdit();
             this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
-            this.dateEdit3 = new DevExpress.XtraEditors.DateEdit();
+            this.DTPMuayeneBasTar = new DevExpress.XtraEditors.DateEdit();
+            this.XTPZimmet = new DevExpress.XtraTab.XtraTabPage();
             this.XTPBelgeler = new DevExpress.XtraTab.XtraTabPage();
+            this.panelControl16 = new DevExpress.XtraEditors.PanelControl();
+            this.GCDigerBelgeler = new DevExpress.XtraGrid.GridControl();
+            this.tileView5 = new DevExpress.XtraGrid.Views.Tile.TileView();
+            this.panelControl15 = new DevExpress.XtraEditors.PanelControl();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl34 = new DevExpress.XtraEditors.LabelControl();
+            this.buttonEdit3 = new DevExpress.XtraEditors.ButtonEdit();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.NUDYedekTekerSayisi = new System.Windows.Forms.NumericUpDown();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.NUDTekerSayisi = new System.Windows.Forms.NumericUpDown();
+            this.RGAracDurum = new DevExpress.XtraEditors.RadioGroup();
             this.CBModel = new DevExpress.XtraEditors.LookUpEdit();
             this.BTNAracFoto = new DevExpress.XtraEditors.ButtonEdit();
             this.labelControl29 = new DevExpress.XtraEditors.LabelControl();
@@ -155,7 +177,7 @@
             this.PBAracResim = new DevExpress.XtraEditors.PictureEdit();
             this.LBPlaka = new DevExpress.XtraEditors.LabelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.GCAraclar = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
@@ -167,12 +189,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
             this.panelControl5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridSigorta)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tileView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).BeginInit();
             this.panelControl6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DTPSigPolBitTar.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPSigPolBitTar.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BTSigortaBelgeSec.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBSigAcenteAdi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPSigPolBasTar.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPSigPolBasTar.Properties)).BeginInit();
@@ -193,12 +215,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl9)).BeginInit();
             this.panelControl9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridKasko)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tileView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl8)).BeginInit();
             this.panelControl8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DTPKasPolBitTar.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPKasPolBitTar.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit3.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BTKaskoBelgeSec.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBKasAcenteAdi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPKasPolBasTar.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPKasPolBasTar.Properties)).BeginInit();
@@ -207,19 +229,31 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl11)).BeginInit();
             this.panelControl11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridMuayene)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl10)).BeginInit();
             this.panelControl10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit8.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit8.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit7.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit7.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit4.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit4.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit3.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit3.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BTMuayeneBelgeSec.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DTPEgzozBitTar.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DTPEgzozBitTar.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DTPEgzozBasTar.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DTPEgzozBasTar.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DTPMuayeneBitTar.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DTPMuayeneBitTar.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DTPMuayeneBasTar.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DTPMuayeneBasTar.Properties)).BeginInit();
+            this.XTPBelgeler.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl16)).BeginInit();
+            this.panelControl16.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GCDigerBelgeler)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tileView5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl15)).BeginInit();
+            this.panelControl15.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NUDYedekTekerSayisi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUDTekerSayisi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RGAracDurum.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBModel.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTNAracFoto.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBMarka.Properties)).BeginInit();
@@ -231,20 +265,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.PBAracResim.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GCAraclar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // Resim
-            // 
-            this.Resim.AccessibleName = "Resim";
-            this.Resim.Caption = "Resim";
-            this.Resim.FieldName = "Resim";
-            this.Resim.MinWidth = 17;
-            this.Resim.Name = "Resim";
-            this.Resim.Visible = true;
-            this.Resim.VisibleIndex = 0;
-            this.Resim.Width = 64;
             // 
             // tileViewColumn2
             // 
@@ -257,16 +280,16 @@
             this.tileViewColumn2.VisibleIndex = 0;
             this.tileViewColumn2.Width = 64;
             // 
-            // tileViewColumn1
+            // tileViewColumn4
             // 
-            this.tileViewColumn1.AccessibleName = "Resim";
-            this.tileViewColumn1.Caption = "Resim";
-            this.tileViewColumn1.FieldName = "Resim";
-            this.tileViewColumn1.MinWidth = 17;
-            this.tileViewColumn1.Name = "tileViewColumn1";
-            this.tileViewColumn1.Visible = true;
-            this.tileViewColumn1.VisibleIndex = 0;
-            this.tileViewColumn1.Width = 64;
+            this.tileViewColumn4.AccessibleName = "Resim";
+            this.tileViewColumn4.Caption = "Resim";
+            this.tileViewColumn4.FieldName = "Resim";
+            this.tileViewColumn4.MinWidth = 17;
+            this.tileViewColumn4.Name = "tileViewColumn4";
+            this.tileViewColumn4.Visible = true;
+            this.tileViewColumn4.VisibleIndex = 0;
+            this.tileViewColumn4.Width = 64;
             // 
             // panelControl1
             // 
@@ -301,6 +324,7 @@
             this.XTPSigorta,
             this.XTPKasko,
             this.XTPMuayene,
+            this.XTPZimmet,
             this.XTPBelgeler});
             // 
             // XTPSigorta
@@ -324,32 +348,31 @@
             // 
             this.GridSigorta.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GridSigorta.Location = new System.Drawing.Point(2, 2);
-            this.GridSigorta.MainView = this.tileView1;
+            this.GridSigorta.MainView = this.gridView2;
             this.GridSigorta.Name = "GridSigorta";
             this.GridSigorta.Size = new System.Drawing.Size(889, 565);
             this.GridSigorta.TabIndex = 1;
             this.GridSigorta.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.tileView1});
+            this.gridView2});
             // 
-            // tileView1
+            // gridView2
             // 
-            this.tileView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.Resim});
-            this.tileView1.DetailHeight = 303;
-            this.tileView1.GridControl = this.GridSigorta;
-            this.tileView1.Name = "tileView1";
-            this.tileView1.OptionsTiles.ColumnCount = 4;
-            this.tileView1.OptionsTiles.ItemSize = new System.Drawing.Size(248, 340);
-            this.tileView1.OptionsTiles.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.tileView1.OptionsTiles.RowCount = 0;
-            this.tileView1.TileColumns.Add(tableColumnDefinition1);
-            this.tileView1.TileRows.Add(tableRowDefinition1);
-            tileViewItemElement1.Column = this.Resim;
-            tileViewItemElement1.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            tileViewItemElement1.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Squeeze;
-            tileViewItemElement1.Text = "Resim";
-            tileViewItemElement1.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileView1.TileTemplate.Add(tileViewItemElement1);
+            this.gridView2.DetailHeight = 303;
+            this.gridView2.GridControl = this.GridSigorta;
+            this.gridView2.Name = "gridView2";
+            // 
+            // Resim
+            // 
+            this.Resim.AccessibleName = "Resim";
+            this.Resim.Caption = "Resim";
+            this.Resim.FieldName = "Resim";
+            this.Resim.MinWidth = 17;
+            this.Resim.Name = "Resim";
+            this.Resim.Visible = true;
+            this.Resim.VisibleIndex = 0;
+            this.Resim.Width = 64;
             // 
             // panelControl6
             // 
@@ -358,12 +381,11 @@
             this.panelControl6.Controls.Add(this.labelControl31);
             this.panelControl6.Controls.Add(this.labelControl30);
             this.panelControl6.Controls.Add(this.BTNSigortaKaydet);
-            this.panelControl6.Controls.Add(this.simpleButton4);
             this.panelControl6.Controls.Add(this.labelControl8);
             this.panelControl6.Controls.Add(this.labelControl10);
             this.panelControl6.Controls.Add(this.labelControl11);
             this.panelControl6.Controls.Add(this.DTPSigPolBitTar);
-            this.panelControl6.Controls.Add(this.buttonEdit1);
+            this.panelControl6.Controls.Add(this.BTSigortaBelgeSec);
             this.panelControl6.Controls.Add(this.TBSigAcenteAdi);
             this.panelControl6.Controls.Add(this.labelControl12);
             this.panelControl6.Controls.Add(this.DTPSigPolBasTar);
@@ -413,23 +435,12 @@
             this.BTNSigortaKaydet.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
             this.BTNSigortaKaydet.Appearance.Options.UseBackColor = true;
             this.BTNSigortaKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTNSigortaKaydet.ImageOptions.Image")));
-            this.BTNSigortaKaydet.Location = new System.Drawing.Point(741, 18);
+            this.BTNSigortaKaydet.Location = new System.Drawing.Point(757, 20);
             this.BTNSigortaKaydet.Name = "BTNSigortaKaydet";
             this.BTNSigortaKaydet.Size = new System.Drawing.Size(129, 51);
             this.BTNSigortaKaydet.TabIndex = 66;
             this.BTNSigortaKaydet.Text = "Sigorta Kaydet";
             this.BTNSigortaKaydet.Click += new System.EventHandler(this.BTNSigortaKaydet_Click);
-            // 
-            // simpleButton4
-            // 
-            this.simpleButton4.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.simpleButton4.Appearance.Options.UseBackColor = true;
-            this.simpleButton4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton4.ImageOptions.Image")));
-            this.simpleButton4.Location = new System.Drawing.Point(497, 88);
-            this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.Size = new System.Drawing.Size(63, 22);
-            this.simpleButton4.TabIndex = 46;
-            this.simpleButton4.Text = "Ekle";
             // 
             // labelControl8
             // 
@@ -441,7 +452,7 @@
             // 
             // labelControl10
             // 
-            this.labelControl10.Location = new System.Drawing.Point(281, 95);
+            this.labelControl10.Location = new System.Drawing.Point(254, 95);
             this.labelControl10.Name = "labelControl10";
             this.labelControl10.Size = new System.Drawing.Size(46, 13);
             this.labelControl10.TabIndex = 44;
@@ -465,14 +476,15 @@
             this.DTPSigPolBitTar.Size = new System.Drawing.Size(201, 20);
             this.DTPSigPolBitTar.TabIndex = 40;
             // 
-            // buttonEdit1
+            // BTSigortaBelgeSec
             // 
-            this.buttonEdit1.Location = new System.Drawing.Point(343, 90);
-            this.buttonEdit1.Name = "buttonEdit1";
-            this.buttonEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", "Seç", null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.buttonEdit1.Size = new System.Drawing.Size(133, 22);
-            this.buttonEdit1.TabIndex = 43;
+            this.BTSigortaBelgeSec.Location = new System.Drawing.Point(306, 90);
+            this.BTSigortaBelgeSec.Name = "BTSigortaBelgeSec";
+            this.BTSigortaBelgeSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions7, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject25, serializableAppearanceObject26, serializableAppearanceObject27, serializableAppearanceObject28, "", "Seç", null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.BTSigortaBelgeSec.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTSigortaBelgeSec_Properties_ButtonClick);
+            this.BTSigortaBelgeSec.Size = new System.Drawing.Size(201, 22);
+            this.BTSigortaBelgeSec.TabIndex = 43;
             // 
             // TBSigAcenteAdi
             // 
@@ -572,18 +584,18 @@
             this.tileView3.OptionsTiles.ItemSize = new System.Drawing.Size(248, 340);
             this.tileView3.OptionsTiles.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.tileView3.OptionsTiles.RowCount = 0;
-            this.tileView3.TileColumns.Add(tableColumnDefinition2);
-            this.tileView3.TileRows.Add(tableRowDefinition2);
-            tileViewItemElement2.Column = this.tileViewColumn2;
-            tileViewItemElement2.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            tileViewItemElement2.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Squeeze;
-            tileViewItemElement2.Text = "Resim";
-            tileViewItemElement2.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileView3.TileTemplate.Add(tileViewItemElement2);
+            this.tileView3.TileColumns.Add(tableColumnDefinition3);
+            this.tileView3.TileRows.Add(tableRowDefinition3);
+            tileViewItemElement3.Column = this.tileViewColumn2;
+            tileViewItemElement3.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileViewItemElement3.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Squeeze;
+            tileViewItemElement3.Text = "Resim";
+            tileViewItemElement3.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileView3.TileTemplate.Add(tileViewItemElement3);
             // 
             // panelControl13
             // 
-            this.panelControl13.Controls.Add(this.simpleButton1);
+            this.panelControl13.Controls.Add(this.BTRuhsatEkle);
             this.panelControl13.Controls.Add(this.labelControl16);
             this.panelControl13.Controls.Add(this.BTNRuhsatSec);
             this.panelControl13.Dock = System.Windows.Forms.DockStyle.Top;
@@ -592,17 +604,17 @@
             this.panelControl13.Size = new System.Drawing.Size(889, 55);
             this.panelControl13.TabIndex = 0;
             // 
-            // simpleButton1
+            // BTRuhsatEkle
             // 
-            this.simpleButton1.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.simpleButton1.Appearance.Options.UseBackColor = true;
-            this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(321, 15);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(63, 22);
-            this.simpleButton1.TabIndex = 49;
-            this.simpleButton1.Text = "&Ekle";
-            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            this.BTRuhsatEkle.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.BTRuhsatEkle.Appearance.Options.UseBackColor = true;
+            this.BTRuhsatEkle.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTRuhsatEkle.ImageOptions.Image")));
+            this.BTRuhsatEkle.Location = new System.Drawing.Point(321, 15);
+            this.BTRuhsatEkle.Name = "BTRuhsatEkle";
+            this.BTRuhsatEkle.Size = new System.Drawing.Size(63, 22);
+            this.BTRuhsatEkle.TabIndex = 49;
+            this.BTRuhsatEkle.Text = "&Ekle";
+            this.BTRuhsatEkle.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // labelControl16
             // 
@@ -617,7 +629,7 @@
             this.BTNRuhsatSec.Location = new System.Drawing.Point(114, 15);
             this.BTNRuhsatSec.Name = "BTNRuhsatSec";
             this.BTNRuhsatSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", "Seç", null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", "Seç", null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTNRuhsatSec.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.buttonEdit2_Properties_ButtonClick);
             this.BTNRuhsatSec.Size = new System.Drawing.Size(187, 22);
             this.BTNRuhsatSec.TabIndex = 47;
@@ -652,43 +664,41 @@
             // 
             this.GridKasko.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GridKasko.Location = new System.Drawing.Point(2, 2);
-            this.GridKasko.MainView = this.tileView2;
+            this.GridKasko.MainView = this.gridView3;
             this.GridKasko.Name = "GridKasko";
             this.GridKasko.Size = new System.Drawing.Size(885, 564);
             this.GridKasko.TabIndex = 2;
             this.GridKasko.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.tileView2});
+            this.gridView3});
             // 
-            // tileView2
+            // gridView3
             // 
-            this.tileView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridView3.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.tileViewColumn1});
-            this.tileView2.DetailHeight = 303;
-            this.tileView2.GridControl = this.GridKasko;
-            this.tileView2.Name = "tileView2";
-            this.tileView2.OptionsTiles.ColumnCount = 4;
-            this.tileView2.OptionsTiles.ItemSize = new System.Drawing.Size(248, 340);
-            this.tileView2.OptionsTiles.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.tileView2.OptionsTiles.RowCount = 0;
-            this.tileView2.TileColumns.Add(tableColumnDefinition3);
-            this.tileView2.TileRows.Add(tableRowDefinition3);
-            tileViewItemElement3.Column = this.tileViewColumn1;
-            tileViewItemElement3.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            tileViewItemElement3.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Squeeze;
-            tileViewItemElement3.Text = "Resim";
-            tileViewItemElement3.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileView2.TileTemplate.Add(tileViewItemElement3);
+            this.gridView3.DetailHeight = 303;
+            this.gridView3.GridControl = this.GridKasko;
+            this.gridView3.Name = "gridView3";
+            // 
+            // tileViewColumn1
+            // 
+            this.tileViewColumn1.AccessibleName = "Resim";
+            this.tileViewColumn1.Caption = "Resim";
+            this.tileViewColumn1.FieldName = "Resim";
+            this.tileViewColumn1.MinWidth = 17;
+            this.tileViewColumn1.Name = "tileViewColumn1";
+            this.tileViewColumn1.Visible = true;
+            this.tileViewColumn1.VisibleIndex = 0;
+            this.tileViewColumn1.Width = 64;
             // 
             // panelControl8
             // 
             this.panelControl8.Controls.Add(this.BTNKaskoKaydet);
-            this.panelControl8.Controls.Add(this.BTNKaskoEkle);
             this.panelControl8.Controls.Add(this.labelControl18);
             this.panelControl8.Controls.Add(this.labelControl19);
             this.panelControl8.Controls.Add(this.labelControl20);
             this.panelControl8.Controls.Add(this.TBKasPoliceNo);
             this.panelControl8.Controls.Add(this.DTPKasPolBitTar);
-            this.panelControl8.Controls.Add(this.buttonEdit3);
+            this.panelControl8.Controls.Add(this.BTKaskoBelgeSec);
             this.panelControl8.Controls.Add(this.TBKasAcenteAdi);
             this.panelControl8.Controls.Add(this.labelControl22);
             this.panelControl8.Controls.Add(this.DTPKasPolBasTar);
@@ -705,29 +715,18 @@
             this.BTNKaskoKaydet.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
             this.BTNKaskoKaydet.Appearance.Options.UseBackColor = true;
             this.BTNKaskoKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTNKaskoKaydet.ImageOptions.Image")));
-            this.BTNKaskoKaydet.Location = new System.Drawing.Point(774, 33);
+            this.BTNKaskoKaydet.Location = new System.Drawing.Point(774, 19);
             this.BTNKaskoKaydet.Name = "BTNKaskoKaydet";
             this.BTNKaskoKaydet.Size = new System.Drawing.Size(110, 51);
             this.BTNKaskoKaydet.TabIndex = 65;
             this.BTNKaskoKaydet.Text = "Kasko Kaydet";
             this.BTNKaskoKaydet.Click += new System.EventHandler(this.BTNKaskoKaydet_Click);
             // 
-            // BTNKaskoEkle
-            // 
-            this.BTNKaskoEkle.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.BTNKaskoEkle.Appearance.Options.UseBackColor = true;
-            this.BTNKaskoEkle.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTNKaskoEkle.ImageOptions.Image")));
-            this.BTNKaskoEkle.Location = new System.Drawing.Point(569, 83);
-            this.BTNKaskoEkle.Name = "BTNKaskoEkle";
-            this.BTNKaskoEkle.Size = new System.Drawing.Size(63, 22);
-            this.BTNKaskoEkle.TabIndex = 35;
-            this.BTNKaskoEkle.Text = "Ekle";
-            // 
             // labelControl18
             // 
             this.labelControl18.Appearance.ForeColor = System.Drawing.Color.Red;
             this.labelControl18.Appearance.Options.UseForeColor = true;
-            this.labelControl18.Location = new System.Drawing.Point(454, 3);
+            this.labelControl18.Location = new System.Drawing.Point(369, 1);
             this.labelControl18.Name = "labelControl18";
             this.labelControl18.Size = new System.Drawing.Size(33, 13);
             this.labelControl18.TabIndex = 18;
@@ -743,7 +742,7 @@
             // 
             // labelControl20
             // 
-            this.labelControl20.Location = new System.Drawing.Point(290, 88);
+            this.labelControl20.Location = new System.Drawing.Point(281, 88);
             this.labelControl20.Name = "labelControl20";
             this.labelControl20.Size = new System.Drawing.Size(46, 13);
             this.labelControl20.TabIndex = 31;
@@ -767,14 +766,15 @@
             this.DTPKasPolBitTar.Size = new System.Drawing.Size(201, 20);
             this.DTPKasPolBitTar.TabIndex = 24;
             // 
-            // buttonEdit3
+            // BTKaskoBelgeSec
             // 
-            this.buttonEdit3.Location = new System.Drawing.Point(355, 85);
-            this.buttonEdit3.Name = "buttonEdit3";
-            this.buttonEdit3.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", "Seç", null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.buttonEdit3.Size = new System.Drawing.Size(201, 22);
-            this.buttonEdit3.TabIndex = 30;
+            this.BTKaskoBelgeSec.Location = new System.Drawing.Point(333, 84);
+            this.BTKaskoBelgeSec.Name = "BTKaskoBelgeSec";
+            this.BTKaskoBelgeSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", "Seç", null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.BTKaskoBelgeSec.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTKaskoBelgeSec_Properties_ButtonClick);
+            this.BTKaskoBelgeSec.Size = new System.Drawing.Size(201, 22);
+            this.BTKaskoBelgeSec.TabIndex = 30;
             // 
             // TBKasAcenteAdi
             // 
@@ -828,55 +828,89 @@
             // 
             this.panelControl11.Controls.Add(this.GridMuayene);
             this.panelControl11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl11.Location = new System.Drawing.Point(0, 85);
+            this.panelControl11.Location = new System.Drawing.Point(0, 128);
             this.panelControl11.Name = "panelControl11";
-            this.panelControl11.Size = new System.Drawing.Size(893, 602);
+            this.panelControl11.Size = new System.Drawing.Size(893, 559);
             this.panelControl11.TabIndex = 9;
             // 
             // GridMuayene
             // 
             this.GridMuayene.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GridMuayene.Location = new System.Drawing.Point(2, 2);
-            this.GridMuayene.MainView = this.gridView2;
+            this.GridMuayene.MainView = this.gridView4;
             this.GridMuayene.Name = "GridMuayene";
-            this.GridMuayene.Size = new System.Drawing.Size(889, 598);
-            this.GridMuayene.TabIndex = 0;
+            this.GridMuayene.Size = new System.Drawing.Size(889, 555);
+            this.GridMuayene.TabIndex = 3;
             this.GridMuayene.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView2});
+            this.gridView4});
             // 
-            // gridView2
+            // gridView4
             // 
-            this.gridView2.DetailHeight = 303;
-            this.gridView2.GridControl = this.GridMuayene;
-            this.gridView2.Name = "gridView2";
+            this.gridView4.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.tileViewColumn3});
+            this.gridView4.DetailHeight = 303;
+            this.gridView4.GridControl = this.GridMuayene;
+            this.gridView4.Name = "gridView4";
+            // 
+            // tileViewColumn3
+            // 
+            this.tileViewColumn3.AccessibleName = "Resim";
+            this.tileViewColumn3.Caption = "Resim";
+            this.tileViewColumn3.FieldName = "Resim";
+            this.tileViewColumn3.MinWidth = 17;
+            this.tileViewColumn3.Name = "tileViewColumn3";
+            this.tileViewColumn3.Visible = true;
+            this.tileViewColumn3.VisibleIndex = 0;
+            this.tileViewColumn3.Width = 64;
             // 
             // panelControl10
             // 
+            this.panelControl10.Controls.Add(this.labelControl21);
+            this.panelControl10.Controls.Add(this.BTMuayeneBelgeSec);
             this.panelControl10.Controls.Add(this.BTNMuayeneKaydet);
             this.panelControl10.Controls.Add(this.labelControl13);
-            this.panelControl10.Controls.Add(this.dateEdit8);
+            this.panelControl10.Controls.Add(this.DTPEgzozBitTar);
             this.panelControl10.Controls.Add(this.labelControl6);
-            this.panelControl10.Controls.Add(this.dateEdit7);
+            this.panelControl10.Controls.Add(this.DTPEgzozBasTar);
             this.panelControl10.Controls.Add(this.labelControl7);
-            this.panelControl10.Controls.Add(this.dateEdit4);
+            this.panelControl10.Controls.Add(this.DTPMuayeneBitTar);
             this.panelControl10.Controls.Add(this.labelControl14);
-            this.panelControl10.Controls.Add(this.dateEdit3);
+            this.panelControl10.Controls.Add(this.DTPMuayeneBasTar);
             this.panelControl10.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl10.Location = new System.Drawing.Point(0, 0);
             this.panelControl10.Name = "panelControl10";
-            this.panelControl10.Size = new System.Drawing.Size(893, 85);
+            this.panelControl10.Size = new System.Drawing.Size(893, 128);
             this.panelControl10.TabIndex = 8;
+            // 
+            // labelControl21
+            // 
+            this.labelControl21.Location = new System.Drawing.Point(244, 91);
+            this.labelControl21.Name = "labelControl21";
+            this.labelControl21.Size = new System.Drawing.Size(46, 13);
+            this.labelControl21.TabIndex = 66;
+            this.labelControl21.Text = "Belge Seç";
+            // 
+            // BTMuayeneBelgeSec
+            // 
+            this.BTMuayeneBelgeSec.Location = new System.Drawing.Point(309, 88);
+            this.BTMuayeneBelgeSec.Name = "BTMuayeneBelgeSec";
+            this.BTMuayeneBelgeSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", "Seç", null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.BTMuayeneBelgeSec.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTMuayeneBelgeSec_Properties_ButtonClick);
+            this.BTMuayeneBelgeSec.Size = new System.Drawing.Size(201, 22);
+            this.BTMuayeneBelgeSec.TabIndex = 65;
             // 
             // BTNMuayeneKaydet
             // 
             this.BTNMuayeneKaydet.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
             this.BTNMuayeneKaydet.Appearance.Options.UseBackColor = true;
             this.BTNMuayeneKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTNMuayeneKaydet.ImageOptions.Image")));
-            this.BTNMuayeneKaydet.Location = new System.Drawing.Point(756, 16);
+            this.BTNMuayeneKaydet.Location = new System.Drawing.Point(756, 19);
             this.BTNMuayeneKaydet.Name = "BTNMuayeneKaydet";
             this.BTNMuayeneKaydet.Size = new System.Drawing.Size(130, 51);
             this.BTNMuayeneKaydet.TabIndex = 64;
             this.BTNMuayeneKaydet.Text = "Muayene Kaydet";
+            this.BTNMuayeneKaydet.Click += new System.EventHandler(this.BTNMuayeneKaydet_Click);
             // 
             // labelControl13
             // 
@@ -886,17 +920,17 @@
             this.labelControl13.TabIndex = 2;
             this.labelControl13.Text = "MUAYENE BAŞ. TAR.";
             // 
-            // dateEdit8
+            // DTPEgzozBitTar
             // 
-            this.dateEdit8.EditValue = null;
-            this.dateEdit8.Location = new System.Drawing.Point(510, 47);
-            this.dateEdit8.Name = "dateEdit8";
-            this.dateEdit8.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.DTPEgzozBitTar.EditValue = null;
+            this.DTPEgzozBitTar.Location = new System.Drawing.Point(510, 50);
+            this.DTPEgzozBitTar.Name = "DTPEgzozBitTar";
+            this.DTPEgzozBitTar.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit8.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.DTPEgzozBitTar.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit8.Size = new System.Drawing.Size(201, 20);
-            this.dateEdit8.TabIndex = 7;
+            this.DTPEgzozBitTar.Size = new System.Drawing.Size(201, 20);
+            this.DTPEgzozBitTar.TabIndex = 7;
             // 
             // labelControl6
             // 
@@ -906,66 +940,158 @@
             this.labelControl6.TabIndex = 0;
             this.labelControl6.Text = "EGZOZ MUA. BAŞ. TAR.";
             // 
-            // dateEdit7
+            // DTPEgzozBasTar
             // 
-            this.dateEdit7.EditValue = null;
-            this.dateEdit7.Location = new System.Drawing.Point(510, 21);
-            this.dateEdit7.Name = "dateEdit7";
-            this.dateEdit7.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.DTPEgzozBasTar.EditValue = null;
+            this.DTPEgzozBasTar.Location = new System.Drawing.Point(510, 21);
+            this.DTPEgzozBasTar.Name = "DTPEgzozBasTar";
+            this.DTPEgzozBasTar.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit7.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.DTPEgzozBasTar.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit7.Size = new System.Drawing.Size(201, 20);
-            this.dateEdit7.TabIndex = 6;
+            this.DTPEgzozBasTar.Size = new System.Drawing.Size(201, 20);
+            this.DTPEgzozBasTar.TabIndex = 6;
             // 
             // labelControl7
             // 
-            this.labelControl7.Location = new System.Drawing.Point(381, 54);
+            this.labelControl7.Location = new System.Drawing.Point(381, 57);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(108, 13);
             this.labelControl7.TabIndex = 1;
             this.labelControl7.Text = "EGZOZ MUA. BİT. TAR";
             // 
-            // dateEdit4
+            // DTPMuayeneBitTar
             // 
-            this.dateEdit4.EditValue = null;
-            this.dateEdit4.Location = new System.Drawing.Point(141, 51);
-            this.dateEdit4.Name = "dateEdit4";
-            this.dateEdit4.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.DTPMuayeneBitTar.EditValue = null;
+            this.DTPMuayeneBitTar.Location = new System.Drawing.Point(141, 54);
+            this.DTPMuayeneBitTar.Name = "DTPMuayeneBitTar";
+            this.DTPMuayeneBitTar.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit4.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.DTPMuayeneBitTar.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit4.Size = new System.Drawing.Size(201, 20);
-            this.dateEdit4.TabIndex = 5;
+            this.DTPMuayeneBitTar.Size = new System.Drawing.Size(201, 20);
+            this.DTPMuayeneBitTar.TabIndex = 5;
             // 
             // labelControl14
             // 
-            this.labelControl14.Location = new System.Drawing.Point(18, 54);
+            this.labelControl14.Location = new System.Drawing.Point(18, 57);
             this.labelControl14.Name = "labelControl14";
             this.labelControl14.Size = new System.Drawing.Size(97, 13);
             this.labelControl14.TabIndex = 3;
             this.labelControl14.Text = "MUAYENE BİT. TAR.";
             // 
-            // dateEdit3
+            // DTPMuayeneBasTar
             // 
-            this.dateEdit3.EditValue = null;
-            this.dateEdit3.Location = new System.Drawing.Point(141, 22);
-            this.dateEdit3.Name = "dateEdit3";
-            this.dateEdit3.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.DTPMuayeneBasTar.EditValue = null;
+            this.DTPMuayeneBasTar.Location = new System.Drawing.Point(141, 22);
+            this.DTPMuayeneBasTar.Name = "DTPMuayeneBasTar";
+            this.DTPMuayeneBasTar.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit3.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.DTPMuayeneBasTar.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit3.Size = new System.Drawing.Size(201, 20);
-            this.dateEdit3.TabIndex = 4;
+            this.DTPMuayeneBasTar.Size = new System.Drawing.Size(201, 20);
+            this.DTPMuayeneBasTar.TabIndex = 4;
+            // 
+            // XTPZimmet
+            // 
+            this.XTPZimmet.Name = "XTPZimmet";
+            this.XTPZimmet.Size = new System.Drawing.Size(893, 687);
+            this.XTPZimmet.Text = "Zimmet Bilgileri";
             // 
             // XTPBelgeler
             // 
+            this.XTPBelgeler.Controls.Add(this.panelControl16);
+            this.XTPBelgeler.Controls.Add(this.panelControl15);
             this.XTPBelgeler.Name = "XTPBelgeler";
             this.XTPBelgeler.Size = new System.Drawing.Size(893, 687);
             this.XTPBelgeler.Text = "Diğer Belgeler";
             // 
+            // panelControl16
+            // 
+            this.panelControl16.Controls.Add(this.GCDigerBelgeler);
+            this.panelControl16.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl16.Location = new System.Drawing.Point(0, 62);
+            this.panelControl16.Name = "panelControl16";
+            this.panelControl16.Size = new System.Drawing.Size(893, 625);
+            this.panelControl16.TabIndex = 1;
+            // 
+            // GCDigerBelgeler
+            // 
+            this.GCDigerBelgeler.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GCDigerBelgeler.Location = new System.Drawing.Point(2, 2);
+            this.GCDigerBelgeler.MainView = this.tileView5;
+            this.GCDigerBelgeler.Name = "GCDigerBelgeler";
+            this.GCDigerBelgeler.Size = new System.Drawing.Size(889, 621);
+            this.GCDigerBelgeler.TabIndex = 4;
+            this.GCDigerBelgeler.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.tileView5});
+            // 
+            // tileView5
+            // 
+            this.tileView5.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.tileViewColumn4});
+            this.tileView5.DetailHeight = 303;
+            this.tileView5.GridControl = this.GCDigerBelgeler;
+            this.tileView5.Name = "tileView5";
+            this.tileView5.OptionsTiles.ColumnCount = 4;
+            this.tileView5.OptionsTiles.ItemSize = new System.Drawing.Size(248, 340);
+            this.tileView5.OptionsTiles.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.tileView5.OptionsTiles.RowCount = 0;
+            this.tileView5.TileColumns.Add(tableColumnDefinition1);
+            this.tileView5.TileRows.Add(tableRowDefinition1);
+            tileViewItemElement1.Column = this.tileViewColumn4;
+            tileViewItemElement1.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileViewItemElement1.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Squeeze;
+            tileViewItemElement1.Text = "Resim";
+            tileViewItemElement1.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileView5.TileTemplate.Add(tileViewItemElement1);
+            // 
+            // panelControl15
+            // 
+            this.panelControl15.Controls.Add(this.simpleButton1);
+            this.panelControl15.Controls.Add(this.labelControl34);
+            this.panelControl15.Controls.Add(this.buttonEdit3);
+            this.panelControl15.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl15.Location = new System.Drawing.Point(0, 0);
+            this.panelControl15.Name = "panelControl15";
+            this.panelControl15.Size = new System.Drawing.Size(893, 62);
+            this.panelControl15.TabIndex = 0;
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.simpleButton1.Appearance.Options.UseBackColor = true;
+            this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.simpleButton1.Location = new System.Drawing.Point(542, 22);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(63, 22);
+            this.simpleButton1.TabIndex = 38;
+            this.simpleButton1.Text = "Ekle";
+            // 
+            // labelControl34
+            // 
+            this.labelControl34.Location = new System.Drawing.Point(263, 25);
+            this.labelControl34.Name = "labelControl34";
+            this.labelControl34.Size = new System.Drawing.Size(46, 13);
+            this.labelControl34.TabIndex = 37;
+            this.labelControl34.Text = "Belge Seç";
+            // 
+            // buttonEdit3
+            // 
+            this.buttonEdit3.Location = new System.Drawing.Point(328, 22);
+            this.buttonEdit3.Name = "buttonEdit3";
+            this.buttonEdit3.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", "Seç", null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.buttonEdit3.Size = new System.Drawing.Size(201, 22);
+            this.buttonEdit3.TabIndex = 36;
+            // 
             // panelControl3
             // 
+            this.panelControl3.Controls.Add(this.NUDYedekTekerSayisi);
+            this.panelControl3.Controls.Add(this.label2);
+            this.panelControl3.Controls.Add(this.label1);
+            this.panelControl3.Controls.Add(this.NUDTekerSayisi);
+            this.panelControl3.Controls.Add(this.RGAracDurum);
             this.panelControl3.Controls.Add(this.CBModel);
             this.panelControl3.Controls.Add(this.BTNAracFoto);
             this.panelControl3.Controls.Add(this.labelControl29);
@@ -996,6 +1122,49 @@
             this.panelControl3.Size = new System.Drawing.Size(899, 178);
             this.panelControl3.TabIndex = 1;
             // 
+            // NUDYedekTekerSayisi
+            // 
+            this.NUDYedekTekerSayisi.Location = new System.Drawing.Point(626, 136);
+            this.NUDYedekTekerSayisi.Name = "NUDYedekTekerSayisi";
+            this.NUDYedekTekerSayisi.Size = new System.Drawing.Size(42, 21);
+            this.NUDYedekTekerSayisi.TabIndex = 81;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(548, 141);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(72, 13);
+            this.label2.TabIndex = 80;
+            this.label2.Text = "YEDEK TEKER";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(546, 114);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(74, 13);
+            this.label1.TabIndex = 79;
+            this.label1.Text = "TEKER SAYISI";
+            // 
+            // NUDTekerSayisi
+            // 
+            this.NUDTekerSayisi.Location = new System.Drawing.Point(626, 109);
+            this.NUDTekerSayisi.Name = "NUDTekerSayisi";
+            this.NUDTekerSayisi.Size = new System.Drawing.Size(42, 21);
+            this.NUDTekerSayisi.TabIndex = 78;
+            // 
+            // RGAracDurum
+            // 
+            this.RGAracDurum.Location = new System.Drawing.Point(574, 19);
+            this.RGAracDurum.Name = "RGAracDurum";
+            this.RGAracDurum.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Aktif", true, null, "AKTIF"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Bakımda", true, null, "Bakimda"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Pasif", true, null, "Pasif")});
+            this.RGAracDurum.Size = new System.Drawing.Size(216, 22);
+            this.RGAracDurum.TabIndex = 77;
+            // 
             // CBModel
             // 
             this.CBModel.Location = new System.Drawing.Point(295, 108);
@@ -1012,14 +1181,14 @@
             this.BTNAracFoto.Location = new System.Drawing.Point(31, 141);
             this.BTNAracFoto.Name = "BTNAracFoto";
             this.BTNAracFoto.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", "Resmi Kaydet", null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", "Resmi Kaydet", null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTNAracFoto.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTNAracFoto_Properties_ButtonClick);
             this.BTNAracFoto.Size = new System.Drawing.Size(136, 22);
             this.BTNAracFoto.TabIndex = 75;
             // 
             // labelControl29
             // 
-            this.labelControl29.Location = new System.Drawing.Point(557, 56);
+            this.labelControl29.Location = new System.Drawing.Point(556, 81);
             this.labelControl29.Name = "labelControl29";
             this.labelControl29.Size = new System.Drawing.Size(6, 13);
             this.labelControl29.TabIndex = 74;
@@ -1027,7 +1196,7 @@
             // 
             // labelControl28
             // 
-            this.labelControl28.Location = new System.Drawing.Point(566, 25);
+            this.labelControl28.Location = new System.Drawing.Point(565, 50);
             this.labelControl28.Name = "labelControl28";
             this.labelControl28.Size = new System.Drawing.Size(6, 13);
             this.labelControl28.TabIndex = 73;
@@ -1116,7 +1285,7 @@
             // 
             // CBSofor2
             // 
-            this.CBSofor2.Location = new System.Drawing.Point(626, 54);
+            this.CBSofor2.Location = new System.Drawing.Point(626, 81);
             this.CBSofor2.Name = "CBSofor2";
             this.CBSofor2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -1126,7 +1295,7 @@
             // 
             // CBSofor1
             // 
-            this.CBSofor1.Location = new System.Drawing.Point(626, 23);
+            this.CBSofor1.Location = new System.Drawing.Point(626, 50);
             this.CBSofor1.Name = "CBSofor1";
             this.CBSofor1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -1157,7 +1326,7 @@
             // 
             // labelControl9
             // 
-            this.labelControl9.Location = new System.Drawing.Point(574, 26);
+            this.labelControl9.Location = new System.Drawing.Point(574, 53);
             this.labelControl9.Name = "labelControl9";
             this.labelControl9.Size = new System.Drawing.Size(35, 13);
             this.labelControl9.TabIndex = 10;
@@ -1165,7 +1334,7 @@
             // 
             // labelControl5
             // 
-            this.labelControl5.Location = new System.Drawing.Point(566, 57);
+            this.labelControl5.Location = new System.Drawing.Point(566, 84);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(44, 13);
             this.labelControl5.TabIndex = 6;
@@ -1221,29 +1390,29 @@
             // 
             // panelControl2
             // 
-            this.panelControl2.Controls.Add(this.gridControl1);
+            this.panelControl2.Controls.Add(this.GCAraclar);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelControl2.Location = new System.Drawing.Point(2, 2);
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Size = new System.Drawing.Size(225, 894);
             this.panelControl2.TabIndex = 0;
             // 
-            // gridControl1
+            // GCAraclar
             // 
-            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(2, 2);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(221, 890);
-            this.gridControl1.TabIndex = 0;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.GCAraclar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GCAraclar.Location = new System.Drawing.Point(2, 2);
+            this.GCAraclar.MainView = this.gridView1;
+            this.GCAraclar.Name = "GCAraclar";
+            this.GCAraclar.Size = new System.Drawing.Size(221, 890);
+            this.GCAraclar.TabIndex = 0;
+            this.GCAraclar.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
-            this.gridControl1.DoubleClick += new System.EventHandler(this.gridControl1_DoubleClick);
+            this.GCAraclar.DoubleClick += new System.EventHandler(this.gridControl1_DoubleClick);
             // 
             // gridView1
             // 
             this.gridView1.DetailHeight = 303;
-            this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.GridControl = this.GCAraclar;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
             // 
@@ -1266,13 +1435,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).EndInit();
             this.panelControl5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.GridSigorta)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tileView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).EndInit();
             this.panelControl6.ResumeLayout(false);
             this.panelControl6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DTPSigPolBitTar.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPSigPolBitTar.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BTSigortaBelgeSec.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBSigAcenteAdi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPSigPolBasTar.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPSigPolBasTar.Properties)).EndInit();
@@ -1294,13 +1463,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl9)).EndInit();
             this.panelControl9.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.GridKasko)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tileView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl8)).EndInit();
             this.panelControl8.ResumeLayout(false);
             this.panelControl8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DTPKasPolBitTar.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPKasPolBitTar.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit3.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BTKaskoBelgeSec.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBKasAcenteAdi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPKasPolBasTar.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPKasPolBasTar.Properties)).EndInit();
@@ -1309,21 +1478,34 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl11)).EndInit();
             this.panelControl11.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.GridMuayene)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl10)).EndInit();
             this.panelControl10.ResumeLayout(false);
             this.panelControl10.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit8.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit8.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit7.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit7.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit4.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit4.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit3.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit3.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BTMuayeneBelgeSec.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DTPEgzozBitTar.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DTPEgzozBitTar.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DTPEgzozBasTar.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DTPEgzozBasTar.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DTPMuayeneBitTar.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DTPMuayeneBitTar.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DTPMuayeneBasTar.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DTPMuayeneBasTar.Properties)).EndInit();
+            this.XTPBelgeler.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl16)).EndInit();
+            this.panelControl16.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.GCDigerBelgeler)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tileView5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl15)).EndInit();
+            this.panelControl15.ResumeLayout(false);
+            this.panelControl15.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit3.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
             this.panelControl3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NUDYedekTekerSayisi)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUDTekerSayisi)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RGAracDurum.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBModel.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BTNAracFoto.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBMarka.Properties)).EndInit();
@@ -1335,7 +1517,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.PBAracResim.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GCAraclar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -1347,7 +1529,7 @@
         private DevExpress.XtraEditors.PanelControl panelControl4;
         private DevExpress.XtraEditors.PanelControl panelControl3;
         private DevExpress.XtraEditors.PanelControl panelControl2;
-        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.GridControl GCAraclar;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraTab.XtraTabControl xtraTabControl1;
         private DevExpress.XtraTab.XtraTabPage XTPSigorta;
@@ -1371,22 +1553,18 @@
         private DevExpress.XtraEditors.LabelControl LBSigorta;
         private DevExpress.XtraEditors.PanelControl panelControl5;
         private DevExpress.XtraGrid.GridControl GridSigorta;
-        private DevExpress.XtraGrid.Views.Tile.TileView tileView1;
-        private DevExpress.XtraGrid.Columns.TileViewColumn Resim;
         private DevExpress.XtraEditors.PanelControl panelControl6;
         private DevExpress.XtraTab.XtraTabPage XTPKasko;
         private DevExpress.XtraEditors.PanelControl panelControl7;
         private DevExpress.XtraEditors.PanelControl panelControl9;
         private DevExpress.XtraGrid.GridControl GridKasko;
-        private DevExpress.XtraGrid.Views.Tile.TileView tileView2;
-        private DevExpress.XtraGrid.Columns.TileViewColumn tileViewColumn1;
         private DevExpress.XtraEditors.PanelControl panelControl8;
         private DevExpress.XtraEditors.LabelControl labelControl18;
         private DevExpress.XtraEditors.LabelControl labelControl19;
         private DevExpress.XtraEditors.LabelControl labelControl20;
         private DevExpress.XtraEditors.LabelControl TBKasPoliceNo;
         private DevExpress.XtraEditors.DateEdit DTPKasPolBitTar;
-        private DevExpress.XtraEditors.ButtonEdit buttonEdit3;
+        private DevExpress.XtraEditors.ButtonEdit BTKaskoBelgeSec;
         private DevExpress.XtraEditors.TextEdit TBKasAcenteAdi;
         private DevExpress.XtraEditors.LabelControl labelControl22;
         private DevExpress.XtraEditors.DateEdit DTPKasPolBasTar;
@@ -1396,27 +1574,23 @@
         private DevExpress.XtraEditors.PanelControl panelControl10;
         private DevExpress.XtraEditors.SimpleButton BTNMuayeneKaydet;
         private DevExpress.XtraEditors.LabelControl labelControl13;
-        private DevExpress.XtraEditors.DateEdit dateEdit8;
+        private DevExpress.XtraEditors.DateEdit DTPEgzozBitTar;
         private DevExpress.XtraEditors.LabelControl labelControl6;
-        private DevExpress.XtraEditors.DateEdit dateEdit7;
+        private DevExpress.XtraEditors.DateEdit DTPEgzozBasTar;
         private DevExpress.XtraEditors.LabelControl labelControl7;
-        private DevExpress.XtraEditors.DateEdit dateEdit4;
+        private DevExpress.XtraEditors.DateEdit DTPMuayeneBitTar;
         private DevExpress.XtraEditors.LabelControl labelControl14;
-        private DevExpress.XtraEditors.DateEdit dateEdit3;
+        private DevExpress.XtraEditors.DateEdit DTPMuayeneBasTar;
         private DevExpress.XtraEditors.LabelControl labelControl8;
         private DevExpress.XtraEditors.LabelControl labelControl10;
         private DevExpress.XtraEditors.LabelControl labelControl11;
         private DevExpress.XtraEditors.DateEdit DTPSigPolBitTar;
-        private DevExpress.XtraEditors.ButtonEdit buttonEdit1;
+        private DevExpress.XtraEditors.ButtonEdit BTSigortaBelgeSec;
         private DevExpress.XtraEditors.TextEdit TBSigAcenteAdi;
         private DevExpress.XtraEditors.LabelControl labelControl12;
         private DevExpress.XtraEditors.DateEdit DTPSigPolBasTar;
         private DevExpress.XtraEditors.LabelControl labelControl15;
         private DevExpress.XtraEditors.TextEdit TBSigPoliceNo;
-        private DevExpress.XtraGrid.GridControl GridMuayene;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
-        private DevExpress.XtraEditors.SimpleButton simpleButton4;
-        private DevExpress.XtraEditors.SimpleButton BTNKaskoEkle;
         private DevExpress.XtraEditors.SimpleButton BTNSigortaKaydet;
         private DevExpress.XtraEditors.PanelControl panelControl12;
         private DevExpress.XtraEditors.PanelControl panelControl14;
@@ -1425,7 +1599,7 @@
         private DevExpress.XtraGrid.GridControl GridRuhsat;
         private DevExpress.XtraGrid.Views.Tile.TileView tileView3;
         private DevExpress.XtraGrid.Columns.TileViewColumn tileViewColumn2;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton BTRuhsatEkle;
         private DevExpress.XtraEditors.LabelControl labelControl16;
         private DevExpress.XtraEditors.ButtonEdit BTNRuhsatSec;
         private DevExpress.XtraEditors.SimpleButton BTNAracKaydet;
@@ -1442,5 +1616,28 @@
         private DevExpress.XtraEditors.LabelControl labelControl17;
         private DevExpress.XtraEditors.ButtonEdit BTNAracFoto;
         private DevExpress.XtraEditors.LookUpEdit CBModel;
+        private DevExpress.XtraEditors.LabelControl labelControl21;
+        private DevExpress.XtraEditors.ButtonEdit BTMuayeneBelgeSec;
+        private DevExpress.XtraGrid.GridControl GridMuayene;
+        private DevExpress.XtraEditors.PanelControl panelControl16;
+        private DevExpress.XtraGrid.GridControl GCDigerBelgeler;
+        private DevExpress.XtraGrid.Views.Tile.TileView tileView5;
+        private DevExpress.XtraGrid.Columns.TileViewColumn tileViewColumn4;
+        private DevExpress.XtraEditors.PanelControl panelControl15;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.LabelControl labelControl34;
+        private DevExpress.XtraEditors.ButtonEdit buttonEdit3;
+        private DevExpress.XtraTab.XtraTabPage XTPZimmet;
+        private NumericUpDown NUDYedekTekerSayisi;
+        private Label label2;
+        private Label label1;
+        private NumericUpDown NUDTekerSayisi;
+        private DevExpress.XtraEditors.RadioGroup RGAracDurum;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+        private DevExpress.XtraGrid.Columns.GridColumn Resim;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView3;
+        private DevExpress.XtraGrid.Columns.GridColumn tileViewColumn1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView4;
+        private DevExpress.XtraGrid.Columns.GridColumn tileViewColumn3;
     }
 }

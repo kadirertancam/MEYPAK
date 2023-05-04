@@ -146,31 +146,14 @@ namespace MEYPAK.DAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
 
-                    b.Property<DateTime>("EGZOZBASTAR")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("EGZOZBITTAR")
-                        .HasColumnType("datetime2");
+                    b.Property<byte>("DURUM")
+                        .HasColumnType("tinyint");
 
                     b.Property<int>("ESKIID")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("GUNCELLEMETARIHI")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("KASACENTEADI")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("KASBASTAR")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("KASBITTAR")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("KASPOLICENO")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<byte>("KAYITTIPI")
                         .HasColumnType("tinyint");
@@ -183,30 +166,10 @@ namespace MEYPAK.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("MUAYENEBASTAR")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("MUAYENEBITTAR")
-                        .HasColumnType("datetime2");
-
                     b.Property<DateTime>("OLUSTURMATARIHI")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("PLAKA")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SIGACENTEADI")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("SIGBASTAR")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("SIGBITTAR")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("SIGPOLICENO")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -215,6 +178,9 @@ namespace MEYPAK.DAL.Migrations
 
                     b.Property<int>("SOFORID")
                         .HasColumnType("int");
+
+                    b.Property<byte>("TEKERSAYISI")
+                        .HasColumnType("tinyint");
 
                     b.Property<string>("TIP")
                         .IsRequired()
@@ -227,6 +193,9 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<string>("YAKITTURU")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte>("YEDEKTEKERSAYISI")
+                        .HasColumnType("tinyint");
 
                     b.HasKey("ID");
 
@@ -244,6 +213,10 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<int>("ARACID")
                         .HasColumnType("int");
 
+                    b.Property<string>("DOSYATIP")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("ESKIID")
                         .HasColumnType("int");
 
@@ -253,6 +226,20 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<string>("IMG")
                         .IsRequired()
                         .HasColumnType("ntext");
+
+                    b.Property<string>("KASACENTEADI")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("KASBASTAR")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("KASBITTAR")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("KASPOLICENO")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<byte>("KAYITTIPI")
                         .HasColumnType("tinyint");
@@ -383,6 +370,61 @@ namespace MEYPAK.DAL.Migrations
                     b.ToTable("MPARACMODEL");
                 });
 
+            modelBuilder.Entity("MEYPAK.Entity.Models.ARAC.MPARACMUAYENERESIM", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+
+                    b.Property<int>("ARACID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("DOSYATIP")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("EGZOZBASTAR")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("EGZOZBITTAR")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("ESKIID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("GUNCELLEMETARIHI")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("IMG")
+                        .IsRequired()
+                        .HasColumnType("ntext");
+
+                    b.Property<byte>("KAYITTIPI")
+                        .HasColumnType("tinyint");
+
+                    b.Property<DateTime>("MUAYENEBASTAR")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("MUAYENEBITTAR")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("NUM")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("OLUSTURMATARIHI")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("USERID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("MPARACMUAYENERESIM");
+                });
+
             modelBuilder.Entity("MEYPAK.Entity.Models.ARAC.MPARACRESIM", b =>
                 {
                     b.Property<int>("ID")
@@ -478,6 +520,10 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<int>("ARACID")
                         .HasColumnType("int");
 
+                    b.Property<string>("DOSYATIP")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("ESKIID")
                         .HasColumnType("int");
 
@@ -517,6 +563,10 @@ namespace MEYPAK.DAL.Migrations
                     b.Property<int>("ARACID")
                         .HasColumnType("int");
 
+                    b.Property<string>("DOSYATIP")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("ESKIID")
                         .HasColumnType("int");
 
@@ -535,6 +585,20 @@ namespace MEYPAK.DAL.Migrations
 
                     b.Property<DateTime>("OLUSTURMATARIHI")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("SIGACENTEADI")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("SIGBASTAR")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("SIGBITTAR")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("SIGPOLICENO")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("USERID")
                         .IsRequired()

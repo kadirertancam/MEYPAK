@@ -258,6 +258,16 @@ namespace MEYPAK.BLL.Assets
 
         #endregion
 
+        #region AracMuayeneResim
+        public const string AracMuayeneResimListeServis =       "http://78.135.80.41:8081/ARACMUAYENERESIM/Liste";
+        public const string AracMuayeneResimEkleServis =        "http://78.135.80.41:8081/ARACMUAYENERESIM/EkleyadaGuncelle";
+        public const string AracMuayeneResimSilServis =         "http://78.135.80.41:8081/ARACMUAYENERESIM/Sil";
+        public const string AracMuayeneResimGuncelleServis =    "http://78.135.80.41:8081/ARACMUAYENERESIM/Guncelle";
+        public const string AracMuayeneResimListeFiltreServis = "http://78.135.80.41:8081/ARACMUAYENERESIM/Liste2?query=";
+        public const string AracMuayeneResimDeleteByIdServis =  "http://78.135.80.41:8081/ARACMUAYENERESIM/DeleteById";
+
+        #endregion
+
         #region AracRuhsatResim
         public const string AracRuhsatResimListeServis = "http://78.135.80.41:8081/ARACRUHSATRESIM/ARACRUHSATRESIMListe";
         public const string AracRuhsatResimEkleServis = "http://78.135.80.41:8081/ARACRUHSATRESIM/ARACRUHSATRESIMEkleyadaGuncelle";

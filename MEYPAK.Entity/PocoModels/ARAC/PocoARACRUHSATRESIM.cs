@@ -13,6 +13,8 @@ namespace MEYPAK.Entity.PocoModels.ARAC
     {
         public int aracid { get; set; }
         public int num { get; set; }
+        public string dosyatip { get; set; }
+
         [MaxLength, Column(TypeName = "ntext")]
         public string img { get; set; }
     }

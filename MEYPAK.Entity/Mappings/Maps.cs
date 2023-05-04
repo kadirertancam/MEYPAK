@@ -45,6 +45,11 @@ namespace MEYPAK.Entity.Mappings
     {
         public Maps()
         {
+
+
+            //FATURASTOKESLE
+            CreateMap<MPFATURASTOKESLE, PocoFATURASTOKESLE>().ReverseMap();
+
             //MUSTAHSIL
             CreateMap<MPMUSTAHSIL, PocoMUSTAHSIL>().ReverseMap();
             CreateMap<MPMUSTAHSILDETAY, PocoMUSTAHSILDETAY>().ReverseMap();
@@ -184,6 +189,7 @@ namespace MEYPAK.Entity.Mappings
             CreateMap<MPARACRUHSATRESIM, PocoARACRUHSATRESIM>().ReverseMap();
             CreateMap<MPARACSIGORTARESIM, PocoARACSIGORTARESIM>().ReverseMap();
             CreateMap<MPARACKASKORESIM, PocoARACKASKORESIM>().ReverseMap();
+            CreateMap<MPARACMUAYENERESIM, PocoARACMUAYENERESIM>().ReverseMap();
             CreateMap<MPARACROTA, PocoARACROTA>().ReverseMap();
 
 
