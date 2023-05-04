@@ -136,11 +136,11 @@ namespace MEYPAK.Entity.Models.FORMYETKI
         ARACTANIM=26,
         ARACROTATANIM=26,
         //HAREKET
-
+        MOBILIZWEB=27,
         #endregion
 
         #region PARAMETRELER
-        PARABIRIMLERI=29,
+        PARABIRIMLERI =29,
         SERITANIM=29,
         #endregion
 

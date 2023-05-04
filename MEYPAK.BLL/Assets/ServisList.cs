@@ -155,7 +155,7 @@ namespace MEYPAK.BLL.Assets
         public const string PersonelAvansSilServis =         "http://78.135.80.41:8081/PERSONELAVANS/Sil";
         public const string PersonelAvansGuncelleServis =    "http://78.135.80.41:8081/PERSONELAVANS/Guncelle";
         public const string PersonelAvansDeleteByIdServis =  "http://78.135.80.41:8081/PERSONELAVANS/DeleteById";
-        public const string PersonelAvansListeFiltreServis = "http://78.135.80.41:8081/PERSONELAVANS/Liste2?query=";
+        public const string PersonelAvansListeFiltreServis = "http://78.135.80.41:8081/PERSONELAVANS/Liste2";
 
 
         #endregion 
@@ -166,7 +166,7 @@ namespace MEYPAK.BLL.Assets
         public const string PersonelIzinSilServis = "http://78.135.80.41:8081/PERSONELIZIN/Sil";
         public const string PersonelIzinGuncelleServis = "http://78.135.80.41:8081/PERSONELIZIN/Guncelle";
         public const string PersonelIzinDeleteByIdServis = "http://78.135.80.41:8081/PERSONELIZIN/DeleteById";
-        public const string PersonelIzinListeFiltreServis = "http://78.135.80.41:8081/PERSONELIZIN/Liste2?query=";
+        public const string PersonelIzinListeFiltreServis = "http://78.135.80.41:8081/PERSONELIZIN/Liste2";
 
 
         #endregion
@@ -177,7 +177,7 @@ namespace MEYPAK.BLL.Assets
         public const string StokSarfDetaySilServis = "http://78.135.80.41:8081/STOKSARFDETAY/Sil";
         public const string StokSarfDetayGuncelleServis = "http://78.135.80.41:8081/STOKSARFDETAY/Guncelle";
         public const string StokSarfDetayDeleteByIdServis = "http://78.135.80.41:8081/STOKSARFDETAY/DeleteById";
-        public const string StokSarfDetayListeFiltreServis = "http://78.135.80.41:8081/STOKSARFDETAY/Liste2?query=";
+        public const string StokSarfDetayListeFiltreServis = "http://78.135.80.41:8081/STOKSARFDETAY/Liste2";
 
 
         #endregion
@@ -188,7 +188,7 @@ namespace MEYPAK.BLL.Assets
         public const string StokSarfSilServis = "http://78.135.80.41:8081/STOKSARF/Sil";
         public const string StokSarfGuncelleServis = "http://78.135.80.41:8081/STOKSARF/Guncelle";
         public const string StokSarfDeleteByIdServis = "http://78.135.80.41:8081/STOKSARF/DeleteById";
-        public const string StokSarfListeFiltreServis = "http://78.135.80.41:8081/STOKSARF/Liste2?query=";
+        public const string StokSarfListeFiltreServis = "http://78.135.80.41:8081/STOKSARF/Liste2";
 
 
         #endregion
@@ -199,7 +199,7 @@ namespace MEYPAK.BLL.Assets
         public const string DekontSilServis =               "http://78.135.80.41:8081/DEKONT/DEKONTSil";
         public const string DekontGuncelleServis =          "http://78.135.80.41:8081/DEKONT/DEKONTGuncelle";
         public const string DekontDeleteByIdServis =        "http://78.135.80.41:8081/DEKONT/DeleteById";
-        public const string DekontListeFiltreServis =       "http://78.135.80.41:8081/DEKONT/DEKONTListe2?query=";
+        public const string DekontListeFiltreServis =       "http://78.135.80.41:8081/DEKONT/DEKONTListe2";
         #endregion
 
         #region Arac
@@ -208,7 +208,7 @@ namespace MEYPAK.BLL.Assets
         public const string AracSilServis = "http://78.135.80.41:8081/ARAC/ARACSil";
         public const string AracGuncelleServis = "http://78.135.80.41:8081/ARAC/ARACGuncelle";
         public const string AracDeleteByIdServis = "http://78.135.80.41:8081/ARAC/DeleteById";
-        public const string AracListeFiltreServis = "http://78.135.80.41:8081/ARAC/ARACListe2?query=";
+        public const string AracListeFiltreServis = "http://78.135.80.41:8081/ARAC/ARACListe2";
         #endregion
 
         #region Sofor
@@ -217,7 +217,7 @@ namespace MEYPAK.BLL.Assets
         public const string SoforSilServis = "http://78.135.80.41:8081/SOFOR/SOFORSil";
         public const string SoforGuncelleServis = "http://78.135.80.41:8081/SOFOR/SOFORGuncelle";
         public const string SoforDeleteByIdServis = "http://78.135.80.41:8081/SOFOR/DeleteById";
-        public const string SoforListeFiltreServis = "http://78.135.80.41:8081/SOFOR/SOFORListe2?query=";
+        public const string SoforListeFiltreServis = "http://78.135.80.41:8081/SOFOR/SOFORListe2";
         #endregion
 
         #region AracRota
@@ -226,7 +226,7 @@ namespace MEYPAK.BLL.Assets
         public const string AracRotaSilServis =          "http://78.135.80.41:8081/ARACROTA/ARACROTASil";
         public const string AracRotaGuncelleServis =     "http://78.135.80.41:8081/ARACROTA/ARACROTAGuncelle";
         public const string AracRotaDeleteByIdServis =   "http://78.135.80.41:8081/ARACROTA/DeleteById";
-        public const string AracRotaListeFiltreServis =  "http://78.135.80.41:8081/ARACROTA/ARACROTAListe2?query=";
+        public const string AracRotaListeFiltreServis =  "http://78.135.80.41:8081/ARACROTA/ARACROTAListe2";
         #endregion
 
         #region Araclar
@@ -235,7 +235,7 @@ namespace MEYPAK.BLL.Assets
         public const string AraclarSilServis = "http://78.135.80.41:8081/ARACLAR/ARACLARSil";
         public const string AraclarGuncelleServis = "http://78.135.80.41:8081/ARACLAR/ARACLARGuncelle";
         public const string AraclarDeleteByIdServis = "http://78.135.80.41:8081/ARACLAR/DeleteById";
-        public const string AraclarListeFiltreServis = "http://78.135.80.41:8081/ARACLAR/ARACLARListe2?query=";
+        public const string AraclarListeFiltreServis = "http://78.135.80.41:8081/ARACLAR/ARACLARListe2";
         #endregion
 
         #region AracModel
@@ -243,7 +243,7 @@ namespace MEYPAK.BLL.Assets
         public const string AracModelEkleServis =         "http://78.135.80.41:8081/ARACMODEL/ARACMODELEkleyadaGuncelle";
         public const string AracModelSilServis =          "http://78.135.80.41:8081/ARACMODEL/ARACMODELSil";
         public const string AracModelGuncelleServis =     "http://78.135.80.41:8081/ARACMODEL/ARACMODELGuncelle";
-        public const string AracModelListeFiltreServis =  "http://78.135.80.41:8081/ARACMODEL/ARACMODELListe2?query=";
+        public const string AracModelListeFiltreServis =  "http://78.135.80.41:8081/ARACMODEL/ARACMODELListe2";
         public const string AracModelDeleteByIdServis =   "http://78.135.80.41:8081/ARACMODEL/DeleteById";
 
         #endregion
@@ -253,7 +253,7 @@ namespace MEYPAK.BLL.Assets
         public const string AracSigortaResimEkleServis = "http://78.135.80.41:8081/ARACSIGORTARESIM/ARACSIGORTARESIMEkleyadaGuncelle";
         public const string AracSigortaResimSilServis = "http://78.135.80.41:8081/ARACSIGORTARESIM/ARACSIGORTARESIMSil";
         public const string AracSigortaResimGuncelleServis = "http://78.135.80.41:8081/ARACSIGORTARESIM/ARACSIGORTARESIMGuncelle";
-        public const string AracSigortaResimListeFiltreServis = "http://78.135.80.41:8081/ARACSIGORTARESIM/ARACSIGORTARESIMListe2?query=";
+        public const string AracSigortaResimListeFiltreServis = "http://78.135.80.41:8081/ARACSIGORTARESIM/ARACSIGORTARESIMListe2";
         public const string AracSigortaResimDeleteByIdServis = "http://78.135.80.41:8081/ARACSIGORTARESIM/DeleteById";
 
         #endregion
@@ -263,7 +263,7 @@ namespace MEYPAK.BLL.Assets
         public const string AracMuayeneResimEkleServis =        "http://78.135.80.41:8081/ARACMUAYENERESIM/EkleyadaGuncelle";
         public const string AracMuayeneResimSilServis =         "http://78.135.80.41:8081/ARACMUAYENERESIM/Sil";
         public const string AracMuayeneResimGuncelleServis =    "http://78.135.80.41:8081/ARACMUAYENERESIM/Guncelle";
-        public const string AracMuayeneResimListeFiltreServis = "http://78.135.80.41:8081/ARACMUAYENERESIM/Liste2?query=";
+        public const string AracMuayeneResimListeFiltreServis = "http://78.135.80.41:8081/ARACMUAYENERESIM/Liste2";
         public const string AracMuayeneResimDeleteByIdServis =  "http://78.135.80.41:8081/ARACMUAYENERESIM/DeleteById";
 
         #endregion
@@ -273,7 +273,7 @@ namespace MEYPAK.BLL.Assets
         public const string AracRuhsatResimEkleServis = "http://78.135.80.41:8081/ARACRUHSATRESIM/ARACRUHSATRESIMEkleyadaGuncelle";
         public const string AracRuhsatResimSilServis = "http://78.135.80.41:8081/ARACRUHSATRESIM/ARACRUHSATRESIMSil";
         public const string AracRuhsatResimGuncelleServis = "http://78.135.80.41:8081/ARACRUHSATRESIM/ARACRUHSATRESIMGuncelle";
-        public const string AracRuhsatResimListeFiltreServis = "http://78.135.80.41:8081/ARACRUHSATRESIM/ARACRUHSATRESIMListe2?query=";
+        public const string AracRuhsatResimListeFiltreServis = "http://78.135.80.41:8081/ARACRUHSATRESIM/ARACRUHSATRESIMListe2";
         public const string AracRuhsatResimDeleteByIdServis = "http://78.135.80.41:8081/ARACRUHSATRESIM/DeleteById";
 
         #endregion
@@ -283,7 +283,7 @@ namespace MEYPAK.BLL.Assets
         public const string AracKaskoResimEkleServis = "http://78.135.80.41:8081/ARACKASKORESIM/ARACKASKORESIMEkleyadaGuncelle";
         public const string AracKaskoResimSilServis = "http://78.135.80.41:8081/ARACKASKORESIM/ARACKASKORESIMSil";
         public const string AracKaskoResimGuncelleServis = "http://78.135.80.41:8081/ARACKASKORESIM/ARACKASKORESIMGuncelle";
-        public const string AracKaskoResimListeFiltreServis = "http://78.135.80.41:8081/ARACKASKORESIM/ARACKASKORESIMListe2?query=";
+        public const string AracKaskoResimListeFiltreServis = "http://78.135.80.41:8081/ARACKASKORESIM/ARACKASKORESIMListe2";
         public const string AracKaskoResimDeleteByIdServis = "http://78.135.80.41:8081/ARACKASKORESIM/DeleteById";
 
         #endregion
@@ -293,7 +293,7 @@ namespace MEYPAK.BLL.Assets
         public const string AracResimEkleServis = "http://78.135.80.41:8081/ARACRESIM/ARACRESIMEkleyadaGuncelle";
         public const string AracResimSilServis = "http://78.135.80.41:8081/ARACRESIM/ARACRESIMSil";
         public const string AracResimGuncelleServis = "http://78.135.80.41:8081/ARACRESIM/ARACRESIMGuncelle";
-        public const string AracResimListeFiltreServis = "http://78.135.80.41:8081/ARACRESIM/ARACRESIMListe2?query=";
+        public const string AracResimListeFiltreServis = "http://78.135.80.41:8081/ARACRESIM/ARACRESIMListe2";
         public const string AracResimDeleteByIdServis = "http://78.135.80.41:8081/ARACRESIM/DeleteById";
 
         #endregion
@@ -311,7 +311,7 @@ namespace MEYPAK.BLL.Assets
         public const string HesapHarSilServis = "http://78.135.80.41:8081/HESAPHAR/HESAPHARSil";
         public const string HesapHarGuncelleServis = "http://78.135.80.41:8081/HESAPHAR/HESAPHARGuncelle";
         public const string HesapHarDeleteByIdServis = "http://78.135.80.41:8081/HESAPHAR/DeleteById";
-        public const string HesapHarFiltreServis = "http://78.135.80.41:8081/HESAPHAR/HESAPHARListe2?query=";
+        public const string HesapHarFiltreServis = "http://78.135.80.41:8081/HESAPHAR/HESAPHARListe2";
         #endregion
 
         #region Banka
@@ -320,7 +320,7 @@ namespace MEYPAK.BLL.Assets
         public const string BANKASilServis = "http://78.135.80.41:8081/BANKA/BANKASil";
         public const string BANKAGuncelleServis = "http://78.135.80.41:8081/BANKA/BANKAGuncelle";
         public const string BANKADeleteByIdServis = "http://78.135.80.41:8081/BANKA/DeleteById";
-        public const string BANKAFiltreServis = "http://78.135.80.41:8081/BANKA/BANKAListe2?query=";
+        public const string BANKAFiltreServis = "http://78.135.80.41:8081/BANKA/BANKAListe2";
         #endregion
 
         #region KrediKart
@@ -329,7 +329,7 @@ namespace MEYPAK.BLL.Assets
         public const string KrediKartSilServis =         "http://78.135.80.41:8081/KREDIKART/Sil";
         public const string KrediKartGuncelleServis =    "http://78.135.80.41:8081/KREDIKART/Guncelle";
         public const string KrediKartDeleteByIdServis =  "http://78.135.80.41:8081/KREDIKART/DeleteById";
-        public const string KrediKartFiltreServis =      "http://78.135.80.41:8081/KREDIKART/Liste2?query=";
+        public const string KrediKartFiltreServis =      "http://78.135.80.41:8081/KREDIKART/Liste2";
         #endregion
 
         #region BankaHesap
@@ -338,7 +338,7 @@ namespace MEYPAK.BLL.Assets
         public const string BANKAHesapSilServis = "http://78.135.80.41:8081/BANKAHESAP/BANKAHESAPSil";
         public const string BANKAHesapGuncelleServis = "http://78.135.80.41:8081/BANKAHESAP/BANKAHESAPGuncelle";
         public const string BANKAHesapDeleteByIdServis = "http://78.135.80.41:8081/BANKAHESAP/DeleteById";
-        public const string BANKAHesapFiltreServis = "http://78.135.80.41:8081/BANKAHESAP/BANKAHESAPListe2?query=";
+        public const string BANKAHesapFiltreServis = "http://78.135.80.41:8081/BANKAHESAP/BANKAHESAPListe2";
         #endregion
 
         #region BankaSube
@@ -347,7 +347,7 @@ namespace MEYPAK.BLL.Assets
         public const string BANKASubeSilServis = "http://78.135.80.41:8081/BANKASUBE/BANKASUBESil";
         public const string BANKASubeGuncelleServis = "http://78.135.80.41:8081/BANKASUBE/BANKASUBEGuncelle";
         public const string BANKASubeDeleteByIdServis = "http://78.135.80.41:8081/BANKASUBE/DeleteById";
-        public const string BANKASubeFiltreServis = "http://78.135.80.41:8081/BANKASUBE/BANKASUBEListe2?query=";
+        public const string BANKASubeFiltreServis = "http://78.135.80.41:8081/BANKASUBE/BANKASUBEListe2";
         #endregion
 
         #region Cari
@@ -357,7 +357,7 @@ namespace MEYPAK.BLL.Assets
         public const string CariSilServis = "http://78.135.80.41:8081/CARI/CARISil";
         public const string CariGuncelleServis = "http://78.135.80.41:8081/CARI/CARIGuncelle";
         public const string CariDeleteByIdServis = "http://78.135.80.41:8081/CARI/DeleteById";
-        public const string CariFiltreServis = "http://78.135.80.41:8081/CARI/CARIListe2?query=";
+        public const string CariFiltreServis = "http://78.135.80.41:8081/CARI/CARIListe2";
 
 
         #endregion
@@ -368,7 +368,7 @@ namespace MEYPAK.BLL.Assets
         public const string CariDokumanSilServis = "http://78.135.80.41:8081/CARIDOKUMAN/CARIDOKUMANSil";
         public const string CariDokumanGuncelleServis = "http://78.135.80.41:8081/CARIDOKUMAN/CARIDOKUMANGuncelle";
         public const string CariDokumanDeleteByIdServis = "http://78.135.80.41:8081/CARIDOKUMAN/DeleteById";
-        public const string CariDokumanFiltreServis = "http://78.135.80.41:8081/CARIDOKUMAN/CARIDOKUMANListe2?query=";
+        public const string CariDokumanFiltreServis = "http://78.135.80.41:8081/CARIDOKUMAN/CARIDOKUMANListe2";
         #endregion
 
         #region SevkAdres
@@ -377,7 +377,7 @@ namespace MEYPAK.BLL.Assets
         public const string SevkAdresSilServis =         "http://78.135.80.41:8081/SEVKADRES/SEVKADRESSil";
         public const string SevkAdresGuncelleServis =    "http://78.135.80.41:8081/SEVKADRES/SEVKADRESGuncelle";
         public const string SevkAdresDeleteByIdServis = "http://78.135.80.41:8081/SEVKADRES/DeleteById";
-        public const string SevkAdresFiltreServis = "http://78.135.80.41:8081/SEVKADRES/SEVKADRESListe2?query=";
+        public const string SevkAdresFiltreServis = "http://78.135.80.41:8081/SEVKADRES/SEVKADRESListe2";
 
 
         #endregion
@@ -388,7 +388,7 @@ namespace MEYPAK.BLL.Assets
         public const string CariYetkiliSilServis = "http://78.135.80.41:8081/CARIYETKILI/CARIYETKILISil";
         public const string CariYetkiliGuncelleServis = "http://78.135.80.41:8081/CARIYETKILI/CARIYETKILIGuncelle";
         public const string CariYetkiliDeleteByIdServis = "http://78.135.80.41:8081/CARIYETKILI/DeleteById";
-        public const string CariYetkiliFiltreServis = "http://78.135.80.41:8081/CARIYETKILI/CARIYETKILIListe2?query=";
+        public const string CariYetkiliFiltreServis = "http://78.135.80.41:8081/CARIYETKILI/CARIYETKILIListe2";
         #endregion
 
         #region CariResim
@@ -398,7 +398,7 @@ namespace MEYPAK.BLL.Assets
         public const string CariResimSilServis =        "http://78.135.80.41:8081/CARIRESIM/CARIRESIMSil";
         public const string CariResimGuncelleServis =   "http://78.135.80.41:8081/CARIRESIM/CARIRESIMGuncelle";
         public const string CariResimDeleteByIdServis = "http://78.135.80.41:8081/CARIRESIM/DeleteById";
-        public const string CariResimFiltreServis = "http://78.135.80.41:8081/CARIRESIM/CARIRESIMListe2?query=";
+        public const string CariResimFiltreServis = "http://78.135.80.41:8081/CARIRESIM/CARIRESIMListe2";
 
 
         #endregion
@@ -409,7 +409,7 @@ namespace MEYPAK.BLL.Assets
         public const string CariHarEkleServis =         "http://78.135.80.41:8081/CARIHAR/CARIHAREkleyadaGuncelle";
         public const string CariHarSilServis =          "http://78.135.80.41:8081/CARIHAR/CARIHARSil";
         public const string CariHarGuncelleServis =     "http://78.135.80.41:8081/CARIHAR/CARIHARGuncelle";
-        public const string CariHarFiltreServis = "http://78.135.80.41:8081/ARAC/CARIHARListe2?query=";
+        public const string CariHarFiltreServis = "http://78.135.80.41:8081/ARAC/CARIHARListe2";
         #endregion
 
         #region Seri
@@ -652,7 +652,7 @@ namespace MEYPAK.BLL.Assets
         public const string IrsaliyeSilServis =                   "http://78.135.80.41:8081/IRSALIYE/IRSALIYESil";
         public const string IrsaliyeGuncelleServis = "http://78.135.80.41:8081/IRSALIYE/IRSALIYEGuncelle";
         public const string IrsaliyeDeleteByIdServis = "http://78.135.80.41:8081/IRSALIYE/DeleteById";
-        public const string IrsaliyeFiltreServis = "http://78.135.80.41:8081/IRSALIYE/IRSALIYEListe2?query=";
+        public const string IrsaliyeFiltreServis = "http://78.135.80.41:8081/IRSALIYE/IRSALIYEListe2";
 
         #endregion
 
@@ -662,7 +662,7 @@ namespace MEYPAK.BLL.Assets
         public const string IrsaliyeDetaySilServis = "http://78.135.80.41:8081/IRSALIYEDETAY/IRSALIYEDETAYSil";
         public const string IrsaliyeDetayGuncelleServis = "http://78.135.80.41:8081/IRSALIYEDETAY/IRSALIYEDETAYGuncelle";
         public const string IrsaliyeDetayDeleteByIdServis = "http://78.135.80.41:8081/IRSALIYEDETAY/DeleteById";
-        public const string IrsaliyeDetayFiltreServis = "http://78.135.80.41:8081/IRSALIYEDETAY/IRSALIYEDETAYListe2?query=";
+        public const string IrsaliyeDetayFiltreServis = "http://78.135.80.41:8081/IRSALIYEDETAY/IRSALIYEDETAYListe2";
 
         #endregion
 
@@ -798,7 +798,7 @@ namespace MEYPAK.BLL.Assets
         public const string FaturaDetaySilServis =        "http://78.135.80.41:8081/FATURADETAY/FATURADETAYSil";
         public const string FaturaDetayGuncelleServis =   "http://78.135.80.41:8081/FATURADETAY/FATURADETAYGuncelle";
         public const string FaturaDetayDeleteByIdServis = "http://78.135.80.41:8081/FATURADETAY/DeleteById";
-        public const string FaturaDetayFiltreServis = "http://78.135.80.41:8081/FATURADETAY/FATURADETAYListe2?query=";
+        public const string FaturaDetayFiltreServis = "http://78.135.80.41:8081/FATURADETAY/FATURADETAYListe2";
         #endregion
 
         #region FATURA
@@ -807,7 +807,7 @@ namespace MEYPAK.BLL.Assets
         public const string FaturaSilServis = "http://78.135.80.41:8081/FATURA/FATURASil";
         public const string FaturaGuncelleServis = "http://78.135.80.41:8081/FATURA/FATURAGuncelle";
         public const string FaturaDeleteByIdServis = "http://78.135.80.41:8081/FATURA/DeleteById";
-        public const string FaturaFiltreServis = "http://78.135.80.41:8081/FATURA/FATURAListe2?query=";
+        public const string FaturaFiltreServis = "http://78.135.80.41:8081/FATURA/FATURAListe2";
         #endregion
 
         #region USER-IDENTITY
@@ -827,7 +827,7 @@ namespace MEYPAK.BLL.Assets
         public const string CekSenetUstSBSilServis =         "http://78.135.80.41:8081/CEKSENETUSTSB/Sil";
         public const string CekSenetUstSBGuncelleServis =    "http://78.135.80.41:8081/CEKSENETUSTSB/Guncelle";
         public const string CekSenetUstSBDeleteByIdServis =  "http://78.135.80.41:8081/CEKSENETUSTSB/DeleteById";
-        public const string CekSenetUstSBFiltreServis =      "http://78.135.80.41:8081/CEKSENETUSTSB/Liste2?query=";
+        public const string CekSenetUstSBFiltreServis =      "http://78.135.80.41:8081/CEKSENETUSTSB/Liste2";
 
         #endregion
 
@@ -837,7 +837,7 @@ namespace MEYPAK.BLL.Assets
         public const string FirmaCekHarSilServis = "http://78.135.80.41:8081/FIRMACEKHAR/Sil";
         public const string FirmaCekHarGuncelleServis = "http://78.135.80.41:8081/FIRMACEKHAR/Guncelle";
         public const string FirmaCekHarDeleteByIdServis = "http://78.135.80.41:8081/FIRMACEKHAR/DeleteById";
-        public const string FirmaCekHarFiltreServis = "http://78.135.80.41:8081/FIRMACEKHAR/Liste2?query=";
+        public const string FirmaCekHarFiltreServis = "http://78.135.80.41:8081/FIRMACEKHAR/Liste2";
 
         #endregion
 
@@ -847,7 +847,7 @@ namespace MEYPAK.BLL.Assets
         public const string FirmaCekNoSilServis = "http://78.135.80.41:8081/FIRMACEKNO/Sil";
         public const string FirmaCekNoGuncelleServis = "http://78.135.80.41:8081/FIRMACEKNO/Guncelle";
         public const string FirmaCekNoDeleteByIdServis = "http://78.135.80.41:8081/FIRMACEKNO/DeleteById";
-        public const string FirmaCekNoFiltreServis = "http://78.135.80.41:8081/FIRMACEKNO/Liste2?query=";
+        public const string FirmaCekNoFiltreServis = "http://78.135.80.41:8081/FIRMACEKNO/Liste2";
 
         #endregion
 
@@ -857,7 +857,7 @@ namespace MEYPAK.BLL.Assets
         public const string FirmaCekSBSilServis = "http://78.135.80.41:8081/FIRMACEKSB/Sil";
         public const string FirmaCekSBGuncelleServis = "http://78.135.80.41:8081/FIRMACEKSB/Guncelle";
         public const string FirmaCekSBDeleteByIdServis = "http://78.135.80.41:8081/FIRMACEKSB/DeleteById";
-        public const string FirmaCekSBFiltreServis = "http://78.135.80.41:8081/FIRMACEKSB/Liste2?query=";
+        public const string FirmaCekSBFiltreServis = "http://78.135.80.41:8081/FIRMACEKSB/Liste2";
 
         #endregion
 
@@ -867,7 +867,7 @@ namespace MEYPAK.BLL.Assets
         public const string FirmaSenetHarSilServis = "http://78.135.80.41:8081/FIRMASENETHAR/Sil";
         public const string FirmaSenetHarGuncelleServis = "http://78.135.80.41:8081/FIRMASENETHAR/Guncelle";
         public const string FirmaSenetHarDeleteByIdServis = "http://78.135.80.41:8081/FIRMASENETHAR/DeleteById";
-        public const string FirmaSenetHarFiltreServis = "http://78.135.80.41:8081/FIRMASENETHAR/Liste2?query=";
+        public const string FirmaSenetHarFiltreServis = "http://78.135.80.41:8081/FIRMASENETHAR/Liste2";
 
         #endregion
 
@@ -877,7 +877,7 @@ namespace MEYPAK.BLL.Assets
         public const string FirmaSenetNoSilServis = "http://78.135.80.41:8081/FIRMASENETNO/Sil";
         public const string FirmaSenetNoGuncelleServis = "http://78.135.80.41:8081/FIRMASENETNO/Guncelle";
         public const string FirmaSenetNoDeleteByIdServis = "http://78.135.80.41:8081/FIRMASENETNO/DeleteById";
-        public const string FirmaSenetNoFiltreServis = "http://78.135.80.41:8081/FIRMASENETNO/Liste2?query=";
+        public const string FirmaSenetNoFiltreServis = "http://78.135.80.41:8081/FIRMASENETNO/Liste2";
 
         #endregion
 
@@ -887,7 +887,7 @@ namespace MEYPAK.BLL.Assets
         public const string FirmaSenetSBSilServis = "http://78.135.80.41:8081/FIRMASENETSB/Sil";
         public const string FirmaSenetSBGuncelleServis = "http://78.135.80.41:8081/FIRMASENETSB/Guncelle";
         public const string FirmaSenetSBDeleteByIdServis = "http://78.135.80.41:8081/FIRMASENETSB/DeleteById";
-        public const string FirmaSenetSBFiltreServis = "http://78.135.80.41:8081/FIRMASENETSB/Liste2?query=";
+        public const string FirmaSenetSBFiltreServis = "http://78.135.80.41:8081/FIRMASENETSB/Liste2";
 
         #endregion
 
@@ -897,7 +897,7 @@ namespace MEYPAK.BLL.Assets
         public const string MusteriCekHarSilServis = "http://78.135.80.41:8081/MUSTERICEKHAR/Sil";
         public const string MusteriCekHarGuncelleServis = "http://78.135.80.41:8081/MUSTERICEKHAR/Guncelle";
         public const string MusteriCekHarDeleteByIdServis = "http://78.135.80.41:8081/MUSTERICEKHAR/DeleteById";
-        public const string MusteriCekHarFiltreServis = "http://78.135.80.41:8081/MUSTERICEKHAR/Liste2?query=";
+        public const string MusteriCekHarFiltreServis = "http://78.135.80.41:8081/MUSTERICEKHAR/Liste2";
 
         #endregion
 
@@ -907,7 +907,7 @@ namespace MEYPAK.BLL.Assets
         public const string MusteriCekNoSilServis = "http://78.135.80.41:8081/MUSTERICEKNO/Sil";
         public const string MusteriCekNoGuncelleServis = "http://78.135.80.41:8081/MUSTERICEKNO/Guncelle";
         public const string MusteriCekNoDeleteByIdServis = "http://78.135.80.41:8081/MUSTERICEKNO/DeleteById";
-        public const string MusteriCekNoFiltreServis = "http://78.135.80.41:8081/MUSTERICEKNO/Liste2?query=";
+        public const string MusteriCekNoFiltreServis = "http://78.135.80.41:8081/MUSTERICEKNO/Liste2";
 
         #endregion
 
@@ -917,7 +917,7 @@ namespace MEYPAK.BLL.Assets
         public const string MusteriCekSBSilServis = "http://78.135.80.41:8081/MUSTERICEKSB/Sil";
         public const string MusteriCekSBGuncelleServis = "http://78.135.80.41:8081/MUSTERICEKSB/Guncelle";
         public const string MusteriCekSBDeleteByIdServis = "http://78.135.80.41:8081/MUSTERICEKSB/DeleteById";
-        public const string MusteriCekSBFiltreServis = "http://78.135.80.41:8081/MUSTERICEKSB/Liste2?query=";
+        public const string MusteriCekSBFiltreServis = "http://78.135.80.41:8081/MUSTERICEKSB/Liste2";
 
         #endregion
 
@@ -927,7 +927,7 @@ namespace MEYPAK.BLL.Assets
         public const string MusteriSenetHarSilServis = "http://78.135.80.41:8081/MUSTERISENETHAR/Sil";
         public const string MusteriSenetHarGuncelleServis = "http://78.135.80.41:8081/MUSTERISENETHAR/Guncelle";
         public const string MusteriSenetHarDeleteByIdServis = "http://78.135.80.41:8081/MUSTERISENETHAR/DeleteById";
-        public const string MusteriSenetHarFiltreServis = "http://78.135.80.41:8081/MUSTERISENETHAR/Liste2?query=";
+        public const string MusteriSenetHarFiltreServis = "http://78.135.80.41:8081/MUSTERISENETHAR/Liste2";
 
         #endregion
 
@@ -937,7 +937,7 @@ namespace MEYPAK.BLL.Assets
         public const string MusteriSenetNoSilServis = "http://78.135.80.41:8081/MUSTERISENETNO/Sil";
         public const string MusteriSenetNoGuncelleServis = "http://78.135.80.41:8081/MUSTERISENETNO/Guncelle";
         public const string MusteriSenetNoDeleteByIdServis = "http://78.135.80.41:8081/MUSTERISENETNO/DeleteById";
-        public const string MusteriSenetNoFiltreServis = "http://78.135.80.41:8081/MUSTERISENETNO/Liste2?query=";
+        public const string MusteriSenetNoFiltreServis = "http://78.135.80.41:8081/MUSTERISENETNO/Liste2";
 
         #endregion
 
@@ -947,7 +947,7 @@ namespace MEYPAK.BLL.Assets
         public const string MusteriSenetSBSilServis = "http://78.135.80.41:8081/MUSTERISENETSB/Sil";
         public const string MusteriSenetSBGuncelleServis = "http://78.135.80.41:8081/MUSTERISENETSB/Guncelle";
         public const string MusteriSenetSBDeleteByIdServis = "http://78.135.80.41:8081/MUSTERISENETSB/DeleteById";
-        public const string MusteriSenetSBFiltreServis = "http://78.135.80.41:8081/MUSTERISENETSB/Liste2?query=";
+        public const string MusteriSenetSBFiltreServis = "http://78.135.80.41:8081/MUSTERISENETSB/Liste2";
 
         #endregion
 
@@ -957,7 +957,7 @@ namespace MEYPAK.BLL.Assets
         public const string MusteriCekSenetSilServis =        "http://78.135.80.41:8081/MUSTERICEKSENET/Sil";
         public const string MusteriCekSenetGuncelleServis =   "http://78.135.80.41:8081/MUSTERICEKSENET/Guncelle";
         public const string MusteriCekSenetDeleteByIdServis = "http://78.135.80.41:8081/MUSTERICEKSENET/DeleteById";
-        public const string MusteriCekSenetFiltreServis =     "http://78.135.80.41:8081/MUSTERICEKSENET/Liste2?query=";
+        public const string MusteriCekSenetFiltreServis =     "http://78.135.80.41:8081/MUSTERICEKSENET/Liste2";
 
         #endregion
 
@@ -967,7 +967,7 @@ namespace MEYPAK.BLL.Assets
         public const string DestekServisSilServis = "http://78.135.80.41:8081/DESTEKSERVIS/Sil";
         public const string DestekServisGuncelleServis = "http://78.135.80.41:8081/DESTEKSERVIS/Guncelle";
         public const string DestekServisDeleteByIdServis = "http://78.135.80.41:8081/DESTEKSERVIS/DeleteById";
-        public const string DestekServisFiltreServis = "http://78.135.80.41:8081/DESTEKSERVIS/Liste2?query=";
+        public const string DestekServisFiltreServis = "http://78.135.80.41:8081/DESTEKSERVIS/Liste2";
 
         #endregion
 
