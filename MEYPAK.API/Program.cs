@@ -116,6 +116,12 @@ builder.Services.AddAutoMapper(x =>
     x.AddExpressionMapping(); //expressionlari maplemek içindir
     x.AddProfile(typeof(Maps));
 });
+
+#region FATURASTOKESLE
+builder.Services.AddScoped<IFaturaStokEsleDal, EFFaturaStokEsleRepo>();
+builder.Services.AddScoped<IFaturaStokEsleServis, FaturaStokEsleManager>();
+ 
+#endregion
 #region VERSION
 builder.Services.AddScoped<IVersionDal, EFVersionRepo>();
 builder.Services.AddScoped<IVersionServis, VersionManager>();

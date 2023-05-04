@@ -276,7 +276,7 @@ namespace MEYPAK.PRL.DEPO
                             _tempSipDetay.hareketdurumu = 1;
                             _tempSipDetay.userid = MPKullanici.ID;
                             _siparisDetayServis.Data(ServisList.SiparisDetayEkleServis, _tempSipDetay);
-                            _siparisSevkEmriHarServis.Data(ServisList.SiparisSevkEmriHarEkleServis, new PocoSIPARISSEVKEMIRHAR()
+                             _siparisSevkEmriHarServis.Data(ServisList.SiparisSevkEmriHarEkleServis, new PocoSIPARISSEVKEMIRHAR()
                             {
                                 emirmiktari = Convert.ToDecimal(gridView1.GetRowCellValue(j, "SevkMiktarı").ToString()),
                                 siparisid = _tempSipDetay.siparisid,

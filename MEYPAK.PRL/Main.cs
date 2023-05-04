@@ -117,6 +117,7 @@ namespace MEYPAK.PRL
         FStokKasaHareketRaporu fStokKasaHarRaporu;
         FMusteriSiparisRaporu fMusteriSiparisRaporu;
         FDepoRaporu fDepoRaporu;
+        FGELENIRSALIYE fGELENIRSALIYE;
         FAracTanim fAracTanim;
         FAracRota fAracRota;
         FPersonelList fPersonelList;
@@ -2063,6 +2064,26 @@ namespace MEYPAK.PRL
             i++;
         }
 
+        private void accordionControlElement22_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fGELENIRSALIYE = new FGELENIRSALIYE();
+            page.Name = "FGelenIrsaliye" + i;
+            page.Text = "Gelen Irsaliye";
+            page.Tag = "FGelenIrsaliye" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
+
+            fGELENIRSALIYE.FormBorderStyle = FormBorderStyle.None;
+            fGELENIRSALIYE.TopLevel = false;
+            fGELENIRSALIYE.AutoScroll = true;
+            fGELENIRSALIYE.Dock = DockStyle.Fill;
+            fGELENIRSALIYE.Tag = "FGelenIrsaliye" + i;
+            page.Controls.Add(fGELENIRSALIYE);
+            fGELENIRSALIYE.Show();
+            i++;
+        }
     }
 }
 

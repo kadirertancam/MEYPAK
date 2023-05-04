@@ -1,5 +1,5 @@
 ﻿
-using ServiceReference5;
+using ServiceReference11;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +10,7 @@ namespace e_İrsaliyeDemo_v1._0._0
 {
     class DespatchTasks
     {
-  
+
 
         public static DespatchTasks Instance = new DespatchTasks();
 
@@ -28,5 +28,7 @@ namespace e_İrsaliyeDemo_v1._0._0
             client.ClientCredentials.UserName.Password = password;
             return client;
         }
-          }
+    }
+
+
 }

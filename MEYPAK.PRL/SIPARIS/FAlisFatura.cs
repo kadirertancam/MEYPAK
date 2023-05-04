@@ -59,8 +59,8 @@ namespace MEYPAK.PRL.SIPARIS
             _stokHarServis = new GenericWebServis<PocoSTOKHAR>();
             _stokOlcuBrList = new List<StokOlcuBrTemp>();
             kDVHesaps = new KDVHesap();
-            _hizmetHarServis= new GenericWebServis<PocoHIZMETHAR>();
-            _hizmetServis= new GenericWebServis<PocoHIZMET>();
+            _hizmetHarServis = new GenericWebServis<PocoHIZMETHAR>();
+            _hizmetServis = new GenericWebServis<PocoHIZMET>();
             _cariHarServsi = new GenericWebServis<PocoCARIHAR>();
             comboBox1.SelectedIndex = 0;
             if (_tempFaturas != null)
@@ -74,7 +74,7 @@ namespace MEYPAK.PRL.SIPARIS
                 _tempFaturaDetay = new List<PocoFaturaKalem>();
 
             fattip = tip;
-           
+
         }
 
         #region TANIMLAR
@@ -174,13 +174,14 @@ namespace MEYPAK.PRL.SIPARIS
             CBParaBirimi.EditValue = _paraBirimServis.obje.Where(x => x.kayittipi == 0 && x.adi == "TÜRK LİRASI").Select(x => x.adi).FirstOrDefault();
             _tempCariKart = null;
             CHBKdvDahil.Checked = false;
-            gridControl1.DataSource = ""; 
+            gridControl1.DataSource = "";
 
         }
 
         void DataGridYapilandir()
         {
             _tempStok = new PocoSTOK();
+            if(_tempFaturaDetay.Count==0)
             _tempFaturaDetay.Add(new PocoFaturaKalem() { Tipi = "STOK" });
             GCIrsaliye.DataSource = _tempFaturaDetay;
 
@@ -284,7 +285,7 @@ namespace MEYPAK.PRL.SIPARIS
             {
                 dt.Rows.Add(item.id, item.adi);
             }
-
+            
             gridView1.BestFitColumns();
             RepositoryItemLookUpEdit riLookup2 = new RepositoryItemLookUpEdit();
 
@@ -298,7 +299,7 @@ namespace MEYPAK.PRL.SIPARIS
             riLookup2.DropDownRows = datatb.Rows.Count;
 
             riLookup2.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete;
-            riLookup2.AutoSearchColumnIndex = 1;
+            riLookup2.AutoSearchColumnIndex = 1;  
             riLookup2.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
             gridView1.Columns["Doviz"].OptionsColumn.AllowEdit = true;
             //repoGV.Columns.Add(colun2);
@@ -400,10 +401,10 @@ namespace MEYPAK.PRL.SIPARIS
 
 
                 TBBrutToplam.EditValue = decimal.Round((_tempFaturaDetay.Sum(x => x.BrütToplam)), 2);
-                TBAraToplam.EditValue = decimal.Round(temppte,2);
+                TBAraToplam.EditValue = decimal.Round(temppte, 2);
                 TBIskontoToplam.EditValue = (decimal.Round((_tempFaturaDetay.Sum(x => x.BrütToplam)), 2) - temppte);
-                TBKdvTutari.EditValue = decimal.Round(kdvtoplamm,2);
-                TBGenelToplam.EditValue = decimal.Round((temppte + kdvtoplamm),2);
+                TBKdvTutari.EditValue = decimal.Round(kdvtoplamm, 2);
+                TBGenelToplam.EditValue = decimal.Round((temppte + kdvtoplamm), 2);
             }
             else
             {
@@ -538,13 +539,21 @@ namespace MEYPAK.PRL.SIPARIS
             gridControl1.DataSource = tempkasalist.OrderByDescending(x => x.MIKTAR);
             try
             {
-                gridView2.Columns["ID"].Visible = false;
-                gridView2.Columns["KASAID"].Visible = false;
+                try
+                {
+                    gridView2.Columns["ID"].Visible = false;
+                    gridView2.Columns["KASAID"].Visible = false;
+                }
+                catch (Exception)
+                {
+
+                }
+
             }
             catch (Exception)
-            { 
+            {
             }
-           
+
 
         }
 
@@ -625,7 +634,7 @@ namespace MEYPAK.PRL.SIPARIS
                 }
                 else
                 {
-                    gridControl1.DataSource = ""; 
+                    gridControl1.DataSource = "";
 
                 }
                 riLookup3.DataSource = "";
@@ -670,10 +679,10 @@ namespace MEYPAK.PRL.SIPARIS
                         sy = 0;
                         Hesapla(i);
                     }
-                    
+
                 }
-                    
-                
+
+
                 TBAIskonto1.EditValue = _tempFatura.altiskonto1;
                 TBAIskonto2.EditValue = _tempFatura.altiskonto2;
                 TBAIskonto3.EditValue = _tempFatura.altiskonto3;
@@ -894,7 +903,7 @@ namespace MEYPAK.PRL.SIPARIS
 
         private void comboBoxEdit1_SelectedIndexChanged(object sender, EventArgs e)
         {
-             
+
         }
 
         private void TBGun_EditValueChanged(object sender, EventArgs e)
@@ -919,7 +928,7 @@ namespace MEYPAK.PRL.SIPARIS
                 if (gridView1.FocusedColumn.VisibleIndex == gridView1.Columns.View.VisibleColumns.Count)
                     MessageBox.Show("testt");
         }
- 
+
         private void BTKaydet_Click_1(object sender, EventArgs e)
         {
             //if (_tempFatura != null && TBFaturaNo.Text != _tempFatura.belgeno)
@@ -927,220 +936,224 @@ namespace MEYPAK.PRL.SIPARIS
             if (MPKullanici.YetkiGetir(AllForms.ALISFATURATANIM.ToString()).EKLE == true)
             {
                 _cariKart.Data(ServisList.CariListeServis);
-            if (_cariKart.obje.Where(x => x.kod == TBCariKodu.Text).Count() > 0)
-            {
-                _faturaServis.Data(ServisList.FaturaEkleServis, new PocoFATURA()
+                if (_cariKart.obje.Where(x => x.kod == TBCariKodu.Text).Count() > 0)
                 {
-                    id = _tempFatura != null ? _tempFatura.id : 0,
-                    aciklama = TBAciklama.Text,
-                    kur = Convert.ToDecimal(TBKur.Text),
-                    belgeno = TBFaturaNo.Text,
-                    vadetarihi = (DateTime)DTPVadeTarihi.EditValue,
-                    guncellemetarihi = DateTime.Now,
-                    vadegunu = Convert.ToInt32(TBGun.Text),
-                    cariadi = TBCariAdi.Text,
-                    faturatarihi = (DateTime)DTSiparisTarih.EditValue,
-                    cariid = _cariKart.obje.Where(x => x.kod == TBCariKodu.Text).FirstOrDefault().id,
-                    depoid = _depoServis.obje.Where(x => x.depoadi == CBDepo.EditValue).FirstOrDefault().id,
-                    althesapid = int.Parse(CBAltHesap.EditValue.ToString()),
-                    dovizid = _paraBirimServis.obje.Where(x => x.adi == CBParaBirimi.Text).FirstOrDefault().id,
-                    altiskonto1 = Convert.ToDecimal(TBAIskonto1.Text),
-                    altiskonto2 = Convert.ToDecimal(TBAIskonto2.Text),
-                    altiskonto3 = Convert.ToDecimal(TBAIskonto3.Text),
-                    iskontotoplam = Convert.ToDecimal(TBIskontoToplam.EditValue), //_tempFaturaDetay.Sum(x => x.İskontoTutarı),
-                    kdvtoplam = _tempFaturaDetay.Sum(x => x.KdvTutarı),
-                    bruttoplam = _tempFaturaDetay.Sum(x => x.BrütToplam),
-                    nettoplam = _tempFaturaDetay.Sum(x => x.NetToplam),
-                    geneltoplam = _tempFaturaDetay.Sum(x => x.KdvTutarı) + _tempFaturaDetay.Sum(x => x.NetToplam),
-                    kdvdahil = CHBKdvDahil.Checked,
-                    tip = comboBox1.SelectedIndex==0? 1:3,
-                    userid = MPKullanici.ID
-                }) ;
-
-                _stokOlcuBr.Data(ServisList.StokOlcuBrListeServis);
-                _olcuBr.Data(ServisList.OlcuBrListeServis);
-                int i = 0;
-                _stokHarServis.Data(ServisList.StokHarListeServis);
-                _hizmetHarServis.Data(ServisList.HizmetHarListeServis);
-                foreach (var item in _tempFaturaDetay.Where(x => x.StokKodu != "" && x.StokKodu != null).ToList())
-                {
-                    var stokolcubr = _stokOlcuBr.obje.Where(x => x.stokid == item.StokId).FirstOrDefault();
-                    _faturadetayServis.Data(ServisList.FaturaDetayEkleServis, new PocoFATURADETAY()
+                    _faturaServis.Data(ServisList.FaturaEkleServis, new PocoFATURA()
                     {
-                        id = item.id,
-                        stokid = item.StokId,
-                        stokadi = item.StokAdı,
-                        aciklama = item.Acıklama,
-                        kdv = item.Kdv,
-                        //kasaid = item.KasaId,
-                        birimfiyat = item.BirimFiyat,
-                        nettoplam = item.NetToplam,
-                        netfiyat = item.NetFiyat,
-                        birimid = item.Tipi=="STOK" ? _olcuBr.obje.Where(y => y.adi == item.Birim).FirstOrDefault().id:0,
-                        dovizid = item.Doviz,
-                        kasamiktar = item.KasaMiktar,
-                        dara = item.Dara,
-                        darali = item.Daralı,
-                        safi = item.Safi,
-                        iskontO1 = item.İskonto1,
-                        iskontO2 = item.İskonto2,
-                        iskontO3 = item.İskonto3,
-                        isktoplam = item.İskontoTutarı,
-                        faturaid = _faturaServis.obje2.id, ///ID gelecek
-                        kunye = item.Kunye != null ? item.Kunye : "",
-                        brutfiyat = item.BrütFiyat,
-                        bruttoplam = item.BrütFiyat * item.Safi,
-                        bekleyenmiktar = 0,
-                        num = item.sıra,
-                        hareketdurumu = 0,
-                        listefiyatid = 0,
-                        tip = item.Tipi == "STOK" ? Convert.ToByte(0) : item.Tipi == "HIZMET" ? Convert.ToByte(1) : item.Tipi == "KASA" ? Convert.ToByte(2) : item.Tipi == "DEMIRBAS" ? Convert.ToByte(3) : Convert.ToByte(4),
-                        kdvtutari = item.KdvTutarı,
+                        id = _tempFatura != null ? _tempFatura.id : 0,
+                        aciklama = TBAciklama.Text,
+                        kur = Convert.ToDecimal(TBKur.Text),
+                        belgeno = TBFaturaNo.Text,
+                        vadetarihi = (DateTime)DTPVadeTarihi.EditValue,
+                        guncellemetarihi = DateTime.Now,
+                        vadegunu = Convert.ToInt32(TBGun.Text),
+                        cariadi = TBCariAdi.Text,
+                        faturatarihi = (DateTime)DTSiparisTarih.EditValue,
+                        cariid = _cariKart.obje.Where(x => x.kod == TBCariKodu.Text).FirstOrDefault().id,
+                        depoid = _depoServis.obje.Where(x => x.depoadi == CBDepo.EditValue).FirstOrDefault().id,
+                        althesapid = int.Parse(CBAltHesap.EditValue.ToString()),
+                        dovizid = _paraBirimServis.obje.Where(x => x.adi == CBParaBirimi.Text).FirstOrDefault().id,
+                        altiskonto1 = Convert.ToDecimal(TBAIskonto1.Text),
+                        altiskonto2 = Convert.ToDecimal(TBAIskonto2.Text),
+                        altiskonto3 = Convert.ToDecimal(TBAIskonto3.Text),
+                        iskontotoplam = Convert.ToDecimal(TBIskontoToplam.EditValue), //_tempFaturaDetay.Sum(x => x.İskontoTutarı),
+                        kdvtoplam = _tempFaturaDetay.Sum(x => x.KdvTutarı),
+                        bruttoplam = _tempFaturaDetay.Sum(x => x.BrütToplam),
+                        nettoplam = _tempFaturaDetay.Sum(x => x.NetToplam),
+                        geneltoplam = _tempFaturaDetay.Sum(x => x.KdvTutarı) + _tempFaturaDetay.Sum(x => x.NetToplam),
+                        kdvdahil = CHBKdvDahil.Checked,
+                        tip = comboBox1.SelectedIndex == 0 ? 1 : 3,
                         userid = MPKullanici.ID
                     });
-                    if (item.Tipi == "STOK")
+
+                    _stokOlcuBr.Data(ServisList.StokOlcuBrListeServis);
+                    _olcuBr.Data(ServisList.OlcuBrListeServis);
+                    int i = 0;
+                    _stokHarServis.Data(ServisList.StokHarListeServis);
+                    _hizmetHarServis.Data(ServisList.HizmetHarListeServis);
+                    foreach (var item in _tempFaturaDetay.Where(x => x.StokKodu != "" && x.StokKodu != null).ToList())
                     {
-                        _stokHarServis.Data(ServisList.StokHarEkleServis, new Entity.PocoModels.STOK.PocoSTOKHAR()
+                        if (item.StokId != 0)
                         {
-                            id = _stokHarServis.obje.Where(x => x.faturadetayid == _faturadetayServis.obje2.id).Count() > 0 ? _stokHarServis.obje.Where(x => x.faturadetayid == _faturadetayServis.obje2.id).FirstOrDefault().id : 0,
-                            faturadetayid = _faturadetayServis.obje2.id,
-                            faturaid = _faturaServis.obje2.id,
-                            aciklama = item.Acıklama,
-                            belgE_NO = _faturaServis.obje2.belgeno,
-                            hareketturu = 2,
-                            birim = _olcuBr.obje.Where(x => x.adi.ToString() == item.Birim).FirstOrDefault().id,
-                            bruttoplam = item.BrütToplam,
-                            depoid = _faturaServis.obje2.depoid,
-                            io = comboBox1.SelectedIndex == 0 ? 1 : 0,
-                            kdv = item.Kdv,
-                            miktar = item.Safi,
-                            netfiyat = item.NetFiyat,
-                            nettoplam = item.NetToplam,
-                            stokid = item.StokId,
-                            sayimid = 0,
-                            kunye = item.Kunye,
-                            userid = MPKullanici.ID
-                        });
-                    }
-                    if (item.Tipi == "KASA")
-                    {
-                        _stokKasaHarServis.Data(ServisList.StokKasaHarEkleServis, new Entity.PocoModels.STOK.PocoSTOKKASAHAR()
-                        {
-                            id = _stokHarServis.obje.Where(x => x.faturadetayid == _faturadetayServis.obje2.id).Count() > 0 ? _stokHarServis.obje.Where(x => x.faturadetayid == _faturadetayServis.obje2.id).FirstOrDefault().id : 0,
-                            faturadetayid = _faturadetayServis.obje2.id,
-                            faturaid = _faturaServis.obje2.id, 
-                            io = comboBox1.SelectedIndex == 0 ? 1 : 0, 
-                            miktar = item.Safi,  
-                            belge_no=_faturaServis.obje2.belgeno,
-                            cariid=_faturaServis.obje2.cariid,
-                            kasaid=item.StokId,
-                            userid = MPKullanici.ID
-
-                        });
-                    }
-                    else if (item.Tipi == "HIZMET")
-                    {
-
-                        _hizmetHarServis.Data(ServisList.HizmetHarEkleServis, new Entity.PocoModels.STOK.PocoHIZMETHAR()
-                        {
-                            id = _hizmetHarServis.obje.Where(x => x.faturadetayid == _faturadetayServis.obje2.id).Count() > 0 ? _hizmetHarServis.obje.Where(x => x.faturadetayid == _faturadetayServis.obje2.id).FirstOrDefault().id : 0,
-                            faturadetayid = _faturadetayServis.obje2.id,
-                            faturaid = _faturaServis.obje2.id,
-                            aciklama = item.Acıklama,
-                            belgE_NO = _faturaServis.obje2.belgeno,
-                            hareketturu = 1,
-                            io = 1,
-                            birim =0,
-                            bruttoplam = item.BrütToplam,
-                            depoid = _faturaServis.obje2.depoid,
-                            kdv = item.Kdv,
-                            miktar = item.Safi,
-                            netfiyat = item.NetFiyat,
-                            nettoplam = item.NetToplam,
-                            hizmetid = item.StokId,
-                            userid = MPKullanici.ID
-                        });
-                    }
-
-                    i++;
-
-
-                    //_kasaServis.Data(ServisList.StokKasaListeServis);
-
-                    foreach (var test in _kasaaa.Where(x => x.num == item.sıra))
-                    {
-                        List<PocoSTOKKASAHAR> except = new List<PocoSTOKKASAHAR>();
-
-
-                        foreach (var item2 in test.KasaList)
-                        {   //kasalist içinde olmayan stokkasaharların silinmesi
-                            _stokKasaHarServis.Data(ServisList.StokKasaHarEkleServis, new PocoSTOKKASAHAR()
+                            var stokolcubr = _stokOlcuBr.obje.Where(x => x.stokid == item.StokId).FirstOrDefault();
+                            _faturadetayServis.Data(ServisList.FaturaDetayEkleServis, new PocoFATURADETAY()
                             {
-                                id = item2.ID,
-                                belge_no = TBFaturaNo.Text,
-                                faturaid = _faturaServis.obje2.id,
-                                io = 1,
-                                cariid = _cariKart.obje.Where(x => x.kod == TBCariKodu.Text).FirstOrDefault().id,
-                                kayittipi = 0,
-                                kasaid = item2.KASAID,
-                                miktar = item2.MIKTAR, // _kasaaa.Where(x => x.num == test.num).Select(x => x.KasaList.Sum(t => t.MIKTAR)).FirstOrDefault()
-                                irsaliyedetayid = 0,
-                                faturadetayid = _faturadetayServis.obje2.id,
+                                id = item.id,
+                                stokid = item.StokId,
+                                stokadi = item.StokAdı,
+                                aciklama = item.Acıklama,
+                                kdv = item.Kdv,
+                                //kasaid = item.KasaId,
+                                birimfiyat = item.BirimFiyat,
+                                nettoplam = item.NetToplam,
+                                netfiyat = item.NetFiyat,
+                                birimid = item.Tipi == "STOK" ? _olcuBr.obje.Where(y => y.adi == item.Birim).FirstOrDefault().id : 0,
+                                dovizid = item.Doviz,
+                                kasamiktar = item.KasaMiktar,
+                                dara = item.Dara,
+                                darali = item.Daralı,
+                                safi = item.Safi,
+                                iskontO1 = item.İskonto1,
+                                iskontO2 = item.İskonto2,
+                                iskontO3 = item.İskonto3,
+                                isktoplam = item.İskontoTutarı,
+                                faturaid = _faturaServis.obje2.id, ///ID gelecek
+                                kunye = item.Kunye != null ? item.Kunye : "",
+                                brutfiyat = item.BrütFiyat,
+                                bruttoplam = item.BrütFiyat * item.Safi,
+                                bekleyenmiktar = 0,
+                                num = item.sıra,
+                                hareketdurumu = 0,
+                                listefiyatid = 0,
+                                tip = item.Tipi == "STOK" ? Convert.ToByte(0) : item.Tipi == "HIZMET" ? Convert.ToByte(1) : item.Tipi == "KASA" ? Convert.ToByte(2) : item.Tipi == "DEMIRBAS" ? Convert.ToByte(3) : Convert.ToByte(4),
+                                kdvtutari = item.KdvTutarı,
                                 userid = MPKullanici.ID
                             });
-                            if (item2.ID > 0)
-                                except.AddRange(_stokKasaHarServis.obje.Where(x => x.id == item2.ID));
+
+                            if (item.Tipi == "STOK")
+                            {
+                                _stokHarServis.Data(ServisList.StokHarEkleServis, new Entity.PocoModels.STOK.PocoSTOKHAR()
+                                {
+                                    id = _stokHarServis.obje.Where(x => x.faturadetayid == _faturadetayServis.obje2.id).Count() > 0 ? _stokHarServis.obje.Where(x => x.faturadetayid == _faturadetayServis.obje2.id).FirstOrDefault().id : 0,
+                                    faturadetayid = _faturadetayServis.obje2.id,
+                                    faturaid = _faturaServis.obje2.id,
+                                    aciklama = item.Acıklama,
+                                    belgE_NO = _faturaServis.obje2.belgeno,
+                                    hareketturu = 2,
+                                    birim = _olcuBr.obje.Where(x => x.adi.ToString() == item.Birim).FirstOrDefault().id,
+                                    bruttoplam = item.BrütToplam,
+                                    depoid = _faturaServis.obje2.depoid,
+                                    io = comboBox1.SelectedIndex == 0 ? 1 : 0,
+                                    kdv = item.Kdv,
+                                    miktar = item.Safi,
+                                    netfiyat = item.NetFiyat,
+                                    nettoplam = item.NetToplam,
+                                    stokid = item.StokId,
+                                    sayimid = 0,
+                                    kunye = item.Kunye,
+                                    userid = MPKullanici.ID
+                                });
+                            }
+                            if (item.Tipi == "KASA")
+                            {
+                                _stokKasaHarServis.Data(ServisList.StokKasaHarEkleServis, new Entity.PocoModels.STOK.PocoSTOKKASAHAR()
+                                {
+                                    id = _stokHarServis.obje.Where(x => x.faturadetayid == _faturadetayServis.obje2.id).Count() > 0 ? _stokHarServis.obje.Where(x => x.faturadetayid == _faturadetayServis.obje2.id).FirstOrDefault().id : 0,
+                                    faturadetayid = _faturadetayServis.obje2.id,
+                                    faturaid = _faturaServis.obje2.id,
+                                    io = comboBox1.SelectedIndex == 0 ? 1 : 0,
+                                    miktar = item.Safi,
+                                    belge_no = _faturaServis.obje2.belgeno,
+                                    cariid = _faturaServis.obje2.cariid,
+                                    kasaid = item.StokId,
+                                    userid = MPKullanici.ID
+
+                                });
+                            }
+                            else if (item.Tipi == "HIZMET")
+                            {
+
+                                _hizmetHarServis.Data(ServisList.HizmetHarEkleServis, new Entity.PocoModels.STOK.PocoHIZMETHAR()
+                                {
+                                    id = _hizmetHarServis.obje.Where(x => x.faturadetayid == _faturadetayServis.obje2.id).Count() > 0 ? _hizmetHarServis.obje.Where(x => x.faturadetayid == _faturadetayServis.obje2.id).FirstOrDefault().id : 0,
+                                    faturadetayid = _faturadetayServis.obje2.id,
+                                    faturaid = _faturaServis.obje2.id,
+                                    aciklama = item.Acıklama,
+                                    belgE_NO = _faturaServis.obje2.belgeno,
+                                    hareketturu = 1,
+                                    io = 1,
+                                    birim = 0,
+                                    bruttoplam = item.BrütToplam,
+                                    depoid = _faturaServis.obje2.depoid,
+                                    kdv = item.Kdv,
+                                    miktar = item.Safi,
+                                    netfiyat = item.NetFiyat,
+                                    nettoplam = item.NetToplam,
+                                    hizmetid = item.StokId,
+                                    userid = MPKullanici.ID
+                                });
+
+                            }
+
+                            i++;
+
+
+                            //_kasaServis.Data(ServisList.StokKasaListeServis);
+
+                            foreach (var test in _kasaaa.Where(x => x.num == item.sıra))
+                            {
+                                List<PocoSTOKKASAHAR> except = new List<PocoSTOKKASAHAR>();
+
+
+                                foreach (var item2 in test.KasaList)
+                                {   //kasalist içinde olmayan stokkasaharların silinmesi
+                                    _stokKasaHarServis.Data(ServisList.StokKasaHarEkleServis, new PocoSTOKKASAHAR()
+                                    {
+                                        id = item2.ID,
+                                        belge_no = TBFaturaNo.Text,
+                                        faturaid = _faturaServis.obje2.id,
+                                        io = 1,
+                                        cariid = _cariKart.obje.Where(x => x.kod == TBCariKodu.Text).FirstOrDefault().id,
+                                        kayittipi = 0,
+                                        kasaid = item2.KASAID,
+                                        miktar = item2.MIKTAR, // _kasaaa.Where(x => x.num == test.num).Select(x => x.KasaList.Sum(t => t.MIKTAR)).FirstOrDefault()
+                                        irsaliyedetayid = 0,
+                                        faturadetayid = _faturadetayServis.obje2.id,
+                                        userid = MPKullanici.ID
+                                    });
+                                    if (item2.ID > 0)
+                                        except.AddRange(_stokKasaHarServis.obje.Where(x => x.id == item2.ID));
+
+                                }
+                                if (_stokKasaHarServis.obje.Where(x => x.faturadetayid == _faturadetayServis.obje2.id).Except(except).Count() > 0)
+                                    foreach (var sss in _stokKasaHarServis.obje.Where(x => x.faturadetayid == _faturadetayServis.obje2.id).Except(except))
+                                    {
+                                        _stokKasaHarServis.Data(ServisList.StokKasaHarDeleteByIdServis, id: sss.id.ToString(), method: System.Net.Http.HttpMethod.Post);
+                                    }
+                            }
 
                         }
-                        if (_stokKasaHarServis.obje.Where(x => x.faturadetayid == _faturadetayServis.obje2.id).Except(except).Count() > 0)
-                            foreach (var sss in _stokKasaHarServis.obje.Where(x => x.faturadetayid == _faturadetayServis.obje2.id).Except(except))
-                            {
-                                _stokKasaHarServis.Data(ServisList.StokKasaHarDeleteByIdServis, id: sss.id.ToString(), method: System.Net.Http.HttpMethod.Post);
-                            }
                     }
-                 
-
-                }
-                _cariHarServsi.Data(ServisList.CariHarEkleServis, new PocoCARIHAR()
-                {
-                    aciklama = "Satış Faturası",
-                    belgE_NO = _faturaServis.obje2.belgeno,
-                    alacak = _faturaServis.obje2.geneltoplam,
-                    borc = 0,
-                    carialthesapid = _faturaServis.obje2.althesapid,
-                    cariid = _faturaServis.obje2.cariid,
-                    harekettarihi = _faturaServis.obje2.faturatarihi,
-                    harekettipi = 1,
-                    kur = 1,
-                    parabirimid = 11638,
-                    tutar = 0 - _faturaServis.obje2.geneltoplam,
-                    userid = MPKullanici.ID,
-
-                });
-                if (_tempSilinenFaturaDetay.Count() > 0)
-                {
-                    foreach (var item in _tempSilinenFaturaDetay)
+                    _cariHarServsi.Data(ServisList.CariHarEkleServis, new PocoCARIHAR()
                     {
-                        _faturadetayServis.Data(ServisList.FaturaDetayDeleteByIdServis, id: item.id.ToString(), method: System.Net.Http.HttpMethod.Post);
-                        _stokHarServis.Data(ServisList.StokHarSilServis, modellist: _stokHarServis.obje.Where(x => x.faturadetayid == item.id).ToList());
-                    }
-                    if (_silinenkasaaa.Count() > 0)
+                        aciklama = "Satış Faturası",
+                        belgE_NO = _faturaServis.obje2.belgeno,
+                        alacak = _faturaServis.obje2.geneltoplam,
+                        borc = 0,
+                        carialthesapid = _faturaServis.obje2.althesapid,
+                        cariid = _faturaServis.obje2.cariid,
+                        harekettarihi = _faturaServis.obje2.faturatarihi,
+                        harekettipi = 1,
+                        kur = 1,
+                        parabirimid = 11638,
+                        tutar = 0 - _faturaServis.obje2.geneltoplam,
+                        userid = MPKullanici.ID,
+
+                    });
+                    if (_tempSilinenFaturaDetay.Count() > 0)
                     {
-                        foreach (var item in _silinenkasaaa)
+                        foreach (var item in _tempSilinenFaturaDetay)
                         {
-                            foreach (var item2 in item.KasaList)
+                            _faturadetayServis.Data(ServisList.FaturaDetayDeleteByIdServis, id: item.id.ToString(), method: System.Net.Http.HttpMethod.Post);
+                            _stokHarServis.Data(ServisList.StokHarSilServis, modellist: _stokHarServis.obje.Where(x => x.faturadetayid == item.id).ToList());
+                        }
+                        if (_silinenkasaaa.Count() > 0)
+                        {
+                            foreach (var item in _silinenkasaaa)
                             {
-                                _stokKasaHarServis.Data(ServisList.StokKasaHarSilServis, modellist: _stokKasaHarServis.obje.Where(x => x.id == item2.ID).ToList());
+                                foreach (var item2 in item.KasaList)
+                                {
+                                    _stokKasaHarServis.Data(ServisList.StokKasaHarSilServis, modellist: _stokKasaHarServis.obje.Where(x => x.id == item2.ID).ToList());
+                                }
                             }
                         }
                     }
+                    fattip = 0;
+                    temizle();
+
                 }
-
-                temizle();
-
-            }
-            else
-                MessageBox.Show("Lütfen Cariyi Seçtiğinizden emin olunuz!");
+                else
+                    MessageBox.Show("Lütfen Cariyi Seçtiğinizden emin olunuz!");
             }
             else
                 MessageBox.Show(MPKullanici.hata);
@@ -1185,7 +1198,7 @@ namespace MEYPAK.PRL.SIPARIS
 
         private void FFatura_Load(object sender, EventArgs e)
         {
-            
+
             _olcuBr.Data(ServisList.OlcuBrListeServis);
             _stokOlcuBr.Data(ServisList.StokOlcuBrListeServis);
             _stokServis.Data(ServisList.StokListeServis);

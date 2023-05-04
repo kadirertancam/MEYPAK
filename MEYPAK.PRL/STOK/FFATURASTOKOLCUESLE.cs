@@ -24,12 +24,23 @@ namespace MEYPAK.PRL.STOK
         GenericWebServis<MPFATURASTOKOLCUBR> faturaOlcuBrServis;
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            faturaOlcuBrServis.Data(ServisList.FATURASTOKOLCUBREkleServis, new MPFATURASTOKOLCUBR()
+            try
             {
-                OLCUBRID = olcuBrServis.obje.Where(x => x.ADI == lookUpEdit1.Text.ToString()).FirstOrDefault().ID,
-                KISA = textEdit1.Text,
-                USERID=MPKullanici.ID
-            });
+                
+                faturaOlcuBrServis.Data(ServisList.FATURASTOKOLCUBREkleServis, new MPFATURASTOKOLCUBR()
+                {
+                    OLCUBRID = olcuBrServis.obje.Where(x => x.ADI == lookUpEdit1.Text.ToString()).FirstOrDefault().ID,
+                    KISA = textEdit1.Text,
+                    USERID = MPKullanici.ID
+                });
+                MessageBox.Show("Başarıyla Kaydedildi.");
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+        
         }
 
         private void FFATURASTOKOLCUESLE_Load(object sender, EventArgs e)

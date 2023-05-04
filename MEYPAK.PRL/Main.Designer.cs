@@ -337,6 +337,8 @@
             this.pictureEdit1.MenuManager = this.barManager1;
             this.pictureEdit1.Name = "pictureEdit1";
             this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pictureEdit1.Properties.ShowEditMenuItem = DevExpress.Utils.DefaultBoolean.False;
+            this.pictureEdit1.Properties.ShowMenu = false;
             this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
             this.pictureEdit1.Size = new System.Drawing.Size(842, 536);
             this.pictureEdit1.TabIndex = 0;
@@ -1023,7 +1025,6 @@
             this.accordionControlElement3,
             this.accordionControlElement4});
             this.ACESTOK.Enabled = false;
-            this.ACESTOK.Expanded = true;
             this.ACESTOK.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("ACESTOK.ImageOptions.SvgImage")));
             this.ACESTOK.ImageOptions.SvgImageSize = new System.Drawing.Size(32, 32);
             this.ACESTOK.Name = "ACESTOK";
@@ -1045,7 +1046,6 @@
             this.accordionControlElement48,
             this.accordionControlElement61});
             this.accordionControlElement2.Enabled = false;
-            this.accordionControlElement2.Expanded = true;
             this.accordionControlElement2.HeaderTemplate.AddRange(new DevExpress.XtraBars.Navigation.HeaderElementInfo[] {
             new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.Text),
             new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.Image),
@@ -1961,6 +1961,7 @@
             this.accordionControlElement20,
             this.ACEEMustahsilM});
             this.accordionControlElement27.Enabled = false;
+            this.accordionControlElement27.Expanded = true;
             this.accordionControlElement27.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement27.ImageOptions.Image")));
             this.accordionControlElement27.Name = "accordionControlElement27";
             this.accordionControlElement27.Text = "E-İşlemler";
@@ -1972,6 +1973,7 @@
             this.accordionControlElement1,
             this.accordionControlElement65});
             this.accordionControlElement62.Enabled = false;
+            this.accordionControlElement62.Expanded = true;
             this.accordionControlElement62.Name = "accordionControlElement62";
             this.accordionControlElement62.Text = "EFatura";
             this.accordionControlElement62.Visible = false;
@@ -2020,6 +2022,7 @@
             this.accordionControlElement20.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.accordionControlElement22,
             this.accordionControlElement21});
+            this.accordionControlElement20.Expanded = true;
             this.accordionControlElement20.Name = "accordionControlElement20";
             this.accordionControlElement20.Text = "EIrsaliye";
             // 
@@ -2029,6 +2032,7 @@
             this.accordionControlElement22.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement22.Tag = "EIRSALIYEGELENKUTUSU";
             this.accordionControlElement22.Text = "Gelen Kutusu";
+            this.accordionControlElement22.Click += new System.EventHandler(this.accordionControlElement22_Click);
             // 
             // accordionControlElement21
             // 

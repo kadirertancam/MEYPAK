@@ -7,6 +7,7 @@ using MEYPAK.Entity.Models.FORMYETKI;
 using MEYPAK.Entity.PocoModels;
 using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.DEPO;
+using MEYPAK.Entity.PocoModels.FATURA;
 using MEYPAK.Entity.PocoModels.IRSALIYE;
 using MEYPAK.Entity.PocoModels.PARAMETRE;
 using MEYPAK.Entity.PocoModels.STOK;
@@ -24,7 +25,7 @@ namespace MEYPAK.PRL.IRSALIYE
     {
 
 
-        public FAlisIrsaliye()
+        public FAlisIrsaliye(PocoIRSALIYE _tempIrsaliyes = null, List<PocoIrsaliyeKalem> _tempIrsaliyeDetays = null, List<ListKasaList> _tempkasa = null, int tip = 0)
         {
             InitializeComponent();
             DGVStokSec = new DataGridViewButtonColumn();
@@ -62,11 +63,24 @@ namespace MEYPAK.PRL.IRSALIYE
             kDVHesaps = new KDVHesap();
             _hizmetHarServis= new GenericWebServis<PocoHIZMETHAR>();
             _hizmetServis = new GenericWebServis<PocoHIZMET>();
+            if (_tempIrsaliyes != null)
+                _tempIrsaliye = _tempIrsaliyes;
+            if (_tempkasa != null)
+                _kasaaa = _tempkasa;
 
+            if (_tempIrsaliyeDetays != null)
+                _tempIrsaliyeDetay = _tempIrsaliyeDetays;
+            else
+                _tempIrsaliyeDetay = new List<PocoIrsaliyeKalem>();
+
+            fattip = tip;
 
         }
 
         #region TANIMLAR
+        int fattip = 0;
+        PocoIRSALIYE _tempFatura;
+        List<PocoFaturaKalem> _tempFaturaDetay;
         FStokKasaList fKasaList;
         List<PocoIrsaliyeKalem> _tempIrsaliyeDetay = new List<PocoIrsaliyeKalem>();
         List<PocoIrsaliyeKalem> _tempSilinenFaturaDetay = new List<PocoIrsaliyeKalem>();
@@ -511,8 +525,9 @@ namespace MEYPAK.PRL.IRSALIYE
             {
                 _stokKasaHarServis.Data(ServisList.StokKasaHarListeServis);
                 _kasaaa.Clear();
-                _stokOlcuBrList.Clear();
-                _tempIrsaliyeDetay.Clear();
+                _stokOlcuBrList.Clear(); 
+                if (fattip == 0)
+                    _tempIrsaliyeDetay.Clear();
                 _cariKart.Data(ServisList.CariListeServis);
                 TBFaturaNo.Text = _tempIrsaliye.belgeno;
                 CHBKdvDahil.Checked = _tempIrsaliye.kdvdahil ? true : false;
@@ -581,8 +596,7 @@ namespace MEYPAK.PRL.IRSALIYE
                 }
                 else
                 {
-                    gridControl1.DataSource = "";
-                    _tempIrsaliyeDetay.Add(new PocoIrsaliyeKalem() { Tipi = "STOK" });
+                    gridControl1.DataSource = ""; 
                 }
                 riLookup3.DataSource = "";
                 riLookup3.DataSource = _kasaaa.Where(x => x.num == gridView1.FocusedRowHandle).Count() > 0 ? _kasaaa.Where(x => x.num == gridView1.FocusedRowHandle).FirstOrDefault().KasaList.Select(x => new { Marka = x.MARKA, Adı = x.KASAADI, Miktar = x.MIKTAR }) : "";
@@ -619,7 +633,15 @@ namespace MEYPAK.PRL.IRSALIYE
 
                 GCIrsaliye.DataSource = _tempIrsaliyeDetay;
                 GCIrsaliye.RefreshDataSource();
+                if (fattip == 1)
+                {
+                    for (int i = 0; i < _tempIrsaliyeDetay.Count; i++)
+                    {
+                        sy = 0;
+                        Hesapla(i);
+                    }
 
+                }
 
                 TBAIskonto1.EditValue = _tempIrsaliye.altiskonto1;
                 TBAIskonto2.EditValue = _tempIrsaliye.altiskonto2;

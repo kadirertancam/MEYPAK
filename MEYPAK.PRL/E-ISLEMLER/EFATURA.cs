@@ -9,6 +9,7 @@ using MEYPAK.Entity.PocoModels;
 using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.FATURA;
 using MEYPAK.Entity.PocoModels.STOK;
+using MEYPAK.Interfaces.Stok;
 using MEYPAK.PRL.Assets;
 using MEYPAK.PRL.CARI;
 using MEYPAK.PRL.SIPARIS;
@@ -35,15 +36,17 @@ namespace MEYPAK.PRL.E_ISLEMLER
         ServiceReference1.WhoAmIInfo bb;
         List<InboxInvoiceListItem> gelenefaturatasktemp;
         InvoiceResponse tempp;
-        List<FaturaDetailList> tempdetay; 
+        List<FaturaDetailList> tempdetay;
         InboxInvoiceListResponse res;
         RepositoryItemButtonEdit repositoryItemButtonEdit3;
         public PocoSTOK _tempStok;
         public PocoCARIKART _tempCari;
         GenericWebServis<PocoSTOK> _stokServis;
         GenericWebServis<PocoCARIKART> _cariServis;
-
-        public EFATURA() 
+        GenericWebServis<PocoCARIALTHESCARI> _cariAltHesCariServis;
+        GenericWebServis<PocoFATURASTOKOLCUBR> _faturaStokOlcuBrServis;
+        GenericWebServis<PocoOLCUBR> olcuBrServis;
+        public EFATURA()
         {
             InitializeComponent();
 
@@ -54,11 +57,14 @@ namespace MEYPAK.PRL.E_ISLEMLER
             DTPBittar.Text = DateTime.Now.ToString();
             _stokServis = new GenericWebServis<PocoSTOK>();
             _cariServis = new GenericWebServis<PocoCARIKART>();
+            _cariAltHesCariServis = new GenericWebServis<PocoCARIALTHESCARI>();
+            _faturaStokOlcuBrServis = new GenericWebServis<PocoFATURASTOKOLCUBR>();
+            olcuBrServis = new GenericWebServis<PocoOLCUBR>();
 
         }
 
-        
-       
+
+
         private void gridView1_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
         {
 
@@ -70,8 +76,8 @@ namespace MEYPAK.PRL.E_ISLEMLER
         }
         private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-            
-            tempp = ıntegrationClient.GetInboxInvoiceAsync(gridView1.GetFocusedRowCellValue("ETTNO").ToString()).Result; 
+
+            tempp = ıntegrationClient.GetInboxInvoiceAsync(gridView1.GetFocusedRowCellValue("ETTNO").ToString()).Result;
             RepositoryItemButtonEdit repositoryItemButtonEdit = new RepositoryItemButtonEdit();
             repositoryItemButtonEdit.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             repositoryItemButtonEdit.NullText = "";
@@ -80,13 +86,13 @@ namespace MEYPAK.PRL.E_ISLEMLER
             repositoryItemButtonEdit.Buttons[0].Kind = ButtonPredefines.Glyph;
             repositoryItemButtonEdit.Buttons[0].Shortcut = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.Enter);
             repositoryItemButtonEdit.ButtonClick += RepositoryItemButtonEdit_ButtonClick;
-             tempdetay = tempp.Value.Invoice.InvoiceLine.Select(x => new FaturaDetailList {SIRA=int.Parse(x.ID.Value) ,KOD = "", ADI = x.Item.Name.Value,KUNYENO= x.Item.AdditionalItemIdentification!=null?x.Item.AdditionalItemIdentification.Where(x => x.ID.schemeID == "KUNYENO").Count()>0?x.Item.AdditionalItemIdentification.Where(x=>x.ID.schemeID=="KUNYENO").FirstOrDefault().ID.Value:"":"", MIKTAR = x.InvoicedQuantity.Value, BIRIM = x.InvoicedQuantity.unitCode, NETFIYAT = x.Price.PriceAmount.Value, TUTAR = x.Price.PriceAmount.Value * x.InvoicedQuantity.Value }).ToList();
+            tempdetay = tempp.Value.Invoice.InvoiceLine.Select(x => new FaturaDetailList { SIRA = int.Parse(x.ID.Value), KOD = "", ADI = x.Item.Name.Value, KUNYENO = x.Item.AdditionalItemIdentification != null ? x.Item.AdditionalItemIdentification.Where(x => x.ID.schemeID == "KUNYENO").Count() > 0 ? x.Item.AdditionalItemIdentification.Where(x => x.ID.schemeID == "KUNYENO").FirstOrDefault().ID.Value : "" : "", MIKTAR = x.InvoicedQuantity.Value, BIRIM = x.InvoicedQuantity.unitCode, NETFIYAT = x.Price.PriceAmount.Value, TUTAR = x.Price.PriceAmount.Value * x.InvoicedQuantity.Value }).ToList();
             gridControl2.DataSource = tempdetay;
-            gridView2.Columns["KOD"].ColumnEdit = repositoryItemButtonEdit; 
+            gridView2.Columns["KOD"].ColumnEdit = repositoryItemButtonEdit;
         }
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-           
+
             if (CBArsiv.Checked)
             {
                 res = ıntegrationClient.GetInboxInvoiceListAsync(new InboxInvoiceListQueryModel
@@ -95,8 +101,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
                     PageSize = 9999999,
                     CreateStartDate = DTPBastar.DateTime,
                     CreateEndDate = DTPBittar.DateTime,
-                    IsArchived=true
-                    ,InvoiceIds= new string[] { "05BD86C1-56F7-4FDA-B78D-7806FAB75A5F" }
+                    IsArchived = true 
                 }).Result;
             }
             else
@@ -106,11 +111,11 @@ namespace MEYPAK.PRL.E_ISLEMLER
                     PageIndex = 0,
                     PageSize = 9999999,
                     CreateStartDate = DTPBastar.DateTime,
-                    CreateEndDate = DTPBittar.DateTime, 
+                    CreateEndDate = DTPBittar.DateTime,
                 }).Result;
 
             }
-           
+
             RepositoryItemButtonEdit repositoryItemButtonEdit = new RepositoryItemButtonEdit();
             repositoryItemButtonEdit.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             repositoryItemButtonEdit.NullText = "";
@@ -137,80 +142,101 @@ namespace MEYPAK.PRL.E_ISLEMLER
             repositoryItemButtonEdit3.Buttons[0].Kind = ButtonPredefines.Glyph;
             repositoryItemButtonEdit3.Buttons[0].Shortcut = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.Enter);
             repositoryItemButtonEdit3.ButtonClick += RepositoryItemButtonEdit3_ButtonClick; ;
-
+            _cariServis.Data(ServisList.CariListeServis);
             gelenefaturatasktemp = res.Value.Items.ToList();
             if (res.Value.Items != null)
-                gridControl1.DataSource = res.Value.Items.Select(x => new EFaturaGelenTask { SEC = false, ID = x.InvoiceId, CARISEC = "", FATURALASTIR = "", BASIM = "", VKNTCK = x.TargetTcknVkn, CARIADI = x.TargetTitle, BELGENO = x.InvoiceId, TARIH = x.CreateDateUtc, VADETARIHI = x.ExecutionDate, TUTAR = x.TaxExclusiveAmount, KDV = x.TaxTotal, FATURATIP = x.Type.ToString(), ARSIVLENMIS = x.IsArchived, TIP = x.InvoiceTipType.ToString(), ETTNO = x.DocumentId, DURUM = x.StatusCode == 1000 ? "ONAYLANDI" : "BEKLEMEDE" });
+                gridControl1.DataSource = res.Value.Items.Select(x => new EFaturaGelenTask { SEC = false, ID = x.InvoiceId, CARISEC = _cariServis.obje.Where(y=>y.vergino==x.TargetTcknVkn || y.tcno==x.TargetTcknVkn).FirstOrDefault().kod, FATURALASTIR = "", BASIM = "", VKNTCK = x.TargetTcknVkn, CARIADI = x.TargetTitle, BELGENO = x.InvoiceId, TARIH = x.CreateDateUtc, VADETARIHI = x.ExecutionDate, TUTAR = x.TaxExclusiveAmount, KDV = x.TaxTotal, FATURATIP = x.Type.ToString(), ARSIVLENMIS = x.IsArchived, TIP = x.InvoiceTipType.ToString(), ETTNO = x.DocumentId, DURUM = x.StatusCode == 1000 ? "ONAYLANDI" : "BEKLEMEDE" });
             else
                 gridControl1.DataSource = new List<EFaturaGelenTask>();
 
-            gridView1.Columns["FATURALASTIR"].ColumnEdit = repositoryItemButtonEdit; 
-            gridView1.Columns["BASIM"].ColumnEdit = repositoryItemButtonEdit2; 
-            gridView1.Columns["CARISEC"].ColumnEdit = repositoryItemButtonEdit3; 
+            gridView1.Columns["FATURALASTIR"].ColumnEdit = repositoryItemButtonEdit;
+            gridView1.Columns["BASIM"].ColumnEdit = repositoryItemButtonEdit2;
+            gridView1.Columns["CARISEC"].ColumnEdit = repositoryItemButtonEdit3;
             
+
         }
 
         private void RepositoryItemButtonEdit_ButtonClick1(object sender, ButtonPressedEventArgs e)
         {
             //FATURALAŞTIR
             _stokServis.Data(ServisList.StokListeServis);
+            _faturaStokOlcuBrServis.Data(ServisList.FATURASTOKOLCUBRListeServis);
+            olcuBrServis.Data(ServisList.OlcuBrListeServis);
             PocoFATURA fatura = new PocoFATURA();
             List<PocoFaturaKalem> faturakalem = new List<PocoFaturaKalem>();
-            foreach (var item in (List<FaturaDetailList>)gridControl2.DataSource)
+            string olcubrtemp;
+            int olcubrid;
+            try
             {
-                var tempstok = _stokServis.obje.Where(x => x.kod == item.KOD).FirstOrDefault();
-                faturakalem.Add(new PocoFaturaKalem()
+                foreach (var item in (List<FaturaDetailList>)gridControl2.DataSource)
                 {
-                    StokId = tempstok.id,
-                    StokAdı= tempstok.adi,
-                     Daralı=item.MIKTAR,
-                    Birim="1",
-                     BirimFiyat=item.NETFIYAT,
-                      BrütToplam=item.TUTAR, 
-                       
-                       
-                });
-            }
-            var faturaust = (EFaturaGelenTask)gridView1.GetFocusedRow();
-            _cariServis.Data(ServisList.CariListeServis);
-            var tmpcari=_cariServis.obje.Where(x => x.kod == faturaust.CARISEC).FirstOrDefault();
-            var secilitempfat = gelenefaturatasktemp.Where(x => x.DocumentId == faturaust.ETTNO).FirstOrDefault();
-            fatura.cariid = tmpcari.id;
-            fatura.belgeno = faturaust.BELGENO;    
-            if (faturaust.VADETARIHI.HasValue)   
-                fatura.vadetarihi = faturaust.VADETARIHI.Value;
-            fatura.kdvtoplam = faturaust.KDV;
-            fatura.geneltoplam = faturaust.TUTAR;
-            fatura.bruttoplam =  secilitempfat.TaxExclusiveAmount;
-            fatura.nettoplam = faturaust.TUTAR - faturaust.KDV;
-            fatura.iskontotoplam = fatura.bruttoplam - fatura.nettoplam;
-            fatura.depoid = MPKullanici.DEPOID;
-           var main = (Main)Application.OpenForms["Main"];
-            XtraTabPage page = new XtraTabPage();
-            FAlisFatura ffatura = new FAlisFatura(fatura, faturakalem, null, 1);
-            page.Name = "TPAlisFatura" + main.i;
-            page.Text = "Alış Fatura Tanım";
-            page.Tag = "TPAlisFatura" + main.i;
-            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
-            main.Anasayfa.TabPages.Add(page);
-            main.Anasayfa.SelectedTabPage = page;
+                    olcubrid = _faturaStokOlcuBrServis.obje.Where(x => x.kisa == item.BIRIM).FirstOrDefault().olcubrid;
+                    olcubrtemp = olcuBrServis.obje.Where(x => x.id == olcubrid).FirstOrDefault().adi;
 
-            ffatura.TopLevel = false;
-            ffatura.AutoScroll = true;
-            ffatura.Dock = DockStyle.Fill;
-            ffatura.Tag = "TPAlisFatura" + main.i;
-            page.Controls.Add(ffatura);
-            ffatura.Show();
-            main.i++;
-            this.Close();
+                    var tempstok = _stokServis.obje.Where(x => x.kod == item.KOD).FirstOrDefault();
+                    faturakalem.Add(new PocoFaturaKalem()
+                    {
+                        StokId = tempstok.id,
+                        StokAdı = tempstok.adi,
+                        StokKodu = tempstok.kod,
+                        Kunye = item.KUNYENO,
+                        Daralı = item.MIKTAR,
+                        Birim = olcubrtemp,
+                        BirimFiyat = item.NETFIYAT,
+                        BrütToplam = item.TUTAR,
+
+
+                    });
+                }
+
+                var faturaust = (EFaturaGelenTask)gridView1.GetFocusedRow();
+                _cariServis.Data(ServisList.CariListeServis);
+                var tmpcari = _cariServis.obje.Where(x => x.kod == faturaust.CARISEC).FirstOrDefault();
+                var secilitempfat = gelenefaturatasktemp.Where(x => x.DocumentId == faturaust.ETTNO).FirstOrDefault();
+                fatura.cariid = tmpcari.id;
+                fatura.belgeno = faturaust.BELGENO;
+                if (faturaust.VADETARIHI.HasValue)
+                    fatura.vadetarihi = faturaust.VADETARIHI.Value;
+                fatura.kdvtoplam = faturaust.KDV;
+                fatura.geneltoplam = faturaust.TUTAR;
+                fatura.bruttoplam = secilitempfat.TaxExclusiveAmount;
+                fatura.nettoplam = faturaust.TUTAR - faturaust.KDV;
+                fatura.iskontotoplam = fatura.bruttoplam - fatura.nettoplam;
+                fatura.cariadi = tmpcari.unvan == "" ? tmpcari.adi + " " + tmpcari.soyadi : tmpcari.unvan;
+                fatura.depoid = MPKullanici.DEPOID;
+                _cariAltHesCariServis.Data(ServisList.CariAltHesCariListeServis);
+                fatura.althesapid = _cariAltHesCariServis.obje.Where(x => x.cariid == tmpcari.id).FirstOrDefault().carialthesid;
+                var main = (Main)Application.OpenForms["Main"];
+                XtraTabPage page = new XtraTabPage();
+                FAlisFatura ffatura = new FAlisFatura(fatura, faturakalem, null, 1);
+                page.Name = "TPAlisFatura" + main.i;
+                page.Text = "Alış Fatura Tanım";
+                page.Tag = "TPAlisFatura" + main.i;
+                page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+                main.Anasayfa.TabPages.Add(page);
+                main.Anasayfa.SelectedTabPage = page;
+
+                ffatura.TopLevel = false;
+                ffatura.AutoScroll = true;
+                ffatura.Dock = DockStyle.Fill;
+                ffatura.Tag = "TPAlisFatura" + main.i;
+                page.Controls.Add(ffatura);
+                ffatura.Show();
+                main.i++;
+                this.Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("ölçü birimi eşleştirilemedi");
+            }
         }
 
         private void RepositoryItemButtonEdit3_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
             FCariList carilist = new FCariList(this.Tag.ToString(), "EFaturaGelenKutu");
-            carilist.ShowDialog(); 
-            if(_tempCari != null)
-            gridView1.SetFocusedRowCellValue("CARISEC", _tempCari.kod); 
+            carilist.ShowDialog();
+            if (_tempCari != null)
+                gridView1.SetFocusedRowCellValue("CARISEC", _tempCari.kod);
 
 
         }
@@ -220,7 +246,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
             System.IO.File.WriteAllBytes("Fatura.pdf", ıntegrationClient.GetInboxInvoicePdfAsync(gridView1.GetFocusedRowCellValue("ETTNO").ToString()).Result.Value.Data);
             Thread.Sleep(500);
             var p = new Process();
-            p.StartInfo = new ProcessStartInfo(Application.StartupPath+"Fatura.pdf")
+            p.StartInfo = new ProcessStartInfo(Application.StartupPath + "Fatura.pdf")
             {
                 UseShellExecute = true
             };
@@ -230,7 +256,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
 
         private void RepositoryItemButtonEdit_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
-            FStokList stoklist = new FStokList(this.Tag.ToString(),"EFaturaGelenKutu");
+            FStokList stoklist = new FStokList(this.Tag.ToString(), "EFaturaGelenKutu");
             stoklist.ShowDialog();
             gridView2.SetFocusedRowCellValue("KOD", _tempStok.kod);
 
@@ -242,8 +268,8 @@ namespace MEYPAK.PRL.E_ISLEMLER
             FaturaDetailList respinbox = view.GetRow(e.RowHandle) as FaturaDetailList;
             if (respinbox != null)
             {
-                if(tempp.Value.Invoice.InvoiceLine.Where(x => respinbox.SIRA.ToString() == x.ID.Value).Any(x => x.Item.AdditionalItemIdentification!=null))
-                e.IsEmpty = tempp.Value.Invoice.InvoiceLine.Where(x => respinbox.SIRA.ToString() == x.ID.Value).Select(x => x.Item.AdditionalItemIdentification.Count()).FirstOrDefault() > 0 ? false : true;
+                if (tempp.Value.Invoice.InvoiceLine.Where(x => respinbox.SIRA.ToString() == x.ID.Value).Any(x => x.Item.AdditionalItemIdentification != null))
+                    e.IsEmpty = tempp.Value.Invoice.InvoiceLine.Where(x => respinbox.SIRA.ToString() == x.ID.Value).Select(x => x.Item.AdditionalItemIdentification.Count()).FirstOrDefault() > 0 ? false : true;
             }
 
         }
@@ -255,19 +281,19 @@ namespace MEYPAK.PRL.E_ISLEMLER
             if (respinbox != null)
             {
                 if (tempp.Value.Invoice.InvoiceLine.Where(x => respinbox.SIRA.ToString() == x.ID.Value).Any(x => x.Item.AdditionalItemIdentification != null))
-                if (tempp.Value.Invoice.InvoiceLine.Where(x => respinbox.SIRA.ToString() == x.ID.Value).Any(x => x.Item.AdditionalItemIdentification.Where(x=>x.ID.schemeID=="KUNYENO").Count()>0))
-                    e.ChildList = tempp.Value.Invoice.InvoiceLine.Where(x => respinbox.SIRA.ToString() == x.ID.Value).Select(x => new { KUNYE = x.Item.AdditionalItemIdentification.Where(z => z.ID.schemeID == "KUNYENO").FirstOrDefault().ID.Value }).ToList();
+                    if (tempp.Value.Invoice.InvoiceLine.Where(x => respinbox.SIRA.ToString() == x.ID.Value).Any(x => x.Item.AdditionalItemIdentification.Where(x => x.ID.schemeID == "KUNYENO").Count() > 0))
+                        e.ChildList = tempp.Value.Invoice.InvoiceLine.Where(x => respinbox.SIRA.ToString() == x.ID.Value).Select(x => new { KUNYE = x.Item.AdditionalItemIdentification.Where(z => z.ID.schemeID == "KUNYENO").FirstOrDefault().ID.Value }).ToList();
             }
 
         }
 
         private void gridView2_MasterRowGetRelationCount(object sender, MasterRowGetRelationCountEventArgs e)
         {
-            if(tempp!=null)
-            if (tempp.Value.Invoice.InvoiceLine.Where(x => x.Item.AdditionalItemIdentification != null).Count() > 0)
-                e.RelationCount = 1;
-            else
-                e.RelationCount = 0;
+            if (tempp != null)
+                if (tempp.Value.Invoice.InvoiceLine.Where(x => x.Item.AdditionalItemIdentification != null).Count() > 0)
+                    e.RelationCount = 1;
+                else
+                    e.RelationCount = 0;
 
         }
 
@@ -285,7 +311,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
                 e.Appearance.BackColor = Color.LightGreen;
             }
             else
-            { 
+            {
             }
         }
 
