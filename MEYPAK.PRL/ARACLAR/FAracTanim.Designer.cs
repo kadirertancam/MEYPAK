@@ -110,14 +110,14 @@
             this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl20 = new DevExpress.XtraEditors.LabelControl();
-            this.TBKasPoliceNo = new DevExpress.XtraEditors.LabelControl();
+            this.LBKasPoliceNo = new DevExpress.XtraEditors.LabelControl();
             this.DTPKasPolBitTar = new DevExpress.XtraEditors.DateEdit();
             this.BTKaskoBelgeSec = new DevExpress.XtraEditors.ButtonEdit();
             this.TBKasAcenteAdi = new DevExpress.XtraEditors.TextEdit();
             this.labelControl22 = new DevExpress.XtraEditors.LabelControl();
             this.DTPKasPolBasTar = new DevExpress.XtraEditors.DateEdit();
             this.labelControl23 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit6 = new DevExpress.XtraEditors.TextEdit();
+            this.TBKasPoliNo = new DevExpress.XtraEditors.TextEdit();
             this.XTPMuayene = new DevExpress.XtraTab.XtraTabPage();
             this.panelControl11 = new DevExpress.XtraEditors.PanelControl();
             this.GridMuayene = new DevExpress.XtraGrid.GridControl();
@@ -221,7 +221,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.TBKasAcenteAdi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPKasPolBasTar.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPKasPolBasTar.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit6.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBKasPoliNo.Properties)).BeginInit();
             this.XTPMuayene.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl11)).BeginInit();
             this.panelControl11.SuspendLayout();
@@ -352,6 +352,7 @@
             this.GridSigorta.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewSigorta});
             this.GridSigorta.DoubleClick += new System.EventHandler(this.GridSigorta_DoubleClick);
+            this.GridSigorta.MouseDown += new System.Windows.Forms.MouseEventHandler(this.GridSigorta_MouseDown);
             // 
             // gridViewSigorta
             // 
@@ -656,6 +657,7 @@
             this.GridKasko.TabIndex = 2;
             this.GridKasko.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewKasko});
+            this.GridKasko.DoubleClick += new System.EventHandler(this.GridKasko_DoubleClick);
             // 
             // gridViewKasko
             // 
@@ -669,14 +671,14 @@
             this.panelControl8.Controls.Add(this.labelControl18);
             this.panelControl8.Controls.Add(this.labelControl19);
             this.panelControl8.Controls.Add(this.labelControl20);
-            this.panelControl8.Controls.Add(this.TBKasPoliceNo);
+            this.panelControl8.Controls.Add(this.LBKasPoliceNo);
             this.panelControl8.Controls.Add(this.DTPKasPolBitTar);
             this.panelControl8.Controls.Add(this.BTKaskoBelgeSec);
             this.panelControl8.Controls.Add(this.TBKasAcenteAdi);
             this.panelControl8.Controls.Add(this.labelControl22);
             this.panelControl8.Controls.Add(this.DTPKasPolBasTar);
             this.panelControl8.Controls.Add(this.labelControl23);
-            this.panelControl8.Controls.Add(this.textEdit6);
+            this.panelControl8.Controls.Add(this.TBKasPoliNo);
             this.panelControl8.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl8.Location = new System.Drawing.Point(2, 2);
             this.panelControl8.Name = "panelControl8";
@@ -721,13 +723,13 @@
             this.labelControl20.TabIndex = 31;
             this.labelControl20.Text = "Belge Seç";
             // 
-            // TBKasPoliceNo
+            // LBKasPoliceNo
             // 
-            this.TBKasPoliceNo.Location = new System.Drawing.Point(23, 53);
-            this.TBKasPoliceNo.Name = "TBKasPoliceNo";
-            this.TBKasPoliceNo.Size = new System.Drawing.Size(54, 13);
-            this.TBKasPoliceNo.TabIndex = 20;
-            this.TBKasPoliceNo.Text = "POLİÇE NO";
+            this.LBKasPoliceNo.Location = new System.Drawing.Point(23, 53);
+            this.LBKasPoliceNo.Name = "LBKasPoliceNo";
+            this.LBKasPoliceNo.Size = new System.Drawing.Size(54, 13);
+            this.LBKasPoliceNo.TabIndex = 20;
+            this.LBKasPoliceNo.Text = "POLİÇE NO";
             // 
             // DTPKasPolBitTar
             // 
@@ -782,12 +784,12 @@
             this.labelControl23.TabIndex = 22;
             this.labelControl23.Text = "POLİÇE BİTİŞ TAR";
             // 
-            // textEdit6
+            // TBKasPoliNo
             // 
-            this.textEdit6.Location = new System.Drawing.Point(94, 49);
-            this.textEdit6.Name = "textEdit6";
-            this.textEdit6.Size = new System.Drawing.Size(201, 20);
-            this.textEdit6.TabIndex = 26;
+            this.TBKasPoliNo.Location = new System.Drawing.Point(94, 49);
+            this.TBKasPoliNo.Name = "TBKasPoliNo";
+            this.TBKasPoliNo.Size = new System.Drawing.Size(201, 20);
+            this.TBKasPoliNo.TabIndex = 26;
             // 
             // XTPMuayene
             // 
@@ -816,6 +818,7 @@
             this.GridMuayene.TabIndex = 3;
             this.GridMuayene.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewMuayene});
+            this.GridMuayene.DoubleClick += new System.EventHandler(this.GridMuayene_DoubleClick);
             // 
             // gridViewMuayene
             // 
@@ -1433,7 +1436,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.TBKasAcenteAdi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPKasPolBasTar.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPKasPolBasTar.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit6.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBKasPoliNo.Properties)).EndInit();
             this.XTPMuayene.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl11)).EndInit();
             this.panelControl11.ResumeLayout(false);
@@ -1522,14 +1525,14 @@
         private DevExpress.XtraEditors.LabelControl labelControl18;
         private DevExpress.XtraEditors.LabelControl labelControl19;
         private DevExpress.XtraEditors.LabelControl labelControl20;
-        private DevExpress.XtraEditors.LabelControl TBKasPoliceNo;
+        private DevExpress.XtraEditors.LabelControl LBKasPoliceNo;
         private DevExpress.XtraEditors.DateEdit DTPKasPolBitTar;
         private DevExpress.XtraEditors.ButtonEdit BTKaskoBelgeSec;
         private DevExpress.XtraEditors.TextEdit TBKasAcenteAdi;
         private DevExpress.XtraEditors.LabelControl labelControl22;
         private DevExpress.XtraEditors.DateEdit DTPKasPolBasTar;
         private DevExpress.XtraEditors.LabelControl labelControl23;
-        private DevExpress.XtraEditors.TextEdit textEdit6;
+        private DevExpress.XtraEditors.TextEdit TBKasPoliNo;
         private DevExpress.XtraEditors.PanelControl panelControl11;
         private DevExpress.XtraEditors.PanelControl panelControl10;
         private DevExpress.XtraEditors.SimpleButton BTNMuayeneKaydet;
