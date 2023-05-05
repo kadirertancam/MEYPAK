@@ -559,6 +559,7 @@
             this.GridRuhsat.TabIndex = 2;
             this.GridRuhsat.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.tileViewRuhsat});
+            this.GridRuhsat.MouseDown += new System.Windows.Forms.MouseEventHandler(this.GridRuhsat_MouseDown);
             // 
             // tileViewRuhsat
             // 
@@ -658,6 +659,7 @@
             this.GridKasko.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewKasko});
             this.GridKasko.DoubleClick += new System.EventHandler(this.GridKasko_DoubleClick);
+            this.GridKasko.MouseDown += new System.Windows.Forms.MouseEventHandler(this.GridKasko_MouseDown);
             // 
             // gridViewKasko
             // 
@@ -819,6 +821,7 @@
             this.GridMuayene.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewMuayene});
             this.GridMuayene.DoubleClick += new System.EventHandler(this.GridMuayene_DoubleClick);
+            this.GridMuayene.MouseDown += new System.Windows.Forms.MouseEventHandler(this.GridMuayene_MouseDown);
             // 
             // gridViewMuayene
             // 
