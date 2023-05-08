@@ -466,6 +466,12 @@ builder.Services.AddScoped<IAracRotaServis, AracRotaManager>();
 
 builder.Services.AddScoped<ISoforDal, EFSoforRepo>();
 builder.Services.AddScoped<ISoforServis, SoforManager>();
+
+builder.Services.AddScoped<IAracBelgeDal, EFAracBelgeRepo>();
+builder.Services.AddScoped<IAracBelgeServis, AracBelgeManager>();
+
+builder.Services.AddScoped<IAracZimmetDal,  EFAracZimmetRepo>();
+builder.Services.AddScoped<IAracZimmetServis, AracZimmetManager>();
 #endregion
 
 #region KASA_Scoped_Islemleri

@@ -12,6 +12,7 @@ using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces;
 using MEYPAK.Interfaces.Arac;
 using MEYPAK.Interfaces.Stok;
+using Spire.Pdf.Fields;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,6 +21,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
@@ -169,28 +171,26 @@ namespace MEYPAK.PRL.ARAÇLAR
         }
         void MuayeneGridDoldur()
         {
-            _aracMuayeneServis.Data(ServisList.AracMuayeneResimListeFiltreServis, parameters: $"query=ARACID={_tempArac.id}");
+            _aracMuayeneServis.Data(ServisList.AracMuayeneResimListeFiltreServis, parameters: $"query=ARACID={_tempArac.id} and KAYITTIPI=0");
             GridMuayene.DataSource = _aracMuayeneServis.obje.Select(x => new { BAŞLANGIÇ = x.muayenebastar, BİTİŞ = x.muayenebittar, EGZOZBAŞLANGIÇ = x.egzozbastar, EGZOZBİTİŞ = x.egzozbittar, ID = x.id });
             gridViewMuayene.Columns["ID"].Visible = false;
         }
         void KaskoGridDoldur()
         {
-
-            _aracKaskoServis.Data(ServisList.AracKaskoResimListeFiltreServis, parameters: $"query=ARACID={_tempArac.id}");
+            _aracKaskoServis.Data(ServisList.AracKaskoResimListeFiltreServis, parameters: $"query=ARACID={_tempArac.id} and KAYITTIPI=0");
             GridKasko.DataSource = _aracKaskoServis.obje.Select(x => new { POLICENO = x.kaspoliceno, BAŞLANGIÇ = x.kasbastar, BİTİŞ = x.kasbittar, ID = x.id });
             gridViewKasko.Columns["ID"].Visible = false;
         }
         void SigordaGridDoldur()
         {
-            _aracSigortaServis.Data(ServisList.AracSigortaResimListeFiltreServis, parameters: $"query=ARACID={_tempArac.id}");
+            _aracSigortaServis.Data(ServisList.AracSigortaResimListeFiltreServis, parameters: $"query=ARACID={_tempArac.id} and KAYITTIPI=0");
             GridSigorta.DataSource = _aracSigortaServis.obje.Select(x => new { POLICENO = x.sigpoliceno, BAŞLANGIÇ = x.sigbastar, BİTİŞ = x.sigbittar, ID = x.id });
             gridViewSigorta.Columns["ID"].Visible = false;
         }
         void RuhsatResimleriGetir()
         {
-            _aracServisRUHSATRESIMServis.Data(ServisList.AracRuhsatResimListeFiltreServis, parameters: $"query=ARACID={_tempArac.id}");
+            _aracServisRUHSATRESIMServis.Data(ServisList.AracRuhsatResimListeFiltreServis, parameters: $"query=ARACID={_tempArac.id} and KAYITTIPI=0");
             GridRuhsat.DataSource = _aracServisRUHSATRESIMServis.obje.Where(x => x.aracid == _tempArac.id).Select(x => new { Resim = Base64ToImage(x.img), ID = x.id });
-
         }
 
         void CombolarıDoldur()
@@ -658,8 +658,9 @@ namespace MEYPAK.PRL.ARAÇLAR
             {
                 if (MessageBox.Show("Muayeneyi silmek istediğinize emin misiniz?", "Sil", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    _aracMuayeneServis.Data(ServisList.AracMuayeneResimDeleteByIdServis,id: gridViewMuayene.GetFocusedRowCellValue("ID").ToString());
+                    _aracMuayeneServis.Data(ServisList.AracMuayeneResimDeleteByIdServis,id: gridViewMuayene.GetFocusedRowCellValue("ID").ToString(), method: System.Net.Http.HttpMethod.Post);
                     MessageBox.Show("Muayene başarıyla silindi.");
+                    MuayeneGridDoldur();
                 }
             }
         }
@@ -688,8 +689,9 @@ namespace MEYPAK.PRL.ARAÇLAR
             {
                 if (MessageBox.Show("Kasko silmek istediğinize emin misiniz?", "Sil", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    _aracKaskoServis.Data(ServisList.AracKaskoResimDeleteByIdServis, id: gridViewKasko.GetFocusedRowCellValue("ID").ToString());
+                    _aracKaskoServis.Data(ServisList.AracKaskoResimDeleteByIdServis, id: gridViewKasko.GetFocusedRowCellValue("ID").ToString(), method: System.Net.Http.HttpMethod.Post);
                     MessageBox.Show("Kasko başarıyla silindi.");
+                    KaskoGridDoldur();
                 }
             }
         }
@@ -718,8 +720,9 @@ namespace MEYPAK.PRL.ARAÇLAR
             {
                 if (MessageBox.Show("Sigortayı silmek istediğinize emin misiniz?", "Sil", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    _aracSigortaServis.Data(ServisList.AracSigortaResimDeleteByIdServis, id: gridViewSigorta.GetFocusedRowCellValue("ID").ToString());
+                    _aracSigortaServis.Data(ServisList.AracSigortaResimDeleteByIdServis, id: gridViewSigorta.GetFocusedRowCellValue("ID").ToString(), method: System.Net.Http.HttpMethod.Post);
                     MessageBox.Show("Sigorta başarıyla silindi.");
+                    SigordaGridDoldur();
                 }
             }
         }
@@ -750,8 +753,9 @@ namespace MEYPAK.PRL.ARAÇLAR
             {
                 if (MessageBox.Show("Ruhsatı silmek istediğinize emin misiniz?", "Sil", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    _aracServisRUHSATRESIMServis.Data(ServisList.AracRuhsatResimDeleteByIdServis, id: tileViewRuhsat.GetFocusedRowCellValue("ID").ToString());
+                    _aracServisRUHSATRESIMServis.Data(ServisList.AracRuhsatResimDeleteByIdServis, id: tileViewRuhsat.GetFocusedRowCellValue("ID").ToString(),method: System.Net.Http.HttpMethod.Post);
                     MessageBox.Show("Ruhsat başarıyla silindi.");
+                    RuhsatResimleriGetir();
                 }
             }
         }

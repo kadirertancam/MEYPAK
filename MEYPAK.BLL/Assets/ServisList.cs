@@ -277,6 +277,26 @@ namespace MEYPAK.BLL.Assets
 
         #endregion
 
+        #region AracZimmetResim
+        public const string AracZimmetListeServis =        "http://78.135.80.41:8081/ARACZIMMET/Liste";
+        public const string AracZimmetEkleServis =         "http://78.135.80.41:8081/ARACZIMMET/EkleyadaGuncelle";
+        public const string AracZimmetSilServis =          "http://78.135.80.41:8081/ARACZIMMET/Sil";
+        public const string AracZimmetGuncelleServis =     "http://78.135.80.41:8081/ARACZIMMET/Guncelle";
+        public const string AracZimmetListeFiltreServis =  "http://78.135.80.41:8081/ARACZIMMET/Liste2";
+        public const string AracZimmetDeleteByIdServis =   "http://78.135.80.41:8081/ARACZIMMET/DeleteById";
+
+        #endregion
+
+        #region AracBelgeResim
+        public const string AracBelgeListeServis = "http://78.135.80.41:8081/ARACBELGE/Liste";
+        public const string AracBelgeEkleServis = "http://78.135.80.41:8081/ARACBELGE/EkleyadaGuncelle";
+        public const string AracBelgeSilServis = "http://78.135.80.41:8081/ARACBELGE/Sil";
+        public const string AracBelgeGuncelleServis = "http://78.135.80.41:8081/ARACBELGE/Guncelle";
+        public const string AracBelgeListeFiltreServis = "http://78.135.80.41:8081/ARACBELGE/Liste2";
+        public const string AracBelgeDeleteByIdServis = "http://78.135.80.41:8081/ARACBELGE/DeleteById";
+
+        #endregion
+
         #region AracRuhsatResim
         public const string AracRuhsatResimListeServis = "http://78.135.80.41:8081/ARACRUHSATRESIM/ARACRUHSATRESIMListe";
         public const string AracRuhsatResimEkleServis = "http://78.135.80.41:8081/ARACRUHSATRESIM/ARACRUHSATRESIMEkleyadaGuncelle";

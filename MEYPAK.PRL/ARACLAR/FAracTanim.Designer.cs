@@ -176,6 +176,19 @@
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.GCAraclar = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.TBZimMiktar = new DevExpress.XtraEditors.TextEdit();
+            this.DTPZimBasTar = new DevExpress.XtraEditors.DateEdit();
+            this.BTNZimKaydet = new DevExpress.XtraEditors.SimpleButton();
+            this.TBZimAciklama = new DevExpress.XtraEditors.MemoEdit();
+            this.TBZimMarka = new DevExpress.XtraEditors.TextEdit();
+            this.TBZimSeriNo = new DevExpress.XtraEditors.TextEdit();
+            this.LBZimAciklama = new DevExpress.XtraEditors.LabelControl();
+            this.LBZimMiktar = new DevExpress.XtraEditors.LabelControl();
+            this.LBZimSeriNo = new DevExpress.XtraEditors.LabelControl();
+            this.LBZimTar = new DevExpress.XtraEditors.LabelControl();
+            this.LBZimMarkaModel = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
@@ -238,6 +251,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.DTPMuayeneBitTar.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPMuayeneBasTar.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPMuayeneBasTar.Properties)).BeginInit();
+            this.XTPZimmet.SuspendLayout();
             this.XTPBelgeler.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl16)).BeginInit();
             this.panelControl16.SuspendLayout();
@@ -264,6 +278,13 @@
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GCAraclar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TBZimMiktar.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DTPZimBasTar.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DTPZimBasTar.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBZimAciklama.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBZimMarka.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBZimSeriNo.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // tileViewColumn2
@@ -960,6 +981,8 @@
             // 
             // XTPZimmet
             // 
+            this.XTPZimmet.Controls.Add(this.panel2);
+            this.XTPZimmet.Controls.Add(this.panel1);
             this.XTPZimmet.Name = "XTPZimmet";
             this.XTPZimmet.Size = new System.Drawing.Size(893, 687);
             this.XTPZimmet.Text = "Zimmet Bilgileri";
@@ -1382,6 +1405,127 @@
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.TBZimMiktar);
+            this.panel1.Controls.Add(this.DTPZimBasTar);
+            this.panel1.Controls.Add(this.BTNZimKaydet);
+            this.panel1.Controls.Add(this.TBZimAciklama);
+            this.panel1.Controls.Add(this.TBZimMarka);
+            this.panel1.Controls.Add(this.TBZimSeriNo);
+            this.panel1.Controls.Add(this.LBZimAciklama);
+            this.panel1.Controls.Add(this.LBZimMiktar);
+            this.panel1.Controls.Add(this.LBZimSeriNo);
+            this.panel1.Controls.Add(this.LBZimTar);
+            this.panel1.Controls.Add(this.LBZimMarkaModel);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(893, 120);
+            this.panel1.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 120);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(893, 567);
+            this.panel2.TabIndex = 1;
+            // 
+            // TBZimMiktar
+            // 
+            this.TBZimMiktar.Location = new System.Drawing.Point(340, 78);
+            this.TBZimMiktar.Name = "TBZimMiktar";
+            this.TBZimMiktar.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
+            this.TBZimMiktar.Properties.MaskSettings.Set("MaskManagerSignature", "allowNull=False");
+            this.TBZimMiktar.Properties.MaskSettings.Set("mask", "d");
+            this.TBZimMiktar.Properties.MaskSettings.Set("valueType", typeof(ulong));
+            this.TBZimMiktar.Properties.UseMaskAsDisplayFormat = true;
+            this.TBZimMiktar.Size = new System.Drawing.Size(130, 20);
+            this.TBZimMiktar.TabIndex = 76;
+            // 
+            // DTPZimBasTar
+            // 
+            this.DTPZimBasTar.EditValue = null;
+            this.DTPZimBasTar.Location = new System.Drawing.Point(110, 82);
+            this.DTPZimBasTar.Name = "DTPZimBasTar";
+            this.DTPZimBasTar.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.DTPZimBasTar.Size = new System.Drawing.Size(130, 20);
+            this.DTPZimBasTar.TabIndex = 75;
+            // 
+            // BTNZimKaydet
+            // 
+            this.BTNZimKaydet.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.BTNZimKaydet.Appearance.Options.UseBackColor = true;
+            this.BTNZimKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTNZimKaydet.ImageOptions.Image")));
+            this.BTNZimKaydet.Location = new System.Drawing.Point(683, 50);
+            this.BTNZimKaydet.Name = "BTNZimKaydet";
+            this.BTNZimKaydet.Size = new System.Drawing.Size(95, 40);
+            this.BTNZimKaydet.TabIndex = 74;
+            this.BTNZimKaydet.Text = "&KAYDET";
+            // 
+            // TBZimAciklama
+            // 
+            this.TBZimAciklama.Location = new System.Drawing.Point(490, 39);
+            this.TBZimAciklama.Name = "TBZimAciklama";
+            this.TBZimAciklama.Size = new System.Drawing.Size(175, 63);
+            this.TBZimAciklama.TabIndex = 71;
+            // 
+            // TBZimMarka
+            // 
+            this.TBZimMarka.Location = new System.Drawing.Point(110, 38);
+            this.TBZimMarka.Name = "TBZimMarka";
+            this.TBZimMarka.Size = new System.Drawing.Size(130, 20);
+            this.TBZimMarka.TabIndex = 73;
+            // 
+            // TBZimSeriNo
+            // 
+            this.TBZimSeriNo.Location = new System.Drawing.Point(340, 38);
+            this.TBZimSeriNo.Name = "TBZimSeriNo";
+            this.TBZimSeriNo.Size = new System.Drawing.Size(130, 20);
+            this.TBZimSeriNo.TabIndex = 72;
+            // 
+            // LBZimAciklama
+            // 
+            this.LBZimAciklama.Location = new System.Drawing.Point(490, 20);
+            this.LBZimAciklama.Name = "LBZimAciklama";
+            this.LBZimAciklama.Size = new System.Drawing.Size(51, 13);
+            this.LBZimAciklama.TabIndex = 70;
+            this.LBZimAciklama.Text = "AÇIKLAMA";
+            // 
+            // LBZimMiktar
+            // 
+            this.LBZimMiktar.Location = new System.Drawing.Point(296, 85);
+            this.LBZimMiktar.Name = "LBZimMiktar";
+            this.LBZimMiktar.Size = new System.Drawing.Size(38, 13);
+            this.LBZimMiktar.TabIndex = 69;
+            this.LBZimMiktar.Text = "MIKTAR";
+            // 
+            // LBZimSeriNo
+            // 
+            this.LBZimSeriNo.Location = new System.Drawing.Point(255, 41);
+            this.LBZimSeriNo.Name = "LBZimSeriNo";
+            this.LBZimSeriNo.Size = new System.Drawing.Size(79, 13);
+            this.LBZimSeriNo.TabIndex = 68;
+            this.LBZimSeriNo.Text = "SERI NUMARASI";
+            // 
+            // LBZimTar
+            // 
+            this.LBZimTar.Location = new System.Drawing.Point(31, 85);
+            this.LBZimTar.Name = "LBZimTar";
+            this.LBZimTar.Size = new System.Drawing.Size(76, 13);
+            this.LBZimTar.TabIndex = 67;
+            this.LBZimTar.Text = "ZİMMET TARİHİ";
+            // 
+            // LBZimMarkaModel
+            // 
+            this.LBZimMarkaModel.Location = new System.Drawing.Point(31, 41);
+            this.LBZimMarkaModel.Name = "LBZimMarkaModel";
+            this.LBZimMarkaModel.Size = new System.Drawing.Size(73, 13);
+            this.LBZimMarkaModel.TabIndex = 66;
+            this.LBZimMarkaModel.Text = "MARKA/MODEL";
+            // 
             // FAracTanim
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1457,6 +1601,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.DTPMuayeneBitTar.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPMuayeneBasTar.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPMuayeneBasTar.Properties)).EndInit();
+            this.XTPZimmet.ResumeLayout(false);
             this.XTPBelgeler.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl16)).EndInit();
             this.panelControl16.ResumeLayout(false);
@@ -1485,6 +1630,14 @@
             this.panelControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.GCAraclar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TBZimMiktar.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DTPZimBasTar.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DTPZimBasTar.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBZimAciklama.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBZimMarka.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBZimSeriNo.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1602,5 +1755,18 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewSigorta;
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewKasko;
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewMuayene;
+        private Panel panel2;
+        private Panel panel1;
+        private DevExpress.XtraEditors.TextEdit TBZimMiktar;
+        private DevExpress.XtraEditors.DateEdit DTPZimBasTar;
+        private DevExpress.XtraEditors.SimpleButton BTNZimKaydet;
+        private DevExpress.XtraEditors.MemoEdit TBZimAciklama;
+        private DevExpress.XtraEditors.TextEdit TBZimMarka;
+        private DevExpress.XtraEditors.TextEdit TBZimSeriNo;
+        private DevExpress.XtraEditors.LabelControl LBZimAciklama;
+        private DevExpress.XtraEditors.LabelControl LBZimMiktar;
+        private DevExpress.XtraEditors.LabelControl LBZimSeriNo;
+        private DevExpress.XtraEditors.LabelControl LBZimTar;
+        private DevExpress.XtraEditors.LabelControl LBZimMarkaModel;
     }
 }

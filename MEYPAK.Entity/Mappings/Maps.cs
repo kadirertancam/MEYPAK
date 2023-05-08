@@ -191,6 +191,8 @@ namespace MEYPAK.Entity.Mappings
             CreateMap<MPARACKASKORESIM, PocoARACKASKORESIM>().ReverseMap();
             CreateMap<MPARACMUAYENERESIM, PocoARACMUAYENERESIM>().ReverseMap();
             CreateMap<MPARACROTA, PocoARACROTA>().ReverseMap();
+            CreateMap<MPARACZIMMET, PocoARACZIMMET>().ReverseMap();
+            CreateMap<MPARACBELGE, PocoARACBELGE>().ReverseMap();
 
 
             //KASA

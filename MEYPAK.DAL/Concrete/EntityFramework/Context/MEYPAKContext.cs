@@ -34,6 +34,8 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
            
 
         }
+        public DbSet<MPARACBELGE> MPARACBELGE { get; set; }
+        public DbSet<MPARACZIMMET> MPARACZIMMET { get; set; }
         public DbSet<MPARACMUAYENERESIM> MPARACMUAYENERESIM { get; set; }
         public DbSet<MPFATURASTOKESLE> MPFATURASTOKESLE { get; set; }
         public DbSet<MPVERSION> MPVERSION { get; set; }
