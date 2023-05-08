@@ -9,6 +9,7 @@ namespace MEYPAK.PRL.Assets
     public class FaturaDetailList
     {
         public int SIRA { get; set; }
+        public string TIP { get; set; }
         public string S_KOD { get; set; }
         public string KOD { get; set; }
         public string ADI { get; set; }

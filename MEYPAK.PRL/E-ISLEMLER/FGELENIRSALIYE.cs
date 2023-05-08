@@ -1,4 +1,6 @@
-﻿using DevExpress.XtraEditors.Controls;
+﻿using DevExpress.DataProcessing.InMemoryDataProcessor;
+using DevExpress.Utils;
+using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraTab;
 using e_İrsaliyeDemo_v1._0._0;
@@ -42,6 +44,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
             _cariServis = new GenericWebServis<PocoCARIKART>();
             _cariAltHesCariServis = new GenericWebServis<PocoCARIALTHESCARI>();
             faturaStokEsleServis = new GenericWebServis<PocoFATURASTOKESLE>();
+            _tempKasa = new PocoSTOKKASA();
         }
         ServiceReference1.IntegrationClient ıntegrationClient = new ServiceReference1.IntegrationClient();
         ServiceReference2.BasicIntegrationClient basicIntegration = new ServiceReference2.BasicIntegrationClient();
@@ -53,6 +56,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
         RepositoryItemButtonEdit repositoryItemButtonEdit3;
         public PocoSTOK _tempStok;
         public PocoCARIKART _tempCari;
+        public PocoSTOKKASA _tempKasa;
         GenericWebServis<PocoSTOK> _stokServis;
         GenericWebServis<PocoCARIKART> _cariServis;
         GenericWebServis<PocoCARIALTHESCARI> _cariAltHesCariServis;
@@ -126,6 +130,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
                 fatura.althesapid = _cariAltHesCariServis.obje.Where(x => x.cariid == tmpcari.id).FirstOrDefault().carialthesid;
                 var main = (Main)Application.OpenForms["Main"];
                 XtraTabPage page = new XtraTabPage();
+                
                 FAlisIrsaliye ffatura = new FAlisIrsaliye(fatura, faturakalem, null, 1);
                 page.Name = "TPAlisIrsaliye" + main.i;
                 page.Text = "Alış Irsaliye Tanım";
@@ -152,30 +157,58 @@ namespace MEYPAK.PRL.E_ISLEMLER
         GenericWebServis<PocoFATURASTOKESLE> faturaStokEsleServis;
         private void RepositoryItemButtonEdit_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
-            FStokList stoklist = new FStokList(this.Tag.ToString(), "EIrsaliyeGelenKutu");
-            stoklist.ShowDialog();
-            gridView2.SetFocusedRowCellValue("KOD", _tempStok.kod);
-            faturaStokEsleServis.Data(ServisList.FATURASTOKESLEListeServis);
-            if (faturaStokEsleServis.obje.Where(x => x.stokadi == gridView2.GetFocusedRowCellValue("S_KOD").ToString()).Count() > 0)
+            if (gridView2.GetFocusedRowCellValue("TIP").ToString()=="STOK")
             {
-                faturaStokEsleServis.Data(ServisList.FATURASTOKESLEEkleServis, new PocoFATURASTOKESLE()
+                FStokList stoklist = new FStokList(this.Tag.ToString(), "EIrsaliyeGelenKutu");
+                stoklist.ShowDialog();
+                gridView2.SetFocusedRowCellValue("KOD", _tempStok.kod);
+                faturaStokEsleServis.Data(ServisList.FATURASTOKESLEListeServis);
+                if (faturaStokEsleServis.obje.Where(x => x.stokadi == gridView2.GetFocusedRowCellValue("S_KOD").ToString()).Count() > 0)
                 {
-                    id= faturaStokEsleServis.obje.Where(x => x.stokadi == gridView2.GetFocusedRowCellValue("S_KOD").ToString() ).FirstOrDefault().id,
-                    stokid = _tempStok.id,
-                    stokadi = gridView2.GetFocusedRowCellValue("S_KOD").ToString(),
-                    userid = MPKullanici.ID
-                });
+                    faturaStokEsleServis.Data(ServisList.FATURASTOKESLEEkleServis, new PocoFATURASTOKESLE()
+                    {
+                        id = faturaStokEsleServis.obje.Where(x => x.stokadi == gridView2.GetFocusedRowCellValue("S_KOD").ToString()).FirstOrDefault().id,
+                        stokid = _tempStok.id,
+                        stokadi = gridView2.GetFocusedRowCellValue("S_KOD").ToString(),
+                        userid = MPKullanici.ID
+                    });
+                }
+                else
+                {
+                    faturaStokEsleServis.Data(ServisList.FATURASTOKESLEEkleServis, new PocoFATURASTOKESLE()
+                    {
+                        stokid = _tempStok.id,
+                        stokadi = gridView2.GetFocusedRowCellValue("S_KOD").ToString(),
+                        userid = MPKullanici.ID
+                    });
+                }
             }
             else
             {
-                faturaStokEsleServis.Data(ServisList.FATURASTOKESLEEkleServis, new PocoFATURASTOKESLE()
+                FStokKasaList2 stoklist = new FStokKasaList2(this.Tag.ToString(), "FGelenIrsaliye");
+                stoklist.ShowDialog();
+                gridView2.SetFocusedRowCellValue("KOD", _tempKasa.kasakodu);
+                faturaStokEsleServis.Data(ServisList.FATURASTOKESLEListeServis);
+                if (faturaStokEsleServis.obje.Where(x => x.stokadi == gridView2.GetFocusedRowCellValue("S_KOD").ToString()).Count() > 0)
                 {
-                    stokid = _tempStok.id,
-                    stokadi = gridView2.GetFocusedRowCellValue("S_KOD").ToString(),
-                    userid = MPKullanici.ID
-                });
+                    faturaStokEsleServis.Data(ServisList.FATURASTOKESLEEkleServis, new PocoFATURASTOKESLE()
+                    {
+                        id = faturaStokEsleServis.obje.Where(x => x.stokadi == gridView2.GetFocusedRowCellValue("S_KOD").ToString()).FirstOrDefault().id,
+                        stokid = _tempKasa.id,
+                        stokadi = gridView2.GetFocusedRowCellValue("S_KOD").ToString(),
+                        userid = MPKullanici.ID
+                    });
+                }
+                else
+                {
+                    faturaStokEsleServis.Data(ServisList.FATURASTOKESLEEkleServis, new PocoFATURASTOKESLE()
+                    {
+                        stokid = _tempKasa.id,
+                        stokadi = gridView2.GetFocusedRowCellValue("S_KOD").ToString(),
+                        userid = MPKullanici.ID
+                    });
+                }
             }
-
 
         }
 
@@ -243,7 +276,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
             gridView1.Columns["BASIM"].ColumnEdit = repositoryItemButtonEdit2;
             gridView1.Columns["CARISEC"].ColumnEdit = repositoryItemButtonEdit3;
         }
-        
+        RepositoryItemLookUpEdit riLookup2;
         private void gridView1_FocusedRowChanged_1(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
             faturaStokEsleServis.Data(ServisList.FATURASTOKESLEListeServis);
@@ -257,11 +290,42 @@ namespace MEYPAK.PRL.E_ISLEMLER
             repositoryItemButtonEdit.Buttons[0].Shortcut = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.Enter);
             repositoryItemButtonEdit.ButtonClick += RepositoryItemButtonEdit_ButtonClick;
             _stokServis.Data(ServisList.StokListeServis);
-            tempdetay = tempp.Value.DespatchAdvice.DespatchLine.Select(x => new FaturaDetailList { SIRA = int.Parse(x.ID.Value),KOD =   faturaStokEsleServis.obje.Where(y=>y.stokadi==x.Item.SellersItemIdentification.ID.Value.ToString()).Count()>0? faturaStokEsleServis.obje.Where(y => y.stokadi == x.Item.SellersItemIdentification.ID.Value.ToString()).Select(z=> _stokServis.obje.Where(y=>y.id==z.stokid).FirstOrDefault().kod).FirstOrDefault():"", S_KOD = x.Item.SellersItemIdentification.ID.Value.ToString(), ADI = x.Item.Name.Value, KUNYENO = x.Item.AdditionalItemIdentification != null ? x.Item.AdditionalItemIdentification.Where(x => x.ID.schemeID == "KUNYENO").Count() > 0 ? x.Item.AdditionalItemIdentification.Where(x => x.ID.schemeID == "KUNYENO").FirstOrDefault().ID.Value : "" : "", MIKTAR = x.DeliveredQuantity.Value, BIRIM = x.DeliveredQuantity.unitCode }).ToList();
+            DataTable dt = new DataTable();
+
+            dt.Columns.Add("ID", typeof(string));
+            dt.Columns.Add("TIP", typeof(string));
+            dt.Rows.Add("1", "STOK");
+            dt.Rows.Add("2", "KASA"); 
+
+            riLookup2 = new RepositoryItemLookUpEdit();
+            riLookup2.DataSource = dt;
+            riLookup2.ValueMember = "TIP";
+            riLookup2.DisplayMember = "TIP";
+
+            riLookup2.NullText = "";
+
+            riLookup2.HotTrackItems = true;
+            riLookup2.BestFitWidth = 70;
+            // riLookup.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
+            riLookup2.DropDownRows = dt.Rows.Count;
+            riLookup2.AcceptEditorTextAsNewValue = DefaultBoolean.True;
+            riLookup2.AutoSearchColumnIndex = 1;
+            riLookup2.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
+            riLookup2.GetDataSourceRowByKeyValue(0);
+            riLookup2.EditValueChanged += RiLookup2_EditValueChanged;
+
+
+            tempdetay = tempp.Value.DespatchAdvice.DespatchLine.Select(x => new FaturaDetailList { SIRA = int.Parse(x.ID.Value),TIP= "STOK", KOD =   x.Item.SellersItemIdentification!=null?faturaStokEsleServis.obje.Where(y=>y.stokadi==x.Item.SellersItemIdentification.ID.Value.ToString()).Count()>0? faturaStokEsleServis.obje.Where(y => y.stokadi == x.Item.SellersItemIdentification.ID.Value.ToString()).Select(z=> _stokServis.obje.Where(y=>y.id==z.stokid).FirstOrDefault().kod).FirstOrDefault():"":"", S_KOD = x.Item.SellersItemIdentification!=null?x.Item.SellersItemIdentification.ID.Value.ToString():"", ADI = x.Item.Name.Value, KUNYENO = x.Item.AdditionalItemIdentification != null ? x.Item.AdditionalItemIdentification.Where(x => x.ID.schemeID == "KUNYENO").Count() > 0 ? x.Item.AdditionalItemIdentification.Where(x => x.ID.schemeID == "KUNYENO").FirstOrDefault().ID.Value : "" : "", MIKTAR = x.DeliveredQuantity.Value, BIRIM = x.DeliveredQuantity.unitCode }).ToList();
             gridControl2.DataSource = tempdetay;
             gridView2.Columns["S_KOD"].Visible = false;
             gridView2.Columns["KOD"].ColumnEdit = repositoryItemButtonEdit;
+            gridView2.Columns["TIP"].ColumnEdit = riLookup2;
             gridControl2.RefreshDataSource();
+        }
+
+        private void RiLookup2_EditValueChanged(object? sender, EventArgs e)
+        {
+            riLookup2.GetDataSourceRowByDisplayValue(riLookup2.Name);
         }
     }
 }

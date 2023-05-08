@@ -196,6 +196,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
             dt.Rows.Add(2, "TEMELFATURA");
             dt.Rows.Add(3, "IHRACAT");
             dt.Rows.Add(4, "YOLCUBERABERFATURA");
+            dt.Rows.Add(4, "HKS");
 
             riLookup = new RepositoryItemLookUpEdit();
             riLookup.DataSource = dt;
@@ -232,7 +233,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
             dt1.Rows.Add(1, "TEVKIFAT");
             dt1.Rows.Add(1, "OZELMATRAH");
             dt1.Rows.Add(1, "IHRACKAYITLI");
-            dt1.Rows.Add(1, "SGK");
+            dt1.Rows.Add(1, "SGK"); 
 
             riLookup2 = new RepositoryItemLookUpEdit();
             riLookup2.DataSource = dt1;
@@ -250,7 +251,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
             riLookup2.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
             riLookup2.GetDataSourceRowByKeyValue(0);
             riLookup2.EditValueChanged += RiLookup2_EditValueChanged;
-
+         
             gridView1.Columns["FATURALASTIR"].ColumnEdit = repositoryItemButtonEdit;
             gridView1.Columns["BASIM"].ColumnEdit = repositoryItemButtonEdit2;
             gridView1.Columns["FATURATIP"].ColumnEdit = riLookup;
@@ -349,9 +350,20 @@ namespace MEYPAK.PRL.E_ISLEMLER
 
                 if (invoice.AdditionalDocumentReference != null)
                 {
-                    AttachmentType attachment = null;
+
+                    string fileNames = "";
+                    byte[] buff = null;
+                    FileStream fs = new FileStream(fileNames,
+                                                   FileMode.Open,
+                                                   FileAccess.Read);
+                    BinaryReader br = new BinaryReader(fs);
+                    long numBytes = new FileInfo(fileNames).Length;
+                    buff = br.ReadBytes((int)numBytes);
+
+
+                    AttachmentType attachment = new AttachmentType();
                     DocumentReferenceType doc;
-                    byte[] xsltObject = null;
+                    byte[] xsltObject = buff;
 
                     for (int i = 0; i < invoice.AdditionalDocumentReference.Length; i++)
                     {
@@ -371,32 +383,11 @@ namespace MEYPAK.PRL.E_ISLEMLER
 
                     if (xsltObject != null)
                     {
-                        //var fileStream = File.Create("");
-                        //fileStream.Write(xsltObject, 0, 0);
-                        //fileStream.
+                        var fileStream = File.Create("");
+                        fileStream.Write(xsltObject, 0, 0);
+                       
 
-                        //using (var stream = new FileStream(xsltObject))
-                        //{
-                        //    stream.Seek(0, SeekOrigin.Begin);
-
-                        //    using (var reader = new StreamReader(stream))
-                        //    {
-
-                        //        xslt = reader.ReadToEnd();
-
-                        //        //xslt = xslt.Replace("n1:Invoice", "Invoice");
-
-                        //        XmlSerializer serializer = new XmlSerializer(typeof(Invoice));
-                        //        using (MemoryStream mstr = new MemoryStream())
-                        //        {
-                        //            serializer.Serialize(mstr, invoice, InvoiceNamespaces);
-
-                        //            string xml = Encoding.UTF8.GetString(mstr.ToArray());
-                        //            webBrowser1.DocumentText = TransformXMLToHTML(xml, xslt);
-                        //        }
-                        //    }
-                        //}
-
+                       
 
                         using (var stream = new MemoryStream(xsltObject))
                         {
@@ -524,7 +515,9 @@ namespace MEYPAK.PRL.E_ISLEMLER
             if (irstemp != null)
                 irsfat = new DocumentReferenceType[] { new DocumentReferenceType() { IssueDate = new IssueDateType { Value = irstemp.vadetarihi }, DocumentType = new DocumentTypeType { Value = "Irsaliye" }, ID = new IDType { Value = irstemp.belgeno } } };
 
-            InvoiceLineType[] ınvoiceLineType = new InvoiceLineType[ccc.Count()];
+             
+
+          InvoiceLineType[] ınvoiceLineType = new InvoiceLineType[ccc.Count()];
             //Fatura Satır 1
             //},
           

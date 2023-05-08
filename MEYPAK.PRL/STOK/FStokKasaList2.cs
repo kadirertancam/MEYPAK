@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraEditors;
 using MEYPAK.BLL.Assets;
 using MEYPAK.Entity.PocoModels.STOK;
+using MEYPAK.PRL.E_ISLEMLER;
 using MEYPAK.PRL.IRSALIYE;
 using MEYPAK.PRL.SIPARIS;
 using MEYPAK.PRL.STOK.Raporlar;
@@ -39,6 +40,7 @@ namespace MEYPAK.PRL.STOK
         FStokSarf fStokSarf;
         StokKasaGirisPanel fstokKasaGirisPanel;
         FFatura fFatura;
+        FGELENIRSALIYE FGelenIrsaliye;
         #endregion
 
         private void FStokKasaList2_Load(object sender, EventArgs e)
@@ -61,7 +63,9 @@ namespace MEYPAK.PRL.STOK
                     if (frm.Name.Contains("StokKasaGirisPanel"))
                         fstokKasaGirisPanel = (StokKasaGirisPanel)frm;
                     if (frm.Name.Contains("FFatura"))
-                        fFatura = (FFatura)frm;
+                        fFatura = (FFatura)frm; 
+                    if (frm.Name.Contains("FGELENIRSALIYE"))
+                        FGelenIrsaliye = (FGELENIRSALIYE)frm;
                 }
             }
             
@@ -92,6 +96,10 @@ namespace MEYPAK.PRL.STOK
             if (_islem == "FFatura")
             {
                 fFatura._tempKasa = _stokKasaServis.obje.Where(x => x.kayittipi == 0 && x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()).FirstOrDefault();
+            } 
+            if (_islem == "FGelenIrsaliye")
+            {
+                FGelenIrsaliye._tempKasa = _stokKasaServis.obje.Where(x => x.kayittipi == 0 && x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()).FirstOrDefault();
             }
             this.Close();
         }
