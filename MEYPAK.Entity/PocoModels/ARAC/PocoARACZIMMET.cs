@@ -15,5 +15,6 @@ namespace MEYPAK.Entity.PocoModels.ARAC
         public string serino { get; set; }
         public int miktar { get; set; }
         public string aciklama { get; set; }
+        public bool teslimalindi { get; set; }
     }
 }

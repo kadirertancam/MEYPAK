@@ -15,5 +15,6 @@ namespace MEYPAK.Entity.Models.ARAC
         public string SERINO { get; set; }
         public int MIKTAR { get; set; }
         public string ACIKLAMA { get; set; }
+        public bool TESLIMALINDI { get; set; }
     }
 }
