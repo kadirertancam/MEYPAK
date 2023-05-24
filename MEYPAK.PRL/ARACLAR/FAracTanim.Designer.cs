@@ -1333,7 +1333,7 @@
             // 
             // BTNAracFoto
             // 
-            this.BTNAracFoto.EditValue = "Fotoğrafı Değistir";
+            this.BTNAracFoto.EditValue = "";
             this.BTNAracFoto.Location = new System.Drawing.Point(31, 141);
             this.BTNAracFoto.Name = "BTNAracFoto";
             this.BTNAracFoto.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {

@@ -42,6 +42,7 @@ namespace MEYPAK.PRL.ARAÇLAR
         GenericWebServis<PocoPERSONELGOREV> _personelgorevServis;
         GenericWebServis<PocoPERSONELDEPARTMAN> _personeldepartmanServis;
         GenericWebServis<PocoARACZIMMET> _aracZIMMETServis;
+        GenericWebServis<PocoARACRESIM> _aracResimServis;
         ContextMenuStrip RuhsatMenuStrip = new ContextMenuStrip();
         ContextMenuStrip SigortaMenuStrip = new ContextMenuStrip();
         ContextMenuStrip KaskoMenuStrip = new ContextMenuStrip();
@@ -58,6 +59,7 @@ namespace MEYPAK.PRL.ARAÇLAR
             _aracServisRUHSATRESIMServis = new GenericWebServis<PocoARACRUHSATRESIM>();
             _aracModelServis = new GenericWebServis<PocoARACMODEL>();
             _aracServis = new GenericWebServis<PocoARAC>();
+            _aracResimServis = new GenericWebServis<PocoARACRESIM>();
             _aracZIMMETServis = new GenericWebServis<PocoARACZIMMET>();
             InitializeComponent();
             AraclarıGetir();
@@ -165,6 +167,16 @@ namespace MEYPAK.PRL.ARAÇLAR
                 RGAracDurum.SelectedIndex = _tempArac.durum;
                 NUDTekerSayisi.Value = _tempArac.tekersayisi;
                 NUDYedekTekerSayisi.Value = _tempArac.yedektekersayisi;
+
+                _aracResimServis.Data(ServisList.AracResimListeFiltreServis,parameters: $"query=ARACID={_tempArac.id} and KAYITTIPI=0");
+                if(_aracResimServis.obje!=null&& _aracResimServis.obje.Count > 0)
+                {
+                    PBAracResim.Image = Base64ToImage(_aracResimServis.obje.FirstOrDefault().img);
+                    PBAracResim.Properties.SizeMode = PictureSizeMode.Stretch;
+                }
+                else
+                    PBAracResim.Image=null;
+
                 RuhsatResimleriGetir();
                 SigordaGridDoldur();
                 KaskoGridDoldur();
@@ -263,7 +275,6 @@ namespace MEYPAK.PRL.ARAÇLAR
         private void BTNAracKaydet_Click(object sender, EventArgs e)
         {
             if (MPKullanici.YetkiGetir(AllForms.ARACTANIM.ToString()).EKLE)
-
             {
                 if (TBPlaka.Text != null && CBTip.EditValue != null && CBMarka.EditValue != null && CBModel.EditValue != null && CBYakitTuru.EditValue != null && CBSofor1.EditValue != null)
                 {
@@ -283,6 +294,14 @@ namespace MEYPAK.PRL.ARAÇLAR
                         userid = MPKullanici.ID
                     });
                     _tempArac = _aracServis.obje2;
+                    _aracResimServis.Data(ServisList.AracResimEkleServis,new PocoARACRESIM()
+                    {
+                        id= _aracResimServis.obje!=null? _aracResimServis.obje.Count>0?_aracResimServis.obje.FirstOrDefault().id:0:0,
+                        aracid=_tempArac.id,
+                        img= ImageToBase64(BTNAracFoto.Text),
+                        num=0,
+                        userid=MPKullanici.ID,
+                    });
                     MessageBox.Show($"{_tempArac.plaka} plakalı araç başarıyla güncellendi");
                     AraclarıGetir();
                 }
@@ -527,6 +546,7 @@ namespace MEYPAK.PRL.ARAÇLAR
             _tempArac = _aracServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
             AracBilgileriniDoldur();
             base64 = "";
+            BTNAracFoto.Text = "";
         }
 
 
