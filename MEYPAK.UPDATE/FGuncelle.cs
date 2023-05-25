@@ -140,7 +140,7 @@ namespace MEYPAK.UPDATE
             string zipPath = @"./MEYPAK.PRL.zip";
             string extractPath = @".\PRL\";
             this.Invoke(new Action(() => { labelStatus.Text = "Dosyalar açılıyor.."; }));
-            ZipFile.ExtractToDirectory(zipPath, extractPath);
+             ZipFile.ExtractToDirectory(zipPath, extractPath);
             Thread.Sleep(3000);
             File.Delete(@".\MEYPAK.PRL.zip");
             this.Invoke(new Action(() => { labelStatus.Text = "Güncelleme işlemi tamamlandı.."; }));

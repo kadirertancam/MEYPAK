@@ -171,6 +171,8 @@ namespace MEYPAK.Entity.Mappings
             //IRSALIYE
             CreateMap<MPIRSALIYE, PocoIRSALIYE>().ReverseMap();
             CreateMap<MPIRSALIYEDETAY, PocoIRSALIYEDETAY>().ReverseMap();
+            CreateMap<MPIRSALIYETASLAK, PocoIRSALIYETASLAK>().ReverseMap();
+            CreateMap<MPIRSALIYEDETAYTASLAK, PocoIRSALIYEDETAYTASLAK>().ReverseMap();
 
             //DEPO
             CreateMap<MPDEPO, PocoDEPO>().ReverseMap();
@@ -191,6 +193,8 @@ namespace MEYPAK.Entity.Mappings
             CreateMap<MPARACKASKORESIM, PocoARACKASKORESIM>().ReverseMap();
             CreateMap<MPARACMUAYENERESIM, PocoARACMUAYENERESIM>().ReverseMap();
             CreateMap<MPARACROTA, PocoARACROTA>().ReverseMap();
+            CreateMap<MPARACZIMMET, PocoARACZIMMET>().ReverseMap();
+            CreateMap<MPARACBELGE, PocoARACBELGE>().ReverseMap();
 
 
             //KASA
@@ -201,6 +205,8 @@ namespace MEYPAK.Entity.Mappings
             //FATURA            
             CreateMap<MPFATURA, PocoFATURA>().ReverseMap();
             CreateMap<MPFATURADETAY, PocoFATURADETAY>().ReverseMap();
+            CreateMap<MPFATURATASLAK, PocoFATURATASLAK>().ReverseMap();
+            CreateMap<MPFATURADETAYTASLAK, PocoFATURADETAYTASLAK>().ReverseMap();
             CreateMap<MPSERI, PocoSERI>().ReverseMap();
 
 

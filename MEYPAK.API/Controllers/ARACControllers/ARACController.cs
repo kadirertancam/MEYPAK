@@ -94,7 +94,7 @@ namespace MEYPAK.API.Controllers.ARAC
                 return Problem("Belirsiz bir hata oluştu!" + ex.Message);
             }
         }
-        [HttpDelete]
+        [HttpPost]
         [Route("/[controller]/[action]")]
         public IActionResult DeleteById([FromQuery] int id)
         {

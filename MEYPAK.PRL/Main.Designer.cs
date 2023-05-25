@@ -1026,7 +1026,6 @@
             this.accordionControlElement3,
             this.accordionControlElement4});
             this.ACESTOK.Enabled = false;
-            this.ACESTOK.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("ACESTOK.ImageOptions.SvgImage")));
             this.ACESTOK.ImageOptions.SvgImageSize = new System.Drawing.Size(32, 32);
             this.ACESTOK.Name = "ACESTOK";
             this.ACESTOK.Text = "Stok";
@@ -1362,7 +1361,6 @@
             this.accordionControlElement7,
             this.accordionControlElement8});
             this.ACECARI.Enabled = false;
-            this.ACECARI.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("ACECARI.ImageOptions.SvgImage")));
             this.ACECARI.Name = "ACECARI";
             this.ACECARI.Text = "Cari";
             this.ACECARI.Visible = false;
@@ -1481,7 +1479,6 @@
             this.accordionControlElement32,
             this.accordionControlElement33});
             this.ACEFATURA.Enabled = false;
-            this.ACEFATURA.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ACEFATURA.ImageOptions.Image")));
             this.ACEFATURA.Name = "ACEFATURA";
             this.ACEFATURA.Text = "Fatura";
             this.ACEFATURA.Visible = false;
@@ -1651,7 +1648,6 @@
             this.ACEFirmaSenet,
             this.ACECekSenetRapor});
             this.ACECEKSENET.Enabled = false;
-            this.ACECEKSENET.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ACECEKSENET.ImageOptions.Image")));
             this.ACECEKSENET.Name = "ACECEKSENET";
             this.ACECEKSENET.Text = "Çek/Senet";
             this.ACECEKSENET.Visible = false;
@@ -1821,7 +1817,6 @@
             this.ACEKasaHareket,
             this.ACEKasaRapor});
             this.ACEKASA.Enabled = false;
-            this.ACEKASA.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ACEKASA.ImageOptions.Image")));
             this.ACEKASA.Name = "ACEKASA";
             this.ACEKASA.Text = "Kasa";
             this.ACEKASA.Visible = false;
@@ -1880,7 +1875,6 @@
             this.ACEBankaHareket,
             this.ACEBankaRapor});
             this.ACEBANKA.Enabled = false;
-            this.ACEBANKA.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ACEBANKA.ImageOptions.Image")));
             this.ACEBANKA.Name = "ACEBANKA";
             this.ACEBANKA.Text = "Banka";
             this.ACEBANKA.Visible = false;
@@ -1962,8 +1956,6 @@
             this.accordionControlElement20,
             this.ACEEMustahsilM});
             this.accordionControlElement27.Enabled = false;
-            this.accordionControlElement27.Expanded = true;
-            this.accordionControlElement27.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement27.ImageOptions.Image")));
             this.accordionControlElement27.Name = "accordionControlElement27";
             this.accordionControlElement27.Text = "E-İşlemler";
             this.accordionControlElement27.Visible = false;
@@ -2065,7 +2057,6 @@
             this.accordionControlElement39,
             this.accordionControlElement40});
             this.ACEPERSONEL.Enabled = false;
-            this.ACEPERSONEL.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ACEPERSONEL.ImageOptions.Image")));
             this.ACEPERSONEL.Name = "ACEPERSONEL";
             this.ACEPERSONEL.Text = "Personel";
             this.ACEPERSONEL.Visible = false;
@@ -2135,7 +2126,6 @@
             this.accordionControlElement24,
             this.accordionControlElement25});
             this.ACEARAC.Enabled = false;
-            this.ACEARAC.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ACEARAC.ImageOptions.Image")));
             this.ACEARAC.Name = "ACEARAC";
             this.ACEARAC.Text = "Araç";
             this.ACEARAC.Visible = false;
@@ -2205,7 +2195,6 @@
             this.ACESeriTanim,
             this.accordionControlElement5});
             this.ACEPARAMETRELER.Enabled = false;
-            this.ACEPARAMETRELER.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ACEPARAMETRELER.ImageOptions.Image")));
             this.ACEPARAMETRELER.Name = "ACEPARAMETRELER";
             this.ACEPARAMETRELER.Text = "Parametreler";
             this.ACEPARAMETRELER.Visible = false;
@@ -2244,7 +2233,6 @@
             this.ACEKullaniciYönetim.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.ACEKullaniciTanim});
             this.ACEKullaniciYönetim.Enabled = false;
-            this.ACEKullaniciYönetim.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ACEKullaniciYönetim.ImageOptions.Image")));
             this.ACEKullaniciYönetim.Name = "ACEKullaniciYönetim";
             this.ACEKullaniciYönetim.Text = "Kullanıcı Yönetimi";
             this.ACEKullaniciYönetim.Visible = false;
@@ -2265,7 +2253,6 @@
             this.ACEDestekServis.Appearance.Default.Options.UseForeColor = true;
             this.ACEDestekServis.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.ACEDestekServis1});
-            this.ACEDestekServis.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ACEDestekServis.ImageOptions.Image")));
             this.ACEDestekServis.Name = "ACEDestekServis";
             this.ACEDestekServis.Text = "Destek Servis";
             // 
@@ -2284,8 +2271,6 @@
             this.accordionControlElement69,
             this.accordionControlElement68,
             this.accordionControlElement67});
-            this.ACEFirmaBilgi.Expanded = true;
-            this.ACEFirmaBilgi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ACEFirmaBilgi.ImageOptions.Image")));
             this.ACEFirmaBilgi.Name = "ACEFirmaBilgi";
             this.ACEFirmaBilgi.Text = "Gündüz MEY-PAK Gıda Tic.Ltd.Şti";
             // 

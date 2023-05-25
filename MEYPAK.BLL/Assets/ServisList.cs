@@ -13,6 +13,8 @@ namespace MEYPAK.BLL.Assets
         public static string URL = "http://78.135.80.41:8081";
 
         #endregion
+
+
         #region FATURASTOKESLE
         public const string FATURASTOKESLEListeServis = "http://78.135.80.41:8081/FATURASTOKESLE/FATURASTOKESLEListe";
         public const string FATURASTOKESLEEkleServis = "http://78.135.80.41:8081/FATURASTOKESLE/FATURASTOKESLEEkleyadaGuncelle";
@@ -23,13 +25,53 @@ namespace MEYPAK.BLL.Assets
 
         #endregion
 
+        #region IRSALIYEDETAYTASLAK
+
+        public const string IrsaliyeDetayTaslakListeServis =       "http://78.135.80.41:8081/IRSALIYEDETAYTASLAK/Liste";
+        public const string IrsaliyeDetayTaslakEkleServis =        "http://78.135.80.41:8081/IRSALIYEDETAYTASLAK/EkleyadaGuncelle";
+        public const string IrsaliyeDetayTaslakSilServis =         "http://78.135.80.41:8081/IRSALIYEDETAYTASLAK/Sil";
+        public const string IrsaliyeDetayTaslakGuncelleServis =    "http://78.135.80.41:8081/IRSALIYEDETAYTASLAK/Guncelle";
+        public const string IrsaliyeDetayTaslakDeleteByIdServis =  "http://78.135.80.41:8081/IRSALIYEDETAYTASLAK/DeleteById";
+        public const string IrsaliyeDetayTaslakListeFiltreServis = "http://78.135.80.41:8081/IRSALIYEDETAYTASLAK/Liste2";
+        #endregion
+
+        #region IRSALIYETASLAK
+
+        public const string IrsaliyeTaslakListeServis = "http://78.135.80.41:8081/IRSALIYETASLAK/Liste";
+        public const string IrsaliyeTaslakEkleServis = "http://78.135.80.41:8081/IRSALIYETASLAK/EkleyadaGuncelle";
+        public const string IrsaliyeTaslakSilServis = "http://78.135.80.41:8081/IRSALIYETASLAK/Sil";
+        public const string IrsaliyeTaslakGuncelleServis = "http://78.135.80.41:8081/IRSALIYETASLAK/Guncelle";
+        public const string IrsaliyeTaslakDeleteByIdServis = "http://78.135.80.41:8081/IRSALIYETASLAK/DeleteById";
+        public const string IrsaliyeTaslakListeFiltreServis = "http://78.135.80.41:8081/IRSALIYETASLAK/Liste2";
+        #endregion
+
+        #region FATURADETAYTASLAK
+
+        public const string FaturaDetayTaslakListeServis = "http://78.135.80.41:8081/FATURADETAYTASLAK/Liste";
+        public const string FaturaDetayTaslakEkleServis = "http://78.135.80.41:8081/FATURADETAYTASLAK/EkleyadaGuncelle";
+        public const string FaturaDetayTaslakSilServis = "http://78.135.80.41:8081/FATURADETAYTASLAK/Sil";
+        public const string FaturaDetayTaslakGuncelleServis = "http://78.135.80.41:8081/FATURADETAYTASLAK/Guncelle";
+        public const string FaturaDetayTaslakDeleteByIdServis = "http://78.135.80.41:8081/FATURADETAYTASLAK/DeleteById";
+        public const string FaturaDetayTaslakListeFiltreServis = "http://78.135.80.41:8081/FATURADETAYTASLAK/Liste2";
+        #endregion
+
+        #region FATURATASLAK
+
+        public const string FaturaTaslakListeServis = "http://78.135.80.41:8081/FATURATASLAK/Liste";
+        public const string FaturaTaslakEkleServis = "http://78.135.80.41:8081/FATURATASLAK/EkleyadaGuncelle";
+        public const string FaturaTaslakSilServis = "http://78.135.80.41:8081/FATURATASLAK/Sil";
+        public const string FaturaTaslakGuncelleServis = "http://78.135.80.41:8081/FATURATASLAK/Guncelle";
+        public const string FaturaTaslakDeleteByIdServis = "http://78.135.80.41:8081/FATURATASLAK/DeleteById";
+        public const string FaturaTaslakListeFiltreServis = "http://78.135.80.41:8081/FATURATASLAK/Liste2";
+        #endregion
+
         #region GIDENMUSTAHSILMAKBUZLARI
 
-        public const string GidenMustahsilMakbuzlariListeServis =       "http://78.135.80.41:8081/GIDENMUSTAHSILMAKBUZLARI/Liste";
-        public const string GidenMustahsilMakbuzlariEkleServis =        "http://78.135.80.41:8081/GIDENMUSTAHSILMAKBUZLARI/EkleyadaGuncelle";
-        public const string GidenMustahsilMakbuzlariSilServis =         "http://78.135.80.41:8081/GIDENMUSTAHSILMAKBUZLARI/Sil";
-        public const string GidenMustahsilMakbuzlariGuncelleServis =    "http://78.135.80.41:8081/GIDENMUSTAHSILMAKBUZLARI/Guncelle";
-        public const string GidenMustahsilMakbuzlariDeleteByIdServis =  "http://78.135.80.41:8081/GIDENMUSTAHSILMAKBUZLARI/DeleteById";
+        public const string GidenMustahsilMakbuzlariListeServis = "http://78.135.80.41:8081/GIDENMUSTAHSILMAKBUZLARI/Liste";
+        public const string GidenMustahsilMakbuzlariEkleServis = "http://78.135.80.41:8081/GIDENMUSTAHSILMAKBUZLARI/EkleyadaGuncelle";
+        public const string GidenMustahsilMakbuzlariSilServis = "http://78.135.80.41:8081/GIDENMUSTAHSILMAKBUZLARI/Sil";
+        public const string GidenMustahsilMakbuzlariGuncelleServis = "http://78.135.80.41:8081/GIDENMUSTAHSILMAKBUZLARI/Guncelle";
+        public const string GidenMustahsilMakbuzlariDeleteByIdServis = "http://78.135.80.41:8081/GIDENMUSTAHSILMAKBUZLARI/DeleteById";
         public const string GidenMustahsilMakbuzlariListeFiltreServis = "http://78.135.80.41:8081/GIDENMUSTAHSILMAKBUZLARI/Liste2";
         #endregion
 
@@ -283,6 +325,26 @@ namespace MEYPAK.BLL.Assets
         public const string AracMuayeneResimGuncelleServis =    "http://78.135.80.41:8081/ARACMUAYENERESIM/Guncelle";
         public const string AracMuayeneResimListeFiltreServis = "http://78.135.80.41:8081/ARACMUAYENERESIM/Liste2";
         public const string AracMuayeneResimDeleteByIdServis =  "http://78.135.80.41:8081/ARACMUAYENERESIM/DeleteById";
+
+        #endregion
+
+        #region AracZimmetResim
+        public const string AracZimmetListeServis =        "http://78.135.80.41:8081/ARACZIMMET/Liste";
+        public const string AracZimmetEkleServis =         "http://78.135.80.41:8081/ARACZIMMET/EkleyadaGuncelle";
+        public const string AracZimmetSilServis =          "http://78.135.80.41:8081/ARACZIMMET/Sil";
+        public const string AracZimmetGuncelleServis =     "http://78.135.80.41:8081/ARACZIMMET/Guncelle";
+        public const string AracZimmetListeFiltreServis =  "http://78.135.80.41:8081/ARACZIMMET/Liste2";
+        public const string AracZimmetDeleteByIdServis =   "http://78.135.80.41:8081/ARACZIMMET/DeleteById";
+
+        #endregion
+
+        #region AracBelgeResim
+        public const string AracBelgeListeServis = "http://78.135.80.41:8081/ARACBELGE/Liste";
+        public const string AracBelgeEkleServis = "http://78.135.80.41:8081/ARACBELGE/EkleyadaGuncelle";
+        public const string AracBelgeSilServis = "http://78.135.80.41:8081/ARACBELGE/Sil";
+        public const string AracBelgeGuncelleServis = "http://78.135.80.41:8081/ARACBELGE/Guncelle";
+        public const string AracBelgeListeFiltreServis = "http://78.135.80.41:8081/ARACBELGE/Liste2";
+        public const string AracBelgeDeleteByIdServis = "http://78.135.80.41:8081/ARACBELGE/DeleteById";
 
         #endregion
 

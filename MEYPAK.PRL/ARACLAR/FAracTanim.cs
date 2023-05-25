@@ -12,6 +12,7 @@ using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces;
 using MEYPAK.Interfaces.Arac;
 using MEYPAK.Interfaces.Stok;
+using Spire.Pdf.Fields;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,8 +21,10 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Forms;
 using static DevExpress.Skins.SolidColorHelper;
 
@@ -38,7 +41,13 @@ namespace MEYPAK.PRL.ARAÇLAR
         GenericWebServis<PocoPERSONEL> _personelServis;
         GenericWebServis<PocoPERSONELGOREV> _personelgorevServis;
         GenericWebServis<PocoPERSONELDEPARTMAN> _personeldepartmanServis;
-        ContextMenuStrip contextMenuStrip ;
+        GenericWebServis<PocoARACZIMMET> _aracZIMMETServis;
+        GenericWebServis<PocoARACRESIM> _aracResimServis;
+        ContextMenuStrip RuhsatMenuStrip = new ContextMenuStrip();
+        ContextMenuStrip SigortaMenuStrip = new ContextMenuStrip();
+        ContextMenuStrip KaskoMenuStrip = new ContextMenuStrip();
+        ContextMenuStrip MuayeneMenuStrip = new ContextMenuStrip();
+        ContextMenuStrip ZimmetMenuStrip = new ContextMenuStrip();
         public FAracTanim()
         {
             _personeldepartmanServis = new GenericWebServis<PocoPERSONELDEPARTMAN>();
@@ -50,16 +59,48 @@ namespace MEYPAK.PRL.ARAÇLAR
             _aracServisRUHSATRESIMServis = new GenericWebServis<PocoARACRUHSATRESIM>();
             _aracModelServis = new GenericWebServis<PocoARACMODEL>();
             _aracServis = new GenericWebServis<PocoARAC>();
+            _aracResimServis = new GenericWebServis<PocoARACRESIM>();
+            _aracZIMMETServis = new GenericWebServis<PocoARACZIMMET>();
             InitializeComponent();
             AraclarıGetir();
             CombolarıDoldur();
 
-            contextMenuStrip = new ContextMenuStrip();
+
             // Menü öğeleri ekleme
-            contextMenuStrip.Items.Add("Görüntüle");
-            contextMenuStrip.Items.Add("İndir");
-            contextMenuStrip.Items.Add("Sil");
+            RuhsatMenuStrip.Items.Add("Görüntüle");
+            RuhsatMenuStrip.Items[0].Click += RuhsatMenuGoruntule_Click; ;
+            RuhsatMenuStrip.Items.Add("İndir");
+            RuhsatMenuStrip.Items[1].Click += RuhsatMenuIndir_Click; ;
+            RuhsatMenuStrip.Items.Add("Sil");
+            RuhsatMenuStrip.Items[2].Click += RuhsatMenuSil_Click; ;
+
+            SigortaMenuStrip.Items.Add("Görüntüle");
+            SigortaMenuStrip.Items[0].Click += SigortaMenuGoruntule_Click; ;
+            SigortaMenuStrip.Items.Add("İndir");
+            SigortaMenuStrip.Items[1].Click += SigortaMenuIndir_Click; ;
+            SigortaMenuStrip.Items.Add("Sil");
+            SigortaMenuStrip.Items[2].Click += SigortaMenuSil_Click; ;
+
+            KaskoMenuStrip.Items.Add("Görüntüle");
+            KaskoMenuStrip.Items[0].Click += KaskoMenuGoruntule_Click; ;
+            KaskoMenuStrip.Items.Add("İndir");
+            KaskoMenuStrip.Items[1].Click += KaskoMenuIndir_Click; ;
+            KaskoMenuStrip.Items.Add("Sil");
+            KaskoMenuStrip.Items[2].Click += KaskoMenuSil_Click; ;
+
+            MuayeneMenuStrip.Items.Add("Görüntüle");
+            MuayeneMenuStrip.Items[0].Click += MuayeneMenuGoruntule_Click; ;
+            MuayeneMenuStrip.Items.Add("İndir");
+            MuayeneMenuStrip.Items[1].Click += MuayeneMenuIndir_Click; ;
+            MuayeneMenuStrip.Items.Add("Sil");
+            MuayeneMenuStrip.Items[2].Click += MuayeneMenuSil_Click; ;
+
+            ZimmetMenuStrip.Items.Add("Teslim et");
+            ZimmetMenuStrip.Items[0].Click += ZimmetMenuTeslim_Click;
         }
+
+
+
         PocoARAC _tempArac;
         string base64 = "";
         string base64pdf = "";
@@ -110,10 +151,7 @@ namespace MEYPAK.PRL.ARAÇLAR
             GCAraclar.DataSource = _aracServis.obje.Select(x => new { PLAKA = x.plaka, MARKA = x.marka, MODEL = x.model, ID = x.id });
             gridView1.Columns["ID"].Visible = false;
         }
-        void ResimleriGetir()
-        {
-            RuhsatResimleriGetir();
-        }
+
 
         void AracBilgileriniDoldur()
         {
@@ -129,38 +167,65 @@ namespace MEYPAK.PRL.ARAÇLAR
                 RGAracDurum.SelectedIndex = _tempArac.durum;
                 NUDTekerSayisi.Value = _tempArac.tekersayisi;
                 NUDYedekTekerSayisi.Value = _tempArac.yedektekersayisi;
+
+                _aracResimServis.Data(ServisList.AracResimListeFiltreServis,parameters: $"query=ARACID={_tempArac.id} and KAYITTIPI=0");
+                if(_aracResimServis.obje!=null&& _aracResimServis.obje.Count > 0)
+                {
+                    PBAracResim.Image = Base64ToImage(_aracResimServis.obje.FirstOrDefault().img);
+                    PBAracResim.Properties.SizeMode = PictureSizeMode.Stretch;
+                }
+                else
+                    PBAracResim.Image=null;
+
                 RuhsatResimleriGetir();
                 SigordaGridDoldur();
                 KaskoGridDoldur();
                 MuayeneGridDoldur();
+                ZimmetGridDoldur();
             }
 
 
         }
         void MuayeneGridDoldur()
         {
-            _aracMuayeneServis.Data(ServisList.AracMuayeneResimListeFiltreServis, parameters: $"query=ARACID={_tempArac.id}");
+            _aracMuayeneServis.Data(ServisList.AracMuayeneResimListeFiltreServis, parameters: $"query=ARACID={_tempArac.id} and KAYITTIPI=0");
             GridMuayene.DataSource = _aracMuayeneServis.obje.Select(x => new { BAŞLANGIÇ = x.muayenebastar, BİTİŞ = x.muayenebittar, EGZOZBAŞLANGIÇ = x.egzozbastar, EGZOZBİTİŞ = x.egzozbittar, ID = x.id });
             gridViewMuayene.Columns["ID"].Visible = false;
         }
         void KaskoGridDoldur()
         {
-
-            _aracKaskoServis.Data(ServisList.AracKaskoResimListeFiltreServis, parameters: $"query=ARACID={_tempArac.id}");
+            _aracKaskoServis.Data(ServisList.AracKaskoResimListeFiltreServis, parameters: $"query=ARACID={_tempArac.id} and KAYITTIPI=0");
             GridKasko.DataSource = _aracKaskoServis.obje.Select(x => new { POLICENO = x.kaspoliceno, BAŞLANGIÇ = x.kasbastar, BİTİŞ = x.kasbittar, ID = x.id });
             gridViewKasko.Columns["ID"].Visible = false;
         }
         void SigordaGridDoldur()
         {
-            _aracSigortaServis.Data(ServisList.AracSigortaResimListeFiltreServis, parameters: $"query=ARACID={_tempArac.id}");
+            _aracSigortaServis.Data(ServisList.AracSigortaResimListeFiltreServis, parameters: $"query=ARACID={_tempArac.id} and KAYITTIPI=0");
             GridSigorta.DataSource = _aracSigortaServis.obje.Select(x => new { POLICENO = x.sigpoliceno, BAŞLANGIÇ = x.sigbastar, BİTİŞ = x.sigbittar, ID = x.id });
             gridViewSigorta.Columns["ID"].Visible = false;
         }
         void RuhsatResimleriGetir()
         {
-            _aracServisRUHSATRESIMServis.Data(ServisList.AracRuhsatResimListeFiltreServis, parameters: $"query=ARACID={_tempArac.id}");
-            GridRuhsat.DataSource = _aracServisRUHSATRESIMServis.obje.Where(x => x.aracid == _tempArac.id).Select(x => new { Resim = Base64ToImage(x.img), NUM = x.num });
+            _aracServisRUHSATRESIMServis.Data(ServisList.AracRuhsatResimListeFiltreServis, parameters: $"query=ARACID={_tempArac.id} and KAYITTIPI=0");
+            GridRuhsat.DataSource = _aracServisRUHSATRESIMServis.obje.Where(x => x.aracid == _tempArac.id).Select(x => new { Resim = Base64ToImage(x.img), ID = x.id });
+        }
+        void ZimmetGridDoldur()
+        {
+            _aracZIMMETServis.Data(ServisList.AracZimmetListeFiltreServis, parameters: $"query=ARACID={_tempArac.id} and KAYITTIPI=0");
+            gridZimmet.DataSource = _aracZIMMETServis.obje.Where(x => x.aracid == _tempArac.id).Select(x => new
+            {
+                ID = x.id,
+                MARKAMODEL = x.markamodel,
+                SERINO = x.serino,
+                MIKTAR = x.miktar,
+                ZIMMETTARIH = x.zimmettarihi,
+                ACIKLAMA = x.aciklama,
+                TESLIMALINDI = x.teslimalindi ? "EVET" : "HAYIR",
+                TESLIMTARIH = x.teslimtarihi,
 
+
+            });
+            gridViewZimmet.Columns["ID"].Visible = false;
         }
 
         void CombolarıDoldur()
@@ -210,7 +275,6 @@ namespace MEYPAK.PRL.ARAÇLAR
         private void BTNAracKaydet_Click(object sender, EventArgs e)
         {
             if (MPKullanici.YetkiGetir(AllForms.ARACTANIM.ToString()).EKLE)
-
             {
                 if (TBPlaka.Text != null && CBTip.EditValue != null && CBMarka.EditValue != null && CBModel.EditValue != null && CBYakitTuru.EditValue != null && CBSofor1.EditValue != null)
                 {
@@ -230,6 +294,14 @@ namespace MEYPAK.PRL.ARAÇLAR
                         userid = MPKullanici.ID
                     });
                     _tempArac = _aracServis.obje2;
+                    _aracResimServis.Data(ServisList.AracResimEkleServis,new PocoARACRESIM()
+                    {
+                        id= _aracResimServis.obje!=null? _aracResimServis.obje.Count>0?_aracResimServis.obje.FirstOrDefault().id:0:0,
+                        aracid=_tempArac.id,
+                        img= ImageToBase64(BTNAracFoto.Text),
+                        num=0,
+                        userid=MPKullanici.ID,
+                    });
                     MessageBox.Show($"{_tempArac.plaka} plakalı araç başarıyla güncellendi");
                     AraclarıGetir();
                 }
@@ -389,11 +461,48 @@ namespace MEYPAK.PRL.ARAÇLAR
                     else
                         MessageBox.Show("Gerekli alanları lütfen doldurunuz!");
                 }
+                else
+                    MessageBox.Show("Araç Seçilmeden muayene bilgisi ekleyemezsiniz!");
             }
             else
                 MessageBox.Show(MPKullanici.hata);
         }
+        private void BTNZimKaydet_Click(object sender, EventArgs e)
+        {
+            if (MPKullanici.YetkiGetir(AllForms.ARACTANIM.ToString()).GUNCELLE)
+            {
+                if (_tempArac != null && _tempArac.id != 0)
+                {
 
+                    if (TBZimMarka.EditValue != null && TBZimMiktar.EditValue != null && DTPZimBasTar.EditValue != null && TBZimSeriNo.EditValue != null && TBZimAciklama.EditValue != null)
+                    {
+                        _aracZIMMETServis.Data(ServisList.AracZimmetEkleServis, new PocoARACZIMMET()
+                        {
+                            aracid = _tempArac.id,
+                            markamodel = TBZimMarka.Text,
+                            miktar = Convert.ToInt32(TBZimMiktar.Text),
+                            serino = TBZimSeriNo.Text,
+                            aciklama = TBZimAciklama.Text,
+                            zimmettarihi = (DateTime)DTPZimBasTar.EditValue,
+                            teslimalindi = false,
+                            userid = MPKullanici.ID,
+                        });
+                        TBZimAciklama.Text = "";
+                        TBZimMarka.Text = "";
+                        TBZimSeriNo.Text = "";
+                        TBZimMiktar.Text = "";
+                        MessageBox.Show($"{_tempArac.plaka} plakalı araca zimmet başarıyla eklendi");
+                        ZimmetGridDoldur();
+                    }
+                    else
+                        MessageBox.Show("Gerekli alanları lütfen doldurunuz!");
+                }
+                else
+                    MessageBox.Show("Araç Seçilmeden zimmet bilgisi ekleyemezsiniz!");
+            }
+            else
+                MessageBox.Show(MPKullanici.hata);
+        }
 
         private void buttonEdit2_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
@@ -437,6 +546,7 @@ namespace MEYPAK.PRL.ARAÇLAR
             _tempArac = _aracServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
             AracBilgileriniDoldur();
             base64 = "";
+            BTNAracFoto.Text = "";
         }
 
 
@@ -488,19 +598,19 @@ namespace MEYPAK.PRL.ARAÇLAR
 
         private void GridSigorta_DoubleClick(object sender, EventArgs e)
         {
-            if (gridViewSigorta.GetFocusedRowCellValue("ID") != null)
+            if (((MouseEventArgs)e).Button == MouseButtons.Left && gridViewSigorta.GetFocusedRowCellValue("ID") != null)
             {
 
                 PocoARACSIGORTARESIM tempARACSIGORTARESIM = _aracSigortaServis.obje.Where(x => x.id.ToString() == gridViewSigorta.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
-                ResimAc(tempARACSIGORTARESIM.img, "temp." + tempARACSIGORTARESIM.dosyatip);
+                DosyaAc(tempARACSIGORTARESIM.img, "temp." + tempARACSIGORTARESIM.dosyatip);
             }
         }
 
-        void ResimAc(string base64, string dosyaadi)
+        void DosyaAc(string base64, string dosyaadi)
         {
             if (base64 != "")
             {
-                if (dosyaadi.Substring(dosyaadi.Length-3,3) != "pdf")
+                if (dosyaadi.Substring(dosyaadi.Length - 3, 3) != "pdf")
                 {
                     var image = Base64ToImage(base64);
                     image.Save(dosyaadi);
@@ -516,23 +626,48 @@ namespace MEYPAK.PRL.ARAÇLAR
                 p.Start();
             }
         }
+        void DosyaIndir(string base64, string dosyatip)
+        {
+            if (base64 != "" && dosyatip != "")
+            {
+
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+
+                // varsayılan dosya adı ve türü belirleyin
+                saveFileDialog.FileName = "belge." + dosyatip;
+                saveFileDialog.Filter = $"Belge (*.{dosyatip})|*.{dosyatip}";
+
+                // Kullanıcının Dosya Kaydet düğmesine tıklamasını bekleyin
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    if (dosyatip != "pdf")
+                    {
+                        var image = Base64ToImage(base64);
+                        image.Save(saveFileDialog.FileName);
+                    }
+                    else
+                        System.IO.File.WriteAllBytes(saveFileDialog.FileName, Convert.FromBase64String(base64));
+                    Thread.Sleep(500);
+                }
+            }
+        }
 
 
         private void GridKasko_DoubleClick(object sender, EventArgs e)
         {
-            if (gridViewKasko.GetFocusedRowCellValue("ID") != null)
+            if (((MouseEventArgs)e).Button == MouseButtons.Left && gridViewKasko.GetFocusedRowCellValue("ID") != null)
             {
                 PocoARACKASKORESIM tempARACKASKORESIM = _aracKaskoServis.obje.Where(x => x.id.ToString() == gridViewKasko.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
-                ResimAc(tempARACKASKORESIM.img, "temp." + tempARACKASKORESIM.dosyatip);
+                DosyaAc(tempARACKASKORESIM.img, "temp." + tempARACKASKORESIM.dosyatip);
             }
         }
 
         private void GridMuayene_DoubleClick(object sender, EventArgs e)
         {
-            if (gridViewMuayene.GetFocusedRowCellValue("ID") != null)
+            if (((MouseEventArgs)e).Button == MouseButtons.Left && gridViewMuayene.GetFocusedRowCellValue("ID") != null)
             {
                 PocoARACMUAYENERESIM tempARACMUAYENE = _aracMuayeneServis.obje.Where(x => x.id.ToString() == gridViewMuayene.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
-                ResimAc(tempARACMUAYENE.img, "temp." + tempARACMUAYENE.dosyatip);
+                DosyaAc(tempARACMUAYENE.img, "temp." + tempARACMUAYENE.dosyatip);
             }
         }
 
@@ -542,22 +677,233 @@ namespace MEYPAK.PRL.ARAÇLAR
             {
                 // Mouse pozisyonunu al ve GridView nesnesi oluştur
                 Point clickPoint = new Point(e.X, e.Y);
-                GridView gridView = GridSigorta.GetViewAt(clickPoint) as GridView;
-
-                // GridView nesnesi var mı kontrol et
-                if (gridView != null)
+                // Seçili satırın indeksi geçerli mi kontrol et
+                if (gridViewSigorta.FocusedRowHandle >= 0)
                 {
-                    // Seçili satırın indeksini al
-                    int rowHandle = gridView.FocusedRowHandle;
-
-                    // Seçili satırın indeksi geçerli mi kontrol et
-                    if (rowHandle >= 0)
-                    {
-                        // ContextMenuStrip'i göster
-                        contextMenuStrip.Show(GridSigorta, clickPoint);
-                    }
+                    // ContextMenuStrip'i göster
+                    SigortaMenuStrip.Show(GridSigorta, clickPoint);
                 }
             }
+        }
+
+        private void GridKasko_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right) // Sağ tıklandı mı kontrol etme
+            {
+                // Mouse pozisyonunu al ve GridView nesnesi oluştur
+                Point clickPoint = new Point(e.X, e.Y);
+                // Seçili satırın indeksi geçerli mi kontrol et
+                if (gridViewSigorta.FocusedRowHandle >= 0)
+                {
+                    // ContextMenuStrip'i göster
+                    KaskoMenuStrip.Show(GridKasko, clickPoint);
+                }
+            }
+        }
+
+        private void GridRuhsat_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right) // Sağ tıklandı mı kontrol etme
+            {
+                // Mouse pozisyonunu al ve GridView nesnesi oluştur
+                Point clickPoint = new Point(e.X, e.Y);
+                // Seçili satırın indeksi geçerli mi kontrol et
+                if (tileViewRuhsat.FocusedRowHandle >= 0)
+                {
+                    // ContextMenuStrip'i göster
+                    RuhsatMenuStrip.Show(GridRuhsat, clickPoint);
+                }
+            }
+        }
+
+        private void GridMuayene_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right) // Sağ tıklandı mı kontrol etme
+            {
+                // Mouse pozisyonunu al ve GridView nesnesi oluştur
+                Point clickPoint = new Point(e.X, e.Y);
+                // Seçili satırın indeksi geçerli mi kontrol et
+                if (gridViewMuayene.FocusedRowHandle >= 0)
+                {
+                    // ContextMenuStrip'i göster
+                    MuayeneMenuStrip.Show(GridMuayene, clickPoint);
+                }
+            }
+        }
+        private void gridZimmet_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right) // Sağ tıklandı mı kontrol etme
+            {
+                // Mouse pozisyonunu al ve GridView nesnesi oluştur
+                Point clickPoint = new Point(e.X, e.Y);
+                // Seçili satırın indeksi geçerli mi kontrol et
+                if (gridViewZimmet.FocusedRowHandle >= 0)
+                {
+                    // ContextMenuStrip'i göster
+                    ZimmetMenuStrip.Show(gridZimmet, clickPoint);
+                }
+            }
+        }
+
+        private void MuayeneMenuSil_Click(object? sender, EventArgs e)
+        {
+            if (gridViewMuayene.GetFocusedRowCellValue("ID") != null)
+            {
+                if (MessageBox.Show("Muayeneyi silmek istediğinize emin misiniz?", "Sil", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    _aracMuayeneServis.Data(ServisList.AracMuayeneResimDeleteByIdServis, id: gridViewMuayene.GetFocusedRowCellValue("ID").ToString(), method: System.Net.Http.HttpMethod.Post);
+                    MessageBox.Show("Muayene başarıyla silindi.");
+                    MuayeneGridDoldur();
+                }
+            }
+        }
+
+        private void MuayeneMenuIndir_Click(object? sender, EventArgs e)
+        {
+            if (gridViewMuayene.GetFocusedRowCellValue("ID") != null)
+            {
+                PocoARACMUAYENERESIM tempARACMUAYENE = _aracMuayeneServis.obje.Where(x => x.id.ToString() == gridViewMuayene.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+                DosyaIndir(tempARACMUAYENE.img, tempARACMUAYENE.dosyatip);
+            }
+        }
+
+        private void MuayeneMenuGoruntule_Click(object? sender, EventArgs e)
+        {
+            if (gridViewMuayene.GetFocusedRowCellValue("ID") != null)
+            {
+                PocoARACMUAYENERESIM tempARACMUAYENE = _aracMuayeneServis.obje.Where(x => x.id.ToString() == gridViewMuayene.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+                DosyaAc(tempARACMUAYENE.img, "temp." + tempARACMUAYENE.dosyatip);
+            }
+        }
+
+        private void KaskoMenuSil_Click(object? sender, EventArgs e)
+        {
+            if (gridViewKasko.GetFocusedRowCellValue("ID") != null)
+            {
+                if (MessageBox.Show("Kasko silmek istediğinize emin misiniz?", "Sil", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    _aracKaskoServis.Data(ServisList.AracKaskoResimDeleteByIdServis, id: gridViewKasko.GetFocusedRowCellValue("ID").ToString(), method: System.Net.Http.HttpMethod.Post);
+                    MessageBox.Show("Kasko başarıyla silindi.");
+                    KaskoGridDoldur();
+                }
+            }
+        }
+
+        private void KaskoMenuIndir_Click(object? sender, EventArgs e)
+        {
+            if (gridViewKasko.GetFocusedRowCellValue("ID") != null)
+            {
+                PocoARACKASKORESIM tempARACKASKORESIM = _aracKaskoServis.obje.Where(x => x.id.ToString() == gridViewKasko.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+                DosyaIndir(tempARACKASKORESIM.img, tempARACKASKORESIM.dosyatip);
+            }
+        }
+
+        private void KaskoMenuGoruntule_Click(object? sender, EventArgs e)
+        {
+            if (gridViewKasko.GetFocusedRowCellValue("ID") != null)
+            {
+                PocoARACKASKORESIM tempARACKASKORESIM = _aracKaskoServis.obje.Where(x => x.id.ToString() == gridViewKasko.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+                DosyaAc(tempARACKASKORESIM.img, "temp." + tempARACKASKORESIM.dosyatip);
+            }
+        }
+
+        private void SigortaMenuSil_Click(object? sender, EventArgs e)
+        {
+            if (gridViewSigorta.GetFocusedRowCellValue("ID") != null)
+            {
+                if (MessageBox.Show("Sigortayı silmek istediğinize emin misiniz?", "Sil", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    _aracSigortaServis.Data(ServisList.AracSigortaResimDeleteByIdServis, id: gridViewSigorta.GetFocusedRowCellValue("ID").ToString(), method: System.Net.Http.HttpMethod.Post);
+                    MessageBox.Show("Sigorta başarıyla silindi.");
+                    SigordaGridDoldur();
+                }
+            }
+        }
+
+        private void SigortaMenuIndir_Click(object? sender, EventArgs e)
+        {
+            if (gridViewSigorta.GetFocusedRowCellValue("ID") != null)
+            {
+
+                PocoARACSIGORTARESIM tempARACSIGORTARESIM = _aracSigortaServis.obje.Where(x => x.id.ToString() == gridViewSigorta.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+                DosyaIndir(tempARACSIGORTARESIM.img, tempARACSIGORTARESIM.dosyatip);
+            }
+        }
+
+        private void SigortaMenuGoruntule_Click(object? sender, EventArgs e)
+        {
+            if (gridViewSigorta.GetFocusedRowCellValue("ID") != null)
+            {
+
+                PocoARACSIGORTARESIM tempARACSIGORTARESIM = _aracSigortaServis.obje.Where(x => x.id.ToString() == gridViewSigorta.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+                DosyaAc(tempARACSIGORTARESIM.img, "temp." + tempARACSIGORTARESIM.dosyatip);
+            }
+        }
+
+        private void RuhsatMenuSil_Click(object? sender, EventArgs e)
+        {
+            if (tileViewRuhsat.GetFocusedRowCellValue("ID") != null)
+            {
+                if (MessageBox.Show("Ruhsatı silmek istediğinize emin misiniz?", "Sil", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    _aracServisRUHSATRESIMServis.Data(ServisList.AracRuhsatResimDeleteByIdServis, id: tileViewRuhsat.GetFocusedRowCellValue("ID").ToString(), method: System.Net.Http.HttpMethod.Post);
+                    MessageBox.Show("Ruhsat başarıyla silindi.");
+                    RuhsatResimleriGetir();
+                }
+            }
+        }
+
+        private void RuhsatMenuIndir_Click(object? sender, EventArgs e)
+        {
+            if (tileViewRuhsat.GetFocusedRowCellValue("ID") != null)
+            {
+                PocoARACRUHSATRESIM tempARACRUHSATRESIM = _aracServisRUHSATRESIMServis.obje.Where(x => x.id.ToString() == tileViewRuhsat.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+                DosyaIndir(tempARACRUHSATRESIM.img, tempARACRUHSATRESIM.dosyatip);
+            }
+        }
+
+        private void RuhsatMenuGoruntule_Click(object? sender, EventArgs e)
+        {
+            if (tileViewRuhsat.GetFocusedRowCellValue("ID") != null)
+            {
+                PocoARACRUHSATRESIM tempARACRUHSATRESIM = _aracServisRUHSATRESIMServis.obje.Where(x => x.id.ToString() == tileViewRuhsat.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+                DosyaAc(tempARACRUHSATRESIM.img, "temp." + tempARACRUHSATRESIM.dosyatip);
+            }
+        }
+        private void ZimmetMenuTeslim_Click(object? sender, EventArgs e)
+        {
+            if (gridViewZimmet.GetFocusedRowCellValue("ID") != null)
+            {
+                if (MessageBox.Show($"{_tempArac.plaka} plakalı {gridViewZimmet.GetFocusedRowCellValue("SERINO")} seri numaralı zimmeti teslim almak istediğinize emin misiniz", "Teslim Al", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    PocoARACZIMMET temp = _aracZIMMETServis.obje.Where(x => x.id.ToString() == gridViewZimmet.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+                    if (!temp.teslimalindi)
+                    {
+                        temp.teslimtarihi = DateTime.Now;
+                        temp.teslimalindi= true;
+                        _aracZIMMETServis.Data(ServisList.AracZimmetEkleServis, temp);
+                        MessageBox.Show("Zimmet başarıyla teslim alındı");
+                        ZimmetGridDoldur();
+                    }
+                    else
+                        MessageBox.Show($"{temp.serino} seri numaralı zimmet zaten daha önce teslim alınmış!");
+                }
+            }
+            else
+                MessageBox.Show("Lütfen bir zimmet seçiniz!");
+        }
+
+        private void gridViewZimmet_RowStyle(object sender, RowStyleEventArgs e)
+        {
+
+            string quantity = Convert.ToString(gridViewZimmet.GetRowCellValue(e.RowHandle, "TESLIMALINDI"));
+
+            if (quantity == "HAYIR")
+            {
+                e.Appearance.BackColor = Color.LightGreen;
+            }
+          
+          
         }
     }
 }

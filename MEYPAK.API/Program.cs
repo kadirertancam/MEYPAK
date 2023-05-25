@@ -122,6 +122,7 @@ builder.Services.AddScoped<IFaturaStokEsleDal, EFFaturaStokEsleRepo>();
 builder.Services.AddScoped<IFaturaStokEsleServis, FaturaStokEsleManager>();
  
 #endregion
+
 #region VERSION
 builder.Services.AddScoped<IVersionDal, EFVersionRepo>();
 builder.Services.AddScoped<IVersionServis, VersionManager>();
@@ -466,6 +467,12 @@ builder.Services.AddScoped<IAracRotaServis, AracRotaManager>();
 
 builder.Services.AddScoped<ISoforDal, EFSoforRepo>();
 builder.Services.AddScoped<ISoforServis, SoforManager>();
+
+builder.Services.AddScoped<IAracBelgeDal, EFAracBelgeRepo>();
+builder.Services.AddScoped<IAracBelgeServis, AracBelgeManager>();
+
+builder.Services.AddScoped<IAracZimmetDal,  EFAracZimmetRepo>();
+builder.Services.AddScoped<IAracZimmetServis, AracZimmetManager>();
 #endregion
 
 #region KASA_Scoped_Islemleri
@@ -485,6 +492,12 @@ builder.Services.AddScoped<IFaturaServis, FaturaManager>();
 
 builder.Services.AddScoped<IFaturaDetayDal, EFFaturaDetayRepo>();
 builder.Services.AddScoped<IFaturaDetayServis, FaturaDetayManager>();
+
+builder.Services.AddScoped<IFaturaTaslakDal,  EFFaturaTaslakRepo>();
+builder.Services.AddScoped<IFaturaTaslakServis, FaturaTaslakManager>();
+
+builder.Services.AddScoped<IFaturaDetayTaslakDal,  EFFaturaDetayTaslakRepo>();
+builder.Services.AddScoped<IFaturaDetayTaslakServis, FaturaDetayTaslakManager>();
 
 builder.Services.AddScoped<ISeriDal, EFSeriRepo>();
 builder.Services.AddScoped<ISeriServis, SeriManager>();
