@@ -41,6 +41,15 @@ namespace MEYPAK.BLL.Assets
         public const string MustahsilDetayDeleteByIdServis =  "http://78.135.80.41:8081/MUSTAHSILDETAY/DeleteById";
         public const string MustahsilDetayListeFiltreServis = "http://78.135.80.41:8081/MUSTAHSILDETAY/Liste2";
 
+        #endregion        
+        #region GELENEFATURA
+        public const string GELENEFATURAListeServis =       "http://78.135.80.41:8081/GELENEFATURA/GELENEFATURAListe";
+        public const string GELENEFATURAEkleServis =        "http://78.135.80.41:8081/GELENEFATURA/GELENEFATURAEkleyadaGuncelle";
+        public const string GELENEFATURASilServis =         "http://78.135.80.41:8081/GELENEFATURA/GELENEFATURASil";
+        public const string GELENEFATURAGuncelleServis =    "http://78.135.80.41:8081/GELENEFATURA/GELENEFATURAGuncelle";
+        public const string GELENEFATURADeleteByIdServis =  "http://78.135.80.41:8081/GELENEFATURA/DeleteById";
+        public const string GELENEFATURAListeFiltreServis = "http://78.135.80.41:8081/GELENEFATURA/Liste2";
+
         #endregion
 
         #region MUSTAHSILCARI

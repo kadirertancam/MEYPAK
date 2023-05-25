@@ -615,8 +615,8 @@ namespace MEYPAK.PRL.IRSALIYE
                     id = x.id,
                     Tipi = x.tip == 0 ? "STOK" : x.tip == 1 ? "HIZMET" : x.tip == 2 ? "KASA" : x.tip == 3 ? "DEMIRBAS" : "MUHASEBE",
                     StokId = x.stokid,
-                    StokKodu = x.tip == 0 ? _stokServis.obje.Where(z => z.id == x.stokid).Count() > 0 ? _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().kod : "" : x.tip == 1 ? _hizmetServis.obje.Where(y => y.id == x.stokid).Count() > 0 ? _hizmetServis.obje.Where(y => y.id == x.stokid).FirstOrDefault().kod : "" : "",//,  TODOO:BAKILACAAAK
-                    StokAdı = x.tip == 0 ? _stokServis.obje.Where(z => z.id == x.stokid).Count() > 0 ? _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().adi : "" : x.tip == 1 ? _hizmetServis.obje.Where(y => y.id == x.stokid).Count() > 0 ? _hizmetServis.obje.Where(y => y.id == x.stokid).FirstOrDefault().kod : "" : "",
+                    StokKodu = x.tip == 0 ? _stokServis.obje.Where(z => z.id == x.stokid).Count() > 0 ? _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().kod : "" : x.tip == 1 ? _hizmetServis.obje.Where(y => y.id == x.stokid).Count() > 0 ? _hizmetServis.obje.Where(y => y.id == x.stokid).FirstOrDefault().kod : "" : x.tip == 2 ? _kasaServis.obje.Where(y => y.id == x.stokid).Count() > 0 ? _kasaServis.obje.Where(y => y.id == x.stokid).FirstOrDefault().kasakodu : "" : "",//,  TODOO:BAKILACAAAK
+                    StokAdı = x.tip == 0 ? _stokServis.obje.Where(z => z.id == x.stokid).Count() > 0 ? _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().adi : "" : x.tip == 1 ? _hizmetServis.obje.Where(y => y.id == x.stokid).Count() > 0 ? _hizmetServis.obje.Where(y => y.id == x.stokid).FirstOrDefault().kod : "" : x.tip == 2 ? _kasaServis.obje.Where(y => y.id == x.stokid).Count() > 0 ? _kasaServis.obje.Where(y => y.id == x.stokid).FirstOrDefault().kasaadi : "" : "",
                     Birim = _olcuBr.obje.Where(y => y.id == x.birimid).Count() > 0 ? _olcuBr.obje.Where(y => y.id == x.birimid).FirstOrDefault().adi : "",
                     Kunye = x.kunye,
                     NetFiyat = x.netfiyat,
@@ -957,7 +957,7 @@ namespace MEYPAK.PRL.IRSALIYE
                         birimfiyat = item.BirimFiyat,
                         nettoplam = item.NetToplam,
                         netfiyat = item.NetFiyat,
-                        birimid = item.Tipi=="STOK" ? _olcuBr.obje.Where(y => y.adi == item.Birim).FirstOrDefault().id:0,
+                        birimid =  _olcuBr.obje.Where(y => y.adi == item.Birim).FirstOrDefault().id ,
                         dovizid = item.Doviz,
                         kasamiktar = item.KasaMiktar,
                         dara = item.Dara,
@@ -1034,7 +1034,7 @@ namespace MEYPAK.PRL.IRSALIYE
                             irsaliyedetayid = _irsaliyeDetayServis.obje2.id,
                             irsaliyeid = _irsaliyeServis.obje2.id,
                             io = 1,
-                            miktar = item.Safi,
+                            miktar = item.Safi, 
                             belge_no = _irsaliyeServis.obje2.belgeno,
                             cariid = _irsaliyeServis.obje2.cariid,
                             kasaid = item.StokId,

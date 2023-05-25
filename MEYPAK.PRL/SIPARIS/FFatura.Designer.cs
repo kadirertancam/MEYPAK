@@ -55,6 +55,8 @@
             this.CBParaBirimi = new DevExpress.XtraEditors.GridLookUpEdit();
             this.CBParaBirimiView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -108,8 +110,7 @@
             this.BTKaydet = new System.Windows.Forms.Button();
             this.BTNSil = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
-            this.label1 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DTSiparisTarih.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTSiparisTarih.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CHBKdvDahil.Properties)).BeginInit();
@@ -122,6 +123,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.CBParaBirimi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBParaBirimiView)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPVadeTarihi.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPVadeTarihi.Properties)).BeginInit();
@@ -152,7 +154,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.TBBrutToplam.Properties)).BeginInit();
             this.panel6.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // DTSiparisTarih
@@ -276,6 +277,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.lookUpEdit1);
             this.groupBox1.Controls.Add(this.label2);
@@ -314,6 +316,25 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Satış Fatura";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(1295, 43);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 162;
+            this.label1.Text = "label1";
+            // 
+            // lookUpEdit1
+            // 
+            this.lookUpEdit1.Location = new System.Drawing.Point(1351, 40);
+            this.lookUpEdit1.Name = "lookUpEdit1";
+            this.lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpEdit1.Properties.NullText = "";
+            this.lookUpEdit1.Size = new System.Drawing.Size(149, 20);
+            this.lookUpEdit1.TabIndex = 161;
             // 
             // label2
             // 
@@ -901,24 +922,15 @@
             this.panel3.Size = new System.Drawing.Size(1615, 423);
             this.panel3.TabIndex = 1;
             // 
-            // lookUpEdit1
+            // button2
             // 
-            this.lookUpEdit1.Location = new System.Drawing.Point(1351, 40);
-            this.lookUpEdit1.Name = "lookUpEdit1";
-            this.lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lookUpEdit1.Properties.NullText = "";
-            this.lookUpEdit1.Size = new System.Drawing.Size(149, 20);
-            this.lookUpEdit1.TabIndex = 161;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1295, 43);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 162;
-            this.label1.Text = "label1";
+            this.button2.Location = new System.Drawing.Point(1263, 138);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(130, 52);
+            this.button2.TabIndex = 163;
+            this.button2.Text = "Barkod Oluştur";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // FFatura
             // 
@@ -943,6 +955,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.CBParaBirimiView)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPVadeTarihi.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPVadeTarihi.Properties)).EndInit();
@@ -976,7 +989,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.TBBrutToplam.Properties)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1050,5 +1062,6 @@
         private ComboBox comboBox1;
         private Label label1;
         private DevExpress.XtraEditors.LookUpEdit lookUpEdit1;
+        private Button button2;
     }
 }

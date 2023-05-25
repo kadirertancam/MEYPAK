@@ -969,6 +969,11 @@ namespace MEYPAK.PRL.SIPARIS
 
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void comboBoxEdit1_SelectedIndexChanged(object sender, EventArgs e)
         {
 

@@ -131,7 +131,7 @@ namespace MEYPAK.PRL
                 //var a = _StokOlcuBrServis.obje.Where(x => x.stokid == _tempStok.id && x.kayittipi == 0).Count() > i + 1 ? _StokOlcuBrServis.obje.Where(x => x.stokid == _tempStok.id && x.kayittipi == 0).ToList()[i].olcubrid : 0;
 
 
-
+                //
 
 
 

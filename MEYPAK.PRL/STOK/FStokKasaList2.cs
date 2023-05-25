@@ -41,6 +41,7 @@ namespace MEYPAK.PRL.STOK
         StokKasaGirisPanel fstokKasaGirisPanel;
         FFatura fFatura;
         FGELENIRSALIYE FGelenIrsaliye;
+        EFATURA eFATURA;
         #endregion
 
         private void FStokKasaList2_Load(object sender, EventArgs e)
@@ -66,6 +67,8 @@ namespace MEYPAK.PRL.STOK
                         fFatura = (FFatura)frm; 
                     if (frm.Name.Contains("FGELENIRSALIYE"))
                         FGelenIrsaliye = (FGELENIRSALIYE)frm;
+                    if (frm.Name.Contains("EFATURA"))
+                        eFATURA = (EFATURA)frm;
                 }
             }
             
@@ -100,6 +103,10 @@ namespace MEYPAK.PRL.STOK
             if (_islem == "FGelenIrsaliye")
             {
                 FGelenIrsaliye._tempKasa = _stokKasaServis.obje.Where(x => x.kayittipi == 0 && x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()).FirstOrDefault();
+            }
+            if (_islem == "EFaturaGelenKutu")
+            {
+                eFATURA._tempKasa = _stokKasaServis.obje.Where(x => x.kayittipi == 0 && x.id.ToString() == gridView1.GetFocusedRowCellValue("id").ToString()).FirstOrDefault();
             }
             this.Close();
         }

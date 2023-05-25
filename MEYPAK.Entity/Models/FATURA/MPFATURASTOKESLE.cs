@@ -8,6 +8,7 @@ namespace MEYPAK.Entity.Models.FATURA
 {
     public class MPFATURASTOKESLE:SUPERMODEL
     {
+        public string TIP { get; set; }
         public int STOKID { get; set; }
         public string STOKADI { get; set; }
     }

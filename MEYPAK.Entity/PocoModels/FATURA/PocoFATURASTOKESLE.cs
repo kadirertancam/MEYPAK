@@ -8,6 +8,7 @@ namespace MEYPAK.Entity.PocoModels.FATURA
 {
     public class PocoFATURASTOKESLE:SUPERPOCOMODEL
     {
+        public string tip { get; set; }
         public int stokid { get; set; }
         public string stokadi { get; set; }
     }

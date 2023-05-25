@@ -646,8 +646,8 @@ namespace MEYPAK.PRL.SIPARIS
                     id = x.id,
                     Tipi = x.tip == 0 ? "STOK" : x.tip == 1 ? "HIZMET" : x.tip == 2 ? "KASA" : x.tip == 3 ? "DEMIRBAS" : "MUHASEBE",
                     StokId = x.stokid,
-                    StokKodu = x.tip == 0 ? _stokServis.obje.Where(z => z.id == x.stokid).Count() > 0 ? _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().kod : "" : x.tip == 1 ? _hizmetServis.obje.Where(y => y.id == x.stokid).Count() > 0 ? _hizmetServis.obje.Where(y => y.id == x.stokid).FirstOrDefault().kod : "" : "",//,  TODOO:BAKILACAAAK
-                    StokAdı = x.tip == 0 ? _stokServis.obje.Where(z => z.id == x.stokid).Count() > 0 ? _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().adi : "" : x.tip == 1 ? _hizmetServis.obje.Where(y => y.id == x.stokid).Count() > 0 ? _hizmetServis.obje.Where(y => y.id == x.stokid).FirstOrDefault().kod : "" : "",
+                    StokKodu = x.tip == 0 ? _stokServis.obje.Where(z => z.id == x.stokid).Count() > 0 ? _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().kod : "" : x.tip == 1 ? _hizmetServis.obje.Where(y => y.id == x.stokid).Count() > 0 ? _hizmetServis.obje.Where(y => y.id == x.stokid).FirstOrDefault().kod : "" : x.tip==2?_kasaServis.obje.Where(y=>y.id==x.stokid).Count()>0? _kasaServis.obje.Where(y => y.id == x.stokid).FirstOrDefault().kasakodu:"":"",//,  TODOO:BAKILACAAAK
+                    StokAdı = x.tip == 0 ? _stokServis.obje.Where(z => z.id == x.stokid).Count() > 0 ? _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().adi : "" : x.tip == 1 ? _hizmetServis.obje.Where(y => y.id == x.stokid).Count() > 0 ? _hizmetServis.obje.Where(y => y.id == x.stokid).FirstOrDefault().kod : "" : x.tip == 2 ? _kasaServis.obje.Where(y => y.id == x.stokid).Count() > 0 ? _kasaServis.obje.Where(y => y.id == x.stokid).FirstOrDefault().kasaadi : "":"",
                     Birim = _olcuBr.obje.Where(y => y.id == x.birimid).Count() > 0 ? _olcuBr.obje.Where(y => y.id == x.birimid).FirstOrDefault().adi : "",
                     Kunye = x.kunye,
                     NetFiyat = x.netfiyat,
@@ -1280,6 +1280,7 @@ namespace MEYPAK.PRL.SIPARIS
         {
             FFaturaList ffaturalist = new FFaturaList(this.Tag.ToString(), "FAlisFatura");
             ffaturalist.ShowDialog();
+            _tempFaturaDetay.Clear();
             Doldur();
 
         }
