@@ -10,6 +10,7 @@ namespace MEYPAK.Entity.PocoModels.FATURA
 {
     public class PocoFATURATASLAK:SUPERPOCOMODEL
     {
+        public string TASLAKADI { get; set; }
         public int IRSALIYEID { get; set; } = 0;
         [DefaultValue(0)]
         public int SIRKETID { get; set; } = 0;

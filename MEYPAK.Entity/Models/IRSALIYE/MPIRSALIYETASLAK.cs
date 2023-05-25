@@ -10,6 +10,7 @@ namespace MEYPAK.Entity.Models.IRSALIYE
 {
     public class MPIRSALIYETASLAK:SUPERMODEL
     {
+        public string TASLAKADI { get; set; }
         public int SIPARISID { get; set; }
         [DefaultValue(0)]
         public int SIRKETID { get; set; } = 0;

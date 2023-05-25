@@ -9,6 +9,10 @@ namespace MEYPAK.Entity.Models.CARI
     public class MPCARIKART:SUPERMODEL
     {
         public string KOD { get; set; }
+        public string SIFAT { get; set; } = "";
+        public int SIFATID { get; set; } = 0;
+        public string SUBE { get; set; } = "";
+        public int SUBEID { get; set; } = 0;
         public string ADI { get; set; } = "";
         public string SOYADI { get; set; } = "";
         public string UNVAN { get; set; } = "";

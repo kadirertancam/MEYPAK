@@ -4,6 +4,7 @@ using DevExpress.Text.Interop;
 using DevExpress.Utils;
 using DevExpress.XtraEditors;
 using DevExpress.XtraPrinting;
+using DevExpress.XtraScheduler.Reporting.Native;
 using DevExpress.XtraSpreadsheet.Import.OpenXml;
 using DevExpress.XtraTab;
 using MEYPAK.BLL.Assets;
@@ -147,6 +148,11 @@ namespace MEYPAK.PRL.CARI
             DGSevkAdres.DataSource = "";
             DGAltHesap.DataSource = "";
             DGYetkiliBilgi.DataSource = "";
+            CBSifat.Text = "";
+            CBSifat.EditValue= null;
+            CBSube.Text = "";
+            CBSube.EditValue= null;
+            
 
 
         }
@@ -160,6 +166,8 @@ namespace MEYPAK.PRL.CARI
                 CBUlke.EditValue = _tempCariKart.ulke;
                 CBIl.EditValue = _tempCariKart.il;
                 // CBIlce.EditValue = _tempCariKart.ilce;
+                CBSube.EditValue = _tempCariKart.SUBEID;
+                CBSifat.EditValue = _tempCariKart.SIFATID;
                 TBMahalle.Text = _tempCariKart.mahalle;
                 TBSokak.Text = _tempCariKart.sokak;
                 TBApt.Text = _tempCariKart.apt;
@@ -265,7 +273,7 @@ namespace MEYPAK.PRL.CARI
         }
         public void FCariKart_Load(object sender, EventArgs e)
         {
-        
+
             #region ILCombobox
             //string url = @"http://elizmeypak.com.tr/il-ilce.json";
             //string url2 = @"http://elizmeypak.com.tr/ulkeler.json";
@@ -297,7 +305,7 @@ namespace MEYPAK.PRL.CARI
             CBIl.Properties.DataSource = _adresObje.data.Select(x => x.il_adi);
             CBSevkIl.Properties.DataSource = _adresObje.data.Select(x => x.il_adi);
             #endregion
-     
+
             #region UlkeCombobox
             //using (Stream s = GetStreamFromUrl(url2))
             //using (StreamReader sr = new StreamReader(s))
@@ -307,11 +315,11 @@ namespace MEYPAK.PRL.CARI
             //    }
 
             jsonBytes = Properties.Resources.ulkeler;
-             jsonString = Encoding.UTF8.GetString(jsonBytes);
+            jsonString = Encoding.UTF8.GetString(jsonBytes);
 
             // Geçici bir dosya oluştur ve jsonString'i bu dosyaya yaz.
-             tempDirPath = Path.GetTempPath();
-             tempFilePath = Path.Combine(tempDirPath, "temp.json");
+            tempDirPath = Path.GetTempPath();
+            tempFilePath = Path.Combine(tempDirPath, "temp.json");
             File.WriteAllText(tempFilePath, jsonString);
 
             // Dosyayı oku ve kullan.
@@ -323,6 +331,60 @@ namespace MEYPAK.PRL.CARI
 
             CBUlke.Properties.DataSource = _ulkeList.Ulke.Select(x => x.ulkeadi);
             #endregion
+
+            #region ŞUBE&SINIFCombo
+            DataTable sube = new DataTable();
+            sube.Columns.Add("ADI", typeof(string));
+            sube.Columns.Add("ID", typeof(int));
+
+
+            sube.Rows.Add("TASNİFLEME & AMBALAJLAMA", 4);
+            sube.Rows.Add("HAL İÇİ DEPO", 5);
+            sube.Rows.Add("HAL DIŞI DEPO", 6);
+            sube.Rows.Add("HAL İÇİ İŞ YERİ", 7);
+            sube.Rows.Add("HAL DIŞI İŞ YERİ", 8);
+            sube.Rows.Add("SINAYI İŞLETME", 9);
+            sube.Rows.Add("DAĞITIM MERKEZİ", 12);
+            sube.Rows.Add("YURTDIŞI", 16);
+            sube.Rows.Add("BİREYSEL TÜKETİM", 18);
+            sube.Rows.Add("PERAKENDE SATIŞ", 19);
+            sube.Columns[1].ColumnMapping = MappingType.Hidden;
+
+            CBSube.Properties.DataSource = sube;
+            CBSube.Properties.DisplayMember = "ADI";
+            CBSube.Properties.ValueMember = "ID";
+
+
+            DataTable sifat = new DataTable();
+            sifat.Columns.Add("ADI", typeof(string));
+            sifat.Columns.Add("ID", typeof(int));
+            sifat.Rows.Add("Depo /Tasnif ve Ambalaj", 9);
+            sifat.Rows.Add("E - Market", 24);
+            sifat.Rows.Add("Hastane", 19);
+            sifat.Rows.Add("İhracat", 2);
+            sifat.Rows.Add("İmalatçı", 23);
+            sifat.Rows.Add("İthalat", 3);
+            sifat.Rows.Add("Komisyoncu", 5);
+            sifat.Rows.Add("Lokanta", 13);
+            sifat.Rows.Add("Manav", 8);
+            sifat.Rows.Add("Market", 7);
+            sifat.Rows.Add("Otel", 12);
+            sifat.Rows.Add("Pazarcı", 11);
+            sifat.Rows.Add("Sanayici", 1);
+            sifat.Rows.Add("Tüccar(Hal Dışı)", 20);
+            sifat.Rows.Add("Tüccar(Hal İçi)", 6);
+            sifat.Rows.Add("Üretici", 4);
+            sifat.Rows.Add("Üretici Örgütü", 10);
+            sifat.Rows.Add("Yemek fabrikası", 15);
+            sifat.Rows.Add("Yurt", 14);
+            sifat.Columns[1].ColumnMapping = MappingType.Hidden;
+
+            CBSifat.Properties.DataSource = sifat;
+            CBSifat.Properties.DisplayMember = "ADI";
+            CBSifat.Properties.ValueMember = "ID";
+
+            #endregion
+
             if (_tempCariKart != null)
             {
                 Doldur();
@@ -398,7 +460,7 @@ namespace MEYPAK.PRL.CARI
         }
         private void BTYetkiliSil_Click(object sender, EventArgs e) //TO DO 
         {
-           
+
         }
 
         //Cari Alt Hesap
@@ -541,6 +603,10 @@ namespace MEYPAK.PRL.CARI
             {
                 id = _tempCariKart != null ? _tempCariKart.id : 0,
                 kod = BTCariSec.Text,
+                SIFAT = CBSifat.Text != null ? CBSifat.Text : "",
+                SIFATID = CBSifat.EditValue != null ? Convert.ToInt32(CBSifat.EditValue) : 0,
+                SUBE = CBSube.Text != null ? CBSube.Text : "",
+                SUBEID = CBSube.EditValue != null ? Convert.ToInt32(CBSube.EditValue) : 0,
                 unvan = TBUnvan.Text,
                 ulke = CBUlke.Text,
                 il = CBIl.Text,
@@ -660,17 +726,17 @@ namespace MEYPAK.PRL.CARI
 
         private void BTSil_Click(object sender, EventArgs e)
         {
-            if ( MPKullanici.YetkiGetir(AllForms.CARIKART.ToString()).SIL == true)
+            if (MPKullanici.YetkiGetir(AllForms.CARIKART.ToString()).SIL == true)
             {
-            if (_tempCariKart.id > 0 && _tempCariKart != null)
-            {
-                _cariServis.Data(ServisList.CariDeleteByIdServis, id: _tempCariKart.id.ToString(), method: HttpMethod.Post);
-                MessageBox.Show("Silme Başarılı");
-                FormuTemizle();
-                _tempCariKart = null;
-            }
-            else
-                MessageBox.Show("Cari Seçmeden Cari Silemezsiniz!");
+                if (_tempCariKart.id > 0 && _tempCariKart != null)
+                {
+                    _cariServis.Data(ServisList.CariDeleteByIdServis, id: _tempCariKart.id.ToString(), method: HttpMethod.Post);
+                    MessageBox.Show("Silme Başarılı");
+                    FormuTemizle();
+                    _tempCariKart = null;
+                }
+                else
+                    MessageBox.Show("Cari Seçmeden Cari Silemezsiniz!");
 
             }
             else
@@ -759,27 +825,27 @@ namespace MEYPAK.PRL.CARI
             if (MPKullanici.YetkiGetir(AllForms.CARIKART.ToString()).EKLE == true)
             {
 
-           
+
                 _cariAltHesCariServis.Data(ServisList.CariAltHesCariListeServis);
-            if (_tempCARIALTHES != null && _tempCariKart != null && _cariAltHesCariServis.obje.Where(x => x.cariid == _tempCariKart.id && x.carialthesid == _tempCARIALTHES.id).Count() == 0)
-            {
-                _cariAltHesCariServis.Data(ServisList.CariAltHesCariEkleServis, new PocoCARIALTHESCARI()
+                if (_tempCARIALTHES != null && _tempCariKart != null && _cariAltHesCariServis.obje.Where(x => x.cariid == _tempCariKart.id && x.carialthesid == _tempCARIALTHES.id).Count() == 0)
                 {
-                    carialthesid = _tempCARIALTHES.id,
-                    cariid = _tempCariKart.id,
-                    aktif = 1,
-                    userid = MPKullanici.ID
-                });
-                _cariAltHesCariServis.obje.Add(_cariAltHesCariServis.obje2);
-                DGAltHesap.DataSource = _cariAltHesCariServis.obje.Where(x => x.cariid == _tempCariKart.id).Select(x => new { ALTHESAPADI = _cariAltHesapServis.obje.Where(z => z.id == x.carialthesid).FirstOrDefault().adi, PARABIRIMI = _cariParABIRIM.obje.Where(z => z.id == _cariAltHesapServis.obje.Where(y => y.id == x.carialthesid).FirstOrDefault().dovizid).FirstOrDefault().kisaadi, AKTIF = x.aktif });
-                DGAltHesap.RefreshDataSource();
-                _tempCARIALTHES = null;
-                BTAltHesSec.Text = "";
-                TBAltHesapAdi.Text = "";
-            }
-            else
-            {
-                MessageBox.Show("Cari veya Alt Hesap seçmeden ekleyemezsiniz!");
+                    _cariAltHesCariServis.Data(ServisList.CariAltHesCariEkleServis, new PocoCARIALTHESCARI()
+                    {
+                        carialthesid = _tempCARIALTHES.id,
+                        cariid = _tempCariKart.id,
+                        aktif = 1,
+                        userid = MPKullanici.ID
+                    });
+                    _cariAltHesCariServis.obje.Add(_cariAltHesCariServis.obje2);
+                    DGAltHesap.DataSource = _cariAltHesCariServis.obje.Where(x => x.cariid == _tempCariKart.id).Select(x => new { ALTHESAPADI = _cariAltHesapServis.obje.Where(z => z.id == x.carialthesid).FirstOrDefault().adi, PARABIRIMI = _cariParABIRIM.obje.Where(z => z.id == _cariAltHesapServis.obje.Where(y => y.id == x.carialthesid).FirstOrDefault().dovizid).FirstOrDefault().kisaadi, AKTIF = x.aktif });
+                    DGAltHesap.RefreshDataSource();
+                    _tempCARIALTHES = null;
+                    BTAltHesSec.Text = "";
+                    TBAltHesapAdi.Text = "";
+                }
+                else
+                {
+                    MessageBox.Show("Cari veya Alt Hesap seçmeden ekleyemezsiniz!");
                 }
             }
             else
@@ -834,7 +900,8 @@ namespace MEYPAK.PRL.CARI
                 {
                     MessageBox.Show("Öncelikle Cari Seçimi yapmanız gerekmektedir!");
                 }
-            }else
+            }
+            else
                 MessageBox.Show(MPKullanici.hata);
         }
 

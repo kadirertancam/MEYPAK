@@ -316,6 +316,8 @@
             this.LBAptDaire = new DevExpress.XtraEditors.LabelControl();
             this.LBFax = new DevExpress.XtraEditors.LabelControl();
             this.s = new DevExpress.XtraEditors.GroupControl();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.BTSorgula = new DevExpress.XtraEditors.SimpleButton();
             this.CBTip = new DevExpress.XtraEditors.ComboBoxEdit();
             this.BTGrupSec = new DevExpress.XtraEditors.ButtonEdit();
@@ -343,6 +345,8 @@
             this.panelControl23 = new DevExpress.XtraEditors.PanelControl();
             this.BTSil = new DevExpress.XtraEditors.SimpleButton();
             this.BTKaydet = new DevExpress.XtraEditors.SimpleButton();
+            this.CBSifat = new DevExpress.XtraEditors.LookUpEdit();
+            this.CBSube = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl19)).BeginInit();
             this.panelControl19.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
@@ -496,6 +500,8 @@
             this.panelControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl23)).BeginInit();
             this.panelControl23.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CBSifat.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CBSube.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // CResim
@@ -2355,6 +2361,10 @@
             // s
             // 
             this.s.CaptionImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("s.CaptionImageOptions.Image")));
+            this.s.Controls.Add(this.CBSube);
+            this.s.Controls.Add(this.CBSifat);
+            this.s.Controls.Add(this.label4);
+            this.s.Controls.Add(this.label2);
             this.s.Controls.Add(this.BTSorgula);
             this.s.Controls.Add(this.CBTip);
             this.s.Controls.Add(this.BTGrupSec);
@@ -2384,6 +2394,24 @@
             this.s.TabIndex = 50;
             this.s.Text = "Genel Bilgi";
             this.s.Paint += new System.Windows.Forms.PaintEventHandler(this.s_Paint);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(227, 319);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(31, 13);
+            this.label4.TabIndex = 62;
+            this.label4.Text = "Şube";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(55, 319);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(29, 13);
+            this.label2.TabIndex = 61;
+            this.label2.Text = "Sıfat";
             // 
             // BTSorgula
             // 
@@ -2633,6 +2661,26 @@
             this.BTKaydet.Text = "Kaydet";
             this.BTKaydet.Click += new System.EventHandler(this.BTKaydet_Click);
             // 
+            // CBSifat
+            // 
+            this.CBSifat.Location = new System.Drawing.Point(99, 316);
+            this.CBSifat.Name = "CBSifat";
+            this.CBSifat.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CBSifat.Properties.NullText = "";
+            this.CBSifat.Size = new System.Drawing.Size(114, 20);
+            this.CBSifat.TabIndex = 63;
+            // 
+            // CBSube
+            // 
+            this.CBSube.Location = new System.Drawing.Point(264, 316);
+            this.CBSube.Name = "CBSube";
+            this.CBSube.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CBSube.Properties.NullText = "";
+            this.CBSube.Size = new System.Drawing.Size(114, 20);
+            this.CBSube.TabIndex = 64;
+            // 
             // FCariKart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2808,6 +2856,8 @@
             this.panelControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl23)).EndInit();
             this.panelControl23.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.CBSifat.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CBSube.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3030,5 +3080,9 @@
         private DevExpress.XtraEditors.PanelControl panelControl23;
         private DevExpress.XtraEditors.PanelControl panelControl2;
         private DevExpress.XtraEditors.SimpleButton BTSorgula;
+        private Label label4;
+        private Label label2;
+        private DevExpress.XtraEditors.LookUpEdit CBSube;
+        private DevExpress.XtraEditors.LookUpEdit CBSifat;
     }
 }
