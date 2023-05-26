@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraLayout.Resizing;
 using MEYPAK.BLL.Assets;
+using MEYPAK.Entity.IdentityModels;
 using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.PARAMETRE;
 using MEYPAK.Interfaces.Cari;
@@ -30,8 +31,8 @@ namespace MEYPAK.PRL.CARI
             _cariAltHesapServis.Data(ServisList.CariAltHesListeServis);
             CBParaBrm.Properties.DataSource = _parabirIMServis.obje.Select(x => x.adi).ToList(); //comboxun içini parabirim formundan doldurur
             RGCariHareket.SelectedIndex = 0;
-
-
+            _parabirimServis = new GenericWebServis<PocoPARABIRIM>();
+            userServis = new GenericWebServis<MPUSER>();
 
         }
         GenericWebServis<PocoCARIHAR> _cariHarServis;
@@ -40,13 +41,17 @@ namespace MEYPAK.PRL.CARI
         public PocoCARIALTHES _tempAltHesap;
         GenericWebServis<PocoPARABIRIM> _parabirIMServis;
         GenericWebServis<PocoCARIALTHES> _cariAltHesapServis;
+        GenericWebServis<PocoPARABIRIM> _parabirimServis;
+        GenericWebServis<MPUSER> userServis;
 
         public void Doldur()
         {
-
+            userServis.Data(ServisList.UserGetServis);
+            _parabirimServis.Data(ServisList.ParaBirimiListeServis);
+            _cariAltHesapServis.Data(ServisList.CariAltHesListeServis);
             BTCariSec.Text = _tempCARIKART.kod;
             TBAdi.Text = _tempCARIKART.unvan == "" ? _tempCARIKART.adi + " " + _tempCARIKART.soyadi : _tempCARIKART.unvan;
-            DGCariHareket.DataSource = _cariHarServis.obje.Where(x => x.cariid == _tempCARIKART.id);
+            DGCariHareket.DataSource = _cariHarServis.obje.Where(x => x.cariid == _tempCARIKART.id).Select(x=>new {TARIH=x.harekettarihi,_cariAltHesapServis.obje.Where(y=>y.id== x.carialthesapid).FirstOrDefault().adi,BELGENO=x.belgE_NO,x.borc,x.alacak,x.tutar,x.aciklama,x.kur,ParaBirimi=_parabirIMServis.obje.Where(y=>y.id==x.parabirimid).FirstOrDefault().adi,Kullanıcı=userServis.obje.Where(y=>y.Id== x.userid).FirstOrDefault().AD});
             LBAlacakDeger.Text = _cariHarServis.obje.Where(x => x.cariid == _tempCARIKART.id).Sum(x => x.alacak).ToString();
             LBBorcDeger.Text = _cariHarServis.obje.Where(x => x.cariid == _tempCARIKART.id).Sum(x => x.borc).ToString();
             LBBakiyeDeger.Text = _cariHarServis.obje.Where(x => x.cariid == _tempCARIKART.id).Sum(x => x.borc - x.alacak).ToString();

@@ -1804,7 +1804,6 @@
             // 
             // ACECekSenetRapor
             // 
-            this.ACECekSenetRapor.Expanded = true;
             this.ACECekSenetRapor.Name = "ACECekSenetRapor";
             this.ACECekSenetRapor.Text = "Raporlar";
             // 
@@ -2014,7 +2013,6 @@
             this.accordionControlElement20.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.accordionControlElement22,
             this.accordionControlElement21});
-            this.accordionControlElement20.Expanded = true;
             this.accordionControlElement20.Name = "accordionControlElement20";
             this.accordionControlElement20.Text = "EIrsaliye";
             // 
