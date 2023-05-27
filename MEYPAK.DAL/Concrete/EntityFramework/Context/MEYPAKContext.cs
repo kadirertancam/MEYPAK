@@ -34,7 +34,7 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
            
 
         }
-        public DbSet<MPFATURATASLAK> MPARMPFATURATASLAKACBELGE { get; set; }
+        public DbSet<MPFATURATASLAK> MPFATURATASLAKACBELGE { get; set; }
         public DbSet<MPFATURADETAYTASLAK> MPFATURADETAYTASLAK { get; set; }
         public DbSet<MPIRSALIYETASLAK> MPIRSALIYETASLAK { get; set; }
         public DbSet<MPIRSALIYEDETAYTASLAK> MPIRSALIYEDETAYTASLAK { get; set; }

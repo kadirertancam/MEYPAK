@@ -14,8 +14,12 @@ namespace MEYPAK.BLL.FATURA
 {
     public class FaturaTaslakManager : BaseManager<PocoFATURATASLAK, MPFATURATASLAK>, IFaturaTaslakServis
     {
+        IFaturaTaslakDal _faturaDal;
+        IMapper _mapper;
         public FaturaTaslakManager(IMapper mapper, IFaturaTaslakDal repo, string includeEntities = null) : base(mapper, repo, includeEntities)
         {
+            _faturaDal=repo;
+            _mapper=mapper;
         }
     }
 }

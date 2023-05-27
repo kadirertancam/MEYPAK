@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MEYPAK.DAL.Abstract;
+using MEYPAK.DAL.Abstract.FaturaDal;
 using MEYPAK.Entity.Models.FATURA;
 using MEYPAK.Entity.PocoModels.FATURA;
 using MEYPAK.Interfaces.Fatura;
@@ -13,7 +14,7 @@ namespace MEYPAK.BLL.FATURA
 {
     public class FaturaDetayTaslakManager : BaseManager<PocoFATURADETAYTASLAK, MPFATURADETAYTASLAK>, IFaturaDetayTaslakServis
     {
-        public FaturaDetayTaslakManager(IMapper mapper, IGeneric<MPFATURADETAYTASLAK> repo, string includeEntities = null) : base(mapper, repo, includeEntities)
+        public FaturaDetayTaslakManager(IMapper mapper, IFaturaDetayTaslakDal repo, string includeEntities = null) : base(mapper, repo, includeEntities)
         {
         }
     }

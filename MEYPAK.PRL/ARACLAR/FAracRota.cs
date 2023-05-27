@@ -20,7 +20,7 @@ namespace MEYPAK.PRL.ARACLAR
             _tempAracRota = new List<PocoARACROTA>();
             _personelServis = new GenericWebServis<PocoPERSONEL>();
             _depoServis = new GenericWebServis<PocoDEPO>();
-
+            
         }
         RepositoryItemLookUpEdit  riLookuparac;
         RepositoryItemLookUpEdit riLookupdepo;
@@ -30,6 +30,7 @@ namespace MEYPAK.PRL.ARACLAR
         GenericWebServis<PocoPERSONEL> _personelServis;
         DataTable datatb;
         List<PocoARACROTA> _tempAracRota;
+        
         DateTime routezamani;
 
         public void GridYapılandır(DateTime routetime)
@@ -53,18 +54,34 @@ namespace MEYPAK.PRL.ARACLAR
             gridView1.Columns["olusturmatarihi"].Visible= false;
             gridView1.Columns["guncellemetarihi"].Visible= false;
             gridView1.Columns["kayittipi"].Visible= false;
+            gridView1.Columns["userid"].Visible= false;
 
             gridView1.Columns["cikisid"].VisibleIndex=1;
+            gridView1.Columns["cikisid"].MinWidth= 300;
             gridView1.Columns["hedefid"].VisibleIndex=2;
+            gridView1.Columns["hedefid"].MinWidth=300;
 
             var datatb = new DataTable();
             datatb.Columns.Add("aracid", typeof(int));
             datatb.Columns.Add("aracplaka", typeof(string));
 
             _aracServis.Data(ServisList.AracListeServis);
-            foreach (var item in _aracServis.obje)
+
+            if (routetime.Date < DateTime.Today)
+            {
+                gridView1.OptionsBehavior.Editable = false;
+                foreach (var item in _aracServis.obje)
+                {
+                    datatb.Rows.Add(item.id, _personelServis.obje.Where(x => x.id == item.soforid).FirstOrDefault().adisoyadi + " - " + item.tip + " - " + item.plaka);
+                }
+            }
+            else
+            { 
+                gridView1.OptionsBehavior.Editable = true;
+            foreach (var item in _aracServis.obje.Where(x => x.durum < 2))
             {
                 datatb.Rows.Add(item.id, _personelServis.obje.Where(x => x.id == item.soforid).FirstOrDefault().adisoyadi + " - "+item.tip+ " - " + item.plaka);
+            }
             }
 
             riLookuparac = new RepositoryItemLookUpEdit();
@@ -73,17 +90,17 @@ namespace MEYPAK.PRL.ARACLAR
             riLookuparac.DisplayMember = "aracplaka";
             riLookuparac.NullText = "Sec";
             riLookuparac.HotTrackItems = true;
-            riLookuparac.BestFitWidth = 170;
+            riLookuparac.BestFitWidth = 250;
             //riLookup.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
             riLookuparac.DropDownRows = datatb.Rows.Count;
             riLookuparac.AcceptEditorTextAsNewValue = DefaultBoolean.True;
             riLookuparac.AutoSearchColumnIndex = 1;
             riLookuparac.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
-
+            riLookuparac.EditValueChanged += RiLookuparac_EditValueChanged;
 
             gridView1.Columns["aracid"].OptionsColumn.AllowEdit = true;
             gridView1.Columns["aracid"].ColumnEdit = riLookuparac;
-            gridView1.Columns["aracid"].Width = 170;
+            gridView1.Columns["aracid"].Width = 250;
 
 
             datatb = new DataTable();
@@ -116,6 +133,17 @@ namespace MEYPAK.PRL.ARACLAR
             gridView1.Columns["hedefid"].OptionsColumn.AllowEdit = true;
             gridView1.Columns["hedefid"].ColumnEdit = riLookupdepo;
             gridView1.Columns["hedefid"].Width = 150;
+
+           
+        }
+
+        private void RiLookuparac_EditValueChanged(object? sender, EventArgs e)
+        {
+            var editValue = ((LookUpEdit)sender).EditValue;
+            if (_aracServis.obje.Where(x=> x.id.ToString()==editValue.ToString()).Count()>0&& _aracServis.obje.Where(x => x.id.ToString() == editValue.ToString()).FirstOrDefault().durum == 1)
+            {
+                MessageBox.Show("Bu Araç Yarı-Aktif lütfen kontrol ediniz.");
+            }
         }
 
         private void BTNAracKaydet_Click(object sender, EventArgs e)

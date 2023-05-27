@@ -52,9 +52,6 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition2 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
-            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition2 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
-            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement2 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions5 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject17 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject18 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -66,7 +63,6 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject23 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject24 = new DevExpress.Utils.SerializableAppearanceObject();
             this.tileViewColumn2 = new DevExpress.XtraGrid.Columns.TileViewColumn();
-            this.tileViewColumn4 = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
@@ -153,13 +149,13 @@
             this.XTPBelgeler = new DevExpress.XtraTab.XtraTabPage();
             this.panelControl16 = new DevExpress.XtraEditors.PanelControl();
             this.GCDigerBelgeler = new DevExpress.XtraGrid.GridControl();
-            this.tileView5 = new DevExpress.XtraGrid.Views.Tile.TileView();
+            this.gridViewBelgeler = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panelControl15 = new DevExpress.XtraEditors.PanelControl();
             this.labelControl35 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.TBBelgeAdi = new DevExpress.XtraEditors.TextEdit();
+            this.BTNBelgeEkle = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl34 = new DevExpress.XtraEditors.LabelControl();
-            this.buttonEdit3 = new DevExpress.XtraEditors.ButtonEdit();
+            this.BTNBelgeSec = new DevExpress.XtraEditors.ButtonEdit();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.NUDYedekTekerSayisi = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
@@ -270,11 +266,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl16)).BeginInit();
             this.panelControl16.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GCDigerBelgeler)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tileView5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewBelgeler)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl15)).BeginInit();
             this.panelControl15.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit3.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBBelgeAdi.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BTNBelgeSec.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUDYedekTekerSayisi)).BeginInit();
@@ -305,17 +301,6 @@
             this.tileViewColumn2.Visible = true;
             this.tileViewColumn2.VisibleIndex = 0;
             this.tileViewColumn2.Width = 64;
-            // 
-            // tileViewColumn4
-            // 
-            this.tileViewColumn4.AccessibleName = "Resim";
-            this.tileViewColumn4.Caption = "Resim";
-            this.tileViewColumn4.FieldName = "Resim";
-            this.tileViewColumn4.MinWidth = 17;
-            this.tileViewColumn4.Name = "tileViewColumn4";
-            this.tileViewColumn4.Visible = true;
-            this.tileViewColumn4.VisibleIndex = 0;
-            this.tileViewColumn4.Width = 64;
             // 
             // panelControl1
             // 
@@ -1158,40 +1143,28 @@
             // 
             this.GCDigerBelgeler.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GCDigerBelgeler.Location = new System.Drawing.Point(2, 2);
-            this.GCDigerBelgeler.MainView = this.tileView5;
+            this.GCDigerBelgeler.MainView = this.gridViewBelgeler;
             this.GCDigerBelgeler.Name = "GCDigerBelgeler";
             this.GCDigerBelgeler.Size = new System.Drawing.Size(889, 621);
             this.GCDigerBelgeler.TabIndex = 4;
             this.GCDigerBelgeler.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.tileView5});
+            this.gridViewBelgeler});
+            this.GCDigerBelgeler.DoubleClick += new System.EventHandler(this.GCDigerBelgeler_DoubleClick);
+            this.GCDigerBelgeler.MouseDown += new System.Windows.Forms.MouseEventHandler(this.GCDigerBelgeler_MouseDown);
             // 
-            // tileView5
+            // gridViewBelgeler
             // 
-            this.tileView5.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.tileViewColumn4});
-            this.tileView5.DetailHeight = 303;
-            this.tileView5.GridControl = this.GCDigerBelgeler;
-            this.tileView5.Name = "tileView5";
-            this.tileView5.OptionsTiles.ColumnCount = 4;
-            this.tileView5.OptionsTiles.ItemSize = new System.Drawing.Size(248, 340);
-            this.tileView5.OptionsTiles.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.tileView5.OptionsTiles.RowCount = 0;
-            this.tileView5.TileColumns.Add(tableColumnDefinition2);
-            this.tileView5.TileRows.Add(tableRowDefinition2);
-            tileViewItemElement2.Column = this.tileViewColumn4;
-            tileViewItemElement2.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            tileViewItemElement2.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Squeeze;
-            tileViewItemElement2.Text = "Resim";
-            tileViewItemElement2.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileView5.TileTemplate.Add(tileViewItemElement2);
+            this.gridViewBelgeler.DetailHeight = 303;
+            this.gridViewBelgeler.GridControl = this.GCDigerBelgeler;
+            this.gridViewBelgeler.Name = "gridViewBelgeler";
             // 
             // panelControl15
             // 
             this.panelControl15.Controls.Add(this.labelControl35);
-            this.panelControl15.Controls.Add(this.textEdit1);
-            this.panelControl15.Controls.Add(this.simpleButton1);
+            this.panelControl15.Controls.Add(this.TBBelgeAdi);
+            this.panelControl15.Controls.Add(this.BTNBelgeEkle);
             this.panelControl15.Controls.Add(this.labelControl34);
-            this.panelControl15.Controls.Add(this.buttonEdit3);
+            this.panelControl15.Controls.Add(this.BTNBelgeSec);
             this.panelControl15.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl15.Location = new System.Drawing.Point(0, 0);
             this.panelControl15.Name = "panelControl15";
@@ -1206,23 +1179,24 @@
             this.labelControl35.TabIndex = 42;
             this.labelControl35.Text = "*Belge Adı";
             // 
-            // textEdit1
+            // TBBelgeAdi
             // 
-            this.textEdit1.Location = new System.Drawing.Point(69, 22);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(201, 20);
-            this.textEdit1.TabIndex = 43;
+            this.TBBelgeAdi.Location = new System.Drawing.Point(69, 22);
+            this.TBBelgeAdi.Name = "TBBelgeAdi";
+            this.TBBelgeAdi.Size = new System.Drawing.Size(201, 20);
+            this.TBBelgeAdi.TabIndex = 43;
             // 
-            // simpleButton1
+            // BTNBelgeEkle
             // 
-            this.simpleButton1.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.simpleButton1.Appearance.Options.UseBackColor = true;
-            this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(572, 21);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(63, 22);
-            this.simpleButton1.TabIndex = 38;
-            this.simpleButton1.Text = "Ekle";
+            this.BTNBelgeEkle.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.BTNBelgeEkle.Appearance.Options.UseBackColor = true;
+            this.BTNBelgeEkle.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BTNBelgeEkle.ImageOptions.Image")));
+            this.BTNBelgeEkle.Location = new System.Drawing.Point(572, 21);
+            this.BTNBelgeEkle.Name = "BTNBelgeEkle";
+            this.BTNBelgeEkle.Size = new System.Drawing.Size(63, 22);
+            this.BTNBelgeEkle.TabIndex = 38;
+            this.BTNBelgeEkle.Text = "Ekle";
+            this.BTNBelgeEkle.Click += new System.EventHandler(this.BTNBelgeEkle_Click);
             // 
             // labelControl34
             // 
@@ -1232,14 +1206,14 @@
             this.labelControl34.TabIndex = 37;
             this.labelControl34.Text = "Belge Seç";
             // 
-            // buttonEdit3
+            // BTNBelgeSec
             // 
-            this.buttonEdit3.Location = new System.Drawing.Point(346, 22);
-            this.buttonEdit3.Name = "buttonEdit3";
-            this.buttonEdit3.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.BTNBelgeSec.Location = new System.Drawing.Point(346, 22);
+            this.BTNBelgeSec.Name = "BTNBelgeSec";
+            this.BTNBelgeSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", "Seç", null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.buttonEdit3.Size = new System.Drawing.Size(201, 22);
-            this.buttonEdit3.TabIndex = 36;
+            this.BTNBelgeSec.Size = new System.Drawing.Size(201, 22);
+            this.BTNBelgeSec.TabIndex = 36;
             // 
             // panelControl3
             // 
@@ -1316,7 +1290,7 @@
             this.RGAracDurum.Name = "RGAracDurum";
             this.RGAracDurum.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Aktif", true, null, "AKTIF"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Bakımda", true, null, "Bakimda"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Yarı-Aktif", true, null, "Yarı-Aktif"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Pasif", true, null, "Pasif")});
             this.RGAracDurum.Size = new System.Drawing.Size(216, 22);
             this.RGAracDurum.TabIndex = 77;
@@ -1663,12 +1637,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl16)).EndInit();
             this.panelControl16.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.GCDigerBelgeler)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tileView5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewBelgeler)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl15)).EndInit();
             this.panelControl15.ResumeLayout(false);
             this.panelControl15.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit3.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TBBelgeAdi.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BTNBelgeSec.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
             this.panelControl3.PerformLayout();
@@ -1790,12 +1764,10 @@
         private DevExpress.XtraGrid.GridControl GridMuayene;
         private DevExpress.XtraEditors.PanelControl panelControl16;
         private DevExpress.XtraGrid.GridControl GCDigerBelgeler;
-        private DevExpress.XtraGrid.Views.Tile.TileView tileView5;
-        private DevExpress.XtraGrid.Columns.TileViewColumn tileViewColumn4;
         private DevExpress.XtraEditors.PanelControl panelControl15;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton BTNBelgeEkle;
         private DevExpress.XtraEditors.LabelControl labelControl34;
-        private DevExpress.XtraEditors.ButtonEdit buttonEdit3;
+        private DevExpress.XtraEditors.ButtonEdit BTNBelgeSec;
         private DevExpress.XtraTab.XtraTabPage XTPZimmet;
         private NumericUpDown NUDYedekTekerSayisi;
         private Label label2;
@@ -1819,8 +1791,9 @@
         private DevExpress.XtraEditors.LabelControl LBZimTar;
         private DevExpress.XtraEditors.LabelControl LBZimMarkaModel;
         private DevExpress.XtraEditors.LabelControl labelControl35;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.TextEdit TBBelgeAdi;
         private DevExpress.XtraGrid.GridControl gridZimmet;
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewZimmet;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewBelgeler;
     }
 }
