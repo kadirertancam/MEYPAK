@@ -76,6 +76,7 @@ using MEYPAK.DAL.Concrete.EntityFramework.Repository.MustahsilRepo;
 using MEYPAK.BLL.MUSTAHSIL;
 using MEYPAK.Interfaces.Mustahsil;
 using MEYPAK.DAL.Abstract.MustahsilDal;
+using MEYPAK.API.Assets;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -541,7 +542,13 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.PrepareData();
+
+Timer timer = new Timer(AracMailHatirlat, null, TimeSpan.Zero, TimeSpan.FromHours(24));
+
 app.Run();
 
 
-
+void AracMailHatirlat(object state)
+{
+    app.AracMail();
+}

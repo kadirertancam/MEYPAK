@@ -355,7 +355,7 @@ namespace MEYPAK.PRL.ARAÇLAR
                             sigbittar = (DateTime)DTPSigPolBitTar.EditValue,
                             img = BTSigortaBelgeSec.Text != "" ? BTSigortaBelgeSec.Text.Substring(BTSigortaBelgeSec.Text.Length - 3, 3) != "pdf" ?
                             ImageToBase64(BTSigortaBelgeSec.Text) : Convert.ToBase64String(File.ReadAllBytes(BTSigortaBelgeSec.Text)) : "",
-                            dosyatip = BTSigortaBelgeSec.Text.Substring(BTSigortaBelgeSec.Text.Length - 4, 4).Replace(".", ""),
+                            dosyatip = BTSigortaBelgeSec.Text.Length>4 ? BTSigortaBelgeSec.Text.Substring(BTSigortaBelgeSec.Text.Length - 4, 4).Replace(".", ""):"",
                             userid = MPKullanici.ID,
                         });
 
@@ -399,7 +399,7 @@ namespace MEYPAK.PRL.ARAÇLAR
                             kasbittar = (DateTime)DTPKasPolBitTar.EditValue,
                             img = BTKaskoBelgeSec.Text != "" ? BTKaskoBelgeSec.Text.Substring(BTKaskoBelgeSec.Text.Length - 3, 3) != "pdf" ?
                             ImageToBase64(BTKaskoBelgeSec.Text) : Convert.ToBase64String(File.ReadAllBytes(BTKaskoBelgeSec.Text)) : "",
-                            dosyatip = BTKaskoBelgeSec.Text.Substring(BTKaskoBelgeSec.Text.Length - 4, 4).Replace(".", ""),
+                            dosyatip = BTKaskoBelgeSec.Text.Length>4? BTKaskoBelgeSec.Text.Substring(BTKaskoBelgeSec.Text.Length - 4, 4).Replace(".", ""):"",
                             userid = MPKullanici.ID,
                         });
                         TBKasAcenteAdi.Text = "";
