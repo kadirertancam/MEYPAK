@@ -86,7 +86,7 @@ namespace MEYPAK.API.Assets
                 if (CheckDateThreshold(item.muayenebittar))
                 {
                     var arac = AracGetir(aracServis, item.aracid);
-                    SendMail("efebaslilar@gmail.com",$"{arac.plaka} Muayene Bitiyor!!",$"{arac.plaka} Plakalı Aracın Muayene Tarihi Yaklaştı Lütfen Kontrol Ediniz!");  
+                    SendMail("tunahankaya@meypak.com.tr",$"{arac.plaka} | Muayene Bitiyor!!",$"{arac.plaka} Plakalı Aracın Muayene Tarihi Yaklaştı Lütfen Kontrol Ediniz!");  
                 }
             }
         }
@@ -98,7 +98,7 @@ namespace MEYPAK.API.Assets
                 if (CheckDateThreshold(item.sigbittar))
                 {
                     var arac = AracGetir(aracServis, item.aracid);
-                    SendMail("efe.baslilar@gmail.com", $"{arac.plaka} Sigorta Bitiyor!!", $"{arac.plaka} Plakalı Aracın {item.sigacenteadi} Acentesindeki {item.sigpoliceno} Poliçe Numaralı Sigorta Tarihi Bitmeye Yaklaştı Lütfen Kontrol Ediniz!");
+                    SendMail("tunahankaya@meypak.com.tr", $"{arac.plaka} | Sigorta Bitiyor!!", $"{arac.plaka} Plakalı Aracın {item.sigacenteadi} Acentesindeki {item.sigpoliceno} Poliçe Numaralı Sigorta Tarihi Bitmeye Yaklaştı Lütfen Kontrol Ediniz!");
                 }
             }
         }
@@ -110,7 +110,7 @@ namespace MEYPAK.API.Assets
                 if (CheckDateThreshold(item.kasbittar))
                 {
                     var arac = AracGetir(aracServis, item.aracid);
-                    SendMail("efe.baslilar@gmail.com", $"{arac.plaka} Kasko Bitiyor!!", $"{arac.plaka} Plakalı Aracın {item.kasacenteadi} Acentesindeki {item.kaspoliceno} Poliçe Numaralı Kasko Tarihi Bitmeye Yaklaştı Lütfen Kontrol Ediniz!");
+                    SendMail("tunahankaya@meypak.com.tr", $"{arac.plaka} | Kasko Bitiyor!!", $"{arac.plaka} Plakalı Aracın {item.kasacenteadi} Acentesindeki {item.kaspoliceno} Poliçe Numaralı Kasko Tarihi Bitmeye Yaklaştı Lütfen Kontrol Ediniz!");
                 }
             }
         }
