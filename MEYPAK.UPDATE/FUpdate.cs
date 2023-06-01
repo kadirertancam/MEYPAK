@@ -58,11 +58,11 @@ namespace MEYPAK.UPDATE
             folderSecurity.AddAccessRule(new FileSystemAccessRule(everyoneSid, FileSystemRights.FullControl, InheritanceFlags.ContainerInherit | InheritanceFlags.ObjectInherit, PropagationFlags.None, AccessControlType.Allow));
             folderInfo.SetAccessControl(folderSecurity); 
            
-                client = new HttpRequestMessage(HttpMethod.Post, "http://78.135.80.41:8081/Versiyon");
+                client = new HttpRequestMessage(HttpMethod.Post, "http://78.135.80.41:8080/Versiyon");
                 client.Headers.Add("Connection", "keep-alive");
                 client.Headers.Add("accept", "*/*");
-                client.Headers.Add("Referer", "http://78.135.80.41:8081/Versiyon");
-                client.Headers.Add("Origin", "http://78.135.80.41:8081");
+                client.Headers.Add("Referer", "http://78.135.80.41:8080/Versiyon");
+                client.Headers.Add("Origin", "http://78.135.80.41:8080");
                 client.Headers.Add("sec-ch-ua", "\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"");
                 client.Headers.Add("sec-ch-ua-mobile", "?0");
                 client.Headers.Add("sec-ch-ua-paltform", "\"Windows\"");  
