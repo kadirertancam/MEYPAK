@@ -379,6 +379,8 @@ namespace MEYPAK.PRL.SIPARIS
             gridView1.Columns["KdvTutarı"].DisplayFormat.FormatString = "n2";
             gridView1.Columns["KdvTutarı"].OptionsColumn.AllowEdit = false;
 
+            gridView1.Columns["Kunye"].OptionsColumn.AllowEdit = true;
+
             gridView1.Columns["İskontoTutarı"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             gridView1.Columns["İskontoTutarı"].DisplayFormat.FormatString = "n2";
             gridView1.Columns["İskontoTutarı"].OptionsColumn.AllowEdit = false;
@@ -562,8 +564,8 @@ namespace MEYPAK.PRL.SIPARIS
                 }
             }
             gridControl1.DataSource = tempkasalist.OrderByDescending(x => x.MIKTAR);
-            gridView2.Columns["ID"].Visible = false;
-            gridView2.Columns["KASAID"].Visible = false;
+         //   gridView2.Columns["ID"].Visible = false;
+          //  gridView2.Columns["KASAID"].Visible = false;
 
         }
 
@@ -1122,7 +1124,7 @@ namespace MEYPAK.PRL.SIPARIS
                                 nettoplam = item.NetToplam,
                                 stokid = item.StokId,
                                 sayimid = 0,
-                                kunye = item.Kunye,
+                                kunye = item.Kunye==null?"":item.Kunye,
                                 userid = MPKullanici.ID
                             });
                         }

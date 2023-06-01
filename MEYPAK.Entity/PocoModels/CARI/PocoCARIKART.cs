@@ -11,6 +11,8 @@ namespace MEYPAK.Entity.PocoModels.CARI
         public string kod { get; set; }
         public string SIFAT { get; set; } = "";
         public int SIFATID { get; set; } = 0;
+        public string ISLETMETURU { get; set; } = "";
+        public int ISLETMETURUID { get; set; } = 0;
         public string SUBE { get; set; } = "";
         public int SUBEID { get; set; } = 0;
         public string adi { get; set; } = "";

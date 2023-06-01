@@ -102,6 +102,7 @@ namespace MEYPAK.PRL
         FStokKasaHareket fStokKasaHareket;
         FKasaMarka fKasaMarka;
         FMarkaKart fMarkaKart;
+        FGindeFaturaEşleştir fGindeFaturaEşleştir;
         FAlisIrsaliye fFAlisIrsaliye;
         FAlisFatura fFAlisFatura;
         FMusteriSiparisIrsaliyelestir fMusteriSiparisIrsaliyelestir;
@@ -2103,6 +2104,27 @@ namespace MEYPAK.PRL
             fGELENIRSALIYE.Tag = "FGelenIrsaliye" + i;
             page.Controls.Add(fGELENIRSALIYE);
             fGELENIRSALIYE.Show();
+            i++;
+        }
+
+        private void accordionControlElement71_Click(object sender, EventArgs e)
+        {
+            XtraTabPage page = new XtraTabPage();
+            fGindeFaturaEşleştir = new  FGindeFaturaEşleştir();
+            page.Name = "FGidenFaturaEslestir" + i;
+            page.Text = "Giden Fatura Eşleştir";
+            page.Tag = "FGidenFaturaEslestir" + i;
+            page.ShowCloseButton = DevExpress.Utils.DefaultBoolean.True;
+            Anasayfa.TabPages.Add(page);
+            Anasayfa.SelectedTabPage = page;
+
+            fGindeFaturaEşleştir.FormBorderStyle = FormBorderStyle.None;
+            fGindeFaturaEşleştir.TopLevel = false;
+            fGindeFaturaEşleştir.AutoScroll = true;
+            fGindeFaturaEşleştir.Dock = DockStyle.Fill;
+            fGindeFaturaEşleştir.Tag = "FGidenFaturaEslestir" + i;
+            page.Controls.Add(fGindeFaturaEşleştir);
+            fGindeFaturaEşleştir.Show();
             i++;
         }
     }

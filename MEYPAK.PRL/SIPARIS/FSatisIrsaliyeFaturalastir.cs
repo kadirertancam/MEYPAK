@@ -9,6 +9,7 @@ using ServiceReference10;
 using Newtonsoft.Json;
 using System.Net.Http;
 using MEYPAK.PRL.Assets;
+using MEYPAK.Entity.PocoModels.CARI;
 
 namespace MEYPAK.PRL.SIPARIS
 {
@@ -24,6 +25,7 @@ namespace MEYPAK.PRL.SIPARIS
             tempFatDetay = new List<PocoFATURADETAY>();
             _faturaDetayServis = new GenericWebServis<PocoFATURADETAY>();
             _irsaliyeServis = new GenericWebServis<PocoIRSALIYE>();
+            _cariServis = new GenericWebServis<PocoCARIKART>();
 
         }
         GenericWebServis<PocoFATURA> _faturaServis;
@@ -31,6 +33,7 @@ namespace MEYPAK.PRL.SIPARIS
         GenericWebServis<PocoDEPO> _depoServis;
         GenericWebServis<PocoIRSALIYEDETAY> _irsaliyeDetayServis;
         GenericWebServis<PocoFATURADETAY> _faturaDetayServis;
+        GenericWebServis<PocoCARIKART> _cariServis;
         List<PocoFaturaKalem> tempFaturaKalem;
         List<PocoFATURADETAY> tempFatDetay;
         FFaturaSettingsPanel faturaSettingsPanel;
@@ -81,7 +84,7 @@ namespace MEYPAK.PRL.SIPARIS
             {
                 ID = x.id,
                 Tarih = x.irsaliyetarihi,
-                BelgeNo = x.belgeno,
+                BelgeNo = x.belgeno, 
                 CariAdı = x.cariadi,
                 SevkiyatTarihi = x.sevkiyattarihi,
                 Depo = _depoServis.obje.Where(z => z.id == x.depoid).FirstOrDefault().depoadi,
@@ -104,8 +107,10 @@ namespace MEYPAK.PRL.SIPARIS
 
         private void simpleButton3_Click(object sender, EventArgs e)
         {
+
+
             //
-            HttpRequestMessage client = new HttpRequestMessage(HttpMethod.Get, @"http://78.135.80.41:8086/api/Genel?username=4300580693&servicepassword=18E932F8&password=Meypak139&islem=Depolar&parametre=4300580693");
+            HttpRequestMessage client = new HttpRequestMessage(HttpMethod.Get, @"http://78.135.80.41:8086/api/Genel?username=4300580693&servicepassword=18E932F8&password=Meypak140&islem=Depolar&parametre=4300580693");
             using (HttpClient cl = new HttpClient())
             {
                 client.Headers.Add("Connection", "keep-alive");
@@ -119,6 +124,9 @@ namespace MEYPAK.PRL.SIPARIS
                 tempp = tempp.Replace("}\"", "}");
                 depo = JsonConvert.DeserializeObject<HKSDepo.Root>(tempp);
             }
+            _cariServis.Data(ServisList.CariListeServis);
+            var tempcar=_cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+
             BildirimKayitIstek[] ten = new BildirimKayitIstek[_tempIrsaliyeDetay.Count];
             foreach (var item in _tempIrsaliyeDetay)
             {
@@ -137,12 +145,12 @@ namespace MEYPAK.PRL.SIPARIS
 
                         IkinciKisiBilgileri = new IkinciKisiBilgileriDTO()
                         {
-                            KisiSifat = 13,
+                            KisiSifat = tempcar.SIFATID,
 
                             TcKimlikVergiNo = "7280579490",
-                            AdSoyad = "PELİT KARDEŞLER GIDA TURZ. İNS. HAYV. SANAYİ TİCARET LTD ŞTİ",
-                            Eposta = "pelit@mailnator.com",
-                            CepTel = "5075652525",
+                            AdSoyad = tempcar.unvan==""? tempcar.adi+" "+ tempcar.soyadi: tempcar.unvan,
+                            Eposta = tempcar.eposta,
+                            CepTel = tempcar.telefon==""? tempcar.telefoN2: tempcar.telefon,
                             YurtDisiMi = false,
                             //KisiSifat = 6,
                             //KisiSifatSpecified= true,
@@ -181,6 +189,8 @@ namespace MEYPAK.PRL.SIPARIS
                     };
              };
             }
+
+
         }
     }
 }

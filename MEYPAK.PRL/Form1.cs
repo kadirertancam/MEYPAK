@@ -11,6 +11,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Serialization;
+using ServiceReference1;
+using MEYPAK.BLL.Assets;
+using DevExpress.XtraEditors.Repository;
+using MEYPAK.PRL.Assets;
+using MEYPAK.Entity.PocoModels.STOK;
+using MEYPAK.Entity.PocoModels.CARI;
 
 namespace MEYPAK.PRL
 {
@@ -19,8 +25,29 @@ namespace MEYPAK.PRL
         public Form1()
         {
             InitializeComponent();
-            islem();
+            ıntegrationClient.ClientCredentials.UserName.UserName = "Gunduz";
+            ıntegrationClient.ClientCredentials.UserName.Password = "iJAfhKSU";
+           // islem();
         }
+
+        ServiceReference1.IntegrationClient ıntegrationClient = new ServiceReference1.IntegrationClient();
+        ServiceReference2.BasicIntegrationClient basicIntegration = new ServiceReference2.BasicIntegrationClient();
+        ServiceReference1.WhoAmIInfo bb;
+        List<InboxInvoiceListItem> gelenefaturatasktemp;
+        ServiceReference1.InvoiceResponse tempp;
+        List<FaturaDetailList> tempdetay;
+        InvoicesResponse res;
+        RepositoryItemButtonEdit repositoryItemButtonEdit3;
+        public PocoSTOK _tempStok;
+        public PocoCARIKART _tempCari;
+        GenericWebServis<PocoSTOK> _stokServis;
+        GenericWebServis<PocoCARIKART> _cariServis;
+        GenericWebServis<PocoCARIALTHESCARI> _cariAltHesCariServis;
+        GenericWebServis<PocoFATURASTOKOLCUBR> _faturaStokOlcuBrServis;
+        GenericWebServis<PocoOLCUBR> olcuBrServis;
+
+
+
         List<BildirimSorguDTO> envelopes = new List<BildirimSorguDTO>();
         DateTime basTar = Convert.ToDateTime("01.01.2014");
         // 6200585694 Meypak140 65FISI4C
@@ -81,6 +108,23 @@ namespace MEYPAK.PRL
         }
         private void Form1_Load(object sender, EventArgs e)
         {
+            
+        }
+
+
+
+        public void GidenFaturaIsle() {
+
+            DateTime aaa = DateTime.Now.AddDays(-15);
+                res = ıntegrationClient.GetOutboxInvoicesAsync( new ServiceReference1.InvoiceQueryModel
+                {
+                    PageIndex = 0,
+                    PageSize = 9999999,
+                    ExecutionStartDate=DateTime.Now,
+                    ExecutionEndDate= aaa
+
+                }).Result;
+          
 
         }
     }

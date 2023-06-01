@@ -158,7 +158,6 @@
             this.simpleButton3.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Success;
             this.simpleButton3.Appearance.Options.UseBackColor = true;
             this.simpleButton3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.simpleButton3.Enabled = false;
             this.simpleButton3.Location = new System.Drawing.Point(113, 2);
             this.simpleButton3.Name = "simpleButton3";
             this.simpleButton3.Size = new System.Drawing.Size(111, 56);

@@ -71,6 +71,7 @@ namespace MEYPAK.PRL.CARI
         FMusteriCekCariCiro FMusteriCekCariCiro;
         FMusteriSenetCariCiro FMusteriSenetCariCiro;
         FGELENIRSALIYE fGELENIRSALIYE;
+        FGindeFaturaEşleştir fGindeFaturaEşleştir;
         EFATURA fefatura;
         Main main;
         int i = 0;
@@ -133,6 +134,9 @@ namespace MEYPAK.PRL.CARI
                     FMusteriCekCariCiro._tempCari = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
                 if (_islem == "FMusteriSenetCariCiro")
                     FMusteriSenetCariCiro._tempCari = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+             if (_islem == "EFaturaGidenEsle")
+                    fGindeFaturaEşleştir._tempCari = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+            
             }
             else
             {
@@ -216,6 +220,8 @@ namespace MEYPAK.PRL.CARI
                             FMusteriCekCariCiro = (FMusteriCekCariCiro)frm;
                         if (frm.Name.Contains("FMusteriSenetCariCiro"))
                             FMusteriSenetCariCiro = (FMusteriSenetCariCiro)frm;
+                        if (frm.Name.Contains("FGidenFaturaEslestir"))
+                            fGindeFaturaEşleştir = (FGindeFaturaEşleştir)frm;
                     }
                 }
             }

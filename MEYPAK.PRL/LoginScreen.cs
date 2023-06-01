@@ -5,6 +5,7 @@ using MEYPAK.Entity.IdentityModels;
 using MEYPAK.Entity.Models.DEPO;
 using MEYPAK.PRL.CEKSENET.Firma.Çek;
 using MEYPAK.PRL.DEKONT;
+using MEYPAK.PRL.E_ISLEMLER;
 using MEYPAK.PRL.PERSONEL;
 using MEYPAK.PRL.STOK;
 using Microsoft.AspNetCore.Identity;
@@ -34,6 +35,8 @@ namespace MEYPAK.PRL
         GenericWebServis<LoginModel> _loginService;
         FPersonelMaas maas;
         KullaniciRapor rp;
+        Form1 frm;
+        Form2 fr2m;
 
         private void BTNGiris_Click(object sender, EventArgs e)
         {
@@ -54,8 +57,12 @@ namespace MEYPAK.PRL
                     //ff.Show();
                     //rp = new KullaniciRapor();
                     //rp.Show();
-                    fMain = new Main(_loginService.loginResult.MPUSER, _loginService.loginResult.userRoles,(int)lookUpEdit1.EditValue);
-                    fMain.Show();
+                    //fMain = new Main(_loginService.loginResult.MPUSER, _loginService.loginResult.userRoles, (int)lookUpEdit1.EditValue);
+                    //fMain.Show();
+                    //FGindeFaturaEşleştir gg = new FGindeFaturaEşleştir();
+                    //gg.Show();
+                    fr2m = new Form2();
+                    fr2m.Show();
 
                     this.Hide();
                 }

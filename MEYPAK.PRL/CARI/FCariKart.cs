@@ -384,6 +384,24 @@ namespace MEYPAK.PRL.CARI
             CBSifat.Properties.DisplayMember = "ADI";
             CBSifat.Properties.ValueMember = "ID";
 
+
+            DataTable isletmeturu = new DataTable();
+            isletmeturu.Columns.Add("ADI", typeof(string));
+            isletmeturu.Columns.Add("ID", typeof(int));
+            isletmeturu.Rows.Add("Şube", 1);
+            isletmeturu.Rows.Add("Tasnifleme ve Ambalajlama", 4);
+            isletmeturu.Rows.Add("Hal İçi Deposu", 5);
+            isletmeturu.Rows.Add("Hal Dışı Deposu", 6);
+            isletmeturu.Rows.Add("Hal İçi İşyeri", 7);
+            isletmeturu.Rows.Add("Hal Dışı İşyeri", 8);
+            isletmeturu.Rows.Add("Sınai İşletme", 9);
+            isletmeturu.Rows.Add("Dağıtım Merkezi", 12);
+            isletmeturu.Rows.Add("Yurt Dışı", 16);
+            isletmeturu.Rows.Add("Bireysel Tüketim", 18);
+            isletmeturu.Rows.Add("Perakende Satiş Yeri", 19); 
+            isletmeturu.Columns[1].ColumnMapping = MappingType.Hidden;
+
+            CBIsletmeTuru.Properties.DataSource = isletmeturu;
             #endregion
 
             if (_tempCariKart != null)

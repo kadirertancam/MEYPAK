@@ -54,6 +54,7 @@ namespace MEYPAK.PRL.STOK
         EFATURA fefatura;
         FGELENIRSALIYE fGELENIRSALIYE;
         FMustahsil fMustahsil;
+        FGindeFaturaEşleştir gindeFaturaEşleştir;
         Main main;
         int id;
         string _islem;
@@ -122,6 +123,8 @@ namespace MEYPAK.PRL.STOK
                         fStokSarf = (FStokSarf)frm;
                     if (frm.Name.Contains("FMustahsil"))
                         fMustahsil = (FMustahsil)frm;
+                    if (frm.Name.Contains("FGindeFaturaEşleştir"))
+                        gindeFaturaEşleştir = (FGindeFaturaEşleştir)frm;
                 }
             }
             _stokMarka.Data(ServisList.StokMarkaListeServis);
@@ -234,6 +237,10 @@ namespace MEYPAK.PRL.STOK
                 {
                     if (fMustahsil != null)
                         fMustahsil._tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+                } else if (_islem == "EFaturaGidenEsle")
+                {
+                    if (gindeFaturaEşleştir != null)
+                        gindeFaturaEşleştir._tempStok = _stokServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
                 }
 
                 this.Close();

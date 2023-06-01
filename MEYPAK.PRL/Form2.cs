@@ -34,7 +34,7 @@ namespace MEYPAK.PRL
             client.Headers.Add("SOAPAction", "\"http://www.gtb.gov.tr//WebServices/IBildirimService/BildirimServisBildirimciyeYapilanBildirimListesi\"");
             client.Headers.Add("VsDebuggerCausalityData", "uIDPo/l8atIDoqFFniLRCUIFbKQAAAAA64uYbk/jW0K+h9kz55jWZeM1+BqDlnNPpgceAHjWSsYACQAA");
             //  client.Headers.Add("Content-Type", "text/xml");
-            string xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?><soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><soap:Body><BaseRequestMessageOf_HalIciIsyeriIstek xmlns=\"http://www.gtb.gov.tr//WebServices\"><Istek><TcKimlikVergiNo xmlns=\"http://schemas.datacontract.org/2004/07/GTB.HKS.Genel.ServiceContract\">"+TcVkn+"</TcKimlikVergiNo></Istek><Password>Meypak139</Password><ServicePassword>18E932F8</ServicePassword><UserName>4300580693</UserName></BaseRequestMessageOf_HalIciIsyeriIstek></soap:Body></soap:Envelope>";
+            string xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?><soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><soap:Body><BaseRequestMessageOf_HalIciIsyeriIstek xmlns=\"http://www.gtb.gov.tr//WebServices\"><Istek><TcKimlikVergiNo xmlns=\"http://schemas.datacontract.org/2004/07/GTB.HKS.Genel.ServiceContract\">"+TcVkn+"</TcKimlikVergiNo></Istek><Password>Meypak140</Password><ServicePassword>18E932F8</ServicePassword><UserName>4300580693</UserName></BaseRequestMessageOf_HalIciIsyeriIstek></soap:Body></soap:Envelope>";
             client.Method = HttpMethod.Post;
 
 

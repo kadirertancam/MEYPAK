@@ -11,6 +11,8 @@ namespace MEYPAK.Entity.Models.CARI
         public string KOD { get; set; }
         public string SIFAT { get; set; } = "";
         public int SIFATID { get; set; } = 0;
+        public string ISLETMETURU { get; set; } = "";
+        public int ISLETMETURUID { get; set; } = 0;
         public string SUBE { get; set; } = "";
         public int SUBEID { get; set; } = 0;
         public string ADI { get; set; } = "";

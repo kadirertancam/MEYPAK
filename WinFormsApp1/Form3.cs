@@ -50,7 +50,7 @@ namespace WinFormsApp1
         //    }
         //}
 
-
+       
         private void Form3_Load(object sender, EventArgs e)
         {
             XtraReport1 report = new XtraReport1();

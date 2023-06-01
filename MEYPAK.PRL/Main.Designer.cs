@@ -252,6 +252,8 @@
             this.accordionContentContainer1 = new DevExpress.XtraBars.Navigation.AccordionContentContainer();
             this.accordionControlElement64 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.İnstagr = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement70 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement71 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -1955,6 +1957,7 @@
             this.accordionControlElement20,
             this.ACEEMustahsilM});
             this.accordionControlElement27.Enabled = false;
+            this.accordionControlElement27.Expanded = true;
             this.accordionControlElement27.Name = "accordionControlElement27";
             this.accordionControlElement27.Text = "E-İşlemler";
             this.accordionControlElement27.Visible = false;
@@ -1963,8 +1966,10 @@
             // 
             this.accordionControlElement62.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.accordionControlElement1,
-            this.accordionControlElement65});
+            this.accordionControlElement65,
+            this.accordionControlElement71});
             this.accordionControlElement62.Enabled = false;
+            this.accordionControlElement62.Expanded = true;
             this.accordionControlElement62.Name = "accordionControlElement62";
             this.accordionControlElement62.Text = "EFatura";
             this.accordionControlElement62.Visible = false;
@@ -2363,6 +2368,22 @@
             this.İnstagr.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.İnstagr.Text = "Instagram : gunduzmeypak";
             // 
+            // accordionControlElement70
+            // 
+            this.accordionControlElement70.Enabled = false;
+            this.accordionControlElement70.Name = "accordionControlElement70";
+            this.accordionControlElement70.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement70.Tag = "EFATURAGELENKUTUSU";
+            this.accordionControlElement70.Text = "Giden Kutusu";
+            this.accordionControlElement70.Visible = false;
+            // 
+            // accordionControlElement71
+            // 
+            this.accordionControlElement71.Name = "accordionControlElement71";
+            this.accordionControlElement71.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement71.Text = "Giden Fatura Eşitle";
+            this.accordionControlElement71.Click += new System.EventHandler(this.accordionControlElement71_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2618,5 +2639,7 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement68;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement67;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ACEMobilizWeb;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement70;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement71;
     }
 }

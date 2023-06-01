@@ -541,8 +541,8 @@ namespace MEYPAK.PRL.SIPARIS
             {
                 try
                 {
-                    gridView2.Columns["ID"].Visible = false;
-                    gridView2.Columns["KASAID"].Visible = false;
+              //      gridView2.Columns["ID"].Visible = false;
+              //      gridView2.Columns["KASAID"].Visible = false;
                 }
                 catch (Exception)
                 {
@@ -681,6 +681,8 @@ namespace MEYPAK.PRL.SIPARIS
                     }
 
                 }
+
+
 
 
                 TBAIskonto1.EditValue = _tempFatura.altiskonto1;
