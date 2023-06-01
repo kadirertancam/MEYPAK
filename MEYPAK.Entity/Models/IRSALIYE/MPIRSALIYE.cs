@@ -65,5 +65,9 @@ namespace MEYPAK.Entity.Models.IRSALIYE
         public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");
 
 
+        public string BILDIRIMTURU { get; set; } = "";
+        public int BILDIRIMTURUID { get; set; } = 0;
+
+
     }
 }

@@ -10,6 +10,9 @@ using Newtonsoft.Json;
 using System.Net.Http;
 using MEYPAK.PRL.Assets;
 using MEYPAK.Entity.PocoModels.CARI;
+using System.Text;
+using System.Xml.Serialization;
+using System.Xml;
 
 namespace MEYPAK.PRL.SIPARIS
 {
@@ -108,6 +111,9 @@ namespace MEYPAK.PRL.SIPARIS
         private void simpleButton3_Click(object sender, EventArgs e)
         {
 
+            var tempirs = _irsaliyeServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+            _cariServis.Data(ServisList.CariListeServis);
+            var tempcar = _cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
 
             //
             HttpRequestMessage client = new HttpRequestMessage(HttpMethod.Get, @"http://78.135.80.41:8086/api/Genel?username=4300580693&servicepassword=18E932F8&password=Meypak140&islem=Depolar&parametre=4300580693");
@@ -117,23 +123,93 @@ namespace MEYPAK.PRL.SIPARIS
                 client.Headers.Add("accept", "*/*");
                 client.Headers.Add("Host", "78.135.80.41:8086");
                 client.Headers.Add("Accept-Encoding", "gzip, deflate,br");
-                HttpResponseMessage resp = cl.Send(client);
-                string tempp = resp.Content.ReadAsStringAsync().Result.ToString();
+                HttpResponseMessage resps = cl.Send(client);
+                string tempp = resps.Content.ReadAsStringAsync().Result.ToString();
                 tempp = tempp.Replace("\\", "");
                 tempp = tempp.Replace("\"{", "{");
                 tempp = tempp.Replace("}\"", "}");
                 depo = JsonConvert.DeserializeObject<HKSDepo.Root>(tempp);
             }
-            _cariServis.Data(ServisList.CariListeServis);
-            var tempcar=_cariServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
+             
+            HttpClient httpClient = new HttpClient();
+            client = new HttpRequestMessage(HttpMethod.Post, "https://hks.hal.gov.tr/WebServices/GenelService.svc");
+            client.Headers.Add("Connection", "keep-alive");
+            client.Headers.Add("Host", "hks.hal.gov.tr");
+            client.Headers.Add("User-Agent", "CodeGear SOAP 1.3");
+            client.Headers.Add("SOAPAction", "\"http://www.gtb.gov.tr//WebServices/IGenelService/GenelServisIller\"");
+            client.Headers.Add("VsDebuggerCausalityData", "uIDPo/l8atIDoqFFniLRCUIFbKQAAAAA64uYbk/jW0K+h9kz55jWZeM1+BqDlnNPpgceAHjWSsYACQAA");
+            //  client.Headers.Add("Content-Type", "text/xml");
+            string xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?><soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><soap:Body><BaseRequestMessageOf_IllerIstek xmlns=\"http://www.gtb.gov.tr//WebServices\"><Istek /><Password>Meypak140</Password><ServicePassword>18E932F8</ServicePassword><UserName>4300580693</UserName></BaseRequestMessageOf_IllerIstek></soap:Body></soap:Envelope>";
+            client.Method = HttpMethod.Post;
 
-            BildirimKayitIstek[] ten = new BildirimKayitIstek[_tempIrsaliyeDetay.Count];
-            foreach (var item in _tempIrsaliyeDetay)
+
+            client.Content = new StringContent(xml,
+                                        Encoding.UTF8,
+                                        "text/xml");
+
+
+            httpClient.DefaultRequestHeaders.ExpectContinue = false;
+            HttpResponseMessage resp = httpClient.SendAsync(client).Result;
+            var aaaa =   resp.Content.ReadAsStringAsync().Result;
+            XmlSerializerHelper xmlSerializerHelper = new XmlSerializerHelper();
+            var iller = (HKSIller.Envelope)xmlSerializerHelper.DeserializeFromXml(typeof(HKSIller.Envelope), aaaa); 
+            
+            
+              httpClient = new HttpClient();
+            client = new HttpRequestMessage(HttpMethod.Post, "https://hks.hal.gov.tr/WebServices/GenelService.svc");
+            client.Headers.Add("Connection", "keep-alive");
+            client.Headers.Add("Host", "hks.hal.gov.tr");
+            client.Headers.Add("User-Agent", "CodeGear SOAP 1.3");
+            client.Headers.Add("SOAPAction", "\"http://www.gtb.gov.tr//WebServices/IGenelService/GenelServisIlceler\"");
+            client.Headers.Add("VsDebuggerCausalityData", "uIDPo/l8atIDoqFFniLRCUIFbKQAAAAA64uYbk/jW0K+h9kz55jWZeM1+BqDlnNPpgceAHjWSsYACQAA");
+            //  client.Headers.Add("Content-Type", "text/xml");
+              xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?><soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><soap:Body><BaseRequestMessageOf_IlcelerIstek xmlns=\"http://www.gtb.gov.tr//WebServices\"><Istek><IlId xmlns=\"http://schemas.datacontract.org/2004/07/GTB.HKS.Genel.ServiceContract\">"+ iller.Body.BaseResponseMessageOf_IllerCevap.Sonuc.Iller.Where(x => x.IlAdi.ToUpper() == tempcar.il.ToUpper()).FirstOrDefault().Id+"</IlId></Istek><Password>Meypak140</Password><ServicePassword>18E932F8</ServicePassword><UserName>4300580693</UserName></BaseRequestMessageOf_IlcelerIstek></soap:Body></soap:Envelope>";
+            client.Method = HttpMethod.Post;
+
+
+            client.Content = new StringContent(xml,
+                                        Encoding.UTF8,
+                                        "text/xml");
+
+
+            httpClient.DefaultRequestHeaders.ExpectContinue = false;
+            HttpResponseMessage resp2 = httpClient.SendAsync(client).Result;
+            var aaaa2 =   resp2.Content.ReadAsStringAsync().Result;
+            XmlSerializerHelper xmlSerializerHelper2 = new XmlSerializerHelper();
+            var ilceler = (HKSIlceler.Envelope)xmlSerializerHelper2.DeserializeFromXml(typeof(HKSIlceler.Envelope), aaaa2);
+             
+            
+            
+            
+            httpClient = new HttpClient();
+            client = new HttpRequestMessage(HttpMethod.Post, "https://hks.hal.gov.tr/WebServices/GenelService.svc");
+            client.Headers.Add("Connection", "keep-alive");
+            client.Headers.Add("Host", "hks.hal.gov.tr");
+            client.Headers.Add("User-Agent", "CodeGear SOAP 1.3");
+            client.Headers.Add("SOAPAction", "\"http://www.gtb.gov.tr//WebServices/IGenelService/GenelServisBeldeler\"");
+            client.Headers.Add("VsDebuggerCausalityData", "uIDPo/l8atIDoqFFniLRCUIFbKQAAAAA64uYbk/jW0K+h9kz55jWZeM1+BqDlnNPpgceAHjWSsYACQAA");
+            //  client.Headers.Add("Content-Type", "text/xml");
+              xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?><soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><soap:Body><BaseRequestMessageOf_BeldelerIstek xmlns=\"http://www.gtb.gov.tr//WebServices\"><Istek><IlceId xmlns=\"http://schemas.datacontract.org/2004/07/GTB.HKS.Genel.ServiceContract\">"+ ilceler.Body.BaseResponseMessageOf_IlcelerCevap.Sonuc.Ilceler.Where(x => x.IlceAdi.ToUpper() == tempcar.ilce.ToUpper()).FirstOrDefault().Id + "</IlceId></Istek><Password>Meypak140</Password><ServicePassword>18E932F8</ServicePassword><UserName>4300580693</UserName></BaseRequestMessageOf_BeldelerIstek></soap:Body></soap:Envelope>";
+            client.Method = HttpMethod.Post;
+
+
+            client.Content = new StringContent(xml,
+                                        Encoding.UTF8,
+                                        "text/xml");
+
+
+            httpClient.DefaultRequestHeaders.ExpectContinue = false;
+            HttpResponseMessage resp3 = httpClient.SendAsync(client).Result;
+            var aaaa3 =   resp3.Content.ReadAsStringAsync().Result;
+            XmlSerializerHelper xmlSerializerHelper3 = new XmlSerializerHelper();
+            var beldeler = (HKSBeldeler.Envelope)xmlSerializerHelper3.DeserializeFromXml(typeof(HKSBeldeler.Envelope), aaaa3);
+
+            
+              BildirimKayitIstek[] ten = new BildirimKayitIstek[_tempIrsaliyeDetay.Count];
+            for (int i = 0; i < _tempIrsaliyeDetay.Count; i++) 
             {
-
-              
-             {
-                    new BildirimKayitIstek()
+                 
+                    ten[i] = new BildirimKayitIstek()
                     {
                         UniqueId = Guid.NewGuid().ToString(),
                         BildirimciBilgileri = new BildirimciBilgileriDTO()
@@ -141,7 +217,7 @@ namespace MEYPAK.PRL.SIPARIS
                             KisiSifat = 6,
                         },
 
-                        BildirimTuru = 197,
+                        BildirimTuru = tempirs.bildirimturuid,
 
                         IkinciKisiBilgileri = new IkinciKisiBilgileriDTO()
                         {
@@ -160,35 +236,56 @@ namespace MEYPAK.PRL.SIPARIS
                             //CepTel= "5494633603",
                             //YurtDisiMi=false,
                         },
-                        ReferansBildirimKunyeNo = long.Parse(item.kunye),
+                        ReferansBildirimKunyeNo = long.Parse(_tempIrsaliyeDetay[i].kunye),
 
                         BildirimMalBilgileri = new BildirimMalBilgileriDTO()
                         {
-                            MalinMiktari = 0,
-                            MalinSatisFiyat = 0,
+                            MalinMiktari = Convert.ToDouble(_tempIrsaliyeDetay[i].safi),
+                            MalinSatisFiyat = Convert.ToDouble(_tempIrsaliyeDetay[i].netfiyat),
 
                         },
 
                         MalinGidecekYerBilgileri = new MalinGidecekYerBilgileriDTO()
                         {
-                            GidecekYerIsletmeTuruId = 19,
-                            GidecekYerIlId = 6,
+                            GidecekYerIsletmeTuruId = tempcar.SUBEID,
+                            GidecekYerIlId = iller.Body.BaseResponseMessageOf_IllerCevap.Sonuc.Iller.Where(x=>x.IlAdi.ToUpper()==tempcar.il.ToUpper()).FirstOrDefault().Id,
 
 
-
+                             
                             //  GidecekYerIsletmeTuruId=7,
                             //GidecekYerIsletmeTuruIdSpecified=true,
                             //  GidecekIsyeriId=1143,
                             //GidecekIsyeriIdSpecified=true,
-                            GidecekYerIlceId = 477,
-                            GidecekYerBeldeId = 5077,
+                            GidecekYerIlceId = ilceler.Body.BaseResponseMessageOf_IlcelerCevap.Sonuc.Ilceler.Where(x=>x.IlceAdi.ToUpper()==tempcar.ilce.ToUpper()).FirstOrDefault().Id,
+                            GidecekYerBeldeId = tempcar.BELDEID,
                             AracPlakaNo = "06NAK06",
 
                         }
 
-                    };
-             };
+                    }; 
             }
+
+           var xmlll= xmlSerializerHelper3.SerializeToXml(ten);
+
+            httpClient = new HttpClient();
+            client = new HttpRequestMessage(HttpMethod.Post, "https://hks.hal.gov.tr/WebServices/BildirimService.svc");
+            client.Headers.Add("Connection", "keep-alive");
+            client.Headers.Add("Host", "hks.hal.gov.tr");
+            client.Headers.Add("User-Agent", "CodeGear SOAP 1.3");
+            client.Headers.Add("SOAPAction", "\"http://www.gtb.gov.tr//WebServices/IBildirimService/BildirimServisBildirimKaydet\"");
+            client.Headers.Add("VsDebuggerCausalityData", "uIDPo/l8atIDoqFFniLRCUIFbKQAAAAA64uYbk/jW0K+h9kz55jWZeM1+BqDlnNPpgceAHjWSsYACQAA");
+            //  client.Headers.Add("Content-Type", "text/xml");
+           // xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?><soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><soap:Body><BaseRequestMessageOf_BeldelerIstek xmlns=\"http://www.gtb.gov.tr//WebServices\"><Istek><IlceId xmlns=\"http://schemas.datacontract.org/2004/07/GTB.HKS.Genel.ServiceContract\">" + ilceler.Body.BaseResponseMessageOf_IlcelerCevap.Sonuc.Ilceler.Where(x => x.IlceAdi.ToUpper() == tempcar.ilce.ToUpper()).FirstOrDefault().Id + "</IlceId></Istek><Password>Meypak140</Password><ServicePassword>18E932F8</ServicePassword><UserName>4300580693</UserName></BaseRequestMessageOf_BeldelerIstek></soap:Body></soap:Envelope>";
+            client.Method = HttpMethod.Post;
+
+
+            client.Content = new StringContent(xmlll,
+                                        Encoding.UTF8,
+                                        "text/xml");
+
+
+            httpClient.DefaultRequestHeaders.ExpectContinue = false;
+            HttpResponseMessage resp4 = httpClient.SendAsync(client).Result;
 
 
         }

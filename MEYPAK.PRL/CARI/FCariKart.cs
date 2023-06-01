@@ -28,6 +28,7 @@ using System.Data;
 using System.IO;
 using System.Net.Http;
 using System.Text;
+using System.Xml.Serialization;
 
 namespace MEYPAK.PRL.CARI
 {
@@ -53,6 +54,8 @@ namespace MEYPAK.PRL.CARI
             _cariHareketServis = new GenericWebServis<PocoCARIHAR>();
             CBAltHesap.Properties.ValueMember = "ID";
             CBAltHesap.Properties.DisplayMember = "ADI";
+            CBBelde.Properties.ValueMember = "ID";
+            CBBelde.Properties.DisplayMember = "ADI";
 
 
         }
@@ -385,23 +388,7 @@ namespace MEYPAK.PRL.CARI
             CBSifat.Properties.ValueMember = "ID";
 
 
-            DataTable isletmeturu = new DataTable();
-            isletmeturu.Columns.Add("ADI", typeof(string));
-            isletmeturu.Columns.Add("ID", typeof(int));
-            isletmeturu.Rows.Add("Şube", 1);
-            isletmeturu.Rows.Add("Tasnifleme ve Ambalajlama", 4);
-            isletmeturu.Rows.Add("Hal İçi Deposu", 5);
-            isletmeturu.Rows.Add("Hal Dışı Deposu", 6);
-            isletmeturu.Rows.Add("Hal İçi İşyeri", 7);
-            isletmeturu.Rows.Add("Hal Dışı İşyeri", 8);
-            isletmeturu.Rows.Add("Sınai İşletme", 9);
-            isletmeturu.Rows.Add("Dağıtım Merkezi", 12);
-            isletmeturu.Rows.Add("Yurt Dışı", 16);
-            isletmeturu.Rows.Add("Bireysel Tüketim", 18);
-            isletmeturu.Rows.Add("Perakende Satiş Yeri", 19); 
-            isletmeturu.Columns[1].ColumnMapping = MappingType.Hidden;
-
-            CBIsletmeTuru.Properties.DataSource = isletmeturu;
+           
             #endregion
 
             if (_tempCariKart != null)
@@ -630,6 +617,8 @@ namespace MEYPAK.PRL.CARI
                 ulke = CBUlke.Text,
                 il = CBIl.Text,
                 ilce = CBIlce.Text,
+                BELDE=CBBelde.Text != null ? CBBelde.Text : "",
+                BELDEID=CBBelde.EditValue != null ? int.Parse(CBBelde.EditValue.ToString()) : 0,
                 mahalle = TBMahalle.Text,
                 sokak = TBSokak.Text,
                 apt = TBApt.Text,
@@ -1038,6 +1027,88 @@ namespace MEYPAK.PRL.CARI
 
         private void s_Paint(object sender, PaintEventArgs e)
         {
+
+        }
+
+        private void CBIlce_EditValueChanged(object sender, EventArgs e)
+        {
+            if (CBIlce.EditValue.ToString() !="0")
+            {
+                HttpClient httpClient = new HttpClient();
+                var client = new HttpRequestMessage(HttpMethod.Post, "https://hks.hal.gov.tr/WebServices/GenelService.svc");
+                client.Headers.Add("Connection", "keep-alive");
+                client.Headers.Add("Host", "hks.hal.gov.tr");
+                client.Headers.Add("User-Agent", "CodeGear SOAP 1.3");
+                client.Headers.Add("SOAPAction", "\"http://www.gtb.gov.tr//WebServices/IGenelService/GenelServisIller\"");
+                client.Headers.Add("VsDebuggerCausalityData", "uIDPo/l8atIDoqFFniLRCUIFbKQAAAAA64uYbk/jW0K+h9kz55jWZeM1+BqDlnNPpgceAHjWSsYACQAA");
+                //  client.Headers.Add("Content-Type", "text/xml");
+                string xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?><soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><soap:Body><BaseRequestMessageOf_IllerIstek xmlns=\"http://www.gtb.gov.tr//WebServices\"><Istek /><Password>Meypak140</Password><ServicePassword>18E932F8</ServicePassword><UserName>4300580693</UserName></BaseRequestMessageOf_IllerIstek></soap:Body></soap:Envelope>";
+                client.Method = HttpMethod.Post;
+
+
+                client.Content = new StringContent(xml,
+                                            Encoding.UTF8,
+                                            "text/xml");
+
+
+                httpClient.DefaultRequestHeaders.ExpectContinue = false;
+                HttpResponseMessage resp = httpClient.SendAsync(client).Result;
+                var aaaa = resp.Content.ReadAsStringAsync().Result;
+                XmlSerializerHelper xmlSerializerHelper = new XmlSerializerHelper();
+                var iller = (HKSIller.Envelope)xmlSerializerHelper.DeserializeFromXml(typeof(HKSIller.Envelope), aaaa);
+
+
+                httpClient = new HttpClient();
+                client = new HttpRequestMessage(HttpMethod.Post, "https://hks.hal.gov.tr/WebServices/GenelService.svc");
+                client.Headers.Add("Connection", "keep-alive");
+                client.Headers.Add("Host", "hks.hal.gov.tr");
+                client.Headers.Add("User-Agent", "CodeGear SOAP 1.3");
+                client.Headers.Add("SOAPAction", "\"http://www.gtb.gov.tr//WebServices/IGenelService/GenelServisIlceler\"");
+                client.Headers.Add("VsDebuggerCausalityData", "uIDPo/l8atIDoqFFniLRCUIFbKQAAAAA64uYbk/jW0K+h9kz55jWZeM1+BqDlnNPpgceAHjWSsYACQAA");
+                //  client.Headers.Add("Content-Type", "text/xml");
+                xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?><soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><soap:Body><BaseRequestMessageOf_IlcelerIstek xmlns=\"http://www.gtb.gov.tr//WebServices\"><Istek><IlId xmlns=\"http://schemas.datacontract.org/2004/07/GTB.HKS.Genel.ServiceContract\">" + iller.Body.BaseResponseMessageOf_IllerCevap.Sonuc.Iller.Where(x => x.IlAdi.ToUpper() == CBIl.EditValue.ToString().ToUpper()).FirstOrDefault().Id + "</IlId></Istek><Password>Meypak140</Password><ServicePassword>18E932F8</ServicePassword><UserName>4300580693</UserName></BaseRequestMessageOf_IlcelerIstek></soap:Body></soap:Envelope>";
+                client.Method = HttpMethod.Post;
+
+
+                client.Content = new StringContent(xml,
+                                            Encoding.UTF8,
+                                            "text/xml");
+
+
+                httpClient.DefaultRequestHeaders.ExpectContinue = false;
+                HttpResponseMessage resp2 = httpClient.SendAsync(client).Result;
+                var aaaa2 = resp2.Content.ReadAsStringAsync().Result;
+                XmlSerializerHelper xmlSerializerHelper2 = new XmlSerializerHelper();
+                var ilceler = (HKSIlceler.Envelope)xmlSerializerHelper2.DeserializeFromXml(typeof(HKSIlceler.Envelope), aaaa2);
+
+
+
+
+                httpClient = new HttpClient();
+                client = new HttpRequestMessage(HttpMethod.Post, "https://hks.hal.gov.tr/WebServices/GenelService.svc");
+                client.Headers.Add("Connection", "keep-alive");
+                client.Headers.Add("Host", "hks.hal.gov.tr");
+                client.Headers.Add("User-Agent", "CodeGear SOAP 1.3");
+                client.Headers.Add("SOAPAction", "\"http://www.gtb.gov.tr//WebServices/IGenelService/GenelServisBeldeler\"");
+                client.Headers.Add("VsDebuggerCausalityData", "uIDPo/l8atIDoqFFniLRCUIFbKQAAAAA64uYbk/jW0K+h9kz55jWZeM1+BqDlnNPpgceAHjWSsYACQAA");
+                //  client.Headers.Add("Content-Type", "text/xml");
+                xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?><soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><soap:Body><BaseRequestMessageOf_BeldelerIstek xmlns=\"http://www.gtb.gov.tr//WebServices\"><Istek><IlceId xmlns=\"http://schemas.datacontract.org/2004/07/GTB.HKS.Genel.ServiceContract\">" + ilceler.Body.BaseResponseMessageOf_IlcelerCevap.Sonuc.Ilceler.Where(x => x.IlceAdi.ToUpper() == CBIlce.EditValue.ToString().ToUpper()).FirstOrDefault().Id + "</IlceId></Istek><Password>Meypak140</Password><ServicePassword>18E932F8</ServicePassword><UserName>4300580693</UserName></BaseRequestMessageOf_BeldelerIstek></soap:Body></soap:Envelope>";
+                client.Method = HttpMethod.Post;
+
+
+                client.Content = new StringContent(xml,
+                                            Encoding.UTF8,
+                                            "text/xml");
+
+
+                httpClient.DefaultRequestHeaders.ExpectContinue = false;
+                HttpResponseMessage resp3 = httpClient.SendAsync(client).Result;
+                var aaaa3 = resp3.Content.ReadAsStringAsync().Result;
+                XmlSerializerHelper xmlSerializerHelper3 = new XmlSerializerHelper();
+                var beldeler = (HKSBeldeler.Envelope)xmlSerializerHelper3.DeserializeFromXml(typeof(HKSBeldeler.Envelope), aaaa3);
+                
+                CBBelde.Properties.DataSource = beldeler.Body.BaseResponseMessageOf_BeldelerCevap.Sonuc.Beldeler.Select(x => new { ID = x.Id, ADI = x.BeldeAdi });
+            }
 
         }
     }

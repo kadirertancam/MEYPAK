@@ -20,7 +20,10 @@ using MEYPAK.PRL.Assets;
 using MEYPAK.PRL.CARI;
 using MEYPAK.PRL.SIPARIS;
 using MEYPAK.PRL.STOK;
-using System.Data;                                                                                                                  
+using System.Data;
+using System.Net.Http;
+using System.Text;
+using System.Xml.Serialization;
 
 namespace MEYPAK.PRL.IRSALIYE
 {
@@ -82,6 +85,33 @@ namespace MEYPAK.PRL.IRSALIYE
                 _kasaaa = tempkasa;
             irstip = tip;
             this.siparisidd = siparisidd;
+
+            HttpClient httpClient = new HttpClient();
+            var client = new HttpRequestMessage(HttpMethod.Post, "https://hks.hal.gov.tr/WebServices/BildirimService.svc");
+            client.Headers.Add("Connection", "keep-alive");
+            client.Headers.Add("Host", "hks.hal.gov.tr");
+            client.Headers.Add("User-Agent", "CodeGear SOAP 1.3");
+            client.Headers.Add("SOAPAction", "\"http://www.gtb.gov.tr//WebServices/IBildirimService/BildirimServisBildirimTurleri\"");
+            client.Headers.Add("VsDebuggerCausalityData", "uIDPo/l8atIDoqFFniLRCUIFbKQAAAAA64uYbk/jW0K+h9kz55jWZeM1+BqDlnNPpgceAHjWSsYACQAA");
+            //  client.Headers.Add("Content-Type", "text/xml");
+            string xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?><soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><soap:Body><BaseRequestMessageOf_BildirimTurleriIstek xmlns=\"http://www.gtb.gov.tr//WebServices\"><Istek /><Password>Meypak140</Password><ServicePassword>18E932F8</ServicePassword><UserName>4300580693</UserName></BaseRequestMessageOf_BildirimTurleriIstek></soap:Body></soap:Envelope>";
+            client.Method = HttpMethod.Post;
+
+
+            client.Content = new StringContent(xml,
+                                        Encoding.UTF8,
+                                        "text/xml");
+
+
+            httpClient.DefaultRequestHeaders.ExpectContinue = false;
+            HttpResponseMessage resp = httpClient.SendAsync(client).Result;
+            var aaaa = resp.Content.ReadAsStringAsync().Result;
+            XmlSerializerHelper xmlSerializerHelper = new XmlSerializerHelper();
+            var hKSBildirimTurleri = (HKSBildirimTurleri.Envelope)xmlSerializerHelper.DeserializeFromXml(typeof(HKSBildirimTurleri.Envelope), aaaa);
+            CBBildirimTurleri.Properties.DisplayMember = "ADI";
+            CBBildirimTurleri.Properties.ValueMember = "ID";
+
+            CBBildirimTurleri.Properties.DataSource = hKSBildirimTurleri.Body.BaseResponseMessageOf_BildirimTurleriCevap.Sonuc.BildirimTurleri.Select(x => new { ID = x.Id, ADI = x.BildirimTuruAdi });
         }
 
         #region TANIMLAR
@@ -972,6 +1002,8 @@ namespace MEYPAK.PRL.IRSALIYE
                      dorseid= _araclarServis.obje.Where(x => x.PLAKA == CBDorseListesi.EditValue.ToString()).FirstOrDefault().ID,
                       personelid=_personelServis.obje.Where(x=>x.ADISOYADI==CBSoforListesi.EditValue.ToString()).FirstOrDefault().ID, serino=comboBoxEdit1.EditValue.ToString(),
                     tip = 0,
+                     bildirimturu= CBBildirimTurleri.Text != null ? CBBildirimTurleri.Text : "",
+                      bildirimturuid= CBBildirimTurleri.EditValue != null ? Convert.ToInt32(CBBildirimTurleri.EditValue) : 0,
                     userid = MPKullanici.ID,
                 });
                 _siparisServis.Data(ServisList.SiparisListeServis);

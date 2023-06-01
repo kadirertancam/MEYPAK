@@ -52,5 +52,8 @@ namespace MEYPAK.Entity.PocoModels.IRSALIYE
         public bool durum { get; set; }
         [Required]
         public string donem { get; set; } = DateTime.Now.ToString("yyyy");
+
+        public string bildirimturu { get; set; } = "";
+        public int bildirimturuid { get; set; } = 0;
     }
 }

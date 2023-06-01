@@ -28,12 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FCariKart));
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions20 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject77 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject78 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject79 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject80 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions19 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject73 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject74 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject75 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject76 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions21 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject81 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject82 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -97,16 +96,12 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject42 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject43 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject44 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions12 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject45 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject46 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject47 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject48 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions13 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject49 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject50 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject51 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject52 = new DevExpress.Utils.SerializableAppearanceObject();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FCariKart));
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions20 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject77 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject78 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject79 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject80 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions14 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject53 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject54 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -127,6 +122,11 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject66 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject67 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject68 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions18 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject69 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject70 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject71 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject72 = new DevExpress.Utils.SerializableAppearanceObject();
             this.CResim = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.panelControl19 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
@@ -316,8 +316,6 @@
             this.LBAptDaire = new DevExpress.XtraEditors.LabelControl();
             this.LBFax = new DevExpress.XtraEditors.LabelControl();
             this.s = new DevExpress.XtraEditors.GroupControl();
-            this.CBIsletmeTuru = new DevExpress.XtraEditors.LookUpEdit();
-            this.label5 = new System.Windows.Forms.Label();
             this.CBSube = new DevExpress.XtraEditors.LookUpEdit();
             this.CBSifat = new DevExpress.XtraEditors.LookUpEdit();
             this.label4 = new System.Windows.Forms.Label();
@@ -349,6 +347,8 @@
             this.panelControl23 = new DevExpress.XtraEditors.PanelControl();
             this.BTSil = new DevExpress.XtraEditors.SimpleButton();
             this.BTKaydet = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.CBBelde = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl19)).BeginInit();
             this.panelControl19.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
@@ -487,7 +487,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.TBDaire.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.s)).BeginInit();
             this.s.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CBIsletmeTuru.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBSube.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBSifat.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBTip.Properties)).BeginInit();
@@ -505,6 +504,7 @@
             this.panelControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl23)).BeginInit();
             this.panelControl23.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CBBelde.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // CResim
@@ -531,9 +531,9 @@
             // 
             this.panelControl4.Controls.Add(this.TBSevkAdres);
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl4.Location = new System.Drawing.Point(2, 388);
+            this.panelControl4.Location = new System.Drawing.Point(2, 406);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(1126, 484);
+            this.panelControl4.Size = new System.Drawing.Size(1126, 466);
             this.panelControl4.TabIndex = 11;
             // 
             // TBSevkAdres
@@ -550,7 +550,7 @@
             this.TBSevkAdres.Location = new System.Drawing.Point(2, 2);
             this.TBSevkAdres.Name = "TBSevkAdres";
             this.TBSevkAdres.SelectedIndex = 0;
-            this.TBSevkAdres.Size = new System.Drawing.Size(1122, 480);
+            this.TBSevkAdres.Size = new System.Drawing.Size(1122, 462);
             this.TBSevkAdres.TabIndex = 0;
             // 
             // tabPage9
@@ -559,7 +559,7 @@
             this.tabPage9.Controls.Add(this.panelControl1);
             this.tabPage9.Location = new System.Drawing.Point(4, 22);
             this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Size = new System.Drawing.Size(1114, 454);
+            this.tabPage9.Size = new System.Drawing.Size(1114, 436);
             this.tabPage9.TabIndex = 8;
             this.tabPage9.Text = "AltHesap";
             this.tabPage9.UseVisualStyleBackColor = true;
@@ -568,7 +568,7 @@
             // 
             this.panelControl2.Controls.Add(this.DGAltHesap);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl2.Location = new System.Drawing.Point(0, 121);
+            this.panelControl2.Location = new System.Drawing.Point(0, 103);
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Size = new System.Drawing.Size(1114, 333);
             this.panelControl2.TabIndex = 1;
@@ -656,7 +656,7 @@
             this.BTAltHesSec.Location = new System.Drawing.Point(135, 48);
             this.BTAltHesSec.Name = "BTAltHesSec";
             this.BTAltHesSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions20, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject77, serializableAppearanceObject78, serializableAppearanceObject79, serializableAppearanceObject80, "", null, null, DevExpress.Utils.ToolTipAnchor.Default),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions19, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject73, serializableAppearanceObject74, serializableAppearanceObject75, serializableAppearanceObject76, "", null, null, DevExpress.Utils.ToolTipAnchor.Default),
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Yeni", -1, true, true, false, editorButtonImageOptions21, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject81, serializableAppearanceObject82, serializableAppearanceObject83, serializableAppearanceObject84, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTAltHesSec.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTAltHesSec_Properties_ButtonClick);
             this.BTAltHesSec.Size = new System.Drawing.Size(225, 22);
@@ -1962,7 +1962,7 @@
             this.panelControl9.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl9.Location = new System.Drawing.Point(2, 2);
             this.panelControl9.Name = "panelControl9";
-            this.panelControl9.Size = new System.Drawing.Size(1126, 386);
+            this.panelControl9.Size = new System.Drawing.Size(1126, 404);
             this.panelControl9.TabIndex = 10;
             // 
             // groupControl6
@@ -1981,7 +1981,7 @@
             this.groupControl6.Controls.Add(this.LBAdres);
             this.groupControl6.Location = new System.Drawing.Point(766, 3);
             this.groupControl6.Name = "groupControl6";
-            this.groupControl6.Size = new System.Drawing.Size(354, 379);
+            this.groupControl6.Size = new System.Drawing.Size(354, 395);
             this.groupControl6.TabIndex = 60;
             this.groupControl6.Text = "Muhasebe Bilgi";
             // 
@@ -1990,7 +1990,7 @@
             this.BTMuhSec.Location = new System.Drawing.Point(104, 50);
             this.BTMuhSec.Name = "BTMuhSec";
             this.BTMuhSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions12, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject45, serializableAppearanceObject46, serializableAppearanceObject47, serializableAppearanceObject48, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions20, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject77, serializableAppearanceObject78, serializableAppearanceObject79, serializableAppearanceObject80, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTMuhSec.Size = new System.Drawing.Size(225, 22);
             this.BTMuhSec.TabIndex = 25;
             // 
@@ -2030,7 +2030,7 @@
             this.BTAMuhSec.Location = new System.Drawing.Point(104, 78);
             this.BTAMuhSec.Name = "BTAMuhSec";
             this.BTAMuhSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions13, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject49, serializableAppearanceObject50, serializableAppearanceObject51, serializableAppearanceObject52, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions14, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject53, serializableAppearanceObject54, serializableAppearanceObject55, serializableAppearanceObject56, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTAMuhSec.Size = new System.Drawing.Size(225, 22);
             this.BTAMuhSec.TabIndex = 26;
             // 
@@ -2056,7 +2056,7 @@
             this.BTSMuhSec.Location = new System.Drawing.Point(104, 104);
             this.BTSMuhSec.Name = "BTSMuhSec";
             this.BTSMuhSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions14, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject53, serializableAppearanceObject54, serializableAppearanceObject55, serializableAppearanceObject56, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions15, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject57, serializableAppearanceObject58, serializableAppearanceObject59, serializableAppearanceObject60, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTSMuhSec.Size = new System.Drawing.Size(225, 22);
             this.BTSMuhSec.TabIndex = 27;
             // 
@@ -2083,6 +2083,8 @@
             // 
             // groupControl5
             // 
+            this.groupControl5.Controls.Add(this.labelControl2);
+            this.groupControl5.Controls.Add(this.CBBelde);
             this.groupControl5.Controls.Add(this.TBEposta);
             this.groupControl5.Controls.Add(this.LBTelefon1);
             this.groupControl5.Controls.Add(this.CBUlke);
@@ -2114,13 +2116,13 @@
             this.groupControl5.Controls.Add(this.LBFax);
             this.groupControl5.Location = new System.Drawing.Point(415, 3);
             this.groupControl5.Name = "groupControl5";
-            this.groupControl5.Size = new System.Drawing.Size(345, 379);
+            this.groupControl5.Size = new System.Drawing.Size(345, 395);
             this.groupControl5.TabIndex = 60;
             this.groupControl5.Text = "İletişim Bilgileri";
             // 
             // TBEposta
             // 
-            this.TBEposta.Location = new System.Drawing.Point(101, 333);
+            this.TBEposta.Location = new System.Drawing.Point(101, 360);
             this.TBEposta.Name = "TBEposta";
             this.TBEposta.Size = new System.Drawing.Size(225, 20);
             this.TBEposta.TabIndex = 24;
@@ -2129,7 +2131,7 @@
             // 
             this.LBTelefon1.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.LBTelefon1.Appearance.Options.UseForeColor = true;
-            this.LBTelefon1.Location = new System.Drawing.Point(31, 206);
+            this.LBTelefon1.Location = new System.Drawing.Point(31, 233);
             this.LBTelefon1.Name = "LBTelefon1";
             this.LBTelefon1.Size = new System.Drawing.Size(45, 13);
             this.LBTelefon1.TabIndex = 32;
@@ -2155,7 +2157,7 @@
             // 
             // TBWebSite
             // 
-            this.TBWebSite.Location = new System.Drawing.Point(101, 306);
+            this.TBWebSite.Location = new System.Drawing.Point(101, 333);
             this.TBWebSite.Name = "TBWebSite";
             this.TBWebSite.Size = new System.Drawing.Size(225, 20);
             this.TBWebSite.TabIndex = 23;
@@ -2163,7 +2165,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(206, 153);
+            this.label13.Location = new System.Drawing.Point(206, 180);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(11, 13);
             this.label13.TabIndex = 29;
@@ -2178,6 +2180,7 @@
             this.CBIlce.Properties.NullText = "";
             this.CBIlce.Size = new System.Drawing.Size(103, 20);
             this.CBIlce.TabIndex = 13;
+            this.CBIlce.EditValueChanged += new System.EventHandler(this.CBIlce_EditValueChanged);
             // 
             // LBIlIlce
             // 
@@ -2189,28 +2192,28 @@
             // 
             // TBFax
             // 
-            this.TBFax.Location = new System.Drawing.Point(101, 283);
+            this.TBFax.Location = new System.Drawing.Point(101, 310);
             this.TBFax.Name = "TBFax";
             this.TBFax.Size = new System.Drawing.Size(225, 20);
             this.TBFax.TabIndex = 22;
             // 
             // TBMahalle
             // 
-            this.TBMahalle.Location = new System.Drawing.Point(101, 98);
+            this.TBMahalle.Location = new System.Drawing.Point(101, 125);
             this.TBMahalle.Name = "TBMahalle";
             this.TBMahalle.Size = new System.Drawing.Size(225, 20);
             this.TBMahalle.TabIndex = 14;
             // 
             // TBCepTel
             // 
-            this.TBCepTel.Location = new System.Drawing.Point(101, 257);
+            this.TBCepTel.Location = new System.Drawing.Point(101, 284);
             this.TBCepTel.Name = "TBCepTel";
             this.TBCepTel.Size = new System.Drawing.Size(225, 20);
             this.TBCepTel.TabIndex = 21;
             // 
             // LBMahalle
             // 
-            this.LBMahalle.Location = new System.Drawing.Point(40, 104);
+            this.LBMahalle.Location = new System.Drawing.Point(40, 131);
             this.LBMahalle.Name = "LBMahalle";
             this.LBMahalle.Size = new System.Drawing.Size(36, 13);
             this.LBMahalle.TabIndex = 46;
@@ -2238,14 +2241,14 @@
             // 
             // TBTelefon2
             // 
-            this.TBTelefon2.Location = new System.Drawing.Point(101, 231);
+            this.TBTelefon2.Location = new System.Drawing.Point(101, 258);
             this.TBTelefon2.Name = "TBTelefon2";
             this.TBTelefon2.Size = new System.Drawing.Size(225, 20);
             this.TBTelefon2.TabIndex = 20;
             // 
             // LBSokak
             // 
-            this.LBSokak.Location = new System.Drawing.Point(48, 128);
+            this.LBSokak.Location = new System.Drawing.Point(48, 155);
             this.LBSokak.Name = "LBSokak";
             this.LBSokak.Size = new System.Drawing.Size(28, 13);
             this.LBSokak.TabIndex = 47;
@@ -2253,21 +2256,21 @@
             // 
             // TBPostaKod
             // 
-            this.TBPostaKod.Location = new System.Drawing.Point(101, 177);
+            this.TBPostaKod.Location = new System.Drawing.Point(101, 204);
             this.TBPostaKod.Name = "TBPostaKod";
             this.TBPostaKod.Size = new System.Drawing.Size(225, 20);
             this.TBPostaKod.TabIndex = 18;
             // 
             // TBSokak
             // 
-            this.TBSokak.Location = new System.Drawing.Point(101, 124);
+            this.TBSokak.Location = new System.Drawing.Point(101, 151);
             this.TBSokak.Name = "TBSokak";
             this.TBSokak.Size = new System.Drawing.Size(225, 20);
             this.TBSokak.TabIndex = 15;
             // 
             // TBTelefon1
             // 
-            this.TBTelefon1.Location = new System.Drawing.Point(101, 204);
+            this.TBTelefon1.Location = new System.Drawing.Point(101, 231);
             this.TBTelefon1.Name = "TBTelefon1";
             this.TBTelefon1.Size = new System.Drawing.Size(225, 20);
             this.TBTelefon1.TabIndex = 19;
@@ -2275,7 +2278,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(170, 148);
+            this.label10.Location = new System.Drawing.Point(170, 175);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(0, 13);
             this.label10.TabIndex = 22;
@@ -2284,7 +2287,7 @@
             // 
             this.LBEposta.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.LBEposta.Appearance.Options.UseForeColor = true;
-            this.LBEposta.Location = new System.Drawing.Point(41, 332);
+            this.LBEposta.Location = new System.Drawing.Point(41, 359);
             this.LBEposta.Name = "LBEposta";
             this.LBEposta.Size = new System.Drawing.Size(33, 13);
             this.LBEposta.TabIndex = 37;
@@ -2294,7 +2297,7 @@
             // 
             this.LBTelefon2.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.LBTelefon2.Appearance.Options.UseForeColor = true;
-            this.LBTelefon2.Location = new System.Drawing.Point(31, 235);
+            this.LBTelefon2.Location = new System.Drawing.Point(31, 262);
             this.LBTelefon2.Name = "LBTelefon2";
             this.LBTelefon2.Size = new System.Drawing.Size(45, 13);
             this.LBTelefon2.TabIndex = 33;
@@ -2302,7 +2305,7 @@
             // 
             // LBPostaKodu
             // 
-            this.LBPostaKodu.Location = new System.Drawing.Point(24, 180);
+            this.LBPostaKodu.Location = new System.Drawing.Point(24, 207);
             this.LBPostaKodu.Name = "LBPostaKodu";
             this.LBPostaKodu.Size = new System.Drawing.Size(54, 13);
             this.LBPostaKodu.TabIndex = 49;
@@ -2310,7 +2313,7 @@
             // 
             // TBApt
             // 
-            this.TBApt.Location = new System.Drawing.Point(101, 150);
+            this.TBApt.Location = new System.Drawing.Point(101, 177);
             this.TBApt.Name = "TBApt";
             this.TBApt.Size = new System.Drawing.Size(99, 20);
             this.TBApt.TabIndex = 16;
@@ -2319,7 +2322,7 @@
             // 
             this.LBWebSite.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.LBWebSite.Appearance.Options.UseForeColor = true;
-            this.LBWebSite.Location = new System.Drawing.Point(31, 310);
+            this.LBWebSite.Location = new System.Drawing.Point(31, 337);
             this.LBWebSite.Name = "LBWebSite";
             this.LBWebSite.Size = new System.Drawing.Size(43, 13);
             this.LBWebSite.TabIndex = 36;
@@ -2329,7 +2332,7 @@
             // 
             this.LBTel.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.LBTel.Appearance.Options.UseForeColor = true;
-            this.LBTel.Location = new System.Drawing.Point(38, 260);
+            this.LBTel.Location = new System.Drawing.Point(38, 287);
             this.LBTel.Name = "LBTel";
             this.LBTel.Size = new System.Drawing.Size(40, 13);
             this.LBTel.TabIndex = 34;
@@ -2337,7 +2340,7 @@
             // 
             // TBDaire
             // 
-            this.TBDaire.Location = new System.Drawing.Point(223, 150);
+            this.TBDaire.Location = new System.Drawing.Point(223, 177);
             this.TBDaire.Name = "TBDaire";
             this.TBDaire.Size = new System.Drawing.Size(103, 20);
             this.TBDaire.TabIndex = 17;
@@ -2345,7 +2348,7 @@
             // 
             // LBAptDaire
             // 
-            this.LBAptDaire.Location = new System.Drawing.Point(19, 152);
+            this.LBAptDaire.Location = new System.Drawing.Point(19, 179);
             this.LBAptDaire.Name = "LBAptDaire";
             this.LBAptDaire.Size = new System.Drawing.Size(59, 13);
             this.LBAptDaire.TabIndex = 48;
@@ -2355,7 +2358,7 @@
             // 
             this.LBFax.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.LBFax.Appearance.Options.UseForeColor = true;
-            this.LBFax.Location = new System.Drawing.Point(56, 287);
+            this.LBFax.Location = new System.Drawing.Point(56, 314);
             this.LBFax.Name = "LBFax";
             this.LBFax.Size = new System.Drawing.Size(18, 13);
             this.LBFax.TabIndex = 35;
@@ -2364,8 +2367,6 @@
             // s
             // 
             this.s.CaptionImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("s.CaptionImageOptions.Image")));
-            this.s.Controls.Add(this.CBIsletmeTuru);
-            this.s.Controls.Add(this.label5);
             this.s.Controls.Add(this.CBSube);
             this.s.Controls.Add(this.CBSifat);
             this.s.Controls.Add(this.label4);
@@ -2395,29 +2396,10 @@
             this.s.Controls.Add(this.LBCariAd);
             this.s.Location = new System.Drawing.Point(2, 3);
             this.s.Name = "s";
-            this.s.Size = new System.Drawing.Size(407, 379);
+            this.s.Size = new System.Drawing.Size(407, 395);
             this.s.TabIndex = 50;
             this.s.Text = "Genel Bilgi";
             this.s.Paint += new System.Windows.Forms.PaintEventHandler(this.s_Paint);
-            // 
-            // CBIsletmeTuru
-            // 
-            this.CBIsletmeTuru.Location = new System.Drawing.Point(99, 342);
-            this.CBIsletmeTuru.Name = "CBIsletmeTuru";
-            this.CBIsletmeTuru.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.CBIsletmeTuru.Properties.NullText = "";
-            this.CBIsletmeTuru.Size = new System.Drawing.Size(114, 20);
-            this.CBIsletmeTuru.TabIndex = 66;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(17, 345);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(67, 13);
-            this.label5.TabIndex = 65;
-            this.label5.Text = "İşletme Türü";
             // 
             // CBSube
             // 
@@ -2489,7 +2471,7 @@
             this.BTGrupSec.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.BTGrupSec.Properties.Appearance.Options.UseForeColor = true;
             this.BTGrupSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions15, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject57, serializableAppearanceObject58, serializableAppearanceObject59, serializableAppearanceObject60, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions16, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject61, serializableAppearanceObject62, serializableAppearanceObject63, serializableAppearanceObject64, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTGrupSec.Size = new System.Drawing.Size(279, 22);
             this.BTGrupSec.TabIndex = 9;
             // 
@@ -2564,7 +2546,7 @@
             this.BTKategoriSec.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.BTKategoriSec.Properties.Appearance.Options.UseForeColor = true;
             this.BTKategoriSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions16, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject61, serializableAppearanceObject62, serializableAppearanceObject63, serializableAppearanceObject64, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions17, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject65, serializableAppearanceObject66, serializableAppearanceObject67, serializableAppearanceObject68, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTKategoriSec.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTKategoriSec_Properties_ButtonClick);
             this.BTKategoriSec.Size = new System.Drawing.Size(279, 22);
             this.BTKategoriSec.TabIndex = 10;
@@ -2597,7 +2579,7 @@
             this.BTCariSec.Location = new System.Drawing.Point(99, 50);
             this.BTCariSec.Name = "BTCariSec";
             this.BTCariSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions17, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject65, serializableAppearanceObject66, serializableAppearanceObject67, serializableAppearanceObject68, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Seç", -1, true, true, false, editorButtonImageOptions18, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject69, serializableAppearanceObject70, serializableAppearanceObject71, serializableAppearanceObject72, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.BTCariSec.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BTCariSec_Properties_Click);
             this.BTCariSec.Size = new System.Drawing.Size(279, 22);
             this.BTCariSec.TabIndex = 0;
@@ -2704,6 +2686,24 @@
             this.BTKaydet.TabIndex = 74;
             this.BTKaydet.Text = "Kaydet";
             this.BTKaydet.Click += new System.EventHandler(this.BTKaydet_Click);
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Location = new System.Drawing.Point(49, 104);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(26, 13);
+            this.labelControl2.TabIndex = 51;
+            this.labelControl2.Text = "Belde";
+            // 
+            // CBBelde
+            // 
+            this.CBBelde.Location = new System.Drawing.Point(101, 98);
+            this.CBBelde.Name = "CBBelde";
+            this.CBBelde.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CBBelde.Properties.NullText = "";
+            this.CBBelde.Size = new System.Drawing.Size(225, 20);
+            this.CBBelde.TabIndex = 50;
             // 
             // FCariKart
             // 
@@ -2865,7 +2865,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.s)).EndInit();
             this.s.ResumeLayout(false);
             this.s.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CBIsletmeTuru.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBSube.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBSifat.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBTip.Properties)).EndInit();
@@ -2883,6 +2882,7 @@
             this.panelControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl23)).EndInit();
             this.panelControl23.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.CBBelde.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3109,7 +3109,7 @@
         private Label label2;
         private DevExpress.XtraEditors.LookUpEdit CBSube;
         private DevExpress.XtraEditors.LookUpEdit CBSifat;
-        private DevExpress.XtraEditors.LookUpEdit CBIsletmeTuru;
-        private Label label5;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraEditors.LookUpEdit CBBelde;
     }
 }
