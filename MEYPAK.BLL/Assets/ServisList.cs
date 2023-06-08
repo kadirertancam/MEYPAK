@@ -14,6 +14,39 @@ namespace MEYPAK.BLL.Assets
 
         #endregion
 
+        #region SeriYetki
+        public const string SeriYetkiListeServis =          "http://78.135.80.41:8080/SeriYetki/SeriYetkiListe";
+        public const string SeriYetkiEkleServis =           "http://78.135.80.41:8080/SeriYetki/SeriYetkiEkleyadaGuncelle";
+        public const string SeriYetkiSilServis =            "http://78.135.80.41:8080/SeriYetki/SeriYetkiSil";
+        public const string SeriYetkiGuncelleServis =       "http://78.135.80.41:8080/SeriYetki/SeriYetkiGuncelle";
+        public const string SeriYetkiDeleteByIdServis =     "http://78.135.80.41:8080/SeriYetki/DeleteById";
+        public const string SeriYetkiListeFiltreServis =    "http://78.135.80.41:8080/SeriYetki/Liste2";
+        #endregion   
+
+        #region HKSIller
+        public const string HksIllerListeServis =          "http://78.135.80.41:8080/HKSILLER/HksIllerListe";
+        public const string HksIllerEkleServis =           "http://78.135.80.41:8080/HKSILLER/HksIllerEkleyadaGuncelle";
+        public const string HksIllerSilServis =            "http://78.135.80.41:8080/HKSILLER/HksIllerSil";
+        public const string HksIllerGuncelleServis =       "http://78.135.80.41:8080/HKSILLER/HksIllerGuncelle";
+        public const string HksIllerDeleteByIdServis =     "http://78.135.80.41:8080/HKSILLER/DeleteById";
+        public const string HksIllerListeFiltreServis =    "http://78.135.80.41:8080/HKSILLER/Liste2";
+        #endregion   
+        #region HKSIlceler
+        public const string HksIlcelerListeServis =          "http://78.135.80.41:8080/HKSILCELER/HksIlcelerListe";
+        public const string HksIlcelerEkleServis =           "http://78.135.80.41:8080/HKSILCELER/HksIlcelerEkleyadaGuncelle";
+        public const string HksIlcelerSilServis =            "http://78.135.80.41:8080/HKSILCELER/HksIlcelerSil";
+        public const string HksIlcelerGuncelleServis =       "http://78.135.80.41:8080/HKSILCELER/HksIlcelerGuncelle";
+        public const string HksIlcelerDeleteByIdServis =     "http://78.135.80.41:8080/HKSILCELER/DeleteById";
+        public const string HksIlcelerListeFiltreServis =    "http://78.135.80.41:8080/HKSILCELER/Liste2";
+        #endregion  
+        #region HKSIller
+        public const string HksBeldelerListeServis =          "http://78.135.80.41:8080/HKSBELDELER/HksBeldelerListe";
+        public const string HksBeldelerEkleServis =           "http://78.135.80.41:8080/HKSBELDELER/HksBeldelerEkleyadaGuncelle";
+        public const string HksBeldelerSilServis =            "http://78.135.80.41:8080/HKSBELDELER/HksBeldelerSil";
+        public const string HksBeldelerGuncelleServis =       "http://78.135.80.41:8080/HKSBELDELER/HksBeldelerGuncelle";
+        public const string HksBeldelerDeleteByIdServis =     "http://78.135.80.41:8080/HKSBELDELER/DeleteById";
+        public const string HksBeldelerListeFiltreServis =    "http://78.135.80.41:8080/HKSBELDELER/Liste2";
+        #endregion
 
         #region FATURASTOKESLE
         public const string FATURASTOKESLEListeServis = "http://78.135.80.41:8080/FATURASTOKESLE/FATURASTOKESLEListe";

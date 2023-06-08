@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraRichEdit.Import.Html;
+using MEYPAK.BLL.Assets;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -30,7 +31,7 @@ namespace MEYPAK.UPDATE
             clientt = new WebClient();
         }
         WebClient clientt; HttpClient httpClient;
-        string Content;
+        string Content; 
         private void FGuncelle_Load(object sender, EventArgs e)
         {
             HttpRequestMessage client;
@@ -45,7 +46,7 @@ namespace MEYPAK.UPDATE
             folderSecurity.AddAccessRule(new FileSystemAccessRule(everyoneSid, FileSystemRights.FullControl, InheritanceFlags.ContainerInherit | InheritanceFlags.ObjectInherit, PropagationFlags.None, AccessControlType.Allow));
             folderInfo.SetAccessControl(folderSecurity);
 
-            client = new HttpRequestMessage(HttpMethod.Post, "http://78.135.80.41:8080/Versiyon");
+            client = new HttpRequestMessage(HttpMethod.Post, "http://78.135.80.41:8080/Versiyon/Index");
             client.Headers.Add("Connection", "keep-alive");
             client.Headers.Add("accept", "*/*");
             client.Headers.Add("Referer", "http://78.135.80.41:8080/Versiyon");

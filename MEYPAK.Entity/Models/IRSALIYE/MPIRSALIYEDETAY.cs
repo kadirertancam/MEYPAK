@@ -32,24 +32,39 @@ namespace MEYPAK.Entity.Models.IRSALIYE
         public string STOKADI { get; set; } = "";
         [StringLength(200)]
         public string ACIKLAMA { get; set; } = "";
+        [Column(TypeName = "decimal(18,2)")]
         public decimal KASAMIKTAR { get; set; } = 0;
+        [Column(TypeName = "decimal(18,2)")]
         public decimal DARALI { get; set; } = 0;
+        [Column(TypeName = "decimal(18,2)")]
         public decimal DARA { get; set; } = 0;
+        [Column(TypeName = "decimal(18,2)")]
         public decimal SAFI { get; set; } = 0;
+        [Column(TypeName = "decimal(18,2)")]
         public decimal ISKONTO1 { get; set; } = 0;
+        [Column(TypeName = "decimal(18,2)")]
         public decimal ISKONTO2 { get; set; } = 0;
+        [Column(TypeName = "decimal(18,2)")]
         public decimal ISKONTO3 { get; set; } = 0;
+        [Column(TypeName = "decimal(18,2)")]
         public decimal ISKTOPLAM { get; set; }
+        [Column(TypeName = "decimal(18,2)")]
         public decimal BIRIMFIYAT { get; set; } = 0;
+        [Column(TypeName = "decimal(18,2)")]
         public decimal NETFIYAT { get; set; } = 0;
+        [Column(TypeName = "decimal(18,2)")]
         public decimal BRUTFIYAT { get; set; } = 0;
+        [Column(TypeName = "decimal(18,2)")]
         public decimal NETTOPLAM { get; set; } = 0;
+        [Column(TypeName = "decimal(18,2)")]
         public decimal BRUTTOPLAM { get; set; } = 0;
         public int BEKLEYENMIKTAR { get; set; } = 0;
         public byte HAREKETDURUMU { get; set; } = 0;
+        [Column(TypeName = "decimal(18,2)")]
         public decimal KDV { get; set; } = 0;
+        [Column(TypeName = "decimal(18,2)")]
         public decimal KDVTUTARI { get; set; } = 0;
-        public string KUNYE { get; set; }
+        public string KUNYE { get; set; } = "";
 
 
     }

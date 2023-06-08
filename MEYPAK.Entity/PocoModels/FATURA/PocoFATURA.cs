@@ -19,7 +19,7 @@ namespace MEYPAK.Entity.PocoModels.FATURA
         public DateTime faturatarihi { get; set; } = DateTime.Now;
         public DateTime vadetarihi { get; set; } = DateTime.Now;
         public byte kullanicitipi { get; set; } = 0;
-        [StringLength(50)]
+        [StringLength(500)]
         public string cariadi { get; set; } = "";
         public int vadegunu { get; set; } = 0;
         [StringLength(200)]
@@ -42,6 +42,7 @@ namespace MEYPAK.Entity.PocoModels.FATURA
         public decimal geneltoplam { get; set; } = 0;
         public int aracid { get; set; }
         public int personelid { get; set; }
+        public int ek { get; set; }
         public int tip { get; set; }
         public bool durum { get; set; }
         [Required]

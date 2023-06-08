@@ -44,6 +44,6 @@ namespace MEYPAK.Entity.PocoModels.IRSALIYE
         public byte hareketdurumu { get; set; } = 0;
         public decimal kdv { get; set; } = 0;
         public decimal kdvtutari { get; set; } = 0;
-        public string kunye { get; set; }
+        public string kunye { get; set; } = "";
     }
 }

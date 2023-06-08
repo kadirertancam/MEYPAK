@@ -16,7 +16,9 @@ namespace MEYPAK.Entity.Models.SIPARIS
         public int EMIRID { get; set; }
         public int SIPARISID { get; set; }
         public int SIPARISKALEMID { get; set; }
+        [Column(TypeName = "decimal(18,2)")]
         public decimal SIPARISMIKTARI { get; set; }
+        [Column(TypeName = "decimal(18,2)")]
         public decimal EMIRMIKTARI { get; set; }
 
     }

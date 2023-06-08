@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,13 +42,21 @@ namespace MEYPAK.Entity.Models.MUSTAHSIL
         public string SERINO { get; set; } = "";
         public string BELGENO { get; set; } = "";
         public bool KDVDAHIL { get; set; }
+        [Column(TypeName = "decimal(18,2)")]
         public decimal NETTOPLAM { get; set; } = 0;
+        [Column(TypeName = "decimal(18,2)")]
         public decimal KDVTOPLAM { get; set; } = 0;
+        [Column(TypeName = "decimal(18,2)")]
         public decimal ALTISKONTO1 { get; set; } = 0;
+        [Column(TypeName = "decimal(18,2)")]
         public decimal ALTISKONTO2 { get; set; } = 0;
+        [Column(TypeName = "decimal(18,2)")]
         public decimal ALTISKONTO3 { get; set; } = 0;
+        [Column(TypeName = "decimal(18,2)")]
         public decimal ISKONTOTOPLAM { get; set; } = 0;
+        [Column(TypeName = "decimal(18,2)")]
         public decimal BRUTTOPLAM { get; set; } = 0;
+        [Column(TypeName = "decimal(18,2)")]
         public decimal GENELTOPLAM { get; set; } = 0;
         public int ARACID { get; set; }
         public int PERSONELID { get; set; }

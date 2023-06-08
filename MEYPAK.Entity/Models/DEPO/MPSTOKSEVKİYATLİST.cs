@@ -21,8 +21,11 @@ namespace MEYPAK.Entity.Models.DEPO
         public int STOKID { get; set; }
         public int BIRIMID { get; set; }
         public int SIPARISDETAYID { get; set; }
-        public decimal SIPARISMIKTARI { get; set; } 
+        [Column(TypeName = "decimal(18,2)")]
+        public decimal SIPARISMIKTARI { get; set; }
+        [Column(TypeName = "decimal(18,2)")]
         public decimal MIKTAR { get; set; }
+        [Column(TypeName = "decimal(18,2)")]
         public decimal KALANMIKTAR { get; set; }
         public int EMIRID { get; set; }
         public int KULLANICIID { get; set; } = 0;

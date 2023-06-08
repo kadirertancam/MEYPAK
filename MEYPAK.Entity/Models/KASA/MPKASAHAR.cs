@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,7 +18,9 @@ namespace MEYPAK.Entity.Models.KASA
         public int FATURAID { get; set; }
         public int PARABIRIMID { get; set; }
         public string BELGENO { get; set; }
+        [Column(TypeName = "decimal(18,2)")]
         public decimal KUR { get; set; }
+        [Column(TypeName = "decimal(18,2)")]
         public decimal TUTAR { get; set; }
         public DateTime TARIH { get; set; }
         public byte IO { get; set; }

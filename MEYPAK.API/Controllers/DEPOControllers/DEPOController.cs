@@ -12,7 +12,7 @@ namespace MEYPAK.API.Controllers.DEPOControllers
 {
     [ApiController]
     [Route("[controller]")]
-    [Authorize]
+    
     public class DEPOController : Controller
     {
 
@@ -55,6 +55,7 @@ namespace MEYPAK.API.Controllers.DEPOControllers
         }
         [HttpPost]
         [Route("/[controller]/[action]")]
+        [Authorize]
         public IActionResult DEPOEkleyadaGuncelle(PocoDEPO pModel)
         {
             try
@@ -69,6 +70,7 @@ namespace MEYPAK.API.Controllers.DEPOControllers
         }
         [HttpPost]
         [Route("/[controller]/[action]")]
+        [Authorize]
         public IActionResult DEPOSil(List<PocoDEPO> pModel)
         {
             try
@@ -83,6 +85,7 @@ namespace MEYPAK.API.Controllers.DEPOControllers
         }
         [HttpPost]
         [Route("/[controller]/[action]")]
+        [Authorize]
         public IActionResult DEPOGuncelle(PocoDEPO pModel)
         {
             try
@@ -97,6 +100,7 @@ namespace MEYPAK.API.Controllers.DEPOControllers
         }
         [HttpPost]
         [Route("/[controller]/[action]")]
+        [Authorize]
         public IActionResult DeleteById([FromQuery] int id)
         {
             try

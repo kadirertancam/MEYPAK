@@ -54,6 +54,21 @@ namespace MEYPAK.PRL.PARAMETRELER
                 MessageBox.Show(MPKullanici.hata);
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            FSeriYetkilendirmeTanim yetkilendirmeTanim = new FSeriYetkilendirmeTanim();
+            yetkilendirmeTanim.Tag = "FSeriYetkilendirme";
+            yetkilendirmeTanim.Name = "FSeriYetkilendirme";
+            yetkilendirmeTanim.Text = "SeriYetkilendirme";
+            yetkilendirmeTanim.ShowDialog();
+
+        }
+
         private void FSeriTanim_Load(object sender, EventArgs e)
         {
             _seriServis.Data(ServisList.SeriListeServis);

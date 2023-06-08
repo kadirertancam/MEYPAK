@@ -19,6 +19,7 @@ namespace MEYPAK.Entity.Models.DEPO
         public int TIP { get; set; }
         public int SIPARISID { get; set; }
         public int DURUM { get; set; }
+        [Column(TypeName = "decimal(18,2)")]
         public decimal MIKTAR { get; set; }
         public string ACIKLAMA { get; set; }
 

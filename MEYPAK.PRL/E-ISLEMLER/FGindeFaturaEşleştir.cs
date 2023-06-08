@@ -140,6 +140,11 @@ namespace MEYPAK.PRL.E_ISLEMLER
                             StokKodu = tempstok.kod,
                             Kunye = item.KUNYENO,
                             Daralı = item.MIKTAR,
+                            Safi=item.MIKTAR,
+                            Kdv=_tempStok.satiskdv,
+                            NetFiyat=item.NETFIYAT,
+                            NetToplam=item.NETFIYAT*item.MIKTAR,
+                             
                             Birim = olcubrtemp,
                             BirimFiyat = item.NETFIYAT,
                             BrütToplam = item.TUTAR,
@@ -158,6 +163,9 @@ namespace MEYPAK.PRL.E_ISLEMLER
                             StokKodu = tempkasa.kasakodu,
                             Kunye = "",
                             Daralı = item.MIKTAR,
+                            Safi=item.MIKTAR,
+                             NetFiyat=item.NETFIYAT,
+                            
                             Birim = olcubrtemp,
                             BirimFiyat = item.NETFIYAT,
                             BrütToplam = item.TUTAR,

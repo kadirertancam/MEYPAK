@@ -3,20 +3,31 @@ using DevExpress.DataProcessing.InMemoryDataProcessor;
 using DevExpress.Map.Native;
 using DevExpress.Mvvm.Native;
 using DevExpress.Utils;
+using DevExpress.XtraBars.Localization;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraLayout.Customization.Templates;
+using DevExpress.XtraRichEdit;
 using MEYPAK.BLL.Assets;
+using MEYPAK.DAL.Concrete.ADONET;
 using MEYPAK.Entity.Models.FORMYETKI;
+using MEYPAK.Entity.Models.PERSONEL;
+using MEYPAK.Entity.PocoModels.ARAC;
 using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.EISLEMLER;
 using MEYPAK.Entity.PocoModels.FATURA;
 using MEYPAK.Entity.PocoModels.IRSALIYE;
+using MEYPAK.Entity.PocoModels.KASA;
+using MEYPAK.Entity.PocoModels.PARAMETRE;
 using MEYPAK.Entity.PocoModels.STOK;
 using MEYPAK.Interfaces;
+using MEYPAK.Interfaces.Arac;
 using MEYPAK.Interfaces.EIslemler;
+using MEYPAK.Interfaces.Kasa;
+using MEYPAK.Interfaces.Parametre;
 using MEYPAK.Interfaces.Stok;
 using MEYPAK.PRL.Assets;
+using MEYPAK.PRL.EFatura;
 using MEYPAK.PRL.SIPARIS;
 using Newtonsoft.Json;
 using RestSharp;
@@ -28,6 +39,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -35,6 +47,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
+using System.Xml.Linq;
 using System.Xml.Serialization;
 using System.Xml.Xsl;
 
@@ -52,18 +65,33 @@ namespace MEYPAK.PRL.E_ISLEMLER
             stokMarkaServis = new GenericWebServis<PocoSTOKMARKA>();
             gidenFaturalarServis = new GenericWebServis<PocoGIDENFATURA>();
             faturaStokOlcuBrServis = new GenericWebServis<PocoFATURASTOKOLCUBR>();
-            olcuBrServis=new GenericWebServis<PocoOLCUBR>();
-            irsaliyeServis=new GenericWebServis<PocoIRSALIYE>();
+            olcuBrServis = new GenericWebServis<PocoOLCUBR>();
+            irsaliyeServis = new GenericWebServis<PocoIRSALIYE>();
+            faturaBasim = new FaturaBasim();
+            efaturaParamsServis = new GenericWebServis<PocoEFATURAPARAMS>();
+            _cariAltHesServis = new GenericWebServis<PocoCARIALTHES>();
+            _aracServis = new GenericWebServis<PocoARAC>();
+            _stokKasaHarServis = new GenericWebServis<PocoSTOKKASAHAR>();
+            stokKasaServis = new GenericWebServis<PocoSTOKKASA>();
+            stokKasaMarka = new GenericWebServis<PocoSTOKKASAMARKA>();
+            _cariHarServis = new GenericWebServis<PocoCARIHAR>();
 
         }
         GenericWebServis<PocoCARIKART> cariServis;
+        GenericWebServis<PocoCARIALTHES> _cariAltHesServis;
         GenericWebServis<PocoFATURA> faturaServis;
         GenericWebServis<PocoFATURADETAY> faturaDetayServis;
         GenericWebServis<PocoSTOK> stokServis;
         GenericWebServis<PocoSTOKMARKA> stokMarkaServis;
         GenericWebServis<PocoGIDENFATURA> gidenFaturalarServis;
         GenericWebServis<PocoOLCUBR> olcuBrServis;
-        GenericWebServis<PocoIRSALIYE> irsaliyeServis; 
+        GenericWebServis<PocoIRSALIYE> irsaliyeServis;
+        GenericWebServis<PocoARAC> _aracServis;
+        GenericWebServis<PocoEFATURAPARAMS> efaturaParamsServis;
+        GenericWebServis<PocoSTOKKASAHAR> _stokKasaHarServis;
+        GenericWebServis<PocoSTOKKASA> stokKasaServis;
+        GenericWebServis<PocoSTOKKASAMARKA> stokKasaMarka;
+        GenericWebServis<PocoCARIHAR> _cariHarServis;
         List<EFaturaGidenTask> tempFatura;
         PocoFATURA fattemp;
         PocoCARIKART caritemp;
@@ -71,6 +99,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
         PocoSTOK tempStok;
         PocoSTOKMARKA tempStokMarka;
         RepositoryItemLookUpEdit riLookup, riLookup2;
+        FaturaBasim faturaBasim;
         private void simpleButton1_Click(object sender, EventArgs e)
         {
             gidenFaturalarServis.Data(ServisList.GidenFaturalarListeServis);
@@ -99,9 +128,12 @@ namespace MEYPAK.PRL.E_ISLEMLER
             gridControl1.DataSource = eFaturaList;
             gridControl1.RefreshDataSource();
         }
-      
+
         private void FGidenEFatura_Load(object sender, EventArgs e)
         {
+            main = (Main)Application.OpenForms["main"];
+            _aracServis.Data(ServisList.AracListeServis);
+            _cariAltHesServis.Data(ServisList.CariAltHesListeServis);
             stokMarkaServis.Data(ServisList.StokMarkaListeServis);
             stokServis.Data(ServisList.StokListeServis);
             faturaServis.Data(ServisList.FaturaListeServis);
@@ -114,7 +146,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
             var response2 = new InvoiceStatusResponse();
             var status = new InvoiceStatus();
             List<EFaturaGidenTask> eFaturaList = new List<EFaturaGidenTask>();
-            var ccf = faturaServis.obje.Select(x => new EFaturaGidenTask { SEC = false, ID = x.id.ToString(), FATURALASTIR = "", BASIM = "", VKNTCK = cariServis.obje.Where(z => z.id == x.cariid).FirstOrDefault().vergino, CARIADI = cariServis.obje.Where(z => z.id == x.cariid).FirstOrDefault().unvan, BELGENO = x.belgeno, TARIH = x.faturatarihi, VADETARIHI = x.vadetarihi, TUTAR = x.geneltoplam, KDV = x.kdvtoplam, FATURATIP = "TEMELFATURA", TIP = "SATIS", DURUM = x.durum == true ? "GÖNDERİLDİ" : "BEKLEMEDE",ETTNO= gidenFaturalarServis.obje.Where(z => z.faturaid == x.id).Count() > 0 ? gidenFaturalarServis.obje.Where(z => z.faturaid == x.id).FirstOrDefault().ettno : "" }).ToList();
+            var ccf = faturaServis.obje.Select(x => new EFaturaGidenTask { SEC = false, ID = x.id.ToString(), FATURALASTIR = "", BASIM = "", VKNTCK = cariServis.obje.Where(z => z.id == x.cariid).FirstOrDefault().vergino, CARIADI = cariServis.obje.Where(z => z.id == x.cariid).FirstOrDefault().unvan, BELGENO = x.belgeno, TARIH = x.faturatarihi, VADETARIHI = x.vadetarihi, TUTAR = x.geneltoplam, KDV = x.kdvtoplam, FATURATIP = "TEMELFATURA", TIP = "SATIS", DURUM = x.durum == true ? "GÖNDERİLDİ" : "BEKLEMEDE", ETTNO = gidenFaturalarServis.obje.Where(z => z.faturaid == x.id).Count() > 0 ? gidenFaturalarServis.obje.Where(z => z.faturaid == x.id).FirstOrDefault().ettno : "" }).ToList();
             foreach (var item in ccf)
             {
 
@@ -125,19 +157,19 @@ namespace MEYPAK.PRL.E_ISLEMLER
                     {
                         eFaturaList.Add(item);
 
-                       
+
 
                         var statusCode = 0;
 
                         //var res1 = client.GetInboxInvoiceList(new InboxInvoiceListQueryModel { InvoiceIds = new string[] { txtSampleGuid.Text } });
 
-                        var guid = new String[] {item.ETTNO };
+                        var guid = new String[] { item.ETTNO };
                         try
                         {
                             //response = client.QueryInboxInvoiceStatus(guid);
                             //response.Value[0].
 
-                             response2 = client.QueryOutboxInvoiceStatusAsync(guid).Result;
+                            response2 = client.QueryOutboxInvoiceStatusAsync(guid).Result;
 
                             if (response2.Value != null)
                             {
@@ -148,7 +180,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
                         }
                         catch (Exception ex)
                         {
-                          //  MessageBox.Show(ex.Message, "Hata"); 
+                            //  MessageBox.Show(ex.Message, "Hata"); 
                         }
                     }
 
@@ -163,7 +195,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
             }
 
             gridControl1.DataSource = eFaturaList;
-           
+
             RepositoryItemButtonEdit repositoryItemButtonEdit = new RepositoryItemButtonEdit();
             repositoryItemButtonEdit.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             repositoryItemButtonEdit.NullText = "";
@@ -233,7 +265,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
             dt1.Rows.Add(1, "TEVKIFAT");
             dt1.Rows.Add(1, "OZELMATRAH");
             dt1.Rows.Add(1, "IHRACKAYITLI");
-            dt1.Rows.Add(1, "SGK"); 
+            dt1.Rows.Add(1, "SGK");
 
             riLookup2 = new RepositoryItemLookUpEdit();
             riLookup2.DataSource = dt1;
@@ -251,7 +283,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
             riLookup2.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
             riLookup2.GetDataSourceRowByKeyValue(0);
             riLookup2.EditValueChanged += RiLookup2_EditValueChanged;
-         
+
             gridView1.Columns["FATURALASTIR"].ColumnEdit = repositoryItemButtonEdit;
             gridView1.Columns["BASIM"].ColumnEdit = repositoryItemButtonEdit2;
             gridView1.Columns["FATURATIP"].ColumnEdit = riLookup;
@@ -260,12 +292,12 @@ namespace MEYPAK.PRL.E_ISLEMLER
             gridView1.Columns["VKNTCK"].OptionsColumn.AllowEdit = false;
             gridView1.Columns["CARIADI"].OptionsColumn.AllowEdit = false;
             gridView1.Columns["BELGENO"].OptionsColumn.AllowEdit = false;
-            gridView1.Columns["TARIH"].OptionsColumn.AllowEdit = false; 
-            gridView1.Columns["VADETARIHI"].OptionsColumn.AllowEdit = false; 
-            gridView1.Columns["TUTAR"].OptionsColumn.AllowEdit = false; 
-            gridView1.Columns["KDV"].OptionsColumn.AllowEdit = false; 
-            gridView1.Columns["DURUM"].OptionsColumn.AllowEdit = false; 
-            gridView1.Columns["ETTNO"].OptionsColumn.AllowEdit = false; 
+            gridView1.Columns["TARIH"].OptionsColumn.AllowEdit = false;
+            gridView1.Columns["VADETARIHI"].OptionsColumn.AllowEdit = false;
+            gridView1.Columns["TUTAR"].OptionsColumn.AllowEdit = false;
+            gridView1.Columns["KDV"].OptionsColumn.AllowEdit = false;
+            gridView1.Columns["DURUM"].OptionsColumn.AllowEdit = false;
+            gridView1.Columns["ETTNO"].OptionsColumn.AllowEdit = false;
 
         }
 
@@ -340,118 +372,44 @@ namespace MEYPAK.PRL.E_ISLEMLER
             var invoiceInfo = CreateInvoice();
             ShowInvoice(invoiceInfo.Invoice);
         }
+        public string ShowInvoiceWithCustomXslt(InvoiceType invoice, string xslt)
+        {
+            var rootAttribute = new XmlRootAttribute("Invoice")
+            {
+                Namespace = "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2",
+                IsNullable = false
+            };
+
+            XmlSerializer serializer = new XmlSerializer(typeof(InvoiceType), rootAttribute);
+            using (MemoryStream mstr = new MemoryStream())
+            {
+                serializer.Serialize(mstr, invoice, InvoiceNamespaces);
+
+                string xml = Encoding.UTF8.GetString(mstr.ToArray());
+                var teemmp = TransformXMLToHTML(xml, xslt);
+                return teemmp;
+            }
+
+
+        }
         public void ShowInvoice(InvoiceType invoice)
         {
             try
             {
+                InvoiceType invoics = invoice;
 
+                string xmll = ShowInvoiceWithCustomXslt(invoics, Properties.Resources.SatfatUBL);
+                File.WriteAllText("output.html", xmll.ToString(), Encoding.UTF8);
 
-                var xslt = string.Empty;
-
-                if (invoice.AdditionalDocumentReference != null)
+                var p = new Process();
+                p.StartInfo = new ProcessStartInfo(Application.StartupPath + "output.html")
                 {
+                    UseShellExecute = true
+                };
+                p.Start();
+                MessageBox.Show("Belge Oluşturuldu..");
 
-                    string fileNames = "";
-                    byte[] buff = null;
-                    FileStream fs = new FileStream(fileNames,
-                                                   FileMode.Open,
-                                                   FileAccess.Read);
-                    BinaryReader br = new BinaryReader(fs);
-                    long numBytes = new FileInfo(fileNames).Length;
-                    buff = br.ReadBytes((int)numBytes);
-
-
-                    AttachmentType attachment = new AttachmentType();
-                    DocumentReferenceType doc;
-                    byte[] xsltObject = buff;
-
-                    for (int i = 0; i < invoice.AdditionalDocumentReference.Length; i++)
-                    {
-                        doc = invoice.AdditionalDocumentReference[i];
-                        attachment = doc.Attachment;
-                        if (attachment != null && attachment.EmbeddedDocumentBinaryObject.filename != null)
-                        {
-                            string fileName = attachment.EmbeddedDocumentBinaryObject.filename;
-                            if (Path.GetExtension(fileName) == ".xslt" || Path.GetExtension(fileName) == ".XSLT")
-                            {
-                                xsltObject = attachment.EmbeddedDocumentBinaryObject.Value;
-                            }
-                        }
-
-                    }
-
-
-                    if (xsltObject != null)
-                    {
-                        var fileStream = File.Create("");
-                        fileStream.Write(xsltObject, 0, 0);
-                       
-
-                       
-
-                        using (var stream = new MemoryStream(xsltObject))
-                        {
-                            stream.Seek(0, SeekOrigin.Begin);
-
-                            using (var reader = new StreamReader(stream))
-                            {
-
-                                xslt = reader.ReadToEnd();
-
-                                //xslt = xslt.Replace("n1:Invoice", "Invoice");
-                                var rootAttribute = new XmlRootAttribute("Invoice")
-                                {
-                                    Namespace = "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2",
-                                    IsNullable = false
-                                };
-
-                                XmlSerializer serializer = new XmlSerializer(typeof(InvoiceType), rootAttribute);
-                                using (MemoryStream mstr = new MemoryStream())
-                                {
-                                    serializer.Serialize(mstr, invoice, InvoiceNamespaces);
-                                    string _byteOrderMarkUtf8 = Encoding.UTF8.GetString(Encoding.UTF8.GetPreamble());
-                                    string xml = Encoding.UTF8.GetString(mstr.ToArray());
-                                    if (xml.StartsWith(_byteOrderMarkUtf8))
-                                    {
-                                        xml = xml.Remove(0, _byteOrderMarkUtf8.Length);
-                                    }
-                                    File.WriteAllText("Fatura.html", TransformXMLToHTML(xml, xslt), Encoding.UTF8);
-                                    var p = new Process();
-                                    p.StartInfo = new ProcessStartInfo(Application.StartupPath + "Fatura.html")
-                                    {
-                                        UseShellExecute = true
-                                    };
-                                    p.Start();
-                                }
-                            }
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Xslt Dosyası Bulunamadı");
-                    }
-                }
-                else
-                {
-
-                    MessageBox.Show("Varsayılan Xslt üzerinden görüntüleme yapılacak");
-                    xslt = Properties.Resources.XSLTFile;
-                    var rootAttribute = new XmlRootAttribute("Invoice")
-                    {
-                        Namespace = "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2",
-                        IsNullable = false
-                    };
-
-                    XmlSerializer serializer = new XmlSerializer(typeof(InvoiceType), rootAttribute);
-                    using (MemoryStream mstr = new MemoryStream())
-                    {
-                        serializer.Serialize(mstr, invoice, InvoiceNamespaces);
-
-                        string xml = Encoding.UTF8.GetString(mstr.ToArray());
-                       
-                    }
-
-                }
+                // faturaBasim.TemelFaturaBasim(faturaServis.obje.Where(x => x.belgeno == gridView1.GetFocusedRowCellValue("BELGENO")).FirstOrDefault().id);
             }
             catch (Exception ex)
             {
@@ -459,6 +417,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
                 MessageBox.Show("Hata?" + ex.Message);
             }
         }
+        Main main;
         public static string TransformXMLToHTML(string inputXml, string xsltString)
         {
             StringWriter results = null;
@@ -469,8 +428,12 @@ namespace MEYPAK.PRL.E_ISLEMLER
                 {
                     transform.Load(reader);
                     results = new StringWriter();
+                    string ss = "";
                     string _byteOrderMarkUtf8 = Encoding.UTF8.GetString(Encoding.UTF8.GetPreamble());
-
+                    if (inputXml.StartsWith(_byteOrderMarkUtf8))
+                    {
+                        inputXml = inputXml.Remove(0, _byteOrderMarkUtf8.Length);
+                    }
                     using (XmlReader reader2 = XmlReader.Create(new StringReader(inputXml)))
                     {
                         transform.Transform(reader2, null, results);
@@ -498,11 +461,14 @@ namespace MEYPAK.PRL.E_ISLEMLER
 
 
         //XML serialization sırasında namespace'lerin doğru yapılabilmesi için namespace tanımlamaları
-    
+        PocoIRSALIYE irstemp;
         GenericWebServis<PocoFATURASTOKOLCUBR> faturaStokOlcuBrServis;
         #region Metotlar
         public InvoiceInfo CreateInvoice()
         {
+            _stokKasaHarServis.Data(ServisList.StokKasaHarListeServis);
+            faturaDetayServis.Data(ServisList.FaturaDetayListeServis);
+            efaturaParamsServis.Data(ServisList.EFaturaParamsListeServis);
             faturaStokOlcuBrServis.Data(ServisList.FATURASTOKOLCUBRListeServis);
             irsaliyeServis.Data(ServisList.IrsaliyeListeServis);
             EFaturaGidenTask eFaturaGidenTask = (EFaturaGidenTask)gridView1.GetFocusedRow();
@@ -510,20 +476,21 @@ namespace MEYPAK.PRL.E_ISLEMLER
             caritemp = cariServis.obje.Where(x => x.id == fattemp.cariid).FirstOrDefault();
             fatDetaytemp = faturaDetayServis.obje.Where(x => x.faturaid == fattemp.id).ToArray();
             var ccc = faturaDetayServis.obje.Where(x => x.faturaid == fattemp.id);
-            var irstemp = irsaliyeServis.obje.Where(x => x.id == fattemp.irsaliyeid).FirstOrDefault();
+            irstemp = irsaliyeServis.obje.Where(x => x.id == fattemp.irsaliyeid).FirstOrDefault();
             DocumentReferenceType[] irsfat = new DocumentReferenceType[1];
             if (irstemp != null)
-                irsfat = new DocumentReferenceType[] { new DocumentReferenceType() { IssueDate = new IssueDateType { Value = irstemp.vadetarihi }, DocumentType = new DocumentTypeType { Value = "Irsaliye" }, ID = new IDType { Value = irstemp.belgeno } } };
+                irsfat = new DocumentReferenceType[] { new DocumentReferenceType() { IssueDate = new IssueDateType { Value = DateTime.Now }, DocumentType = new DocumentTypeType { Value = "Irsaliye" }, ID = new IDType { Value = irstemp.belgeno } } };
 
-             
 
-          InvoiceLineType[] ınvoiceLineType = new InvoiceLineType[ccc.Count()];
+
+            InvoiceLineType[] ınvoiceLineType = new InvoiceLineType[ccc.Count()];
             //Fatura Satır 1
             //},
-          
+
 
             for (int i = 0; i < faturaDetayServis.obje.Where(x => x.faturaid == fattemp.id).Count(); i++)
             {
+
                 tempStok = stokServis.obje.Where(x => x.id == fatDetaytemp[i].stokid).FirstOrDefault();
                 tempStokMarka = stokMarkaServis.obje.Where(x => x.id == tempStok.markaid).FirstOrDefault();
                 ınvoiceLineType[i] = new InvoiceLineType();
@@ -535,59 +502,111 @@ namespace MEYPAK.PRL.E_ISLEMLER
                     ModelName = new ModelNameType { Value = "" },
                     Description = new DescriptionType { Value = fatDetaytemp[i].aciklama },
                     ManufacturersItemIdentification = new ItemIdentificationType { ID = new IDType { Value = "" } },
-                    SellersItemIdentification = new ItemIdentificationType { ID = new IDType { Value = caritemp.vergino } },
-                    
+                    SellersItemIdentification = new ItemIdentificationType { ID = new IDType { Value = tempStok.kod } },
+
 
                 };
                 ınvoiceLineType[i].AllowanceCharge = new AllowanceChargeType[]
                 {
-                    new AllowanceChargeType { ChargeIndicator= new ChargeIndicatorType { Value=true }, Amount = new AmountType2 { currencyID="TRY",Value=100 }, AllowanceChargeReason = new AllowanceChargeReasonType { Value= "Bayi İskontosu" },   }
+                    new AllowanceChargeType { ChargeIndicator= new ChargeIndicatorType { Value=false }, Amount = new AmountType2 { currencyID="TRY",Value=fatDetaytemp[i].iskontO1 },    },
+                    new AllowanceChargeType { ChargeIndicator= new ChargeIndicatorType { Value=false }, Amount = new AmountType2 { currencyID="TRY",Value=fatDetaytemp[i].iskontO2 },    },
+                    new AllowanceChargeType { ChargeIndicator= new ChargeIndicatorType { Value=false }, Amount = new AmountType2 { currencyID="TRY",Value=fatDetaytemp[i].iskontO3 },    },
+                };
+                var tempstokkasahar = _stokKasaHarServis.obje.Where(x => x.faturaid == fattemp.id).ToList();
+                string kasamik = "";
+                if (tempstokkasahar.Count > 0)
+                    if (tempstokkasahar[i].miktar != null)
+                        kasamik = tempstokkasahar[i].miktar.ToString();
+
+                int genislik = 56; // belirli genişlik
+                int nokta1 = 1; // ilk nokta
+                int nokta2 = 12; // ikinci nokta
+                int nokta3 = 32; // ikinci nokta
+                int nokta4 = 42; // ikinci nokta 
+
+                string deger1 = "M";
+                deger1 += kasamik.Replace(',', '.');// ilk değer 
+                string deger2 = olcuBrServis.obje.Where(z => z.id == fatDetaytemp[i].birimid).FirstOrDefault().adi.ToLower() != "adet" ? fatDetaytemp[i].darali.ToString().Replace(',', '.') : "";
+                string deger3 = olcuBrServis.obje.Where(z => z.id == fatDetaytemp[i].birimid).FirstOrDefault().adi.ToLower() != "adet" ? fatDetaytemp[i].safi.ToString().Replace(',', '.') : "";
+                string deger4 = faturaStokOlcuBrServis.obje.Where(z => z.olcubrid == fatDetaytemp[i].birimid).FirstOrDefault().kisa;
+
+
+                decimal kdvtut = fatDetaytemp[i].kdvtutari;
+                string formatliDeger = deger1.PadRight(nokta2 - nokta1, ' ')
+        + deger2.PadRight(nokta3 - nokta2, ' ')
+        + deger3.PadRight(nokta4 - nokta3, ' ')
+        + deger4.PadRight(genislik - nokta4, ' ');
+
+                ınvoiceLineType[i].Item.AdditionalItemIdentification = new ItemIdentificationType[]
+                {
+                    new ItemIdentificationType(){
+                     ID=new IDType()
+                     {
+                         schemeID="EXTVALUE",
+                          Value=formatliDeger ,
+                     }
+
+                    },
+                        new ItemIdentificationType()
+                                 {
+                                     ID = new IDType()
+                                     {
+                                          schemeID="KUNYENO",
+                                           Value=fatDetaytemp[i].kunye
+                                     }
+                                 }
+
                 };
                 ınvoiceLineType[i].Price = new PriceType { PriceAmount = new PriceAmountType { Value = Convert.ToDecimal(fatDetaytemp[i].netfiyat), currencyID = "TRY" } };
                 ınvoiceLineType[i].InvoicedQuantity = new InvoicedQuantityType { unitCode = faturaStokOlcuBrServis.obje.Where(x => x.olcubrid == fatDetaytemp[i].birimid).FirstOrDefault().kisa, Value = Math.Round(Convert.ToDecimal(fatDetaytemp[i].safi), 2) };
-                ınvoiceLineType[i].Note = new NoteType[] {  new NoteType {  Value = fatDetaytemp[i].aciklama }  };
-                ınvoiceLineType[i].ID = new IDType { Value = (i+1).ToString() };
-                ınvoiceLineType[i].LineExtensionAmount = new LineExtensionAmountType { Value = Math.Round(Convert.ToDecimal(fatDetaytemp[i].nettoplam), 2), currencyID = "TRY" };
+                ınvoiceLineType[i].Note = new NoteType[] { new NoteType { Value = fatDetaytemp[i].aciklama } };
+                ınvoiceLineType[i].ID = new IDType { Value = (i + 1).ToString() };
+                ınvoiceLineType[i].LineExtensionAmount = new LineExtensionAmountType { Value = Math.Round(Convert.ToDecimal(fatDetaytemp[i].bruttoplam), 2), currencyID = "TRY" };
                 ınvoiceLineType[i].TaxTotal = new TaxTotalType
                 {
                     TaxSubtotal = new TaxSubtotalType[]{ 
                       //Vergi 1 KDV
                       new TaxSubtotalType{
-                      
+
                                  Percent = new PercentType1 { Value=Convert.ToDecimal(fatDetaytemp[i].kdv) } ,             
                                                                                                     //Percent =   //new PercentType{ Value=Math.Round(Convert.ToDecimal(txtKdvOrani1.Text),2)},
                               TaxCategory = new TaxCategoryType{TaxScheme = new TaxSchemeType{ TaxTypeCode = new TaxTypeCodeType{  Value = "0015"}, Name =new NameType1{ Value="KDV"} }, TaxExemptionReason=new TaxExemptionReasonType{ Value="12345 sayılı kanuna istinaden" }},
-                              TaxAmount = new TaxAmountType{ Value = Math.Round(Convert.ToDecimal(fatDetaytemp[i].kdvtutari),2), currencyID= "TRY" },
+                              TaxAmount = new TaxAmountType{ Value = kdvtut, currencyID= "TRY" },
 
 
                    }
                    },
                     TaxAmount = new TaxAmountType { Value = Math.Round(Convert.ToDecimal(fatDetaytemp[i].kdvtutari), 2), currencyID = "TRY" }
 
-                }; 
-                ınvoiceLineType[i].Note = new NoteType[]{ new NoteType() { Value = "" } };
+                };
+                ınvoiceLineType[i].Note = new NoteType[] { new NoteType() { Value = "" } };
             }
+
+
+
+
             var ttt = fatDetaytemp.GroupBy(x => new { x.kdv, x.kdvtutari });
             TaxTotalType[] taxTotalTypes;
-            decimal kdv1=0, kdv8=0, kdv18 = 0;
+            decimal kdv1 = 0, kdv8 = 0, kdv18 = 0;
             int kdvorani = 0;
-            for (int i = 0; i <fatDetaytemp.Count(); i++)
+            for (int i = 0; i < fatDetaytemp.Count(); i++)
             {
                 if (fatDetaytemp[i].kdv == 1)
                 {
-                    kdv1+=fatDetaytemp[i].kdvtutari;
+                    kdv1 += fatDetaytemp[i].kdvtutari;
                     kdvorani = 1;
                 }
                 if (fatDetaytemp[i].kdv == 8)
                 {
                     kdv8 += fatDetaytemp[i].kdvtutari;
                     kdvorani = 8;
-                } if (fatDetaytemp[i].kdv == 18)
+                }
+                if (fatDetaytemp[i].kdv == 18)
                 {
                     kdv18 += fatDetaytemp[i].kdvtutari;
                     kdvorani = 18;
                 }
-            }  
+            }
             taxTotalTypes = new TaxTotalType[]{
                     new  TaxTotalType{
                                                                      TaxSubtotal = new TaxSubtotalType[]{  new  TaxSubtotalType{
@@ -621,25 +640,57 @@ namespace MEYPAK.PRL.E_ISLEMLER
                 #region Genel Fatura Bilgileri
                 ProfileID = new ProfileIDType { Value = eFaturaGidenTask.FATURATIP },
                 CopyIndicator = new CopyIndicatorType { Value = false },
+                CustomizationID = new CustomizationIDType() { Value = "TR1.2" },
                 UUID = new UUIDType { Value = Guid.NewGuid().ToString() }, //Set edilmediğinde sistem tarafından otomatik verilir. 
                 IssueDate = new IssueDateType { Value = DateTime.Now },
-                IssueTime = new IssueTimeType { Value = DateTime.Now  },
+                IssueTime = new IssueTimeType { Value = DateTime.Now },
                 InvoiceTypeCode = new InvoiceTypeCodeType { Value = eFaturaGidenTask.TIP },
-                Note = new NoteType[] { new NoteType { Value = fattemp.aciklama }, new NoteType { Value = fattemp.aciklama }, new NoteType { Value = " " }, new NoteType { Value = "Test Not alanı 3" } },
+                Note = new NoteType[] { new NoteType { Value = _cariAltHesServis.obje.Where(x => x.id == fattemp.althesapid).FirstOrDefault().adi }, new NoteType { Value = " " } },
                 DocumentCurrencyCode = new DocumentCurrencyCodeType { Value = "TRY" },
                 PricingCurrencyCode = new PricingCurrencyCodeType { Value = "TRY" },
                 LineCountNumeric = new LineCountNumericType { Value = 2 },
                 //PaymentTerms = new PaymentTermsType { Note = new NoteType { Value = "30 gün vadeli" }, Amount = new AmountType1 { Value = 100, currencyID = "TRY" } },
-                PaymentMeans = new PaymentMeansType[] { new PaymentMeansType { PaymentDueDate = new PaymentDueDateType { Value = DateTime.Now }, PaymentMeansCode = new  PaymentMeansCodeType { Value = "42" } } },
+                PaymentMeans = new PaymentMeansType[] {  new PaymentMeansType { PaymentDueDate = new PaymentDueDateType { Value = fattemp.vadetarihi }, PaymentMeansCode = new PaymentMeansCodeType { Value = "42" }, PayeeFinancialAccount= new FinancialAccountType(){ ID=new IDType(){
+                 Value="TR630006400000142441014980"},
+                 CurrencyCode= new CurrencyCodeType(){ Value="TRY" },
+                    FinancialInstitutionBranch=new BranchType(){
+                        FinancialInstitution=new FinancialInstitutionType()
+                        {
+                            Name=new NameType1()
+                            {
+                            Value="TÜRKİYE İŞ BANKASI A.Ş."
+                            }
+                        }
+                 } } } },
+                AllowanceCharge = new AllowanceChargeType[]
+                {
+                  new  AllowanceChargeType(){
+                      ChargeIndicator= new ChargeIndicatorType()
+                      {
+                           Value= false
+                      },
+                       AllowanceChargeReason=new AllowanceChargeReasonType()
+                       {
+                            Value="İskonto(%"+((fattemp.iskontotoplam*100)/fattemp.bruttoplam).ToString().Replace(',','.')+")"
+                       },
+                        MultiplierFactorNumeric= new MultiplierFactorNumericType()
+                        {
+                             Value= ((fattemp.iskontotoplam * 100)/ fattemp.bruttoplam)
+                        },
+                         Amount=new AmountType2()
+                         {
+                              Value= fattemp.iskontotoplam
+                         }
+                    }
+                },
                 //Delivery = new DeliveryType { DeliveryParty = new PartyType { };
                 // PricingExchangeRate = new ExchangeRateType{ SourceCurrencyCode= "TRY",}
                 #endregion
 
                 #region SGK fatura alanları
-                AccountingCost =   null,
+                AccountingCost = null,
                 InvoicePeriod = new PeriodType { StartDate = new StartDateType { Value = DateTime.Now }, EndDate = new EndDateType { Value = DateTime.Now } },
                 #endregion
-
 
 
                 ////AllowanceCharge = new AllowanceChargeType[]
@@ -690,7 +741,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
                 //#endregion
 
                 #region Fatura Seri ve numarası
-                ID = new IDType { Value = fattemp.serino+fattemp.belgeno }, //Set edilmediğinde sistem tarafından otomatik verilir. 
+                ID = new IDType { Value = fattemp.serino + fattemp.belgeno }, //Set edilmediğinde sistem tarafından otomatik verilir. 
                 #endregion
 
                 #region Gönderici Bilgileri - AccountingSupplierParty
@@ -700,31 +751,31 @@ namespace MEYPAK.PRL.E_ISLEMLER
 
                     Party = new PartyType
                     {
-                        PartyName = new PartyNameType { Name = new NameType1 { Value = "Gündüz Meypak" } },
-                        PartyIdentification = new PartyIdentificationType[] { new PartyIdentificationType() { ID = new IDType { Value = "9000068418", schemeID = "VKN" } }, new PartyIdentificationType() { ID = new IDType { Value = "12345669-111", schemeID = "MERSISNO" } }, new PartyIdentificationType() { ID = new IDType { Value = "12345669-111", schemeID = "TICARETSICILNO" } } },
+                        PartyName = new PartyNameType { Name = new NameType1 { Value = efaturaParamsServis.obje.Where(x => x.depoid == main.DEPOID).FirstOrDefault().unvan } },
+                        PartyIdentification = new PartyIdentificationType[] { new PartyIdentificationType() { ID = new IDType { Value = efaturaParamsServis.obje.Where(x=>x.depoid== main.DEPOID).FirstOrDefault().vno, schemeID = "VKN" } }, new PartyIdentificationType() { ID = new IDType { Value = efaturaParamsServis.obje.Where(x => x.depoid == main.DEPOID).FirstOrDefault().mersisno, schemeID = "MERSISNO" } }, new PartyIdentificationType() { ID = new IDType { Value = efaturaParamsServis.obje.Where(x => x.depoid == main.DEPOID).FirstOrDefault().ticsicilno, schemeID = "TICARETSICILNO" } } },
 
                         PostalAddress = new AddressType
                         {
-                            CityName = new CityNameType { Value = caritemp.il },
-                            StreetName = new StreetNameType { Value = caritemp.sokak },
-                            Country = new CountryType { Name = new NameType1 { Value = caritemp.ulke } },
-                            Room = new RoomType { Value = caritemp.daire },
-                            BuildingNumber = new BuildingNumberType { Value = caritemp.apt },
-                            CitySubdivisionName = new CitySubdivisionNameType { Value = caritemp.ilce }, 
+                            CityName = new CityNameType { Value = efaturaParamsServis.obje.Where(x => x.depoid == main.DEPOID).FirstOrDefault().il },
+                            StreetName = new StreetNameType { Value = efaturaParamsServis.obje.Where(x => x.depoid == main.DEPOID).FirstOrDefault().sokak },
+                            Country = new CountryType { Name = new NameType1 { Value = efaturaParamsServis.obje.Where(x => x.depoid == main.DEPOID).FirstOrDefault().ulke } },
+                            Room = new RoomType { Value = efaturaParamsServis.obje.Where(x => x.depoid == main.DEPOID).FirstOrDefault().daireno },
+                            BuildingNumber = new BuildingNumberType { Value = efaturaParamsServis.obje.Where(x => x.depoid == main.DEPOID).FirstOrDefault().aptno },
+                            CitySubdivisionName = new CitySubdivisionNameType { Value = efaturaParamsServis.obje.Where(x => x.depoid == main.DEPOID).FirstOrDefault().ilce },
                         },
                         //PartyIdentification = new PartyIdentificationType[] { new PartyIdentificationType() { ID = new IDType { Value = "77777777701", schemeID = "TCKN" } } },
                         // Person = new PersonType{ FirstName= new FirstNameType{ Value="Ahmet"}, FamilyName= new FamilyNameType{ Value="Altınordu"} },
                         //PartyTaxScheme = new PartyTaxSchemeType { TaxScheme = new TaxSchemeType { Name = new NameType1 { Value = "Esenler" } } },
-                        PartyTaxScheme = new PartyTaxSchemeType { TaxScheme = new TaxSchemeType { Name = new NameType1 { Value = caritemp.vergidairesi } } },
+                        PartyTaxScheme = new PartyTaxSchemeType { TaxScheme = new TaxSchemeType { Name = new NameType1 { Value = efaturaParamsServis.obje.Where(x => x.depoid == main.DEPOID).FirstOrDefault().vd } } },
 
                     }
                 },
                 #endregion
 
-                 
+
                 AccountingCustomerParty = GetAccountingCustomerParty(),
-                BuyerCustomerParty = GetBuyerCustomerParty(),
-                TaxRepresentativeParty = GetTaxRepresantiveParty(),
+                //BuyerCustomerParty = GetBuyerCustomerParty(),
+                //TaxRepresentativeParty = GetTaxRepresantiveParty(),
 
                 #region Fatura Satırları - InvoiceLines
                 //Fatura Satırları  //Fatura Detay
@@ -761,25 +812,25 @@ namespace MEYPAK.PRL.E_ISLEMLER
 
             };
 
-                #region e-Arşiv Fatura Bilgileri
+            #region e-Arşiv Fatura Bilgileri
             //Bu alanda eğer fatura bir e-arşiv faturası ise doldurulması gereken alanlar doldurulmalıdır.
             EArchiveInvoiceInformation earchiveinfo = new EArchiveInvoiceInformation
             {
                 DeliveryType = InvoiceDeliveryType.Electronic,
 
                 //Eğer ilgili fatura bir internet satışına ait ise InternetSalesInfo nesnesinde gerekli değerler dolu olmalıdır. 
-               
+
             };
             #endregion
 
             return new InvoiceInfo
             {
                 EArchiveInvoiceInfo = earchiveinfo,
-               // LocalDocumentId = txtLocalDocumentId.Text,
+                // LocalDocumentId = txtLocalDocumentId.Text,
                 Invoice = invoice,
-                TargetCustomer = new CustomerInfo { Alias =  "" },
+                TargetCustomer = new CustomerInfo { Alias = "" },
                 Scenario = InvoiceScenarioChoosen.Automated,
-               // ExtraInformation = txtExtraInformation.Text == "" ? null : txtExtraInformation.Text,
+                // ExtraInformation = txtExtraInformation.Text == "" ? null : txtExtraInformation.Text,
 
                 //Notification = new NotificationInformation { 
 
@@ -797,6 +848,23 @@ namespace MEYPAK.PRL.E_ISLEMLER
             };
 
         }
+        string b64string = "";
+        AdoConnect cc = new AdoConnect();
+        public static byte[] ExtractResource(Bitmap image)
+        {
+            MemoryStream ms = new MemoryStream();
+
+            image.Save(ms, ImageFormat.Png);
+            if (ms == null)
+                return null;
+            byte[] imageByteArray = ms.ToArray(); ;
+            return imageByteArray;
+        }
+
+        private static string Base64FromByteArray(byte[] image)
+        {
+            return "base64:" + Convert.ToBase64String(image);
+        }
         public DocumentReferenceType[] GetXsltAndDocuments()
         {
             DocumentReferenceType[] docs = new DocumentReferenceType[3];
@@ -804,31 +872,31 @@ namespace MEYPAK.PRL.E_ISLEMLER
             //{
 
 
-            docs[0] = new DocumentReferenceType
-            {
-                ID = new IDType { Value = new Guid().ToString() },
-                IssueDate = new IssueDateType { Value = DateTime.Now },
-                DocumentType = new DocumentTypeType { Value = "123456" },
-                DocumentTypeCode = new DocumentTypeCodeType { Value = "MUKELLEF_KODU" },
-                DocumentDescription = new DocumentDescriptionType[] { new DocumentDescriptionType { Value = "Kurum Adı" } },
-            };
+            //docs[0] = new DocumentReferenceType
+            //{
+            //    ID = new IDType { Value = new Guid().ToString() },
+            //    IssueDate = new IssueDateType { Value = DateTime.Now },
+            //    DocumentType = new DocumentTypeType { Value = "123456" },
+            //    DocumentTypeCode = new DocumentTypeCodeType { Value = "MUKELLEF_KODU" },
+            //    DocumentDescription = new DocumentDescriptionType[] { new DocumentDescriptionType { Value = "Kurum Adı" } },
+            //};
 
-            docs[1] = new DocumentReferenceType
-            {
-                ID = new IDType { Value = new Guid().ToString() },
-                IssueDate = new IssueDateType { Value = DateTime.Now },
-                DocumentType = new DocumentTypeType { Value = "123456" },
-                DocumentTypeCode = new DocumentTypeCodeType { Value = "MUKELLEF_ADI" },
-                DocumentDescription = new DocumentDescriptionType[] { new DocumentDescriptionType { Value = "Kurum Kodu" } },
-            };
-            docs[2] = new DocumentReferenceType
-            {
-                ID = new IDType { Value = new Guid().ToString() },
-                IssueDate = new IssueDateType { Value = DateTime.Now },
-                DocumentType = new DocumentTypeType { Value = "123456" },
-                DocumentTypeCode = new DocumentTypeCodeType { Value = "DOSYA_NO" },
-                DocumentDescription = new DocumentDescriptionType[] { new DocumentDescriptionType { Value = "DOSYA NO" } },
-            };
+            //docs[1] = new DocumentReferenceType
+            //{
+            //    ID = new IDType { Value = new Guid().ToString() },
+            //    IssueDate = new IssueDateType { Value = DateTime.Now },
+            //    DocumentType = new DocumentTypeType { Value = "123456" },
+            //    DocumentTypeCode = new DocumentTypeCodeType { Value = "MUKELLEF_ADI" },
+            //    DocumentDescription = new DocumentDescriptionType[] { new DocumentDescriptionType { Value = "Kurum Kodu" } },
+            //};
+            //docs[2] = new DocumentReferenceType
+            //{
+            //    ID = new IDType { Value = new Guid().ToString() },
+            //    IssueDate = new IssueDateType { Value = DateTime.Now },
+            //    DocumentType = new DocumentTypeType { Value = "123456" },
+            //    DocumentTypeCode = new DocumentTypeCodeType { Value = "DOSYA_NO" },
+            //    DocumentDescription = new DocumentDescriptionType[] { new DocumentDescriptionType { Value = "DOSYA NO" } },
+            //};
 
             docs[0] = new DocumentReferenceType
             {
@@ -844,9 +912,64 @@ namespace MEYPAK.PRL.E_ISLEMLER
                         mimeCode = "applicationxml",
                         format = "",
                         characterSetCode = "UTF-8",
-                        Value = Encoding.UTF8.GetBytes(Properties.Resources.XSLTFile)
+                        Value = Encoding.UTF8.GetBytes(Properties.Resources.SatfatUBL)
                     }
                 }
+            };
+            _cariHarServis.Data(ServisList.CariHarListeServis);
+            var snc = _cariHarServis.obje.Where(x => x.cariid == caritemp.id).Sum(x => x.borc - x.alacak);
+            string kasamikk = "";
+            if (_stokKasaHarServis.obje.Where(x => x.faturaid == fattemp.id).Count() > 0)
+                kasamikk = _stokKasaHarServis.obje.Where(x => x.faturaid == fattemp.id).Sum(x => x.miktar).ToString();
+            string plate = "";
+            if (irstemp != null)
+                plate = _aracServis.obje.Where(x => x.id == irstemp.aracid).FirstOrDefault().plaka;
+            int genislik = 182; // belirli genişlik
+            int nokta1 = 1; // ilk nokta
+            int nokta2 = 22; // ikinci nokta
+            int nokta3 = 32;
+            int nokta4 = 42;
+            int nokta5 = 52;
+            int nokta6 = 172;
+            string deger1 = "M" + snc.ToString().Replace(',', '.'); // ilk değer
+            string deger2 = "Veresiye";
+            string deger3 = kasamikk.Replace(',', '.');
+            string deger4 = fatDetaytemp.Where(x => x.birimid != 1).Sum(x => x.safi).ToString().Replace(',', '.');
+            string deger5 = plate;
+            string deger6 = "H0H";
+
+
+            string formatliDeger = deger1.PadRight(nokta2 - nokta1, ' ')
+    + deger2.PadRight(nokta3 - nokta2, ' ')
+    + deger3.PadRight(nokta4 - nokta3, ' ')
+    + deger4.PadRight(nokta5 - nokta4, ' ')
+    + deger5.PadRight(nokta6 - nokta5, ' ')
+    + deger6.PadRight(genislik - nokta6, ' ');
+
+
+            docs[1] = new DocumentReferenceType()
+            {
+                ID = new IDType()
+                {
+                    Value = formatliDeger
+                },
+                IssueDate = new IssueDateType()
+                {
+                    Value = DateTime.Now
+                },
+                DocumentType = new DocumentTypeType() { Value = "EXTVALUE" }
+            };
+            docs[2] = new DocumentReferenceType()
+            {
+                ID = new IDType()
+                {
+                    Value = "Yalnız " + cc.komutoku("SELECT MEYPAKTEST.DBO.GETPARATOYAZI(" + fattemp.geneltoplam.ToString().Replace(',', '.') + ",'1','TL')").Rows[0].ItemArray[0].ToString()
+                },
+                IssueDate = new IssueDateType()
+                {
+                    Value = DateTime.Now
+                },
+                DocumentType = new DocumentTypeType() { Value = "MONEYTEXT" }
             };
 
 
@@ -931,8 +1054,8 @@ namespace MEYPAK.PRL.E_ISLEMLER
                     Party = new PartyType
                     {
 
-                        PartyName = new PartyNameType { Name = new NameType1 { Value = caritemp.unvan.Length>0? caritemp.unvan:caritemp.adi+" "+ caritemp.soyadi } },
-                        PartyIdentification = new PartyIdentificationType[1] { new PartyIdentificationType() { ID = new IDType { Value = caritemp.vergino.Length>0? caritemp.vergino: caritemp.tcno, schemeID = caritemp.vergino.Length >0 ? "VKN" : "TCKN" } } },
+                        PartyName = new PartyNameType { Name = new NameType1 { Value = caritemp.unvan.Length > 0 ? caritemp.unvan : caritemp.adi + " " + caritemp.soyadi } },
+                        PartyIdentification = new PartyIdentificationType[1] { new PartyIdentificationType() { ID = new IDType { Value = caritemp.vergino.Length > 0 ? caritemp.vergino : caritemp.tcno, schemeID = caritemp.vergino.Length > 0 ? "VKN" : "TCKN" } } },
                         PostalAddress = new AddressType
                         {
                             CityName = new CityNameType { Value = caritemp.il },
@@ -943,10 +1066,49 @@ namespace MEYPAK.PRL.E_ISLEMLER
                             CitySubdivisionName = new CitySubdivisionNameType { Value = caritemp.ilce }
 
                         },
-                        Contact = new ContactType { Telefax = new TelefaxType { Value = "22111222" }, ElectronicMail = new ElectronicMailType { Value = "test@test.com" }, Telephone = new TelephoneType { Value = "0212200022" } },
-                        WebsiteURI = new WebsiteURIType { Value = "Web Sitesi" },
+                        Contact = new ContactType { Telefax = new TelefaxType { Value = caritemp.fax }, ElectronicMail = new ElectronicMailType { Value = caritemp.eposta }, Telephone = new TelephoneType { Value = caritemp.telefon } },
+                        WebsiteURI = new WebsiteURIType { Value = caritemp.web },
                         PartyTaxScheme = new PartyTaxSchemeType { TaxScheme = new TaxSchemeType { Name = new NameType1 { Value = caritemp.vergidairesi } } },
                         Person = caritemp.tcno.Length == 11 ? person : null
+                        ,
+                        AgentParty = new PartyType()
+                        {
+                            PartyIdentification = new PartyIdentificationType[]
+                             {
+                                 new PartyIdentificationType(){
+                                  ID=new IDType()
+                                  {
+                                       schemeID=  "BAYINO",
+                                       Value=_cariAltHesServis.obje.Where(x=>x.id== fattemp.althesapid).FirstOrDefault().kod,
+
+                                  }
+                                  },
+                                  new PartyIdentificationType()
+                                  {
+                                      ID=new IDType()
+                                      {
+                                           schemeID="SUBENO",
+                                            schemeName=_cariAltHesServis.obje.Where(x=>x.id== fattemp.althesapid).FirstOrDefault().adi,
+                                            Value=_cariAltHesServis.obje.Where(x=>x.id== fattemp.althesapid).FirstOrDefault().kod
+                                      }
+                                  },
+
+
+                             },
+                            PostalAddress = new AddressType()
+                            {
+                                StreetName = new StreetNameType() { Value = caritemp.sokak },
+                                CitySubdivisionName = new CitySubdivisionNameType() { Value = caritemp.ilce },
+                                CityName = new CityNameType() { Value = caritemp.il },
+                                Country = new CountryType()
+                                {
+                                    Name = new NameType1() { Value = "Türkiye" }
+                                }
+                            },
+                            PartyName = new PartyNameType() { Name = new NameType1() { Value = caritemp.unvan == "" ? caritemp.adi + " " + caritemp.soyadi : caritemp.unvan } }
+                        },
+
+
                     }
                 };
 
@@ -1014,7 +1176,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
                             FirstName = new FirstNameType { Value = "JOHN" },
                             FamilyName = new FamilyNameType { Value = "DOE" },
                             NationalityID = new NationalityIDType { Value = "TR" },
-                            IdentityDocumentReference = new DocumentReferenceType { ID = new IDType { Value = "PSPTNO1234567" }, IssueDate = new IssueDateType { Value = fattemp.vadetarihi} }
+                            IdentityDocumentReference = new DocumentReferenceType { ID = new IDType { Value = "PSPTNO1234567" }, IssueDate = new IssueDateType { Value = DateTime.Now } }
 
                         },
                         PartyIdentification = new PartyIdentificationType[1] { new PartyIdentificationType() { ID = new IDType { Value = caritemp.vergino, schemeID = "PARTYTYPE" } } },
@@ -1029,7 +1191,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
 
                         },
 
-                        PartyLegalEntity = new PartyLegalEntityType[] { new PartyLegalEntityType { RegistrationName = new RegistrationNameType { Value = caritemp.unvan.Length > 0 ? caritemp.unvan : caritemp.adi + " " + caritemp.soyadi }, CompanyID = new CompanyIDType { Value = caritemp.vergino.Length>0?caritemp.vergino:caritemp.tcno } } },
+                        PartyLegalEntity = new PartyLegalEntityType[] { new PartyLegalEntityType { RegistrationName = new RegistrationNameType { Value = caritemp.unvan.Length > 0 ? caritemp.unvan : caritemp.adi + " " + caritemp.soyadi }, CompanyID = new CompanyIDType { Value = caritemp.vergino.Length > 0 ? caritemp.vergino : caritemp.tcno } } },
                         //Contact = new ContactType { Telefax = new TelefaxType { Value = "22111222" }, ElectronicMail = new ElectronicMailType { Value = "test@crssoft.com" }, Telephone = new TelephoneType { Value = "0212200022" } },
                         //WebsiteURI = new WebsiteURIType { Value = "Web Sitesi" },
 
@@ -1087,10 +1249,14 @@ namespace MEYPAK.PRL.E_ISLEMLER
         }
         public IntegrationClient CreateClient()
         {
-            var username = "Uyumsoft";
-            var password = "Uyumsoft";
-            var serviceuri = "https://efatura-test.uyumsoft.com.tr/services/Integration";
-             
+            efaturaParamsServis.Data(ServisList.EFaturaParamsListeServis);
+            var username = efaturaParamsServis.obje.Where(x => x.depoid == main.DEPOID).FirstOrDefault().kuladi;
+            var password = efaturaParamsServis.obje.Where(x => x.depoid == main.DEPOID).FirstOrDefault().sifre;
+            var serviceuri = "https://efatura.uyumsoft.com.tr/services/BasicIntegration";
+            //var username = "Uyumsoft";
+            //var password = "Uyumsoft";
+            //var serviceuri = "https://efatura-test.uyumsoft.com.tr/services/BasicIntegration";
+
 
             var client = new IntegrationClient();
             client.Endpoint.Address = new System.ServiceModel.EndpointAddress(serviceuri);
@@ -1108,7 +1274,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
             if (quantity != "BEKLEMEDE")
             {
                 e.Appearance.BackColor = Color.LightGreen;
-            } 
+            }
         }
 
         private void loglarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1143,23 +1309,23 @@ namespace MEYPAK.PRL.E_ISLEMLER
 
         private void gridView1_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
         {
-            
+
         }
 
         private void gridView1_Click(object sender, EventArgs e)
         {
-           
+
 
         }
 
         private void gridView1_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
-           
+
         }
 
         private void gridControl1_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
@@ -1179,85 +1345,87 @@ namespace MEYPAK.PRL.E_ISLEMLER
 
         private async void RepositoryItemButtonEdit_ButtonClick1(object sender, ButtonPressedEventArgs e)
         {
-            if (MPKullanici.YetkiGetir(AllForms.EFATURAGIDENKUTUSU.ToString()).EKLE==true)
+            if (MPKullanici.YetkiGetir(AllForms.EFATURAGIDENKUTUSU.ToString()).EKLE == true)
             {
-            var client = CreateClient();
+                var client = CreateClient();
 
-            var invoiceInfo = CreateInvoice();
+                var invoiceInfo = CreateInvoice();
 
-            InvoiceInfo[] invoices = new InvoiceInfo[1];
-            invoices[0] = invoiceInfo;
+                InvoiceInfo[] invoices = new InvoiceInfo[1];
+                invoices[0] = invoiceInfo;
 
-            var response = await client.SendInvoiceAsync(invoices);
-            //InvoiceIdentitiesResponse response = client.SendInvoice(invoices);
+                var response = await client.SendInvoiceAsync(invoices);
+                //InvoiceIdentitiesResponse response = client.SendInvoice(invoices);
 
-            if (response.IsSucceded)
-            {
-
-                MessageBox.Show(
-                    string.Format("Fatura Gönderildi\n UUID:{0} \n ID:{1} \n Fatura Tipi:{2} ",
-                            response.Value[0].Id.ToString(),
-                            response.Value[0].Number.ToString(),
-                            response.Value[0].InvoiceScenario.ToString()
-                            )
-                            );
-                // txtSampleOutboxGuid.Text = response.Value[0].Id.ToString();
-                textBox1.Text = response.Value[0].Id.ToString();
-                // Clipboard.SetText(response.Value[0].Id.ToString());
-                gidenFaturalarServis.Data(ServisList.GidenFaturalarEkleServis, new PocoGIDENFATURA()
-                {
-                    belgeno = fattemp.belgeno,
-                    durum = 2,
-                    ettno = response.Value[0].Id.ToString(),hatakodu="",
-                    tip = 1,
-                    tarih = DateTime.Now,
-                    userid = MPKullanici.ID, faturaid=fattemp.id
-
-                });
-                fattemp.durum = true;
-                faturaServis.Data(ServisList.FaturaEkleServis, fattemp);
-                faturaServis.Data(ServisList.FaturaListeServis);
-
-                List<EFaturaGidenTask> eFaturaList = new List<EFaturaGidenTask>();
-                var ccf = faturaServis.obje.Select(x => new EFaturaGidenTask { SEC = false, ID = x.id.ToString(), FATURALASTIR = "", BASIM = "", VKNTCK = cariServis.obje.Where(z => z.id == x.cariid).FirstOrDefault().vergino, CARIADI = cariServis.obje.Where(z => z.id == x.cariid).FirstOrDefault().unvan, BELGENO = x.belgeno, TARIH = x.faturatarihi, VADETARIHI = x.vadetarihi, TUTAR = x.geneltoplam, KDV = x.kdvtoplam, FATURATIP = "TEMELFATURA", TIP = "SATIS", DURUM = x.durum == true ? "ONAYLANDI" : "BEKLEMEDE", ETTNO = gidenFaturalarServis.obje.Where(z => z.faturaid == x.id).Count()>0? gidenFaturalarServis.obje.Where(z => z.faturaid == x.id).FirstOrDefault().ettno:"" }).ToList();
-                foreach (var item in ccf)
+                if (response.IsSucceded)
                 {
 
-                    try
+                    MessageBox.Show(
+                        string.Format("Fatura Gönderildi\n UUID:{0} \n ID:{1} \n Fatura Tipi:{2} ",
+                                response.Value[0].Id.ToString(),
+                                response.Value[0].Number.ToString(),
+                                response.Value[0].InvoiceScenario.ToString()
+                                )
+                                );
+                    // txtSampleOutboxGuid.Text = response.Value[0].Id.ToString();
+                    textBox1.Text = response.Value[0].Id.ToString();
+                    // Clipboard.SetText(response.Value[0].Id.ToString());
+                    gidenFaturalarServis.Data(ServisList.GidenFaturalarEkleServis, new PocoGIDENFATURA()
                     {
-                        var respons = client.IsEInvoiceUserAsync(item.VKNTCK, "").Result;
-                        if (respons.Value)
+                        belgeno = fattemp.belgeno,
+                        durum = 2,
+                        ettno = response.Value[0].Id.ToString(),
+                        hatakodu = "",
+                        tip = 1,
+                        tarih = DateTime.Now,
+                        userid = MPKullanici.ID,
+                        faturaid = fattemp.id
+
+                    });
+                    fattemp.durum = true;
+                    faturaServis.Data(ServisList.FaturaEkleServis, fattemp);
+                    faturaServis.Data(ServisList.FaturaListeServis);
+
+                    List<EFaturaGidenTask> eFaturaList = new List<EFaturaGidenTask>();
+                    var ccf = faturaServis.obje.Select(x => new EFaturaGidenTask { SEC = false, ID = x.id.ToString(), FATURALASTIR = "", BASIM = "", VKNTCK = cariServis.obje.Where(z => z.id == x.cariid).FirstOrDefault().vergino, CARIADI = cariServis.obje.Where(z => z.id == x.cariid).FirstOrDefault().unvan, BELGENO = x.belgeno, TARIH = x.faturatarihi, VADETARIHI = x.vadetarihi, TUTAR = x.geneltoplam, KDV = x.kdvtoplam, FATURATIP = "TEMELFATURA", TIP = "SATIS", DURUM = x.durum == true ? "ONAYLANDI" : "BEKLEMEDE", ETTNO = gidenFaturalarServis.obje.Where(z => z.faturaid == x.id).Count() > 0 ? gidenFaturalarServis.obje.Where(z => z.faturaid == x.id).FirstOrDefault().ettno : "" }).ToList();
+                    foreach (var item in ccf)
+                    {
+
+                        try
+                        {
+                            var respons = client.IsEInvoiceUserAsync(item.VKNTCK, "").Result;
+                            if (respons.Value)
+                            {
+
+
+                                eFaturaList.Add(item);
+                            }
+
+                        }
+                        catch (Exception ex)
                         {
 
-                            
-                            eFaturaList.Add(item);
                         }
-
                     }
-                    catch (Exception ex)
-                    {
+                    gridControl1.DataSource = eFaturaList;
+                    gridControl1.RefreshDataSource();
 
-                    }
                 }
-                gridControl1.DataSource = eFaturaList;
-                gridControl1.RefreshDataSource();
-
-            }
-            else
-            {
-                gidenFaturalarServis.Data(ServisList.GidenFaturalarEkleServis, new PocoGIDENFATURA()
+                else
                 {
-                    belgeno = fattemp.belgeno,
-                    durum = 1,
-                    ettno = "",
-                    tip = 1,
-                    tarih = DateTime.Now,
-                    userid = MPKullanici.ID,
-                    hatakodu=response.Message,
+                    gidenFaturalarServis.Data(ServisList.GidenFaturalarEkleServis, new PocoGIDENFATURA()
+                    {
+                        belgeno = fattemp.belgeno,
+                        durum = 1,
+                        ettno = "",
+                        tip = 1,
+                        tarih = DateTime.Now,
+                        userid = MPKullanici.ID,
+                        hatakodu = response.Message,
 
-                });
-                MessageBox.Show(response.Message);
-            }
+                    });
+                    MessageBox.Show(response.Message);
+                }
             }
             else
                 MessageBox.Show(MPKullanici.hata);

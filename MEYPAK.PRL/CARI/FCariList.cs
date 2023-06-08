@@ -220,7 +220,7 @@ namespace MEYPAK.PRL.CARI
                             FMusteriCekCariCiro = (FMusteriCekCariCiro)frm;
                         if (frm.Name.Contains("FMusteriSenetCariCiro"))
                             FMusteriSenetCariCiro = (FMusteriSenetCariCiro)frm;
-                        if (frm.Name.Contains("FGidenFaturaEslestir"))
+                        if (frm.Name.Contains("FGindeFaturaEşleştir"))
                             fGindeFaturaEşleştir = (FGindeFaturaEşleştir)frm;
                     }
                 }

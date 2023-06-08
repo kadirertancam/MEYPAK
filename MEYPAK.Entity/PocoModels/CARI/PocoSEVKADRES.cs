@@ -12,8 +12,11 @@ namespace MEYPAK.Entity.PocoModels.CARI
         public int althesapid { get; set; }
         public string kodu { get; set; }
         public string il { get; set; }
+        public int ilid { get; set; }
         public string ilce { get; set; }
+        public int ilceid { get; set; }
         public string mahalle { get; set; }
+        public int mahalleid { get; set; }
         public string sokak { get; set; }
         public string apartman { get; set; }
         public string daire { get; set; }

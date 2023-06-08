@@ -28,15 +28,15 @@ namespace MEYPAK.PRL.PARAMETRELER
                 {
                     id = 1,
                     kuladi = yeniTextEdit1.Text,
-                    sifre = yeniTextEdit2.Text, 
+                    sifre = yeniTextEdit2.Text,
                     userid = MPKullanici.ID,
                 });
             else
                 eFaturaParamsServis.Data(ServisList.EFaturaParamsEkleServis, new PocoEFATURAPARAMS()
-                { 
+                {
                     kuladi = yeniTextEdit1.Text,
                     sifre = yeniTextEdit2.Text,
-                    userid=MPKullanici.ID,
+                    userid = MPKullanici.ID,
                 });
         }
 
@@ -50,6 +50,17 @@ namespace MEYPAK.PRL.PARAMETRELER
                     kuladi = yeniTextEdit1.Text,
                     sifre = yeniTextEdit2.Text,
                     userid = MPKullanici.ID,
+                    aptno = TBAptNo.Text,
+                    daireno = TBDaireNo.Text,
+                    il = TBIl.Text,
+                    ilce = TBIlce.Text,
+                    mersisno = TBMersisNo.Text,
+                    sokak = TBSokak.Text,
+                    ticsicilno = TBSicilNo.Text,
+                    ulke = TBUlke.Text,
+                    unvan = TBUnvan.Text,
+                    vd = TBVD.Text,
+                    vno = TBVNo.Text
                 });
             else
                 eFaturaParamsServis.Data(ServisList.EFaturaParamsEkleServis, new PocoEFATURAPARAMS()
@@ -57,6 +68,17 @@ namespace MEYPAK.PRL.PARAMETRELER
                     kuladi = yeniTextEdit1.Text,
                     sifre = yeniTextEdit2.Text,
                     userid = MPKullanici.ID,
+                    aptno = TBAptNo.Text,
+                    daireno = TBDaireNo.Text,
+                    il = TBIl.Text,
+                    ilce = TBIlce.Text,
+                    mersisno = TBMersisNo.Text,
+                    sokak = TBSokak.Text,
+                    ticsicilno = TBSicilNo.Text,
+                    ulke = TBUlke.Text,
+                    unvan = TBUnvan.Text,
+                    vd = TBVD.Text,
+                    vno = TBVNo.Text
                 });
         }
     }

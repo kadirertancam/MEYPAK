@@ -160,4 +160,16 @@
   <data name="ulkeler" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ulkeler.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="139gunduzmeypak150px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\139gunduzmeypak150px.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SatfatUBL" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SatfatUBL.xslt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="139gmeypakkase150px (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\139gmeypakkase150px (1).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SatIrsUBL" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ONURHALIRS_000_0_I (1).xslt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
 </root>

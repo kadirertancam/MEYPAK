@@ -18,7 +18,7 @@ using MEYPAK.PRL.CARI;
 using MEYPAK.PRL.IRSALIYE;
 using MEYPAK.PRL.SIPARIS;
 using MEYPAK.PRL.STOK;
-using ServiceReference1;
+using ServiceReference13;
 using ServiceReference11;
 using System;
 using System.Collections.Generic;
@@ -50,9 +50,8 @@ namespace MEYPAK.PRL.E_ISLEMLER
             _tempKasa = new PocoSTOKKASA();
             _kasaServis = new GenericWebServis<PocoSTOKKASA>();
             _gelenEFaturaServis = new GenericWebServis<PocoGELENEFATURA>();
-        }
-        ServiceReference1.IntegrationClient ıntegrationClient = new ServiceReference1.IntegrationClient();
-        ServiceReference2.BasicIntegrationClient basicIntegration = new ServiceReference2.BasicIntegrationClient();
+        } 
+        BasicIntegrationClient basicIntegration = new BasicIntegrationClient();
         ServiceReference1.WhoAmIInfo bb; 
         List<InboxDespatchListItem> geleneirsaliyetasktemp;
         DespatchResponse tempp;

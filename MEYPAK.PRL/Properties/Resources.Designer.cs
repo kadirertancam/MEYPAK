@@ -63,6 +63,26 @@ namespace MEYPAK.PRL.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
+        internal static System.Drawing.Bitmap _139gmeypakkase150px__1_ {
+            get {
+                object obj = ResourceManager.GetObject("139gmeypakkase150px (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap _139gunduzmeypak150px {
+            get {
+                object obj = ResourceManager.GetObject("139gunduzmeypak150px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
         internal static System.Drawing.Bitmap app_bg {
             get {
                 object obj = ResourceManager.GetObject("app-bg", resourceCulture);
@@ -167,6 +187,39 @@ namespace MEYPAK.PRL.Properties {
             get {
                 object obj = ResourceManager.GetObject("normalButton", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+        ///&lt;xsl:stylesheet version=&quot;2.0&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+        ///xmlns:cac=&quot;urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2&quot;
+        ///xmlns:cbc=&quot;urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2&quot;
+        ///xmlns:ccts=&quot;urn:un:unece:uncefact:documentation:2&quot;
+        ///xmlns:clm54217=&quot;urn:un:unece:uncefact:codelist:specification:54217:2001&quot;
+        ///xmlns:clm5639=&quot;urn:un:unece:uncefact:codelist:specification:5639:1988&quot;
+        ///xmlns:clm66411=&quot;urn:un:une [dizenin kalan bölümü kesildi]&quot;; benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string SatfatUBL {
+            get {
+                return ResourceManager.GetString("SatfatUBL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+        ///&lt;xsl:stylesheet version=&quot;2.0&quot;
+        ///xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+        ///xmlns:cac=&quot;urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2&quot;
+        ///xmlns:cbc=&quot;urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2&quot;
+        ///xmlns:ccts=&quot;urn:un:unece:uncefact:documentation:2&quot;
+        ///xmlns:clm54217=&quot;urn:un:unece:uncefact:codelist:specification:54217:2001&quot;
+        ///xmlns:clm5639=&quot;urn:un:unece:uncefact:codelist:specification:5639:1988&quot;
+        ///xmlns:clm66411=&quot;urn:un:un [dizenin kalan bölümü kesildi]&quot;; benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string SatIrsUBL {
+            get {
+                return ResourceManager.GetString("SatIrsUBL", resourceCulture);
             }
         }
         

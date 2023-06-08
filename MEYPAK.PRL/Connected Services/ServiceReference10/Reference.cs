@@ -244,310 +244,540 @@ namespace ServiceReference10
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.Runtime.Serialization.DataContractAttribute(Name="BildirimKayitIstek", Namespace="http://schemas.datacontract.org/2004/07/GTB.HKS.Bildirim.ServiceContract")]
-    public partial class BildirimKayitIstek : object
+    public partial class BildirimKayitIstek
     {
-        
-        private ServiceReference10.BildirimMalBilgileriDTO BildirimMalBilgileriField;
-        
-        private int BildirimTuruField;
-        
-        private ServiceReference10.BildirimciBilgileriDTO BildirimciBilgileriField;
-        
-        private ServiceReference10.IkinciKisiBilgileriDTO IkinciKisiBilgileriField;
-        
-        private ServiceReference10.MalinGidecekYerBilgileriDTO MalinGidecekYerBilgileriField;
-        
-        private long ReferansBildirimKunyeNoField;
-        
-        private string UniqueIdField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public ServiceReference10.BildirimMalBilgileriDTO BildirimMalBilgileri
+
+        private BildirimMalBilgileriDTO bildirimMalBilgileriField;
+
+        private int bildirimTuruField;
+
+        private bool bildirimTuruFieldSpecified;
+
+        private BildirimciBilgileriDTO bildirimciBilgileriField;
+
+        private IkinciKisiBilgileriDTO ikinciKisiBilgileriField;
+
+        private MalinGidecekYerBilgileriDTO malinGidecekYerBilgileriField;
+
+        private long referansBildirimKunyeNoField;
+
+        private bool referansBildirimKunyeNoFieldSpecified;
+
+        private string uniqueIdField;
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable = true)]
+        public BildirimMalBilgileriDTO BildirimMalBilgileri
         {
             get
             {
-                return this.BildirimMalBilgileriField;
+                return this.bildirimMalBilgileriField;
             }
             set
             {
-                this.BildirimMalBilgileriField = value;
+                this.bildirimMalBilgileriField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
         public int BildirimTuru
         {
             get
             {
-                return this.BildirimTuruField;
+                return this.bildirimTuruField;
             }
             set
             {
-                this.BildirimTuruField = value;
+                this.bildirimTuruField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public ServiceReference10.BildirimciBilgileriDTO BildirimciBilgileri
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool BildirimTuruSpecified
         {
             get
             {
-                return this.BildirimciBilgileriField;
+                return this.bildirimTuruFieldSpecified;
             }
             set
             {
-                this.BildirimciBilgileriField = value;
+                this.bildirimTuruFieldSpecified = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public ServiceReference10.IkinciKisiBilgileriDTO IkinciKisiBilgileri
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable = true)]
+        public BildirimciBilgileriDTO BildirimciBilgileri
         {
             get
             {
-                return this.IkinciKisiBilgileriField;
+                return this.bildirimciBilgileriField;
             }
             set
             {
-                this.IkinciKisiBilgileriField = value;
+                this.bildirimciBilgileriField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public ServiceReference10.MalinGidecekYerBilgileriDTO MalinGidecekYerBilgileri
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable = true)]
+        public IkinciKisiBilgileriDTO IkinciKisiBilgileri
         {
             get
             {
-                return this.MalinGidecekYerBilgileriField;
+                return this.ikinciKisiBilgileriField;
             }
             set
             {
-                this.MalinGidecekYerBilgileriField = value;
+                this.ikinciKisiBilgileriField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable = true)]
+        public MalinGidecekYerBilgileriDTO MalinGidecekYerBilgileri
+        {
+            get
+            {
+                return this.malinGidecekYerBilgileriField;
+            }
+            set
+            {
+                this.malinGidecekYerBilgileriField = value;
+            }
+        }
+
+        /// <remarks/>
         public long ReferansBildirimKunyeNo
         {
             get
             {
-                return this.ReferansBildirimKunyeNoField;
+                return this.referansBildirimKunyeNoField;
             }
             set
             {
-                this.ReferansBildirimKunyeNoField = value;
+                this.referansBildirimKunyeNoField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ReferansBildirimKunyeNoSpecified
+        {
+            get
+            {
+                return this.referansBildirimKunyeNoFieldSpecified;
+            }
+            set
+            {
+                this.referansBildirimKunyeNoFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable = true)]
         public string UniqueId
         {
             get
             {
-                return this.UniqueIdField;
+                return this.uniqueIdField;
             }
             set
             {
-                this.UniqueIdField = value;
+                this.uniqueIdField = value;
             }
         }
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.Runtime.Serialization.DataContractAttribute(Name="BildirimMalBilgileriDTO", Namespace="http://schemas.datacontract.org/2004/07/GTB.HKS.Bildirim.Model")]
-    public partial class BildirimMalBilgileriDTO : object
+    public partial class BildirimMalBilgileriDTO
     {
-        
-        private bool AnalizeGonderilecekMiField;
-        
-        private int GelenUlkeIdField;
-        
-        private int MalinCinsiIdField;
-        
-        private int MalinKodNoField;
-        
-        private double MalinMiktariField;
-        
-        private int MalinNiteligiField;
-        
-        private double MalinSatisFiyatField;
-        
-        private int MiktarBirimIdField;
-        
-        private int UretimBeldeIdField;
-        
-        private int UretimIlIdField;
-        
-        private int UretimIlceIdField;
-        
-        private int UretimSekliField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        private bool analizeGonderilecekMiField;
+
+        private bool analizeGonderilecekMiFieldSpecified;
+
+        private int gelenUlkeIdField;
+
+        private bool gelenUlkeIdFieldSpecified;
+
+        private int malinCinsiIdField;
+
+        private bool malinCinsiIdFieldSpecified;
+
+        private int malinKodNoField;
+
+        private bool malinKodNoFieldSpecified;
+
+        private double malinMiktariField;
+
+        private bool malinMiktariFieldSpecified;
+
+        private int malinNiteligiField;
+
+        private bool malinNiteligiFieldSpecified;
+
+        private double malinSatisFiyatField;
+
+        private bool malinSatisFiyatFieldSpecified;
+
+        private int miktarBirimIdField;
+
+        private bool miktarBirimIdFieldSpecified;
+
+        private int uretimBeldeIdField;
+
+        private bool uretimBeldeIdFieldSpecified;
+
+        private int uretimIlIdField;
+
+        private bool uretimIlIdFieldSpecified;
+
+        private int uretimIlceIdField;
+
+        private bool uretimIlceIdFieldSpecified;
+
+        private int uretimSekliField;
+
+        private bool uretimSekliFieldSpecified;
+
+        /// <remarks/>
         public bool AnalizeGonderilecekMi
         {
             get
             {
-                return this.AnalizeGonderilecekMiField;
+                return this.analizeGonderilecekMiField;
             }
             set
             {
-                this.AnalizeGonderilecekMiField = value;
+                this.analizeGonderilecekMiField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool AnalizeGonderilecekMiSpecified
+        {
+            get
+            {
+                return this.analizeGonderilecekMiFieldSpecified;
+            }
+            set
+            {
+                this.analizeGonderilecekMiFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
         public int GelenUlkeId
         {
             get
             {
-                return this.GelenUlkeIdField;
+                return this.gelenUlkeIdField;
             }
             set
             {
-                this.GelenUlkeIdField = value;
+                this.gelenUlkeIdField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool GelenUlkeIdSpecified
+        {
+            get
+            {
+                return this.gelenUlkeIdFieldSpecified;
+            }
+            set
+            {
+                this.gelenUlkeIdFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
         public int MalinCinsiId
         {
             get
             {
-                return this.MalinCinsiIdField;
+                return this.malinCinsiIdField;
             }
             set
             {
-                this.MalinCinsiIdField = value;
+                this.malinCinsiIdField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MalinCinsiIdSpecified
+        {
+            get
+            {
+                return this.malinCinsiIdFieldSpecified;
+            }
+            set
+            {
+                this.malinCinsiIdFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
         public int MalinKodNo
         {
             get
             {
-                return this.MalinKodNoField;
+                return this.malinKodNoField;
             }
             set
             {
-                this.MalinKodNoField = value;
+                this.malinKodNoField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MalinKodNoSpecified
+        {
+            get
+            {
+                return this.malinKodNoFieldSpecified;
+            }
+            set
+            {
+                this.malinKodNoFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
         public double MalinMiktari
         {
             get
             {
-                return this.MalinMiktariField;
+                return this.malinMiktariField;
             }
             set
             {
-                this.MalinMiktariField = value;
+                this.malinMiktariField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MalinMiktariSpecified
+        {
+            get
+            {
+                return this.malinMiktariFieldSpecified;
+            }
+            set
+            {
+                this.malinMiktariFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
         public int MalinNiteligi
         {
             get
             {
-                return this.MalinNiteligiField;
+                return this.malinNiteligiField;
             }
             set
             {
-                this.MalinNiteligiField = value;
+                this.malinNiteligiField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MalinNiteligiSpecified
+        {
+            get
+            {
+                return this.malinNiteligiFieldSpecified;
+            }
+            set
+            {
+                this.malinNiteligiFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
         public double MalinSatisFiyat
         {
             get
             {
-                return this.MalinSatisFiyatField;
+                return this.malinSatisFiyatField;
             }
             set
             {
-                this.MalinSatisFiyatField = value;
+                this.malinSatisFiyatField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MalinSatisFiyatSpecified
+        {
+            get
+            {
+                return this.malinSatisFiyatFieldSpecified;
+            }
+            set
+            {
+                this.malinSatisFiyatFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
         public int MiktarBirimId
         {
             get
             {
-                return this.MiktarBirimIdField;
+                return this.miktarBirimIdField;
             }
             set
             {
-                this.MiktarBirimIdField = value;
+                this.miktarBirimIdField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MiktarBirimIdSpecified
+        {
+            get
+            {
+                return this.miktarBirimIdFieldSpecified;
+            }
+            set
+            {
+                this.miktarBirimIdFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
         public int UretimBeldeId
         {
             get
             {
-                return this.UretimBeldeIdField;
+                return this.uretimBeldeIdField;
             }
             set
             {
-                this.UretimBeldeIdField = value;
+                this.uretimBeldeIdField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool UretimBeldeIdSpecified
+        {
+            get
+            {
+                return this.uretimBeldeIdFieldSpecified;
+            }
+            set
+            {
+                this.uretimBeldeIdFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
         public int UretimIlId
         {
             get
             {
-                return this.UretimIlIdField;
+                return this.uretimIlIdField;
             }
             set
             {
-                this.UretimIlIdField = value;
+                this.uretimIlIdField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool UretimIlIdSpecified
+        {
+            get
+            {
+                return this.uretimIlIdFieldSpecified;
+            }
+            set
+            {
+                this.uretimIlIdFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
         public int UretimIlceId
         {
             get
             {
-                return this.UretimIlceIdField;
+                return this.uretimIlceIdField;
             }
             set
             {
-                this.UretimIlceIdField = value;
+                this.uretimIlceIdField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool UretimIlceIdSpecified
+        {
+            get
+            {
+                return this.uretimIlceIdFieldSpecified;
+            }
+            set
+            {
+                this.uretimIlceIdFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
         public int UretimSekli
         {
             get
             {
-                return this.UretimSekliField;
+                return this.uretimSekliField;
             }
             set
             {
-                this.UretimSekliField = value;
+                this.uretimSekliField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool UretimSekliSpecified
+        {
+            get
+            {
+                return this.uretimSekliFieldSpecified;
+            }
+            set
+            {
+                this.uretimSekliFieldSpecified = value;
             }
         }
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.Runtime.Serialization.DataContractAttribute(Name="BildirimciBilgileriDTO", Namespace="http://schemas.datacontract.org/2004/07/GTB.HKS.Bildirim.Model")]
     public partial class BildirimciBilgileriDTO : object
     {
         
-        private int KisiSifatField;
-        
+        private int KisiSifatField; 
+        private bool kisiSifatFieldSpecified;
+
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int KisiSifat
         {
@@ -558,6 +788,18 @@ namespace ServiceReference10
             set
             {
                 this.KisiSifatField = value;
+            }
+        }
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool KisiSifatSpecified
+        {
+            get
+            {
+                return this.kisiSifatFieldSpecified;
+            }
+            set
+            {
+                this.kisiSifatFieldSpecified = value;
             }
         }
     }
@@ -575,7 +817,8 @@ namespace ServiceReference10
         private string EpostaField;
         
         private int KisiSifatField;
-        
+        private bool kisiSifatFieldSpecified;
+
         private string TcKimlikVergiNoField;
         
         private bool YurtDisiMiField;
@@ -631,7 +874,19 @@ namespace ServiceReference10
                 this.KisiSifatField = value;
             }
         }
-        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool KisiSifatSpecified
+        {
+            get
+            {
+                return this.kisiSifatFieldSpecified;
+            }
+            set
+            {
+                this.kisiSifatFieldSpecified = value;
+            }
+        }
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string TcKimlikVergiNo
         {
@@ -662,145 +917,259 @@ namespace ServiceReference10
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.Runtime.Serialization.DataContractAttribute(Name="MalinGidecekYerBilgileriDTO", Namespace="http://schemas.datacontract.org/2004/07/GTB.HKS.Bildirim.Model")]
-    public partial class MalinGidecekYerBilgileriDTO : object
+    public partial class MalinGidecekYerBilgileriDTO
     {
-        
-        private string AracPlakaNoField;
-        
-        private string BelgeNoField;
-        
-        private int BelgeTipiField;
-        
-        private int GidecekIsyeriIdField;
-        
-        private int GidecekUlkeIdField;
-        
-        private int GidecekYerBeldeIdField;
-        
-        private int GidecekYerIlIdField;
-        
-        private int GidecekYerIlceIdField;
-        
-        private int GidecekYerIsletmeTuruIdField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        private string aracPlakaNoField;
+
+        private string belgeNoField;
+
+        private int belgeTipiField;
+
+        private bool belgeTipiFieldSpecified;
+
+        private int gidecekIsyeriIdField;
+
+        private bool gidecekIsyeriIdFieldSpecified;
+
+        private int gidecekUlkeIdField;
+
+        private bool gidecekUlkeIdFieldSpecified;
+
+        private int gidecekYerBeldeIdField;
+
+        private bool gidecekYerBeldeIdFieldSpecified;
+
+        private int gidecekYerIlIdField;
+
+        private bool gidecekYerIlIdFieldSpecified;
+
+        private int gidecekYerIlceIdField;
+
+        private bool gidecekYerIlceIdFieldSpecified;
+
+        private int gidecekYerIsletmeTuruIdField;
+
+        private bool gidecekYerIsletmeTuruIdFieldSpecified;
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable = true)]
         public string AracPlakaNo
         {
             get
             {
-                return this.AracPlakaNoField;
+                return this.aracPlakaNoField;
             }
             set
             {
-                this.AracPlakaNoField = value;
+                this.aracPlakaNoField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable = true)]
         public string BelgeNo
         {
             get
             {
-                return this.BelgeNoField;
+                return this.belgeNoField;
             }
             set
             {
-                this.BelgeNoField = value;
+                this.belgeNoField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
         public int BelgeTipi
         {
             get
             {
-                return this.BelgeTipiField;
+                return this.belgeTipiField;
             }
             set
             {
-                this.BelgeTipiField = value;
+                this.belgeTipiField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool BelgeTipiSpecified
+        {
+            get
+            {
+                return this.belgeTipiFieldSpecified;
+            }
+            set
+            {
+                this.belgeTipiFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
         public int GidecekIsyeriId
         {
             get
             {
-                return this.GidecekIsyeriIdField;
+                return this.gidecekIsyeriIdField;
             }
             set
             {
-                this.GidecekIsyeriIdField = value;
+                this.gidecekIsyeriIdField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool GidecekIsyeriIdSpecified
+        {
+            get
+            {
+                return this.gidecekIsyeriIdFieldSpecified;
+            }
+            set
+            {
+                this.gidecekIsyeriIdFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
         public int GidecekUlkeId
         {
             get
             {
-                return this.GidecekUlkeIdField;
+                return this.gidecekUlkeIdField;
             }
             set
             {
-                this.GidecekUlkeIdField = value;
+                this.gidecekUlkeIdField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool GidecekUlkeIdSpecified
+        {
+            get
+            {
+                return this.gidecekUlkeIdFieldSpecified;
+            }
+            set
+            {
+                this.gidecekUlkeIdFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
         public int GidecekYerBeldeId
         {
             get
             {
-                return this.GidecekYerBeldeIdField;
+                return this.gidecekYerBeldeIdField;
             }
             set
             {
-                this.GidecekYerBeldeIdField = value;
+                this.gidecekYerBeldeIdField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool GidecekYerBeldeIdSpecified
+        {
+            get
+            {
+                return this.gidecekYerBeldeIdFieldSpecified;
+            }
+            set
+            {
+                this.gidecekYerBeldeIdFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
         public int GidecekYerIlId
         {
             get
             {
-                return this.GidecekYerIlIdField;
+                return this.gidecekYerIlIdField;
             }
             set
             {
-                this.GidecekYerIlIdField = value;
+                this.gidecekYerIlIdField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool GidecekYerIlIdSpecified
+        {
+            get
+            {
+                return this.gidecekYerIlIdFieldSpecified;
+            }
+            set
+            {
+                this.gidecekYerIlIdFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
         public int GidecekYerIlceId
         {
             get
             {
-                return this.GidecekYerIlceIdField;
+                return this.gidecekYerIlceIdField;
             }
             set
             {
-                this.GidecekYerIlceIdField = value;
+                this.gidecekYerIlceIdField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool GidecekYerIlceIdSpecified
+        {
+            get
+            {
+                return this.gidecekYerIlceIdFieldSpecified;
+            }
+            set
+            {
+                this.gidecekYerIlceIdFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
         public int GidecekYerIsletmeTuruId
         {
             get
             {
-                return this.GidecekYerIsletmeTuruIdField;
+                return this.gidecekYerIsletmeTuruIdField;
             }
             set
             {
-                this.GidecekYerIsletmeTuruIdField = value;
+                this.gidecekYerIsletmeTuruIdField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool GidecekYerIsletmeTuruIdSpecified
+        {
+            get
+            {
+                return this.gidecekYerIsletmeTuruIdFieldSpecified;
+            }
+            set
+            {
+                this.gidecekYerIsletmeTuruIdFieldSpecified = value;
             }
         }
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.Runtime.Serialization.DataContractAttribute(Name="BildirimKayitCevap", Namespace="http://schemas.datacontract.org/2004/07/GTB.HKS.Bildirim.ServiceContract")]
@@ -2253,220 +2622,340 @@ namespace ServiceReference10
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.Runtime.Serialization.DataContractAttribute(Name="BildirimEtiketDTO", Namespace="http://schemas.datacontract.org/2004/07/GTB.HKS.Bildirim.Model")]
-    public partial class BildirimEtiketDTO : object
+    public partial class BildirimEtiketDTO
     {
-        
-        private string IsletmeAdiField;
-        
-        private System.DateTime KayitTarihiField;
-        
-        private string MalinAdiField;
-        
-        private double MalinAlisFiyatField;
-        
-        private string MalinCinsAdiField;
-        
-        private long MalinKunyeNoField;
-        
-        private double MalinMiktarField;
-        
-        private string MiktarBirimAdField;
-        
-        private int MiktarBirimIdField;
-        
-        private string UreticisininAdUnvaniField;
-        
-        private string UretimSekliAdiField;
-        
-        private int UretimSekliIdField;
-        
-        private System.DateTime UretimTarihiField;
-        
-        private string UretimYeriField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        private string isletmeAdiField;
+
+        private System.DateTime kayitTarihiField;
+
+        private bool kayitTarihiFieldSpecified;
+
+        private string malinAdiField;
+
+        private double malinAlisFiyatField;
+
+        private bool malinAlisFiyatFieldSpecified;
+
+        private string malinCinsAdiField;
+
+        private long malinKunyeNoField;
+
+        private bool malinKunyeNoFieldSpecified;
+
+        private double malinMiktarField;
+
+        private bool malinMiktarFieldSpecified;
+
+        private string miktarBirimAdField;
+
+        private int miktarBirimIdField;
+
+        private bool miktarBirimIdFieldSpecified;
+
+        private string ureticisininAdUnvaniField;
+
+        private string uretimSekliAdiField;
+
+        private int uretimSekliIdField;
+
+        private bool uretimSekliIdFieldSpecified;
+
+        private System.DateTime uretimTarihiField;
+
+        private bool uretimTarihiFieldSpecified;
+
+        private string uretimYeriField;
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable = true)]
         public string IsletmeAdi
         {
             get
             {
-                return this.IsletmeAdiField;
+                return this.isletmeAdiField;
             }
             set
             {
-                this.IsletmeAdiField = value;
+                this.isletmeAdiField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
         public System.DateTime KayitTarihi
         {
             get
             {
-                return this.KayitTarihiField;
+                return this.kayitTarihiField;
             }
             set
             {
-                this.KayitTarihiField = value;
+                this.kayitTarihiField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool KayitTarihiSpecified
+        {
+            get
+            {
+                return this.kayitTarihiFieldSpecified;
+            }
+            set
+            {
+                this.kayitTarihiFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable = true)]
         public string MalinAdi
         {
             get
             {
-                return this.MalinAdiField;
+                return this.malinAdiField;
             }
             set
             {
-                this.MalinAdiField = value;
+                this.malinAdiField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
         public double MalinAlisFiyat
         {
             get
             {
-                return this.MalinAlisFiyatField;
+                return this.malinAlisFiyatField;
             }
             set
             {
-                this.MalinAlisFiyatField = value;
+                this.malinAlisFiyatField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MalinAlisFiyatSpecified
+        {
+            get
+            {
+                return this.malinAlisFiyatFieldSpecified;
+            }
+            set
+            {
+                this.malinAlisFiyatFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable = true)]
         public string MalinCinsAdi
         {
             get
             {
-                return this.MalinCinsAdiField;
+                return this.malinCinsAdiField;
             }
             set
             {
-                this.MalinCinsAdiField = value;
+                this.malinCinsAdiField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
         public long MalinKunyeNo
         {
             get
             {
-                return this.MalinKunyeNoField;
+                return this.malinKunyeNoField;
             }
             set
             {
-                this.MalinKunyeNoField = value;
+                this.malinKunyeNoField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MalinKunyeNoSpecified
+        {
+            get
+            {
+                return this.malinKunyeNoFieldSpecified;
+            }
+            set
+            {
+                this.malinKunyeNoFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
         public double MalinMiktar
         {
             get
             {
-                return this.MalinMiktarField;
+                return this.malinMiktarField;
             }
             set
             {
-                this.MalinMiktarField = value;
+                this.malinMiktarField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MalinMiktarSpecified
+        {
+            get
+            {
+                return this.malinMiktarFieldSpecified;
+            }
+            set
+            {
+                this.malinMiktarFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable = true)]
         public string MiktarBirimAd
         {
             get
             {
-                return this.MiktarBirimAdField;
+                return this.miktarBirimAdField;
             }
             set
             {
-                this.MiktarBirimAdField = value;
+                this.miktarBirimAdField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
         public int MiktarBirimId
         {
             get
             {
-                return this.MiktarBirimIdField;
+                return this.miktarBirimIdField;
             }
             set
             {
-                this.MiktarBirimIdField = value;
+                this.miktarBirimIdField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MiktarBirimIdSpecified
+        {
+            get
+            {
+                return this.miktarBirimIdFieldSpecified;
+            }
+            set
+            {
+                this.miktarBirimIdFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable = true)]
         public string UreticisininAdUnvani
         {
             get
             {
-                return this.UreticisininAdUnvaniField;
+                return this.ureticisininAdUnvaniField;
             }
             set
             {
-                this.UreticisininAdUnvaniField = value;
+                this.ureticisininAdUnvaniField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable = true)]
         public string UretimSekliAdi
         {
             get
             {
-                return this.UretimSekliAdiField;
+                return this.uretimSekliAdiField;
             }
             set
             {
-                this.UretimSekliAdiField = value;
+                this.uretimSekliAdiField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
         public int UretimSekliId
         {
             get
             {
-                return this.UretimSekliIdField;
+                return this.uretimSekliIdField;
             }
             set
             {
-                this.UretimSekliIdField = value;
+                this.uretimSekliIdField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool UretimSekliIdSpecified
+        {
+            get
+            {
+                return this.uretimSekliIdFieldSpecified;
+            }
+            set
+            {
+                this.uretimSekliIdFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
         public System.DateTime UretimTarihi
         {
             get
             {
-                return this.UretimTarihiField;
+                return this.uretimTarihiField;
             }
             set
             {
-                this.UretimTarihiField = value;
+                this.uretimTarihiField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool UretimTarihiSpecified
+        {
+            get
+            {
+                return this.uretimTarihiFieldSpecified;
+            }
+            set
+            {
+                this.uretimTarihiFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable = true)]
         public string UretimYeri
         {
             get
             {
-                return this.UretimYeriField;
+                return this.uretimYeriField;
             }
             set
             {
-                this.UretimYeriField = value;
+                this.uretimYeriField = value;
             }
         }
     }
-    
+
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.Runtime.Serialization.DataContractAttribute(Name="BelgeTipleriIstek", Namespace="http://schemas.datacontract.org/2004/07/GTB.HKS.Bildirim.ServiceContract")]
@@ -2477,653 +2966,1070 @@ namespace ServiceReference10
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.Runtime.Serialization.DataContractAttribute(Name="BelgeTipleriCevap", Namespace="http://schemas.datacontract.org/2004/07/GTB.HKS.Bildirim.ServiceContract")]
-    public partial class BelgeTipleriCevap : object
+    public partial class BelgeTipleriCevap
     {
-        
-        private ServiceReference10.BelgeTipiDTO[] BelgeTipleriField;
-        
-        private int HataKoduField;
-        
-        private string MesajField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public ServiceReference10.BelgeTipiDTO[] BelgeTipleri
+
+        private BelgeTipiDTO[] belgeTipleriField;
+
+        private int hataKoduField;
+
+        private bool hataKoduFieldSpecified;
+
+        private string mesajField;
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(IsNullable = true)]
+        public BelgeTipiDTO[] BelgeTipleri
         {
             get
             {
-                return this.BelgeTipleriField;
+                return this.belgeTipleriField;
             }
             set
             {
-                this.BelgeTipleriField = value;
+                this.belgeTipleriField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
         public int HataKodu
         {
             get
             {
-                return this.HataKoduField;
+                return this.hataKoduField;
             }
             set
             {
-                this.HataKoduField = value;
+                this.hataKoduField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool HataKoduSpecified
+        {
+            get
+            {
+                return this.hataKoduFieldSpecified;
+            }
+            set
+            {
+                this.hataKoduFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable = true)]
         public string Mesaj
         {
             get
             {
-                return this.MesajField;
+                return this.mesajField;
             }
             set
             {
-                this.MesajField = value;
+                this.mesajField = value;
             }
         }
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.Runtime.Serialization.DataContractAttribute(Name="BelgeTipiDTO", Namespace="http://schemas.datacontract.org/2004/07/GTB.HKS.Bildirim.ServiceContract")]
-    public partial class BelgeTipiDTO : object
+    public partial class BelgeTipiDTO
     {
-        
-        private string BelgeTipiAdiField;
-        
-        private int IdField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        private string belgeTipiAdiField;
+
+        private int idField;
+
+        private bool idFieldSpecified;
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable = true)]
         public string BelgeTipiAdi
         {
             get
             {
-                return this.BelgeTipiAdiField;
+                return this.belgeTipiAdiField;
             }
             set
             {
-                this.BelgeTipiAdiField = value;
+                this.belgeTipiAdiField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
         public int Id
         {
             get
             {
-                return this.IdField;
+                return this.idField;
             }
             set
             {
-                this.IdField = value;
+                this.idField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool IdSpecified
+        {
+            get
+            {
+                return this.idFieldSpecified;
+            }
+            set
+            {
+                this.idFieldSpecified = value;
             }
         }
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.Runtime.Serialization.DataContractAttribute(Name="BildirimSorguIstek", Namespace="http://schemas.datacontract.org/2004/07/GTB.HKS.Bildirim.ServiceContract")]
-    public partial class BildirimSorguIstek : object
+    public partial class BildirimSorguIstek
     {
-        
-        private System.DateTime BaslangicTarihiField;
-        
-        private System.DateTime BitisTarihiField;
-        
-        private bool KalanMiktariSifirdanBuyukOlanlarField;
-        
-        private long KunyeNoField;
-        
-        private int KunyeTuruField;
-        
-        private int SifatField;
-        
-        private string UniqueIdField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        private System.DateTime baslangicTarihiField;
+
+        private bool baslangicTarihiFieldSpecified;
+
+        private System.DateTime bitisTarihiField;
+
+        private bool bitisTarihiFieldSpecified;
+
+        private bool kalanMiktariSifirdanBuyukOlanlarField;
+
+        private bool kalanMiktariSifirdanBuyukOlanlarFieldSpecified;
+
+        private long kunyeNoField;
+
+        private bool kunyeNoFieldSpecified;
+
+        private int kunyeTuruField;
+
+        private bool kunyeTuruFieldSpecified;
+
+        private int sifatField;
+
+        private bool sifatFieldSpecified;
+
+        private string uniqueIdField;
+
+        /// <remarks/>
         public System.DateTime BaslangicTarihi
         {
             get
             {
-                return this.BaslangicTarihiField;
+                return this.baslangicTarihiField;
             }
             set
             {
-                this.BaslangicTarihiField = value;
+                this.baslangicTarihiField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool BaslangicTarihiSpecified
+        {
+            get
+            {
+                return this.baslangicTarihiFieldSpecified;
+            }
+            set
+            {
+                this.baslangicTarihiFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
         public System.DateTime BitisTarihi
         {
             get
             {
-                return this.BitisTarihiField;
+                return this.bitisTarihiField;
             }
             set
             {
-                this.BitisTarihiField = value;
+                this.bitisTarihiField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool BitisTarihiSpecified
+        {
+            get
+            {
+                return this.bitisTarihiFieldSpecified;
+            }
+            set
+            {
+                this.bitisTarihiFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
         public bool KalanMiktariSifirdanBuyukOlanlar
         {
             get
             {
-                return this.KalanMiktariSifirdanBuyukOlanlarField;
+                return this.kalanMiktariSifirdanBuyukOlanlarField;
             }
             set
             {
-                this.KalanMiktariSifirdanBuyukOlanlarField = value;
+                this.kalanMiktariSifirdanBuyukOlanlarField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool KalanMiktariSifirdanBuyukOlanlarSpecified
+        {
+            get
+            {
+                return this.kalanMiktariSifirdanBuyukOlanlarFieldSpecified;
+            }
+            set
+            {
+                this.kalanMiktariSifirdanBuyukOlanlarFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
         public long KunyeNo
         {
             get
             {
-                return this.KunyeNoField;
+                return this.kunyeNoField;
             }
             set
             {
-                this.KunyeNoField = value;
+                this.kunyeNoField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool KunyeNoSpecified
+        {
+            get
+            {
+                return this.kunyeNoFieldSpecified;
+            }
+            set
+            {
+                this.kunyeNoFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
         public int KunyeTuru
         {
             get
             {
-                return this.KunyeTuruField;
+                return this.kunyeTuruField;
             }
             set
             {
-                this.KunyeTuruField = value;
+                this.kunyeTuruField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool KunyeTuruSpecified
+        {
+            get
+            {
+                return this.kunyeTuruFieldSpecified;
+            }
+            set
+            {
+                this.kunyeTuruFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
         public int Sifat
         {
             get
             {
-                return this.SifatField;
+                return this.sifatField;
             }
             set
             {
-                this.SifatField = value;
+                this.sifatField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool SifatSpecified
+        {
+            get
+            {
+                return this.sifatFieldSpecified;
+            }
+            set
+            {
+                this.sifatFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable = true)]
         public string UniqueId
         {
             get
             {
-                return this.UniqueIdField;
+                return this.uniqueIdField;
             }
             set
             {
-                this.UniqueIdField = value;
+                this.uniqueIdField = value;
             }
         }
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.Runtime.Serialization.DataContractAttribute(Name="BildirimSorguCevap", Namespace="http://schemas.datacontract.org/2004/07/GTB.HKS.Bildirim.ServiceContract")]
-    public partial class BildirimSorguCevap : object
+    public partial class BildirimSorguCevap
     {
-        
-        private ServiceReference10.BildirimSorguDTO[] BildirimlerField;
-        
-        private int HataKoduField;
-        
-        private string MesajField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public ServiceReference10.BildirimSorguDTO[] Bildirimler
+
+        private BildirimSorguDTO[] bildirimlerField;
+
+        private int hataKoduField;
+
+        private bool hataKoduFieldSpecified;
+
+        private string mesajField;
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(IsNullable = true)]
+        [System.Xml.Serialization.XmlArrayItemAttribute(Namespace = "http://schemas.datacontract.org/2004/07/GTB.HKS.Bildirim.Model")]
+        public BildirimSorguDTO[] Bildirimler
         {
             get
             {
-                return this.BildirimlerField;
+                return this.bildirimlerField;
             }
             set
             {
-                this.BildirimlerField = value;
+                this.bildirimlerField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
         public int HataKodu
         {
             get
             {
-                return this.HataKoduField;
+                return this.hataKoduField;
             }
             set
             {
-                this.HataKoduField = value;
+                this.hataKoduField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool HataKoduSpecified
+        {
+            get
+            {
+                return this.hataKoduFieldSpecified;
+            }
+            set
+            {
+                this.hataKoduFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable = true)]
         public string Mesaj
         {
             get
             {
-                return this.MesajField;
+                return this.mesajField;
             }
             set
             {
-                this.MesajField = value;
+                this.mesajField = value;
             }
         }
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.Runtime.Serialization.DataContractAttribute(Name="BildirimSorguDTO", Namespace="http://schemas.datacontract.org/2004/07/GTB.HKS.Bildirim.Model")]
-    public partial class BildirimSorguDTO : object
+    public partial class BildirimSorguDTO
     {
-        
-        private bool AnalizStatusField;
-        
-        private string AracPlakaNoField;
-        
-        private string BelgeNoField;
-        
-        private int BelgeTipiField;
-        
-        private System.DateTime BildirimTarihiField;
-        
-        private int BildirimTuruField;
-        
-        private string BildirimciTcKimlikVergiNoField;
-        
-        private int GidecekIsyeriIdField;
-        
-        private int GidecekYerTuruIdField;
-        
-        private double KalanMiktarField;
-        
-        private long KunyeNoField;
-        
-        private string MalinAdiField;
-        
-        private int MalinCinsKodNoField;
-        
-        private string MalinCinsiField;
-        
-        private int MalinKodNoField;
-        
-        private double MalinMiktariField;
-        
-        private string MalinSahibiTcKimlikVergiNoField;
-        
-        private double MalinSatisFiyatiField;
-        
-        private string MalinTuruField;
-        
-        private int MalinTuruKodNoField;
-        
-        private int MiktarBirimIdField;
-        
-        private string MiktarBirimiAdField;
-        
-        private double RusumMiktariField;
-        
-        private int SifatField;
-        
-        private string UniqueIdField;
-        
-        private string UreticiTcKimlikVergiNoField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        private bool analizStatusField;
+
+        private bool analizStatusFieldSpecified;
+
+        private string aracPlakaNoField;
+
+        private string belgeNoField;
+
+        private int belgeTipiField;
+
+        private bool belgeTipiFieldSpecified;
+
+        private System.DateTime bildirimTarihiField;
+
+        private bool bildirimTarihiFieldSpecified;
+
+        private int bildirimTuruField;
+
+        private bool bildirimTuruFieldSpecified;
+
+        private string bildirimciTcKimlikVergiNoField;
+
+        private int gidecekIsyeriIdField;
+
+        private bool gidecekIsyeriIdFieldSpecified;
+
+        private int gidecekYerTuruIdField;
+
+        private bool gidecekYerTuruIdFieldSpecified;
+
+        private double kalanMiktarField;
+
+        private bool kalanMiktarFieldSpecified;
+
+        private long kunyeNoField;
+
+        private bool kunyeNoFieldSpecified;
+
+        private string malinAdiField;
+
+        private int malinCinsKodNoField;
+
+        private bool malinCinsKodNoFieldSpecified;
+
+        private string malinCinsiField;
+
+        private int malinKodNoField;
+
+        private bool malinKodNoFieldSpecified;
+
+        private double malinMiktariField;
+
+        private bool malinMiktariFieldSpecified;
+
+        private string malinSahibiTcKimlikVergiNoField;
+
+        private double malinSatisFiyatiField;
+
+        private bool malinSatisFiyatiFieldSpecified;
+
+        private string malinTuruField;
+
+        private int malinTuruKodNoField;
+
+        private bool malinTuruKodNoFieldSpecified;
+
+        private int miktarBirimIdField;
+
+        private bool miktarBirimIdFieldSpecified;
+
+        private string miktarBirimiAdField;
+
+        private double rusumMiktariField;
+
+        private bool rusumMiktariFieldSpecified;
+
+        private int sifatField;
+
+        private bool sifatFieldSpecified;
+
+        private string uniqueIdField;
+
+        private string ureticiTcKimlikVergiNoField;
+
+        /// <remarks/>
         public bool AnalizStatus
         {
             get
             {
-                return this.AnalizStatusField;
+                return this.analizStatusField;
             }
             set
             {
-                this.AnalizStatusField = value;
+                this.analizStatusField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool AnalizStatusSpecified
+        {
+            get
+            {
+                return this.analizStatusFieldSpecified;
+            }
+            set
+            {
+                this.analizStatusFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable = true)]
         public string AracPlakaNo
         {
             get
             {
-                return this.AracPlakaNoField;
+                return this.aracPlakaNoField;
             }
             set
             {
-                this.AracPlakaNoField = value;
+                this.aracPlakaNoField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable = true)]
         public string BelgeNo
         {
             get
             {
-                return this.BelgeNoField;
+                return this.belgeNoField;
             }
             set
             {
-                this.BelgeNoField = value;
+                this.belgeNoField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
         public int BelgeTipi
         {
             get
             {
-                return this.BelgeTipiField;
+                return this.belgeTipiField;
             }
             set
             {
-                this.BelgeTipiField = value;
+                this.belgeTipiField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool BelgeTipiSpecified
+        {
+            get
+            {
+                return this.belgeTipiFieldSpecified;
+            }
+            set
+            {
+                this.belgeTipiFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
         public System.DateTime BildirimTarihi
         {
             get
             {
-                return this.BildirimTarihiField;
+                return this.bildirimTarihiField;
             }
             set
             {
-                this.BildirimTarihiField = value;
+                this.bildirimTarihiField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool BildirimTarihiSpecified
+        {
+            get
+            {
+                return this.bildirimTarihiFieldSpecified;
+            }
+            set
+            {
+                this.bildirimTarihiFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
         public int BildirimTuru
         {
             get
             {
-                return this.BildirimTuruField;
+                return this.bildirimTuruField;
             }
             set
             {
-                this.BildirimTuruField = value;
+                this.bildirimTuruField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool BildirimTuruSpecified
+        {
+            get
+            {
+                return this.bildirimTuruFieldSpecified;
+            }
+            set
+            {
+                this.bildirimTuruFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable = true)]
         public string BildirimciTcKimlikVergiNo
         {
             get
             {
-                return this.BildirimciTcKimlikVergiNoField;
+                return this.bildirimciTcKimlikVergiNoField;
             }
             set
             {
-                this.BildirimciTcKimlikVergiNoField = value;
+                this.bildirimciTcKimlikVergiNoField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
         public int GidecekIsyeriId
         {
             get
             {
-                return this.GidecekIsyeriIdField;
+                return this.gidecekIsyeriIdField;
             }
             set
             {
-                this.GidecekIsyeriIdField = value;
+                this.gidecekIsyeriIdField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool GidecekIsyeriIdSpecified
+        {
+            get
+            {
+                return this.gidecekIsyeriIdFieldSpecified;
+            }
+            set
+            {
+                this.gidecekIsyeriIdFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
         public int GidecekYerTuruId
         {
             get
             {
-                return this.GidecekYerTuruIdField;
+                return this.gidecekYerTuruIdField;
             }
             set
             {
-                this.GidecekYerTuruIdField = value;
+                this.gidecekYerTuruIdField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool GidecekYerTuruIdSpecified
+        {
+            get
+            {
+                return this.gidecekYerTuruIdFieldSpecified;
+            }
+            set
+            {
+                this.gidecekYerTuruIdFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
         public double KalanMiktar
         {
             get
             {
-                return this.KalanMiktarField;
+                return this.kalanMiktarField;
             }
             set
             {
-                this.KalanMiktarField = value;
+                this.kalanMiktarField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool KalanMiktarSpecified
+        {
+            get
+            {
+                return this.kalanMiktarFieldSpecified;
+            }
+            set
+            {
+                this.kalanMiktarFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
         public long KunyeNo
         {
             get
             {
-                return this.KunyeNoField;
+                return this.kunyeNoField;
             }
             set
             {
-                this.KunyeNoField = value;
+                this.kunyeNoField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool KunyeNoSpecified
+        {
+            get
+            {
+                return this.kunyeNoFieldSpecified;
+            }
+            set
+            {
+                this.kunyeNoFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable = true)]
         public string MalinAdi
         {
             get
             {
-                return this.MalinAdiField;
+                return this.malinAdiField;
             }
             set
             {
-                this.MalinAdiField = value;
+                this.malinAdiField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
         public int MalinCinsKodNo
         {
             get
             {
-                return this.MalinCinsKodNoField;
+                return this.malinCinsKodNoField;
             }
             set
             {
-                this.MalinCinsKodNoField = value;
+                this.malinCinsKodNoField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MalinCinsKodNoSpecified
+        {
+            get
+            {
+                return this.malinCinsKodNoFieldSpecified;
+            }
+            set
+            {
+                this.malinCinsKodNoFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable = true)]
         public string MalinCinsi
         {
             get
             {
-                return this.MalinCinsiField;
+                return this.malinCinsiField;
             }
             set
             {
-                this.MalinCinsiField = value;
+                this.malinCinsiField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
         public int MalinKodNo
         {
             get
             {
-                return this.MalinKodNoField;
+                return this.malinKodNoField;
             }
             set
             {
-                this.MalinKodNoField = value;
+                this.malinKodNoField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MalinKodNoSpecified
+        {
+            get
+            {
+                return this.malinKodNoFieldSpecified;
+            }
+            set
+            {
+                this.malinKodNoFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
         public double MalinMiktari
         {
             get
             {
-                return this.MalinMiktariField;
+                return this.malinMiktariField;
             }
             set
             {
-                this.MalinMiktariField = value;
+                this.malinMiktariField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MalinMiktariSpecified
+        {
+            get
+            {
+                return this.malinMiktariFieldSpecified;
+            }
+            set
+            {
+                this.malinMiktariFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable = true)]
         public string MalinSahibiTcKimlikVergiNo
         {
             get
             {
-                return this.MalinSahibiTcKimlikVergiNoField;
+                return this.malinSahibiTcKimlikVergiNoField;
             }
             set
             {
-                this.MalinSahibiTcKimlikVergiNoField = value;
+                this.malinSahibiTcKimlikVergiNoField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
         public double MalinSatisFiyati
         {
             get
             {
-                return this.MalinSatisFiyatiField;
+                return this.malinSatisFiyatiField;
             }
             set
             {
-                this.MalinSatisFiyatiField = value;
+                this.malinSatisFiyatiField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MalinSatisFiyatiSpecified
+        {
+            get
+            {
+                return this.malinSatisFiyatiFieldSpecified;
+            }
+            set
+            {
+                this.malinSatisFiyatiFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable = true)]
         public string MalinTuru
         {
             get
             {
-                return this.MalinTuruField;
+                return this.malinTuruField;
             }
             set
             {
-                this.MalinTuruField = value;
+                this.malinTuruField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
         public int MalinTuruKodNo
         {
             get
             {
-                return this.MalinTuruKodNoField;
+                return this.malinTuruKodNoField;
             }
             set
             {
-                this.MalinTuruKodNoField = value;
+                this.malinTuruKodNoField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MalinTuruKodNoSpecified
+        {
+            get
+            {
+                return this.malinTuruKodNoFieldSpecified;
+            }
+            set
+            {
+                this.malinTuruKodNoFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
         public int MiktarBirimId
         {
             get
             {
-                return this.MiktarBirimIdField;
+                return this.miktarBirimIdField;
             }
             set
             {
-                this.MiktarBirimIdField = value;
+                this.miktarBirimIdField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MiktarBirimIdSpecified
+        {
+            get
+            {
+                return this.miktarBirimIdFieldSpecified;
+            }
+            set
+            {
+                this.miktarBirimIdFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable = true)]
         public string MiktarBirimiAd
         {
             get
             {
-                return this.MiktarBirimiAdField;
+                return this.miktarBirimiAdField;
             }
             set
             {
-                this.MiktarBirimiAdField = value;
+                this.miktarBirimiAdField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
         public double RusumMiktari
         {
             get
             {
-                return this.RusumMiktariField;
+                return this.rusumMiktariField;
             }
             set
             {
-                this.RusumMiktariField = value;
+                this.rusumMiktariField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool RusumMiktariSpecified
+        {
+            get
+            {
+                return this.rusumMiktariFieldSpecified;
+            }
+            set
+            {
+                this.rusumMiktariFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
         public int Sifat
         {
             get
             {
-                return this.SifatField;
+                return this.sifatField;
             }
             set
             {
-                this.SifatField = value;
+                this.sifatField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool SifatSpecified
+        {
+            get
+            {
+                return this.sifatFieldSpecified;
+            }
+            set
+            {
+                this.sifatFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable = true)]
         public string UniqueId
         {
             get
             {
-                return this.UniqueIdField;
+                return this.uniqueIdField;
             }
             set
             {
-                this.UniqueIdField = value;
+                this.uniqueIdField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable = true)]
         public string UreticiTcKimlikVergiNo
         {
             get
             {
-                return this.UreticiTcKimlikVergiNoField;
+                return this.ureticiTcKimlikVergiNoField;
             }
             set
             {
-                this.UreticiTcKimlikVergiNoField = value;
+                this.ureticiTcKimlikVergiNoField = value;
             }
         }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.gtb.gov.tr//WebServices", ConfigurationName="ServiceReference10.IBildirimService")]
     public interface IBildirimService

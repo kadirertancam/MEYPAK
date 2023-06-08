@@ -8,6 +8,7 @@ namespace MEYPAK.PRL.Assets
 {
     public class AlisKunyeleri
     {
+        public string StokAdı { get; set; }
         public string KunyeNo { get; set; }
         public decimal Bakiye { get; set; }
     }

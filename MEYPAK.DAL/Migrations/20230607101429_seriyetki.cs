@@ -5,17 +5,18 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MEYPAK.DAL.Migrations
 {
-    public partial class MPVERSION : Migration
+    public partial class seriyetki : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "MPVERSION",
+                name: "MPSERIYETKI",
                 columns: table => new
                 {
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    VERSION = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    SERIID = table.Column<int>(type: "int", nullable: false),
+                    KULLANICIID = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     OLUSTURMATARIHI = table.Column<DateTime>(type: "datetime2", nullable: false),
                     GUNCELLEMETARIHI = table.Column<DateTime>(type: "datetime2", nullable: false),
                     KAYITTIPI = table.Column<byte>(type: "tinyint", nullable: false),
@@ -24,14 +25,14 @@ namespace MEYPAK.DAL.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_MPVERSION", x => x.ID);
+                    table.PrimaryKey("PK_MPSERIYETKI", x => x.ID);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "MPVERSION");
+                name: "MPSERIYETKI");
         }
     }
 }

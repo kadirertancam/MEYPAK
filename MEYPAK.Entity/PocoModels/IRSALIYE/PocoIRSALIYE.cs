@@ -24,10 +24,10 @@ namespace MEYPAK.Entity.PocoModels.IRSALIYE
         public DateTime sevkiyattarihi { get; set; } = DateTime.Now;
         public DateTime vadetarihi { get; set; } = DateTime.Now;
         public byte kullanicitipi { get; set; } = 0;
-        [StringLength(50)]
+        [StringLength(500)]
         public string cariadi { get; set; } = "";
         public int vadegunu { get; set; } = 0;
-        [StringLength(200)]
+        [StringLength(500)]
         public string aciklama { get; set; } = "";
         [StringLength(200)]
         public string ekaciklama { get; set; } = "";
@@ -48,7 +48,7 @@ namespace MEYPAK.Entity.PocoModels.IRSALIYE
         public int aracid { get; set; }
         public int dorseid { get; set; } = 0;
         public int personelid { get; set; }
-        public int tip { get; set; }
+        public int tip { get; set; } 
         public bool durum { get; set; }
         [Required]
         public string donem { get; set; } = DateTime.Now.ToString("yyyy");

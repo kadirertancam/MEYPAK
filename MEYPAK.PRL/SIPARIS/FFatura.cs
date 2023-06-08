@@ -620,7 +620,7 @@ namespace MEYPAK.PRL.SIPARIS
                     {
 
                         KasaList = new List<KasaList>();
-                        gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "Birim", item2.birimid);
+                        //gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "Birim", item2.birimid);
                         foreach (var item in _stokKasaHarServis.obje.Where(z => z.faturadetayid == item2.id && z.faturaid == item2.faturaid))
                         {
 
@@ -705,7 +705,7 @@ namespace MEYPAK.PRL.SIPARIS
         {
             _seriHarServis.Data(ServisList.SeriHarListeServis);
             _seriServis.Data(ServisList.SeriListeServis);
-            var serino = _seriHarServis.obje.Where(x => x.seriid == _seriServis.obje.Where(z => z.SERINO == comboBoxEdit1.Text).FirstOrDefault().id).FirstOrDefault().serino;
+            var serino = _seriHarServis.obje.Where(x => x.seriid == _seriServis.obje.Where(z => z.SERINO == comboBoxEdit1.Text).FirstOrDefault().id).FirstOrDefault().serino+1;
             TBFaturaNo.Text = serino.ToString();
         }
 
@@ -1017,9 +1017,16 @@ namespace MEYPAK.PRL.SIPARIS
                 _cariKart.Data(ServisList.CariListeServis);
                 if (_cariKart.obje.Where(x => x.kod == TBCariKodu.Text).Count() > 0)
                 {
+                    int irsid = 0;
+                    int aracidd= 0;
+                    int persid = 0;
                     if (_tempFatura == null)
                         faturaNoGuncelle();
-
+                    if (_tempFatura != null) {
+                        irsid = _tempFatura.irsaliyeid;
+                        persid = _tempFatura.personelid;
+                        aracidd = _tempFatura.aracid;
+                    }
                     _faturaServis.Data(ServisList.FaturaEkleServis, new PocoFATURA()
                     {
                         id = _tempFatura != null ? _tempFatura.id : 0,
@@ -1046,7 +1053,11 @@ namespace MEYPAK.PRL.SIPARIS
                         kdvdahil = CHBKdvDahil.Checked,
                         tip = comboBox1.SelectedIndex == 0 ? 0 : 2,
                         serino = comboBoxEdit1.SelectedItem.ToString(),
-                        userid = MPKullanici.ID
+                        userid = MPKullanici.ID,
+                         irsaliyeid=irsid,
+                         aracid= aracidd,
+                          personelid= persid,
+                         
                     });
 
 
@@ -1059,6 +1070,7 @@ namespace MEYPAK.PRL.SIPARIS
 
                     foreach (var item in _tempFaturaDetay.Where(x => x.StokKodu != "" && x.StokKodu != null).ToList())
                     {
+                        var olcbrr = _olcuBr.obje.Where(y => y.adi == item.Birim).FirstOrDefault().id;
                         var stokolcubr = _stokOlcuBr.obje.Where(x => x.stokid == item.StokId).FirstOrDefault();
                         _faturadetayServis.Data(ServisList.FaturaDetayEkleServis, new PocoFATURADETAY()
                         {
@@ -1071,7 +1083,7 @@ namespace MEYPAK.PRL.SIPARIS
                             birimfiyat = item.BirimFiyat,
                             nettoplam = item.NetToplam,
                             netfiyat = item.NetFiyat,
-                            birimid = item.Tipi == "STOK" ? _olcuBr.obje.Where(y => y.adi == item.Birim).FirstOrDefault().id : 0,
+                            birimid = item.Tipi == "STOK" ? olcbrr : 0,
                             dovizid = item.Doviz,
                             kasamiktar = item.KasaMiktar,
                             dara = item.Dara,

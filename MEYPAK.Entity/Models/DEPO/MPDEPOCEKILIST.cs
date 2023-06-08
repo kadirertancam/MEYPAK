@@ -15,6 +15,7 @@ namespace MEYPAK.Entity.Models.DEPO
         public int STOKID { get; set; }
         public int DEPOID { get; set; }
         public int BIRIMID { get; set; }
+        [Column(TypeName = "decimal(18,2)")]
         public decimal MIKTAR { get; set; }
 
     }

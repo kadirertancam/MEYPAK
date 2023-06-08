@@ -46,6 +46,10 @@ namespace MEYPAK.Entity.Mappings
         public Maps()
         {
 
+            //HksList
+            CreateMap<MPHKSILLER, PocoHKSILLER>().ReverseMap();
+            CreateMap<MPHKSILCELER, PocoHKSILCELER>().ReverseMap();
+            CreateMap<MPHKSBELDELER, PocoHKSBELDELER>().ReverseMap();
 
             //FATURASTOKESLE
             CreateMap<MPFATURASTOKESLE, PocoFATURASTOKESLE>().ReverseMap();
@@ -114,6 +118,7 @@ namespace MEYPAK.Entity.Mappings
             CreateMap<MPPARABIRIM, PocoPARABIRIM>().ReverseMap();
             CreateMap<MPPERSONELPARAMETRE, PocoPERSONELPARAMETRE>().ReverseMap();
             CreateMap<MPSERIHAR, PocoSERIHAR>().ReverseMap(); 
+            CreateMap<MPSERIYETKI, PocoSERIYETKI>().ReverseMap(); 
             CreateMap<MPKASAPARAMS, PocoKASAPARAMS>().ReverseMap();
             CreateMap<MPEFATURAPARAMS, PocoEFATURAPARAMS>().ReverseMap();
 

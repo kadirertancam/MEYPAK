@@ -3,6 +3,7 @@ using MEYPAK.BLL.Assets;
 using MEYPAK.DAL.Concrete.ADONET;
 using MEYPAK.Entity.IdentityModels;
 using MEYPAK.Entity.Models.DEPO;
+using MEYPAK.Entity.PocoModels.DEPO;
 using MEYPAK.PRL.CEKSENET.Firma.Çek;
 using MEYPAK.PRL.DEKONT;
 using MEYPAK.PRL.E_ISLEMLER;
@@ -29,7 +30,9 @@ namespace MEYPAK.PRL
         {
             InitializeComponent();
             _loginService = new GenericWebServis<LoginModel>();
-           
+            deposervis = new GenericWebServis<PocoDEPO>();
+
+
         }
         Main fMain;
         GenericWebServis<LoginModel> _loginService;
@@ -84,16 +87,18 @@ namespace MEYPAK.PRL
                 BTNGiris_Click(sender, e);
             }
         }
-
+        GenericWebServis<PocoDEPO> deposervis;
         private void LoginScreen_Load(object sender, EventArgs e)
         {
-            MPAdoContext<MPDEPO> depo = new MPAdoContext<MPDEPO>();
-            depo.HepsiniGetir();
+            //MPAdoContext<MPDEPO> depo = new MPAdoContext<MPDEPO>();
+            deposervis.Data(ServisList.DepoListeServis);
+            //depo.HepsiniGetir();/
 
-            lookUpEdit1.Properties.DataSource = depo.GenericList.Where(x=>x.KAYITTIPI==0).Select(x => new { ID = x.ID, ADI = x.DEPOADI });
+
+            lookUpEdit1.Properties.DataSource = deposervis.obje.Where(x=>x.kayittipi==0).Select(x => new { ID = x.id, ADI = x.depoadi });
             lookUpEdit1.Properties.DisplayMember = "ADI";
             lookUpEdit1.Properties.ValueMember= "ID";
-            lookUpEdit1.EditValue= depo.GenericList.Where(x => x.KAYITTIPI == 0).Select(x => new { ID = x.ID, ADI = x.DEPOADI }).FirstOrDefault().ID;
+            lookUpEdit1.EditValue= deposervis.obje.Where(x => x.kayittipi == 0).Select(x => new { ID = x.id, ADI = x.depoadi }).FirstOrDefault().ID;
             //player = new MpvPlayer(this.Handle)
             //{
             //    Loop = false,

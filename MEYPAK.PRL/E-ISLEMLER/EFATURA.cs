@@ -17,7 +17,7 @@ using MEYPAK.PRL.Assets;
 using MEYPAK.PRL.CARI;
 using MEYPAK.PRL.SIPARIS;
 using MEYPAK.PRL.STOK;
-using ServiceReference1;
+using ServiceReference13;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,6 +25,10 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.ServiceModel;
+using System.ServiceModel.Channels;
+using System.ServiceModel.Description;
+using System.ServiceModel.Dispatcher;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
@@ -34,11 +38,12 @@ namespace MEYPAK.PRL.E_ISLEMLER
 {
     public partial class EFATURA : DevExpress.XtraEditors.XtraForm
     {
-        ServiceReference1.IntegrationClient ıntegrationClient = new ServiceReference1.IntegrationClient();
+        BasicIntegrationClient  ıntegrationClient = new BasicIntegrationClient();
         ServiceReference2.BasicIntegrationClient basicIntegration = new ServiceReference2.BasicIntegrationClient();
         ServiceReference1.WhoAmIInfo bb;
         List<InboxInvoiceListItem> gelenefaturatasktemp;
         InvoiceResponse tempp;
+        InvoicesResponse temp2;
         List<FaturaDetailList> tempdetay;
         InboxInvoiceListResponse res;
         RepositoryItemButtonEdit repositoryItemButtonEdit3;
@@ -49,13 +54,23 @@ namespace MEYPAK.PRL.E_ISLEMLER
         GenericWebServis<PocoCARIALTHESCARI> _cariAltHesCariServis;
         GenericWebServis<PocoFATURASTOKOLCUBR> _faturaStokOlcuBrServis;
         GenericWebServis<PocoOLCUBR> olcuBrServis;
+        UserInformation infoo = new UserInformation()
+        {
+            Username = "Gunduz",
+            Password = "iJAfhKSU"
+        };
         public EFATURA()
         {
             InitializeComponent();
 
+
+            //Client’ın oluşturulacağı bölüm:  
+            ıntegrationClient.Endpoint.Address = new System.ServiceModel.EndpointAddress("http://efatura.uyumsoft.com.tr/services/BasicIntegration");
+            ıntegrationClient.Endpoint.EndpointBehaviors.Add(new MyEndpointBehavior());
+
             ıntegrationClient.ClientCredentials.UserName.UserName = "Gunduz";
             ıntegrationClient.ClientCredentials.UserName.Password = "iJAfhKSU";
-            bb = new WhoAmIInfo();
+           
             DTPBastar.Text = DateTime.Now.AddDays(-1).ToString();
             DTPBittar.Text = DateTime.Now.ToString();
             _stokServis = new GenericWebServis<PocoSTOK>();
@@ -86,7 +101,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
         private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
             faturaStokEsleServis.Data(ServisList.FATURASTOKESLEListeServis);
-            tempp = ıntegrationClient.GetInboxInvoiceAsync(gridView1.GetFocusedRowCellValue("ETTNO").ToString()).Result;
+            tempp = ıntegrationClient.GetInboxInvoiceAsync(infoo, gridView1.GetFocusedRowCellValue("ETTNO").ToString()).Result;
             RepositoryItemButtonEdit repositoryItemButtonEdit = new RepositoryItemButtonEdit();
             repositoryItemButtonEdit.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             repositoryItemButtonEdit.NullText = "";
@@ -141,10 +156,10 @@ namespace MEYPAK.PRL.E_ISLEMLER
         {
             if (CBArsiv.Checked)
             {
-                res = ıntegrationClient.GetInboxInvoiceListAsync(new InboxInvoiceListQueryModel
+                res = ıntegrationClient.GetInboxInvoiceListAsync(infoo,new InboxInvoiceListQueryModel
                 {
                     PageIndex = 0,
-                    PageSize = 9999999,
+                    PageSize = 100,
                     CreateStartDate = DTPBastar.DateTime,
                     CreateEndDate = DTPBittar.DateTime,
                     IsArchived = true 
@@ -152,10 +167,11 @@ namespace MEYPAK.PRL.E_ISLEMLER
             }
             else
             {
-                res = ıntegrationClient.GetInboxInvoiceListAsync(new InboxInvoiceListQueryModel
+                
+                res = ıntegrationClient.GetInboxInvoiceListAsync(infoo,new InboxInvoiceListQueryModel
                 {
                     PageIndex = 0,
-                    PageSize = 9999999,
+                    PageSize = 50,
                     CreateStartDate = DTPBastar.DateTime,
                     CreateEndDate = DTPBittar.DateTime,
                 }).Result;
@@ -233,6 +249,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
                             Birim = olcubrtemp,
                             BirimFiyat = item.NETFIYAT,
                             BrütToplam = item.TUTAR,
+                            Kdv=tempstok.aliskdv,
                              Tipi="STOK"
 
 
@@ -294,9 +311,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
                 ffatura.Tag = "TPAlisFatura" + main.i;
                 page.Controls.Add(ffatura);
                 ffatura.Show();
-                main.i++;
-                this.Close();
-                main.i++; 
+                main.i++;  
 
                
             }
@@ -318,7 +333,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
 
         private void RepositoryItemButtonEdit2_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
-            System.IO.File.WriteAllBytes("Fatura.pdf", ıntegrationClient.GetInboxInvoicePdfAsync(gridView1.GetFocusedRowCellValue("ETTNO").ToString()).Result.Value.Data);
+            System.IO.File.WriteAllBytes("Fatura.pdf", ıntegrationClient.GetInboxInvoicePdfAsync(infoo,gridView1.GetFocusedRowCellValue("ETTNO").ToString()).Result.Value.Data);
             Thread.Sleep(500);
             var p = new Process();
             p.StartInfo = new ProcessStartInfo(Application.StartupPath + "Fatura.pdf")
@@ -448,4 +463,61 @@ namespace MEYPAK.PRL.E_ISLEMLER
 
         }
     }
+
+
+    public class MyMessageInspector : IClientMessageInspector
+    {
+        public MyMessageInspector()
+        {
+        }
+
+        public void AfterReceiveReply(ref System.ServiceModel.Channels.Message reply, object correlationState)
+        {
+        }
+
+        public object BeforeSendRequest(ref System.ServiceModel.Channels.Message request, IClientChannel channel)
+        {
+            int index = request.Headers.FindHeader("SoftwareDefinitionId", "IntegrationClient");
+            if (index < 0)
+            {
+                var header = MessageHeader.CreateHeader("SoftwareDefinitionId", "IntegrationClient", "01283325-7556-4586-91FE-7287B4991372");
+                request.Headers.Add(header);
+            }
+            return null;
+        }
+ 
+    }
+
+    public class MyEndpointBehavior : IEndpointBehavior
+    {
+        public void AddBindingParameters(ServiceEndpoint endpoint,
+            BindingParameterCollection bindingParameters)
+        {
+
+        }
+
+        public void ApplyClientBehavior(ServiceEndpoint endpoint,
+            ClientRuntime clientRuntime)
+        {
+            clientRuntime.ClientMessageInspectors.Add(new MyMessageInspector());
+        }
+
+        public void ApplyDispatchBehavior(ServiceEndpoint endpoint,
+            EndpointDispatcher endpointDispatcher)
+        {
+
+        }
+
+        public void Validate(ServiceEndpoint endpoint)
+        {
+
+        }
+    }
+
+
+
+
+
+
+
 }

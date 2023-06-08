@@ -118,6 +118,20 @@ builder.Services.AddAutoMapper(x =>
     x.AddProfile(typeof(Maps));
 });
 
+
+
+#region HKSList
+builder.Services.AddScoped<IHksIllerDal, EFHksIllerRepo>();
+builder.Services.AddScoped<IHksIllerServis, HksIllerManager>();
+
+builder.Services.AddScoped<IHksIlcelerDal, EFHksIlcelerRepo>();
+builder.Services.AddScoped<IHksIlcelerServis, HksIlcelerManager>();
+
+builder.Services.AddScoped<IHksBeldelerDal, EFHksBeldelerRepo>();
+builder.Services.AddScoped<IHksBeldelerServis, HksBeldelerManager>();
+
+
+#endregion
 #region FATURASTOKESLE
 builder.Services.AddScoped<IFaturaStokEsleDal, EFFaturaStokEsleRepo>();
 builder.Services.AddScoped<IFaturaStokEsleServis, FaturaStokEsleManager>();
@@ -502,6 +516,11 @@ builder.Services.AddScoped<IFaturaDetayTaslakServis, FaturaDetayTaslakManager>()
 
 builder.Services.AddScoped<ISeriDal, EFSeriRepo>();
 builder.Services.AddScoped<ISeriServis, SeriManager>();
+
+builder.Services.AddScoped<ISeriYetkiDal, EFSeriYetkiRepo>();
+builder.Services.AddScoped<ISeriYetkiServis, SeriYetkiManager>();
+
+
 #endregion
 
 #region STOKSARF_Scoped_Islemleri

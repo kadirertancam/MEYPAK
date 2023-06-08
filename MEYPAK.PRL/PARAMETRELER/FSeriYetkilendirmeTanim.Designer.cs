@@ -33,20 +33,16 @@
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.GBSeriTanim = new System.Windows.Forms.GroupBox();
-            this.RGStokHarGirisCikis = new DevExpress.XtraEditors.RadioGroup();
+            this.lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
             this.BTSeriKaydet = new DevExpress.XtraEditors.SimpleButton();
             this.LBKullanici = new DevExpress.XtraEditors.LabelControl();
-            this.GBKullanici = new DevExpress.XtraEditors.ComboBoxEdit();
             this.LBSeri = new DevExpress.XtraEditors.LabelControl();
             this.BESeri = new DevExpress.XtraEditors.ButtonEdit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.panel2.SuspendLayout();
-            this.GBSeriTanim.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.RGStokHarGirisCikis.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GBKullanici.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BESeri.Properties)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,10 +75,9 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.GBSeriTanim);
+            this.panel2.Controls.Add(this.lookUpEdit1);
             this.panel2.Controls.Add(this.BTSeriKaydet);
             this.panel2.Controls.Add(this.LBKullanici);
-            this.panel2.Controls.Add(this.GBKullanici);
             this.panel2.Controls.Add(this.LBSeri);
             this.panel2.Controls.Add(this.BESeri);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -91,30 +86,15 @@
             this.panel2.Size = new System.Drawing.Size(686, 75);
             this.panel2.TabIndex = 0;
             // 
-            // GBSeriTanim
+            // lookUpEdit1
             // 
-            this.GBSeriTanim.Controls.Add(this.RGStokHarGirisCikis);
-            this.GBSeriTanim.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.GBSeriTanim.Location = new System.Drawing.Point(373, 20);
-            this.GBSeriTanim.Name = "GBSeriTanim";
-            this.GBSeriTanim.Size = new System.Drawing.Size(278, 45);
-            this.GBSeriTanim.TabIndex = 76;
-            this.GBSeriTanim.TabStop = false;
-            // 
-            // RGStokHarGirisCikis
-            // 
-            this.RGStokHarGirisCikis.Location = new System.Drawing.Point(11, 12);
-            this.RGStokHarGirisCikis.Name = "RGStokHarGirisCikis";
-            this.RGStokHarGirisCikis.Properties.Appearance.BackColor = System.Drawing.SystemColors.Control;
-            this.RGStokHarGirisCikis.Properties.Appearance.Options.UseBackColor = true;
-            this.RGStokHarGirisCikis.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.RGStokHarGirisCikis.Properties.Columns = 2;
-            this.RGStokHarGirisCikis.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
-            this.RGStokHarGirisCikis.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(true, "Fatura", true, true, "RBFatura"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(true, "İrsaliye", true, true, "RBIrsaliye")});
-            this.RGStokHarGirisCikis.Size = new System.Drawing.Size(256, 25);
-            this.RGStokHarGirisCikis.TabIndex = 7;
+            this.lookUpEdit1.Location = new System.Drawing.Point(71, 49);
+            this.lookUpEdit1.Name = "lookUpEdit1";
+            this.lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpEdit1.Properties.NullText = "";
+            this.lookUpEdit1.Size = new System.Drawing.Size(154, 20);
+            this.lookUpEdit1.TabIndex = 77;
             // 
             // BTSeriKaydet
             // 
@@ -138,20 +118,6 @@
             this.LBKullanici.TabIndex = 32;
             this.LBKullanici.Text = "Kullanıcı";
             // 
-            // GBKullanici
-            // 
-            this.GBKullanici.Location = new System.Drawing.Point(64, 45);
-            this.GBKullanici.Name = "GBKullanici";
-            this.GBKullanici.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.GBKullanici.Properties.Appearance.Options.UseFont = true;
-            this.GBKullanici.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.GBKullanici.Properties.Items.AddRange(new object[] {
-            "TL"});
-            this.GBKullanici.Properties.Padding = new System.Windows.Forms.Padding(3);
-            this.GBKullanici.Size = new System.Drawing.Size(154, 26);
-            this.GBKullanici.TabIndex = 31;
-            // 
             // LBSeri
             // 
             this.LBSeri.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -165,11 +131,12 @@
             // 
             // BESeri
             // 
-            this.BESeri.Location = new System.Drawing.Point(64, 17);
+            this.BESeri.Location = new System.Drawing.Point(71, 17);
             this.BESeri.Name = "BESeri";
             this.BESeri.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.BESeri.Properties.Padding = new System.Windows.Forms.Padding(3);
+            this.BESeri.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.BESeri_Properties_ButtonClick);
             this.BESeri.Size = new System.Drawing.Size(154, 26);
             this.BESeri.TabIndex = 9;
             this.BESeri.EditValueChanged += new System.EventHandler(this.BESeri_EditValueChanged);
@@ -188,9 +155,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.GBSeriTanim.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.RGStokHarGirisCikis.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GBKullanici.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BESeri.Properties)).EndInit();
             this.ResumeLayout(false);
 
@@ -205,9 +170,7 @@
         private DevExpress.XtraEditors.LabelControl LBSeri;
         private DevExpress.XtraEditors.ButtonEdit BESeri;
         private DevExpress.XtraEditors.LabelControl LBKullanici;
-        private DevExpress.XtraEditors.ComboBoxEdit GBKullanici;
         private DevExpress.XtraEditors.SimpleButton BTSeriKaydet;
-        private GroupBox GBSeriTanim;
-        private DevExpress.XtraEditors.RadioGroup RGStokHarGirisCikis;
+        private DevExpress.XtraEditors.LookUpEdit lookUpEdit1;
     }
 }

@@ -5,6 +5,8 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MEYPAK.Entity.Models.FATURA
 {
@@ -27,7 +29,7 @@ namespace MEYPAK.Entity.Models.FATURA
         public DateTime FATURATARIHI { get; set; } = DateTime.Now;
         public DateTime VADETARIHI { get; set; } = DateTime.Now;
         public byte KULLANICITIPI { get; set; } = 0;
-        [StringLength(50)]
+        [StringLength(500)]
         public string CARIADI { get; set; } = "";
         public int VADEGUNU { get; set; } = 0;
         [StringLength(200)]
@@ -42,17 +44,26 @@ namespace MEYPAK.Entity.Models.FATURA
         public string SERINO { get; set; } = "";
         public string BELGENO { get; set; } = "";
         public bool KDVDAHIL { get; set; }
+        [Column(TypeName = "decimal(18,2)")]
         public decimal NETTOPLAM { get; set; } = 0;
+        [Column(TypeName = "decimal(18,2)")]
         public decimal KDVTOPLAM { get; set; } = 0;
+        [Column(TypeName = "decimal(18,2)")]
         public decimal ALTISKONTO1 { get; set; } = 0;
+        [Column(TypeName = "decimal(18,2)")]
         public decimal ALTISKONTO2 { get; set; } = 0;
+        [Column(TypeName = "decimal(18,2)")]
         public decimal ALTISKONTO3 { get; set; } = 0;
+        [Column(TypeName = "decimal(18,2)")]
         public decimal ISKONTOTOPLAM { get; set; } = 0;
+        [Column(TypeName = "decimal(18,2)")]
         public decimal BRUTTOPLAM { get; set; } = 0;
+        [Column(TypeName = "decimal(18,2)")]
         public decimal GENELTOPLAM { get; set; } = 0;
         public int ARACID { get; set; }
         public int PERSONELID { get; set; }
         public int TIP { get; set; }
+        public int EK { get; set; }
         public bool DURUM { get; set; }
         [Required]
         public string DONEM { get; set; } = DateTime.Now.ToString("yyyy");

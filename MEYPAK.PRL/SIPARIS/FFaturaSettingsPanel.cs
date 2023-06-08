@@ -65,7 +65,7 @@ namespace MEYPAK.PRL.SIPARIS
             {
                 aciklama = tempirs.aciklama,
                 althesapid = tempirs.althesapid,
-                belgeno = comboBox1.Text + yeniTextEdit1.Text,
+                belgeno =    yeniTextEdit1.Text,
                 bruttoplam = tempirs.bruttoplam,
                 cariadi = tempirs.cariadi,
                 cariid = tempirs.cariid,
@@ -76,6 +76,7 @@ namespace MEYPAK.PRL.SIPARIS
                 ekaciklama = tempirs.ekaciklama,
                 geneltoplam = tempirs.geneltoplam,
                 faturatarihi = tempirs.irsaliyetarihi,
+               
                 iskontotoplam = tempirs.iskontotoplam,
                 kdvdahil = tempirs.kdvdahil,
                 kdvtoplam = tempirs.kdvtoplam,
@@ -88,9 +89,10 @@ namespace MEYPAK.PRL.SIPARIS
                 vadetarihi = tempirs.vadetarihi,
                 sirketid = tempirs.sirketid,
                 subeid = tempirs.subeid,
-
+                
             };
             tempirs.durum = true;
+           
             tempirs.userid = MPKullanici.ID;
             _irsaliyeServis.Data(ServisList.IrsaliyeEkleServis, tempirs);
 
@@ -132,7 +134,7 @@ namespace MEYPAK.PRL.SIPARIS
                     StokAdı = item.stokadi,
                     StokId = item.stokid,
                     Tipi = item.tip == 0 ? "STOK" : item.tip == 1 ? "HIZMET" : item.tip == 2 ? "KASA" : item.tip == 3 ? "DEMIRBAS" : "MUHASEBE",
-                    Kunye = "",
+                    Kunye = item.kunye,
                     
                 });
                 kasalist = new List<KasaList>();

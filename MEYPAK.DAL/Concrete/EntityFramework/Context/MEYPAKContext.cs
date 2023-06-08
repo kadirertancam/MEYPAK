@@ -34,6 +34,11 @@ namespace MEYPAK.DAL.Concrete.EntityFramework.Context
            
 
         }
+
+        public DbSet<MPSERIYETKI> MPSERIYETKI { get; set; }
+        public DbSet<MPHKSBELDELER> MPHKSBELDELER { get; set; }
+        public DbSet<MPHKSILCELER> MPHKSILCELER { get; set; }
+        public DbSet<MPHKSILLER> MPHKSILLER { get; set; }
         public DbSet<MPFATURATASLAK> MPFATURATASLAKACBELGE { get; set; }
         public DbSet<MPFATURADETAYTASLAK> MPFATURADETAYTASLAK { get; set; }
         public DbSet<MPIRSALIYETASLAK> MPIRSALIYETASLAK { get; set; }

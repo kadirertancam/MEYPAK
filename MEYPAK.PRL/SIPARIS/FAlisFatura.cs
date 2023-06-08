@@ -422,7 +422,9 @@ namespace MEYPAK.PRL.SIPARIS
         {
             if (sy == 0)
             {
-
+                dara = 0;
+                daralı = 0;
+                birimfiyat = 0; kdv = 0; bsnc = 0; brutfiyat = 0; netfiyat = 0; nettoplam = 0; brüttoplam = 0; geneltoplam = 0; isktoplam = 0; kdvtoplam = 0; miktar = 0;
                 sy = 1;
                 daralı = Convert.ToDecimal(gridView1.GetRowCellValue(rowindex, "Daralı"));
                 dara = Convert.ToDecimal(gridView1.GetRowCellValue(rowindex, "Dara"));
@@ -431,7 +433,7 @@ namespace MEYPAK.PRL.SIPARIS
                 {
                     birimfiyat = Convert.ToDecimal(gridView1.GetRowCellValue(rowindex, "BirimFiyat"));
                     brutfiyat = birimfiyat;
-                    miktar = _tempFaturaDetay.Where(x => x.StokId.ToString() == gridView1.GetRowCellValue(rowindex, "StokId").ToString()).FirstOrDefault().Safi;
+                    miktar = Convert.ToDecimal(gridView1.GetRowCellValue(rowindex, "Safi"));
                     kdv = Convert.ToDecimal(gridView1.GetRowCellValue(rowindex, "Kdv"));
                     isktoplam = birimfiyat - (birimfiyat * Convert.ToDecimal(gridView1.GetRowCellValue(rowindex, "İskonto1"))) / 100;
                     isktoplam = isktoplam - (isktoplam * Convert.ToDecimal(gridView1.GetRowCellValue(rowindex, "İskonto2"))) / 100;

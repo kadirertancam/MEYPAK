@@ -1,12 +1,20 @@
-﻿using DevExpress.Utils;
+﻿using DevExpress.Mvvm.Native;
+using DevExpress.Utils;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.Repository;
 using EInvoiceDemoProject;
 using MEYPAK.BLL.Assets;
+using MEYPAK.DAL.Concrete.ADONET;
 using MEYPAK.Entity.Models.FORMYETKI;
+using MEYPAK.Entity.PocoModels.ARAC;
 using MEYPAK.Entity.PocoModels.CARI;
 using MEYPAK.Entity.PocoModels.FATURA;
+using MEYPAK.Entity.PocoModels.IRSALIYE;
+using MEYPAK.Entity.PocoModels.PARAMETRE;
 using MEYPAK.Entity.PocoModels.STOK;
+using MEYPAK.Interfaces.Arac;
+using MEYPAK.Interfaces.Parametre;
+using MEYPAK.Interfaces.Stok;
 using MEYPAK.PRL.Assets;
 using ServiceReference1;
 using System;
@@ -36,12 +44,22 @@ namespace MEYPAK.PRL.E_ISLEMLER
             faturaDetayServis = new GenericWebServis<PocoFATURADETAY>();
             stokServis = new GenericWebServis<PocoSTOK>();
             stokMarkaServis = new GenericWebServis<PocoSTOKMARKA>();
+            _olcuBrServis = new GenericWebServis<PocoOLCUBR>();
+            _aracServis = new GenericWebServis<PocoARAC>();
+            _irsaliyeServis = new GenericWebServis<PocoIRSALIYE>();
+            faturaStokOlcuBrServis = new GenericWebServis<PocoFATURASTOKOLCUBR>();
+            efaturaParamsServis = new GenericWebServis<PocoEFATURAPARAMS>();
         }
         GenericWebServis<PocoCARIKART> cariServis;
         GenericWebServis<PocoFATURA> faturaServis;
         GenericWebServis<PocoFATURADETAY> faturaDetayServis;
         GenericWebServis<PocoSTOK> stokServis;
         GenericWebServis<PocoSTOKMARKA> stokMarkaServis;
+        GenericWebServis<PocoOLCUBR> _olcuBrServis;
+        GenericWebServis<PocoARAC> _aracServis;
+        GenericWebServis<PocoIRSALIYE> _irsaliyeServis;
+        GenericWebServis<PocoFATURASTOKOLCUBR> faturaStokOlcuBrServis;
+        GenericWebServis<PocoEFATURAPARAMS> efaturaParamsServis;
         List<EFaturaGidenTask> tempFatura;
         PocoFATURA fattemp;
         PocoCARIKART caritemp;
@@ -49,12 +67,13 @@ namespace MEYPAK.PRL.E_ISLEMLER
         PocoSTOK tempStok;
         PocoSTOKMARKA tempStokMarka;
         RepositoryItemLookUpEdit riLookup, riLookup2;
-
+        PocoIRSALIYE irstemp;
+        Main main;
         public IntegrationClient CreateClient()
         {
-            var username = "Uyumsoft";
-            var password = "Uyumsoft";
-            var serviceuri = "https://efatura-test.uyumsoft.com.tr/services/Integration";
+            var username = efaturaParamsServis.obje.Where(x=>x.depoid==main.DEPOID).FirstOrDefault().kuladi;
+            var password = efaturaParamsServis.obje.Where(x => x.depoid == main.DEPOID).FirstOrDefault().sifre;
+            var serviceuri = "https://efatura.uyumsoft.com.tr/services/Integration";
 
 
             var client = new IntegrationClient();
@@ -67,6 +86,11 @@ namespace MEYPAK.PRL.E_ISLEMLER
         }
         private void FGidenEArsiv_Load(object sender, EventArgs e)
         {
+            efaturaParamsServis.Data(ServisList.EFaturaParamsListeServis);
+            main = (Main)Application.OpenForms["Main"];
+            faturaStokOlcuBrServis.Data(ServisList.FATURASTOKOLCUBRListeServis);
+            _olcuBrServis.Data(ServisList.OlcuBrListeServis);
+            _aracServis.Data(ServisList.AracListeServis);
             stokMarkaServis.Data(ServisList.StokMarkaListeServis);
             stokServis.Data(ServisList.StokListeServis);
             faturaServis.Data(ServisList.FaturaListeServis);
@@ -144,10 +168,11 @@ namespace MEYPAK.PRL.E_ISLEMLER
             gridView1.Columns["TIP"].ColumnEdit = riLookup2;
             gridView1.Columns["ID"].Visible = false;
         }
-
+        AdoConnect cc = new AdoConnect();
         #region Metotlar
         public InvoiceInfo CreateInvoice()
         {
+            _irsaliyeServis.Data(ServisList.IrsaliyeListeServis);
             EFaturaGidenTask eFaturaGidenTask = (EFaturaGidenTask)gridView1.GetFocusedRow();
             fattemp = faturaServis.obje.Where(x => x.id.ToString() == gridView1.GetFocusedRowCellValue("ID").ToString()).FirstOrDefault();
             caritemp = cariServis.obje.Where(x => x.id == fattemp.cariid).FirstOrDefault();
@@ -157,7 +182,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
             //Fatura Satır 1
             //},
 
-
+            irstemp = _irsaliyeServis.obje.Where(x => x.id == fattemp.irsaliyeid).FirstOrDefault();
             for (int i = 0; i < faturaDetayServis.obje.Where(x => x.faturaid == fattemp.id).Count(); i++)
             {
                 tempStok = stokServis.obje.Where(x => x.id == fatDetaytemp[i].stokid).FirstOrDefault();
@@ -178,6 +203,33 @@ namespace MEYPAK.PRL.E_ISLEMLER
                 ınvoiceLineType[i].AllowanceCharge = new AllowanceChargeType[]
                 {
                     new AllowanceChargeType { ChargeIndicator= new ChargeIndicatorType { Value=true }, Amount = new AmountType2 { currencyID="TRY",Value=100 }, AllowanceChargeReason = new AllowanceChargeReasonType { Value= "Bayi İskontosu" },   }
+                };
+                int genislik = 56; // belirli genişlik
+                int nokta1 = 1; // ilk nokta
+                int nokta2 = 12; // ikinci nokta
+                int nokta3 = 32; // ikinci nokta
+                int nokta4 = 42; // ikinci nokta 
+                string deger1 = "M" + _olcuBrServis.obje.Where(z => z.id == fatDetaytemp[i].birimid).FirstOrDefault().adi.ToLower() == "adet" ? fatDetaytemp[i].safi.ToString().Replace(',', '.') : ""; // ilk değer 
+                string deger2 = _olcuBrServis.obje.Where(z => z.id == fatDetaytemp[i].birimid).FirstOrDefault().adi.ToLower() != "adet" ? fatDetaytemp[i].darali.ToString().Replace(',', '.') : "";
+                string deger3 = _olcuBrServis.obje.Where(z => z.id == fatDetaytemp[i].birimid).FirstOrDefault().adi.ToLower() != "adet" ? fatDetaytemp[i].safi.ToString().Replace(',', '.') : "";
+                string deger4 = faturaStokOlcuBrServis.obje.Where(z => z.olcubrid == fatDetaytemp[i].birimid).FirstOrDefault().kisa;
+
+
+                decimal kdvtut = fatDetaytemp[i].kdvtutari;
+                string formatliDeger = deger1.PadRight(nokta2 - nokta1, ' ')
+        + deger2.PadRight(nokta3 - nokta2, ' ')
+        + deger3.PadRight(nokta4 - nokta3, ' ')
+        + deger4.PadRight(genislik - nokta4, ' ');
+
+                ınvoiceLineType[i].Item.AdditionalItemIdentification = new ItemIdentificationType[]
+                {
+                    new ItemIdentificationType(){
+                     ID=new IDType()
+                     {
+                         schemeID="EXTVALUE",
+                          Value=formatliDeger ,
+                     }
+                    }
                 };
                 ınvoiceLineType[i].Price = new PriceType { PriceAmount = new PriceAmountType { Value = Convert.ToDecimal(fatDetaytemp[i].netfiyat), currencyID = "TRY" } };
                 ınvoiceLineType[i].InvoicedQuantity = new InvoicedQuantityType { unitCode = "NIU", Value = Math.Round(Convert.ToDecimal(fatDetaytemp[i].safi), 2) };
@@ -277,7 +329,27 @@ namespace MEYPAK.PRL.E_ISLEMLER
                 InvoicePeriod = new PeriodType { StartDate = new StartDateType { Value = DateTime.Now }, EndDate = new EndDateType { Value = DateTime.Now } },
                 #endregion
 
-
+                AllowanceCharge = new AllowanceChargeType[]
+                {
+                  new  AllowanceChargeType(){
+                      ChargeIndicator= new ChargeIndicatorType()
+                      {
+                           Value= false
+                      },
+                       AllowanceChargeReason=new AllowanceChargeReasonType()
+                       {
+                            Value="İskonto(%"+((fattemp.iskontotoplam*100)/fattemp.bruttoplam).ToString().Replace(',','.')+")"
+                       },
+                        MultiplierFactorNumeric= new MultiplierFactorNumericType()
+                        {
+                             Value= ((fattemp.iskontotoplam * 100)/ fattemp.bruttoplam)
+                        },
+                         Amount=new AmountType2()
+                         {
+                              Value= fattemp.iskontotoplam
+                         }
+                    }
+                },
 
                 ////AllowanceCharge = new AllowanceChargeType[]
                 ////{
@@ -299,7 +371,7 @@ namespace MEYPAK.PRL.E_ISLEMLER
                 // Fatura içerisinde görünüm dosyasını set etme.Değer geçilmediğinde varsayılan xslt kullanılır.
 
 
-                //AdditionalDocumentReference = new DocumentReferenceType[] { new DocumentReferenceType { DocumentType = new DocumentTypeType { Value = "SATINALAMA BELGESİ" }, IssueDate = new IssueDateType { Value = DateTime.Now }, ID = new IDType { Value = "12345" } } },
+                AdditionalDocumentReference = GetXsltAndDocuments(),
                 #endregion
 
 
@@ -336,25 +408,22 @@ namespace MEYPAK.PRL.E_ISLEMLER
 
                     Party = new PartyType
                     {
-                        PartyName = new PartyNameType { Name = new NameType1 { Value = "Gündüz Meypak" } },
-                        PartyIdentification = new PartyIdentificationType[] { new PartyIdentificationType() { ID = new IDType { Value = "9000068418", schemeID = "VKN" } }, new PartyIdentificationType() { ID = new IDType { Value = "12345669-111", schemeID = "MERSISNO" } }, new PartyIdentificationType() { ID = new IDType { Value = "12345669-111", schemeID = "TICARETSICILNO" } } },
+                        PartyName = new PartyNameType { Name = new NameType1 { Value = efaturaParamsServis.obje.Where(x => x.depoid == main.DEPOID).FirstOrDefault().unvan } },
+                        PartyIdentification = new PartyIdentificationType[] { new PartyIdentificationType() { ID = new IDType { Value = efaturaParamsServis.obje.Where(x => x.depoid == main.DEPOID).FirstOrDefault().vno, schemeID = "VKN" } }, new PartyIdentificationType() { ID = new IDType { Value = efaturaParamsServis.obje.Where(x => x.depoid == main.DEPOID).FirstOrDefault().mersisno, schemeID = "MERSISNO" } }, new PartyIdentificationType() { ID = new IDType { Value = efaturaParamsServis.obje.Where(x => x.depoid == main.DEPOID).FirstOrDefault().ticsicilno, schemeID = "TICARETSICILNO" } } },
 
                         PostalAddress = new AddressType
                         {
-                            CityName = new CityNameType { Value = caritemp.il },
-                            StreetName = new StreetNameType { Value = caritemp.sokak },
-                            Country = new CountryType { Name = new NameType1 { Value = caritemp.ulke } },
-                            Room = new RoomType { Value = caritemp.daire },
-                            BuildingNumber = new BuildingNumberType { Value = caritemp.apt },
-                            CitySubdivisionName = new CitySubdivisionNameType { Value = caritemp.ilce },
-                            
-
-
+                            CityName = new CityNameType { Value = efaturaParamsServis.obje.Where(x => x.depoid == main.DEPOID).FirstOrDefault().il },
+                            StreetName = new StreetNameType { Value = efaturaParamsServis.obje.Where(x => x.depoid == main.DEPOID).FirstOrDefault().sokak },
+                            Country = new CountryType { Name = new NameType1 { Value = efaturaParamsServis.obje.Where(x => x.depoid == main.DEPOID).FirstOrDefault().ulke } },
+                            Room = new RoomType { Value = efaturaParamsServis.obje.Where(x => x.depoid == main.DEPOID).FirstOrDefault().daireno },
+                            BuildingNumber = new BuildingNumberType { Value = efaturaParamsServis.obje.Where(x => x.depoid == main.DEPOID).FirstOrDefault().aptno },
+                            CitySubdivisionName = new CitySubdivisionNameType { Value = efaturaParamsServis.obje.Where(x => x.depoid == main.DEPOID).FirstOrDefault().ilce },
                         },
                         //PartyIdentification = new PartyIdentificationType[] { new PartyIdentificationType() { ID = new IDType { Value = "77777777701", schemeID = "TCKN" } } },
                         // Person = new PersonType{ FirstName= new FirstNameType{ Value="Ahmet"}, FamilyName= new FamilyNameType{ Value="Altınordu"} },
                         //PartyTaxScheme = new PartyTaxSchemeType { TaxScheme = new TaxSchemeType { Name = new NameType1 { Value = "Esenler" } } },
-                        PartyTaxScheme = new PartyTaxSchemeType { TaxScheme = new TaxSchemeType { Name = new NameType1 { Value = caritemp.vergidairesi } } },
+                        PartyTaxScheme = new PartyTaxSchemeType { TaxScheme = new TaxSchemeType { Name = new NameType1 { Value = efaturaParamsServis.obje.Where(x => x.depoid == main.DEPOID).FirstOrDefault().vd } } },
 
                     }
                 },
@@ -458,6 +527,139 @@ namespace MEYPAK.PRL.E_ISLEMLER
 
         }
 
+        public DocumentReferenceType[] GetXsltAndDocuments()
+        {
+            DocumentReferenceType[] docs = new DocumentReferenceType[3];
+            //if (chkXsltSet.Checked)
+            //{
+
+
+            //docs[0] = new DocumentReferenceType
+            //{
+            //    ID = new IDType { Value = new Guid().ToString() },
+            //    IssueDate = new IssueDateType { Value = DateTime.Now },
+            //    DocumentType = new DocumentTypeType { Value = "123456" },
+            //    DocumentTypeCode = new DocumentTypeCodeType { Value = "MUKELLEF_KODU" },
+            //    DocumentDescription = new DocumentDescriptionType[] { new DocumentDescriptionType { Value = "Kurum Adı" } },
+            //};
+
+            //docs[1] = new DocumentReferenceType
+            //{
+            //    ID = new IDType { Value = new Guid().ToString() },
+            //    IssueDate = new IssueDateType { Value = DateTime.Now },
+            //    DocumentType = new DocumentTypeType { Value = "123456" },
+            //    DocumentTypeCode = new DocumentTypeCodeType { Value = "MUKELLEF_ADI" },
+            //    DocumentDescription = new DocumentDescriptionType[] { new DocumentDescriptionType { Value = "Kurum Kodu" } },
+            //};
+            //docs[2] = new DocumentReferenceType
+            //{
+            //    ID = new IDType { Value = new Guid().ToString() },
+            //    IssueDate = new IssueDateType { Value = DateTime.Now },
+            //    DocumentType = new DocumentTypeType { Value = "123456" },
+            //    DocumentTypeCode = new DocumentTypeCodeType { Value = "DOSYA_NO" },
+            //    DocumentDescription = new DocumentDescriptionType[] { new DocumentDescriptionType { Value = "DOSYA NO" } },
+            //};
+
+            docs[0] = new DocumentReferenceType
+            {
+                ID = new IDType { Value = new Guid().ToString() },
+                IssueDate = new IssueDateType { Value = DateTime.Now },
+                DocumentType = new DocumentTypeType { Value = "xslt" },
+                Attachment = new AttachmentType
+                {
+                    EmbeddedDocumentBinaryObject = new EmbeddedDocumentBinaryObjectType
+                    {
+                        filename = "customxslt.xslt",
+                        encodingCode = "Base64",
+                        mimeCode = "applicationxml",
+                        format = "",
+                        characterSetCode = "UTF-8",
+                        Value = Encoding.UTF8.GetBytes(Properties.Resources.SatfatUBL)
+                    }
+                }
+            };
+            string deger5 = "";
+            if (irstemp!=null)
+            deger5=  _aracServis.obje.Where(x => x.id == irstemp.aracid).FirstOrDefault().plaka;
+            int genislik = 182; // belirli genişlik
+            int nokta1 = 1; // ilk nokta
+            int nokta2 = 22; // ikinci nokta
+            int nokta3 = 32; // ikinci nokta
+            int nokta4 = 42; // ikinci nokta
+            int nokta5 = 52; // ikinci nokta
+            int nokta6 = 172; // ikinci nokta
+            string deger1 = "M383938.85"; // ilk değer
+            string deger2 = "Veresiye";
+            string deger3 = fatDetaytemp.Where(x => x.birimid == 1).Sum(x => x.safi).ToString();
+            string deger4 = fatDetaytemp.Where(x => x.birimid != 1).Sum(x => x.safi).ToString().Replace(',', '.'); 
+            string deger6 = "H0H";
+
+
+            string formatliDeger = deger1.PadRight(nokta2 - nokta1, ' ')
+    + deger2.PadRight(nokta3 - nokta2, ' ')
+    + deger3.PadRight(nokta4 - nokta3, ' ')
+    + deger4.PadRight(nokta5 - nokta4, ' ')
+    + deger5.PadRight(nokta6 - nokta5, ' ')
+    + deger6.PadRight(genislik - nokta6, ' ');
+
+
+            docs[1] = new DocumentReferenceType()
+            {
+                ID = new IDType()
+                {
+                    Value = formatliDeger
+                },
+                IssueDate = new IssueDateType()
+                {
+                    Value = DateTime.Now
+                },
+                DocumentType = new DocumentTypeType() { Value = "EXTVALUE" }
+            };
+            docs[2] = new DocumentReferenceType()
+            {
+                ID = new IDType()
+                {
+                    Value = "Yalnız " + cc.komutoku("SELECT MEYPAKTEST.DBO.GETPARATOYAZI(" + fattemp.geneltoplam.ToString().Replace(',', '.') + ",'1','TL')").Rows[0].ItemArray[0].ToString()
+                },
+                IssueDate = new IssueDateType()
+                {
+                    Value = DateTime.Now
+                },
+                DocumentType = new DocumentTypeType() { Value = "MONEYTEXT" }
+            };
+
+
+            return docs;
+            // };
+
+
+            //if (chkSetInvoiceXslt.Checked)
+            //{
+            //    DocumentReferenceType doc = new DocumentReferenceType();
+            //    //doc.ID = new IDType { Value = new Guid().ToString() };
+            //   // doc.IssueDate = new IssueDateType { Value = DateTime.Now };
+            //    AttachmentType atc = new AttachmentType { };
+            //    EmbeddedDocumentBinaryObjectType emb = new EmbeddedDocumentBinaryObjectType();
+            //    emb.filename = "customxslt.xslt";
+            //    emb.encodingCode = "Base64";
+            //    emb.mimeCode = "applicationxml";
+            //    emb.format = "";
+            //    emb.characterSetCode = "UTF-8";
+            //    emb.Value = Encoding.UTF8.GetBytes(txtInvoiceXslt.Text);
+
+            //    atc.EmbeddedDocumentBinaryObject = emb;
+            //    doc.Attachment = atc;
+            //    docs[0] = doc;
+
+            //    return docs;
+            //}
+            //else
+            //{
+            //    return null;
+            //}
+
+
+        }
 
         #region Muhasebe Müşteri Tarafı Alın
         public CustomerPartyType GetAccountingCustomerParty()
@@ -878,7 +1080,15 @@ namespace MEYPAK.PRL.E_ISLEMLER
 
         }
 
+        private void gridView1_RowStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowStyleEventArgs e)
+        {
+            string quantity = Convert.ToString(gridView1.GetRowCellValue(e.RowHandle, "DURUM"));
 
+            if (quantity != "BEKLEMEDE")
+            {
+                e.Appearance.BackColor = Color.LightGreen;
+            }
+        }
 
         private void RepositoryItemButtonEdit_ButtonClick1Async(object sender, ButtonPressedEventArgs e)
         {
@@ -908,8 +1118,9 @@ namespace MEYPAK.PRL.E_ISLEMLER
                             );
                 // txtSampleOutboxGuid.Text = response.Value[0].Id.ToString();
                 textBox1.Text = response.Value[0].Id.ToString();
-                // Clipboard.SetText(response.Value[0].Id.ToString());
-            }
+                    // Clipboard.SetText(response.Value[0].Id.ToString()); 
+                    ShowInvoice(invoiceInfo.Invoice);
+                }
             else
             {
                 MessageBox.Show(response.Message);

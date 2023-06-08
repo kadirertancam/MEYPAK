@@ -46,7 +46,7 @@
             this.loglarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
             this.panel3.SuspendLayout();
@@ -62,7 +62,7 @@
             this.contextMenuStrip1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // gridView2
@@ -73,10 +73,10 @@
             // gridControl2
             // 
             this.gridControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl2.Location = new System.Drawing.Point(0, 0);
+            this.gridControl2.Location = new System.Drawing.Point(0, 439);
             this.gridControl2.MainView = this.gridView2;
             this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(1340, 718);
+            this.gridControl2.Size = new System.Drawing.Size(1340, 279);
             this.gridControl2.TabIndex = 0;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -138,6 +138,7 @@
             this.simpleButton1.Size = new System.Drawing.Size(126, 56);
             this.simpleButton1.TabIndex = 4;
             this.simpleButton1.Text = "Yenile";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // DTPBittar
             // 
@@ -171,6 +172,7 @@
             // 
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
+            this.gridView1.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.gridView1_RowStyle);
             // 
             // gridControl1
             // 
@@ -216,22 +218,22 @@
             this.panel1.Size = new System.Drawing.Size(1340, 439);
             this.panel1.TabIndex = 4;
             // 
-            // panel2
+            // panel6
             // 
-            this.panel2.Controls.Add(this.gridControl2);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1340, 718);
-            this.panel2.TabIndex = 5;
+            this.panel6.Controls.Add(this.gridControl2);
+            this.panel6.Controls.Add(this.panel1);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(0, 0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(1340, 718);
+            this.panel6.TabIndex = 6;
             // 
             // FGidenEIrsaliye
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1340, 718);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel6);
             this.Name = "FGidenEIrsaliye";
             this.Text = "FGidenEIrsaliye";
             this.Load += new System.EventHandler(this.FGidenEIrsaliye_Load);
@@ -251,7 +253,7 @@
             this.contextMenuStrip1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -275,6 +277,6 @@
         private ToolStripMenuItem loglarToolStripMenuItem;
         private Panel panel4;
         private Panel panel1;
-        private Panel panel2;
+        private Panel panel6;
     }
 }

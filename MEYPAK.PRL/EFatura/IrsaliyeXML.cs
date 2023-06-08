@@ -52,7 +52,7 @@ namespace MEYPAK.PRL.EFatura
 
             private Shipment shipmentField;
 
-            private DespatchLine[] despatchLineField;
+            private List<DespatchLine> despatchLineField;
 
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2")]
@@ -294,7 +294,7 @@ namespace MEYPAK.PRL.EFatura
 
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute("DespatchLine", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2")]
-            public DespatchLine[] DespatchLine
+            public List<DespatchLine> DespatchLine
             {
                 get
                 {

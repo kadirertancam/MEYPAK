@@ -23,6 +23,7 @@ namespace MEYPAK.PRL
             _stokHarServis = new GenericWebServis<PocoSTOKHAR>();
             _alisKunyeleris = new List<AlisKunyeleri>();
             _alisKunyelerisv2 = new List<AlisKunyeleriV2>();
+            _stokServis = new GenericWebServis<PocoSTOK>();
         }
         FAlisIrsaliye fAlisIrsaliye;
         FSatisIrsaliye fSatisIrsaliye;
@@ -30,6 +31,7 @@ namespace MEYPAK.PRL
         FFatura ffatura;
         FStokSarf fStokSarf;
         GenericWebServis<PocoSTOKHAR> _stokHarServis;
+        GenericWebServis<PocoSTOK> _stokServis;
         List<AlisKunyeleri> _alisKunyeleris;
         List<AlisKunyeleriV2> _alisKunyelerisv2;
         async void islemm()
@@ -52,7 +54,7 @@ namespace MEYPAK.PRL
                                         Encoding.UTF8,
                                         "text/xml");
 
-
+            _stokServis.Data(ServisList.StokListeServis);
             httpClient.DefaultRequestHeaders.ExpectContinue = false;
             HttpResponseMessage resp = httpClient.SendAsync(client).Result;
             var aaaa = resp.Content.ReadAsStringAsync().Result.ToString();
@@ -81,7 +83,7 @@ namespace MEYPAK.PRL
             }
             else if (_islem == "FSatisIrsaliye")
             {
-                foreach (var item in _stokHarServis.obje.Where(x=> x.irsaliyedetayid>0))
+                foreach (var item in _stokHarServis.obje.Where(x=> x.irsaliyedetayid>0 || x.faturadetayid>0))
                 {
                     foreach (var item2 in _alisKunyeleris)
                     {
@@ -91,6 +93,7 @@ namespace MEYPAK.PRL
                     if (item.kunye != "")
                         _alisKunyeleris.Add(new AlisKunyeleri()
                         {
+                            StokAdı= _stokServis.obje.Where(x=>x.id== item.stokid).FirstOrDefault().adi,
                             Bakiye = deserializedObject.Body.BaseResponseMessageOf_BildirimSorguCevap.Sonuc.Bildirimler.Where(x => x.KunyeNo.ToString() == item.kunye.ToString()).Select(x => x.KalanMiktar).FirstOrDefault(),
                             KunyeNo = item.kunye
                         });

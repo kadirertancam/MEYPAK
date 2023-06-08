@@ -1,4 +1,5 @@
 ﻿using DevExpress.Utils;
+using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid.Columns;
@@ -112,6 +113,7 @@ namespace MEYPAK.PRL.IRSALIYE
             CBBildirimTurleri.Properties.ValueMember = "ID";
 
             CBBildirimTurleri.Properties.DataSource = hKSBildirimTurleri.Body.BaseResponseMessageOf_BildirimTurleriCevap.Sonuc.BildirimTurleri.Select(x => new { ID = x.Id, ADI = x.BildirimTuruAdi });
+            CBBildirimTurleri.EditValue = hKSBildirimTurleri.Body.BaseResponseMessageOf_BildirimTurleriCevap.Sonuc.BildirimTurleri.Select(x => new { ID = x.Id, ADI = x.BildirimTuruAdi }).FirstOrDefault();
         }
 
         #region TANIMLAR
@@ -193,15 +195,14 @@ namespace MEYPAK.PRL.IRSALIYE
             //DGVOlcuBr.DataSource = _tempStok.MPSTOKOLCUBR.Select(x => x.MPOLCUBR.ADI).ToList();
             gridView1.Columns["StokId"].Visible = false;
             gridView1.Columns["KasaId"].Visible = false;
-
+            faturaNoGuncelle();
             TBAciklama.Text = "";
             TBAIskonto1.Text = "0";
             TBAIskonto2.Text = "0";
             TBAIskonto3.Text = "0";
             TBCariAdi.Text = "";
             TBCariKodu.Text = "";
-            TBGun.Text = "0";
-            TBFaturaNo.Text = "";
+            TBGun.Text = "0"; 
             TBKur.Text = "0";
             TBIskontoToplam.EditValue = 0;
             TBBrutToplam.EditValue = 0;
@@ -215,8 +216,7 @@ namespace MEYPAK.PRL.IRSALIYE
             CBParaBirimi.EditValue = _paraBirimServis.obje.Where(x => x.kayittipi == 0 && x.adi == "TÜRK LİRASI").Select(x => x.adi).FirstOrDefault();
             _tempCariKart = null;
             CHBKdvDahil.Checked = false;
-            gridControl1.DataSource = "";
-            faturaNoGuncelle();
+            gridControl1.DataSource = ""; 
 
         }
 
@@ -564,8 +564,17 @@ namespace MEYPAK.PRL.IRSALIYE
             gridControl1.DataSource = tempkasalist.OrderByDescending(x => x.MIKTAR);
             if (tempkasalist.Count()>0)
             {
+                try
+                {
+
+               
                 gridView2.Columns["ID"].Visible = false;
                 gridView2.Columns["KASAID"].Visible = false;
+                }
+                catch (Exception)
+                {
+                     
+                }
             }
          
 
@@ -653,11 +662,11 @@ namespace MEYPAK.PRL.IRSALIYE
                 riLookup3.DataSource = _kasaaa.Where(x => x.num == gridView1.FocusedRowHandle).Count() > 0 ? _kasaaa.Where(x => x.num == gridView1.FocusedRowHandle).FirstOrDefault().KasaList.Select(x => new { Marka = x.MARKA, Adı = x.KASAADI, Miktar = x.MIKTAR }) : "";
                 
                 if (irstip == 0)
-                _irsaliyeDetayServis.Data(ServisList.IrsaliyeDetayListeServis +2 , null, "query=IRSALIYEID=" + _tempIrsaliye.id.ToString() + " AND KAYITTIPI=0");
+              //  _irsaliyeDetayServis.Data(ServisList.IrsaliyeDetayListeServis +2 , null, "query=IRSALIYEID=" + _tempIrsaliye.id.ToString() + " AND KAYITTIPI=0");
                 _olcuBr.Data(ServisList.OlcuBrListeServis);
 
                 if (irstip == 0)
-                _tempIrsaliyeDetay.AddRange(_irsaliyeDetayServis.obje.Select(x => new PocoIrsaliyeKalem()
+                _tempIrsaliyeDetay.AddRange(_irsaliyeDetayServis.obje.Where(x=>x.irsaliyeid==_tempIrsaliye.id && x.kayittipi==0).Select(x => new PocoIrsaliyeKalem()
                 {
                     id = x.id,
                     Tipi = x.tip == 0 ? "STOK" : x.tip == 1 ? "HIZMET" : x.tip == 2 ? "KASA" : x.tip == 3 ? "DEMIRBAS" : "MUHASEBE",
@@ -665,7 +674,7 @@ namespace MEYPAK.PRL.IRSALIYE
                     StokKodu = x.tip == 0 ? _stokServis.obje.Where(z => z.id == x.stokid).Count() > 0 ? _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().kod : "" : x.tip == 1 ? _hizmetServis.obje.Where(y => y.id == x.stokid).Count() > 0 ? _hizmetServis.obje.Where(y => y.id == x.stokid).FirstOrDefault().kod : "" : "",//,  TODOO:BAKILACAAAK
                     StokAdı = x.tip == 0 ? _stokServis.obje.Where(z => z.id == x.stokid).Count() > 0 ? _stokServis.obje.Where(z => z.id == x.stokid).FirstOrDefault().adi : "" : x.tip == 1 ? _hizmetServis.obje.Where(y => y.id == x.stokid).Count() > 0 ? _hizmetServis.obje.Where(y => y.id == x.stokid).FirstOrDefault().kod : "" : "",
                     Birim = _olcuBr.obje.Where(y => y.id == x.birimid).Count() > 0 ? _olcuBr.obje.Where(y => y.id == x.birimid).FirstOrDefault().adi : "",
-                    Kunye = x.kunye,
+                    Kunye = x.kunye==null?"":x.kunye,
                     NetFiyat = x.netfiyat,
                     İskonto1 = x.iskontO1,
                     İskonto2 = x.iskontO2,
@@ -956,6 +965,8 @@ namespace MEYPAK.PRL.IRSALIYE
         {
             _seriHarServis.Data(ServisList.SeriHarListeServis);
             _seriServis.Data(ServisList.SeriListeServis);
+            _irsaliyeServis.Data(ServisList.IrsaliyeListeServis);
+            var maxirs= _irsaliyeServis.obje.Max(x => x.belgeno);
             var serino = _seriHarServis.obje.Where(x => x.seriid == _seriServis.obje.Where(z => z.SERINO == comboBoxEdit1.Text).FirstOrDefault().id).FirstOrDefault().serino+1;
             TBFaturaNo.Text = serino.ToString();
         }
@@ -976,7 +987,7 @@ namespace MEYPAK.PRL.IRSALIYE
 
                 _irsaliyeServis.Data(ServisList.IrsaliyeEkleServis, new PocoIRSALIYE()
                 {
-                    id =  0,
+                    id = _tempIrsaliye==null?0: _tempIrsaliye.id,
                     aciklama = TBAciklama.Text,
                     kur = Convert.ToDecimal(TBKur.Text),
                     belgeno = TBFaturaNo.Text,
@@ -997,7 +1008,7 @@ namespace MEYPAK.PRL.IRSALIYE
                     bruttoplam = _tempIrsaliyeDetay.Sum(x => x.BrütToplam),
                     nettoplam = _tempIrsaliyeDetay.Sum(x => x.NetToplam),
                     geneltoplam = _tempIrsaliyeDetay.Sum(x => x.KdvTutarı) + _tempIrsaliyeDetay.Sum(x => x.NetToplam),
-                    kdvdahil = CHBKdvDahil.Checked,
+                    kdvdahil = CHBKdvDahil.Checked, 
                      aracid= _araclarServis.obje.Where(x=>x.PLAKA== CBAracListesi.EditValue.ToString()).FirstOrDefault().ID,
                      dorseid= _araclarServis.obje.Where(x => x.PLAKA == CBDorseListesi.EditValue.ToString()).FirstOrDefault().ID,
                       personelid=_personelServis.obje.Where(x=>x.ADISOYADI==CBSoforListesi.EditValue.ToString()).FirstOrDefault().ID, serino=comboBoxEdit1.EditValue.ToString(),
@@ -1008,15 +1019,17 @@ namespace MEYPAK.PRL.IRSALIYE
                 });
                 _siparisServis.Data(ServisList.SiparisListeServis);
                 var tempsip = _siparisServis.obje.Where(x => x.id == siparisidd).FirstOrDefault();
-                if(tempsip!=null)
-                tempsip.durum = true;
-                _siparisServis.Data(ServisList.SiparisEkleServis, tempsip);
+                if (tempsip != null)
+                {
+                    tempsip.durum = true;
+                    _siparisServis.Data(ServisList.SiparisEkleServis, tempsip);
+                }
                 _stokOlcuBr.Data(ServisList.StokOlcuBrListeServis);
                 _olcuBr.Data(ServisList.OlcuBrListeServis);
                 int i = 0;
                 _stokHarServis.Data(ServisList.StokHarListeServis);
                 _hizmetHarServis.Data(ServisList.HizmetHarListeServis);
-                if (_tempIrsaliye != null)
+                if (_tempIrsaliye == null)
                 {
                     _seriHarServis.Data(ServisList.SeriHarListeServis);
                     var tempserihar = _seriHarServis.obje.Where(x => x.seriid == _seriServis.obje.Where(z => z.SERINO.ToString() == comboBoxEdit1.Text).FirstOrDefault().id).LastOrDefault();
@@ -1071,7 +1084,7 @@ namespace MEYPAK.PRL.IRSALIYE
                             aciklama = item.Acıklama,
                             belgE_NO = _irsaliyeServis.obje2.belgeno,
                             hareketturu = 3,
-                            birim = _olcuBr.obje.Where(x => x.adi.ToString() == gridView1.GetRowCellValue(item.sıra, "Birim").ToString()).FirstOrDefault().id,
+                            birim = _olcuBr.obje.Where(x => x.adi.ToString() == item.Birim).FirstOrDefault().id,
                             bruttoplam = item.BrütToplam,
                             depoid = _irsaliyeServis.obje2.depoid,
                             io = 0,
@@ -1081,7 +1094,7 @@ namespace MEYPAK.PRL.IRSALIYE
                             nettoplam = item.NetToplam,
                             stokid = item.StokId,
                             sayimid = 0,
-                            kunye = item.Kunye,
+                            kunye = item.Kunye != null ? item.Kunye : "",
                             userid = MPKullanici.ID,
                         });
                     }
@@ -1215,6 +1228,7 @@ namespace MEYPAK.PRL.IRSALIYE
 
         private void FFatura_Load(object sender, EventArgs e)
         {
+
             _seriServis.Data(ServisList.SeriListeServis);
             _seriHarServis.Data(ServisList.SeriHarListeServis);
             foreach (var item in _seriServis.obje.Where(x => x.TIP == 2 ).Select(x => x.SERINO))
@@ -1240,6 +1254,12 @@ namespace MEYPAK.PRL.IRSALIYE
             CBAracListesi.Properties.DataSource = araclist;
             CBDorseListesi.Properties.DataSource = dorselist;
             Doldur();
+            CBSoforListesi.EditValue = soforlist.FirstOrDefault();
+            CBDorseListesi.EditValue = dorselist.FirstOrDefault();
+            CBAracListesi.EditValue = araclist.FirstOrDefault();
+            CBBildirimTurleri.EditValue = 196; 
+            CBBildirimTurleri.Properties.ForceInitialize();
+            CBBildirimTurleri.EditValue = CBBildirimTurleri.Properties.GetKeyValueByDisplayText("Satış");
         }
 
         private void BTNSatirSil_Click(object sender, EventArgs e)

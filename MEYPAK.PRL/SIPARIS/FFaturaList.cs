@@ -84,7 +84,7 @@ namespace MEYPAK.PRL.SIPARIS
 
             _faturaServis.Data(ServisList.FaturaListeServis);
             if (_islem == "FFatura" || _islem == "FFaturaRaporu" || _islem == "FStokHareketRaporu" || _islem == "FStokKasaHareketRaporu")
-                gridControl1.DataSource = _faturaServis.obje.Where(x => x.tip == 0 || x.tip == 1).Select(x => new
+                gridControl1.DataSource = _faturaServis.obje.Where(x => x.tip == 0 || x.tip == 2 && x.kayittipi==0).Select(x => new
                 {
                     ID = x.id,
                     TIP= x.tip == 0 ? "Satış" : x.tip==2? "Satıştan İade":x.tip==1?"Alış":x.tip==3?"Alış İade":"",
@@ -96,7 +96,7 @@ namespace MEYPAK.PRL.SIPARIS
                     x.geneltoplam
                 });
             if (_islem == "FAlisFatura")
-                gridControl1.DataSource = _faturaServis.obje.Where(x => x.tip == 1 || x.tip == 3).Select(x => new
+                gridControl1.DataSource = _faturaServis.obje.Where(x => x.tip == 1 || x.tip == 3 && x.kayittipi == 0).Select(x => new
                 {
                     ID = x.id,
                     TIP = x.tip == 0 ? "Satış" : x.tip == 2 ? "Satıştan İade" : x.tip == 1 ? "Alış" : x.tip == 3 ? "Alış İade" : "",

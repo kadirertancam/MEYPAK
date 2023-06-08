@@ -55,8 +55,7 @@
             this.CBParaBirimi = new DevExpress.XtraEditors.GridLookUpEdit();
             this.CBParaBirimiView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
+            this.button2 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -110,7 +109,6 @@
             this.BTKaydet = new System.Windows.Forms.Button();
             this.BTNSil = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DTSiparisTarih.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTSiparisTarih.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CHBKdvDahil.Properties)).BeginInit();
@@ -123,7 +121,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.CBParaBirimi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CBParaBirimiView)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPVadeTarihi.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPVadeTarihi.Properties)).BeginInit();
@@ -278,8 +275,6 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.lookUpEdit1);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.comboBoxEdit1);
@@ -308,33 +303,24 @@
             this.groupBox1.Controls.Add(this.LBCariAdi);
             this.groupBox1.Controls.Add(this.LBCariKodu);
             this.groupBox1.Controls.Add(this.LBSsiparisNo);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(5);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1615, 207);
+            this.groupBox1.Size = new System.Drawing.Size(1615, 201);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Satış Fatura";
             // 
-            // label1
+            // button2
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1295, 43);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 162;
-            this.label1.Text = "label1";
-            // 
-            // lookUpEdit1
-            // 
-            this.lookUpEdit1.Location = new System.Drawing.Point(1351, 40);
-            this.lookUpEdit1.Name = "lookUpEdit1";
-            this.lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lookUpEdit1.Properties.NullText = "";
-            this.lookUpEdit1.Size = new System.Drawing.Size(149, 20);
-            this.lookUpEdit1.TabIndex = 161;
+            this.button2.Location = new System.Drawing.Point(1151, 41);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(130, 52);
+            this.button2.TabIndex = 163;
+            this.button2.Text = "Barkod Oluştur";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label2
             // 
@@ -371,7 +357,7 @@
             // BTNSatirSil
             // 
             this.BTNSatirSil.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BTNSatirSil.Location = new System.Drawing.Point(3, 181);
+            this.BTNSatirSil.Location = new System.Drawing.Point(3, 175);
             this.BTNSatirSil.Name = "BTNSatirSil";
             this.BTNSatirSil.Size = new System.Drawing.Size(94, 26);
             this.BTNSatirSil.TabIndex = 154;
@@ -504,7 +490,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1615, 207);
+            this.panel2.Size = new System.Drawing.Size(1615, 201);
             this.panel2.TabIndex = 0;
             // 
             // repositoryItemButtonEdit1
@@ -533,7 +519,7 @@
             this.GCIrsaliye.Name = "GCIrsaliye";
             this.GCIrsaliye.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemButtonEdit1});
-            this.GCIrsaliye.Size = new System.Drawing.Size(1615, 423);
+            this.GCIrsaliye.Size = new System.Drawing.Size(1615, 433);
             this.GCIrsaliye.TabIndex = 12;
             this.GCIrsaliye.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -556,9 +542,9 @@
             this.panel4.Controls.Add(this.panel8);
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(0, 630);
+            this.panel4.Location = new System.Drawing.Point(0, 634);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1615, 177);
+            this.panel4.Size = new System.Drawing.Size(1615, 173);
             this.panel4.TabIndex = 2;
             // 
             // panel9
@@ -567,7 +553,7 @@
             this.panel9.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel9.Location = new System.Drawing.Point(288, 0);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(291, 177);
+            this.panel9.Size = new System.Drawing.Size(291, 173);
             this.panel9.TabIndex = 28;
             // 
             // gridControl1
@@ -576,7 +562,7 @@
             this.gridControl1.Location = new System.Drawing.Point(0, 0);
             this.gridControl1.MainView = this.gridView2;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(291, 177);
+            this.gridControl1.Size = new System.Drawing.Size(291, 173);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -594,7 +580,7 @@
             this.panel8.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel8.Location = new System.Drawing.Point(0, 0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(288, 177);
+            this.panel8.Size = new System.Drawing.Size(288, 173);
             this.panel8.TabIndex = 27;
             // 
             // groupBox3
@@ -691,16 +677,16 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel5.Location = new System.Drawing.Point(1292, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(323, 177);
+            this.panel5.Size = new System.Drawing.Size(323, 173);
             this.panel5.TabIndex = 26;
             // 
             // panel7
             // 
             this.panel7.Controls.Add(this.groupBox2);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel7.Location = new System.Drawing.Point(0, -34);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel7.Location = new System.Drawing.Point(0, 0);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(323, 149);
+            this.panel7.Size = new System.Drawing.Size(323, 111);
             this.panel7.TabIndex = 28;
             // 
             // groupBox2
@@ -718,7 +704,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(323, 149);
+            this.groupBox2.Size = new System.Drawing.Size(323, 111);
             this.groupBox2.TabIndex = 18;
             this.groupBox2.TabStop = false;
             // 
@@ -873,7 +859,7 @@
             this.panel6.Controls.Add(this.BTKaydet);
             this.panel6.Controls.Add(this.BTNSil);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel6.Location = new System.Drawing.Point(0, 115);
+            this.panel6.Location = new System.Drawing.Point(0, 111);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(323, 62);
             this.panel6.TabIndex = 27;
@@ -917,20 +903,10 @@
             // 
             this.panel3.Controls.Add(this.GCIrsaliye);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 207);
+            this.panel3.Location = new System.Drawing.Point(0, 201);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1615, 423);
+            this.panel3.Size = new System.Drawing.Size(1615, 433);
             this.panel3.TabIndex = 1;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(1263, 138);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(130, 52);
-            this.button2.TabIndex = 163;
-            this.button2.Text = "Barkod Oluştur";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // FFatura
             // 
@@ -955,7 +931,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.CBParaBirimiView)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPVadeTarihi.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTPVadeTarihi.Properties)).EndInit();
@@ -1060,8 +1035,6 @@
         private Button button1;
         private Label label2;
         private ComboBox comboBox1;
-        private Label label1;
-        private DevExpress.XtraEditors.LookUpEdit lookUpEdit1;
         private Button button2;
     }
 }

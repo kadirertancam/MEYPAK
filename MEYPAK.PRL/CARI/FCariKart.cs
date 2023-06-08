@@ -35,6 +35,13 @@ namespace MEYPAK.PRL.CARI
     public partial class FCariKart : XtraForm
     {
         int i = 0;
+        public class ALTHESTEMP{
+            public string ALTHESAPKODU { get; set; }
+            public string ALTHESAPADI { get; set; }
+            public string PARABIRIMI { get; set; }
+            public string ADRES { get; set; } = "";
+            public int AKTIF { get; set; }
+        }
         public FCariKart()
         {
             InitializeComponent();
@@ -152,10 +159,10 @@ namespace MEYPAK.PRL.CARI
             DGAltHesap.DataSource = "";
             DGYetkiliBilgi.DataSource = "";
             CBSifat.Text = "";
-            CBSifat.EditValue= null;
+            CBSifat.EditValue = null;
             CBSube.Text = "";
-            CBSube.EditValue= null;
-            
+            CBSube.EditValue = null;
+
 
 
         }
@@ -226,12 +233,12 @@ namespace MEYPAK.PRL.CARI
                 BTRprSec9.EditValue = _tempCariKart.raporkoD9;
                 resimList.Clear();
                 _cariResimServis.Data(ServisList.CariResimListeServis);
-
+                _sevkAdresServis.Data(ServisList.SevkAdresListeServis);
                 _cariAltHesCariServis.Data(ServisList.CariAltHesCariListeServis);
-
+                _cariAltHesapServis.Data(ServisList.CariAltHesListeServis);
                 if (_cariAltHesCariServis.obje.Where(x => x.cariid == _tempCariKart.id).Count() > 0)
                 {
-                    DGAltHesap.DataSource = _cariAltHesCariServis.obje.Where(x => x.cariid == _tempCariKart.id).Select(x => new { ALTHESAPKODU = _cariAltHesapServis.obje.Where(z => z.id == x.carialthesid).FirstOrDefault().kod, ALTHESAPADI = _cariAltHesapServis.obje.Where(z => z.id == x.carialthesid).FirstOrDefault().adi, PARABIRIMI = _cariParABIRIM.obje.Where(z => z.id == _cariAltHesapServis.obje.Where(y => y.id == x.carialthesid).FirstOrDefault().dovizid).FirstOrDefault().kisaadi, AKTIF = x.aktif });
+                    DGAltHesap.DataSource = _cariAltHesCariServis.obje.Where(x => x.cariid == _tempCariKart.id).Select(x => new ALTHESTEMP() { ALTHESAPKODU = _cariAltHesapServis.obje.Where(z => z.id == x.carialthesid).FirstOrDefault().kod, ALTHESAPADI = _cariAltHesapServis.obje.Where(z => z.id == x.carialthesid).FirstOrDefault().adi, ADRES = _sevkAdresServis.obje.Where(z => z.althesapid == x.carialthesid).Count() >0? _sevkAdresServis.obje.Where(z => z.althesapid == x.carialthesid).FirstOrDefault().sokak:"", PARABIRIMI = _cariParABIRIM.obje.Where(z => z.id == _cariAltHesapServis.obje.Where(y => y.id == x.carialthesid).FirstOrDefault().dovizid).FirstOrDefault().kisaadi, AKTIF = x.aktif });
                     CBAltHesap.Properties.DataSource = _cariAltHesCariServis.obje.Where(x => x.cariid == _tempCariKart.id).Select(x => new { ADI = _cariAltHesapServis.obje.Where(z => z.id == x.carialthesid).FirstOrDefault().adi, ID = _cariAltHesapServis.obje.Where(z => z.id == x.carialthesid).FirstOrDefault().id });
                 }
                 else
@@ -275,6 +282,7 @@ namespace MEYPAK.PRL.CARI
 
             return new MemoryStream(imageData);
         }
+        DataTable sifat;
         public void FCariKart_Load(object sender, EventArgs e)
         {
 
@@ -359,7 +367,7 @@ namespace MEYPAK.PRL.CARI
             CBSube.Properties.ValueMember = "ID";
 
 
-            DataTable sifat = new DataTable();
+            sifat = new DataTable();
             sifat.Columns.Add("ADI", typeof(string));
             sifat.Columns.Add("ID", typeof(int));
             sifat.Rows.Add("Depo /Tasnif ve Ambalaj", 9);
@@ -383,12 +391,14 @@ namespace MEYPAK.PRL.CARI
             sifat.Rows.Add("Yurt", 14);
             sifat.Columns[1].ColumnMapping = MappingType.Hidden;
 
+
+
             CBSifat.Properties.DataSource = sifat;
             CBSifat.Properties.DisplayMember = "ADI";
             CBSifat.Properties.ValueMember = "ID";
 
 
-           
+
             #endregion
 
             if (_tempCariKart != null)
@@ -617,8 +627,8 @@ namespace MEYPAK.PRL.CARI
                 ulke = CBUlke.Text,
                 il = CBIl.Text,
                 ilce = CBIlce.Text,
-                BELDE=CBBelde.Text != null ? CBBelde.Text : "",
-                BELDEID=CBBelde.EditValue != null ? int.Parse(CBBelde.EditValue.ToString()) : 0,
+                BELDE = CBBelde.Text != null ? CBBelde.Text : "",
+                BELDEID = CBBelde.EditValue != null ? int.Parse(CBBelde.EditValue.ToString()) : 0,
                 mahalle = TBMahalle.Text,
                 sokak = TBSokak.Text,
                 apt = TBApt.Text,
@@ -777,51 +787,72 @@ namespace MEYPAK.PRL.CARI
         {
             if (MPKullanici.YetkiGetir(AllForms.CARIKART.ToString()).EKLE == true)
             {
-                _cariServis.Data(ServisList.CariListeServis);
-
-                if (_tempCariKart != null && _tempCariKart.id > 0)
+                if (CBIl.EditValue != "")
                 {
-                    CariKaydet();
-                    MessageBox.Show("Kayıt işlemi Başarılı!");
-                    FormuTemizle();
-                    _tempCariKart = _cariServis.obje2;
-                    foreach (var item in resimList)
+                    if (CBIlce.EditValue != "")
                     {
-                        item.CARIID = _tempCariKart.id;
-                        item.userid = MPKullanici.ID;// _cariServis.obje.Where(x => x.kod == BTCariSec.Text).FirstOrDefault().id;
-                        _cariResimServis.Data(ServisList.CariResimEkleServis, item);
-                    }
-
-                }
-                else
-                {
-                    if (TBVergiNo.Text == "" || _cariServis.obje.Where(x => x.vergino == TBVergiNo.Text).Count() == 0)
-                    {
-                        if (_cariServis.obje.Where(x => x.kod == BTCariSec.Text).Count() == 0)
+                        if (CBBelde.EditValue != "")
                         {
-                            if (TBTcNo.Text == "" || _cariServis.obje.Where(x => x.tcno == TBTcNo.Text).Count() == 0)
+                            if (TBPostaKod.Text != "")
                             {
+                                _cariServis.Data(ServisList.CariListeServis);
 
-                                CariKaydet();
-                                MessageBox.Show("Kayıt işlemi Başarılı!");
-                                FormuTemizle();
-                                _tempCariKart = _cariServis.obje2;
-                                foreach (var item in resimList)
+                                if (_tempCariKart != null && _tempCariKart.id > 0)
                                 {
-                                    item.CARIID = _cariServis.obje.Where(x => x.kod == BTCariSec.Text).FirstOrDefault().id;
-                                    item.userid = MPKullanici.ID;
-                                    _cariResimServis.Data(ServisList.CariResimEkleServis, item);
+                                    CariKaydet();
+                                    MessageBox.Show("Kayıt işlemi Başarılı!");
+                                    FormuTemizle();
+                                    _tempCariKart = _cariServis.obje2;
+                                    foreach (var item in resimList)
+                                    {
+                                        item.CARIID = _tempCariKart.id;
+                                        item.userid = MPKullanici.ID;// _cariServis.obje.Where(x => x.kod == BTCariSec.Text).FirstOrDefault().id;
+                                        _cariResimServis.Data(ServisList.CariResimEkleServis, item);
+                                    }
+
+                                }
+                                else
+                                {
+                                    if (TBVergiNo.Text == "" || _cariServis.obje.Where(x => x.vergino == TBVergiNo.Text).Count() == 0)
+                                    {
+                                        if (_cariServis.obje.Where(x => x.kod == BTCariSec.Text).Count() == 0)
+                                        {
+                                            if (TBTcNo.Text == "" || _cariServis.obje.Where(x => x.tcno == TBTcNo.Text).Count() == 0)
+                                            {
+
+
+                                                CariKaydet();
+                                                MessageBox.Show("Kayıt işlemi Başarılı!");
+                                                FormuTemizle();
+                                                _tempCariKart = _cariServis.obje2;
+                                                foreach (var item in resimList)
+                                                {
+                                                    item.CARIID = _cariServis.obje.Where(x => x.kod == BTCariSec.Text).FirstOrDefault().id;
+                                                    item.userid = MPKullanici.ID;
+                                                    _cariResimServis.Data(ServisList.CariResimEkleServis, item);
+                                                }
+                                            }
+                                            else
+                                                MessageBox.Show("Bir TC Kimlik numarasını yalnızca bir cari kullanabilir!");
+                                        }
+                                        else
+                                            MessageBox.Show("Aynı Cari Kodundan yalnızca bir cari olabilir!");
+                                    }
+                                    else
+                                        MessageBox.Show("Aynı Vergi Numarasından yalnızca bir cari olabilir!");
                                 }
                             }
                             else
-                                MessageBox.Show("Bir TC Kimlik numarasını yalnızca bir cari kullanabilir!");
+                                MessageBox.Show("Posta kodu zorunlu alandır.");
                         }
                         else
-                            MessageBox.Show("Aynı Cari Kodundan yalnızca bir cari olabilir!");
+                            MessageBox.Show("Belde zorunlu alandır.");
                     }
                     else
-                        MessageBox.Show("Aynı Vergi Numarasından yalnızca bir cari olabilir!");
+                        MessageBox.Show("İlce zorunlu alandır.");
                 }
+                else
+                    MessageBox.Show("İl zorunlu alandır.");
             }
             else
                 MessageBox.Show(MPKullanici.hata);
@@ -832,24 +863,67 @@ namespace MEYPAK.PRL.CARI
         {
             if (MPKullanici.YetkiGetir(AllForms.CARIKART.ToString()).EKLE == true)
             {
-
-
+                althestemp = new PocoCARIALTHES();
+                althestemp.adi = TBAltHesapAdi.Text;
+                althestemp.kod=BTAltHesSec.Text;
+               
+                if (althestemp != null) {
+                    if (althestemp.kod != "") { 
                 _cariAltHesCariServis.Data(ServisList.CariAltHesCariListeServis);
-                if (_tempCARIALTHES != null && _tempCariKart != null && _cariAltHesCariServis.obje.Where(x => x.cariid == _tempCariKart.id && x.carialthesid == _tempCARIALTHES.id).Count() == 0)
-                {
-                    _cariAltHesCariServis.Data(ServisList.CariAltHesCariEkleServis, new PocoCARIALTHESCARI()
-                    {
-                        carialthesid = _tempCARIALTHES.id,
-                        cariid = _tempCariKart.id,
-                        aktif = 1,
-                        userid = MPKullanici.ID
-                    });
-                    _cariAltHesCariServis.obje.Add(_cariAltHesCariServis.obje2);
-                    DGAltHesap.DataSource = _cariAltHesCariServis.obje.Where(x => x.cariid == _tempCariKart.id).Select(x => new { ALTHESAPADI = _cariAltHesapServis.obje.Where(z => z.id == x.carialthesid).FirstOrDefault().adi, PARABIRIMI = _cariParABIRIM.obje.Where(z => z.id == _cariAltHesapServis.obje.Where(y => y.id == x.carialthesid).FirstOrDefault().dovizid).FirstOrDefault().kisaadi, AKTIF = x.aktif });
-                    DGAltHesap.RefreshDataSource();
-                    _tempCARIALTHES = null;
-                    BTAltHesSec.Text = "";
-                    TBAltHesapAdi.Text = "";
+                        if (_tempCARIALTHES != null && _tempCariKart != null && _cariAltHesCariServis.obje.Where(x => x.cariid == _tempCariKart.id && x.carialthesid == _tempCARIALTHES.id).Count() == 0)
+                        {
+                            _cariAltHesCariServis.Data(ServisList.CariAltHesCariEkleServis, new PocoCARIALTHESCARI()
+                            {
+                             
+                                carialthesid = _tempCARIALTHES.id,
+                                cariid = _tempCariKart.id,
+                                aktif = 1,
+                                userid = MPKullanici.ID
+                            });
+                            _cariAltHesapServis.Data(ServisList.CariAltHesListeServis);
+                            _cariAltHesCariServis.obje.Add(_cariAltHesCariServis.obje2);
+                            DGAltHesap.DataSource = "";
+                            DGAltHesap.DataSource = _cariAltHesCariServis.obje.Where(x => x.cariid == _tempCariKart.id).Select(x => new ALTHESTEMP() { ALTHESAPKODU = _cariAltHesapServis.obje.Where(z => z.id == x.carialthesid).FirstOrDefault().kod, ALTHESAPADI = _cariAltHesapServis.obje.Where(z => z.id == x.carialthesid).FirstOrDefault().adi, ADRES = _sevkAdresServis.obje.Where(z => z.althesapid == x.carialthesid).Count() > 0 ? _sevkAdresServis.obje.Where(z => z.althesapid == x.carialthesid).FirstOrDefault().sokak : "", PARABIRIMI = _cariParABIRIM.obje.Where(z => z.id == _cariAltHesapServis.obje.Where(y => y.id == x.carialthesid).FirstOrDefault().dovizid).FirstOrDefault().kisaadi, AKTIF = x.aktif });
+                            DGAltHesap.RefreshDataSource();
+                            SevkAdresDoldur();
+                            _tempCARIALTHES = null;
+                            BTAltHesSec.Text = "";
+                            TBAltHesapAdi.Text = "";
+                        }
+                        else
+                        {
+                            _cariAltHesapServis.Data(ServisList.CariAltHesEkleServis, new PocoCARIALTHES()
+                            {
+                                kod = althestemp.kod,
+                                id = althestemp.id,
+                                adi = TBAltHesapAdi.Text,
+                                aktif = althestemp.aktif,
+                                dovizid = althestemp.dovizid,
+                                eskiid = althestemp.eskiid,
+                                guncellemetarihi = DateTime.Now,
+                                olusturmatarihi = althestemp.olusturmatarihi,
+                                kayittipi = 0,
+                                userid = MPKullanici.ID
+                            });
+                            _cariAltHesCariServis.Data(ServisList.CariAltHesCariEkleServis, new PocoCARIALTHESCARI()
+                            {
+                                id= _cariAltHesCariServis.obje.Where(x => x.carialthesid == althestemp.id).FirstOrDefault().id,
+                                carialthesid = althestemp.id,
+                                cariid = _tempCariKart.id,
+                                aktif = 1,
+                                userid = MPKullanici.ID
+                            });
+                            _cariAltHesCariServis.obje.Add(_cariAltHesCariServis.obje2);
+                            _cariAltHesCariServis.Data(ServisList.CariAltHesCariListeServis);
+                            _cariAltHesapServis.Data(ServisList.CariAltHesListeServis);
+                            DGAltHesap.DataSource = _cariAltHesCariServis.obje.Where(x => x.cariid == _tempCariKart.id).Select(x => new ALTHESTEMP() { ALTHESAPKODU = _cariAltHesapServis.obje.Where(z => z.id == x.carialthesid).FirstOrDefault().kod, ALTHESAPADI = _cariAltHesapServis.obje.Where(z => z.id == x.carialthesid).FirstOrDefault().adi, ADRES = _sevkAdresServis.obje.Where(z => z.althesapid == x.carialthesid).Count() > 0 ? _sevkAdresServis.obje.Where(z => z.althesapid == x.carialthesid).FirstOrDefault().sokak : "", PARABIRIMI = _cariParABIRIM.obje.Where(z => z.id == _cariAltHesapServis.obje.Where(y => y.id == x.carialthesid).FirstOrDefault().dovizid).FirstOrDefault().kisaadi, AKTIF = x.aktif });
+                            DGAltHesap.RefreshDataSource();
+                            SevkAdresDoldur();
+                            _tempCARIALTHES = null;
+                            BTAltHesSec.Text = "";
+                            TBAltHesapAdi.Text = "";
+                        }
+                    }
                 }
                 else
                 {
@@ -934,7 +1008,7 @@ namespace MEYPAK.PRL.CARI
         {
             _sevkadreslist = new List<PocoSEVKADRES>();
             _sevkAdresServis.Data(ServisList.SevkAdresListeServis);
-            foreach (var item in _cariAltHesCariServis.obje.Where(x => x.cariid == _tempCariKart.id))
+            foreach (var item in _cariAltHesCariServis.obje.Where(x => x.cariid == _tempCariKart.id && x.kayittipi==0))
             {
                 _sevkadreslist.AddRange(_sevkAdresServis.obje.Where(x => x.kayittipi == 0 && x.althesapid == item.carialthesid));
 
@@ -995,8 +1069,11 @@ namespace MEYPAK.PRL.CARI
                             _cariAltHesCariServis.Data(ServisList.CariAltHesCariSilServis, modellist: _cariAltHesCariServis.obje.Where(x => x.cariid == _tempCariKart.id && x.carialthesid == _cariAltHesapServis.obje.Where(y => y.kod == gridView1.GetFocusedRowCellValue("ALTHESAPKODU") && y.adi == gridView1.GetFocusedRowCellValue("ALTHESAPADI")).FirstOrDefault().id).ToList());
                             MessageBox.Show("Başarıyla Silindi!");
                             _cariAltHesCariServis.Data(ServisList.CariAltHesCariListeServis);
-                            DGAltHesap.DataSource = _cariAltHesCariServis.obje.Where(x => x.cariid == _tempCariKart.id).Select(x => new { ALTHESAPKODU = _cariAltHesapServis.obje.Where(z => z.id == x.carialthesid).FirstOrDefault().kod, ALTHESAPADI = _cariAltHesapServis.obje.Where(z => z.id == x.carialthesid).FirstOrDefault().adi, PARABIRIMI = _cariParABIRIM.obje.Where(z => z.id == _cariAltHesapServis.obje.Where(y => y.id == x.carialthesid).FirstOrDefault().dovizid).FirstOrDefault().kisaadi, AKTIF = x.aktif });
-
+                            _cariAltHesapServis.Data(ServisList.CariAltHesListeServis);
+                            DGAltHesap.DataSource = "";
+                            DGAltHesap.DataSource = _cariAltHesCariServis.obje.Where(x => x.cariid == _tempCariKart.id).Select(x => new ALTHESTEMP() { ALTHESAPKODU = _cariAltHesapServis.obje.Where(z => z.id == x.carialthesid).FirstOrDefault().kod, ALTHESAPADI = _cariAltHesapServis.obje.Where(z => z.id == x.carialthesid).FirstOrDefault().adi, ADRES = _sevkAdresServis.obje.Where(z => z.althesapid == x.carialthesid).Count() > 0 ? _sevkAdresServis.obje.Where(z => z.althesapid == x.carialthesid).FirstOrDefault().sokak : "", PARABIRIMI = _cariParABIRIM.obje.Where(z => z.id == _cariAltHesapServis.obje.Where(y => y.id == x.carialthesid).FirstOrDefault().dovizid).FirstOrDefault().kisaadi, AKTIF = x.aktif });
+                            DGAltHesap.RefreshDataSource();
+                            SevkAdresDoldur();
                         }
                     }
                     else
@@ -1014,9 +1091,8 @@ namespace MEYPAK.PRL.CARI
         {
             mukellefsorgula sorgulama = new mukellefsorgula();
             MukellefOutput resp = sorgulama.sorgu(TBTcNo.Text == "" ? TBVergiNo.Text : TBTcNo.Text);
-            TBVergiNo.Text = resp.mukellef.vergiDairesiKodu;
+
             CBVDaire.EditValue = resp.mukellef.vergiDairesiAdi;
-            TBTcNo.Text = resp.mukellef.tckn;
             TBUnvan.Text = resp.mukellef.unvan;
             TBCariAdi.Text = resp.mukellef.ad;
             TBCariSoyad.Text = resp.mukellef.soyad;
@@ -1032,67 +1108,113 @@ namespace MEYPAK.PRL.CARI
 
         private void CBIlce_EditValueChanged(object sender, EventArgs e)
         {
-            if (CBIlce.EditValue.ToString() !="0")
+            if (CBIlce.EditValue.ToString() != "0")
             {
-                HttpClient httpClient = new HttpClient();
-                var client = new HttpRequestMessage(HttpMethod.Post, "https://hks.hal.gov.tr/WebServices/GenelService.svc");
+                try
+                {
+
+
+                    HttpClient httpClient = new HttpClient();
+                    var client = new HttpRequestMessage(HttpMethod.Post, "https://hks.hal.gov.tr/WebServices/GenelService.svc");
+                    client.Headers.Add("Connection", "keep-alive");
+                    client.Headers.Add("Host", "hks.hal.gov.tr");
+                    client.Headers.Add("User-Agent", "CodeGear SOAP 1.3");
+                    client.Headers.Add("SOAPAction", "\"http://www.gtb.gov.tr//WebServices/IGenelService/GenelServisIller\"");
+                    client.Headers.Add("VsDebuggerCausalityData", "uIDPo/l8atIDoqFFniLRCUIFbKQAAAAA64uYbk/jW0K+h9kz55jWZeM1+BqDlnNPpgceAHjWSsYACQAA");
+                    //  client.Headers.Add("Content-Type", "text/xml");
+                    string xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?><soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><soap:Body><BaseRequestMessageOf_IllerIstek xmlns=\"http://www.gtb.gov.tr//WebServices\"><Istek /><Password>Meypak140</Password><ServicePassword>18E932F8</ServicePassword><UserName>4300580693</UserName></BaseRequestMessageOf_IllerIstek></soap:Body></soap:Envelope>";
+                    client.Method = HttpMethod.Post;
+
+
+                    client.Content = new StringContent(xml,
+                                                Encoding.UTF8,
+                                                "text/xml");
+
+
+                    httpClient.DefaultRequestHeaders.ExpectContinue = false;
+                    HttpResponseMessage resp = httpClient.SendAsync(client).Result;
+                    var aaaa = resp.Content.ReadAsStringAsync().Result;
+                    XmlSerializerHelper xmlSerializerHelper = new XmlSerializerHelper();
+                    var iller = (HKSIller.Envelope)xmlSerializerHelper.DeserializeFromXml(typeof(HKSIller.Envelope), aaaa);
+
+
+                    httpClient = new HttpClient();
+                    client = new HttpRequestMessage(HttpMethod.Post, "https://hks.hal.gov.tr/WebServices/GenelService.svc");
+                    client.Headers.Add("Connection", "keep-alive");
+                    client.Headers.Add("Host", "hks.hal.gov.tr");
+                    client.Headers.Add("User-Agent", "CodeGear SOAP 1.3");
+                    client.Headers.Add("SOAPAction", "\"http://www.gtb.gov.tr//WebServices/IGenelService/GenelServisIlceler\"");
+                    client.Headers.Add("VsDebuggerCausalityData", "uIDPo/l8atIDoqFFniLRCUIFbKQAAAAA64uYbk/jW0K+h9kz55jWZeM1+BqDlnNPpgceAHjWSsYACQAA");
+                    //  client.Headers.Add("Content-Type", "text/xml");
+                    xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?><soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><soap:Body><BaseRequestMessageOf_IlcelerIstek xmlns=\"http://www.gtb.gov.tr//WebServices\"><Istek><IlId xmlns=\"http://schemas.datacontract.org/2004/07/GTB.HKS.Genel.ServiceContract\">" + iller.Body.BaseResponseMessageOf_IllerCevap.Sonuc.Iller.Where(x => x.IlAdi.ToUpper() == CBIl.EditValue.ToString().ToUpper()).FirstOrDefault().Id + "</IlId></Istek><Password>Meypak140</Password><ServicePassword>18E932F8</ServicePassword><UserName>4300580693</UserName></BaseRequestMessageOf_IlcelerIstek></soap:Body></soap:Envelope>";
+                    client.Method = HttpMethod.Post;
+
+
+                    client.Content = new StringContent(xml,
+                                                Encoding.UTF8,
+                                                "text/xml");
+
+
+                    httpClient.DefaultRequestHeaders.ExpectContinue = false;
+                    HttpResponseMessage resp2 = httpClient.SendAsync(client).Result;
+                    var aaaa2 = resp2.Content.ReadAsStringAsync().Result;
+                    XmlSerializerHelper xmlSerializerHelper2 = new XmlSerializerHelper();
+                    var ilceler = (HKSIlceler.Envelope)xmlSerializerHelper2.DeserializeFromXml(typeof(HKSIlceler.Envelope), aaaa2);
+
+
+
+
+                    httpClient = new HttpClient();
+                    client = new HttpRequestMessage(HttpMethod.Post, "https://hks.hal.gov.tr/WebServices/GenelService.svc");
+                    client.Headers.Add("Connection", "keep-alive");
+                    client.Headers.Add("Host", "hks.hal.gov.tr");
+                    client.Headers.Add("User-Agent", "CodeGear SOAP 1.3");
+                    client.Headers.Add("SOAPAction", "\"http://www.gtb.gov.tr//WebServices/IGenelService/GenelServisBeldeler\"");
+                    client.Headers.Add("VsDebuggerCausalityData", "uIDPo/l8atIDoqFFniLRCUIFbKQAAAAA64uYbk/jW0K+h9kz55jWZeM1+BqDlnNPpgceAHjWSsYACQAA");
+                    //  client.Headers.Add("Content-Type", "text/xml");
+                    xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?><soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><soap:Body><BaseRequestMessageOf_BeldelerIstek xmlns=\"http://www.gtb.gov.tr//WebServices\"><Istek><IlceId xmlns=\"http://schemas.datacontract.org/2004/07/GTB.HKS.Genel.ServiceContract\">" + ilceler.Body.BaseResponseMessageOf_IlcelerCevap.Sonuc.Ilceler.Where(x => x.IlceAdi.ToUpper() == CBIlce.EditValue.ToString().ToUpper()).FirstOrDefault().Id + "</IlceId></Istek><Password>Meypak140</Password><ServicePassword>18E932F8</ServicePassword><UserName>4300580693</UserName></BaseRequestMessageOf_BeldelerIstek></soap:Body></soap:Envelope>";
+                    client.Method = HttpMethod.Post;
+
+
+                    client.Content = new StringContent(xml,
+                                                Encoding.UTF8,
+                                                "text/xml");
+
+
+                    httpClient.DefaultRequestHeaders.ExpectContinue = false;
+                    HttpResponseMessage resp3 = httpClient.SendAsync(client).Result;
+                    var aaaa3 = resp3.Content.ReadAsStringAsync().Result;
+                    XmlSerializerHelper xmlSerializerHelper3 = new XmlSerializerHelper();
+                    var beldeler = (HKSBeldeler.Envelope)xmlSerializerHelper3.DeserializeFromXml(typeof(HKSBeldeler.Envelope), aaaa3);
+
+                    CBBelde.Properties.DataSource = beldeler.Body.BaseResponseMessageOf_BeldelerCevap.Sonuc.Beldeler.Select(x => new { ID = x.Id, ADI = x.BeldeAdi });
+                }
+                catch (Exception)
+                {
+
+                }
+            }
+
+
+        }
+
+        private void TBVergiNo_Leave(object sender, EventArgs e)
+        {
+            if (TBVergiNo.Text != "" && TBVergiNo.Text.Length == 10)
+            {
+                try
+                {
+
+              
+                var httpClient = new HttpClient();
+                var client = new HttpRequestMessage(HttpMethod.Post, "https://hks.hal.gov.tr/WebServices/BildirimService.svc");
                 client.Headers.Add("Connection", "keep-alive");
                 client.Headers.Add("Host", "hks.hal.gov.tr");
                 client.Headers.Add("User-Agent", "CodeGear SOAP 1.3");
-                client.Headers.Add("SOAPAction", "\"http://www.gtb.gov.tr//WebServices/IGenelService/GenelServisIller\"");
+                client.Headers.Add("SOAPAction", "\"http://www.gtb.gov.tr//WebServices/IBildirimService/BildirimServisKayitliKisiSorgu\"");
                 client.Headers.Add("VsDebuggerCausalityData", "uIDPo/l8atIDoqFFniLRCUIFbKQAAAAA64uYbk/jW0K+h9kz55jWZeM1+BqDlnNPpgceAHjWSsYACQAA");
                 //  client.Headers.Add("Content-Type", "text/xml");
-                string xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?><soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><soap:Body><BaseRequestMessageOf_IllerIstek xmlns=\"http://www.gtb.gov.tr//WebServices\"><Istek /><Password>Meypak140</Password><ServicePassword>18E932F8</ServicePassword><UserName>4300580693</UserName></BaseRequestMessageOf_IllerIstek></soap:Body></soap:Envelope>";
-                client.Method = HttpMethod.Post;
-
-
-                client.Content = new StringContent(xml,
-                                            Encoding.UTF8,
-                                            "text/xml");
-
-
-                httpClient.DefaultRequestHeaders.ExpectContinue = false;
-                HttpResponseMessage resp = httpClient.SendAsync(client).Result;
-                var aaaa = resp.Content.ReadAsStringAsync().Result;
-                XmlSerializerHelper xmlSerializerHelper = new XmlSerializerHelper();
-                var iller = (HKSIller.Envelope)xmlSerializerHelper.DeserializeFromXml(typeof(HKSIller.Envelope), aaaa);
-
-
-                httpClient = new HttpClient();
-                client = new HttpRequestMessage(HttpMethod.Post, "https://hks.hal.gov.tr/WebServices/GenelService.svc");
-                client.Headers.Add("Connection", "keep-alive");
-                client.Headers.Add("Host", "hks.hal.gov.tr");
-                client.Headers.Add("User-Agent", "CodeGear SOAP 1.3");
-                client.Headers.Add("SOAPAction", "\"http://www.gtb.gov.tr//WebServices/IGenelService/GenelServisIlceler\"");
-                client.Headers.Add("VsDebuggerCausalityData", "uIDPo/l8atIDoqFFniLRCUIFbKQAAAAA64uYbk/jW0K+h9kz55jWZeM1+BqDlnNPpgceAHjWSsYACQAA");
-                //  client.Headers.Add("Content-Type", "text/xml");
-                xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?><soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><soap:Body><BaseRequestMessageOf_IlcelerIstek xmlns=\"http://www.gtb.gov.tr//WebServices\"><Istek><IlId xmlns=\"http://schemas.datacontract.org/2004/07/GTB.HKS.Genel.ServiceContract\">" + iller.Body.BaseResponseMessageOf_IllerCevap.Sonuc.Iller.Where(x => x.IlAdi.ToUpper() == CBIl.EditValue.ToString().ToUpper()).FirstOrDefault().Id + "</IlId></Istek><Password>Meypak140</Password><ServicePassword>18E932F8</ServicePassword><UserName>4300580693</UserName></BaseRequestMessageOf_IlcelerIstek></soap:Body></soap:Envelope>";
-                client.Method = HttpMethod.Post;
-
-
-                client.Content = new StringContent(xml,
-                                            Encoding.UTF8,
-                                            "text/xml");
-
-
-                httpClient.DefaultRequestHeaders.ExpectContinue = false;
-                HttpResponseMessage resp2 = httpClient.SendAsync(client).Result;
-                var aaaa2 = resp2.Content.ReadAsStringAsync().Result;
-                XmlSerializerHelper xmlSerializerHelper2 = new XmlSerializerHelper();
-                var ilceler = (HKSIlceler.Envelope)xmlSerializerHelper2.DeserializeFromXml(typeof(HKSIlceler.Envelope), aaaa2);
-
-
-
-
-                httpClient = new HttpClient();
-                client = new HttpRequestMessage(HttpMethod.Post, "https://hks.hal.gov.tr/WebServices/GenelService.svc");
-                client.Headers.Add("Connection", "keep-alive");
-                client.Headers.Add("Host", "hks.hal.gov.tr");
-                client.Headers.Add("User-Agent", "CodeGear SOAP 1.3");
-                client.Headers.Add("SOAPAction", "\"http://www.gtb.gov.tr//WebServices/IGenelService/GenelServisBeldeler\"");
-                client.Headers.Add("VsDebuggerCausalityData", "uIDPo/l8atIDoqFFniLRCUIFbKQAAAAA64uYbk/jW0K+h9kz55jWZeM1+BqDlnNPpgceAHjWSsYACQAA");
-                //  client.Headers.Add("Content-Type", "text/xml");
-                xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?><soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><soap:Body><BaseRequestMessageOf_BeldelerIstek xmlns=\"http://www.gtb.gov.tr//WebServices\"><Istek><IlceId xmlns=\"http://schemas.datacontract.org/2004/07/GTB.HKS.Genel.ServiceContract\">" + ilceler.Body.BaseResponseMessageOf_IlcelerCevap.Sonuc.Ilceler.Where(x => x.IlceAdi.ToUpper() == CBIlce.EditValue.ToString().ToUpper()).FirstOrDefault().Id + "</IlceId></Istek><Password>Meypak140</Password><ServicePassword>18E932F8</ServicePassword><UserName>4300580693</UserName></BaseRequestMessageOf_BeldelerIstek></soap:Body></soap:Envelope>";
+                var xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?><soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><soap:Body><BaseRequestMessageOf_KayitliKisiSorguIstek xmlns=\"http://www.gtb.gov.tr//WebServices\"><Istek><TcKimlikVergiNolar xmlns=\"http://schemas.datacontract.org/2004/07/GTB.HKS.Bildirim.ServiceContract\"><string xmlns=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\">" + TBVergiNo.Text + "</string></TcKimlikVergiNolar></Istek><Password>Meypak140</Password><ServicePassword>18E932F8</ServicePassword><UserName>4300580693</UserName></BaseRequestMessageOf_KayitliKisiSorguIstek></soap:Body></soap:Envelope>";
                 client.Method = HttpMethod.Post;
 
 
@@ -1105,10 +1227,44 @@ namespace MEYPAK.PRL.CARI
                 HttpResponseMessage resp3 = httpClient.SendAsync(client).Result;
                 var aaaa3 = resp3.Content.ReadAsStringAsync().Result;
                 XmlSerializerHelper xmlSerializerHelper3 = new XmlSerializerHelper();
-                var beldeler = (HKSBeldeler.Envelope)xmlSerializerHelper3.DeserializeFromXml(typeof(HKSBeldeler.Envelope), aaaa3);
-                
-                CBBelde.Properties.DataSource = beldeler.Body.BaseResponseMessageOf_BeldelerCevap.Sonuc.Beldeler.Select(x => new { ID = x.Id, ADI = x.BeldeAdi });
-            }
+                var kayitlikisisifat = (HKSBildirimKayitKisiCevap.Envelope)xmlSerializerHelper3.DeserializeFromXml(typeof(HKSBildirimKayitKisiCevap.Envelope), aaaa3);
+                ;
+                DataTable tempsifat = new DataTable();
+                tempsifat.Columns.Add("ADI", typeof(string));
+                tempsifat.Columns.Add("ID", typeof(int));
+                for (int i = 0; i < sifat.Rows.Count; i++)
+                {
+                    if (kayitlikisisifat.Body.BaseResponseMessageOf_KayitliKisiSorguCevap.Sonuc.TcKimlikVergiNolar.KayitliKisiSorguDTO.Sifatlari.Where(x => x.ToString() == sifat.Rows[i].ItemArray[1].ToString()).Count() > 0)
+                    {
+                        tempsifat.Rows.Add(sifat.Rows[i].ItemArray[0].ToString(), sifat.Rows[i].ItemArray[1].ToString());
+                    }
+                }
+                CBSifat.Properties.DataSource = tempsifat;
+                }
+                catch (Exception)
+                {
+                     
+                }
+            } 
+        }
+      
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            HKSILSec sc = new HKSILSec(_tempCariKart, TBVergiNo.Text);
+            sc.ShowDialog();
+        }
+        PocoCARIALTHES althestemp;
+        private void gridView1_DoubleClick(object sender, EventArgs e)
+        {
+            althestemp=_cariAltHesapServis.obje.Where(x => x.kod == gridView1.GetFocusedRowCellValue("ALTHESAPKODU").ToString()).FirstOrDefault();
+             
+            BTAltHesSec.Text = gridView1.GetFocusedRowCellValue("ALTHESAPKODU").ToString();
+            TBAltHesapAdi.Text = gridView1.GetFocusedRowCellValue("ALTHESAPADI").ToString();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
 
         }
     }
